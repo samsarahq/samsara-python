@@ -24,6 +24,7 @@
 from __future__ import absolute_import
 
 # import models into sdk package
+from .models.address_param import AddressParam
 from .models.error_response import ErrorResponse
 from .models.group_param import GroupParam
 from .models.history_param import HistoryParam
@@ -31,6 +32,7 @@ from .models.humidity_response import HumidityResponse
 from .models.humidity_response_sensors import HumidityResponseSensors
 from .models.inline_response_200 import InlineResponse200
 from .models.inline_response_200_1 import InlineResponse2001
+from .models.inline_response_200_2 import InlineResponse2002
 from .models.sensor import Sensor
 from .models.sensor_history_response import SensorHistoryResponse
 from .models.sensor_history_response_results import SensorHistoryResponseResults
@@ -42,6 +44,8 @@ from .models.trip_response import TripResponse
 from .models.trip_response_trips import TripResponseTrips
 from .models.trips_param import TripsParam
 from .models.vehicle import Vehicle
+from .models.vehicle_location import VehicleLocation
+from .models.vehicle_update_param import VehicleUpdateParam
 
 # import apis into sdk package
 from .apis.default_api import DefaultApi

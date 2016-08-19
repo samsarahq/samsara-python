@@ -24,6 +24,7 @@
 from __future__ import absolute_import
 
 # import models into model package
+from .address_param import AddressParam
 from .error_response import ErrorResponse
 from .group_param import GroupParam
 from .history_param import HistoryParam
@@ -31,6 +32,7 @@ from .humidity_response import HumidityResponse
 from .humidity_response_sensors import HumidityResponseSensors
 from .inline_response_200 import InlineResponse200
 from .inline_response_200_1 import InlineResponse2001
+from .inline_response_200_2 import InlineResponse2002
 from .sensor import Sensor
 from .sensor_history_response import SensorHistoryResponse
 from .sensor_history_response_results import SensorHistoryResponseResults
@@ -42,3 +44,5 @@ from .trip_response import TripResponse
 from .trip_response_trips import TripResponseTrips
 from .trips_param import TripsParam
 from .vehicle import Vehicle
+from .vehicle_location import VehicleLocation
+from .vehicle_update_param import VehicleUpdateParam

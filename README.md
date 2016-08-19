@@ -52,8 +52,11 @@ All URIs are relative to *https://api.samsara.com/v1*
 
 Method | HTTP request | Description
 ------------ | ------------- | -------------
+[**get_fleet**](docs/DefaultApi.md#get_fleet) | **POST** /fleet/list | Get the vehicles for the group.
 [**get_fleet_locations**](docs/DefaultApi.md#get_fleet_locations) | **POST** /fleet/locations | Get the GPS locations for all vehicles in the group.
 [**get_fleet_trips**](docs/DefaultApi.md#get_fleet_trips) | **POST** /fleet/trips | Get the trips for the specified vehicle.
+[**add_fleet_address**](docs/DefaultApi.md#add_fleet_address) | **POST** /fleet/add_address | Add an address book entry for the group.
+[**update_vehicles**](docs/DefaultApi.md#update_vehicles) | **POST** /fleet/set_data | Update the metadata for the specified vehicles.
 [**get_sensors**](docs/DefaultApi.md#get_sensors) | **POST** /sensors/list | Get the sensors for a group.
 [**get_sensors_temperature**](docs/DefaultApi.md#get_sensors_temperature) | **POST** /sensors/temperature | Get the current temperature readings for the specified sensors.
 [**get_sensors_humidity**](docs/DefaultApi.md#get_sensors_humidity) | **POST** /sensors/humidity | Get the current humidity readings for the specified sensors.
@@ -63,12 +66,15 @@ Method | HTTP request | Description
 
 - [GroupParam](docs/GroupParam.md)
 - [TripsParam](docs/TripsParam.md)
+- [AddressParam](docs/AddressParam.md)
+- [VehicleUpdateParam](docs/VehicleUpdateParam.md)
 - [SensorParam](docs/SensorParam.md)
 - [HistoryParam](docs/HistoryParam.md)
 
 ## Responses
 
 - [Vehicle](docs/Vehicle.md)
+- [VehicleLocation](docs/VehicleLocation.md)
 - [TripResponse](docs/TripResponse.md)
 - [Sensor](docs/Sensor.md)
 - [TemperatureResponse](docs/TemperatureResponse.md)

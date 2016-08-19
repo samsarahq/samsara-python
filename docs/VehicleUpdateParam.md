@@ -1,11 +1,10 @@
-# Vehicle
+# VehicleUpdateParam
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | 
-**name** | **str** |  | [optional] 
-**note** | **str** |  | [optional] 
+**group_id** | **int** |  | 
+**vehicles** | [**list[Vehicle]**](Vehicle.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

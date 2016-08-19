@@ -50,6 +50,228 @@ class DefaultApi(object):
                 config.api_client = ApiClient()
             self.api_client = config.api_client
 
+    def add_fleet_address(self, access_token, address_param, **kwargs):
+        """
+        Add an address book entry for the group.
+        
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.add_fleet_address(access_token, address_param, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str access_token:  (required)
+        :param AddressParam address_param:  (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.add_fleet_address_with_http_info(access_token, address_param, **kwargs)
+        else:
+            (data) = self.add_fleet_address_with_http_info(access_token, address_param, **kwargs)
+            return data
+
+    def add_fleet_address_with_http_info(self, access_token, address_param, **kwargs):
+        """
+        Add an address book entry for the group.
+        
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.add_fleet_address_with_http_info(access_token, address_param, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str access_token:  (required)
+        :param AddressParam address_param:  (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['access_token', 'address_param']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method add_fleet_address" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'access_token' is set
+        if ('access_token' not in params) or (params['access_token'] is None):
+            raise ValueError("Missing the required parameter `access_token` when calling `add_fleet_address`")
+        # verify the required parameter 'address_param' is set
+        if ('address_param' not in params) or (params['address_param'] is None):
+            raise ValueError("Missing the required parameter `address_param` when calling `add_fleet_address`")
+
+        resource_path = '/fleet/add_address'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'access_token' in params:
+            query_params['access_token'] = params['access_token']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'address_param' in params:
+            body_params = params['address_param']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type([])
+
+        # Authentication setting
+        auth_settings = []
+
+        return self.api_client.call_api(resource_path, 'POST',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def get_fleet(self, access_token, group_param, **kwargs):
+        """
+        Get the vehicles for the group.
+        
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_fleet(access_token, group_param, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str access_token:  (required)
+        :param GroupParam group_param:  (required)
+        :return: InlineResponse200
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.get_fleet_with_http_info(access_token, group_param, **kwargs)
+        else:
+            (data) = self.get_fleet_with_http_info(access_token, group_param, **kwargs)
+            return data
+
+    def get_fleet_with_http_info(self, access_token, group_param, **kwargs):
+        """
+        Get the vehicles for the group.
+        
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_fleet_with_http_info(access_token, group_param, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str access_token:  (required)
+        :param GroupParam group_param:  (required)
+        :return: InlineResponse200
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['access_token', 'group_param']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_fleet" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'access_token' is set
+        if ('access_token' not in params) or (params['access_token'] is None):
+            raise ValueError("Missing the required parameter `access_token` when calling `get_fleet`")
+        # verify the required parameter 'group_param' is set
+        if ('group_param' not in params) or (params['group_param'] is None):
+            raise ValueError("Missing the required parameter `group_param` when calling `get_fleet`")
+
+        resource_path = '/fleet/list'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'access_token' in params:
+            query_params['access_token'] = params['access_token']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'group_param' in params:
+            body_params = params['group_param']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type([])
+
+        # Authentication setting
+        auth_settings = []
+
+        return self.api_client.call_api(resource_path, 'POST',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='InlineResponse200',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
     def get_fleet_locations(self, access_token, group_param, **kwargs):
         """
         Get the GPS locations for all vehicles in the group.
@@ -67,7 +289,7 @@ class DefaultApi(object):
             for asynchronous request. (optional)
         :param str access_token:  (required)
         :param GroupParam group_param:  (required)
-        :return: InlineResponse200
+        :return: InlineResponse2001
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -95,7 +317,7 @@ class DefaultApi(object):
             for asynchronous request. (optional)
         :param str access_token:  (required)
         :param GroupParam group_param:  (required)
-        :return: InlineResponse200
+        :return: InlineResponse2001
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -156,7 +378,7 @@ class DefaultApi(object):
                                             body=body_params,
                                             post_params=form_params,
                                             files=local_var_files,
-                                            response_type='InlineResponse200',
+                                            response_type='InlineResponse2001',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
@@ -289,7 +511,7 @@ class DefaultApi(object):
             for asynchronous request. (optional)
         :param str access_token:  (required)
         :param GroupParam group_param:  (required)
-        :return: InlineResponse2001
+        :return: InlineResponse2002
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -317,7 +539,7 @@ class DefaultApi(object):
             for asynchronous request. (optional)
         :param str access_token:  (required)
         :param GroupParam group_param:  (required)
-        :return: InlineResponse2001
+        :return: InlineResponse2002
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -378,7 +600,7 @@ class DefaultApi(object):
                                             body=body_params,
                                             post_params=form_params,
                                             files=local_var_files,
-                                            response_type='InlineResponse2001',
+                                            response_type='InlineResponse2002',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
@@ -712,6 +934,117 @@ class DefaultApi(object):
                                             post_params=form_params,
                                             files=local_var_files,
                                             response_type='TemperatureResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def update_vehicles(self, access_token, vehicle_update_param, **kwargs):
+        """
+        Update the metadata for a vehicle.
+        
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_vehicles(access_token, vehicle_update_param, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str access_token:  (required)
+        :param VehicleUpdateParam vehicle_update_param:  (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.update_vehicles_with_http_info(access_token, vehicle_update_param, **kwargs)
+        else:
+            (data) = self.update_vehicles_with_http_info(access_token, vehicle_update_param, **kwargs)
+            return data
+
+    def update_vehicles_with_http_info(self, access_token, vehicle_update_param, **kwargs):
+        """
+        Update the metadata for a vehicle.
+        
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_vehicles_with_http_info(access_token, vehicle_update_param, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str access_token:  (required)
+        :param VehicleUpdateParam vehicle_update_param:  (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['access_token', 'vehicle_update_param']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_vehicles" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'access_token' is set
+        if ('access_token' not in params) or (params['access_token'] is None):
+            raise ValueError("Missing the required parameter `access_token` when calling `update_vehicles`")
+        # verify the required parameter 'vehicle_update_param' is set
+        if ('vehicle_update_param' not in params) or (params['vehicle_update_param'] is None):
+            raise ValueError("Missing the required parameter `vehicle_update_param` when calling `update_vehicles`")
+
+        resource_path = '/fleet/set_data'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'access_token' in params:
+            query_params['access_token'] = params['access_token']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'vehicle_update_param' in params:
+            body_params = params['vehicle_update_param']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type([])
+
+        # Authentication setting
+        auth_settings = []
+
+        return self.api_client.call_api(resource_path, 'POST',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type=None,
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
