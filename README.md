@@ -13,7 +13,7 @@ Python 2.7 and 3.4+
 To install directly from Github:
 
 ```sh
-pip install git+https://github.com/samsara-dev/samsara-python.git
+pip install git+https://github.com/samsarahq/samsara-python.git
 ```
 (Note that you may need to run `pip` with root permission).
 
