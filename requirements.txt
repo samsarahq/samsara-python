@@ -3,4 +3,3 @@ six == 1.8.0
 python_dateutil >= 2.5.3
 setuptools >= 21.0.0
 urllib3 >= 1.15.1
-click == 6.6

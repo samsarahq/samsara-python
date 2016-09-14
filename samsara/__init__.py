@@ -25,9 +25,15 @@ from __future__ import absolute_import
 
 # import models into sdk package
 from .models.address_param import AddressParam
+from .models.drivers_respose import DriversRespose
+from .models.drivers_respose_drivers import DriversResposeDrivers
 from .models.error_response import ErrorResponse
+from .models.group_drivers_param import GroupDriversParam
 from .models.group_param import GroupParam
 from .models.history_param import HistoryParam
+from .models.hos_logs_param import HosLogsParam
+from .models.hos_logs_response import HosLogsResponse
+from .models.hos_logs_response_logs import HosLogsResponseLogs
 from .models.humidity_response import HumidityResponse
 from .models.humidity_response_sensors import HumidityResponseSensors
 from .models.inline_response_200 import InlineResponse200

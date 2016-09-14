@@ -29,11 +29,11 @@ import unittest
 
 import samsara
 from samsara.rest import ApiException
-from samsara.models.group_id import GroupId
+from samsara.models.hos_logs_response import HosLogsResponse
 
 
-class TestGroupId(unittest.TestCase):
-    """ GroupId unit test stubs """
+class TestHosLogsResponse(unittest.TestCase):
+    """ HosLogsResponse unit test stubs """
 
     def setUp(self):
         pass
@@ -41,11 +41,11 @@ class TestGroupId(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testGroupId(self):
+    def testHosLogsResponse(self):
         """
-        Test GroupId
+        Test HosLogsResponse
         """
-        model = samsara.models.group_id.GroupId()
+        model = samsara.models.hos_logs_response.HosLogsResponse()
 
 
 if __name__ == '__main__':

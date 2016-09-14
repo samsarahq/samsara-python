@@ -29,11 +29,11 @@ import unittest
 
 import samsara
 from samsara.rest import ApiException
-from samsara.models.ids_1 import Ids1
+from samsara.models.drivers_respose import DriversRespose
 
 
-class TestIds1(unittest.TestCase):
-    """ Ids1 unit test stubs """
+class TestDriversRespose(unittest.TestCase):
+    """ DriversRespose unit test stubs """
 
     def setUp(self):
         pass
@@ -41,11 +41,11 @@ class TestIds1(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testIds1(self):
+    def testDriversRespose(self):
         """
-        Test Ids1
+        Test DriversRespose
         """
-        model = samsara.models.ids_1.Ids1()
+        model = samsara.models.drivers_respose.DriversRespose()
 
 
 if __name__ == '__main__':

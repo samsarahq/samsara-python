@@ -6,6 +6,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_fleet_address**](DefaultApi.md#add_fleet_address) | **POST** /fleet/add_address | Add an address book entry for the group.
 [**get_fleet**](DefaultApi.md#get_fleet) | **POST** /fleet/list | Get the vehicles for the group.
+[**get_fleet_drivers**](DefaultApi.md#get_fleet_drivers) | **POST** /fleet/drivers | Get all the drivers for the specified group.
+[**get_fleet_hos_logs**](DefaultApi.md#get_fleet_hos_logs) | **POST** /fleet/hos_logs | Get the HOS (hours of service) logs for the specified driver.
 [**get_fleet_locations**](DefaultApi.md#get_fleet_locations) | **POST** /fleet/locations | Get the GPS locations for all vehicles in the group.
 [**get_fleet_trips**](DefaultApi.md#get_fleet_trips) | **POST** /fleet/trips | Get the trips for the specified vehicle.
 [**get_sensors**](DefaultApi.md#get_sensors) | **POST** /sensors/list | Get the sensors for a group.
@@ -96,6 +98,100 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**InlineResponse200**](InlineResponse200.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_fleet_drivers**
+> DriversRespose get_fleet_drivers(access_token, group_drivers_param)
+
+Get all the drivers for the specified group.
+
+### Example 
+```python
+import time
+import samsara
+from samsara.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = samsara.DefaultApi()
+access_token = 'access_token_example' # str | 
+group_drivers_param = samsara.GroupDriversParam() # GroupDriversParam | 
+
+try: 
+    # Get all the drivers for the specified group.
+    api_response = api_instance.get_fleet_drivers(access_token, group_drivers_param)
+    pprint(api_response)
+except ApiException as e:
+    print "Exception when calling DefaultApi->get_fleet_drivers: %s\n" % e
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **access_token** | **str**|  | 
+ **group_drivers_param** | [**GroupDriversParam**](GroupDriversParam.md)|  | 
+
+### Return type
+
+[**DriversRespose**](DriversRespose.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_fleet_hos_logs**
+> HosLogsResponse get_fleet_hos_logs(access_token, hos_logs_param)
+
+Get the HOS (hours of service) logs for the specified driver.
+
+### Example 
+```python
+import time
+import samsara
+from samsara.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = samsara.DefaultApi()
+access_token = 'access_token_example' # str | 
+hos_logs_param = samsara.HosLogsParam() # HosLogsParam | 
+
+try: 
+    # Get the HOS (hours of service) logs for the specified driver.
+    api_response = api_instance.get_fleet_hos_logs(access_token, hos_logs_param)
+    pprint(api_response)
+except ApiException as e:
+    print "Exception when calling DefaultApi->get_fleet_hos_logs: %s\n" % e
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **access_token** | **str**|  | 
+ **hos_logs_param** | [**HosLogsParam**](HosLogsParam.md)|  | 
+
+### Return type
+
+[**HosLogsResponse**](HosLogsResponse.md)
 
 ### Authorization
 

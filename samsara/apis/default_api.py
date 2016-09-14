@@ -272,6 +272,228 @@ class DefaultApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
+    def get_fleet_drivers(self, access_token, group_drivers_param, **kwargs):
+        """
+        Get all the drivers for the specified group.
+        
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_fleet_drivers(access_token, group_drivers_param, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str access_token:  (required)
+        :param GroupDriversParam group_drivers_param:  (required)
+        :return: DriversRespose
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.get_fleet_drivers_with_http_info(access_token, group_drivers_param, **kwargs)
+        else:
+            (data) = self.get_fleet_drivers_with_http_info(access_token, group_drivers_param, **kwargs)
+            return data
+
+    def get_fleet_drivers_with_http_info(self, access_token, group_drivers_param, **kwargs):
+        """
+        Get all the drivers for the specified group.
+        
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_fleet_drivers_with_http_info(access_token, group_drivers_param, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str access_token:  (required)
+        :param GroupDriversParam group_drivers_param:  (required)
+        :return: DriversRespose
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['access_token', 'group_drivers_param']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_fleet_drivers" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'access_token' is set
+        if ('access_token' not in params) or (params['access_token'] is None):
+            raise ValueError("Missing the required parameter `access_token` when calling `get_fleet_drivers`")
+        # verify the required parameter 'group_drivers_param' is set
+        if ('group_drivers_param' not in params) or (params['group_drivers_param'] is None):
+            raise ValueError("Missing the required parameter `group_drivers_param` when calling `get_fleet_drivers`")
+
+        resource_path = '/fleet/drivers'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'access_token' in params:
+            query_params['access_token'] = params['access_token']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'group_drivers_param' in params:
+            body_params = params['group_drivers_param']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type([])
+
+        # Authentication setting
+        auth_settings = []
+
+        return self.api_client.call_api(resource_path, 'POST',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='DriversRespose',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def get_fleet_hos_logs(self, access_token, hos_logs_param, **kwargs):
+        """
+        Get the HOS (hours of service) logs for the specified driver.
+        
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_fleet_hos_logs(access_token, hos_logs_param, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str access_token:  (required)
+        :param HosLogsParam hos_logs_param:  (required)
+        :return: HosLogsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.get_fleet_hos_logs_with_http_info(access_token, hos_logs_param, **kwargs)
+        else:
+            (data) = self.get_fleet_hos_logs_with_http_info(access_token, hos_logs_param, **kwargs)
+            return data
+
+    def get_fleet_hos_logs_with_http_info(self, access_token, hos_logs_param, **kwargs):
+        """
+        Get the HOS (hours of service) logs for the specified driver.
+        
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_fleet_hos_logs_with_http_info(access_token, hos_logs_param, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str access_token:  (required)
+        :param HosLogsParam hos_logs_param:  (required)
+        :return: HosLogsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['access_token', 'hos_logs_param']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_fleet_hos_logs" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'access_token' is set
+        if ('access_token' not in params) or (params['access_token'] is None):
+            raise ValueError("Missing the required parameter `access_token` when calling `get_fleet_hos_logs`")
+        # verify the required parameter 'hos_logs_param' is set
+        if ('hos_logs_param' not in params) or (params['hos_logs_param'] is None):
+            raise ValueError("Missing the required parameter `hos_logs_param` when calling `get_fleet_hos_logs`")
+
+        resource_path = '/fleet/hos_logs'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'access_token' in params:
+            query_params['access_token'] = params['access_token']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'hos_logs_param' in params:
+            body_params = params['hos_logs_param']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type([])
+
+        # Authentication setting
+        auth_settings = []
+
+        return self.api_client.call_api(resource_path, 'POST',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='HosLogsResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
     def get_fleet_locations(self, access_token, group_param, **kwargs):
         """
         Get the GPS locations for all vehicles in the group.

@@ -25,9 +25,15 @@ from __future__ import absolute_import
 
 # import models into model package
 from .address_param import AddressParam
+from .drivers_respose import DriversRespose
+from .drivers_respose_drivers import DriversResposeDrivers
 from .error_response import ErrorResponse
+from .group_drivers_param import GroupDriversParam
 from .group_param import GroupParam
 from .history_param import HistoryParam
+from .hos_logs_param import HosLogsParam
+from .hos_logs_response import HosLogsResponse
+from .hos_logs_response_logs import HosLogsResponseLogs
 from .humidity_response import HumidityResponse
 from .humidity_response_sensors import HumidityResponseSensors
 from .inline_response_200 import InlineResponse200

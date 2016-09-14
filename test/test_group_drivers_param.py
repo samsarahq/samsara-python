@@ -29,11 +29,11 @@ import unittest
 
 import samsara
 from samsara.rest import ApiException
-from samsara.models.parameter import Parameter
+from samsara.models.group_drivers_param import GroupDriversParam
 
 
-class TestParameter(unittest.TestCase):
-    """ Parameter unit test stubs """
+class TestGroupDriversParam(unittest.TestCase):
+    """ GroupDriversParam unit test stubs """
 
     def setUp(self):
         pass
@@ -41,11 +41,11 @@ class TestParameter(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testParameter(self):
+    def testGroupDriversParam(self):
         """
-        Test Parameter
+        Test GroupDriversParam
         """
-        model = samsara.models.parameter.Parameter()
+        model = samsara.models.group_drivers_param.GroupDriversParam()
 
 
 if __name__ == '__main__':

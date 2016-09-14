@@ -41,6 +41,38 @@ class TestDefaultApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_add_fleet_address(self):
+        """
+        Test case for add_fleet_address
+
+        Add an address book entry for the group.
+        """
+        pass
+
+    def test_get_fleet(self):
+        """
+        Test case for get_fleet
+
+        Get the vehicles for the group.
+        """
+        pass
+
+    def test_get_fleet_drivers(self):
+        """
+        Test case for get_fleet_drivers
+
+        Get all the drivers for the specified group.
+        """
+        pass
+
+    def test_get_fleet_hos_logs(self):
+        """
+        Test case for get_fleet_hos_logs
+
+        Get the HOS (hours of service) logs for the specified driver.
+        """
+        pass
+
     def test_get_fleet_locations(self):
         """
         Test case for get_fleet_locations
@@ -86,6 +118,14 @@ class TestDefaultApi(unittest.TestCase):
         Test case for get_sensors_temperature
 
         Get the current temperature readings for the specified sensors.
+        """
+        pass
+
+    def test_update_vehicles(self):
+        """
+        Test case for update_vehicles
+
+        Update the metadata for a vehicle.
         """
         pass
 

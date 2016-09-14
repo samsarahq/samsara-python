@@ -29,11 +29,11 @@ import unittest
 
 import samsara
 from samsara.rest import ApiException
-from samsara.models.parameters import Parameters
+from samsara.models.hos_logs_param import HosLogsParam
 
 
-class TestParameters(unittest.TestCase):
-    """ Parameters unit test stubs """
+class TestHosLogsParam(unittest.TestCase):
+    """ HosLogsParam unit test stubs """
 
     def setUp(self):
         pass
@@ -41,11 +41,11 @@ class TestParameters(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testParameters(self):
+    def testHosLogsParam(self):
         """
-        Test Parameters
+        Test HosLogsParam
         """
-        model = samsara.models.parameters.Parameters()
+        model = samsara.models.hos_logs_param.HosLogsParam()
 
 
 if __name__ == '__main__':

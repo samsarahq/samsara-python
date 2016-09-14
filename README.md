@@ -53,6 +53,8 @@ All URIs are relative to *https://api.samsara.com/v1*
 Method | HTTP request | Description
 ------------ | ------------- | -------------
 [**get_fleet**](docs/DefaultApi.md#get_fleet) | **POST** /fleet/list | Get the vehicles for the group.
+[**get_fleet_drivers**](docs/DefaultApi.md#get_fleet_drivers) | **POST** /fleet/drivers | Get all the drivers for the specified group.
+[**get_fleet_hos_logs**](docs/DefaultApi.md#get_fleet_hos_logs) | **POST** /fleet/hos_logs | Get the HOS (hours of service) logs for the specified driver.
 [**get_fleet_locations**](docs/DefaultApi.md#get_fleet_locations) | **POST** /fleet/locations | Get the GPS locations for all vehicles in the group.
 [**get_fleet_trips**](docs/DefaultApi.md#get_fleet_trips) | **POST** /fleet/trips | Get the trips for the specified vehicle.
 [**add_fleet_address**](docs/DefaultApi.md#add_fleet_address) | **POST** /fleet/add_address | Add an address book entry for the group.
@@ -70,6 +72,8 @@ Method | HTTP request | Description
 - [VehicleUpdateParam](docs/VehicleUpdateParam.md)
 - [SensorParam](docs/SensorParam.md)
 - [HistoryParam](docs/HistoryParam.md)
+- [HosLogsParam](docs/HosLogsParam.md)
+- [GroupDriversParam](docs/GroupDriversParam.md)
 
 ## Responses
 
@@ -80,7 +84,11 @@ Method | HTTP request | Description
 - [TemperatureResponse](docs/TemperatureResponse.md)
 - [HumidityResponse](docs/HumidityResponse.md)
 - [SensorHistoryResponse](docs/SensorHistoryResponse.md)
-- [ErrorResponse](docs/ErrorResponse.md) 
+- [ErrorResponse](docs/ErrorResponse.md)
+- [DriversRespose](docs/DriversRespose.md)
+- [DriversResposeDrivers](docs/DriversResposeDrivers.md)
+- [HosLogsResponse](docs/HosLogsResponse.md)
+- [HosLogsResponseLogs](docs/HosLogsResponseLogs.md)
 
 
 ## Footnotes
