@@ -47,6 +47,7 @@ from .sensorshistory_series import SensorshistorySeries
 from .temperature_response import TemperatureResponse
 from .temperature_response_sensors import TemperatureResponseSensors
 from .trip_response import TripResponse
+from .trip_response_start_coordinates import TripResponseStartCoordinates
 from .trip_response_trips import TripResponseTrips
 from .trips_param import TripsParam
 from .vehicle import Vehicle
