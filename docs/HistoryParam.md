@@ -3,10 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**group_id** | **int** |  | 
-**start_ms** | **int** |  | 
-**end_ms** | **int** |  | 
-**step_ms** | **int** |  | 
+**group_id** | **int** | Group ID to query. | 
+**start_ms** | **int** | Beginning of the time range, specified in milliseconds UNIX time. | 
+**end_ms** | **int** | End of the time range, specified in milliseconds UNIX time. | 
+**step_ms** | **int** | Time resolution for which data should be returned, in milliseconds. | 
 **series** | [**list[SensorshistorySeries]**](SensorshistorySeries.md) |  | 
 **fill_missing** | **str** |  | [optional] [default to 'withNull']
 

@@ -46,50 +46,57 @@ Certain API calls require this value.
 
 * Check out the examples in the `examples/` directory to see how to use the Python client.
 
-## API Endpoints
+## Documentation for API Endpoints
 
 All URIs are relative to *https://api.samsara.com/v1*
 
-Method | HTTP request | Description
------------- | ------------- | -------------
-[**get_fleet**](docs/DefaultApi.md#get_fleet) | **POST** /fleet/list | Get the vehicles for the group.
-[**get_fleet_drivers**](docs/DefaultApi.md#get_fleet_drivers) | **POST** /fleet/drivers | Get all the drivers for the specified group.
-[**get_fleet_hos_logs**](docs/DefaultApi.md#get_fleet_hos_logs) | **POST** /fleet/hos_logs | Get the HOS (hours of service) logs for the specified driver.
-[**get_fleet_locations**](docs/DefaultApi.md#get_fleet_locations) | **POST** /fleet/locations | Get the GPS locations for all vehicles in the group.
-[**get_fleet_trips**](docs/DefaultApi.md#get_fleet_trips) | **POST** /fleet/trips | Get the trips for the specified vehicle.
-[**add_fleet_address**](docs/DefaultApi.md#add_fleet_address) | **POST** /fleet/add_address | Add an address book entry for the group.
-[**update_vehicles**](docs/DefaultApi.md#update_vehicles) | **POST** /fleet/set_data | Update the metadata for the specified vehicles.
-[**get_sensors**](docs/DefaultApi.md#get_sensors) | **POST** /sensors/list | Get the sensors for a group.
-[**get_sensors_temperature**](docs/DefaultApi.md#get_sensors_temperature) | **POST** /sensors/temperature | Get the current temperature readings for the specified sensors.
-[**get_sensors_humidity**](docs/DefaultApi.md#get_sensors_humidity) | **POST** /sensors/humidity | Get the current humidity readings for the specified sensors.
-[**get_sensors_history**](docs/DefaultApi.md#get_sensors_history) | **POST** /sensors/history | Get the historical data for the sensors.
+Class | Method | HTTP request | Description
+------------ | ------------- | ------------- | -------------
+*DefaultApi* | [**add_fleet_address**](docs/DefaultApi.md#add_fleet_address) | **POST** /fleet/add_address | This method adds an address book entry to the specified group.
+*DefaultApi* | [**get_fleet**](docs/DefaultApi.md#get_fleet) | **POST** /fleet/list | This method returns a list of the vehicles in the Samsara Cloud and information about them.
+*DefaultApi* | [**get_fleet_drivers**](docs/DefaultApi.md#get_fleet_drivers) | **POST** /fleet/drivers | Get all the drivers for the specified group.
+*DefaultApi* | [**get_fleet_hos_logs**](docs/DefaultApi.md#get_fleet_hos_logs) | **POST** /fleet/hos_logs | Get the HOS (hours of service) logs for the specified driver.
+*DefaultApi* | [**get_fleet_locations**](docs/DefaultApi.md#get_fleet_locations) | **POST** /fleet/locations | This method returns the current location in latitude and longitude of all vehicles in a requested group.
+*DefaultApi* | [**get_fleet_trips**](docs/DefaultApi.md#get_fleet_trips) | **POST** /fleet/trips | This method returns a set of historical trips data for the specified vehicle in the specified time range.
+*DefaultApi* | [**get_sensors**](docs/DefaultApi.md#get_sensors) | **POST** /sensors/list | This method returns a list of the sensor objects in the Samsara Cloud and information about them.
+*DefaultApi* | [**get_sensors_history**](docs/DefaultApi.md#get_sensors_history) | **POST** /sensors/history | This method returns a set of historical data for the specified sensors in the specified time range and at the specified time resolution.
+*DefaultApi* | [**get_sensors_humidity**](docs/DefaultApi.md#get_sensors_humidity) | **POST** /sensors/humidity | This method returns the current relative humidity for the requested sensors.
+*DefaultApi* | [**get_sensors_temperature**](docs/DefaultApi.md#get_sensors_temperature) | **POST** /sensors/temperature | This method returns the current ambient temperature (and probe temperature if applicable) for the requested sensors.
+*DefaultApi* | [**update_vehicles**](docs/DefaultApi.md#update_vehicles) | **POST** /fleet/set_data | This method enables the mutation of metadata for vehicles in the Samsara Cloud.
 
-## Request Parameters
 
-- [GroupParam](docs/GroupParam.md)
-- [TripsParam](docs/TripsParam.md)
-- [AddressParam](docs/AddressParam.md)
-- [VehicleUpdateParam](docs/VehicleUpdateParam.md)
-- [SensorParam](docs/SensorParam.md)
-- [HistoryParam](docs/HistoryParam.md)
-- [HosLogsParam](docs/HosLogsParam.md)
-- [GroupDriversParam](docs/GroupDriversParam.md)
+## Documentation For Models
 
-## Responses
-
-- [Vehicle](docs/Vehicle.md)
-- [VehicleLocation](docs/VehicleLocation.md)
-- [TripResponse](docs/TripResponse.md)
-- [Sensor](docs/Sensor.md)
-- [TemperatureResponse](docs/TemperatureResponse.md)
-- [HumidityResponse](docs/HumidityResponse.md)
-- [SensorHistoryResponse](docs/SensorHistoryResponse.md)
-- [ErrorResponse](docs/ErrorResponse.md)
-- [DriversRespose](docs/DriversRespose.md)
-- [DriversResposeDrivers](docs/DriversResposeDrivers.md)
-- [HosLogsResponse](docs/HosLogsResponse.md)
-- [HosLogsResponseLogs](docs/HosLogsResponseLogs.md)
-
+ - [AddressParam](docs/AddressParam.md)
+ - [DriversRespose](docs/DriversRespose.md)
+ - [DriversResposeDrivers](docs/DriversResposeDrivers.md)
+ - [ErrorResponse](docs/ErrorResponse.md)
+ - [GroupDriversParam](docs/GroupDriversParam.md)
+ - [GroupParam](docs/GroupParam.md)
+ - [HistoryParam](docs/HistoryParam.md)
+ - [HosLogsParam](docs/HosLogsParam.md)
+ - [HosLogsResponse](docs/HosLogsResponse.md)
+ - [HosLogsResponseLogs](docs/HosLogsResponseLogs.md)
+ - [HumidityResponse](docs/HumidityResponse.md)
+ - [HumidityResponseSensors](docs/HumidityResponseSensors.md)
+ - [InlineResponse200](docs/InlineResponse200.md)
+ - [InlineResponse2001](docs/InlineResponse2001.md)
+ - [InlineResponse2002](docs/InlineResponse2002.md)
+ - [Sensor](docs/Sensor.md)
+ - [SensorHistoryResponse](docs/SensorHistoryResponse.md)
+ - [SensorHistoryResponseResults](docs/SensorHistoryResponseResults.md)
+ - [SensorParam](docs/SensorParam.md)
+ - [SensorshistorySeries](docs/SensorshistorySeries.md)
+ - [TemperatureResponse](docs/TemperatureResponse.md)
+ - [TemperatureResponseSensors](docs/TemperatureResponseSensors.md)
+ - [TripResponse](docs/TripResponse.md)
+ - [TripResponseEndCoordinates](docs/TripResponseEndCoordinates.md)
+ - [TripResponseStartCoordinates](docs/TripResponseStartCoordinates.md)
+ - [TripResponseTrips](docs/TripResponseTrips.md)
+ - [TripsParam](docs/TripsParam.md)
+ - [Vehicle](docs/Vehicle.md)
+ - [VehicleLocation](docs/VehicleLocation.md)
+ - [VehicleUpdateParam](docs/VehicleUpdateParam.md)
 
 ## Footnotes
 

@@ -63,7 +63,7 @@ class TripsParam(object):
     def group_id(self):
         """
         Gets the group_id of this TripsParam.
-
+        Group ID to query.
 
         :return: The group_id of this TripsParam.
         :rtype: int
@@ -74,7 +74,7 @@ class TripsParam(object):
     def group_id(self, group_id):
         """
         Sets the group_id of this TripsParam.
-
+        Group ID to query.
 
         :param group_id: The group_id of this TripsParam.
         :type: int
@@ -86,7 +86,7 @@ class TripsParam(object):
     def vehicle_id(self):
         """
         Gets the vehicle_id of this TripsParam.
-
+        Vehicle ID to query.
 
         :return: The vehicle_id of this TripsParam.
         :rtype: int
@@ -97,7 +97,7 @@ class TripsParam(object):
     def vehicle_id(self, vehicle_id):
         """
         Sets the vehicle_id of this TripsParam.
-
+        Vehicle ID to query.
 
         :param vehicle_id: The vehicle_id of this TripsParam.
         :type: int
@@ -109,7 +109,7 @@ class TripsParam(object):
     def start_ms(self):
         """
         Gets the start_ms of this TripsParam.
-
+        Beginning of the time range, specified in milliseconds UNIX time.
 
         :return: The start_ms of this TripsParam.
         :rtype: int
@@ -120,7 +120,7 @@ class TripsParam(object):
     def start_ms(self, start_ms):
         """
         Sets the start_ms of this TripsParam.
-
+        Beginning of the time range, specified in milliseconds UNIX time.
 
         :param start_ms: The start_ms of this TripsParam.
         :type: int
@@ -132,7 +132,7 @@ class TripsParam(object):
     def end_ms(self):
         """
         Gets the end_ms of this TripsParam.
-
+        End of the time range, specified in milliseconds UNIX time.
 
         :return: The end_ms of this TripsParam.
         :rtype: int
@@ -143,7 +143,7 @@ class TripsParam(object):
     def end_ms(self, end_ms):
         """
         Sets the end_ms of this TripsParam.
-
+        End of the time range, specified in milliseconds UNIX time.
 
         :param end_ms: The end_ms of this TripsParam.
         :type: int

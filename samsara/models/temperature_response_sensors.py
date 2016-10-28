@@ -60,7 +60,7 @@ class TemperatureResponseSensors(object):
     def id(self):
         """
         Gets the id of this TemperatureResponseSensors.
-
+        ID of the sensor.
 
         :return: The id of this TemperatureResponseSensors.
         :rtype: int
@@ -71,7 +71,7 @@ class TemperatureResponseSensors(object):
     def id(self, id):
         """
         Sets the id of this TemperatureResponseSensors.
-
+        ID of the sensor.
 
         :param id: The id of this TemperatureResponseSensors.
         :type: int
@@ -83,7 +83,7 @@ class TemperatureResponseSensors(object):
     def ambient_temperature(self):
         """
         Gets the ambient_temperature of this TemperatureResponseSensors.
-
+        Currently reported ambient temperature in millidegrees celsius.
 
         :return: The ambient_temperature of this TemperatureResponseSensors.
         :rtype: int
@@ -94,7 +94,7 @@ class TemperatureResponseSensors(object):
     def ambient_temperature(self, ambient_temperature):
         """
         Sets the ambient_temperature of this TemperatureResponseSensors.
-
+        Currently reported ambient temperature in millidegrees celsius.
 
         :param ambient_temperature: The ambient_temperature of this TemperatureResponseSensors.
         :type: int
@@ -106,7 +106,7 @@ class TemperatureResponseSensors(object):
     def probe_temperature(self):
         """
         Gets the probe_temperature of this TemperatureResponseSensors.
-
+        Currently reported probe temperature in millidegrees celsius. If no probe is connected, this parameter will not be reported.
 
         :return: The probe_temperature of this TemperatureResponseSensors.
         :rtype: int
@@ -117,7 +117,7 @@ class TemperatureResponseSensors(object):
     def probe_temperature(self, probe_temperature):
         """
         Sets the probe_temperature of this TemperatureResponseSensors.
-
+        Currently reported probe temperature in millidegrees celsius. If no probe is connected, this parameter will not be reported.
 
         :param probe_temperature: The probe_temperature of this TemperatureResponseSensors.
         :type: int

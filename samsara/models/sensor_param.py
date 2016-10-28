@@ -57,7 +57,7 @@ class SensorParam(object):
     def group_id(self):
         """
         Gets the group_id of this SensorParam.
-
+        Group ID to query.
 
         :return: The group_id of this SensorParam.
         :rtype: int
@@ -68,7 +68,7 @@ class SensorParam(object):
     def group_id(self, group_id):
         """
         Sets the group_id of this SensorParam.
-
+        Group ID to query.
 
         :param group_id: The group_id of this SensorParam.
         :type: int
@@ -80,7 +80,7 @@ class SensorParam(object):
     def sensors(self):
         """
         Gets the sensors of this SensorParam.
-
+        List of sensor IDs to query.
 
         :return: The sensors of this SensorParam.
         :rtype: list[int]
@@ -91,7 +91,7 @@ class SensorParam(object):
     def sensors(self, sensors):
         """
         Sets the sensors of this SensorParam.
-
+        List of sensor IDs to query.
 
         :param sensors: The sensors of this SensorParam.
         :type: list[int]

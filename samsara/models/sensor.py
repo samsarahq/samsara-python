@@ -60,7 +60,7 @@ class Sensor(object):
     def id(self):
         """
         Gets the id of this Sensor.
-
+        ID of the sensor.
 
         :return: The id of this Sensor.
         :rtype: int
@@ -71,7 +71,7 @@ class Sensor(object):
     def id(self, id):
         """
         Sets the id of this Sensor.
-
+        ID of the sensor.
 
         :param id: The id of this Sensor.
         :type: int
@@ -83,7 +83,7 @@ class Sensor(object):
     def name(self):
         """
         Gets the name of this Sensor.
-
+        Name of the sensor.
 
         :return: The name of this Sensor.
         :rtype: str
@@ -94,7 +94,7 @@ class Sensor(object):
     def name(self, name):
         """
         Sets the name of this Sensor.
-
+        Name of the sensor.
 
         :param name: The name of this Sensor.
         :type: str
@@ -106,7 +106,7 @@ class Sensor(object):
     def mac_address(self):
         """
         Gets the mac_address of this Sensor.
-
+        MAC address of the sensor.
 
         :return: The mac_address of this Sensor.
         :rtype: str
@@ -117,7 +117,7 @@ class Sensor(object):
     def mac_address(self, mac_address):
         """
         Sets the mac_address of this Sensor.
-
+        MAC address of the sensor.
 
         :param mac_address: The mac_address of this Sensor.
         :type: str

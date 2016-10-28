@@ -57,7 +57,7 @@ class SensorHistoryResponseResults(object):
     def time_ms(self):
         """
         Gets the time_ms of this SensorHistoryResponseResults.
-
+        Timestamp in UNIX milliseconds.
 
         :return: The time_ms of this SensorHistoryResponseResults.
         :rtype: int
@@ -68,7 +68,7 @@ class SensorHistoryResponseResults(object):
     def time_ms(self, time_ms):
         """
         Sets the time_ms of this SensorHistoryResponseResults.
-
+        Timestamp in UNIX milliseconds.
 
         :param time_ms: The time_ms of this SensorHistoryResponseResults.
         :type: int
@@ -80,7 +80,7 @@ class SensorHistoryResponseResults(object):
     def series(self):
         """
         Gets the series of this SensorHistoryResponseResults.
-
+        List of datapoints, one for each requested (sensor, field) pair.
 
         :return: The series of this SensorHistoryResponseResults.
         :rtype: list[int]
@@ -91,7 +91,7 @@ class SensorHistoryResponseResults(object):
     def series(self, series):
         """
         Sets the series of this SensorHistoryResponseResults.
-
+        List of datapoints, one for each requested (sensor, field) pair.
 
         :param series: The series of this SensorHistoryResponseResults.
         :type: list[int]

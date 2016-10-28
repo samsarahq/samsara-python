@@ -63,7 +63,7 @@ class AddressParam(object):
     def group_id(self):
         """
         Gets the group_id of this AddressParam.
-
+        Group ID to query.
 
         :return: The group_id of this AddressParam.
         :rtype: int
@@ -74,7 +74,7 @@ class AddressParam(object):
     def group_id(self, group_id):
         """
         Sets the group_id of this AddressParam.
-
+        Group ID to query.
 
         :param group_id: The group_id of this AddressParam.
         :type: int
@@ -86,7 +86,7 @@ class AddressParam(object):
     def name(self):
         """
         Gets the name of this AddressParam.
-
+        Name of the location to add to the address book.
 
         :return: The name of this AddressParam.
         :rtype: str
@@ -97,7 +97,7 @@ class AddressParam(object):
     def name(self, name):
         """
         Sets the name of this AddressParam.
-
+        Name of the location to add to the address book.
 
         :param name: The name of this AddressParam.
         :type: str
@@ -109,7 +109,7 @@ class AddressParam(object):
     def address(self):
         """
         Gets the address of this AddressParam.
-
+        The address of the entry to add, as it would be recognized if provided to maps.google.com.
 
         :return: The address of this AddressParam.
         :rtype: str
@@ -120,7 +120,7 @@ class AddressParam(object):
     def address(self, address):
         """
         Sets the address of this AddressParam.
-
+        The address of the entry to add, as it would be recognized if provided to maps.google.com.
 
         :param address: The address of this AddressParam.
         :type: str
@@ -132,7 +132,7 @@ class AddressParam(object):
     def radius(self):
         """
         Gets the radius of this AddressParam.
-
+        Radius in meters of the address (used for matching vehicle trip stops to this location).
 
         :return: The radius of this AddressParam.
         :rtype: int
@@ -143,7 +143,7 @@ class AddressParam(object):
     def radius(self, radius):
         """
         Sets the radius of this AddressParam.
-
+        Radius in meters of the address (used for matching vehicle trip stops to this location).
 
         :param radius: The radius of this AddressParam.
         :type: int

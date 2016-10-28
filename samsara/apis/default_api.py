@@ -52,7 +52,7 @@ class DefaultApi(object):
 
     def add_fleet_address(self, access_token, address_param, **kwargs):
         """
-        Add an address book entry for the group.
+        This method adds an address book entry to the specified group.
         
 
         This method makes a synchronous HTTP request by default. To make an
@@ -65,7 +65,7 @@ class DefaultApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str access_token:  (required)
+        :param str access_token: Samsara API access token. (required)
         :param AddressParam address_param:  (required)
         :return: None
                  If the method is called asynchronously,
@@ -80,7 +80,7 @@ class DefaultApi(object):
 
     def add_fleet_address_with_http_info(self, access_token, address_param, **kwargs):
         """
-        Add an address book entry for the group.
+        This method adds an address book entry to the specified group.
         
 
         This method makes a synchronous HTTP request by default. To make an
@@ -93,7 +93,7 @@ class DefaultApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str access_token:  (required)
+        :param str access_token: Samsara API access token. (required)
         :param AddressParam address_param:  (required)
         :return: None
                  If the method is called asynchronously,
@@ -144,7 +144,7 @@ class DefaultApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.\
-            select_header_content_type([])
+            select_header_content_type(['application/json'])
 
         # Authentication setting
         auth_settings = []
@@ -163,7 +163,7 @@ class DefaultApi(object):
 
     def get_fleet(self, access_token, group_param, **kwargs):
         """
-        Get the vehicles for the group.
+        This method returns a list of the vehicles in the Samsara Cloud and information about them.
         
 
         This method makes a synchronous HTTP request by default. To make an
@@ -176,8 +176,8 @@ class DefaultApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str access_token:  (required)
-        :param GroupParam group_param:  (required)
+        :param str access_token: Samsara API access token. (required)
+        :param GroupParam group_param: Group ID to query. (required)
         :return: InlineResponse200
                  If the method is called asynchronously,
                  returns the request thread.
@@ -191,7 +191,7 @@ class DefaultApi(object):
 
     def get_fleet_with_http_info(self, access_token, group_param, **kwargs):
         """
-        Get the vehicles for the group.
+        This method returns a list of the vehicles in the Samsara Cloud and information about them.
         
 
         This method makes a synchronous HTTP request by default. To make an
@@ -204,8 +204,8 @@ class DefaultApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str access_token:  (required)
-        :param GroupParam group_param:  (required)
+        :param str access_token: Samsara API access token. (required)
+        :param GroupParam group_param: Group ID to query. (required)
         :return: InlineResponse200
                  If the method is called asynchronously,
                  returns the request thread.
@@ -255,7 +255,7 @@ class DefaultApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.\
-            select_header_content_type([])
+            select_header_content_type(['application/json'])
 
         # Authentication setting
         auth_settings = []
@@ -287,7 +287,7 @@ class DefaultApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str access_token:  (required)
+        :param str access_token: Samsara API access token. (required)
         :param GroupDriversParam group_drivers_param:  (required)
         :return: DriversRespose
                  If the method is called asynchronously,
@@ -315,7 +315,7 @@ class DefaultApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str access_token:  (required)
+        :param str access_token: Samsara API access token. (required)
         :param GroupDriversParam group_drivers_param:  (required)
         :return: DriversRespose
                  If the method is called asynchronously,
@@ -366,7 +366,7 @@ class DefaultApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.\
-            select_header_content_type([])
+            select_header_content_type(['application/json'])
 
         # Authentication setting
         auth_settings = []
@@ -398,7 +398,7 @@ class DefaultApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str access_token:  (required)
+        :param str access_token: Samsara API access token. (required)
         :param HosLogsParam hos_logs_param:  (required)
         :return: HosLogsResponse
                  If the method is called asynchronously,
@@ -426,7 +426,7 @@ class DefaultApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str access_token:  (required)
+        :param str access_token: Samsara API access token. (required)
         :param HosLogsParam hos_logs_param:  (required)
         :return: HosLogsResponse
                  If the method is called asynchronously,
@@ -477,7 +477,7 @@ class DefaultApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.\
-            select_header_content_type([])
+            select_header_content_type(['application/json'])
 
         # Authentication setting
         auth_settings = []
@@ -496,7 +496,7 @@ class DefaultApi(object):
 
     def get_fleet_locations(self, access_token, group_param, **kwargs):
         """
-        Get the GPS locations for all vehicles in the group.
+        This method returns the current location in latitude and longitude of all vehicles in a requested group.
         
 
         This method makes a synchronous HTTP request by default. To make an
@@ -509,8 +509,8 @@ class DefaultApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str access_token:  (required)
-        :param GroupParam group_param:  (required)
+        :param str access_token: Samsara API access token. (required)
+        :param GroupParam group_param: Group ID to query. (required)
         :return: InlineResponse2001
                  If the method is called asynchronously,
                  returns the request thread.
@@ -524,7 +524,7 @@ class DefaultApi(object):
 
     def get_fleet_locations_with_http_info(self, access_token, group_param, **kwargs):
         """
-        Get the GPS locations for all vehicles in the group.
+        This method returns the current location in latitude and longitude of all vehicles in a requested group.
         
 
         This method makes a synchronous HTTP request by default. To make an
@@ -537,8 +537,8 @@ class DefaultApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str access_token:  (required)
-        :param GroupParam group_param:  (required)
+        :param str access_token: Samsara API access token. (required)
+        :param GroupParam group_param: Group ID to query. (required)
         :return: InlineResponse2001
                  If the method is called asynchronously,
                  returns the request thread.
@@ -588,7 +588,7 @@ class DefaultApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.\
-            select_header_content_type([])
+            select_header_content_type(['application/json'])
 
         # Authentication setting
         auth_settings = []
@@ -607,7 +607,7 @@ class DefaultApi(object):
 
     def get_fleet_trips(self, access_token, trips_param, **kwargs):
         """
-        Get the trips for the specified vehicle.
+        This method returns a set of historical trips data for the specified vehicle in the specified time range.
         
 
         This method makes a synchronous HTTP request by default. To make an
@@ -620,8 +620,8 @@ class DefaultApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str access_token:  (required)
-        :param TripsParam trips_param:  (required)
+        :param str access_token: Samsara API access token. (required)
+        :param TripsParam trips_param: Group ID, vehicle ID and time range to query. (required)
         :return: TripResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -635,7 +635,7 @@ class DefaultApi(object):
 
     def get_fleet_trips_with_http_info(self, access_token, trips_param, **kwargs):
         """
-        Get the trips for the specified vehicle.
+        This method returns a set of historical trips data for the specified vehicle in the specified time range.
         
 
         This method makes a synchronous HTTP request by default. To make an
@@ -648,8 +648,8 @@ class DefaultApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str access_token:  (required)
-        :param TripsParam trips_param:  (required)
+        :param str access_token: Samsara API access token. (required)
+        :param TripsParam trips_param: Group ID, vehicle ID and time range to query. (required)
         :return: TripResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -699,7 +699,7 @@ class DefaultApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.\
-            select_header_content_type([])
+            select_header_content_type(['application/json'])
 
         # Authentication setting
         auth_settings = []
@@ -718,7 +718,7 @@ class DefaultApi(object):
 
     def get_sensors(self, access_token, group_param, **kwargs):
         """
-        Get the sensors for a group.
+        This method returns a list of the sensor objects in the Samsara Cloud and information about them.
         
 
         This method makes a synchronous HTTP request by default. To make an
@@ -731,8 +731,8 @@ class DefaultApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str access_token:  (required)
-        :param GroupParam group_param:  (required)
+        :param str access_token: Samsara API access token. (required)
+        :param GroupParam group_param: Group ID to query. (required)
         :return: InlineResponse2002
                  If the method is called asynchronously,
                  returns the request thread.
@@ -746,7 +746,7 @@ class DefaultApi(object):
 
     def get_sensors_with_http_info(self, access_token, group_param, **kwargs):
         """
-        Get the sensors for a group.
+        This method returns a list of the sensor objects in the Samsara Cloud and information about them.
         
 
         This method makes a synchronous HTTP request by default. To make an
@@ -759,8 +759,8 @@ class DefaultApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str access_token:  (required)
-        :param GroupParam group_param:  (required)
+        :param str access_token: Samsara API access token. (required)
+        :param GroupParam group_param: Group ID to query. (required)
         :return: InlineResponse2002
                  If the method is called asynchronously,
                  returns the request thread.
@@ -810,7 +810,7 @@ class DefaultApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.\
-            select_header_content_type([])
+            select_header_content_type(['application/json'])
 
         # Authentication setting
         auth_settings = []
@@ -829,7 +829,7 @@ class DefaultApi(object):
 
     def get_sensors_history(self, access_token, history_param, **kwargs):
         """
-        Get the historical data for the sensors.
+        This method returns a set of historical data for the specified sensors in the specified time range and at the specified time resolution.
         
 
         This method makes a synchronous HTTP request by default. To make an
@@ -842,8 +842,8 @@ class DefaultApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str access_token:  (required)
-        :param HistoryParam history_param:  (required)
+        :param str access_token: Samsara API access token. (required)
+        :param HistoryParam history_param: Group ID, time range and resolution, and list of sensor ID, field pairs to query. (required)
         :return: SensorHistoryResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -857,7 +857,7 @@ class DefaultApi(object):
 
     def get_sensors_history_with_http_info(self, access_token, history_param, **kwargs):
         """
-        Get the historical data for the sensors.
+        This method returns a set of historical data for the specified sensors in the specified time range and at the specified time resolution.
         
 
         This method makes a synchronous HTTP request by default. To make an
@@ -870,8 +870,8 @@ class DefaultApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str access_token:  (required)
-        :param HistoryParam history_param:  (required)
+        :param str access_token: Samsara API access token. (required)
+        :param HistoryParam history_param: Group ID, time range and resolution, and list of sensor ID, field pairs to query. (required)
         :return: SensorHistoryResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -921,7 +921,7 @@ class DefaultApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.\
-            select_header_content_type([])
+            select_header_content_type(['application/json'])
 
         # Authentication setting
         auth_settings = []
@@ -940,7 +940,7 @@ class DefaultApi(object):
 
     def get_sensors_humidity(self, access_token, sensor_param, **kwargs):
         """
-        Get the current humidity readings for the specified sensors.
+        This method returns the current relative humidity for the requested sensors.
         
 
         This method makes a synchronous HTTP request by default. To make an
@@ -953,8 +953,8 @@ class DefaultApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str access_token:  (required)
-        :param SensorParam sensor_param:  (required)
+        :param str access_token: Samsara API access token. (required)
+        :param SensorParam sensor_param: Group ID and list of sensor IDs to query. (required)
         :return: HumidityResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -968,7 +968,7 @@ class DefaultApi(object):
 
     def get_sensors_humidity_with_http_info(self, access_token, sensor_param, **kwargs):
         """
-        Get the current humidity readings for the specified sensors.
+        This method returns the current relative humidity for the requested sensors.
         
 
         This method makes a synchronous HTTP request by default. To make an
@@ -981,8 +981,8 @@ class DefaultApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str access_token:  (required)
-        :param SensorParam sensor_param:  (required)
+        :param str access_token: Samsara API access token. (required)
+        :param SensorParam sensor_param: Group ID and list of sensor IDs to query. (required)
         :return: HumidityResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1032,7 +1032,7 @@ class DefaultApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.\
-            select_header_content_type([])
+            select_header_content_type(['application/json'])
 
         # Authentication setting
         auth_settings = []
@@ -1051,7 +1051,7 @@ class DefaultApi(object):
 
     def get_sensors_temperature(self, access_token, sensor_param, **kwargs):
         """
-        Get the current temperature readings for the specified sensors.
+        This method returns the current ambient temperature (and probe temperature if applicable) for the requested sensors.
         
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1064,8 +1064,8 @@ class DefaultApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str access_token:  (required)
-        :param SensorParam sensor_param:  (required)
+        :param str access_token: Samsara API access token. (required)
+        :param SensorParam sensor_param: Group ID and list of sensor IDs to query. (required)
         :return: TemperatureResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1079,7 +1079,7 @@ class DefaultApi(object):
 
     def get_sensors_temperature_with_http_info(self, access_token, sensor_param, **kwargs):
         """
-        Get the current temperature readings for the specified sensors.
+        This method returns the current ambient temperature (and probe temperature if applicable) for the requested sensors.
         
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1092,8 +1092,8 @@ class DefaultApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str access_token:  (required)
-        :param SensorParam sensor_param:  (required)
+        :param str access_token: Samsara API access token. (required)
+        :param SensorParam sensor_param: Group ID and list of sensor IDs to query. (required)
         :return: TemperatureResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1143,7 +1143,7 @@ class DefaultApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.\
-            select_header_content_type([])
+            select_header_content_type(['application/json'])
 
         # Authentication setting
         auth_settings = []
@@ -1162,7 +1162,7 @@ class DefaultApi(object):
 
     def update_vehicles(self, access_token, vehicle_update_param, **kwargs):
         """
-        Update the metadata for a vehicle.
+        This method enables the mutation of metadata for vehicles in the Samsara Cloud.
         
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1175,7 +1175,7 @@ class DefaultApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str access_token:  (required)
+        :param str access_token: Samsara API access token. (required)
         :param VehicleUpdateParam vehicle_update_param:  (required)
         :return: None
                  If the method is called asynchronously,
@@ -1190,7 +1190,7 @@ class DefaultApi(object):
 
     def update_vehicles_with_http_info(self, access_token, vehicle_update_param, **kwargs):
         """
-        Update the metadata for a vehicle.
+        This method enables the mutation of metadata for vehicles in the Samsara Cloud.
         
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1203,7 +1203,7 @@ class DefaultApi(object):
 
         :param callback function: The callback function
             for asynchronous request. (optional)
-        :param str access_token:  (required)
+        :param str access_token: Samsara API access token. (required)
         :param VehicleUpdateParam vehicle_update_param:  (required)
         :return: None
                  If the method is called asynchronously,
@@ -1254,7 +1254,7 @@ class DefaultApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.\
-            select_header_content_type([])
+            select_header_content_type(['application/json'])
 
         # Authentication setting
         auth_settings = []

@@ -57,7 +57,7 @@ class SensorshistorySeries(object):
     def widget_id(self):
         """
         Gets the widget_id of this SensorshistorySeries.
-
+        Sensor ID to query.
 
         :return: The widget_id of this SensorshistorySeries.
         :rtype: int
@@ -68,7 +68,7 @@ class SensorshistorySeries(object):
     def widget_id(self, widget_id):
         """
         Sets the widget_id of this SensorshistorySeries.
-
+        Sensor ID to query.
 
         :param widget_id: The widget_id of this SensorshistorySeries.
         :type: int
@@ -80,7 +80,7 @@ class SensorshistorySeries(object):
     def field(self):
         """
         Gets the field of this SensorshistorySeries.
-
+        Field to query.
 
         :return: The field of this SensorshistorySeries.
         :rtype: str
@@ -91,7 +91,7 @@ class SensorshistorySeries(object):
     def field(self, field):
         """
         Sets the field of this SensorshistorySeries.
-
+        Field to query.
 
         :param field: The field of this SensorshistorySeries.
         :type: str

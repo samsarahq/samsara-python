@@ -4,23 +4,23 @@ All URIs are relative to *https://api.samsara.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**add_fleet_address**](DefaultApi.md#add_fleet_address) | **POST** /fleet/add_address | Add an address book entry for the group.
-[**get_fleet**](DefaultApi.md#get_fleet) | **POST** /fleet/list | Get the vehicles for the group.
+[**add_fleet_address**](DefaultApi.md#add_fleet_address) | **POST** /fleet/add_address | This method adds an address book entry to the specified group.
+[**get_fleet**](DefaultApi.md#get_fleet) | **POST** /fleet/list | This method returns a list of the vehicles in the Samsara Cloud and information about them.
 [**get_fleet_drivers**](DefaultApi.md#get_fleet_drivers) | **POST** /fleet/drivers | Get all the drivers for the specified group.
 [**get_fleet_hos_logs**](DefaultApi.md#get_fleet_hos_logs) | **POST** /fleet/hos_logs | Get the HOS (hours of service) logs for the specified driver.
-[**get_fleet_locations**](DefaultApi.md#get_fleet_locations) | **POST** /fleet/locations | Get the GPS locations for all vehicles in the group.
-[**get_fleet_trips**](DefaultApi.md#get_fleet_trips) | **POST** /fleet/trips | Get the trips for the specified vehicle.
-[**get_sensors**](DefaultApi.md#get_sensors) | **POST** /sensors/list | Get the sensors for a group.
-[**get_sensors_history**](DefaultApi.md#get_sensors_history) | **POST** /sensors/history | Get the historical data for the sensors.
-[**get_sensors_humidity**](DefaultApi.md#get_sensors_humidity) | **POST** /sensors/humidity | Get the current humidity readings for the specified sensors.
-[**get_sensors_temperature**](DefaultApi.md#get_sensors_temperature) | **POST** /sensors/temperature | Get the current temperature readings for the specified sensors.
-[**update_vehicles**](DefaultApi.md#update_vehicles) | **POST** /fleet/set_data | Update the metadata for a vehicle.
+[**get_fleet_locations**](DefaultApi.md#get_fleet_locations) | **POST** /fleet/locations | This method returns the current location in latitude and longitude of all vehicles in a requested group.
+[**get_fleet_trips**](DefaultApi.md#get_fleet_trips) | **POST** /fleet/trips | This method returns a set of historical trips data for the specified vehicle in the specified time range.
+[**get_sensors**](DefaultApi.md#get_sensors) | **POST** /sensors/list | This method returns a list of the sensor objects in the Samsara Cloud and information about them.
+[**get_sensors_history**](DefaultApi.md#get_sensors_history) | **POST** /sensors/history | This method returns a set of historical data for the specified sensors in the specified time range and at the specified time resolution.
+[**get_sensors_humidity**](DefaultApi.md#get_sensors_humidity) | **POST** /sensors/humidity | This method returns the current relative humidity for the requested sensors.
+[**get_sensors_temperature**](DefaultApi.md#get_sensors_temperature) | **POST** /sensors/temperature | This method returns the current ambient temperature (and probe temperature if applicable) for the requested sensors.
+[**update_vehicles**](DefaultApi.md#update_vehicles) | **POST** /fleet/set_data | This method enables the mutation of metadata for vehicles in the Samsara Cloud.
 
 
 # **add_fleet_address**
 > add_fleet_address(access_token, address_param)
 
-Add an address book entry for the group.
+This method adds an address book entry to the specified group.
 
 ### Example 
 ```python
@@ -31,11 +31,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = samsara.DefaultApi()
-access_token = 'access_token_example' # str | 
+access_token = 'access_token_example' # str | Samsara API access token.
 address_param = samsara.AddressParam() # AddressParam | 
 
 try: 
-    # Add an address book entry for the group.
+    # This method adds an address book entry to the specified group.
     api_instance.add_fleet_address(access_token, address_param)
 except ApiException as e:
     print "Exception when calling DefaultApi->add_fleet_address: %s\n" % e
@@ -45,7 +45,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **access_token** | **str**|  | 
+ **access_token** | **str**| Samsara API access token. | 
  **address_param** | [**AddressParam**](AddressParam.md)|  | 
 
 ### Return type
@@ -58,7 +58,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -66,7 +66,7 @@ No authorization required
 # **get_fleet**
 > InlineResponse200 get_fleet(access_token, group_param)
 
-Get the vehicles for the group.
+This method returns a list of the vehicles in the Samsara Cloud and information about them.
 
 ### Example 
 ```python
@@ -77,11 +77,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = samsara.DefaultApi()
-access_token = 'access_token_example' # str | 
-group_param = samsara.GroupParam() # GroupParam | 
+access_token = 'access_token_example' # str | Samsara API access token.
+group_param = samsara.GroupParam() # GroupParam | Group ID to query.
 
 try: 
-    # Get the vehicles for the group.
+    # This method returns a list of the vehicles in the Samsara Cloud and information about them.
     api_response = api_instance.get_fleet(access_token, group_param)
     pprint(api_response)
 except ApiException as e:
@@ -92,8 +92,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **access_token** | **str**|  | 
- **group_param** | [**GroupParam**](GroupParam.md)|  | 
+ **access_token** | **str**| Samsara API access token. | 
+ **group_param** | [**GroupParam**](GroupParam.md)| Group ID to query. | 
 
 ### Return type
 
@@ -105,7 +105,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -124,7 +124,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = samsara.DefaultApi()
-access_token = 'access_token_example' # str | 
+access_token = 'access_token_example' # str | Samsara API access token.
 group_drivers_param = samsara.GroupDriversParam() # GroupDriversParam | 
 
 try: 
@@ -139,7 +139,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **access_token** | **str**|  | 
+ **access_token** | **str**| Samsara API access token. | 
  **group_drivers_param** | [**GroupDriversParam**](GroupDriversParam.md)|  | 
 
 ### Return type
@@ -152,7 +152,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -171,7 +171,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = samsara.DefaultApi()
-access_token = 'access_token_example' # str | 
+access_token = 'access_token_example' # str | Samsara API access token.
 hos_logs_param = samsara.HosLogsParam() # HosLogsParam | 
 
 try: 
@@ -186,7 +186,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **access_token** | **str**|  | 
+ **access_token** | **str**| Samsara API access token. | 
  **hos_logs_param** | [**HosLogsParam**](HosLogsParam.md)|  | 
 
 ### Return type
@@ -199,7 +199,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -207,7 +207,7 @@ No authorization required
 # **get_fleet_locations**
 > InlineResponse2001 get_fleet_locations(access_token, group_param)
 
-Get the GPS locations for all vehicles in the group.
+This method returns the current location in latitude and longitude of all vehicles in a requested group.
 
 ### Example 
 ```python
@@ -218,11 +218,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = samsara.DefaultApi()
-access_token = 'access_token_example' # str | 
-group_param = samsara.GroupParam() # GroupParam | 
+access_token = 'access_token_example' # str | Samsara API access token.
+group_param = samsara.GroupParam() # GroupParam | Group ID to query.
 
 try: 
-    # Get the GPS locations for all vehicles in the group.
+    # This method returns the current location in latitude and longitude of all vehicles in a requested group.
     api_response = api_instance.get_fleet_locations(access_token, group_param)
     pprint(api_response)
 except ApiException as e:
@@ -233,8 +233,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **access_token** | **str**|  | 
- **group_param** | [**GroupParam**](GroupParam.md)|  | 
+ **access_token** | **str**| Samsara API access token. | 
+ **group_param** | [**GroupParam**](GroupParam.md)| Group ID to query. | 
 
 ### Return type
 
@@ -246,7 +246,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -254,7 +254,7 @@ No authorization required
 # **get_fleet_trips**
 > TripResponse get_fleet_trips(access_token, trips_param)
 
-Get the trips for the specified vehicle.
+This method returns a set of historical trips data for the specified vehicle in the specified time range.
 
 ### Example 
 ```python
@@ -265,11 +265,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = samsara.DefaultApi()
-access_token = 'access_token_example' # str | 
-trips_param = samsara.TripsParam() # TripsParam | 
+access_token = 'access_token_example' # str | Samsara API access token.
+trips_param = samsara.TripsParam() # TripsParam | Group ID, vehicle ID and time range to query.
 
 try: 
-    # Get the trips for the specified vehicle.
+    # This method returns a set of historical trips data for the specified vehicle in the specified time range.
     api_response = api_instance.get_fleet_trips(access_token, trips_param)
     pprint(api_response)
 except ApiException as e:
@@ -280,8 +280,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **access_token** | **str**|  | 
- **trips_param** | [**TripsParam**](TripsParam.md)|  | 
+ **access_token** | **str**| Samsara API access token. | 
+ **trips_param** | [**TripsParam**](TripsParam.md)| Group ID, vehicle ID and time range to query. | 
 
 ### Return type
 
@@ -293,7 +293,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -301,7 +301,7 @@ No authorization required
 # **get_sensors**
 > InlineResponse2002 get_sensors(access_token, group_param)
 
-Get the sensors for a group.
+This method returns a list of the sensor objects in the Samsara Cloud and information about them.
 
 ### Example 
 ```python
@@ -312,11 +312,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = samsara.DefaultApi()
-access_token = 'access_token_example' # str | 
-group_param = samsara.GroupParam() # GroupParam | 
+access_token = 'access_token_example' # str | Samsara API access token.
+group_param = samsara.GroupParam() # GroupParam | Group ID to query.
 
 try: 
-    # Get the sensors for a group.
+    # This method returns a list of the sensor objects in the Samsara Cloud and information about them.
     api_response = api_instance.get_sensors(access_token, group_param)
     pprint(api_response)
 except ApiException as e:
@@ -327,8 +327,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **access_token** | **str**|  | 
- **group_param** | [**GroupParam**](GroupParam.md)|  | 
+ **access_token** | **str**| Samsara API access token. | 
+ **group_param** | [**GroupParam**](GroupParam.md)| Group ID to query. | 
 
 ### Return type
 
@@ -340,7 +340,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -348,7 +348,7 @@ No authorization required
 # **get_sensors_history**
 > SensorHistoryResponse get_sensors_history(access_token, history_param)
 
-Get the historical data for the sensors.
+This method returns a set of historical data for the specified sensors in the specified time range and at the specified time resolution.
 
 ### Example 
 ```python
@@ -359,11 +359,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = samsara.DefaultApi()
-access_token = 'access_token_example' # str | 
-history_param = samsara.HistoryParam() # HistoryParam | 
+access_token = 'access_token_example' # str | Samsara API access token.
+history_param = samsara.HistoryParam() # HistoryParam | Group ID, time range and resolution, and list of sensor ID, field pairs to query.
 
 try: 
-    # Get the historical data for the sensors.
+    # This method returns a set of historical data for the specified sensors in the specified time range and at the specified time resolution.
     api_response = api_instance.get_sensors_history(access_token, history_param)
     pprint(api_response)
 except ApiException as e:
@@ -374,8 +374,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **access_token** | **str**|  | 
- **history_param** | [**HistoryParam**](HistoryParam.md)|  | 
+ **access_token** | **str**| Samsara API access token. | 
+ **history_param** | [**HistoryParam**](HistoryParam.md)| Group ID, time range and resolution, and list of sensor ID, field pairs to query. | 
 
 ### Return type
 
@@ -387,7 +387,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -395,7 +395,7 @@ No authorization required
 # **get_sensors_humidity**
 > HumidityResponse get_sensors_humidity(access_token, sensor_param)
 
-Get the current humidity readings for the specified sensors.
+This method returns the current relative humidity for the requested sensors.
 
 ### Example 
 ```python
@@ -406,11 +406,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = samsara.DefaultApi()
-access_token = 'access_token_example' # str | 
-sensor_param = samsara.SensorParam() # SensorParam | 
+access_token = 'access_token_example' # str | Samsara API access token.
+sensor_param = samsara.SensorParam() # SensorParam | Group ID and list of sensor IDs to query.
 
 try: 
-    # Get the current humidity readings for the specified sensors.
+    # This method returns the current relative humidity for the requested sensors.
     api_response = api_instance.get_sensors_humidity(access_token, sensor_param)
     pprint(api_response)
 except ApiException as e:
@@ -421,8 +421,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **access_token** | **str**|  | 
- **sensor_param** | [**SensorParam**](SensorParam.md)|  | 
+ **access_token** | **str**| Samsara API access token. | 
+ **sensor_param** | [**SensorParam**](SensorParam.md)| Group ID and list of sensor IDs to query. | 
 
 ### Return type
 
@@ -434,7 +434,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -442,7 +442,7 @@ No authorization required
 # **get_sensors_temperature**
 > TemperatureResponse get_sensors_temperature(access_token, sensor_param)
 
-Get the current temperature readings for the specified sensors.
+This method returns the current ambient temperature (and probe temperature if applicable) for the requested sensors.
 
 ### Example 
 ```python
@@ -453,11 +453,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = samsara.DefaultApi()
-access_token = 'access_token_example' # str | 
-sensor_param = samsara.SensorParam() # SensorParam | 
+access_token = 'access_token_example' # str | Samsara API access token.
+sensor_param = samsara.SensorParam() # SensorParam | Group ID and list of sensor IDs to query.
 
 try: 
-    # Get the current temperature readings for the specified sensors.
+    # This method returns the current ambient temperature (and probe temperature if applicable) for the requested sensors.
     api_response = api_instance.get_sensors_temperature(access_token, sensor_param)
     pprint(api_response)
 except ApiException as e:
@@ -468,8 +468,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **access_token** | **str**|  | 
- **sensor_param** | [**SensorParam**](SensorParam.md)|  | 
+ **access_token** | **str**| Samsara API access token. | 
+ **sensor_param** | [**SensorParam**](SensorParam.md)| Group ID and list of sensor IDs to query. | 
 
 ### Return type
 
@@ -481,7 +481,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -489,7 +489,7 @@ No authorization required
 # **update_vehicles**
 > update_vehicles(access_token, vehicle_update_param)
 
-Update the metadata for a vehicle.
+This method enables the mutation of metadata for vehicles in the Samsara Cloud.
 
 ### Example 
 ```python
@@ -500,11 +500,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = samsara.DefaultApi()
-access_token = 'access_token_example' # str | 
+access_token = 'access_token_example' # str | Samsara API access token.
 vehicle_update_param = samsara.VehicleUpdateParam() # VehicleUpdateParam | 
 
 try: 
-    # Update the metadata for a vehicle.
+    # This method enables the mutation of metadata for vehicles in the Samsara Cloud.
     api_instance.update_vehicles(access_token, vehicle_update_param)
 except ApiException as e:
     print "Exception when calling DefaultApi->update_vehicles: %s\n" % e
@@ -514,7 +514,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **access_token** | **str**|  | 
+ **access_token** | **str**| Samsara API access token. | 
  **vehicle_update_param** | [**VehicleUpdateParam**](VehicleUpdateParam.md)|  | 
 
 ### Return type
@@ -527,7 +527,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

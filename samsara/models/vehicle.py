@@ -60,7 +60,7 @@ class Vehicle(object):
     def id(self):
         """
         Gets the id of this Vehicle.
-
+        ID of the vehicle.
 
         :return: The id of this Vehicle.
         :rtype: int
@@ -71,7 +71,7 @@ class Vehicle(object):
     def id(self, id):
         """
         Sets the id of this Vehicle.
-
+        ID of the vehicle.
 
         :param id: The id of this Vehicle.
         :type: int
@@ -83,7 +83,7 @@ class Vehicle(object):
     def name(self):
         """
         Gets the name of this Vehicle.
-
+        Name of the vehicle.
 
         :return: The name of this Vehicle.
         :rtype: str
@@ -94,7 +94,7 @@ class Vehicle(object):
     def name(self, name):
         """
         Sets the name of this Vehicle.
-
+        Name of the vehicle.
 
         :param name: The name of this Vehicle.
         :type: str

@@ -3,11 +3,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | 
-**name** | **str** |  | [optional] 
-**latitude** | **float** |  | [optional] 
-**longitude** | **float** |  | [optional] 
-**time** | **int** |  | [optional] 
+**id** | **int** | ID of the vehicle. | 
+**name** | **str** | Name of the vehicle. | [optional] 
+**latitude** | **int** | Latitude in decimal degrees. | [optional] 
+**longitude** | **int** | Longitude in decimal degrees. | [optional] 
+**location** | **str** | Text representation of nearest identifiable location to (latitude, longitude) coordinates. | [optional] 
+**time** | **int** | The time the reported location was logged, reported as a UNIX timestamp in milliseconds. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

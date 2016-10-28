@@ -57,7 +57,7 @@ class VehicleUpdateParam(object):
     def group_id(self):
         """
         Gets the group_id of this VehicleUpdateParam.
-
+        Group ID to query.
 
         :return: The group_id of this VehicleUpdateParam.
         :rtype: int
@@ -68,7 +68,7 @@ class VehicleUpdateParam(object):
     def group_id(self, group_id):
         """
         Sets the group_id of this VehicleUpdateParam.
-
+        Group ID to query.
 
         :param group_id: The group_id of this VehicleUpdateParam.
         :type: int

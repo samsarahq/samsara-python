@@ -57,7 +57,7 @@ class HumidityResponseSensors(object):
     def id(self):
         """
         Gets the id of this HumidityResponseSensors.
-
+        ID of the sensor.
 
         :return: The id of this HumidityResponseSensors.
         :rtype: int
@@ -68,7 +68,7 @@ class HumidityResponseSensors(object):
     def id(self, id):
         """
         Sets the id of this HumidityResponseSensors.
-
+        ID of the sensor.
 
         :param id: The id of this HumidityResponseSensors.
         :type: int
@@ -80,7 +80,7 @@ class HumidityResponseSensors(object):
     def humidity(self):
         """
         Gets the humidity of this HumidityResponseSensors.
-
+        Currently reported relative humidity in percent, from 0-100.
 
         :return: The humidity of this HumidityResponseSensors.
         :rtype: int
@@ -91,7 +91,7 @@ class HumidityResponseSensors(object):
     def humidity(self, humidity):
         """
         Sets the humidity of this HumidityResponseSensors.
-
+        Currently reported relative humidity in percent, from 0-100.
 
         :param humidity: The humidity of this HumidityResponseSensors.
         :type: int

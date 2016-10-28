@@ -69,7 +69,7 @@ class HistoryParam(object):
     def group_id(self):
         """
         Gets the group_id of this HistoryParam.
-
+        Group ID to query.
 
         :return: The group_id of this HistoryParam.
         :rtype: int
@@ -80,7 +80,7 @@ class HistoryParam(object):
     def group_id(self, group_id):
         """
         Sets the group_id of this HistoryParam.
-
+        Group ID to query.
 
         :param group_id: The group_id of this HistoryParam.
         :type: int
@@ -92,7 +92,7 @@ class HistoryParam(object):
     def start_ms(self):
         """
         Gets the start_ms of this HistoryParam.
-
+        Beginning of the time range, specified in milliseconds UNIX time.
 
         :return: The start_ms of this HistoryParam.
         :rtype: int
@@ -103,7 +103,7 @@ class HistoryParam(object):
     def start_ms(self, start_ms):
         """
         Sets the start_ms of this HistoryParam.
-
+        Beginning of the time range, specified in milliseconds UNIX time.
 
         :param start_ms: The start_ms of this HistoryParam.
         :type: int
@@ -115,7 +115,7 @@ class HistoryParam(object):
     def end_ms(self):
         """
         Gets the end_ms of this HistoryParam.
-
+        End of the time range, specified in milliseconds UNIX time.
 
         :return: The end_ms of this HistoryParam.
         :rtype: int
@@ -126,7 +126,7 @@ class HistoryParam(object):
     def end_ms(self, end_ms):
         """
         Sets the end_ms of this HistoryParam.
-
+        End of the time range, specified in milliseconds UNIX time.
 
         :param end_ms: The end_ms of this HistoryParam.
         :type: int
@@ -138,7 +138,7 @@ class HistoryParam(object):
     def step_ms(self):
         """
         Gets the step_ms of this HistoryParam.
-
+        Time resolution for which data should be returned, in milliseconds.
 
         :return: The step_ms of this HistoryParam.
         :rtype: int
@@ -149,7 +149,7 @@ class HistoryParam(object):
     def step_ms(self, step_ms):
         """
         Sets the step_ms of this HistoryParam.
-
+        Time resolution for which data should be returned, in milliseconds.
 
         :param step_ms: The step_ms of this HistoryParam.
         :type: int
