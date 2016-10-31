@@ -25,9 +25,15 @@ from __future__ import absolute_import
 
 # import models into sdk package
 from .models.address_param import AddressParam
+from .models.create_dispatch_jobs_param import CreateDispatchJobsParam
+from .models.dispatch_jobs_response import DispatchJobsResponse
+from .models.dispatch_jobs_response_dispatch_jobs import DispatchJobsResponseDispatchJobs
 from .models.drivers_respose import DriversRespose
 from .models.drivers_respose_drivers import DriversResposeDrivers
 from .models.error_response import ErrorResponse
+from .models.fleetdispatch_jobscreate_dispatch_jobs import FleetdispatchJobscreateDispatchJobs
+from .models.fleetdispatch_jobsupdate_dispatch_jobs import FleetdispatchJobsupdateDispatchJobs
+from .models.get_dispatch_jobs_param import GetDispatchJobsParam
 from .models.group_drivers_param import GroupDriversParam
 from .models.group_param import GroupParam
 from .models.history_param import HistoryParam
@@ -51,6 +57,7 @@ from .models.trip_response_end_coordinates import TripResponseEndCoordinates
 from .models.trip_response_start_coordinates import TripResponseStartCoordinates
 from .models.trip_response_trips import TripResponseTrips
 from .models.trips_param import TripsParam
+from .models.update_dispatch_jobs_param import UpdateDispatchJobsParam
 from .models.vehicle import Vehicle
 from .models.vehicle_location import VehicleLocation
 from .models.vehicle_update_param import VehicleUpdateParam

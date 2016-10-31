@@ -25,9 +25,15 @@ from __future__ import absolute_import
 
 # import models into model package
 from .address_param import AddressParam
+from .create_dispatch_jobs_param import CreateDispatchJobsParam
+from .dispatch_jobs_response import DispatchJobsResponse
+from .dispatch_jobs_response_dispatch_jobs import DispatchJobsResponseDispatchJobs
 from .drivers_respose import DriversRespose
 from .drivers_respose_drivers import DriversResposeDrivers
 from .error_response import ErrorResponse
+from .fleetdispatch_jobscreate_dispatch_jobs import FleetdispatchJobscreateDispatchJobs
+from .fleetdispatch_jobsupdate_dispatch_jobs import FleetdispatchJobsupdateDispatchJobs
+from .get_dispatch_jobs_param import GetDispatchJobsParam
 from .group_drivers_param import GroupDriversParam
 from .group_param import GroupParam
 from .history_param import HistoryParam
@@ -51,6 +57,7 @@ from .trip_response_end_coordinates import TripResponseEndCoordinates
 from .trip_response_start_coordinates import TripResponseStartCoordinates
 from .trip_response_trips import TripResponseTrips
 from .trips_param import TripsParam
+from .update_dispatch_jobs_param import UpdateDispatchJobsParam
 from .vehicle import Vehicle
 from .vehicle_location import VehicleLocation
 from .vehicle_update_param import VehicleUpdateParam

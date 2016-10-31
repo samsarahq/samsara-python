@@ -5,7 +5,9 @@ All URIs are relative to *https://api.samsara.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_fleet_address**](DefaultApi.md#add_fleet_address) | **POST** /fleet/add_address | This method adds an address book entry to the specified group.
+[**create_fleet_dispatch_jobs**](DefaultApi.md#create_fleet_dispatch_jobs) | **POST** /fleet/dispatch_jobs/create | Create dispatch jobs in the specified group.
 [**get_fleet**](DefaultApi.md#get_fleet) | **POST** /fleet/list | This method returns a list of the vehicles in the Samsara Cloud and information about them.
+[**get_fleet_dispatch_jobs**](DefaultApi.md#get_fleet_dispatch_jobs) | **POST** /fleet/dispatch_jobs | Get the dispatch jobs for the specified group.
 [**get_fleet_drivers**](DefaultApi.md#get_fleet_drivers) | **POST** /fleet/drivers | Get all the drivers for the specified group.
 [**get_fleet_hos_logs**](DefaultApi.md#get_fleet_hos_logs) | **POST** /fleet/hos_logs | Get the HOS (hours of service) logs for the specified driver.
 [**get_fleet_locations**](DefaultApi.md#get_fleet_locations) | **POST** /fleet/locations | This method returns the current location in latitude and longitude of all vehicles in a requested group.
@@ -14,6 +16,7 @@ Method | HTTP request | Description
 [**get_sensors_history**](DefaultApi.md#get_sensors_history) | **POST** /sensors/history | This method returns a set of historical data for the specified sensors in the specified time range and at the specified time resolution.
 [**get_sensors_humidity**](DefaultApi.md#get_sensors_humidity) | **POST** /sensors/humidity | This method returns the current relative humidity for the requested sensors.
 [**get_sensors_temperature**](DefaultApi.md#get_sensors_temperature) | **POST** /sensors/temperature | This method returns the current ambient temperature (and probe temperature if applicable) for the requested sensors.
+[**update_fleet_dispatch_jobs**](DefaultApi.md#update_fleet_dispatch_jobs) | **POST** /fleet/dispatch_jobs/update | Update dispatch jobs specified group.
 [**update_vehicles**](DefaultApi.md#update_vehicles) | **POST** /fleet/set_data | This method enables the mutation of metadata for vehicles in the Samsara Cloud.
 
 
@@ -63,6 +66,53 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **create_fleet_dispatch_jobs**
+> DispatchJobsResponse create_fleet_dispatch_jobs(access_token, create_dispatch_jobs_param)
+
+Create dispatch jobs in the specified group.
+
+### Example 
+```python
+import time
+import samsara
+from samsara.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = samsara.DefaultApi()
+access_token = 'access_token_example' # str | Samsara API access token.
+create_dispatch_jobs_param = samsara.CreateDispatchJobsParam() # CreateDispatchJobsParam | 
+
+try: 
+    # Create dispatch jobs in the specified group.
+    api_response = api_instance.create_fleet_dispatch_jobs(access_token, create_dispatch_jobs_param)
+    pprint(api_response)
+except ApiException as e:
+    print "Exception when calling DefaultApi->create_fleet_dispatch_jobs: %s\n" % e
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **access_token** | **str**| Samsara API access token. | 
+ **create_dispatch_jobs_param** | [**CreateDispatchJobsParam**](CreateDispatchJobsParam.md)|  | 
+
+### Return type
+
+[**DispatchJobsResponse**](DispatchJobsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_fleet**
 > InlineResponse200 get_fleet(access_token, group_param)
 
@@ -98,6 +148,53 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**InlineResponse200**](InlineResponse200.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_fleet_dispatch_jobs**
+> DispatchJobsResponse get_fleet_dispatch_jobs(access_token, get_dispatch_jobs_param)
+
+Get the dispatch jobs for the specified group.
+
+### Example 
+```python
+import time
+import samsara
+from samsara.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = samsara.DefaultApi()
+access_token = 'access_token_example' # str | Samsara API access token.
+get_dispatch_jobs_param = samsara.GetDispatchJobsParam() # GetDispatchJobsParam | 
+
+try: 
+    # Get the dispatch jobs for the specified group.
+    api_response = api_instance.get_fleet_dispatch_jobs(access_token, get_dispatch_jobs_param)
+    pprint(api_response)
+except ApiException as e:
+    print "Exception when calling DefaultApi->get_fleet_dispatch_jobs: %s\n" % e
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **access_token** | **str**| Samsara API access token. | 
+ **get_dispatch_jobs_param** | [**GetDispatchJobsParam**](GetDispatchJobsParam.md)|  | 
+
+### Return type
+
+[**DispatchJobsResponse**](DispatchJobsResponse.md)
 
 ### Authorization
 
@@ -474,6 +571,53 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TemperatureResponse**](TemperatureResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_fleet_dispatch_jobs**
+> DispatchJobsResponse update_fleet_dispatch_jobs(access_token, update_dispatch_jobs_param)
+
+Update dispatch jobs specified group.
+
+### Example 
+```python
+import time
+import samsara
+from samsara.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = samsara.DefaultApi()
+access_token = 'access_token_example' # str | Samsara API access token.
+update_dispatch_jobs_param = samsara.UpdateDispatchJobsParam() # UpdateDispatchJobsParam | 
+
+try: 
+    # Update dispatch jobs specified group.
+    api_response = api_instance.update_fleet_dispatch_jobs(access_token, update_dispatch_jobs_param)
+    pprint(api_response)
+except ApiException as e:
+    print "Exception when calling DefaultApi->update_fleet_dispatch_jobs: %s\n" % e
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **access_token** | **str**| Samsara API access token. | 
+ **update_dispatch_jobs_param** | [**UpdateDispatchJobsParam**](UpdateDispatchJobsParam.md)|  | 
+
+### Return type
+
+[**DispatchJobsResponse**](DispatchJobsResponse.md)
 
 ### Authorization
 

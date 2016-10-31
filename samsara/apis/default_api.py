@@ -161,6 +161,117 @@ class DefaultApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
+    def create_fleet_dispatch_jobs(self, access_token, create_dispatch_jobs_param, **kwargs):
+        """
+        Create dispatch jobs in the specified group.
+        
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.create_fleet_dispatch_jobs(access_token, create_dispatch_jobs_param, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str access_token: Samsara API access token. (required)
+        :param CreateDispatchJobsParam create_dispatch_jobs_param:  (required)
+        :return: DispatchJobsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.create_fleet_dispatch_jobs_with_http_info(access_token, create_dispatch_jobs_param, **kwargs)
+        else:
+            (data) = self.create_fleet_dispatch_jobs_with_http_info(access_token, create_dispatch_jobs_param, **kwargs)
+            return data
+
+    def create_fleet_dispatch_jobs_with_http_info(self, access_token, create_dispatch_jobs_param, **kwargs):
+        """
+        Create dispatch jobs in the specified group.
+        
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.create_fleet_dispatch_jobs_with_http_info(access_token, create_dispatch_jobs_param, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str access_token: Samsara API access token. (required)
+        :param CreateDispatchJobsParam create_dispatch_jobs_param:  (required)
+        :return: DispatchJobsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['access_token', 'create_dispatch_jobs_param']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_fleet_dispatch_jobs" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'access_token' is set
+        if ('access_token' not in params) or (params['access_token'] is None):
+            raise ValueError("Missing the required parameter `access_token` when calling `create_fleet_dispatch_jobs`")
+        # verify the required parameter 'create_dispatch_jobs_param' is set
+        if ('create_dispatch_jobs_param' not in params) or (params['create_dispatch_jobs_param'] is None):
+            raise ValueError("Missing the required parameter `create_dispatch_jobs_param` when calling `create_fleet_dispatch_jobs`")
+
+        resource_path = '/fleet/dispatch_jobs/create'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'access_token' in params:
+            query_params['access_token'] = params['access_token']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'create_dispatch_jobs_param' in params:
+            body_params = params['create_dispatch_jobs_param']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = []
+
+        return self.api_client.call_api(resource_path, 'POST',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='DispatchJobsResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
     def get_fleet(self, access_token, group_param, **kwargs):
         """
         This method returns a list of the vehicles in the Samsara Cloud and information about them.
@@ -268,6 +379,117 @@ class DefaultApi(object):
                                             post_params=form_params,
                                             files=local_var_files,
                                             response_type='InlineResponse200',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def get_fleet_dispatch_jobs(self, access_token, get_dispatch_jobs_param, **kwargs):
+        """
+        Get the dispatch jobs for the specified group.
+        
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_fleet_dispatch_jobs(access_token, get_dispatch_jobs_param, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str access_token: Samsara API access token. (required)
+        :param GetDispatchJobsParam get_dispatch_jobs_param:  (required)
+        :return: DispatchJobsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.get_fleet_dispatch_jobs_with_http_info(access_token, get_dispatch_jobs_param, **kwargs)
+        else:
+            (data) = self.get_fleet_dispatch_jobs_with_http_info(access_token, get_dispatch_jobs_param, **kwargs)
+            return data
+
+    def get_fleet_dispatch_jobs_with_http_info(self, access_token, get_dispatch_jobs_param, **kwargs):
+        """
+        Get the dispatch jobs for the specified group.
+        
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_fleet_dispatch_jobs_with_http_info(access_token, get_dispatch_jobs_param, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str access_token: Samsara API access token. (required)
+        :param GetDispatchJobsParam get_dispatch_jobs_param:  (required)
+        :return: DispatchJobsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['access_token', 'get_dispatch_jobs_param']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_fleet_dispatch_jobs" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'access_token' is set
+        if ('access_token' not in params) or (params['access_token'] is None):
+            raise ValueError("Missing the required parameter `access_token` when calling `get_fleet_dispatch_jobs`")
+        # verify the required parameter 'get_dispatch_jobs_param' is set
+        if ('get_dispatch_jobs_param' not in params) or (params['get_dispatch_jobs_param'] is None):
+            raise ValueError("Missing the required parameter `get_dispatch_jobs_param` when calling `get_fleet_dispatch_jobs`")
+
+        resource_path = '/fleet/dispatch_jobs'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'access_token' in params:
+            query_params['access_token'] = params['access_token']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'get_dispatch_jobs_param' in params:
+            body_params = params['get_dispatch_jobs_param']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = []
+
+        return self.api_client.call_api(resource_path, 'POST',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='DispatchJobsResponse',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
@@ -1156,6 +1378,117 @@ class DefaultApi(object):
                                             post_params=form_params,
                                             files=local_var_files,
                                             response_type='TemperatureResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
+    def update_fleet_dispatch_jobs(self, access_token, update_dispatch_jobs_param, **kwargs):
+        """
+        Update dispatch jobs specified group.
+        
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_fleet_dispatch_jobs(access_token, update_dispatch_jobs_param, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str access_token: Samsara API access token. (required)
+        :param UpdateDispatchJobsParam update_dispatch_jobs_param:  (required)
+        :return: DispatchJobsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.update_fleet_dispatch_jobs_with_http_info(access_token, update_dispatch_jobs_param, **kwargs)
+        else:
+            (data) = self.update_fleet_dispatch_jobs_with_http_info(access_token, update_dispatch_jobs_param, **kwargs)
+            return data
+
+    def update_fleet_dispatch_jobs_with_http_info(self, access_token, update_dispatch_jobs_param, **kwargs):
+        """
+        Update dispatch jobs specified group.
+        
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.update_fleet_dispatch_jobs_with_http_info(access_token, update_dispatch_jobs_param, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str access_token: Samsara API access token. (required)
+        :param UpdateDispatchJobsParam update_dispatch_jobs_param:  (required)
+        :return: DispatchJobsResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['access_token', 'update_dispatch_jobs_param']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_fleet_dispatch_jobs" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'access_token' is set
+        if ('access_token' not in params) or (params['access_token'] is None):
+            raise ValueError("Missing the required parameter `access_token` when calling `update_fleet_dispatch_jobs`")
+        # verify the required parameter 'update_dispatch_jobs_param' is set
+        if ('update_dispatch_jobs_param' not in params) or (params['update_dispatch_jobs_param'] is None):
+            raise ValueError("Missing the required parameter `update_dispatch_jobs_param` when calling `update_fleet_dispatch_jobs`")
+
+        resource_path = '/fleet/dispatch_jobs/update'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'access_token' in params:
+            query_params['access_token'] = params['access_token']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'update_dispatch_jobs_param' in params:
+            body_params = params['update_dispatch_jobs_param']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = []
+
+        return self.api_client.call_api(resource_path, 'POST',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='DispatchJobsResponse',
                                             auth_settings=auth_settings,
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
