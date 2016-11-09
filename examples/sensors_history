@@ -27,7 +27,7 @@ def get_sensors_history(access_token, group_id, sensor_id):
     client = SamsaraClient()
     # Get a sensor's temperature history at hour-intervals for the past two hours.
     now = datetime.utcnow()
-    end_ms = calendar.timegm(now.utctimetuple())
+    end_ms = calendar.timegm(now.utctimetuple()) * 1000
     step_ms = 3600000
     start_ms = end_ms - (step_ms * 2)
     series = [{"widget_id": sensor_id, "field": "ambientTemperature"}]
