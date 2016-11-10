@@ -30,7 +30,7 @@ def get_sensors_history(access_token, group_id, sensor_id):
     end_ms = calendar.timegm(now.utctimetuple()) * 1000
     step_ms = 3600000
     start_ms = end_ms - (step_ms * 2)
-    series = [{"widget_id": sensor_id, "field": "ambientTemperature"}]
+    series = [{"widgetId": sensor_id, "field": "ambientTemperature"}]
     fill_missing = "withNull"
     params = samsara.HistoryParam(group_id, start_ms, end_ms, step_ms, series, fill_missing)
 
