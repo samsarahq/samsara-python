@@ -43,8 +43,8 @@ class VehicleLocation(object):
         self.swagger_types = {
             'id': 'int',
             'name': 'str',
-            'latitude': 'int',
-            'longitude': 'int',
+            'latitude': 'float',
+            'longitude': 'float',
             'location': 'str',
             'time': 'int'
         }
@@ -118,7 +118,7 @@ class VehicleLocation(object):
         Latitude in decimal degrees.
 
         :return: The latitude of this VehicleLocation.
-        :rtype: int
+        :rtype: float
         """
         return self._latitude
 
@@ -129,7 +129,7 @@ class VehicleLocation(object):
         Latitude in decimal degrees.
 
         :param latitude: The latitude of this VehicleLocation.
-        :type: int
+        :type: float
         """
 
         self._latitude = latitude
@@ -141,7 +141,7 @@ class VehicleLocation(object):
         Longitude in decimal degrees.
 
         :return: The longitude of this VehicleLocation.
-        :rtype: int
+        :rtype: float
         """
         return self._longitude
 
@@ -152,7 +152,7 @@ class VehicleLocation(object):
         Longitude in decimal degrees.
 
         :param longitude: The longitude of this VehicleLocation.
-        :type: int
+        :type: float
         """
 
         self._longitude = longitude

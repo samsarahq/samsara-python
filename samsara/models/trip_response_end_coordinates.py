@@ -41,8 +41,8 @@ class TripResponseEndCoordinates(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'latitude': 'int',
-            'longitude': 'int'
+            'latitude': 'float',
+            'longitude': 'float'
         }
 
         self.attribute_map = {
@@ -60,7 +60,7 @@ class TripResponseEndCoordinates(object):
 
 
         :return: The latitude of this TripResponseEndCoordinates.
-        :rtype: int
+        :rtype: float
         """
         return self._latitude
 
@@ -71,7 +71,7 @@ class TripResponseEndCoordinates(object):
 
 
         :param latitude: The latitude of this TripResponseEndCoordinates.
-        :type: int
+        :type: float
         """
 
         self._latitude = latitude
@@ -83,7 +83,7 @@ class TripResponseEndCoordinates(object):
 
 
         :return: The longitude of this TripResponseEndCoordinates.
-        :rtype: int
+        :rtype: float
         """
         return self._longitude
 
@@ -94,7 +94,7 @@ class TripResponseEndCoordinates(object):
 
 
         :param longitude: The longitude of this TripResponseEndCoordinates.
-        :type: int
+        :type: float
         """
 
         self._longitude = longitude
