@@ -3,6 +3,7 @@
 """
     Samsara API
 
+    # Introduction The Samsara REST API lets you interact with the Samsara Cloud from anything that can send an HTTP request. With the Samsara API you can build powerful applications and custom solutions with sensor data.  Samsara has endpoints available to track and analyze sensors, vehicles, and entire fleets. If you’re familiar with what you can build with a REST API, the following API reference guide will be your go-to resource.  API access to the Samsara cloud is available to all Samsara administrators. If you’d like to try the API, [contact us](https://www.samsara.com/free-trial). The API is currently in beta and may be subject to frequent changes.  # Connecting to the API There are two ways to connect to the API. If you prefer to use the API in Javascript or Python, we supply SDKs which you can download here: [Javascript SDK](https://github.com/samsarahq/samsara-js), [Python SDK](https://github.com/samsarahq/samsara-python).  If you’d rather use another language to interact with the Samsara API, the endpoints and examples are in the reference guide below.  
 
     OpenAPI spec version: 1.0.0
     
@@ -93,7 +94,7 @@ class FleetdispatchJobscreateDispatchJobs(object):
     def external_identifier(self):
         """
         Gets the external_identifier of this FleetdispatchJobscreateDispatchJobs.
-
+        A string that can be used to map jobs in the Samsara database to jobs in an external database.
 
         :return: The external_identifier of this FleetdispatchJobscreateDispatchJobs.
         :rtype: str
@@ -104,7 +105,7 @@ class FleetdispatchJobscreateDispatchJobs(object):
     def external_identifier(self, external_identifier):
         """
         Sets the external_identifier of this FleetdispatchJobscreateDispatchJobs.
-
+        A string that can be used to map jobs in the Samsara database to jobs in an external database.
 
         :param external_identifier: The external_identifier of this FleetdispatchJobscreateDispatchJobs.
         :type: str
@@ -116,7 +117,7 @@ class FleetdispatchJobscreateDispatchJobs(object):
     def driver_id(self):
         """
         Gets the driver_id of this FleetdispatchJobscreateDispatchJobs.
-
+        ID of the driver assigned to the dispatch job.
 
         :return: The driver_id of this FleetdispatchJobscreateDispatchJobs.
         :rtype: int
@@ -127,7 +128,7 @@ class FleetdispatchJobscreateDispatchJobs(object):
     def driver_id(self, driver_id):
         """
         Sets the driver_id of this FleetdispatchJobscreateDispatchJobs.
-
+        ID of the driver assigned to the dispatch job.
 
         :param driver_id: The driver_id of this FleetdispatchJobscreateDispatchJobs.
         :type: int
@@ -139,7 +140,7 @@ class FleetdispatchJobscreateDispatchJobs(object):
     def vehicle_id(self):
         """
         Gets the vehicle_id of this FleetdispatchJobscreateDispatchJobs.
-
+        ID of the vehicle used for the dispatch job.
 
         :return: The vehicle_id of this FleetdispatchJobscreateDispatchJobs.
         :rtype: int
@@ -150,7 +151,7 @@ class FleetdispatchJobscreateDispatchJobs(object):
     def vehicle_id(self, vehicle_id):
         """
         Sets the vehicle_id of this FleetdispatchJobscreateDispatchJobs.
-
+        ID of the vehicle used for the dispatch job.
 
         :param vehicle_id: The vehicle_id of this FleetdispatchJobscreateDispatchJobs.
         :type: int
@@ -162,7 +163,7 @@ class FleetdispatchJobscreateDispatchJobs(object):
     def job_state(self):
         """
         Gets the job_state of this FleetdispatchJobscreateDispatchJobs.
-
+        The current state of the dispatch job.
 
         :return: The job_state of this FleetdispatchJobscreateDispatchJobs.
         :rtype: str
@@ -173,7 +174,7 @@ class FleetdispatchJobscreateDispatchJobs(object):
     def job_state(self, job_state):
         """
         Sets the job_state of this FleetdispatchJobscreateDispatchJobs.
-
+        The current state of the dispatch job.
 
         :param job_state: The job_state of this FleetdispatchJobscreateDispatchJobs.
         :type: str
@@ -191,7 +192,7 @@ class FleetdispatchJobscreateDispatchJobs(object):
     def scheduled_arrival_time_ms(self):
         """
         Gets the scheduled_arrival_time_ms of this FleetdispatchJobscreateDispatchJobs.
-
+        The time at which the assigned driver is scheduled to arrive at the job destination.
 
         :return: The scheduled_arrival_time_ms of this FleetdispatchJobscreateDispatchJobs.
         :rtype: int
@@ -202,7 +203,7 @@ class FleetdispatchJobscreateDispatchJobs(object):
     def scheduled_arrival_time_ms(self, scheduled_arrival_time_ms):
         """
         Sets the scheduled_arrival_time_ms of this FleetdispatchJobscreateDispatchJobs.
-
+        The time at which the assigned driver is scheduled to arrive at the job destination.
 
         :param scheduled_arrival_time_ms: The scheduled_arrival_time_ms of this FleetdispatchJobscreateDispatchJobs.
         :type: int
@@ -214,7 +215,7 @@ class FleetdispatchJobscreateDispatchJobs(object):
     def started_at_ms(self):
         """
         Gets the started_at_ms of this FleetdispatchJobscreateDispatchJobs.
-
+        The time at which the assigned driver started fulfilling the job (e.g. started driving to the destination).
 
         :return: The started_at_ms of this FleetdispatchJobscreateDispatchJobs.
         :rtype: int
@@ -225,7 +226,7 @@ class FleetdispatchJobscreateDispatchJobs(object):
     def started_at_ms(self, started_at_ms):
         """
         Sets the started_at_ms of this FleetdispatchJobscreateDispatchJobs.
-
+        The time at which the assigned driver started fulfilling the job (e.g. started driving to the destination).
 
         :param started_at_ms: The started_at_ms of this FleetdispatchJobscreateDispatchJobs.
         :type: int
@@ -237,7 +238,7 @@ class FleetdispatchJobscreateDispatchJobs(object):
     def completed_at_ms(self):
         """
         Gets the completed_at_ms of this FleetdispatchJobscreateDispatchJobs.
-
+        The time at which the job was marked complete.
 
         :return: The completed_at_ms of this FleetdispatchJobscreateDispatchJobs.
         :rtype: int
@@ -248,7 +249,7 @@ class FleetdispatchJobscreateDispatchJobs(object):
     def completed_at_ms(self, completed_at_ms):
         """
         Sets the completed_at_ms of this FleetdispatchJobscreateDispatchJobs.
-
+        The time at which the job was marked complete.
 
         :param completed_at_ms: The completed_at_ms of this FleetdispatchJobscreateDispatchJobs.
         :type: int
@@ -260,7 +261,7 @@ class FleetdispatchJobscreateDispatchJobs(object):
     def cancelled_at_ms(self):
         """
         Gets the cancelled_at_ms of this FleetdispatchJobscreateDispatchJobs.
-
+        The time at which the job was marked cancelled.
 
         :return: The cancelled_at_ms of this FleetdispatchJobscreateDispatchJobs.
         :rtype: int
@@ -271,7 +272,7 @@ class FleetdispatchJobscreateDispatchJobs(object):
     def cancelled_at_ms(self, cancelled_at_ms):
         """
         Sets the cancelled_at_ms of this FleetdispatchJobscreateDispatchJobs.
-
+        The time at which the job was marked cancelled.
 
         :param cancelled_at_ms: The cancelled_at_ms of this FleetdispatchJobscreateDispatchJobs.
         :type: int
@@ -283,7 +284,7 @@ class FleetdispatchJobscreateDispatchJobs(object):
     def job_created_at_ms(self):
         """
         Gets the job_created_at_ms of this FleetdispatchJobscreateDispatchJobs.
-
+        The time at which the job was created.
 
         :return: The job_created_at_ms of this FleetdispatchJobscreateDispatchJobs.
         :rtype: int
@@ -294,7 +295,7 @@ class FleetdispatchJobscreateDispatchJobs(object):
     def job_created_at_ms(self, job_created_at_ms):
         """
         Sets the job_created_at_ms of this FleetdispatchJobscreateDispatchJobs.
-
+        The time at which the job was created.
 
         :param job_created_at_ms: The job_created_at_ms of this FleetdispatchJobscreateDispatchJobs.
         :type: int
@@ -306,7 +307,7 @@ class FleetdispatchJobscreateDispatchJobs(object):
     def notes(self):
         """
         Gets the notes of this FleetdispatchJobscreateDispatchJobs.
-
+        Notes regarding the details of this job.
 
         :return: The notes of this FleetdispatchJobscreateDispatchJobs.
         :rtype: str
@@ -317,7 +318,7 @@ class FleetdispatchJobscreateDispatchJobs(object):
     def notes(self, notes):
         """
         Sets the notes of this FleetdispatchJobscreateDispatchJobs.
-
+        Notes regarding the details of this job.
 
         :param notes: The notes of this FleetdispatchJobscreateDispatchJobs.
         :type: str
@@ -329,7 +330,7 @@ class FleetdispatchJobscreateDispatchJobs(object):
     def destination_name(self):
         """
         Gets the destination_name of this FleetdispatchJobscreateDispatchJobs.
-
+        The name of the job destination.
 
         :return: The destination_name of this FleetdispatchJobscreateDispatchJobs.
         :rtype: str
@@ -340,7 +341,7 @@ class FleetdispatchJobscreateDispatchJobs(object):
     def destination_name(self, destination_name):
         """
         Sets the destination_name of this FleetdispatchJobscreateDispatchJobs.
-
+        The name of the job destination.
 
         :param destination_name: The destination_name of this FleetdispatchJobscreateDispatchJobs.
         :type: str
@@ -352,7 +353,7 @@ class FleetdispatchJobscreateDispatchJobs(object):
     def destination_address(self):
         """
         Gets the destination_address of this FleetdispatchJobscreateDispatchJobs.
-
+        The address of the job destination, as it would be recognized if provided to maps.google.com
 
         :return: The destination_address of this FleetdispatchJobscreateDispatchJobs.
         :rtype: str
@@ -363,7 +364,7 @@ class FleetdispatchJobscreateDispatchJobs(object):
     def destination_address(self, destination_address):
         """
         Sets the destination_address of this FleetdispatchJobscreateDispatchJobs.
-
+        The address of the job destination, as it would be recognized if provided to maps.google.com
 
         :param destination_address: The destination_address of this FleetdispatchJobscreateDispatchJobs.
         :type: str
@@ -375,7 +376,7 @@ class FleetdispatchJobscreateDispatchJobs(object):
     def destination_lat(self):
         """
         Gets the destination_lat of this FleetdispatchJobscreateDispatchJobs.
-
+        Latitude of the destination in decimal degrees.
 
         :return: The destination_lat of this FleetdispatchJobscreateDispatchJobs.
         :rtype: float
@@ -386,7 +387,7 @@ class FleetdispatchJobscreateDispatchJobs(object):
     def destination_lat(self, destination_lat):
         """
         Sets the destination_lat of this FleetdispatchJobscreateDispatchJobs.
-
+        Latitude of the destination in decimal degrees.
 
         :param destination_lat: The destination_lat of this FleetdispatchJobscreateDispatchJobs.
         :type: float
@@ -398,7 +399,7 @@ class FleetdispatchJobscreateDispatchJobs(object):
     def destination_lng(self):
         """
         Gets the destination_lng of this FleetdispatchJobscreateDispatchJobs.
-
+        Latitude of the destination in decimal degrees.
 
         :return: The destination_lng of this FleetdispatchJobscreateDispatchJobs.
         :rtype: float
@@ -409,7 +410,7 @@ class FleetdispatchJobscreateDispatchJobs(object):
     def destination_lng(self, destination_lng):
         """
         Sets the destination_lng of this FleetdispatchJobscreateDispatchJobs.
-
+        Latitude of the destination in decimal degrees.
 
         :param destination_lng: The destination_lng of this FleetdispatchJobscreateDispatchJobs.
         :type: float

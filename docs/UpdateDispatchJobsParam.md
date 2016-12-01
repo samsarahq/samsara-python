@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**group_id** | **int** |  | 
+**group_id** | **int** | Group ID to query. | 
 **dispatch_jobs** | [**list[FleetdispatchJobsupdateDispatchJobs]**](FleetdispatchJobsupdateDispatchJobs.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

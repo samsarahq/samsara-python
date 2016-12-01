@@ -3,6 +3,7 @@
 """
     Samsara API
 
+    # Introduction The Samsara REST API lets you interact with the Samsara Cloud from anything that can send an HTTP request. With the Samsara API you can build powerful applications and custom solutions with sensor data.  Samsara has endpoints available to track and analyze sensors, vehicles, and entire fleets. If you’re familiar with what you can build with a REST API, the following API reference guide will be your go-to resource.  API access to the Samsara cloud is available to all Samsara administrators. If you’d like to try the API, [contact us](https://www.samsara.com/free-trial). The API is currently in beta and may be subject to frequent changes.  # Connecting to the API There are two ways to connect to the API. If you prefer to use the API in Javascript or Python, we supply SDKs which you can download here: [Javascript SDK](https://github.com/samsarahq/samsara-js), [Python SDK](https://github.com/samsarahq/samsara-python).  If you’d rather use another language to interact with the Samsara API, the endpoints and examples are in the reference guide below.  
 
     OpenAPI spec version: 1.0.0
     
@@ -60,7 +61,7 @@ class GetDispatchJobsParam(object):
     def group_id(self):
         """
         Gets the group_id of this GetDispatchJobsParam.
-
+        Group ID to query.
 
         :return: The group_id of this GetDispatchJobsParam.
         :rtype: int
@@ -71,7 +72,7 @@ class GetDispatchJobsParam(object):
     def group_id(self, group_id):
         """
         Sets the group_id of this GetDispatchJobsParam.
-
+        Group ID to query.
 
         :param group_id: The group_id of this GetDispatchJobsParam.
         :type: int
@@ -83,7 +84,7 @@ class GetDispatchJobsParam(object):
     def job_created_at_max_ms(self):
         """
         Gets the job_created_at_max_ms of this GetDispatchJobsParam.
-
+        Maximum value of the JobCreatedAtMs, specified in milliseconds UNIX time.
 
         :return: The job_created_at_max_ms of this GetDispatchJobsParam.
         :rtype: int
@@ -94,7 +95,7 @@ class GetDispatchJobsParam(object):
     def job_created_at_max_ms(self, job_created_at_max_ms):
         """
         Sets the job_created_at_max_ms of this GetDispatchJobsParam.
-
+        Maximum value of the JobCreatedAtMs, specified in milliseconds UNIX time.
 
         :param job_created_at_max_ms: The job_created_at_max_ms of this GetDispatchJobsParam.
         :type: int
@@ -106,7 +107,7 @@ class GetDispatchJobsParam(object):
     def duration_seconds(self):
         """
         Gets the duration_seconds of this GetDispatchJobsParam.
-
+        Duration of the query specified in seconds. E.g. to search for jobs created up to a week before job_created_at_max_ms, set duration_seconds to 604800.
 
         :return: The duration_seconds of this GetDispatchJobsParam.
         :rtype: int
@@ -117,7 +118,7 @@ class GetDispatchJobsParam(object):
     def duration_seconds(self, duration_seconds):
         """
         Sets the duration_seconds of this GetDispatchJobsParam.
-
+        Duration of the query specified in seconds. E.g. to search for jobs created up to a week before job_created_at_max_ms, set duration_seconds to 604800.
 
         :param duration_seconds: The duration_seconds of this GetDispatchJobsParam.
         :type: int

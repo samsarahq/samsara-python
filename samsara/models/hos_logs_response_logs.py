@@ -3,6 +3,7 @@
 """
     Samsara API
 
+    # Introduction The Samsara REST API lets you interact with the Samsara Cloud from anything that can send an HTTP request. With the Samsara API you can build powerful applications and custom solutions with sensor data.  Samsara has endpoints available to track and analyze sensors, vehicles, and entire fleets. If you’re familiar with what you can build with a REST API, the following API reference guide will be your go-to resource.  API access to the Samsara cloud is available to all Samsara administrators. If you’d like to try the API, [contact us](https://www.samsara.com/free-trial). The API is currently in beta and may be subject to frequent changes.  # Connecting to the API There are two ways to connect to the API. If you prefer to use the API in Javascript or Python, we supply SDKs which you can download here: [Javascript SDK](https://github.com/samsarahq/samsara-js), [Python SDK](https://github.com/samsarahq/samsara-python).  If you’d rather use another language to interact with the Samsara API, the endpoints and examples are in the reference guide below.  
 
     OpenAPI spec version: 1.0.0
     
@@ -78,7 +79,7 @@ class HosLogsResponseLogs(object):
     def group_id(self):
         """
         Gets the group_id of this HosLogsResponseLogs.
-
+        ID of the group.
 
         :return: The group_id of this HosLogsResponseLogs.
         :rtype: int
@@ -89,7 +90,7 @@ class HosLogsResponseLogs(object):
     def group_id(self, group_id):
         """
         Sets the group_id of this HosLogsResponseLogs.
-
+        ID of the group.
 
         :param group_id: The group_id of this HosLogsResponseLogs.
         :type: int
@@ -101,7 +102,7 @@ class HosLogsResponseLogs(object):
     def vehicle_id(self):
         """
         Gets the vehicle_id of this HosLogsResponseLogs.
-
+        ID of the vehicle.
 
         :return: The vehicle_id of this HosLogsResponseLogs.
         :rtype: int
@@ -112,7 +113,7 @@ class HosLogsResponseLogs(object):
     def vehicle_id(self, vehicle_id):
         """
         Sets the vehicle_id of this HosLogsResponseLogs.
-
+        ID of the vehicle.
 
         :param vehicle_id: The vehicle_id of this HosLogsResponseLogs.
         :type: int
@@ -124,7 +125,7 @@ class HosLogsResponseLogs(object):
     def driver_id(self):
         """
         Gets the driver_id of this HosLogsResponseLogs.
-
+        ID of the driver.
 
         :return: The driver_id of this HosLogsResponseLogs.
         :rtype: int
@@ -135,7 +136,7 @@ class HosLogsResponseLogs(object):
     def driver_id(self, driver_id):
         """
         Sets the driver_id of this HosLogsResponseLogs.
-
+        ID of the driver.
 
         :param driver_id: The driver_id of this HosLogsResponseLogs.
         :type: int
@@ -147,7 +148,7 @@ class HosLogsResponseLogs(object):
     def log_start_ms(self):
         """
         Gets the log_start_ms of this HosLogsResponseLogs.
-
+        The time at which the log/HOS status started in UNIX milliseconds.
 
         :return: The log_start_ms of this HosLogsResponseLogs.
         :rtype: int
@@ -158,7 +159,7 @@ class HosLogsResponseLogs(object):
     def log_start_ms(self, log_start_ms):
         """
         Sets the log_start_ms of this HosLogsResponseLogs.
-
+        The time at which the log/HOS status started in UNIX milliseconds.
 
         :param log_start_ms: The log_start_ms of this HosLogsResponseLogs.
         :type: int
@@ -170,7 +171,7 @@ class HosLogsResponseLogs(object):
     def status_type(self):
         """
         Gets the status_type of this HosLogsResponseLogs.
-
+        The Hours of Service status type. One of 'OFF_DUTY', 'SLEEPER_BED', 'DRIVING', 'ON_DUTY'.
 
         :return: The status_type of this HosLogsResponseLogs.
         :rtype: str
@@ -181,7 +182,7 @@ class HosLogsResponseLogs(object):
     def status_type(self, status_type):
         """
         Sets the status_type of this HosLogsResponseLogs.
-
+        The Hours of Service status type. One of 'OFF_DUTY', 'SLEEPER_BED', 'DRIVING', 'ON_DUTY'.
 
         :param status_type: The status_type of this HosLogsResponseLogs.
         :type: str
@@ -193,7 +194,7 @@ class HosLogsResponseLogs(object):
     def loc_city(self):
         """
         Gets the loc_city of this HosLogsResponseLogs.
-
+        City in which the log was recorded.
 
         :return: The loc_city of this HosLogsResponseLogs.
         :rtype: str
@@ -204,7 +205,7 @@ class HosLogsResponseLogs(object):
     def loc_city(self, loc_city):
         """
         Sets the loc_city of this HosLogsResponseLogs.
-
+        City in which the log was recorded.
 
         :param loc_city: The loc_city of this HosLogsResponseLogs.
         :type: str
@@ -216,7 +217,7 @@ class HosLogsResponseLogs(object):
     def loc_state(self):
         """
         Gets the loc_state of this HosLogsResponseLogs.
-
+        State in which the log was recorded.
 
         :return: The loc_state of this HosLogsResponseLogs.
         :rtype: str
@@ -227,7 +228,7 @@ class HosLogsResponseLogs(object):
     def loc_state(self, loc_state):
         """
         Sets the loc_state of this HosLogsResponseLogs.
-
+        State in which the log was recorded.
 
         :param loc_state: The loc_state of this HosLogsResponseLogs.
         :type: str
@@ -239,7 +240,7 @@ class HosLogsResponseLogs(object):
     def loc_lat(self):
         """
         Gets the loc_lat of this HosLogsResponseLogs.
-
+        Latitude at which the log was recorded.
 
         :return: The loc_lat of this HosLogsResponseLogs.
         :rtype: float
@@ -250,7 +251,7 @@ class HosLogsResponseLogs(object):
     def loc_lat(self, loc_lat):
         """
         Sets the loc_lat of this HosLogsResponseLogs.
-
+        Latitude at which the log was recorded.
 
         :param loc_lat: The loc_lat of this HosLogsResponseLogs.
         :type: float
@@ -262,7 +263,7 @@ class HosLogsResponseLogs(object):
     def loc_lng(self):
         """
         Gets the loc_lng of this HosLogsResponseLogs.
-
+        Longitude at which the log was recorded.
 
         :return: The loc_lng of this HosLogsResponseLogs.
         :rtype: float
@@ -273,7 +274,7 @@ class HosLogsResponseLogs(object):
     def loc_lng(self, loc_lng):
         """
         Sets the loc_lng of this HosLogsResponseLogs.
-
+        Longitude at which the log was recorded.
 
         :param loc_lng: The loc_lng of this HosLogsResponseLogs.
         :type: float
