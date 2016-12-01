@@ -64,6 +64,7 @@ from .models.vehicle_location import VehicleLocation
 from .models.vehicle_update_param import VehicleUpdateParam
 
 # import apis into sdk package
+from .apis.default_api import DefaultApi
 from .apis.fleet_api import FleetApi
 from .apis.sensors_api import SensorsApi
 

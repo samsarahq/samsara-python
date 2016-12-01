@@ -3,6 +3,7 @@
 """
     Samsara API
 
+    # Introduction The Samsara REST API lets you interact with the Samsara Cloud from anything that can send an HTTP request. With the Samsara API you can build powerful applications and custom solutions with sensor data.  Samsara has endpoints available to track and analyze sensors, vehicles, and entire fleets. If you’re familiar with what you can build with a REST API, the following API reference guide will be your go-to resource.  API access to the Samsara cloud is available to all Samsara administrators. If you’d like to try the API, [contact us](https://www.samsara.com/free-trial). The API is currently in beta and may be subject to frequent changes.  # Connecting to the API There are two ways to connect to the API. If you prefer to use the API in Javascript or Python, we supply SDKs which you can download here: [Javascript SDK](https://github.com/samsarahq/samsara-js), [Python SDK](https://github.com/samsarahq/samsara-python).  If you’d rather use another language to interact with the Samsara API, the endpoints and examples are in the reference guide below.  
 
     OpenAPI spec version: 1.0.0
     
@@ -52,8 +53,8 @@ class DefaultApi(object):
 
     def add_fleet_address(self, access_token, address_param, **kwargs):
         """
+        /fleet/add_address
         This method adds an address book entry to the specified group.
-        
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -80,8 +81,8 @@ class DefaultApi(object):
 
     def add_fleet_address_with_http_info(self, access_token, address_param, **kwargs):
         """
+        /fleet/add_address
         This method adds an address book entry to the specified group.
-        
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -163,8 +164,8 @@ class DefaultApi(object):
 
     def create_fleet_dispatch_jobs(self, access_token, create_dispatch_jobs_param, **kwargs):
         """
+        /fleet/dispatch_jobs/create
         Create dispatch jobs in the specified group.
-        
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -191,8 +192,8 @@ class DefaultApi(object):
 
     def create_fleet_dispatch_jobs_with_http_info(self, access_token, create_dispatch_jobs_param, **kwargs):
         """
+        /fleet/dispatch_jobs/create
         Create dispatch jobs in the specified group.
-        
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -274,8 +275,8 @@ class DefaultApi(object):
 
     def get_fleet(self, access_token, group_param, **kwargs):
         """
-        This method returns a list of the vehicles in the Samsara Cloud and information about them.
-        
+        /fleet/list
+        Get list of the vehicles. This method returns a list of the vehicles in the Samsara Cloud and information about them.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -302,8 +303,8 @@ class DefaultApi(object):
 
     def get_fleet_with_http_info(self, access_token, group_param, **kwargs):
         """
-        This method returns a list of the vehicles in the Samsara Cloud and information about them.
-        
+        /fleet/list
+        Get list of the vehicles. This method returns a list of the vehicles in the Samsara Cloud and information about them.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -385,8 +386,8 @@ class DefaultApi(object):
 
     def get_fleet_dispatch_jobs(self, access_token, get_dispatch_jobs_param, **kwargs):
         """
+        /fleet/dispatch_jobs
         Get the dispatch jobs for the specified group.
-        
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -413,8 +414,8 @@ class DefaultApi(object):
 
     def get_fleet_dispatch_jobs_with_http_info(self, access_token, get_dispatch_jobs_param, **kwargs):
         """
+        /fleet/dispatch_jobs
         Get the dispatch jobs for the specified group.
-        
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -496,8 +497,8 @@ class DefaultApi(object):
 
     def get_fleet_drivers(self, access_token, group_drivers_param, **kwargs):
         """
+        /fleet/drivers
         Get all the drivers for the specified group.
-        
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -524,8 +525,8 @@ class DefaultApi(object):
 
     def get_fleet_drivers_with_http_info(self, access_token, group_drivers_param, **kwargs):
         """
+        /fleet/drivers
         Get all the drivers for the specified group.
-        
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -607,8 +608,8 @@ class DefaultApi(object):
 
     def get_fleet_hos_logs(self, access_token, hos_logs_param, **kwargs):
         """
+        /fleet/hos_logs
         Get the HOS (hours of service) logs for the specified driver.
-        
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -635,8 +636,8 @@ class DefaultApi(object):
 
     def get_fleet_hos_logs_with_http_info(self, access_token, hos_logs_param, **kwargs):
         """
+        /fleet/hos_logs
         Get the HOS (hours of service) logs for the specified driver.
-        
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -718,8 +719,8 @@ class DefaultApi(object):
 
     def get_fleet_locations(self, access_token, group_param, **kwargs):
         """
-        This method returns the current location in latitude and longitude of all vehicles in a requested group.
-        
+        /fleet/locations
+        Get current location of vehicles in a group. This method returns the current location in latitude and longitude of all vehicles in a requested group.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -746,8 +747,8 @@ class DefaultApi(object):
 
     def get_fleet_locations_with_http_info(self, access_token, group_param, **kwargs):
         """
-        This method returns the current location in latitude and longitude of all vehicles in a requested group.
-        
+        /fleet/locations
+        Get current location of vehicles in a group. This method returns the current location in latitude and longitude of all vehicles in a requested group.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -829,8 +830,8 @@ class DefaultApi(object):
 
     def get_fleet_trips(self, access_token, trips_param, **kwargs):
         """
-        This method returns a set of historical trips data for the specified vehicle in the specified time range.
-        
+        /fleet/trips
+        Get historical trips data for specified vehicle. This method returns a set of historical trips data for the specified vehicle in the specified time range.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -857,8 +858,8 @@ class DefaultApi(object):
 
     def get_fleet_trips_with_http_info(self, access_token, trips_param, **kwargs):
         """
-        This method returns a set of historical trips data for the specified vehicle in the specified time range.
-        
+        /fleet/trips
+        Get historical trips data for specified vehicle. This method returns a set of historical trips data for the specified vehicle in the specified time range.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -940,8 +941,8 @@ class DefaultApi(object):
 
     def get_sensors(self, access_token, group_param, **kwargs):
         """
-        This method returns a list of the sensor objects in the Samsara Cloud and information about them.
-        
+        /sensors/list
+        Get sensor objects. This method returns a list of the sensor objects in the Samsara Cloud and information about them.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -968,8 +969,8 @@ class DefaultApi(object):
 
     def get_sensors_with_http_info(self, access_token, group_param, **kwargs):
         """
-        This method returns a list of the sensor objects in the Samsara Cloud and information about them.
-        
+        /sensors/list
+        Get sensor objects. This method returns a list of the sensor objects in the Samsara Cloud and information about them.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1051,8 +1052,8 @@ class DefaultApi(object):
 
     def get_sensors_history(self, access_token, history_param, **kwargs):
         """
-        This method returns a set of historical data for the specified sensors in the specified time range and at the specified time resolution.
-        
+        /sensors/history
+        Get historical data for specified sensors. This method returns a set of historical data for the specified sensors in the specified time range and at the specified time resolution.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1079,8 +1080,8 @@ class DefaultApi(object):
 
     def get_sensors_history_with_http_info(self, access_token, history_param, **kwargs):
         """
-        This method returns a set of historical data for the specified sensors in the specified time range and at the specified time resolution.
-        
+        /sensors/history
+        Get historical data for specified sensors. This method returns a set of historical data for the specified sensors in the specified time range and at the specified time resolution.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1162,8 +1163,8 @@ class DefaultApi(object):
 
     def get_sensors_humidity(self, access_token, sensor_param, **kwargs):
         """
-        This method returns the current relative humidity for the requested sensors.
-        
+        /sensors/humidity
+        Get humidity for requested sensors. This method returns the current relative humidity for the requested sensors.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1190,8 +1191,8 @@ class DefaultApi(object):
 
     def get_sensors_humidity_with_http_info(self, access_token, sensor_param, **kwargs):
         """
-        This method returns the current relative humidity for the requested sensors.
-        
+        /sensors/humidity
+        Get humidity for requested sensors. This method returns the current relative humidity for the requested sensors.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1273,8 +1274,8 @@ class DefaultApi(object):
 
     def get_sensors_temperature(self, access_token, sensor_param, **kwargs):
         """
-        This method returns the current ambient temperature (and probe temperature if applicable) for the requested sensors.
-        
+        /sensors/temperature
+        Get temperature for requested sensors. This method returns the current ambient temperature (and probe temperature if applicable) for the requested sensors.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1301,8 +1302,8 @@ class DefaultApi(object):
 
     def get_sensors_temperature_with_http_info(self, access_token, sensor_param, **kwargs):
         """
-        This method returns the current ambient temperature (and probe temperature if applicable) for the requested sensors.
-        
+        /sensors/temperature
+        Get temperature for requested sensors. This method returns the current ambient temperature (and probe temperature if applicable) for the requested sensors.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1384,8 +1385,8 @@ class DefaultApi(object):
 
     def update_fleet_dispatch_jobs(self, access_token, update_dispatch_jobs_param, **kwargs):
         """
-        Update dispatch jobs specified group.
-        
+        /fleet/dispatch_jobs/update
+        Update dispatch jobs in the specified group.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1412,8 +1413,8 @@ class DefaultApi(object):
 
     def update_fleet_dispatch_jobs_with_http_info(self, access_token, update_dispatch_jobs_param, **kwargs):
         """
-        Update dispatch jobs specified group.
-        
+        /fleet/dispatch_jobs/update
+        Update dispatch jobs in the specified group.
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1495,8 +1496,8 @@ class DefaultApi(object):
 
     def update_vehicles(self, access_token, vehicle_update_param, **kwargs):
         """
+        /fleet/set_data
         This method enables the mutation of metadata for vehicles in the Samsara Cloud.
-        
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
@@ -1523,8 +1524,8 @@ class DefaultApi(object):
 
     def update_vehicles_with_http_info(self, access_token, vehicle_update_param, **kwargs):
         """
+        /fleet/set_data
         This method enables the mutation of metadata for vehicles in the Samsara Cloud.
-        
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please define a `callback` function
