@@ -606,6 +606,117 @@ class FleetApi(object):
                                             callback=params.get('callback'),
                                             _return_http_data_only=params.get('_return_http_data_only'))
 
+    def get_fleet_drivers_summary(self, access_token, drivers_summary_param, **kwargs):
+        """
+        /fleet/drivers/summary
+        Get the distance and time each driver in an organization has driven in a given time period.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_fleet_drivers_summary(access_token, drivers_summary_param, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str access_token: Samsara API access token. (required)
+        :param DriversSummaryParam drivers_summary_param: Org ID and time range to query. (required)
+        :return: DriversSummaryResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('callback'):
+            return self.get_fleet_drivers_summary_with_http_info(access_token, drivers_summary_param, **kwargs)
+        else:
+            (data) = self.get_fleet_drivers_summary_with_http_info(access_token, drivers_summary_param, **kwargs)
+            return data
+
+    def get_fleet_drivers_summary_with_http_info(self, access_token, drivers_summary_param, **kwargs):
+        """
+        /fleet/drivers/summary
+        Get the distance and time each driver in an organization has driven in a given time period.
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please define a `callback` function
+        to be invoked when receiving the response.
+        >>> def callback_function(response):
+        >>>     pprint(response)
+        >>>
+        >>> thread = api.get_fleet_drivers_summary_with_http_info(access_token, drivers_summary_param, callback=callback_function)
+
+        :param callback function: The callback function
+            for asynchronous request. (optional)
+        :param str access_token: Samsara API access token. (required)
+        :param DriversSummaryParam drivers_summary_param: Org ID and time range to query. (required)
+        :return: DriversSummaryResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['access_token', 'drivers_summary_param']
+        all_params.append('callback')
+        all_params.append('_return_http_data_only')
+
+        params = locals()
+        for key, val in iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_fleet_drivers_summary" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'access_token' is set
+        if ('access_token' not in params) or (params['access_token'] is None):
+            raise ValueError("Missing the required parameter `access_token` when calling `get_fleet_drivers_summary`")
+        # verify the required parameter 'drivers_summary_param' is set
+        if ('drivers_summary_param' not in params) or (params['drivers_summary_param'] is None):
+            raise ValueError("Missing the required parameter `drivers_summary_param` when calling `get_fleet_drivers_summary`")
+
+        resource_path = '/fleet/drivers/summary'.replace('{format}', 'json')
+        path_params = {}
+
+        query_params = {}
+        if 'access_token' in params:
+            query_params['access_token'] = params['access_token']
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'drivers_summary_param' in params:
+            body_params = params['drivers_summary_param']
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.\
+            select_header_accept(['application/json'])
+        if not header_params['Accept']:
+            del header_params['Accept']
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.\
+            select_header_content_type(['application/json'])
+
+        # Authentication setting
+        auth_settings = []
+
+        return self.api_client.call_api(resource_path, 'POST',
+                                            path_params,
+                                            query_params,
+                                            header_params,
+                                            body=body_params,
+                                            post_params=form_params,
+                                            files=local_var_files,
+                                            response_type='DriversSummaryResponse',
+                                            auth_settings=auth_settings,
+                                            callback=params.get('callback'),
+                                            _return_http_data_only=params.get('_return_http_data_only'))
+
     def get_fleet_hos_logs(self, access_token, hos_logs_param, **kwargs):
         """
         /fleet/hos_logs

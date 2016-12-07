@@ -58,6 +58,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**get_fleet**](docs/DefaultApi.md#get_fleet) | **POST** /fleet/list | This method returns a list of the vehicles in the Samsara Cloud and information about them.
 *DefaultApi* | [**get_fleet_dispatch_jobs**](docs/DefaultApi.md#get_fleet_dispatch_jobs) | **POST** /fleet/dispatch_jobs | Get the dispatch jobs for the specified group.
 *DefaultApi* | [**get_fleet_drivers**](docs/DefaultApi.md#get_fleet_drivers) | **POST** /fleet/drivers | Get all the drivers for the specified group.
+*DefaultApi* | [**get_fleet_drivers_summary**](docs/DefaultApi.md#get_fleet_drivers_summary) | **POST** /fleet/drivers/summary | Get the activity summary for each driver in the specified org.
 *DefaultApi* | [**get_fleet_hos_logs**](docs/DefaultApi.md#get_fleet_hos_logs) | **POST** /fleet/hos_logs | Get the HOS (hours of service) logs for the specified driver.
 *DefaultApi* | [**get_fleet_locations**](docs/DefaultApi.md#get_fleet_locations) | **POST** /fleet/locations | This method returns the current location in latitude and longitude of all vehicles in a requested group.
 *DefaultApi* | [**get_fleet_trips**](docs/DefaultApi.md#get_fleet_trips) | **POST** /fleet/trips | This method returns a set of historical trips data for the specified vehicle in the specified time range.
@@ -77,6 +78,9 @@ Class | Method | HTTP request | Description
  - [DispatchJobsResponseDispatchJobs](docs/DispatchJobsResponseDispatchJobs.md)
  - [DriversRespose](docs/DriversRespose.md)
  - [DriversResposeDrivers](docs/DriversResposeDrivers.md)
+ - [DriversSummaryParam](docs/DriversSummaryParam.md)
+ - [DriversSummaryResponse](docs/DriversSummaryResponse.md)
+ - [DriversSummaryResponseSummaries](docs/DriverSummaryResponseSummaries.md)
  - [ErrorResponse](docs/ErrorResponse.md)
  - [FleetdispatchJobscreateDispatchJobs](docs/FleetdispatchJobscreateDispatchJobs.md)
  - [FleetdispatchJobsupdateDispatchJobs](docs/FleetdispatchJobsupdateDispatchJobs.md)

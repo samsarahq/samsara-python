@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_fleet**](DefaultApi.md#get_fleet) | **POST** /fleet/list | /fleet/list
 [**get_fleet_dispatch_jobs**](DefaultApi.md#get_fleet_dispatch_jobs) | **POST** /fleet/dispatch_jobs | /fleet/dispatch_jobs
 [**get_fleet_drivers**](DefaultApi.md#get_fleet_drivers) | **POST** /fleet/drivers | /fleet/drivers
+[**get_fleet_drivers_summary**](DefaultApi.md#get_fleet_drivers_summary) | **POST** /fleet/drivers/summary | /fleet/drivers/summary
 [**get_fleet_hos_logs**](DefaultApi.md#get_fleet_hos_logs) | **POST** /fleet/hos_logs | /fleet/hos_logs
 [**get_fleet_locations**](DefaultApi.md#get_fleet_locations) | **POST** /fleet/locations | /fleet/locations
 [**get_fleet_trips**](DefaultApi.md#get_fleet_trips) | **POST** /fleet/trips | /fleet/trips
@@ -252,6 +253,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DriversRespose**](DriversRespose.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_fleet_drivers_summary**
+> DriversSummaryResponse get_fleet_drivers_summary(access_token, drivers_summary_param)
+
+/fleet/drivers/summary
+
+Get the distance and time each driver in an organization has driven in a given time period.
+
+### Example 
+```python
+import time
+import samsara
+from samsara.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = samsara.DefaultApi()
+access_token = 'access_token_example' # str | Samsara API access token.
+drivers_summary_param = samsara.DriversSummaryParam() # DriversSummaryParam | Org ID and time range to query.
+
+try: 
+    # /fleet/drivers/summary
+    api_response = api_instance.get_fleet_drivers_summary(access_token, drivers_summary_param)
+    pprint(api_response)
+except ApiException as e:
+    print "Exception when calling DefaultApi->get_fleet_drivers_summary: %s\n" % e
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **access_token** | **str**| Samsara API access token. | 
+ **drivers_summary_param** | [**DriversSummaryParam**](DriversSummaryParam.md)| Org ID and time range to query. | 
+
+### Return type
+
+[**DriversSummaryResponse**](DriversSummaryResponse.md)
 
 ### Authorization
 

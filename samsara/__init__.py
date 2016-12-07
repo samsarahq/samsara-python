@@ -31,6 +31,9 @@ from .models.dispatch_jobs_response import DispatchJobsResponse
 from .models.dispatch_jobs_response_dispatch_jobs import DispatchJobsResponseDispatchJobs
 from .models.drivers_respose import DriversRespose
 from .models.drivers_respose_drivers import DriversResposeDrivers
+from .models.drivers_summary_param import DriversSummaryParam
+from .models.drivers_summary_response import DriversSummaryResponse
+from .models.drivers_summary_response_summaries import DriversSummaryResponseSummaries
 from .models.error_response import ErrorResponse
 from .models.fleetdispatch_jobscreate_dispatch_jobs import FleetdispatchJobscreateDispatchJobs
 from .models.fleetdispatch_jobsupdate_dispatch_jobs import FleetdispatchJobsupdateDispatchJobs
