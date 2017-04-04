@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **get_sensors**
-> InlineResponse2002 get_sensors(access_token, group_param)
+> InlineResponse200 get_sensors(access_token, group_param)
 
 /sensors/list
 
@@ -19,6 +19,7 @@ Get sensor objects. This method returns a list of the sensor objects in the Sams
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import samsara
 from samsara.rest import ApiException
@@ -34,7 +35,7 @@ try:
     api_response = api_instance.get_sensors(access_token, group_param)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling SensorsApi->get_sensors: %s\n" % e
+    print("Exception when calling SensorsApi->get_sensors: %s\n" % e)
 ```
 
 ### Parameters
@@ -46,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 
@@ -68,6 +69,7 @@ Get historical data for specified sensors. This method returns a set of historic
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import samsara
 from samsara.rest import ApiException
@@ -83,7 +85,7 @@ try:
     api_response = api_instance.get_sensors_history(access_token, history_param)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling SensorsApi->get_sensors_history: %s\n" % e
+    print("Exception when calling SensorsApi->get_sensors_history: %s\n" % e)
 ```
 
 ### Parameters
@@ -117,6 +119,7 @@ Get humidity for requested sensors. This method returns the current relative hum
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import samsara
 from samsara.rest import ApiException
@@ -132,7 +135,7 @@ try:
     api_response = api_instance.get_sensors_humidity(access_token, sensor_param)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling SensorsApi->get_sensors_humidity: %s\n" % e
+    print("Exception when calling SensorsApi->get_sensors_humidity: %s\n" % e)
 ```
 
 ### Parameters
@@ -166,6 +169,7 @@ Get temperature for requested sensors. This method returns the current ambient t
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import samsara
 from samsara.rest import ApiException
@@ -181,7 +185,7 @@ try:
     api_response = api_instance.get_sensors_temperature(access_token, sensor_param)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling SensorsApi->get_sensors_temperature: %s\n" % e
+    print("Exception when calling SensorsApi->get_sensors_temperature: %s\n" % e)
 ```
 
 ### Parameters

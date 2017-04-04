@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **loc_state** | **str** | State in which the log was recorded. | [optional] 
 **loc_lat** | **float** | Latitude at which the log was recorded. | [optional] 
 **loc_lng** | **float** | Longitude at which the log was recorded. | [optional] 
+**loc_name** | **str** | Name of location at which the log was recorded. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

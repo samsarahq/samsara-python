@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **longitude** | **float** | Longitude in decimal degrees. | [optional] 
 **location** | **str** | Text representation of nearest identifiable location to (latitude, longitude) coordinates. | [optional] 
 **time** | **int** | The time the reported location was logged, reported as a UNIX timestamp in milliseconds. | [optional] 
+**on_trip** | **bool** | Whether or not a trip is currently in progress for this vehicle. More information available via /fleet/trips endpoint. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

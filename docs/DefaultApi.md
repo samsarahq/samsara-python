@@ -10,8 +10,10 @@ Method | HTTP request | Description
 [**get_fleet_dispatch_jobs**](DefaultApi.md#get_fleet_dispatch_jobs) | **POST** /fleet/dispatch_jobs | /fleet/dispatch_jobs
 [**get_fleet_drivers**](DefaultApi.md#get_fleet_drivers) | **POST** /fleet/drivers | /fleet/drivers
 [**get_fleet_drivers_summary**](DefaultApi.md#get_fleet_drivers_summary) | **POST** /fleet/drivers/summary | /fleet/drivers/summary
+[**get_fleet_hos_authentication_logs**](DefaultApi.md#get_fleet_hos_authentication_logs) | **POST** /fleet/hos_authentication_logs | /fleet/hos_authentication_logs
 [**get_fleet_hos_logs**](DefaultApi.md#get_fleet_hos_logs) | **POST** /fleet/hos_logs | /fleet/hos_logs
 [**get_fleet_locations**](DefaultApi.md#get_fleet_locations) | **POST** /fleet/locations | /fleet/locations
+[**get_fleet_maintenance_list**](DefaultApi.md#get_fleet_maintenance_list) | **POST** /fleet/maintenance/list | /fleet/maintenance/list
 [**get_fleet_trips**](DefaultApi.md#get_fleet_trips) | **POST** /fleet/trips | /fleet/trips
 [**get_sensors**](DefaultApi.md#get_sensors) | **POST** /sensors/list | /sensors/list
 [**get_sensors_history**](DefaultApi.md#get_sensors_history) | **POST** /sensors/history | /sensors/history
@@ -30,6 +32,7 @@ This method adds an address book entry to the specified group.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import samsara
 from samsara.rest import ApiException
@@ -44,7 +47,7 @@ try:
     # /fleet/add_address
     api_instance.add_fleet_address(access_token, address_param)
 except ApiException as e:
-    print "Exception when calling DefaultApi->add_fleet_address: %s\n" % e
+    print("Exception when calling DefaultApi->add_fleet_address: %s\n" % e)
 ```
 
 ### Parameters
@@ -78,6 +81,7 @@ Create dispatch jobs in the specified group.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import samsara
 from samsara.rest import ApiException
@@ -93,7 +97,7 @@ try:
     api_response = api_instance.create_fleet_dispatch_jobs(access_token, create_dispatch_jobs_param)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling DefaultApi->create_fleet_dispatch_jobs: %s\n" % e
+    print("Exception when calling DefaultApi->create_fleet_dispatch_jobs: %s\n" % e)
 ```
 
 ### Parameters
@@ -119,7 +123,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_fleet**
-> InlineResponse200 get_fleet(access_token, group_param)
+> InlineResponse2001 get_fleet(access_token, group_param)
 
 /fleet/list
 
@@ -127,6 +131,7 @@ Get list of the vehicles. This method returns a list of the vehicles in the Sams
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import samsara
 from samsara.rest import ApiException
@@ -142,7 +147,7 @@ try:
     api_response = api_instance.get_fleet(access_token, group_param)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling DefaultApi->get_fleet: %s\n" % e
+    print("Exception when calling DefaultApi->get_fleet: %s\n" % e)
 ```
 
 ### Parameters
@@ -154,7 +159,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 
@@ -176,6 +181,7 @@ Get the dispatch jobs for the specified group.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import samsara
 from samsara.rest import ApiException
@@ -191,7 +197,7 @@ try:
     api_response = api_instance.get_fleet_dispatch_jobs(access_token, get_dispatch_jobs_param)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling DefaultApi->get_fleet_dispatch_jobs: %s\n" % e
+    print("Exception when calling DefaultApi->get_fleet_dispatch_jobs: %s\n" % e)
 ```
 
 ### Parameters
@@ -225,6 +231,7 @@ Get all the drivers for the specified group.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import samsara
 from samsara.rest import ApiException
@@ -240,7 +247,7 @@ try:
     api_response = api_instance.get_fleet_drivers(access_token, group_drivers_param)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling DefaultApi->get_fleet_drivers: %s\n" % e
+    print("Exception when calling DefaultApi->get_fleet_drivers: %s\n" % e)
 ```
 
 ### Parameters
@@ -274,6 +281,7 @@ Get the distance and time each driver in an organization has driven in a given t
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import samsara
 from samsara.rest import ApiException
@@ -289,7 +297,7 @@ try:
     api_response = api_instance.get_fleet_drivers_summary(access_token, drivers_summary_param)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling DefaultApi->get_fleet_drivers_summary: %s\n" % e
+    print("Exception when calling DefaultApi->get_fleet_drivers_summary: %s\n" % e)
 ```
 
 ### Parameters
@@ -314,6 +322,56 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_fleet_hos_authentication_logs**
+> HosAuthenticationLogsResponse get_fleet_hos_authentication_logs(access_token, hos_authentication_logs_param)
+
+/fleet/hos_authentication_logs
+
+Get the HOS (hours of service) signin and signout logs for the specified driver. Only signout logs include location information.
+
+### Example 
+```python
+from __future__ import print_statement
+import time
+import samsara
+from samsara.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = samsara.DefaultApi()
+access_token = 'access_token_example' # str | Samsara API access token.
+hos_authentication_logs_param = samsara.HosAuthenticationLogsParam() # HosAuthenticationLogsParam | 
+
+try: 
+    # /fleet/hos_authentication_logs
+    api_response = api_instance.get_fleet_hos_authentication_logs(access_token, hos_authentication_logs_param)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DefaultApi->get_fleet_hos_authentication_logs: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **access_token** | **str**| Samsara API access token. | 
+ **hos_authentication_logs_param** | [**HosAuthenticationLogsParam**](HosAuthenticationLogsParam.md)|  | 
+
+### Return type
+
+[**HosAuthenticationLogsResponse**](HosAuthenticationLogsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_fleet_hos_logs**
 > HosLogsResponse get_fleet_hos_logs(access_token, hos_logs_param)
 
@@ -323,6 +381,7 @@ Get the HOS (hours of service) logs for the specified driver.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import samsara
 from samsara.rest import ApiException
@@ -338,7 +397,7 @@ try:
     api_response = api_instance.get_fleet_hos_logs(access_token, hos_logs_param)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling DefaultApi->get_fleet_hos_logs: %s\n" % e
+    print("Exception when calling DefaultApi->get_fleet_hos_logs: %s\n" % e)
 ```
 
 ### Parameters
@@ -364,7 +423,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_fleet_locations**
-> InlineResponse2001 get_fleet_locations(access_token, group_param)
+> InlineResponse2002 get_fleet_locations(access_token, group_param)
 
 /fleet/locations
 
@@ -372,6 +431,7 @@ Get current location of vehicles in a group. This method returns the current loc
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import samsara
 from samsara.rest import ApiException
@@ -387,7 +447,7 @@ try:
     api_response = api_instance.get_fleet_locations(access_token, group_param)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling DefaultApi->get_fleet_locations: %s\n" % e
+    print("Exception when calling DefaultApi->get_fleet_locations: %s\n" % e)
 ```
 
 ### Parameters
@@ -399,7 +459,57 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse2002**](InlineResponse2002.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_fleet_maintenance_list**
+> InlineResponse2003 get_fleet_maintenance_list(access_token, group_param)
+
+/fleet/maintenance/list
+
+Get list of the vehicles with any engine faults or check light data.
+
+### Example 
+```python
+from __future__ import print_statement
+import time
+import samsara
+from samsara.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = samsara.DefaultApi()
+access_token = 'access_token_example' # str | Samsara API access token.
+group_param = samsara.GroupParam() # GroupParam | Group ID to query.
+
+try: 
+    # /fleet/maintenance/list
+    api_response = api_instance.get_fleet_maintenance_list(access_token, group_param)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DefaultApi->get_fleet_maintenance_list: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **access_token** | **str**| Samsara API access token. | 
+ **group_param** | [**GroupParam**](GroupParam.md)| Group ID to query. | 
+
+### Return type
+
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 
@@ -421,6 +531,7 @@ Get historical trips data for specified vehicle. This method returns a set of hi
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import samsara
 from samsara.rest import ApiException
@@ -436,7 +547,7 @@ try:
     api_response = api_instance.get_fleet_trips(access_token, trips_param)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling DefaultApi->get_fleet_trips: %s\n" % e
+    print("Exception when calling DefaultApi->get_fleet_trips: %s\n" % e)
 ```
 
 ### Parameters
@@ -462,7 +573,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_sensors**
-> InlineResponse2002 get_sensors(access_token, group_param)
+> InlineResponse200 get_sensors(access_token, group_param)
 
 /sensors/list
 
@@ -470,6 +581,7 @@ Get sensor objects. This method returns a list of the sensor objects in the Sams
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import samsara
 from samsara.rest import ApiException
@@ -485,7 +597,7 @@ try:
     api_response = api_instance.get_sensors(access_token, group_param)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling DefaultApi->get_sensors: %s\n" % e
+    print("Exception when calling DefaultApi->get_sensors: %s\n" % e)
 ```
 
 ### Parameters
@@ -497,7 +609,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 
@@ -519,6 +631,7 @@ Get historical data for specified sensors. This method returns a set of historic
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import samsara
 from samsara.rest import ApiException
@@ -534,7 +647,7 @@ try:
     api_response = api_instance.get_sensors_history(access_token, history_param)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling DefaultApi->get_sensors_history: %s\n" % e
+    print("Exception when calling DefaultApi->get_sensors_history: %s\n" % e)
 ```
 
 ### Parameters
@@ -568,6 +681,7 @@ Get humidity for requested sensors. This method returns the current relative hum
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import samsara
 from samsara.rest import ApiException
@@ -583,7 +697,7 @@ try:
     api_response = api_instance.get_sensors_humidity(access_token, sensor_param)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling DefaultApi->get_sensors_humidity: %s\n" % e
+    print("Exception when calling DefaultApi->get_sensors_humidity: %s\n" % e)
 ```
 
 ### Parameters
@@ -617,6 +731,7 @@ Get temperature for requested sensors. This method returns the current ambient t
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import samsara
 from samsara.rest import ApiException
@@ -632,7 +747,7 @@ try:
     api_response = api_instance.get_sensors_temperature(access_token, sensor_param)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling DefaultApi->get_sensors_temperature: %s\n" % e
+    print("Exception when calling DefaultApi->get_sensors_temperature: %s\n" % e)
 ```
 
 ### Parameters
@@ -666,6 +781,7 @@ Update dispatch jobs in the specified group.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import samsara
 from samsara.rest import ApiException
@@ -681,7 +797,7 @@ try:
     api_response = api_instance.update_fleet_dispatch_jobs(access_token, update_dispatch_jobs_param)
     pprint(api_response)
 except ApiException as e:
-    print "Exception when calling DefaultApi->update_fleet_dispatch_jobs: %s\n" % e
+    print("Exception when calling DefaultApi->update_fleet_dispatch_jobs: %s\n" % e)
 ```
 
 ### Parameters
@@ -715,6 +831,7 @@ This method enables the mutation of metadata for vehicles in the Samsara Cloud.
 
 ### Example 
 ```python
+from __future__ import print_statement
 import time
 import samsara
 from samsara.rest import ApiException
@@ -729,7 +846,7 @@ try:
     # /fleet/set_data
     api_instance.update_vehicles(access_token, vehicle_update_param)
 except ApiException as e:
-    print "Exception when calling DefaultApi->update_vehicles: %s\n" % e
+    print("Exception when calling DefaultApi->update_vehicles: %s\n" % e)
 ```
 
 ### Parameters
