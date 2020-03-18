@@ -1,15 +1,15 @@
 # VehicleLocation
 
+Vehicle location event.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | ID of the vehicle. | 
-**name** | **str** | Name of the vehicle. | [optional] 
-**latitude** | **float** | Latitude in decimal degrees. | [optional] 
-**longitude** | **float** | Longitude in decimal degrees. | [optional] 
-**location** | **str** | Text representation of nearest identifiable location to (latitude, longitude) coordinates. | [optional] 
-**time** | **int** | The time the reported location was logged, reported as a UNIX timestamp in milliseconds. | [optional] 
-**on_trip** | **bool** | Whether or not a trip is currently in progress for this vehicle. More information available via /fleet/trips endpoint. | [optional] 
+**heading** | **float** | Heading of the vehicle in degrees. | [optional] 
+**latitude** | **float** | GPS latitude represented in degrees | 
+**longitude** | **float** | GPS longitude represented in degrees | 
+**reverse_geo** | [**VehicleLocationReverseGeo**](VehicleLocationReverseGeo.md) |  | [optional] 
+**speed** | **float** | GPS speed of the vehicle in miles per hour. | [optional] 
+**time** | **datetime** | UTC timestamp in RFC 3339 format. Example: &#x60;2020-01-27T07:06:25Z&#x60;. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
