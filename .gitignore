@@ -1,4 +1,3 @@
-*.DS_STORE
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -46,7 +45,9 @@ coverage.xml
 *,cover
 .hypothesis/
 venv/
+.venv/
 .python-version
+.pytest_cache
 
 # Translations
 *.mo
@@ -63,3 +64,26 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
+
+# generated stuff that we can ignore
+.openapi-generator-ignore
+.openapi-generator/
+.travis.yml
+git_push.sh
+tox.ini
+setup.cfg
+
+# Ignore any other code that might have snuck in
+*.go
+*.sh
+*.tf
+*.json
+*.yml
+*.yaml
+*.ini
+*.tar.gz
+*.js
+*.tsx
+*.graphql
+go/*
+*.jar
