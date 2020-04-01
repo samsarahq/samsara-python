@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **address_types** | **list[str]** | Reporting location type associated with the address (used for ELD reporting purposes). | [optional] 
 **contacts** | [**list[ContactTinyResponse]**](ContactTinyResponse.md) | An array Contact mini-objects that are associated the Address. | [optional] 
+**created_at_time** | **datetime** | The date and time this address was created in RFC 3339 format. | [optional] 
 **external_ids** | **dict(str, str)** | The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object. | [optional] 
 **formatted_address** | **str** | The full street address for this address/geofence, as it might be recognized by Google Maps. | 
 **geofence** | [**AddressGeofence**](AddressGeofence.md) |  | 
