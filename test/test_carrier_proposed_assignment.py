@@ -36,21 +36,23 @@ class TestCarrierProposedAssignment(unittest.TestCase):
         # model = samsara.models.carrier_proposed_assignment.CarrierProposedAssignment()  # noqa: E501
         if include_optional :
             return CarrierProposedAssignment(
-                accepted_time = None, 
-                active_time = None, 
-                driver = None, 
-                first_seen_time = None, 
+                accepted_time = '2020-01-27T07:06:25Z', 
+                active_time = '2020-01-27T07:06:25Z', 
+                driver = null, 
+                first_seen_time = '2020-01-27T07:06:25Z', 
                 id = '08b3aeada5f4ab3010c0b4efa28d2d1890dbf8d48d2d', 
-                rejected_time = None, 
+                rejected_time = '2020-01-27T07:06:25Z', 
                 shipping_docs = 'Delivery 123, chips and soda', 
                 trailers = [
                     samsara.models.trailer_name_only_response.trailerNameOnlyResponse(
                         name = 'Midwest Trailer #5', )
                     ], 
-                vehicle = None
+                vehicle = null
             )
         else :
             return CarrierProposedAssignment(
+                active_time = '2020-01-27T07:06:25Z',
+                id = '08b3aeada5f4ab3010c0b4efa28d2d1890dbf8d48d2d',
         )
 
     def testCarrierProposedAssignment(self):

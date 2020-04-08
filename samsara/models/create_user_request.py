@@ -36,7 +36,7 @@ class CreateUserRequest(object):
         'auth_type': 'UserAuthType',
         'email': 'str',
         'name': 'str',
-        'roles': 'list[UserTagRoleRequest]'
+        'roles': 'list[UserRoleAssignmentRequest]'
     }
 
     attribute_map = {
@@ -140,10 +140,10 @@ class CreateUserRequest(object):
     def roles(self):
         """Gets the roles of this CreateUserRequest.  # noqa: E501
 
-        The roles for this user. Users must have at least a single role to be a part of an organization.  # noqa: E501
+        The list of roles that applies to this user. A user may have \"organizational\" roles, which apply to the user at the organizational level, and \"tag-specific\" roles, which apply to the user for a given tag.  # noqa: E501
 
         :return: The roles of this CreateUserRequest.  # noqa: E501
-        :rtype: list[UserTagRoleRequest]
+        :rtype: list[UserRoleAssignmentRequest]
         """
         return self._roles
 
@@ -151,10 +151,10 @@ class CreateUserRequest(object):
     def roles(self, roles):
         """Sets the roles of this CreateUserRequest.
 
-        The roles for this user. Users must have at least a single role to be a part of an organization.  # noqa: E501
+        The list of roles that applies to this user. A user may have \"organizational\" roles, which apply to the user at the organizational level, and \"tag-specific\" roles, which apply to the user for a given tag.  # noqa: E501
 
         :param roles: The roles of this CreateUserRequest.  # noqa: E501
-        :type: list[UserTagRoleRequest]
+        :type: list[UserRoleAssignmentRequest]
         """
         if self.local_vars_configuration.client_side_validation and roles is None:  # noqa: E501
             raise ValueError("Invalid value for `roles`, must not be `None`")  # noqa: E501

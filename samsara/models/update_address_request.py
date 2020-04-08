@@ -117,7 +117,7 @@ class UpdateAddressRequest(object):
         :param address_types: The address_types of this UpdateAddressRequest.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["yard"]  # noqa: E501
+        allowed_values = ["yard", "shortHaul"]  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 not set(address_types).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(

@@ -84,7 +84,7 @@ class VehicleStatsObdEngineSeconds(object):
     def value(self):
         """Gets the value of this VehicleStatsObdEngineSeconds.  # noqa: E501
 
-        Number of seconds the vehicle's engine has been on according to the on-baord diagnostics.  # noqa: E501
+        Number of seconds the vehicle's engine has been on according to the on-board diagnostics.  # noqa: E501
 
         :return: The value of this VehicleStatsObdEngineSeconds.  # noqa: E501
         :rtype: int
@@ -95,7 +95,7 @@ class VehicleStatsObdEngineSeconds(object):
     def value(self, value):
         """Sets the value of this VehicleStatsObdEngineSeconds.
 
-        Number of seconds the vehicle's engine has been on according to the on-baord diagnostics.  # noqa: E501
+        Number of seconds the vehicle's engine has been on according to the on-board diagnostics.  # noqa: E501
 
         :param value: The value of this VehicleStatsObdEngineSeconds.  # noqa: E501
         :type: int

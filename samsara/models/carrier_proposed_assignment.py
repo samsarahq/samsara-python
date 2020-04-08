@@ -33,15 +33,15 @@ class CarrierProposedAssignment(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'accepted_time': 'object',
-        'active_time': 'object',
-        'driver': 'object',
-        'first_seen_time': 'object',
+        'accepted_time': 'str',
+        'active_time': 'str',
+        'driver': 'CarrierProposedAssignmentDriver',
+        'first_seen_time': 'str',
         'id': 'str',
-        'rejected_time': 'object',
+        'rejected_time': 'str',
         'shipping_docs': 'str',
         'trailers': 'list[TrailerNameOnlyResponse]',
-        'vehicle': 'object'
+        'vehicle': 'CarrierProposedAssignmentVehicle'
     }
 
     attribute_map = {
@@ -75,14 +75,12 @@ class CarrierProposedAssignment(object):
 
         if accepted_time is not None:
             self.accepted_time = accepted_time
-        if active_time is not None:
-            self.active_time = active_time
+        self.active_time = active_time
         if driver is not None:
             self.driver = driver
         if first_seen_time is not None:
             self.first_seen_time = first_seen_time
-        if id is not None:
-            self.id = id
+        self.id = id
         if rejected_time is not None:
             self.rejected_time = rejected_time
         if shipping_docs is not None:
@@ -96,9 +94,10 @@ class CarrierProposedAssignment(object):
     def accepted_time(self):
         """Gets the accepted_time of this CarrierProposedAssignment.  # noqa: E501
 
+        Time when the driver accepted this assignment in the mobile app. Will be omitted if the driver hasn't accepted this assignment. RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).  # noqa: E501
 
         :return: The accepted_time of this CarrierProposedAssignment.  # noqa: E501
-        :rtype: object
+        :rtype: str
         """
         return self._accepted_time
 
@@ -106,9 +105,10 @@ class CarrierProposedAssignment(object):
     def accepted_time(self, accepted_time):
         """Sets the accepted_time of this CarrierProposedAssignment.
 
+        Time when the driver accepted this assignment in the mobile app. Will be omitted if the driver hasn't accepted this assignment. RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).  # noqa: E501
 
         :param accepted_time: The accepted_time of this CarrierProposedAssignment.  # noqa: E501
-        :type: object
+        :type: str
         """
 
         self._accepted_time = accepted_time
@@ -117,9 +117,10 @@ class CarrierProposedAssignment(object):
     def active_time(self):
         """Gets the active_time of this CarrierProposedAssignment.  # noqa: E501
 
+        Time after which this assignment will be active and visible to the driver on the mobile app. Not setting it makes it active now. UTC timestamp in RFC 3339 format. Example: `2020-01-27T07:06:25Z`.  # noqa: E501
 
         :return: The active_time of this CarrierProposedAssignment.  # noqa: E501
-        :rtype: object
+        :rtype: str
         """
         return self._active_time
 
@@ -127,10 +128,13 @@ class CarrierProposedAssignment(object):
     def active_time(self, active_time):
         """Sets the active_time of this CarrierProposedAssignment.
 
+        Time after which this assignment will be active and visible to the driver on the mobile app. Not setting it makes it active now. UTC timestamp in RFC 3339 format. Example: `2020-01-27T07:06:25Z`.  # noqa: E501
 
         :param active_time: The active_time of this CarrierProposedAssignment.  # noqa: E501
-        :type: object
+        :type: str
         """
+        if self.local_vars_configuration.client_side_validation and active_time is None:  # noqa: E501
+            raise ValueError("Invalid value for `active_time`, must not be `None`")  # noqa: E501
 
         self._active_time = active_time
 
@@ -140,7 +144,7 @@ class CarrierProposedAssignment(object):
 
 
         :return: The driver of this CarrierProposedAssignment.  # noqa: E501
-        :rtype: object
+        :rtype: CarrierProposedAssignmentDriver
         """
         return self._driver
 
@@ -150,7 +154,7 @@ class CarrierProposedAssignment(object):
 
 
         :param driver: The driver of this CarrierProposedAssignment.  # noqa: E501
-        :type: object
+        :type: CarrierProposedAssignmentDriver
         """
 
         self._driver = driver
@@ -159,9 +163,10 @@ class CarrierProposedAssignment(object):
     def first_seen_time(self):
         """Gets the first_seen_time of this CarrierProposedAssignment.  # noqa: E501
 
+        Time when the driver first saw this assignment in the mobile app. Will be omitted if the driver hasn't seen this assignment yet. RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).  # noqa: E501
 
         :return: The first_seen_time of this CarrierProposedAssignment.  # noqa: E501
-        :rtype: object
+        :rtype: str
         """
         return self._first_seen_time
 
@@ -169,9 +174,10 @@ class CarrierProposedAssignment(object):
     def first_seen_time(self, first_seen_time):
         """Sets the first_seen_time of this CarrierProposedAssignment.
 
+        Time when the driver first saw this assignment in the mobile app. Will be omitted if the driver hasn't seen this assignment yet. RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).  # noqa: E501
 
         :param first_seen_time: The first_seen_time of this CarrierProposedAssignment.  # noqa: E501
-        :type: object
+        :type: str
         """
 
         self._first_seen_time = first_seen_time
@@ -196,6 +202,8 @@ class CarrierProposedAssignment(object):
         :param id: The id of this CarrierProposedAssignment.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -203,9 +211,10 @@ class CarrierProposedAssignment(object):
     def rejected_time(self):
         """Gets the rejected_time of this CarrierProposedAssignment.  # noqa: E501
 
+        Time when the driver rejected this assignment in the mobile app. Will be omitted if the driver hasn't rejected this assignment. RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).  # noqa: E501
 
         :return: The rejected_time of this CarrierProposedAssignment.  # noqa: E501
-        :rtype: object
+        :rtype: str
         """
         return self._rejected_time
 
@@ -213,9 +222,10 @@ class CarrierProposedAssignment(object):
     def rejected_time(self, rejected_time):
         """Sets the rejected_time of this CarrierProposedAssignment.
 
+        Time when the driver rejected this assignment in the mobile app. Will be omitted if the driver hasn't rejected this assignment. RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).  # noqa: E501
 
         :param rejected_time: The rejected_time of this CarrierProposedAssignment.  # noqa: E501
-        :type: object
+        :type: str
         """
 
         self._rejected_time = rejected_time
@@ -224,7 +234,7 @@ class CarrierProposedAssignment(object):
     def shipping_docs(self):
         """Gets the shipping_docs of this CarrierProposedAssignment.  # noqa: E501
 
-        Shipping Documents that this assignment will propose to the driver; maximum of 40 characters  # noqa: E501
+        Shipping Documents that this assignment will propose to the driver.  # noqa: E501
 
         :return: The shipping_docs of this CarrierProposedAssignment.  # noqa: E501
         :rtype: str
@@ -235,7 +245,7 @@ class CarrierProposedAssignment(object):
     def shipping_docs(self, shipping_docs):
         """Sets the shipping_docs of this CarrierProposedAssignment.
 
-        Shipping Documents that this assignment will propose to the driver; maximum of 40 characters  # noqa: E501
+        Shipping Documents that this assignment will propose to the driver.  # noqa: E501
 
         :param shipping_docs: The shipping_docs of this CarrierProposedAssignment.  # noqa: E501
         :type: str
@@ -275,7 +285,7 @@ class CarrierProposedAssignment(object):
 
 
         :return: The vehicle of this CarrierProposedAssignment.  # noqa: E501
-        :rtype: object
+        :rtype: CarrierProposedAssignmentVehicle
         """
         return self._vehicle
 
@@ -285,7 +295,7 @@ class CarrierProposedAssignment(object):
 
 
         :param vehicle: The vehicle of this CarrierProposedAssignment.  # noqa: E501
-        :type: object
+        :type: CarrierProposedAssignmentVehicle
         """
 
         self._vehicle = vehicle

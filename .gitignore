@@ -72,18 +72,3 @@ target/
 git_push.sh
 tox.ini
 setup.cfg
-
-# Ignore any other code that might have snuck in
-*.go
-*.sh
-*.tf
-*.json
-*.yml
-*.yaml
-*.ini
-*.tar.gz
-*.js
-*.tsx
-*.graphql
-go/*
-*.jar

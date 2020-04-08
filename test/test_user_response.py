@@ -42,11 +42,14 @@ class TestUserResponse(unittest.TestCase):
                     id = '123', 
                     name = 'Bob Smith', 
                     roles = [
-                        samsara.models.user_tag_role.UserTagRole(
-                            role = samsara.models.user_role_tiny_response.userRoleTinyResponse(
+                        samsara.models.user_role_assignment.UserRoleAssignment(
+                            role = samsara.models.user_role.UserRole(
                                 id = '8a9371af-82d1-4158-bf91-4ecc8d3a114c', 
                                 name = 'Full Admin', ), 
-                            tag = samsara.models.tag.tag(), )
+                            tag = samsara.models.tag_tiny_response.tagTinyResponse(
+                                id = '3914', 
+                                name = 'East Coast', 
+                                parent_tag_id = '4815', ), )
                         ], )
             )
         else :

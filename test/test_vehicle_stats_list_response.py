@@ -54,7 +54,7 @@ class TestVehicleStatsListResponse(unittest.TestCase):
                                 time = '2020-01-27T07:06:25Z', 
                                 value = 'On', )
                             ], 
-                        fuel_percent = [
+                        fuel_percents = [
                             samsara.models.vehicle_stats_fuel_percent.VehicleStatsFuelPercent(
                                 time = '2020-01-27T07:06:25Z', 
                                 value = 54, )
@@ -106,7 +106,7 @@ class TestVehicleStatsListResponse(unittest.TestCase):
                                 time = '2020-01-27T07:06:25Z', 
                                 value = 'On', )
                             ], 
-                        fuel_percent = [
+                        fuel_percents = [
                             samsara.models.vehicle_stats_fuel_percent.VehicleStatsFuelPercent(
                                 time = '2020-01-27T07:06:25Z', 
                                 value = 54, )

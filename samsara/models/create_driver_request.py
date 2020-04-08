@@ -82,7 +82,7 @@ class CreateDriverRequest(object):
         'vehicle_group_tag_id': 'vehicleGroupTagId'
     }
 
-    def __init__(self, carrier_settings=None, eld_adverse_weather_exemption_enabled=False, eld_big_day_exemption_enabled=False, eld_day_start_hour=0, eld_exempt=False, eld_exempt_reason=None, eld_pc_enabled=False, eld_ym_enabled=False, external_ids=None, license_number=None, license_state=None, locale=None, name=None, notes=None, password=None, phone=None, static_assigned_vehicle_id=None, tachograph_card_number=None, tag_ids=None, timezone=None, username=None, vehicle_group_tag_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, carrier_settings=None, eld_adverse_weather_exemption_enabled=False, eld_big_day_exemption_enabled=False, eld_day_start_hour=0, eld_exempt=False, eld_exempt_reason=None, eld_pc_enabled=False, eld_ym_enabled=False, external_ids=None, license_number=None, license_state=None, locale=None, name=None, notes=None, password=None, phone=None, static_assigned_vehicle_id=None, tachograph_card_number=None, tag_ids=None, timezone='America/Los_Angeles', username=None, vehicle_group_tag_id=None, local_vars_configuration=None):  # noqa: E501
         """CreateDriverRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()

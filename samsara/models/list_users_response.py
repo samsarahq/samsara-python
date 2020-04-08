@@ -61,6 +61,7 @@ class ListUsersResponse(object):
     def data(self):
         """Gets the data of this ListUsersResponse.  # noqa: E501
 
+        A list of users.  # noqa: E501
 
         :return: The data of this ListUsersResponse.  # noqa: E501
         :rtype: list[User]
@@ -71,6 +72,7 @@ class ListUsersResponse(object):
     def data(self, data):
         """Sets the data of this ListUsersResponse.
 
+        A list of users.  # noqa: E501
 
         :param data: The data of this ListUsersResponse.  # noqa: E501
         :type: list[User]

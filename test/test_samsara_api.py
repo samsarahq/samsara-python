@@ -56,6 +56,13 @@ class TestSamsaraApi(unittest.TestCase):
         """
         pass
 
+    def test_create_dvir(self):
+        """Test case for create_dvir
+
+        Create a mechanic DVIR  # noqa: E501
+        """
+        pass
+
     def test_create_tag(self):
         """Test case for create_tag
 
@@ -77,8 +84,8 @@ class TestSamsaraApi(unittest.TestCase):
         """
         pass
 
-    def test_delete_carrier_proposed_assignment_by_id(self):
-        """Test case for delete_carrier_proposed_assignment_by_id
+    def test_delete_carrier_proposed_assignment(self):
+        """Test case for delete_carrier_proposed_assignment
 
         Delete an assignment  # noqa: E501
         """
@@ -112,13 +119,6 @@ class TestSamsaraApi(unittest.TestCase):
         """
         pass
 
-    def test_get_carrier_proposed_assignment(self):
-        """Test case for get_carrier_proposed_assignment
-
-        Retrieve assignments  # noqa: E501
-        """
-        pass
-
     def test_get_contact(self):
         """Test case for get_contact
 
@@ -137,6 +137,20 @@ class TestSamsaraApi(unittest.TestCase):
         """Test case for get_driver_tachograph_activity
 
         Get driver tachograph activity  # noqa: E501
+        """
+        pass
+
+    def test_get_dvir_defects(self):
+        """Test case for get_dvir_defects
+
+        Get all defects  # noqa: E501
+        """
+        pass
+
+    def test_get_dvir_history(self):
+        """Test case for get_dvir_history
+
+        Get all DVIRs  # noqa: E501
         """
         pass
 
@@ -259,6 +273,13 @@ class TestSamsaraApi(unittest.TestCase):
         """
         pass
 
+    def test_list_carrier_proposed_assignments(self):
+        """Test case for list_carrier_proposed_assignments
+
+        Retrieve assignments  # noqa: E501
+        """
+        pass
+
     def test_list_contacts(self):
         """Test case for list_contacts
 
@@ -315,6 +336,13 @@ class TestSamsaraApi(unittest.TestCase):
         """
         pass
 
+    def test_resolve_dvir_defect(self):
+        """Test case for resolve_dvir_defect
+
+        Resolve a defect  # noqa: E501
+        """
+        pass
+
     def test_update_address(self):
         """Test case for update_address
 
@@ -333,6 +361,13 @@ class TestSamsaraApi(unittest.TestCase):
         """Test case for update_driver
 
         Update a driver  # noqa: E501
+        """
+        pass
+
+    def test_update_dvir(self):
+        """Test case for update_dvir
+
+        Resolve a DVIR  # noqa: E501
         """
         pass
 

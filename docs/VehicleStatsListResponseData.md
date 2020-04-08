@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **aux_input1** | [**list[VehicleStatsAuxInput]**](VehicleStatsAuxInput.md) | A list of auxiliary equipment states. | [optional] 
 **aux_input2** | [**list[VehicleStatsAuxInput]**](VehicleStatsAuxInput.md) | A list of auxiliary equipment states. | [optional] 
 **engine_states** | [**list[VehicleStatsEngineState]**](VehicleStatsEngineState.md) | A list of engine state events for the given vehicle. | [optional] 
-**fuel_percent** | [**list[VehicleStatsFuelPercent]**](VehicleStatsFuelPercent.md) | A list of fuel percentage readings for the given vehicle. | [optional] 
+**fuel_percents** | [**list[VehicleStatsFuelPercent]**](VehicleStatsFuelPercent.md) | A list of fuel percentage readings for the given vehicle. | [optional] 
 **gps_distance_meters** | [**list[VehicleStatsGpsDistanceMeters]**](VehicleStatsGpsDistanceMeters.md) | A list of GPS distance events for the given vehicle. | [optional] 
 **gps_odometer_meters** | [**list[VehicleStatsGpsOdometerMeters]**](VehicleStatsGpsOdometerMeters.md) | A list of GPS odometer events for the given vehicle. | [optional] 
 **id** | **str** | The unique Samsara ID of the Vehicle. This is automatically generated when the Vehicle object is created. It cannot be changed. | 

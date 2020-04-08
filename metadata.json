@@ -1,0 +1,16 @@
+{
+	"ApiVersion": "2019.12.12",
+	"SemanticVersion": "1.0.0",
+	"Checksum": "7b0a202022",
+	"RelevantChangelogs": [
+		{
+			"Date": "2019.12.12",
+			"Description": "Updated endpoint to report composite unassigned driving segments if applicable when querying for an unassigned driving segment by id.",
+			"Details": "Endpoint can now return a new status called 'MULTIPLE', which indicates that the unassigned driving segment has multiple composite segments; composite segments will be returned nested under a new field called 'segments'. Unassigned driving segments will now also return a string representing duty status.",
+			"IsBreakingChange": true,
+			"IsInitialRelease": false,
+			"Route": "/v1/fleet/unassigned_driving_segments/{segment_id:[a-zA-Z0-9]+}",
+			"Method": "GET"
+		}
+	]
+}

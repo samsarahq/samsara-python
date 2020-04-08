@@ -8,18 +8,20 @@ Method | HTTP request | Description
 [**create_carrier_proposed_assignment**](SamsaraApi.md#create_carrier_proposed_assignment) | **POST** /fleet/carrier-proposed-assignments | Create an assignment
 [**create_contact**](SamsaraApi.md#create_contact) | **POST** /contacts | Create a contact
 [**create_driver**](SamsaraApi.md#create_driver) | **POST** /fleet/drivers | Create a driver
+[**create_dvir**](SamsaraApi.md#create_dvir) | **POST** /fleet/dvirs | Create a mechanic DVIR
 [**create_tag**](SamsaraApi.md#create_tag) | **POST** /tags | Create a tag
 [**create_user**](SamsaraApi.md#create_user) | **POST** /users | Create a user
 [**delete_address**](SamsaraApi.md#delete_address) | **DELETE** /addresses/{id} | Delete an address
-[**delete_carrier_proposed_assignment_by_id**](SamsaraApi.md#delete_carrier_proposed_assignment_by_id) | **DELETE** /fleet/carrier-proposed-assignments/{id} | Delete an assignment
+[**delete_carrier_proposed_assignment**](SamsaraApi.md#delete_carrier_proposed_assignment) | **DELETE** /fleet/carrier-proposed-assignments/{id} | Delete an assignment
 [**delete_contact**](SamsaraApi.md#delete_contact) | **DELETE** /contacts/{id} | Delete a contact
 [**delete_tag**](SamsaraApi.md#delete_tag) | **DELETE** /tags/{id} | Delete a tag
 [**delete_user**](SamsaraApi.md#delete_user) | **DELETE** /users/{id} | Delete a user
 [**get_address**](SamsaraApi.md#get_address) | **GET** /addresses/{id} | Retrieve an address
-[**get_carrier_proposed_assignment**](SamsaraApi.md#get_carrier_proposed_assignment) | **GET** /fleet/carrier-proposed-assignments | Retrieve assignments
 [**get_contact**](SamsaraApi.md#get_contact) | **GET** /contacts/{id} | Retrieve a contact
 [**get_driver**](SamsaraApi.md#get_driver) | **GET** /fleet/drivers/{id} | Retrieve a driver
 [**get_driver_tachograph_activity**](SamsaraApi.md#get_driver_tachograph_activity) | **GET** /fleet/drivers/tachograph-activity/history | Get driver tachograph activity
+[**get_dvir_defects**](SamsaraApi.md#get_dvir_defects) | **GET** /fleet/defects/history | Get all defects
+[**get_dvir_history**](SamsaraApi.md#get_dvir_history) | **GET** /fleet/dvirs/history | Get all DVIRs
 [**get_equipment**](SamsaraApi.md#get_equipment) | **GET** /fleet/equipment/{id} | Retrieve a unit of equipment
 [**get_equipment_locations**](SamsaraApi.md#get_equipment_locations) | **GET** /fleet/equipment/locations | Get most recent locations for all equipment
 [**get_equipment_locations_feed**](SamsaraApi.md#get_equipment_locations_feed) | **GET** /fleet/equipment/locations/feed | Follow feed of equipment locations
@@ -37,6 +39,7 @@ Method | HTTP request | Description
 [**get_vehicle_stats_feed**](SamsaraApi.md#get_vehicle_stats_feed) | **GET** /fleet/vehicles/stats/feed | Follow a feed of vehicle stats
 [**get_vehicle_stats_history**](SamsaraApi.md#get_vehicle_stats_history) | **GET** /fleet/vehicles/stats/history | Get historical vehicle stats
 [**list_addresses**](SamsaraApi.md#list_addresses) | **GET** /addresses | List all addresses
+[**list_carrier_proposed_assignments**](SamsaraApi.md#list_carrier_proposed_assignments) | **GET** /fleet/carrier-proposed-assignments | Retrieve assignments
 [**list_contacts**](SamsaraApi.md#list_contacts) | **GET** /contacts | List all contacts
 [**list_drivers**](SamsaraApi.md#list_drivers) | **GET** /fleet/drivers | List all drivers
 [**list_equipment**](SamsaraApi.md#list_equipment) | **GET** /fleet/equipment | List all equipment
@@ -45,9 +48,11 @@ Method | HTTP request | Description
 [**list_users**](SamsaraApi.md#list_users) | **GET** /users | List all users
 [**list_vehicles**](SamsaraApi.md#list_vehicles) | **GET** /fleet/vehicles | List all vehicles
 [**replace_tag**](SamsaraApi.md#replace_tag) | **PUT** /tags/{id} | Update a tag
+[**resolve_dvir_defect**](SamsaraApi.md#resolve_dvir_defect) | **PATCH** /fleet/defects/{id} | Resolve a defect
 [**update_address**](SamsaraApi.md#update_address) | **PATCH** /addresses/{id} | Update an address
 [**update_contact**](SamsaraApi.md#update_contact) | **PATCH** /contacts/{id} | Update a contact
 [**update_driver**](SamsaraApi.md#update_driver) | **PATCH** /fleet/drivers/{id} | Update a driver
+[**update_dvir**](SamsaraApi.md#update_dvir) | **PATCH** /fleet/dvirs/{id} | Resolve a DVIR
 [**update_user**](SamsaraApi.md#update_user) | **PATCH** /users/{id} | Update a user
 [**update_vehicle**](SamsaraApi.md#update_vehicle) | **PATCH** /fleet/vehicles/{id} | Update a vehicle
 
@@ -110,7 +115,7 @@ print("Exception when calling SamsaraApi->create_address: %s\n" % e)
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
     # **create_carrier_proposed_assignment**
-    > object create_carrier_proposed_assignment(carrier_proposed_assignment=carrier_proposed_assignment)
+    > CarrierProposedAssignmentResponse create_carrier_proposed_assignment(carrier_proposed_assignment=carrier_proposed_assignment)
 
     Create an assignment
 
@@ -129,7 +134,7 @@ from pprint import pprint
   with samsara.ApiClient() as api_client:
 # Create an instance of the API class
 api_instance = samsara.SamsaraApi(api_client)
-carrier_proposed_assignment = samsara.CarrierProposedAssignmentCreate() # CarrierProposedAssignmentCreate | The assignment to create. (optional)
+carrier_proposed_assignment = samsara.CreateCarrierProposedAssignmentRequest() # CreateCarrierProposedAssignmentRequest | The assignment to create. (optional)
 
 try:
     # Create an assignment
@@ -143,11 +148,11 @@ print("Exception when calling SamsaraApi->create_carrier_proposed_assignment: %s
     
       Name | Type | Description  | Notes
       ------------- | ------------- | ------------- | -------------
-     **carrier_proposed_assignment** | [**CarrierProposedAssignmentCreate**](CarrierProposedAssignmentCreate.md)| The assignment to create. | [optional] 
+     **carrier_proposed_assignment** | [**CreateCarrierProposedAssignmentRequest**](CreateCarrierProposedAssignmentRequest.md)| The assignment to create. | [optional] 
 
     ### Return type
 
-    **object**
+    [**CarrierProposedAssignmentResponse**](CarrierProposedAssignmentResponse.md)
 
     ### Authorization
 
@@ -280,8 +285,65 @@ print("Exception when calling SamsaraApi->create_driver: %s\n" % e)
 
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+    # **create_dvir**
+    > DvirResponse create_dvir(dvir=dvir)
+
+    Create a mechanic DVIR
+
+      Creates a new mechanic DVIR in the organization.
+
+    ### Example
+
+      ```python
+from __future__ import print_function
+import time
+import samsara
+from samsara.rest import ApiException
+from pprint import pprint
+
+# Enter a context with an instance of the API client
+  with samsara.ApiClient() as api_client:
+# Create an instance of the API class
+api_instance = samsara.SamsaraApi(api_client)
+dvir = samsara.CreateDvirRequest() # CreateDvirRequest | The DVIR to create. (optional)
+
+try:
+    # Create a mechanic DVIR
+    api_response = api_instance.create_dvir(dvir=dvir)
+  pprint(api_response)
+except ApiException as e:
+print("Exception when calling SamsaraApi->create_dvir: %s\n" % e)
+```
+
+    ### Parameters
+    
+      Name | Type | Description  | Notes
+      ------------- | ------------- | ------------- | -------------
+     **dvir** | [**CreateDvirRequest**](CreateDvirRequest.md)| The DVIR to create. | [optional] 
+
+    ### Return type
+
+    [**DvirResponse**](DvirResponse.md)
+
+    ### Authorization
+
+    No authorization required
+
+    ### HTTP request headers
+
+    - **Content-Type**: application/json
+    - **Accept**: application/json
+
+      ### HTTP response details
+      | Status code | Description | Response headers |
+      |-------------|-------------|------------------|
+        **200** | Newly created DVIR. |  -  |
+        **0** | Error response |  -  |
+
+    [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
     # **create_tag**
-    > TagResponse create_tag(tag_create_body_)
+    > TagResponse create_tag(tag)
 
     Create a tag
 
@@ -300,11 +362,11 @@ from pprint import pprint
   with samsara.ApiClient() as api_client:
 # Create an instance of the API class
 api_instance = samsara.SamsaraApi(api_client)
-tag_create_body_ = samsara.CreateTagRequest() # CreateTagRequest | 
+tag = samsara.CreateTagRequest() # CreateTagRequest | 
 
 try:
     # Create a tag
-    api_response = api_instance.create_tag(tag_create_body_)
+    api_response = api_instance.create_tag(tag)
   pprint(api_response)
 except ApiException as e:
 print("Exception when calling SamsaraApi->create_tag: %s\n" % e)
@@ -314,7 +376,7 @@ print("Exception when calling SamsaraApi->create_tag: %s\n" % e)
     
       Name | Type | Description  | Notes
       ------------- | ------------- | ------------- | -------------
-     **tag_create_body_** | [**CreateTagRequest**](CreateTagRequest.md)|  | 
+     **tag** | [**CreateTagRequest**](CreateTagRequest.md)|  | 
 
     ### Return type
 
@@ -450,8 +512,8 @@ print("Exception when calling SamsaraApi->delete_address: %s\n" % e)
 
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-    # **delete_carrier_proposed_assignment_by_id**
-    > delete_carrier_proposed_assignment_by_id(id)
+    # **delete_carrier_proposed_assignment**
+    > delete_carrier_proposed_assignment(id)
 
     Delete an assignment
 
@@ -474,9 +536,9 @@ id = 'id_example' # str | ID of the assignment.
 
 try:
     # Delete an assignment
-    api_instance.delete_carrier_proposed_assignment_by_id(id)
+    api_instance.delete_carrier_proposed_assignment(id)
 except ApiException as e:
-print("Exception when calling SamsaraApi->delete_carrier_proposed_assignment_by_id: %s\n" % e)
+print("Exception when calling SamsaraApi->delete_carrier_proposed_assignment: %s\n" % e)
 ```
 
     ### Parameters
@@ -731,69 +793,6 @@ print("Exception when calling SamsaraApi->get_address: %s\n" % e)
 
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-    # **get_carrier_proposed_assignment**
-    > InlineResponse200 get_carrier_proposed_assignment(limit=limit, after=after, driver_ids=driver_ids, active_time=active_time)
-
-    Retrieve assignments
-
-      Show the assignments that are active for drivers and that would currently be visible to them in the driver app.
-
-    ### Example
-
-      ```python
-from __future__ import print_function
-import time
-import samsara
-from samsara.rest import ApiException
-from pprint import pprint
-
-# Enter a context with an instance of the API client
-  with samsara.ApiClient() as api_client:
-# Create an instance of the API class
-api_instance = samsara.SamsaraApi(api_client)
-limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
-after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
-driver_ids = 'driver_ids_example' # str | If specified, limits the results to those for these drivers. e.g. driverIds=1,2,3 (optional)
-active_time = '2013-10-20T19:20:30+01:00' # datetime | If specified, shows assignments that will be active at this time. Defaults to now, which would show current active assignments. In RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). (optional)
-
-try:
-    # Retrieve assignments
-    api_response = api_instance.get_carrier_proposed_assignment(limit=limit, after=after, driver_ids=driver_ids, active_time=active_time)
-  pprint(api_response)
-except ApiException as e:
-print("Exception when calling SamsaraApi->get_carrier_proposed_assignment: %s\n" % e)
-```
-
-    ### Parameters
-    
-      Name | Type | Description  | Notes
-      ------------- | ------------- | ------------- | -------------
-     **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] [default to 512]
- **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
- **driver_ids** | **str**| If specified, limits the results to those for these drivers. e.g. driverIds&#x3D;1,2,3 | [optional] 
- **active_time** | **datetime**| If specified, shows assignments that will be active at this time. Defaults to now, which would show current active assignments. In RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | [optional] 
-
-    ### Return type
-
-    [**InlineResponse200**](InlineResponse200.md)
-
-    ### Authorization
-
-    No authorization required
-
-    ### HTTP request headers
-
-    - **Content-Type**: Not defined
-    - **Accept**: application/json
-
-      ### HTTP response details
-      | Status code | Description | Response headers |
-      |-------------|-------------|------------------|
-        **200** | Returns the assignments that drivers would see in the future, if any. |  -  |
-        **0** | Error response |  -  |
-
-    [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
     # **get_contact**
     > ContactResponse get_contact(id)
 
@@ -928,8 +927,8 @@ from pprint import pprint
   with samsara.ApiClient() as api_client:
 # Create an instance of the API class
 api_instance = samsara.SamsaraApi(api_client)
-start_time = '2013-10-20T19:20:30+01:00' # datetime | A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-end_time = '2013-10-20T19:20:30+01:00' # datetime | An end time in RFC 3339 format. It can't be more than 30 days past startTime. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+start_time = 'start_time_example' # str | A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+end_time = 'end_time_example' # str | An end time in RFC 3339 format. It can't be more than 30 days past startTime. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 driver_ids = ['driver_ids_example'] # list[str] | A filter on the data based on this comma-separated list of driver IDs. Example: `driverIds=1234,5678` (optional)
 parent_tag_ids = ['parent_tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678` (optional)
@@ -947,8 +946,8 @@ print("Exception when calling SamsaraApi->get_driver_tachograph_activity: %s\n" 
     
       Name | Type | Description  | Notes
       ------------- | ------------- | ------------- | -------------
-     **start_time** | **datetime**| A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | 
- **end_time** | **datetime**| An end time in RFC 3339 format. It can&#39;t be more than 30 days past startTime. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | 
+     **start_time** | **str**| A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | 
+ **end_time** | **str**| An end time in RFC 3339 format. It can&#39;t be more than 30 days past startTime. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | 
  **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
  **driver_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of driver IDs. Example: &#x60;driverIds&#x3D;1234,5678&#x60; | [optional] 
  **parent_tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: &#x60;parentTagIds&#x3D;345,678&#x60; | [optional] 
@@ -971,6 +970,138 @@ print("Exception when calling SamsaraApi->get_driver_tachograph_activity: %s\n" 
       | Status code | Description | Response headers |
       |-------------|-------------|------------------|
         **200** | List of all driver tachograph activities in a specified time range. |  -  |
+        **0** | Error response |  -  |
+
+    [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+    # **get_dvir_defects**
+    > object get_dvir_defects(start_time, end_time, limit=limit, after=after, is_resolved=is_resolved)
+
+    Get all defects
+
+      Returns a list of DVIR defects in an organization, filtered by creation time. The maximum time period you can query for is 30 days.
+
+    ### Example
+
+      ```python
+from __future__ import print_function
+import time
+import samsara
+from samsara.rest import ApiException
+from pprint import pprint
+
+# Enter a context with an instance of the API client
+  with samsara.ApiClient() as api_client:
+# Create an instance of the API class
+api_instance = samsara.SamsaraApi(api_client)
+start_time = 'start_time_example' # str | A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). *The maximum time period you can query for is 30 days.*
+end_time = 'end_time_example' # str | An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). *The maximum time period you can query for is 30 days.*
+limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
+after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
+is_resolved = True # bool | A filter on the data based on resolution status. Example: `isResolved=true` (optional)
+
+try:
+    # Get all defects
+    api_response = api_instance.get_dvir_defects(start_time, end_time, limit=limit, after=after, is_resolved=is_resolved)
+  pprint(api_response)
+except ApiException as e:
+print("Exception when calling SamsaraApi->get_dvir_defects: %s\n" % e)
+```
+
+    ### Parameters
+    
+      Name | Type | Description  | Notes
+      ------------- | ------------- | ------------- | -------------
+     **start_time** | **str**| A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). *The maximum time period you can query for is 30 days.* | 
+ **end_time** | **str**| An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). *The maximum time period you can query for is 30 days.* | 
+ **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] [default to 512]
+ **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
+ **is_resolved** | **bool**| A filter on the data based on resolution status. Example: &#x60;isResolved&#x3D;true&#x60; | [optional] 
+
+    ### Return type
+
+    **object**
+
+    ### Authorization
+
+    No authorization required
+
+    ### HTTP request headers
+
+    - **Content-Type**: Not defined
+    - **Accept**: application/json
+
+      ### HTTP response details
+      | Status code | Description | Response headers |
+      |-------------|-------------|------------------|
+        **200** | List of all DVIR defects in the organization |  -  |
+        **0** | Error response |  -  |
+
+    [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+    # **get_dvir_history**
+    > DvirsListResponse get_dvir_history(start_time, end_time, limit=limit, after=after, parent_tag_ids=parent_tag_ids, tag_ids=tag_ids)
+
+    Get all DVIRs
+
+      Returns a list of all DVIRs in an organization
+
+    ### Example
+
+      ```python
+from __future__ import print_function
+import time
+import samsara
+from samsara.rest import ApiException
+from pprint import pprint
+
+# Enter a context with an instance of the API client
+  with samsara.ApiClient() as api_client:
+# Create an instance of the API class
+api_instance = samsara.SamsaraApi(api_client)
+start_time = 'start_time_example' # str | A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+end_time = 'end_time_example' # str | An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
+after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
+parent_tag_ids = ['parent_tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678` (optional)
+tag_ids = ['tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678` (optional)
+
+try:
+    # Get all DVIRs
+    api_response = api_instance.get_dvir_history(start_time, end_time, limit=limit, after=after, parent_tag_ids=parent_tag_ids, tag_ids=tag_ids)
+  pprint(api_response)
+except ApiException as e:
+print("Exception when calling SamsaraApi->get_dvir_history: %s\n" % e)
+```
+
+    ### Parameters
+    
+      Name | Type | Description  | Notes
+      ------------- | ------------- | ------------- | -------------
+     **start_time** | **str**| A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | 
+ **end_time** | **str**| An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | 
+ **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] [default to 512]
+ **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
+ **parent_tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: &#x60;parentTagIds&#x3D;345,678&#x60; | [optional] 
+ **tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of tag IDs. Example: &#x60;tagIds&#x3D;1234,5678&#x60; | [optional] 
+
+    ### Return type
+
+    [**DvirsListResponse**](DvirsListResponse.md)
+
+    ### Authorization
+
+    No authorization required
+
+    ### HTTP request headers
+
+    - **Content-Type**: Not defined
+    - **Accept**: application/json
+
+      ### HTTP response details
+      | Status code | Description | Response headers |
+      |-------------|-------------|------------------|
+        **200** | List of all DVIRs in the organization |  -  |
         **0** | Error response |  -  |
 
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1178,8 +1309,8 @@ from pprint import pprint
   with samsara.ApiClient() as api_client:
 # Create an instance of the API class
 api_instance = samsara.SamsaraApi(api_client)
-start_time = '2013-10-20T19:20:30+01:00' # datetime | A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-end_time = '2013-10-20T19:20:30+01:00' # datetime | An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+start_time = 'start_time_example' # str | A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+end_time = 'end_time_example' # str | An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 parent_tag_ids = ['parent_tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678` (optional)
 tag_ids = ['tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678` (optional)
@@ -1197,8 +1328,8 @@ print("Exception when calling SamsaraApi->get_equipment_locations_history: %s\n"
     
       Name | Type | Description  | Notes
       ------------- | ------------- | ------------- | -------------
-     **start_time** | **datetime**| A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | 
- **end_time** | **datetime**| An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | 
+     **start_time** | **str**| A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | 
+ **end_time** | **str**| An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | 
  **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
  **parent_tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: &#x60;parentTagIds&#x3D;345,678&#x60; | [optional] 
  **tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of tag IDs. Example: &#x60;tagIds&#x3D;1234,5678&#x60; | [optional] 
@@ -1375,8 +1506,8 @@ from pprint import pprint
   with samsara.ApiClient() as api_client:
 # Create an instance of the API class
 api_instance = samsara.SamsaraApi(api_client)
-start_time = '2013-10-20T19:20:30+01:00' # datetime | A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-end_time = '2013-10-20T19:20:30+01:00' # datetime | An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+start_time = 'start_time_example' # str | A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+end_time = 'end_time_example' # str | An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
 types = ['types_example'] # list[str] | The type of equipment stat you want to query. Currently, you may only submit one type.  - `engineRpm`: The revolutions per minute of the engine. - `fuelPercents`: The percent of fuel in the unit of equipment. - `obdEngineSeconds`: The number of seconds the engine has been running since it was new. This value is provided directly from on-board diagnostics. - `gatewayEngineSeconds`: An approximation of the number of seconds the engine has been running since it was new, based on the amount of time the AG24 device is receiving power and an offset provided manually through the Samsara cloud dashboard. - `obdEngineStates`: The state of the engine read from on-board diagnostics. Can be `Off`, `On`, or `Idle`. - `gatewayEngineStates`: An approximation of engine state based on readings the AG24 receives from the aux/digio cable. Can be `Off` or `On`. - `gpsOdometerMeters`: An approximation of odometer reading based on GPS calculations since the AG24 was activated, and a manual odometer offset provided in the Samsara cloud dashboard.
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 parent_tag_ids = ['parent_tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678` (optional)
@@ -1395,8 +1526,8 @@ print("Exception when calling SamsaraApi->get_equipment_stats_history: %s\n" % e
     
       Name | Type | Description  | Notes
       ------------- | ------------- | ------------- | -------------
-     **start_time** | **datetime**| A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | 
- **end_time** | **datetime**| An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | 
+     **start_time** | **str**| A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | 
+ **end_time** | **str**| An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | 
  **types** | [**list[str]**](str.md)| The type of equipment stat you want to query. Currently, you may only submit one type.  - &#x60;engineRpm&#x60;: The revolutions per minute of the engine. - &#x60;fuelPercents&#x60;: The percent of fuel in the unit of equipment. - &#x60;obdEngineSeconds&#x60;: The number of seconds the engine has been running since it was new. This value is provided directly from on-board diagnostics. - &#x60;gatewayEngineSeconds&#x60;: An approximation of the number of seconds the engine has been running since it was new, based on the amount of time the AG24 device is receiving power and an offset provided manually through the Samsara cloud dashboard. - &#x60;obdEngineStates&#x60;: The state of the engine read from on-board diagnostics. Can be &#x60;Off&#x60;, &#x60;On&#x60;, or &#x60;Idle&#x60;. - &#x60;gatewayEngineStates&#x60;: An approximation of engine state based on readings the AG24 receives from the aux/digio cable. Can be &#x60;Off&#x60; or &#x60;On&#x60;. - &#x60;gpsOdometerMeters&#x60;: An approximation of odometer reading based on GPS calculations since the AG24 was activated, and a manual odometer offset provided in the Samsara cloud dashboard. | 
  **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
  **parent_tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: &#x60;parentTagIds&#x3D;345,678&#x60; | [optional] 
@@ -1616,7 +1747,7 @@ from pprint import pprint
 # Create an instance of the API class
 api_instance = samsara.SamsaraApi(api_client)
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
-time = '2013-10-20T19:20:30+01:00' # datetime | A filter on the data that returns the last known data points with timestamps less than or equal to this value. Defaults to now if not provided. Must be a string in RFC 3339 format. Millisecond precision and timezones are supported. (Example: `2020-01-27T07:06:25Z`). (optional)
+time = 'time_example' # str | A filter on the data that returns the last known data points with timestamps less than or equal to this value. Defaults to now if not provided. Must be a string in RFC 3339 format. Millisecond precision and timezones are supported. (Example: `2020-01-27T07:06:25Z`). (optional)
 parent_tag_ids = ['parent_tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678` (optional)
 tag_ids = ['tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678` (optional)
 vehicle_ids = ['vehicle_ids_example'] # list[str] | A filter on the data based on this comma-separated list of vehicle IDs. Example: `vehicleIds=1234,5678` (optional)
@@ -1634,7 +1765,7 @@ print("Exception when calling SamsaraApi->get_vehicle_locations: %s\n" % e)
       Name | Type | Description  | Notes
       ------------- | ------------- | ------------- | -------------
      **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
- **time** | **datetime**| A filter on the data that returns the last known data points with timestamps less than or equal to this value. Defaults to now if not provided. Must be a string in RFC 3339 format. Millisecond precision and timezones are supported. (Example: &#x60;2020-01-27T07:06:25Z&#x60;). | [optional] 
+ **time** | **str**| A filter on the data that returns the last known data points with timestamps less than or equal to this value. Defaults to now if not provided. Must be a string in RFC 3339 format. Millisecond precision and timezones are supported. (Example: &#x60;2020-01-27T07:06:25Z&#x60;). | [optional] 
  **parent_tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: &#x60;parentTagIds&#x3D;345,678&#x60; | [optional] 
  **tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of tag IDs. Example: &#x60;tagIds&#x3D;1234,5678&#x60; | [optional] 
  **vehicle_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of vehicle IDs. Example: &#x60;vehicleIds&#x3D;1234,5678&#x60; | [optional] 
@@ -1743,8 +1874,8 @@ from pprint import pprint
   with samsara.ApiClient() as api_client:
 # Create an instance of the API class
 api_instance = samsara.SamsaraApi(api_client)
-start_time = '2013-10-20T19:20:30+01:00' # datetime | A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-end_time = '2013-10-20T19:20:30+01:00' # datetime | An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+start_time = 'start_time_example' # str | A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+end_time = 'end_time_example' # str | An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 parent_tag_ids = ['parent_tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678` (optional)
 tag_ids = ['tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678` (optional)
@@ -1762,8 +1893,8 @@ print("Exception when calling SamsaraApi->get_vehicle_locations_history: %s\n" %
     
       Name | Type | Description  | Notes
       ------------- | ------------- | ------------- | -------------
-     **start_time** | **datetime**| A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | 
- **end_time** | **datetime**| An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | 
+     **start_time** | **str**| A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | 
+ **end_time** | **str**| An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | 
  **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
  **parent_tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: &#x60;parentTagIds&#x3D;345,678&#x60; | [optional] 
  **tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of tag IDs. Example: &#x60;tagIds&#x3D;1234,5678&#x60; | [optional] 
@@ -1810,9 +1941,9 @@ from pprint import pprint
   with samsara.ApiClient() as api_client:
 # Create an instance of the API class
 api_instance = samsara.SamsaraApi(api_client)
-types = 'types_example' # str | The stat type you want this endpoint to return information on. Currently only one stat type is accepted per request.  - `engineStates`: The state of the engine (`Off`, `On`, `Idle`). - `fuelPercents`: The engine fuel level in percentage points (e.g. `99`, `50`, etc). - `obdOdometerMeters`: The odometer reading according to on-board diagnostics. If Samsara does not have diagnostic coverage for a particular vehicle, the value for this stat type will be omitted. In these cases, we recommend using `gpsOdometerMeters`. - `gpsOdometerMeters`: The odometer reading according to GPS calculations. This calculation is based off GPS distance traveled and a manual odometer offset for a given vehicle, specified by the user in Samsara's dashboard UI or through the `odometerMeters` field in the [PATCH /fleet/vehicles/{id}](#operation/updateVehicleById) endpoint. `gpsOdometerMeters` is equal to the manual offset plus the GPS distance traveled since the offset was set. The value for this stat type will be omitted if a manual offset is not provided for a given vehicle. *A manual offset can only be provided when we do not have diagnostic coverage for a particular vehicle.* - `obdEngineSeconds`: The cumulative number of seconds the engine has run according to on-board diagnostics. - `gpsDistanceMeters`: The distance the vehicle has traveled since the gateway was installed based on GPS calculations. - `auxInput1`: Stat events from the [auxiliary input 1](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) for the vehicle. For more details see the `data.auxInputType1` field in the response body for [Retrieving a Vehicle](#operation/getVehicle). - `auxInput2`: Stat events from the [auxiliary input 2](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) for the vehicle. For more details see the `data.auxInputType2` field in the response body for [Retrieving a Vehicle](#operation/getVehicle).
+types = ['types_example'] # list[str] | The stat type you want this endpoint to return information on. Currently only one stat type is accepted per request.  - `engineStates`: The state of the engine (`Off`, `On`, `Idle`). - `fuelPercents`: The engine fuel level in percentage points (e.g. `99`, `50`, etc). - `obdOdometerMeters`: The odometer reading according to on-board diagnostics. If Samsara does not have diagnostic coverage for a particular vehicle, the value for this stat type will be omitted. In these cases, we recommend using `gpsOdometerMeters`. - `gpsOdometerMeters`: The odometer reading according to GPS calculations. This calculation is based off GPS distance traveled and a manual odometer offset for a given vehicle, specified by the user in Samsara's dashboard UI or through the `odometerMeters` field in the [PATCH /fleet/vehicles/{id}](#operation/updateVehicleById) endpoint. `gpsOdometerMeters` is equal to the manual offset plus the GPS distance traveled since the offset was set. The value for this stat type will be omitted if a manual offset is not provided for a given vehicle. *A manual offset can only be provided when we do not have diagnostic coverage for a particular vehicle.* - `obdEngineSeconds`: The cumulative number of seconds the engine has run according to on-board diagnostics. - `gpsDistanceMeters`: The distance the vehicle has traveled since the gateway was installed based on GPS calculations. - `auxInput1`: Stat events from the [auxiliary input 1](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) for the vehicle. For more details see the `data.auxInputType1` field in the response body for [Retrieving a Vehicle](#operation/getVehicle). - `auxInput2`: Stat events from the [auxiliary input 2](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) for the vehicle. For more details see the `data.auxInputType2` field in the response body for [Retrieving a Vehicle](#operation/getVehicle).
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
-time = '2013-10-20T19:20:30+01:00' # datetime | A filter on the data that returns the last known data points with timestamps less than or equal to this value. Defaults to now if not provided. Must be a string in RFC 3339 format. Millisecond precision and timezones are supported. (Example: `2020-01-27T07:06:25Z`). (optional)
+time = 'time_example' # str | A filter on the data that returns the last known data points with timestamps less than or equal to this value. Defaults to now if not provided. Must be a string in RFC 3339 format. Millisecond precision and timezones are supported. (Example: `2020-01-27T07:06:25Z`). (optional)
 parent_tag_ids = ['parent_tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678` (optional)
 tag_ids = ['tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678` (optional)
 vehicle_ids = ['vehicle_ids_example'] # list[str] | A filter on the data based on this comma-separated list of vehicle IDs. Example: `vehicleIds=1234,5678` (optional)
@@ -1829,9 +1960,9 @@ print("Exception when calling SamsaraApi->get_vehicle_stats: %s\n" % e)
     
       Name | Type | Description  | Notes
       ------------- | ------------- | ------------- | -------------
-     **types** | **str**| The stat type you want this endpoint to return information on. Currently only one stat type is accepted per request.  - &#x60;engineStates&#x60;: The state of the engine (&#x60;Off&#x60;, &#x60;On&#x60;, &#x60;Idle&#x60;). - &#x60;fuelPercents&#x60;: The engine fuel level in percentage points (e.g. &#x60;99&#x60;, &#x60;50&#x60;, etc). - &#x60;obdOdometerMeters&#x60;: The odometer reading according to on-board diagnostics. If Samsara does not have diagnostic coverage for a particular vehicle, the value for this stat type will be omitted. In these cases, we recommend using &#x60;gpsOdometerMeters&#x60;. - &#x60;gpsOdometerMeters&#x60;: The odometer reading according to GPS calculations. This calculation is based off GPS distance traveled and a manual odometer offset for a given vehicle, specified by the user in Samsara&#39;s dashboard UI or through the &#x60;odometerMeters&#x60; field in the [PATCH /fleet/vehicles/{id}](#operation/updateVehicleById) endpoint. &#x60;gpsOdometerMeters&#x60; is equal to the manual offset plus the GPS distance traveled since the offset was set. The value for this stat type will be omitted if a manual offset is not provided for a given vehicle. *A manual offset can only be provided when we do not have diagnostic coverage for a particular vehicle.* - &#x60;obdEngineSeconds&#x60;: The cumulative number of seconds the engine has run according to on-board diagnostics. - &#x60;gpsDistanceMeters&#x60;: The distance the vehicle has traveled since the gateway was installed based on GPS calculations. - &#x60;auxInput1&#x60;: Stat events from the [auxiliary input 1](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) for the vehicle. For more details see the &#x60;data.auxInputType1&#x60; field in the response body for [Retrieving a Vehicle](#operation/getVehicle). - &#x60;auxInput2&#x60;: Stat events from the [auxiliary input 2](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) for the vehicle. For more details see the &#x60;data.auxInputType2&#x60; field in the response body for [Retrieving a Vehicle](#operation/getVehicle). | 
+     **types** | [**list[str]**](str.md)| The stat type you want this endpoint to return information on. Currently only one stat type is accepted per request.  - &#x60;engineStates&#x60;: The state of the engine (&#x60;Off&#x60;, &#x60;On&#x60;, &#x60;Idle&#x60;). - &#x60;fuelPercents&#x60;: The engine fuel level in percentage points (e.g. &#x60;99&#x60;, &#x60;50&#x60;, etc). - &#x60;obdOdometerMeters&#x60;: The odometer reading according to on-board diagnostics. If Samsara does not have diagnostic coverage for a particular vehicle, the value for this stat type will be omitted. In these cases, we recommend using &#x60;gpsOdometerMeters&#x60;. - &#x60;gpsOdometerMeters&#x60;: The odometer reading according to GPS calculations. This calculation is based off GPS distance traveled and a manual odometer offset for a given vehicle, specified by the user in Samsara&#39;s dashboard UI or through the &#x60;odometerMeters&#x60; field in the [PATCH /fleet/vehicles/{id}](#operation/updateVehicleById) endpoint. &#x60;gpsOdometerMeters&#x60; is equal to the manual offset plus the GPS distance traveled since the offset was set. The value for this stat type will be omitted if a manual offset is not provided for a given vehicle. *A manual offset can only be provided when we do not have diagnostic coverage for a particular vehicle.* - &#x60;obdEngineSeconds&#x60;: The cumulative number of seconds the engine has run according to on-board diagnostics. - &#x60;gpsDistanceMeters&#x60;: The distance the vehicle has traveled since the gateway was installed based on GPS calculations. - &#x60;auxInput1&#x60;: Stat events from the [auxiliary input 1](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) for the vehicle. For more details see the &#x60;data.auxInputType1&#x60; field in the response body for [Retrieving a Vehicle](#operation/getVehicle). - &#x60;auxInput2&#x60;: Stat events from the [auxiliary input 2](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) for the vehicle. For more details see the &#x60;data.auxInputType2&#x60; field in the response body for [Retrieving a Vehicle](#operation/getVehicle). | 
  **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
- **time** | **datetime**| A filter on the data that returns the last known data points with timestamps less than or equal to this value. Defaults to now if not provided. Must be a string in RFC 3339 format. Millisecond precision and timezones are supported. (Example: &#x60;2020-01-27T07:06:25Z&#x60;). | [optional] 
+ **time** | **str**| A filter on the data that returns the last known data points with timestamps less than or equal to this value. Defaults to now if not provided. Must be a string in RFC 3339 format. Millisecond precision and timezones are supported. (Example: &#x60;2020-01-27T07:06:25Z&#x60;). | [optional] 
  **parent_tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: &#x60;parentTagIds&#x3D;345,678&#x60; | [optional] 
  **tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of tag IDs. Example: &#x60;tagIds&#x3D;1234,5678&#x60; | [optional] 
  **vehicle_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of vehicle IDs. Example: &#x60;vehicleIds&#x3D;1234,5678&#x60; | [optional] 
@@ -1877,7 +2008,7 @@ from pprint import pprint
   with samsara.ApiClient() as api_client:
 # Create an instance of the API class
 api_instance = samsara.SamsaraApi(api_client)
-types = 'types_example' # str | The stat type you want this endpoint to return information on. Currently only one stat type is accepted per request.  - `engineStates`: The state of the engine (`Off`, `On`, `Idle`). - `fuelPercents`: The engine fuel level in percentage points (e.g. `99`, `50`, etc). - `obdOdometerMeters`: The odometer reading according to on-board diagnostics. If Samsara does not have diagnostic coverage for a particular vehicle, the value for this stat type will be omitted. In these cases, we recommend using `gpsOdometerMeters`. - `gpsOdometerMeters`: The odometer reading according to GPS calculations. This calculation is based off GPS distance traveled and a manual odometer offset for a given vehicle, specified by the user in Samsara's dashboard UI or through the `odometerMeters` field in the [PATCH /fleet/vehicles/{id}](#operation/updateVehicleById) endpoint. `gpsOdometerMeters` is equal to the manual offset plus the GPS distance traveled since the offset was set. The value for this stat type will be omitted if a manual offset is not provided for a given vehicle. *A manual offset can only be provided when we do not have diagnostic coverage for a particular vehicle.* - `obdEngineSeconds`: The cumulative number of seconds the engine has run according to on-board diagnostics. - `gpsDistanceMeters`: The distance the vehicle has traveled since the gateway was installed based on GPS calculations. - `auxInput1`: Stat events from the [auxiliary input 1](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) for the vehicle. For more details see the `data.auxInputType1` field in the response body for [Retrieving a Vehicle](#operation/getVehicle). - `auxInput2`: Stat events from the [auxiliary input 2](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) for the vehicle. For more details see the `data.auxInputType2` field in the response body for [Retrieving a Vehicle](#operation/getVehicle).
+types = ['types_example'] # list[str] | The stat type you want this endpoint to return information on. Currently only one stat type is accepted per request.  - `engineStates`: The state of the engine (`Off`, `On`, `Idle`). - `fuelPercents`: The engine fuel level in percentage points (e.g. `99`, `50`, etc). - `obdOdometerMeters`: The odometer reading according to on-board diagnostics. If Samsara does not have diagnostic coverage for a particular vehicle, the value for this stat type will be omitted. In these cases, we recommend using `gpsOdometerMeters`. - `gpsOdometerMeters`: The odometer reading according to GPS calculations. This calculation is based off GPS distance traveled and a manual odometer offset for a given vehicle, specified by the user in Samsara's dashboard UI or through the `odometerMeters` field in the [PATCH /fleet/vehicles/{id}](#operation/updateVehicleById) endpoint. `gpsOdometerMeters` is equal to the manual offset plus the GPS distance traveled since the offset was set. The value for this stat type will be omitted if a manual offset is not provided for a given vehicle. *A manual offset can only be provided when we do not have diagnostic coverage for a particular vehicle.* - `obdEngineSeconds`: The cumulative number of seconds the engine has run according to on-board diagnostics. - `gpsDistanceMeters`: The distance the vehicle has traveled since the gateway was installed based on GPS calculations. - `auxInput1`: Stat events from the [auxiliary input 1](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) for the vehicle. For more details see the `data.auxInputType1` field in the response body for [Retrieving a Vehicle](#operation/getVehicle). - `auxInput2`: Stat events from the [auxiliary input 2](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) for the vehicle. For more details see the `data.auxInputType2` field in the response body for [Retrieving a Vehicle](#operation/getVehicle).
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 parent_tag_ids = ['parent_tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678` (optional)
 tag_ids = ['tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678` (optional)
@@ -1895,7 +2026,7 @@ print("Exception when calling SamsaraApi->get_vehicle_stats_feed: %s\n" % e)
     
       Name | Type | Description  | Notes
       ------------- | ------------- | ------------- | -------------
-     **types** | **str**| The stat type you want this endpoint to return information on. Currently only one stat type is accepted per request.  - &#x60;engineStates&#x60;: The state of the engine (&#x60;Off&#x60;, &#x60;On&#x60;, &#x60;Idle&#x60;). - &#x60;fuelPercents&#x60;: The engine fuel level in percentage points (e.g. &#x60;99&#x60;, &#x60;50&#x60;, etc). - &#x60;obdOdometerMeters&#x60;: The odometer reading according to on-board diagnostics. If Samsara does not have diagnostic coverage for a particular vehicle, the value for this stat type will be omitted. In these cases, we recommend using &#x60;gpsOdometerMeters&#x60;. - &#x60;gpsOdometerMeters&#x60;: The odometer reading according to GPS calculations. This calculation is based off GPS distance traveled and a manual odometer offset for a given vehicle, specified by the user in Samsara&#39;s dashboard UI or through the &#x60;odometerMeters&#x60; field in the [PATCH /fleet/vehicles/{id}](#operation/updateVehicleById) endpoint. &#x60;gpsOdometerMeters&#x60; is equal to the manual offset plus the GPS distance traveled since the offset was set. The value for this stat type will be omitted if a manual offset is not provided for a given vehicle. *A manual offset can only be provided when we do not have diagnostic coverage for a particular vehicle.* - &#x60;obdEngineSeconds&#x60;: The cumulative number of seconds the engine has run according to on-board diagnostics. - &#x60;gpsDistanceMeters&#x60;: The distance the vehicle has traveled since the gateway was installed based on GPS calculations. - &#x60;auxInput1&#x60;: Stat events from the [auxiliary input 1](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) for the vehicle. For more details see the &#x60;data.auxInputType1&#x60; field in the response body for [Retrieving a Vehicle](#operation/getVehicle). - &#x60;auxInput2&#x60;: Stat events from the [auxiliary input 2](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) for the vehicle. For more details see the &#x60;data.auxInputType2&#x60; field in the response body for [Retrieving a Vehicle](#operation/getVehicle). | 
+     **types** | [**list[str]**](str.md)| The stat type you want this endpoint to return information on. Currently only one stat type is accepted per request.  - &#x60;engineStates&#x60;: The state of the engine (&#x60;Off&#x60;, &#x60;On&#x60;, &#x60;Idle&#x60;). - &#x60;fuelPercents&#x60;: The engine fuel level in percentage points (e.g. &#x60;99&#x60;, &#x60;50&#x60;, etc). - &#x60;obdOdometerMeters&#x60;: The odometer reading according to on-board diagnostics. If Samsara does not have diagnostic coverage for a particular vehicle, the value for this stat type will be omitted. In these cases, we recommend using &#x60;gpsOdometerMeters&#x60;. - &#x60;gpsOdometerMeters&#x60;: The odometer reading according to GPS calculations. This calculation is based off GPS distance traveled and a manual odometer offset for a given vehicle, specified by the user in Samsara&#39;s dashboard UI or through the &#x60;odometerMeters&#x60; field in the [PATCH /fleet/vehicles/{id}](#operation/updateVehicleById) endpoint. &#x60;gpsOdometerMeters&#x60; is equal to the manual offset plus the GPS distance traveled since the offset was set. The value for this stat type will be omitted if a manual offset is not provided for a given vehicle. *A manual offset can only be provided when we do not have diagnostic coverage for a particular vehicle.* - &#x60;obdEngineSeconds&#x60;: The cumulative number of seconds the engine has run according to on-board diagnostics. - &#x60;gpsDistanceMeters&#x60;: The distance the vehicle has traveled since the gateway was installed based on GPS calculations. - &#x60;auxInput1&#x60;: Stat events from the [auxiliary input 1](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) for the vehicle. For more details see the &#x60;data.auxInputType1&#x60; field in the response body for [Retrieving a Vehicle](#operation/getVehicle). - &#x60;auxInput2&#x60;: Stat events from the [auxiliary input 2](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) for the vehicle. For more details see the &#x60;data.auxInputType2&#x60; field in the response body for [Retrieving a Vehicle](#operation/getVehicle). | 
  **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
  **parent_tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: &#x60;parentTagIds&#x3D;345,678&#x60; | [optional] 
  **tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of tag IDs. Example: &#x60;tagIds&#x3D;1234,5678&#x60; | [optional] 
@@ -1942,9 +2073,9 @@ from pprint import pprint
   with samsara.ApiClient() as api_client:
 # Create an instance of the API class
 api_instance = samsara.SamsaraApi(api_client)
-start_time = '2013-10-20T19:20:30+01:00' # datetime | A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-end_time = '2013-10-20T19:20:30+01:00' # datetime | An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-types = 'types_example' # str | The stat type you want this endpoint to return information on. Currently only one stat type is accepted per request.  - `engineStates`: The state of the engine (`Off`, `On`, `Idle`). - `fuelPercents`: The engine fuel level in percentage points (e.g. `99`, `50`, etc). - `obdOdometerMeters`: The odometer reading according to on-board diagnostics. If Samsara does not have diagnostic coverage for a particular vehicle, the value for this stat type will be omitted. In these cases, we recommend using `gpsOdometerMeters`. - `gpsOdometerMeters`: The odometer reading according to GPS calculations. This calculation is based off GPS distance traveled and a manual odometer offset for a given vehicle, specified by the user in Samsara's dashboard UI or through the `odometerMeters` field in the [PATCH /fleet/vehicles/{id}](#operation/updateVehicleById) endpoint. `gpsOdometerMeters` is equal to the manual offset plus the GPS distance traveled since the offset was set. The value for this stat type will be omitted if a manual offset is not provided for a given vehicle. *A manual offset can only be provided when we do not have diagnostic coverage for a particular vehicle.* - `obdEngineSeconds`: The cumulative number of seconds the engine has run according to on-board diagnostics. - `gpsDistanceMeters`: The distance the vehicle has traveled since the gateway was installed based on GPS calculations. - `auxInput1`: Stat events from the [auxiliary input 1](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) for the vehicle. For more details see the `data.auxInputType1` field in the response body for [Retrieving a Vehicle](#operation/getVehicle). - `auxInput2`: Stat events from the [auxiliary input 2](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) for the vehicle. For more details see the `data.auxInputType2` field in the response body for [Retrieving a Vehicle](#operation/getVehicle).
+start_time = 'start_time_example' # str | A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+end_time = 'end_time_example' # str | An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+types = ['types_example'] # list[str] | The stat type you want this endpoint to return information on. Currently only one stat type is accepted per request.  - `engineStates`: The state of the engine (`Off`, `On`, `Idle`). - `fuelPercents`: The engine fuel level in percentage points (e.g. `99`, `50`, etc). - `obdOdometerMeters`: The odometer reading according to on-board diagnostics. If Samsara does not have diagnostic coverage for a particular vehicle, the value for this stat type will be omitted. In these cases, we recommend using `gpsOdometerMeters`. - `gpsOdometerMeters`: The odometer reading according to GPS calculations. This calculation is based off GPS distance traveled and a manual odometer offset for a given vehicle, specified by the user in Samsara's dashboard UI or through the `odometerMeters` field in the [PATCH /fleet/vehicles/{id}](#operation/updateVehicleById) endpoint. `gpsOdometerMeters` is equal to the manual offset plus the GPS distance traveled since the offset was set. The value for this stat type will be omitted if a manual offset is not provided for a given vehicle. *A manual offset can only be provided when we do not have diagnostic coverage for a particular vehicle.* - `obdEngineSeconds`: The cumulative number of seconds the engine has run according to on-board diagnostics. - `gpsDistanceMeters`: The distance the vehicle has traveled since the gateway was installed based on GPS calculations. - `auxInput1`: Stat events from the [auxiliary input 1](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) for the vehicle. For more details see the `data.auxInputType1` field in the response body for [Retrieving a Vehicle](#operation/getVehicle). - `auxInput2`: Stat events from the [auxiliary input 2](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) for the vehicle. For more details see the `data.auxInputType2` field in the response body for [Retrieving a Vehicle](#operation/getVehicle).
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 parent_tag_ids = ['parent_tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678` (optional)
 tag_ids = ['tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678` (optional)
@@ -1962,9 +2093,9 @@ print("Exception when calling SamsaraApi->get_vehicle_stats_history: %s\n" % e)
     
       Name | Type | Description  | Notes
       ------------- | ------------- | ------------- | -------------
-     **start_time** | **datetime**| A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | 
- **end_time** | **datetime**| An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | 
- **types** | **str**| The stat type you want this endpoint to return information on. Currently only one stat type is accepted per request.  - &#x60;engineStates&#x60;: The state of the engine (&#x60;Off&#x60;, &#x60;On&#x60;, &#x60;Idle&#x60;). - &#x60;fuelPercents&#x60;: The engine fuel level in percentage points (e.g. &#x60;99&#x60;, &#x60;50&#x60;, etc). - &#x60;obdOdometerMeters&#x60;: The odometer reading according to on-board diagnostics. If Samsara does not have diagnostic coverage for a particular vehicle, the value for this stat type will be omitted. In these cases, we recommend using &#x60;gpsOdometerMeters&#x60;. - &#x60;gpsOdometerMeters&#x60;: The odometer reading according to GPS calculations. This calculation is based off GPS distance traveled and a manual odometer offset for a given vehicle, specified by the user in Samsara&#39;s dashboard UI or through the &#x60;odometerMeters&#x60; field in the [PATCH /fleet/vehicles/{id}](#operation/updateVehicleById) endpoint. &#x60;gpsOdometerMeters&#x60; is equal to the manual offset plus the GPS distance traveled since the offset was set. The value for this stat type will be omitted if a manual offset is not provided for a given vehicle. *A manual offset can only be provided when we do not have diagnostic coverage for a particular vehicle.* - &#x60;obdEngineSeconds&#x60;: The cumulative number of seconds the engine has run according to on-board diagnostics. - &#x60;gpsDistanceMeters&#x60;: The distance the vehicle has traveled since the gateway was installed based on GPS calculations. - &#x60;auxInput1&#x60;: Stat events from the [auxiliary input 1](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) for the vehicle. For more details see the &#x60;data.auxInputType1&#x60; field in the response body for [Retrieving a Vehicle](#operation/getVehicle). - &#x60;auxInput2&#x60;: Stat events from the [auxiliary input 2](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) for the vehicle. For more details see the &#x60;data.auxInputType2&#x60; field in the response body for [Retrieving a Vehicle](#operation/getVehicle). | 
+     **start_time** | **str**| A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | 
+ **end_time** | **str**| An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | 
+ **types** | [**list[str]**](str.md)| The stat type you want this endpoint to return information on. Currently only one stat type is accepted per request.  - &#x60;engineStates&#x60;: The state of the engine (&#x60;Off&#x60;, &#x60;On&#x60;, &#x60;Idle&#x60;). - &#x60;fuelPercents&#x60;: The engine fuel level in percentage points (e.g. &#x60;99&#x60;, &#x60;50&#x60;, etc). - &#x60;obdOdometerMeters&#x60;: The odometer reading according to on-board diagnostics. If Samsara does not have diagnostic coverage for a particular vehicle, the value for this stat type will be omitted. In these cases, we recommend using &#x60;gpsOdometerMeters&#x60;. - &#x60;gpsOdometerMeters&#x60;: The odometer reading according to GPS calculations. This calculation is based off GPS distance traveled and a manual odometer offset for a given vehicle, specified by the user in Samsara&#39;s dashboard UI or through the &#x60;odometerMeters&#x60; field in the [PATCH /fleet/vehicles/{id}](#operation/updateVehicleById) endpoint. &#x60;gpsOdometerMeters&#x60; is equal to the manual offset plus the GPS distance traveled since the offset was set. The value for this stat type will be omitted if a manual offset is not provided for a given vehicle. *A manual offset can only be provided when we do not have diagnostic coverage for a particular vehicle.* - &#x60;obdEngineSeconds&#x60;: The cumulative number of seconds the engine has run according to on-board diagnostics. - &#x60;gpsDistanceMeters&#x60;: The distance the vehicle has traveled since the gateway was installed based on GPS calculations. - &#x60;auxInput1&#x60;: Stat events from the [auxiliary input 1](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) for the vehicle. For more details see the &#x60;data.auxInputType1&#x60; field in the response body for [Retrieving a Vehicle](#operation/getVehicle). - &#x60;auxInput2&#x60;: Stat events from the [auxiliary input 2](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) for the vehicle. For more details see the &#x60;data.auxInputType2&#x60; field in the response body for [Retrieving a Vehicle](#operation/getVehicle). | 
  **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
  **parent_tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: &#x60;parentTagIds&#x3D;345,678&#x60; | [optional] 
  **tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of tag IDs. Example: &#x60;tagIds&#x3D;1234,5678&#x60; | [optional] 
@@ -2015,7 +2146,7 @@ limit = 512 # int | The limit for how many objects will be in the response. Defa
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 parent_tag_ids = ['parent_tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678` (optional)
 tag_ids = ['tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678` (optional)
-created_after_time = '2013-10-20T19:20:30+01:00' # datetime | A filter on data to have a created at time after or equal to this specified time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). (optional)
+created_after_time = 'created_after_time_example' # str | A filter on data to have a created at time after or equal to this specified time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). (optional)
 
 try:
     # List all addresses
@@ -2033,7 +2164,7 @@ print("Exception when calling SamsaraApi->list_addresses: %s\n" % e)
  **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
  **parent_tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: &#x60;parentTagIds&#x3D;345,678&#x60; | [optional] 
  **tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of tag IDs. Example: &#x60;tagIds&#x3D;1234,5678&#x60; | [optional] 
- **created_after_time** | **datetime**| A filter on data to have a created at time after or equal to this specified time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | [optional] 
+ **created_after_time** | **str**| A filter on data to have a created at time after or equal to this specified time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | [optional] 
 
     ### Return type
 
@@ -2052,6 +2183,69 @@ print("Exception when calling SamsaraApi->list_addresses: %s\n" % e)
       | Status code | Description | Response headers |
       |-------------|-------------|------------------|
         **200** | List of all addresses in the organization |  -  |
+        **0** | Error response |  -  |
+
+    [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+    # **list_carrier_proposed_assignments**
+    > ListCarrierProposedAssignmentResponse list_carrier_proposed_assignments(limit=limit, after=after, driver_ids=driver_ids, active_time=active_time)
+
+    Retrieve assignments
+
+      Show the assignments that are active for drivers and that would currently be visible to them in the driver app.
+
+    ### Example
+
+      ```python
+from __future__ import print_function
+import time
+import samsara
+from samsara.rest import ApiException
+from pprint import pprint
+
+# Enter a context with an instance of the API client
+  with samsara.ApiClient() as api_client:
+# Create an instance of the API class
+api_instance = samsara.SamsaraApi(api_client)
+limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
+after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
+driver_ids = ['driver_ids_example'] # list[str] | If specified, limits the results to those for these drivers. e.g. `driverIds=1,2,3` (optional)
+active_time = 'active_time_example' # str | If specified, shows assignments that will be active at this time. Defaults to now, which would show current active assignments. In RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). (optional)
+
+try:
+    # Retrieve assignments
+    api_response = api_instance.list_carrier_proposed_assignments(limit=limit, after=after, driver_ids=driver_ids, active_time=active_time)
+  pprint(api_response)
+except ApiException as e:
+print("Exception when calling SamsaraApi->list_carrier_proposed_assignments: %s\n" % e)
+```
+
+    ### Parameters
+    
+      Name | Type | Description  | Notes
+      ------------- | ------------- | ------------- | -------------
+     **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] [default to 512]
+ **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
+ **driver_ids** | [**list[str]**](str.md)| If specified, limits the results to those for these drivers. e.g. &#x60;driverIds&#x3D;1,2,3&#x60; | [optional] 
+ **active_time** | **str**| If specified, shows assignments that will be active at this time. Defaults to now, which would show current active assignments. In RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | [optional] 
+
+    ### Return type
+
+    [**ListCarrierProposedAssignmentResponse**](ListCarrierProposedAssignmentResponse.md)
+
+    ### Authorization
+
+    No authorization required
+
+    ### HTTP request headers
+
+    - **Content-Type**: Not defined
+    - **Accept**: application/json
+
+      ### HTTP response details
+      | Status code | Description | Response headers |
+      |-------------|-------------|------------------|
+        **200** | Returns the assignments that drivers would see in the future, if any. |  -  |
         **0** | Error response |  -  |
 
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2140,8 +2334,8 @@ limit = 512 # int | The limit for how many objects will be in the response. Defa
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 parent_tag_ids = ['parent_tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678` (optional)
 tag_ids = ['tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678` (optional)
-updated_after_time = '2013-10-20T19:20:30+01:00' # datetime | A filter on data to have an updated at time after or equal to this specified time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). (optional)
-created_after_time = '2013-10-20T19:20:30+01:00' # datetime | A filter on data to have a created at time after or equal to this specified time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). (optional)
+updated_after_time = 'updated_after_time_example' # str | A filter on data to have an updated at time after or equal to this specified time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). (optional)
+created_after_time = 'created_after_time_example' # str | A filter on data to have a created at time after or equal to this specified time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). (optional)
 
 try:
     # List all drivers
@@ -2160,8 +2354,8 @@ print("Exception when calling SamsaraApi->list_drivers: %s\n" % e)
  **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
  **parent_tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: &#x60;parentTagIds&#x3D;345,678&#x60; | [optional] 
  **tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of tag IDs. Example: &#x60;tagIds&#x3D;1234,5678&#x60; | [optional] 
- **updated_after_time** | **datetime**| A filter on data to have an updated at time after or equal to this specified time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | [optional] 
- **created_after_time** | **datetime**| A filter on data to have a created at time after or equal to this specified time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | [optional] 
+ **updated_after_time** | **str**| A filter on data to have an updated at time after or equal to this specified time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | [optional] 
+ **created_after_time** | **str**| A filter on data to have a created at time after or equal to this specified time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | [optional] 
 
     ### Return type
 
@@ -2307,7 +2501,7 @@ print("Exception when calling SamsaraApi->list_tags: %s\n" % e)
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
     # **list_user_roles**
-    > ListUserTagRolesResponse list_user_roles(limit=limit, after=after)
+    > ListUserRolesResponse list_user_roles(limit=limit, after=after)
 
     List all user roles
 
@@ -2346,7 +2540,7 @@ print("Exception when calling SamsaraApi->list_user_roles: %s\n" % e)
 
     ### Return type
 
-    [**ListUserTagRolesResponse**](ListUserTagRolesResponse.md)
+    [**ListUserRolesResponse**](ListUserRolesResponse.md)
 
     ### Authorization
 
@@ -2488,7 +2682,7 @@ print("Exception when calling SamsaraApi->list_vehicles: %s\n" % e)
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
     # **replace_tag**
-    > TagResponse replace_tag(id, tag_update_body_)
+    > TagResponse replace_tag(id, tag)
 
     Update a tag
 
@@ -2508,11 +2702,11 @@ from pprint import pprint
 # Create an instance of the API class
 api_instance = samsara.SamsaraApi(api_client)
 id = 'id_example' # str | Unique identifier for the tag.
-tag_update_body_ = samsara.ReplaceTagRequest() # ReplaceTagRequest | 
+tag = samsara.ReplaceTagRequest() # ReplaceTagRequest | 
 
 try:
     # Update a tag
-    api_response = api_instance.replace_tag(id, tag_update_body_)
+    api_response = api_instance.replace_tag(id, tag)
   pprint(api_response)
 except ApiException as e:
 print("Exception when calling SamsaraApi->replace_tag: %s\n" % e)
@@ -2523,7 +2717,7 @@ print("Exception when calling SamsaraApi->replace_tag: %s\n" % e)
       Name | Type | Description  | Notes
       ------------- | ------------- | ------------- | -------------
      **id** | **str**| Unique identifier for the tag. | 
- **tag_update_body_** | [**ReplaceTagRequest**](ReplaceTagRequest.md)|  | 
+ **tag** | [**ReplaceTagRequest**](ReplaceTagRequest.md)|  | 
 
     ### Return type
 
@@ -2542,6 +2736,65 @@ print("Exception when calling SamsaraApi->replace_tag: %s\n" % e)
       | Status code | Description | Response headers |
       |-------------|-------------|------------------|
         **200** | The updated tag data. |  -  |
+        **0** | Error response |  -  |
+
+    [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+    # **resolve_dvir_defect**
+    > object resolve_dvir_defect(id, defect=defect)
+
+    Resolve a defect
+
+      Resolves a given defect by marking its `isResolved` field to `true`.
+
+    ### Example
+
+      ```python
+from __future__ import print_function
+import time
+import samsara
+from samsara.rest import ApiException
+from pprint import pprint
+
+# Enter a context with an instance of the API client
+  with samsara.ApiClient() as api_client:
+# Create an instance of the API class
+api_instance = samsara.SamsaraApi(api_client)
+id = 'id_example' # str | ID of the defect.
+defect = samsara.DefectPatch() # DefectPatch | The DVIR defect fields to update. (optional)
+
+try:
+    # Resolve a defect
+    api_response = api_instance.resolve_dvir_defect(id, defect=defect)
+  pprint(api_response)
+except ApiException as e:
+print("Exception when calling SamsaraApi->resolve_dvir_defect: %s\n" % e)
+```
+
+    ### Parameters
+    
+      Name | Type | Description  | Notes
+      ------------- | ------------- | ------------- | -------------
+     **id** | **str**| ID of the defect. | 
+ **defect** | [**DefectPatch**](DefectPatch.md)| The DVIR defect fields to update. | [optional] 
+
+    ### Return type
+
+    **object**
+
+    ### Authorization
+
+    No authorization required
+
+    ### HTTP request headers
+
+    - **Content-Type**: application/json
+    - **Accept**: application/json
+
+      ### HTTP response details
+      | Status code | Description | Response headers |
+      |-------------|-------------|------------------|
+        **200** | Return the modified defect entity |  -  |
         **0** | Error response |  -  |
 
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2719,6 +2972,65 @@ print("Exception when calling SamsaraApi->update_driver: %s\n" % e)
       | Status code | Description | Response headers |
       |-------------|-------------|------------------|
         **200** | Updated driver object, with ID. |  -  |
+        **0** | Error response |  -  |
+
+    [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+    # **update_dvir**
+    > DvirResponse update_dvir(id, dvir=dvir)
+
+    Resolve a DVIR
+
+      Resolves a given DVIR by marking its `isResolved` field to `true`.
+
+    ### Example
+
+      ```python
+from __future__ import print_function
+import time
+import samsara
+from samsara.rest import ApiException
+from pprint import pprint
+
+# Enter a context with an instance of the API client
+  with samsara.ApiClient() as api_client:
+# Create an instance of the API class
+api_instance = samsara.SamsaraApi(api_client)
+id = 'id_example' # str | ID of the DVIR.
+dvir = samsara.UpdateDvirRequest() # UpdateDvirRequest | The dvir fields to update. (optional)
+
+try:
+    # Resolve a DVIR
+    api_response = api_instance.update_dvir(id, dvir=dvir)
+  pprint(api_response)
+except ApiException as e:
+print("Exception when calling SamsaraApi->update_dvir: %s\n" % e)
+```
+
+    ### Parameters
+    
+      Name | Type | Description  | Notes
+      ------------- | ------------- | ------------- | -------------
+     **id** | **str**| ID of the DVIR. | 
+ **dvir** | [**UpdateDvirRequest**](UpdateDvirRequest.md)| The dvir fields to update. | [optional] 
+
+    ### Return type
+
+    [**DvirResponse**](DvirResponse.md)
+
+    ### Authorization
+
+    No authorization required
+
+    ### HTTP request headers
+
+    - **Content-Type**: application/json
+    - **Accept**: application/json
+
+      ### HTTP response details
+      | Status code | Description | Response headers |
+      |-------------|-------------|------------------|
+        **200** | Updated dvir object with ID. |  -  |
         **0** | Error response |  -  |
 
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

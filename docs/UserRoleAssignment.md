@@ -5,7 +5,7 @@ A role that applies to a user. If the role has a `tag`, then the role applies fo
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **role** | [**UserRole**](UserRole.md) |  | [optional] 
-**tag** | [**UserRoleAssignmentTag**](UserRoleAssignmentTag.md) |  | [optional] 
+**tag** | [**TagTinyResponse**](TagTinyResponse.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
