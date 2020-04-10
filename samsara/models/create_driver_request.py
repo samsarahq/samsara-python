@@ -317,7 +317,7 @@ class CreateDriverRequest(object):
     def eld_ym_enabled(self):
         """Gets the eld_ym_enabled of this CreateDriverRequest.  # noqa: E501
 
-        Flag indicating this driver may select the Personal Conveyance duty status in ELD logs.  # noqa: E501
+        Flag indicating this driver may select the Yard Move duty status in ELD logs.  # noqa: E501
 
         :return: The eld_ym_enabled of this CreateDriverRequest.  # noqa: E501
         :rtype: bool
@@ -328,7 +328,7 @@ class CreateDriverRequest(object):
     def eld_ym_enabled(self, eld_ym_enabled):
         """Sets the eld_ym_enabled of this CreateDriverRequest.
 
-        Flag indicating this driver may select the Personal Conveyance duty status in ELD logs.  # noqa: E501
+        Flag indicating this driver may select the Yard Move duty status in ELD logs.  # noqa: E501
 
         :param eld_ym_enabled: The eld_ym_enabled of this CreateDriverRequest.  # noqa: E501
         :type: bool
