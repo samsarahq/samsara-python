@@ -43,6 +43,7 @@ class Vehicle(object):
         'model': 'str',
         'name': 'str',
         'notes': 'str',
+        'serial': 'str',
         'static_assigned_driver': 'DriverTinyResponse',
         'tags': 'list[TagTinyResponse]',
         'vin': 'str',
@@ -60,13 +61,14 @@ class Vehicle(object):
         'model': 'model',
         'name': 'name',
         'notes': 'notes',
+        'serial': 'serial',
         'static_assigned_driver': 'staticAssignedDriver',
         'tags': 'tags',
         'vin': 'vin',
         'year': 'year'
     }
 
-    def __init__(self, aux_input_type1=None, aux_input_type2=None, external_ids=None, harsh_acceleration_setting_type=None, id=None, license_plate=None, make=None, model=None, name=None, notes='', static_assigned_driver=None, tags=None, vin=None, year=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, aux_input_type1=None, aux_input_type2=None, external_ids=None, harsh_acceleration_setting_type=None, id=None, license_plate=None, make=None, model=None, name=None, notes='', serial=None, static_assigned_driver=None, tags=None, vin=None, year=None, local_vars_configuration=None):  # noqa: E501
         """Vehicle - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -82,6 +84,7 @@ class Vehicle(object):
         self._model = None
         self._name = None
         self._notes = None
+        self._serial = None
         self._static_assigned_driver = None
         self._tags = None
         self._vin = None
@@ -107,6 +110,8 @@ class Vehicle(object):
             self.name = name
         if notes is not None:
             self.notes = notes
+        if serial is not None:
+            self.serial = serial
         if static_assigned_driver is not None:
             self.static_assigned_driver = static_assigned_driver
         if tags is not None:
@@ -353,6 +358,29 @@ class Vehicle(object):
             raise ValueError("Invalid value for `notes`, length must be less than or equal to `255`")  # noqa: E501
 
         self._notes = notes
+
+    @property
+    def serial(self):
+        """Gets the serial of this Vehicle.  # noqa: E501
+
+        The serial number of the gateway installed in the vehicle.  # noqa: E501
+
+        :return: The serial of this Vehicle.  # noqa: E501
+        :rtype: str
+        """
+        return self._serial
+
+    @serial.setter
+    def serial(self, serial):
+        """Sets the serial of this Vehicle.
+
+        The serial number of the gateway installed in the vehicle.  # noqa: E501
+
+        :param serial: The serial of this Vehicle.  # noqa: E501
+        :type: str
+        """
+
+        self._serial = serial
 
     @property
     def static_assigned_driver(self):

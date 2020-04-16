@@ -48,6 +48,7 @@ class TestListVehiclesResponse(unittest.TestCase):
                         model = 'F150', 
                         name = 'Truck A7', 
                         notes = '0', 
+                        serial = 'VG12345', 
                         static_assigned_driver = samsara.models.driver_tiny_response.driverTinyResponse(), 
                         tags = [
                             samsara.models.tag_tiny_response.tagTinyResponse(
@@ -74,6 +75,7 @@ class TestListVehiclesResponse(unittest.TestCase):
                         model = 'F150', 
                         name = 'Truck A7', 
                         notes = '0', 
+                        serial = 'VG12345', 
                         static_assigned_driver = samsara.models.driver_tiny_response.driverTinyResponse(), 
                         tags = [
                             samsara.models.tag_tiny_response.tagTinyResponse(
