@@ -44,6 +44,9 @@ class TestVehicleStatsResponseData(unittest.TestCase):
                     name = 'boom', 
                     time = '2020-01-27T07:06:25Z', 
                     value = True, ), 
+                battery_milli_volts = samsara.models.vehicle_stats_battery_voltage.VehicleStatsBatteryVoltage(
+                    time = '2020-01-27T07:06:25Z', 
+                    value = 7991, ), 
                 engine_state = samsara.models.vehicle_stats_engine_state.VehicleStatsEngineState(
                     time = '2020-01-27T07:06:25Z', 
                     value = 'On', ), 

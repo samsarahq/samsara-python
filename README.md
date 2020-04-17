@@ -248,6 +248,7 @@ Class | Method | HTTP request | Description
  - [VehicleResponse](docs/VehicleResponse.md)
  - [VehicleStaticAssignedDriver](docs/VehicleStaticAssignedDriver.md)
  - [VehicleStatsAuxInput](docs/VehicleStatsAuxInput.md)
+ - [VehicleStatsBatteryVoltage](docs/VehicleStatsBatteryVoltage.md)
  - [VehicleStatsEngineState](docs/VehicleStatsEngineState.md)
  - [VehicleStatsFuelPercent](docs/VehicleStatsFuelPercent.md)
  - [VehicleStatsGpsDistanceMeters](docs/VehicleStatsGpsDistanceMeters.md)

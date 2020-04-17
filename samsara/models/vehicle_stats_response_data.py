@@ -35,6 +35,7 @@ class VehicleStatsResponseData(object):
     openapi_types = {
         'aux_input1': 'VehicleStatsAuxInput',
         'aux_input2': 'VehicleStatsAuxInput',
+        'battery_milli_volts': 'VehicleStatsBatteryVoltage',
         'engine_state': 'VehicleStatsEngineState',
         'fuel_percent': 'VehicleStatsFuelPercent',
         'gps_distance_meters': 'VehicleStatsGpsDistanceMeters',
@@ -48,6 +49,7 @@ class VehicleStatsResponseData(object):
     attribute_map = {
         'aux_input1': 'auxInput1',
         'aux_input2': 'auxInput2',
+        'battery_milli_volts': 'batteryMilliVolts',
         'engine_state': 'engineState',
         'fuel_percent': 'fuelPercent',
         'gps_distance_meters': 'gpsDistanceMeters',
@@ -58,7 +60,7 @@ class VehicleStatsResponseData(object):
         'obd_odometer_meters': 'obdOdometerMeters'
     }
 
-    def __init__(self, aux_input1=None, aux_input2=None, engine_state=None, fuel_percent=None, gps_distance_meters=None, gps_odometer_meters=None, id=None, name=None, obd_engine_seconds=None, obd_odometer_meters=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, aux_input1=None, aux_input2=None, battery_milli_volts=None, engine_state=None, fuel_percent=None, gps_distance_meters=None, gps_odometer_meters=None, id=None, name=None, obd_engine_seconds=None, obd_odometer_meters=None, local_vars_configuration=None):  # noqa: E501
         """VehicleStatsResponseData - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -66,6 +68,7 @@ class VehicleStatsResponseData(object):
 
         self._aux_input1 = None
         self._aux_input2 = None
+        self._battery_milli_volts = None
         self._engine_state = None
         self._fuel_percent = None
         self._gps_distance_meters = None
@@ -80,6 +83,8 @@ class VehicleStatsResponseData(object):
             self.aux_input1 = aux_input1
         if aux_input2 is not None:
             self.aux_input2 = aux_input2
+        if battery_milli_volts is not None:
+            self.battery_milli_volts = battery_milli_volts
         if engine_state is not None:
             self.engine_state = engine_state
         if fuel_percent is not None:
@@ -136,6 +141,27 @@ class VehicleStatsResponseData(object):
         """
 
         self._aux_input2 = aux_input2
+
+    @property
+    def battery_milli_volts(self):
+        """Gets the battery_milli_volts of this VehicleStatsResponseData.  # noqa: E501
+
+
+        :return: The battery_milli_volts of this VehicleStatsResponseData.  # noqa: E501
+        :rtype: VehicleStatsBatteryVoltage
+        """
+        return self._battery_milli_volts
+
+    @battery_milli_volts.setter
+    def battery_milli_volts(self, battery_milli_volts):
+        """Sets the battery_milli_volts of this VehicleStatsResponseData.
+
+
+        :param battery_milli_volts: The battery_milli_volts of this VehicleStatsResponseData.  # noqa: E501
+        :type: VehicleStatsBatteryVoltage
+        """
+
+        self._battery_milli_volts = battery_milli_volts
 
     @property
     def engine_state(self):

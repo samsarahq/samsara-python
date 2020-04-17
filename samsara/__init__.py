@@ -145,6 +145,7 @@ from samsara.models.vehicle_locations_response_data import VehicleLocationsRespo
 from samsara.models.vehicle_response import VehicleResponse
 from samsara.models.vehicle_static_assigned_driver import VehicleStaticAssignedDriver
 from samsara.models.vehicle_stats_aux_input import VehicleStatsAuxInput
+from samsara.models.vehicle_stats_battery_voltage import VehicleStatsBatteryVoltage
 from samsara.models.vehicle_stats_engine_state import VehicleStatsEngineState
 from samsara.models.vehicle_stats_fuel_percent import VehicleStatsFuelPercent
 from samsara.models.vehicle_stats_gps_distance_meters import VehicleStatsGpsDistanceMeters
