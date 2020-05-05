@@ -101,6 +101,8 @@ Class | Method | HTTP request | Description
 *SamsaraApi* | [**get_equipment_stats**](docs/SamsaraApi.md#get_equipment_stats) | **GET** /fleet/equipment/stats | Get most recent stats for all equipment
 *SamsaraApi* | [**get_equipment_stats_feed**](docs/SamsaraApi.md#get_equipment_stats_feed) | **GET** /fleet/equipment/stats/feed | Follow a feed of equipment stats
 *SamsaraApi* | [**get_equipment_stats_history**](docs/SamsaraApi.md#get_equipment_stats_history) | **GET** /fleet/equipment/stats/history | Get historical equipment stats
+*SamsaraApi* | [**get_hos_logs**](docs/SamsaraApi.md#get_hos_logs) | **GET** /fleet/hos/logs | Get last known HOS log entry
+*SamsaraApi* | [**get_hos_logs_history**](docs/SamsaraApi.md#get_hos_logs_history) | **GET** /fleet/hos/logs/history | Get historical HOS logs.
 *SamsaraApi* | [**get_tag**](docs/SamsaraApi.md#get_tag) | **GET** /tags/{id} | Retrieve a tag
 *SamsaraApi* | [**get_user**](docs/SamsaraApi.md#get_user) | **GET** /users/{id} | Retrieve a user
 *SamsaraApi* | [**get_vehicle**](docs/SamsaraApi.md#get_vehicle) | **GET** /fleet/vehicles/{id} | Retrieve a vehicle
@@ -196,6 +198,11 @@ Class | Method | HTTP request | Description
  - [EquipmentStatsListResponseData](docs/EquipmentStatsListResponseData.md)
  - [EquipmentStatsResponse](docs/EquipmentStatsResponse.md)
  - [EquipmentStatsResponseData](docs/EquipmentStatsResponseData.md)
+ - [HosLogEntry](docs/HosLogEntry.md)
+ - [HosLogForDriver](docs/HosLogForDriver.md)
+ - [HosLogsForDriver](docs/HosLogsForDriver.md)
+ - [HosLogsHistoryResponse](docs/HosLogsHistoryResponse.md)
+ - [HosLogsSnapshotResponse](docs/HosLogsSnapshotResponse.md)
  - [ListAddressesResponse](docs/ListAddressesResponse.md)
  - [ListCarrierProposedAssignmentResponse](docs/ListCarrierProposedAssignmentResponse.md)
  - [ListContactsResponse](docs/ListContactsResponse.md)
@@ -204,6 +211,7 @@ Class | Method | HTTP request | Description
  - [ListUserRolesResponse](docs/ListUserRolesResponse.md)
  - [ListUsersResponse](docs/ListUsersResponse.md)
  - [ListVehiclesResponse](docs/ListVehiclesResponse.md)
+ - [Location](docs/Location.md)
  - [PaginationResponse](docs/PaginationResponse.md)
  - [ParentTag](docs/ParentTag.md)
  - [ReplaceTagRequest](docs/ReplaceTagRequest.md)

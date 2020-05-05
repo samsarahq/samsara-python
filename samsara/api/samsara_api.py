@@ -2962,6 +2962,264 @@ class SamsaraApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_hos_logs(self, **kwargs):  # noqa: E501
+        """Get last known HOS log entry  # noqa: E501
+
+        Returns the last known HOS log entry for the requested time.  By default, this endpoint will return the most recent HOS log entry for all drivers. The `time` parameter allows you to request an HOS log entry \"snapshot\" - i.e., the HOS log entry at that time. See the HOS logs [history](#getHosLogsHistory) endpoint to get HOS logs for a time *period*.  You can filter the results using the driver ID or tag ID parameters.  **Note:** If data is still being uploaded from the Samsara Driver App, it may not be completely reflected in the response from this endpoint.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_hos_logs(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param list[str] tag_ids: A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+        :param list[str] parent_tag_ids: A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+        :param list[str] driver_ids: A filter on the data based on this comma-separated list of driver IDs. Example: `driverIds=1234,5678`
+        :param str time: A filter on the data that returns the last known data points with timestamps less than or equal to this value. Defaults to now if not provided. Must be a string in RFC 3339 format. Millisecond precision and timezones are supported. (Example: `2020-01-27T07:06:25Z`).
+        :param str after: If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: HosLogsSnapshotResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_hos_logs_with_http_info(**kwargs)  # noqa: E501
+
+    def get_hos_logs_with_http_info(self, **kwargs):  # noqa: E501
+        """Get last known HOS log entry  # noqa: E501
+
+        Returns the last known HOS log entry for the requested time.  By default, this endpoint will return the most recent HOS log entry for all drivers. The `time` parameter allows you to request an HOS log entry \"snapshot\" - i.e., the HOS log entry at that time. See the HOS logs [history](#getHosLogsHistory) endpoint to get HOS logs for a time *period*.  You can filter the results using the driver ID or tag ID parameters.  **Note:** If data is still being uploaded from the Samsara Driver App, it may not be completely reflected in the response from this endpoint.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_hos_logs_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param list[str] tag_ids: A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+        :param list[str] parent_tag_ids: A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+        :param list[str] driver_ids: A filter on the data based on this comma-separated list of driver IDs. Example: `driverIds=1234,5678`
+        :param str time: A filter on the data that returns the last known data points with timestamps less than or equal to this value. Defaults to now if not provided. Must be a string in RFC 3339 format. Millisecond precision and timezones are supported. (Example: `2020-01-27T07:06:25Z`).
+        :param str after: If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(HosLogsSnapshotResponse, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['tag_ids', 'parent_tag_ids', 'driver_ids', 'time', 'after']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_hos_logs" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'tag_ids' in local_var_params and local_var_params['tag_ids'] is not None:  # noqa: E501
+            query_params.append(('tagIds', local_var_params['tag_ids']))  # noqa: E501
+            collection_formats['tagIds'] = 'csv'  # noqa: E501
+        if 'parent_tag_ids' in local_var_params and local_var_params['parent_tag_ids'] is not None:  # noqa: E501
+            query_params.append(('parentTagIds', local_var_params['parent_tag_ids']))  # noqa: E501
+            collection_formats['parentTagIds'] = 'csv'  # noqa: E501
+        if 'driver_ids' in local_var_params and local_var_params['driver_ids'] is not None:  # noqa: E501
+            query_params.append(('driverIds', local_var_params['driver_ids']))  # noqa: E501
+            collection_formats['driverIds'] = 'csv'  # noqa: E501
+        if 'time' in local_var_params and local_var_params['time'] is not None:  # noqa: E501
+            query_params.append(('time', local_var_params['time']))  # noqa: E501
+        if 'after' in local_var_params and local_var_params['after'] is not None:  # noqa: E501
+            query_params.append(('after', local_var_params['after']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/fleet/hos/logs', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='HosLogsSnapshotResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_hos_logs_history(self, start_time, end_time, **kwargs):  # noqa: E501
+        """Get historical HOS logs.  # noqa: E501
+
+        Returns all known HOS (hours of service) logs during the given time range for all drivers. This can be optionally filtered by tags or specific driver IDs or driver external IDs.  **Note:** If  data is still being uploaded from the Samsara Driver App, it may not be completely reflected in the response from this endpoint. The best practice is to wait a couple of days before querying this endpoint to make sure that all data from the Samsara Driver App has been uploaded.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_hos_logs_history(start_time, end_time, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str start_time: A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). (required)
+        :param str end_time: An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). (required)
+        :param list[str] tag_ids: A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+        :param list[str] parent_tag_ids: A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+        :param list[str] driver_ids: A filter on the data based on this comma-separated list of driver IDs. Example: `driverIds=1234,5678`
+        :param str after: If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: HosLogsHistoryResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_hos_logs_history_with_http_info(start_time, end_time, **kwargs)  # noqa: E501
+
+    def get_hos_logs_history_with_http_info(self, start_time, end_time, **kwargs):  # noqa: E501
+        """Get historical HOS logs.  # noqa: E501
+
+        Returns all known HOS (hours of service) logs during the given time range for all drivers. This can be optionally filtered by tags or specific driver IDs or driver external IDs.  **Note:** If  data is still being uploaded from the Samsara Driver App, it may not be completely reflected in the response from this endpoint. The best practice is to wait a couple of days before querying this endpoint to make sure that all data from the Samsara Driver App has been uploaded.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_hos_logs_history_with_http_info(start_time, end_time, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str start_time: A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). (required)
+        :param str end_time: An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). (required)
+        :param list[str] tag_ids: A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+        :param list[str] parent_tag_ids: A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+        :param list[str] driver_ids: A filter on the data based on this comma-separated list of driver IDs. Example: `driverIds=1234,5678`
+        :param str after: If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(HosLogsHistoryResponse, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['start_time', 'end_time', 'tag_ids', 'parent_tag_ids', 'driver_ids', 'after']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_hos_logs_history" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'start_time' is set
+        if self.api_client.client_side_validation and ('start_time' not in local_var_params or  # noqa: E501
+                                                        local_var_params['start_time'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `start_time` when calling `get_hos_logs_history`")  # noqa: E501
+        # verify the required parameter 'end_time' is set
+        if self.api_client.client_side_validation and ('end_time' not in local_var_params or  # noqa: E501
+                                                        local_var_params['end_time'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `end_time` when calling `get_hos_logs_history`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'tag_ids' in local_var_params and local_var_params['tag_ids'] is not None:  # noqa: E501
+            query_params.append(('tagIds', local_var_params['tag_ids']))  # noqa: E501
+            collection_formats['tagIds'] = 'csv'  # noqa: E501
+        if 'parent_tag_ids' in local_var_params and local_var_params['parent_tag_ids'] is not None:  # noqa: E501
+            query_params.append(('parentTagIds', local_var_params['parent_tag_ids']))  # noqa: E501
+            collection_formats['parentTagIds'] = 'csv'  # noqa: E501
+        if 'driver_ids' in local_var_params and local_var_params['driver_ids'] is not None:  # noqa: E501
+            query_params.append(('driverIds', local_var_params['driver_ids']))  # noqa: E501
+            collection_formats['driverIds'] = 'csv'  # noqa: E501
+        if 'start_time' in local_var_params and local_var_params['start_time'] is not None:  # noqa: E501
+            query_params.append(('startTime', local_var_params['start_time']))  # noqa: E501
+        if 'end_time' in local_var_params and local_var_params['end_time'] is not None:  # noqa: E501
+            query_params.append(('endTime', local_var_params['end_time']))  # noqa: E501
+        if 'after' in local_var_params and local_var_params['after'] is not None:  # noqa: E501
+            query_params.append(('after', local_var_params['after']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/fleet/hos/logs/history', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='HosLogsHistoryResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_tag(self, id, **kwargs):  # noqa: E501
         """Retrieve a tag  # noqa: E501
 

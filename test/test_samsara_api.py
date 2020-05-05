@@ -203,6 +203,20 @@ class TestSamsaraApi(unittest.TestCase):
         """
         pass
 
+    def test_get_hos_logs(self):
+        """Test case for get_hos_logs
+
+        Get last known HOS log entry  # noqa: E501
+        """
+        pass
+
+    def test_get_hos_logs_history(self):
+        """Test case for get_hos_logs_history
+
+        Get historical HOS logs.  # noqa: E501
+        """
+        pass
+
     def test_get_tag(self):
         """Test case for get_tag
 
