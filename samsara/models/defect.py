@@ -38,6 +38,8 @@ class Defect(object):
         'defect_type': 'str',
         'id': 'str',
         'is_resolved': 'bool',
+        'mechanic_notes': 'str',
+        'mechanic_notes_updated_at_time': 'str',
         'resolved_at_time': 'str',
         'resolved_by': 'DefectResolvedBy',
         'trailer': 'object',
@@ -50,13 +52,15 @@ class Defect(object):
         'defect_type': 'defectType',
         'id': 'id',
         'is_resolved': 'isResolved',
+        'mechanic_notes': 'mechanicNotes',
+        'mechanic_notes_updated_at_time': 'mechanicNotesUpdatedAtTime',
         'resolved_at_time': 'resolvedAtTime',
         'resolved_by': 'resolvedBy',
         'trailer': 'trailer',
         'vehicle': 'vehicle'
     }
 
-    def __init__(self, comment=None, created_at_time=None, defect_type=None, id=None, is_resolved=None, resolved_at_time=None, resolved_by=None, trailer=None, vehicle=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, comment=None, created_at_time=None, defect_type=None, id=None, is_resolved=None, mechanic_notes=None, mechanic_notes_updated_at_time=None, resolved_at_time=None, resolved_by=None, trailer=None, vehicle=None, local_vars_configuration=None):  # noqa: E501
         """Defect - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -67,6 +71,8 @@ class Defect(object):
         self._defect_type = None
         self._id = None
         self._is_resolved = None
+        self._mechanic_notes = None
+        self._mechanic_notes_updated_at_time = None
         self._resolved_at_time = None
         self._resolved_by = None
         self._trailer = None
@@ -81,6 +87,10 @@ class Defect(object):
             self.defect_type = defect_type
         self.id = id
         self.is_resolved = is_resolved
+        if mechanic_notes is not None:
+            self.mechanic_notes = mechanic_notes
+        if mechanic_notes_updated_at_time is not None:
+            self.mechanic_notes_updated_at_time = mechanic_notes_updated_at_time
         if resolved_at_time is not None:
             self.resolved_at_time = resolved_at_time
         if resolved_by is not None:
@@ -208,6 +218,52 @@ class Defect(object):
             raise ValueError("Invalid value for `is_resolved`, must not be `None`")  # noqa: E501
 
         self._is_resolved = is_resolved
+
+    @property
+    def mechanic_notes(self):
+        """Gets the mechanic_notes of this Defect.  # noqa: E501
+
+        The mechanics notes on the defect.  # noqa: E501
+
+        :return: The mechanic_notes of this Defect.  # noqa: E501
+        :rtype: str
+        """
+        return self._mechanic_notes
+
+    @mechanic_notes.setter
+    def mechanic_notes(self, mechanic_notes):
+        """Sets the mechanic_notes of this Defect.
+
+        The mechanics notes on the defect.  # noqa: E501
+
+        :param mechanic_notes: The mechanic_notes of this Defect.  # noqa: E501
+        :type: str
+        """
+
+        self._mechanic_notes = mechanic_notes
+
+    @property
+    def mechanic_notes_updated_at_time(self):
+        """Gets the mechanic_notes_updated_at_time of this Defect.  # noqa: E501
+
+        Time when mechanic notes were last updated. UTC timestamp in RFC 3339 format. Example: `2020-01-27T07:06:25Z`.  # noqa: E501
+
+        :return: The mechanic_notes_updated_at_time of this Defect.  # noqa: E501
+        :rtype: str
+        """
+        return self._mechanic_notes_updated_at_time
+
+    @mechanic_notes_updated_at_time.setter
+    def mechanic_notes_updated_at_time(self, mechanic_notes_updated_at_time):
+        """Sets the mechanic_notes_updated_at_time of this Defect.
+
+        Time when mechanic notes were last updated. UTC timestamp in RFC 3339 format. Example: `2020-01-27T07:06:25Z`.  # noqa: E501
+
+        :param mechanic_notes_updated_at_time: The mechanic_notes_updated_at_time of this Defect.  # noqa: E501
+        :type: str
+        """
+
+        self._mechanic_notes_updated_at_time = mechanic_notes_updated_at_time
 
     @property
     def resolved_at_time(self):

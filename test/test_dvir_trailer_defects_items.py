@@ -41,6 +41,8 @@ class TestDvirTrailerDefectsItems(unittest.TestCase):
                 defect_type = 'Air Compressor', 
                 id = '18', 
                 is_resolved = True, 
+                mechanic_notes = 'Extremely large oddly shaped hole in passenger side window.', 
+                mechanic_notes_updated_at_time = '2020-01-27T07:06:25Z', 
                 resolved_at_time = '2020-01-27T07:06:25Z', 
                 resolved_by = samsara.models.defect_resolved_by.Defect_resolvedBy(
                     id = '0', 
