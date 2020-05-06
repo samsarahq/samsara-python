@@ -350,13 +350,6 @@ class TestSamsaraApi(unittest.TestCase):
         """
         pass
 
-    def test_resolve_dvir_defect(self):
-        """Test case for resolve_dvir_defect
-
-        Resolve a defect  # noqa: E501
-        """
-        pass
-
     def test_update_address(self):
         """Test case for update_address
 
@@ -382,6 +375,13 @@ class TestSamsaraApi(unittest.TestCase):
         """Test case for update_dvir
 
         Resolve a DVIR  # noqa: E501
+        """
+        pass
+
+    def test_update_dvir_defect(self):
+        """Test case for update_dvir_defect
+
+        Update a defect  # noqa: E501
         """
         pass
 

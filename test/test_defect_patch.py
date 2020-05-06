@@ -37,6 +37,7 @@ class TestDefectPatch(unittest.TestCase):
         if include_optional :
             return DefectPatch(
                 is_resolved = True, 
+                mechanic_notes = 'Extremely large oddly shaped hole in passenger side window.', 
                 resolved_at_time = '2020-01-27T07:06:25Z', 
                 resolved_by = samsara.models.resolved_by.ResolvedBy(
                     id = '11', 

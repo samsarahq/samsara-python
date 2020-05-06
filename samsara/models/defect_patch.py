@@ -34,28 +34,33 @@ class DefectPatch(object):
     """
     openapi_types = {
         'is_resolved': 'bool',
+        'mechanic_notes': 'str',
         'resolved_at_time': 'str',
         'resolved_by': 'ResolvedBy'
     }
 
     attribute_map = {
         'is_resolved': 'isResolved',
+        'mechanic_notes': 'mechanicNotes',
         'resolved_at_time': 'resolvedAtTime',
         'resolved_by': 'resolvedBy'
     }
 
-    def __init__(self, is_resolved=None, resolved_at_time=None, resolved_by=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, is_resolved=None, mechanic_notes=None, resolved_at_time=None, resolved_by=None, local_vars_configuration=None):  # noqa: E501
         """DefectPatch - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._is_resolved = None
+        self._mechanic_notes = None
         self._resolved_at_time = None
         self._resolved_by = None
         self.discriminator = None
 
         self.is_resolved = is_resolved
+        if mechanic_notes is not None:
+            self.mechanic_notes = mechanic_notes
         if resolved_at_time is not None:
             self.resolved_at_time = resolved_at_time
         self.resolved_by = resolved_by
@@ -84,6 +89,29 @@ class DefectPatch(object):
             raise ValueError("Invalid value for `is_resolved`, must not be `None`")  # noqa: E501
 
         self._is_resolved = is_resolved
+
+    @property
+    def mechanic_notes(self):
+        """Gets the mechanic_notes of this DefectPatch.  # noqa: E501
+
+        The mechanics notes on the defect.  # noqa: E501
+
+        :return: The mechanic_notes of this DefectPatch.  # noqa: E501
+        :rtype: str
+        """
+        return self._mechanic_notes
+
+    @mechanic_notes.setter
+    def mechanic_notes(self, mechanic_notes):
+        """Sets the mechanic_notes of this DefectPatch.
+
+        The mechanics notes on the defect.  # noqa: E501
+
+        :param mechanic_notes: The mechanic_notes of this DefectPatch.  # noqa: E501
+        :type: str
+        """
+
+        self._mechanic_notes = mechanic_notes
 
     @property
     def resolved_at_time(self):

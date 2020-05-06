@@ -122,11 +122,11 @@ Class | Method | HTTP request | Description
 *SamsaraApi* | [**list_users**](docs/SamsaraApi.md#list_users) | **GET** /users | List all users
 *SamsaraApi* | [**list_vehicles**](docs/SamsaraApi.md#list_vehicles) | **GET** /fleet/vehicles | List all vehicles
 *SamsaraApi* | [**replace_tag**](docs/SamsaraApi.md#replace_tag) | **PUT** /tags/{id} | Update a tag
-*SamsaraApi* | [**resolve_dvir_defect**](docs/SamsaraApi.md#resolve_dvir_defect) | **PATCH** /fleet/defects/{id} | Resolve a defect
 *SamsaraApi* | [**update_address**](docs/SamsaraApi.md#update_address) | **PATCH** /addresses/{id} | Update an address
 *SamsaraApi* | [**update_contact**](docs/SamsaraApi.md#update_contact) | **PATCH** /contacts/{id} | Update a contact
 *SamsaraApi* | [**update_driver**](docs/SamsaraApi.md#update_driver) | **PATCH** /fleet/drivers/{id} | Update a driver
 *SamsaraApi* | [**update_dvir**](docs/SamsaraApi.md#update_dvir) | **PATCH** /fleet/dvirs/{id} | Resolve a DVIR
+*SamsaraApi* | [**update_dvir_defect**](docs/SamsaraApi.md#update_dvir_defect) | **PATCH** /fleet/defects/{id} | Update a defect
 *SamsaraApi* | [**update_user**](docs/SamsaraApi.md#update_user) | **PATCH** /users/{id} | Update a user
 *SamsaraApi* | [**update_vehicle**](docs/SamsaraApi.md#update_vehicle) | **PATCH** /fleet/vehicles/{id} | Update a vehicle
 

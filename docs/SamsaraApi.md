@@ -50,11 +50,11 @@ Method | HTTP request | Description
 [**list_users**](SamsaraApi.md#list_users) | **GET** /users | List all users
 [**list_vehicles**](SamsaraApi.md#list_vehicles) | **GET** /fleet/vehicles | List all vehicles
 [**replace_tag**](SamsaraApi.md#replace_tag) | **PUT** /tags/{id} | Update a tag
-[**resolve_dvir_defect**](SamsaraApi.md#resolve_dvir_defect) | **PATCH** /fleet/defects/{id} | Resolve a defect
 [**update_address**](SamsaraApi.md#update_address) | **PATCH** /addresses/{id} | Update an address
 [**update_contact**](SamsaraApi.md#update_contact) | **PATCH** /contacts/{id} | Update a contact
 [**update_driver**](SamsaraApi.md#update_driver) | **PATCH** /fleet/drivers/{id} | Update a driver
 [**update_dvir**](SamsaraApi.md#update_dvir) | **PATCH** /fleet/dvirs/{id} | Resolve a DVIR
+[**update_dvir_defect**](SamsaraApi.md#update_dvir_defect) | **PATCH** /fleet/defects/{id} | Update a defect
 [**update_user**](SamsaraApi.md#update_user) | **PATCH** /users/{id} | Update a user
 [**update_vehicle**](SamsaraApi.md#update_vehicle) | **PATCH** /fleet/vehicles/{id} | Update a vehicle
 
@@ -2874,65 +2874,6 @@ print("Exception when calling SamsaraApi->replace_tag: %s\n" % e)
 
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-    # **resolve_dvir_defect**
-    > object resolve_dvir_defect(id, defect=defect)
-
-    Resolve a defect
-
-      Resolves a given defect by marking its `isResolved` field to `true`.
-
-    ### Example
-
-      ```python
-from __future__ import print_function
-import time
-import samsara
-from samsara.rest import ApiException
-from pprint import pprint
-
-# Enter a context with an instance of the API client
-  with samsara.ApiClient() as api_client:
-# Create an instance of the API class
-api_instance = samsara.SamsaraApi(api_client)
-id = 'id_example' # str | ID of the defect.
-defect = samsara.DefectPatch() # DefectPatch | The DVIR defect fields to update. (optional)
-
-try:
-    # Resolve a defect
-    api_response = api_instance.resolve_dvir_defect(id, defect=defect)
-  pprint(api_response)
-except ApiException as e:
-print("Exception when calling SamsaraApi->resolve_dvir_defect: %s\n" % e)
-```
-
-    ### Parameters
-    
-      Name | Type | Description  | Notes
-      ------------- | ------------- | ------------- | -------------
-     **id** | **str**| ID of the defect. | 
- **defect** | [**DefectPatch**](DefectPatch.md)| The DVIR defect fields to update. | [optional] 
-
-    ### Return type
-
-    **object**
-
-    ### Authorization
-
-    No authorization required
-
-    ### HTTP request headers
-
-    - **Content-Type**: application/json
-    - **Accept**: application/json
-
-      ### HTTP response details
-      | Status code | Description | Response headers |
-      |-------------|-------------|------------------|
-        **200** | Return the modified defect entity |  -  |
-        **0** | Error response |  -  |
-
-    [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
     # **update_address**
     > AddressResponse update_address(id, address)
 
@@ -3165,6 +3106,65 @@ print("Exception when calling SamsaraApi->update_dvir: %s\n" % e)
       | Status code | Description | Response headers |
       |-------------|-------------|------------------|
         **200** | Updated dvir object with ID. |  -  |
+        **0** | Error response |  -  |
+
+    [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+    # **update_dvir_defect**
+    > object update_dvir_defect(id, defect=defect)
+
+    Update a defect
+
+      Updates a given defect. Can be used to resolve a defect by marking its `isResolved` field to `true`.
+
+    ### Example
+
+      ```python
+from __future__ import print_function
+import time
+import samsara
+from samsara.rest import ApiException
+from pprint import pprint
+
+# Enter a context with an instance of the API client
+  with samsara.ApiClient() as api_client:
+# Create an instance of the API class
+api_instance = samsara.SamsaraApi(api_client)
+id = 'id_example' # str | ID of the defect.
+defect = samsara.DefectPatch() # DefectPatch | The DVIR defect fields to update. (optional)
+
+try:
+    # Update a defect
+    api_response = api_instance.update_dvir_defect(id, defect=defect)
+  pprint(api_response)
+except ApiException as e:
+print("Exception when calling SamsaraApi->update_dvir_defect: %s\n" % e)
+```
+
+    ### Parameters
+    
+      Name | Type | Description  | Notes
+      ------------- | ------------- | ------------- | -------------
+     **id** | **str**| ID of the defect. | 
+ **defect** | [**DefectPatch**](DefectPatch.md)| The DVIR defect fields to update. | [optional] 
+
+    ### Return type
+
+    **object**
+
+    ### Authorization
+
+    No authorization required
+
+    ### HTTP request headers
+
+    - **Content-Type**: application/json
+    - **Accept**: application/json
+
+      ### HTTP response details
+      | Status code | Description | Response headers |
+      |-------------|-------------|------------------|
+        **200** | Return the modified defect entity |  -  |
         **0** | Error response |  -  |
 
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
