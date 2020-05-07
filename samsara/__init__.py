@@ -52,6 +52,8 @@ from samsara.models.create_user_request import CreateUserRequest
 from samsara.models.defect import Defect
 from samsara.models.defect_patch import DefectPatch
 from samsara.models.defect_resolved_by import DefectResolvedBy
+from samsara.models.defect_response import DefectResponse
+from samsara.models.defects_response import DefectsResponse
 from samsara.models.driver import Driver
 from samsara.models.driver_activation_status import DriverActivationStatus
 from samsara.models.driver_carrier_settings import DriverCarrierSettings

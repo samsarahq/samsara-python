@@ -45,10 +45,6 @@ class TestDefectPatch(unittest.TestCase):
             )
         else :
             return DefectPatch(
-                is_resolved = True,
-                resolved_by = samsara.models.resolved_by.ResolvedBy(
-                    id = '11', 
-                    type = '0', ),
         )
 
     def testDefectPatch(self):

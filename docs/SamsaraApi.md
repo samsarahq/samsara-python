@@ -977,7 +977,7 @@ print("Exception when calling SamsaraApi->get_driver_tachograph_activity: %s\n" 
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
     # **get_dvir_defects**
-    > object get_dvir_defects(start_time, end_time, limit=limit, after=after, is_resolved=is_resolved)
+    > DefectsResponse get_dvir_defects(start_time, end_time, limit=limit, after=after, is_resolved=is_resolved)
 
     Get all defects
 
@@ -1022,7 +1022,7 @@ print("Exception when calling SamsaraApi->get_dvir_defects: %s\n" % e)
 
     ### Return type
 
-    **object**
+    [**DefectsResponse**](DefectsResponse.md)
 
     ### Authorization
 
@@ -3111,7 +3111,7 @@ print("Exception when calling SamsaraApi->update_dvir: %s\n" % e)
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
     # **update_dvir_defect**
-    > object update_dvir_defect(id, defect=defect)
+    > DefectResponse update_dvir_defect(id, defect=defect)
 
     Update a defect
 
@@ -3150,7 +3150,7 @@ print("Exception when calling SamsaraApi->update_dvir_defect: %s\n" % e)
 
     ### Return type
 
-    **object**
+    [**DefectResponse**](DefectResponse.md)
 
     ### Authorization
 

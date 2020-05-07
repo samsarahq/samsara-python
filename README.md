@@ -157,6 +157,8 @@ Class | Method | HTTP request | Description
  - [Defect](docs/Defect.md)
  - [DefectPatch](docs/DefectPatch.md)
  - [DefectResolvedBy](docs/DefectResolvedBy.md)
+ - [DefectResponse](docs/DefectResponse.md)
+ - [DefectsResponse](docs/DefectsResponse.md)
  - [Driver](docs/Driver.md)
  - [DriverActivationStatus](docs/DriverActivationStatus.md)
  - [DriverCarrierSettings](docs/DriverCarrierSettings.md)

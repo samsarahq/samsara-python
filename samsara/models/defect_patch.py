@@ -58,12 +58,14 @@ class DefectPatch(object):
         self._resolved_by = None
         self.discriminator = None
 
-        self.is_resolved = is_resolved
+        if is_resolved is not None:
+            self.is_resolved = is_resolved
         if mechanic_notes is not None:
             self.mechanic_notes = mechanic_notes
         if resolved_at_time is not None:
             self.resolved_at_time = resolved_at_time
-        self.resolved_by = resolved_by
+        if resolved_by is not None:
+            self.resolved_by = resolved_by
 
     @property
     def is_resolved(self):
@@ -85,8 +87,6 @@ class DefectPatch(object):
         :param is_resolved: The is_resolved of this DefectPatch.  # noqa: E501
         :type: bool
         """
-        if self.local_vars_configuration.client_side_validation and is_resolved is None:  # noqa: E501
-            raise ValueError("Invalid value for `is_resolved`, must not be `None`")  # noqa: E501
 
         self._is_resolved = is_resolved
 
@@ -154,8 +154,6 @@ class DefectPatch(object):
         :param resolved_by: The resolved_by of this DefectPatch.  # noqa: E501
         :type: ResolvedBy
         """
-        if self.local_vars_configuration.client_side_validation and resolved_by is None:  # noqa: E501
-            raise ValueError("Invalid value for `resolved_by`, must not be `None`")  # noqa: E501
 
         self._resolved_by = resolved_by
 
