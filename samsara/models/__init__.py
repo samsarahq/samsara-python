@@ -81,11 +81,6 @@ from samsara.models.equipment_stats_list_response import EquipmentStatsListRespo
 from samsara.models.equipment_stats_list_response_data import EquipmentStatsListResponseData
 from samsara.models.equipment_stats_response import EquipmentStatsResponse
 from samsara.models.equipment_stats_response_data import EquipmentStatsResponseData
-from samsara.models.hos_log_entry import HosLogEntry
-from samsara.models.hos_log_for_driver import HosLogForDriver
-from samsara.models.hos_logs_for_driver import HosLogsForDriver
-from samsara.models.hos_logs_history_response import HosLogsHistoryResponse
-from samsara.models.hos_logs_snapshot_response import HosLogsSnapshotResponse
 from samsara.models.list_addresses_response import ListAddressesResponse
 from samsara.models.list_carrier_proposed_assignment_response import ListCarrierProposedAssignmentResponse
 from samsara.models.list_contacts_response import ListContactsResponse
@@ -94,7 +89,6 @@ from samsara.models.list_tags_response import ListTagsResponse
 from samsara.models.list_user_roles_response import ListUserRolesResponse
 from samsara.models.list_users_response import ListUsersResponse
 from samsara.models.list_vehicles_response import ListVehiclesResponse
-from samsara.models.location import Location
 from samsara.models.pagination_response import PaginationResponse
 from samsara.models.parent_tag import ParentTag
 from samsara.models.replace_tag_request import ReplaceTagRequest
