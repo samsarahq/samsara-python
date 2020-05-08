@@ -47,6 +47,7 @@ Method | HTTP request | Description
 [**list_user_roles**](SamsaraApi.md#list_user_roles) | **GET** /user-roles | List all user roles
 [**list_users**](SamsaraApi.md#list_users) | **GET** /users | List all users
 [**list_vehicles**](SamsaraApi.md#list_vehicles) | **GET** /fleet/vehicles | List all vehicles
+[**patch_tag**](SamsaraApi.md#patch_tag) | **PATCH** /tags/{id} | Update a tag
 [**replace_tag**](SamsaraApi.md#replace_tag) | **PUT** /tags/{id} | Update a tag
 [**update_address**](SamsaraApi.md#update_address) | **PATCH** /addresses/{id} | Update an address
 [**update_contact**](SamsaraApi.md#update_contact) | **PATCH** /contacts/{id} | Update a contact
@@ -2677,6 +2678,65 @@ print("Exception when calling SamsaraApi->list_vehicles: %s\n" % e)
       | Status code | Description | Response headers |
       |-------------|-------------|------------------|
         **200** | List of all vehicle objects, and pagination parameters. |  -  |
+        **0** | Error response |  -  |
+
+    [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+    # **patch_tag**
+    > TagResponse patch_tag(id, tag)
+
+    Update a tag
+
+      Update an existing tag. **Note** this implementation of patch uses [the JSON merge patch](https://tools.ietf.org/html/rfc7396) proposed standard.    This means that any fields included in the patch request will _overwrite_ fields which exist on the target resource.    For arrays, this means any array included in the request will _replace_ the array that exists at the specified path, it will not _add_ to the existing array.
+
+    ### Example
+
+      ```python
+from __future__ import print_function
+import time
+import samsara
+from samsara.rest import ApiException
+from pprint import pprint
+
+# Enter a context with an instance of the API client
+  with samsara.ApiClient() as api_client:
+# Create an instance of the API class
+api_instance = samsara.SamsaraApi(api_client)
+id = 'id_example' # str | Unique identifier for the tag.
+tag = samsara.PatchTagRequest() # PatchTagRequest | 
+
+try:
+    # Update a tag
+    api_response = api_instance.patch_tag(id, tag)
+  pprint(api_response)
+except ApiException as e:
+print("Exception when calling SamsaraApi->patch_tag: %s\n" % e)
+```
+
+    ### Parameters
+    
+      Name | Type | Description  | Notes
+      ------------- | ------------- | ------------- | -------------
+     **id** | **str**| Unique identifier for the tag. | 
+ **tag** | [**PatchTagRequest**](PatchTagRequest.md)|  | 
+
+    ### Return type
+
+    [**TagResponse**](TagResponse.md)
+
+    ### Authorization
+
+    No authorization required
+
+    ### HTTP request headers
+
+    - **Content-Type**: application/json
+    - **Accept**: application/json
+
+      ### HTTP response details
+      | Status code | Description | Response headers |
+      |-------------|-------------|------------------|
+        **200** | Returns updated tag object. |  -  |
         **0** | Error response |  -  |
 
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

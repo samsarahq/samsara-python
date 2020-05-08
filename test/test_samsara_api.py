@@ -329,6 +329,13 @@ class TestSamsaraApi(unittest.TestCase):
         """
         pass
 
+    def test_patch_tag(self):
+        """Test case for patch_tag
+
+        Update a tag  # noqa: E501
+        """
+        pass
+
     def test_replace_tag(self):
         """Test case for replace_tag
 

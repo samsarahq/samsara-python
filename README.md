@@ -119,6 +119,7 @@ Class | Method | HTTP request | Description
 *SamsaraApi* | [**list_user_roles**](docs/SamsaraApi.md#list_user_roles) | **GET** /user-roles | List all user roles
 *SamsaraApi* | [**list_users**](docs/SamsaraApi.md#list_users) | **GET** /users | List all users
 *SamsaraApi* | [**list_vehicles**](docs/SamsaraApi.md#list_vehicles) | **GET** /fleet/vehicles | List all vehicles
+*SamsaraApi* | [**patch_tag**](docs/SamsaraApi.md#patch_tag) | **PATCH** /tags/{id} | Update a tag
 *SamsaraApi* | [**replace_tag**](docs/SamsaraApi.md#replace_tag) | **PUT** /tags/{id} | Update a tag
 *SamsaraApi* | [**update_address**](docs/SamsaraApi.md#update_address) | **PATCH** /addresses/{id} | Update an address
 *SamsaraApi* | [**update_contact**](docs/SamsaraApi.md#update_contact) | **PATCH** /contacts/{id} | Update a contact
@@ -208,6 +209,7 @@ Class | Method | HTTP request | Description
  - [ListVehiclesResponse](docs/ListVehiclesResponse.md)
  - [PaginationResponse](docs/PaginationResponse.md)
  - [ParentTag](docs/ParentTag.md)
+ - [PatchTagRequest](docs/PatchTagRequest.md)
  - [ReplaceTagRequest](docs/ReplaceTagRequest.md)
  - [ResolvedBy](docs/ResolvedBy.md)
  - [StandardErrorResponse](docs/StandardErrorResponse.md)

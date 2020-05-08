@@ -91,6 +91,7 @@ from samsara.models.list_users_response import ListUsersResponse
 from samsara.models.list_vehicles_response import ListVehiclesResponse
 from samsara.models.pagination_response import PaginationResponse
 from samsara.models.parent_tag import ParentTag
+from samsara.models.patch_tag_request import PatchTagRequest
 from samsara.models.replace_tag_request import ReplaceTagRequest
 from samsara.models.resolved_by import ResolvedBy
 from samsara.models.standard_error_response import StandardErrorResponse
