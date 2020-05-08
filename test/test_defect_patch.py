@@ -41,7 +41,7 @@ class TestDefectPatch(unittest.TestCase):
                 resolved_at_time = '2020-01-27T07:06:25Z', 
                 resolved_by = samsara.models.resolved_by.ResolvedBy(
                     id = '11', 
-                    type = '0', )
+                    type = 'mechanic', )
             )
         else :
             return DefectPatch(

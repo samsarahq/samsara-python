@@ -37,12 +37,12 @@ class TestResolvedBy(unittest.TestCase):
         if include_optional :
             return ResolvedBy(
                 id = '11', 
-                type = '0'
+                type = 'mechanic'
             )
         else :
             return ResolvedBy(
                 id = '11',
-                type = '0',
+                type = 'mechanic',
         )
 
     def testResolvedBy(self):
