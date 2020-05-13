@@ -386,7 +386,7 @@ class CreateDriverRequest(object):
     def license_state(self):
         """Gets the license_state of this CreateDriverRequest.  # noqa: E501
 
-        Abbreviation of state that issued driver's license.  # noqa: E501
+        Abbreviation of US state, Canadian province, or US territory that issued driver's license.  # noqa: E501
 
         :return: The license_state of this CreateDriverRequest.  # noqa: E501
         :rtype: str
@@ -397,7 +397,7 @@ class CreateDriverRequest(object):
     def license_state(self, license_state):
         """Sets the license_state of this CreateDriverRequest.
 
-        Abbreviation of state that issued driver's license.  # noqa: E501
+        Abbreviation of US state, Canadian province, or US territory that issued driver's license.  # noqa: E501
 
         :param license_state: The license_state of this CreateDriverRequest.  # noqa: E501
         :type: str

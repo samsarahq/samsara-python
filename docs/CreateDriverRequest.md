@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **eld_ym_enabled** | **bool** | Flag indicating this driver may select the Yard Move duty status in ELD logs. | [optional] [default to False]
 **external_ids** | **dict(str, str)** | The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object. | [optional] 
 **license_number** | **str** | Driver&#39;s state issued license number. The combination of this number and &#x60;licenseState&#x60; must be unique. | [optional] 
-**license_state** | **str** | Abbreviation of state that issued driver&#39;s license. | [optional] 
+**license_state** | **str** | Abbreviation of US state, Canadian province, or US territory that issued driver&#39;s license. | [optional] 
 **locale** | [**DriverLocale**](DriverLocale.md) |  | [optional] 
 **name** | **str** | Driver&#39;s name. | 
 **notes** | **str** | Notes about the driver. | [optional] 

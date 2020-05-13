@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **id** | **str** | Samsara ID for the driver. | [optional] 
 **is_deactivated** | **bool** | [DEPRECATED] A boolean indicating whether or not the driver is deactivated. Use &#x60;driverActivationStatus&#x60; instead. | [optional] 
 **license_number** | **str** | Driver&#39;s state issued license number. The combination of this number and &#x60;licenseState&#x60; must be unique. | [optional] 
-**license_state** | **str** | Abbreviation of state that issued driver&#39;s license. | [optional] 
+**license_state** | **str** | Abbreviation of US state, Canadian province, or US territory that issued driver&#39;s license. | [optional] 
 **locale** | [**DriverLocale**](DriverLocale.md) |  | [optional] 
 **name** | **str** | Driver&#39;s name. | [optional] 
 **notes** | **str** | Notes about the driver. | [optional] 
