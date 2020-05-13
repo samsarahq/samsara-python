@@ -37,6 +37,7 @@ class VehicleStatsListResponseData(object):
         'aux_input2': 'list[VehicleStatsAuxInput]',
         'battery_milli_volts': 'list[VehicleStatsBatteryVoltage]',
         'engine_states': 'list[VehicleStatsEngineState]',
+        'fault_codes': 'list[VehicleStatsListResponseFaultCodes]',
         'fuel_percents': 'list[VehicleStatsFuelPercent]',
         'gps_distance_meters': 'list[VehicleStatsGpsDistanceMeters]',
         'gps_odometer_meters': 'list[VehicleStatsGpsOdometerMeters]',
@@ -51,6 +52,7 @@ class VehicleStatsListResponseData(object):
         'aux_input2': 'auxInput2',
         'battery_milli_volts': 'batteryMilliVolts',
         'engine_states': 'engineStates',
+        'fault_codes': 'faultCodes',
         'fuel_percents': 'fuelPercents',
         'gps_distance_meters': 'gpsDistanceMeters',
         'gps_odometer_meters': 'gpsOdometerMeters',
@@ -60,7 +62,7 @@ class VehicleStatsListResponseData(object):
         'obd_odometer_meters': 'obdOdometerMeters'
     }
 
-    def __init__(self, aux_input1=None, aux_input2=None, battery_milli_volts=None, engine_states=None, fuel_percents=None, gps_distance_meters=None, gps_odometer_meters=None, id=None, name=None, obd_engine_seconds=None, obd_odometer_meters=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, aux_input1=None, aux_input2=None, battery_milli_volts=None, engine_states=None, fault_codes=None, fuel_percents=None, gps_distance_meters=None, gps_odometer_meters=None, id=None, name=None, obd_engine_seconds=None, obd_odometer_meters=None, local_vars_configuration=None):  # noqa: E501
         """VehicleStatsListResponseData - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -70,6 +72,7 @@ class VehicleStatsListResponseData(object):
         self._aux_input2 = None
         self._battery_milli_volts = None
         self._engine_states = None
+        self._fault_codes = None
         self._fuel_percents = None
         self._gps_distance_meters = None
         self._gps_odometer_meters = None
@@ -87,6 +90,8 @@ class VehicleStatsListResponseData(object):
             self.battery_milli_volts = battery_milli_volts
         if engine_states is not None:
             self.engine_states = engine_states
+        if fault_codes is not None:
+            self.fault_codes = fault_codes
         if fuel_percents is not None:
             self.fuel_percents = fuel_percents
         if gps_distance_meters is not None:
@@ -191,6 +196,29 @@ class VehicleStatsListResponseData(object):
         """
 
         self._engine_states = engine_states
+
+    @property
+    def fault_codes(self):
+        """Gets the fault_codes of this VehicleStatsListResponseData.  # noqa: E501
+
+        A list of engine fault codes.  # noqa: E501
+
+        :return: The fault_codes of this VehicleStatsListResponseData.  # noqa: E501
+        :rtype: list[VehicleStatsListResponseFaultCodes]
+        """
+        return self._fault_codes
+
+    @fault_codes.setter
+    def fault_codes(self, fault_codes):
+        """Sets the fault_codes of this VehicleStatsListResponseData.
+
+        A list of engine fault codes.  # noqa: E501
+
+        :param fault_codes: The fault_codes of this VehicleStatsListResponseData.  # noqa: E501
+        :type: list[VehicleStatsListResponseFaultCodes]
+        """
+
+        self._fault_codes = fault_codes
 
     @property
     def fuel_percents(self):

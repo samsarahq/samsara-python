@@ -59,6 +59,30 @@ class TestVehicleStatsListResponse(unittest.TestCase):
                                 time = '2020-01-27T07:06:25Z', 
                                 value = 'On', )
                             ], 
+                        fault_codes = [
+                            samsara.models.vehicle_stats_list_response_fault_codes.VehicleStatsListResponse_faultCodes(
+                                can_bus_type = 'CANBUS_J1939_500', 
+                                j1939 = samsara.models.vehicle_stats_list_response_j1939.VehicleStatsListResponse_j1939(
+                                    check_engine_lights = samsara.models.vehicle_stats_list_response_j1939_check_engine_lights.VehicleStatsListResponse_j1939_checkEngineLights(
+                                        emissions_is_on = True, 
+                                        protect_is_on = False, 
+                                        stop_is_on = False, 
+                                        warning_is_on = False, ), 
+                                    diagnostic_trouble_codes = [
+                                        samsara.models.vehicle_stats_list_response_j1939_diagnostic_trouble_codes.VehicleStatsListResponse_j1939_diagnosticTroubleCodes(
+                                            fmi_description = 'Voltage Below Normal', 
+                                            fmi_id = 9, 
+                                            mil_status = 1, 
+                                            occurrence_count = 1, 
+                                            source_address_name = 'Engine #1', 
+                                            spn_description = 'System Diagnostic Code #1', 
+                                            spn_id = 3031, 
+                                            tx_id = 0, )
+                                        ], ), 
+                                obdii = samsara.models.vehicle_stats_list_response_obdii.VehicleStatsListResponse_obdii(
+                                    check_engine_light_is_on = True, ), 
+                                time = '2020-01-27T07:06:25Z', )
+                            ], 
                         fuel_percents = [
                             samsara.models.vehicle_stats_fuel_percent.VehicleStatsFuelPercent(
                                 time = '2020-01-27T07:06:25Z', 
@@ -115,6 +139,30 @@ class TestVehicleStatsListResponse(unittest.TestCase):
                             samsara.models.vehicle_stats_engine_state.VehicleStatsEngineState(
                                 time = '2020-01-27T07:06:25Z', 
                                 value = 'On', )
+                            ], 
+                        fault_codes = [
+                            samsara.models.vehicle_stats_list_response_fault_codes.VehicleStatsListResponse_faultCodes(
+                                can_bus_type = 'CANBUS_J1939_500', 
+                                j1939 = samsara.models.vehicle_stats_list_response_j1939.VehicleStatsListResponse_j1939(
+                                    check_engine_lights = samsara.models.vehicle_stats_list_response_j1939_check_engine_lights.VehicleStatsListResponse_j1939_checkEngineLights(
+                                        emissions_is_on = True, 
+                                        protect_is_on = False, 
+                                        stop_is_on = False, 
+                                        warning_is_on = False, ), 
+                                    diagnostic_trouble_codes = [
+                                        samsara.models.vehicle_stats_list_response_j1939_diagnostic_trouble_codes.VehicleStatsListResponse_j1939_diagnosticTroubleCodes(
+                                            fmi_description = 'Voltage Below Normal', 
+                                            fmi_id = 9, 
+                                            mil_status = 1, 
+                                            occurrence_count = 1, 
+                                            source_address_name = 'Engine #1', 
+                                            spn_description = 'System Diagnostic Code #1', 
+                                            spn_id = 3031, 
+                                            tx_id = 0, )
+                                        ], ), 
+                                obdii = samsara.models.vehicle_stats_list_response_obdii.VehicleStatsListResponse_obdii(
+                                    check_engine_light_is_on = True, ), 
+                                time = '2020-01-27T07:06:25Z', )
                             ], 
                         fuel_percents = [
                             samsara.models.vehicle_stats_fuel_percent.VehicleStatsFuelPercent(
