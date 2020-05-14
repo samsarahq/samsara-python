@@ -42,8 +42,9 @@ class DriverLocale(object):
     NL = "nl"
     ES = "es"
     CH = "ch"
+    PR = "pr"
 
-    allowable_values = [US, AT, BE, CA, GB, FR, DE, IE, IT, LU, MX, NL, ES, CH]  # noqa: E501
+    allowable_values = [US, AT, BE, CA, GB, FR, DE, IE, IT, LU, MX, NL, ES, CH, PR]  # noqa: E501
 
     """
     Attributes:
