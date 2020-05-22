@@ -92,6 +92,7 @@ Class | Method | HTTP request | Description
 *SamsaraApi* | [**get_contact**](docs/SamsaraApi.md#get_contact) | **GET** /contacts/{id} | Retrieve a contact
 *SamsaraApi* | [**get_driver**](docs/SamsaraApi.md#get_driver) | **GET** /fleet/drivers/{id} | Retrieve a driver
 *SamsaraApi* | [**get_driver_tachograph_activity**](docs/SamsaraApi.md#get_driver_tachograph_activity) | **GET** /fleet/drivers/tachograph-activity/history | Get driver tachograph activity
+*SamsaraApi* | [**get_driver_tachograph_files**](docs/SamsaraApi.md#get_driver_tachograph_files) | **GET** /fleet/drivers/tachograph-files/history | Get tachograph driver files
 *SamsaraApi* | [**get_dvir_defects**](docs/SamsaraApi.md#get_dvir_defects) | **GET** /fleet/defects/history | Get all defects
 *SamsaraApi* | [**get_dvir_history**](docs/SamsaraApi.md#get_dvir_history) | **GET** /fleet/dvirs/history | Get all DVIRs
 *SamsaraApi* | [**get_equipment**](docs/SamsaraApi.md#get_equipment) | **GET** /fleet/equipment/{id} | Retrieve a unit of equipment
@@ -110,6 +111,7 @@ Class | Method | HTTP request | Description
 *SamsaraApi* | [**get_vehicle_stats**](docs/SamsaraApi.md#get_vehicle_stats) | **GET** /fleet/vehicles/stats | List most recent vehicle stats
 *SamsaraApi* | [**get_vehicle_stats_feed**](docs/SamsaraApi.md#get_vehicle_stats_feed) | **GET** /fleet/vehicles/stats/feed | Follow a feed of vehicle stats
 *SamsaraApi* | [**get_vehicle_stats_history**](docs/SamsaraApi.md#get_vehicle_stats_history) | **GET** /fleet/vehicles/stats/history | Get historical vehicle stats
+*SamsaraApi* | [**get_vehicle_tachograph_files**](docs/SamsaraApi.md#get_vehicle_tachograph_files) | **GET** /fleet/vehicles/tachograph-files/history | Get tachograph vehicle files
 *SamsaraApi* | [**list_addresses**](docs/SamsaraApi.md#list_addresses) | **GET** /addresses | List all addresses
 *SamsaraApi* | [**list_carrier_proposed_assignments**](docs/SamsaraApi.md#list_carrier_proposed_assignments) | **GET** /fleet/carrier-proposed-assignments | Retrieve assignments
 *SamsaraApi* | [**list_contacts**](docs/SamsaraApi.md#list_contacts) | **GET** /contacts | List all contacts
@@ -215,6 +217,12 @@ Class | Method | HTTP request | Description
  - [StandardErrorResponse](docs/StandardErrorResponse.md)
  - [TachographActivity](docs/TachographActivity.md)
  - [TachographActivityListWrapper](docs/TachographActivityListWrapper.md)
+ - [TachographDriverFile](docs/TachographDriverFile.md)
+ - [TachographDriverFileListWrapper](docs/TachographDriverFileListWrapper.md)
+ - [TachographDriverFilesResponse](docs/TachographDriverFilesResponse.md)
+ - [TachographVehicleFile](docs/TachographVehicleFile.md)
+ - [TachographVehicleFileListWrapper](docs/TachographVehicleFileListWrapper.md)
+ - [TachographVehicleFilesResponse](docs/TachographVehicleFilesResponse.md)
  - [Tag](docs/Tag.md)
  - [TagAllOf](docs/TagAllOf.md)
  - [TagResponse](docs/TagResponse.md)

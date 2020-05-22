@@ -111,6 +111,12 @@ from samsara.models.resolved_by import ResolvedBy
 from samsara.models.standard_error_response import StandardErrorResponse
 from samsara.models.tachograph_activity import TachographActivity
 from samsara.models.tachograph_activity_list_wrapper import TachographActivityListWrapper
+from samsara.models.tachograph_driver_file import TachographDriverFile
+from samsara.models.tachograph_driver_file_list_wrapper import TachographDriverFileListWrapper
+from samsara.models.tachograph_driver_files_response import TachographDriverFilesResponse
+from samsara.models.tachograph_vehicle_file import TachographVehicleFile
+from samsara.models.tachograph_vehicle_file_list_wrapper import TachographVehicleFileListWrapper
+from samsara.models.tachograph_vehicle_files_response import TachographVehicleFilesResponse
 from samsara.models.tag import Tag
 from samsara.models.tag_all_of import TagAllOf
 from samsara.models.tag_response import TagResponse

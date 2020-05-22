@@ -140,6 +140,13 @@ class TestSamsaraApi(unittest.TestCase):
         """
         pass
 
+    def test_get_driver_tachograph_files(self):
+        """Test case for get_driver_tachograph_files
+
+        Get tachograph driver files  # noqa: E501
+        """
+        pass
+
     def test_get_dvir_defects(self):
         """Test case for get_dvir_defects
 
@@ -263,6 +270,13 @@ class TestSamsaraApi(unittest.TestCase):
         """Test case for get_vehicle_stats_history
 
         Get historical vehicle stats  # noqa: E501
+        """
+        pass
+
+    def test_get_vehicle_tachograph_files(self):
+        """Test case for get_vehicle_tachograph_files
+
+        Get tachograph vehicle files  # noqa: E501
         """
         pass
 
