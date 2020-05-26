@@ -57,6 +57,14 @@ from samsara.models.defects_response import DefectsResponse
 from samsara.models.driver import Driver
 from samsara.models.driver_activation_status import DriverActivationStatus
 from samsara.models.driver_carrier_settings import DriverCarrierSettings
+from samsara.models.driver_eld_ruleset import DriverEldRuleset
+from samsara.models.driver_eld_ruleset_cycle import DriverEldRulesetCycle
+from samsara.models.driver_eld_ruleset_daily_off_duty import DriverEldRulesetDailyOffDuty
+from samsara.models.driver_eld_ruleset_rest_break import DriverEldRulesetRestBreak
+from samsara.models.driver_eld_ruleset_restart import DriverEldRulesetRestart
+from samsara.models.driver_eld_ruleset_shift import DriverEldRulesetShift
+from samsara.models.driver_eld_ruleset_us_short_haul_type import DriverEldRulesetUsShortHaulType
+from samsara.models.driver_eld_settings import DriverEldSettings
 from samsara.models.driver_external_ids import DriverExternalIds
 from samsara.models.driver_locale import DriverLocale
 from samsara.models.driver_response import DriverResponse
