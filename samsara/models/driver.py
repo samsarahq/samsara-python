@@ -42,7 +42,6 @@ class Driver(object):
         'eld_exempt': 'bool',
         'eld_exempt_reason': 'str',
         'eld_pc_enabled': 'bool',
-        'eld_settings': 'DriverEldSettings',
         'eld_ym_enabled': 'bool',
         'external_ids': 'dict(str, str)',
         'id': 'str',
@@ -72,7 +71,6 @@ class Driver(object):
         'eld_exempt': 'eldExempt',
         'eld_exempt_reason': 'eldExemptReason',
         'eld_pc_enabled': 'eldPcEnabled',
-        'eld_settings': 'eldSettings',
         'eld_ym_enabled': 'eldYmEnabled',
         'external_ids': 'externalIds',
         'id': 'id',
@@ -92,7 +90,7 @@ class Driver(object):
         'vehicle_group_tag': 'vehicleGroupTag'
     }
 
-    def __init__(self, carrier_settings=None, created_at_time=None, driver_activation_status=None, eld_adverse_weather_exemption_enabled=False, eld_big_day_exemption_enabled=False, eld_day_start_hour=0, eld_exempt=False, eld_exempt_reason=None, eld_pc_enabled=False, eld_settings=None, eld_ym_enabled=False, external_ids=None, id=None, is_deactivated=None, license_number=None, license_state=None, locale=None, name=None, notes=None, phone=None, static_assigned_vehicle=None, tachograph_card_number=None, tags=None, timezone='America/Los_Angeles', updated_at_time=None, username=None, vehicle_group_tag=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, carrier_settings=None, created_at_time=None, driver_activation_status=None, eld_adverse_weather_exemption_enabled=False, eld_big_day_exemption_enabled=False, eld_day_start_hour=0, eld_exempt=False, eld_exempt_reason=None, eld_pc_enabled=False, eld_ym_enabled=False, external_ids=None, id=None, is_deactivated=None, license_number=None, license_state=None, locale=None, name=None, notes=None, phone=None, static_assigned_vehicle=None, tachograph_card_number=None, tags=None, timezone='America/Los_Angeles', updated_at_time=None, username=None, vehicle_group_tag=None, local_vars_configuration=None):  # noqa: E501
         """Driver - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -107,7 +105,6 @@ class Driver(object):
         self._eld_exempt = None
         self._eld_exempt_reason = None
         self._eld_pc_enabled = None
-        self._eld_settings = None
         self._eld_ym_enabled = None
         self._external_ids = None
         self._id = None
@@ -145,8 +142,6 @@ class Driver(object):
             self.eld_exempt_reason = eld_exempt_reason
         if eld_pc_enabled is not None:
             self.eld_pc_enabled = eld_pc_enabled
-        if eld_settings is not None:
-            self.eld_settings = eld_settings
         if eld_ym_enabled is not None:
             self.eld_ym_enabled = eld_ym_enabled
         if external_ids is not None:
@@ -384,27 +379,6 @@ class Driver(object):
         """
 
         self._eld_pc_enabled = eld_pc_enabled
-
-    @property
-    def eld_settings(self):
-        """Gets the eld_settings of this Driver.  # noqa: E501
-
-
-        :return: The eld_settings of this Driver.  # noqa: E501
-        :rtype: DriverEldSettings
-        """
-        return self._eld_settings
-
-    @eld_settings.setter
-    def eld_settings(self, eld_settings):
-        """Sets the eld_settings of this Driver.
-
-
-        :param eld_settings: The eld_settings of this Driver.  # noqa: E501
-        :type: DriverEldSettings
-        """
-
-        self._eld_settings = eld_settings
 
     @property
     def eld_ym_enabled(self):
