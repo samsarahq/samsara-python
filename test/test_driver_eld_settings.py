@@ -36,12 +36,14 @@ class TestDriverEldSettings(unittest.TestCase):
         # model = samsara.models.driver_eld_settings.DriverEldSettings()  # noqa: E501
         if include_optional :
             return DriverEldSettings(
-                ruleset = samsara.models.driver_eld_ruleset.DriverEldRuleset(
-                    break = 'Property (off-duty/sleeper)', 
-                    cycle = 'USA 60 hour / 7 day', 
-                    jurisdiction = 'AR', 
-                    restart = 'Default', 
-                    shift = 'US Interstate Property', )
+                rulesets = [
+                    samsara.models.driver_eld_ruleset.DriverEldRuleset(
+                        break = 'Property (off-duty/sleeper)', 
+                        cycle = 'USA 60 hour / 7 day', 
+                        jurisdiction = 'AR', 
+                        restart = 'Default', 
+                        shift = 'US Interstate Property', )
+                    ]
             )
         else :
             return DriverEldSettings(

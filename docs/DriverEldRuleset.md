@@ -1,6 +1,6 @@
 # DriverEldRuleset
 
-The driver's ELD ruleset.
+An ELD ruleset for a driver.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

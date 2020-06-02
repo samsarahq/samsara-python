@@ -33,45 +33,47 @@ class DriverEldSettings(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'ruleset': 'DriverEldRuleset'
+        'rulesets': 'list[DriverEldRuleset]'
     }
 
     attribute_map = {
-        'ruleset': 'ruleset'
+        'rulesets': 'rulesets'
     }
 
-    def __init__(self, ruleset=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, rulesets=None, local_vars_configuration=None):  # noqa: E501
         """DriverEldSettings - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._ruleset = None
+        self._rulesets = None
         self.discriminator = None
 
-        if ruleset is not None:
-            self.ruleset = ruleset
+        if rulesets is not None:
+            self.rulesets = rulesets
 
     @property
-    def ruleset(self):
-        """Gets the ruleset of this DriverEldSettings.  # noqa: E501
+    def rulesets(self):
+        """Gets the rulesets of this DriverEldSettings.  # noqa: E501
 
+        The driver's ELD rulesets and overrides.  # noqa: E501
 
-        :return: The ruleset of this DriverEldSettings.  # noqa: E501
-        :rtype: DriverEldRuleset
+        :return: The rulesets of this DriverEldSettings.  # noqa: E501
+        :rtype: list[DriverEldRuleset]
         """
-        return self._ruleset
+        return self._rulesets
 
-    @ruleset.setter
-    def ruleset(self, ruleset):
-        """Sets the ruleset of this DriverEldSettings.
+    @rulesets.setter
+    def rulesets(self, rulesets):
+        """Sets the rulesets of this DriverEldSettings.
 
+        The driver's ELD rulesets and overrides.  # noqa: E501
 
-        :param ruleset: The ruleset of this DriverEldSettings.  # noqa: E501
-        :type: DriverEldRuleset
+        :param rulesets: The rulesets of this DriverEldSettings.  # noqa: E501
+        :type: list[DriverEldRuleset]
         """
 
-        self._ruleset = ruleset
+        self._rulesets = rulesets
 
     def to_dict(self):
         """Returns the model properties as a dict"""
