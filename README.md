@@ -88,8 +88,10 @@ Class | Method | HTTP request | Description
 *SamsaraApi* | [**delete_contact**](docs/SamsaraApi.md#delete_contact) | **DELETE** /contacts/{id} | Delete a contact
 *SamsaraApi* | [**delete_tag**](docs/SamsaraApi.md#delete_tag) | **DELETE** /tags/{id} | Delete a tag
 *SamsaraApi* | [**delete_user**](docs/SamsaraApi.md#delete_user) | **DELETE** /users/{id} | Delete a user
+*SamsaraApi* | [**generate_document_pdf**](docs/SamsaraApi.md#generate_document_pdf) | **POST** /fleet/documents/pdfs | Create a document PDF
 *SamsaraApi* | [**get_address**](docs/SamsaraApi.md#get_address) | **GET** /addresses/{id} | Retrieve an address
 *SamsaraApi* | [**get_contact**](docs/SamsaraApi.md#get_contact) | **GET** /contacts/{id} | Retrieve a contact
+*SamsaraApi* | [**get_document_pdf**](docs/SamsaraApi.md#get_document_pdf) | **GET** /fleet/documents/pdfs/{id} | Query a document PDF
 *SamsaraApi* | [**get_driver**](docs/SamsaraApi.md#get_driver) | **GET** /fleet/drivers/{id} | Retrieve a driver
 *SamsaraApi* | [**get_driver_tachograph_activity**](docs/SamsaraApi.md#get_driver_tachograph_activity) | **GET** /fleet/drivers/tachograph-activity/history | Get driver tachograph activity
 *SamsaraApi* | [**get_driver_tachograph_files**](docs/SamsaraApi.md#get_driver_tachograph_files) | **GET** /fleet/drivers/tachograph-files/history | Get tachograph driver files
@@ -160,6 +162,11 @@ Class | Method | HTTP request | Description
  - [DefectResolvedBy](docs/DefectResolvedBy.md)
  - [DefectResponse](docs/DefectResponse.md)
  - [DefectsResponse](docs/DefectsResponse.md)
+ - [DocumentPdfGenerationRequest](docs/DocumentPdfGenerationRequest.md)
+ - [DocumentPdfGenerationResponse](docs/DocumentPdfGenerationResponse.md)
+ - [DocumentPdfGenerationResponseData](docs/DocumentPdfGenerationResponseData.md)
+ - [DocumentPdfQueryResponse](docs/DocumentPdfQueryResponse.md)
+ - [DocumentPdfQueryResponseData](docs/DocumentPdfQueryResponseData.md)
  - [Driver](docs/Driver.md)
  - [DriverActivationStatus](docs/DriverActivationStatus.md)
  - [DriverCarrierSettings](docs/DriverCarrierSettings.md)

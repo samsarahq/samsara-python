@@ -40,6 +40,11 @@ from samsara.models.defect_patch import DefectPatch
 from samsara.models.defect_resolved_by import DefectResolvedBy
 from samsara.models.defect_response import DefectResponse
 from samsara.models.defects_response import DefectsResponse
+from samsara.models.document_pdf_generation_request import DocumentPdfGenerationRequest
+from samsara.models.document_pdf_generation_response import DocumentPdfGenerationResponse
+from samsara.models.document_pdf_generation_response_data import DocumentPdfGenerationResponseData
+from samsara.models.document_pdf_query_response import DocumentPdfQueryResponse
+from samsara.models.document_pdf_query_response_data import DocumentPdfQueryResponseData
 from samsara.models.driver import Driver
 from samsara.models.driver_activation_status import DriverActivationStatus
 from samsara.models.driver_carrier_settings import DriverCarrierSettings

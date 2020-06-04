@@ -112,6 +112,13 @@ class TestSamsaraApi(unittest.TestCase):
         """
         pass
 
+    def test_generate_document_pdf(self):
+        """Test case for generate_document_pdf
+
+        Create a document PDF  # noqa: E501
+        """
+        pass
+
     def test_get_address(self):
         """Test case for get_address
 
@@ -123,6 +130,13 @@ class TestSamsaraApi(unittest.TestCase):
         """Test case for get_contact
 
         Retrieve a contact  # noqa: E501
+        """
+        pass
+
+    def test_get_document_pdf(self):
+        """Test case for get_document_pdf
+
+        Query a document PDF  # noqa: E501
         """
         pass
 

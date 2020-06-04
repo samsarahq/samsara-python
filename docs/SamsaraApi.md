@@ -16,8 +16,10 @@ Method | HTTP request | Description
 [**delete_contact**](SamsaraApi.md#delete_contact) | **DELETE** /contacts/{id} | Delete a contact
 [**delete_tag**](SamsaraApi.md#delete_tag) | **DELETE** /tags/{id} | Delete a tag
 [**delete_user**](SamsaraApi.md#delete_user) | **DELETE** /users/{id} | Delete a user
+[**generate_document_pdf**](SamsaraApi.md#generate_document_pdf) | **POST** /fleet/documents/pdfs | Create a document PDF
 [**get_address**](SamsaraApi.md#get_address) | **GET** /addresses/{id} | Retrieve an address
 [**get_contact**](SamsaraApi.md#get_contact) | **GET** /contacts/{id} | Retrieve a contact
+[**get_document_pdf**](SamsaraApi.md#get_document_pdf) | **GET** /fleet/documents/pdfs/{id} | Query a document PDF
 [**get_driver**](SamsaraApi.md#get_driver) | **GET** /fleet/drivers/{id} | Retrieve a driver
 [**get_driver_tachograph_activity**](SamsaraApi.md#get_driver_tachograph_activity) | **GET** /fleet/drivers/tachograph-activity/history | Get driver tachograph activity
 [**get_driver_tachograph_files**](SamsaraApi.md#get_driver_tachograph_files) | **GET** /fleet/drivers/tachograph-files/history | Get tachograph driver files
@@ -739,6 +741,63 @@ print("Exception when calling SamsaraApi->delete_user: %s\n" % e)
 
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+    # **generate_document_pdf**
+    > DocumentPdfGenerationResponse generate_document_pdf(document=document)
+
+    Create a document PDF
+
+      Request creation of a document PDF. PDFs are currently english-language only.
+
+    ### Example
+
+      ```python
+from __future__ import print_function
+import time
+import samsara
+from samsara.rest import ApiException
+from pprint import pprint
+
+# Enter a context with an instance of the API client
+  with samsara.ApiClient() as api_client:
+# Create an instance of the API class
+api_instance = samsara.SamsaraApi(api_client)
+document = samsara.DocumentPdfGenerationRequest() # DocumentPdfGenerationRequest | Specifies the document for which to generate a PDF. (optional)
+
+try:
+    # Create a document PDF
+    api_response = api_instance.generate_document_pdf(document=document)
+  pprint(api_response)
+except ApiException as e:
+print("Exception when calling SamsaraApi->generate_document_pdf: %s\n" % e)
+```
+
+    ### Parameters
+    
+      Name | Type | Description  | Notes
+      ------------- | ------------- | ------------- | -------------
+     **document** | [**DocumentPdfGenerationRequest**](DocumentPdfGenerationRequest.md)| Specifies the document for which to generate a PDF. | [optional] 
+
+    ### Return type
+
+    [**DocumentPdfGenerationResponse**](DocumentPdfGenerationResponse.md)
+
+    ### Authorization
+
+    No authorization required
+
+    ### HTTP request headers
+
+    - **Content-Type**: application/json
+    - **Accept**: application/json
+
+      ### HTTP response details
+      | Status code | Description | Response headers |
+      |-------------|-------------|------------------|
+        **200** | Newly created PDF generation job. |  -  |
+        **0** | Error response. |  -  |
+
+    [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
     # **get_address**
     > AddressResponse get_address(id)
 
@@ -849,6 +908,63 @@ print("Exception when calling SamsaraApi->get_contact: %s\n" % e)
       | Status code | Description | Response headers |
       |-------------|-------------|------------------|
         **200** | Returns the specified contact. |  -  |
+        **0** | Error response |  -  |
+
+    [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+    # **get_document_pdf**
+    > DocumentPdfQueryResponse get_document_pdf(id)
+
+    Query a document PDF
+
+      Returns generation job status and download URL for a PDF.
+
+    ### Example
+
+      ```python
+from __future__ import print_function
+import time
+import samsara
+from samsara.rest import ApiException
+from pprint import pprint
+
+# Enter a context with an instance of the API client
+  with samsara.ApiClient() as api_client:
+# Create an instance of the API class
+api_instance = samsara.SamsaraApi(api_client)
+id = 'id_example' # str | ID of the pdf.
+
+try:
+    # Query a document PDF
+    api_response = api_instance.get_document_pdf(id)
+  pprint(api_response)
+except ApiException as e:
+print("Exception when calling SamsaraApi->get_document_pdf: %s\n" % e)
+```
+
+    ### Parameters
+    
+      Name | Type | Description  | Notes
+      ------------- | ------------- | ------------- | -------------
+     **id** | **str**| ID of the pdf. | 
+
+    ### Return type
+
+    [**DocumentPdfQueryResponse**](DocumentPdfQueryResponse.md)
+
+    ### Authorization
+
+    No authorization required
+
+    ### HTTP request headers
+
+    - **Content-Type**: Not defined
+    - **Accept**: application/json
+
+      ### HTTP response details
+      | Status code | Description | Response headers |
+      |-------------|-------------|------------------|
+        **200** | Document PDF job status and download URL. |  -  |
         **0** | Error response |  -  |
 
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
