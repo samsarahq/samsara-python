@@ -160,7 +160,6 @@ from samsara.models.vehicle_harsh_acceleration_setting_type import VehicleHarshA
 from samsara.models.vehicle_location import VehicleLocation
 from samsara.models.vehicle_location_reverse_geo import VehicleLocationReverseGeo
 from samsara.models.vehicle_location_time import VehicleLocationTime
-from samsara.models.vehicle_location_with_units import VehicleLocationWithUnits
 from samsara.models.vehicle_locations_list_response import VehicleLocationsListResponse
 from samsara.models.vehicle_locations_list_response_data import VehicleLocationsListResponseData
 from samsara.models.vehicle_locations_response import VehicleLocationsResponse

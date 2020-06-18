@@ -268,7 +268,6 @@ Class | Method | HTTP request | Description
  - [VehicleLocation](docs/VehicleLocation.md)
  - [VehicleLocationReverseGeo](docs/VehicleLocationReverseGeo.md)
  - [VehicleLocationTime](docs/VehicleLocationTime.md)
- - [VehicleLocationWithUnits](docs/VehicleLocationWithUnits.md)
  - [VehicleLocationsListResponse](docs/VehicleLocationsListResponse.md)
  - [VehicleLocationsListResponseData](docs/VehicleLocationsListResponseData.md)
  - [VehicleLocationsResponse](docs/VehicleLocationsResponse.md)
