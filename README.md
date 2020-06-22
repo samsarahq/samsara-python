@@ -277,6 +277,7 @@ Class | Method | HTTP request | Description
  - [VehicleStatsAuxInput](docs/VehicleStatsAuxInput.md)
  - [VehicleStatsBatteryVoltage](docs/VehicleStatsBatteryVoltage.md)
  - [VehicleStatsEngineState](docs/VehicleStatsEngineState.md)
+ - [VehicleStatsEngineStateSetting](docs/VehicleStatsEngineStateSetting.md)
  - [VehicleStatsFaultCodes](docs/VehicleStatsFaultCodes.md)
  - [VehicleStatsFaultCodesIgnitionType](docs/VehicleStatsFaultCodesIgnitionType.md)
  - [VehicleStatsFaultCodesJ1939](docs/VehicleStatsFaultCodesJ1939.md)
