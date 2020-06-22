@@ -35,6 +35,7 @@ class Vehicle(object):
     openapi_types = {
         'aux_input_type1': 'VehicleAuxInputType',
         'aux_input_type2': 'VehicleAuxInputType',
+        'camera_serial': 'str',
         'external_ids': 'dict(str, str)',
         'harsh_acceleration_setting_type': 'VehicleHarshAccelerationSettingType',
         'id': 'str',
@@ -53,6 +54,7 @@ class Vehicle(object):
     attribute_map = {
         'aux_input_type1': 'auxInputType1',
         'aux_input_type2': 'auxInputType2',
+        'camera_serial': 'cameraSerial',
         'external_ids': 'externalIds',
         'harsh_acceleration_setting_type': 'harshAccelerationSettingType',
         'id': 'id',
@@ -68,7 +70,7 @@ class Vehicle(object):
         'year': 'year'
     }
 
-    def __init__(self, aux_input_type1=None, aux_input_type2=None, external_ids=None, harsh_acceleration_setting_type=None, id=None, license_plate=None, make=None, model=None, name=None, notes='', serial=None, static_assigned_driver=None, tags=None, vin=None, year=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, aux_input_type1=None, aux_input_type2=None, camera_serial=None, external_ids=None, harsh_acceleration_setting_type=None, id=None, license_plate=None, make=None, model=None, name=None, notes='', serial=None, static_assigned_driver=None, tags=None, vin=None, year=None, local_vars_configuration=None):  # noqa: E501
         """Vehicle - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -76,6 +78,7 @@ class Vehicle(object):
 
         self._aux_input_type1 = None
         self._aux_input_type2 = None
+        self._camera_serial = None
         self._external_ids = None
         self._harsh_acceleration_setting_type = None
         self._id = None
@@ -95,6 +98,8 @@ class Vehicle(object):
             self.aux_input_type1 = aux_input_type1
         if aux_input_type2 is not None:
             self.aux_input_type2 = aux_input_type2
+        if camera_serial is not None:
+            self.camera_serial = camera_serial
         if external_ids is not None:
             self.external_ids = external_ids
         if harsh_acceleration_setting_type is not None:
@@ -162,6 +167,29 @@ class Vehicle(object):
         """
 
         self._aux_input_type2 = aux_input_type2
+
+    @property
+    def camera_serial(self):
+        """Gets the camera_serial of this Vehicle.  # noqa: E501
+
+        The serial number of the camera installed in the vehicle  # noqa: E501
+
+        :return: The camera_serial of this Vehicle.  # noqa: E501
+        :rtype: str
+        """
+        return self._camera_serial
+
+    @camera_serial.setter
+    def camera_serial(self, camera_serial):
+        """Sets the camera_serial of this Vehicle.
+
+        The serial number of the camera installed in the vehicle  # noqa: E501
+
+        :param camera_serial: The camera_serial of this Vehicle.  # noqa: E501
+        :type: str
+        """
+
+        self._camera_serial = camera_serial
 
     @property
     def external_ids(self):

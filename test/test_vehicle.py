@@ -38,6 +38,7 @@ class TestVehicle(unittest.TestCase):
             return Vehicle(
                 aux_input_type1 = 'boom', 
                 aux_input_type2 = 'boom', 
+                camera_serial = 'CNCK-VT8-XA8', 
                 external_ids = {maintenanceId=250020, payrollId=ABFS18600}, 
                 harsh_acceleration_setting_type = 'off', 
                 id = '112', 
