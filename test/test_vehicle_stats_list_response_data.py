@@ -99,6 +99,12 @@ class TestVehicleStatsListResponseData(unittest.TestCase):
                     ], 
                 id = '112', 
                 name = 'Truck A7', 
+                nfc_card_scans = [
+                    samsara.models.vehicle_stats_nfc_card_scan.VehicleStatsNfcCardScan(
+                        card = samsara.models.vehicle_stats_nfc_card_scan_card.VehicleStatsNfcCardScan_card(
+                            id = '835063', ), 
+                        time = '2020-01-27T07:06:25Z', )
+                    ], 
                 obd_engine_seconds = [
                     samsara.models.vehicle_stats_obd_engine_seconds.VehicleStatsObdEngineSeconds(
                         time = '2020-01-27T07:06:25Z', 

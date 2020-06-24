@@ -301,6 +301,8 @@ Class | Method | HTTP request | Description
  - [VehicleStatsListResponseObdiiConfirmedDtcs](docs/VehicleStatsListResponseObdiiConfirmedDtcs.md)
  - [VehicleStatsListResponseObdiiDiagnosticTroubleCodes](docs/VehicleStatsListResponseObdiiDiagnosticTroubleCodes.md)
  - [VehicleStatsListResponseObdiiMonitorStatus](docs/VehicleStatsListResponseObdiiMonitorStatus.md)
+ - [VehicleStatsNfcCardScan](docs/VehicleStatsNfcCardScan.md)
+ - [VehicleStatsNfcCardScanCard](docs/VehicleStatsNfcCardScanCard.md)
  - [VehicleStatsObdEngineSeconds](docs/VehicleStatsObdEngineSeconds.md)
  - [VehicleStatsObdOdometerMeters](docs/VehicleStatsObdOdometerMeters.md)
  - [VehicleStatsResponse](docs/VehicleStatsResponse.md)

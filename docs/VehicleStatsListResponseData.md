@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **gps_odometer_meters** | [**list[VehicleStatsGpsOdometerMeters]**](VehicleStatsGpsOdometerMeters.md) | A list of GPS odometer events for the given vehicle. | [optional] 
 **id** | **str** | The unique Samsara ID of the Vehicle. This is automatically generated when the Vehicle object is created. It cannot be changed. | 
 **name** | **str** | The human-readable name of the Vehicle. This is set by a fleet administrator and will appear in both Samsara’s cloud dashboard as well as the Samsara Driver mobile app. **By default**, this name is the serial number of the Samsara Vehicle Gateway. It can be set or updated through the Samsara Dashboard or through the API at any time. | 
+**nfc_card_scans** | [**list[VehicleStatsNfcCardScan]**](VehicleStatsNfcCardScan.md) | A list of NFC cards that were scanned for the given vehicles. | [optional] 
 **obd_engine_seconds** | [**list[VehicleStatsObdEngineSeconds]**](VehicleStatsObdEngineSeconds.md) | A list of OBD engine seconds readings for the given vehicle. | [optional] 
 **obd_odometer_meters** | [**list[VehicleStatsObdOdometerMeters]**](VehicleStatsObdOdometerMeters.md) | A list of OBD odometer readings for the given vehicle. | [optional] 
 

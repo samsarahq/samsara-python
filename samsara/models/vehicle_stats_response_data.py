@@ -43,6 +43,7 @@ class VehicleStatsResponseData(object):
         'gps_odometer_meters': 'VehicleStatsGpsOdometerMeters',
         'id': 'str',
         'name': 'str',
+        'nfc_card_scan': 'VehicleStatsNfcCardScan',
         'obd_engine_seconds': 'VehicleStatsObdEngineSeconds',
         'obd_odometer_meters': 'VehicleStatsObdOdometerMeters'
     }
@@ -58,11 +59,12 @@ class VehicleStatsResponseData(object):
         'gps_odometer_meters': 'gpsOdometerMeters',
         'id': 'id',
         'name': 'name',
+        'nfc_card_scan': 'nfcCardScan',
         'obd_engine_seconds': 'obdEngineSeconds',
         'obd_odometer_meters': 'obdOdometerMeters'
     }
 
-    def __init__(self, aux_input1=None, aux_input2=None, battery_milli_volts=None, engine_state=None, fault_codes=None, fuel_percent=None, gps_distance_meters=None, gps_odometer_meters=None, id=None, name=None, obd_engine_seconds=None, obd_odometer_meters=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, aux_input1=None, aux_input2=None, battery_milli_volts=None, engine_state=None, fault_codes=None, fuel_percent=None, gps_distance_meters=None, gps_odometer_meters=None, id=None, name=None, nfc_card_scan=None, obd_engine_seconds=None, obd_odometer_meters=None, local_vars_configuration=None):  # noqa: E501
         """VehicleStatsResponseData - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -78,6 +80,7 @@ class VehicleStatsResponseData(object):
         self._gps_odometer_meters = None
         self._id = None
         self._name = None
+        self._nfc_card_scan = None
         self._obd_engine_seconds = None
         self._obd_odometer_meters = None
         self.discriminator = None
@@ -100,6 +103,8 @@ class VehicleStatsResponseData(object):
             self.gps_odometer_meters = gps_odometer_meters
         self.id = id
         self.name = name
+        if nfc_card_scan is not None:
+            self.nfc_card_scan = nfc_card_scan
         if obd_engine_seconds is not None:
             self.obd_engine_seconds = obd_engine_seconds
         if obd_odometer_meters is not None:
@@ -322,6 +327,27 @@ class VehicleStatsResponseData(object):
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def nfc_card_scan(self):
+        """Gets the nfc_card_scan of this VehicleStatsResponseData.  # noqa: E501
+
+
+        :return: The nfc_card_scan of this VehicleStatsResponseData.  # noqa: E501
+        :rtype: VehicleStatsNfcCardScan
+        """
+        return self._nfc_card_scan
+
+    @nfc_card_scan.setter
+    def nfc_card_scan(self, nfc_card_scan):
+        """Sets the nfc_card_scan of this VehicleStatsResponseData.
+
+
+        :param nfc_card_scan: The nfc_card_scan of this VehicleStatsResponseData.  # noqa: E501
+        :type: VehicleStatsNfcCardScan
+        """
+
+        self._nfc_card_scan = nfc_card_scan
 
     @property
     def obd_engine_seconds(self):

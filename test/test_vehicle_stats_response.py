@@ -121,6 +121,9 @@ class TestVehicleStatsResponse(unittest.TestCase):
                             value = 14010293, ), 
                         id = '112', 
                         name = 'Truck A7', 
+                        nfc_card_scan = samsara.models.vehicle_stats_nfc_card_scan.VehicleStatsNfcCardScan(
+                            card = samsara.models.vehicle_stats_nfc_card_scan_card.VehicleStatsNfcCardScan_card(), 
+                            time = '2020-01-27T07:06:25Z', ), 
                         obd_engine_seconds = samsara.models.vehicle_stats_obd_engine_seconds.VehicleStatsObdEngineSeconds(
                             time = '2020-01-27T07:06:25Z', 
                             value = 9723103, ), 
@@ -219,6 +222,9 @@ class TestVehicleStatsResponse(unittest.TestCase):
                             value = 14010293, ), 
                         id = '112', 
                         name = 'Truck A7', 
+                        nfc_card_scan = samsara.models.vehicle_stats_nfc_card_scan.VehicleStatsNfcCardScan(
+                            card = samsara.models.vehicle_stats_nfc_card_scan_card.VehicleStatsNfcCardScan_card(), 
+                            time = '2020-01-27T07:06:25Z', ), 
                         obd_engine_seconds = samsara.models.vehicle_stats_obd_engine_seconds.VehicleStatsObdEngineSeconds(
                             time = '2020-01-27T07:06:25Z', 
                             value = 9723103, ), 
