@@ -108,6 +108,10 @@ from samsara.models.equipment_stats_list_response import EquipmentStatsListRespo
 from samsara.models.equipment_stats_list_response_data import EquipmentStatsListResponseData
 from samsara.models.equipment_stats_response import EquipmentStatsResponse
 from samsara.models.equipment_stats_response_data import EquipmentStatsResponseData
+from samsara.models.hos_log_entry import HosLogEntry
+from samsara.models.hos_logs_for_driver import HosLogsForDriver
+from samsara.models.hos_logs_response import HosLogsResponse
+from samsara.models.hos_status_type import HosStatusType
 from samsara.models.list_addresses_response import ListAddressesResponse
 from samsara.models.list_carrier_proposed_assignment_response import ListCarrierProposedAssignmentResponse
 from samsara.models.list_contacts_response import ListContactsResponse

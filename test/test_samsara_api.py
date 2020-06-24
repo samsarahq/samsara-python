@@ -224,6 +224,13 @@ class TestSamsaraApi(unittest.TestCase):
         """
         pass
 
+    def test_get_hos_logs(self):
+        """Test case for get_hos_logs
+
+        Get HOS logs  # noqa: E501
+        """
+        pass
+
     def test_get_safety_events(self):
         """Test case for get_safety_events
 
