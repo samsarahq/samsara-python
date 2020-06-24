@@ -32,6 +32,7 @@ Method | HTTP request | Description
 [**get_equipment_stats**](SamsaraApi.md#get_equipment_stats) | **GET** /fleet/equipment/stats | Get most recent stats for all equipment
 [**get_equipment_stats_feed**](SamsaraApi.md#get_equipment_stats_feed) | **GET** /fleet/equipment/stats/feed | Follow a feed of equipment stats
 [**get_equipment_stats_history**](SamsaraApi.md#get_equipment_stats_history) | **GET** /fleet/equipment/stats/history | Get historical equipment stats
+[**get_safety_events**](SamsaraApi.md#get_safety_events) | **GET** /fleet/safety-events | List all safety events.
 [**get_tag**](SamsaraApi.md#get_tag) | **GET** /tags/{id} | Retrieve a tag
 [**get_user**](SamsaraApi.md#get_user) | **GET** /users/{id} | Retrieve a user
 [**get_vehicle**](SamsaraApi.md#get_vehicle) | **GET** /fleet/vehicles/{id} | Retrieve a vehicle
@@ -1737,6 +1738,73 @@ print("Exception when calling SamsaraApi->get_equipment_stats_history: %s\n" % e
       | Status code | Description | Response headers |
       |-------------|-------------|------------------|
         **200** | Historical equipment stats and pagination information |  -  |
+        **0** | Error response |  -  |
+
+    [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+    # **get_safety_events**
+    > SafetyEventsListResponse get_safety_events(start_time, end_time, after=after, tag_ids=tag_ids, parent_tag_ids=parent_tag_ids, vehicle_ids=vehicle_ids)
+
+    List all safety events.
+
+      Fetch safety events for the organization in a given time period.
+
+    ### Example
+
+      ```python
+from __future__ import print_function
+import time
+import samsara
+from samsara.rest import ApiException
+from pprint import pprint
+
+# Enter a context with an instance of the API client
+  with samsara.ApiClient() as api_client:
+# Create an instance of the API class
+api_instance = samsara.SamsaraApi(api_client)
+start_time = 'start_time_example' # str | A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+end_time = 'end_time_example' # str | An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
+tag_ids = ['tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678` (optional)
+parent_tag_ids = ['parent_tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678` (optional)
+vehicle_ids = ['vehicle_ids_example'] # list[str] | A filter on the data based on this comma-separated list of vehicle IDs. Example: `vehicleIds=1234,5678` (optional)
+
+try:
+    # List all safety events.
+    api_response = api_instance.get_safety_events(start_time, end_time, after=after, tag_ids=tag_ids, parent_tag_ids=parent_tag_ids, vehicle_ids=vehicle_ids)
+  pprint(api_response)
+except ApiException as e:
+print("Exception when calling SamsaraApi->get_safety_events: %s\n" % e)
+```
+
+    ### Parameters
+    
+      Name | Type | Description  | Notes
+      ------------- | ------------- | ------------- | -------------
+     **start_time** | **str**| A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | 
+ **end_time** | **str**| An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | 
+ **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
+ **tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of tag IDs. Example: &#x60;tagIds&#x3D;1234,5678&#x60; | [optional] 
+ **parent_tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: &#x60;parentTagIds&#x3D;345,678&#x60; | [optional] 
+ **vehicle_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of vehicle IDs. Example: &#x60;vehicleIds&#x3D;1234,5678&#x60; | [optional] 
+
+    ### Return type
+
+    [**SafetyEventsListResponse**](SafetyEventsListResponse.md)
+
+    ### Authorization
+
+    No authorization required
+
+    ### HTTP request headers
+
+    - **Content-Type**: Not defined
+    - **Accept**: application/json
+
+      ### HTTP response details
+      | Status code | Description | Response headers |
+      |-------------|-------------|------------------|
+        **200** | List of safety events from given time period. |  -  |
         **0** | Error response |  -  |
 
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

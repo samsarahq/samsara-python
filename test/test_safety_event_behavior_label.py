@@ -16,11 +16,11 @@ import unittest
 import datetime
 
 import samsara
-from samsara.models.location import Location  # noqa: E501
+from samsara.models.safety_event_behavior_label import SafetyEventBehaviorLabel  # noqa: E501
 from samsara.rest import ApiException
 
-class TestLocation(unittest.TestCase):
-    """Location unit test stubs"""
+class TestSafetyEventBehaviorLabel(unittest.TestCase):
+    """SafetyEventBehaviorLabel unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,24 +29,24 @@ class TestLocation(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test Location
+        """Test SafetyEventBehaviorLabel
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = samsara.models.location.Location()  # noqa: E501
+        # model = samsara.models.safety_event_behavior_label.SafetyEventBehaviorLabel()  # noqa: E501
         if include_optional :
-            return Location(
-                latitude = 122.142, 
-                longitude = -93.343
+            return SafetyEventBehaviorLabel(
+                label = 'genericTailgating', 
+                source = 'automated'
             )
         else :
-            return Location(
-                latitude = 122.142,
-                longitude = -93.343,
+            return SafetyEventBehaviorLabel(
+                label = 'genericTailgating',
+                source = 'automated',
         )
 
-    def testLocation(self):
-        """Test Location"""
+    def testSafetyEventBehaviorLabel(self):
+        """Test SafetyEventBehaviorLabel"""
         inst_req_only = self.make_instance(include_optional=False)
         inst_req_and_optional = self.make_instance(include_optional=True)
 

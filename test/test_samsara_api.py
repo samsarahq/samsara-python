@@ -224,6 +224,13 @@ class TestSamsaraApi(unittest.TestCase):
         """
         pass
 
+    def test_get_safety_events(self):
+        """Test case for get_safety_events
+
+        List all safety events.  # noqa: E501
+        """
+        pass
+
     def test_get_tag(self):
         """Test case for get_tag
 

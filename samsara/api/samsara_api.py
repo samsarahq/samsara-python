@@ -3313,6 +3313,141 @@ class SamsaraApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_safety_events(self, start_time, end_time, **kwargs):  # noqa: E501
+        """List all safety events.  # noqa: E501
+
+        Fetch safety events for the organization in a given time period.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_safety_events(start_time, end_time, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str start_time: A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). (required)
+        :param str end_time: An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). (required)
+        :param str after: If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+        :param list[str] tag_ids: A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+        :param list[str] parent_tag_ids: A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+        :param list[str] vehicle_ids: A filter on the data based on this comma-separated list of vehicle IDs. Example: `vehicleIds=1234,5678`
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: SafetyEventsListResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.get_safety_events_with_http_info(start_time, end_time, **kwargs)  # noqa: E501
+
+    def get_safety_events_with_http_info(self, start_time, end_time, **kwargs):  # noqa: E501
+        """List all safety events.  # noqa: E501
+
+        Fetch safety events for the organization in a given time period.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.get_safety_events_with_http_info(start_time, end_time, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str start_time: A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). (required)
+        :param str end_time: An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). (required)
+        :param str after: If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+        :param list[str] tag_ids: A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+        :param list[str] parent_tag_ids: A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+        :param list[str] vehicle_ids: A filter on the data based on this comma-separated list of vehicle IDs. Example: `vehicleIds=1234,5678`
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(SafetyEventsListResponse, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['start_time', 'end_time', 'after', 'tag_ids', 'parent_tag_ids', 'vehicle_ids']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_safety_events" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'start_time' is set
+        if self.api_client.client_side_validation and ('start_time' not in local_var_params or  # noqa: E501
+                                                        local_var_params['start_time'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `start_time` when calling `get_safety_events`")  # noqa: E501
+        # verify the required parameter 'end_time' is set
+        if self.api_client.client_side_validation and ('end_time' not in local_var_params or  # noqa: E501
+                                                        local_var_params['end_time'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `end_time` when calling `get_safety_events`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'after' in local_var_params and local_var_params['after'] is not None:  # noqa: E501
+            query_params.append(('after', local_var_params['after']))  # noqa: E501
+        if 'start_time' in local_var_params and local_var_params['start_time'] is not None:  # noqa: E501
+            query_params.append(('startTime', local_var_params['start_time']))  # noqa: E501
+        if 'end_time' in local_var_params and local_var_params['end_time'] is not None:  # noqa: E501
+            query_params.append(('endTime', local_var_params['end_time']))  # noqa: E501
+        if 'tag_ids' in local_var_params and local_var_params['tag_ids'] is not None:  # noqa: E501
+            query_params.append(('tagIds', local_var_params['tag_ids']))  # noqa: E501
+            collection_formats['tagIds'] = 'csv'  # noqa: E501
+        if 'parent_tag_ids' in local_var_params and local_var_params['parent_tag_ids'] is not None:  # noqa: E501
+            query_params.append(('parentTagIds', local_var_params['parent_tag_ids']))  # noqa: E501
+            collection_formats['parentTagIds'] = 'csv'  # noqa: E501
+        if 'vehicle_ids' in local_var_params and local_var_params['vehicle_ids'] is not None:  # noqa: E501
+            query_params.append(('vehicleIds', local_var_params['vehicle_ids']))  # noqa: E501
+            collection_formats['vehicleIds'] = 'csv'  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/fleet/safety-events', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='SafetyEventsListResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_tag(self, id, **kwargs):  # noqa: E501
         """Retrieve a tag  # noqa: E501
 

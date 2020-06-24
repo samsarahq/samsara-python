@@ -104,6 +104,7 @@ Class | Method | HTTP request | Description
 *SamsaraApi* | [**get_equipment_stats**](docs/SamsaraApi.md#get_equipment_stats) | **GET** /fleet/equipment/stats | Get most recent stats for all equipment
 *SamsaraApi* | [**get_equipment_stats_feed**](docs/SamsaraApi.md#get_equipment_stats_feed) | **GET** /fleet/equipment/stats/feed | Follow a feed of equipment stats
 *SamsaraApi* | [**get_equipment_stats_history**](docs/SamsaraApi.md#get_equipment_stats_history) | **GET** /fleet/equipment/stats/history | Get historical equipment stats
+*SamsaraApi* | [**get_safety_events**](docs/SamsaraApi.md#get_safety_events) | **GET** /fleet/safety-events | List all safety events.
 *SamsaraApi* | [**get_tag**](docs/SamsaraApi.md#get_tag) | **GET** /tags/{id} | Retrieve a tag
 *SamsaraApi* | [**get_user**](docs/SamsaraApi.md#get_user) | **GET** /users/{id} | Retrieve a user
 *SamsaraApi* | [**get_vehicle**](docs/SamsaraApi.md#get_vehicle) | **GET** /fleet/vehicles/{id} | Retrieve a vehicle
@@ -224,11 +225,21 @@ Class | Method | HTTP request | Description
  - [ListUserRolesResponse](docs/ListUserRolesResponse.md)
  - [ListUsersResponse](docs/ListUsersResponse.md)
  - [ListVehiclesResponse](docs/ListVehiclesResponse.md)
+ - [Location](docs/Location.md)
  - [PaginationResponse](docs/PaginationResponse.md)
  - [ParentTag](docs/ParentTag.md)
  - [PatchTagRequest](docs/PatchTagRequest.md)
  - [ReplaceTagRequest](docs/ReplaceTagRequest.md)
  - [ResolvedBy](docs/ResolvedBy.md)
+ - [SafetyEvent](docs/SafetyEvent.md)
+ - [SafetyEventBehaviorLabel](docs/SafetyEventBehaviorLabel.md)
+ - [SafetyEventBehaviorLabelSource](docs/SafetyEventBehaviorLabelSource.md)
+ - [SafetyEventBehaviorLabelType](docs/SafetyEventBehaviorLabelType.md)
+ - [SafetyEventCoachingState](docs/SafetyEventCoachingState.md)
+ - [SafetyEventDriver](docs/SafetyEventDriver.md)
+ - [SafetyEventLocation](docs/SafetyEventLocation.md)
+ - [SafetyEventVehicle](docs/SafetyEventVehicle.md)
+ - [SafetyEventsListResponse](docs/SafetyEventsListResponse.md)
  - [StandardErrorResponse](docs/StandardErrorResponse.md)
  - [TachographActivity](docs/TachographActivity.md)
  - [TachographActivityListWrapper](docs/TachographActivityListWrapper.md)
