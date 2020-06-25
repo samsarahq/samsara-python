@@ -35,6 +35,7 @@ from samsara.models.create_driver_request import CreateDriverRequest
 from samsara.models.create_dvir_request import CreateDvirRequest
 from samsara.models.create_tag_request import CreateTagRequest
 from samsara.models.create_user_request import CreateUserRequest
+from samsara.models.current_duty_status import CurrentDutyStatus
 from samsara.models.defect import Defect
 from samsara.models.defect_patch import DefectPatch
 from samsara.models.defect_resolved_by import DefectResolvedBy
@@ -94,10 +95,18 @@ from samsara.models.equipment_stats_list_response import EquipmentStatsListRespo
 from samsara.models.equipment_stats_list_response_data import EquipmentStatsListResponseData
 from samsara.models.equipment_stats_response import EquipmentStatsResponse
 from samsara.models.equipment_stats_response_data import EquipmentStatsResponseData
+from samsara.models.hos_break import HosBreak
+from samsara.models.hos_clocks import HosClocks
+from samsara.models.hos_clocks_for_driver import HosClocksForDriver
+from samsara.models.hos_clocks_response import HosClocksResponse
+from samsara.models.hos_cycle import HosCycle
+from samsara.models.hos_drive import HosDrive
 from samsara.models.hos_log_entry import HosLogEntry
 from samsara.models.hos_logs_for_driver import HosLogsForDriver
 from samsara.models.hos_logs_response import HosLogsResponse
+from samsara.models.hos_shift import HosShift
 from samsara.models.hos_status_type import HosStatusType
+from samsara.models.hos_violations import HosViolations
 from samsara.models.list_addresses_response import ListAddressesResponse
 from samsara.models.list_carrier_proposed_assignment_response import ListCarrierProposedAssignmentResponse
 from samsara.models.list_contacts_response import ListContactsResponse

@@ -104,6 +104,7 @@ Class | Method | HTTP request | Description
 *SamsaraApi* | [**get_equipment_stats**](docs/SamsaraApi.md#get_equipment_stats) | **GET** /fleet/equipment/stats | Get most recent stats for all equipment
 *SamsaraApi* | [**get_equipment_stats_feed**](docs/SamsaraApi.md#get_equipment_stats_feed) | **GET** /fleet/equipment/stats/feed | Follow a feed of equipment stats
 *SamsaraApi* | [**get_equipment_stats_history**](docs/SamsaraApi.md#get_equipment_stats_history) | **GET** /fleet/equipment/stats/history | Get historical equipment stats
+*SamsaraApi* | [**get_hos_clocks**](docs/SamsaraApi.md#get_hos_clocks) | **GET** /fleet/hos/clocks | Get a summary of HOS clocks
 *SamsaraApi* | [**get_hos_logs**](docs/SamsaraApi.md#get_hos_logs) | **GET** /fleet/hos/logs | Get HOS logs
 *SamsaraApi* | [**get_safety_events**](docs/SamsaraApi.md#get_safety_events) | **GET** /fleet/safety-events | List all safety events.
 *SamsaraApi* | [**get_tag**](docs/SamsaraApi.md#get_tag) | **GET** /tags/{id} | Retrieve a tag
@@ -159,6 +160,7 @@ Class | Method | HTTP request | Description
  - [CreateDvirRequest](docs/CreateDvirRequest.md)
  - [CreateTagRequest](docs/CreateTagRequest.md)
  - [CreateUserRequest](docs/CreateUserRequest.md)
+ - [CurrentDutyStatus](docs/CurrentDutyStatus.md)
  - [Defect](docs/Defect.md)
  - [DefectPatch](docs/DefectPatch.md)
  - [DefectResolvedBy](docs/DefectResolvedBy.md)
@@ -218,10 +220,18 @@ Class | Method | HTTP request | Description
  - [EquipmentStatsListResponseData](docs/EquipmentStatsListResponseData.md)
  - [EquipmentStatsResponse](docs/EquipmentStatsResponse.md)
  - [EquipmentStatsResponseData](docs/EquipmentStatsResponseData.md)
+ - [HosBreak](docs/HosBreak.md)
+ - [HosClocks](docs/HosClocks.md)
+ - [HosClocksForDriver](docs/HosClocksForDriver.md)
+ - [HosClocksResponse](docs/HosClocksResponse.md)
+ - [HosCycle](docs/HosCycle.md)
+ - [HosDrive](docs/HosDrive.md)
  - [HosLogEntry](docs/HosLogEntry.md)
  - [HosLogsForDriver](docs/HosLogsForDriver.md)
  - [HosLogsResponse](docs/HosLogsResponse.md)
+ - [HosShift](docs/HosShift.md)
  - [HosStatusType](docs/HosStatusType.md)
+ - [HosViolations](docs/HosViolations.md)
  - [ListAddressesResponse](docs/ListAddressesResponse.md)
  - [ListCarrierProposedAssignmentResponse](docs/ListCarrierProposedAssignmentResponse.md)
  - [ListContactsResponse](docs/ListContactsResponse.md)

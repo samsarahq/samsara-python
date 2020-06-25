@@ -32,6 +32,7 @@ Method | HTTP request | Description
 [**get_equipment_stats**](SamsaraApi.md#get_equipment_stats) | **GET** /fleet/equipment/stats | Get most recent stats for all equipment
 [**get_equipment_stats_feed**](SamsaraApi.md#get_equipment_stats_feed) | **GET** /fleet/equipment/stats/feed | Follow a feed of equipment stats
 [**get_equipment_stats_history**](SamsaraApi.md#get_equipment_stats_history) | **GET** /fleet/equipment/stats/history | Get historical equipment stats
+[**get_hos_clocks**](SamsaraApi.md#get_hos_clocks) | **GET** /fleet/hos/clocks | Get a summary of HOS clocks
 [**get_hos_logs**](SamsaraApi.md#get_hos_logs) | **GET** /fleet/hos/logs | Get HOS logs
 [**get_safety_events**](SamsaraApi.md#get_safety_events) | **GET** /fleet/safety-events | List all safety events.
 [**get_tag**](SamsaraApi.md#get_tag) | **GET** /tags/{id} | Retrieve a tag
@@ -1739,6 +1740,71 @@ print("Exception when calling SamsaraApi->get_equipment_stats_history: %s\n" % e
       | Status code | Description | Response headers |
       |-------------|-------------|------------------|
         **200** | Historical equipment stats and pagination information |  -  |
+        **0** | Error response |  -  |
+
+    [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+    # **get_hos_clocks**
+    > HosClocksResponse get_hos_clocks(tag_ids=tag_ids, parent_tag_ids=parent_tag_ids, driver_ids=driver_ids, after=after, limit=limit)
+
+    Get a summary of HOS clocks
+
+      Get the current HOS status for all drivers. Note that this includes inactive as well as active drivers.
+
+    ### Example
+
+      ```python
+from __future__ import print_function
+import time
+import samsara
+from samsara.rest import ApiException
+from pprint import pprint
+
+# Enter a context with an instance of the API client
+  with samsara.ApiClient() as api_client:
+# Create an instance of the API class
+api_instance = samsara.SamsaraApi(api_client)
+tag_ids = ['tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678` (optional)
+parent_tag_ids = ['parent_tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678` (optional)
+driver_ids = ['driver_ids_example'] # list[str] | A filter on the data based on this comma-separated list of driver IDs. Example: `driverIds=1234,5678` (optional)
+after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
+limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
+
+try:
+    # Get a summary of HOS clocks
+    api_response = api_instance.get_hos_clocks(tag_ids=tag_ids, parent_tag_ids=parent_tag_ids, driver_ids=driver_ids, after=after, limit=limit)
+  pprint(api_response)
+except ApiException as e:
+print("Exception when calling SamsaraApi->get_hos_clocks: %s\n" % e)
+```
+
+    ### Parameters
+    
+      Name | Type | Description  | Notes
+      ------------- | ------------- | ------------- | -------------
+     **tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of tag IDs. Example: &#x60;tagIds&#x3D;1234,5678&#x60; | [optional] 
+ **parent_tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: &#x60;parentTagIds&#x3D;345,678&#x60; | [optional] 
+ **driver_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of driver IDs. Example: &#x60;driverIds&#x3D;1234,5678&#x60; | [optional] 
+ **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
+ **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] [default to 512]
+
+    ### Return type
+
+    [**HosClocksResponse**](HosClocksResponse.md)
+
+    ### Authorization
+
+    No authorization required
+
+    ### HTTP request headers
+
+    - **Content-Type**: Not defined
+    - **Accept**: application/json
+
+      ### HTTP response details
+      | Status code | Description | Response headers |
+      |-------------|-------------|------------------|
+        **200** | List of current HOS clock information for the specified drivers. |  -  |
         **0** | Error response |  -  |
 
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
