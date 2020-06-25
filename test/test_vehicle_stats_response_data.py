@@ -112,6 +112,14 @@ class TestVehicleStatsResponseData(unittest.TestCase):
                 fuel_percent = samsara.models.vehicle_stats_fuel_percent.VehicleStatsFuelPercent(
                     time = '2020-01-27T07:06:25Z', 
                     value = 54, ), 
+                gps = samsara.models.vehicle_stats_gps.VehicleStatsGps(
+                    heading_degrees = 120, 
+                    latitude = 122.142, 
+                    longitude = -93.343, 
+                    reverse_geo = samsara.models.vehicle_location_reverse_geo.VehicleLocationReverseGeo(
+                        formatted_location = '16 N Fair Oaks Ave, Pasadena, CA 91103', ), 
+                    speed_miles_per_hour = 48.3, 
+                    time = '2020-01-27T07:06:25Z', ), 
                 gps_distance_meters = samsara.models.vehicle_stats_gps_distance_meters.VehicleStatsGpsDistanceMeters(
                     time = '2020-01-27T07:06:25Z', 
                     value = 81029.591434899, ), 
