@@ -34,50 +34,50 @@ class HosLogEntry(object):
     """
     openapi_types = {
         'codrivers': 'list[DriverTinyResponse]',
-        'end_time': 'str',
         'hos_status_type': 'HosStatusType',
+        'log_end_time': 'str',
         'log_recorded_location': 'Location',
+        'log_start_time': 'str',
         'remark': 'str',
-        'start_time': 'str',
         'vehicle': 'VehicleTinyResponse'
     }
 
     attribute_map = {
         'codrivers': 'codrivers',
-        'end_time': 'endTime',
         'hos_status_type': 'hosStatusType',
+        'log_end_time': 'logEndTime',
         'log_recorded_location': 'logRecordedLocation',
+        'log_start_time': 'logStartTime',
         'remark': 'remark',
-        'start_time': 'startTime',
         'vehicle': 'vehicle'
     }
 
-    def __init__(self, codrivers=None, end_time=None, hos_status_type=None, log_recorded_location=None, remark=None, start_time=None, vehicle=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, codrivers=None, hos_status_type=None, log_end_time=None, log_recorded_location=None, log_start_time=None, remark=None, vehicle=None, local_vars_configuration=None):  # noqa: E501
         """HosLogEntry - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._codrivers = None
-        self._end_time = None
         self._hos_status_type = None
+        self._log_end_time = None
         self._log_recorded_location = None
+        self._log_start_time = None
         self._remark = None
-        self._start_time = None
         self._vehicle = None
         self.discriminator = None
 
         if codrivers is not None:
             self.codrivers = codrivers
-        if end_time is not None:
-            self.end_time = end_time
         if hos_status_type is not None:
             self.hos_status_type = hos_status_type
+        if log_end_time is not None:
+            self.log_end_time = log_end_time
         if log_recorded_location is not None:
             self.log_recorded_location = log_recorded_location
+        self.log_start_time = log_start_time
         if remark is not None:
             self.remark = remark
-        self.start_time = start_time
         if vehicle is not None:
             self.vehicle = vehicle
 
@@ -105,29 +105,6 @@ class HosLogEntry(object):
         self._codrivers = codrivers
 
     @property
-    def end_time(self):
-        """Gets the end_time of this HosLogEntry.  # noqa: E501
-
-        UTC timestamp in RFC 3339 format. Example: `2020-01-27T07:06:25Z`.  # noqa: E501
-
-        :return: The end_time of this HosLogEntry.  # noqa: E501
-        :rtype: str
-        """
-        return self._end_time
-
-    @end_time.setter
-    def end_time(self, end_time):
-        """Sets the end_time of this HosLogEntry.
-
-        UTC timestamp in RFC 3339 format. Example: `2020-01-27T07:06:25Z`.  # noqa: E501
-
-        :param end_time: The end_time of this HosLogEntry.  # noqa: E501
-        :type: str
-        """
-
-        self._end_time = end_time
-
-    @property
     def hos_status_type(self):
         """Gets the hos_status_type of this HosLogEntry.  # noqa: E501
 
@@ -147,6 +124,29 @@ class HosLogEntry(object):
         """
 
         self._hos_status_type = hos_status_type
+
+    @property
+    def log_end_time(self):
+        """Gets the log_end_time of this HosLogEntry.  # noqa: E501
+
+        UTC timestamp in RFC 3339 format. Example: `2020-01-27T07:06:25Z`.  # noqa: E501
+
+        :return: The log_end_time of this HosLogEntry.  # noqa: E501
+        :rtype: str
+        """
+        return self._log_end_time
+
+    @log_end_time.setter
+    def log_end_time(self, log_end_time):
+        """Sets the log_end_time of this HosLogEntry.
+
+        UTC timestamp in RFC 3339 format. Example: `2020-01-27T07:06:25Z`.  # noqa: E501
+
+        :param log_end_time: The log_end_time of this HosLogEntry.  # noqa: E501
+        :type: str
+        """
+
+        self._log_end_time = log_end_time
 
     @property
     def log_recorded_location(self):
@@ -170,6 +170,31 @@ class HosLogEntry(object):
         self._log_recorded_location = log_recorded_location
 
     @property
+    def log_start_time(self):
+        """Gets the log_start_time of this HosLogEntry.  # noqa: E501
+
+        UTC timestamp in RFC 3339 format. Example: `2020-01-27T07:06:25Z`.  # noqa: E501
+
+        :return: The log_start_time of this HosLogEntry.  # noqa: E501
+        :rtype: str
+        """
+        return self._log_start_time
+
+    @log_start_time.setter
+    def log_start_time(self, log_start_time):
+        """Sets the log_start_time of this HosLogEntry.
+
+        UTC timestamp in RFC 3339 format. Example: `2020-01-27T07:06:25Z`.  # noqa: E501
+
+        :param log_start_time: The log_start_time of this HosLogEntry.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and log_start_time is None:  # noqa: E501
+            raise ValueError("Invalid value for `log_start_time`, must not be `None`")  # noqa: E501
+
+        self._log_start_time = log_start_time
+
+    @property
     def remark(self):
         """Gets the remark of this HosLogEntry.  # noqa: E501
 
@@ -191,31 +216,6 @@ class HosLogEntry(object):
         """
 
         self._remark = remark
-
-    @property
-    def start_time(self):
-        """Gets the start_time of this HosLogEntry.  # noqa: E501
-
-        UTC timestamp in RFC 3339 format. Example: `2020-01-27T07:06:25Z`.  # noqa: E501
-
-        :return: The start_time of this HosLogEntry.  # noqa: E501
-        :rtype: str
-        """
-        return self._start_time
-
-    @start_time.setter
-    def start_time(self, start_time):
-        """Sets the start_time of this HosLogEntry.
-
-        UTC timestamp in RFC 3339 format. Example: `2020-01-27T07:06:25Z`.  # noqa: E501
-
-        :param start_time: The start_time of this HosLogEntry.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and start_time is None:  # noqa: E501
-            raise ValueError("Invalid value for `start_time`, must not be `None`")  # noqa: E501
-
-        self._start_time = start_time
 
     @property
     def vehicle(self):

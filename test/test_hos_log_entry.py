@@ -41,20 +41,20 @@ class TestHosLogEntry(unittest.TestCase):
                         id = '88668', 
                         name = 'Susan Bob', )
                     ], 
-                end_time = '2020-01-27T07:06:25Z', 
                 hos_status_type = 'offDuty', 
+                log_end_time = '2020-01-27T07:06:25Z', 
                 log_recorded_location = samsara.models.location.location(
                     latitude = 122.142, 
                     longitude = -93.343, ), 
+                log_start_time = '2020-01-27T07:06:25Z', 
                 remark = 'Lunch Break', 
-                start_time = '2020-01-27T07:06:25Z', 
                 vehicle = samsara.models.vehicle_tiny_response.vehicleTinyResponse(
                     id = '123456789', 
                     name = 'Midwest Truck #4', )
             )
         else :
             return HosLogEntry(
-                start_time = '2020-01-27T07:06:25Z',
+                log_start_time = '2020-01-27T07:06:25Z',
         )
 
     def testHosLogEntry(self):
