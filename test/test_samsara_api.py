@@ -227,7 +227,7 @@ class TestSamsaraApi(unittest.TestCase):
     def test_get_hos_clocks(self):
         """Test case for get_hos_clocks
 
-        Get a summary of HOS clocks  # noqa: E501
+        Get HOS clocks  # noqa: E501
         """
         pass
 
