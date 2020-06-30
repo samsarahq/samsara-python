@@ -48,6 +48,15 @@ class TestDriver(unittest.TestCase):
                 eld_exempt = True, 
                 eld_exempt_reason = 'Bad driver', 
                 eld_pc_enabled = True, 
+                eld_settings = samsara.models.driver_eld_settings.DriverEldSettings(
+                    rulesets = [
+                        samsara.models.driver_eld_ruleset.DriverEldRuleset(
+                            break = 'Property (off-duty/sleeper)', 
+                            cycle = 'USA 60 hour / 7 day', 
+                            jurisdiction = 'AR', 
+                            restart = 'Default', 
+                            shift = 'US Interstate Property', )
+                        ], ), 
                 eld_ym_enabled = True, 
                 external_ids = {maintenanceId=250020, payrollId=ABFS18600}, 
                 id = '123', 
