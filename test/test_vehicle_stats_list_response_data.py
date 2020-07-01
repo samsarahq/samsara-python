@@ -53,6 +53,11 @@ class TestVehicleStatsListResponseData(unittest.TestCase):
                         time = '2020-01-27T07:06:25Z', 
                         value = 7991, )
                     ], 
+                engine_rpm = [
+                    samsara.models.vehicle_stats_engine_rpm.VehicleStatsEngineRpm(
+                        time = '2020-01-27T07:06:25Z', 
+                        value = 1000, )
+                    ], 
                 engine_states = [
                     samsara.models.vehicle_stats_engine_state.VehicleStatsEngineState(
                         time = '2020-01-27T07:06:25Z', 

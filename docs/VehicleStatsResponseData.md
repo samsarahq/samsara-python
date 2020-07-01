@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **aux_input1** | [**VehicleStatsAuxInput**](VehicleStatsAuxInput.md) |  | [optional] 
 **aux_input2** | [**VehicleStatsAuxInput**](VehicleStatsAuxInput.md) |  | [optional] 
 **battery_milli_volts** | [**VehicleStatsBatteryVoltage**](VehicleStatsBatteryVoltage.md) |  | [optional] 
+**engine_rpm** | [**VehicleStatsEngineRpm**](VehicleStatsEngineRpm.md) |  | [optional] 
 **engine_state** | [**VehicleStatsEngineState**](VehicleStatsEngineState.md) |  | [optional] 
 **fault_codes** | [**VehicleStatsFaultCodes**](VehicleStatsFaultCodes.md) |  | [optional] 
 **fuel_percent** | [**VehicleStatsFuelPercent**](VehicleStatsFuelPercent.md) |  | [optional] 
