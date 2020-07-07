@@ -15,7 +15,6 @@ from __future__ import absolute_import
 
 # import models into model package
 from samsara.models.address import Address
-from samsara.models.address_external_ids import AddressExternalIds
 from samsara.models.address_geofence import AddressGeofence
 from samsara.models.address_geofence_circle import AddressGeofenceCircle
 from samsara.models.address_geofence_polygon import AddressGeofencePolygon

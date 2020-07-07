@@ -29,7 +29,6 @@ from samsara.exceptions import ApiKeyError
 from samsara.exceptions import ApiException
 # import models into sdk package
 from samsara.models.address import Address
-from samsara.models.address_external_ids import AddressExternalIds
 from samsara.models.address_geofence import AddressGeofence
 from samsara.models.address_geofence_circle import AddressGeofenceCircle
 from samsara.models.address_geofence_polygon import AddressGeofencePolygon

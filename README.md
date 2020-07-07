@@ -140,7 +140,6 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [Address](docs/Address.md)
- - [AddressExternalIds](docs/AddressExternalIds.md)
  - [AddressGeofence](docs/AddressGeofence.md)
  - [AddressGeofenceCircle](docs/AddressGeofenceCircle.md)
  - [AddressGeofencePolygon](docs/AddressGeofencePolygon.md)
