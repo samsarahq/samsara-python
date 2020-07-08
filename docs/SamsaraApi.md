@@ -749,7 +749,7 @@ print("Exception when calling SamsaraApi->delete_user: %s\n" % e)
 
     Create a document PDF
 
-      Request creation of a document PDF. PDFs are currently english-language only.
+      Request creation of a document PDF.
 
     ### Example
 

@@ -1355,7 +1355,7 @@ class SamsaraApi(object):
     def generate_document_pdf(self, **kwargs):  # noqa: E501
         """Create a document PDF  # noqa: E501
 
-        Request creation of a document PDF. PDFs are currently english-language only.  # noqa: E501
+        Request creation of a document PDF.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.generate_document_pdf(async_req=True)
@@ -1380,7 +1380,7 @@ class SamsaraApi(object):
     def generate_document_pdf_with_http_info(self, **kwargs):  # noqa: E501
         """Create a document PDF  # noqa: E501
 
-        Request creation of a document PDF. PDFs are currently english-language only.  # noqa: E501
+        Request creation of a document PDF.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.generate_document_pdf_with_http_info(async_req=True)
