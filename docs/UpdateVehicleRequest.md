@@ -5,7 +5,15 @@ All the editable portions of the vehicle object.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **aux_input_type1** | [**VehicleAuxInputType**](VehicleAuxInputType.md) |  | [optional] 
+**aux_input_type10** | [**VehicleAuxInputType**](VehicleAuxInputType.md) |  | [optional] 
 **aux_input_type2** | [**VehicleAuxInputType**](VehicleAuxInputType.md) |  | [optional] 
+**aux_input_type3** | [**VehicleAuxInputType**](VehicleAuxInputType.md) |  | [optional] 
+**aux_input_type4** | [**VehicleAuxInputType**](VehicleAuxInputType.md) |  | [optional] 
+**aux_input_type5** | [**VehicleAuxInputType**](VehicleAuxInputType.md) |  | [optional] 
+**aux_input_type6** | [**VehicleAuxInputType**](VehicleAuxInputType.md) |  | [optional] 
+**aux_input_type7** | [**VehicleAuxInputType**](VehicleAuxInputType.md) |  | [optional] 
+**aux_input_type8** | [**VehicleAuxInputType**](VehicleAuxInputType.md) |  | [optional] 
+**aux_input_type9** | [**VehicleAuxInputType**](VehicleAuxInputType.md) |  | [optional] 
 **engine_hours** | **int** | A manual override for the vehicle&#39;s engine hours. You may only override a vehicle&#39;s engine hours if it cannot be read from on-board diagnostics. When you provide a manual engine hours override, Samsara will begin updating a vehicle&#39;s engine hours based on when the Samsara Vehicle Gateway is recieving power or not. | [optional] 
 **external_ids** | **dict(str, str)** | The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object. | [optional] 
 **harsh_acceleration_setting_type** | [**VehicleHarshAccelerationSettingType**](VehicleHarshAccelerationSettingType.md) |  | [optional] 
