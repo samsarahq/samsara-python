@@ -34,7 +34,15 @@ class VehicleStatsResponseData(object):
     """
     openapi_types = {
         'aux_input1': 'VehicleStatsAuxInput',
+        'aux_input10': 'VehicleStatsAuxInput',
         'aux_input2': 'VehicleStatsAuxInput',
+        'aux_input3': 'VehicleStatsAuxInput',
+        'aux_input4': 'VehicleStatsAuxInput',
+        'aux_input5': 'VehicleStatsAuxInput',
+        'aux_input6': 'VehicleStatsAuxInput',
+        'aux_input7': 'VehicleStatsAuxInput',
+        'aux_input8': 'VehicleStatsAuxInput',
+        'aux_input9': 'VehicleStatsAuxInput',
         'battery_milli_volts': 'VehicleStatsBatteryVoltage',
         'engine_rpm': 'VehicleStatsEngineRpm',
         'engine_state': 'VehicleStatsEngineState',
@@ -52,7 +60,15 @@ class VehicleStatsResponseData(object):
 
     attribute_map = {
         'aux_input1': 'auxInput1',
+        'aux_input10': 'auxInput10',
         'aux_input2': 'auxInput2',
+        'aux_input3': 'auxInput3',
+        'aux_input4': 'auxInput4',
+        'aux_input5': 'auxInput5',
+        'aux_input6': 'auxInput6',
+        'aux_input7': 'auxInput7',
+        'aux_input8': 'auxInput8',
+        'aux_input9': 'auxInput9',
         'battery_milli_volts': 'batteryMilliVolts',
         'engine_rpm': 'engineRpm',
         'engine_state': 'engineState',
@@ -68,14 +84,22 @@ class VehicleStatsResponseData(object):
         'obd_odometer_meters': 'obdOdometerMeters'
     }
 
-    def __init__(self, aux_input1=None, aux_input2=None, battery_milli_volts=None, engine_rpm=None, engine_state=None, fault_codes=None, fuel_percent=None, gps=None, gps_distance_meters=None, gps_odometer_meters=None, id=None, name=None, nfc_card_scan=None, obd_engine_seconds=None, obd_odometer_meters=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, aux_input1=None, aux_input10=None, aux_input2=None, aux_input3=None, aux_input4=None, aux_input5=None, aux_input6=None, aux_input7=None, aux_input8=None, aux_input9=None, battery_milli_volts=None, engine_rpm=None, engine_state=None, fault_codes=None, fuel_percent=None, gps=None, gps_distance_meters=None, gps_odometer_meters=None, id=None, name=None, nfc_card_scan=None, obd_engine_seconds=None, obd_odometer_meters=None, local_vars_configuration=None):  # noqa: E501
         """VehicleStatsResponseData - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._aux_input1 = None
+        self._aux_input10 = None
         self._aux_input2 = None
+        self._aux_input3 = None
+        self._aux_input4 = None
+        self._aux_input5 = None
+        self._aux_input6 = None
+        self._aux_input7 = None
+        self._aux_input8 = None
+        self._aux_input9 = None
         self._battery_milli_volts = None
         self._engine_rpm = None
         self._engine_state = None
@@ -93,8 +117,24 @@ class VehicleStatsResponseData(object):
 
         if aux_input1 is not None:
             self.aux_input1 = aux_input1
+        if aux_input10 is not None:
+            self.aux_input10 = aux_input10
         if aux_input2 is not None:
             self.aux_input2 = aux_input2
+        if aux_input3 is not None:
+            self.aux_input3 = aux_input3
+        if aux_input4 is not None:
+            self.aux_input4 = aux_input4
+        if aux_input5 is not None:
+            self.aux_input5 = aux_input5
+        if aux_input6 is not None:
+            self.aux_input6 = aux_input6
+        if aux_input7 is not None:
+            self.aux_input7 = aux_input7
+        if aux_input8 is not None:
+            self.aux_input8 = aux_input8
+        if aux_input9 is not None:
+            self.aux_input9 = aux_input9
         if battery_milli_volts is not None:
             self.battery_milli_volts = battery_milli_volts
         if engine_rpm is not None:
@@ -142,6 +182,27 @@ class VehicleStatsResponseData(object):
         self._aux_input1 = aux_input1
 
     @property
+    def aux_input10(self):
+        """Gets the aux_input10 of this VehicleStatsResponseData.  # noqa: E501
+
+
+        :return: The aux_input10 of this VehicleStatsResponseData.  # noqa: E501
+        :rtype: VehicleStatsAuxInput
+        """
+        return self._aux_input10
+
+    @aux_input10.setter
+    def aux_input10(self, aux_input10):
+        """Sets the aux_input10 of this VehicleStatsResponseData.
+
+
+        :param aux_input10: The aux_input10 of this VehicleStatsResponseData.  # noqa: E501
+        :type: VehicleStatsAuxInput
+        """
+
+        self._aux_input10 = aux_input10
+
+    @property
     def aux_input2(self):
         """Gets the aux_input2 of this VehicleStatsResponseData.  # noqa: E501
 
@@ -161,6 +222,153 @@ class VehicleStatsResponseData(object):
         """
 
         self._aux_input2 = aux_input2
+
+    @property
+    def aux_input3(self):
+        """Gets the aux_input3 of this VehicleStatsResponseData.  # noqa: E501
+
+
+        :return: The aux_input3 of this VehicleStatsResponseData.  # noqa: E501
+        :rtype: VehicleStatsAuxInput
+        """
+        return self._aux_input3
+
+    @aux_input3.setter
+    def aux_input3(self, aux_input3):
+        """Sets the aux_input3 of this VehicleStatsResponseData.
+
+
+        :param aux_input3: The aux_input3 of this VehicleStatsResponseData.  # noqa: E501
+        :type: VehicleStatsAuxInput
+        """
+
+        self._aux_input3 = aux_input3
+
+    @property
+    def aux_input4(self):
+        """Gets the aux_input4 of this VehicleStatsResponseData.  # noqa: E501
+
+
+        :return: The aux_input4 of this VehicleStatsResponseData.  # noqa: E501
+        :rtype: VehicleStatsAuxInput
+        """
+        return self._aux_input4
+
+    @aux_input4.setter
+    def aux_input4(self, aux_input4):
+        """Sets the aux_input4 of this VehicleStatsResponseData.
+
+
+        :param aux_input4: The aux_input4 of this VehicleStatsResponseData.  # noqa: E501
+        :type: VehicleStatsAuxInput
+        """
+
+        self._aux_input4 = aux_input4
+
+    @property
+    def aux_input5(self):
+        """Gets the aux_input5 of this VehicleStatsResponseData.  # noqa: E501
+
+
+        :return: The aux_input5 of this VehicleStatsResponseData.  # noqa: E501
+        :rtype: VehicleStatsAuxInput
+        """
+        return self._aux_input5
+
+    @aux_input5.setter
+    def aux_input5(self, aux_input5):
+        """Sets the aux_input5 of this VehicleStatsResponseData.
+
+
+        :param aux_input5: The aux_input5 of this VehicleStatsResponseData.  # noqa: E501
+        :type: VehicleStatsAuxInput
+        """
+
+        self._aux_input5 = aux_input5
+
+    @property
+    def aux_input6(self):
+        """Gets the aux_input6 of this VehicleStatsResponseData.  # noqa: E501
+
+
+        :return: The aux_input6 of this VehicleStatsResponseData.  # noqa: E501
+        :rtype: VehicleStatsAuxInput
+        """
+        return self._aux_input6
+
+    @aux_input6.setter
+    def aux_input6(self, aux_input6):
+        """Sets the aux_input6 of this VehicleStatsResponseData.
+
+
+        :param aux_input6: The aux_input6 of this VehicleStatsResponseData.  # noqa: E501
+        :type: VehicleStatsAuxInput
+        """
+
+        self._aux_input6 = aux_input6
+
+    @property
+    def aux_input7(self):
+        """Gets the aux_input7 of this VehicleStatsResponseData.  # noqa: E501
+
+
+        :return: The aux_input7 of this VehicleStatsResponseData.  # noqa: E501
+        :rtype: VehicleStatsAuxInput
+        """
+        return self._aux_input7
+
+    @aux_input7.setter
+    def aux_input7(self, aux_input7):
+        """Sets the aux_input7 of this VehicleStatsResponseData.
+
+
+        :param aux_input7: The aux_input7 of this VehicleStatsResponseData.  # noqa: E501
+        :type: VehicleStatsAuxInput
+        """
+
+        self._aux_input7 = aux_input7
+
+    @property
+    def aux_input8(self):
+        """Gets the aux_input8 of this VehicleStatsResponseData.  # noqa: E501
+
+
+        :return: The aux_input8 of this VehicleStatsResponseData.  # noqa: E501
+        :rtype: VehicleStatsAuxInput
+        """
+        return self._aux_input8
+
+    @aux_input8.setter
+    def aux_input8(self, aux_input8):
+        """Sets the aux_input8 of this VehicleStatsResponseData.
+
+
+        :param aux_input8: The aux_input8 of this VehicleStatsResponseData.  # noqa: E501
+        :type: VehicleStatsAuxInput
+        """
+
+        self._aux_input8 = aux_input8
+
+    @property
+    def aux_input9(self):
+        """Gets the aux_input9 of this VehicleStatsResponseData.  # noqa: E501
+
+
+        :return: The aux_input9 of this VehicleStatsResponseData.  # noqa: E501
+        :rtype: VehicleStatsAuxInput
+        """
+        return self._aux_input9
+
+    @aux_input9.setter
+    def aux_input9(self, aux_input9):
+        """Sets the aux_input9 of this VehicleStatsResponseData.
+
+
+        :param aux_input9: The aux_input9 of this VehicleStatsResponseData.  # noqa: E501
+        :type: VehicleStatsAuxInput
+        """
+
+        self._aux_input9 = aux_input9
 
     @property
     def battery_milli_volts(self):

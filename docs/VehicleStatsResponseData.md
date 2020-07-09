@@ -5,7 +5,15 @@ A vehicle and its most recent stat.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **aux_input1** | [**VehicleStatsAuxInput**](VehicleStatsAuxInput.md) |  | [optional] 
+**aux_input10** | [**VehicleStatsAuxInput**](VehicleStatsAuxInput.md) |  | [optional] 
 **aux_input2** | [**VehicleStatsAuxInput**](VehicleStatsAuxInput.md) |  | [optional] 
+**aux_input3** | [**VehicleStatsAuxInput**](VehicleStatsAuxInput.md) |  | [optional] 
+**aux_input4** | [**VehicleStatsAuxInput**](VehicleStatsAuxInput.md) |  | [optional] 
+**aux_input5** | [**VehicleStatsAuxInput**](VehicleStatsAuxInput.md) |  | [optional] 
+**aux_input6** | [**VehicleStatsAuxInput**](VehicleStatsAuxInput.md) |  | [optional] 
+**aux_input7** | [**VehicleStatsAuxInput**](VehicleStatsAuxInput.md) |  | [optional] 
+**aux_input8** | [**VehicleStatsAuxInput**](VehicleStatsAuxInput.md) |  | [optional] 
+**aux_input9** | [**VehicleStatsAuxInput**](VehicleStatsAuxInput.md) |  | [optional] 
 **battery_milli_volts** | [**VehicleStatsBatteryVoltage**](VehicleStatsBatteryVoltage.md) |  | [optional] 
 **engine_rpm** | [**VehicleStatsEngineRpm**](VehicleStatsEngineRpm.md) |  | [optional] 
 **engine_state** | [**VehicleStatsEngineState**](VehicleStatsEngineState.md) |  | [optional] 

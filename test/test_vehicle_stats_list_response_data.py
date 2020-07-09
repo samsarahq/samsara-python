@@ -42,7 +42,55 @@ class TestVehicleStatsListResponseData(unittest.TestCase):
                         time = '2020-01-27T07:06:25Z', 
                         value = True, )
                     ], 
+                aux_input10 = [
+                    samsara.models.vehicle_stats_aux_input.VehicleStatsAuxInput(
+                        name = 'boom', 
+                        time = '2020-01-27T07:06:25Z', 
+                        value = True, )
+                    ], 
                 aux_input2 = [
+                    samsara.models.vehicle_stats_aux_input.VehicleStatsAuxInput(
+                        name = 'boom', 
+                        time = '2020-01-27T07:06:25Z', 
+                        value = True, )
+                    ], 
+                aux_input3 = [
+                    samsara.models.vehicle_stats_aux_input.VehicleStatsAuxInput(
+                        name = 'boom', 
+                        time = '2020-01-27T07:06:25Z', 
+                        value = True, )
+                    ], 
+                aux_input4 = [
+                    samsara.models.vehicle_stats_aux_input.VehicleStatsAuxInput(
+                        name = 'boom', 
+                        time = '2020-01-27T07:06:25Z', 
+                        value = True, )
+                    ], 
+                aux_input5 = [
+                    samsara.models.vehicle_stats_aux_input.VehicleStatsAuxInput(
+                        name = 'boom', 
+                        time = '2020-01-27T07:06:25Z', 
+                        value = True, )
+                    ], 
+                aux_input6 = [
+                    samsara.models.vehicle_stats_aux_input.VehicleStatsAuxInput(
+                        name = 'boom', 
+                        time = '2020-01-27T07:06:25Z', 
+                        value = True, )
+                    ], 
+                aux_input7 = [
+                    samsara.models.vehicle_stats_aux_input.VehicleStatsAuxInput(
+                        name = 'boom', 
+                        time = '2020-01-27T07:06:25Z', 
+                        value = True, )
+                    ], 
+                aux_input8 = [
+                    samsara.models.vehicle_stats_aux_input.VehicleStatsAuxInput(
+                        name = 'boom', 
+                        time = '2020-01-27T07:06:25Z', 
+                        value = True, )
+                    ], 
+                aux_input9 = [
                     samsara.models.vehicle_stats_aux_input.VehicleStatsAuxInput(
                         name = 'boom', 
                         time = '2020-01-27T07:06:25Z', 

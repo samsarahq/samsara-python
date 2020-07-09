@@ -5,7 +5,15 @@ A vehicle and its list of stat events.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **aux_input1** | [**list[VehicleStatsAuxInput]**](VehicleStatsAuxInput.md) | A list of auxiliary equipment states. | [optional] 
+**aux_input10** | [**list[VehicleStatsAuxInput]**](VehicleStatsAuxInput.md) | A list of auxiliary equipment states. | [optional] 
 **aux_input2** | [**list[VehicleStatsAuxInput]**](VehicleStatsAuxInput.md) | A list of auxiliary equipment states. | [optional] 
+**aux_input3** | [**list[VehicleStatsAuxInput]**](VehicleStatsAuxInput.md) | A list of auxiliary equipment states. | [optional] 
+**aux_input4** | [**list[VehicleStatsAuxInput]**](VehicleStatsAuxInput.md) | A list of auxiliary equipment states. | [optional] 
+**aux_input5** | [**list[VehicleStatsAuxInput]**](VehicleStatsAuxInput.md) | A list of auxiliary equipment states. | [optional] 
+**aux_input6** | [**list[VehicleStatsAuxInput]**](VehicleStatsAuxInput.md) | A list of auxiliary equipment states. | [optional] 
+**aux_input7** | [**list[VehicleStatsAuxInput]**](VehicleStatsAuxInput.md) | A list of auxiliary equipment states. | [optional] 
+**aux_input8** | [**list[VehicleStatsAuxInput]**](VehicleStatsAuxInput.md) | A list of auxiliary equipment states. | [optional] 
+**aux_input9** | [**list[VehicleStatsAuxInput]**](VehicleStatsAuxInput.md) | A list of auxiliary equipment states. | [optional] 
 **battery_milli_volts** | [**list[VehicleStatsBatteryVoltage]**](VehicleStatsBatteryVoltage.md) | A list of battery levels in milliVolts for the given vehicle. | [optional] 
 **engine_rpm** | [**list[VehicleStatsEngineRpm]**](VehicleStatsEngineRpm.md) | A list engine RPM values for the given vehicle. | [optional] 
 **engine_states** | [**list[VehicleStatsEngineState]**](VehicleStatsEngineState.md) | A list of engine state events for the given vehicle. | [optional] 
