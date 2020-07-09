@@ -34,7 +34,15 @@ class Vehicle(object):
     """
     openapi_types = {
         'aux_input_type1': 'VehicleAuxInputType',
+        'aux_input_type10': 'VehicleAuxInputType',
         'aux_input_type2': 'VehicleAuxInputType',
+        'aux_input_type3': 'VehicleAuxInputType',
+        'aux_input_type4': 'VehicleAuxInputType',
+        'aux_input_type5': 'VehicleAuxInputType',
+        'aux_input_type6': 'VehicleAuxInputType',
+        'aux_input_type7': 'VehicleAuxInputType',
+        'aux_input_type8': 'VehicleAuxInputType',
+        'aux_input_type9': 'VehicleAuxInputType',
         'camera_serial': 'str',
         'external_ids': 'dict(str, str)',
         'harsh_acceleration_setting_type': 'VehicleHarshAccelerationSettingType',
@@ -53,7 +61,15 @@ class Vehicle(object):
 
     attribute_map = {
         'aux_input_type1': 'auxInputType1',
+        'aux_input_type10': 'auxInputType10',
         'aux_input_type2': 'auxInputType2',
+        'aux_input_type3': 'auxInputType3',
+        'aux_input_type4': 'auxInputType4',
+        'aux_input_type5': 'auxInputType5',
+        'aux_input_type6': 'auxInputType6',
+        'aux_input_type7': 'auxInputType7',
+        'aux_input_type8': 'auxInputType8',
+        'aux_input_type9': 'auxInputType9',
         'camera_serial': 'cameraSerial',
         'external_ids': 'externalIds',
         'harsh_acceleration_setting_type': 'harshAccelerationSettingType',
@@ -70,14 +86,22 @@ class Vehicle(object):
         'year': 'year'
     }
 
-    def __init__(self, aux_input_type1=None, aux_input_type2=None, camera_serial=None, external_ids=None, harsh_acceleration_setting_type=None, id=None, license_plate=None, make=None, model=None, name=None, notes='', serial=None, static_assigned_driver=None, tags=None, vin=None, year=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, aux_input_type1=None, aux_input_type10=None, aux_input_type2=None, aux_input_type3=None, aux_input_type4=None, aux_input_type5=None, aux_input_type6=None, aux_input_type7=None, aux_input_type8=None, aux_input_type9=None, camera_serial=None, external_ids=None, harsh_acceleration_setting_type=None, id=None, license_plate=None, make=None, model=None, name=None, notes='', serial=None, static_assigned_driver=None, tags=None, vin=None, year=None, local_vars_configuration=None):  # noqa: E501
         """Vehicle - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._aux_input_type1 = None
+        self._aux_input_type10 = None
         self._aux_input_type2 = None
+        self._aux_input_type3 = None
+        self._aux_input_type4 = None
+        self._aux_input_type5 = None
+        self._aux_input_type6 = None
+        self._aux_input_type7 = None
+        self._aux_input_type8 = None
+        self._aux_input_type9 = None
         self._camera_serial = None
         self._external_ids = None
         self._harsh_acceleration_setting_type = None
@@ -96,8 +120,24 @@ class Vehicle(object):
 
         if aux_input_type1 is not None:
             self.aux_input_type1 = aux_input_type1
+        if aux_input_type10 is not None:
+            self.aux_input_type10 = aux_input_type10
         if aux_input_type2 is not None:
             self.aux_input_type2 = aux_input_type2
+        if aux_input_type3 is not None:
+            self.aux_input_type3 = aux_input_type3
+        if aux_input_type4 is not None:
+            self.aux_input_type4 = aux_input_type4
+        if aux_input_type5 is not None:
+            self.aux_input_type5 = aux_input_type5
+        if aux_input_type6 is not None:
+            self.aux_input_type6 = aux_input_type6
+        if aux_input_type7 is not None:
+            self.aux_input_type7 = aux_input_type7
+        if aux_input_type8 is not None:
+            self.aux_input_type8 = aux_input_type8
+        if aux_input_type9 is not None:
+            self.aux_input_type9 = aux_input_type9
         if camera_serial is not None:
             self.camera_serial = camera_serial
         if external_ids is not None:
@@ -148,6 +188,27 @@ class Vehicle(object):
         self._aux_input_type1 = aux_input_type1
 
     @property
+    def aux_input_type10(self):
+        """Gets the aux_input_type10 of this Vehicle.  # noqa: E501
+
+
+        :return: The aux_input_type10 of this Vehicle.  # noqa: E501
+        :rtype: VehicleAuxInputType
+        """
+        return self._aux_input_type10
+
+    @aux_input_type10.setter
+    def aux_input_type10(self, aux_input_type10):
+        """Sets the aux_input_type10 of this Vehicle.
+
+
+        :param aux_input_type10: The aux_input_type10 of this Vehicle.  # noqa: E501
+        :type: VehicleAuxInputType
+        """
+
+        self._aux_input_type10 = aux_input_type10
+
+    @property
     def aux_input_type2(self):
         """Gets the aux_input_type2 of this Vehicle.  # noqa: E501
 
@@ -167,6 +228,153 @@ class Vehicle(object):
         """
 
         self._aux_input_type2 = aux_input_type2
+
+    @property
+    def aux_input_type3(self):
+        """Gets the aux_input_type3 of this Vehicle.  # noqa: E501
+
+
+        :return: The aux_input_type3 of this Vehicle.  # noqa: E501
+        :rtype: VehicleAuxInputType
+        """
+        return self._aux_input_type3
+
+    @aux_input_type3.setter
+    def aux_input_type3(self, aux_input_type3):
+        """Sets the aux_input_type3 of this Vehicle.
+
+
+        :param aux_input_type3: The aux_input_type3 of this Vehicle.  # noqa: E501
+        :type: VehicleAuxInputType
+        """
+
+        self._aux_input_type3 = aux_input_type3
+
+    @property
+    def aux_input_type4(self):
+        """Gets the aux_input_type4 of this Vehicle.  # noqa: E501
+
+
+        :return: The aux_input_type4 of this Vehicle.  # noqa: E501
+        :rtype: VehicleAuxInputType
+        """
+        return self._aux_input_type4
+
+    @aux_input_type4.setter
+    def aux_input_type4(self, aux_input_type4):
+        """Sets the aux_input_type4 of this Vehicle.
+
+
+        :param aux_input_type4: The aux_input_type4 of this Vehicle.  # noqa: E501
+        :type: VehicleAuxInputType
+        """
+
+        self._aux_input_type4 = aux_input_type4
+
+    @property
+    def aux_input_type5(self):
+        """Gets the aux_input_type5 of this Vehicle.  # noqa: E501
+
+
+        :return: The aux_input_type5 of this Vehicle.  # noqa: E501
+        :rtype: VehicleAuxInputType
+        """
+        return self._aux_input_type5
+
+    @aux_input_type5.setter
+    def aux_input_type5(self, aux_input_type5):
+        """Sets the aux_input_type5 of this Vehicle.
+
+
+        :param aux_input_type5: The aux_input_type5 of this Vehicle.  # noqa: E501
+        :type: VehicleAuxInputType
+        """
+
+        self._aux_input_type5 = aux_input_type5
+
+    @property
+    def aux_input_type6(self):
+        """Gets the aux_input_type6 of this Vehicle.  # noqa: E501
+
+
+        :return: The aux_input_type6 of this Vehicle.  # noqa: E501
+        :rtype: VehicleAuxInputType
+        """
+        return self._aux_input_type6
+
+    @aux_input_type6.setter
+    def aux_input_type6(self, aux_input_type6):
+        """Sets the aux_input_type6 of this Vehicle.
+
+
+        :param aux_input_type6: The aux_input_type6 of this Vehicle.  # noqa: E501
+        :type: VehicleAuxInputType
+        """
+
+        self._aux_input_type6 = aux_input_type6
+
+    @property
+    def aux_input_type7(self):
+        """Gets the aux_input_type7 of this Vehicle.  # noqa: E501
+
+
+        :return: The aux_input_type7 of this Vehicle.  # noqa: E501
+        :rtype: VehicleAuxInputType
+        """
+        return self._aux_input_type7
+
+    @aux_input_type7.setter
+    def aux_input_type7(self, aux_input_type7):
+        """Sets the aux_input_type7 of this Vehicle.
+
+
+        :param aux_input_type7: The aux_input_type7 of this Vehicle.  # noqa: E501
+        :type: VehicleAuxInputType
+        """
+
+        self._aux_input_type7 = aux_input_type7
+
+    @property
+    def aux_input_type8(self):
+        """Gets the aux_input_type8 of this Vehicle.  # noqa: E501
+
+
+        :return: The aux_input_type8 of this Vehicle.  # noqa: E501
+        :rtype: VehicleAuxInputType
+        """
+        return self._aux_input_type8
+
+    @aux_input_type8.setter
+    def aux_input_type8(self, aux_input_type8):
+        """Sets the aux_input_type8 of this Vehicle.
+
+
+        :param aux_input_type8: The aux_input_type8 of this Vehicle.  # noqa: E501
+        :type: VehicleAuxInputType
+        """
+
+        self._aux_input_type8 = aux_input_type8
+
+    @property
+    def aux_input_type9(self):
+        """Gets the aux_input_type9 of this Vehicle.  # noqa: E501
+
+
+        :return: The aux_input_type9 of this Vehicle.  # noqa: E501
+        :rtype: VehicleAuxInputType
+        """
+        return self._aux_input_type9
+
+    @aux_input_type9.setter
+    def aux_input_type9(self, aux_input_type9):
+        """Sets the aux_input_type9 of this Vehicle.
+
+
+        :param aux_input_type9: The aux_input_type9 of this Vehicle.  # noqa: E501
+        :type: VehicleAuxInputType
+        """
+
+        self._aux_input_type9 = aux_input_type9
 
     @property
     def camera_serial(self):

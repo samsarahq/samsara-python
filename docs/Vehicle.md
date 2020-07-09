@@ -5,7 +5,15 @@ The vehicle object.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **aux_input_type1** | [**VehicleAuxInputType**](VehicleAuxInputType.md) |  | [optional] 
+**aux_input_type10** | [**VehicleAuxInputType**](VehicleAuxInputType.md) |  | [optional] 
 **aux_input_type2** | [**VehicleAuxInputType**](VehicleAuxInputType.md) |  | [optional] 
+**aux_input_type3** | [**VehicleAuxInputType**](VehicleAuxInputType.md) |  | [optional] 
+**aux_input_type4** | [**VehicleAuxInputType**](VehicleAuxInputType.md) |  | [optional] 
+**aux_input_type5** | [**VehicleAuxInputType**](VehicleAuxInputType.md) |  | [optional] 
+**aux_input_type6** | [**VehicleAuxInputType**](VehicleAuxInputType.md) |  | [optional] 
+**aux_input_type7** | [**VehicleAuxInputType**](VehicleAuxInputType.md) |  | [optional] 
+**aux_input_type8** | [**VehicleAuxInputType**](VehicleAuxInputType.md) |  | [optional] 
+**aux_input_type9** | [**VehicleAuxInputType**](VehicleAuxInputType.md) |  | [optional] 
 **camera_serial** | **str** | The serial number of the camera installed in the vehicle | [optional] 
 **external_ids** | **dict(str, str)** | The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object. | [optional] 
 **harsh_acceleration_setting_type** | [**VehicleHarshAccelerationSettingType**](VehicleHarshAccelerationSettingType.md) |  | [optional] 

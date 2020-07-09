@@ -176,7 +176,15 @@ from samsara.models.user_tiny_response import UserTinyResponse
 from samsara.models.vehicle import Vehicle
 from samsara.models.vehicle_aux_input_type import VehicleAuxInputType
 from samsara.models.vehicle_aux_input_type1 import VehicleAuxInputType1
+from samsara.models.vehicle_aux_input_type10 import VehicleAuxInputType10
 from samsara.models.vehicle_aux_input_type2 import VehicleAuxInputType2
+from samsara.models.vehicle_aux_input_type3 import VehicleAuxInputType3
+from samsara.models.vehicle_aux_input_type4 import VehicleAuxInputType4
+from samsara.models.vehicle_aux_input_type5 import VehicleAuxInputType5
+from samsara.models.vehicle_aux_input_type6 import VehicleAuxInputType6
+from samsara.models.vehicle_aux_input_type7 import VehicleAuxInputType7
+from samsara.models.vehicle_aux_input_type8 import VehicleAuxInputType8
+from samsara.models.vehicle_aux_input_type9 import VehicleAuxInputType9
 from samsara.models.vehicle_external_ids import VehicleExternalIds
 from samsara.models.vehicle_harsh_acceleration_setting_type import VehicleHarshAccelerationSettingType
 from samsara.models.vehicle_location import VehicleLocation

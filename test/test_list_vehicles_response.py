@@ -39,7 +39,15 @@ class TestListVehiclesResponse(unittest.TestCase):
                 data = [
                     samsara.models.vehicle.Vehicle(
                         aux_input_type1 = 'boom', 
+                        aux_input_type10 = 'boom', 
                         aux_input_type2 = 'boom', 
+                        aux_input_type3 = 'boom', 
+                        aux_input_type4 = 'boom', 
+                        aux_input_type5 = 'boom', 
+                        aux_input_type6 = 'boom', 
+                        aux_input_type7 = 'boom', 
+                        aux_input_type8 = 'boom', 
+                        aux_input_type9 = 'boom', 
                         camera_serial = 'CNCK-VT8-XA8', 
                         external_ids = {maintenanceId=250020, payrollId=ABFS18600}, 
                         harsh_acceleration_setting_type = 'off', 
@@ -67,7 +75,15 @@ class TestListVehiclesResponse(unittest.TestCase):
                 data = [
                     samsara.models.vehicle.Vehicle(
                         aux_input_type1 = 'boom', 
+                        aux_input_type10 = 'boom', 
                         aux_input_type2 = 'boom', 
+                        aux_input_type3 = 'boom', 
+                        aux_input_type4 = 'boom', 
+                        aux_input_type5 = 'boom', 
+                        aux_input_type6 = 'boom', 
+                        aux_input_type7 = 'boom', 
+                        aux_input_type8 = 'boom', 
+                        aux_input_type9 = 'boom', 
                         camera_serial = 'CNCK-VT8-XA8', 
                         external_ids = {maintenanceId=250020, payrollId=ABFS18600}, 
                         harsh_acceleration_setting_type = 'off', 
