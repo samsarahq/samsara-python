@@ -9,16 +9,22 @@ Method | HTTP request | Description
 [**create_contact**](SamsaraApi.md#create_contact) | **POST** /contacts | Create a contact
 [**create_driver**](SamsaraApi.md#create_driver) | **POST** /fleet/drivers | Create a driver
 [**create_dvir**](SamsaraApi.md#create_dvir) | **POST** /fleet/dvirs | Create a mechanic DVIR
+[**create_industrial_asset**](SamsaraApi.md#create_industrial_asset) | **POST** /industrial/assets | Create an asset
 [**create_tag**](SamsaraApi.md#create_tag) | **POST** /tags | Create a tag
 [**create_user**](SamsaraApi.md#create_user) | **POST** /users | Create a user
 [**delete_address**](SamsaraApi.md#delete_address) | **DELETE** /addresses/{id} | Delete an address
 [**delete_carrier_proposed_assignment**](SamsaraApi.md#delete_carrier_proposed_assignment) | **DELETE** /fleet/carrier-proposed-assignments/{id} | Delete an assignment
 [**delete_contact**](SamsaraApi.md#delete_contact) | **DELETE** /contacts/{id} | Delete a contact
+[**delete_industrial_asset**](SamsaraApi.md#delete_industrial_asset) | **DELETE** /industrial/assets/{id} | Delete an existing asset
 [**delete_tag**](SamsaraApi.md#delete_tag) | **DELETE** /tags/{id} | Delete a tag
 [**delete_user**](SamsaraApi.md#delete_user) | **DELETE** /users/{id} | Delete a user
 [**generate_document_pdf**](SamsaraApi.md#generate_document_pdf) | **POST** /fleet/documents/pdfs | Create a document PDF
 [**get_address**](SamsaraApi.md#get_address) | **GET** /addresses/{id} | Retrieve an address
 [**get_contact**](SamsaraApi.md#get_contact) | **GET** /contacts/{id} | Retrieve a contact
+[**get_data_input_data_feed**](SamsaraApi.md#get_data_input_data_feed) | **GET** /industrial/data-inputs/data-points/feed | Follow a real-time feed of data points for data inputs
+[**get_data_input_data_history**](SamsaraApi.md#get_data_input_data_history) | **GET** /industrial/data-inputs/data-points/history | List historical data points for data inputs
+[**get_data_input_data_snapshot**](SamsaraApi.md#get_data_input_data_snapshot) | **GET** /industrial/data-inputs/data-points | List most recent data points for data inputs
+[**get_data_inputs**](SamsaraApi.md#get_data_inputs) | **GET** /industrial/data-inputs | List all data inputs
 [**get_document_pdf**](SamsaraApi.md#get_document_pdf) | **GET** /fleet/documents/pdfs/{id} | Query a document PDF
 [**get_driver**](SamsaraApi.md#get_driver) | **GET** /fleet/drivers/{id} | Retrieve a driver
 [**get_driver_tachograph_activity**](SamsaraApi.md#get_driver_tachograph_activity) | **GET** /fleet/drivers/tachograph-activity/history | Get driver tachograph activity
@@ -34,6 +40,7 @@ Method | HTTP request | Description
 [**get_equipment_stats_history**](SamsaraApi.md#get_equipment_stats_history) | **GET** /fleet/equipment/stats/history | Get historical equipment stats
 [**get_hos_clocks**](SamsaraApi.md#get_hos_clocks) | **GET** /fleet/hos/clocks | Get HOS clocks
 [**get_hos_logs**](SamsaraApi.md#get_hos_logs) | **GET** /fleet/hos/logs | Get HOS logs
+[**get_industrial_assets**](SamsaraApi.md#get_industrial_assets) | **GET** /industrial/assets | List all assets
 [**get_safety_events**](SamsaraApi.md#get_safety_events) | **GET** /fleet/safety-events | List all safety events.
 [**get_tag**](SamsaraApi.md#get_tag) | **GET** /tags/{id} | Retrieve a tag
 [**get_user**](SamsaraApi.md#get_user) | **GET** /users/{id} | Retrieve a user
@@ -54,6 +61,7 @@ Method | HTTP request | Description
 [**list_user_roles**](SamsaraApi.md#list_user_roles) | **GET** /user-roles | List all user roles
 [**list_users**](SamsaraApi.md#list_users) | **GET** /users | List all users
 [**list_vehicles**](SamsaraApi.md#list_vehicles) | **GET** /fleet/vehicles | List all vehicles
+[**patch_industrial_asset**](SamsaraApi.md#patch_industrial_asset) | **PATCH** /industrial/assets/{id} | Update an asset
 [**patch_tag**](SamsaraApi.md#patch_tag) | **PATCH** /tags/{id} | Update a tag
 [**replace_tag**](SamsaraApi.md#replace_tag) | **PUT** /tags/{id} | Update a tag
 [**update_address**](SamsaraApi.md#update_address) | **PATCH** /addresses/{id} | Update an address
@@ -350,6 +358,63 @@ print("Exception when calling SamsaraApi->create_dvir: %s\n" % e)
 
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+    # **create_industrial_asset**
+    > InlineResponse200 create_industrial_asset(asset=asset)
+
+    Create an asset
+
+      Create an asset with optional configuration parameters
+
+    ### Example
+
+      ```python
+from __future__ import print_function
+import time
+import samsara
+from samsara.rest import ApiException
+from pprint import pprint
+
+# Enter a context with an instance of the API client
+  with samsara.ApiClient() as api_client:
+# Create an instance of the API class
+api_instance = samsara.SamsaraApi(api_client)
+asset = samsara.AssetCreate() # AssetCreate | The asset to create (optional)
+
+try:
+    # Create an asset
+    api_response = api_instance.create_industrial_asset(asset=asset)
+  pprint(api_response)
+except ApiException as e:
+print("Exception when calling SamsaraApi->create_industrial_asset: %s\n" % e)
+```
+
+    ### Parameters
+    
+      Name | Type | Description  | Notes
+      ------------- | ------------- | ------------- | -------------
+     **asset** | [**AssetCreate**](AssetCreate.md)| The asset to create | [optional] 
+
+    ### Return type
+
+    [**InlineResponse200**](InlineResponse200.md)
+
+    ### Authorization
+
+    No authorization required
+
+    ### HTTP request headers
+
+    - **Content-Type**: application/json
+    - **Accept**: application/json
+
+      ### HTTP response details
+      | Status code | Description | Response headers |
+      |-------------|-------------|------------------|
+        **200** | Newly created asset object |  -  |
+        **0** | Error response |  -  |
+
+    [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
     # **create_tag**
     > TagResponse create_tag(tag)
 
@@ -628,6 +693,62 @@ print("Exception when calling SamsaraApi->delete_contact: %s\n" % e)
       | Status code | Description | Response headers |
       |-------------|-------------|------------------|
         **204** | Returns an empty success response. |  -  |
+        **0** | Error response |  -  |
+
+    [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+    # **delete_industrial_asset**
+    > delete_industrial_asset(id)
+
+    Delete an existing asset
+
+      Delete asset
+
+    ### Example
+
+      ```python
+from __future__ import print_function
+import time
+import samsara
+from samsara.rest import ApiException
+from pprint import pprint
+
+# Enter a context with an instance of the API client
+  with samsara.ApiClient() as api_client:
+# Create an instance of the API class
+api_instance = samsara.SamsaraApi(api_client)
+id = 'id_example' # str | Id of the asset to be deleted.
+
+try:
+    # Delete an existing asset
+    api_instance.delete_industrial_asset(id)
+except ApiException as e:
+print("Exception when calling SamsaraApi->delete_industrial_asset: %s\n" % e)
+```
+
+    ### Parameters
+    
+      Name | Type | Description  | Notes
+      ------------- | ------------- | ------------- | -------------
+     **id** | **str**| Id of the asset to be deleted. | 
+
+    ### Return type
+
+    void (empty response body)
+
+    ### Authorization
+
+    No authorization required
+
+    ### HTTP request headers
+
+    - **Content-Type**: Not defined
+    - **Accept**: application/json
+
+      ### HTTP response details
+      | Status code | Description | Response headers |
+      |-------------|-------------|------------------|
+        **204** | Successfully deleted the asset. No response body. |  -  |
         **0** | Error response |  -  |
 
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -912,6 +1033,270 @@ print("Exception when calling SamsaraApi->get_contact: %s\n" % e)
       |-------------|-------------|------------------|
         **200** | Returns the specified contact. |  -  |
         **0** | Error response |  -  |
+
+    [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+    # **get_data_input_data_feed**
+    > DataInputListResponse get_data_input_data_feed(after=after, parent_tag_ids=parent_tag_ids, tag_ids=tag_ids, data_input_ids=data_input_ids, asset_ids=asset_ids)
+
+    Follow a real-time feed of data points for data inputs
+
+      Follow a continuous feed of all data input data points.  Your first call to this endpoint will provide you with the most recent data points for each data input and a `pagination` object that contains an `endCursor`.  You can provide the `endCursor` to the `after` parameter of this endpoint to get data point updates since that `endCursor`.  If `hasNextPage` is `false`, no updates are readily available yet. We suggest waiting a minimum of 5 seconds before requesting updates.
+
+    ### Example
+
+      ```python
+from __future__ import print_function
+import time
+import samsara
+from samsara.rest import ApiException
+from pprint import pprint
+
+# Enter a context with an instance of the API client
+  with samsara.ApiClient() as api_client:
+# Create an instance of the API class
+api_instance = samsara.SamsaraApi(api_client)
+after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
+parent_tag_ids = ['parent_tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678` (optional)
+tag_ids = ['tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678` (optional)
+data_input_ids = ['data_input_ids_example'] # list[str] | A comma-separated list of data input IDs. Example: `dataInputIds=1234,5678` (optional)
+asset_ids = ['asset_ids_example'] # list[str] | A comma-separated list of industrial asset UUIDs. Example: `assetIds=076efac2-83b5-47aa-ba36-18428436dcac,6707b3f0-23b9-4fe3-b7be-11be34aea544` (optional)
+
+try:
+    # Follow a real-time feed of data points for data inputs
+    api_response = api_instance.get_data_input_data_feed(after=after, parent_tag_ids=parent_tag_ids, tag_ids=tag_ids, data_input_ids=data_input_ids, asset_ids=asset_ids)
+  pprint(api_response)
+except ApiException as e:
+print("Exception when calling SamsaraApi->get_data_input_data_feed: %s\n" % e)
+```
+
+    ### Parameters
+    
+      Name | Type | Description  | Notes
+      ------------- | ------------- | ------------- | -------------
+     **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
+ **parent_tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: &#x60;parentTagIds&#x3D;345,678&#x60; | [optional] 
+ **tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of tag IDs. Example: &#x60;tagIds&#x3D;1234,5678&#x60; | [optional] 
+ **data_input_ids** | [**list[str]**](str.md)| A comma-separated list of data input IDs. Example: &#x60;dataInputIds&#x3D;1234,5678&#x60; | [optional] 
+ **asset_ids** | [**list[str]**](str.md)| A comma-separated list of industrial asset UUIDs. Example: &#x60;assetIds&#x3D;076efac2-83b5-47aa-ba36-18428436dcac,6707b3f0-23b9-4fe3-b7be-11be34aea544&#x60; | [optional] 
+
+    ### Return type
+
+    [**DataInputListResponse**](DataInputListResponse.md)
+
+    ### Authorization
+
+    No authorization required
+
+    ### HTTP request headers
+
+    - **Content-Type**: Not defined
+    - **Accept**: application/json
+
+      ### HTTP response details
+      | Status code | Description | Response headers |
+      |-------------|-------------|------------------|
+        **200** | List of all data points for specified data inputs |  -  |
+        **0** | Unexpected error. |  -  |
+
+    [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+    # **get_data_input_data_history**
+    > DataInputListResponse get_data_input_data_history(start_time, end_time, after=after, parent_tag_ids=parent_tag_ids, tag_ids=tag_ids, data_input_ids=data_input_ids, asset_ids=asset_ids)
+
+    List historical data points for data inputs
+
+      Returns all known data points during the given time range for all data inputs. This can be filtered by optional tags, specific data input IDs or asset IDs.
+
+    ### Example
+
+      ```python
+from __future__ import print_function
+import time
+import samsara
+from samsara.rest import ApiException
+from pprint import pprint
+
+# Enter a context with an instance of the API client
+  with samsara.ApiClient() as api_client:
+# Create an instance of the API class
+api_instance = samsara.SamsaraApi(api_client)
+start_time = 'start_time_example' # str | A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+end_time = 'end_time_example' # str | An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
+parent_tag_ids = ['parent_tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678` (optional)
+tag_ids = ['tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678` (optional)
+data_input_ids = ['data_input_ids_example'] # list[str] | A comma-separated list of data input IDs. Example: `dataInputIds=1234,5678` (optional)
+asset_ids = ['asset_ids_example'] # list[str] | A comma-separated list of industrial asset UUIDs. Example: `assetIds=076efac2-83b5-47aa-ba36-18428436dcac,6707b3f0-23b9-4fe3-b7be-11be34aea544` (optional)
+
+try:
+    # List historical data points for data inputs
+    api_response = api_instance.get_data_input_data_history(start_time, end_time, after=after, parent_tag_ids=parent_tag_ids, tag_ids=tag_ids, data_input_ids=data_input_ids, asset_ids=asset_ids)
+  pprint(api_response)
+except ApiException as e:
+print("Exception when calling SamsaraApi->get_data_input_data_history: %s\n" % e)
+```
+
+    ### Parameters
+    
+      Name | Type | Description  | Notes
+      ------------- | ------------- | ------------- | -------------
+     **start_time** | **str**| A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | 
+ **end_time** | **str**| An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | 
+ **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
+ **parent_tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: &#x60;parentTagIds&#x3D;345,678&#x60; | [optional] 
+ **tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of tag IDs. Example: &#x60;tagIds&#x3D;1234,5678&#x60; | [optional] 
+ **data_input_ids** | [**list[str]**](str.md)| A comma-separated list of data input IDs. Example: &#x60;dataInputIds&#x3D;1234,5678&#x60; | [optional] 
+ **asset_ids** | [**list[str]**](str.md)| A comma-separated list of industrial asset UUIDs. Example: &#x60;assetIds&#x3D;076efac2-83b5-47aa-ba36-18428436dcac,6707b3f0-23b9-4fe3-b7be-11be34aea544&#x60; | [optional] 
+
+    ### Return type
+
+    [**DataInputListResponse**](DataInputListResponse.md)
+
+    ### Authorization
+
+    No authorization required
+
+    ### HTTP request headers
+
+    - **Content-Type**: Not defined
+    - **Accept**: application/json
+
+      ### HTTP response details
+      | Status code | Description | Response headers |
+      |-------------|-------------|------------------|
+        **200** | List of all data points for the specified data inputs and time range. |  -  |
+        **0** | Unexpected error. |  -  |
+
+    [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+    # **get_data_input_data_snapshot**
+    > DataInputSnapshotResponse get_data_input_data_snapshot(after=after, parent_tag_ids=parent_tag_ids, tag_ids=tag_ids, data_input_ids=data_input_ids, asset_ids=asset_ids)
+
+    List most recent data points for data inputs
+
+      Returns last known data points for all data inputs. This can be filtered by optional tags, specific data input IDs or asset IDs.
+
+    ### Example
+
+      ```python
+from __future__ import print_function
+import time
+import samsara
+from samsara.rest import ApiException
+from pprint import pprint
+
+# Enter a context with an instance of the API client
+  with samsara.ApiClient() as api_client:
+# Create an instance of the API class
+api_instance = samsara.SamsaraApi(api_client)
+after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
+parent_tag_ids = ['parent_tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678` (optional)
+tag_ids = ['tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678` (optional)
+data_input_ids = ['data_input_ids_example'] # list[str] | A comma-separated list of data input IDs. Example: `dataInputIds=1234,5678` (optional)
+asset_ids = ['asset_ids_example'] # list[str] | A comma-separated list of industrial asset UUIDs. Example: `assetIds=076efac2-83b5-47aa-ba36-18428436dcac,6707b3f0-23b9-4fe3-b7be-11be34aea544` (optional)
+
+try:
+    # List most recent data points for data inputs
+    api_response = api_instance.get_data_input_data_snapshot(after=after, parent_tag_ids=parent_tag_ids, tag_ids=tag_ids, data_input_ids=data_input_ids, asset_ids=asset_ids)
+  pprint(api_response)
+except ApiException as e:
+print("Exception when calling SamsaraApi->get_data_input_data_snapshot: %s\n" % e)
+```
+
+    ### Parameters
+    
+      Name | Type | Description  | Notes
+      ------------- | ------------- | ------------- | -------------
+     **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
+ **parent_tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: &#x60;parentTagIds&#x3D;345,678&#x60; | [optional] 
+ **tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of tag IDs. Example: &#x60;tagIds&#x3D;1234,5678&#x60; | [optional] 
+ **data_input_ids** | [**list[str]**](str.md)| A comma-separated list of data input IDs. Example: &#x60;dataInputIds&#x3D;1234,5678&#x60; | [optional] 
+ **asset_ids** | [**list[str]**](str.md)| A comma-separated list of industrial asset UUIDs. Example: &#x60;assetIds&#x3D;076efac2-83b5-47aa-ba36-18428436dcac,6707b3f0-23b9-4fe3-b7be-11be34aea544&#x60; | [optional] 
+
+    ### Return type
+
+    [**DataInputSnapshotResponse**](DataInputSnapshotResponse.md)
+
+    ### Authorization
+
+    No authorization required
+
+    ### HTTP request headers
+
+    - **Content-Type**: Not defined
+    - **Accept**: application/json
+
+      ### HTTP response details
+      | Status code | Description | Response headers |
+      |-------------|-------------|------------------|
+        **200** | List of last known data input data points and pagination parameters |  -  |
+        **0** | Unexpected error. |  -  |
+
+    [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+    # **get_data_inputs**
+    > DataInputsTinyResponse get_data_inputs(limit=limit, after=after, parent_tag_ids=parent_tag_ids, tag_ids=tag_ids, asset_ids=asset_ids)
+
+    List all data inputs
+
+      Returns all data inputs, optionally filtered by tags or asset ids.
+
+    ### Example
+
+      ```python
+from __future__ import print_function
+import time
+import samsara
+from samsara.rest import ApiException
+from pprint import pprint
+
+# Enter a context with an instance of the API client
+  with samsara.ApiClient() as api_client:
+# Create an instance of the API class
+api_instance = samsara.SamsaraApi(api_client)
+limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
+after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
+parent_tag_ids = ['parent_tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678` (optional)
+tag_ids = ['tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678` (optional)
+asset_ids = ['asset_ids_example'] # list[str] | A comma-separated list of industrial asset UUIDs. Example: `assetIds=076efac2-83b5-47aa-ba36-18428436dcac,6707b3f0-23b9-4fe3-b7be-11be34aea544` (optional)
+
+try:
+    # List all data inputs
+    api_response = api_instance.get_data_inputs(limit=limit, after=after, parent_tag_ids=parent_tag_ids, tag_ids=tag_ids, asset_ids=asset_ids)
+  pprint(api_response)
+except ApiException as e:
+print("Exception when calling SamsaraApi->get_data_inputs: %s\n" % e)
+```
+
+    ### Parameters
+    
+      Name | Type | Description  | Notes
+      ------------- | ------------- | ------------- | -------------
+     **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] [default to 512]
+ **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
+ **parent_tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: &#x60;parentTagIds&#x3D;345,678&#x60; | [optional] 
+ **tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of tag IDs. Example: &#x60;tagIds&#x3D;1234,5678&#x60; | [optional] 
+ **asset_ids** | [**list[str]**](str.md)| A comma-separated list of industrial asset UUIDs. Example: &#x60;assetIds&#x3D;076efac2-83b5-47aa-ba36-18428436dcac,6707b3f0-23b9-4fe3-b7be-11be34aea544&#x60; | [optional] 
+
+    ### Return type
+
+    [**DataInputsTinyResponse**](DataInputsTinyResponse.md)
+
+    ### Authorization
+
+    No authorization required
+
+    ### HTTP request headers
+
+    - **Content-Type**: Not defined
+    - **Accept**: application/json
+
+      ### HTTP response details
+      | Status code | Description | Response headers |
+      |-------------|-------------|------------------|
+        **200** | List of data inputs with names, ids, and other metadata. |  -  |
+        **0** | Unexpected error. |  -  |
 
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1872,6 +2257,69 @@ print("Exception when calling SamsaraApi->get_hos_logs: %s\n" % e)
       | Status code | Description | Response headers |
       |-------------|-------------|------------------|
         **200** | List of the last known HOS log entries for the specified drivers. |  -  |
+        **0** | Error response |  -  |
+
+    [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+    # **get_industrial_assets**
+    > ListIndustrialAssetsResponse get_industrial_assets(limit=limit, after=after, parent_tag_ids=parent_tag_ids, tag_ids=tag_ids)
+
+    List all assets
+
+      List all assets in the organization
+
+    ### Example
+
+      ```python
+from __future__ import print_function
+import time
+import samsara
+from samsara.rest import ApiException
+from pprint import pprint
+
+# Enter a context with an instance of the API client
+  with samsara.ApiClient() as api_client:
+# Create an instance of the API class
+api_instance = samsara.SamsaraApi(api_client)
+limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
+after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
+parent_tag_ids = ['parent_tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678` (optional)
+tag_ids = ['tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678` (optional)
+
+try:
+    # List all assets
+    api_response = api_instance.get_industrial_assets(limit=limit, after=after, parent_tag_ids=parent_tag_ids, tag_ids=tag_ids)
+  pprint(api_response)
+except ApiException as e:
+print("Exception when calling SamsaraApi->get_industrial_assets: %s\n" % e)
+```
+
+    ### Parameters
+    
+      Name | Type | Description  | Notes
+      ------------- | ------------- | ------------- | -------------
+     **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] [default to 512]
+ **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
+ **parent_tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: &#x60;parentTagIds&#x3D;345,678&#x60; | [optional] 
+ **tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of tag IDs. Example: &#x60;tagIds&#x3D;1234,5678&#x60; | [optional] 
+
+    ### Return type
+
+    [**ListIndustrialAssetsResponse**](ListIndustrialAssetsResponse.md)
+
+    ### Authorization
+
+    No authorization required
+
+    ### HTTP request headers
+
+    - **Content-Type**: Not defined
+    - **Accept**: application/json
+
+      ### HTTP response details
+      | Status code | Description | Response headers |
+      |-------------|-------------|------------------|
+        **200** | Assets in the organization. |  -  |
         **0** | Error response |  -  |
 
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -3132,6 +3580,65 @@ print("Exception when calling SamsaraApi->list_vehicles: %s\n" % e)
       | Status code | Description | Response headers |
       |-------------|-------------|------------------|
         **200** | List of all vehicle objects, and pagination parameters. |  -  |
+        **0** | Error response |  -  |
+
+    [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+    # **patch_industrial_asset**
+    > InlineResponse200 patch_industrial_asset(id, asset=asset)
+
+    Update an asset
+
+      Update an existing asset. Only the provided fields will be updated.
+
+    ### Example
+
+      ```python
+from __future__ import print_function
+import time
+import samsara
+from samsara.rest import ApiException
+from pprint import pprint
+
+# Enter a context with an instance of the API client
+  with samsara.ApiClient() as api_client:
+# Create an instance of the API class
+api_instance = samsara.SamsaraApi(api_client)
+id = 'id_example' # str | Id of the asset to be updated
+asset = samsara.AssetPatch() # AssetPatch | The updated asset fields (optional)
+
+try:
+    # Update an asset
+    api_response = api_instance.patch_industrial_asset(id, asset=asset)
+  pprint(api_response)
+except ApiException as e:
+print("Exception when calling SamsaraApi->patch_industrial_asset: %s\n" % e)
+```
+
+    ### Parameters
+    
+      Name | Type | Description  | Notes
+      ------------- | ------------- | ------------- | -------------
+     **id** | **str**| Id of the asset to be updated | 
+ **asset** | [**AssetPatch**](AssetPatch.md)| The updated asset fields | [optional] 
+
+    ### Return type
+
+    [**InlineResponse200**](InlineResponse200.md)
+
+    ### Authorization
+
+    No authorization required
+
+    ### HTTP request headers
+
+    - **Content-Type**: application/json
+    - **Accept**: application/json
+
+      ### HTTP response details
+      | Status code | Description | Response headers |
+      |-------------|-------------|------------------|
+        **200** | The updated asset |  -  |
         **0** | Error response |  -  |
 
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -1,9 +1,9 @@
-# InlineResponse200
+# LocationType
 
+The format of the location. This field is required if a location is provided.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**AssetResponse**](AssetResponse.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

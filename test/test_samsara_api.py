@@ -63,6 +63,13 @@ class TestSamsaraApi(unittest.TestCase):
         """
         pass
 
+    def test_create_industrial_asset(self):
+        """Test case for create_industrial_asset
+
+        Create an asset  # noqa: E501
+        """
+        pass
+
     def test_create_tag(self):
         """Test case for create_tag
 
@@ -98,6 +105,13 @@ class TestSamsaraApi(unittest.TestCase):
         """
         pass
 
+    def test_delete_industrial_asset(self):
+        """Test case for delete_industrial_asset
+
+        Delete an existing asset  # noqa: E501
+        """
+        pass
+
     def test_delete_tag(self):
         """Test case for delete_tag
 
@@ -130,6 +144,34 @@ class TestSamsaraApi(unittest.TestCase):
         """Test case for get_contact
 
         Retrieve a contact  # noqa: E501
+        """
+        pass
+
+    def test_get_data_input_data_feed(self):
+        """Test case for get_data_input_data_feed
+
+        Follow a real-time feed of data points for data inputs  # noqa: E501
+        """
+        pass
+
+    def test_get_data_input_data_history(self):
+        """Test case for get_data_input_data_history
+
+        List historical data points for data inputs  # noqa: E501
+        """
+        pass
+
+    def test_get_data_input_data_snapshot(self):
+        """Test case for get_data_input_data_snapshot
+
+        List most recent data points for data inputs  # noqa: E501
+        """
+        pass
+
+    def test_get_data_inputs(self):
+        """Test case for get_data_inputs
+
+        List all data inputs  # noqa: E501
         """
         pass
 
@@ -235,6 +277,13 @@ class TestSamsaraApi(unittest.TestCase):
         """Test case for get_hos_logs
 
         Get HOS logs  # noqa: E501
+        """
+        pass
+
+    def test_get_industrial_assets(self):
+        """Test case for get_industrial_assets
+
+        List all assets  # noqa: E501
         """
         pass
 
@@ -375,6 +424,13 @@ class TestSamsaraApi(unittest.TestCase):
         """Test case for list_vehicles
 
         List all vehicles  # noqa: E501
+        """
+        pass
+
+    def test_patch_industrial_asset(self):
+        """Test case for patch_industrial_asset
+
+        Update an asset  # noqa: E501
         """
         pass
 

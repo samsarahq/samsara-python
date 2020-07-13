@@ -81,16 +81,22 @@ Class | Method | HTTP request | Description
 *SamsaraApi* | [**create_contact**](docs/SamsaraApi.md#create_contact) | **POST** /contacts | Create a contact
 *SamsaraApi* | [**create_driver**](docs/SamsaraApi.md#create_driver) | **POST** /fleet/drivers | Create a driver
 *SamsaraApi* | [**create_dvir**](docs/SamsaraApi.md#create_dvir) | **POST** /fleet/dvirs | Create a mechanic DVIR
+*SamsaraApi* | [**create_industrial_asset**](docs/SamsaraApi.md#create_industrial_asset) | **POST** /industrial/assets | Create an asset
 *SamsaraApi* | [**create_tag**](docs/SamsaraApi.md#create_tag) | **POST** /tags | Create a tag
 *SamsaraApi* | [**create_user**](docs/SamsaraApi.md#create_user) | **POST** /users | Create a user
 *SamsaraApi* | [**delete_address**](docs/SamsaraApi.md#delete_address) | **DELETE** /addresses/{id} | Delete an address
 *SamsaraApi* | [**delete_carrier_proposed_assignment**](docs/SamsaraApi.md#delete_carrier_proposed_assignment) | **DELETE** /fleet/carrier-proposed-assignments/{id} | Delete an assignment
 *SamsaraApi* | [**delete_contact**](docs/SamsaraApi.md#delete_contact) | **DELETE** /contacts/{id} | Delete a contact
+*SamsaraApi* | [**delete_industrial_asset**](docs/SamsaraApi.md#delete_industrial_asset) | **DELETE** /industrial/assets/{id} | Delete an existing asset
 *SamsaraApi* | [**delete_tag**](docs/SamsaraApi.md#delete_tag) | **DELETE** /tags/{id} | Delete a tag
 *SamsaraApi* | [**delete_user**](docs/SamsaraApi.md#delete_user) | **DELETE** /users/{id} | Delete a user
 *SamsaraApi* | [**generate_document_pdf**](docs/SamsaraApi.md#generate_document_pdf) | **POST** /fleet/documents/pdfs | Create a document PDF
 *SamsaraApi* | [**get_address**](docs/SamsaraApi.md#get_address) | **GET** /addresses/{id} | Retrieve an address
 *SamsaraApi* | [**get_contact**](docs/SamsaraApi.md#get_contact) | **GET** /contacts/{id} | Retrieve a contact
+*SamsaraApi* | [**get_data_input_data_feed**](docs/SamsaraApi.md#get_data_input_data_feed) | **GET** /industrial/data-inputs/data-points/feed | Follow a real-time feed of data points for data inputs
+*SamsaraApi* | [**get_data_input_data_history**](docs/SamsaraApi.md#get_data_input_data_history) | **GET** /industrial/data-inputs/data-points/history | List historical data points for data inputs
+*SamsaraApi* | [**get_data_input_data_snapshot**](docs/SamsaraApi.md#get_data_input_data_snapshot) | **GET** /industrial/data-inputs/data-points | List most recent data points for data inputs
+*SamsaraApi* | [**get_data_inputs**](docs/SamsaraApi.md#get_data_inputs) | **GET** /industrial/data-inputs | List all data inputs
 *SamsaraApi* | [**get_document_pdf**](docs/SamsaraApi.md#get_document_pdf) | **GET** /fleet/documents/pdfs/{id} | Query a document PDF
 *SamsaraApi* | [**get_driver**](docs/SamsaraApi.md#get_driver) | **GET** /fleet/drivers/{id} | Retrieve a driver
 *SamsaraApi* | [**get_driver_tachograph_activity**](docs/SamsaraApi.md#get_driver_tachograph_activity) | **GET** /fleet/drivers/tachograph-activity/history | Get driver tachograph activity
@@ -106,6 +112,7 @@ Class | Method | HTTP request | Description
 *SamsaraApi* | [**get_equipment_stats_history**](docs/SamsaraApi.md#get_equipment_stats_history) | **GET** /fleet/equipment/stats/history | Get historical equipment stats
 *SamsaraApi* | [**get_hos_clocks**](docs/SamsaraApi.md#get_hos_clocks) | **GET** /fleet/hos/clocks | Get HOS clocks
 *SamsaraApi* | [**get_hos_logs**](docs/SamsaraApi.md#get_hos_logs) | **GET** /fleet/hos/logs | Get HOS logs
+*SamsaraApi* | [**get_industrial_assets**](docs/SamsaraApi.md#get_industrial_assets) | **GET** /industrial/assets | List all assets
 *SamsaraApi* | [**get_safety_events**](docs/SamsaraApi.md#get_safety_events) | **GET** /fleet/safety-events | List all safety events.
 *SamsaraApi* | [**get_tag**](docs/SamsaraApi.md#get_tag) | **GET** /tags/{id} | Retrieve a tag
 *SamsaraApi* | [**get_user**](docs/SamsaraApi.md#get_user) | **GET** /users/{id} | Retrieve a user
@@ -126,6 +133,7 @@ Class | Method | HTTP request | Description
 *SamsaraApi* | [**list_user_roles**](docs/SamsaraApi.md#list_user_roles) | **GET** /user-roles | List all user roles
 *SamsaraApi* | [**list_users**](docs/SamsaraApi.md#list_users) | **GET** /users | List all users
 *SamsaraApi* | [**list_vehicles**](docs/SamsaraApi.md#list_vehicles) | **GET** /fleet/vehicles | List all vehicles
+*SamsaraApi* | [**patch_industrial_asset**](docs/SamsaraApi.md#patch_industrial_asset) | **PATCH** /industrial/assets/{id} | Update an asset
 *SamsaraApi* | [**patch_tag**](docs/SamsaraApi.md#patch_tag) | **PATCH** /tags/{id} | Update a tag
 *SamsaraApi* | [**replace_tag**](docs/SamsaraApi.md#replace_tag) | **PUT** /tags/{id} | Update a tag
 *SamsaraApi* | [**update_address**](docs/SamsaraApi.md#update_address) | **PATCH** /addresses/{id} | Update an address
@@ -145,6 +153,13 @@ Class | Method | HTTP request | Description
  - [AddressGeofencePolygon](docs/AddressGeofencePolygon.md)
  - [AddressGeofencePolygonVertices](docs/AddressGeofencePolygonVertices.md)
  - [AddressResponse](docs/AddressResponse.md)
+ - [AssetCreate](docs/AssetCreate.md)
+ - [AssetLocation](docs/AssetLocation.md)
+ - [AssetPatch](docs/AssetPatch.md)
+ - [AssetResponse](docs/AssetResponse.md)
+ - [AssetResponseLocationDataInput](docs/AssetResponseLocationDataInput.md)
+ - [AssetResponseParentAsset](docs/AssetResponseParentAsset.md)
+ - [AssetResponseRunningStatusDataInput](docs/AssetResponseRunningStatusDataInput.md)
  - [CarrierProposedAssignment](docs/CarrierProposedAssignment.md)
  - [CarrierProposedAssignmentDriver](docs/CarrierProposedAssignmentDriver.md)
  - [CarrierProposedAssignmentResponse](docs/CarrierProposedAssignmentResponse.md)
@@ -160,6 +175,14 @@ Class | Method | HTTP request | Description
  - [CreateTagRequest](docs/CreateTagRequest.md)
  - [CreateUserRequest](docs/CreateUserRequest.md)
  - [CurrentDutyStatus](docs/CurrentDutyStatus.md)
+ - [DataInputListResponse](docs/DataInputListResponse.md)
+ - [DataInputResponse](docs/DataInputResponse.md)
+ - [DataInputResponseAllOf](docs/DataInputResponseAllOf.md)
+ - [DataInputSnapshot](docs/DataInputSnapshot.md)
+ - [DataInputSnapshotAllOf](docs/DataInputSnapshotAllOf.md)
+ - [DataInputSnapshotResponse](docs/DataInputSnapshotResponse.md)
+ - [DataInputTinyResponse](docs/DataInputTinyResponse.md)
+ - [DataInputsTinyResponse](docs/DataInputsTinyResponse.md)
  - [Defect](docs/Defect.md)
  - [DefectPatch](docs/DefectPatch.md)
  - [DefectResolvedBy](docs/DefectResolvedBy.md)
@@ -219,6 +242,8 @@ Class | Method | HTTP request | Description
  - [EquipmentStatsListResponseData](docs/EquipmentStatsListResponseData.md)
  - [EquipmentStatsResponse](docs/EquipmentStatsResponse.md)
  - [EquipmentStatsResponseData](docs/EquipmentStatsResponseData.md)
+ - [FftSpectraDataPoint](docs/FftSpectraDataPoint.md)
+ - [FftSpectraDataPointFftSpectra](docs/FftSpectraDataPointFftSpectra.md)
  - [HosBreak](docs/HosBreak.md)
  - [HosClocks](docs/HosClocks.md)
  - [HosClocksForDriver](docs/HosClocksForDriver.md)
@@ -231,15 +256,24 @@ Class | Method | HTTP request | Description
  - [HosShift](docs/HosShift.md)
  - [HosStatusType](docs/HosStatusType.md)
  - [HosViolations](docs/HosViolations.md)
+ - [InlineResponse200](docs/InlineResponse200.md)
+ - [J1939D1StatusDataPoint](docs/J1939D1StatusDataPoint.md)
+ - [J1939D1StatusDataPointValue](docs/J1939D1StatusDataPointValue.md)
  - [ListAddressesResponse](docs/ListAddressesResponse.md)
  - [ListCarrierProposedAssignmentResponse](docs/ListCarrierProposedAssignmentResponse.md)
  - [ListContactsResponse](docs/ListContactsResponse.md)
  - [ListDriversResponse](docs/ListDriversResponse.md)
+ - [ListIndustrialAssetsResponse](docs/ListIndustrialAssetsResponse.md)
  - [ListTagsResponse](docs/ListTagsResponse.md)
  - [ListUserRolesResponse](docs/ListUserRolesResponse.md)
  - [ListUsersResponse](docs/ListUsersResponse.md)
  - [ListVehiclesResponse](docs/ListVehiclesResponse.md)
  - [Location](docs/Location.md)
+ - [LocationDataPoint](docs/LocationDataPoint.md)
+ - [LocationDataPointGpsLocation](docs/LocationDataPointGpsLocation.md)
+ - [LocationDataPointGpsLocationPlace](docs/LocationDataPointGpsLocationPlace.md)
+ - [LocationType](docs/LocationType.md)
+ - [NumberDataPoint](docs/NumberDataPoint.md)
  - [PaginationResponse](docs/PaginationResponse.md)
  - [ParentTag](docs/ParentTag.md)
  - [PatchTagRequest](docs/PatchTagRequest.md)
@@ -255,6 +289,7 @@ Class | Method | HTTP request | Description
  - [SafetyEventVehicle](docs/SafetyEventVehicle.md)
  - [SafetyEventsListResponse](docs/SafetyEventsListResponse.md)
  - [StandardErrorResponse](docs/StandardErrorResponse.md)
+ - [StringDataPoint](docs/StringDataPoint.md)
  - [TachographActivity](docs/TachographActivity.md)
  - [TachographActivityListWrapper](docs/TachographActivityListWrapper.md)
  - [TachographDriverFile](docs/TachographDriverFile.md)
