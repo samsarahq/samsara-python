@@ -134,7 +134,7 @@ class AssetCreate(object):
     def location_data_input_id(self):
         """Gets the location_data_input_id of this AssetCreate.  # noqa: E501
 
-        Required if locationType is \"dataInput\". Specifies the id of a location data input which will determine the asset's location.  # noqa: E501
+        Required if locationType is \"dataInput\". Specifies the id of a location data input which will determine the asset's location. **The data input will be moved to the new asset.**  # noqa: E501
 
         :return: The location_data_input_id of this AssetCreate.  # noqa: E501
         :rtype: str
@@ -145,7 +145,7 @@ class AssetCreate(object):
     def location_data_input_id(self, location_data_input_id):
         """Sets the location_data_input_id of this AssetCreate.
 
-        Required if locationType is \"dataInput\". Specifies the id of a location data input which will determine the asset's location.  # noqa: E501
+        Required if locationType is \"dataInput\". Specifies the id of a location data input which will determine the asset's location. **The data input will be moved to the new asset.**  # noqa: E501
 
         :param location_data_input_id: The location_data_input_id of this AssetCreate.  # noqa: E501
         :type: str
@@ -226,7 +226,7 @@ class AssetCreate(object):
     def running_status_data_input_id(self):
         """Gets the running_status_data_input_id of this AssetCreate.  # noqa: E501
 
-        The asset's isRunning status will be true when the associated data input's value is 1  # noqa: E501
+        The asset's isRunning status will be true when the associated data input's value is 1. Data input cannot be of location format. **The data input will be moved to the new asset.**  # noqa: E501
 
         :return: The running_status_data_input_id of this AssetCreate.  # noqa: E501
         :rtype: str
@@ -237,7 +237,7 @@ class AssetCreate(object):
     def running_status_data_input_id(self, running_status_data_input_id):
         """Sets the running_status_data_input_id of this AssetCreate.
 
-        The asset's isRunning status will be true when the associated data input's value is 1  # noqa: E501
+        The asset's isRunning status will be true when the associated data input's value is 1. Data input cannot be of location format. **The data input will be moved to the new asset.**  # noqa: E501
 
         :param running_status_data_input_id: The running_status_data_input_id of this AssetCreate.  # noqa: E501
         :type: str
