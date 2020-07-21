@@ -79,6 +79,9 @@ class TestVehicleStatsResponseData(unittest.TestCase):
                 battery_milli_volts = samsara.models.vehicle_stats_battery_voltage.VehicleStatsBatteryVoltage(
                     time = '2020-01-27T07:06:25Z', 
                     value = 7991, ), 
+                ecu_speed_mph = samsara.models.vehicle_stats_ecu_speed_mph.VehicleStatsEcuSpeedMph(
+                    time = '2020-01-27T07:06:25Z', 
+                    value = 32.1, ), 
                 engine_rpm = samsara.models.vehicle_stats_engine_rpm.VehicleStatsEngineRpm(
                     time = '2020-01-27T07:06:25Z', 
                     value = 1000, ), 

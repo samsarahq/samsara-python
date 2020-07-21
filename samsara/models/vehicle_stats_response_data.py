@@ -44,6 +44,7 @@ class VehicleStatsResponseData(object):
         'aux_input8': 'VehicleStatsAuxInput',
         'aux_input9': 'VehicleStatsAuxInput',
         'battery_milli_volts': 'VehicleStatsBatteryVoltage',
+        'ecu_speed_mph': 'VehicleStatsEcuSpeedMph',
         'engine_rpm': 'VehicleStatsEngineRpm',
         'engine_state': 'VehicleStatsEngineState',
         'fault_codes': 'VehicleStatsFaultCodes',
@@ -70,6 +71,7 @@ class VehicleStatsResponseData(object):
         'aux_input8': 'auxInput8',
         'aux_input9': 'auxInput9',
         'battery_milli_volts': 'batteryMilliVolts',
+        'ecu_speed_mph': 'ecuSpeedMph',
         'engine_rpm': 'engineRpm',
         'engine_state': 'engineState',
         'fault_codes': 'faultCodes',
@@ -84,7 +86,7 @@ class VehicleStatsResponseData(object):
         'obd_odometer_meters': 'obdOdometerMeters'
     }
 
-    def __init__(self, aux_input1=None, aux_input10=None, aux_input2=None, aux_input3=None, aux_input4=None, aux_input5=None, aux_input6=None, aux_input7=None, aux_input8=None, aux_input9=None, battery_milli_volts=None, engine_rpm=None, engine_state=None, fault_codes=None, fuel_percent=None, gps=None, gps_distance_meters=None, gps_odometer_meters=None, id=None, name=None, nfc_card_scan=None, obd_engine_seconds=None, obd_odometer_meters=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, aux_input1=None, aux_input10=None, aux_input2=None, aux_input3=None, aux_input4=None, aux_input5=None, aux_input6=None, aux_input7=None, aux_input8=None, aux_input9=None, battery_milli_volts=None, ecu_speed_mph=None, engine_rpm=None, engine_state=None, fault_codes=None, fuel_percent=None, gps=None, gps_distance_meters=None, gps_odometer_meters=None, id=None, name=None, nfc_card_scan=None, obd_engine_seconds=None, obd_odometer_meters=None, local_vars_configuration=None):  # noqa: E501
         """VehicleStatsResponseData - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -101,6 +103,7 @@ class VehicleStatsResponseData(object):
         self._aux_input8 = None
         self._aux_input9 = None
         self._battery_milli_volts = None
+        self._ecu_speed_mph = None
         self._engine_rpm = None
         self._engine_state = None
         self._fault_codes = None
@@ -137,6 +140,8 @@ class VehicleStatsResponseData(object):
             self.aux_input9 = aux_input9
         if battery_milli_volts is not None:
             self.battery_milli_volts = battery_milli_volts
+        if ecu_speed_mph is not None:
+            self.ecu_speed_mph = ecu_speed_mph
         if engine_rpm is not None:
             self.engine_rpm = engine_rpm
         if engine_state is not None:
@@ -390,6 +395,27 @@ class VehicleStatsResponseData(object):
         """
 
         self._battery_milli_volts = battery_milli_volts
+
+    @property
+    def ecu_speed_mph(self):
+        """Gets the ecu_speed_mph of this VehicleStatsResponseData.  # noqa: E501
+
+
+        :return: The ecu_speed_mph of this VehicleStatsResponseData.  # noqa: E501
+        :rtype: VehicleStatsEcuSpeedMph
+        """
+        return self._ecu_speed_mph
+
+    @ecu_speed_mph.setter
+    def ecu_speed_mph(self, ecu_speed_mph):
+        """Sets the ecu_speed_mph of this VehicleStatsResponseData.
+
+
+        :param ecu_speed_mph: The ecu_speed_mph of this VehicleStatsResponseData.  # noqa: E501
+        :type: VehicleStatsEcuSpeedMph
+        """
+
+        self._ecu_speed_mph = ecu_speed_mph
 
     @property
     def engine_rpm(self):

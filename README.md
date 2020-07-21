@@ -344,6 +344,7 @@ Class | Method | HTTP request | Description
  - [VehicleStaticAssignedDriver](docs/VehicleStaticAssignedDriver.md)
  - [VehicleStatsAuxInput](docs/VehicleStatsAuxInput.md)
  - [VehicleStatsBatteryVoltage](docs/VehicleStatsBatteryVoltage.md)
+ - [VehicleStatsEcuSpeedMph](docs/VehicleStatsEcuSpeedMph.md)
  - [VehicleStatsEngineRpm](docs/VehicleStatsEngineRpm.md)
  - [VehicleStatsEngineState](docs/VehicleStatsEngineState.md)
  - [VehicleStatsEngineStateSetting](docs/VehicleStatsEngineStateSetting.md)

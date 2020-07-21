@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **aux_input8** | [**VehicleStatsAuxInput**](VehicleStatsAuxInput.md) |  | [optional] 
 **aux_input9** | [**VehicleStatsAuxInput**](VehicleStatsAuxInput.md) |  | [optional] 
 **battery_milli_volts** | [**VehicleStatsBatteryVoltage**](VehicleStatsBatteryVoltage.md) |  | [optional] 
+**ecu_speed_mph** | [**VehicleStatsEcuSpeedMph**](VehicleStatsEcuSpeedMph.md) |  | [optional] 
 **engine_rpm** | [**VehicleStatsEngineRpm**](VehicleStatsEngineRpm.md) |  | [optional] 
 **engine_state** | [**VehicleStatsEngineState**](VehicleStatsEngineState.md) |  | [optional] 
 **fault_codes** | [**VehicleStatsFaultCodes**](VehicleStatsFaultCodes.md) |  | [optional] 
