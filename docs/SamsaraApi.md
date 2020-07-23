@@ -27,6 +27,7 @@ Method | HTTP request | Description
 [**get_data_inputs**](SamsaraApi.md#get_data_inputs) | **GET** /industrial/data-inputs | List all data inputs
 [**get_document_pdf**](SamsaraApi.md#get_document_pdf) | **GET** /fleet/documents/pdfs/{id} | Query a document PDF
 [**get_driver**](SamsaraApi.md#get_driver) | **GET** /fleet/drivers/{id} | Retrieve a driver
+[**get_driver_efficiency**](SamsaraApi.md#get_driver_efficiency) | **GET** /fleet/drivers/efficiency | [beta] List driver efficiency
 [**get_driver_tachograph_activity**](SamsaraApi.md#get_driver_tachograph_activity) | **GET** /fleet/drivers/tachograph-activity/history | Get driver tachograph activity
 [**get_driver_tachograph_files**](SamsaraApi.md#get_driver_tachograph_files) | **GET** /fleet/drivers/tachograph-files/history | Get tachograph driver files
 [**get_dvir_defects**](SamsaraApi.md#get_dvir_defects) | **GET** /fleet/defects/history | Get all defects
@@ -41,6 +42,7 @@ Method | HTTP request | Description
 [**get_hos_clocks**](SamsaraApi.md#get_hos_clocks) | **GET** /fleet/hos/clocks | Get HOS clocks
 [**get_hos_logs**](SamsaraApi.md#get_hos_logs) | **GET** /fleet/hos/logs | Get HOS logs
 [**get_industrial_assets**](SamsaraApi.md#get_industrial_assets) | **GET** /industrial/assets | List all assets
+[**get_route_feed**](SamsaraApi.md#get_route_feed) | **GET** /fleet/routes/feed | [beta] Get route updates
 [**get_safety_events**](SamsaraApi.md#get_safety_events) | **GET** /fleet/safety-events | List all safety events.
 [**get_tag**](SamsaraApi.md#get_tag) | **GET** /tags/{id} | Retrieve a tag
 [**get_user**](SamsaraApi.md#get_user) | **GET** /users/{id} | Retrieve a user
@@ -1414,6 +1416,75 @@ print("Exception when calling SamsaraApi->get_driver: %s\n" % e)
 
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+    # **get_driver_efficiency**
+    > DriverEfficienciesResponse get_driver_efficiency(driver_activation_status=driver_activation_status, driver_ids=driver_ids, after=after, driver_tag_ids=driver_tag_ids, driver_parent_tag_ids=driver_parent_tag_ids, start_time=start_time, end_time=end_time)
+
+    [beta] List driver efficiency
+
+      Get all drivers' efficiencies.
+
+    ### Example
+
+      ```python
+from __future__ import print_function
+import time
+import samsara
+from samsara.rest import ApiException
+from pprint import pprint
+
+# Enter a context with an instance of the API client
+  with samsara.ApiClient() as api_client:
+# Create an instance of the API class
+api_instance = samsara.SamsaraApi(api_client)
+driver_activation_status = 'driver_activation_status_example' # str | If value is `deactivated`, only drivers that are deactivated will appear in the response. This parameter will default to `active` if not provided (fetching only active drivers). (optional)
+driver_ids = ['driver_ids_example'] # list[str] | A filter on the data based on this comma-separated list of driver IDs. Cannot be used with tag filtering or driver status. Example: `driverIds=1234,5678` (optional)
+after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
+driver_tag_ids = ['driver_tag_ids_example'] # list[str] | Filters summary to drivers based on this comma-separated list of tag IDs. Data from all the drivers' respective vehicles will be included in the summary, regardless of which tag the vehicle is associated with. Should not be provided in addition to `driverIds`. Example: driverTagIds=1234,5678 (optional)
+driver_parent_tag_ids = ['driver_parent_tag_ids_example'] # list[str] | Filters like `driverTagIds` but includes descendants of all the given parent tags. Should not be provided in addition to `driverIds`. Example: `driverParentTagIds=1234,5678` (optional)
+start_time = '2013-10-20T19:20:30+01:00' # datetime | A start time in RFC 3339 format. The results will be truncated to the hour mark for the provided time. For example, if `startTime` is 2020-03-17T12:06:19Z then the results will include data starting from 2020-03-17T12:00:00Z. The provided start time cannot be in the future. Start time can be at most 31 days before the end time. If the start time is within the last hour, the results will be empty. Default: 24 hours prior to endTime. (optional)
+end_time = '2013-10-20T19:20:30+01:00' # datetime | An end time in RFC 3339 format. The results will be truncated to the hour mark for the provided time. For example, if `endTime` is 2020-03-17T12:06:19Z then the results will include data up until 2020-03-17T12:00:00Z. The provided end time cannot be in the future. End time can be at most 31 days after the start time.   Default: The current time truncated to the hour mark. (optional)
+
+try:
+    # [beta] List driver efficiency
+    api_response = api_instance.get_driver_efficiency(driver_activation_status=driver_activation_status, driver_ids=driver_ids, after=after, driver_tag_ids=driver_tag_ids, driver_parent_tag_ids=driver_parent_tag_ids, start_time=start_time, end_time=end_time)
+  pprint(api_response)
+except ApiException as e:
+print("Exception when calling SamsaraApi->get_driver_efficiency: %s\n" % e)
+```
+
+    ### Parameters
+    
+      Name | Type | Description  | Notes
+      ------------- | ------------- | ------------- | -------------
+     **driver_activation_status** | **str**| If value is &#x60;deactivated&#x60;, only drivers that are deactivated will appear in the response. This parameter will default to &#x60;active&#x60; if not provided (fetching only active drivers). | [optional] 
+ **driver_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of driver IDs. Cannot be used with tag filtering or driver status. Example: &#x60;driverIds&#x3D;1234,5678&#x60; | [optional] 
+ **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
+ **driver_tag_ids** | [**list[str]**](str.md)| Filters summary to drivers based on this comma-separated list of tag IDs. Data from all the drivers&#39; respective vehicles will be included in the summary, regardless of which tag the vehicle is associated with. Should not be provided in addition to &#x60;driverIds&#x60;. Example: driverTagIds&#x3D;1234,5678 | [optional] 
+ **driver_parent_tag_ids** | [**list[str]**](str.md)| Filters like &#x60;driverTagIds&#x60; but includes descendants of all the given parent tags. Should not be provided in addition to &#x60;driverIds&#x60;. Example: &#x60;driverParentTagIds&#x3D;1234,5678&#x60; | [optional] 
+ **start_time** | **datetime**| A start time in RFC 3339 format. The results will be truncated to the hour mark for the provided time. For example, if &#x60;startTime&#x60; is 2020-03-17T12:06:19Z then the results will include data starting from 2020-03-17T12:00:00Z. The provided start time cannot be in the future. Start time can be at most 31 days before the end time. If the start time is within the last hour, the results will be empty. Default: 24 hours prior to endTime. | [optional] 
+ **end_time** | **datetime**| An end time in RFC 3339 format. The results will be truncated to the hour mark for the provided time. For example, if &#x60;endTime&#x60; is 2020-03-17T12:06:19Z then the results will include data up until 2020-03-17T12:00:00Z. The provided end time cannot be in the future. End time can be at most 31 days after the start time.   Default: The current time truncated to the hour mark. | [optional] 
+
+    ### Return type
+
+    [**DriverEfficienciesResponse**](DriverEfficienciesResponse.md)
+
+    ### Authorization
+
+    No authorization required
+
+    ### HTTP request headers
+
+    - **Content-Type**: Not defined
+    - **Accept**: application/json
+
+      ### HTTP response details
+      | Status code | Description | Response headers |
+      |-------------|-------------|------------------|
+        **200** | List of all drivers&#39; efficiencies |  -  |
+        **0** | Unexpected error. |  -  |
+
+    [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
     # **get_driver_tachograph_activity**
     > DriverTachographActivityResponse get_driver_tachograph_activity(start_time, end_time, after=after, driver_ids=driver_ids, parent_tag_ids=parent_tag_ids, tag_ids=tag_ids)
 
@@ -2320,6 +2391,63 @@ print("Exception when calling SamsaraApi->get_industrial_assets: %s\n" % e)
       | Status code | Description | Response headers |
       |-------------|-------------|------------------|
         **200** | Assets in the organization. |  -  |
+        **0** | Error response |  -  |
+
+    [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+    # **get_route_feed**
+    > object get_route_feed(after=after)
+
+    [beta] Get route updates
+
+      Subscribes to a feed of route updates. The initial request to this feed endpoint returns a cursor, which can be used on the next request to fetch updated routes that have had state changes since that request.
+
+    ### Example
+
+      ```python
+from __future__ import print_function
+import time
+import samsara
+from samsara.rest import ApiException
+from pprint import pprint
+
+# Enter a context with an instance of the API client
+  with samsara.ApiClient() as api_client:
+# Create an instance of the API class
+api_instance = samsara.SamsaraApi(api_client)
+after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
+
+try:
+    # [beta] Get route updates
+    api_response = api_instance.get_route_feed(after=after)
+  pprint(api_response)
+except ApiException as e:
+print("Exception when calling SamsaraApi->get_route_feed: %s\n" % e)
+```
+
+    ### Parameters
+    
+      Name | Type | Description  | Notes
+      ------------- | ------------- | ------------- | -------------
+     **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
+
+    ### Return type
+
+    **object**
+
+    ### Authorization
+
+    No authorization required
+
+    ### HTTP request headers
+
+    - **Content-Type**: Not defined
+    - **Accept**: application/json
+
+      ### HTTP response details
+      | Status code | Description | Response headers |
+      |-------------|-------------|------------------|
+        **200** | Returns the route updates that have occurred since the previous cursor. |  -  |
         **0** | Error response |  -  |
 
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

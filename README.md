@@ -99,6 +99,7 @@ Class | Method | HTTP request | Description
 *SamsaraApi* | [**get_data_inputs**](docs/SamsaraApi.md#get_data_inputs) | **GET** /industrial/data-inputs | List all data inputs
 *SamsaraApi* | [**get_document_pdf**](docs/SamsaraApi.md#get_document_pdf) | **GET** /fleet/documents/pdfs/{id} | Query a document PDF
 *SamsaraApi* | [**get_driver**](docs/SamsaraApi.md#get_driver) | **GET** /fleet/drivers/{id} | Retrieve a driver
+*SamsaraApi* | [**get_driver_efficiency**](docs/SamsaraApi.md#get_driver_efficiency) | **GET** /fleet/drivers/efficiency | [beta] List driver efficiency
 *SamsaraApi* | [**get_driver_tachograph_activity**](docs/SamsaraApi.md#get_driver_tachograph_activity) | **GET** /fleet/drivers/tachograph-activity/history | Get driver tachograph activity
 *SamsaraApi* | [**get_driver_tachograph_files**](docs/SamsaraApi.md#get_driver_tachograph_files) | **GET** /fleet/drivers/tachograph-files/history | Get tachograph driver files
 *SamsaraApi* | [**get_dvir_defects**](docs/SamsaraApi.md#get_dvir_defects) | **GET** /fleet/defects/history | Get all defects
@@ -113,6 +114,7 @@ Class | Method | HTTP request | Description
 *SamsaraApi* | [**get_hos_clocks**](docs/SamsaraApi.md#get_hos_clocks) | **GET** /fleet/hos/clocks | Get HOS clocks
 *SamsaraApi* | [**get_hos_logs**](docs/SamsaraApi.md#get_hos_logs) | **GET** /fleet/hos/logs | Get HOS logs
 *SamsaraApi* | [**get_industrial_assets**](docs/SamsaraApi.md#get_industrial_assets) | **GET** /industrial/assets | List all assets
+*SamsaraApi* | [**get_route_feed**](docs/SamsaraApi.md#get_route_feed) | **GET** /fleet/routes/feed | [beta] Get route updates
 *SamsaraApi* | [**get_safety_events**](docs/SamsaraApi.md#get_safety_events) | **GET** /fleet/safety-events | List all safety events.
 *SamsaraApi* | [**get_tag**](docs/SamsaraApi.md#get_tag) | **GET** /tags/{id} | Retrieve a tag
 *SamsaraApi* | [**get_user**](docs/SamsaraApi.md#get_user) | **GET** /users/{id} | Retrieve a user
@@ -196,6 +198,9 @@ Class | Method | HTTP request | Description
  - [Driver](docs/Driver.md)
  - [DriverActivationStatus](docs/DriverActivationStatus.md)
  - [DriverCarrierSettings](docs/DriverCarrierSettings.md)
+ - [DriverEfficienciesResponse](docs/DriverEfficienciesResponse.md)
+ - [DriverEfficienciesResponseData](docs/DriverEfficienciesResponseData.md)
+ - [DriverEfficiency](docs/DriverEfficiency.md)
  - [DriverEldRuleset](docs/DriverEldRuleset.md)
  - [DriverEldRulesetCycle](docs/DriverEldRulesetCycle.md)
  - [DriverEldRulesetDailyOffDuty](docs/DriverEldRulesetDailyOffDuty.md)
@@ -242,6 +247,7 @@ Class | Method | HTTP request | Description
  - [EquipmentStatsListResponseData](docs/EquipmentStatsListResponseData.md)
  - [EquipmentStatsResponse](docs/EquipmentStatsResponse.md)
  - [EquipmentStatsResponseData](docs/EquipmentStatsResponseData.md)
+ - [ExtendedDriverTinyResponse](docs/ExtendedDriverTinyResponse.md)
  - [FftSpectraDataPoint](docs/FftSpectraDataPoint.md)
  - [FftSpectraDataPointFftSpectra](docs/FftSpectraDataPointFftSpectra.md)
  - [HosBreak](docs/HosBreak.md)
@@ -273,12 +279,15 @@ Class | Method | HTTP request | Description
  - [LocationDataPointGpsLocation](docs/LocationDataPointGpsLocation.md)
  - [LocationDataPointGpsLocationPlace](docs/LocationDataPointGpsLocationPlace.md)
  - [LocationType](docs/LocationType.md)
+ - [MinimalRoute](docs/MinimalRoute.md)
+ - [MinimalRouteStop](docs/MinimalRouteStop.md)
  - [NumberDataPoint](docs/NumberDataPoint.md)
  - [PaginationResponse](docs/PaginationResponse.md)
  - [ParentTag](docs/ParentTag.md)
  - [PatchTagRequest](docs/PatchTagRequest.md)
  - [ReplaceTagRequest](docs/ReplaceTagRequest.md)
  - [ResolvedBy](docs/ResolvedBy.md)
+ - [RouteTinyResponse](docs/RouteTinyResponse.md)
  - [SafetyEvent](docs/SafetyEvent.md)
  - [SafetyEventBehaviorLabel](docs/SafetyEventBehaviorLabel.md)
  - [SafetyEventBehaviorLabelSource](docs/SafetyEventBehaviorLabelSource.md)
@@ -382,6 +391,7 @@ Class | Method | HTTP request | Description
  - [VehicleStatsTime](docs/VehicleStatsTime.md)
  - [VehicleStatsTirePressure](docs/VehicleStatsTirePressure.md)
  - [VehicleStatsTirePressures](docs/VehicleStatsTirePressures.md)
+ - [VehicleSummary](docs/VehicleSummary.md)
  - [VehicleTinyResponse](docs/VehicleTinyResponse.md)
 
 

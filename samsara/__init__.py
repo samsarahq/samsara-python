@@ -77,6 +77,9 @@ from samsara.models.document_pdf_query_response_data import DocumentPdfQueryResp
 from samsara.models.driver import Driver
 from samsara.models.driver_activation_status import DriverActivationStatus
 from samsara.models.driver_carrier_settings import DriverCarrierSettings
+from samsara.models.driver_efficiencies_response import DriverEfficienciesResponse
+from samsara.models.driver_efficiencies_response_data import DriverEfficienciesResponseData
+from samsara.models.driver_efficiency import DriverEfficiency
 from samsara.models.driver_eld_ruleset import DriverEldRuleset
 from samsara.models.driver_eld_ruleset_cycle import DriverEldRulesetCycle
 from samsara.models.driver_eld_ruleset_daily_off_duty import DriverEldRulesetDailyOffDuty
@@ -123,6 +126,7 @@ from samsara.models.equipment_stats_list_response import EquipmentStatsListRespo
 from samsara.models.equipment_stats_list_response_data import EquipmentStatsListResponseData
 from samsara.models.equipment_stats_response import EquipmentStatsResponse
 from samsara.models.equipment_stats_response_data import EquipmentStatsResponseData
+from samsara.models.extended_driver_tiny_response import ExtendedDriverTinyResponse
 from samsara.models.fft_spectra_data_point import FftSpectraDataPoint
 from samsara.models.fft_spectra_data_point_fft_spectra import FftSpectraDataPointFftSpectra
 from samsara.models.hos_break import HosBreak
@@ -154,12 +158,15 @@ from samsara.models.location_data_point import LocationDataPoint
 from samsara.models.location_data_point_gps_location import LocationDataPointGpsLocation
 from samsara.models.location_data_point_gps_location_place import LocationDataPointGpsLocationPlace
 from samsara.models.location_type import LocationType
+from samsara.models.minimal_route import MinimalRoute
+from samsara.models.minimal_route_stop import MinimalRouteStop
 from samsara.models.number_data_point import NumberDataPoint
 from samsara.models.pagination_response import PaginationResponse
 from samsara.models.parent_tag import ParentTag
 from samsara.models.patch_tag_request import PatchTagRequest
 from samsara.models.replace_tag_request import ReplaceTagRequest
 from samsara.models.resolved_by import ResolvedBy
+from samsara.models.route_tiny_response import RouteTinyResponse
 from samsara.models.safety_event import SafetyEvent
 from samsara.models.safety_event_behavior_label import SafetyEventBehaviorLabel
 from samsara.models.safety_event_behavior_label_source import SafetyEventBehaviorLabelSource
@@ -263,5 +270,6 @@ from samsara.models.vehicle_stats_response_data import VehicleStatsResponseData
 from samsara.models.vehicle_stats_time import VehicleStatsTime
 from samsara.models.vehicle_stats_tire_pressure import VehicleStatsTirePressure
 from samsara.models.vehicle_stats_tire_pressures import VehicleStatsTirePressures
+from samsara.models.vehicle_summary import VehicleSummary
 from samsara.models.vehicle_tiny_response import VehicleTinyResponse
 

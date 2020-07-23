@@ -189,6 +189,13 @@ class TestSamsaraApi(unittest.TestCase):
         """
         pass
 
+    def test_get_driver_efficiency(self):
+        """Test case for get_driver_efficiency
+
+        [beta] List driver efficiency  # noqa: E501
+        """
+        pass
+
     def test_get_driver_tachograph_activity(self):
         """Test case for get_driver_tachograph_activity
 
@@ -284,6 +291,13 @@ class TestSamsaraApi(unittest.TestCase):
         """Test case for get_industrial_assets
 
         List all assets  # noqa: E501
+        """
+        pass
+
+    def test_get_route_feed(self):
+        """Test case for get_route_feed
+
+        [beta] Get route updates  # noqa: E501
         """
         pass
 
