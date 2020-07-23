@@ -190,7 +190,7 @@ class TestVehicleStatsListResponse(unittest.TestCase):
                                 value = 54, )
                             ], 
                         gps = [
-                            samsara.models.vehicle_stats_gps.VehicleStatsGps(
+                            samsara.models.vehicle_stats_list_gps.VehicleStatsListGps(
                                 latitude = 122.142, 
                                 longitude = -93.343, 
                                 time = '2020-01-27T07:06:25Z', )
@@ -383,7 +383,7 @@ class TestVehicleStatsListResponse(unittest.TestCase):
                                 value = 54, )
                             ], 
                         gps = [
-                            samsara.models.vehicle_stats_gps.VehicleStatsGps(
+                            samsara.models.vehicle_stats_list_gps.VehicleStatsListGps(
                                 latitude = 122.142, 
                                 longitude = -93.343, 
                                 time = '2020-01-27T07:06:25Z', )

@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **engine_states** | [**list[VehicleStatsEngineStateWithDecoration]**](VehicleStatsEngineStateWithDecoration.md) | A list of engine state events for the given vehicle. | [optional] 
 **fault_codes** | [**list[VehicleStatsFaultCodesWithDecoration]**](VehicleStatsFaultCodesWithDecoration.md) | A list of engine fault codes. | [optional] 
 **fuel_percents** | [**list[VehicleStatsFuelPercentWithDecoration]**](VehicleStatsFuelPercentWithDecoration.md) | A list of fuel percentage readings for the given vehicle. | [optional] 
-**gps** | [**list[VehicleStatsGps]**](VehicleStatsGps.md) | A list of GPS events for the given vehicle. | [optional] 
+**gps** | [**list[VehicleStatsListGps]**](VehicleStatsListGps.md) | A list of GPS location events for the given vehicles. | [optional] 
 **gps_distance_meters** | [**list[VehicleStatsGpsDistanceMetersWithDecoration]**](VehicleStatsGpsDistanceMetersWithDecoration.md) | A list of GPS distance events for the given vehicle. | [optional] 
 **gps_odometer_meters** | [**list[VehicleStatsGpsOdometerMetersWithDecoration]**](VehicleStatsGpsOdometerMetersWithDecoration.md) | A list of GPS odometer events for the given vehicle. | [optional] 
 **id** | **str** | The unique Samsara ID of the Vehicle. This is automatically generated when the Vehicle object is created. It cannot be changed. | [optional] 

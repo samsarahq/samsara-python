@@ -49,7 +49,7 @@ class VehicleStatsListResponseData(object):
         'engine_states': 'list[VehicleStatsEngineStateWithDecoration]',
         'fault_codes': 'list[VehicleStatsFaultCodesWithDecoration]',
         'fuel_percents': 'list[VehicleStatsFuelPercentWithDecoration]',
-        'gps': 'list[VehicleStatsGps]',
+        'gps': 'list[VehicleStatsListGps]',
         'gps_distance_meters': 'list[VehicleStatsGpsDistanceMetersWithDecoration]',
         'gps_odometer_meters': 'list[VehicleStatsGpsOdometerMetersWithDecoration]',
         'id': 'str',
@@ -539,10 +539,10 @@ class VehicleStatsListResponseData(object):
     def gps(self):
         """Gets the gps of this VehicleStatsListResponseData.  # noqa: E501
 
-        A list of GPS events for the given vehicle.  # noqa: E501
+        A list of GPS location events for the given vehicles.  # noqa: E501
 
         :return: The gps of this VehicleStatsListResponseData.  # noqa: E501
-        :rtype: list[VehicleStatsGps]
+        :rtype: list[VehicleStatsListGps]
         """
         return self._gps
 
@@ -550,10 +550,10 @@ class VehicleStatsListResponseData(object):
     def gps(self, gps):
         """Sets the gps of this VehicleStatsListResponseData.
 
-        A list of GPS events for the given vehicle.  # noqa: E501
+        A list of GPS location events for the given vehicles.  # noqa: E501
 
         :param gps: The gps of this VehicleStatsListResponseData.  # noqa: E501
-        :type: list[VehicleStatsGps]
+        :type: list[VehicleStatsListGps]
         """
 
         self._gps = gps
