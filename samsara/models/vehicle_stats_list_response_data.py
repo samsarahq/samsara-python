@@ -33,29 +33,30 @@ class VehicleStatsListResponseData(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'aux_input1': 'list[VehicleStatsAuxInput]',
-        'aux_input10': 'list[VehicleStatsAuxInput]',
-        'aux_input2': 'list[VehicleStatsAuxInput]',
-        'aux_input3': 'list[VehicleStatsAuxInput]',
-        'aux_input4': 'list[VehicleStatsAuxInput]',
-        'aux_input5': 'list[VehicleStatsAuxInput]',
-        'aux_input6': 'list[VehicleStatsAuxInput]',
-        'aux_input7': 'list[VehicleStatsAuxInput]',
-        'aux_input8': 'list[VehicleStatsAuxInput]',
-        'aux_input9': 'list[VehicleStatsAuxInput]',
-        'battery_milli_volts': 'list[VehicleStatsBatteryVoltage]',
-        'engine_rpm': 'list[VehicleStatsEngineRpm]',
-        'engine_states': 'list[VehicleStatsEngineState]',
-        'fault_codes': 'list[VehicleStatsListResponseFaultCodes]',
-        'fuel_percents': 'list[VehicleStatsFuelPercent]',
+        'aux_input1': 'list[VehicleStatsAuxInputWithDecoration]',
+        'aux_input10': 'list[VehicleStatsAuxInputWithDecoration]',
+        'aux_input2': 'list[VehicleStatsAuxInputWithDecoration]',
+        'aux_input3': 'list[VehicleStatsAuxInputWithDecoration]',
+        'aux_input4': 'list[VehicleStatsAuxInputWithDecoration]',
+        'aux_input5': 'list[VehicleStatsAuxInputWithDecoration]',
+        'aux_input6': 'list[VehicleStatsAuxInputWithDecoration]',
+        'aux_input7': 'list[VehicleStatsAuxInputWithDecoration]',
+        'aux_input8': 'list[VehicleStatsAuxInputWithDecoration]',
+        'aux_input9': 'list[VehicleStatsAuxInputWithDecoration]',
+        'battery_milli_volts': 'list[VehicleStatsBatteryVoltageWithDecoration]',
+        'ecu_speed_mph': 'list[VehicleStatsEcuSpeedMphWithDecoration]',
+        'engine_rpm': 'list[VehicleStatsEngineRpmWithDecoration]',
+        'engine_states': 'list[VehicleStatsEngineStateWithDecoration]',
+        'fault_codes': 'list[VehicleStatsFaultCodesWithDecoration]',
+        'fuel_percents': 'list[VehicleStatsFuelPercentWithDecoration]',
         'gps': 'list[VehicleStatsGps]',
-        'gps_distance_meters': 'list[VehicleStatsGpsDistanceMeters]',
-        'gps_odometer_meters': 'list[VehicleStatsGpsOdometerMeters]',
+        'gps_distance_meters': 'list[VehicleStatsGpsDistanceMetersWithDecoration]',
+        'gps_odometer_meters': 'list[VehicleStatsGpsOdometerMetersWithDecoration]',
         'id': 'str',
         'name': 'str',
-        'nfc_card_scans': 'list[VehicleStatsNfcCardScan]',
-        'obd_engine_seconds': 'list[VehicleStatsObdEngineSeconds]',
-        'obd_odometer_meters': 'list[VehicleStatsObdOdometerMeters]'
+        'nfc_card_scans': 'list[VehicleStatsNfcCardScanWithDecoration]',
+        'obd_engine_seconds': 'list[VehicleStatsObdEngineSecondsWithDecoration]',
+        'obd_odometer_meters': 'list[VehicleStatsObdOdometerMetersWithDecoration]'
     }
 
     attribute_map = {
@@ -70,6 +71,7 @@ class VehicleStatsListResponseData(object):
         'aux_input8': 'auxInput8',
         'aux_input9': 'auxInput9',
         'battery_milli_volts': 'batteryMilliVolts',
+        'ecu_speed_mph': 'ecuSpeedMph',
         'engine_rpm': 'engineRpm',
         'engine_states': 'engineStates',
         'fault_codes': 'faultCodes',
@@ -84,7 +86,7 @@ class VehicleStatsListResponseData(object):
         'obd_odometer_meters': 'obdOdometerMeters'
     }
 
-    def __init__(self, aux_input1=None, aux_input10=None, aux_input2=None, aux_input3=None, aux_input4=None, aux_input5=None, aux_input6=None, aux_input7=None, aux_input8=None, aux_input9=None, battery_milli_volts=None, engine_rpm=None, engine_states=None, fault_codes=None, fuel_percents=None, gps=None, gps_distance_meters=None, gps_odometer_meters=None, id=None, name=None, nfc_card_scans=None, obd_engine_seconds=None, obd_odometer_meters=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, aux_input1=None, aux_input10=None, aux_input2=None, aux_input3=None, aux_input4=None, aux_input5=None, aux_input6=None, aux_input7=None, aux_input8=None, aux_input9=None, battery_milli_volts=None, ecu_speed_mph=None, engine_rpm=None, engine_states=None, fault_codes=None, fuel_percents=None, gps=None, gps_distance_meters=None, gps_odometer_meters=None, id=None, name=None, nfc_card_scans=None, obd_engine_seconds=None, obd_odometer_meters=None, local_vars_configuration=None):  # noqa: E501
         """VehicleStatsListResponseData - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -101,6 +103,7 @@ class VehicleStatsListResponseData(object):
         self._aux_input8 = None
         self._aux_input9 = None
         self._battery_milli_volts = None
+        self._ecu_speed_mph = None
         self._engine_rpm = None
         self._engine_states = None
         self._fault_codes = None
@@ -137,6 +140,8 @@ class VehicleStatsListResponseData(object):
             self.aux_input9 = aux_input9
         if battery_milli_volts is not None:
             self.battery_milli_volts = battery_milli_volts
+        if ecu_speed_mph is not None:
+            self.ecu_speed_mph = ecu_speed_mph
         if engine_rpm is not None:
             self.engine_rpm = engine_rpm
         if engine_states is not None:
@@ -151,8 +156,10 @@ class VehicleStatsListResponseData(object):
             self.gps_distance_meters = gps_distance_meters
         if gps_odometer_meters is not None:
             self.gps_odometer_meters = gps_odometer_meters
-        self.id = id
-        self.name = name
+        if id is not None:
+            self.id = id
+        if name is not None:
+            self.name = name
         if nfc_card_scans is not None:
             self.nfc_card_scans = nfc_card_scans
         if obd_engine_seconds is not None:
@@ -167,7 +174,7 @@ class VehicleStatsListResponseData(object):
         A list of auxiliary equipment states.  # noqa: E501
 
         :return: The aux_input1 of this VehicleStatsListResponseData.  # noqa: E501
-        :rtype: list[VehicleStatsAuxInput]
+        :rtype: list[VehicleStatsAuxInputWithDecoration]
         """
         return self._aux_input1
 
@@ -178,7 +185,7 @@ class VehicleStatsListResponseData(object):
         A list of auxiliary equipment states.  # noqa: E501
 
         :param aux_input1: The aux_input1 of this VehicleStatsListResponseData.  # noqa: E501
-        :type: list[VehicleStatsAuxInput]
+        :type: list[VehicleStatsAuxInputWithDecoration]
         """
 
         self._aux_input1 = aux_input1
@@ -190,7 +197,7 @@ class VehicleStatsListResponseData(object):
         A list of auxiliary equipment states.  # noqa: E501
 
         :return: The aux_input10 of this VehicleStatsListResponseData.  # noqa: E501
-        :rtype: list[VehicleStatsAuxInput]
+        :rtype: list[VehicleStatsAuxInputWithDecoration]
         """
         return self._aux_input10
 
@@ -201,7 +208,7 @@ class VehicleStatsListResponseData(object):
         A list of auxiliary equipment states.  # noqa: E501
 
         :param aux_input10: The aux_input10 of this VehicleStatsListResponseData.  # noqa: E501
-        :type: list[VehicleStatsAuxInput]
+        :type: list[VehicleStatsAuxInputWithDecoration]
         """
 
         self._aux_input10 = aux_input10
@@ -213,7 +220,7 @@ class VehicleStatsListResponseData(object):
         A list of auxiliary equipment states.  # noqa: E501
 
         :return: The aux_input2 of this VehicleStatsListResponseData.  # noqa: E501
-        :rtype: list[VehicleStatsAuxInput]
+        :rtype: list[VehicleStatsAuxInputWithDecoration]
         """
         return self._aux_input2
 
@@ -224,7 +231,7 @@ class VehicleStatsListResponseData(object):
         A list of auxiliary equipment states.  # noqa: E501
 
         :param aux_input2: The aux_input2 of this VehicleStatsListResponseData.  # noqa: E501
-        :type: list[VehicleStatsAuxInput]
+        :type: list[VehicleStatsAuxInputWithDecoration]
         """
 
         self._aux_input2 = aux_input2
@@ -236,7 +243,7 @@ class VehicleStatsListResponseData(object):
         A list of auxiliary equipment states.  # noqa: E501
 
         :return: The aux_input3 of this VehicleStatsListResponseData.  # noqa: E501
-        :rtype: list[VehicleStatsAuxInput]
+        :rtype: list[VehicleStatsAuxInputWithDecoration]
         """
         return self._aux_input3
 
@@ -247,7 +254,7 @@ class VehicleStatsListResponseData(object):
         A list of auxiliary equipment states.  # noqa: E501
 
         :param aux_input3: The aux_input3 of this VehicleStatsListResponseData.  # noqa: E501
-        :type: list[VehicleStatsAuxInput]
+        :type: list[VehicleStatsAuxInputWithDecoration]
         """
 
         self._aux_input3 = aux_input3
@@ -259,7 +266,7 @@ class VehicleStatsListResponseData(object):
         A list of auxiliary equipment states.  # noqa: E501
 
         :return: The aux_input4 of this VehicleStatsListResponseData.  # noqa: E501
-        :rtype: list[VehicleStatsAuxInput]
+        :rtype: list[VehicleStatsAuxInputWithDecoration]
         """
         return self._aux_input4
 
@@ -270,7 +277,7 @@ class VehicleStatsListResponseData(object):
         A list of auxiliary equipment states.  # noqa: E501
 
         :param aux_input4: The aux_input4 of this VehicleStatsListResponseData.  # noqa: E501
-        :type: list[VehicleStatsAuxInput]
+        :type: list[VehicleStatsAuxInputWithDecoration]
         """
 
         self._aux_input4 = aux_input4
@@ -282,7 +289,7 @@ class VehicleStatsListResponseData(object):
         A list of auxiliary equipment states.  # noqa: E501
 
         :return: The aux_input5 of this VehicleStatsListResponseData.  # noqa: E501
-        :rtype: list[VehicleStatsAuxInput]
+        :rtype: list[VehicleStatsAuxInputWithDecoration]
         """
         return self._aux_input5
 
@@ -293,7 +300,7 @@ class VehicleStatsListResponseData(object):
         A list of auxiliary equipment states.  # noqa: E501
 
         :param aux_input5: The aux_input5 of this VehicleStatsListResponseData.  # noqa: E501
-        :type: list[VehicleStatsAuxInput]
+        :type: list[VehicleStatsAuxInputWithDecoration]
         """
 
         self._aux_input5 = aux_input5
@@ -305,7 +312,7 @@ class VehicleStatsListResponseData(object):
         A list of auxiliary equipment states.  # noqa: E501
 
         :return: The aux_input6 of this VehicleStatsListResponseData.  # noqa: E501
-        :rtype: list[VehicleStatsAuxInput]
+        :rtype: list[VehicleStatsAuxInputWithDecoration]
         """
         return self._aux_input6
 
@@ -316,7 +323,7 @@ class VehicleStatsListResponseData(object):
         A list of auxiliary equipment states.  # noqa: E501
 
         :param aux_input6: The aux_input6 of this VehicleStatsListResponseData.  # noqa: E501
-        :type: list[VehicleStatsAuxInput]
+        :type: list[VehicleStatsAuxInputWithDecoration]
         """
 
         self._aux_input6 = aux_input6
@@ -328,7 +335,7 @@ class VehicleStatsListResponseData(object):
         A list of auxiliary equipment states.  # noqa: E501
 
         :return: The aux_input7 of this VehicleStatsListResponseData.  # noqa: E501
-        :rtype: list[VehicleStatsAuxInput]
+        :rtype: list[VehicleStatsAuxInputWithDecoration]
         """
         return self._aux_input7
 
@@ -339,7 +346,7 @@ class VehicleStatsListResponseData(object):
         A list of auxiliary equipment states.  # noqa: E501
 
         :param aux_input7: The aux_input7 of this VehicleStatsListResponseData.  # noqa: E501
-        :type: list[VehicleStatsAuxInput]
+        :type: list[VehicleStatsAuxInputWithDecoration]
         """
 
         self._aux_input7 = aux_input7
@@ -351,7 +358,7 @@ class VehicleStatsListResponseData(object):
         A list of auxiliary equipment states.  # noqa: E501
 
         :return: The aux_input8 of this VehicleStatsListResponseData.  # noqa: E501
-        :rtype: list[VehicleStatsAuxInput]
+        :rtype: list[VehicleStatsAuxInputWithDecoration]
         """
         return self._aux_input8
 
@@ -362,7 +369,7 @@ class VehicleStatsListResponseData(object):
         A list of auxiliary equipment states.  # noqa: E501
 
         :param aux_input8: The aux_input8 of this VehicleStatsListResponseData.  # noqa: E501
-        :type: list[VehicleStatsAuxInput]
+        :type: list[VehicleStatsAuxInputWithDecoration]
         """
 
         self._aux_input8 = aux_input8
@@ -374,7 +381,7 @@ class VehicleStatsListResponseData(object):
         A list of auxiliary equipment states.  # noqa: E501
 
         :return: The aux_input9 of this VehicleStatsListResponseData.  # noqa: E501
-        :rtype: list[VehicleStatsAuxInput]
+        :rtype: list[VehicleStatsAuxInputWithDecoration]
         """
         return self._aux_input9
 
@@ -385,7 +392,7 @@ class VehicleStatsListResponseData(object):
         A list of auxiliary equipment states.  # noqa: E501
 
         :param aux_input9: The aux_input9 of this VehicleStatsListResponseData.  # noqa: E501
-        :type: list[VehicleStatsAuxInput]
+        :type: list[VehicleStatsAuxInputWithDecoration]
         """
 
         self._aux_input9 = aux_input9
@@ -397,7 +404,7 @@ class VehicleStatsListResponseData(object):
         A list of battery levels in milliVolts for the given vehicle.  # noqa: E501
 
         :return: The battery_milli_volts of this VehicleStatsListResponseData.  # noqa: E501
-        :rtype: list[VehicleStatsBatteryVoltage]
+        :rtype: list[VehicleStatsBatteryVoltageWithDecoration]
         """
         return self._battery_milli_volts
 
@@ -408,10 +415,33 @@ class VehicleStatsListResponseData(object):
         A list of battery levels in milliVolts for the given vehicle.  # noqa: E501
 
         :param battery_milli_volts: The battery_milli_volts of this VehicleStatsListResponseData.  # noqa: E501
-        :type: list[VehicleStatsBatteryVoltage]
+        :type: list[VehicleStatsBatteryVoltageWithDecoration]
         """
 
         self._battery_milli_volts = battery_milli_volts
+
+    @property
+    def ecu_speed_mph(self):
+        """Gets the ecu_speed_mph of this VehicleStatsListResponseData.  # noqa: E501
+
+        A list of the speeds of the vehicle in miles per hour, as reported by the ECU.  # noqa: E501
+
+        :return: The ecu_speed_mph of this VehicleStatsListResponseData.  # noqa: E501
+        :rtype: list[VehicleStatsEcuSpeedMphWithDecoration]
+        """
+        return self._ecu_speed_mph
+
+    @ecu_speed_mph.setter
+    def ecu_speed_mph(self, ecu_speed_mph):
+        """Sets the ecu_speed_mph of this VehicleStatsListResponseData.
+
+        A list of the speeds of the vehicle in miles per hour, as reported by the ECU.  # noqa: E501
+
+        :param ecu_speed_mph: The ecu_speed_mph of this VehicleStatsListResponseData.  # noqa: E501
+        :type: list[VehicleStatsEcuSpeedMphWithDecoration]
+        """
+
+        self._ecu_speed_mph = ecu_speed_mph
 
     @property
     def engine_rpm(self):
@@ -420,7 +450,7 @@ class VehicleStatsListResponseData(object):
         A list engine RPM values for the given vehicle.  # noqa: E501
 
         :return: The engine_rpm of this VehicleStatsListResponseData.  # noqa: E501
-        :rtype: list[VehicleStatsEngineRpm]
+        :rtype: list[VehicleStatsEngineRpmWithDecoration]
         """
         return self._engine_rpm
 
@@ -431,7 +461,7 @@ class VehicleStatsListResponseData(object):
         A list engine RPM values for the given vehicle.  # noqa: E501
 
         :param engine_rpm: The engine_rpm of this VehicleStatsListResponseData.  # noqa: E501
-        :type: list[VehicleStatsEngineRpm]
+        :type: list[VehicleStatsEngineRpmWithDecoration]
         """
 
         self._engine_rpm = engine_rpm
@@ -443,7 +473,7 @@ class VehicleStatsListResponseData(object):
         A list of engine state events for the given vehicle.  # noqa: E501
 
         :return: The engine_states of this VehicleStatsListResponseData.  # noqa: E501
-        :rtype: list[VehicleStatsEngineState]
+        :rtype: list[VehicleStatsEngineStateWithDecoration]
         """
         return self._engine_states
 
@@ -454,7 +484,7 @@ class VehicleStatsListResponseData(object):
         A list of engine state events for the given vehicle.  # noqa: E501
 
         :param engine_states: The engine_states of this VehicleStatsListResponseData.  # noqa: E501
-        :type: list[VehicleStatsEngineState]
+        :type: list[VehicleStatsEngineStateWithDecoration]
         """
 
         self._engine_states = engine_states
@@ -466,7 +496,7 @@ class VehicleStatsListResponseData(object):
         A list of engine fault codes.  # noqa: E501
 
         :return: The fault_codes of this VehicleStatsListResponseData.  # noqa: E501
-        :rtype: list[VehicleStatsListResponseFaultCodes]
+        :rtype: list[VehicleStatsFaultCodesWithDecoration]
         """
         return self._fault_codes
 
@@ -477,7 +507,7 @@ class VehicleStatsListResponseData(object):
         A list of engine fault codes.  # noqa: E501
 
         :param fault_codes: The fault_codes of this VehicleStatsListResponseData.  # noqa: E501
-        :type: list[VehicleStatsListResponseFaultCodes]
+        :type: list[VehicleStatsFaultCodesWithDecoration]
         """
 
         self._fault_codes = fault_codes
@@ -489,7 +519,7 @@ class VehicleStatsListResponseData(object):
         A list of fuel percentage readings for the given vehicle.  # noqa: E501
 
         :return: The fuel_percents of this VehicleStatsListResponseData.  # noqa: E501
-        :rtype: list[VehicleStatsFuelPercent]
+        :rtype: list[VehicleStatsFuelPercentWithDecoration]
         """
         return self._fuel_percents
 
@@ -500,7 +530,7 @@ class VehicleStatsListResponseData(object):
         A list of fuel percentage readings for the given vehicle.  # noqa: E501
 
         :param fuel_percents: The fuel_percents of this VehicleStatsListResponseData.  # noqa: E501
-        :type: list[VehicleStatsFuelPercent]
+        :type: list[VehicleStatsFuelPercentWithDecoration]
         """
 
         self._fuel_percents = fuel_percents
@@ -535,7 +565,7 @@ class VehicleStatsListResponseData(object):
         A list of GPS distance events for the given vehicle.  # noqa: E501
 
         :return: The gps_distance_meters of this VehicleStatsListResponseData.  # noqa: E501
-        :rtype: list[VehicleStatsGpsDistanceMeters]
+        :rtype: list[VehicleStatsGpsDistanceMetersWithDecoration]
         """
         return self._gps_distance_meters
 
@@ -546,7 +576,7 @@ class VehicleStatsListResponseData(object):
         A list of GPS distance events for the given vehicle.  # noqa: E501
 
         :param gps_distance_meters: The gps_distance_meters of this VehicleStatsListResponseData.  # noqa: E501
-        :type: list[VehicleStatsGpsDistanceMeters]
+        :type: list[VehicleStatsGpsDistanceMetersWithDecoration]
         """
 
         self._gps_distance_meters = gps_distance_meters
@@ -558,7 +588,7 @@ class VehicleStatsListResponseData(object):
         A list of GPS odometer events for the given vehicle.  # noqa: E501
 
         :return: The gps_odometer_meters of this VehicleStatsListResponseData.  # noqa: E501
-        :rtype: list[VehicleStatsGpsOdometerMeters]
+        :rtype: list[VehicleStatsGpsOdometerMetersWithDecoration]
         """
         return self._gps_odometer_meters
 
@@ -569,7 +599,7 @@ class VehicleStatsListResponseData(object):
         A list of GPS odometer events for the given vehicle.  # noqa: E501
 
         :param gps_odometer_meters: The gps_odometer_meters of this VehicleStatsListResponseData.  # noqa: E501
-        :type: list[VehicleStatsGpsOdometerMeters]
+        :type: list[VehicleStatsGpsOdometerMetersWithDecoration]
         """
 
         self._gps_odometer_meters = gps_odometer_meters
@@ -594,8 +624,6 @@ class VehicleStatsListResponseData(object):
         :param id: The id of this VehicleStatsListResponseData.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -619,8 +647,6 @@ class VehicleStatsListResponseData(object):
         :param name: The name of this VehicleStatsListResponseData.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
 
@@ -631,7 +657,7 @@ class VehicleStatsListResponseData(object):
         A list of NFC cards that were scanned for the given vehicles.  # noqa: E501
 
         :return: The nfc_card_scans of this VehicleStatsListResponseData.  # noqa: E501
-        :rtype: list[VehicleStatsNfcCardScan]
+        :rtype: list[VehicleStatsNfcCardScanWithDecoration]
         """
         return self._nfc_card_scans
 
@@ -642,7 +668,7 @@ class VehicleStatsListResponseData(object):
         A list of NFC cards that were scanned for the given vehicles.  # noqa: E501
 
         :param nfc_card_scans: The nfc_card_scans of this VehicleStatsListResponseData.  # noqa: E501
-        :type: list[VehicleStatsNfcCardScan]
+        :type: list[VehicleStatsNfcCardScanWithDecoration]
         """
 
         self._nfc_card_scans = nfc_card_scans
@@ -654,7 +680,7 @@ class VehicleStatsListResponseData(object):
         A list of OBD engine seconds readings for the given vehicle.  # noqa: E501
 
         :return: The obd_engine_seconds of this VehicleStatsListResponseData.  # noqa: E501
-        :rtype: list[VehicleStatsObdEngineSeconds]
+        :rtype: list[VehicleStatsObdEngineSecondsWithDecoration]
         """
         return self._obd_engine_seconds
 
@@ -665,7 +691,7 @@ class VehicleStatsListResponseData(object):
         A list of OBD engine seconds readings for the given vehicle.  # noqa: E501
 
         :param obd_engine_seconds: The obd_engine_seconds of this VehicleStatsListResponseData.  # noqa: E501
-        :type: list[VehicleStatsObdEngineSeconds]
+        :type: list[VehicleStatsObdEngineSecondsWithDecoration]
         """
 
         self._obd_engine_seconds = obd_engine_seconds
@@ -677,7 +703,7 @@ class VehicleStatsListResponseData(object):
         A list of OBD odometer readings for the given vehicle.  # noqa: E501
 
         :return: The obd_odometer_meters of this VehicleStatsListResponseData.  # noqa: E501
-        :rtype: list[VehicleStatsObdOdometerMeters]
+        :rtype: list[VehicleStatsObdOdometerMetersWithDecoration]
         """
         return self._obd_odometer_meters
 
@@ -688,7 +714,7 @@ class VehicleStatsListResponseData(object):
         A list of OBD odometer readings for the given vehicle.  # noqa: E501
 
         :param obd_odometer_meters: The obd_odometer_meters of this VehicleStatsListResponseData.  # noqa: E501
-        :type: list[VehicleStatsObdOdometerMeters]
+        :type: list[VehicleStatsObdOdometerMetersWithDecoration]
         """
 
         self._obd_odometer_meters = obd_odometer_meters

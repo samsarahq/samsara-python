@@ -39,134 +39,186 @@ class TestVehicleStatsListResponse(unittest.TestCase):
                 data = [
                     samsara.models.vehicle_stats_list_response_data.VehicleStatsListResponse_data(
                         aux_input1 = [
-                            samsara.models.vehicle_stats_aux_input.VehicleStatsAuxInput(
+                            samsara.models.vehicle_stats_aux_input_with_decoration.VehicleStatsAuxInputWithDecoration(
+                                decorations = samsara.models.vehicle_stats_decorations.VehicleStatsDecorations(
+                                    aux_input10 = samsara.models.vehicle_stats_aux_input_decoration.VehicleStatsAuxInputDecoration(
+                                        name = 'boom', 
+                                        value = True, ), 
+                                    aux_input2 = samsara.models.vehicle_stats_aux_input_decoration.VehicleStatsAuxInputDecoration(
+                                        name = 'boom', 
+                                        value = True, ), 
+                                    aux_input3 = samsara.models.vehicle_stats_aux_input_decoration.VehicleStatsAuxInputDecoration(
+                                        name = 'boom', 
+                                        value = True, ), 
+                                    aux_input4 = samsara.models.vehicle_stats_aux_input_decoration.VehicleStatsAuxInputDecoration(
+                                        name = 'boom', 
+                                        value = True, ), 
+                                    aux_input5 = samsara.models.vehicle_stats_aux_input_decoration.VehicleStatsAuxInputDecoration(
+                                        name = 'boom', 
+                                        value = True, ), 
+                                    aux_input6 = samsara.models.vehicle_stats_aux_input_decoration.VehicleStatsAuxInputDecoration(
+                                        name = 'boom', 
+                                        value = True, ), 
+                                    aux_input7 = samsara.models.vehicle_stats_aux_input_decoration.VehicleStatsAuxInputDecoration(
+                                        name = 'boom', 
+                                        value = True, ), 
+                                    aux_input8 = samsara.models.vehicle_stats_aux_input_decoration.VehicleStatsAuxInputDecoration(
+                                        name = 'boom', 
+                                        value = True, ), 
+                                    aux_input9 = samsara.models.vehicle_stats_aux_input_decoration.VehicleStatsAuxInputDecoration(
+                                        name = 'boom', 
+                                        value = True, ), 
+                                    battery_milli_volts = samsara.models.vehicle_stats_decorations_battery_milli_volts.VehicleStatsDecorations_batteryMilliVolts(
+                                        value = 7991, ), 
+                                    ecu_speed_mph = samsara.models.vehicle_stats_decorations_ecu_speed_mph.VehicleStatsDecorations_ecuSpeedMph(
+                                        value = 58.3, ), 
+                                    engine_rpm = samsara.models.vehicle_stats_decorations_engine_rpm.VehicleStatsDecorations_engineRpm(
+                                        value = 1000, ), 
+                                    engine_states = samsara.models.vehicle_stats_decorations_engine_states.VehicleStatsDecorations_engineStates(
+                                        value = 'On', ), 
+                                    fault_codes = samsara.models.vehicle_stats_fault_codes_value.VehicleStatsFaultCodesValue(
+                                        can_bus_type = 'CANBUS_J1939_500', 
+                                        j1939 = samsara.models.vehicle_stats_fault_codes_value_j1939.VehicleStatsFaultCodesValue_j1939(
+                                            check_engine_lights = samsara.models.vehicle_stats_fault_codes_value_j1939_check_engine_lights.VehicleStatsFaultCodesValue_j1939_checkEngineLights(
+                                                emissions_is_on = True, 
+                                                protect_is_on = False, 
+                                                stop_is_on = False, 
+                                                warning_is_on = False, ), 
+                                            diagnostic_trouble_codes = [
+                                                samsara.models.vehicle_stats_fault_codes_value_j1939_diagnostic_trouble_codes.VehicleStatsFaultCodesValue_j1939_diagnosticTroubleCodes(
+                                                    fmi_description = 'Voltage Below Normal', 
+                                                    fmi_id = 9, 
+                                                    mil_status = 1, 
+                                                    occurrence_count = 1, 
+                                                    source_address_name = 'Engine #1', 
+                                                    spn_description = 'System Diagnostic Code #1', 
+                                                    spn_id = 3031, 
+                                                    tx_id = 0, )
+                                                ], ), 
+                                        obdii = samsara.models.vehicle_stats_fault_codes_value_obdii.VehicleStatsFaultCodesValue_obdii(
+                                            check_engine_light_is_on = True, ), ), 
+                                    fuel_percents = samsara.models.vehicle_stats_decorations_fuel_percents.VehicleStatsDecorations_fuelPercents(
+                                        value = 54, ), 
+                                    gps = samsara.models.vehicle_stats_decorations_gps.VehicleStatsDecorations_gps(
+                                        heading_degrees = 120, 
+                                        latitude = 122.142, 
+                                        longitude = -93.343, 
+                                        reverse_geo = samsara.models.vehicle_location_reverse_geo.VehicleLocationReverseGeo(
+                                            formatted_location = '16 N Fair Oaks Ave, Pasadena, CA 91103', ), 
+                                        speed_miles_per_hour = 48.3, ), 
+                                    gps_distance_meters = samsara.models.vehicle_stats_decorations_gps_distance_meters.VehicleStatsDecorations_gpsDistanceMeters(
+                                        value = 81029.591434899, ), 
+                                    gps_odometer_meters = samsara.models.vehicle_stats_decorations_gps_odometer_meters.VehicleStatsDecorations_gpsOdometerMeters(
+                                        value = 14010293, ), 
+                                    obd_engine_seconds = samsara.models.vehicle_stats_decorations_obd_engine_seconds.VehicleStatsDecorations_obdEngineSeconds(
+                                        value = 9723103, ), 
+                                    obd_odometer_meters = samsara.models.vehicle_stats_decorations_obd_odometer_meters.VehicleStatsDecorations_obdOdometerMeters(
+                                        value = 14010293, ), 
+                                    tire_pressure = samsara.models.vehicle_stats_tire_pressures.VehicleStatsTirePressures(
+                                        back_left_tire_pressure_k_pa = 200, 
+                                        back_right_tire_pressure_k_pa = 200, 
+                                        front_left_tire_pressure_k_pa = 200, 
+                                        front_right_tire_pressure_k_pa = 200, ), ), 
                                 name = 'boom', 
                                 time = '2020-01-27T07:06:25Z', 
                                 value = True, )
                             ], 
                         aux_input10 = [
-                            samsara.models.vehicle_stats_aux_input.VehicleStatsAuxInput(
-                                time = '2020-01-27T07:06:25Z', 
-                                value = True, )
+                            samsara.models.vehicle_stats_aux_input_with_decoration.VehicleStatsAuxInputWithDecoration(
+                                time = '2020-01-27T07:06:25Z', )
                             ], 
                         aux_input2 = [
-                            samsara.models.vehicle_stats_aux_input.VehicleStatsAuxInput(
-                                time = '2020-01-27T07:06:25Z', 
-                                value = True, )
+                            samsara.models.vehicle_stats_aux_input_with_decoration.VehicleStatsAuxInputWithDecoration(
+                                time = '2020-01-27T07:06:25Z', )
                             ], 
                         aux_input3 = [
-                            samsara.models.vehicle_stats_aux_input.VehicleStatsAuxInput(
-                                time = '2020-01-27T07:06:25Z', 
-                                value = True, )
+                            samsara.models.vehicle_stats_aux_input_with_decoration.VehicleStatsAuxInputWithDecoration(
+                                time = '2020-01-27T07:06:25Z', )
                             ], 
                         aux_input4 = [
-                            samsara.models.vehicle_stats_aux_input.VehicleStatsAuxInput(
-                                time = '2020-01-27T07:06:25Z', 
-                                value = True, )
+                            samsara.models.vehicle_stats_aux_input_with_decoration.VehicleStatsAuxInputWithDecoration(
+                                time = '2020-01-27T07:06:25Z', )
                             ], 
                         aux_input5 = [
-                            samsara.models.vehicle_stats_aux_input.VehicleStatsAuxInput(
-                                time = '2020-01-27T07:06:25Z', 
-                                value = True, )
+                            samsara.models.vehicle_stats_aux_input_with_decoration.VehicleStatsAuxInputWithDecoration(
+                                time = '2020-01-27T07:06:25Z', )
                             ], 
                         aux_input6 = [
-                            samsara.models.vehicle_stats_aux_input.VehicleStatsAuxInput(
-                                time = '2020-01-27T07:06:25Z', 
-                                value = True, )
+                            samsara.models.vehicle_stats_aux_input_with_decoration.VehicleStatsAuxInputWithDecoration(
+                                time = '2020-01-27T07:06:25Z', )
                             ], 
                         aux_input7 = [
-                            samsara.models.vehicle_stats_aux_input.VehicleStatsAuxInput(
-                                time = '2020-01-27T07:06:25Z', 
-                                value = True, )
+                            samsara.models.vehicle_stats_aux_input_with_decoration.VehicleStatsAuxInputWithDecoration(
+                                time = '2020-01-27T07:06:25Z', )
                             ], 
                         aux_input8 = [
-                            samsara.models.vehicle_stats_aux_input.VehicleStatsAuxInput(
-                                time = '2020-01-27T07:06:25Z', 
-                                value = True, )
+                            samsara.models.vehicle_stats_aux_input_with_decoration.VehicleStatsAuxInputWithDecoration(
+                                time = '2020-01-27T07:06:25Z', )
                             ], 
                         aux_input9 = [
-                            samsara.models.vehicle_stats_aux_input.VehicleStatsAuxInput(
-                                time = '2020-01-27T07:06:25Z', 
-                                value = True, )
+                            samsara.models.vehicle_stats_aux_input_with_decoration.VehicleStatsAuxInputWithDecoration(
+                                time = '2020-01-27T07:06:25Z', )
                             ], 
                         battery_milli_volts = [
-                            samsara.models.vehicle_stats_battery_voltage.VehicleStatsBatteryVoltage(
+                            samsara.models.vehicle_stats_battery_voltage_with_decoration.VehicleStatsBatteryVoltageWithDecoration(
                                 time = '2020-01-27T07:06:25Z', 
                                 value = 7991, )
                             ], 
+                        ecu_speed_mph = [
+                            samsara.models.vehicle_stats_ecu_speed_mph_with_decoration.VehicleStatsEcuSpeedMphWithDecoration(
+                                time = '2020-01-27T07:06:25Z', 
+                                value = 32.1, )
+                            ], 
                         engine_rpm = [
-                            samsara.models.vehicle_stats_engine_rpm.VehicleStatsEngineRpm(
+                            samsara.models.vehicle_stats_engine_rpm_with_decoration.VehicleStatsEngineRpmWithDecoration(
                                 time = '2020-01-27T07:06:25Z', 
                                 value = 1000, )
                             ], 
                         engine_states = [
-                            samsara.models.vehicle_stats_engine_state.VehicleStatsEngineState(
+                            samsara.models.vehicle_stats_engine_state_with_decoration.VehicleStatsEngineStateWithDecoration(
                                 time = '2020-01-27T07:06:25Z', 
                                 value = 'On', )
                             ], 
                         fault_codes = [
-                            samsara.models.vehicle_stats_list_response_fault_codes.VehicleStatsListResponse_faultCodes(
+                            samsara.models.vehicle_stats_fault_codes_with_decoration.VehicleStatsFaultCodesWithDecoration(
                                 can_bus_type = 'CANBUS_J1939_500', 
-                                j1939 = samsara.models.vehicle_stats_list_response_j1939.VehicleStatsListResponse_j1939(
-                                    check_engine_lights = samsara.models.vehicle_stats_list_response_j1939_check_engine_lights.VehicleStatsListResponse_j1939_checkEngineLights(
-                                        emissions_is_on = True, 
-                                        protect_is_on = False, 
-                                        stop_is_on = False, 
-                                        warning_is_on = False, ), 
-                                    diagnostic_trouble_codes = [
-                                        samsara.models.vehicle_stats_list_response_j1939_diagnostic_trouble_codes.VehicleStatsListResponse_j1939_diagnosticTroubleCodes(
-                                            fmi_description = 'Voltage Below Normal', 
-                                            fmi_id = 9, 
-                                            mil_status = 1, 
-                                            occurrence_count = 1, 
-                                            source_address_name = 'Engine #1', 
-                                            spn_description = 'System Diagnostic Code #1', 
-                                            spn_id = 3031, 
-                                            tx_id = 0, )
-                                        ], ), 
-                                obdii = samsara.models.vehicle_stats_list_response_obdii.VehicleStatsListResponse_obdii(
-                                    check_engine_light_is_on = True, ), 
                                 time = '2020-01-27T07:06:25Z', )
                             ], 
                         fuel_percents = [
-                            samsara.models.vehicle_stats_fuel_percent.VehicleStatsFuelPercent(
+                            samsara.models.vehicle_stats_fuel_percent_with_decoration.VehicleStatsFuelPercentWithDecoration(
                                 time = '2020-01-27T07:06:25Z', 
                                 value = 54, )
                             ], 
                         gps = [
                             samsara.models.vehicle_stats_gps.VehicleStatsGps(
-                                heading_degrees = 120, 
                                 latitude = 122.142, 
                                 longitude = -93.343, 
-                                reverse_geo = samsara.models.vehicle_location_reverse_geo.VehicleLocationReverseGeo(
-                                    formatted_location = '16 N Fair Oaks Ave, Pasadena, CA 91103', ), 
-                                speed_miles_per_hour = 48.3, 
                                 time = '2020-01-27T07:06:25Z', )
                             ], 
                         gps_distance_meters = [
-                            samsara.models.vehicle_stats_gps_distance_meters.VehicleStatsGpsDistanceMeters(
+                            samsara.models.vehicle_stats_gps_distance_meters_with_decoration.VehicleStatsGpsDistanceMetersWithDecoration(
                                 time = '2020-01-27T07:06:25Z', 
                                 value = 81029.591434899, )
                             ], 
                         gps_odometer_meters = [
-                            samsara.models.vehicle_stats_gps_odometer_meters.VehicleStatsGpsOdometerMeters(
+                            samsara.models.vehicle_stats_gps_odometer_meters_with_decoration.VehicleStatsGpsOdometerMetersWithDecoration(
                                 time = '2020-01-27T07:06:25Z', 
                                 value = 14010293, )
                             ], 
                         id = '112', 
                         name = 'Truck A7', 
                         nfc_card_scans = [
-                            samsara.models.vehicle_stats_nfc_card_scan.VehicleStatsNfcCardScan(
+                            samsara.models.vehicle_stats_nfc_card_scan_with_decoration.VehicleStatsNfcCardScanWithDecoration(
                                 card = samsara.models.vehicle_stats_nfc_card_scan_card.VehicleStatsNfcCardScan_card(), 
                                 time = '2020-01-27T07:06:25Z', )
                             ], 
                         obd_engine_seconds = [
-                            samsara.models.vehicle_stats_obd_engine_seconds.VehicleStatsObdEngineSeconds(
+                            samsara.models.vehicle_stats_obd_engine_seconds_with_decoration.VehicleStatsObdEngineSecondsWithDecoration(
                                 time = '2020-01-27T07:06:25Z', 
                                 value = 9723103, )
                             ], 
                         obd_odometer_meters = [
-                            samsara.models.vehicle_stats_obd_odometer_meters.VehicleStatsObdOdometerMeters(
+                            samsara.models.vehicle_stats_obd_odometer_meters_with_decoration.VehicleStatsObdOdometerMetersWithDecoration(
                                 time = '2020-01-27T07:06:25Z', 
                                 value = 14010293, )
                             ], )
@@ -180,134 +232,186 @@ class TestVehicleStatsListResponse(unittest.TestCase):
                 data = [
                     samsara.models.vehicle_stats_list_response_data.VehicleStatsListResponse_data(
                         aux_input1 = [
-                            samsara.models.vehicle_stats_aux_input.VehicleStatsAuxInput(
+                            samsara.models.vehicle_stats_aux_input_with_decoration.VehicleStatsAuxInputWithDecoration(
+                                decorations = samsara.models.vehicle_stats_decorations.VehicleStatsDecorations(
+                                    aux_input10 = samsara.models.vehicle_stats_aux_input_decoration.VehicleStatsAuxInputDecoration(
+                                        name = 'boom', 
+                                        value = True, ), 
+                                    aux_input2 = samsara.models.vehicle_stats_aux_input_decoration.VehicleStatsAuxInputDecoration(
+                                        name = 'boom', 
+                                        value = True, ), 
+                                    aux_input3 = samsara.models.vehicle_stats_aux_input_decoration.VehicleStatsAuxInputDecoration(
+                                        name = 'boom', 
+                                        value = True, ), 
+                                    aux_input4 = samsara.models.vehicle_stats_aux_input_decoration.VehicleStatsAuxInputDecoration(
+                                        name = 'boom', 
+                                        value = True, ), 
+                                    aux_input5 = samsara.models.vehicle_stats_aux_input_decoration.VehicleStatsAuxInputDecoration(
+                                        name = 'boom', 
+                                        value = True, ), 
+                                    aux_input6 = samsara.models.vehicle_stats_aux_input_decoration.VehicleStatsAuxInputDecoration(
+                                        name = 'boom', 
+                                        value = True, ), 
+                                    aux_input7 = samsara.models.vehicle_stats_aux_input_decoration.VehicleStatsAuxInputDecoration(
+                                        name = 'boom', 
+                                        value = True, ), 
+                                    aux_input8 = samsara.models.vehicle_stats_aux_input_decoration.VehicleStatsAuxInputDecoration(
+                                        name = 'boom', 
+                                        value = True, ), 
+                                    aux_input9 = samsara.models.vehicle_stats_aux_input_decoration.VehicleStatsAuxInputDecoration(
+                                        name = 'boom', 
+                                        value = True, ), 
+                                    battery_milli_volts = samsara.models.vehicle_stats_decorations_battery_milli_volts.VehicleStatsDecorations_batteryMilliVolts(
+                                        value = 7991, ), 
+                                    ecu_speed_mph = samsara.models.vehicle_stats_decorations_ecu_speed_mph.VehicleStatsDecorations_ecuSpeedMph(
+                                        value = 58.3, ), 
+                                    engine_rpm = samsara.models.vehicle_stats_decorations_engine_rpm.VehicleStatsDecorations_engineRpm(
+                                        value = 1000, ), 
+                                    engine_states = samsara.models.vehicle_stats_decorations_engine_states.VehicleStatsDecorations_engineStates(
+                                        value = 'On', ), 
+                                    fault_codes = samsara.models.vehicle_stats_fault_codes_value.VehicleStatsFaultCodesValue(
+                                        can_bus_type = 'CANBUS_J1939_500', 
+                                        j1939 = samsara.models.vehicle_stats_fault_codes_value_j1939.VehicleStatsFaultCodesValue_j1939(
+                                            check_engine_lights = samsara.models.vehicle_stats_fault_codes_value_j1939_check_engine_lights.VehicleStatsFaultCodesValue_j1939_checkEngineLights(
+                                                emissions_is_on = True, 
+                                                protect_is_on = False, 
+                                                stop_is_on = False, 
+                                                warning_is_on = False, ), 
+                                            diagnostic_trouble_codes = [
+                                                samsara.models.vehicle_stats_fault_codes_value_j1939_diagnostic_trouble_codes.VehicleStatsFaultCodesValue_j1939_diagnosticTroubleCodes(
+                                                    fmi_description = 'Voltage Below Normal', 
+                                                    fmi_id = 9, 
+                                                    mil_status = 1, 
+                                                    occurrence_count = 1, 
+                                                    source_address_name = 'Engine #1', 
+                                                    spn_description = 'System Diagnostic Code #1', 
+                                                    spn_id = 3031, 
+                                                    tx_id = 0, )
+                                                ], ), 
+                                        obdii = samsara.models.vehicle_stats_fault_codes_value_obdii.VehicleStatsFaultCodesValue_obdii(
+                                            check_engine_light_is_on = True, ), ), 
+                                    fuel_percents = samsara.models.vehicle_stats_decorations_fuel_percents.VehicleStatsDecorations_fuelPercents(
+                                        value = 54, ), 
+                                    gps = samsara.models.vehicle_stats_decorations_gps.VehicleStatsDecorations_gps(
+                                        heading_degrees = 120, 
+                                        latitude = 122.142, 
+                                        longitude = -93.343, 
+                                        reverse_geo = samsara.models.vehicle_location_reverse_geo.VehicleLocationReverseGeo(
+                                            formatted_location = '16 N Fair Oaks Ave, Pasadena, CA 91103', ), 
+                                        speed_miles_per_hour = 48.3, ), 
+                                    gps_distance_meters = samsara.models.vehicle_stats_decorations_gps_distance_meters.VehicleStatsDecorations_gpsDistanceMeters(
+                                        value = 81029.591434899, ), 
+                                    gps_odometer_meters = samsara.models.vehicle_stats_decorations_gps_odometer_meters.VehicleStatsDecorations_gpsOdometerMeters(
+                                        value = 14010293, ), 
+                                    obd_engine_seconds = samsara.models.vehicle_stats_decorations_obd_engine_seconds.VehicleStatsDecorations_obdEngineSeconds(
+                                        value = 9723103, ), 
+                                    obd_odometer_meters = samsara.models.vehicle_stats_decorations_obd_odometer_meters.VehicleStatsDecorations_obdOdometerMeters(
+                                        value = 14010293, ), 
+                                    tire_pressure = samsara.models.vehicle_stats_tire_pressures.VehicleStatsTirePressures(
+                                        back_left_tire_pressure_k_pa = 200, 
+                                        back_right_tire_pressure_k_pa = 200, 
+                                        front_left_tire_pressure_k_pa = 200, 
+                                        front_right_tire_pressure_k_pa = 200, ), ), 
                                 name = 'boom', 
                                 time = '2020-01-27T07:06:25Z', 
                                 value = True, )
                             ], 
                         aux_input10 = [
-                            samsara.models.vehicle_stats_aux_input.VehicleStatsAuxInput(
-                                time = '2020-01-27T07:06:25Z', 
-                                value = True, )
+                            samsara.models.vehicle_stats_aux_input_with_decoration.VehicleStatsAuxInputWithDecoration(
+                                time = '2020-01-27T07:06:25Z', )
                             ], 
                         aux_input2 = [
-                            samsara.models.vehicle_stats_aux_input.VehicleStatsAuxInput(
-                                time = '2020-01-27T07:06:25Z', 
-                                value = True, )
+                            samsara.models.vehicle_stats_aux_input_with_decoration.VehicleStatsAuxInputWithDecoration(
+                                time = '2020-01-27T07:06:25Z', )
                             ], 
                         aux_input3 = [
-                            samsara.models.vehicle_stats_aux_input.VehicleStatsAuxInput(
-                                time = '2020-01-27T07:06:25Z', 
-                                value = True, )
+                            samsara.models.vehicle_stats_aux_input_with_decoration.VehicleStatsAuxInputWithDecoration(
+                                time = '2020-01-27T07:06:25Z', )
                             ], 
                         aux_input4 = [
-                            samsara.models.vehicle_stats_aux_input.VehicleStatsAuxInput(
-                                time = '2020-01-27T07:06:25Z', 
-                                value = True, )
+                            samsara.models.vehicle_stats_aux_input_with_decoration.VehicleStatsAuxInputWithDecoration(
+                                time = '2020-01-27T07:06:25Z', )
                             ], 
                         aux_input5 = [
-                            samsara.models.vehicle_stats_aux_input.VehicleStatsAuxInput(
-                                time = '2020-01-27T07:06:25Z', 
-                                value = True, )
+                            samsara.models.vehicle_stats_aux_input_with_decoration.VehicleStatsAuxInputWithDecoration(
+                                time = '2020-01-27T07:06:25Z', )
                             ], 
                         aux_input6 = [
-                            samsara.models.vehicle_stats_aux_input.VehicleStatsAuxInput(
-                                time = '2020-01-27T07:06:25Z', 
-                                value = True, )
+                            samsara.models.vehicle_stats_aux_input_with_decoration.VehicleStatsAuxInputWithDecoration(
+                                time = '2020-01-27T07:06:25Z', )
                             ], 
                         aux_input7 = [
-                            samsara.models.vehicle_stats_aux_input.VehicleStatsAuxInput(
-                                time = '2020-01-27T07:06:25Z', 
-                                value = True, )
+                            samsara.models.vehicle_stats_aux_input_with_decoration.VehicleStatsAuxInputWithDecoration(
+                                time = '2020-01-27T07:06:25Z', )
                             ], 
                         aux_input8 = [
-                            samsara.models.vehicle_stats_aux_input.VehicleStatsAuxInput(
-                                time = '2020-01-27T07:06:25Z', 
-                                value = True, )
+                            samsara.models.vehicle_stats_aux_input_with_decoration.VehicleStatsAuxInputWithDecoration(
+                                time = '2020-01-27T07:06:25Z', )
                             ], 
                         aux_input9 = [
-                            samsara.models.vehicle_stats_aux_input.VehicleStatsAuxInput(
-                                time = '2020-01-27T07:06:25Z', 
-                                value = True, )
+                            samsara.models.vehicle_stats_aux_input_with_decoration.VehicleStatsAuxInputWithDecoration(
+                                time = '2020-01-27T07:06:25Z', )
                             ], 
                         battery_milli_volts = [
-                            samsara.models.vehicle_stats_battery_voltage.VehicleStatsBatteryVoltage(
+                            samsara.models.vehicle_stats_battery_voltage_with_decoration.VehicleStatsBatteryVoltageWithDecoration(
                                 time = '2020-01-27T07:06:25Z', 
                                 value = 7991, )
                             ], 
+                        ecu_speed_mph = [
+                            samsara.models.vehicle_stats_ecu_speed_mph_with_decoration.VehicleStatsEcuSpeedMphWithDecoration(
+                                time = '2020-01-27T07:06:25Z', 
+                                value = 32.1, )
+                            ], 
                         engine_rpm = [
-                            samsara.models.vehicle_stats_engine_rpm.VehicleStatsEngineRpm(
+                            samsara.models.vehicle_stats_engine_rpm_with_decoration.VehicleStatsEngineRpmWithDecoration(
                                 time = '2020-01-27T07:06:25Z', 
                                 value = 1000, )
                             ], 
                         engine_states = [
-                            samsara.models.vehicle_stats_engine_state.VehicleStatsEngineState(
+                            samsara.models.vehicle_stats_engine_state_with_decoration.VehicleStatsEngineStateWithDecoration(
                                 time = '2020-01-27T07:06:25Z', 
                                 value = 'On', )
                             ], 
                         fault_codes = [
-                            samsara.models.vehicle_stats_list_response_fault_codes.VehicleStatsListResponse_faultCodes(
+                            samsara.models.vehicle_stats_fault_codes_with_decoration.VehicleStatsFaultCodesWithDecoration(
                                 can_bus_type = 'CANBUS_J1939_500', 
-                                j1939 = samsara.models.vehicle_stats_list_response_j1939.VehicleStatsListResponse_j1939(
-                                    check_engine_lights = samsara.models.vehicle_stats_list_response_j1939_check_engine_lights.VehicleStatsListResponse_j1939_checkEngineLights(
-                                        emissions_is_on = True, 
-                                        protect_is_on = False, 
-                                        stop_is_on = False, 
-                                        warning_is_on = False, ), 
-                                    diagnostic_trouble_codes = [
-                                        samsara.models.vehicle_stats_list_response_j1939_diagnostic_trouble_codes.VehicleStatsListResponse_j1939_diagnosticTroubleCodes(
-                                            fmi_description = 'Voltage Below Normal', 
-                                            fmi_id = 9, 
-                                            mil_status = 1, 
-                                            occurrence_count = 1, 
-                                            source_address_name = 'Engine #1', 
-                                            spn_description = 'System Diagnostic Code #1', 
-                                            spn_id = 3031, 
-                                            tx_id = 0, )
-                                        ], ), 
-                                obdii = samsara.models.vehicle_stats_list_response_obdii.VehicleStatsListResponse_obdii(
-                                    check_engine_light_is_on = True, ), 
                                 time = '2020-01-27T07:06:25Z', )
                             ], 
                         fuel_percents = [
-                            samsara.models.vehicle_stats_fuel_percent.VehicleStatsFuelPercent(
+                            samsara.models.vehicle_stats_fuel_percent_with_decoration.VehicleStatsFuelPercentWithDecoration(
                                 time = '2020-01-27T07:06:25Z', 
                                 value = 54, )
                             ], 
                         gps = [
                             samsara.models.vehicle_stats_gps.VehicleStatsGps(
-                                heading_degrees = 120, 
                                 latitude = 122.142, 
                                 longitude = -93.343, 
-                                reverse_geo = samsara.models.vehicle_location_reverse_geo.VehicleLocationReverseGeo(
-                                    formatted_location = '16 N Fair Oaks Ave, Pasadena, CA 91103', ), 
-                                speed_miles_per_hour = 48.3, 
                                 time = '2020-01-27T07:06:25Z', )
                             ], 
                         gps_distance_meters = [
-                            samsara.models.vehicle_stats_gps_distance_meters.VehicleStatsGpsDistanceMeters(
+                            samsara.models.vehicle_stats_gps_distance_meters_with_decoration.VehicleStatsGpsDistanceMetersWithDecoration(
                                 time = '2020-01-27T07:06:25Z', 
                                 value = 81029.591434899, )
                             ], 
                         gps_odometer_meters = [
-                            samsara.models.vehicle_stats_gps_odometer_meters.VehicleStatsGpsOdometerMeters(
+                            samsara.models.vehicle_stats_gps_odometer_meters_with_decoration.VehicleStatsGpsOdometerMetersWithDecoration(
                                 time = '2020-01-27T07:06:25Z', 
                                 value = 14010293, )
                             ], 
                         id = '112', 
                         name = 'Truck A7', 
                         nfc_card_scans = [
-                            samsara.models.vehicle_stats_nfc_card_scan.VehicleStatsNfcCardScan(
+                            samsara.models.vehicle_stats_nfc_card_scan_with_decoration.VehicleStatsNfcCardScanWithDecoration(
                                 card = samsara.models.vehicle_stats_nfc_card_scan_card.VehicleStatsNfcCardScan_card(), 
                                 time = '2020-01-27T07:06:25Z', )
                             ], 
                         obd_engine_seconds = [
-                            samsara.models.vehicle_stats_obd_engine_seconds.VehicleStatsObdEngineSeconds(
+                            samsara.models.vehicle_stats_obd_engine_seconds_with_decoration.VehicleStatsObdEngineSecondsWithDecoration(
                                 time = '2020-01-27T07:06:25Z', 
                                 value = 9723103, )
                             ], 
                         obd_odometer_meters = [
-                            samsara.models.vehicle_stats_obd_odometer_meters.VehicleStatsObdOdometerMeters(
+                            samsara.models.vehicle_stats_obd_odometer_meters_with_decoration.VehicleStatsObdOdometerMetersWithDecoration(
                                 time = '2020-01-27T07:06:25Z', 
                                 value = 14010293, )
                             ], )

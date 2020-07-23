@@ -33,6 +33,7 @@ class VehicleStatsListGps(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'decorations': 'VehicleStatsDecorations',
         'heading_degrees': 'float',
         'latitude': 'float',
         'longitude': 'float',
@@ -42,6 +43,7 @@ class VehicleStatsListGps(object):
     }
 
     attribute_map = {
+        'decorations': 'decorations',
         'heading_degrees': 'headingDegrees',
         'latitude': 'latitude',
         'longitude': 'longitude',
@@ -50,12 +52,13 @@ class VehicleStatsListGps(object):
         'time': 'time'
     }
 
-    def __init__(self, heading_degrees=None, latitude=None, longitude=None, reverse_geo=None, speed_miles_per_hour=None, time=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, decorations=None, heading_degrees=None, latitude=None, longitude=None, reverse_geo=None, speed_miles_per_hour=None, time=None, local_vars_configuration=None):  # noqa: E501
         """VehicleStatsListGps - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._decorations = None
         self._heading_degrees = None
         self._latitude = None
         self._longitude = None
@@ -64,6 +67,8 @@ class VehicleStatsListGps(object):
         self._time = None
         self.discriminator = None
 
+        if decorations is not None:
+            self.decorations = decorations
         if heading_degrees is not None:
             self.heading_degrees = heading_degrees
         self.latitude = latitude
@@ -73,6 +78,27 @@ class VehicleStatsListGps(object):
         if speed_miles_per_hour is not None:
             self.speed_miles_per_hour = speed_miles_per_hour
         self.time = time
+
+    @property
+    def decorations(self):
+        """Gets the decorations of this VehicleStatsListGps.  # noqa: E501
+
+
+        :return: The decorations of this VehicleStatsListGps.  # noqa: E501
+        :rtype: VehicleStatsDecorations
+        """
+        return self._decorations
+
+    @decorations.setter
+    def decorations(self, decorations):
+        """Sets the decorations of this VehicleStatsListGps.
+
+
+        :param decorations: The decorations of this VehicleStatsListGps.  # noqa: E501
+        :type: VehicleStatsDecorations
+        """
+
+        self._decorations = decorations
 
     @property
     def heading_degrees(self):
