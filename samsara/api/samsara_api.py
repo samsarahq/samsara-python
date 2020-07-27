@@ -1362,7 +1362,7 @@ class SamsaraApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str id: Unique identifier for the tag. (required)
+        :param str id: ID of the Tag. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `crmId:abc123`. Automatically populated external IDs are prefixed with `samsara.`. For example, `samsara.name:ELD-exempt`. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1387,7 +1387,7 @@ class SamsaraApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str id: Unique identifier for the tag. (required)
+        :param str id: ID of the Tag. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `crmId:abc123`. Automatically populated external IDs are prefixed with `samsara.`. For example, `samsara.name:ELD-exempt`. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -4800,7 +4800,7 @@ class SamsaraApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str id: Unique identifier for the tag. (required)
+        :param str id: ID of the Tag. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `crmId:abc123`. Automatically populated external IDs are prefixed with `samsara.`. For example, `samsara.name:ELD-exempt`. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -4825,7 +4825,7 @@ class SamsaraApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str id: Unique identifier for the tag. (required)
+        :param str id: ID of the Tag. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `crmId:abc123`. Automatically populated external IDs are prefixed with `samsara.`. For example, `samsara.name:ELD-exempt`. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -7239,7 +7239,7 @@ class SamsaraApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str id: Unique identifier for the tag. (required)
+        :param str id: ID of the Tag. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `crmId:abc123`. Automatically populated external IDs are prefixed with `samsara.`. For example, `samsara.name:ELD-exempt`. (required)
         :param PatchTagRequest tag: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -7265,7 +7265,7 @@ class SamsaraApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str id: Unique identifier for the tag. (required)
+        :param str id: ID of the Tag. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `crmId:abc123`. Automatically populated external IDs are prefixed with `samsara.`. For example, `samsara.name:ELD-exempt`. (required)
         :param PatchTagRequest tag: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -7359,7 +7359,7 @@ class SamsaraApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str id: Unique identifier for the tag. (required)
+        :param str id: ID of the Tag. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `crmId:abc123`. Automatically populated external IDs are prefixed with `samsara.`. For example, `samsara.name:ELD-exempt`. (required)
         :param ReplaceTagRequest tag: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -7385,7 +7385,7 @@ class SamsaraApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str id: Unique identifier for the tag. (required)
+        :param str id: ID of the Tag. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `crmId:abc123`. Automatically populated external IDs are prefixed with `samsara.`. For example, `samsara.name:ELD-exempt`. (required)
         :param ReplaceTagRequest tag: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers

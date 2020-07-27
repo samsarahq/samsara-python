@@ -36,6 +36,7 @@ class PatchTagRequest(object):
         'addresses': 'list[str]',
         'assets': 'list[str]',
         'drivers': 'list[str]',
+        'external_ids': 'dict(str, str)',
         'machines': 'list[str]',
         'name': 'str',
         'parent_tag_id': 'str',
@@ -47,6 +48,7 @@ class PatchTagRequest(object):
         'addresses': 'addresses',
         'assets': 'assets',
         'drivers': 'drivers',
+        'external_ids': 'externalIds',
         'machines': 'machines',
         'name': 'name',
         'parent_tag_id': 'parentTagId',
@@ -54,7 +56,7 @@ class PatchTagRequest(object):
         'vehicles': 'vehicles'
     }
 
-    def __init__(self, addresses=None, assets=None, drivers=None, machines=None, name=None, parent_tag_id=None, sensors=None, vehicles=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, addresses=None, assets=None, drivers=None, external_ids=None, machines=None, name=None, parent_tag_id=None, sensors=None, vehicles=None, local_vars_configuration=None):  # noqa: E501
         """PatchTagRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -63,6 +65,7 @@ class PatchTagRequest(object):
         self._addresses = None
         self._assets = None
         self._drivers = None
+        self._external_ids = None
         self._machines = None
         self._name = None
         self._parent_tag_id = None
@@ -76,6 +79,8 @@ class PatchTagRequest(object):
             self.assets = assets
         if drivers is not None:
             self.drivers = drivers
+        if external_ids is not None:
+            self.external_ids = external_ids
         if machines is not None:
             self.machines = machines
         if name is not None:
@@ -155,6 +160,29 @@ class PatchTagRequest(object):
         """
 
         self._drivers = drivers
+
+    @property
+    def external_ids(self):
+        """Gets the external_ids of this PatchTagRequest.  # noqa: E501
+
+        The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.  # noqa: E501
+
+        :return: The external_ids of this PatchTagRequest.  # noqa: E501
+        :rtype: dict(str, str)
+        """
+        return self._external_ids
+
+    @external_ids.setter
+    def external_ids(self, external_ids):
+        """Sets the external_ids of this PatchTagRequest.
+
+        The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.  # noqa: E501
+
+        :param external_ids: The external_ids of this PatchTagRequest.  # noqa: E501
+        :type: dict(str, str)
+        """
+
+        self._external_ids = external_ids
 
     @property
     def machines(self):

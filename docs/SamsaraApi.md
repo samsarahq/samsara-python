@@ -775,7 +775,7 @@ from pprint import pprint
   with samsara.ApiClient() as api_client:
 # Create an instance of the API class
 api_instance = samsara.SamsaraApi(api_client)
-id = 'id_example' # str | Unique identifier for the tag.
+id = 'id_example' # str | ID of the Tag. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `crmId:abc123`. Automatically populated external IDs are prefixed with `samsara.`. For example, `samsara.name:ELD-exempt`.
 
 try:
     # Delete a tag
@@ -788,7 +788,7 @@ print("Exception when calling SamsaraApi->delete_tag: %s\n" % e)
     
       Name | Type | Description  | Notes
       ------------- | ------------- | ------------- | -------------
-     **id** | **str**| Unique identifier for the tag. | 
+     **id** | **str**| ID of the Tag. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: &#x60;key:value&#x60;. For example, &#x60;crmId:abc123&#x60;. Automatically populated external IDs are prefixed with &#x60;samsara.&#x60;. For example, &#x60;samsara.name:ELD-exempt&#x60;. | 
 
     ### Return type
 
@@ -2539,7 +2539,7 @@ from pprint import pprint
   with samsara.ApiClient() as api_client:
 # Create an instance of the API class
 api_instance = samsara.SamsaraApi(api_client)
-id = 'id_example' # str | Unique identifier for the tag.
+id = 'id_example' # str | ID of the Tag. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `crmId:abc123`. Automatically populated external IDs are prefixed with `samsara.`. For example, `samsara.name:ELD-exempt`.
 
 try:
     # Retrieve a tag
@@ -2553,7 +2553,7 @@ print("Exception when calling SamsaraApi->get_tag: %s\n" % e)
     
       Name | Type | Description  | Notes
       ------------- | ------------- | ------------- | -------------
-     **id** | **str**| Unique identifier for the tag. | 
+     **id** | **str**| ID of the Tag. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: &#x60;key:value&#x60;. For example, &#x60;crmId:abc123&#x60;. Automatically populated external IDs are prefixed with &#x60;samsara.&#x60;. For example, &#x60;samsara.name:ELD-exempt&#x60;. | 
 
     ### Return type
 
@@ -3795,7 +3795,7 @@ from pprint import pprint
   with samsara.ApiClient() as api_client:
 # Create an instance of the API class
 api_instance = samsara.SamsaraApi(api_client)
-id = 'id_example' # str | Unique identifier for the tag.
+id = 'id_example' # str | ID of the Tag. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `crmId:abc123`. Automatically populated external IDs are prefixed with `samsara.`. For example, `samsara.name:ELD-exempt`.
 tag = samsara.PatchTagRequest() # PatchTagRequest | 
 
 try:
@@ -3810,7 +3810,7 @@ print("Exception when calling SamsaraApi->patch_tag: %s\n" % e)
     
       Name | Type | Description  | Notes
       ------------- | ------------- | ------------- | -------------
-     **id** | **str**| Unique identifier for the tag. | 
+     **id** | **str**| ID of the Tag. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: &#x60;key:value&#x60;. For example, &#x60;crmId:abc123&#x60;. Automatically populated external IDs are prefixed with &#x60;samsara.&#x60;. For example, &#x60;samsara.name:ELD-exempt&#x60;. | 
  **tag** | [**PatchTagRequest**](PatchTagRequest.md)|  | 
 
     ### Return type
@@ -3854,7 +3854,7 @@ from pprint import pprint
   with samsara.ApiClient() as api_client:
 # Create an instance of the API class
 api_instance = samsara.SamsaraApi(api_client)
-id = 'id_example' # str | Unique identifier for the tag.
+id = 'id_example' # str | ID of the Tag. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `crmId:abc123`. Automatically populated external IDs are prefixed with `samsara.`. For example, `samsara.name:ELD-exempt`.
 tag = samsara.ReplaceTagRequest() # ReplaceTagRequest | 
 
 try:
@@ -3869,7 +3869,7 @@ print("Exception when calling SamsaraApi->replace_tag: %s\n" % e)
     
       Name | Type | Description  | Notes
       ------------- | ------------- | ------------- | -------------
-     **id** | **str**| Unique identifier for the tag. | 
+     **id** | **str**| ID of the Tag. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: &#x60;key:value&#x60;. For example, &#x60;crmId:abc123&#x60;. Automatically populated external IDs are prefixed with &#x60;samsara.&#x60;. For example, &#x60;samsara.name:ELD-exempt&#x60;. | 
  **tag** | [**ReplaceTagRequest**](ReplaceTagRequest.md)|  | 
 
     ### Return type

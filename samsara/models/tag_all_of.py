@@ -36,6 +36,7 @@ class TagAllOf(object):
         'addresses': 'list[TaggedObject]',
         'assets': 'list[TaggedObject]',
         'drivers': 'list[TaggedObject]',
+        'external_ids': 'dict(str, str)',
         'machines': 'list[TaggedObject]',
         'parent_tag': 'ParentTag',
         'sensors': 'list[TaggedObject]',
@@ -46,13 +47,14 @@ class TagAllOf(object):
         'addresses': 'addresses',
         'assets': 'assets',
         'drivers': 'drivers',
+        'external_ids': 'externalIds',
         'machines': 'machines',
         'parent_tag': 'parentTag',
         'sensors': 'sensors',
         'vehicles': 'vehicles'
     }
 
-    def __init__(self, addresses=None, assets=None, drivers=None, machines=None, parent_tag=None, sensors=None, vehicles=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, addresses=None, assets=None, drivers=None, external_ids=None, machines=None, parent_tag=None, sensors=None, vehicles=None, local_vars_configuration=None):  # noqa: E501
         """TagAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -61,6 +63,7 @@ class TagAllOf(object):
         self._addresses = None
         self._assets = None
         self._drivers = None
+        self._external_ids = None
         self._machines = None
         self._parent_tag = None
         self._sensors = None
@@ -73,6 +76,8 @@ class TagAllOf(object):
             self.assets = assets
         if drivers is not None:
             self.drivers = drivers
+        if external_ids is not None:
+            self.external_ids = external_ids
         if machines is not None:
             self.machines = machines
         if parent_tag is not None:
@@ -150,6 +155,29 @@ class TagAllOf(object):
         """
 
         self._drivers = drivers
+
+    @property
+    def external_ids(self):
+        """Gets the external_ids of this TagAllOf.  # noqa: E501
+
+        The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.  # noqa: E501
+
+        :return: The external_ids of this TagAllOf.  # noqa: E501
+        :rtype: dict(str, str)
+        """
+        return self._external_ids
+
+    @external_ids.setter
+    def external_ids(self, external_ids):
+        """Sets the external_ids of this TagAllOf.
+
+        The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.  # noqa: E501
+
+        :param external_ids: The external_ids of this TagAllOf.  # noqa: E501
+        :type: dict(str, str)
+        """
+
+        self._external_ids = external_ids
 
     @property
     def machines(self):
