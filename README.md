@@ -119,12 +119,12 @@ Class | Method | HTTP request | Description
 *SamsaraApi* | [**get_tag**](docs/SamsaraApi.md#get_tag) | **GET** /tags/{id} | Retrieve a tag
 *SamsaraApi* | [**get_user**](docs/SamsaraApi.md#get_user) | **GET** /users/{id} | Retrieve a user
 *SamsaraApi* | [**get_vehicle**](docs/SamsaraApi.md#get_vehicle) | **GET** /fleet/vehicles/{id} | Retrieve a vehicle
-*SamsaraApi* | [**get_vehicle_locations**](docs/SamsaraApi.md#get_vehicle_locations) | **GET** /fleet/vehicles/locations | Get most recent vehicle locations
-*SamsaraApi* | [**get_vehicle_locations_feed**](docs/SamsaraApi.md#get_vehicle_locations_feed) | **GET** /fleet/vehicles/locations/feed | Follow a feed of vehicle locations
-*SamsaraApi* | [**get_vehicle_locations_history**](docs/SamsaraApi.md#get_vehicle_locations_history) | **GET** /fleet/vehicles/locations/history | Get historical vehicle locations
-*SamsaraApi* | [**get_vehicle_stats**](docs/SamsaraApi.md#get_vehicle_stats) | **GET** /fleet/vehicles/stats | List most recent vehicle stats
-*SamsaraApi* | [**get_vehicle_stats_feed**](docs/SamsaraApi.md#get_vehicle_stats_feed) | **GET** /fleet/vehicles/stats/feed | Follow a feed of vehicle stats
-*SamsaraApi* | [**get_vehicle_stats_history**](docs/SamsaraApi.md#get_vehicle_stats_history) | **GET** /fleet/vehicles/stats/history | Get historical vehicle stats
+*SamsaraApi* | [**get_vehicle_locations**](docs/SamsaraApi.md#get_vehicle_locations) | **GET** /fleet/vehicles/locations | Locations snapshot
+*SamsaraApi* | [**get_vehicle_locations_feed**](docs/SamsaraApi.md#get_vehicle_locations_feed) | **GET** /fleet/vehicles/locations/feed | Locations feed
+*SamsaraApi* | [**get_vehicle_locations_history**](docs/SamsaraApi.md#get_vehicle_locations_history) | **GET** /fleet/vehicles/locations/history | Historical locations
+*SamsaraApi* | [**get_vehicle_stats**](docs/SamsaraApi.md#get_vehicle_stats) | **GET** /fleet/vehicles/stats | Stats snapshot
+*SamsaraApi* | [**get_vehicle_stats_feed**](docs/SamsaraApi.md#get_vehicle_stats_feed) | **GET** /fleet/vehicles/stats/feed | Stats feed
+*SamsaraApi* | [**get_vehicle_stats_history**](docs/SamsaraApi.md#get_vehicle_stats_history) | **GET** /fleet/vehicles/stats/history | Historical stats
 *SamsaraApi* | [**get_vehicle_tachograph_files**](docs/SamsaraApi.md#get_vehicle_tachograph_files) | **GET** /fleet/vehicles/tachograph-files/history | Get tachograph vehicle files
 *SamsaraApi* | [**list_addresses**](docs/SamsaraApi.md#list_addresses) | **GET** /addresses | List all addresses
 *SamsaraApi* | [**list_carrier_proposed_assignments**](docs/SamsaraApi.md#list_carrier_proposed_assignments) | **GET** /fleet/carrier-proposed-assignments | Retrieve assignments

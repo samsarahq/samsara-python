@@ -332,42 +332,42 @@ class TestSamsaraApi(unittest.TestCase):
     def test_get_vehicle_locations(self):
         """Test case for get_vehicle_locations
 
-        Get most recent vehicle locations  # noqa: E501
+        Locations snapshot  # noqa: E501
         """
         pass
 
     def test_get_vehicle_locations_feed(self):
         """Test case for get_vehicle_locations_feed
 
-        Follow a feed of vehicle locations  # noqa: E501
+        Locations feed  # noqa: E501
         """
         pass
 
     def test_get_vehicle_locations_history(self):
         """Test case for get_vehicle_locations_history
 
-        Get historical vehicle locations  # noqa: E501
+        Historical locations  # noqa: E501
         """
         pass
 
     def test_get_vehicle_stats(self):
         """Test case for get_vehicle_stats
 
-        List most recent vehicle stats  # noqa: E501
+        Stats snapshot  # noqa: E501
         """
         pass
 
     def test_get_vehicle_stats_feed(self):
         """Test case for get_vehicle_stats_feed
 
-        Follow a feed of vehicle stats  # noqa: E501
+        Stats feed  # noqa: E501
         """
         pass
 
     def test_get_vehicle_stats_history(self):
         """Test case for get_vehicle_stats_history
 
-        Get historical vehicle stats  # noqa: E501
+        Historical stats  # noqa: E501
         """
         pass
 

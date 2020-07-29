@@ -59,7 +59,7 @@ class VehicleStatsResponse(object):
     def data(self):
         """Gets the data of this VehicleStatsResponse.  # noqa: E501
 
-        List of the most recent stats for the specified vehicles and stat types.  # noqa: E501
+        List of vehicles and a snapshot of the request stats.  # noqa: E501
 
         :return: The data of this VehicleStatsResponse.  # noqa: E501
         :rtype: list[VehicleStatsResponseData]
@@ -70,7 +70,7 @@ class VehicleStatsResponse(object):
     def data(self, data):
         """Sets the data of this VehicleStatsResponse.
 
-        List of the most recent stats for the specified vehicles and stat types.  # noqa: E501
+        List of vehicles and a snapshot of the request stats.  # noqa: E501
 
         :param data: The data of this VehicleStatsResponse.  # noqa: E501
         :type: list[VehicleStatsResponseData]
