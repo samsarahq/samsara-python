@@ -42,6 +42,7 @@ Method | HTTP request | Description
 [**get_hos_clocks**](SamsaraApi.md#get_hos_clocks) | **GET** /fleet/hos/clocks | Get HOS clocks
 [**get_hos_logs**](SamsaraApi.md#get_hos_logs) | **GET** /fleet/hos/logs | Get HOS logs
 [**get_industrial_assets**](SamsaraApi.md#get_industrial_assets) | **GET** /industrial/assets | List all assets
+[**get_organization_info**](SamsaraApi.md#get_organization_info) | **GET** /me | Get information about your organization
 [**get_route_feed**](SamsaraApi.md#get_route_feed) | **GET** /fleet/routes/feed | [beta] Get route updates
 [**get_safety_events**](SamsaraApi.md#get_safety_events) | **GET** /fleet/safety-events | List all safety events.
 [**get_tag**](SamsaraApi.md#get_tag) | **GET** /tags/{id} | Retrieve a tag
@@ -2391,6 +2392,59 @@ print("Exception when calling SamsaraApi->get_industrial_assets: %s\n" % e)
       | Status code | Description | Response headers |
       |-------------|-------------|------------------|
         **200** | Assets in the organization. |  -  |
+        **0** | Error response |  -  |
+
+    [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+    # **get_organization_info**
+    > OrganizationInfoResponse get_organization_info()
+
+    Get information about your organization
+
+      Get information about your organization
+
+    ### Example
+
+      ```python
+from __future__ import print_function
+import time
+import samsara
+from samsara.rest import ApiException
+from pprint import pprint
+
+# Enter a context with an instance of the API client
+  with samsara.ApiClient() as api_client:
+# Create an instance of the API class
+api_instance = samsara.SamsaraApi(api_client)
+
+try:
+    # Get information about your organization
+    api_response = api_instance.get_organization_info()
+  pprint(api_response)
+except ApiException as e:
+print("Exception when calling SamsaraApi->get_organization_info: %s\n" % e)
+```
+
+    ### Parameters
+    This endpoint does not need any parameter.
+    
+    ### Return type
+
+    [**OrganizationInfoResponse**](OrganizationInfoResponse.md)
+
+    ### Authorization
+
+    No authorization required
+
+    ### HTTP request headers
+
+    - **Content-Type**: Not defined
+    - **Accept**: application/json
+
+      ### HTTP response details
+      | Status code | Description | Response headers |
+      |-------------|-------------|------------------|
+        **200** | Returns information about your organization. |  -  |
         **0** | Error response |  -  |
 
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

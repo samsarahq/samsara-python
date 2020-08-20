@@ -294,6 +294,13 @@ class TestSamsaraApi(unittest.TestCase):
         """
         pass
 
+    def test_get_organization_info(self):
+        """Test case for get_organization_info
+
+        Get information about your organization  # noqa: E501
+        """
+        pass
+
     def test_get_route_feed(self):
         """Test case for get_route_feed
 

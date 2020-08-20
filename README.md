@@ -114,6 +114,7 @@ Class | Method | HTTP request | Description
 *SamsaraApi* | [**get_hos_clocks**](docs/SamsaraApi.md#get_hos_clocks) | **GET** /fleet/hos/clocks | Get HOS clocks
 *SamsaraApi* | [**get_hos_logs**](docs/SamsaraApi.md#get_hos_logs) | **GET** /fleet/hos/logs | Get HOS logs
 *SamsaraApi* | [**get_industrial_assets**](docs/SamsaraApi.md#get_industrial_assets) | **GET** /industrial/assets | List all assets
+*SamsaraApi* | [**get_organization_info**](docs/SamsaraApi.md#get_organization_info) | **GET** /me | Get information about your organization
 *SamsaraApi* | [**get_route_feed**](docs/SamsaraApi.md#get_route_feed) | **GET** /fleet/routes/feed | [beta] Get route updates
 *SamsaraApi* | [**get_safety_events**](docs/SamsaraApi.md#get_safety_events) | **GET** /fleet/safety-events | List all safety events.
 *SamsaraApi* | [**get_tag**](docs/SamsaraApi.md#get_tag) | **GET** /tags/{id} | Retrieve a tag
@@ -282,6 +283,9 @@ Class | Method | HTTP request | Description
  - [MinimalRoute](docs/MinimalRoute.md)
  - [MinimalRouteStop](docs/MinimalRouteStop.md)
  - [NumberDataPoint](docs/NumberDataPoint.md)
+ - [OrganizationInfo](docs/OrganizationInfo.md)
+ - [OrganizationInfoCarrierSettings](docs/OrganizationInfoCarrierSettings.md)
+ - [OrganizationInfoResponse](docs/OrganizationInfoResponse.md)
  - [PaginationResponse](docs/PaginationResponse.md)
  - [ParentTag](docs/ParentTag.md)
  - [PatchTagRequest](docs/PatchTagRequest.md)
