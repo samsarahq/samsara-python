@@ -68,6 +68,11 @@ class TestEquipmentStatsListResponse(unittest.TestCase):
                                 time = '2019-05-03T04:30:31Z', 
                                 value = 'On', )
                             ], 
+                        gateway_j1939_engine_seconds = [
+                            samsara.models.equipment_gateway_j1939_engine_seconds.EquipmentGatewayJ1939EngineSeconds(
+                                time = '2019-05-03T04:30:31Z', 
+                                value = 22374000, )
+                            ], 
                         gps_odometer_meters = [
                             samsara.models.equipment_gps_odometer_meters.EquipmentGpsOdometerMeters(
                                 time = '2019-05-03T04:30:31Z', 
@@ -123,6 +128,11 @@ class TestEquipmentStatsListResponse(unittest.TestCase):
                             samsara.models.equipment_gateway_engine_state.EquipmentGatewayEngineState(
                                 time = '2019-05-03T04:30:31Z', 
                                 value = 'On', )
+                            ], 
+                        gateway_j1939_engine_seconds = [
+                            samsara.models.equipment_gateway_j1939_engine_seconds.EquipmentGatewayJ1939EngineSeconds(
+                                time = '2019-05-03T04:30:31Z', 
+                                value = 22374000, )
                             ], 
                         gps_odometer_meters = [
                             samsara.models.equipment_gps_odometer_meters.EquipmentGpsOdometerMeters(

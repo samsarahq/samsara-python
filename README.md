@@ -234,6 +234,7 @@ Class | Method | HTTP request | Description
  - [EquipmentFuelPercent](docs/EquipmentFuelPercent.md)
  - [EquipmentGatewayEngineSeconds](docs/EquipmentGatewayEngineSeconds.md)
  - [EquipmentGatewayEngineState](docs/EquipmentGatewayEngineState.md)
+ - [EquipmentGatewayJ1939EngineSeconds](docs/EquipmentGatewayJ1939EngineSeconds.md)
  - [EquipmentGpsOdometerMeters](docs/EquipmentGpsOdometerMeters.md)
  - [EquipmentListResponse](docs/EquipmentListResponse.md)
  - [EquipmentLocation](docs/EquipmentLocation.md)

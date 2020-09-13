@@ -39,6 +39,7 @@ class EquipmentStatsListResponseData(object):
         'fuel_percent': 'list[EquipmentFuelPercent]',
         'gateway_engine_seconds': 'list[EquipmentGatewayEngineSeconds]',
         'gateway_engine_state': 'list[EquipmentGatewayEngineState]',
+        'gateway_j1939_engine_seconds': 'list[EquipmentGatewayJ1939EngineSeconds]',
         'gps_odometer_meters': 'list[EquipmentGpsOdometerMeters]',
         'id': 'str',
         'name': 'str',
@@ -53,6 +54,7 @@ class EquipmentStatsListResponseData(object):
         'fuel_percent': 'fuelPercent',
         'gateway_engine_seconds': 'gatewayEngineSeconds',
         'gateway_engine_state': 'gatewayEngineState',
+        'gateway_j1939_engine_seconds': 'gatewayJ1939EngineSeconds',
         'gps_odometer_meters': 'gpsOdometerMeters',
         'id': 'id',
         'name': 'name',
@@ -60,7 +62,7 @@ class EquipmentStatsListResponseData(object):
         'obd_engine_state': 'obdEngineState'
     }
 
-    def __init__(self, engine_rpm=None, engine_seconds=None, engine_states=None, fuel_percent=None, gateway_engine_seconds=None, gateway_engine_state=None, gps_odometer_meters=None, id=None, name=None, obd_engine_seconds=None, obd_engine_state=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, engine_rpm=None, engine_seconds=None, engine_states=None, fuel_percent=None, gateway_engine_seconds=None, gateway_engine_state=None, gateway_j1939_engine_seconds=None, gps_odometer_meters=None, id=None, name=None, obd_engine_seconds=None, obd_engine_state=None, local_vars_configuration=None):  # noqa: E501
         """EquipmentStatsListResponseData - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -72,6 +74,7 @@ class EquipmentStatsListResponseData(object):
         self._fuel_percent = None
         self._gateway_engine_seconds = None
         self._gateway_engine_state = None
+        self._gateway_j1939_engine_seconds = None
         self._gps_odometer_meters = None
         self._id = None
         self._name = None
@@ -91,6 +94,8 @@ class EquipmentStatsListResponseData(object):
             self.gateway_engine_seconds = gateway_engine_seconds
         if gateway_engine_state is not None:
             self.gateway_engine_state = gateway_engine_state
+        if gateway_j1939_engine_seconds is not None:
+            self.gateway_j1939_engine_seconds = gateway_j1939_engine_seconds
         if gps_odometer_meters is not None:
             self.gps_odometer_meters = gps_odometer_meters
         self.id = id
@@ -127,7 +132,7 @@ class EquipmentStatsListResponseData(object):
     def engine_seconds(self):
         """Gets the engine_seconds of this EquipmentStatsListResponseData.  # noqa: E501
 
-        [DEPRECATED] Please use either `gatewayEngineSeconds` or `obdEngineSeconds`.  # noqa: E501
+        [DEPRECATED] Please use either `gatewayEngineSeconds`, `obdEngineSeconds`, or `gatewayJ1939EngineSeconds`.  # noqa: E501
 
         :return: The engine_seconds of this EquipmentStatsListResponseData.  # noqa: E501
         :rtype: list[EquipmentEngineSeconds]
@@ -138,7 +143,7 @@ class EquipmentStatsListResponseData(object):
     def engine_seconds(self, engine_seconds):
         """Sets the engine_seconds of this EquipmentStatsListResponseData.
 
-        [DEPRECATED] Please use either `gatewayEngineSeconds` or `obdEngineSeconds`.  # noqa: E501
+        [DEPRECATED] Please use either `gatewayEngineSeconds`, `obdEngineSeconds`, or `gatewayJ1939EngineSeconds`.  # noqa: E501
 
         :param engine_seconds: The engine_seconds of this EquipmentStatsListResponseData.  # noqa: E501
         :type: list[EquipmentEngineSeconds]
@@ -196,7 +201,7 @@ class EquipmentStatsListResponseData(object):
     def gateway_engine_seconds(self):
         """Gets the gateway_engine_seconds of this EquipmentStatsListResponseData.  # noqa: E501
 
-        A time-series of engine seconds readings for the given unit of equipment. (An approximate based on readings from the AG24's aux/digio cable.)  # noqa: E501
+        A time-series of engine seconds readings for the given unit of equipment as an approximate based on readings from the AG24's aux/digio cable.  # noqa: E501
 
         :return: The gateway_engine_seconds of this EquipmentStatsListResponseData.  # noqa: E501
         :rtype: list[EquipmentGatewayEngineSeconds]
@@ -207,7 +212,7 @@ class EquipmentStatsListResponseData(object):
     def gateway_engine_seconds(self, gateway_engine_seconds):
         """Sets the gateway_engine_seconds of this EquipmentStatsListResponseData.
 
-        A time-series of engine seconds readings for the given unit of equipment. (An approximate based on readings from the AG24's aux/digio cable.)  # noqa: E501
+        A time-series of engine seconds readings for the given unit of equipment as an approximate based on readings from the AG24's aux/digio cable.  # noqa: E501
 
         :param gateway_engine_seconds: The gateway_engine_seconds of this EquipmentStatsListResponseData.  # noqa: E501
         :type: list[EquipmentGatewayEngineSeconds]
@@ -237,6 +242,29 @@ class EquipmentStatsListResponseData(object):
         """
 
         self._gateway_engine_state = gateway_engine_state
+
+    @property
+    def gateway_j1939_engine_seconds(self):
+        """Gets the gateway_j1939_engine_seconds of this EquipmentStatsListResponseData.  # noqa: E501
+
+        A time-series of engine seconds readings for the given unit of equipment as an approximate based on readings from the AG24's CAT/J1939 cable.  # noqa: E501
+
+        :return: The gateway_j1939_engine_seconds of this EquipmentStatsListResponseData.  # noqa: E501
+        :rtype: list[EquipmentGatewayJ1939EngineSeconds]
+        """
+        return self._gateway_j1939_engine_seconds
+
+    @gateway_j1939_engine_seconds.setter
+    def gateway_j1939_engine_seconds(self, gateway_j1939_engine_seconds):
+        """Sets the gateway_j1939_engine_seconds of this EquipmentStatsListResponseData.
+
+        A time-series of engine seconds readings for the given unit of equipment as an approximate based on readings from the AG24's CAT/J1939 cable.  # noqa: E501
+
+        :param gateway_j1939_engine_seconds: The gateway_j1939_engine_seconds of this EquipmentStatsListResponseData.  # noqa: E501
+        :type: list[EquipmentGatewayJ1939EngineSeconds]
+        """
+
+        self._gateway_j1939_engine_seconds = gateway_j1939_engine_seconds
 
     @property
     def gps_odometer_meters(self):
@@ -315,7 +343,7 @@ class EquipmentStatsListResponseData(object):
     def obd_engine_seconds(self):
         """Gets the obd_engine_seconds of this EquipmentStatsListResponseData.  # noqa: E501
 
-        A time-series of engine state changes for the given unit of equipment. (As directly from on-board diagnostics.)  # noqa: E501
+        A time-series of engine seconds readings for the given unit of equipment directly from on-board diagnostics.  # noqa: E501
 
         :return: The obd_engine_seconds of this EquipmentStatsListResponseData.  # noqa: E501
         :rtype: list[EquipmentObdEngineSeconds]
@@ -326,7 +354,7 @@ class EquipmentStatsListResponseData(object):
     def obd_engine_seconds(self, obd_engine_seconds):
         """Sets the obd_engine_seconds of this EquipmentStatsListResponseData.
 
-        A time-series of engine state changes for the given unit of equipment. (As directly from on-board diagnostics.)  # noqa: E501
+        A time-series of engine seconds readings for the given unit of equipment directly from on-board diagnostics.  # noqa: E501
 
         :param obd_engine_seconds: The obd_engine_seconds of this EquipmentStatsListResponseData.  # noqa: E501
         :type: list[EquipmentObdEngineSeconds]

@@ -112,6 +112,7 @@ from samsara.models.equipment_engine_state import EquipmentEngineState
 from samsara.models.equipment_fuel_percent import EquipmentFuelPercent
 from samsara.models.equipment_gateway_engine_seconds import EquipmentGatewayEngineSeconds
 from samsara.models.equipment_gateway_engine_state import EquipmentGatewayEngineState
+from samsara.models.equipment_gateway_j1939_engine_seconds import EquipmentGatewayJ1939EngineSeconds
 from samsara.models.equipment_gps_odometer_meters import EquipmentGpsOdometerMeters
 from samsara.models.equipment_list_response import EquipmentListResponse
 from samsara.models.equipment_location import EquipmentLocation
