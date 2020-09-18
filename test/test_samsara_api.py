@@ -35,6 +35,13 @@ class TestSamsaraApi(unittest.TestCase):
         """
         pass
 
+    def test_create_attribute(self):
+        """Test case for create_attribute
+
+        Create an attribute  # noqa: E501
+        """
+        pass
+
     def test_create_carrier_proposed_assignment(self):
         """Test case for create_carrier_proposed_assignment
 
@@ -91,6 +98,13 @@ class TestSamsaraApi(unittest.TestCase):
         """
         pass
 
+    def test_delete_attribute(self):
+        """Test case for delete_attribute
+
+        Deleting an attribute  # noqa: E501
+        """
+        pass
+
     def test_delete_carrier_proposed_assignment(self):
         """Test case for delete_carrier_proposed_assignment
 
@@ -137,6 +151,20 @@ class TestSamsaraApi(unittest.TestCase):
         """Test case for get_address
 
         Retrieve an address  # noqa: E501
+        """
+        pass
+
+    def test_get_attribute(self):
+        """Test case for get_attribute
+
+        Retrieve an attribute  # noqa: E501
+        """
+        pass
+
+    def test_get_attributes_by_entity_type(self):
+        """Test case for get_attributes_by_entity_type
+
+        List all attributes by entity type  # noqa: E501
         """
         pass
 
@@ -473,6 +501,13 @@ class TestSamsaraApi(unittest.TestCase):
         """Test case for update_address
 
         Update an address  # noqa: E501
+        """
+        pass
+
+    def test_update_attribute(self):
+        """Test case for update_attribute
+
+        Update an attribute  # noqa: E501
         """
         pass
 

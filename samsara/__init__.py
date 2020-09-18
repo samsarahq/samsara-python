@@ -41,6 +41,12 @@ from samsara.models.asset_response import AssetResponse
 from samsara.models.asset_response_location_data_input import AssetResponseLocationDataInput
 from samsara.models.asset_response_parent_asset import AssetResponseParentAsset
 from samsara.models.asset_response_running_status_data_input import AssetResponseRunningStatusDataInput
+from samsara.models.attribute import Attribute
+from samsara.models.attribute_entity import AttributeEntity
+from samsara.models.attribute_expanded import AttributeExpanded
+from samsara.models.attribute_expanded_all_of import AttributeExpandedAllOf
+from samsara.models.attribute_expanded_response import AttributeExpandedResponse
+from samsara.models.attribute_response import AttributeResponse
 from samsara.models.carrier_proposed_assignment import CarrierProposedAssignment
 from samsara.models.carrier_proposed_assignment_driver import CarrierProposedAssignmentDriver
 from samsara.models.carrier_proposed_assignment_response import CarrierProposedAssignmentResponse
@@ -49,6 +55,8 @@ from samsara.models.contact import Contact
 from samsara.models.contact_response import ContactResponse
 from samsara.models.contact_tiny_response import ContactTinyResponse
 from samsara.models.create_address_request import CreateAddressRequest
+from samsara.models.create_attribute_request import CreateAttributeRequest
+from samsara.models.create_attribute_request_entities import CreateAttributeRequestEntities
 from samsara.models.create_carrier_proposed_assignment_request import CreateCarrierProposedAssignmentRequest
 from samsara.models.create_contact_request import CreateContactRequest
 from samsara.models.create_driver_request import CreateDriverRequest
@@ -130,6 +138,7 @@ from samsara.models.equipment_stats_response_data import EquipmentStatsResponseD
 from samsara.models.extended_driver_tiny_response import ExtendedDriverTinyResponse
 from samsara.models.fft_spectra_data_point import FftSpectraDataPoint
 from samsara.models.fft_spectra_data_point_fft_spectra import FftSpectraDataPointFftSpectra
+from samsara.models.get_attributes_by_entity_type_response import GetAttributesByEntityTypeResponse
 from samsara.models.hos_break import HosBreak
 from samsara.models.hos_clocks import HosClocks
 from samsara.models.hos_clocks_for_driver import HosClocksForDriver
@@ -199,6 +208,7 @@ from samsara.models.tiny_tag import TinyTag
 from samsara.models.trailer_name_only_response import TrailerNameOnlyResponse
 from samsara.models.trailer_tiny_response import TrailerTinyResponse
 from samsara.models.update_address_request import UpdateAddressRequest
+from samsara.models.update_attribute_request import UpdateAttributeRequest
 from samsara.models.update_contact_request import UpdateContactRequest
 from samsara.models.update_driver_request import UpdateDriverRequest
 from samsara.models.update_dvir_request import UpdateDvirRequest
