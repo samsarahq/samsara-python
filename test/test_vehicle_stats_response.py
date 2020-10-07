@@ -167,6 +167,19 @@ class TestVehicleStatsResponse(unittest.TestCase):
                             value = 9723103, ), 
                         obd_odometer_meters = samsara.models.vehicle_stats_obd_odometer_meters.VehicleStatsObdOdometerMeters(
                             time = '2020-01-27T07:06:25Z', 
+                            value = 14010293, ), 
+                        synthetic_engine_seconds = samsara.models.vehicle_stats_synthetic_engine_seconds.VehicleStatsSyntheticEngineSeconds(
+                            decorations = samsara.models.vehicle_stats_decorations.VehicleStatsDecorations(
+                                engine_states = samsara.models.vehicle_stats_decorations_engine_states.VehicleStatsDecorations_engineStates(
+                                    value = 'On', ), 
+                                fuel_percents = samsara.models.vehicle_stats_decorations_fuel_percents.VehicleStatsDecorations_fuelPercents(
+                                    value = 54, ), 
+                                tire_pressure = samsara.models.vehicle_stats_tire_pressures.VehicleStatsTirePressures(
+                                    back_left_tire_pressure_k_pa = 200, 
+                                    back_right_tire_pressure_k_pa = 200, 
+                                    front_left_tire_pressure_k_pa = 200, 
+                                    front_right_tire_pressure_k_pa = 200, ), ), 
+                            time = '2020-01-27T07:06:25Z', 
                             value = 14010293, ), )
                     ], 
                 pagination = samsara.models.pagination_response.paginationResponse(
@@ -305,6 +318,19 @@ class TestVehicleStatsResponse(unittest.TestCase):
                             time = '2020-01-27T07:06:25Z', 
                             value = 9723103, ), 
                         obd_odometer_meters = samsara.models.vehicle_stats_obd_odometer_meters.VehicleStatsObdOdometerMeters(
+                            time = '2020-01-27T07:06:25Z', 
+                            value = 14010293, ), 
+                        synthetic_engine_seconds = samsara.models.vehicle_stats_synthetic_engine_seconds.VehicleStatsSyntheticEngineSeconds(
+                            decorations = samsara.models.vehicle_stats_decorations.VehicleStatsDecorations(
+                                engine_states = samsara.models.vehicle_stats_decorations_engine_states.VehicleStatsDecorations_engineStates(
+                                    value = 'On', ), 
+                                fuel_percents = samsara.models.vehicle_stats_decorations_fuel_percents.VehicleStatsDecorations_fuelPercents(
+                                    value = 54, ), 
+                                tire_pressure = samsara.models.vehicle_stats_tire_pressures.VehicleStatsTirePressures(
+                                    back_left_tire_pressure_k_pa = 200, 
+                                    back_right_tire_pressure_k_pa = 200, 
+                                    front_left_tire_pressure_k_pa = 200, 
+                                    front_right_tire_pressure_k_pa = 200, ), ), 
                             time = '2020-01-27T07:06:25Z', 
                             value = 14010293, ), )
                     ],

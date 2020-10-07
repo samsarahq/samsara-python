@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **nfc_card_scan** | [**VehicleStatsNfcCardScan**](VehicleStatsNfcCardScan.md) |  | [optional] 
 **obd_engine_seconds** | [**VehicleStatsObdEngineSeconds**](VehicleStatsObdEngineSeconds.md) |  | [optional] 
 **obd_odometer_meters** | [**VehicleStatsObdOdometerMeters**](VehicleStatsObdOdometerMeters.md) |  | [optional] 
+**synthetic_engine_seconds** | [**VehicleStatsSyntheticEngineSeconds**](VehicleStatsSyntheticEngineSeconds.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

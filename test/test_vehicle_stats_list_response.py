@@ -221,6 +221,11 @@ class TestVehicleStatsListResponse(unittest.TestCase):
                             samsara.models.vehicle_stats_obd_odometer_meters_with_decoration.VehicleStatsObdOdometerMetersWithDecoration(
                                 time = '2020-01-27T07:06:25Z', 
                                 value = 14010293, )
+                            ], 
+                        synthetic_engine_seconds = [
+                            samsara.models.vehicle_stats_list_synthetic_engine_seconds.VehicleStatsListSyntheticEngineSeconds(
+                                time = '2020-01-27T07:06:25Z', 
+                                value = 14010293, )
                             ], )
                     ], 
                 pagination = samsara.models.pagination_response.paginationResponse(
@@ -412,6 +417,11 @@ class TestVehicleStatsListResponse(unittest.TestCase):
                             ], 
                         obd_odometer_meters = [
                             samsara.models.vehicle_stats_obd_odometer_meters_with_decoration.VehicleStatsObdOdometerMetersWithDecoration(
+                                time = '2020-01-27T07:06:25Z', 
+                                value = 14010293, )
+                            ], 
+                        synthetic_engine_seconds = [
+                            samsara.models.vehicle_stats_list_synthetic_engine_seconds.VehicleStatsListSyntheticEngineSeconds(
                                 time = '2020-01-27T07:06:25Z', 
                                 value = 14010293, )
                             ], )

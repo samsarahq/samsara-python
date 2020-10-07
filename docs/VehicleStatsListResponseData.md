@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **nfc_card_scans** | [**list[VehicleStatsNfcCardScanWithDecoration]**](VehicleStatsNfcCardScanWithDecoration.md) | A list of NFC cards that were scanned for the given vehicles. | [optional] 
 **obd_engine_seconds** | [**list[VehicleStatsObdEngineSecondsWithDecoration]**](VehicleStatsObdEngineSecondsWithDecoration.md) | A list of OBD engine seconds readings for the given vehicle. | [optional] 
 **obd_odometer_meters** | [**list[VehicleStatsObdOdometerMetersWithDecoration]**](VehicleStatsObdOdometerMetersWithDecoration.md) | A list of OBD odometer readings for the given vehicle. | [optional] 
+**synthetic_engine_seconds** | [**list[VehicleStatsListSyntheticEngineSeconds]**](VehicleStatsListSyntheticEngineSeconds.md) | A list of synthetic engine seconds values. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -56,7 +56,8 @@ class VehicleStatsResponseData(object):
         'name': 'str',
         'nfc_card_scan': 'VehicleStatsNfcCardScan',
         'obd_engine_seconds': 'VehicleStatsObdEngineSeconds',
-        'obd_odometer_meters': 'VehicleStatsObdOdometerMeters'
+        'obd_odometer_meters': 'VehicleStatsObdOdometerMeters',
+        'synthetic_engine_seconds': 'VehicleStatsSyntheticEngineSeconds'
     }
 
     attribute_map = {
@@ -83,10 +84,11 @@ class VehicleStatsResponseData(object):
         'name': 'name',
         'nfc_card_scan': 'nfcCardScan',
         'obd_engine_seconds': 'obdEngineSeconds',
-        'obd_odometer_meters': 'obdOdometerMeters'
+        'obd_odometer_meters': 'obdOdometerMeters',
+        'synthetic_engine_seconds': 'syntheticEngineSeconds'
     }
 
-    def __init__(self, aux_input1=None, aux_input10=None, aux_input2=None, aux_input3=None, aux_input4=None, aux_input5=None, aux_input6=None, aux_input7=None, aux_input8=None, aux_input9=None, battery_milli_volts=None, ecu_speed_mph=None, engine_rpm=None, engine_state=None, fault_codes=None, fuel_percent=None, gps=None, gps_distance_meters=None, gps_odometer_meters=None, id=None, name=None, nfc_card_scan=None, obd_engine_seconds=None, obd_odometer_meters=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, aux_input1=None, aux_input10=None, aux_input2=None, aux_input3=None, aux_input4=None, aux_input5=None, aux_input6=None, aux_input7=None, aux_input8=None, aux_input9=None, battery_milli_volts=None, ecu_speed_mph=None, engine_rpm=None, engine_state=None, fault_codes=None, fuel_percent=None, gps=None, gps_distance_meters=None, gps_odometer_meters=None, id=None, name=None, nfc_card_scan=None, obd_engine_seconds=None, obd_odometer_meters=None, synthetic_engine_seconds=None, local_vars_configuration=None):  # noqa: E501
         """VehicleStatsResponseData - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -116,6 +118,7 @@ class VehicleStatsResponseData(object):
         self._nfc_card_scan = None
         self._obd_engine_seconds = None
         self._obd_odometer_meters = None
+        self._synthetic_engine_seconds = None
         self.discriminator = None
 
         if aux_input1 is not None:
@@ -164,6 +167,8 @@ class VehicleStatsResponseData(object):
             self.obd_engine_seconds = obd_engine_seconds
         if obd_odometer_meters is not None:
             self.obd_odometer_meters = obd_odometer_meters
+        if synthetic_engine_seconds is not None:
+            self.synthetic_engine_seconds = synthetic_engine_seconds
 
     @property
     def aux_input1(self):
@@ -676,6 +681,27 @@ class VehicleStatsResponseData(object):
         """
 
         self._obd_odometer_meters = obd_odometer_meters
+
+    @property
+    def synthetic_engine_seconds(self):
+        """Gets the synthetic_engine_seconds of this VehicleStatsResponseData.  # noqa: E501
+
+
+        :return: The synthetic_engine_seconds of this VehicleStatsResponseData.  # noqa: E501
+        :rtype: VehicleStatsSyntheticEngineSeconds
+        """
+        return self._synthetic_engine_seconds
+
+    @synthetic_engine_seconds.setter
+    def synthetic_engine_seconds(self, synthetic_engine_seconds):
+        """Sets the synthetic_engine_seconds of this VehicleStatsResponseData.
+
+
+        :param synthetic_engine_seconds: The synthetic_engine_seconds of this VehicleStatsResponseData.  # noqa: E501
+        :type: VehicleStatsSyntheticEngineSeconds
+        """
+
+        self._synthetic_engine_seconds = synthetic_engine_seconds
 
     def to_dict(self):
         """Returns the model properties as a dict"""
