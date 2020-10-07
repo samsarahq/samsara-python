@@ -5118,7 +5118,7 @@ class SamsaraApi(object):
     def get_route_feed(self, **kwargs):  # noqa: E501
         """[beta] Get route updates  # noqa: E501
 
-        Subscribes to a feed of route updates. The initial request to this feed endpoint returns a cursor, which can be used on the next request to fetch updated routes that have had state changes since that request.  # noqa: E501
+        Subscribes to a feed of immutable, append-only updates for routes. The initial request to this feed endpoint returns a cursor, which can be used on the next request to fetch updated routes that have had state changes since that request.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_route_feed(async_req=True)
@@ -5143,7 +5143,7 @@ class SamsaraApi(object):
     def get_route_feed_with_http_info(self, **kwargs):  # noqa: E501
         """[beta] Get route updates  # noqa: E501
 
-        Subscribes to a feed of route updates. The initial request to this feed endpoint returns a cursor, which can be used on the next request to fetch updated routes that have had state changes since that request.  # noqa: E501
+        Subscribes to a feed of immutable, append-only updates for routes. The initial request to this feed endpoint returns a cursor, which can be used on the next request to fetch updated routes that have had state changes since that request.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_route_feed_with_http_info(async_req=True)
@@ -5204,7 +5204,7 @@ class SamsaraApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/fleet/routes/feed', 'GET',
+            '/fleet/routes/audit-logs/feed', 'GET',
             path_params,
             query_params,
             header_params,

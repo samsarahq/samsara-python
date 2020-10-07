@@ -47,7 +47,7 @@ Method | HTTP request | Description
 [**get_hos_logs**](SamsaraApi.md#get_hos_logs) | **GET** /fleet/hos/logs | Get HOS logs
 [**get_industrial_assets**](SamsaraApi.md#get_industrial_assets) | **GET** /industrial/assets | List all assets
 [**get_organization_info**](SamsaraApi.md#get_organization_info) | **GET** /me | Get information about your organization
-[**get_route_feed**](SamsaraApi.md#get_route_feed) | **GET** /fleet/routes/feed | [beta] Get route updates
+[**get_route_feed**](SamsaraApi.md#get_route_feed) | **GET** /fleet/routes/audit-logs/feed | [beta] Get route updates
 [**get_safety_events**](SamsaraApi.md#get_safety_events) | **GET** /fleet/safety-events | List all safety events.
 [**get_tag**](SamsaraApi.md#get_tag) | **GET** /tags/{id} | Retrieve a tag
 [**get_user**](SamsaraApi.md#get_user) | **GET** /users/{id} | Retrieve a user
@@ -2694,7 +2694,7 @@ print("Exception when calling SamsaraApi->get_organization_info: %s\n" % e)
 
     [beta] Get route updates
 
-      Subscribes to a feed of route updates. The initial request to this feed endpoint returns a cursor, which can be used on the next request to fetch updated routes that have had state changes since that request.
+      Subscribes to a feed of immutable, append-only updates for routes. The initial request to this feed endpoint returns a cursor, which can be used on the next request to fetch updated routes that have had state changes since that request.
 
     ### Example
 

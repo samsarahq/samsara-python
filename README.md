@@ -119,7 +119,7 @@ Class | Method | HTTP request | Description
 *SamsaraApi* | [**get_hos_logs**](docs/SamsaraApi.md#get_hos_logs) | **GET** /fleet/hos/logs | Get HOS logs
 *SamsaraApi* | [**get_industrial_assets**](docs/SamsaraApi.md#get_industrial_assets) | **GET** /industrial/assets | List all assets
 *SamsaraApi* | [**get_organization_info**](docs/SamsaraApi.md#get_organization_info) | **GET** /me | Get information about your organization
-*SamsaraApi* | [**get_route_feed**](docs/SamsaraApi.md#get_route_feed) | **GET** /fleet/routes/feed | [beta] Get route updates
+*SamsaraApi* | [**get_route_feed**](docs/SamsaraApi.md#get_route_feed) | **GET** /fleet/routes/audit-logs/feed | [beta] Get route updates
 *SamsaraApi* | [**get_safety_events**](docs/SamsaraApi.md#get_safety_events) | **GET** /fleet/safety-events | List all safety events.
 *SamsaraApi* | [**get_tag**](docs/SamsaraApi.md#get_tag) | **GET** /tags/{id} | Retrieve a tag
 *SamsaraApi* | [**get_user**](docs/SamsaraApi.md#get_user) | **GET** /users/{id} | Retrieve a user
