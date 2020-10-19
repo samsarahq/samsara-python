@@ -36,6 +36,9 @@ class TestVehicleStatsResponseData(unittest.TestCase):
         # model = samsara.models.vehicle_stats_response_data.VehicleStatsResponseData()  # noqa: E501
         if include_optional :
             return VehicleStatsResponseData(
+                ambient_air_temperature_milli_c = samsara.models.vehicle_stats_ambient_air_temp_milli_c.VehicleStatsAmbientAirTempMilliC(
+                    time = '2020-01-27T07:06:25Z', 
+                    value = 31110, ), 
                 aux_input1 = samsara.models.vehicle_stats_aux_input.VehicleStatsAuxInput(
                     name = 'boom', 
                     time = '2020-01-27T07:06:25Z', 
@@ -76,12 +79,27 @@ class TestVehicleStatsResponseData(unittest.TestCase):
                     name = 'boom', 
                     time = '2020-01-27T07:06:25Z', 
                     value = True, ), 
+                barometric_pressure_pa = samsara.models.vehicle_stats_barometric_pressure_pa.VehicleStatsBarometricPressurePa(
+                    time = '2020-01-27T07:06:25Z', 
+                    value = 99000, ), 
                 battery_milli_volts = samsara.models.vehicle_stats_battery_voltage.VehicleStatsBatteryVoltage(
                     time = '2020-01-27T07:06:25Z', 
                     value = 7991, ), 
+                def_level_milli_percent = samsara.models.vehicle_stats_def_level_milli_percent.VehicleStatsDefLevelMilliPercent(
+                    time = '2020-01-27T07:06:25Z', 
+                    value = 54200, ), 
                 ecu_speed_mph = samsara.models.vehicle_stats_ecu_speed_mph.VehicleStatsEcuSpeedMph(
                     time = '2020-01-27T07:06:25Z', 
                     value = 32.1, ), 
+                engine_coolant_temperature_milli_c = samsara.models.vehicle_stats_engine_coolant_temp_milli_c.VehicleStatsEngineCoolantTempMilliC(
+                    time = '2020-01-27T07:06:25Z', 
+                    value = 31110, ), 
+                engine_load_percent = samsara.models.vehicle_stats_engine_load_percent.VehicleStatsEngineLoadPercent(
+                    time = '2020-01-27T07:06:25Z', 
+                    value = 54, ), 
+                engine_oil_pressure_k_pa = samsara.models.vehicle_stats_engine_oil_pressure_k_pa.VehicleStatsEngineOilPressureKPa(
+                    time = '2020-01-27T07:06:25Z', 
+                    value = 100, ), 
                 engine_rpm = samsara.models.vehicle_stats_engine_rpm.VehicleStatsEngineRpm(
                     time = '2020-01-27T07:06:25Z', 
                     value = 1000, ), 
@@ -165,6 +183,9 @@ class TestVehicleStatsResponseData(unittest.TestCase):
                     time = '2020-01-27T07:06:25Z', 
                     value = 14010293, ), 
                 id = '112', 
+                intake_manifold_temperature_milli_c = samsara.models.vehicle_stats_intake_manifold_temp_milli_c.VehicleStatsIntakeManifoldTempMilliC(
+                    time = '2020-01-27T07:06:25Z', 
+                    value = 88000, ), 
                 name = 'Truck A7', 
                 nfc_card_scan = samsara.models.vehicle_stats_nfc_card_scan.VehicleStatsNfcCardScan(
                     card = samsara.models.vehicle_stats_nfc_card_scan_card.VehicleStatsNfcCardScan_card(
@@ -178,6 +199,8 @@ class TestVehicleStatsResponseData(unittest.TestCase):
                     value = 14010293, ), 
                 synthetic_engine_seconds = samsara.models.vehicle_stats_synthetic_engine_seconds.VehicleStatsSyntheticEngineSeconds(
                     decorations = samsara.models.vehicle_stats_decorations.VehicleStatsDecorations(
+                        ambient_air_temperature_milli_c = samsara.models.vehicle_stats_decorations_ambient_air_temperature_milli_c.VehicleStatsDecorations_ambientAirTemperatureMilliC(
+                            value = 31110, ), 
                         aux_input1 = samsara.models.vehicle_stats_aux_input_decoration.VehicleStatsAuxInputDecoration(
                             name = 'boom', 
                             value = True, ), 
@@ -208,10 +231,20 @@ class TestVehicleStatsResponseData(unittest.TestCase):
                         aux_input9 = samsara.models.vehicle_stats_aux_input_decoration.VehicleStatsAuxInputDecoration(
                             name = 'boom', 
                             value = True, ), 
+                        barometric_pressure_pa = samsara.models.vehicle_stats_decorations_barometric_pressure_pa.VehicleStatsDecorations_barometricPressurePa(
+                            value = 99000, ), 
                         battery_milli_volts = samsara.models.vehicle_stats_decorations_battery_milli_volts.VehicleStatsDecorations_batteryMilliVolts(
                             value = 7991, ), 
+                        def_level_milli_percent = samsara.models.vehicle_stats_decorations_def_level_milli_percent.VehicleStatsDecorations_defLevelMilliPercent(
+                            value = 54200, ), 
                         ecu_speed_mph = samsara.models.vehicle_stats_decorations_ecu_speed_mph.VehicleStatsDecorations_ecuSpeedMph(
                             value = 58.3, ), 
+                        engine_coolant_temperature_milli_c = samsara.models.vehicle_stats_decorations_engine_coolant_temperature_milli_c.VehicleStatsDecorations_engineCoolantTemperatureMilliC(
+                            value = 31110, ), 
+                        engine_load_percent = samsara.models.vehicle_stats_decorations_engine_load_percent.VehicleStatsDecorations_engineLoadPercent(
+                            value = 54, ), 
+                        engine_oil_pressure_k_pa = samsara.models.vehicle_stats_decorations_engine_oil_pressure_k_pa.VehicleStatsDecorations_engineOilPressureKPa(
+                            value = 100, ), 
                         engine_rpm = samsara.models.vehicle_stats_decorations_engine_rpm.VehicleStatsDecorations_engineRpm(
                             value = 1000, ), 
                         engine_states = samsara.models.vehicle_stats_decorations_engine_states.VehicleStatsDecorations_engineStates(
@@ -250,6 +283,8 @@ class TestVehicleStatsResponseData(unittest.TestCase):
                             value = 81029.591434899, ), 
                         gps_odometer_meters = samsara.models.vehicle_stats_decorations_gps_odometer_meters.VehicleStatsDecorations_gpsOdometerMeters(
                             value = 14010293, ), 
+                        intake_manifold_temperature_milli_c = samsara.models.vehicle_stats_decorations_intake_manifold_temperature_milli_c.VehicleStatsDecorations_intakeManifoldTemperatureMilliC(
+                            value = 88000, ), 
                         obd_engine_seconds = samsara.models.vehicle_stats_decorations_obd_engine_seconds.VehicleStatsDecorations_obdEngineSeconds(
                             value = 9723103, ), 
                         obd_odometer_meters = samsara.models.vehicle_stats_decorations_obd_odometer_meters.VehicleStatsDecorations_obdOdometerMeters(

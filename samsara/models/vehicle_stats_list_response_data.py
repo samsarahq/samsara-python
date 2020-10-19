@@ -33,6 +33,7 @@ class VehicleStatsListResponseData(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'ambient_air_temperature_milli_c': 'list[VehicleStatsAmbientAirTempMilliCWithDecoration]',
         'aux_input1': 'list[VehicleStatsAuxInputWithDecoration]',
         'aux_input10': 'list[VehicleStatsAuxInputWithDecoration]',
         'aux_input2': 'list[VehicleStatsAuxInputWithDecoration]',
@@ -43,8 +44,13 @@ class VehicleStatsListResponseData(object):
         'aux_input7': 'list[VehicleStatsAuxInputWithDecoration]',
         'aux_input8': 'list[VehicleStatsAuxInputWithDecoration]',
         'aux_input9': 'list[VehicleStatsAuxInputWithDecoration]',
+        'barometric_pressure_pa': 'list[VehicleStatsBarometricPressurePaWithDecoration]',
         'battery_milli_volts': 'list[VehicleStatsBatteryVoltageWithDecoration]',
+        'def_level_milli_percent': 'list[VehicleStatsDefLevelMilliPercentWithDecoration]',
         'ecu_speed_mph': 'list[VehicleStatsEcuSpeedMphWithDecoration]',
+        'engine_coolant_temperature_milli_c': 'list[VehicleStatsEngineCoolantTempMilliCWithDecoration]',
+        'engine_load_percent': 'list[VehicleStatsEngineLoadPercentWithDecoration]',
+        'engine_oil_pressure_k_pa': 'list[VehicleStatsEngineOilPressureKPaWithDecoration]',
         'engine_rpm': 'list[VehicleStatsEngineRpmWithDecoration]',
         'engine_states': 'list[VehicleStatsEngineStateWithDecoration]',
         'fault_codes': 'list[VehicleStatsFaultCodesWithDecoration]',
@@ -53,6 +59,7 @@ class VehicleStatsListResponseData(object):
         'gps_distance_meters': 'list[VehicleStatsGpsDistanceMetersWithDecoration]',
         'gps_odometer_meters': 'list[VehicleStatsGpsOdometerMetersWithDecoration]',
         'id': 'str',
+        'intake_manifold_temperature_milli_c': 'list[VehicleStatsIntakeManifoldTempMilliCWithDecoration]',
         'name': 'str',
         'nfc_card_scans': 'list[VehicleStatsNfcCardScanWithDecoration]',
         'obd_engine_seconds': 'list[VehicleStatsObdEngineSecondsWithDecoration]',
@@ -61,6 +68,7 @@ class VehicleStatsListResponseData(object):
     }
 
     attribute_map = {
+        'ambient_air_temperature_milli_c': 'ambientAirTemperatureMilliC',
         'aux_input1': 'auxInput1',
         'aux_input10': 'auxInput10',
         'aux_input2': 'auxInput2',
@@ -71,8 +79,13 @@ class VehicleStatsListResponseData(object):
         'aux_input7': 'auxInput7',
         'aux_input8': 'auxInput8',
         'aux_input9': 'auxInput9',
+        'barometric_pressure_pa': 'barometricPressurePa',
         'battery_milli_volts': 'batteryMilliVolts',
+        'def_level_milli_percent': 'defLevelMilliPercent',
         'ecu_speed_mph': 'ecuSpeedMph',
+        'engine_coolant_temperature_milli_c': 'engineCoolantTemperatureMilliC',
+        'engine_load_percent': 'engineLoadPercent',
+        'engine_oil_pressure_k_pa': 'engineOilPressureKPa',
         'engine_rpm': 'engineRpm',
         'engine_states': 'engineStates',
         'fault_codes': 'faultCodes',
@@ -81,6 +94,7 @@ class VehicleStatsListResponseData(object):
         'gps_distance_meters': 'gpsDistanceMeters',
         'gps_odometer_meters': 'gpsOdometerMeters',
         'id': 'id',
+        'intake_manifold_temperature_milli_c': 'intakeManifoldTemperatureMilliC',
         'name': 'name',
         'nfc_card_scans': 'nfcCardScans',
         'obd_engine_seconds': 'obdEngineSeconds',
@@ -88,12 +102,13 @@ class VehicleStatsListResponseData(object):
         'synthetic_engine_seconds': 'syntheticEngineSeconds'
     }
 
-    def __init__(self, aux_input1=None, aux_input10=None, aux_input2=None, aux_input3=None, aux_input4=None, aux_input5=None, aux_input6=None, aux_input7=None, aux_input8=None, aux_input9=None, battery_milli_volts=None, ecu_speed_mph=None, engine_rpm=None, engine_states=None, fault_codes=None, fuel_percents=None, gps=None, gps_distance_meters=None, gps_odometer_meters=None, id=None, name=None, nfc_card_scans=None, obd_engine_seconds=None, obd_odometer_meters=None, synthetic_engine_seconds=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, ambient_air_temperature_milli_c=None, aux_input1=None, aux_input10=None, aux_input2=None, aux_input3=None, aux_input4=None, aux_input5=None, aux_input6=None, aux_input7=None, aux_input8=None, aux_input9=None, barometric_pressure_pa=None, battery_milli_volts=None, def_level_milli_percent=None, ecu_speed_mph=None, engine_coolant_temperature_milli_c=None, engine_load_percent=None, engine_oil_pressure_k_pa=None, engine_rpm=None, engine_states=None, fault_codes=None, fuel_percents=None, gps=None, gps_distance_meters=None, gps_odometer_meters=None, id=None, intake_manifold_temperature_milli_c=None, name=None, nfc_card_scans=None, obd_engine_seconds=None, obd_odometer_meters=None, synthetic_engine_seconds=None, local_vars_configuration=None):  # noqa: E501
         """VehicleStatsListResponseData - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._ambient_air_temperature_milli_c = None
         self._aux_input1 = None
         self._aux_input10 = None
         self._aux_input2 = None
@@ -104,8 +119,13 @@ class VehicleStatsListResponseData(object):
         self._aux_input7 = None
         self._aux_input8 = None
         self._aux_input9 = None
+        self._barometric_pressure_pa = None
         self._battery_milli_volts = None
+        self._def_level_milli_percent = None
         self._ecu_speed_mph = None
+        self._engine_coolant_temperature_milli_c = None
+        self._engine_load_percent = None
+        self._engine_oil_pressure_k_pa = None
         self._engine_rpm = None
         self._engine_states = None
         self._fault_codes = None
@@ -114,6 +134,7 @@ class VehicleStatsListResponseData(object):
         self._gps_distance_meters = None
         self._gps_odometer_meters = None
         self._id = None
+        self._intake_manifold_temperature_milli_c = None
         self._name = None
         self._nfc_card_scans = None
         self._obd_engine_seconds = None
@@ -121,6 +142,8 @@ class VehicleStatsListResponseData(object):
         self._synthetic_engine_seconds = None
         self.discriminator = None
 
+        if ambient_air_temperature_milli_c is not None:
+            self.ambient_air_temperature_milli_c = ambient_air_temperature_milli_c
         if aux_input1 is not None:
             self.aux_input1 = aux_input1
         if aux_input10 is not None:
@@ -141,10 +164,20 @@ class VehicleStatsListResponseData(object):
             self.aux_input8 = aux_input8
         if aux_input9 is not None:
             self.aux_input9 = aux_input9
+        if barometric_pressure_pa is not None:
+            self.barometric_pressure_pa = barometric_pressure_pa
         if battery_milli_volts is not None:
             self.battery_milli_volts = battery_milli_volts
+        if def_level_milli_percent is not None:
+            self.def_level_milli_percent = def_level_milli_percent
         if ecu_speed_mph is not None:
             self.ecu_speed_mph = ecu_speed_mph
+        if engine_coolant_temperature_milli_c is not None:
+            self.engine_coolant_temperature_milli_c = engine_coolant_temperature_milli_c
+        if engine_load_percent is not None:
+            self.engine_load_percent = engine_load_percent
+        if engine_oil_pressure_k_pa is not None:
+            self.engine_oil_pressure_k_pa = engine_oil_pressure_k_pa
         if engine_rpm is not None:
             self.engine_rpm = engine_rpm
         if engine_states is not None:
@@ -161,6 +194,8 @@ class VehicleStatsListResponseData(object):
             self.gps_odometer_meters = gps_odometer_meters
         if id is not None:
             self.id = id
+        if intake_manifold_temperature_milli_c is not None:
+            self.intake_manifold_temperature_milli_c = intake_manifold_temperature_milli_c
         if name is not None:
             self.name = name
         if nfc_card_scans is not None:
@@ -171,6 +206,29 @@ class VehicleStatsListResponseData(object):
             self.obd_odometer_meters = obd_odometer_meters
         if synthetic_engine_seconds is not None:
             self.synthetic_engine_seconds = synthetic_engine_seconds
+
+    @property
+    def ambient_air_temperature_milli_c(self):
+        """Gets the ambient_air_temperature_milli_c of this VehicleStatsListResponseData.  # noqa: E501
+
+        A list of ambient air temperature readings in millidegree Celsius for the given vehicle.  # noqa: E501
+
+        :return: The ambient_air_temperature_milli_c of this VehicleStatsListResponseData.  # noqa: E501
+        :rtype: list[VehicleStatsAmbientAirTempMilliCWithDecoration]
+        """
+        return self._ambient_air_temperature_milli_c
+
+    @ambient_air_temperature_milli_c.setter
+    def ambient_air_temperature_milli_c(self, ambient_air_temperature_milli_c):
+        """Sets the ambient_air_temperature_milli_c of this VehicleStatsListResponseData.
+
+        A list of ambient air temperature readings in millidegree Celsius for the given vehicle.  # noqa: E501
+
+        :param ambient_air_temperature_milli_c: The ambient_air_temperature_milli_c of this VehicleStatsListResponseData.  # noqa: E501
+        :type: list[VehicleStatsAmbientAirTempMilliCWithDecoration]
+        """
+
+        self._ambient_air_temperature_milli_c = ambient_air_temperature_milli_c
 
     @property
     def aux_input1(self):
@@ -403,6 +461,29 @@ class VehicleStatsListResponseData(object):
         self._aux_input9 = aux_input9
 
     @property
+    def barometric_pressure_pa(self):
+        """Gets the barometric_pressure_pa of this VehicleStatsListResponseData.  # noqa: E501
+
+        A list of barometric pressure readings in pascals for the given vehicle.  # noqa: E501
+
+        :return: The barometric_pressure_pa of this VehicleStatsListResponseData.  # noqa: E501
+        :rtype: list[VehicleStatsBarometricPressurePaWithDecoration]
+        """
+        return self._barometric_pressure_pa
+
+    @barometric_pressure_pa.setter
+    def barometric_pressure_pa(self, barometric_pressure_pa):
+        """Sets the barometric_pressure_pa of this VehicleStatsListResponseData.
+
+        A list of barometric pressure readings in pascals for the given vehicle.  # noqa: E501
+
+        :param barometric_pressure_pa: The barometric_pressure_pa of this VehicleStatsListResponseData.  # noqa: E501
+        :type: list[VehicleStatsBarometricPressurePaWithDecoration]
+        """
+
+        self._barometric_pressure_pa = barometric_pressure_pa
+
+    @property
     def battery_milli_volts(self):
         """Gets the battery_milli_volts of this VehicleStatsListResponseData.  # noqa: E501
 
@@ -426,6 +507,29 @@ class VehicleStatsListResponseData(object):
         self._battery_milli_volts = battery_milli_volts
 
     @property
+    def def_level_milli_percent(self):
+        """Gets the def_level_milli_percent of this VehicleStatsListResponseData.  # noqa: E501
+
+        A list of DEF level milli percentage readings for the given vehicle.  # noqa: E501
+
+        :return: The def_level_milli_percent of this VehicleStatsListResponseData.  # noqa: E501
+        :rtype: list[VehicleStatsDefLevelMilliPercentWithDecoration]
+        """
+        return self._def_level_milli_percent
+
+    @def_level_milli_percent.setter
+    def def_level_milli_percent(self, def_level_milli_percent):
+        """Sets the def_level_milli_percent of this VehicleStatsListResponseData.
+
+        A list of DEF level milli percentage readings for the given vehicle.  # noqa: E501
+
+        :param def_level_milli_percent: The def_level_milli_percent of this VehicleStatsListResponseData.  # noqa: E501
+        :type: list[VehicleStatsDefLevelMilliPercentWithDecoration]
+        """
+
+        self._def_level_milli_percent = def_level_milli_percent
+
+    @property
     def ecu_speed_mph(self):
         """Gets the ecu_speed_mph of this VehicleStatsListResponseData.  # noqa: E501
 
@@ -447,6 +551,75 @@ class VehicleStatsListResponseData(object):
         """
 
         self._ecu_speed_mph = ecu_speed_mph
+
+    @property
+    def engine_coolant_temperature_milli_c(self):
+        """Gets the engine_coolant_temperature_milli_c of this VehicleStatsListResponseData.  # noqa: E501
+
+        A list of engine coolant temperature readings in millidegree Celsius for the given vehicle.  # noqa: E501
+
+        :return: The engine_coolant_temperature_milli_c of this VehicleStatsListResponseData.  # noqa: E501
+        :rtype: list[VehicleStatsEngineCoolantTempMilliCWithDecoration]
+        """
+        return self._engine_coolant_temperature_milli_c
+
+    @engine_coolant_temperature_milli_c.setter
+    def engine_coolant_temperature_milli_c(self, engine_coolant_temperature_milli_c):
+        """Sets the engine_coolant_temperature_milli_c of this VehicleStatsListResponseData.
+
+        A list of engine coolant temperature readings in millidegree Celsius for the given vehicle.  # noqa: E501
+
+        :param engine_coolant_temperature_milli_c: The engine_coolant_temperature_milli_c of this VehicleStatsListResponseData.  # noqa: E501
+        :type: list[VehicleStatsEngineCoolantTempMilliCWithDecoration]
+        """
+
+        self._engine_coolant_temperature_milli_c = engine_coolant_temperature_milli_c
+
+    @property
+    def engine_load_percent(self):
+        """Gets the engine_load_percent of this VehicleStatsListResponseData.  # noqa: E501
+
+        A list of engine load percentage readings for the given vehicle.  # noqa: E501
+
+        :return: The engine_load_percent of this VehicleStatsListResponseData.  # noqa: E501
+        :rtype: list[VehicleStatsEngineLoadPercentWithDecoration]
+        """
+        return self._engine_load_percent
+
+    @engine_load_percent.setter
+    def engine_load_percent(self, engine_load_percent):
+        """Sets the engine_load_percent of this VehicleStatsListResponseData.
+
+        A list of engine load percentage readings for the given vehicle.  # noqa: E501
+
+        :param engine_load_percent: The engine_load_percent of this VehicleStatsListResponseData.  # noqa: E501
+        :type: list[VehicleStatsEngineLoadPercentWithDecoration]
+        """
+
+        self._engine_load_percent = engine_load_percent
+
+    @property
+    def engine_oil_pressure_k_pa(self):
+        """Gets the engine_oil_pressure_k_pa of this VehicleStatsListResponseData.  # noqa: E501
+
+        A list of engine oil pressure readings in kilopascals for the given vehicle.  # noqa: E501
+
+        :return: The engine_oil_pressure_k_pa of this VehicleStatsListResponseData.  # noqa: E501
+        :rtype: list[VehicleStatsEngineOilPressureKPaWithDecoration]
+        """
+        return self._engine_oil_pressure_k_pa
+
+    @engine_oil_pressure_k_pa.setter
+    def engine_oil_pressure_k_pa(self, engine_oil_pressure_k_pa):
+        """Sets the engine_oil_pressure_k_pa of this VehicleStatsListResponseData.
+
+        A list of engine oil pressure readings in kilopascals for the given vehicle.  # noqa: E501
+
+        :param engine_oil_pressure_k_pa: The engine_oil_pressure_k_pa of this VehicleStatsListResponseData.  # noqa: E501
+        :type: list[VehicleStatsEngineOilPressureKPaWithDecoration]
+        """
+
+        self._engine_oil_pressure_k_pa = engine_oil_pressure_k_pa
 
     @property
     def engine_rpm(self):
@@ -631,6 +804,29 @@ class VehicleStatsListResponseData(object):
         """
 
         self._id = id
+
+    @property
+    def intake_manifold_temperature_milli_c(self):
+        """Gets the intake_manifold_temperature_milli_c of this VehicleStatsListResponseData.  # noqa: E501
+
+        A list of intake manifold temperature readings in millidegree Celsius for the given vehicle.  # noqa: E501
+
+        :return: The intake_manifold_temperature_milli_c of this VehicleStatsListResponseData.  # noqa: E501
+        :rtype: list[VehicleStatsIntakeManifoldTempMilliCWithDecoration]
+        """
+        return self._intake_manifold_temperature_milli_c
+
+    @intake_manifold_temperature_milli_c.setter
+    def intake_manifold_temperature_milli_c(self, intake_manifold_temperature_milli_c):
+        """Sets the intake_manifold_temperature_milli_c of this VehicleStatsListResponseData.
+
+        A list of intake manifold temperature readings in millidegree Celsius for the given vehicle.  # noqa: E501
+
+        :param intake_manifold_temperature_milli_c: The intake_manifold_temperature_milli_c of this VehicleStatsListResponseData.  # noqa: E501
+        :type: list[VehicleStatsIntakeManifoldTempMilliCWithDecoration]
+        """
+
+        self._intake_manifold_temperature_milli_c = intake_manifold_temperature_milli_c
 
     @property
     def name(self):
