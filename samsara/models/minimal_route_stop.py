@@ -36,6 +36,7 @@ class MinimalRouteStop(object):
         'actual_arrival_time': 'str',
         'actual_departure_time': 'str',
         'eta': 'str',
+        'external_ids': 'dict(str, str)',
         'id': 'str',
         'skipped_time': 'str',
         'state': 'str'
@@ -45,12 +46,13 @@ class MinimalRouteStop(object):
         'actual_arrival_time': 'actualArrivalTime',
         'actual_departure_time': 'actualDepartureTime',
         'eta': 'eta',
+        'external_ids': 'externalIds',
         'id': 'id',
         'skipped_time': 'skippedTime',
         'state': 'state'
     }
 
-    def __init__(self, actual_arrival_time=None, actual_departure_time=None, eta=None, id=None, skipped_time=None, state=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, actual_arrival_time=None, actual_departure_time=None, eta=None, external_ids=None, id=None, skipped_time=None, state=None, local_vars_configuration=None):  # noqa: E501
         """MinimalRouteStop - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -59,6 +61,7 @@ class MinimalRouteStop(object):
         self._actual_arrival_time = None
         self._actual_departure_time = None
         self._eta = None
+        self._external_ids = None
         self._id = None
         self._skipped_time = None
         self._state = None
@@ -70,6 +73,8 @@ class MinimalRouteStop(object):
             self.actual_departure_time = actual_departure_time
         if eta is not None:
             self.eta = eta
+        if external_ids is not None:
+            self.external_ids = external_ids
         self.id = id
         if skipped_time is not None:
             self.skipped_time = skipped_time
@@ -143,6 +148,29 @@ class MinimalRouteStop(object):
         """
 
         self._eta = eta
+
+    @property
+    def external_ids(self):
+        """Gets the external_ids of this MinimalRouteStop.  # noqa: E501
+
+        The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.  # noqa: E501
+
+        :return: The external_ids of this MinimalRouteStop.  # noqa: E501
+        :rtype: dict(str, str)
+        """
+        return self._external_ids
+
+    @external_ids.setter
+    def external_ids(self, external_ids):
+        """Sets the external_ids of this MinimalRouteStop.
+
+        The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.  # noqa: E501
+
+        :param external_ids: The external_ids of this MinimalRouteStop.  # noqa: E501
+        :type: dict(str, str)
+        """
+
+        self._external_ids = external_ids
 
     @property
     def id(self):
