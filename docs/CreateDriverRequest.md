@@ -5,6 +5,7 @@ Driver that should be created.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **carrier_settings** | [**DriverCarrierSettings**](DriverCarrierSettings.md) |  | [optional] 
+**current_id_card_code** | **str** | The ID Card Code on the back of the physical card assigned to the driver. | [optional] 
 **eld_adverse_weather_exemption_enabled** | **bool** | Flag indicating this driver may use Adverse Weather exemptions in ELD logs. | [optional] [default to False]
 **eld_big_day_exemption_enabled** | **bool** | Flag indicating this driver may use Big Day exemption in ELD logs. | [optional] [default to False]
 **eld_day_start_hour** | **int** | &#x60;0&#x60; indicating midnight-to-midnight ELD driving hours, &#x60;12&#x60; to indicate noon-to-noon driving hours. | [optional] [default to 0]

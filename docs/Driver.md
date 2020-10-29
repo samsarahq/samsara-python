@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **carrier_settings** | [**DriverCarrierSettings**](DriverCarrierSettings.md) |  | [optional] 
 **created_at_time** | **str** | The date and time this driver was created in RFC 3339 format. | [optional] 
+**current_id_card_code** | **str** | The ID Card Code on the back of the physical card assigned to the driver. | [optional] 
 **driver_activation_status** | [**DriverActivationStatus**](DriverActivationStatus.md) |  | [optional] 
 **eld_adverse_weather_exemption_enabled** | **bool** | Flag indicating this driver may use Adverse Weather exemptions in ELD logs. | [optional] [default to False]
 **eld_big_day_exemption_enabled** | **bool** | Flag indicating this driver may use Big Day exemption in ELD logs. | [optional] [default to False]

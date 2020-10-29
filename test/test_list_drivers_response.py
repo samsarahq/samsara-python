@@ -43,6 +43,7 @@ class TestListDriversResponse(unittest.TestCase):
                             dot_number = 98231, 
                             main_office_address = '1234 Pear St., Scranton, PA 62814', ), 
                         created_at_time = '2019-05-18T20:27:35Z', 
+                        current_id_card_code = '941767043', 
                         driver_activation_status = 'active', 
                         eld_adverse_weather_exemption_enabled = True, 
                         eld_big_day_exemption_enabled = True, 

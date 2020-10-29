@@ -40,6 +40,7 @@ class TestCreateDriverRequest(unittest.TestCase):
                     carrier_name = 'Acme Inc.', 
                     dot_number = 98231, 
                     main_office_address = '1234 Pear St., Scranton, PA 62814', ), 
+                current_id_card_code = '941767043', 
                 eld_adverse_weather_exemption_enabled = True, 
                 eld_big_day_exemption_enabled = True, 
                 eld_day_start_hour = 56, 

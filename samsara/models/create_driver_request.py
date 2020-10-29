@@ -34,6 +34,7 @@ class CreateDriverRequest(object):
     """
     openapi_types = {
         'carrier_settings': 'DriverCarrierSettings',
+        'current_id_card_code': 'str',
         'eld_adverse_weather_exemption_enabled': 'bool',
         'eld_big_day_exemption_enabled': 'bool',
         'eld_day_start_hour': 'int',
@@ -59,6 +60,7 @@ class CreateDriverRequest(object):
 
     attribute_map = {
         'carrier_settings': 'carrierSettings',
+        'current_id_card_code': 'currentIdCardCode',
         'eld_adverse_weather_exemption_enabled': 'eldAdverseWeatherExemptionEnabled',
         'eld_big_day_exemption_enabled': 'eldBigDayExemptionEnabled',
         'eld_day_start_hour': 'eldDayStartHour',
@@ -82,13 +84,14 @@ class CreateDriverRequest(object):
         'vehicle_group_tag_id': 'vehicleGroupTagId'
     }
 
-    def __init__(self, carrier_settings=None, eld_adverse_weather_exemption_enabled=False, eld_big_day_exemption_enabled=False, eld_day_start_hour=0, eld_exempt=False, eld_exempt_reason=None, eld_pc_enabled=False, eld_ym_enabled=False, external_ids=None, license_number=None, license_state=None, locale=None, name=None, notes=None, password=None, phone=None, static_assigned_vehicle_id=None, tachograph_card_number=None, tag_ids=None, timezone='America/Los_Angeles', username=None, vehicle_group_tag_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, carrier_settings=None, current_id_card_code=None, eld_adverse_weather_exemption_enabled=False, eld_big_day_exemption_enabled=False, eld_day_start_hour=0, eld_exempt=False, eld_exempt_reason=None, eld_pc_enabled=False, eld_ym_enabled=False, external_ids=None, license_number=None, license_state=None, locale=None, name=None, notes=None, password=None, phone=None, static_assigned_vehicle_id=None, tachograph_card_number=None, tag_ids=None, timezone='America/Los_Angeles', username=None, vehicle_group_tag_id=None, local_vars_configuration=None):  # noqa: E501
         """CreateDriverRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._carrier_settings = None
+        self._current_id_card_code = None
         self._eld_adverse_weather_exemption_enabled = None
         self._eld_big_day_exemption_enabled = None
         self._eld_day_start_hour = None
@@ -114,6 +117,8 @@ class CreateDriverRequest(object):
 
         if carrier_settings is not None:
             self.carrier_settings = carrier_settings
+        if current_id_card_code is not None:
+            self.current_id_card_code = current_id_card_code
         if eld_adverse_weather_exemption_enabled is not None:
             self.eld_adverse_weather_exemption_enabled = eld_adverse_weather_exemption_enabled
         if eld_big_day_exemption_enabled is not None:
@@ -174,6 +179,29 @@ class CreateDriverRequest(object):
         """
 
         self._carrier_settings = carrier_settings
+
+    @property
+    def current_id_card_code(self):
+        """Gets the current_id_card_code of this CreateDriverRequest.  # noqa: E501
+
+        The ID Card Code on the back of the physical card assigned to the driver.  # noqa: E501
+
+        :return: The current_id_card_code of this CreateDriverRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._current_id_card_code
+
+    @current_id_card_code.setter
+    def current_id_card_code(self, current_id_card_code):
+        """Sets the current_id_card_code of this CreateDriverRequest.
+
+        The ID Card Code on the back of the physical card assigned to the driver.  # noqa: E501
+
+        :param current_id_card_code: The current_id_card_code of this CreateDriverRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._current_id_card_code = current_id_card_code
 
     @property
     def eld_adverse_weather_exemption_enabled(self):

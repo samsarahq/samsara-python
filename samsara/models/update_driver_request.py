@@ -34,6 +34,7 @@ class UpdateDriverRequest(object):
     """
     openapi_types = {
         'carrier_settings': 'DriverCarrierSettings',
+        'current_id_card_code': 'str',
         'driver_activation_status': 'DriverActivationStatus',
         'eld_adverse_weather_exemption_enabled': 'bool',
         'eld_big_day_exemption_enabled': 'bool',
@@ -60,6 +61,7 @@ class UpdateDriverRequest(object):
 
     attribute_map = {
         'carrier_settings': 'carrierSettings',
+        'current_id_card_code': 'currentIdCardCode',
         'driver_activation_status': 'driverActivationStatus',
         'eld_adverse_weather_exemption_enabled': 'eldAdverseWeatherExemptionEnabled',
         'eld_big_day_exemption_enabled': 'eldBigDayExemptionEnabled',
@@ -84,13 +86,14 @@ class UpdateDriverRequest(object):
         'vehicle_group_tag_id': 'vehicleGroupTagId'
     }
 
-    def __init__(self, carrier_settings=None, driver_activation_status=None, eld_adverse_weather_exemption_enabled=False, eld_big_day_exemption_enabled=False, eld_day_start_hour=0, eld_exempt=False, eld_exempt_reason=None, eld_pc_enabled=False, eld_ym_enabled=False, external_ids=None, license_number=None, license_state=None, locale=None, name=None, notes=None, password=None, phone=None, static_assigned_vehicle_id=None, tachograph_card_number=None, tag_ids=None, timezone='America/Los_Angeles', username=None, vehicle_group_tag_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, carrier_settings=None, current_id_card_code=None, driver_activation_status=None, eld_adverse_weather_exemption_enabled=False, eld_big_day_exemption_enabled=False, eld_day_start_hour=0, eld_exempt=False, eld_exempt_reason=None, eld_pc_enabled=False, eld_ym_enabled=False, external_ids=None, license_number=None, license_state=None, locale=None, name=None, notes=None, password=None, phone=None, static_assigned_vehicle_id=None, tachograph_card_number=None, tag_ids=None, timezone='America/Los_Angeles', username=None, vehicle_group_tag_id=None, local_vars_configuration=None):  # noqa: E501
         """UpdateDriverRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._carrier_settings = None
+        self._current_id_card_code = None
         self._driver_activation_status = None
         self._eld_adverse_weather_exemption_enabled = None
         self._eld_big_day_exemption_enabled = None
@@ -117,6 +120,8 @@ class UpdateDriverRequest(object):
 
         if carrier_settings is not None:
             self.carrier_settings = carrier_settings
+        if current_id_card_code is not None:
+            self.current_id_card_code = current_id_card_code
         if driver_activation_status is not None:
             self.driver_activation_status = driver_activation_status
         if eld_adverse_weather_exemption_enabled is not None:
@@ -182,6 +187,29 @@ class UpdateDriverRequest(object):
         """
 
         self._carrier_settings = carrier_settings
+
+    @property
+    def current_id_card_code(self):
+        """Gets the current_id_card_code of this UpdateDriverRequest.  # noqa: E501
+
+        The ID Card Code on the back of the physical card assigned to the driver.  # noqa: E501
+
+        :return: The current_id_card_code of this UpdateDriverRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._current_id_card_code
+
+    @current_id_card_code.setter
+    def current_id_card_code(self, current_id_card_code):
+        """Sets the current_id_card_code of this UpdateDriverRequest.
+
+        The ID Card Code on the back of the physical card assigned to the driver.  # noqa: E501
+
+        :param current_id_card_code: The current_id_card_code of this UpdateDriverRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._current_id_card_code = current_id_card_code
 
     @property
     def driver_activation_status(self):
