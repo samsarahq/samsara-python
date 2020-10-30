@@ -77,7 +77,7 @@ All URIs are relative to *https://api.samsara.com*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *SamsaraApi* | [**create_address**](docs/SamsaraApi.md#create_address) | **POST** /addresses | Create an address
-*SamsaraApi* | [**create_attribute**](docs/SamsaraApi.md#create_attribute) | **POST** /attributes | Create an attribute
+*SamsaraApi* | [**create_attribute**](docs/SamsaraApi.md#create_attribute) | **POST** /attributes | [beta] Create an attribute
 *SamsaraApi* | [**create_carrier_proposed_assignment**](docs/SamsaraApi.md#create_carrier_proposed_assignment) | **POST** /fleet/carrier-proposed-assignments | Create an assignment
 *SamsaraApi* | [**create_contact**](docs/SamsaraApi.md#create_contact) | **POST** /contacts | Create a contact
 *SamsaraApi* | [**create_driver**](docs/SamsaraApi.md#create_driver) | **POST** /fleet/drivers | Create a driver
@@ -86,7 +86,7 @@ Class | Method | HTTP request | Description
 *SamsaraApi* | [**create_tag**](docs/SamsaraApi.md#create_tag) | **POST** /tags | Create a tag
 *SamsaraApi* | [**create_user**](docs/SamsaraApi.md#create_user) | **POST** /users | Create a user
 *SamsaraApi* | [**delete_address**](docs/SamsaraApi.md#delete_address) | **DELETE** /addresses/{id} | Delete an address
-*SamsaraApi* | [**delete_attribute**](docs/SamsaraApi.md#delete_attribute) | **DELETE** /attributes/{id} | Deleting an attribute
+*SamsaraApi* | [**delete_attribute**](docs/SamsaraApi.md#delete_attribute) | **DELETE** /attributes/{id} | [beta] Deleting an attribute
 *SamsaraApi* | [**delete_carrier_proposed_assignment**](docs/SamsaraApi.md#delete_carrier_proposed_assignment) | **DELETE** /fleet/carrier-proposed-assignments/{id} | Delete an assignment
 *SamsaraApi* | [**delete_contact**](docs/SamsaraApi.md#delete_contact) | **DELETE** /contacts/{id} | Delete a contact
 *SamsaraApi* | [**delete_industrial_asset**](docs/SamsaraApi.md#delete_industrial_asset) | **DELETE** /industrial/assets/{id} | Delete an existing asset
@@ -94,8 +94,8 @@ Class | Method | HTTP request | Description
 *SamsaraApi* | [**delete_user**](docs/SamsaraApi.md#delete_user) | **DELETE** /users/{id} | Delete a user
 *SamsaraApi* | [**generate_document_pdf**](docs/SamsaraApi.md#generate_document_pdf) | **POST** /fleet/documents/pdfs | Create a document PDF
 *SamsaraApi* | [**get_address**](docs/SamsaraApi.md#get_address) | **GET** /addresses/{id} | Retrieve an address
-*SamsaraApi* | [**get_attribute**](docs/SamsaraApi.md#get_attribute) | **GET** /attributes/{id} | Retrieve an attribute
-*SamsaraApi* | [**get_attributes_by_entity_type**](docs/SamsaraApi.md#get_attributes_by_entity_type) | **GET** /attributes | List all attributes by entity type
+*SamsaraApi* | [**get_attribute**](docs/SamsaraApi.md#get_attribute) | **GET** /attributes/{id} | [beta] Retrieve an attribute
+*SamsaraApi* | [**get_attributes_by_entity_type**](docs/SamsaraApi.md#get_attributes_by_entity_type) | **GET** /attributes | [beta] List all attributes by entity type
 *SamsaraApi* | [**get_contact**](docs/SamsaraApi.md#get_contact) | **GET** /contacts/{id} | Retrieve a contact
 *SamsaraApi* | [**get_data_input_data_feed**](docs/SamsaraApi.md#get_data_input_data_feed) | **GET** /industrial/data-inputs/data-points/feed | Follow a real-time feed of data points for data inputs
 *SamsaraApi* | [**get_data_input_data_history**](docs/SamsaraApi.md#get_data_input_data_history) | **GET** /industrial/data-inputs/data-points/history | List historical data points for data inputs
@@ -144,7 +144,7 @@ Class | Method | HTTP request | Description
 *SamsaraApi* | [**patch_tag**](docs/SamsaraApi.md#patch_tag) | **PATCH** /tags/{id} | Update a tag
 *SamsaraApi* | [**replace_tag**](docs/SamsaraApi.md#replace_tag) | **PUT** /tags/{id} | Update a tag
 *SamsaraApi* | [**update_address**](docs/SamsaraApi.md#update_address) | **PATCH** /addresses/{id} | Update an address
-*SamsaraApi* | [**update_attribute**](docs/SamsaraApi.md#update_attribute) | **PATCH** /attributes/{id} | Update an attribute
+*SamsaraApi* | [**update_attribute**](docs/SamsaraApi.md#update_attribute) | **PATCH** /attributes/{id} | [beta] Update an attribute
 *SamsaraApi* | [**update_contact**](docs/SamsaraApi.md#update_contact) | **PATCH** /contacts/{id} | Update a contact
 *SamsaraApi* | [**update_driver**](docs/SamsaraApi.md#update_driver) | **PATCH** /fleet/drivers/{id} | Update a driver
 *SamsaraApi* | [**update_dvir**](docs/SamsaraApi.md#update_dvir) | **PATCH** /fleet/dvirs/{id} | Resolve a DVIR

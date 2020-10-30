@@ -5,7 +5,7 @@ All URIs are relative to *https://api.samsara.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_address**](SamsaraApi.md#create_address) | **POST** /addresses | Create an address
-[**create_attribute**](SamsaraApi.md#create_attribute) | **POST** /attributes | Create an attribute
+[**create_attribute**](SamsaraApi.md#create_attribute) | **POST** /attributes | [beta] Create an attribute
 [**create_carrier_proposed_assignment**](SamsaraApi.md#create_carrier_proposed_assignment) | **POST** /fleet/carrier-proposed-assignments | Create an assignment
 [**create_contact**](SamsaraApi.md#create_contact) | **POST** /contacts | Create a contact
 [**create_driver**](SamsaraApi.md#create_driver) | **POST** /fleet/drivers | Create a driver
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 [**create_tag**](SamsaraApi.md#create_tag) | **POST** /tags | Create a tag
 [**create_user**](SamsaraApi.md#create_user) | **POST** /users | Create a user
 [**delete_address**](SamsaraApi.md#delete_address) | **DELETE** /addresses/{id} | Delete an address
-[**delete_attribute**](SamsaraApi.md#delete_attribute) | **DELETE** /attributes/{id} | Deleting an attribute
+[**delete_attribute**](SamsaraApi.md#delete_attribute) | **DELETE** /attributes/{id} | [beta] Deleting an attribute
 [**delete_carrier_proposed_assignment**](SamsaraApi.md#delete_carrier_proposed_assignment) | **DELETE** /fleet/carrier-proposed-assignments/{id} | Delete an assignment
 [**delete_contact**](SamsaraApi.md#delete_contact) | **DELETE** /contacts/{id} | Delete a contact
 [**delete_industrial_asset**](SamsaraApi.md#delete_industrial_asset) | **DELETE** /industrial/assets/{id} | Delete an existing asset
@@ -22,8 +22,8 @@ Method | HTTP request | Description
 [**delete_user**](SamsaraApi.md#delete_user) | **DELETE** /users/{id} | Delete a user
 [**generate_document_pdf**](SamsaraApi.md#generate_document_pdf) | **POST** /fleet/documents/pdfs | Create a document PDF
 [**get_address**](SamsaraApi.md#get_address) | **GET** /addresses/{id} | Retrieve an address
-[**get_attribute**](SamsaraApi.md#get_attribute) | **GET** /attributes/{id} | Retrieve an attribute
-[**get_attributes_by_entity_type**](SamsaraApi.md#get_attributes_by_entity_type) | **GET** /attributes | List all attributes by entity type
+[**get_attribute**](SamsaraApi.md#get_attribute) | **GET** /attributes/{id} | [beta] Retrieve an attribute
+[**get_attributes_by_entity_type**](SamsaraApi.md#get_attributes_by_entity_type) | **GET** /attributes | [beta] List all attributes by entity type
 [**get_contact**](SamsaraApi.md#get_contact) | **GET** /contacts/{id} | Retrieve a contact
 [**get_data_input_data_feed**](SamsaraApi.md#get_data_input_data_feed) | **GET** /industrial/data-inputs/data-points/feed | Follow a real-time feed of data points for data inputs
 [**get_data_input_data_history**](SamsaraApi.md#get_data_input_data_history) | **GET** /industrial/data-inputs/data-points/history | List historical data points for data inputs
@@ -72,7 +72,7 @@ Method | HTTP request | Description
 [**patch_tag**](SamsaraApi.md#patch_tag) | **PATCH** /tags/{id} | Update a tag
 [**replace_tag**](SamsaraApi.md#replace_tag) | **PUT** /tags/{id} | Update a tag
 [**update_address**](SamsaraApi.md#update_address) | **PATCH** /addresses/{id} | Update an address
-[**update_attribute**](SamsaraApi.md#update_attribute) | **PATCH** /attributes/{id} | Update an attribute
+[**update_attribute**](SamsaraApi.md#update_attribute) | **PATCH** /attributes/{id} | [beta] Update an attribute
 [**update_contact**](SamsaraApi.md#update_contact) | **PATCH** /contacts/{id} | Update a contact
 [**update_driver**](SamsaraApi.md#update_driver) | **PATCH** /fleet/drivers/{id} | Update a driver
 [**update_dvir**](SamsaraApi.md#update_dvir) | **PATCH** /fleet/dvirs/{id} | Resolve a DVIR
@@ -141,7 +141,7 @@ print("Exception when calling SamsaraApi->create_address: %s\n" % e)
     # **create_attribute**
     > AttributeExpandedResponse create_attribute(attribute)
 
-    Create an attribute
+    [beta] Create an attribute
 
       Creates a new attribute in the organization.
 
@@ -161,7 +161,7 @@ api_instance = samsara.SamsaraApi(api_client)
 attribute = samsara.CreateAttributeRequest() # CreateAttributeRequest | The attribute to create.
 
 try:
-    # Create an attribute
+    # [beta] Create an attribute
     api_response = api_instance.create_attribute(attribute)
   pprint(api_response)
 except ApiException as e:
@@ -653,7 +653,7 @@ print("Exception when calling SamsaraApi->delete_address: %s\n" % e)
     # **delete_attribute**
     > delete_attribute(id, entity_type)
 
-    Deleting an attribute
+    [beta] Deleting an attribute
 
       Delete an attribute by id, including all of its applications
 
@@ -670,11 +670,11 @@ from pprint import pprint
   with samsara.ApiClient() as api_client:
 # Create an instance of the API class
 api_instance = samsara.SamsaraApi(api_client)
-id = 'id_example' # str | Id of the attribute. This can be either the Samsara-provided UUID or an External ID.
+id = 'id_example' # str | Samsara-provided UUID of the attribute.
 entity_type = 'entity_type_example' # str | Denotes the type of entity, driver or vehicle.
 
 try:
-    # Deleting an attribute
+    # [beta] Deleting an attribute
     api_instance.delete_attribute(id, entity_type)
 except ApiException as e:
 print("Exception when calling SamsaraApi->delete_attribute: %s\n" % e)
@@ -684,7 +684,7 @@ print("Exception when calling SamsaraApi->delete_attribute: %s\n" % e)
     
       Name | Type | Description  | Notes
       ------------- | ------------- | ------------- | -------------
-     **id** | **str**| Id of the attribute. This can be either the Samsara-provided UUID or an External ID. | 
+     **id** | **str**| Samsara-provided UUID of the attribute. | 
  **entity_type** | **str**| Denotes the type of entity, driver or vehicle. | 
 
     ### Return type
@@ -1105,7 +1105,7 @@ print("Exception when calling SamsaraApi->get_address: %s\n" % e)
     # **get_attribute**
     > AttributeExpandedResponse get_attribute(id, entity_type)
 
-    Retrieve an attribute
+    [beta] Retrieve an attribute
 
       Fetch an attribute by id, including all of its applications
 
@@ -1122,11 +1122,11 @@ from pprint import pprint
   with samsara.ApiClient() as api_client:
 # Create an instance of the API class
 api_instance = samsara.SamsaraApi(api_client)
-id = 'id_example' # str | Id of the attribute. This can be either the Samsara-provided UUID or an External ID.
+id = 'id_example' # str | Samsara-provided UUID of the attribute.
 entity_type = 'entity_type_example' # str | Denotes the type of entity, driver or vehicle.
 
 try:
-    # Retrieve an attribute
+    # [beta] Retrieve an attribute
     api_response = api_instance.get_attribute(id, entity_type)
   pprint(api_response)
 except ApiException as e:
@@ -1137,7 +1137,7 @@ print("Exception when calling SamsaraApi->get_attribute: %s\n" % e)
     
       Name | Type | Description  | Notes
       ------------- | ------------- | ------------- | -------------
-     **id** | **str**| Id of the attribute. This can be either the Samsara-provided UUID or an External ID. | 
+     **id** | **str**| Samsara-provided UUID of the attribute. | 
  **entity_type** | **str**| Denotes the type of entity, driver or vehicle. | 
 
     ### Return type
@@ -1164,7 +1164,7 @@ print("Exception when calling SamsaraApi->get_attribute: %s\n" % e)
     # **get_attributes_by_entity_type**
     > GetAttributesByEntityTypeResponse get_attributes_by_entity_type(entity_type, limit=limit, after=after)
 
-    List all attributes by entity type
+    [beta] List all attributes by entity type
 
       Fetch all attributes in an organization associated with either drivers or vehicles.
 
@@ -1186,7 +1186,7 @@ limit = 512 # int | The limit for how many objects will be in the response. Defa
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 
 try:
-    # List all attributes by entity type
+    # [beta] List all attributes by entity type
     api_response = api_instance.get_attributes_by_entity_type(entity_type, limit=limit, after=after)
   pprint(api_response)
 except ApiException as e:
@@ -4249,7 +4249,7 @@ print("Exception when calling SamsaraApi->update_address: %s\n" % e)
     # **update_attribute**
     > AttributeExpandedResponse update_attribute(id, attribute)
 
-    Update an attribute
+    [beta] Update an attribute
 
       Updates an attribute in the organization.
 
@@ -4266,11 +4266,11 @@ from pprint import pprint
   with samsara.ApiClient() as api_client:
 # Create an instance of the API class
 api_instance = samsara.SamsaraApi(api_client)
-id = 'id_example' # str | Id of the attribute. This can be either the Samsara-provided UUID or an External ID.
+id = 'id_example' # str | Samsara-provided UUID of the attribute.
 attribute = samsara.UpdateAttributeRequest() # UpdateAttributeRequest | The attribute to update.
 
 try:
-    # Update an attribute
+    # [beta] Update an attribute
     api_response = api_instance.update_attribute(id, attribute)
   pprint(api_response)
 except ApiException as e:
@@ -4281,7 +4281,7 @@ print("Exception when calling SamsaraApi->update_attribute: %s\n" % e)
     
       Name | Type | Description  | Notes
       ------------- | ------------- | ------------- | -------------
-     **id** | **str**| Id of the attribute. This can be either the Samsara-provided UUID or an External ID. | 
+     **id** | **str**| Samsara-provided UUID of the attribute. | 
  **attribute** | [**UpdateAttributeRequest**](UpdateAttributeRequest.md)| The attribute to update. | 
 
     ### Return type

@@ -38,7 +38,7 @@ class TestSamsaraApi(unittest.TestCase):
     def test_create_attribute(self):
         """Test case for create_attribute
 
-        Create an attribute  # noqa: E501
+        [beta] Create an attribute  # noqa: E501
         """
         pass
 
@@ -101,7 +101,7 @@ class TestSamsaraApi(unittest.TestCase):
     def test_delete_attribute(self):
         """Test case for delete_attribute
 
-        Deleting an attribute  # noqa: E501
+        [beta] Deleting an attribute  # noqa: E501
         """
         pass
 
@@ -157,14 +157,14 @@ class TestSamsaraApi(unittest.TestCase):
     def test_get_attribute(self):
         """Test case for get_attribute
 
-        Retrieve an attribute  # noqa: E501
+        [beta] Retrieve an attribute  # noqa: E501
         """
         pass
 
     def test_get_attributes_by_entity_type(self):
         """Test case for get_attributes_by_entity_type
 
-        List all attributes by entity type  # noqa: E501
+        [beta] List all attributes by entity type  # noqa: E501
         """
         pass
 
@@ -507,7 +507,7 @@ class TestSamsaraApi(unittest.TestCase):
     def test_update_attribute(self):
         """Test case for update_attribute
 
-        Update an attribute  # noqa: E501
+        [beta] Update an attribute  # noqa: E501
         """
         pass
 

@@ -149,7 +149,7 @@ class SamsaraApi(object):
             collection_formats=collection_formats)
 
     def create_attribute(self, attribute, **kwargs):  # noqa: E501
-        """Create an attribute  # noqa: E501
+        """[beta] Create an attribute  # noqa: E501
 
         Creates a new attribute in the organization.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -174,7 +174,7 @@ class SamsaraApi(object):
         return self.create_attribute_with_http_info(attribute, **kwargs)  # noqa: E501
 
     def create_attribute_with_http_info(self, attribute, **kwargs):  # noqa: E501
-        """Create an attribute  # noqa: E501
+        """[beta] Create an attribute  # noqa: E501
 
         Creates a new attribute in the organization.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1141,7 +1141,7 @@ class SamsaraApi(object):
             collection_formats=collection_formats)
 
     def delete_attribute(self, id, entity_type, **kwargs):  # noqa: E501
-        """Deleting an attribute  # noqa: E501
+        """[beta] Deleting an attribute  # noqa: E501
 
         Delete an attribute by id, including all of its applications  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1150,7 +1150,7 @@ class SamsaraApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str id: Id of the attribute. This can be either the Samsara-provided UUID or an External ID. (required)
+        :param str id: Samsara-provided UUID of the attribute. (required)
         :param str entity_type: Denotes the type of entity, driver or vehicle. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -1167,7 +1167,7 @@ class SamsaraApi(object):
         return self.delete_attribute_with_http_info(id, entity_type, **kwargs)  # noqa: E501
 
     def delete_attribute_with_http_info(self, id, entity_type, **kwargs):  # noqa: E501
-        """Deleting an attribute  # noqa: E501
+        """[beta] Deleting an attribute  # noqa: E501
 
         Delete an attribute by id, including all of its applications  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1176,7 +1176,7 @@ class SamsaraApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str id: Id of the attribute. This can be either the Samsara-provided UUID or an External ID. (required)
+        :param str id: Samsara-provided UUID of the attribute. (required)
         :param str entity_type: Denotes the type of entity, driver or vehicle. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -2013,7 +2013,7 @@ class SamsaraApi(object):
             collection_formats=collection_formats)
 
     def get_attribute(self, id, entity_type, **kwargs):  # noqa: E501
-        """Retrieve an attribute  # noqa: E501
+        """[beta] Retrieve an attribute  # noqa: E501
 
         Fetch an attribute by id, including all of its applications  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -2022,7 +2022,7 @@ class SamsaraApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str id: Id of the attribute. This can be either the Samsara-provided UUID or an External ID. (required)
+        :param str id: Samsara-provided UUID of the attribute. (required)
         :param str entity_type: Denotes the type of entity, driver or vehicle. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -2039,7 +2039,7 @@ class SamsaraApi(object):
         return self.get_attribute_with_http_info(id, entity_type, **kwargs)  # noqa: E501
 
     def get_attribute_with_http_info(self, id, entity_type, **kwargs):  # noqa: E501
-        """Retrieve an attribute  # noqa: E501
+        """[beta] Retrieve an attribute  # noqa: E501
 
         Fetch an attribute by id, including all of its applications  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -2048,7 +2048,7 @@ class SamsaraApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str id: Id of the attribute. This can be either the Samsara-provided UUID or an External ID. (required)
+        :param str id: Samsara-provided UUID of the attribute. (required)
         :param str entity_type: Denotes the type of entity, driver or vehicle. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -2129,7 +2129,7 @@ class SamsaraApi(object):
             collection_formats=collection_formats)
 
     def get_attributes_by_entity_type(self, entity_type, **kwargs):  # noqa: E501
-        """List all attributes by entity type  # noqa: E501
+        """[beta] List all attributes by entity type  # noqa: E501
 
         Fetch all attributes in an organization associated with either drivers or vehicles.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -2156,7 +2156,7 @@ class SamsaraApi(object):
         return self.get_attributes_by_entity_type_with_http_info(entity_type, **kwargs)  # noqa: E501
 
     def get_attributes_by_entity_type_with_http_info(self, entity_type, **kwargs):  # noqa: E501
-        """List all attributes by entity type  # noqa: E501
+        """[beta] List all attributes by entity type  # noqa: E501
 
         Fetch all attributes in an organization associated with either drivers or vehicles.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -8154,7 +8154,7 @@ class SamsaraApi(object):
             collection_formats=collection_formats)
 
     def update_attribute(self, id, attribute, **kwargs):  # noqa: E501
-        """Update an attribute  # noqa: E501
+        """[beta] Update an attribute  # noqa: E501
 
         Updates an attribute in the organization.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -8163,7 +8163,7 @@ class SamsaraApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str id: Id of the attribute. This can be either the Samsara-provided UUID or an External ID. (required)
+        :param str id: Samsara-provided UUID of the attribute. (required)
         :param UpdateAttributeRequest attribute: The attribute to update. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -8180,7 +8180,7 @@ class SamsaraApi(object):
         return self.update_attribute_with_http_info(id, attribute, **kwargs)  # noqa: E501
 
     def update_attribute_with_http_info(self, id, attribute, **kwargs):  # noqa: E501
-        """Update an attribute  # noqa: E501
+        """[beta] Update an attribute  # noqa: E501
 
         Updates an attribute in the organization.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -8189,7 +8189,7 @@ class SamsaraApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str id: Id of the attribute. This can be either the Samsara-provided UUID or an External ID. (required)
+        :param str id: Samsara-provided UUID of the attribute. (required)
         :param UpdateAttributeRequest attribute: The attribute to update. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
