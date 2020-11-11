@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **spn_description** | **str** | A short description of the SPN identifier, if available. | [optional] 
 **spn_id** | **int** | The SPN identifier. | 
 **tx_id** | **int** | The TX identifier. | 
+**vendor_specific_fields** | [**VehicleStatsFaultCodesVendorSpecificFields**](VehicleStatsFaultCodesVendorSpecificFields.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

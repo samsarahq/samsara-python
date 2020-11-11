@@ -104,7 +104,10 @@ class TestVehicleStatsListSyntheticEngineSeconds(unittest.TestCase):
                                     source_address_name = 'Engine #1', 
                                     spn_description = 'System Diagnostic Code #1', 
                                     spn_id = 3031, 
-                                    tx_id = 0, )
+                                    tx_id = 0, 
+                                    vendor_specific_fields = samsara.models.vehicle_stats_fault_codes_value_j1939_vendor_specific_fields.VehicleStatsFaultCodesValue_j1939_vendorSpecificFields(
+                                        dtc_description = 'false', 
+                                        repair_instructions_url = 'false', ), )
                                 ], ), 
                         obdii = samsara.models.vehicle_stats_fault_codes_value_obdii.VehicleStatsFaultCodesValue_obdii(
                             check_engine_light_is_on = True, ), ), 

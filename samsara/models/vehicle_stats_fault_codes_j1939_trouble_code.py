@@ -40,7 +40,8 @@ class VehicleStatsFaultCodesJ1939TroubleCode(object):
         'source_address_name': 'str',
         'spn_description': 'str',
         'spn_id': 'int',
-        'tx_id': 'int'
+        'tx_id': 'int',
+        'vendor_specific_fields': 'VehicleStatsFaultCodesVendorSpecificFields'
     }
 
     attribute_map = {
@@ -51,10 +52,11 @@ class VehicleStatsFaultCodesJ1939TroubleCode(object):
         'source_address_name': 'sourceAddressName',
         'spn_description': 'spnDescription',
         'spn_id': 'spnId',
-        'tx_id': 'txId'
+        'tx_id': 'txId',
+        'vendor_specific_fields': 'vendorSpecificFields'
     }
 
-    def __init__(self, fmi_description=None, fmi_id=None, mil_status=None, occurrence_count=None, source_address_name=None, spn_description=None, spn_id=None, tx_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, fmi_description=None, fmi_id=None, mil_status=None, occurrence_count=None, source_address_name=None, spn_description=None, spn_id=None, tx_id=None, vendor_specific_fields=None, local_vars_configuration=None):  # noqa: E501
         """VehicleStatsFaultCodesJ1939TroubleCode - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -68,6 +70,7 @@ class VehicleStatsFaultCodesJ1939TroubleCode(object):
         self._spn_description = None
         self._spn_id = None
         self._tx_id = None
+        self._vendor_specific_fields = None
         self.discriminator = None
 
         if fmi_description is not None:
@@ -81,6 +84,8 @@ class VehicleStatsFaultCodesJ1939TroubleCode(object):
             self.spn_description = spn_description
         self.spn_id = spn_id
         self.tx_id = tx_id
+        if vendor_specific_fields is not None:
+            self.vendor_specific_fields = vendor_specific_fields
 
     @property
     def fmi_description(self):
@@ -275,6 +280,27 @@ class VehicleStatsFaultCodesJ1939TroubleCode(object):
             raise ValueError("Invalid value for `tx_id`, must not be `None`")  # noqa: E501
 
         self._tx_id = tx_id
+
+    @property
+    def vendor_specific_fields(self):
+        """Gets the vendor_specific_fields of this VehicleStatsFaultCodesJ1939TroubleCode.  # noqa: E501
+
+
+        :return: The vendor_specific_fields of this VehicleStatsFaultCodesJ1939TroubleCode.  # noqa: E501
+        :rtype: VehicleStatsFaultCodesVendorSpecificFields
+        """
+        return self._vendor_specific_fields
+
+    @vendor_specific_fields.setter
+    def vendor_specific_fields(self, vendor_specific_fields):
+        """Sets the vendor_specific_fields of this VehicleStatsFaultCodesJ1939TroubleCode.
+
+
+        :param vendor_specific_fields: The vendor_specific_fields of this VehicleStatsFaultCodesJ1939TroubleCode.  # noqa: E501
+        :type: VehicleStatsFaultCodesVendorSpecificFields
+        """
+
+        self._vendor_specific_fields = vendor_specific_fields
 
     def to_dict(self):
         """Returns the model properties as a dict"""
