@@ -33,6 +33,7 @@ class Driver(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'attributes': 'list[AttributeTiny]',
         'carrier_settings': 'DriverCarrierSettings',
         'created_at_time': 'str',
         'current_id_card_code': 'str',
@@ -64,6 +65,7 @@ class Driver(object):
     }
 
     attribute_map = {
+        'attributes': 'attributes',
         'carrier_settings': 'carrierSettings',
         'created_at_time': 'createdAtTime',
         'current_id_card_code': 'currentIdCardCode',
@@ -94,12 +96,13 @@ class Driver(object):
         'vehicle_group_tag': 'vehicleGroupTag'
     }
 
-    def __init__(self, carrier_settings=None, created_at_time=None, current_id_card_code=None, driver_activation_status=None, eld_adverse_weather_exemption_enabled=False, eld_big_day_exemption_enabled=False, eld_day_start_hour=0, eld_exempt=False, eld_exempt_reason=None, eld_pc_enabled=False, eld_settings=None, eld_ym_enabled=False, external_ids=None, id=None, is_deactivated=None, license_number=None, license_state=None, locale=None, name=None, notes=None, phone=None, static_assigned_vehicle=None, tachograph_card_number=None, tags=None, timezone='America/Los_Angeles', updated_at_time=None, username=None, vehicle_group_tag=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, attributes=None, carrier_settings=None, created_at_time=None, current_id_card_code=None, driver_activation_status=None, eld_adverse_weather_exemption_enabled=False, eld_big_day_exemption_enabled=False, eld_day_start_hour=0, eld_exempt=False, eld_exempt_reason=None, eld_pc_enabled=False, eld_settings=None, eld_ym_enabled=False, external_ids=None, id=None, is_deactivated=None, license_number=None, license_state=None, locale=None, name=None, notes=None, phone=None, static_assigned_vehicle=None, tachograph_card_number=None, tags=None, timezone='America/Los_Angeles', updated_at_time=None, username=None, vehicle_group_tag=None, local_vars_configuration=None):  # noqa: E501
         """Driver - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._attributes = None
         self._carrier_settings = None
         self._created_at_time = None
         self._current_id_card_code = None
@@ -130,6 +133,8 @@ class Driver(object):
         self._vehicle_group_tag = None
         self.discriminator = None
 
+        if attributes is not None:
+            self.attributes = attributes
         if carrier_settings is not None:
             self.carrier_settings = carrier_settings
         if created_at_time is not None:
@@ -188,6 +193,27 @@ class Driver(object):
             self.vehicle_group_tag = vehicle_group_tag
 
     @property
+    def attributes(self):
+        """Gets the attributes of this Driver.  # noqa: E501
+
+
+        :return: The attributes of this Driver.  # noqa: E501
+        :rtype: list[AttributeTiny]
+        """
+        return self._attributes
+
+    @attributes.setter
+    def attributes(self, attributes):
+        """Sets the attributes of this Driver.
+
+
+        :param attributes: The attributes of this Driver.  # noqa: E501
+        :type: list[AttributeTiny]
+        """
+
+        self._attributes = attributes
+
+    @property
     def carrier_settings(self):
         """Gets the carrier_settings of this Driver.  # noqa: E501
 
@@ -235,7 +261,7 @@ class Driver(object):
     def current_id_card_code(self):
         """Gets the current_id_card_code of this Driver.  # noqa: E501
 
-        The ID Card Code on the back of the physical card assigned to the driver.  # noqa: E501
+        The ID Card Code on the back of the physical card assigned to the driver.  Contact Samsara if you would like to enable this feature.  # noqa: E501
 
         :return: The current_id_card_code of this Driver.  # noqa: E501
         :rtype: str
@@ -246,7 +272,7 @@ class Driver(object):
     def current_id_card_code(self, current_id_card_code):
         """Sets the current_id_card_code of this Driver.
 
-        The ID Card Code on the back of the physical card assigned to the driver.  # noqa: E501
+        The ID Card Code on the back of the physical card assigned to the driver.  Contact Samsara if you would like to enable this feature.  # noqa: E501
 
         :param current_id_card_code: The current_id_card_code of this Driver.  # noqa: E501
         :type: str

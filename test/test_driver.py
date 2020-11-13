@@ -36,6 +36,17 @@ class TestDriver(unittest.TestCase):
         # model = samsara.models.driver.Driver()  # noqa: E501
         if include_optional :
             return Driver(
+                attributes = [
+                    samsara.models.attribute_tiny.attributeTiny(
+                        id = '123e4567-e89b-12d3-a456-426614174000', 
+                        name = 'License Certifications', 
+                        number_values = [
+                            1.337
+                            ], 
+                        string_values = [
+                            '0'
+                            ], )
+                    ], 
                 carrier_settings = samsara.models.driver_carrier_settings.DriverCarrierSettings(
                     carrier_name = 'Acme Inc.', 
                     dot_number = 98231, 

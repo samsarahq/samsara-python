@@ -36,11 +36,23 @@ class TestUpdateDriverRequest(unittest.TestCase):
         # model = samsara.models.update_driver_request.UpdateDriverRequest()  # noqa: E501
         if include_optional :
             return UpdateDriverRequest(
+                attributes = [
+                    samsara.models.attribute_tiny.attributeTiny(
+                        id = '123e4567-e89b-12d3-a456-426614174000', 
+                        name = 'License Certifications', 
+                        number_values = [
+                            1.337
+                            ], 
+                        string_values = [
+                            '0'
+                            ], )
+                    ], 
                 carrier_settings = samsara.models.driver_carrier_settings.DriverCarrierSettings(
                     carrier_name = 'Acme Inc.', 
                     dot_number = 98231, 
                     main_office_address = '1234 Pear St., Scranton, PA 62814', ), 
                 current_id_card_code = '941767043', 
+                deactivated_at_time = '2019-05-18T20:27:35Z', 
                 driver_activation_status = 'active', 
                 eld_adverse_weather_exemption_enabled = True, 
                 eld_big_day_exemption_enabled = True, 

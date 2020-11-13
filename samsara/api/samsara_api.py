@@ -8396,7 +8396,7 @@ class SamsaraApi(object):
     def update_driver(self, id, driver, **kwargs):  # noqa: E501
         """Update a driver  # noqa: E501
 
-        Update a specific driver's information. This can also be used to activate or de-activate a given driver by setting the driverActivationStatus field.  # noqa: E501
+        Update a specific driver's information. This can also be used to activate or de-activate a given driver by setting the driverActivationStatus field. If the driverActivationStatus field is 'deactivated' then the user can also specify the deactivatedAtTime. The deactivatedAtTime cannot be more than 6 months in the past and must not come before the dirver's latest active HOS log. It will be considered an error if deactivatedAtTime is provided with a driverActivationStatus of active  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_driver(id, driver, async_req=True)
@@ -8422,7 +8422,7 @@ class SamsaraApi(object):
     def update_driver_with_http_info(self, id, driver, **kwargs):  # noqa: E501
         """Update a driver  # noqa: E501
 
-        Update a specific driver's information. This can also be used to activate or de-activate a given driver by setting the driverActivationStatus field.  # noqa: E501
+        Update a specific driver's information. This can also be used to activate or de-activate a given driver by setting the driverActivationStatus field. If the driverActivationStatus field is 'deactivated' then the user can also specify the deactivatedAtTime. The deactivatedAtTime cannot be more than 6 months in the past and must not come before the dirver's latest active HOS log. It will be considered an error if deactivatedAtTime is provided with a driverActivationStatus of active  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_driver_with_http_info(id, driver, async_req=True)

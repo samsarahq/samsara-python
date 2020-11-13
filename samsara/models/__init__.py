@@ -33,6 +33,7 @@ from samsara.models.attribute_expanded import AttributeExpanded
 from samsara.models.attribute_expanded_all_of import AttributeExpandedAllOf
 from samsara.models.attribute_expanded_response import AttributeExpandedResponse
 from samsara.models.attribute_response import AttributeResponse
+from samsara.models.attribute_tiny import AttributeTiny
 from samsara.models.carrier_proposed_assignment import CarrierProposedAssignment
 from samsara.models.carrier_proposed_assignment_driver import CarrierProposedAssignmentDriver
 from samsara.models.carrier_proposed_assignment_response import CarrierProposedAssignmentResponse

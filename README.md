@@ -174,6 +174,7 @@ Class | Method | HTTP request | Description
  - [AttributeExpandedAllOf](docs/AttributeExpandedAllOf.md)
  - [AttributeExpandedResponse](docs/AttributeExpandedResponse.md)
  - [AttributeResponse](docs/AttributeResponse.md)
+ - [AttributeTiny](docs/AttributeTiny.md)
  - [CarrierProposedAssignment](docs/CarrierProposedAssignment.md)
  - [CarrierProposedAssignmentDriver](docs/CarrierProposedAssignmentDriver.md)
  - [CarrierProposedAssignmentResponse](docs/CarrierProposedAssignmentResponse.md)

@@ -4369,7 +4369,7 @@ print("Exception when calling SamsaraApi->update_contact: %s\n" % e)
 
     Update a driver
 
-      Update a specific driver's information. This can also be used to activate or de-activate a given driver by setting the driverActivationStatus field.
+      Update a specific driver's information. This can also be used to activate or de-activate a given driver by setting the driverActivationStatus field. If the driverActivationStatus field is 'deactivated' then the user can also specify the deactivatedAtTime. The deactivatedAtTime cannot be more than 6 months in the past and must not come before the dirver's latest active HOS log. It will be considered an error if deactivatedAtTime is provided with a driverActivationStatus of active
 
     ### Example
 
