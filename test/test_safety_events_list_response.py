@@ -43,7 +43,7 @@ class TestSafetyEventsListResponse(unittest.TestCase):
                                 label = 'genericTailgating', 
                                 source = 'automated', )
                             ], 
-                        coaching_state = 'invalid', 
+                        coaching_state = 'needsReview', 
                         download_forward_video_url = 'https://s3.console.aws.amazon.com/s3/buckets/samsara-dashcam-videos/21575/212014918400828/1553060687222/huKA7IhpBV-camera-video-segment-1244214895.mp4', 
                         download_inward_video_url = 'https://s3.console.aws.amazon.com/s3/buckets/samsara-dashcam-videos/21575/212014918400828/1553060687222/huKA7IhpBV-camera-video-segment-1244214895.mp4', 
                         download_tracked_inward_video_url = 'https://s3.console.aws.amazon.com/s3/buckets/samsara-dashcam-videos/21575/212014918400828/1553060687222/huKA7IhpBV-camera-video-segment-1244214895.mp4', 

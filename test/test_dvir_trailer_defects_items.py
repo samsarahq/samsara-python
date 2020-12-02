@@ -45,8 +45,8 @@ class TestDvirTrailerDefectsItems(unittest.TestCase):
                 mechanic_notes_updated_at_time = '2020-01-27T07:06:25Z', 
                 resolved_at_time = '2020-01-27T07:06:25Z', 
                 resolved_by = samsara.models.defect_resolved_by.Defect_resolvedBy(
-                    id = '0', 
-                    name = '0', 
+                    id = '11', 
+                    name = 'Christopher 'The Handyman' Zhen', 
                     type = 'driver', ), 
                 trailer = samsara.models.trailer.trailer(), 
                 vehicle = samsara.models.vehicle.vehicle()

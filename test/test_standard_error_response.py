@@ -36,8 +36,8 @@ class TestStandardErrorResponse(unittest.TestCase):
         # model = samsara.models.standard_error_response.StandardErrorResponse()  # noqa: E501
         if include_optional :
             return StandardErrorResponse(
-                message = '0', 
-                request_id = '0'
+                message = 'An error has occurred.', 
+                request_id = '8916e1c1'
             )
         else :
             return StandardErrorResponse(

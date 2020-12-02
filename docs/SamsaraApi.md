@@ -1182,7 +1182,7 @@ from pprint import pprint
 # Create an instance of the API class
 api_instance = samsara.SamsaraApi(api_client)
 entity_type = 'entity_type_example' # str | Denotes the type of entity, driver or vehicle.
-limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
+limit = 56 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional)
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 
 try:
@@ -1198,7 +1198,7 @@ print("Exception when calling SamsaraApi->get_attributes_by_entity_type: %s\n" %
       Name | Type | Description  | Notes
       ------------- | ------------- | ------------- | -------------
      **entity_type** | **str**| Denotes the type of entity, driver or vehicle. | 
- **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] [default to 512]
+ **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] 
  **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
 
     ### Return type
@@ -1498,7 +1498,7 @@ from pprint import pprint
   with samsara.ApiClient() as api_client:
 # Create an instance of the API class
 api_instance = samsara.SamsaraApi(api_client)
-limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
+limit = 56 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional)
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 parent_tag_ids = ['parent_tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678` (optional)
 tag_ids = ['tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678` (optional)
@@ -1516,7 +1516,7 @@ print("Exception when calling SamsaraApi->get_data_inputs: %s\n" % e)
     
       Name | Type | Description  | Notes
       ------------- | ------------- | ------------- | -------------
-     **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] [default to 512]
+     **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] 
  **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
  **parent_tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: &#x60;parentTagIds&#x3D;345,678&#x60; | [optional] 
  **tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of tag IDs. Example: &#x60;tagIds&#x3D;1234,5678&#x60; | [optional] 
@@ -1882,7 +1882,7 @@ from pprint import pprint
 api_instance = samsara.SamsaraApi(api_client)
 start_time = 'start_time_example' # str | A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). *The maximum time period you can query for is 30 days.*
 end_time = 'end_time_example' # str | An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). *The maximum time period you can query for is 30 days.*
-limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
+limit = 56 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional)
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 is_resolved = True # bool | A filter on the data based on resolution status. Example: `isResolved=true` (optional)
 
@@ -1900,7 +1900,7 @@ print("Exception when calling SamsaraApi->get_dvir_defects: %s\n" % e)
       ------------- | ------------- | ------------- | -------------
      **start_time** | **str**| A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). *The maximum time period you can query for is 30 days.* | 
  **end_time** | **str**| An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). *The maximum time period you can query for is 30 days.* | 
- **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] [default to 512]
+ **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] 
  **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
  **is_resolved** | **bool**| A filter on the data based on resolution status. Example: &#x60;isResolved&#x3D;true&#x60; | [optional] 
 
@@ -1947,7 +1947,7 @@ from pprint import pprint
 api_instance = samsara.SamsaraApi(api_client)
 start_time = 'start_time_example' # str | A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
 end_time = 'end_time_example' # str | An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
+limit = 56 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional)
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 parent_tag_ids = ['parent_tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678` (optional)
 tag_ids = ['tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678` (optional)
@@ -1966,7 +1966,7 @@ print("Exception when calling SamsaraApi->get_dvir_history: %s\n" % e)
       ------------- | ------------- | ------------- | -------------
      **start_time** | **str**| A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | 
  **end_time** | **str**| An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | 
- **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] [default to 512]
+ **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] 
  **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
  **parent_tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: &#x60;parentTagIds&#x3D;345,678&#x60; | [optional] 
  **tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of tag IDs. Example: &#x60;tagIds&#x3D;1234,5678&#x60; | [optional] 
@@ -2465,7 +2465,7 @@ tag_ids = ['tag_ids_example'] # list[str] | A filter on the data based on this c
 parent_tag_ids = ['parent_tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678` (optional)
 driver_ids = ['driver_ids_example'] # list[str] | A filter on the data based on this comma-separated list of driver IDs. Example: `driverIds=1234,5678` (optional)
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
-limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
+limit = 56 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional)
 
 try:
     # Get HOS clocks
@@ -2483,7 +2483,7 @@ print("Exception when calling SamsaraApi->get_hos_clocks: %s\n" % e)
  **parent_tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: &#x60;parentTagIds&#x3D;345,678&#x60; | [optional] 
  **driver_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of driver IDs. Example: &#x60;driverIds&#x3D;1234,5678&#x60; | [optional] 
  **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
- **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] [default to 512]
+ **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] 
 
     ### Return type
 
@@ -2593,7 +2593,7 @@ from pprint import pprint
   with samsara.ApiClient() as api_client:
 # Create an instance of the API class
 api_instance = samsara.SamsaraApi(api_client)
-limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
+limit = 56 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional)
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 parent_tag_ids = ['parent_tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678` (optional)
 tag_ids = ['tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678` (optional)
@@ -2610,7 +2610,7 @@ print("Exception when calling SamsaraApi->get_industrial_assets: %s\n" % e)
     
       Name | Type | Description  | Notes
       ------------- | ------------- | ------------- | -------------
-     **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] [default to 512]
+     **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] 
  **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
  **parent_tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: &#x60;parentTagIds&#x3D;345,678&#x60; | [optional] 
  **tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of tag IDs. Example: &#x60;tagIds&#x3D;1234,5678&#x60; | [optional] 
@@ -3471,7 +3471,7 @@ from pprint import pprint
   with samsara.ApiClient() as api_client:
 # Create an instance of the API class
 api_instance = samsara.SamsaraApi(api_client)
-limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
+limit = 56 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional)
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 parent_tag_ids = ['parent_tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678` (optional)
 tag_ids = ['tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678` (optional)
@@ -3489,7 +3489,7 @@ print("Exception when calling SamsaraApi->list_addresses: %s\n" % e)
     
       Name | Type | Description  | Notes
       ------------- | ------------- | ------------- | -------------
-     **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] [default to 512]
+     **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] 
  **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
  **parent_tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: &#x60;parentTagIds&#x3D;345,678&#x60; | [optional] 
  **tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of tag IDs. Example: &#x60;tagIds&#x3D;1234,5678&#x60; | [optional] 
@@ -3536,7 +3536,7 @@ from pprint import pprint
   with samsara.ApiClient() as api_client:
 # Create an instance of the API class
 api_instance = samsara.SamsaraApi(api_client)
-limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
+limit = 56 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional)
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 driver_ids = ['driver_ids_example'] # list[str] | If specified, limits the results to those for these drivers. e.g. `driverIds=1,2,3` (optional)
 active_time = 'active_time_example' # str | If specified, shows assignments that will be active at this time. Defaults to now, which would show current active assignments. In RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). (optional)
@@ -3553,7 +3553,7 @@ print("Exception when calling SamsaraApi->list_carrier_proposed_assignments: %s\
     
       Name | Type | Description  | Notes
       ------------- | ------------- | ------------- | -------------
-     **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] [default to 512]
+     **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] 
  **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
  **driver_ids** | [**list[str]**](str.md)| If specified, limits the results to those for these drivers. e.g. &#x60;driverIds&#x3D;1,2,3&#x60; | [optional] 
  **active_time** | **str**| If specified, shows assignments that will be active at this time. Defaults to now, which would show current active assignments. In RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | [optional] 
@@ -3599,7 +3599,7 @@ from pprint import pprint
   with samsara.ApiClient() as api_client:
 # Create an instance of the API class
 api_instance = samsara.SamsaraApi(api_client)
-limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
+limit = 56 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional)
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 
 try:
@@ -3614,7 +3614,7 @@ print("Exception when calling SamsaraApi->list_contacts: %s\n" % e)
     
       Name | Type | Description  | Notes
       ------------- | ------------- | ------------- | -------------
-     **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] [default to 512]
+     **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] 
  **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
 
     ### Return type
@@ -3659,7 +3659,7 @@ from pprint import pprint
 # Create an instance of the API class
 api_instance = samsara.SamsaraApi(api_client)
 driver_activation_status = 'driver_activation_status_example' # str | If value is `deactivated`, only drivers that are deactivated will appear in the response. This parameter will default to `active` if not provided (fetching only active drivers). (optional)
-limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
+limit = 56 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional)
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 parent_tag_ids = ['parent_tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678` (optional)
 tag_ids = ['tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678` (optional)
@@ -3679,7 +3679,7 @@ print("Exception when calling SamsaraApi->list_drivers: %s\n" % e)
       Name | Type | Description  | Notes
       ------------- | ------------- | ------------- | -------------
      **driver_activation_status** | **str**| If value is &#x60;deactivated&#x60;, only drivers that are deactivated will appear in the response. This parameter will default to &#x60;active&#x60; if not provided (fetching only active drivers). | [optional] 
- **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] [default to 512]
+ **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] 
  **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
  **parent_tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: &#x60;parentTagIds&#x3D;345,678&#x60; | [optional] 
  **tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of tag IDs. Example: &#x60;tagIds&#x3D;1234,5678&#x60; | [optional] 
@@ -3727,7 +3727,7 @@ from pprint import pprint
   with samsara.ApiClient() as api_client:
 # Create an instance of the API class
 api_instance = samsara.SamsaraApi(api_client)
-limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
+limit = 56 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional)
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 parent_tag_ids = ['parent_tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678` (optional)
 tag_ids = ['tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678` (optional)
@@ -3744,7 +3744,7 @@ print("Exception when calling SamsaraApi->list_equipment: %s\n" % e)
     
       Name | Type | Description  | Notes
       ------------- | ------------- | ------------- | -------------
-     **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] [default to 512]
+     **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] 
  **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
  **parent_tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: &#x60;parentTagIds&#x3D;345,678&#x60; | [optional] 
  **tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of tag IDs. Example: &#x60;tagIds&#x3D;1234,5678&#x60; | [optional] 
@@ -3790,7 +3790,7 @@ from pprint import pprint
   with samsara.ApiClient() as api_client:
 # Create an instance of the API class
 api_instance = samsara.SamsaraApi(api_client)
-limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
+limit = 56 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional)
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 
 try:
@@ -3805,7 +3805,7 @@ print("Exception when calling SamsaraApi->list_tags: %s\n" % e)
     
       Name | Type | Description  | Notes
       ------------- | ------------- | ------------- | -------------
-     **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] [default to 512]
+     **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] 
  **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
 
     ### Return type
@@ -3849,7 +3849,7 @@ from pprint import pprint
   with samsara.ApiClient() as api_client:
 # Create an instance of the API class
 api_instance = samsara.SamsaraApi(api_client)
-limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
+limit = 56 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional)
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 
 try:
@@ -3864,7 +3864,7 @@ print("Exception when calling SamsaraApi->list_user_roles: %s\n" % e)
     
       Name | Type | Description  | Notes
       ------------- | ------------- | ------------- | -------------
-     **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] [default to 512]
+     **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] 
  **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
 
     ### Return type
@@ -3908,7 +3908,7 @@ from pprint import pprint
   with samsara.ApiClient() as api_client:
 # Create an instance of the API class
 api_instance = samsara.SamsaraApi(api_client)
-limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
+limit = 56 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional)
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 
 try:
@@ -3923,7 +3923,7 @@ print("Exception when calling SamsaraApi->list_users: %s\n" % e)
     
       Name | Type | Description  | Notes
       ------------- | ------------- | ------------- | -------------
-     **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] [default to 512]
+     **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] 
  **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
 
     ### Return type
@@ -3967,7 +3967,7 @@ from pprint import pprint
   with samsara.ApiClient() as api_client:
 # Create an instance of the API class
 api_instance = samsara.SamsaraApi(api_client)
-limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
+limit = 56 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional)
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 parent_tag_ids = ['parent_tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678` (optional)
 tag_ids = ['tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678` (optional)
@@ -3984,7 +3984,7 @@ print("Exception when calling SamsaraApi->list_vehicles: %s\n" % e)
     
       Name | Type | Description  | Notes
       ------------- | ------------- | ------------- | -------------
-     **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] [default to 512]
+     **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] 
  **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
  **parent_tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: &#x60;parentTagIds&#x3D;345,678&#x60; | [optional] 
  **tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of tag IDs. Example: &#x60;tagIds&#x3D;1234,5678&#x60; | [optional] 

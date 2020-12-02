@@ -28,7 +28,6 @@ class SafetyEventCoachingState(object):
     """
     allowed enum values
     """
-    INVALID = "invalid"
     NEEDSREVIEW = "needsReview"
     COACHED = "coached"
     DISMISSED = "dismissed"
@@ -39,8 +38,9 @@ class SafetyEventCoachingState(object):
     AUTODISMISSED = "autoDismissed"
     NEEDSRECOGNITION = "needsRecognition"
     RECOGNIZED = "recognized"
+    INVALID = "invalid"
 
-    allowable_values = [INVALID, NEEDSREVIEW, COACHED, DISMISSED, REVIEWED, ARCHIVED, MANUALREVIEW, NEEDSCOACHING, AUTODISMISSED, NEEDSRECOGNITION, RECOGNIZED]  # noqa: E501
+    allowable_values = [NEEDSREVIEW, COACHED, DISMISSED, REVIEWED, ARCHIVED, MANUALREVIEW, NEEDSCOACHING, AUTODISMISSED, NEEDSRECOGNITION, RECOGNIZED, INVALID]  # noqa: E501
 
     """
     Attributes:

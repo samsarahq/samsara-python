@@ -36,8 +36,8 @@ class TestDefectResolvedBy(unittest.TestCase):
         # model = samsara.models.defect_resolved_by.DefectResolvedBy()  # noqa: E501
         if include_optional :
             return DefectResolvedBy(
-                id = '0', 
-                name = '0', 
+                id = '11', 
+                name = 'Christopher 'The Handyman' Zhen', 
                 type = 'driver'
             )
         else :
