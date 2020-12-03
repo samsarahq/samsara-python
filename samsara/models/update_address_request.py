@@ -37,7 +37,7 @@ class UpdateAddressRequest(object):
         'contact_ids': 'list[str]',
         'external_ids': 'dict(str, str)',
         'formatted_address': 'str',
-        'geofence': 'AddressGeofence',
+        'geofence': 'CreateAddressRequestGeofence',
         'latitude': 'float',
         'longitude': 'float',
         'name': 'str',
@@ -206,7 +206,7 @@ class UpdateAddressRequest(object):
 
 
         :return: The geofence of this UpdateAddressRequest.  # noqa: E501
-        :rtype: AddressGeofence
+        :rtype: CreateAddressRequestGeofence
         """
         return self._geofence
 
@@ -216,7 +216,7 @@ class UpdateAddressRequest(object):
 
 
         :param geofence: The geofence of this UpdateAddressRequest.  # noqa: E501
-        :type: AddressGeofence
+        :type: CreateAddressRequestGeofence
         """
 
         self._geofence = geofence

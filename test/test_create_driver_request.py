@@ -37,7 +37,7 @@ class TestCreateDriverRequest(unittest.TestCase):
         if include_optional :
             return CreateDriverRequest(
                 attributes = [
-                    samsara.models.attribute_tiny.attributeTiny(
+                    samsara.models.create_driver_request_attributes.CreateDriverRequest_attributes(
                         id = '123e4567-e89b-12d3-a456-426614174000', 
                         name = 'License Certifications', 
                         number_values = [
@@ -47,7 +47,7 @@ class TestCreateDriverRequest(unittest.TestCase):
                             '0'
                             ], )
                     ], 
-                carrier_settings = samsara.models.driver_carrier_settings.DriverCarrierSettings(
+                carrier_settings = samsara.models.create_driver_request_carrier_settings.CreateDriverRequest_carrierSettings(
                     carrier_name = 'Acme Inc.', 
                     dot_number = 98231, 
                     main_office_address = '1234 Pear St., Scranton, PA 62814', ), 
@@ -59,7 +59,7 @@ class TestCreateDriverRequest(unittest.TestCase):
                 eld_exempt_reason = 'Bad driver', 
                 eld_pc_enabled = True, 
                 eld_ym_enabled = True, 
-                external_ids = {maintenanceId=250020, payrollId=ABFS18600}, 
+                external_ids = {"maintenanceId":"250020","payrollId":"ABFS18600"}, 
                 license_number = 'E1234567', 
                 license_state = 'CA', 
                 locale = 'us', 

@@ -16,11 +16,11 @@ import unittest
 import datetime
 
 import samsara
-from samsara.models.extended_driver_tiny_response import ExtendedDriverTinyResponse  # noqa: E501
+from samsara.models.create_user_request_roles import CreateUserRequestRoles  # noqa: E501
 from samsara.rest import ApiException
 
-class TestExtendedDriverTinyResponse(unittest.TestCase):
-    """ExtendedDriverTinyResponse unit test stubs"""
+class TestCreateUserRequestRoles(unittest.TestCase):
+    """CreateUserRequestRoles unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,24 +29,23 @@ class TestExtendedDriverTinyResponse(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test ExtendedDriverTinyResponse
+        """Test CreateUserRequestRoles
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = samsara.models.extended_driver_tiny_response.ExtendedDriverTinyResponse()  # noqa: E501
+        # model = samsara.models.create_user_request_roles.CreateUserRequestRoles()  # noqa: E501
         if include_optional :
-            return ExtendedDriverTinyResponse(
-                external_ids = {"maintenanceId":"250020","payrollId":"ABFS18600"}, 
-                id = '88668', 
-                name = 'Susan Bob', 
-                username = 'susanbob'
+            return CreateUserRequestRoles(
+                role_id = '8a9371af-82d1-4158-bf91-4ecc8d3a114c', 
+                tag_id = '3914'
             )
         else :
-            return ExtendedDriverTinyResponse(
+            return CreateUserRequestRoles(
+                role_id = '8a9371af-82d1-4158-bf91-4ecc8d3a114c',
         )
 
-    def testExtendedDriverTinyResponse(self):
-        """Test ExtendedDriverTinyResponse"""
+    def testCreateUserRequestRoles(self):
+        """Test CreateUserRequestRoles"""
         inst_req_only = self.make_instance(include_optional=False)
         inst_req_and_optional = self.make_instance(include_optional=True)
 

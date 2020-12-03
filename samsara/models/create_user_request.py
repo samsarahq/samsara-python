@@ -33,10 +33,10 @@ class CreateUserRequest(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'auth_type': 'UserAuthType',
+        'auth_type': 'str',
         'email': 'str',
         'name': 'str',
-        'roles': 'list[UserRoleAssignmentRequest]'
+        'roles': 'list[CreateUserRequestRoles]'
     }
 
     attribute_map = {
@@ -67,9 +67,10 @@ class CreateUserRequest(object):
     def auth_type(self):
         """Gets the auth_type of this CreateUserRequest.  # noqa: E501
 
+        The authentication type the user uses to authenticate. To use SAML this organization must have a configured SAML integration.  # noqa: E501
 
         :return: The auth_type of this CreateUserRequest.  # noqa: E501
-        :rtype: UserAuthType
+        :rtype: str
         """
         return self._auth_type
 
@@ -77,12 +78,19 @@ class CreateUserRequest(object):
     def auth_type(self, auth_type):
         """Sets the auth_type of this CreateUserRequest.
 
+        The authentication type the user uses to authenticate. To use SAML this organization must have a configured SAML integration.  # noqa: E501
 
         :param auth_type: The auth_type of this CreateUserRequest.  # noqa: E501
-        :type: UserAuthType
+        :type: str
         """
         if self.local_vars_configuration.client_side_validation and auth_type is None:  # noqa: E501
             raise ValueError("Invalid value for `auth_type`, must not be `None`")  # noqa: E501
+        allowed_values = ["default", "saml"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and auth_type not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `auth_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(auth_type, allowed_values)
+            )
 
         self._auth_type = auth_type
 
@@ -143,7 +151,7 @@ class CreateUserRequest(object):
         The list of roles that applies to this user. A user may have \"organizational\" roles, which apply to the user at the organizational level, and \"tag-specific\" roles, which apply to the user for a given tag.  # noqa: E501
 
         :return: The roles of this CreateUserRequest.  # noqa: E501
-        :rtype: list[UserRoleAssignmentRequest]
+        :rtype: list[CreateUserRequestRoles]
         """
         return self._roles
 
@@ -154,7 +162,7 @@ class CreateUserRequest(object):
         The list of roles that applies to this user. A user may have \"organizational\" roles, which apply to the user at the organizational level, and \"tag-specific\" roles, which apply to the user for a given tag.  # noqa: E501
 
         :param roles: The roles of this CreateUserRequest.  # noqa: E501
-        :type: list[UserRoleAssignmentRequest]
+        :type: list[CreateUserRequestRoles]
         """
         if self.local_vars_configuration.client_side_validation and roles is None:  # noqa: E501
             raise ValueError("Invalid value for `roles`, must not be `None`")  # noqa: E501

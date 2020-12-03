@@ -56,7 +56,7 @@ class TestListVehiclesResponse(unittest.TestCase):
                         make = 'Ford', 
                         model = 'F150', 
                         name = 'Truck A7', 
-                        notes = '0', 
+                        notes = 'These are notes about this given vehicle.', 
                         serial = 'VG12345', 
                         static_assigned_driver = samsara.models.driver_tiny_response.driverTinyResponse(), 
                         tags = [
@@ -92,7 +92,7 @@ class TestListVehiclesResponse(unittest.TestCase):
                         make = 'Ford', 
                         model = 'F150', 
                         name = 'Truck A7', 
-                        notes = '0', 
+                        notes = 'These are notes about this given vehicle.', 
                         serial = 'VG12345', 
                         static_assigned_driver = samsara.models.driver_tiny_response.driverTinyResponse(), 
                         tags = [

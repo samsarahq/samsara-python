@@ -33,8 +33,8 @@ class CreateDriverRequest(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'attributes': 'list[AttributeTiny]',
-        'carrier_settings': 'DriverCarrierSettings',
+        'attributes': 'list[CreateDriverRequestAttributes]',
+        'carrier_settings': 'CreateDriverRequestCarrierSettings',
         'current_id_card_code': 'str',
         'eld_adverse_weather_exemption_enabled': 'bool',
         'eld_big_day_exemption_enabled': 'bool',
@@ -46,7 +46,7 @@ class CreateDriverRequest(object):
         'external_ids': 'dict(str, str)',
         'license_number': 'str',
         'license_state': 'str',
-        'locale': 'DriverLocale',
+        'locale': 'str',
         'name': 'str',
         'notes': 'str',
         'password': 'str',
@@ -86,7 +86,7 @@ class CreateDriverRequest(object):
         'vehicle_group_tag_id': 'vehicleGroupTagId'
     }
 
-    def __init__(self, attributes=None, carrier_settings=None, current_id_card_code=None, eld_adverse_weather_exemption_enabled=False, eld_big_day_exemption_enabled=False, eld_day_start_hour=0, eld_exempt=False, eld_exempt_reason=None, eld_pc_enabled=False, eld_ym_enabled=False, external_ids=None, license_number=None, license_state=None, locale=None, name=None, notes=None, password=None, phone=None, static_assigned_vehicle_id=None, tachograph_card_number=None, tag_ids=None, timezone='America/Los_Angeles', username=None, vehicle_group_tag_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, attributes=None, carrier_settings=None, current_id_card_code=None, eld_adverse_weather_exemption_enabled=None, eld_big_day_exemption_enabled=None, eld_day_start_hour=None, eld_exempt=None, eld_exempt_reason=None, eld_pc_enabled=None, eld_ym_enabled=None, external_ids=None, license_number=None, license_state=None, locale=None, name=None, notes=None, password=None, phone=None, static_assigned_vehicle_id=None, tachograph_card_number=None, tag_ids=None, timezone=None, username=None, vehicle_group_tag_id=None, local_vars_configuration=None):  # noqa: E501
         """CreateDriverRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -170,7 +170,7 @@ class CreateDriverRequest(object):
 
 
         :return: The attributes of this CreateDriverRequest.  # noqa: E501
-        :rtype: list[AttributeTiny]
+        :rtype: list[CreateDriverRequestAttributes]
         """
         return self._attributes
 
@@ -180,7 +180,7 @@ class CreateDriverRequest(object):
 
 
         :param attributes: The attributes of this CreateDriverRequest.  # noqa: E501
-        :type: list[AttributeTiny]
+        :type: list[CreateDriverRequestAttributes]
         """
 
         self._attributes = attributes
@@ -191,7 +191,7 @@ class CreateDriverRequest(object):
 
 
         :return: The carrier_settings of this CreateDriverRequest.  # noqa: E501
-        :rtype: DriverCarrierSettings
+        :rtype: CreateDriverRequestCarrierSettings
         """
         return self._carrier_settings
 
@@ -201,7 +201,7 @@ class CreateDriverRequest(object):
 
 
         :param carrier_settings: The carrier_settings of this CreateDriverRequest.  # noqa: E501
-        :type: DriverCarrierSettings
+        :type: CreateDriverRequestCarrierSettings
         """
 
         self._carrier_settings = carrier_settings
@@ -463,9 +463,10 @@ class CreateDriverRequest(object):
     def locale(self):
         """Gets the locale of this CreateDriverRequest.  # noqa: E501
 
+        Locale override (uncommon). These are specified by ISO 3166-2 country codes for supported locales.  # noqa: E501
 
         :return: The locale of this CreateDriverRequest.  # noqa: E501
-        :rtype: DriverLocale
+        :rtype: str
         """
         return self._locale
 
@@ -473,10 +474,17 @@ class CreateDriverRequest(object):
     def locale(self, locale):
         """Sets the locale of this CreateDriverRequest.
 
+        Locale override (uncommon). These are specified by ISO 3166-2 country codes for supported locales.  # noqa: E501
 
         :param locale: The locale of this CreateDriverRequest.  # noqa: E501
-        :type: DriverLocale
+        :type: str
         """
+        allowed_values = ["us", "at", "be", "ca", "gb", "fr", "de", "ie", "it", "lu", "mx", "nl", "es", "ch", "pr"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and locale not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `locale` ({0}), must be one of {1}"  # noqa: E501
+                .format(locale, allowed_values)
+            )
 
         self._locale = locale
 

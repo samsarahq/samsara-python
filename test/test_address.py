@@ -46,7 +46,7 @@ class TestAddress(unittest.TestCase):
                         last_name = 'Jones', )
                     ], 
                 created_at_time = '2019-05-18T20:27:35Z', 
-                external_ids = {maintenanceId=250020, payrollId=ABFS18600}, 
+                external_ids = {"maintenanceId":"250020","payrollId":"ABFS18600"}, 
                 formatted_address = '350 Rhode Island St, San Francisco, CA', 
                 geofence = samsara.models.address_geofence.AddressGeofence(
                     circle = samsara.models.address_geofence_circle.AddressGeofence_circle(

@@ -47,11 +47,11 @@ class TestUpdateVehicleRequest(unittest.TestCase):
                 aux_input_type8 = 'boom', 
                 aux_input_type9 = 'boom', 
                 engine_hours = 10943, 
-                external_ids = {maintenanceId=250020, payrollId=ABFS18600}, 
+                external_ids = {"maintenanceId":"250020","payrollId":"ABFS18600"}, 
                 harsh_acceleration_setting_type = 'off', 
                 license_plate = 'XHK1234', 
                 name = 'Truck A7', 
-                notes = '0', 
+                notes = 'These are notes about this given vehicle.', 
                 odometer_meters = 9182, 
                 static_assigned_driver_id = '123', 
                 tag_ids = [

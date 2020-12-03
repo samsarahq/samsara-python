@@ -45,7 +45,7 @@ class TestCreateTagRequest(unittest.TestCase):
                 drivers = [
                     '23502866574'
                     ], 
-                external_ids = {maintenanceId=250020, payrollId=ABFS18600}, 
+                external_ids = {"maintenanceId":"250020","payrollId":"ABFS18600"}, 
                 machines = [
                     '23502866574'
                     ], 

@@ -41,7 +41,7 @@ class TestCreateAttributeRequest(unittest.TestCase):
                 entities = [
                     samsara.models.create_attribute_request_entities.CreateAttributeRequest_entities(
                         entity_id = '0', 
-                        external_ids = {maintenanceId=250020, payrollId=ABFS18600}, 
+                        external_ids = {"maintenanceId":"250020","payrollId":"ABFS18600"}, 
                         number_values = [
                             1.337
                             ], 

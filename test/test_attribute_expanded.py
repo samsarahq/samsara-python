@@ -50,7 +50,7 @@ class TestAttributeExpanded(unittest.TestCase):
                 entities = [
                     samsara.models.attribute_entity.AttributeEntity(
                         entity_id = 56, 
-                        external_ids = {maintenanceId=250020, payrollId=ABFS18600}, 
+                        external_ids = {"maintenanceId":"250020","payrollId":"ABFS18600"}, 
                         name = '0', 
                         number_values = [
                             1.337
@@ -65,7 +65,7 @@ class TestAttributeExpanded(unittest.TestCase):
                 entities = [
                     samsara.models.attribute_entity.AttributeEntity(
                         entity_id = 56, 
-                        external_ids = {maintenanceId=250020, payrollId=ABFS18600}, 
+                        external_ids = {"maintenanceId":"250020","payrollId":"ABFS18600"}, 
                         name = '0', 
                         number_values = [
                             1.337

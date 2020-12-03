@@ -42,14 +42,18 @@ from samsara.models.contact import Contact
 from samsara.models.contact_response import ContactResponse
 from samsara.models.contact_tiny_response import ContactTinyResponse
 from samsara.models.create_address_request import CreateAddressRequest
+from samsara.models.create_address_request_geofence import CreateAddressRequestGeofence
 from samsara.models.create_attribute_request import CreateAttributeRequest
 from samsara.models.create_attribute_request_entities import CreateAttributeRequestEntities
 from samsara.models.create_carrier_proposed_assignment_request import CreateCarrierProposedAssignmentRequest
 from samsara.models.create_contact_request import CreateContactRequest
 from samsara.models.create_driver_request import CreateDriverRequest
+from samsara.models.create_driver_request_attributes import CreateDriverRequestAttributes
+from samsara.models.create_driver_request_carrier_settings import CreateDriverRequestCarrierSettings
 from samsara.models.create_dvir_request import CreateDvirRequest
 from samsara.models.create_tag_request import CreateTagRequest
 from samsara.models.create_user_request import CreateUserRequest
+from samsara.models.create_user_request_roles import CreateUserRequestRoles
 from samsara.models.current_duty_status import CurrentDutyStatus
 from samsara.models.data_input_list_response import DataInputListResponse
 from samsara.models.data_input_response import DataInputResponse
@@ -83,7 +87,6 @@ from samsara.models.driver_eld_ruleset_restart import DriverEldRulesetRestart
 from samsara.models.driver_eld_ruleset_shift import DriverEldRulesetShift
 from samsara.models.driver_eld_ruleset_us_short_haul_type import DriverEldRulesetUsShortHaulType
 from samsara.models.driver_eld_settings import DriverEldSettings
-from samsara.models.driver_external_ids import DriverExternalIds
 from samsara.models.driver_locale import DriverLocale
 from samsara.models.driver_response import DriverResponse
 from samsara.models.driver_static_assigned_vehicle import DriverStaticAssignedVehicle
@@ -220,7 +223,6 @@ from samsara.models.vehicle_aux_input_type6 import VehicleAuxInputType6
 from samsara.models.vehicle_aux_input_type7 import VehicleAuxInputType7
 from samsara.models.vehicle_aux_input_type8 import VehicleAuxInputType8
 from samsara.models.vehicle_aux_input_type9 import VehicleAuxInputType9
-from samsara.models.vehicle_external_ids import VehicleExternalIds
 from samsara.models.vehicle_harsh_acceleration_setting_type import VehicleHarshAccelerationSettingType
 from samsara.models.vehicle_location import VehicleLocation
 from samsara.models.vehicle_location_reverse_geo import VehicleLocationReverseGeo

@@ -37,7 +37,7 @@ class TestDriverEfficiency(unittest.TestCase):
         if include_optional :
             return DriverEfficiency(
                 driver = samsara.models.extended_driver_tiny_response.ExtendedDriverTinyResponse(
-                    external_ids = {maintenanceId=250020, payrollId=ABFS18600}, 
+                    external_ids = {"maintenanceId":"250020","payrollId":"ABFS18600"}, 
                     id = '88668', 
                     name = 'Susan Bob', 
                     username = 'susanbob', ), 

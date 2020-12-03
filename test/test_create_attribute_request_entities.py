@@ -37,7 +37,7 @@ class TestCreateAttributeRequestEntities(unittest.TestCase):
         if include_optional :
             return CreateAttributeRequestEntities(
                 entity_id = '0', 
-                external_ids = {maintenanceId=250020, payrollId=ABFS18600}, 
+                external_ids = {"maintenanceId":"250020","payrollId":"ABFS18600"}, 
                 number_values = [
                     1.337
                     ], 

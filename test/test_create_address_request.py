@@ -42,9 +42,9 @@ class TestCreateAddressRequest(unittest.TestCase):
                 contact_ids = [
                     '22408'
                     ], 
-                external_ids = {maintenanceId=250020, payrollId=ABFS18600}, 
+                external_ids = {"maintenanceId":"250020","payrollId":"ABFS18600"}, 
                 formatted_address = '350 Rhode Island St, San Francisco, CA', 
-                geofence = samsara.models.address_geofence.AddressGeofence(
+                geofence = samsara.models.create_address_request_geofence.CreateAddressRequest_geofence(
                     circle = samsara.models.address_geofence_circle.AddressGeofence_circle(
                         latitude = 37.765363, 
                         longitude = -122.4029238, 
@@ -62,7 +62,7 @@ class TestCreateAddressRequest(unittest.TestCase):
         else :
             return CreateAddressRequest(
                 formatted_address = '350 Rhode Island St, San Francisco, CA',
-                geofence = samsara.models.address_geofence.AddressGeofence(
+                geofence = samsara.models.create_address_request_geofence.CreateAddressRequest_geofence(
                     circle = samsara.models.address_geofence_circle.AddressGeofence_circle(
                         latitude = 37.765363, 
                         longitude = -122.4029238, 

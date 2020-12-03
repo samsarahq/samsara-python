@@ -39,7 +39,7 @@ class TestMinimalRouteStop(unittest.TestCase):
                 actual_arrival_time = '2006-01-02T15:04:05+07:00', 
                 actual_departure_time = '2006-01-02T15:04:05+07:00', 
                 eta = '2006-01-02T15:04:05+07:00', 
-                external_ids = {maintenanceId=250020, payrollId=ABFS18600}, 
+                external_ids = {"maintenanceId":"250020","payrollId":"ABFS18600"}, 
                 id = '141414', 
                 skipped_time = '2006-01-02T15:04:05+07:00', 
                 state = 'scheduled'

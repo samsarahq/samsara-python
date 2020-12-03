@@ -51,7 +51,7 @@ class TestTagAllOf(unittest.TestCase):
                         id = '23502866574', 
                         name = 'Driver Don', )
                     ], 
-                external_ids = {maintenanceId=250020, payrollId=ABFS18600}, 
+                external_ids = {"maintenanceId":"250020","payrollId":"ABFS18600"}, 
                 machines = [
                     samsara.models.tagged_object.TaggedObject(
                         id = '23502866574', 

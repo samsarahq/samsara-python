@@ -33,19 +33,19 @@ class UpdateVehicleRequest(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'aux_input_type1': 'VehicleAuxInputType',
-        'aux_input_type10': 'VehicleAuxInputType',
-        'aux_input_type2': 'VehicleAuxInputType',
-        'aux_input_type3': 'VehicleAuxInputType',
-        'aux_input_type4': 'VehicleAuxInputType',
-        'aux_input_type5': 'VehicleAuxInputType',
-        'aux_input_type6': 'VehicleAuxInputType',
-        'aux_input_type7': 'VehicleAuxInputType',
-        'aux_input_type8': 'VehicleAuxInputType',
-        'aux_input_type9': 'VehicleAuxInputType',
+        'aux_input_type1': 'str',
+        'aux_input_type10': 'str',
+        'aux_input_type2': 'str',
+        'aux_input_type3': 'str',
+        'aux_input_type4': 'str',
+        'aux_input_type5': 'str',
+        'aux_input_type6': 'str',
+        'aux_input_type7': 'str',
+        'aux_input_type8': 'str',
+        'aux_input_type9': 'str',
         'engine_hours': 'int',
         'external_ids': 'dict(str, str)',
-        'harsh_acceleration_setting_type': 'VehicleHarshAccelerationSettingType',
+        'harsh_acceleration_setting_type': 'str',
         'license_plate': 'str',
         'name': 'str',
         'notes': 'str',
@@ -78,7 +78,7 @@ class UpdateVehicleRequest(object):
         'vin': 'vin'
     }
 
-    def __init__(self, aux_input_type1=None, aux_input_type10=None, aux_input_type2=None, aux_input_type3=None, aux_input_type4=None, aux_input_type5=None, aux_input_type6=None, aux_input_type7=None, aux_input_type8=None, aux_input_type9=None, engine_hours=None, external_ids=None, harsh_acceleration_setting_type=None, license_plate=None, name=None, notes='', odometer_meters=None, static_assigned_driver_id=None, tag_ids=None, vin=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, aux_input_type1=None, aux_input_type10=None, aux_input_type2=None, aux_input_type3=None, aux_input_type4=None, aux_input_type5=None, aux_input_type6=None, aux_input_type7=None, aux_input_type8=None, aux_input_type9=None, engine_hours=None, external_ids=None, harsh_acceleration_setting_type=None, license_plate=None, name=None, notes=None, odometer_meters=None, static_assigned_driver_id=None, tag_ids=None, vin=None, local_vars_configuration=None):  # noqa: E501
         """UpdateVehicleRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -151,9 +151,10 @@ class UpdateVehicleRequest(object):
     def aux_input_type1(self):
         """Gets the aux_input_type1 of this UpdateVehicleRequest.  # noqa: E501
 
+        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :return: The aux_input_type1 of this UpdateVehicleRequest.  # noqa: E501
-        :rtype: VehicleAuxInputType
+        :rtype: str
         """
         return self._aux_input_type1
 
@@ -161,10 +162,17 @@ class UpdateVehicleRequest(object):
     def aux_input_type1(self, aux_input_type1):
         """Sets the aux_input_type1 of this UpdateVehicleRequest.
 
+        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :param aux_input_type1: The aux_input_type1 of this UpdateVehicleRequest.  # noqa: E501
-        :type: VehicleAuxInputType
+        :type: str
         """
+        allowed_values = ["none", "emergencyLights", "emergencyAlarm", "stopPaddle", "powerTakeOff", "plow", "sweeper", "salter", "reefer", "door", "boom", "auxiliaryEngine", "generator", "eightWayLights"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and aux_input_type1 not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `aux_input_type1` ({0}), must be one of {1}"  # noqa: E501
+                .format(aux_input_type1, allowed_values)
+            )
 
         self._aux_input_type1 = aux_input_type1
 
@@ -172,9 +180,10 @@ class UpdateVehicleRequest(object):
     def aux_input_type10(self):
         """Gets the aux_input_type10 of this UpdateVehicleRequest.  # noqa: E501
 
+        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :return: The aux_input_type10 of this UpdateVehicleRequest.  # noqa: E501
-        :rtype: VehicleAuxInputType
+        :rtype: str
         """
         return self._aux_input_type10
 
@@ -182,10 +191,17 @@ class UpdateVehicleRequest(object):
     def aux_input_type10(self, aux_input_type10):
         """Sets the aux_input_type10 of this UpdateVehicleRequest.
 
+        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :param aux_input_type10: The aux_input_type10 of this UpdateVehicleRequest.  # noqa: E501
-        :type: VehicleAuxInputType
+        :type: str
         """
+        allowed_values = ["none", "emergencyLights", "emergencyAlarm", "stopPaddle", "powerTakeOff", "plow", "sweeper", "salter", "reefer", "door", "boom", "auxiliaryEngine", "generator", "eightWayLights"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and aux_input_type10 not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `aux_input_type10` ({0}), must be one of {1}"  # noqa: E501
+                .format(aux_input_type10, allowed_values)
+            )
 
         self._aux_input_type10 = aux_input_type10
 
@@ -193,9 +209,10 @@ class UpdateVehicleRequest(object):
     def aux_input_type2(self):
         """Gets the aux_input_type2 of this UpdateVehicleRequest.  # noqa: E501
 
+        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :return: The aux_input_type2 of this UpdateVehicleRequest.  # noqa: E501
-        :rtype: VehicleAuxInputType
+        :rtype: str
         """
         return self._aux_input_type2
 
@@ -203,10 +220,17 @@ class UpdateVehicleRequest(object):
     def aux_input_type2(self, aux_input_type2):
         """Sets the aux_input_type2 of this UpdateVehicleRequest.
 
+        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :param aux_input_type2: The aux_input_type2 of this UpdateVehicleRequest.  # noqa: E501
-        :type: VehicleAuxInputType
+        :type: str
         """
+        allowed_values = ["none", "emergencyLights", "emergencyAlarm", "stopPaddle", "powerTakeOff", "plow", "sweeper", "salter", "reefer", "door", "boom", "auxiliaryEngine", "generator", "eightWayLights"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and aux_input_type2 not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `aux_input_type2` ({0}), must be one of {1}"  # noqa: E501
+                .format(aux_input_type2, allowed_values)
+            )
 
         self._aux_input_type2 = aux_input_type2
 
@@ -214,9 +238,10 @@ class UpdateVehicleRequest(object):
     def aux_input_type3(self):
         """Gets the aux_input_type3 of this UpdateVehicleRequest.  # noqa: E501
 
+        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :return: The aux_input_type3 of this UpdateVehicleRequest.  # noqa: E501
-        :rtype: VehicleAuxInputType
+        :rtype: str
         """
         return self._aux_input_type3
 
@@ -224,10 +249,17 @@ class UpdateVehicleRequest(object):
     def aux_input_type3(self, aux_input_type3):
         """Sets the aux_input_type3 of this UpdateVehicleRequest.
 
+        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :param aux_input_type3: The aux_input_type3 of this UpdateVehicleRequest.  # noqa: E501
-        :type: VehicleAuxInputType
+        :type: str
         """
+        allowed_values = ["none", "emergencyLights", "emergencyAlarm", "stopPaddle", "powerTakeOff", "plow", "sweeper", "salter", "reefer", "door", "boom", "auxiliaryEngine", "generator", "eightWayLights"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and aux_input_type3 not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `aux_input_type3` ({0}), must be one of {1}"  # noqa: E501
+                .format(aux_input_type3, allowed_values)
+            )
 
         self._aux_input_type3 = aux_input_type3
 
@@ -235,9 +267,10 @@ class UpdateVehicleRequest(object):
     def aux_input_type4(self):
         """Gets the aux_input_type4 of this UpdateVehicleRequest.  # noqa: E501
 
+        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :return: The aux_input_type4 of this UpdateVehicleRequest.  # noqa: E501
-        :rtype: VehicleAuxInputType
+        :rtype: str
         """
         return self._aux_input_type4
 
@@ -245,10 +278,17 @@ class UpdateVehicleRequest(object):
     def aux_input_type4(self, aux_input_type4):
         """Sets the aux_input_type4 of this UpdateVehicleRequest.
 
+        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :param aux_input_type4: The aux_input_type4 of this UpdateVehicleRequest.  # noqa: E501
-        :type: VehicleAuxInputType
+        :type: str
         """
+        allowed_values = ["none", "emergencyLights", "emergencyAlarm", "stopPaddle", "powerTakeOff", "plow", "sweeper", "salter", "reefer", "door", "boom", "auxiliaryEngine", "generator", "eightWayLights"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and aux_input_type4 not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `aux_input_type4` ({0}), must be one of {1}"  # noqa: E501
+                .format(aux_input_type4, allowed_values)
+            )
 
         self._aux_input_type4 = aux_input_type4
 
@@ -256,9 +296,10 @@ class UpdateVehicleRequest(object):
     def aux_input_type5(self):
         """Gets the aux_input_type5 of this UpdateVehicleRequest.  # noqa: E501
 
+        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :return: The aux_input_type5 of this UpdateVehicleRequest.  # noqa: E501
-        :rtype: VehicleAuxInputType
+        :rtype: str
         """
         return self._aux_input_type5
 
@@ -266,10 +307,17 @@ class UpdateVehicleRequest(object):
     def aux_input_type5(self, aux_input_type5):
         """Sets the aux_input_type5 of this UpdateVehicleRequest.
 
+        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :param aux_input_type5: The aux_input_type5 of this UpdateVehicleRequest.  # noqa: E501
-        :type: VehicleAuxInputType
+        :type: str
         """
+        allowed_values = ["none", "emergencyLights", "emergencyAlarm", "stopPaddle", "powerTakeOff", "plow", "sweeper", "salter", "reefer", "door", "boom", "auxiliaryEngine", "generator", "eightWayLights"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and aux_input_type5 not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `aux_input_type5` ({0}), must be one of {1}"  # noqa: E501
+                .format(aux_input_type5, allowed_values)
+            )
 
         self._aux_input_type5 = aux_input_type5
 
@@ -277,9 +325,10 @@ class UpdateVehicleRequest(object):
     def aux_input_type6(self):
         """Gets the aux_input_type6 of this UpdateVehicleRequest.  # noqa: E501
 
+        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :return: The aux_input_type6 of this UpdateVehicleRequest.  # noqa: E501
-        :rtype: VehicleAuxInputType
+        :rtype: str
         """
         return self._aux_input_type6
 
@@ -287,10 +336,17 @@ class UpdateVehicleRequest(object):
     def aux_input_type6(self, aux_input_type6):
         """Sets the aux_input_type6 of this UpdateVehicleRequest.
 
+        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :param aux_input_type6: The aux_input_type6 of this UpdateVehicleRequest.  # noqa: E501
-        :type: VehicleAuxInputType
+        :type: str
         """
+        allowed_values = ["none", "emergencyLights", "emergencyAlarm", "stopPaddle", "powerTakeOff", "plow", "sweeper", "salter", "reefer", "door", "boom", "auxiliaryEngine", "generator", "eightWayLights"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and aux_input_type6 not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `aux_input_type6` ({0}), must be one of {1}"  # noqa: E501
+                .format(aux_input_type6, allowed_values)
+            )
 
         self._aux_input_type6 = aux_input_type6
 
@@ -298,9 +354,10 @@ class UpdateVehicleRequest(object):
     def aux_input_type7(self):
         """Gets the aux_input_type7 of this UpdateVehicleRequest.  # noqa: E501
 
+        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :return: The aux_input_type7 of this UpdateVehicleRequest.  # noqa: E501
-        :rtype: VehicleAuxInputType
+        :rtype: str
         """
         return self._aux_input_type7
 
@@ -308,10 +365,17 @@ class UpdateVehicleRequest(object):
     def aux_input_type7(self, aux_input_type7):
         """Sets the aux_input_type7 of this UpdateVehicleRequest.
 
+        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :param aux_input_type7: The aux_input_type7 of this UpdateVehicleRequest.  # noqa: E501
-        :type: VehicleAuxInputType
+        :type: str
         """
+        allowed_values = ["none", "emergencyLights", "emergencyAlarm", "stopPaddle", "powerTakeOff", "plow", "sweeper", "salter", "reefer", "door", "boom", "auxiliaryEngine", "generator", "eightWayLights"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and aux_input_type7 not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `aux_input_type7` ({0}), must be one of {1}"  # noqa: E501
+                .format(aux_input_type7, allowed_values)
+            )
 
         self._aux_input_type7 = aux_input_type7
 
@@ -319,9 +383,10 @@ class UpdateVehicleRequest(object):
     def aux_input_type8(self):
         """Gets the aux_input_type8 of this UpdateVehicleRequest.  # noqa: E501
 
+        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :return: The aux_input_type8 of this UpdateVehicleRequest.  # noqa: E501
-        :rtype: VehicleAuxInputType
+        :rtype: str
         """
         return self._aux_input_type8
 
@@ -329,10 +394,17 @@ class UpdateVehicleRequest(object):
     def aux_input_type8(self, aux_input_type8):
         """Sets the aux_input_type8 of this UpdateVehicleRequest.
 
+        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :param aux_input_type8: The aux_input_type8 of this UpdateVehicleRequest.  # noqa: E501
-        :type: VehicleAuxInputType
+        :type: str
         """
+        allowed_values = ["none", "emergencyLights", "emergencyAlarm", "stopPaddle", "powerTakeOff", "plow", "sweeper", "salter", "reefer", "door", "boom", "auxiliaryEngine", "generator", "eightWayLights"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and aux_input_type8 not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `aux_input_type8` ({0}), must be one of {1}"  # noqa: E501
+                .format(aux_input_type8, allowed_values)
+            )
 
         self._aux_input_type8 = aux_input_type8
 
@@ -340,9 +412,10 @@ class UpdateVehicleRequest(object):
     def aux_input_type9(self):
         """Gets the aux_input_type9 of this UpdateVehicleRequest.  # noqa: E501
 
+        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :return: The aux_input_type9 of this UpdateVehicleRequest.  # noqa: E501
-        :rtype: VehicleAuxInputType
+        :rtype: str
         """
         return self._aux_input_type9
 
@@ -350,10 +423,17 @@ class UpdateVehicleRequest(object):
     def aux_input_type9(self, aux_input_type9):
         """Sets the aux_input_type9 of this UpdateVehicleRequest.
 
+        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :param aux_input_type9: The aux_input_type9 of this UpdateVehicleRequest.  # noqa: E501
-        :type: VehicleAuxInputType
+        :type: str
         """
+        allowed_values = ["none", "emergencyLights", "emergencyAlarm", "stopPaddle", "powerTakeOff", "plow", "sweeper", "salter", "reefer", "door", "boom", "auxiliaryEngine", "generator", "eightWayLights"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and aux_input_type9 not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `aux_input_type9` ({0}), must be one of {1}"  # noqa: E501
+                .format(aux_input_type9, allowed_values)
+            )
 
         self._aux_input_type9 = aux_input_type9
 
@@ -407,9 +487,10 @@ class UpdateVehicleRequest(object):
     def harsh_acceleration_setting_type(self):
         """Gets the harsh_acceleration_setting_type of this UpdateVehicleRequest.  # noqa: E501
 
+        The harsh acceleration setting type. This setting influences the acceleration sensitivity from which a [harsh event](https://kb.samsara.com/hc/en-us/articles/360006938891-Harsh-Events) is triggered. **By default**, this setting is inferred by the Samsara Vehicle Gateway from the engine computer, but it may be set or updated through the Samsara Dashboard or the API at any time. If set to `off`, then no acceleration based harsh events are triggered for the vehicle.  # noqa: E501
 
         :return: The harsh_acceleration_setting_type of this UpdateVehicleRequest.  # noqa: E501
-        :rtype: VehicleHarshAccelerationSettingType
+        :rtype: str
         """
         return self._harsh_acceleration_setting_type
 
@@ -417,10 +498,17 @@ class UpdateVehicleRequest(object):
     def harsh_acceleration_setting_type(self, harsh_acceleration_setting_type):
         """Sets the harsh_acceleration_setting_type of this UpdateVehicleRequest.
 
+        The harsh acceleration setting type. This setting influences the acceleration sensitivity from which a [harsh event](https://kb.samsara.com/hc/en-us/articles/360006938891-Harsh-Events) is triggered. **By default**, this setting is inferred by the Samsara Vehicle Gateway from the engine computer, but it may be set or updated through the Samsara Dashboard or the API at any time. If set to `off`, then no acceleration based harsh events are triggered for the vehicle.  # noqa: E501
 
         :param harsh_acceleration_setting_type: The harsh_acceleration_setting_type of this UpdateVehicleRequest.  # noqa: E501
-        :type: VehicleHarshAccelerationSettingType
+        :type: str
         """
+        allowed_values = ["passengerCar", "lightTruck", "heavyDuty", "off", "automatic"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and harsh_acceleration_setting_type not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `harsh_acceleration_setting_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(harsh_acceleration_setting_type, allowed_values)
+            )
 
         self._harsh_acceleration_setting_type = harsh_acceleration_setting_type
 

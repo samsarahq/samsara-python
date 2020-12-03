@@ -37,7 +37,7 @@ class CreateAddressRequest(object):
         'contact_ids': 'list[str]',
         'external_ids': 'dict(str, str)',
         'formatted_address': 'str',
-        'geofence': 'AddressGeofence',
+        'geofence': 'CreateAddressRequestGeofence',
         'latitude': 'float',
         'longitude': 'float',
         'name': 'str',
@@ -205,7 +205,7 @@ class CreateAddressRequest(object):
 
 
         :return: The geofence of this CreateAddressRequest.  # noqa: E501
-        :rtype: AddressGeofence
+        :rtype: CreateAddressRequestGeofence
         """
         return self._geofence
 
@@ -215,7 +215,7 @@ class CreateAddressRequest(object):
 
 
         :param geofence: The geofence of this CreateAddressRequest.  # noqa: E501
-        :type: AddressGeofence
+        :type: CreateAddressRequestGeofence
         """
         if self.local_vars_configuration.client_side_validation and geofence is None:  # noqa: E501
             raise ValueError("Invalid value for `geofence`, must not be `None`")  # noqa: E501

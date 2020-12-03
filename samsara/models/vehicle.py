@@ -86,7 +86,7 @@ class Vehicle(object):
         'year': 'year'
     }
 
-    def __init__(self, aux_input_type1=None, aux_input_type10=None, aux_input_type2=None, aux_input_type3=None, aux_input_type4=None, aux_input_type5=None, aux_input_type6=None, aux_input_type7=None, aux_input_type8=None, aux_input_type9=None, camera_serial=None, external_ids=None, harsh_acceleration_setting_type=None, id=None, license_plate=None, make=None, model=None, name=None, notes='', serial=None, static_assigned_driver=None, tags=None, vin=None, year=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, aux_input_type1=None, aux_input_type10=None, aux_input_type2=None, aux_input_type3=None, aux_input_type4=None, aux_input_type5=None, aux_input_type6=None, aux_input_type7=None, aux_input_type8=None, aux_input_type9=None, camera_serial=None, external_ids=None, harsh_acceleration_setting_type=None, id=None, license_plate=None, make=None, model=None, name=None, notes=None, serial=None, static_assigned_driver=None, tags=None, vin=None, year=None, local_vars_configuration=None):  # noqa: E501
         """Vehicle - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()

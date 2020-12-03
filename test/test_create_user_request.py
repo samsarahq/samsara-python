@@ -40,7 +40,7 @@ class TestCreateUserRequest(unittest.TestCase):
                 email = 'user@company.com', 
                 name = 'Bob Smith', 
                 roles = [
-                    samsara.models.user_role_assignment_request.UserRoleAssignmentRequest(
+                    samsara.models.create_user_request_roles.CreateUserRequest_roles(
                         role_id = '8a9371af-82d1-4158-bf91-4ecc8d3a114c', 
                         tag_id = '3914', )
                     ]
@@ -51,7 +51,7 @@ class TestCreateUserRequest(unittest.TestCase):
                 email = 'user@company.com',
                 name = 'Bob Smith',
                 roles = [
-                    samsara.models.user_role_assignment_request.UserRoleAssignmentRequest(
+                    samsara.models.create_user_request_roles.CreateUserRequest_roles(
                         role_id = '8a9371af-82d1-4158-bf91-4ecc8d3a114c', 
                         tag_id = '3914', )
                     ],
