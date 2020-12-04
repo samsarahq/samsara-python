@@ -34,7 +34,7 @@ class AttributeEntity(object):
     """
     openapi_types = {
         'entity_id': 'int',
-        'external_ids': 'dict(str, str)',
+        'external_ids': 'object',
         'name': 'str',
         'number_values': 'list[float]',
         'string_values': 'list[str]'
@@ -100,7 +100,7 @@ class AttributeEntity(object):
         The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.  # noqa: E501
 
         :return: The external_ids of this AttributeEntity.  # noqa: E501
-        :rtype: dict(str, str)
+        :rtype: object
         """
         return self._external_ids
 
@@ -111,7 +111,7 @@ class AttributeEntity(object):
         The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.  # noqa: E501
 
         :param external_ids: The external_ids of this AttributeEntity.  # noqa: E501
-        :type: dict(str, str)
+        :type: object
         """
 
         self._external_ids = external_ids

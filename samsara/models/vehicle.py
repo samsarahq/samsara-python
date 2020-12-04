@@ -44,7 +44,7 @@ class Vehicle(object):
         'aux_input_type8': 'VehicleAuxInputType',
         'aux_input_type9': 'VehicleAuxInputType',
         'camera_serial': 'str',
-        'external_ids': 'dict(str, str)',
+        'external_ids': 'object',
         'harsh_acceleration_setting_type': 'VehicleHarshAccelerationSettingType',
         'id': 'str',
         'license_plate': 'str',
@@ -406,7 +406,7 @@ class Vehicle(object):
         The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.  # noqa: E501
 
         :return: The external_ids of this Vehicle.  # noqa: E501
-        :rtype: dict(str, str)
+        :rtype: object
         """
         return self._external_ids
 
@@ -417,7 +417,7 @@ class Vehicle(object):
         The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.  # noqa: E501
 
         :param external_ids: The external_ids of this Vehicle.  # noqa: E501
-        :type: dict(str, str)
+        :type: object
         """
 
         self._external_ids = external_ids

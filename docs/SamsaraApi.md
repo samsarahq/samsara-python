@@ -595,7 +595,7 @@ print("Exception when calling SamsaraApi->create_user: %s\n" % e)
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
     # **delete_address**
-    > delete_address(id)
+    > str delete_address(id)
 
     Delete an address
 
@@ -618,7 +618,8 @@ id = 'id_example' # str | ID of the Address. This can either be the Samsara-prov
 
 try:
     # Delete an address
-    api_instance.delete_address(id)
+    api_response = api_instance.delete_address(id)
+  pprint(api_response)
 except ApiException as e:
 print("Exception when calling SamsaraApi->delete_address: %s\n" % e)
 ```
@@ -631,7 +632,7 @@ print("Exception when calling SamsaraApi->delete_address: %s\n" % e)
 
     ### Return type
 
-    void (empty response body)
+    **str**
 
     ### Authorization
 
@@ -645,13 +646,13 @@ print("Exception when calling SamsaraApi->delete_address: %s\n" % e)
       ### HTTP response details
       | Status code | Description | Response headers |
       |-------------|-------------|------------------|
-        **204** | Empty success body |  -  |
+        **204** | A successful DELETE response is a 204 with no content. |  -  |
         **0** | Unexpected error. |  -  |
 
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
     # **delete_attribute**
-    > delete_attribute(id, entity_type)
+    > str delete_attribute(id, entity_type)
 
     [beta] Deleting an attribute
 
@@ -675,7 +676,8 @@ entity_type = 'entity_type_example' # str | Denotes the type of entity, driver o
 
 try:
     # [beta] Deleting an attribute
-    api_instance.delete_attribute(id, entity_type)
+    api_response = api_instance.delete_attribute(id, entity_type)
+  pprint(api_response)
 except ApiException as e:
 print("Exception when calling SamsaraApi->delete_attribute: %s\n" % e)
 ```
@@ -689,7 +691,7 @@ print("Exception when calling SamsaraApi->delete_attribute: %s\n" % e)
 
     ### Return type
 
-    void (empty response body)
+    **str**
 
     ### Authorization
 
@@ -703,13 +705,13 @@ print("Exception when calling SamsaraApi->delete_attribute: %s\n" % e)
       ### HTTP response details
       | Status code | Description | Response headers |
       |-------------|-------------|------------------|
-        **204** | Returns an empty success response. |  -  |
+        **204** | A successful DELETE response is a 204 with no content. |  -  |
         **0** | Error response |  -  |
 
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
     # **delete_carrier_proposed_assignment**
-    > delete_carrier_proposed_assignment(id)
+    > str delete_carrier_proposed_assignment(id)
 
     Delete an assignment
 
@@ -732,7 +734,8 @@ id = 'id_example' # str | ID of the assignment.
 
 try:
     # Delete an assignment
-    api_instance.delete_carrier_proposed_assignment(id)
+    api_response = api_instance.delete_carrier_proposed_assignment(id)
+  pprint(api_response)
 except ApiException as e:
 print("Exception when calling SamsaraApi->delete_carrier_proposed_assignment: %s\n" % e)
 ```
@@ -745,7 +748,7 @@ print("Exception when calling SamsaraApi->delete_carrier_proposed_assignment: %s
 
     ### Return type
 
-    void (empty response body)
+    **str**
 
     ### Authorization
 
@@ -759,13 +762,13 @@ print("Exception when calling SamsaraApi->delete_carrier_proposed_assignment: %s
       ### HTTP response details
       | Status code | Description | Response headers |
       |-------------|-------------|------------------|
-        **204** | Empty success body |  -  |
+        **204** | A successful DELETE response is a 204 with no content. |  -  |
         **0** | Error response |  -  |
 
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
     # **delete_contact**
-    > delete_contact(id)
+    > str delete_contact(id)
 
     Delete a contact
 
@@ -788,7 +791,8 @@ id = 'id_example' # str | Unique identifier for the contact.
 
 try:
     # Delete a contact
-    api_instance.delete_contact(id)
+    api_response = api_instance.delete_contact(id)
+  pprint(api_response)
 except ApiException as e:
 print("Exception when calling SamsaraApi->delete_contact: %s\n" % e)
 ```
@@ -801,7 +805,7 @@ print("Exception when calling SamsaraApi->delete_contact: %s\n" % e)
 
     ### Return type
 
-    void (empty response body)
+    **str**
 
     ### Authorization
 
@@ -815,13 +819,13 @@ print("Exception when calling SamsaraApi->delete_contact: %s\n" % e)
       ### HTTP response details
       | Status code | Description | Response headers |
       |-------------|-------------|------------------|
-        **204** | Returns an empty success response. |  -  |
+        **204** | A successful DELETE response is a 204 with no content. |  -  |
         **0** | Error response |  -  |
 
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
     # **delete_industrial_asset**
-    > delete_industrial_asset(id)
+    > str delete_industrial_asset(id)
 
     Delete an existing asset
 
@@ -844,7 +848,8 @@ id = 'id_example' # str | Id of the asset to be deleted.
 
 try:
     # Delete an existing asset
-    api_instance.delete_industrial_asset(id)
+    api_response = api_instance.delete_industrial_asset(id)
+  pprint(api_response)
 except ApiException as e:
 print("Exception when calling SamsaraApi->delete_industrial_asset: %s\n" % e)
 ```
@@ -857,7 +862,7 @@ print("Exception when calling SamsaraApi->delete_industrial_asset: %s\n" % e)
 
     ### Return type
 
-    void (empty response body)
+    **str**
 
     ### Authorization
 
@@ -871,13 +876,13 @@ print("Exception when calling SamsaraApi->delete_industrial_asset: %s\n" % e)
       ### HTTP response details
       | Status code | Description | Response headers |
       |-------------|-------------|------------------|
-        **204** | Successfully deleted the asset. No response body. |  -  |
+        **204** | A successful DELETE response is a 204 with no content. |  -  |
         **0** | Error response |  -  |
 
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
     # **delete_tag**
-    > delete_tag(id)
+    > str delete_tag(id)
 
     Delete a tag
 
@@ -900,7 +905,8 @@ id = 'id_example' # str | ID of the Tag. This can either be the Samsara-provided
 
 try:
     # Delete a tag
-    api_instance.delete_tag(id)
+    api_response = api_instance.delete_tag(id)
+  pprint(api_response)
 except ApiException as e:
 print("Exception when calling SamsaraApi->delete_tag: %s\n" % e)
 ```
@@ -913,7 +919,7 @@ print("Exception when calling SamsaraApi->delete_tag: %s\n" % e)
 
     ### Return type
 
-    void (empty response body)
+    **str**
 
     ### Authorization
 
@@ -927,13 +933,13 @@ print("Exception when calling SamsaraApi->delete_tag: %s\n" % e)
       ### HTTP response details
       | Status code | Description | Response headers |
       |-------------|-------------|------------------|
-        **204** | Successfully deleted the tag. No response body is returned. |  -  |
+        **204** | A successful DELETE response is a 204 with no content. |  -  |
         **0** | Error response |  -  |
 
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
     # **delete_user**
-    > delete_user(id)
+    > str delete_user(id)
 
     Delete a user
 
@@ -956,7 +962,8 @@ id = 'id_example' # str | Unique identifier for the user.
 
 try:
     # Delete a user
-    api_instance.delete_user(id)
+    api_response = api_instance.delete_user(id)
+  pprint(api_response)
 except ApiException as e:
 print("Exception when calling SamsaraApi->delete_user: %s\n" % e)
 ```
@@ -969,7 +976,7 @@ print("Exception when calling SamsaraApi->delete_user: %s\n" % e)
 
     ### Return type
 
-    void (empty response body)
+    **str**
 
     ### Authorization
 
@@ -983,7 +990,7 @@ print("Exception when calling SamsaraApi->delete_user: %s\n" % e)
       ### HTTP response details
       | Status code | Description | Response headers |
       |-------------|-------------|------------------|
-        **204** | Returns an empty success response. |  -  |
+        **204** | A successful DELETE response is a 204 with no content. |  -  |
         **0** | Error response |  -  |
 
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

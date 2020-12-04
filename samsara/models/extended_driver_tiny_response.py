@@ -33,7 +33,7 @@ class ExtendedDriverTinyResponse(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'external_ids': 'dict(str, str)',
+        'external_ids': 'object',
         'id': 'str',
         'name': 'str',
         'username': 'str'
@@ -74,7 +74,7 @@ class ExtendedDriverTinyResponse(object):
         The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.  # noqa: E501
 
         :return: The external_ids of this ExtendedDriverTinyResponse.  # noqa: E501
-        :rtype: dict(str, str)
+        :rtype: object
         """
         return self._external_ids
 
@@ -85,7 +85,7 @@ class ExtendedDriverTinyResponse(object):
         The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.  # noqa: E501
 
         :param external_ids: The external_ids of this ExtendedDriverTinyResponse.  # noqa: E501
-        :type: dict(str, str)
+        :type: object
         """
 
         self._external_ids = external_ids

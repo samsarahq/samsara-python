@@ -36,7 +36,7 @@ class MinimalRouteStop(object):
         'actual_arrival_time': 'str',
         'actual_departure_time': 'str',
         'eta': 'str',
-        'external_ids': 'dict(str, str)',
+        'external_ids': 'object',
         'id': 'str',
         'skipped_time': 'str',
         'state': 'str'
@@ -156,7 +156,7 @@ class MinimalRouteStop(object):
         The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.  # noqa: E501
 
         :return: The external_ids of this MinimalRouteStop.  # noqa: E501
-        :rtype: dict(str, str)
+        :rtype: object
         """
         return self._external_ids
 
@@ -167,7 +167,7 @@ class MinimalRouteStop(object):
         The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.  # noqa: E501
 
         :param external_ids: The external_ids of this MinimalRouteStop.  # noqa: E501
-        :type: dict(str, str)
+        :type: object
         """
 
         self._external_ids = external_ids

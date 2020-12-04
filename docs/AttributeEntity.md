@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **entity_id** | **int** |  | [optional] 
-**external_ids** | **dict(str, str)** | The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object. | [optional] 
+**external_ids** | [**object**](.md) | The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object. | [optional] 
 **name** | **str** |  | [optional] 
 **number_values** | **list[float]** | Number values that are associated with this attribute. | [optional] 
 **string_values** | **list[str]** | String values that are associated with this attribute. | [optional] 

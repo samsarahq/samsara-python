@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **eld_pc_enabled** | **bool** | Flag indicating this driver may select the Personal Conveyance duty status in ELD logs. | [optional] [default to False]
 **eld_settings** | [**DriverEldSettings**](DriverEldSettings.md) |  | [optional] 
 **eld_ym_enabled** | **bool** | Flag indicating this driver may select the Yard Move duty status in ELD logs. | [optional] [default to False]
-**external_ids** | **dict(str, str)** | The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object. | [optional] 
+**external_ids** | [**object**](.md) | The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object. | [optional] 
 **id** | **str** | Samsara ID for the driver. | [optional] 
 **is_deactivated** | **bool** | [DEPRECATED] A boolean indicating whether or not the driver is deactivated. Use &#x60;driverActivationStatus&#x60; instead. | [optional] 
 **license_number** | **str** | Driver&#39;s state issued license number. The combination of this number and &#x60;licenseState&#x60; must be unique. | [optional] 

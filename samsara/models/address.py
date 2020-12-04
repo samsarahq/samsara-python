@@ -36,7 +36,7 @@ class Address(object):
         'address_types': 'list[str]',
         'contacts': 'list[ContactTinyResponse]',
         'created_at_time': 'datetime',
-        'external_ids': 'dict(str, str)',
+        'external_ids': 'object',
         'formatted_address': 'str',
         'geofence': 'AddressGeofence',
         'id': 'str',
@@ -187,7 +187,7 @@ class Address(object):
         The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.  # noqa: E501
 
         :return: The external_ids of this Address.  # noqa: E501
-        :rtype: dict(str, str)
+        :rtype: object
         """
         return self._external_ids
 
@@ -198,7 +198,7 @@ class Address(object):
         The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.  # noqa: E501
 
         :param external_ids: The external_ids of this Address.  # noqa: E501
-        :type: dict(str, str)
+        :type: object
         """
 
         self._external_ids = external_ids

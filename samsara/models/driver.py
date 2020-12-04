@@ -46,7 +46,7 @@ class Driver(object):
         'eld_pc_enabled': 'bool',
         'eld_settings': 'DriverEldSettings',
         'eld_ym_enabled': 'bool',
-        'external_ids': 'dict(str, str)',
+        'external_ids': 'object',
         'id': 'str',
         'is_deactivated': 'bool',
         'license_number': 'str',
@@ -490,7 +490,7 @@ class Driver(object):
         The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.  # noqa: E501
 
         :return: The external_ids of this Driver.  # noqa: E501
-        :rtype: dict(str, str)
+        :rtype: object
         """
         return self._external_ids
 
@@ -501,7 +501,7 @@ class Driver(object):
         The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.  # noqa: E501
 
         :param external_ids: The external_ids of this Driver.  # noqa: E501
-        :type: dict(str, str)
+        :type: object
         """
 
         self._external_ids = external_ids

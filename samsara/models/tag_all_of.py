@@ -36,7 +36,7 @@ class TagAllOf(object):
         'addresses': 'list[TaggedObject]',
         'assets': 'list[TaggedObject]',
         'drivers': 'list[TaggedObject]',
-        'external_ids': 'dict(str, str)',
+        'external_ids': 'object',
         'machines': 'list[TaggedObject]',
         'parent_tag': 'ParentTag',
         'sensors': 'list[TaggedObject]',
@@ -163,7 +163,7 @@ class TagAllOf(object):
         The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.  # noqa: E501
 
         :return: The external_ids of this TagAllOf.  # noqa: E501
-        :rtype: dict(str, str)
+        :rtype: object
         """
         return self._external_ids
 
@@ -174,7 +174,7 @@ class TagAllOf(object):
         The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.  # noqa: E501
 
         :param external_ids: The external_ids of this TagAllOf.  # noqa: E501
-        :type: dict(str, str)
+        :type: object
         """
 
         self._external_ids = external_ids
