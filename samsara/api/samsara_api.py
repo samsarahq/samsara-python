@@ -39,7 +39,7 @@ class SamsaraApi(object):
     def create_address(self, address, **kwargs):  # noqa: E501
         """Create an address  # noqa: E501
 
-        Creates a new address in the organization  # noqa: E501
+        Creates a new address in the organization.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_address(address, async_req=True)
@@ -64,7 +64,7 @@ class SamsaraApi(object):
     def create_address_with_http_info(self, address, **kwargs):  # noqa: E501
         """Create an address  # noqa: E501
 
-        Creates a new address in the organization  # noqa: E501
+        Creates a new address in the organization.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_address_with_http_info(address, async_req=True)
@@ -151,7 +151,7 @@ class SamsaraApi(object):
     def create_attribute(self, attribute, **kwargs):  # noqa: E501
         """[beta] Create an attribute  # noqa: E501
 
-        Creates a new attribute in the organization.  # noqa: E501
+        Creates a new attribute in the organization.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_attribute(attribute, async_req=True)
@@ -176,7 +176,7 @@ class SamsaraApi(object):
     def create_attribute_with_http_info(self, attribute, **kwargs):  # noqa: E501
         """[beta] Create an attribute  # noqa: E501
 
-        Creates a new attribute in the organization.  # noqa: E501
+        Creates a new attribute in the organization.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_attribute_with_http_info(attribute, async_req=True)
@@ -263,7 +263,7 @@ class SamsaraApi(object):
     def create_carrier_proposed_assignment(self, **kwargs):  # noqa: E501
         """Create an assignment  # noqa: E501
 
-        Creates a new assignment that a driver can later use. Each driver can only have one future assignment.  # noqa: E501
+        Creates a new assignment that a driver can later use. Each driver can only have one future assignment.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_carrier_proposed_assignment(async_req=True)
@@ -288,7 +288,7 @@ class SamsaraApi(object):
     def create_carrier_proposed_assignment_with_http_info(self, **kwargs):  # noqa: E501
         """Create an assignment  # noqa: E501
 
-        Creates a new assignment that a driver can later use. Each driver can only have one future assignment.  # noqa: E501
+        Creates a new assignment that a driver can later use. Each driver can only have one future assignment.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_carrier_proposed_assignment_with_http_info(async_req=True)
@@ -371,7 +371,7 @@ class SamsaraApi(object):
     def create_contact(self, contact, **kwargs):  # noqa: E501
         """Create a contact  # noqa: E501
 
-        Add a contact to the organization  # noqa: E501
+        Add a contact to the organization.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_contact(contact, async_req=True)
@@ -396,7 +396,7 @@ class SamsaraApi(object):
     def create_contact_with_http_info(self, contact, **kwargs):  # noqa: E501
         """Create a contact  # noqa: E501
 
-        Add a contact to the organization  # noqa: E501
+        Add a contact to the organization.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_contact_with_http_info(contact, async_req=True)
@@ -483,7 +483,7 @@ class SamsaraApi(object):
     def create_driver(self, driver, **kwargs):  # noqa: E501
         """Create a driver  # noqa: E501
 
-        Add a driver to the organization.  # noqa: E501
+        Add a driver to the organization.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_driver(driver, async_req=True)
@@ -508,7 +508,7 @@ class SamsaraApi(object):
     def create_driver_with_http_info(self, driver, **kwargs):  # noqa: E501
         """Create a driver  # noqa: E501
 
-        Add a driver to the organization.  # noqa: E501
+        Add a driver to the organization.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_driver_with_http_info(driver, async_req=True)
@@ -595,7 +595,7 @@ class SamsaraApi(object):
     def create_dvir(self, **kwargs):  # noqa: E501
         """Create a mechanic DVIR  # noqa: E501
 
-        Creates a new mechanic DVIR in the organization.  # noqa: E501
+        Creates a new mechanic DVIR in the organization.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_dvir(async_req=True)
@@ -620,7 +620,7 @@ class SamsaraApi(object):
     def create_dvir_with_http_info(self, **kwargs):  # noqa: E501
         """Create a mechanic DVIR  # noqa: E501
 
-        Creates a new mechanic DVIR in the organization.  # noqa: E501
+        Creates a new mechanic DVIR in the organization.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_dvir_with_http_info(async_req=True)
@@ -703,7 +703,7 @@ class SamsaraApi(object):
     def create_industrial_asset(self, **kwargs):  # noqa: E501
         """Create an asset  # noqa: E501
 
-        Create an asset with optional configuration parameters  # noqa: E501
+        Create an asset with optional configuration parameters.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_industrial_asset(async_req=True)
@@ -728,7 +728,7 @@ class SamsaraApi(object):
     def create_industrial_asset_with_http_info(self, **kwargs):  # noqa: E501
         """Create an asset  # noqa: E501
 
-        Create an asset with optional configuration parameters  # noqa: E501
+        Create an asset with optional configuration parameters.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_industrial_asset_with_http_info(async_req=True)
@@ -811,7 +811,7 @@ class SamsaraApi(object):
     def create_tag(self, tag, **kwargs):  # noqa: E501
         """Create a tag  # noqa: E501
 
-        Create a new tag for the organization.  # noqa: E501
+        Create a new tag for the organization.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_tag(tag, async_req=True)
@@ -836,7 +836,7 @@ class SamsaraApi(object):
     def create_tag_with_http_info(self, tag, **kwargs):  # noqa: E501
         """Create a tag  # noqa: E501
 
-        Create a new tag for the organization.  # noqa: E501
+        Create a new tag for the organization.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_tag_with_http_info(tag, async_req=True)
@@ -923,7 +923,7 @@ class SamsaraApi(object):
     def create_user(self, user, **kwargs):  # noqa: E501
         """Create a user  # noqa: E501
 
-        Add a user to the organization.  # noqa: E501
+        Add a user to the organization.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_user(user, async_req=True)
@@ -948,7 +948,7 @@ class SamsaraApi(object):
     def create_user_with_http_info(self, user, **kwargs):  # noqa: E501
         """Create a user  # noqa: E501
 
-        Add a user to the organization.  # noqa: E501
+        Add a user to the organization.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_user_with_http_info(user, async_req=True)
@@ -1035,7 +1035,7 @@ class SamsaraApi(object):
     def delete_address(self, id, **kwargs):  # noqa: E501
         """Delete an address  # noqa: E501
 
-        Delete a specific address.  # noqa: E501
+        Delete a specific address.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_address(id, async_req=True)
@@ -1060,7 +1060,7 @@ class SamsaraApi(object):
     def delete_address_with_http_info(self, id, **kwargs):  # noqa: E501
         """Delete an address  # noqa: E501
 
-        Delete a specific address.  # noqa: E501
+        Delete a specific address.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_address_with_http_info(id, async_req=True)
@@ -1143,7 +1143,7 @@ class SamsaraApi(object):
     def delete_attribute(self, id, entity_type, **kwargs):  # noqa: E501
         """[beta] Deleting an attribute  # noqa: E501
 
-        Delete an attribute by id, including all of its applications  # noqa: E501
+        Delete an attribute by id, including all of its applications.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_attribute(id, entity_type, async_req=True)
@@ -1169,7 +1169,7 @@ class SamsaraApi(object):
     def delete_attribute_with_http_info(self, id, entity_type, **kwargs):  # noqa: E501
         """[beta] Deleting an attribute  # noqa: E501
 
-        Delete an attribute by id, including all of its applications  # noqa: E501
+        Delete an attribute by id, including all of its applications.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_attribute_with_http_info(id, entity_type, async_req=True)
@@ -1259,7 +1259,7 @@ class SamsaraApi(object):
     def delete_carrier_proposed_assignment(self, id, **kwargs):  # noqa: E501
         """Delete an assignment  # noqa: E501
 
-        Permanently delete an assignment. You can only delete assignments that are not yet active. To override a currently active assignment, create a new empty one, instead.  # noqa: E501
+        Permanently delete an assignment. You can only delete assignments that are not yet active. To override a currently active assignment, create a new empty one, instead.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_carrier_proposed_assignment(id, async_req=True)
@@ -1284,7 +1284,7 @@ class SamsaraApi(object):
     def delete_carrier_proposed_assignment_with_http_info(self, id, **kwargs):  # noqa: E501
         """Delete an assignment  # noqa: E501
 
-        Permanently delete an assignment. You can only delete assignments that are not yet active. To override a currently active assignment, create a new empty one, instead.  # noqa: E501
+        Permanently delete an assignment. You can only delete assignments that are not yet active. To override a currently active assignment, create a new empty one, instead.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_carrier_proposed_assignment_with_http_info(id, async_req=True)
@@ -1367,7 +1367,7 @@ class SamsaraApi(object):
     def delete_contact(self, id, **kwargs):  # noqa: E501
         """Delete a contact  # noqa: E501
 
-        Delete the given contact.  # noqa: E501
+        Delete the given contact.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_contact(id, async_req=True)
@@ -1392,7 +1392,7 @@ class SamsaraApi(object):
     def delete_contact_with_http_info(self, id, **kwargs):  # noqa: E501
         """Delete a contact  # noqa: E501
 
-        Delete the given contact.  # noqa: E501
+        Delete the given contact.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_contact_with_http_info(id, async_req=True)
@@ -1473,7 +1473,7 @@ class SamsaraApi(object):
             collection_formats=collection_formats)
 
     def delete_industrial_asset(self, id, **kwargs):  # noqa: E501
-        """Delete an existing asset  # noqa: E501
+        """Delete an existing asset.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
 
         Delete asset  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1498,7 +1498,7 @@ class SamsaraApi(object):
         return self.delete_industrial_asset_with_http_info(id, **kwargs)  # noqa: E501
 
     def delete_industrial_asset_with_http_info(self, id, **kwargs):  # noqa: E501
-        """Delete an existing asset  # noqa: E501
+        """Delete an existing asset.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
 
         Delete asset  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1583,7 +1583,7 @@ class SamsaraApi(object):
     def delete_tag(self, id, **kwargs):  # noqa: E501
         """Delete a tag  # noqa: E501
 
-        Permanently deletes a tag.  # noqa: E501
+        Permanently deletes a tag.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_tag(id, async_req=True)
@@ -1608,7 +1608,7 @@ class SamsaraApi(object):
     def delete_tag_with_http_info(self, id, **kwargs):  # noqa: E501
         """Delete a tag  # noqa: E501
 
-        Permanently deletes a tag.  # noqa: E501
+        Permanently deletes a tag.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_tag_with_http_info(id, async_req=True)
@@ -1691,7 +1691,7 @@ class SamsaraApi(object):
     def delete_user(self, id, **kwargs):  # noqa: E501
         """Delete a user  # noqa: E501
 
-        Delete the given user.  # noqa: E501
+        Delete the given user.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_user(id, async_req=True)
@@ -1716,7 +1716,7 @@ class SamsaraApi(object):
     def delete_user_with_http_info(self, id, **kwargs):  # noqa: E501
         """Delete a user  # noqa: E501
 
-        Delete the given user.  # noqa: E501
+        Delete the given user.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_user_with_http_info(id, async_req=True)
@@ -1799,7 +1799,7 @@ class SamsaraApi(object):
     def generate_document_pdf(self, **kwargs):  # noqa: E501
         """Create a document PDF  # noqa: E501
 
-        Request creation of a document PDF.  # noqa: E501
+        Request creation of a document PDF.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.generate_document_pdf(async_req=True)
@@ -1824,7 +1824,7 @@ class SamsaraApi(object):
     def generate_document_pdf_with_http_info(self, **kwargs):  # noqa: E501
         """Create a document PDF  # noqa: E501
 
-        Request creation of a document PDF.  # noqa: E501
+        Request creation of a document PDF.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.generate_document_pdf_with_http_info(async_req=True)
@@ -1907,7 +1907,7 @@ class SamsaraApi(object):
     def get_address(self, id, **kwargs):  # noqa: E501
         """Retrieve an address  # noqa: E501
 
-        Returns a specific address.  # noqa: E501
+        Returns a specific address.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_address(id, async_req=True)
@@ -1932,7 +1932,7 @@ class SamsaraApi(object):
     def get_address_with_http_info(self, id, **kwargs):  # noqa: E501
         """Retrieve an address  # noqa: E501
 
-        Returns a specific address.  # noqa: E501
+        Returns a specific address.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_address_with_http_info(id, async_req=True)
@@ -2015,7 +2015,7 @@ class SamsaraApi(object):
     def get_attribute(self, id, entity_type, **kwargs):  # noqa: E501
         """[beta] Retrieve an attribute  # noqa: E501
 
-        Fetch an attribute by id, including all of its applications  # noqa: E501
+        Fetch an attribute by id, including all of its applications.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_attribute(id, entity_type, async_req=True)
@@ -2041,7 +2041,7 @@ class SamsaraApi(object):
     def get_attribute_with_http_info(self, id, entity_type, **kwargs):  # noqa: E501
         """[beta] Retrieve an attribute  # noqa: E501
 
-        Fetch an attribute by id, including all of its applications  # noqa: E501
+        Fetch an attribute by id, including all of its applications.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_attribute_with_http_info(id, entity_type, async_req=True)
@@ -2131,7 +2131,7 @@ class SamsaraApi(object):
     def get_attributes_by_entity_type(self, entity_type, **kwargs):  # noqa: E501
         """[beta] List all attributes by entity type  # noqa: E501
 
-        Fetch all attributes in an organization associated with either drivers or vehicles.  # noqa: E501
+        Fetch all attributes in an organization associated with either drivers or vehicles.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_attributes_by_entity_type(entity_type, async_req=True)
@@ -2158,7 +2158,7 @@ class SamsaraApi(object):
     def get_attributes_by_entity_type_with_http_info(self, entity_type, **kwargs):  # noqa: E501
         """[beta] List all attributes by entity type  # noqa: E501
 
-        Fetch all attributes in an organization associated with either drivers or vehicles.  # noqa: E501
+        Fetch all attributes in an organization associated with either drivers or vehicles.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_attributes_by_entity_type_with_http_info(entity_type, async_req=True)
@@ -2251,7 +2251,7 @@ class SamsaraApi(object):
     def get_contact(self, id, **kwargs):  # noqa: E501
         """Retrieve a contact  # noqa: E501
 
-        Get a specific contact's information.  # noqa: E501
+        Get a specific contact's information.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_contact(id, async_req=True)
@@ -2276,7 +2276,7 @@ class SamsaraApi(object):
     def get_contact_with_http_info(self, id, **kwargs):  # noqa: E501
         """Retrieve a contact  # noqa: E501
 
-        Get a specific contact's information.  # noqa: E501
+        Get a specific contact's information.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_contact_with_http_info(id, async_req=True)
@@ -2359,7 +2359,7 @@ class SamsaraApi(object):
     def get_data_input_data_feed(self, **kwargs):  # noqa: E501
         """Follow a real-time feed of data points for data inputs  # noqa: E501
 
-        Follow a continuous feed of all data input data points.  Your first call to this endpoint will provide you with the most recent data points for each data input and a `pagination` object that contains an `endCursor`.  You can provide the `endCursor` to the `after` parameter of this endpoint to get data point updates since that `endCursor`.  If `hasNextPage` is `false`, no updates are readily available yet. We suggest waiting a minimum of 5 seconds before requesting updates.  # noqa: E501
+        Follow a continuous feed of all data input data points.  Your first call to this endpoint will provide you with the most recent data points for each data input and a `pagination` object that contains an `endCursor`.  You can provide the `endCursor` to the `after` parameter of this endpoint to get data point updates since that `endCursor`.  If `hasNextPage` is `false`, no updates are readily available yet. We suggest waiting a minimum of 5 seconds before requesting updates.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_data_input_data_feed(async_req=True)
@@ -2388,7 +2388,7 @@ class SamsaraApi(object):
     def get_data_input_data_feed_with_http_info(self, **kwargs):  # noqa: E501
         """Follow a real-time feed of data points for data inputs  # noqa: E501
 
-        Follow a continuous feed of all data input data points.  Your first call to this endpoint will provide you with the most recent data points for each data input and a `pagination` object that contains an `endCursor`.  You can provide the `endCursor` to the `after` parameter of this endpoint to get data point updates since that `endCursor`.  If `hasNextPage` is `false`, no updates are readily available yet. We suggest waiting a minimum of 5 seconds before requesting updates.  # noqa: E501
+        Follow a continuous feed of all data input data points.  Your first call to this endpoint will provide you with the most recent data points for each data input and a `pagination` object that contains an `endCursor`.  You can provide the `endCursor` to the `after` parameter of this endpoint to get data point updates since that `endCursor`.  If `hasNextPage` is `false`, no updates are readily available yet. We suggest waiting a minimum of 5 seconds before requesting updates.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_data_input_data_feed_with_http_info(async_req=True)
@@ -2483,7 +2483,7 @@ class SamsaraApi(object):
     def get_data_input_data_history(self, start_time, end_time, **kwargs):  # noqa: E501
         """List historical data points for data inputs  # noqa: E501
 
-        Returns all known data points during the given time range for all data inputs. This can be filtered by optional tags, specific data input IDs or asset IDs.  # noqa: E501
+        Returns all known data points during the given time range for all data inputs. This can be filtered by optional tags, specific data input IDs or asset IDs.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_data_input_data_history(start_time, end_time, async_req=True)
@@ -2514,7 +2514,7 @@ class SamsaraApi(object):
     def get_data_input_data_history_with_http_info(self, start_time, end_time, **kwargs):  # noqa: E501
         """List historical data points for data inputs  # noqa: E501
 
-        Returns all known data points during the given time range for all data inputs. This can be filtered by optional tags, specific data input IDs or asset IDs.  # noqa: E501
+        Returns all known data points during the given time range for all data inputs. This can be filtered by optional tags, specific data input IDs or asset IDs.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_data_input_data_history_with_http_info(start_time, end_time, async_req=True)
@@ -2623,7 +2623,7 @@ class SamsaraApi(object):
     def get_data_input_data_snapshot(self, **kwargs):  # noqa: E501
         """List most recent data points for data inputs  # noqa: E501
 
-        Returns last known data points for all data inputs. This can be filtered by optional tags, specific data input IDs or asset IDs.  # noqa: E501
+        Returns last known data points for all data inputs. This can be filtered by optional tags, specific data input IDs or asset IDs.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_data_input_data_snapshot(async_req=True)
@@ -2652,7 +2652,7 @@ class SamsaraApi(object):
     def get_data_input_data_snapshot_with_http_info(self, **kwargs):  # noqa: E501
         """List most recent data points for data inputs  # noqa: E501
 
-        Returns last known data points for all data inputs. This can be filtered by optional tags, specific data input IDs or asset IDs.  # noqa: E501
+        Returns last known data points for all data inputs. This can be filtered by optional tags, specific data input IDs or asset IDs.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_data_input_data_snapshot_with_http_info(async_req=True)
@@ -2747,7 +2747,7 @@ class SamsaraApi(object):
     def get_data_inputs(self, **kwargs):  # noqa: E501
         """List all data inputs  # noqa: E501
 
-        Returns all data inputs, optionally filtered by tags or asset ids.  # noqa: E501
+        Returns all data inputs, optionally filtered by tags or asset ids.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_data_inputs(async_req=True)
@@ -2776,7 +2776,7 @@ class SamsaraApi(object):
     def get_data_inputs_with_http_info(self, **kwargs):  # noqa: E501
         """List all data inputs  # noqa: E501
 
-        Returns all data inputs, optionally filtered by tags or asset ids.  # noqa: E501
+        Returns all data inputs, optionally filtered by tags or asset ids.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_data_inputs_with_http_info(async_req=True)
@@ -2874,7 +2874,7 @@ class SamsaraApi(object):
     def get_document_pdf(self, id, **kwargs):  # noqa: E501
         """Query a document PDF  # noqa: E501
 
-        Returns generation job status and download URL for a PDF.  # noqa: E501
+        Returns generation job status and download URL for a PDF.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_document_pdf(id, async_req=True)
@@ -2899,7 +2899,7 @@ class SamsaraApi(object):
     def get_document_pdf_with_http_info(self, id, **kwargs):  # noqa: E501
         """Query a document PDF  # noqa: E501
 
-        Returns generation job status and download URL for a PDF.  # noqa: E501
+        Returns generation job status and download URL for a PDF.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_document_pdf_with_http_info(id, async_req=True)
@@ -2982,7 +2982,7 @@ class SamsaraApi(object):
     def get_driver(self, id, **kwargs):  # noqa: E501
         """Retrieve a driver  # noqa: E501
 
-        Get information about a driver.  # noqa: E501
+        Get information about a driver.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_driver(id, async_req=True)
@@ -3007,7 +3007,7 @@ class SamsaraApi(object):
     def get_driver_with_http_info(self, id, **kwargs):  # noqa: E501
         """Retrieve a driver  # noqa: E501
 
-        Get information about a driver.  # noqa: E501
+        Get information about a driver.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_driver_with_http_info(id, async_req=True)
@@ -3090,7 +3090,7 @@ class SamsaraApi(object):
     def get_driver_efficiency(self, **kwargs):  # noqa: E501
         """[beta] List driver efficiency  # noqa: E501
 
-        Get all drivers' efficiencies.  # noqa: E501
+        Get all drivers' efficiencies.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_driver_efficiency(async_req=True)
@@ -3121,7 +3121,7 @@ class SamsaraApi(object):
     def get_driver_efficiency_with_http_info(self, **kwargs):  # noqa: E501
         """[beta] List driver efficiency  # noqa: E501
 
-        Get all drivers' efficiencies.  # noqa: E501
+        Get all drivers' efficiencies.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_driver_efficiency_with_http_info(async_req=True)
@@ -3221,7 +3221,7 @@ class SamsaraApi(object):
     def get_driver_tachograph_activity(self, start_time, end_time, **kwargs):  # noqa: E501
         """Get driver tachograph activity  # noqa: E501
 
-        Returns all known tachograph activity for all specified drivers in the time range.  # noqa: E501
+        Returns all known tachograph activity for all specified drivers in the time range.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_driver_tachograph_activity(start_time, end_time, async_req=True)
@@ -3251,7 +3251,7 @@ class SamsaraApi(object):
     def get_driver_tachograph_activity_with_http_info(self, start_time, end_time, **kwargs):  # noqa: E501
         """Get driver tachograph activity  # noqa: E501
 
-        Returns all known tachograph activity for all specified drivers in the time range.  # noqa: E501
+        Returns all known tachograph activity for all specified drivers in the time range.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_driver_tachograph_activity_with_http_info(start_time, end_time, async_req=True)
@@ -3356,7 +3356,7 @@ class SamsaraApi(object):
     def get_driver_tachograph_files(self, start_time, end_time, **kwargs):  # noqa: E501
         """Get tachograph driver files  # noqa: E501
 
-        Returns all known tachograph files for all specified drivers in the time range.  # noqa: E501
+        Returns all known tachograph files for all specified drivers in the time range.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_driver_tachograph_files(start_time, end_time, async_req=True)
@@ -3386,7 +3386,7 @@ class SamsaraApi(object):
     def get_driver_tachograph_files_with_http_info(self, start_time, end_time, **kwargs):  # noqa: E501
         """Get tachograph driver files  # noqa: E501
 
-        Returns all known tachograph files for all specified drivers in the time range.  # noqa: E501
+        Returns all known tachograph files for all specified drivers in the time range.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_driver_tachograph_files_with_http_info(start_time, end_time, async_req=True)
@@ -3491,7 +3491,7 @@ class SamsaraApi(object):
     def get_dvir_defects(self, start_time, end_time, **kwargs):  # noqa: E501
         """Get all defects  # noqa: E501
 
-        Returns a list of DVIR defects in an organization, filtered by creation time. The maximum time period you can query for is 30 days.  # noqa: E501
+        Returns a list of DVIR defects in an organization, filtered by creation time. The maximum time period you can query for is 30 days.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_dvir_defects(start_time, end_time, async_req=True)
@@ -3520,7 +3520,7 @@ class SamsaraApi(object):
     def get_dvir_defects_with_http_info(self, start_time, end_time, **kwargs):  # noqa: E501
         """Get all defects  # noqa: E501
 
-        Returns a list of DVIR defects in an organization, filtered by creation time. The maximum time period you can query for is 30 days.  # noqa: E501
+        Returns a list of DVIR defects in an organization, filtered by creation time. The maximum time period you can query for is 30 days.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_dvir_defects_with_http_info(start_time, end_time, async_req=True)
@@ -3623,7 +3623,7 @@ class SamsaraApi(object):
     def get_dvir_history(self, start_time, end_time, **kwargs):  # noqa: E501
         """Get all DVIRs  # noqa: E501
 
-        Returns a list of all DVIRs in an organization  # noqa: E501
+        Returns a list of all DVIRs in an organization.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_dvir_history(start_time, end_time, async_req=True)
@@ -3653,7 +3653,7 @@ class SamsaraApi(object):
     def get_dvir_history_with_http_info(self, start_time, end_time, **kwargs):  # noqa: E501
         """Get all DVIRs  # noqa: E501
 
-        Returns a list of all DVIRs in an organization  # noqa: E501
+        Returns a list of all DVIRs in an organization.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_dvir_history_with_http_info(start_time, end_time, async_req=True)
@@ -3761,7 +3761,7 @@ class SamsaraApi(object):
     def get_equipment(self, id, **kwargs):  # noqa: E501
         """Retrieve a unit of equipment  # noqa: E501
 
-        Retrieves the unit of equipment with the given Samsara ID.  # noqa: E501
+        Retrieves the unit of equipment with the given Samsara ID.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_equipment(id, async_req=True)
@@ -3786,7 +3786,7 @@ class SamsaraApi(object):
     def get_equipment_with_http_info(self, id, **kwargs):  # noqa: E501
         """Retrieve a unit of equipment  # noqa: E501
 
-        Retrieves the unit of equipment with the given Samsara ID.  # noqa: E501
+        Retrieves the unit of equipment with the given Samsara ID.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_equipment_with_http_info(id, async_req=True)
@@ -3869,7 +3869,7 @@ class SamsaraApi(object):
     def get_equipment_locations(self, **kwargs):  # noqa: E501
         """Get most recent locations for all equipment  # noqa: E501
 
-        Returns last known locations for all equipment. This can be optionally filtered by tags or specific equipment IDs.  # noqa: E501
+        Returns last known locations for all equipment. This can be optionally filtered by tags or specific equipment IDs.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_equipment_locations(async_req=True)
@@ -3897,7 +3897,7 @@ class SamsaraApi(object):
     def get_equipment_locations_with_http_info(self, **kwargs):  # noqa: E501
         """Get most recent locations for all equipment  # noqa: E501
 
-        Returns last known locations for all equipment. This can be optionally filtered by tags or specific equipment IDs.  # noqa: E501
+        Returns last known locations for all equipment. This can be optionally filtered by tags or specific equipment IDs.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_equipment_locations_with_http_info(async_req=True)
@@ -3988,7 +3988,7 @@ class SamsaraApi(object):
     def get_equipment_locations_feed(self, **kwargs):  # noqa: E501
         """Follow feed of equipment locations  # noqa: E501
 
-        Follow a continuous feed of all equipment locations from Samsara AG24s.  Your first call to this endpoint will provide you with the most recent location for each unit of equipment and a `pagination` object that contains an `endCursor`.  You can provide the `endCursor` to subsequent calls via the `after` parameter. The response will contain any equipment location updates since that `endCursor`.  If `hasNextPage` is `false`, no updates are readily available yet. We'd suggest waiting a minimum of 5 seconds before requesting updates.  # noqa: E501
+        Follow a continuous feed of all equipment locations from Samsara AG24s.  Your first call to this endpoint will provide you with the most recent location for each unit of equipment and a `pagination` object that contains an `endCursor`.  You can provide the `endCursor` to subsequent calls via the `after` parameter. The response will contain any equipment location updates since that `endCursor`.  If `hasNextPage` is `false`, no updates are readily available yet. We'd suggest waiting a minimum of 5 seconds before requesting updates.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_equipment_locations_feed(async_req=True)
@@ -4016,7 +4016,7 @@ class SamsaraApi(object):
     def get_equipment_locations_feed_with_http_info(self, **kwargs):  # noqa: E501
         """Follow feed of equipment locations  # noqa: E501
 
-        Follow a continuous feed of all equipment locations from Samsara AG24s.  Your first call to this endpoint will provide you with the most recent location for each unit of equipment and a `pagination` object that contains an `endCursor`.  You can provide the `endCursor` to subsequent calls via the `after` parameter. The response will contain any equipment location updates since that `endCursor`.  If `hasNextPage` is `false`, no updates are readily available yet. We'd suggest waiting a minimum of 5 seconds before requesting updates.  # noqa: E501
+        Follow a continuous feed of all equipment locations from Samsara AG24s.  Your first call to this endpoint will provide you with the most recent location for each unit of equipment and a `pagination` object that contains an `endCursor`.  You can provide the `endCursor` to subsequent calls via the `after` parameter. The response will contain any equipment location updates since that `endCursor`.  If `hasNextPage` is `false`, no updates are readily available yet. We'd suggest waiting a minimum of 5 seconds before requesting updates.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_equipment_locations_feed_with_http_info(async_req=True)
@@ -4107,7 +4107,7 @@ class SamsaraApi(object):
     def get_equipment_locations_history(self, start_time, end_time, **kwargs):  # noqa: E501
         """Get historical equipment locations  # noqa: E501
 
-        Returns historical equipment locations during the given time range. This can be optionally filtered by tags or specific equipment IDs.  # noqa: E501
+        Returns historical equipment locations during the given time range. This can be optionally filtered by tags or specific equipment IDs.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_equipment_locations_history(start_time, end_time, async_req=True)
@@ -4137,7 +4137,7 @@ class SamsaraApi(object):
     def get_equipment_locations_history_with_http_info(self, start_time, end_time, **kwargs):  # noqa: E501
         """Get historical equipment locations  # noqa: E501
 
-        Returns historical equipment locations during the given time range. This can be optionally filtered by tags or specific equipment IDs.  # noqa: E501
+        Returns historical equipment locations during the given time range. This can be optionally filtered by tags or specific equipment IDs.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_equipment_locations_history_with_http_info(start_time, end_time, async_req=True)
@@ -4242,7 +4242,7 @@ class SamsaraApi(object):
     def get_equipment_stats(self, types, **kwargs):  # noqa: E501
         """Get most recent stats for all equipment  # noqa: E501
 
-        Returns the last known stats for all equipment. This can be optionally filtered by tags or specific equipment IDs.  # noqa: E501
+        Returns the last known stats for all equipment. This can be optionally filtered by tags or specific equipment IDs.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_equipment_stats(types, async_req=True)
@@ -4271,7 +4271,7 @@ class SamsaraApi(object):
     def get_equipment_stats_with_http_info(self, types, **kwargs):  # noqa: E501
         """Get most recent stats for all equipment  # noqa: E501
 
-        Returns the last known stats for all equipment. This can be optionally filtered by tags or specific equipment IDs.  # noqa: E501
+        Returns the last known stats for all equipment. This can be optionally filtered by tags or specific equipment IDs.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_equipment_stats_with_http_info(types, async_req=True)
@@ -4370,7 +4370,7 @@ class SamsaraApi(object):
     def get_equipment_stats_feed(self, types, **kwargs):  # noqa: E501
         """Follow a feed of equipment stats  # noqa: E501
 
-        Follow a continuous feed of all equipment stats from Samsara AG24s.  Your first call to this endpoint will provide you with the most recent stats for each unit of equipment and a `pagination` object that contains an `endCursor`.  You can provide the `endCursor` to subsequent calls via the `after` parameter. The response will contain any equipment stats updates since that `endCursor`.  If `hasNextPage` is `false`, no updates are readily available yet. Each stat type has a different refresh rate, but in general we'd suggest waiting a minimum of 5 seconds before requesting updates.  # noqa: E501
+        Follow a continuous feed of all equipment stats from Samsara AG24s.  Your first call to this endpoint will provide you with the most recent stats for each unit of equipment and a `pagination` object that contains an `endCursor`.  You can provide the `endCursor` to subsequent calls via the `after` parameter. The response will contain any equipment stats updates since that `endCursor`.  If `hasNextPage` is `false`, no updates are readily available yet. Each stat type has a different refresh rate, but in general we'd suggest waiting a minimum of 5 seconds before requesting updates.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_equipment_stats_feed(types, async_req=True)
@@ -4399,7 +4399,7 @@ class SamsaraApi(object):
     def get_equipment_stats_feed_with_http_info(self, types, **kwargs):  # noqa: E501
         """Follow a feed of equipment stats  # noqa: E501
 
-        Follow a continuous feed of all equipment stats from Samsara AG24s.  Your first call to this endpoint will provide you with the most recent stats for each unit of equipment and a `pagination` object that contains an `endCursor`.  You can provide the `endCursor` to subsequent calls via the `after` parameter. The response will contain any equipment stats updates since that `endCursor`.  If `hasNextPage` is `false`, no updates are readily available yet. Each stat type has a different refresh rate, but in general we'd suggest waiting a minimum of 5 seconds before requesting updates.  # noqa: E501
+        Follow a continuous feed of all equipment stats from Samsara AG24s.  Your first call to this endpoint will provide you with the most recent stats for each unit of equipment and a `pagination` object that contains an `endCursor`.  You can provide the `endCursor` to subsequent calls via the `after` parameter. The response will contain any equipment stats updates since that `endCursor`.  If `hasNextPage` is `false`, no updates are readily available yet. Each stat type has a different refresh rate, but in general we'd suggest waiting a minimum of 5 seconds before requesting updates.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_equipment_stats_feed_with_http_info(types, async_req=True)
@@ -4498,7 +4498,7 @@ class SamsaraApi(object):
     def get_equipment_stats_history(self, start_time, end_time, types, **kwargs):  # noqa: E501
         """Get historical equipment stats  # noqa: E501
 
-        Returns historical equipment status during the given time range. This can be optionally filtered by tags or specific equipment IDs.  # noqa: E501
+        Returns historical equipment status during the given time range. This can be optionally filtered by tags or specific equipment IDs.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_equipment_stats_history(start_time, end_time, types, async_req=True)
@@ -4529,7 +4529,7 @@ class SamsaraApi(object):
     def get_equipment_stats_history_with_http_info(self, start_time, end_time, types, **kwargs):  # noqa: E501
         """Get historical equipment stats  # noqa: E501
 
-        Returns historical equipment status during the given time range. This can be optionally filtered by tags or specific equipment IDs.  # noqa: E501
+        Returns historical equipment status during the given time range. This can be optionally filtered by tags or specific equipment IDs.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_equipment_stats_history_with_http_info(start_time, end_time, types, async_req=True)
@@ -4642,7 +4642,7 @@ class SamsaraApi(object):
     def get_hos_clocks(self, **kwargs):  # noqa: E501
         """Get HOS clocks  # noqa: E501
 
-        Get the current HOS status for all drivers. Note that this includes inactive as well as active drivers. The legacy version of this endpoint can be found at [samsara.com/api-legacy](https://www.samsara.com/api-legacy#operation/getFleetHosLogsSummary).  # noqa: E501
+        Get the current HOS status for all drivers. Note that this includes inactive as well as active drivers. The legacy version of this endpoint can be found at [samsara.com/api-legacy](https://www.samsara.com/api-legacy#operation/getFleetHosLogsSummary).    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_hos_clocks(async_req=True)
@@ -4671,7 +4671,7 @@ class SamsaraApi(object):
     def get_hos_clocks_with_http_info(self, **kwargs):  # noqa: E501
         """Get HOS clocks  # noqa: E501
 
-        Get the current HOS status for all drivers. Note that this includes inactive as well as active drivers. The legacy version of this endpoint can be found at [samsara.com/api-legacy](https://www.samsara.com/api-legacy#operation/getFleetHosLogsSummary).  # noqa: E501
+        Get the current HOS status for all drivers. Note that this includes inactive as well as active drivers. The legacy version of this endpoint can be found at [samsara.com/api-legacy](https://www.samsara.com/api-legacy#operation/getFleetHosLogsSummary).    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_hos_clocks_with_http_info(async_req=True)
@@ -4769,7 +4769,7 @@ class SamsaraApi(object):
     def get_hos_logs(self, **kwargs):  # noqa: E501
         """Get HOS logs  # noqa: E501
 
-        Returns HOS logs between a given `startTime` and `endTime`. The logs can be further filtered using tags or by providing a list of driver IDs (including external IDs). The legacy version of this endpoint can be found at [samsara.com/api-legacy](https://www.samsara.com/api-legacy#operation/getFleetHosLogs).  **Note:** If data is still being uploaded from the Samsara Driver App, it may not be completely reflected in the response from this endpoint. The best practice is to wait a couple of days before querying this endpoint to make sure that all data from the Samsara Driver App has been uploaded.  # noqa: E501
+        Returns HOS logs between a given `startTime` and `endTime`. The logs can be further filtered using tags or by providing a list of driver IDs (including external IDs). The legacy version of this endpoint can be found at [samsara.com/api-legacy](https://www.samsara.com/api-legacy#operation/getFleetHosLogs).  **Note:** If data is still being uploaded from the Samsara Driver App, it may not be completely reflected in the response from this endpoint. The best practice is to wait a couple of days before querying this endpoint to make sure that all data from the Samsara Driver App has been uploaded.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_hos_logs(async_req=True)
@@ -4799,7 +4799,7 @@ class SamsaraApi(object):
     def get_hos_logs_with_http_info(self, **kwargs):  # noqa: E501
         """Get HOS logs  # noqa: E501
 
-        Returns HOS logs between a given `startTime` and `endTime`. The logs can be further filtered using tags or by providing a list of driver IDs (including external IDs). The legacy version of this endpoint can be found at [samsara.com/api-legacy](https://www.samsara.com/api-legacy#operation/getFleetHosLogs).  **Note:** If data is still being uploaded from the Samsara Driver App, it may not be completely reflected in the response from this endpoint. The best practice is to wait a couple of days before querying this endpoint to make sure that all data from the Samsara Driver App has been uploaded.  # noqa: E501
+        Returns HOS logs between a given `startTime` and `endTime`. The logs can be further filtered using tags or by providing a list of driver IDs (including external IDs). The legacy version of this endpoint can be found at [samsara.com/api-legacy](https://www.samsara.com/api-legacy#operation/getFleetHosLogs).  **Note:** If data is still being uploaded from the Samsara Driver App, it may not be completely reflected in the response from this endpoint. The best practice is to wait a couple of days before querying this endpoint to make sure that all data from the Samsara Driver App has been uploaded.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_hos_logs_with_http_info(async_req=True)
@@ -4896,7 +4896,7 @@ class SamsaraApi(object):
     def get_industrial_assets(self, **kwargs):  # noqa: E501
         """List all assets  # noqa: E501
 
-        List all assets in the organization  # noqa: E501
+        List all assets in the organization.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_industrial_assets(async_req=True)
@@ -4924,7 +4924,7 @@ class SamsaraApi(object):
     def get_industrial_assets_with_http_info(self, **kwargs):  # noqa: E501
         """List all assets  # noqa: E501
 
-        List all assets in the organization  # noqa: E501
+        List all assets in the organization.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_industrial_assets_with_http_info(async_req=True)
@@ -5018,7 +5018,7 @@ class SamsaraApi(object):
     def get_organization_info(self, **kwargs):  # noqa: E501
         """Get information about your organization  # noqa: E501
 
-        Get information about your organization  # noqa: E501
+        Get information about your organization.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_organization_info(async_req=True)
@@ -5042,7 +5042,7 @@ class SamsaraApi(object):
     def get_organization_info_with_http_info(self, **kwargs):  # noqa: E501
         """Get information about your organization  # noqa: E501
 
-        Get information about your organization  # noqa: E501
+        Get information about your organization.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_organization_info_with_http_info(async_req=True)
@@ -5118,7 +5118,7 @@ class SamsaraApi(object):
     def get_route_feed(self, **kwargs):  # noqa: E501
         """[beta] Get route updates  # noqa: E501
 
-        Subscribes to a feed of immutable, append-only updates for routes. The initial request to this feed endpoint returns a cursor, which can be used on the next request to fetch updated routes that have had state changes since that request.  # noqa: E501
+        Subscribes to a feed of immutable, append-only updates for routes. The initial request to this feed endpoint returns a cursor, which can be used on the next request to fetch updated routes that have had state changes since that request.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_route_feed(async_req=True)
@@ -5143,7 +5143,7 @@ class SamsaraApi(object):
     def get_route_feed_with_http_info(self, **kwargs):  # noqa: E501
         """[beta] Get route updates  # noqa: E501
 
-        Subscribes to a feed of immutable, append-only updates for routes. The initial request to this feed endpoint returns a cursor, which can be used on the next request to fetch updated routes that have had state changes since that request.  # noqa: E501
+        Subscribes to a feed of immutable, append-only updates for routes. The initial request to this feed endpoint returns a cursor, which can be used on the next request to fetch updated routes that have had state changes since that request.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_route_feed_with_http_info(async_req=True)
@@ -5222,7 +5222,7 @@ class SamsaraApi(object):
     def get_safety_events(self, start_time, end_time, **kwargs):  # noqa: E501
         """List all safety events.  # noqa: E501
 
-        Fetch safety events for the organization in a given time period.  # noqa: E501
+        Fetch safety events for the organization in a given time period.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_safety_events(start_time, end_time, async_req=True)
@@ -5252,7 +5252,7 @@ class SamsaraApi(object):
     def get_safety_events_with_http_info(self, start_time, end_time, **kwargs):  # noqa: E501
         """List all safety events.  # noqa: E501
 
-        Fetch safety events for the organization in a given time period.  # noqa: E501
+        Fetch safety events for the organization in a given time period.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_safety_events_with_http_info(start_time, end_time, async_req=True)
@@ -5357,7 +5357,7 @@ class SamsaraApi(object):
     def get_tag(self, id, **kwargs):  # noqa: E501
         """Retrieve a tag  # noqa: E501
 
-        Fetch a tag by id.  # noqa: E501
+        Fetch a tag by id.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_tag(id, async_req=True)
@@ -5382,7 +5382,7 @@ class SamsaraApi(object):
     def get_tag_with_http_info(self, id, **kwargs):  # noqa: E501
         """Retrieve a tag  # noqa: E501
 
-        Fetch a tag by id.  # noqa: E501
+        Fetch a tag by id.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_tag_with_http_info(id, async_req=True)
@@ -5465,7 +5465,7 @@ class SamsaraApi(object):
     def get_user(self, id, **kwargs):  # noqa: E501
         """Retrieve a user  # noqa: E501
 
-        Get a specific user's information.  # noqa: E501
+        Get a specific user's information.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_user(id, async_req=True)
@@ -5490,7 +5490,7 @@ class SamsaraApi(object):
     def get_user_with_http_info(self, id, **kwargs):  # noqa: E501
         """Retrieve a user  # noqa: E501
 
-        Get a specific user's information.  # noqa: E501
+        Get a specific user's information.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_user_with_http_info(id, async_req=True)
@@ -5573,7 +5573,7 @@ class SamsaraApi(object):
     def get_vehicle(self, id, **kwargs):  # noqa: E501
         """Retrieve a vehicle  # noqa: E501
 
-        Get information about a specific vehicle.  # noqa: E501
+        Get information about a specific vehicle.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_vehicle(id, async_req=True)
@@ -5598,7 +5598,7 @@ class SamsaraApi(object):
     def get_vehicle_with_http_info(self, id, **kwargs):  # noqa: E501
         """Retrieve a vehicle  # noqa: E501
 
-        Get information about a specific vehicle.  # noqa: E501
+        Get information about a specific vehicle.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_vehicle_with_http_info(id, async_req=True)
@@ -5681,7 +5681,7 @@ class SamsaraApi(object):
     def get_vehicle_locations(self, **kwargs):  # noqa: E501
         """Locations snapshot  # noqa: E501
 
-        ***NOTE: The Vehicle Locations API is an older API that does not combine GPS data with onboard diagnostics. Try our new [Vehicle Stats API](#operation/getVehicleStats) instead.***  Returns the last known location of all vehicles at the given `time`. If no `time` is specified, the current time is used. This can be optionally filtered by tags or specific vehicle IDs.  Related guide: [Vehicle Locations](https://developers.samsara.com/docs/vehicle-locations)  # noqa: E501
+        ***NOTE: The Vehicle Locations API is an older API that does not combine GPS data with onboard diagnostics. Try our new [Vehicle Stats API](#operation/getVehicleStats) instead.***  Returns the last known location of all vehicles at the given `time`. If no `time` is specified, the current time is used. This can be optionally filtered by tags or specific vehicle IDs.  Related guide: [Vehicle Locations](https://developers.samsara.com/docs/vehicle-locations).    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_vehicle_locations(async_req=True)
@@ -5710,7 +5710,7 @@ class SamsaraApi(object):
     def get_vehicle_locations_with_http_info(self, **kwargs):  # noqa: E501
         """Locations snapshot  # noqa: E501
 
-        ***NOTE: The Vehicle Locations API is an older API that does not combine GPS data with onboard diagnostics. Try our new [Vehicle Stats API](#operation/getVehicleStats) instead.***  Returns the last known location of all vehicles at the given `time`. If no `time` is specified, the current time is used. This can be optionally filtered by tags or specific vehicle IDs.  Related guide: [Vehicle Locations](https://developers.samsara.com/docs/vehicle-locations)  # noqa: E501
+        ***NOTE: The Vehicle Locations API is an older API that does not combine GPS data with onboard diagnostics. Try our new [Vehicle Stats API](#operation/getVehicleStats) instead.***  Returns the last known location of all vehicles at the given `time`. If no `time` is specified, the current time is used. This can be optionally filtered by tags or specific vehicle IDs.  Related guide: [Vehicle Locations](https://developers.samsara.com/docs/vehicle-locations).    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_vehicle_locations_with_http_info(async_req=True)
@@ -5804,7 +5804,7 @@ class SamsaraApi(object):
     def get_vehicle_locations_feed(self, **kwargs):  # noqa: E501
         """Locations feed  # noqa: E501
 
-        ***NOTE: The Vehicle Locations API is an older API that does not combine GPS data with onboard diagnostics. Try our new [Vehicle Stats API](#operation/getVehicleStatsFeed) instead.***  Follow a continuous feed of all vehicle locations from Samsara Vehicle Gateways.  Your first call to this endpoint will provide you with the most recent location for each vehicle and a `pagination` object that contains an `endCursor`.  You can provide the `endCursor` to the `after` parameter of this endpoint to get location updates since that `endCursor`.   If `hasNextPage` is `false`, no updates are readily available yet. We'd suggest waiting a minimum of 5 seconds before requesting updates.  Related guide: [Vehicle Locations](https://developers.samsara.com/docs/vehicle-locations)  # noqa: E501
+        ***NOTE: The Vehicle Locations API is an older API that does not combine GPS data with onboard diagnostics. Try our new [Vehicle Stats API](#operation/getVehicleStatsFeed) instead.***  Follow a continuous feed of all vehicle locations from Samsara Vehicle Gateways.  Your first call to this endpoint will provide you with the most recent location for each vehicle and a `pagination` object that contains an `endCursor`.  You can provide the `endCursor` to the `after` parameter of this endpoint to get location updates since that `endCursor`.   If `hasNextPage` is `false`, no updates are readily available yet. We'd suggest waiting a minimum of 5 seconds before requesting updates.  Related guide: [Vehicle Locations](https://developers.samsara.com/docs/vehicle-locations).    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_vehicle_locations_feed(async_req=True)
@@ -5832,7 +5832,7 @@ class SamsaraApi(object):
     def get_vehicle_locations_feed_with_http_info(self, **kwargs):  # noqa: E501
         """Locations feed  # noqa: E501
 
-        ***NOTE: The Vehicle Locations API is an older API that does not combine GPS data with onboard diagnostics. Try our new [Vehicle Stats API](#operation/getVehicleStatsFeed) instead.***  Follow a continuous feed of all vehicle locations from Samsara Vehicle Gateways.  Your first call to this endpoint will provide you with the most recent location for each vehicle and a `pagination` object that contains an `endCursor`.  You can provide the `endCursor` to the `after` parameter of this endpoint to get location updates since that `endCursor`.   If `hasNextPage` is `false`, no updates are readily available yet. We'd suggest waiting a minimum of 5 seconds before requesting updates.  Related guide: [Vehicle Locations](https://developers.samsara.com/docs/vehicle-locations)  # noqa: E501
+        ***NOTE: The Vehicle Locations API is an older API that does not combine GPS data with onboard diagnostics. Try our new [Vehicle Stats API](#operation/getVehicleStatsFeed) instead.***  Follow a continuous feed of all vehicle locations from Samsara Vehicle Gateways.  Your first call to this endpoint will provide you with the most recent location for each vehicle and a `pagination` object that contains an `endCursor`.  You can provide the `endCursor` to the `after` parameter of this endpoint to get location updates since that `endCursor`.   If `hasNextPage` is `false`, no updates are readily available yet. We'd suggest waiting a minimum of 5 seconds before requesting updates.  Related guide: [Vehicle Locations](https://developers.samsara.com/docs/vehicle-locations).    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_vehicle_locations_feed_with_http_info(async_req=True)
@@ -5923,7 +5923,7 @@ class SamsaraApi(object):
     def get_vehicle_locations_history(self, start_time, end_time, **kwargs):  # noqa: E501
         """Historical locations  # noqa: E501
 
-        ***NOTE: The Vehicle Locations API is an older API that does not combine GPS data with onboard diagnostics. Try our new [Vehicle Stats API](#operation/getVehicleStatsHistory) instead.***  Returns all known vehicle locations during the given time range. This can be optionally filtered by tags or specific vehicle IDs.  Related guide: [Vehicle Locations](https://developers.samsara.com/docs/vehicle-locations)  # noqa: E501
+        ***NOTE: The Vehicle Locations API is an older API that does not combine GPS data with onboard diagnostics. Try our new [Vehicle Stats API](#operation/getVehicleStatsHistory) instead.***  Returns all known vehicle locations during the given time range. This can be optionally filtered by tags or specific vehicle IDs.  Related guide: [Vehicle Locations](https://developers.samsara.com/docs/vehicle-locations).    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_vehicle_locations_history(start_time, end_time, async_req=True)
@@ -5953,7 +5953,7 @@ class SamsaraApi(object):
     def get_vehicle_locations_history_with_http_info(self, start_time, end_time, **kwargs):  # noqa: E501
         """Historical locations  # noqa: E501
 
-        ***NOTE: The Vehicle Locations API is an older API that does not combine GPS data with onboard diagnostics. Try our new [Vehicle Stats API](#operation/getVehicleStatsHistory) instead.***  Returns all known vehicle locations during the given time range. This can be optionally filtered by tags or specific vehicle IDs.  Related guide: [Vehicle Locations](https://developers.samsara.com/docs/vehicle-locations)  # noqa: E501
+        ***NOTE: The Vehicle Locations API is an older API that does not combine GPS data with onboard diagnostics. Try our new [Vehicle Stats API](#operation/getVehicleStatsHistory) instead.***  Returns all known vehicle locations during the given time range. This can be optionally filtered by tags or specific vehicle IDs.  Related guide: [Vehicle Locations](https://developers.samsara.com/docs/vehicle-locations).    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_vehicle_locations_history_with_http_info(start_time, end_time, async_req=True)
@@ -6058,7 +6058,7 @@ class SamsaraApi(object):
     def get_vehicle_stats(self, types, **kwargs):  # noqa: E501
         """Stats snapshot  # noqa: E501
 
-        Returns the last known stats of all vehicles at the given `time`. If no `time` is specified, the current time is used.  Related guide: [Telematics](https://developers.samsara.com/docs/vehicle-stats)  # noqa: E501
+        Returns the last known stats of all vehicles at the given `time`. If no `time` is specified, the current time is used.  Related guide: [Telematics](https://developers.samsara.com/docs/vehicle-stats).    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_vehicle_stats(types, async_req=True)
@@ -6088,7 +6088,7 @@ class SamsaraApi(object):
     def get_vehicle_stats_with_http_info(self, types, **kwargs):  # noqa: E501
         """Stats snapshot  # noqa: E501
 
-        Returns the last known stats of all vehicles at the given `time`. If no `time` is specified, the current time is used.  Related guide: [Telematics](https://developers.samsara.com/docs/vehicle-stats)  # noqa: E501
+        Returns the last known stats of all vehicles at the given `time`. If no `time` is specified, the current time is used.  Related guide: [Telematics](https://developers.samsara.com/docs/vehicle-stats).    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_vehicle_stats_with_http_info(types, async_req=True)
@@ -6190,7 +6190,7 @@ class SamsaraApi(object):
     def get_vehicle_stats_feed(self, types, **kwargs):  # noqa: E501
         """Stats feed  # noqa: E501
 
-        Follow a feed of vehicle stats.   Your first call to this endpoint will provide you with the most recent stats for each vehicle and an `endCursor`.  You can the provide the `endCursor` value to the `after` query parameter to get all updates since the last call you made.  If `hasNextPage` is `false`, no new data is immediately available. You should wait a minimum of 5 seconds making a subsequent request.  Related guide: [Vehicle Stats](https://developers.samsara.com/docs/vehicle-stats)  # noqa: E501
+        Follow a feed of vehicle stats.   Your first call to this endpoint will provide you with the most recent stats for each vehicle and an `endCursor`.  You can the provide the `endCursor` value to the `after` query parameter to get all updates since the last call you made.  If `hasNextPage` is `false`, no new data is immediately available. You should wait a minimum of 5 seconds making a subsequent request.  Related guide: [Vehicle Stats](https://developers.samsara.com/docs/vehicle-stats).    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_vehicle_stats_feed(types, async_req=True)
@@ -6220,7 +6220,7 @@ class SamsaraApi(object):
     def get_vehicle_stats_feed_with_http_info(self, types, **kwargs):  # noqa: E501
         """Stats feed  # noqa: E501
 
-        Follow a feed of vehicle stats.   Your first call to this endpoint will provide you with the most recent stats for each vehicle and an `endCursor`.  You can the provide the `endCursor` value to the `after` query parameter to get all updates since the last call you made.  If `hasNextPage` is `false`, no new data is immediately available. You should wait a minimum of 5 seconds making a subsequent request.  Related guide: [Vehicle Stats](https://developers.samsara.com/docs/vehicle-stats)  # noqa: E501
+        Follow a feed of vehicle stats.   Your first call to this endpoint will provide you with the most recent stats for each vehicle and an `endCursor`.  You can the provide the `endCursor` value to the `after` query parameter to get all updates since the last call you made.  If `hasNextPage` is `false`, no new data is immediately available. You should wait a minimum of 5 seconds making a subsequent request.  Related guide: [Vehicle Stats](https://developers.samsara.com/docs/vehicle-stats).    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_vehicle_stats_feed_with_http_info(types, async_req=True)
@@ -6323,7 +6323,7 @@ class SamsaraApi(object):
     def get_vehicle_stats_history(self, start_time, end_time, types, **kwargs):  # noqa: E501
         """Historical stats  # noqa: E501
 
-        Returns vehicle stats during the given time range for all vehicles. This can be optionally filtered by tags or specific vehicle IDs.  Related guide: [Vehicle Stats](https://developers.samsara.com/docs/vehicle-stats)  # noqa: E501
+        Returns vehicle stats during the given time range for all vehicles. This can be optionally filtered by tags or specific vehicle IDs.  Related guide: [Vehicle Stats](https://developers.samsara.com/docs/vehicle-stats).    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_vehicle_stats_history(start_time, end_time, types, async_req=True)
@@ -6355,7 +6355,7 @@ class SamsaraApi(object):
     def get_vehicle_stats_history_with_http_info(self, start_time, end_time, types, **kwargs):  # noqa: E501
         """Historical stats  # noqa: E501
 
-        Returns vehicle stats during the given time range for all vehicles. This can be optionally filtered by tags or specific vehicle IDs.  Related guide: [Vehicle Stats](https://developers.samsara.com/docs/vehicle-stats)  # noqa: E501
+        Returns vehicle stats during the given time range for all vehicles. This can be optionally filtered by tags or specific vehicle IDs.  Related guide: [Vehicle Stats](https://developers.samsara.com/docs/vehicle-stats).    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_vehicle_stats_history_with_http_info(start_time, end_time, types, async_req=True)
@@ -6472,7 +6472,7 @@ class SamsaraApi(object):
     def get_vehicle_tachograph_files(self, start_time, end_time, **kwargs):  # noqa: E501
         """Get tachograph vehicle files  # noqa: E501
 
-        Returns all known tachograph files for all specified vehicles in the time range.  # noqa: E501
+        Returns all known tachograph files for all specified vehicles in the time range.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_vehicle_tachograph_files(start_time, end_time, async_req=True)
@@ -6502,7 +6502,7 @@ class SamsaraApi(object):
     def get_vehicle_tachograph_files_with_http_info(self, start_time, end_time, **kwargs):  # noqa: E501
         """Get tachograph vehicle files  # noqa: E501
 
-        Returns all known tachograph files for all specified vehicles in the time range.  # noqa: E501
+        Returns all known tachograph files for all specified vehicles in the time range.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_vehicle_tachograph_files_with_http_info(start_time, end_time, async_req=True)
@@ -6607,7 +6607,7 @@ class SamsaraApi(object):
     def list_addresses(self, **kwargs):  # noqa: E501
         """List all addresses  # noqa: E501
 
-        Returns a list of all addresses in an organization  # noqa: E501
+        Returns a list of all addresses in an organization.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_addresses(async_req=True)
@@ -6636,7 +6636,7 @@ class SamsaraApi(object):
     def list_addresses_with_http_info(self, **kwargs):  # noqa: E501
         """List all addresses  # noqa: E501
 
-        Returns a list of all addresses in an organization  # noqa: E501
+        Returns a list of all addresses in an organization.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_addresses_with_http_info(async_req=True)
@@ -6733,7 +6733,7 @@ class SamsaraApi(object):
     def list_carrier_proposed_assignments(self, **kwargs):  # noqa: E501
         """Retrieve assignments  # noqa: E501
 
-        Show the assignments that are active for drivers and that would currently be visible to them in the driver app.  # noqa: E501
+        Show the assignments that are active for drivers and that would currently be visible to them in the driver app.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_carrier_proposed_assignments(async_req=True)
@@ -6761,7 +6761,7 @@ class SamsaraApi(object):
     def list_carrier_proposed_assignments_with_http_info(self, **kwargs):  # noqa: E501
         """Retrieve assignments  # noqa: E501
 
-        Show the assignments that are active for drivers and that would currently be visible to them in the driver app.  # noqa: E501
+        Show the assignments that are active for drivers and that would currently be visible to them in the driver app.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_carrier_proposed_assignments_with_http_info(async_req=True)
@@ -6854,7 +6854,7 @@ class SamsaraApi(object):
     def list_contacts(self, **kwargs):  # noqa: E501
         """List all contacts  # noqa: E501
 
-        Returns a list of all contacts in an organization.  # noqa: E501
+        Returns a list of all contacts in an organization.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_contacts(async_req=True)
@@ -6880,7 +6880,7 @@ class SamsaraApi(object):
     def list_contacts_with_http_info(self, **kwargs):  # noqa: E501
         """List all contacts  # noqa: E501
 
-        Returns a list of all contacts in an organization.  # noqa: E501
+        Returns a list of all contacts in an organization.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_contacts_with_http_info(async_req=True)
@@ -6966,7 +6966,7 @@ class SamsaraApi(object):
     def list_drivers(self, **kwargs):  # noqa: E501
         """List all drivers  # noqa: E501
 
-        Get all drivers in organization.  # noqa: E501
+        Get all drivers in organization.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_drivers(async_req=True)
@@ -6997,7 +6997,7 @@ class SamsaraApi(object):
     def list_drivers_with_http_info(self, **kwargs):  # noqa: E501
         """List all drivers  # noqa: E501
 
-        Get all drivers in organization.  # noqa: E501
+        Get all drivers in organization.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_drivers_with_http_info(async_req=True)
@@ -7100,7 +7100,7 @@ class SamsaraApi(object):
     def list_equipment(self, **kwargs):  # noqa: E501
         """List all equipment  # noqa: E501
 
-        Returns a list of all equipment in an organization. Equipment objects represent powered assets connected to a [Samsara AG24](https://www.samsara.com/products/models/ag24) via an APWR, CAT, or J1939 cable. They are automatically created with a unique Samsara Equipment ID whenever an AG24 is activated in your organization.  # noqa: E501
+        Returns a list of all equipment in an organization. Equipment objects represent powered assets connected to a [Samsara AG24](https://www.samsara.com/products/models/ag24) via an APWR, CAT, or J1939 cable. They are automatically created with a unique Samsara Equipment ID whenever an AG24 is activated in your organization.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_equipment(async_req=True)
@@ -7128,7 +7128,7 @@ class SamsaraApi(object):
     def list_equipment_with_http_info(self, **kwargs):  # noqa: E501
         """List all equipment  # noqa: E501
 
-        Returns a list of all equipment in an organization. Equipment objects represent powered assets connected to a [Samsara AG24](https://www.samsara.com/products/models/ag24) via an APWR, CAT, or J1939 cable. They are automatically created with a unique Samsara Equipment ID whenever an AG24 is activated in your organization.  # noqa: E501
+        Returns a list of all equipment in an organization. Equipment objects represent powered assets connected to a [Samsara AG24](https://www.samsara.com/products/models/ag24) via an APWR, CAT, or J1939 cable. They are automatically created with a unique Samsara Equipment ID whenever an AG24 is activated in your organization.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_equipment_with_http_info(async_req=True)
@@ -7222,7 +7222,7 @@ class SamsaraApi(object):
     def list_tags(self, **kwargs):  # noqa: E501
         """List all tags  # noqa: E501
 
-        Return all of the tags for an organization.  # noqa: E501
+        Return all of the tags for an organization.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_tags(async_req=True)
@@ -7248,7 +7248,7 @@ class SamsaraApi(object):
     def list_tags_with_http_info(self, **kwargs):  # noqa: E501
         """List all tags  # noqa: E501
 
-        Return all of the tags for an organization.  # noqa: E501
+        Return all of the tags for an organization.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_tags_with_http_info(async_req=True)
@@ -7334,7 +7334,7 @@ class SamsaraApi(object):
     def list_user_roles(self, **kwargs):  # noqa: E501
         """List all user roles  # noqa: E501
 
-        Returns a list of all user roles in an organization.  # noqa: E501
+        Returns a list of all user roles in an organization.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_user_roles(async_req=True)
@@ -7360,7 +7360,7 @@ class SamsaraApi(object):
     def list_user_roles_with_http_info(self, **kwargs):  # noqa: E501
         """List all user roles  # noqa: E501
 
-        Returns a list of all user roles in an organization.  # noqa: E501
+        Returns a list of all user roles in an organization.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_user_roles_with_http_info(async_req=True)
@@ -7446,7 +7446,7 @@ class SamsaraApi(object):
     def list_users(self, **kwargs):  # noqa: E501
         """List all users  # noqa: E501
 
-        Returns a list of all users in an organization.  # noqa: E501
+        Returns a list of all users in an organization.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_users(async_req=True)
@@ -7472,7 +7472,7 @@ class SamsaraApi(object):
     def list_users_with_http_info(self, **kwargs):  # noqa: E501
         """List all users  # noqa: E501
 
-        Returns a list of all users in an organization.  # noqa: E501
+        Returns a list of all users in an organization.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_users_with_http_info(async_req=True)
@@ -7558,7 +7558,7 @@ class SamsaraApi(object):
     def list_vehicles(self, **kwargs):  # noqa: E501
         """List all vehicles  # noqa: E501
 
-        Returns a list of all vehicles.  # noqa: E501
+        Returns a list of all vehicles.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_vehicles(async_req=True)
@@ -7586,7 +7586,7 @@ class SamsaraApi(object):
     def list_vehicles_with_http_info(self, **kwargs):  # noqa: E501
         """List all vehicles  # noqa: E501
 
-        Returns a list of all vehicles.  # noqa: E501
+        Returns a list of all vehicles.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.list_vehicles_with_http_info(async_req=True)
@@ -7680,7 +7680,7 @@ class SamsaraApi(object):
     def patch_industrial_asset(self, id, **kwargs):  # noqa: E501
         """Update an asset  # noqa: E501
 
-        Update an existing asset. Only the provided fields will be updated.  # noqa: E501
+        Update an existing asset. Only the provided fields will be updated.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_industrial_asset(id, async_req=True)
@@ -7706,7 +7706,7 @@ class SamsaraApi(object):
     def patch_industrial_asset_with_http_info(self, id, **kwargs):  # noqa: E501
         """Update an asset  # noqa: E501
 
-        Update an existing asset. Only the provided fields will be updated.  # noqa: E501
+        Update an existing asset. Only the provided fields will be updated.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_industrial_asset_with_http_info(id, async_req=True)
@@ -7796,7 +7796,7 @@ class SamsaraApi(object):
     def patch_tag(self, id, tag, **kwargs):  # noqa: E501
         """Update a tag  # noqa: E501
 
-        Update an existing tag. **Note** this implementation of patch uses [the JSON merge patch](https://tools.ietf.org/html/rfc7396) proposed standard.    This means that any fields included in the patch request will _overwrite_ fields which exist on the target resource.    For arrays, this means any array included in the request will _replace_ the array that exists at the specified path, it will not _add_ to the existing array.  # noqa: E501
+        Update an existing tag. **Note** this implementation of patch uses [the JSON merge patch](https://tools.ietf.org/html/rfc7396) proposed standard.    This means that any fields included in the patch request will _overwrite_ fields which exist on the target resource.    For arrays, this means any array included in the request will _replace_ the array that exists at the specified path, it will not _add_ to the existing array.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_tag(id, tag, async_req=True)
@@ -7822,7 +7822,7 @@ class SamsaraApi(object):
     def patch_tag_with_http_info(self, id, tag, **kwargs):  # noqa: E501
         """Update a tag  # noqa: E501
 
-        Update an existing tag. **Note** this implementation of patch uses [the JSON merge patch](https://tools.ietf.org/html/rfc7396) proposed standard.    This means that any fields included in the patch request will _overwrite_ fields which exist on the target resource.    For arrays, this means any array included in the request will _replace_ the array that exists at the specified path, it will not _add_ to the existing array.  # noqa: E501
+        Update an existing tag. **Note** this implementation of patch uses [the JSON merge patch](https://tools.ietf.org/html/rfc7396) proposed standard.    This means that any fields included in the patch request will _overwrite_ fields which exist on the target resource.    For arrays, this means any array included in the request will _replace_ the array that exists at the specified path, it will not _add_ to the existing array.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.patch_tag_with_http_info(id, tag, async_req=True)
@@ -7916,7 +7916,7 @@ class SamsaraApi(object):
     def replace_tag(self, id, tag, **kwargs):  # noqa: E501
         """Update a tag  # noqa: E501
 
-        Update a tag with a new name and new members. This API call would replace all old members of a tag with new members specified in the request body.  # noqa: E501
+        Update a tag with a new name and new members. This API call would replace all old members of a tag with new members specified in the request body.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.replace_tag(id, tag, async_req=True)
@@ -7942,7 +7942,7 @@ class SamsaraApi(object):
     def replace_tag_with_http_info(self, id, tag, **kwargs):  # noqa: E501
         """Update a tag  # noqa: E501
 
-        Update a tag with a new name and new members. This API call would replace all old members of a tag with new members specified in the request body.  # noqa: E501
+        Update a tag with a new name and new members. This API call would replace all old members of a tag with new members specified in the request body.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.replace_tag_with_http_info(id, tag, async_req=True)
@@ -8036,7 +8036,7 @@ class SamsaraApi(object):
     def update_address(self, id, address, **kwargs):  # noqa: E501
         """Update an address  # noqa: E501
 
-        Update a specific address.  # noqa: E501
+        Update a specific address.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_address(id, address, async_req=True)
@@ -8062,7 +8062,7 @@ class SamsaraApi(object):
     def update_address_with_http_info(self, id, address, **kwargs):  # noqa: E501
         """Update an address  # noqa: E501
 
-        Update a specific address.  # noqa: E501
+        Update a specific address.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_address_with_http_info(id, address, async_req=True)
@@ -8156,7 +8156,7 @@ class SamsaraApi(object):
     def update_attribute(self, id, attribute, **kwargs):  # noqa: E501
         """[beta] Update an attribute  # noqa: E501
 
-        Updates an attribute in the organization.  # noqa: E501
+        Updates an attribute in the organization.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_attribute(id, attribute, async_req=True)
@@ -8182,7 +8182,7 @@ class SamsaraApi(object):
     def update_attribute_with_http_info(self, id, attribute, **kwargs):  # noqa: E501
         """[beta] Update an attribute  # noqa: E501
 
-        Updates an attribute in the organization.  # noqa: E501
+        Updates an attribute in the organization.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_attribute_with_http_info(id, attribute, async_req=True)
@@ -8276,7 +8276,7 @@ class SamsaraApi(object):
     def update_contact(self, id, contact, **kwargs):  # noqa: E501
         """Update a contact  # noqa: E501
 
-        Update a specific contact's information.  # noqa: E501
+        Update a specific contact's information.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_contact(id, contact, async_req=True)
@@ -8302,7 +8302,7 @@ class SamsaraApi(object):
     def update_contact_with_http_info(self, id, contact, **kwargs):  # noqa: E501
         """Update a contact  # noqa: E501
 
-        Update a specific contact's information.  # noqa: E501
+        Update a specific contact's information.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_contact_with_http_info(id, contact, async_req=True)
@@ -8396,7 +8396,7 @@ class SamsaraApi(object):
     def update_driver(self, id, driver, **kwargs):  # noqa: E501
         """Update a driver  # noqa: E501
 
-        Update a specific driver's information. This can also be used to activate or de-activate a given driver by setting the driverActivationStatus field. If the driverActivationStatus field is 'deactivated' then the user can also specify the deactivatedAtTime. The deactivatedAtTime cannot be more than 6 months in the past and must not come before the dirver's latest active HOS log. It will be considered an error if deactivatedAtTime is provided with a driverActivationStatus of active  # noqa: E501
+        Update a specific driver's information. This can also be used to activate or de-activate a given driver by setting the driverActivationStatus field. If the driverActivationStatus field is 'deactivated' then the user can also specify the deactivatedAtTime. The deactivatedAtTime cannot be more than 6 months in the past and must not come before the dirver's latest active HOS log. It will be considered an error if deactivatedAtTime is provided with a driverActivationStatus of active.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_driver(id, driver, async_req=True)
@@ -8422,7 +8422,7 @@ class SamsaraApi(object):
     def update_driver_with_http_info(self, id, driver, **kwargs):  # noqa: E501
         """Update a driver  # noqa: E501
 
-        Update a specific driver's information. This can also be used to activate or de-activate a given driver by setting the driverActivationStatus field. If the driverActivationStatus field is 'deactivated' then the user can also specify the deactivatedAtTime. The deactivatedAtTime cannot be more than 6 months in the past and must not come before the dirver's latest active HOS log. It will be considered an error if deactivatedAtTime is provided with a driverActivationStatus of active  # noqa: E501
+        Update a specific driver's information. This can also be used to activate or de-activate a given driver by setting the driverActivationStatus field. If the driverActivationStatus field is 'deactivated' then the user can also specify the deactivatedAtTime. The deactivatedAtTime cannot be more than 6 months in the past and must not come before the dirver's latest active HOS log. It will be considered an error if deactivatedAtTime is provided with a driverActivationStatus of active.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_driver_with_http_info(id, driver, async_req=True)
@@ -8516,7 +8516,7 @@ class SamsaraApi(object):
     def update_dvir(self, id, **kwargs):  # noqa: E501
         """Resolve a DVIR  # noqa: E501
 
-        Resolves a given DVIR by marking its `isResolved` field to `true`.  # noqa: E501
+        Resolves a given DVIR by marking its `isResolved` field to `true`.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_dvir(id, async_req=True)
@@ -8542,7 +8542,7 @@ class SamsaraApi(object):
     def update_dvir_with_http_info(self, id, **kwargs):  # noqa: E501
         """Resolve a DVIR  # noqa: E501
 
-        Resolves a given DVIR by marking its `isResolved` field to `true`.  # noqa: E501
+        Resolves a given DVIR by marking its `isResolved` field to `true`.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_dvir_with_http_info(id, async_req=True)
@@ -8632,7 +8632,7 @@ class SamsaraApi(object):
     def update_dvir_defect(self, id, **kwargs):  # noqa: E501
         """Update a defect  # noqa: E501
 
-        Updates a given defect. Can be used to resolve a defect by marking its `isResolved` field to `true`.  # noqa: E501
+        Updates a given defect. Can be used to resolve a defect by marking its `isResolved` field to `true`.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_dvir_defect(id, async_req=True)
@@ -8658,7 +8658,7 @@ class SamsaraApi(object):
     def update_dvir_defect_with_http_info(self, id, **kwargs):  # noqa: E501
         """Update a defect  # noqa: E501
 
-        Updates a given defect. Can be used to resolve a defect by marking its `isResolved` field to `true`.  # noqa: E501
+        Updates a given defect. Can be used to resolve a defect by marking its `isResolved` field to `true`.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_dvir_defect_with_http_info(id, async_req=True)
@@ -8748,7 +8748,7 @@ class SamsaraApi(object):
     def update_user(self, id, user, **kwargs):  # noqa: E501
         """Update a user  # noqa: E501
 
-        Update a specific user's information.  # noqa: E501
+        Update a specific user's information.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_user(id, user, async_req=True)
@@ -8774,7 +8774,7 @@ class SamsaraApi(object):
     def update_user_with_http_info(self, id, user, **kwargs):  # noqa: E501
         """Update a user  # noqa: E501
 
-        Update a specific user's information.  # noqa: E501
+        Update a specific user's information.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_user_with_http_info(id, user, async_req=True)
@@ -8868,7 +8868,7 @@ class SamsaraApi(object):
     def update_vehicle(self, id, vehicle, **kwargs):  # noqa: E501
         """Update a vehicle  # noqa: E501
 
-        Updates the given Vehicle object.  **Note:** Vehicle objects are automatically created when Samsara Vehicle Gateways are installed. You cannot create a Vehicle object via API.  You are able to *update* many of the fields of a Vehicle.  **Note**: There are no required fields in the request body, and you only need to provide the fields you wish to update.  # noqa: E501
+        Updates the given Vehicle object.  **Note:** Vehicle objects are automatically created when Samsara Vehicle Gateways are installed. You cannot create a Vehicle object via API.  You are able to *update* many of the fields of a Vehicle.  **Note**: There are no required fields in the request body, and you only need to provide the fields you wish to update.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_vehicle(id, vehicle, async_req=True)
@@ -8894,7 +8894,7 @@ class SamsaraApi(object):
     def update_vehicle_with_http_info(self, id, vehicle, **kwargs):  # noqa: E501
         """Update a vehicle  # noqa: E501
 
-        Updates the given Vehicle object.  **Note:** Vehicle objects are automatically created when Samsara Vehicle Gateways are installed. You cannot create a Vehicle object via API.  You are able to *update* many of the fields of a Vehicle.  **Note**: There are no required fields in the request body, and you only need to provide the fields you wish to update.  # noqa: E501
+        Updates the given Vehicle object.  **Note:** Vehicle objects are automatically created when Samsara Vehicle Gateways are installed. You cannot create a Vehicle object via API.  You are able to *update* many of the fields of a Vehicle.  **Note**: There are no required fields in the request body, and you only need to provide the fields you wish to update.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.update_vehicle_with_http_info(id, vehicle, async_req=True)
