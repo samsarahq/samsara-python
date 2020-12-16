@@ -1473,9 +1473,9 @@ class SamsaraApi(object):
             collection_formats=collection_formats)
 
     def delete_industrial_asset(self, id, **kwargs):  # noqa: E501
-        """Delete an existing asset.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
+        """Delete an existing asset  # noqa: E501
 
-        Delete asset  # noqa: E501
+        Delete asset.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_industrial_asset(id, async_req=True)
@@ -1498,9 +1498,9 @@ class SamsaraApi(object):
         return self.delete_industrial_asset_with_http_info(id, **kwargs)  # noqa: E501
 
     def delete_industrial_asset_with_http_info(self, id, **kwargs):  # noqa: E501
-        """Delete an existing asset.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
+        """Delete an existing asset  # noqa: E501
 
-        Delete asset  # noqa: E501
+        Delete asset.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.delete_industrial_asset_with_http_info(id, async_req=True)

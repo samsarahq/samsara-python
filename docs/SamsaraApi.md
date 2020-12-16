@@ -17,7 +17,7 @@ Method | HTTP request | Description
 [**delete_attribute**](SamsaraApi.md#delete_attribute) | **DELETE** /attributes/{id} | [beta] Deleting an attribute
 [**delete_carrier_proposed_assignment**](SamsaraApi.md#delete_carrier_proposed_assignment) | **DELETE** /fleet/carrier-proposed-assignments/{id} | Delete an assignment
 [**delete_contact**](SamsaraApi.md#delete_contact) | **DELETE** /contacts/{id} | Delete a contact
-[**delete_industrial_asset**](SamsaraApi.md#delete_industrial_asset) | **DELETE** /industrial/assets/{id} | Delete an existing asset.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.
+[**delete_industrial_asset**](SamsaraApi.md#delete_industrial_asset) | **DELETE** /industrial/assets/{id} | Delete an existing asset
 [**delete_tag**](SamsaraApi.md#delete_tag) | **DELETE** /tags/{id} | Delete a tag
 [**delete_user**](SamsaraApi.md#delete_user) | **DELETE** /users/{id} | Delete a user
 [**generate_document_pdf**](SamsaraApi.md#generate_document_pdf) | **POST** /fleet/documents/pdfs | Create a document PDF
@@ -827,9 +827,9 @@ print("Exception when calling SamsaraApi->delete_contact: %s\n" % e)
     # **delete_industrial_asset**
     > str delete_industrial_asset(id)
 
-    Delete an existing asset.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.
+    Delete an existing asset
 
-      Delete asset
+      Delete asset.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.
 
     ### Example
 
@@ -847,7 +847,7 @@ api_instance = samsara.SamsaraApi(api_client)
 id = 'id_example' # str | Id of the asset to be deleted.
 
 try:
-    # Delete an existing asset.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.
+    # Delete an existing asset
     api_response = api_instance.delete_industrial_asset(id)
   pprint(api_response)
 except ApiException as e:

@@ -89,7 +89,7 @@ Class | Method | HTTP request | Description
 *SamsaraApi* | [**delete_attribute**](docs/SamsaraApi.md#delete_attribute) | **DELETE** /attributes/{id} | [beta] Deleting an attribute
 *SamsaraApi* | [**delete_carrier_proposed_assignment**](docs/SamsaraApi.md#delete_carrier_proposed_assignment) | **DELETE** /fleet/carrier-proposed-assignments/{id} | Delete an assignment
 *SamsaraApi* | [**delete_contact**](docs/SamsaraApi.md#delete_contact) | **DELETE** /contacts/{id} | Delete a contact
-*SamsaraApi* | [**delete_industrial_asset**](docs/SamsaraApi.md#delete_industrial_asset) | **DELETE** /industrial/assets/{id} | Delete an existing asset.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.
+*SamsaraApi* | [**delete_industrial_asset**](docs/SamsaraApi.md#delete_industrial_asset) | **DELETE** /industrial/assets/{id} | Delete an existing asset
 *SamsaraApi* | [**delete_tag**](docs/SamsaraApi.md#delete_tag) | **DELETE** /tags/{id} | Delete a tag
 *SamsaraApi* | [**delete_user**](docs/SamsaraApi.md#delete_user) | **DELETE** /users/{id} | Delete a user
 *SamsaraApi* | [**generate_document_pdf**](docs/SamsaraApi.md#generate_document_pdf) | **POST** /fleet/documents/pdfs | Create a document PDF

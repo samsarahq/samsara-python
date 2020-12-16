@@ -122,7 +122,7 @@ class TestSamsaraApi(unittest.TestCase):
     def test_delete_industrial_asset(self):
         """Test case for delete_industrial_asset
 
-        Delete an existing asset.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.  # noqa: E501
+        Delete an existing asset  # noqa: E501
         """
         pass
 
