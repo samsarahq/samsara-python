@@ -1,16 +1,36 @@
 {
-	"ApiVersion": "2019.12.12",
-	"SemanticVersion": "1.0.0",
-	"Checksum": "7b0a202022",
+	"ApiVersion": "2020.09.10",
+	"SemanticVersion": "3.3.0",
+	"Checksum": "1660817380",
 	"RelevantChangelogs": [
 		{
-			"Date": "2019.12.12",
-			"Description": "Updated endpoint to report composite unassigned driving segments if applicable when querying for an unassigned driving segment by id.",
-			"Details": "Endpoint can now return a new status called 'MULTIPLE', which indicates that the unassigned driving segment has multiple composite segments; composite segments will be returned nested under a new field called 'segments'. Unassigned driving segments will now also return a string representing duty status.",
-			"IsBreakingChange": true,
+			"Date": "2020.09.10",
+			"Description": "Updates endpoint to include new gatewayJ1939EngineSeconds stat type.",
+			"Details": "Adds gatewayJ1939EngineSeconds to surface manual engine second readings when using a J1939/CAT cable that supports obd readings. This allows customers to fetch engine seconds that match engine hour readings on cloud.samsara.com.",
+			"IsBreakingChange": false,
 			"IsInitialRelease": false,
 			"IsDocumentationOnly": false,
-			"Route": "/v1/fleet/unassigned_driving_segments/{segment_id:[a-zA-Z0-9]+}",
+			"Route": "/fleet/equipment/stats",
+			"Method": "GET"
+		},
+		{
+			"Date": "2020.09.10",
+			"Description": "Updates endpoint to include new gatewayJ1939EngineSeconds stat type.",
+			"Details": "Adds gatewayJ1939EngineSeconds to surface manual engine second readings when using a J1939/CAT cable that supports obd readings. This allows customers to fetch engine seconds that match engine hour readings on cloud.samsara.com.",
+			"IsBreakingChange": false,
+			"IsInitialRelease": false,
+			"IsDocumentationOnly": false,
+			"Route": "/fleet/equipment/stats/feed",
+			"Method": "GET"
+		},
+		{
+			"Date": "2020.09.10",
+			"Description": "Updates endpoint to include new gatewayJ1939EngineSeconds stat type.",
+			"Details": "Adds gatewayJ1939EngineSeconds to surface manual engine second readings when using a J1939/CAT cable that supports obd readings. This allows customers to fetch engine seconds that match engine hour readings on cloud.samsara.com.",
+			"IsBreakingChange": false,
+			"IsInitialRelease": false,
+			"IsDocumentationOnly": false,
+			"Route": "/fleet/equipment/stats/history",
 			"Method": "GET"
 		}
 	]

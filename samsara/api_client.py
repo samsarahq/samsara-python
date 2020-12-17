@@ -78,7 +78,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'SamsaraSDK/1.0.0 (2019.12.12; python) -p enumClassPrefix=true '
+        self.user_agent = 'SamsaraSDK/3.3.0 (2020.09.10; python) -p enumClassPrefix=true '
         self.client_side_validation = configuration.client_side_validation
 
     def __enter__(self):
