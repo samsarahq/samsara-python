@@ -470,28 +470,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Authorization
 
-  
-  ## AccessTokenHeader
-
-    - **Type**: API key
-    - **API key parameter name**: Authorization: Bearer
-    - **Location**: HTTP header
-
-  
-  ## AccessTokenParameter
-
-    - **Type**: API key
-    - **API key parameter name**: access_token
-    - **Location**: URL query string
-
-  
-  ## OAuth2
-
-    - **Type**: OAuth
-    - **Flow**: accessCode
-    - **Authorization URL**: https://api.samsara.com/oauth2/authorize
-    - **Scopes**: N/A
-    
+  All endpoints do not require authorization.
 
 ## Author
 

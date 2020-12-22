@@ -134,9 +134,6 @@ class Configuration(object):
         self.signing_info = signing_info
         """The HTTP signing configuration
         """
-        self.access_token = ""
-        """access token for OAuth/Bearer
-        """
         self.logger = {}
         """Logging Settings
         """
@@ -321,27 +318,6 @@ class Configuration(object):
         :return: The Auth Settings information dict.
         """
         auth = {}
-        if 'Authorization: Bearer' in self.api_key:
-            auth['AccessTokenHeader'] = {
-                'type': 'api_key',
-                'in': 'header',
-                'key': 'Authorization: Bearer',
-                'value': self.get_api_key_with_prefix('Authorization: Bearer')
-            }
-        if 'access_token' in self.api_key:
-            auth['AccessTokenParameter'] = {
-                'type': 'api_key',
-                'in': 'query',
-                'key': 'access_token',
-                'value': self.get_api_key_with_prefix('access_token')
-            }
-        if self.access_token is not None:
-            auth['OAuth2'] = {
-                'type': 'oauth2',
-                'in': 'header',
-                'key': 'Authorization',
-                'value': 'Bearer ' + self.access_token
-            }
         return auth
 
     def to_debug_report(self):
