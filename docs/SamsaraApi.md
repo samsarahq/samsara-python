@@ -2697,7 +2697,7 @@ print("Exception when calling SamsaraApi->get_organization_info: %s\n" % e)
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
     # **get_route_feed**
-    > object get_route_feed(after=after)
+    > GetRouteFeedResponse get_route_feed(after=after)
 
     [beta] Get route updates
 
@@ -2734,7 +2734,7 @@ print("Exception when calling SamsaraApi->get_route_feed: %s\n" % e)
 
     ### Return type
 
-    **object**
+    [**GetRouteFeedResponse**](GetRouteFeedResponse.md)
 
     ### Authorization
 

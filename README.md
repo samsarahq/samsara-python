@@ -270,6 +270,7 @@ Class | Method | HTTP request | Description
  - [FftSpectraDataPoint](docs/FftSpectraDataPoint.md)
  - [FftSpectraDataPointFftSpectra](docs/FftSpectraDataPointFftSpectra.md)
  - [GetAttributesByEntityTypeResponse](docs/GetAttributesByEntityTypeResponse.md)
+ - [GetRouteFeedResponse](docs/GetRouteFeedResponse.md)
  - [HosBreak](docs/HosBreak.md)
  - [HosClocks](docs/HosClocks.md)
  - [HosClocksForDriver](docs/HosClocksForDriver.md)
