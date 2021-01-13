@@ -5,7 +5,7 @@ All URIs are relative to *https://api.samsara.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_address**](SamsaraApi.md#create_address) | **POST** /addresses | Create an address
-[**create_attribute**](SamsaraApi.md#create_attribute) | **POST** /attributes | [beta] Create an attribute
+[**create_attribute**](SamsaraApi.md#create_attribute) | **POST** /beta/attributes | [beta] Create an attribute
 [**create_carrier_proposed_assignment**](SamsaraApi.md#create_carrier_proposed_assignment) | **POST** /fleet/carrier-proposed-assignments | Create an assignment
 [**create_contact**](SamsaraApi.md#create_contact) | **POST** /contacts | Create a contact
 [**create_driver**](SamsaraApi.md#create_driver) | **POST** /fleet/drivers | Create a driver
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 [**create_tag**](SamsaraApi.md#create_tag) | **POST** /tags | Create a tag
 [**create_user**](SamsaraApi.md#create_user) | **POST** /users | Create a user
 [**delete_address**](SamsaraApi.md#delete_address) | **DELETE** /addresses/{id} | Delete an address
-[**delete_attribute**](SamsaraApi.md#delete_attribute) | **DELETE** /attributes/{id} | [beta] Deleting an attribute
+[**delete_attribute**](SamsaraApi.md#delete_attribute) | **DELETE** /beta/attributes/{id} | [beta] Deleting an attribute
 [**delete_carrier_proposed_assignment**](SamsaraApi.md#delete_carrier_proposed_assignment) | **DELETE** /fleet/carrier-proposed-assignments/{id} | Delete an assignment
 [**delete_contact**](SamsaraApi.md#delete_contact) | **DELETE** /contacts/{id} | Delete a contact
 [**delete_industrial_asset**](SamsaraApi.md#delete_industrial_asset) | **DELETE** /industrial/assets/{id} | Delete an existing asset
@@ -22,8 +22,8 @@ Method | HTTP request | Description
 [**delete_user**](SamsaraApi.md#delete_user) | **DELETE** /users/{id} | Delete a user
 [**generate_document_pdf**](SamsaraApi.md#generate_document_pdf) | **POST** /fleet/documents/pdfs | Create a document PDF
 [**get_address**](SamsaraApi.md#get_address) | **GET** /addresses/{id} | Retrieve an address
-[**get_attribute**](SamsaraApi.md#get_attribute) | **GET** /attributes/{id} | [beta] Retrieve an attribute
-[**get_attributes_by_entity_type**](SamsaraApi.md#get_attributes_by_entity_type) | **GET** /attributes | [beta] List all attributes by entity type
+[**get_attribute**](SamsaraApi.md#get_attribute) | **GET** /beta/attributes/{id} | [beta] Retrieve an attribute
+[**get_attributes_by_entity_type**](SamsaraApi.md#get_attributes_by_entity_type) | **GET** /beta/attributes | [beta] List all attributes by entity type
 [**get_contact**](SamsaraApi.md#get_contact) | **GET** /contacts/{id} | Retrieve a contact
 [**get_data_input_data_feed**](SamsaraApi.md#get_data_input_data_feed) | **GET** /industrial/data-inputs/data-points/feed | Follow a real-time feed of data points for data inputs
 [**get_data_input_data_history**](SamsaraApi.md#get_data_input_data_history) | **GET** /industrial/data-inputs/data-points/history | List historical data points for data inputs
@@ -31,7 +31,7 @@ Method | HTTP request | Description
 [**get_data_inputs**](SamsaraApi.md#get_data_inputs) | **GET** /industrial/data-inputs | List all data inputs
 [**get_document_pdf**](SamsaraApi.md#get_document_pdf) | **GET** /fleet/documents/pdfs/{id} | Query a document PDF
 [**get_driver**](SamsaraApi.md#get_driver) | **GET** /fleet/drivers/{id} | Retrieve a driver
-[**get_driver_efficiency**](SamsaraApi.md#get_driver_efficiency) | **GET** /fleet/drivers/efficiency | [beta] List driver efficiency
+[**get_driver_efficiency**](SamsaraApi.md#get_driver_efficiency) | **GET** /beta/fleet/drivers/efficiency | [beta] List driver efficiency
 [**get_driver_tachograph_activity**](SamsaraApi.md#get_driver_tachograph_activity) | **GET** /fleet/drivers/tachograph-activity/history | Get driver tachograph activity
 [**get_driver_tachograph_files**](SamsaraApi.md#get_driver_tachograph_files) | **GET** /fleet/drivers/tachograph-files/history | Get tachograph driver files
 [**get_dvir_defects**](SamsaraApi.md#get_dvir_defects) | **GET** /fleet/defects/history | Get all defects
@@ -47,7 +47,7 @@ Method | HTTP request | Description
 [**get_hos_logs**](SamsaraApi.md#get_hos_logs) | **GET** /fleet/hos/logs | Get HOS logs
 [**get_industrial_assets**](SamsaraApi.md#get_industrial_assets) | **GET** /industrial/assets | List all assets
 [**get_organization_info**](SamsaraApi.md#get_organization_info) | **GET** /me | Get information about your organization
-[**get_route_feed**](SamsaraApi.md#get_route_feed) | **GET** /fleet/routes/audit-logs/feed | [beta] Get route updates
+[**get_route_feed**](SamsaraApi.md#get_route_feed) | **GET** /beta/fleet/routes/audit-logs/feed | [beta] Get route updates
 [**get_safety_events**](SamsaraApi.md#get_safety_events) | **GET** /fleet/safety-events | List all safety events.
 [**get_tag**](SamsaraApi.md#get_tag) | **GET** /tags/{id} | Retrieve a tag
 [**get_user**](SamsaraApi.md#get_user) | **GET** /users/{id} | Retrieve a user
@@ -72,7 +72,7 @@ Method | HTTP request | Description
 [**patch_tag**](SamsaraApi.md#patch_tag) | **PATCH** /tags/{id} | Update a tag
 [**replace_tag**](SamsaraApi.md#replace_tag) | **PUT** /tags/{id} | Update a tag
 [**update_address**](SamsaraApi.md#update_address) | **PATCH** /addresses/{id} | Update an address
-[**update_attribute**](SamsaraApi.md#update_attribute) | **PATCH** /attributes/{id} | [beta] Update an attribute
+[**update_attribute**](SamsaraApi.md#update_attribute) | **PATCH** /beta/attributes/{id} | [beta] Update an attribute
 [**update_contact**](SamsaraApi.md#update_contact) | **PATCH** /contacts/{id} | Update a contact
 [**update_driver**](SamsaraApi.md#update_driver) | **PATCH** /fleet/drivers/{id} | Update a driver
 [**update_dvir**](SamsaraApi.md#update_dvir) | **PATCH** /fleet/dvirs/{id} | Resolve a DVIR

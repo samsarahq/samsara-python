@@ -245,7 +245,7 @@ class SamsaraApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/attributes', 'POST',
+            '/beta/attributes', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1241,7 +1241,7 @@ class SamsaraApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/attributes/{id}', 'DELETE',
+            '/beta/attributes/{id}', 'DELETE',
             path_params,
             query_params,
             header_params,
@@ -2113,7 +2113,7 @@ class SamsaraApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/attributes/{id}', 'GET',
+            '/beta/attributes/{id}', 'GET',
             path_params,
             query_params,
             header_params,
@@ -2233,7 +2233,7 @@ class SamsaraApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/attributes', 'GET',
+            '/beta/attributes', 'GET',
             path_params,
             query_params,
             header_params,
@@ -3203,7 +3203,7 @@ class SamsaraApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/fleet/drivers/efficiency', 'GET',
+            '/beta/fleet/drivers/efficiency', 'GET',
             path_params,
             query_params,
             header_params,
@@ -5204,7 +5204,7 @@ class SamsaraApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/fleet/routes/audit-logs/feed', 'GET',
+            '/beta/fleet/routes/audit-logs/feed', 'GET',
             path_params,
             query_params,
             header_params,
@@ -8258,7 +8258,7 @@ class SamsaraApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/attributes/{id}', 'PATCH',
+            '/beta/attributes/{id}', 'PATCH',
             path_params,
             query_params,
             header_params,
