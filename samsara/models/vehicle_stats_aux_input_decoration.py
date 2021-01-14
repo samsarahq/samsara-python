@@ -59,7 +59,7 @@ class VehicleStatsAuxInputDecoration(object):
     def name(self):
         """Gets the name of this VehicleStatsAuxInputDecoration.  # noqa: E501
 
-        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
+        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :return: The name of this VehicleStatsAuxInputDecoration.  # noqa: E501
         :rtype: str
@@ -70,7 +70,7 @@ class VehicleStatsAuxInputDecoration(object):
     def name(self, name):
         """Sets the name of this VehicleStatsAuxInputDecoration.
 
-        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/232232368-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
+        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :param name: The name of this VehicleStatsAuxInputDecoration.  # noqa: E501
         :type: str
