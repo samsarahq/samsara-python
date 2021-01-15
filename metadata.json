@@ -1,36 +1,26 @@
 {
-	"ApiVersion": "2020.09.10",
-	"SemanticVersion": "3.3.0",
-	"Checksum": "756159bd9e",
+	"ApiVersion": "2021.01.14",
+	"SemanticVersion": "3.5.0",
+	"Checksum": "647c84df58",
 	"RelevantChangelogs": [
 		{
-			"Date": "2020.09.10",
-			"Description": "Updates endpoint to include new gatewayJ1939EngineSeconds stat type.",
-			"Details": "Adds gatewayJ1939EngineSeconds to surface manual engine second readings when using a J1939/CAT cable that supports obd readings. This allows customers to fetch engine seconds that match engine hour readings on cloud.samsara.com.",
+			"Date": "2021.01.14",
+			"Description": "Updated documentation for GET /beta/fleet/hos/daily-logs",
+			"Details": "Added examples for certain enum types in response.",
 			"IsBreakingChange": false,
 			"IsInitialRelease": false,
-			"IsDocumentationOnly": false,
-			"Route": "/fleet/equipment/stats",
+			"IsDocumentationOnly": true,
+			"Route": "/beta/fleet/hos/daily-logs",
 			"Method": "GET"
 		},
 		{
-			"Date": "2020.09.10",
-			"Description": "Updates endpoint to include new gatewayJ1939EngineSeconds stat type.",
-			"Details": "Adds gatewayJ1939EngineSeconds to surface manual engine second readings when using a J1939/CAT cable that supports obd readings. This allows customers to fetch engine seconds that match engine hour readings on cloud.samsara.com.",
+			"Date": "2021.01.14",
+			"Description": "Updated documentation for GET /beta/fleet/hos/daily-logs",
+			"Details": "Added examples for certain enum types in response.",
 			"IsBreakingChange": false,
 			"IsInitialRelease": false,
-			"IsDocumentationOnly": false,
-			"Route": "/fleet/equipment/stats/feed",
-			"Method": "GET"
-		},
-		{
-			"Date": "2020.09.10",
-			"Description": "Updates endpoint to include new gatewayJ1939EngineSeconds stat type.",
-			"Details": "Adds gatewayJ1939EngineSeconds to surface manual engine second readings when using a J1939/CAT cable that supports obd readings. This allows customers to fetch engine seconds that match engine hour readings on cloud.samsara.com.",
-			"IsBreakingChange": false,
-			"IsInitialRelease": false,
-			"IsDocumentationOnly": false,
-			"Route": "/fleet/equipment/stats/history",
+			"IsDocumentationOnly": true,
+			"Route": "/fleet/hos/daily-logs",
 			"Method": "GET"
 		}
 	]
