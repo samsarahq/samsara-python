@@ -1,22 +1,12 @@
 {
-	"ApiVersion": "2021.01.14",
-	"SemanticVersion": "3.5.0",
-	"Checksum": "16523ea411",
+	"ApiVersion": "2021.01.20",
+	"SemanticVersion": "3.6.0",
+	"Checksum": "6e95195567",
 	"RelevantChangelogs": [
 		{
-			"Date": "2021.01.14",
-			"Description": "Updated documentation for GET /beta/fleet/hos/daily-logs",
-			"Details": "Added examples for certain enum types in response.",
-			"IsBreakingChange": false,
-			"IsInitialRelease": false,
-			"IsDocumentationOnly": true,
-			"Route": "/beta/fleet/hos/daily-logs",
-			"Method": "GET"
-		},
-		{
-			"Date": "2021.01.14",
-			"Description": "Updated documentation for GET /beta/fleet/hos/daily-logs",
-			"Details": "Added examples for certain enum types in response.",
+			"Date": "2021.01.20",
+			"Description": "Released GET /fleet/hos/daily-logs",
+			"Details": "Removed beta tags and added HOS daily logs tags.",
 			"IsBreakingChange": false,
 			"IsInitialRelease": false,
 			"IsDocumentationOnly": true,
