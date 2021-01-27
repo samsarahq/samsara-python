@@ -34,7 +34,9 @@ class Equipment(object):
     """
     openapi_types = {
         'asset_serial': 'str',
+        'external_ids': 'dict(str, str)',
         'id': 'str',
+        'installed_gateway': 'EquipmentInstalledGateway',
         'name': 'str',
         'notes': 'str',
         'tags': 'list[TagTinyResponse]'
@@ -42,20 +44,24 @@ class Equipment(object):
 
     attribute_map = {
         'asset_serial': 'assetSerial',
+        'external_ids': 'externalIds',
         'id': 'id',
+        'installed_gateway': 'installedGateway',
         'name': 'name',
         'notes': 'notes',
         'tags': 'tags'
     }
 
-    def __init__(self, asset_serial=None, id=None, name=None, notes=None, tags=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, asset_serial=None, external_ids=None, id=None, installed_gateway=None, name=None, notes=None, tags=None, local_vars_configuration=None):  # noqa: E501
         """Equipment - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._asset_serial = None
+        self._external_ids = None
         self._id = None
+        self._installed_gateway = None
         self._name = None
         self._notes = None
         self._tags = None
@@ -63,7 +69,11 @@ class Equipment(object):
 
         if asset_serial is not None:
             self.asset_serial = asset_serial
+        if external_ids is not None:
+            self.external_ids = external_ids
         self.id = id
+        if installed_gateway is not None:
+            self.installed_gateway = installed_gateway
         if name is not None:
             self.name = name
         if notes is not None:
@@ -95,6 +105,29 @@ class Equipment(object):
         self._asset_serial = asset_serial
 
     @property
+    def external_ids(self):
+        """Gets the external_ids of this Equipment.  # noqa: E501
+
+        The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.  # noqa: E501
+
+        :return: The external_ids of this Equipment.  # noqa: E501
+        :rtype: dict(str, str)
+        """
+        return self._external_ids
+
+    @external_ids.setter
+    def external_ids(self, external_ids):
+        """Sets the external_ids of this Equipment.
+
+        The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.  # noqa: E501
+
+        :param external_ids: The external_ids of this Equipment.  # noqa: E501
+        :type: dict(str, str)
+        """
+
+        self._external_ids = external_ids
+
+    @property
     def id(self):
         """Gets the id of this Equipment.  # noqa: E501
 
@@ -118,6 +151,27 @@ class Equipment(object):
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
+
+    @property
+    def installed_gateway(self):
+        """Gets the installed_gateway of this Equipment.  # noqa: E501
+
+
+        :return: The installed_gateway of this Equipment.  # noqa: E501
+        :rtype: EquipmentInstalledGateway
+        """
+        return self._installed_gateway
+
+    @installed_gateway.setter
+    def installed_gateway(self, installed_gateway):
+        """Sets the installed_gateway of this Equipment.
+
+
+        :param installed_gateway: The installed_gateway of this Equipment.  # noqa: E501
+        :type: EquipmentInstalledGateway
+        """
+
+        self._installed_gateway = installed_gateway
 
     @property
     def name(self):

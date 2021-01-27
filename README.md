@@ -253,6 +253,7 @@ Class | Method | HTTP request | Description
  - [EquipmentGatewayEngineState](docs/EquipmentGatewayEngineState.md)
  - [EquipmentGatewayJ1939EngineSeconds](docs/EquipmentGatewayJ1939EngineSeconds.md)
  - [EquipmentGpsOdometerMeters](docs/EquipmentGpsOdometerMeters.md)
+ - [EquipmentInstalledGateway](docs/EquipmentInstalledGateway.md)
  - [EquipmentListResponse](docs/EquipmentListResponse.md)
  - [EquipmentLocation](docs/EquipmentLocation.md)
  - [EquipmentLocationsListResponse](docs/EquipmentLocationsListResponse.md)

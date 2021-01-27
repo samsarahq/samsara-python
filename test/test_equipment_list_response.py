@@ -39,7 +39,11 @@ class TestEquipmentListResponse(unittest.TestCase):
                 data = [
                     samsara.models.equipment.Equipment(
                         asset_serial = '1FUJA6BD31LJ09646', 
+                        external_ids = {maintenanceId=250020, payrollId=ABFS18600}, 
                         id = '112', 
+                        installed_gateway = samsara.models.equipment_installed_gateway.Equipment_installedGateway(
+                            model = 'Ag26', 
+                            serial = '0', ), 
                         name = 'Crane A7', 
                         notes = 'These are notes about this given equipment.', 
                         tags = [
@@ -58,7 +62,11 @@ class TestEquipmentListResponse(unittest.TestCase):
                 data = [
                     samsara.models.equipment.Equipment(
                         asset_serial = '1FUJA6BD31LJ09646', 
+                        external_ids = {maintenanceId=250020, payrollId=ABFS18600}, 
                         id = '112', 
+                        installed_gateway = samsara.models.equipment_installed_gateway.Equipment_installedGateway(
+                            model = 'Ag26', 
+                            serial = '0', ), 
                         name = 'Crane A7', 
                         notes = 'These are notes about this given equipment.', 
                         tags = [
