@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **name** | **str** | The human-readable name of the Vehicle. This is set by a fleet administrator and will appear in both Samsara’s cloud dashboard as well as the Samsara Driver mobile app. **By default**, this name is the serial number of the Samsara Vehicle Gateway. It can be set or updated through the Samsara Dashboard or through the API at any time. | [optional] 
 **notes** | **str** | These are generic notes about the Vehicle. Empty by default. Can be set or updated through the Samsara Dashboard or the API at any time. | [optional] 
 **odometer_meters** | **int** | A manual override for the vehicle&#39;s odometer. You may only override a vehicle&#39;s odometer if it cannot be read from on-board diagnostics. When you provide a manual odometer override, Samsara will begin updating a vehicle&#39;s odometer using GPS distance traveled since this override was set. See [here](https://kb.samsara.com/hc/en-us/articles/115005273667) for more details. | [optional] 
-**static_assigned_driver_id** | **str** | ID for the static assigned driver of the vehicle. | [optional] 
+**static_assigned_driver_id** | **str** | ID for the static assigned driver of the vehicle. Setting the value to 0 will unassign the current driver. | [optional] 
 **tag_ids** | **list[str]** | An array of IDs of tags to associate with this vehicle. | [optional] 
 **vin** | **str** | The VIN of the Vehicle. Most of the time, this will be automatically read from the engine computer by the Samsara Vehicle Gateway. It will be empty if it cannot be read. It can be set or updated through the Samsara Dashboard or the API at any time. | [optional] 
 

@@ -614,7 +614,7 @@ class UpdateVehicleRequest(object):
     def static_assigned_driver_id(self):
         """Gets the static_assigned_driver_id of this UpdateVehicleRequest.  # noqa: E501
 
-        ID for the static assigned driver of the vehicle.  # noqa: E501
+        ID for the static assigned driver of the vehicle. Setting the value to 0 will unassign the current driver.  # noqa: E501
 
         :return: The static_assigned_driver_id of this UpdateVehicleRequest.  # noqa: E501
         :rtype: str
@@ -625,7 +625,7 @@ class UpdateVehicleRequest(object):
     def static_assigned_driver_id(self, static_assigned_driver_id):
         """Sets the static_assigned_driver_id of this UpdateVehicleRequest.
 
-        ID for the static assigned driver of the vehicle.  # noqa: E501
+        ID for the static assigned driver of the vehicle. Setting the value to 0 will unassign the current driver.  # noqa: E501
 
         :param static_assigned_driver_id: The static_assigned_driver_id of this UpdateVehicleRequest.  # noqa: E501
         :type: str
