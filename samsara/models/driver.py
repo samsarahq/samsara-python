@@ -196,6 +196,7 @@ class Driver(object):
     def attributes(self):
         """Gets the attributes of this Driver.  # noqa: E501
 
+        [beta] A minified attribute  # noqa: E501
 
         :return: The attributes of this Driver.  # noqa: E501
         :rtype: list[AttributeTiny]
@@ -206,6 +207,7 @@ class Driver(object):
     def attributes(self, attributes):
         """Sets the attributes of this Driver.
 
+        [beta] A minified attribute  # noqa: E501
 
         :param attributes: The attributes of this Driver.  # noqa: E501
         :type: list[AttributeTiny]

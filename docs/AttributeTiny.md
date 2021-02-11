@@ -1,6 +1,6 @@
 # AttributeTiny
 
-A minified attribute.
+[beta] A minified attribute.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
