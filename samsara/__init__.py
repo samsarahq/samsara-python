@@ -155,7 +155,6 @@ from samsara.models.hos_log_entry import HosLogEntry
 from samsara.models.hos_logs_for_driver import HosLogsForDriver
 from samsara.models.hos_logs_response import HosLogsResponse
 from samsara.models.hos_shift import HosShift
-from samsara.models.hos_status_type import HosStatusType
 from samsara.models.hos_violations import HosViolations
 from samsara.models.inline_response200 import InlineResponse200
 from samsara.models.j1939_d1_status_data_point import J1939D1StatusDataPoint

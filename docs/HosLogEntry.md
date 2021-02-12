@@ -5,7 +5,7 @@ A single HOS log entry.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **codrivers** | [**list[DriverTinyResponse]**](DriverTinyResponse.md) | The codriver information. | [optional] 
-**hos_status_type** | [**HosStatusType**](HosStatusType.md) |  | [optional] 
+**hos_status_type** | **str** | The Hours of Service status type. | [optional] 
 **log_end_time** | **str** | UTC timestamp in RFC 3339 format. Example: &#x60;2020-01-27T07:06:25Z&#x60;. | [optional] 
 **log_recorded_location** | [**Location**](Location.md) |  | [optional] 
 **log_start_time** | **str** | UTC timestamp in RFC 3339 format. Example: &#x60;2020-01-27T07:06:25Z&#x60;. | 

@@ -34,7 +34,7 @@ class HosLogEntry(object):
     """
     openapi_types = {
         'codrivers': 'list[DriverTinyResponse]',
-        'hos_status_type': 'HosStatusType',
+        'hos_status_type': 'str',
         'log_end_time': 'str',
         'log_recorded_location': 'Location',
         'log_start_time': 'str',
@@ -108,9 +108,10 @@ class HosLogEntry(object):
     def hos_status_type(self):
         """Gets the hos_status_type of this HosLogEntry.  # noqa: E501
 
+        The Hours of Service status type.  # noqa: E501
 
         :return: The hos_status_type of this HosLogEntry.  # noqa: E501
-        :rtype: HosStatusType
+        :rtype: str
         """
         return self._hos_status_type
 
@@ -118,10 +119,17 @@ class HosLogEntry(object):
     def hos_status_type(self, hos_status_type):
         """Sets the hos_status_type of this HosLogEntry.
 
+        The Hours of Service status type.  # noqa: E501
 
         :param hos_status_type: The hos_status_type of this HosLogEntry.  # noqa: E501
-        :type: HosStatusType
+        :type: str
         """
+        allowed_values = ["offDuty", "sleeperBed", "driving", "onDuty", "yardMove", "personalConveyance"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and hos_status_type not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `hos_status_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(hos_status_type, allowed_values)
+            )
 
         self._hos_status_type = hos_status_type
 

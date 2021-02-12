@@ -33,7 +33,7 @@ class CurrentDutyStatus(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'hos_status_type': 'HosStatusType'
+        'hos_status_type': 'str'
     }
 
     attribute_map = {
@@ -56,9 +56,10 @@ class CurrentDutyStatus(object):
     def hos_status_type(self):
         """Gets the hos_status_type of this CurrentDutyStatus.  # noqa: E501
 
+        The Hours of Service status type.  # noqa: E501
 
         :return: The hos_status_type of this CurrentDutyStatus.  # noqa: E501
-        :rtype: HosStatusType
+        :rtype: str
         """
         return self._hos_status_type
 
@@ -66,10 +67,17 @@ class CurrentDutyStatus(object):
     def hos_status_type(self, hos_status_type):
         """Sets the hos_status_type of this CurrentDutyStatus.
 
+        The Hours of Service status type.  # noqa: E501
 
         :param hos_status_type: The hos_status_type of this CurrentDutyStatus.  # noqa: E501
-        :type: HosStatusType
+        :type: str
         """
+        allowed_values = ["offDuty", "sleeperBed", "driving", "onDuty", "yardMove", "personalConveyance"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and hos_status_type not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `hos_status_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(hos_status_type, allowed_values)
+            )
 
         self._hos_status_type = hos_status_type
 

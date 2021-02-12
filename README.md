@@ -282,7 +282,6 @@ Class | Method | HTTP request | Description
  - [HosLogsForDriver](docs/HosLogsForDriver.md)
  - [HosLogsResponse](docs/HosLogsResponse.md)
  - [HosShift](docs/HosShift.md)
- - [HosStatusType](docs/HosStatusType.md)
  - [HosViolations](docs/HosViolations.md)
  - [InlineResponse200](docs/InlineResponse200.md)
  - [J1939D1StatusDataPoint](docs/J1939D1StatusDataPoint.md)
