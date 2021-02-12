@@ -329,13 +329,6 @@ class TestSamsaraApi(unittest.TestCase):
         """
         pass
 
-    def test_get_route_feed(self):
-        """Test case for get_route_feed
-
-        [beta] Get route updates  # noqa: E501
-        """
-        pass
-
     def test_get_safety_events(self):
         """Test case for get_safety_events
 

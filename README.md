@@ -119,7 +119,6 @@ Class | Method | HTTP request | Description
 *SamsaraApi* | [**get_hos_logs**](docs/SamsaraApi.md#get_hos_logs) | **GET** /fleet/hos/logs | Get HOS logs
 *SamsaraApi* | [**get_industrial_assets**](docs/SamsaraApi.md#get_industrial_assets) | **GET** /industrial/assets | List all assets
 *SamsaraApi* | [**get_organization_info**](docs/SamsaraApi.md#get_organization_info) | **GET** /me | Get information about your organization
-*SamsaraApi* | [**get_route_feed**](docs/SamsaraApi.md#get_route_feed) | **GET** /beta/fleet/routes/audit-logs/feed | [beta] Get route updates
 *SamsaraApi* | [**get_safety_events**](docs/SamsaraApi.md#get_safety_events) | **GET** /fleet/safety-events | List all safety events.
 *SamsaraApi* | [**get_tag**](docs/SamsaraApi.md#get_tag) | **GET** /tags/{id} | Retrieve a tag
 *SamsaraApi* | [**get_user**](docs/SamsaraApi.md#get_user) | **GET** /users/{id} | Retrieve a user
@@ -271,7 +270,6 @@ Class | Method | HTTP request | Description
  - [FftSpectraDataPoint](docs/FftSpectraDataPoint.md)
  - [FftSpectraDataPointFftSpectra](docs/FftSpectraDataPointFftSpectra.md)
  - [GetAttributesByEntityTypeResponse](docs/GetAttributesByEntityTypeResponse.md)
- - [GetRouteFeedResponse](docs/GetRouteFeedResponse.md)
  - [HosBreak](docs/HosBreak.md)
  - [HosClocks](docs/HosClocks.md)
  - [HosClocksForDriver](docs/HosClocksForDriver.md)
@@ -300,8 +298,6 @@ Class | Method | HTTP request | Description
  - [LocationDataPointGpsLocation](docs/LocationDataPointGpsLocation.md)
  - [LocationDataPointGpsLocationPlace](docs/LocationDataPointGpsLocationPlace.md)
  - [LocationType](docs/LocationType.md)
- - [MinimalRoute](docs/MinimalRoute.md)
- - [MinimalRouteStop](docs/MinimalRouteStop.md)
  - [NumberDataPoint](docs/NumberDataPoint.md)
  - [OrganizationInfo](docs/OrganizationInfo.md)
  - [OrganizationInfoCarrierSettings](docs/OrganizationInfoCarrierSettings.md)
@@ -311,7 +307,6 @@ Class | Method | HTTP request | Description
  - [PatchTagRequest](docs/PatchTagRequest.md)
  - [ReplaceTagRequest](docs/ReplaceTagRequest.md)
  - [ResolvedBy](docs/ResolvedBy.md)
- - [RouteTinyResponse](docs/RouteTinyResponse.md)
  - [SafetyEvent](docs/SafetyEvent.md)
  - [SafetyEventBehaviorLabel](docs/SafetyEventBehaviorLabel.md)
  - [SafetyEventBehaviorLabelSource](docs/SafetyEventBehaviorLabelSource.md)

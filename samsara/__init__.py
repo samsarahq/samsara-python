@@ -144,7 +144,6 @@ from samsara.models.extended_driver_tiny_response import ExtendedDriverTinyRespo
 from samsara.models.fft_spectra_data_point import FftSpectraDataPoint
 from samsara.models.fft_spectra_data_point_fft_spectra import FftSpectraDataPointFftSpectra
 from samsara.models.get_attributes_by_entity_type_response import GetAttributesByEntityTypeResponse
-from samsara.models.get_route_feed_response import GetRouteFeedResponse
 from samsara.models.hos_break import HosBreak
 from samsara.models.hos_clocks import HosClocks
 from samsara.models.hos_clocks_for_driver import HosClocksForDriver
@@ -173,8 +172,6 @@ from samsara.models.location_data_point import LocationDataPoint
 from samsara.models.location_data_point_gps_location import LocationDataPointGpsLocation
 from samsara.models.location_data_point_gps_location_place import LocationDataPointGpsLocationPlace
 from samsara.models.location_type import LocationType
-from samsara.models.minimal_route import MinimalRoute
-from samsara.models.minimal_route_stop import MinimalRouteStop
 from samsara.models.number_data_point import NumberDataPoint
 from samsara.models.organization_info import OrganizationInfo
 from samsara.models.organization_info_carrier_settings import OrganizationInfoCarrierSettings
@@ -184,7 +181,6 @@ from samsara.models.parent_tag import ParentTag
 from samsara.models.patch_tag_request import PatchTagRequest
 from samsara.models.replace_tag_request import ReplaceTagRequest
 from samsara.models.resolved_by import ResolvedBy
-from samsara.models.route_tiny_response import RouteTinyResponse
 from samsara.models.safety_event import SafetyEvent
 from samsara.models.safety_event_behavior_label import SafetyEventBehaviorLabel
 from samsara.models.safety_event_behavior_label_source import SafetyEventBehaviorLabelSource

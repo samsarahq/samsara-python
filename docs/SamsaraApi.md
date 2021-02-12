@@ -47,7 +47,6 @@ Method | HTTP request | Description
 [**get_hos_logs**](SamsaraApi.md#get_hos_logs) | **GET** /fleet/hos/logs | Get HOS logs
 [**get_industrial_assets**](SamsaraApi.md#get_industrial_assets) | **GET** /industrial/assets | List all assets
 [**get_organization_info**](SamsaraApi.md#get_organization_info) | **GET** /me | Get information about your organization
-[**get_route_feed**](SamsaraApi.md#get_route_feed) | **GET** /beta/fleet/routes/audit-logs/feed | [beta] Get route updates
 [**get_safety_events**](SamsaraApi.md#get_safety_events) | **GET** /fleet/safety-events | List all safety events.
 [**get_tag**](SamsaraApi.md#get_tag) | **GET** /tags/{id} | Retrieve a tag
 [**get_user**](SamsaraApi.md#get_user) | **GET** /users/{id} | Retrieve a user
@@ -2692,63 +2691,6 @@ print("Exception when calling SamsaraApi->get_organization_info: %s\n" % e)
       | Status code | Description | Response headers |
       |-------------|-------------|------------------|
         **200** | Returns information about your organization. |  -  |
-        **0** | Error response |  -  |
-
-    [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-    # **get_route_feed**
-    > GetRouteFeedResponse get_route_feed(after=after)
-
-    [beta] Get route updates
-
-      Subscribes to a feed of immutable, append-only updates for routes. The initial request to this feed endpoint returns a cursor, which can be used on the next request to fetch updated routes that have had state changes since that request.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our [API feedback form](https://forms.gle/r4bs6HQshQAvBuwv6). If you encountered an issue or noticed inaccuracies in the API documentation, please [submit a case](http://samsara.com/help) to our support team.
-
-    ### Example
-
-      ```python
-from __future__ import print_function
-import time
-import samsara
-from samsara.rest import ApiException
-from pprint import pprint
-
-# Enter a context with an instance of the API client
-  with samsara.ApiClient() as api_client:
-# Create an instance of the API class
-api_instance = samsara.SamsaraApi(api_client)
-after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
-
-try:
-    # [beta] Get route updates
-    api_response = api_instance.get_route_feed(after=after)
-  pprint(api_response)
-except ApiException as e:
-print("Exception when calling SamsaraApi->get_route_feed: %s\n" % e)
-```
-
-    ### Parameters
-    
-      Name | Type | Description  | Notes
-      ------------- | ------------- | ------------- | -------------
-     **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
-
-    ### Return type
-
-    [**GetRouteFeedResponse**](GetRouteFeedResponse.md)
-
-    ### Authorization
-
-    No authorization required
-
-    ### HTTP request headers
-
-    - **Content-Type**: Not defined
-    - **Accept**: application/json
-
-      ### HTTP response details
-      | Status code | Description | Response headers |
-      |-------------|-------------|------------------|
-        **200** | Returns the route updates that have occurred since the previous cursor. |  -  |
         **0** | Error response |  -  |
 
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
