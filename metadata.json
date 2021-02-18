@@ -1,16 +1,16 @@
 {
-	"ApiVersion": "2021.01.20",
-	"SemanticVersion": "3.6.0",
+	"ApiVersion": "2021.02.16",
+	"SemanticVersion": "4.0.0",
 	"Checksum": "6113aeee0d",
 	"RelevantChangelogs": [
 		{
-			"Date": "2021.01.20",
-			"Description": "Released GET /fleet/hos/daily-logs",
-			"Details": "Removed beta tags and added HOS daily logs tags.",
-			"IsBreakingChange": false,
+			"Date": "2021.02.16",
+			"Description": "Updated endpoint to properly exclude non-equipment assets.",
+			"Details": "The endpoint originally did not properly filter for the asset being a piece of equipment, leading to the endpoint being usable but not supported for non-equipment assets. We now have other endpoints that cover the other primary asset types and can be used instead.",
+			"IsBreakingChange": true,
 			"IsInitialRelease": false,
-			"IsDocumentationOnly": true,
-			"Route": "/fleet/hos/daily-logs",
+			"IsDocumentationOnly": false,
+			"Route": "/fleet/equipment/{equipmentId}",
 			"Method": "GET"
 		}
 	]
