@@ -87,6 +87,10 @@ class TestVehicleStatsResponse(unittest.TestCase):
                         engine_coolant_temperature_milli_c = samsara.models.vehicle_stats_engine_coolant_temp_milli_c.VehicleStatsEngineCoolantTempMilliC(
                             time = '2020-01-27T07:06:25Z', 
                             value = 31110, ), 
+                        engine_immobilizer = samsara.models.vehicle_stats_engine_immobilizer.VehicleStatsEngineImmobilizer(
+                            connected = False, 
+                            state = 'ignition_disabled', 
+                            time = '2020-01-27T07:06:25Z', ), 
                         engine_load_percent = samsara.models.vehicle_stats_engine_load_percent.VehicleStatsEngineLoadPercent(
                             time = '2020-01-27T07:06:25Z', 
                             value = 54, ), 
@@ -263,6 +267,10 @@ class TestVehicleStatsResponse(unittest.TestCase):
                         engine_coolant_temperature_milli_c = samsara.models.vehicle_stats_engine_coolant_temp_milli_c.VehicleStatsEngineCoolantTempMilliC(
                             time = '2020-01-27T07:06:25Z', 
                             value = 31110, ), 
+                        engine_immobilizer = samsara.models.vehicle_stats_engine_immobilizer.VehicleStatsEngineImmobilizer(
+                            connected = False, 
+                            state = 'ignition_disabled', 
+                            time = '2020-01-27T07:06:25Z', ), 
                         engine_load_percent = samsara.models.vehicle_stats_engine_load_percent.VehicleStatsEngineLoadPercent(
                             time = '2020-01-27T07:06:25Z', 
                             value = 54, ), 

@@ -16,11 +16,11 @@ import unittest
 import datetime
 
 import samsara
-from samsara.models.vehicle_stats_ecu_speed_mph_with_decoration import VehicleStatsEcuSpeedMphWithDecoration  # noqa: E501
+from samsara.models.vehicle_stats_engine_immobilizer_with_decoration import VehicleStatsEngineImmobilizerWithDecoration  # noqa: E501
 from samsara.rest import ApiException
 
-class TestVehicleStatsEcuSpeedMphWithDecoration(unittest.TestCase):
-    """VehicleStatsEcuSpeedMphWithDecoration unit test stubs"""
+class TestVehicleStatsEngineImmobilizerWithDecoration(unittest.TestCase):
+    """VehicleStatsEngineImmobilizerWithDecoration unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,13 +29,14 @@ class TestVehicleStatsEcuSpeedMphWithDecoration(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test VehicleStatsEcuSpeedMphWithDecoration
+        """Test VehicleStatsEngineImmobilizerWithDecoration
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = samsara.models.vehicle_stats_ecu_speed_mph_with_decoration.VehicleStatsEcuSpeedMphWithDecoration()  # noqa: E501
+        # model = samsara.models.vehicle_stats_engine_immobilizer_with_decoration.VehicleStatsEngineImmobilizerWithDecoration()  # noqa: E501
         if include_optional :
-            return VehicleStatsEcuSpeedMphWithDecoration(
+            return VehicleStatsEngineImmobilizerWithDecoration(
+                connected = False, 
                 decorations = samsara.models.vehicle_stats_decorations.VehicleStatsDecorations(
                     ambient_air_temperature_milli_c = samsara.models.vehicle_stats_decorations_ambient_air_temperature_milli_c.VehicleStatsDecorations_ambientAirTemperatureMilliC(
                         value = 31110, ), 
@@ -139,17 +140,18 @@ class TestVehicleStatsEcuSpeedMphWithDecoration(unittest.TestCase):
                         back_right_tire_pressure_k_pa = 200, 
                         front_left_tire_pressure_k_pa = 200, 
                         front_right_tire_pressure_k_pa = 200, ), ), 
-                time = '2020-01-27T07:06:25Z', 
-                value = 32.1
+                state = 'ignition_disabled', 
+                time = '2020-01-27T07:06:25Z'
             )
         else :
-            return VehicleStatsEcuSpeedMphWithDecoration(
+            return VehicleStatsEngineImmobilizerWithDecoration(
+                connected = False,
+                state = 'ignition_disabled',
                 time = '2020-01-27T07:06:25Z',
-                value = 32.1,
         )
 
-    def testVehicleStatsEcuSpeedMphWithDecoration(self):
-        """Test VehicleStatsEcuSpeedMphWithDecoration"""
+    def testVehicleStatsEngineImmobilizerWithDecoration(self):
+        """Test VehicleStatsEngineImmobilizerWithDecoration"""
         inst_req_only = self.make_instance(include_optional=False)
         inst_req_and_optional = self.make_instance(include_optional=True)
 

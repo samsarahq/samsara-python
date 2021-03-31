@@ -49,6 +49,7 @@ class VehicleStatsDecorations(object):
         'def_level_milli_percent': 'VehicleStatsDecorationsDefLevelMilliPercent',
         'ecu_speed_mph': 'VehicleStatsDecorationsEcuSpeedMph',
         'engine_coolant_temperature_milli_c': 'VehicleStatsDecorationsEngineCoolantTemperatureMilliC',
+        'engine_immobilizer': 'VehicleStatsEngineImmobilizer',
         'engine_load_percent': 'VehicleStatsDecorationsEngineLoadPercent',
         'engine_oil_pressure_k_pa': 'VehicleStatsDecorationsEngineOilPressureKPa',
         'engine_rpm': 'VehicleStatsDecorationsEngineRpm',
@@ -81,6 +82,7 @@ class VehicleStatsDecorations(object):
         'def_level_milli_percent': 'defLevelMilliPercent',
         'ecu_speed_mph': 'ecuSpeedMph',
         'engine_coolant_temperature_milli_c': 'engineCoolantTemperatureMilliC',
+        'engine_immobilizer': 'engineImmobilizer',
         'engine_load_percent': 'engineLoadPercent',
         'engine_oil_pressure_k_pa': 'engineOilPressureKPa',
         'engine_rpm': 'engineRpm',
@@ -96,7 +98,7 @@ class VehicleStatsDecorations(object):
         'tire_pressure': 'tirePressure'
     }
 
-    def __init__(self, ambient_air_temperature_milli_c=None, aux_input1=None, aux_input10=None, aux_input2=None, aux_input3=None, aux_input4=None, aux_input5=None, aux_input6=None, aux_input7=None, aux_input8=None, aux_input9=None, barometric_pressure_pa=None, battery_milli_volts=None, def_level_milli_percent=None, ecu_speed_mph=None, engine_coolant_temperature_milli_c=None, engine_load_percent=None, engine_oil_pressure_k_pa=None, engine_rpm=None, engine_states=None, fault_codes=None, fuel_percents=None, gps=None, gps_distance_meters=None, gps_odometer_meters=None, intake_manifold_temperature_milli_c=None, obd_engine_seconds=None, obd_odometer_meters=None, tire_pressure=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, ambient_air_temperature_milli_c=None, aux_input1=None, aux_input10=None, aux_input2=None, aux_input3=None, aux_input4=None, aux_input5=None, aux_input6=None, aux_input7=None, aux_input8=None, aux_input9=None, barometric_pressure_pa=None, battery_milli_volts=None, def_level_milli_percent=None, ecu_speed_mph=None, engine_coolant_temperature_milli_c=None, engine_immobilizer=None, engine_load_percent=None, engine_oil_pressure_k_pa=None, engine_rpm=None, engine_states=None, fault_codes=None, fuel_percents=None, gps=None, gps_distance_meters=None, gps_odometer_meters=None, intake_manifold_temperature_milli_c=None, obd_engine_seconds=None, obd_odometer_meters=None, tire_pressure=None, local_vars_configuration=None):  # noqa: E501
         """VehicleStatsDecorations - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -118,6 +120,7 @@ class VehicleStatsDecorations(object):
         self._def_level_milli_percent = None
         self._ecu_speed_mph = None
         self._engine_coolant_temperature_milli_c = None
+        self._engine_immobilizer = None
         self._engine_load_percent = None
         self._engine_oil_pressure_k_pa = None
         self._engine_rpm = None
@@ -165,6 +168,8 @@ class VehicleStatsDecorations(object):
             self.ecu_speed_mph = ecu_speed_mph
         if engine_coolant_temperature_milli_c is not None:
             self.engine_coolant_temperature_milli_c = engine_coolant_temperature_milli_c
+        if engine_immobilizer is not None:
+            self.engine_immobilizer = engine_immobilizer
         if engine_load_percent is not None:
             self.engine_load_percent = engine_load_percent
         if engine_oil_pressure_k_pa is not None:
@@ -527,6 +532,27 @@ class VehicleStatsDecorations(object):
         """
 
         self._engine_coolant_temperature_milli_c = engine_coolant_temperature_milli_c
+
+    @property
+    def engine_immobilizer(self):
+        """Gets the engine_immobilizer of this VehicleStatsDecorations.  # noqa: E501
+
+
+        :return: The engine_immobilizer of this VehicleStatsDecorations.  # noqa: E501
+        :rtype: VehicleStatsEngineImmobilizer
+        """
+        return self._engine_immobilizer
+
+    @engine_immobilizer.setter
+    def engine_immobilizer(self, engine_immobilizer):
+        """Sets the engine_immobilizer of this VehicleStatsDecorations.
+
+
+        :param engine_immobilizer: The engine_immobilizer of this VehicleStatsDecorations.  # noqa: E501
+        :type: VehicleStatsEngineImmobilizer
+        """
+
+        self._engine_immobilizer = engine_immobilizer
 
     @property
     def engine_load_percent(self):

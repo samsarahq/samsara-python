@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **def_level_milli_percent** | [**VehicleStatsDecorationsDefLevelMilliPercent**](VehicleStatsDecorationsDefLevelMilliPercent.md) |  | [optional] 
 **ecu_speed_mph** | [**VehicleStatsDecorationsEcuSpeedMph**](VehicleStatsDecorationsEcuSpeedMph.md) |  | [optional] 
 **engine_coolant_temperature_milli_c** | [**VehicleStatsDecorationsEngineCoolantTemperatureMilliC**](VehicleStatsDecorationsEngineCoolantTemperatureMilliC.md) |  | [optional] 
+**engine_immobilizer** | [**VehicleStatsEngineImmobilizer**](VehicleStatsEngineImmobilizer.md) |  | [optional] 
 **engine_load_percent** | [**VehicleStatsDecorationsEngineLoadPercent**](VehicleStatsDecorationsEngineLoadPercent.md) |  | [optional] 
 **engine_oil_pressure_k_pa** | [**VehicleStatsDecorationsEngineOilPressureKPa**](VehicleStatsDecorationsEngineOilPressureKPa.md) |  | [optional] 
 **engine_rpm** | [**VehicleStatsDecorationsEngineRpm**](VehicleStatsDecorationsEngineRpm.md) |  | [optional] 

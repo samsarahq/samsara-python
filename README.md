@@ -403,6 +403,8 @@ Class | Method | HTTP request | Description
  - [VehicleStatsEcuSpeedMphWithDecoration](docs/VehicleStatsEcuSpeedMphWithDecoration.md)
  - [VehicleStatsEngineCoolantTempMilliC](docs/VehicleStatsEngineCoolantTempMilliC.md)
  - [VehicleStatsEngineCoolantTempMilliCWithDecoration](docs/VehicleStatsEngineCoolantTempMilliCWithDecoration.md)
+ - [VehicleStatsEngineImmobilizer](docs/VehicleStatsEngineImmobilizer.md)
+ - [VehicleStatsEngineImmobilizerWithDecoration](docs/VehicleStatsEngineImmobilizerWithDecoration.md)
  - [VehicleStatsEngineLoadPercent](docs/VehicleStatsEngineLoadPercent.md)
  - [VehicleStatsEngineLoadPercentWithDecoration](docs/VehicleStatsEngineLoadPercentWithDecoration.md)
  - [VehicleStatsEngineOilPressureKPa](docs/VehicleStatsEngineOilPressureKPa.md)

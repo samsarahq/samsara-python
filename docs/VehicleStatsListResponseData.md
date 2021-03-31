@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **def_level_milli_percent** | [**list[VehicleStatsDefLevelMilliPercentWithDecoration]**](VehicleStatsDefLevelMilliPercentWithDecoration.md) | A list of DEF level milli percentage readings for the given vehicle. | [optional] 
 **ecu_speed_mph** | [**list[VehicleStatsEcuSpeedMphWithDecoration]**](VehicleStatsEcuSpeedMphWithDecoration.md) | A list of the speeds of the vehicle in miles per hour, as reported by the ECU. | [optional] 
 **engine_coolant_temperature_milli_c** | [**list[VehicleStatsEngineCoolantTempMilliCWithDecoration]**](VehicleStatsEngineCoolantTempMilliCWithDecoration.md) | A list of engine coolant temperature readings in millidegree Celsius for the given vehicle. | [optional] 
+**engine_immobilizer** | [**list[VehicleStatsEngineImmobilizerWithDecoration]**](VehicleStatsEngineImmobilizerWithDecoration.md) | A list of engine immobilizer data for the given vehicle. | [optional] 
 **engine_load_percent** | [**list[VehicleStatsEngineLoadPercentWithDecoration]**](VehicleStatsEngineLoadPercentWithDecoration.md) | A list of engine load percentage readings for the given vehicle. | [optional] 
 **engine_oil_pressure_k_pa** | [**list[VehicleStatsEngineOilPressureKPaWithDecoration]**](VehicleStatsEngineOilPressureKPaWithDecoration.md) | A list of engine oil pressure readings in kilopascals for the given vehicle. | [optional] 
 **engine_rpm** | [**list[VehicleStatsEngineRpmWithDecoration]**](VehicleStatsEngineRpmWithDecoration.md) | A list engine RPM values for the given vehicle. | [optional] 

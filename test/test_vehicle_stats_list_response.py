@@ -81,6 +81,10 @@ class TestVehicleStatsListResponse(unittest.TestCase):
                                         value = 58.3, ), 
                                     engine_coolant_temperature_milli_c = samsara.models.vehicle_stats_decorations_engine_coolant_temperature_milli_c.VehicleStatsDecorations_engineCoolantTemperatureMilliC(
                                         value = 31110, ), 
+                                    engine_immobilizer = samsara.models.vehicle_stats_engine_immobilizer.VehicleStatsEngineImmobilizer(
+                                        connected = False, 
+                                        state = 'ignition_disabled', 
+                                        time = '2020-01-27T07:06:25Z', ), 
                                     engine_load_percent = samsara.models.vehicle_stats_decorations_engine_load_percent.VehicleStatsDecorations_engineLoadPercent(
                                         value = 54, ), 
                                     engine_oil_pressure_k_pa = samsara.models.vehicle_stats_decorations_engine_oil_pressure_k_pa.VehicleStatsDecorations_engineOilPressureKPa(
@@ -205,6 +209,12 @@ class TestVehicleStatsListResponse(unittest.TestCase):
                             samsara.models.vehicle_stats_engine_coolant_temp_milli_c_with_decoration.VehicleStatsEngineCoolantTempMilliCWithDecoration(
                                 time = '2020-01-27T07:06:25Z', 
                                 value = 31110, )
+                            ], 
+                        engine_immobilizer = [
+                            samsara.models.vehicle_stats_engine_immobilizer_with_decoration.VehicleStatsEngineImmobilizerWithDecoration(
+                                connected = False, 
+                                state = 'ignition_disabled', 
+                                time = '2020-01-27T07:06:25Z', )
                             ], 
                         engine_load_percent = [
                             samsara.models.vehicle_stats_engine_load_percent_with_decoration.VehicleStatsEngineLoadPercentWithDecoration(
@@ -331,6 +341,10 @@ class TestVehicleStatsListResponse(unittest.TestCase):
                                         value = 58.3, ), 
                                     engine_coolant_temperature_milli_c = samsara.models.vehicle_stats_decorations_engine_coolant_temperature_milli_c.VehicleStatsDecorations_engineCoolantTemperatureMilliC(
                                         value = 31110, ), 
+                                    engine_immobilizer = samsara.models.vehicle_stats_engine_immobilizer.VehicleStatsEngineImmobilizer(
+                                        connected = False, 
+                                        state = 'ignition_disabled', 
+                                        time = '2020-01-27T07:06:25Z', ), 
                                     engine_load_percent = samsara.models.vehicle_stats_decorations_engine_load_percent.VehicleStatsDecorations_engineLoadPercent(
                                         value = 54, ), 
                                     engine_oil_pressure_k_pa = samsara.models.vehicle_stats_decorations_engine_oil_pressure_k_pa.VehicleStatsDecorations_engineOilPressureKPa(
@@ -455,6 +469,12 @@ class TestVehicleStatsListResponse(unittest.TestCase):
                             samsara.models.vehicle_stats_engine_coolant_temp_milli_c_with_decoration.VehicleStatsEngineCoolantTempMilliCWithDecoration(
                                 time = '2020-01-27T07:06:25Z', 
                                 value = 31110, )
+                            ], 
+                        engine_immobilizer = [
+                            samsara.models.vehicle_stats_engine_immobilizer_with_decoration.VehicleStatsEngineImmobilizerWithDecoration(
+                                connected = False, 
+                                state = 'ignition_disabled', 
+                                time = '2020-01-27T07:06:25Z', )
                             ], 
                         engine_load_percent = [
                             samsara.models.vehicle_stats_engine_load_percent_with_decoration.VehicleStatsEngineLoadPercentWithDecoration(
