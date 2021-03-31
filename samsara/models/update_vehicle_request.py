@@ -45,6 +45,7 @@ class UpdateVehicleRequest(object):
         'aux_input_type9': 'str',
         'engine_hours': 'int',
         'external_ids': 'dict(str, str)',
+        'gateway_serial': 'str',
         'harsh_acceleration_setting_type': 'str',
         'license_plate': 'str',
         'name': 'str',
@@ -68,6 +69,7 @@ class UpdateVehicleRequest(object):
         'aux_input_type9': 'auxInputType9',
         'engine_hours': 'engineHours',
         'external_ids': 'externalIds',
+        'gateway_serial': 'gatewaySerial',
         'harsh_acceleration_setting_type': 'harshAccelerationSettingType',
         'license_plate': 'licensePlate',
         'name': 'name',
@@ -78,7 +80,7 @@ class UpdateVehicleRequest(object):
         'vin': 'vin'
     }
 
-    def __init__(self, aux_input_type1=None, aux_input_type10=None, aux_input_type2=None, aux_input_type3=None, aux_input_type4=None, aux_input_type5=None, aux_input_type6=None, aux_input_type7=None, aux_input_type8=None, aux_input_type9=None, engine_hours=None, external_ids=None, harsh_acceleration_setting_type=None, license_plate=None, name=None, notes=None, odometer_meters=None, static_assigned_driver_id=None, tag_ids=None, vin=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, aux_input_type1=None, aux_input_type10=None, aux_input_type2=None, aux_input_type3=None, aux_input_type4=None, aux_input_type5=None, aux_input_type6=None, aux_input_type7=None, aux_input_type8=None, aux_input_type9=None, engine_hours=None, external_ids=None, gateway_serial=None, harsh_acceleration_setting_type=None, license_plate=None, name=None, notes=None, odometer_meters=None, static_assigned_driver_id=None, tag_ids=None, vin=None, local_vars_configuration=None):  # noqa: E501
         """UpdateVehicleRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -96,6 +98,7 @@ class UpdateVehicleRequest(object):
         self._aux_input_type9 = None
         self._engine_hours = None
         self._external_ids = None
+        self._gateway_serial = None
         self._harsh_acceleration_setting_type = None
         self._license_plate = None
         self._name = None
@@ -130,6 +133,8 @@ class UpdateVehicleRequest(object):
             self.engine_hours = engine_hours
         if external_ids is not None:
             self.external_ids = external_ids
+        if gateway_serial is not None:
+            self.gateway_serial = gateway_serial
         if harsh_acceleration_setting_type is not None:
             self.harsh_acceleration_setting_type = harsh_acceleration_setting_type
         if license_plate is not None:
@@ -482,6 +487,29 @@ class UpdateVehicleRequest(object):
         """
 
         self._external_ids = external_ids
+
+    @property
+    def gateway_serial(self):
+        """Gets the gateway_serial of this UpdateVehicleRequest.  # noqa: E501
+
+        The serial number of the gateway.  # noqa: E501
+
+        :return: The gateway_serial of this UpdateVehicleRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._gateway_serial
+
+    @gateway_serial.setter
+    def gateway_serial(self, gateway_serial):
+        """Sets the gateway_serial of this UpdateVehicleRequest.
+
+        The serial number of the gateway.  # noqa: E501
+
+        :param gateway_serial: The gateway_serial of this UpdateVehicleRequest.  # noqa: E501
+        :type: str
+        """
+
+        self._gateway_serial = gateway_serial
 
     @property
     def harsh_acceleration_setting_type(self):

@@ -129,6 +129,7 @@ from samsara.models.equipment_stats_response_data import EquipmentStatsResponseD
 from samsara.models.extended_driver_tiny_response import ExtendedDriverTinyResponse
 from samsara.models.fft_spectra_data_point import FftSpectraDataPoint
 from samsara.models.fft_spectra_data_point_fft_spectra import FftSpectraDataPointFftSpectra
+from samsara.models.gateway_tiny import GatewayTiny
 from samsara.models.get_attributes_by_entity_type_response import GetAttributesByEntityTypeResponse
 from samsara.models.hos_break import HosBreak
 from samsara.models.hos_clocks import HosClocks

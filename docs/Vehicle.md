@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **aux_input_type9** | [**VehicleAuxInputType**](VehicleAuxInputType.md) |  | [optional] 
 **camera_serial** | **str** | The serial number of the camera installed in the vehicle | [optional] 
 **external_ids** | [**object**](.md) | The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object. | [optional] 
+**gateway** | [**GatewayTiny**](GatewayTiny.md) |  | [optional] 
 **harsh_acceleration_setting_type** | [**VehicleHarshAccelerationSettingType**](VehicleHarshAccelerationSettingType.md) |  | [optional] 
 **id** | **str** | The unique Samsara ID of the Vehicle. This is automatically generated when the Vehicle object is created. It cannot be changed. | 
 **license_plate** | **str** | The license plate of the Vehicle. **By default**: empty. Can be set or updated through the Samsara Dashboard or the API at any time. | [optional] 

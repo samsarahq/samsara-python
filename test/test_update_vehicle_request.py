@@ -48,6 +48,7 @@ class TestUpdateVehicleRequest(unittest.TestCase):
                 aux_input_type9 = 'boom', 
                 engine_hours = 10943, 
                 external_ids = {"maintenanceId":"250020","payrollId":"ABFS18600"}, 
+                gateway_serial = 'ABCD-123-XYZ', 
                 harsh_acceleration_setting_type = 'off', 
                 license_plate = 'XHK1234', 
                 name = 'Truck A7', 

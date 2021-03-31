@@ -269,6 +269,7 @@ Class | Method | HTTP request | Description
  - [ExtendedDriverTinyResponse](docs/ExtendedDriverTinyResponse.md)
  - [FftSpectraDataPoint](docs/FftSpectraDataPoint.md)
  - [FftSpectraDataPointFftSpectra](docs/FftSpectraDataPointFftSpectra.md)
+ - [GatewayTiny](docs/GatewayTiny.md)
  - [GetAttributesByEntityTypeResponse](docs/GetAttributesByEntityTypeResponse.md)
  - [HosBreak](docs/HosBreak.md)
  - [HosClocks](docs/HosClocks.md)

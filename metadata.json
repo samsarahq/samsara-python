@@ -1,17 +1,27 @@
 {
-	"ApiVersion": "2021.02.16",
-	"SemanticVersion": "4.0.0",
-	"Checksum": "bf74eccabc",
+	"ApiVersion": "2021.03.19",
+	"SemanticVersion": "4.2.0",
+	"Checksum": "9dd2e82ef8",
 	"RelevantChangelogs": [
 		{
-			"Date": "2021.02.16",
-			"Description": "Updated endpoint to properly exclude non-equipment assets.",
-			"Details": "The endpoint originally did not properly filter for the asset being a piece of equipment, leading to the endpoint being usable but not supported for non-equipment assets. We now have other endpoints that cover the other primary asset types and can be used instead.",
-			"IsBreakingChange": true,
+			"Date": "2021.03.19",
+			"Description": "Updates endpoint to support gateway replace.",
+			"Details": "Adds a gatewaySerial field to allow customers to replace the connected gateway to their vehicle. Gateway needs to be activated on the same organization already. Deactivates the gateway previously linked.",
+			"IsBreakingChange": false,
 			"IsInitialRelease": false,
 			"IsDocumentationOnly": false,
-			"Route": "/fleet/equipment/{equipmentId}",
-			"Method": "GET"
+			"Route": "/fleet/vehicles/{id:[a-zA-Z0-9-]+}",
+			"Method": "PATCH"
+		},
+		{
+			"Date": "2021.03.19",
+			"Description": "Updates endpoint to support gateway replace.",
+			"Details": "Adds a gatewaySerial field to allow customers to replace the connected gateway to their vehicle. Gateway needs to be activated on the same organization already. Deactivates the gateway previously linked.",
+			"IsBreakingChange": false,
+			"IsInitialRelease": false,
+			"IsDocumentationOnly": false,
+			"Route": "/fleet/vehicles/{id:[a-zA-Z0-9.]+:[0-9A-Za-z@._%+-]+}",
+			"Method": "PATCH"
 		}
 	]
 }

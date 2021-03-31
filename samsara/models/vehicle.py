@@ -45,6 +45,7 @@ class Vehicle(object):
         'aux_input_type9': 'VehicleAuxInputType',
         'camera_serial': 'str',
         'external_ids': 'object',
+        'gateway': 'GatewayTiny',
         'harsh_acceleration_setting_type': 'VehicleHarshAccelerationSettingType',
         'id': 'str',
         'license_plate': 'str',
@@ -72,6 +73,7 @@ class Vehicle(object):
         'aux_input_type9': 'auxInputType9',
         'camera_serial': 'cameraSerial',
         'external_ids': 'externalIds',
+        'gateway': 'gateway',
         'harsh_acceleration_setting_type': 'harshAccelerationSettingType',
         'id': 'id',
         'license_plate': 'licensePlate',
@@ -86,7 +88,7 @@ class Vehicle(object):
         'year': 'year'
     }
 
-    def __init__(self, aux_input_type1=None, aux_input_type10=None, aux_input_type2=None, aux_input_type3=None, aux_input_type4=None, aux_input_type5=None, aux_input_type6=None, aux_input_type7=None, aux_input_type8=None, aux_input_type9=None, camera_serial=None, external_ids=None, harsh_acceleration_setting_type=None, id=None, license_plate=None, make=None, model=None, name=None, notes=None, serial=None, static_assigned_driver=None, tags=None, vin=None, year=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, aux_input_type1=None, aux_input_type10=None, aux_input_type2=None, aux_input_type3=None, aux_input_type4=None, aux_input_type5=None, aux_input_type6=None, aux_input_type7=None, aux_input_type8=None, aux_input_type9=None, camera_serial=None, external_ids=None, gateway=None, harsh_acceleration_setting_type=None, id=None, license_plate=None, make=None, model=None, name=None, notes=None, serial=None, static_assigned_driver=None, tags=None, vin=None, year=None, local_vars_configuration=None):  # noqa: E501
         """Vehicle - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -104,6 +106,7 @@ class Vehicle(object):
         self._aux_input_type9 = None
         self._camera_serial = None
         self._external_ids = None
+        self._gateway = None
         self._harsh_acceleration_setting_type = None
         self._id = None
         self._license_plate = None
@@ -142,6 +145,8 @@ class Vehicle(object):
             self.camera_serial = camera_serial
         if external_ids is not None:
             self.external_ids = external_ids
+        if gateway is not None:
+            self.gateway = gateway
         if harsh_acceleration_setting_type is not None:
             self.harsh_acceleration_setting_type = harsh_acceleration_setting_type
         self.id = id
@@ -421,6 +426,27 @@ class Vehicle(object):
         """
 
         self._external_ids = external_ids
+
+    @property
+    def gateway(self):
+        """Gets the gateway of this Vehicle.  # noqa: E501
+
+
+        :return: The gateway of this Vehicle.  # noqa: E501
+        :rtype: GatewayTiny
+        """
+        return self._gateway
+
+    @gateway.setter
+    def gateway(self, gateway):
+        """Sets the gateway of this Vehicle.
+
+
+        :param gateway: The gateway of this Vehicle.  # noqa: E501
+        :type: GatewayTiny
+        """
+
+        self._gateway = gateway
 
     @property
     def harsh_acceleration_setting_type(self):

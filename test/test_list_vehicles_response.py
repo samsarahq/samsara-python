@@ -50,6 +50,9 @@ class TestListVehiclesResponse(unittest.TestCase):
                         aux_input_type9 = 'boom', 
                         camera_serial = 'CNCK-VT8-XA8', 
                         external_ids = {maintenanceId=250020, payrollId=ABFS18600}, 
+                        gateway = samsara.models.gateway_tiny.gatewayTiny(
+                            model = 'VG34', 
+                            serial = 'ABCD-123-XYZ', ), 
                         harsh_acceleration_setting_type = 'off', 
                         id = '112', 
                         license_plate = 'XHK1234', 
@@ -86,6 +89,9 @@ class TestListVehiclesResponse(unittest.TestCase):
                         aux_input_type9 = 'boom', 
                         camera_serial = 'CNCK-VT8-XA8', 
                         external_ids = {maintenanceId=250020, payrollId=ABFS18600}, 
+                        gateway = samsara.models.gateway_tiny.gatewayTiny(
+                            model = 'VG34', 
+                            serial = 'ABCD-123-XYZ', ), 
                         harsh_acceleration_setting_type = 'off', 
                         id = '112', 
                         license_plate = 'XHK1234', 
