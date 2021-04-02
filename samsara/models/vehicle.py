@@ -408,7 +408,7 @@ class Vehicle(object):
     def external_ids(self):
         """Gets the external_ids of this Vehicle.  # noqa: E501
 
-        The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.  # noqa: E501
+        The <a href=\"/docs/external-ids\" target=\"_blank\">external IDs</a> for the given object.  # noqa: E501
 
         :return: The external_ids of this Vehicle.  # noqa: E501
         :rtype: object
@@ -419,7 +419,7 @@ class Vehicle(object):
     def external_ids(self, external_ids):
         """Sets the external_ids of this Vehicle.
 
-        The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.  # noqa: E501
+        The <a href=\"/docs/external-ids\" target=\"_blank\">external IDs</a> for the given object.  # noqa: E501
 
         :param external_ids: The external_ids of this Vehicle.  # noqa: E501
         :type: object
@@ -669,7 +669,7 @@ class Vehicle(object):
     def tags(self):
         """Gets the tags of this Vehicle.  # noqa: E501
 
-        The list of [tags](https://kb.samsara.com/hc/en-us/articles/360026674631-Using-Tags-and-Tag-Nesting) associated with the Vehicle. **By default**: empty. Can be set or updated through the Samsara Dashboard or the API at any time.  # noqa: E501
+        The list of <a href=\"https://kb.samsara.com/hc/en-us/articles/360043275091-Creating-and-Using-Tags\" target=\"_blank\">tags</a> associated with the Vehicle. **By default**: empty. Can be set or updated through the Samsara Dashboard or the API at any time.  # noqa: E501
 
         :return: The tags of this Vehicle.  # noqa: E501
         :rtype: list[TagTinyResponse]
@@ -680,7 +680,7 @@ class Vehicle(object):
     def tags(self, tags):
         """Sets the tags of this Vehicle.
 
-        The list of [tags](https://kb.samsara.com/hc/en-us/articles/360026674631-Using-Tags-and-Tag-Nesting) associated with the Vehicle. **By default**: empty. Can be set or updated through the Samsara Dashboard or the API at any time.  # noqa: E501
+        The list of <a href=\"https://kb.samsara.com/hc/en-us/articles/360043275091-Creating-and-Using-Tags\" target=\"_blank\">tags</a> associated with the Vehicle. **By default**: empty. Can be set or updated through the Samsara Dashboard or the API at any time.  # noqa: E501
 
         :param tags: The tags of this Vehicle.  # noqa: E501
         :type: list[TagTinyResponse]

@@ -156,7 +156,7 @@ class UpdateVehicleRequest(object):
     def aux_input_type1(self):
         """Gets the aux_input_type1 of this UpdateVehicleRequest.  # noqa: E501
 
-        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
+        The type of <a href=\"https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs\" target=\"_blank\">auxiliary input</a> configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :return: The aux_input_type1 of this UpdateVehicleRequest.  # noqa: E501
         :rtype: str
@@ -167,7 +167,7 @@ class UpdateVehicleRequest(object):
     def aux_input_type1(self, aux_input_type1):
         """Sets the aux_input_type1 of this UpdateVehicleRequest.
 
-        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
+        The type of <a href=\"https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs\" target=\"_blank\">auxiliary input</a> configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :param aux_input_type1: The aux_input_type1 of this UpdateVehicleRequest.  # noqa: E501
         :type: str
@@ -185,7 +185,7 @@ class UpdateVehicleRequest(object):
     def aux_input_type10(self):
         """Gets the aux_input_type10 of this UpdateVehicleRequest.  # noqa: E501
 
-        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
+        The type of <a href=\"https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs\" target=\"_blank\">auxiliary input</a> configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :return: The aux_input_type10 of this UpdateVehicleRequest.  # noqa: E501
         :rtype: str
@@ -196,7 +196,7 @@ class UpdateVehicleRequest(object):
     def aux_input_type10(self, aux_input_type10):
         """Sets the aux_input_type10 of this UpdateVehicleRequest.
 
-        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
+        The type of <a href=\"https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs\" target=\"_blank\">auxiliary input</a> configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :param aux_input_type10: The aux_input_type10 of this UpdateVehicleRequest.  # noqa: E501
         :type: str
@@ -214,7 +214,7 @@ class UpdateVehicleRequest(object):
     def aux_input_type2(self):
         """Gets the aux_input_type2 of this UpdateVehicleRequest.  # noqa: E501
 
-        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
+        The type of <a href=\"https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs\" target=\"_blank\">auxiliary input</a> configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :return: The aux_input_type2 of this UpdateVehicleRequest.  # noqa: E501
         :rtype: str
@@ -225,7 +225,7 @@ class UpdateVehicleRequest(object):
     def aux_input_type2(self, aux_input_type2):
         """Sets the aux_input_type2 of this UpdateVehicleRequest.
 
-        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
+        The type of <a href=\"https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs\" target=\"_blank\">auxiliary input</a> configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :param aux_input_type2: The aux_input_type2 of this UpdateVehicleRequest.  # noqa: E501
         :type: str
@@ -243,7 +243,7 @@ class UpdateVehicleRequest(object):
     def aux_input_type3(self):
         """Gets the aux_input_type3 of this UpdateVehicleRequest.  # noqa: E501
 
-        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
+        The type of <a href=\"https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs\" target=\"_blank\">auxiliary input</a> configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :return: The aux_input_type3 of this UpdateVehicleRequest.  # noqa: E501
         :rtype: str
@@ -254,7 +254,7 @@ class UpdateVehicleRequest(object):
     def aux_input_type3(self, aux_input_type3):
         """Sets the aux_input_type3 of this UpdateVehicleRequest.
 
-        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
+        The type of <a href=\"https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs\" target=\"_blank\">auxiliary input</a> configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :param aux_input_type3: The aux_input_type3 of this UpdateVehicleRequest.  # noqa: E501
         :type: str
@@ -272,7 +272,7 @@ class UpdateVehicleRequest(object):
     def aux_input_type4(self):
         """Gets the aux_input_type4 of this UpdateVehicleRequest.  # noqa: E501
 
-        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
+        The type of <a href=\"https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs\" target=\"_blank\">auxiliary input</a> configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :return: The aux_input_type4 of this UpdateVehicleRequest.  # noqa: E501
         :rtype: str
@@ -283,7 +283,7 @@ class UpdateVehicleRequest(object):
     def aux_input_type4(self, aux_input_type4):
         """Sets the aux_input_type4 of this UpdateVehicleRequest.
 
-        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
+        The type of <a href=\"https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs\" target=\"_blank\">auxiliary input</a> configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :param aux_input_type4: The aux_input_type4 of this UpdateVehicleRequest.  # noqa: E501
         :type: str
@@ -301,7 +301,7 @@ class UpdateVehicleRequest(object):
     def aux_input_type5(self):
         """Gets the aux_input_type5 of this UpdateVehicleRequest.  # noqa: E501
 
-        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
+        The type of <a href=\"https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs\" target=\"_blank\">auxiliary input</a> configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :return: The aux_input_type5 of this UpdateVehicleRequest.  # noqa: E501
         :rtype: str
@@ -312,7 +312,7 @@ class UpdateVehicleRequest(object):
     def aux_input_type5(self, aux_input_type5):
         """Sets the aux_input_type5 of this UpdateVehicleRequest.
 
-        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
+        The type of <a href=\"https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs\" target=\"_blank\">auxiliary input</a> configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :param aux_input_type5: The aux_input_type5 of this UpdateVehicleRequest.  # noqa: E501
         :type: str
@@ -330,7 +330,7 @@ class UpdateVehicleRequest(object):
     def aux_input_type6(self):
         """Gets the aux_input_type6 of this UpdateVehicleRequest.  # noqa: E501
 
-        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
+        The type of <a href=\"https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs\" target=\"_blank\">auxiliary input</a> configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :return: The aux_input_type6 of this UpdateVehicleRequest.  # noqa: E501
         :rtype: str
@@ -341,7 +341,7 @@ class UpdateVehicleRequest(object):
     def aux_input_type6(self, aux_input_type6):
         """Sets the aux_input_type6 of this UpdateVehicleRequest.
 
-        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
+        The type of <a href=\"https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs\" target=\"_blank\">auxiliary input</a> configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :param aux_input_type6: The aux_input_type6 of this UpdateVehicleRequest.  # noqa: E501
         :type: str
@@ -359,7 +359,7 @@ class UpdateVehicleRequest(object):
     def aux_input_type7(self):
         """Gets the aux_input_type7 of this UpdateVehicleRequest.  # noqa: E501
 
-        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
+        The type of <a href=\"https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs\" target=\"_blank\">auxiliary input</a> configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :return: The aux_input_type7 of this UpdateVehicleRequest.  # noqa: E501
         :rtype: str
@@ -370,7 +370,7 @@ class UpdateVehicleRequest(object):
     def aux_input_type7(self, aux_input_type7):
         """Sets the aux_input_type7 of this UpdateVehicleRequest.
 
-        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
+        The type of <a href=\"https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs\" target=\"_blank\">auxiliary input</a> configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :param aux_input_type7: The aux_input_type7 of this UpdateVehicleRequest.  # noqa: E501
         :type: str
@@ -388,7 +388,7 @@ class UpdateVehicleRequest(object):
     def aux_input_type8(self):
         """Gets the aux_input_type8 of this UpdateVehicleRequest.  # noqa: E501
 
-        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
+        The type of <a href=\"https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs\" target=\"_blank\">auxiliary input</a> configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :return: The aux_input_type8 of this UpdateVehicleRequest.  # noqa: E501
         :rtype: str
@@ -399,7 +399,7 @@ class UpdateVehicleRequest(object):
     def aux_input_type8(self, aux_input_type8):
         """Sets the aux_input_type8 of this UpdateVehicleRequest.
 
-        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
+        The type of <a href=\"https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs\" target=\"_blank\">auxiliary input</a> configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :param aux_input_type8: The aux_input_type8 of this UpdateVehicleRequest.  # noqa: E501
         :type: str
@@ -417,7 +417,7 @@ class UpdateVehicleRequest(object):
     def aux_input_type9(self):
         """Gets the aux_input_type9 of this UpdateVehicleRequest.  # noqa: E501
 
-        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
+        The type of <a href=\"https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs\" target=\"_blank\">auxiliary input</a> configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :return: The aux_input_type9 of this UpdateVehicleRequest.  # noqa: E501
         :rtype: str
@@ -428,7 +428,7 @@ class UpdateVehicleRequest(object):
     def aux_input_type9(self, aux_input_type9):
         """Sets the aux_input_type9 of this UpdateVehicleRequest.
 
-        The type of [auxiliary input](https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs) configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
+        The type of <a href=\"https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs\" target=\"_blank\">auxiliary input</a> configured for this Vehicle. Once configured, these inputs will generate dynamic, time-series data that will be available to view in the Samsara Dashboard. **By default**: empty. This can be set or updated through the Samsara Dashboard or the API at any time. Inputs 3-10 are only available on gateways with an attached aux expander.  # noqa: E501
 
         :param aux_input_type9: The aux_input_type9 of this UpdateVehicleRequest.  # noqa: E501
         :type: str
@@ -469,7 +469,7 @@ class UpdateVehicleRequest(object):
     def external_ids(self):
         """Gets the external_ids of this UpdateVehicleRequest.  # noqa: E501
 
-        The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.  # noqa: E501
+        The <a href=\"/docs/external-ids\" target=\"_blank\">external IDs</a> for the given object.  # noqa: E501
 
         :return: The external_ids of this UpdateVehicleRequest.  # noqa: E501
         :rtype: dict(str, str)
@@ -480,7 +480,7 @@ class UpdateVehicleRequest(object):
     def external_ids(self, external_ids):
         """Sets the external_ids of this UpdateVehicleRequest.
 
-        The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.  # noqa: E501
+        The <a href=\"/docs/external-ids\" target=\"_blank\">external IDs</a> for the given object.  # noqa: E501
 
         :param external_ids: The external_ids of this UpdateVehicleRequest.  # noqa: E501
         :type: dict(str, str)
@@ -515,7 +515,7 @@ class UpdateVehicleRequest(object):
     def harsh_acceleration_setting_type(self):
         """Gets the harsh_acceleration_setting_type of this UpdateVehicleRequest.  # noqa: E501
 
-        The harsh acceleration setting type. This setting influences the acceleration sensitivity from which a [harsh event](https://kb.samsara.com/hc/en-us/articles/360006938891-Harsh-Events) is triggered. **By default**, this setting is inferred by the Samsara Vehicle Gateway from the engine computer, but it may be set or updated through the Samsara Dashboard or the API at any time. If set to `off`, then no acceleration based harsh events are triggered for the vehicle.  # noqa: E501
+        The harsh acceleration setting type. This setting influences the acceleration sensitivity from which a <a href=\"https://kb.samsara.com/hc/en-us/articles/360043051792-Safety-Event-Overview\" target=\"_blank\">harsh event</a> is triggered. **By default**, this setting is inferred by the Samsara Vehicle Gateway from the engine computer, but it may be set or updated through the Samsara Dashboard or the API at any time. If set to `off`, then no acceleration based harsh events are triggered for the vehicle.  # noqa: E501
 
         :return: The harsh_acceleration_setting_type of this UpdateVehicleRequest.  # noqa: E501
         :rtype: str
@@ -526,7 +526,7 @@ class UpdateVehicleRequest(object):
     def harsh_acceleration_setting_type(self, harsh_acceleration_setting_type):
         """Sets the harsh_acceleration_setting_type of this UpdateVehicleRequest.
 
-        The harsh acceleration setting type. This setting influences the acceleration sensitivity from which a [harsh event](https://kb.samsara.com/hc/en-us/articles/360006938891-Harsh-Events) is triggered. **By default**, this setting is inferred by the Samsara Vehicle Gateway from the engine computer, but it may be set or updated through the Samsara Dashboard or the API at any time. If set to `off`, then no acceleration based harsh events are triggered for the vehicle.  # noqa: E501
+        The harsh acceleration setting type. This setting influences the acceleration sensitivity from which a <a href=\"https://kb.samsara.com/hc/en-us/articles/360043051792-Safety-Event-Overview\" target=\"_blank\">harsh event</a> is triggered. **By default**, this setting is inferred by the Samsara Vehicle Gateway from the engine computer, but it may be set or updated through the Samsara Dashboard or the API at any time. If set to `off`, then no acceleration based harsh events are triggered for the vehicle.  # noqa: E501
 
         :param harsh_acceleration_setting_type: The harsh_acceleration_setting_type of this UpdateVehicleRequest.  # noqa: E501
         :type: str
@@ -619,7 +619,7 @@ class UpdateVehicleRequest(object):
     def odometer_meters(self):
         """Gets the odometer_meters of this UpdateVehicleRequest.  # noqa: E501
 
-        A manual override for the vehicle's odometer. You may only override a vehicle's odometer if it cannot be read from on-board diagnostics. When you provide a manual odometer override, Samsara will begin updating a vehicle's odometer using GPS distance traveled since this override was set. See [here](https://kb.samsara.com/hc/en-us/articles/115005273667) for more details.  # noqa: E501
+        A manual override for the vehicle's odometer. You may only override a vehicle's odometer if it cannot be read from on-board diagnostics. When you provide a manual odometer override, Samsara will begin updating a vehicle's odometer using GPS distance traveled since this override was set. See <a href=\"https://kb.samsara.com/hc/en-us/articles/115005273667\" target=\"_blank\">here</a> for more details.  # noqa: E501
 
         :return: The odometer_meters of this UpdateVehicleRequest.  # noqa: E501
         :rtype: int
@@ -630,7 +630,7 @@ class UpdateVehicleRequest(object):
     def odometer_meters(self, odometer_meters):
         """Sets the odometer_meters of this UpdateVehicleRequest.
 
-        A manual override for the vehicle's odometer. You may only override a vehicle's odometer if it cannot be read from on-board diagnostics. When you provide a manual odometer override, Samsara will begin updating a vehicle's odometer using GPS distance traveled since this override was set. See [here](https://kb.samsara.com/hc/en-us/articles/115005273667) for more details.  # noqa: E501
+        A manual override for the vehicle's odometer. You may only override a vehicle's odometer if it cannot be read from on-board diagnostics. When you provide a manual odometer override, Samsara will begin updating a vehicle's odometer using GPS distance traveled since this override was set. See <a href=\"https://kb.samsara.com/hc/en-us/articles/115005273667\" target=\"_blank\">here</a> for more details.  # noqa: E501
 
         :param odometer_meters: The odometer_meters of this UpdateVehicleRequest.  # noqa: E501
         :type: int
