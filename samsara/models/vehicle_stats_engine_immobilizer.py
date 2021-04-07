@@ -88,7 +88,7 @@ class VehicleStatsEngineImmobilizer(object):
     def state(self):
         """Gets the state of this VehicleStatsEngineImmobilizer.  # noqa: E501
 
-        The state of the engine immobilizer  # noqa: E501
+        The state of the engine immobilizer (`ignition_disabled`, `ignition_enabled`)  # noqa: E501
 
         :return: The state of this VehicleStatsEngineImmobilizer.  # noqa: E501
         :rtype: str
@@ -99,7 +99,7 @@ class VehicleStatsEngineImmobilizer(object):
     def state(self, state):
         """Sets the state of this VehicleStatsEngineImmobilizer.
 
-        The state of the engine immobilizer  # noqa: E501
+        The state of the engine immobilizer (`ignition_disabled`, `ignition_enabled`)  # noqa: E501
 
         :param state: The state of this VehicleStatsEngineImmobilizer.  # noqa: E501
         :type: str
