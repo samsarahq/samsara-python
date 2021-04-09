@@ -38,6 +38,21 @@ class TestInlineResponse200(unittest.TestCase):
             return InlineResponse200(
                 data = samsara.models.asset_response.AssetResponse(
                     custom_metadata = {manufacturer=Samsara, serialNumber=123ABC}, 
+                    data_outputs = [
+                        samsara.models.asset_data_output.AssetDataOutput(
+                            data_group = 'Control Pressure', 
+                            data_input = samsara.models.asset_data_input.AssetDataInput(
+                                data_group = 'Pressure', 
+                                id = '123456', 
+                                last_point = samsara.models.asset_data_input_last_point.AssetDataInput_lastPoint(
+                                    time = '2020-01-27T07:06:25Z', 
+                                    value = 1992.0506, ), 
+                                name = 'Digital Input 1', 
+                                units = 'PSI', ), 
+                            device_id = '123', 
+                            id = '3fa85f64-5717-4562-b3fc-2c963f66afa6', 
+                            name = 'Digital Output 1', )
+                        ], 
                     id = '123abcde-4567-8910-1112-fghi1314jklm', 
                     is_running = True, 
                     location = samsara.models.asset_location.AssetLocation(

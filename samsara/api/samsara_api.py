@@ -4907,6 +4907,7 @@ class SamsaraApi(object):
         :param str after: If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
         :param list[str] parent_tag_ids: A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
         :param list[str] tag_ids: A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+        :param list[str] asset_ids: A comma-separated list of industrial asset UUIDs. Example: `assetIds=076efac2-83b5-47aa-ba36-18428436dcac,6707b3f0-23b9-4fe3-b7be-11be34aea544`
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -4935,6 +4936,7 @@ class SamsaraApi(object):
         :param str after: If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
         :param list[str] parent_tag_ids: A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
         :param list[str] tag_ids: A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+        :param list[str] asset_ids: A comma-separated list of industrial asset UUIDs. Example: `assetIds=076efac2-83b5-47aa-ba36-18428436dcac,6707b3f0-23b9-4fe3-b7be-11be34aea544`
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -4951,7 +4953,7 @@ class SamsaraApi(object):
 
         local_var_params = locals()
 
-        all_params = ['limit', 'after', 'parent_tag_ids', 'tag_ids']  # noqa: E501
+        all_params = ['limit', 'after', 'parent_tag_ids', 'tag_ids', 'asset_ids']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4985,6 +4987,9 @@ class SamsaraApi(object):
         if 'tag_ids' in local_var_params and local_var_params['tag_ids'] is not None:  # noqa: E501
             query_params.append(('tagIds', local_var_params['tag_ids']))  # noqa: E501
             collection_formats['tagIds'] = 'csv'  # noqa: E501
+        if 'asset_ids' in local_var_params and local_var_params['asset_ids'] is not None:  # noqa: E501
+            query_params.append(('assetIds', local_var_params['asset_ids']))  # noqa: E501
+            collection_formats['assetIds'] = 'csv'  # noqa: E501
 
         header_params = {}
 

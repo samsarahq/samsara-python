@@ -2580,7 +2580,7 @@ print("Exception when calling SamsaraApi->get_hos_logs: %s\n" % e)
     [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
     # **get_industrial_assets**
-    > ListIndustrialAssetsResponse get_industrial_assets(limit=limit, after=after, parent_tag_ids=parent_tag_ids, tag_ids=tag_ids)
+    > ListIndustrialAssetsResponse get_industrial_assets(limit=limit, after=after, parent_tag_ids=parent_tag_ids, tag_ids=tag_ids, asset_ids=asset_ids)
 
     List all assets
 
@@ -2603,10 +2603,11 @@ limit = 56 # int | The limit for how many objects will be in the response. Defau
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 parent_tag_ids = ['parent_tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678` (optional)
 tag_ids = ['tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678` (optional)
+asset_ids = ['asset_ids_example'] # list[str] | A comma-separated list of industrial asset UUIDs. Example: `assetIds=076efac2-83b5-47aa-ba36-18428436dcac,6707b3f0-23b9-4fe3-b7be-11be34aea544` (optional)
 
 try:
     # List all assets
-    api_response = api_instance.get_industrial_assets(limit=limit, after=after, parent_tag_ids=parent_tag_ids, tag_ids=tag_ids)
+    api_response = api_instance.get_industrial_assets(limit=limit, after=after, parent_tag_ids=parent_tag_ids, tag_ids=tag_ids, asset_ids=asset_ids)
   pprint(api_response)
 except ApiException as e:
 print("Exception when calling SamsaraApi->get_industrial_assets: %s\n" % e)
@@ -2620,6 +2621,7 @@ print("Exception when calling SamsaraApi->get_industrial_assets: %s\n" % e)
  **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
  **parent_tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: &#x60;parentTagIds&#x3D;345,678&#x60; | [optional] 
  **tag_ids** | [**list[str]**](str.md)| A filter on the data based on this comma-separated list of tag IDs. Example: &#x60;tagIds&#x3D;1234,5678&#x60; | [optional] 
+ **asset_ids** | [**list[str]**](str.md)| A comma-separated list of industrial asset UUIDs. Example: &#x60;assetIds&#x3D;076efac2-83b5-47aa-ba36-18428436dcac,6707b3f0-23b9-4fe3-b7be-11be34aea544&#x60; | [optional] 
 
     ### Return type
 

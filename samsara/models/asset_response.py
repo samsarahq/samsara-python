@@ -34,6 +34,7 @@ class AssetResponse(object):
     """
     openapi_types = {
         'custom_metadata': 'dict(str, str)',
+        'data_outputs': 'list[AssetDataOutput]',
         'id': 'str',
         'is_running': 'bool',
         'location': 'AssetLocation',
@@ -47,6 +48,7 @@ class AssetResponse(object):
 
     attribute_map = {
         'custom_metadata': 'customMetadata',
+        'data_outputs': 'dataOutputs',
         'id': 'id',
         'is_running': 'isRunning',
         'location': 'location',
@@ -58,13 +60,14 @@ class AssetResponse(object):
         'tags': 'tags'
     }
 
-    def __init__(self, custom_metadata=None, id=None, is_running=None, location=None, location_data_input=None, location_type=None, name=None, parent_asset=None, running_status_data_input=None, tags=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, custom_metadata=None, data_outputs=None, id=None, is_running=None, location=None, location_data_input=None, location_type=None, name=None, parent_asset=None, running_status_data_input=None, tags=None, local_vars_configuration=None):  # noqa: E501
         """AssetResponse - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._custom_metadata = None
+        self._data_outputs = None
         self._id = None
         self._is_running = None
         self._location = None
@@ -78,6 +81,8 @@ class AssetResponse(object):
 
         if custom_metadata is not None:
             self.custom_metadata = custom_metadata
+        if data_outputs is not None:
+            self.data_outputs = data_outputs
         self.id = id
         self.is_running = is_running
         if location is not None:
@@ -116,6 +121,29 @@ class AssetResponse(object):
         """
 
         self._custom_metadata = custom_metadata
+
+    @property
+    def data_outputs(self):
+        """Gets the data_outputs of this AssetResponse.  # noqa: E501
+
+        The list of data outputs configured on the asset.  # noqa: E501
+
+        :return: The data_outputs of this AssetResponse.  # noqa: E501
+        :rtype: list[AssetDataOutput]
+        """
+        return self._data_outputs
+
+    @data_outputs.setter
+    def data_outputs(self, data_outputs):
+        """Sets the data_outputs of this AssetResponse.
+
+        The list of data outputs configured on the asset.  # noqa: E501
+
+        :param data_outputs: The data_outputs of this AssetResponse.  # noqa: E501
+        :type: list[AssetDataOutput]
+        """
+
+        self._data_outputs = data_outputs
 
     @property
     def id(self):

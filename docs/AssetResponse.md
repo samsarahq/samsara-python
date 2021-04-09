@@ -5,6 +5,7 @@ Asset
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **custom_metadata** | **dict(str, str)** | The custom fields of an asset. | [optional] 
+**data_outputs** | [**list[AssetDataOutput]**](AssetDataOutput.md) | The list of data outputs configured on the asset. | [optional] 
 **id** | **str** | The id of the asset | 
 **is_running** | **bool** | The running status of the asset. Returns True for On, and False for Off. | 
 **location** | [**AssetLocation**](AssetLocation.md) |  | [optional] 

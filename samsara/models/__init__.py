@@ -21,6 +21,9 @@ from samsara.models.address_geofence_polygon import AddressGeofencePolygon
 from samsara.models.address_geofence_polygon_vertices import AddressGeofencePolygonVertices
 from samsara.models.address_response import AddressResponse
 from samsara.models.asset_create import AssetCreate
+from samsara.models.asset_data_input import AssetDataInput
+from samsara.models.asset_data_input_last_point import AssetDataInputLastPoint
+from samsara.models.asset_data_output import AssetDataOutput
 from samsara.models.asset_location import AssetLocation
 from samsara.models.asset_patch import AssetPatch
 from samsara.models.asset_response import AssetResponse
