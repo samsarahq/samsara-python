@@ -80,7 +80,9 @@ class TestDriverResponse(unittest.TestCase):
                     name = 'Susan Jones', 
                     notes = 'Also goes by the nickname Furious Fred.', 
                     phone = '5558234327', 
-                    static_assigned_vehicle = null, 
+                    static_assigned_vehicle = samsara.models.driver_static_assigned_vehicle.DriverStaticAssignedVehicle(
+                        id = '123456789', 
+                        name = 'Midwest Truck #4', ), 
                     tachograph_card_number = '1000000492436002', 
                     tags = [
                         samsara.models.tag_tiny_response.tagTinyResponse(
@@ -91,7 +93,10 @@ class TestDriverResponse(unittest.TestCase):
                     timezone = 'America/Los_Angeles', 
                     updated_at_time = '2019-06-13T19:08:25Z', 
                     username = 'SusanJones', 
-                    vehicle_group_tag = null, )
+                    vehicle_group_tag = samsara.models.driver_vehicle_group_tag.DriverVehicleGroupTag(
+                        id = '3914', 
+                        name = 'East Coast', 
+                        parent_tag_id = '4815', ), )
             )
         else :
             return DriverResponse(

@@ -36,6 +36,9 @@ class TestDriverVehicleGroupTag(unittest.TestCase):
         # model = samsara.models.driver_vehicle_group_tag.DriverVehicleGroupTag()  # noqa: E501
         if include_optional :
             return DriverVehicleGroupTag(
+                id = '3914', 
+                name = 'East Coast', 
+                parent_tag_id = '4815'
             )
         else :
             return DriverVehicleGroupTag(

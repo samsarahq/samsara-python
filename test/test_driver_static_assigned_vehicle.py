@@ -36,6 +36,8 @@ class TestDriverStaticAssignedVehicle(unittest.TestCase):
         # model = samsara.models.driver_static_assigned_vehicle.DriverStaticAssignedVehicle()  # noqa: E501
         if include_optional :
             return DriverStaticAssignedVehicle(
+                id = '123456789', 
+                name = 'Midwest Truck #4'
             )
         else :
             return DriverStaticAssignedVehicle(

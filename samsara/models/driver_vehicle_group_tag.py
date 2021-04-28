@@ -33,17 +33,103 @@ class DriverVehicleGroupTag(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'id': 'str',
+        'name': 'str',
+        'parent_tag_id': 'str'
     }
 
     attribute_map = {
+        'id': 'id',
+        'name': 'name',
+        'parent_tag_id': 'parentTagId'
     }
 
-    def __init__(self, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, name=None, parent_tag_id=None, local_vars_configuration=None):  # noqa: E501
         """DriverVehicleGroupTag - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
+
+        self._id = None
+        self._name = None
+        self._parent_tag_id = None
         self.discriminator = None
+
+        if id is not None:
+            self.id = id
+        if name is not None:
+            self.name = name
+        if parent_tag_id is not None:
+            self.parent_tag_id = parent_tag_id
+
+    @property
+    def id(self):
+        """Gets the id of this DriverVehicleGroupTag.  # noqa: E501
+
+        ID of the tag.  # noqa: E501
+
+        :return: The id of this DriverVehicleGroupTag.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this DriverVehicleGroupTag.
+
+        ID of the tag.  # noqa: E501
+
+        :param id: The id of this DriverVehicleGroupTag.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
+
+    @property
+    def name(self):
+        """Gets the name of this DriverVehicleGroupTag.  # noqa: E501
+
+        Name of the tag.  # noqa: E501
+
+        :return: The name of this DriverVehicleGroupTag.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this DriverVehicleGroupTag.
+
+        Name of the tag.  # noqa: E501
+
+        :param name: The name of this DriverVehicleGroupTag.  # noqa: E501
+        :type: str
+        """
+
+        self._name = name
+
+    @property
+    def parent_tag_id(self):
+        """Gets the parent_tag_id of this DriverVehicleGroupTag.  # noqa: E501
+
+        If this tag is part a hierarchical tag tree, this is the ID of the parent tag, otherwise this will be omitted.  # noqa: E501
+
+        :return: The parent_tag_id of this DriverVehicleGroupTag.  # noqa: E501
+        :rtype: str
+        """
+        return self._parent_tag_id
+
+    @parent_tag_id.setter
+    def parent_tag_id(self, parent_tag_id):
+        """Sets the parent_tag_id of this DriverVehicleGroupTag.
+
+        If this tag is part a hierarchical tag tree, this is the ID of the parent tag, otherwise this will be omitted.  # noqa: E501
+
+        :param parent_tag_id: The parent_tag_id of this DriverVehicleGroupTag.  # noqa: E501
+        :type: str
+        """
+
+        self._parent_tag_id = parent_tag_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

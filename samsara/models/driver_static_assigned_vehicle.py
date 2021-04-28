@@ -33,17 +33,75 @@ class DriverStaticAssignedVehicle(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'id': 'str',
+        'name': 'str'
     }
 
     attribute_map = {
+        'id': 'id',
+        'name': 'name'
     }
 
-    def __init__(self, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, name=None, local_vars_configuration=None):  # noqa: E501
         """DriverStaticAssignedVehicle - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
+
+        self._id = None
+        self._name = None
         self.discriminator = None
+
+        if id is not None:
+            self.id = id
+        if name is not None:
+            self.name = name
+
+    @property
+    def id(self):
+        """Gets the id of this DriverStaticAssignedVehicle.  # noqa: E501
+
+        ID of the vehicle.  # noqa: E501
+
+        :return: The id of this DriverStaticAssignedVehicle.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this DriverStaticAssignedVehicle.
+
+        ID of the vehicle.  # noqa: E501
+
+        :param id: The id of this DriverStaticAssignedVehicle.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
+
+    @property
+    def name(self):
+        """Gets the name of this DriverStaticAssignedVehicle.  # noqa: E501
+
+        Name of the vehicle.  # noqa: E501
+
+        :return: The name of this DriverStaticAssignedVehicle.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this DriverStaticAssignedVehicle.
+
+        Name of the vehicle.  # noqa: E501
+
+        :param name: The name of this DriverStaticAssignedVehicle.  # noqa: E501
+        :type: str
+        """
+
+        self._name = name
 
     def to_dict(self):
         """Returns the model properties as a dict"""
