@@ -36,6 +36,9 @@ class TestVehicleStatsDecorationsGps(unittest.TestCase):
         # model = samsara.models.vehicle_stats_decorations_gps.VehicleStatsDecorationsGps()  # noqa: E501
         if include_optional :
             return VehicleStatsDecorationsGps(
+                address = samsara.models.vehicle_location_address.VehicleLocationAddress(
+                    id = '1234', 
+                    name = 'Address 1', ), 
                 heading_degrees = 120, 
                 latitude = 122.142, 
                 longitude = -93.343, 

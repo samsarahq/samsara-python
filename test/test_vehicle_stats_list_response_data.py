@@ -118,6 +118,9 @@ class TestVehicleStatsListResponseData(unittest.TestCase):
                             fuel_percents = samsara.models.vehicle_stats_decorations_fuel_percents.VehicleStatsDecorations_fuelPercents(
                                 value = 54, ), 
                             gps = samsara.models.vehicle_stats_decorations_gps.VehicleStatsDecorations_gps(
+                                address = samsara.models.vehicle_location_address.VehicleLocationAddress(
+                                    id = '1234', 
+                                    name = 'Address 1', ), 
                                 heading_degrees = 120, 
                                 latitude = 122.142, 
                                 longitude = -93.343, 
@@ -223,6 +226,9 @@ class TestVehicleStatsListResponseData(unittest.TestCase):
                             fuel_percents = samsara.models.vehicle_stats_decorations_fuel_percents.VehicleStatsDecorations_fuelPercents(
                                 value = 54, ), 
                             gps = samsara.models.vehicle_stats_decorations_gps.VehicleStatsDecorations_gps(
+                                address = samsara.models.vehicle_location_address.VehicleLocationAddress(
+                                    id = '1234', 
+                                    name = 'Address 1', ), 
                                 heading_degrees = 120, 
                                 latitude = 122.142, 
                                 longitude = -93.343, 
@@ -329,6 +335,9 @@ class TestVehicleStatsListResponseData(unittest.TestCase):
                             fuel_percents = samsara.models.vehicle_stats_decorations_fuel_percents.VehicleStatsDecorations_fuelPercents(
                                 value = 54, ), 
                             gps = samsara.models.vehicle_stats_decorations_gps.VehicleStatsDecorations_gps(
+                                address = samsara.models.vehicle_location_address.VehicleLocationAddress(
+                                    id = '1234', 
+                                    name = 'Address 1', ), 
                                 heading_degrees = 120, 
                                 latitude = 122.142, 
                                 longitude = -93.343, 
@@ -435,6 +444,9 @@ class TestVehicleStatsListResponseData(unittest.TestCase):
                             fuel_percents = samsara.models.vehicle_stats_decorations_fuel_percents.VehicleStatsDecorations_fuelPercents(
                                 value = 54, ), 
                             gps = samsara.models.vehicle_stats_decorations_gps.VehicleStatsDecorations_gps(
+                                address = samsara.models.vehicle_location_address.VehicleLocationAddress(
+                                    id = '1234', 
+                                    name = 'Address 1', ), 
                                 heading_degrees = 120, 
                                 latitude = 122.142, 
                                 longitude = -93.343, 
@@ -541,6 +553,9 @@ class TestVehicleStatsListResponseData(unittest.TestCase):
                             fuel_percents = samsara.models.vehicle_stats_decorations_fuel_percents.VehicleStatsDecorations_fuelPercents(
                                 value = 54, ), 
                             gps = samsara.models.vehicle_stats_decorations_gps.VehicleStatsDecorations_gps(
+                                address = samsara.models.vehicle_location_address.VehicleLocationAddress(
+                                    id = '1234', 
+                                    name = 'Address 1', ), 
                                 heading_degrees = 120, 
                                 latitude = 122.142, 
                                 longitude = -93.343, 
@@ -647,6 +662,9 @@ class TestVehicleStatsListResponseData(unittest.TestCase):
                             fuel_percents = samsara.models.vehicle_stats_decorations_fuel_percents.VehicleStatsDecorations_fuelPercents(
                                 value = 54, ), 
                             gps = samsara.models.vehicle_stats_decorations_gps.VehicleStatsDecorations_gps(
+                                address = samsara.models.vehicle_location_address.VehicleLocationAddress(
+                                    id = '1234', 
+                                    name = 'Address 1', ), 
                                 heading_degrees = 120, 
                                 latitude = 122.142, 
                                 longitude = -93.343, 
@@ -753,6 +771,9 @@ class TestVehicleStatsListResponseData(unittest.TestCase):
                             fuel_percents = samsara.models.vehicle_stats_decorations_fuel_percents.VehicleStatsDecorations_fuelPercents(
                                 value = 54, ), 
                             gps = samsara.models.vehicle_stats_decorations_gps.VehicleStatsDecorations_gps(
+                                address = samsara.models.vehicle_location_address.VehicleLocationAddress(
+                                    id = '1234', 
+                                    name = 'Address 1', ), 
                                 heading_degrees = 120, 
                                 latitude = 122.142, 
                                 longitude = -93.343, 
@@ -859,6 +880,9 @@ class TestVehicleStatsListResponseData(unittest.TestCase):
                             fuel_percents = samsara.models.vehicle_stats_decorations_fuel_percents.VehicleStatsDecorations_fuelPercents(
                                 value = 54, ), 
                             gps = samsara.models.vehicle_stats_decorations_gps.VehicleStatsDecorations_gps(
+                                address = samsara.models.vehicle_location_address.VehicleLocationAddress(
+                                    id = '1234', 
+                                    name = 'Address 1', ), 
                                 heading_degrees = 120, 
                                 latitude = 122.142, 
                                 longitude = -93.343, 
@@ -965,6 +989,9 @@ class TestVehicleStatsListResponseData(unittest.TestCase):
                             fuel_percents = samsara.models.vehicle_stats_decorations_fuel_percents.VehicleStatsDecorations_fuelPercents(
                                 value = 54, ), 
                             gps = samsara.models.vehicle_stats_decorations_gps.VehicleStatsDecorations_gps(
+                                address = samsara.models.vehicle_location_address.VehicleLocationAddress(
+                                    id = '1234', 
+                                    name = 'Address 1', ), 
                                 heading_degrees = 120, 
                                 latitude = 122.142, 
                                 longitude = -93.343, 
@@ -1071,6 +1098,9 @@ class TestVehicleStatsListResponseData(unittest.TestCase):
                             fuel_percents = samsara.models.vehicle_stats_decorations_fuel_percents.VehicleStatsDecorations_fuelPercents(
                                 value = 54, ), 
                             gps = samsara.models.vehicle_stats_decorations_gps.VehicleStatsDecorations_gps(
+                                address = samsara.models.vehicle_location_address.VehicleLocationAddress(
+                                    id = '1234', 
+                                    name = 'Address 1', ), 
                                 heading_degrees = 120, 
                                 latitude = 122.142, 
                                 longitude = -93.343, 
@@ -1177,6 +1207,9 @@ class TestVehicleStatsListResponseData(unittest.TestCase):
                             fuel_percents = samsara.models.vehicle_stats_decorations_fuel_percents.VehicleStatsDecorations_fuelPercents(
                                 value = 54, ), 
                             gps = samsara.models.vehicle_stats_decorations_gps.VehicleStatsDecorations_gps(
+                                address = samsara.models.vehicle_location_address.VehicleLocationAddress(
+                                    id = '1234', 
+                                    name = 'Address 1', ), 
                                 heading_degrees = 120, 
                                 latitude = 122.142, 
                                 longitude = -93.343, 
@@ -1284,6 +1317,9 @@ class TestVehicleStatsListResponseData(unittest.TestCase):
                             fuel_percents = samsara.models.vehicle_stats_decorations_fuel_percents.VehicleStatsDecorations_fuelPercents(
                                 value = 54, ), 
                             gps = samsara.models.vehicle_stats_decorations_gps.VehicleStatsDecorations_gps(
+                                address = samsara.models.vehicle_location_address.VehicleLocationAddress(
+                                    id = '1234', 
+                                    name = 'Address 1', ), 
                                 heading_degrees = 120, 
                                 latitude = 122.142, 
                                 longitude = -93.343, 
@@ -1390,6 +1426,9 @@ class TestVehicleStatsListResponseData(unittest.TestCase):
                             fuel_percents = samsara.models.vehicle_stats_decorations_fuel_percents.VehicleStatsDecorations_fuelPercents(
                                 value = 54, ), 
                             gps = samsara.models.vehicle_stats_decorations_gps.VehicleStatsDecorations_gps(
+                                address = samsara.models.vehicle_location_address.VehicleLocationAddress(
+                                    id = '1234', 
+                                    name = 'Address 1', ), 
                                 heading_degrees = 120, 
                                 latitude = 122.142, 
                                 longitude = -93.343, 
@@ -1496,6 +1535,9 @@ class TestVehicleStatsListResponseData(unittest.TestCase):
                             fuel_percents = samsara.models.vehicle_stats_decorations_fuel_percents.VehicleStatsDecorations_fuelPercents(
                                 value = 54, ), 
                             gps = samsara.models.vehicle_stats_decorations_gps.VehicleStatsDecorations_gps(
+                                address = samsara.models.vehicle_location_address.VehicleLocationAddress(
+                                    id = '1234', 
+                                    name = 'Address 1', ), 
                                 heading_degrees = 120, 
                                 latitude = 122.142, 
                                 longitude = -93.343, 
@@ -1602,6 +1644,9 @@ class TestVehicleStatsListResponseData(unittest.TestCase):
                             fuel_percents = samsara.models.vehicle_stats_decorations_fuel_percents.VehicleStatsDecorations_fuelPercents(
                                 value = 54, ), 
                             gps = samsara.models.vehicle_stats_decorations_gps.VehicleStatsDecorations_gps(
+                                address = samsara.models.vehicle_location_address.VehicleLocationAddress(
+                                    id = '1234', 
+                                    name = 'Address 1', ), 
                                 heading_degrees = 120, 
                                 latitude = 122.142, 
                                 longitude = -93.343, 
@@ -1708,6 +1753,9 @@ class TestVehicleStatsListResponseData(unittest.TestCase):
                             fuel_percents = samsara.models.vehicle_stats_decorations_fuel_percents.VehicleStatsDecorations_fuelPercents(
                                 value = 54, ), 
                             gps = samsara.models.vehicle_stats_decorations_gps.VehicleStatsDecorations_gps(
+                                address = samsara.models.vehicle_location_address.VehicleLocationAddress(
+                                    id = '1234', 
+                                    name = 'Address 1', ), 
                                 heading_degrees = 120, 
                                 latitude = 122.142, 
                                 longitude = -93.343, 
@@ -1813,6 +1861,9 @@ class TestVehicleStatsListResponseData(unittest.TestCase):
                             fuel_percents = samsara.models.vehicle_stats_decorations_fuel_percents.VehicleStatsDecorations_fuelPercents(
                                 value = 54, ), 
                             gps = samsara.models.vehicle_stats_decorations_gps.VehicleStatsDecorations_gps(
+                                address = samsara.models.vehicle_location_address.VehicleLocationAddress(
+                                    id = '1234', 
+                                    name = 'Address 1', ), 
                                 heading_degrees = 120, 
                                 latitude = 122.142, 
                                 longitude = -93.343, 
@@ -1919,6 +1970,9 @@ class TestVehicleStatsListResponseData(unittest.TestCase):
                             fuel_percents = samsara.models.vehicle_stats_decorations_fuel_percents.VehicleStatsDecorations_fuelPercents(
                                 value = 54, ), 
                             gps = samsara.models.vehicle_stats_decorations_gps.VehicleStatsDecorations_gps(
+                                address = samsara.models.vehicle_location_address.VehicleLocationAddress(
+                                    id = '1234', 
+                                    name = 'Address 1', ), 
                                 heading_degrees = 120, 
                                 latitude = 122.142, 
                                 longitude = -93.343, 
@@ -2025,6 +2079,9 @@ class TestVehicleStatsListResponseData(unittest.TestCase):
                             fuel_percents = samsara.models.vehicle_stats_decorations_fuel_percents.VehicleStatsDecorations_fuelPercents(
                                 value = 54, ), 
                             gps = samsara.models.vehicle_stats_decorations_gps.VehicleStatsDecorations_gps(
+                                address = samsara.models.vehicle_location_address.VehicleLocationAddress(
+                                    id = '1234', 
+                                    name = 'Address 1', ), 
                                 heading_degrees = 120, 
                                 latitude = 122.142, 
                                 longitude = -93.343, 
@@ -2131,6 +2188,9 @@ class TestVehicleStatsListResponseData(unittest.TestCase):
                             fuel_percents = samsara.models.vehicle_stats_decorations_fuel_percents.VehicleStatsDecorations_fuelPercents(
                                 value = 54, ), 
                             gps = samsara.models.vehicle_stats_decorations_gps.VehicleStatsDecorations_gps(
+                                address = samsara.models.vehicle_location_address.VehicleLocationAddress(
+                                    id = '1234', 
+                                    name = 'Address 1', ), 
                                 heading_degrees = 120, 
                                 latitude = 122.142, 
                                 longitude = -93.343, 
@@ -2237,6 +2297,9 @@ class TestVehicleStatsListResponseData(unittest.TestCase):
                             fuel_percents = samsara.models.vehicle_stats_decorations_fuel_percents.VehicleStatsDecorations_fuelPercents(
                                 value = 54, ), 
                             gps = samsara.models.vehicle_stats_decorations_gps.VehicleStatsDecorations_gps(
+                                address = samsara.models.vehicle_location_address.VehicleLocationAddress(
+                                    id = '1234', 
+                                    name = 'Address 1', ), 
                                 heading_degrees = 120, 
                                 latitude = 122.142, 
                                 longitude = -93.343, 
@@ -2322,6 +2385,9 @@ class TestVehicleStatsListResponseData(unittest.TestCase):
                             fuel_percents = samsara.models.vehicle_stats_decorations_fuel_percents.VehicleStatsDecorations_fuelPercents(
                                 value = 54, ), 
                             gps = samsara.models.vehicle_stats_decorations_gps.VehicleStatsDecorations_gps(
+                                address = samsara.models.vehicle_location_address.VehicleLocationAddress(
+                                    id = '1234', 
+                                    name = 'Address 1', ), 
                                 heading_degrees = 120, 
                                 latitude = 122.142, 
                                 longitude = -93.343, 
@@ -2486,6 +2552,9 @@ class TestVehicleStatsListResponseData(unittest.TestCase):
                                 obdii = samsara.models.vehicle_stats_fault_codes_value_obdii.VehicleStatsFaultCodesValue_obdii(
                                     check_engine_light_is_on = True, ), ), 
                             gps = samsara.models.vehicle_stats_decorations_gps.VehicleStatsDecorations_gps(
+                                address = samsara.models.vehicle_location_address.VehicleLocationAddress(
+                                    id = '1234', 
+                                    name = 'Address 1', ), 
                                 heading_degrees = 120, 
                                 latitude = 122.142, 
                                 longitude = -93.343, 
@@ -2512,6 +2581,9 @@ class TestVehicleStatsListResponseData(unittest.TestCase):
                     ], 
                 gps = [
                     samsara.models.vehicle_stats_list_gps.VehicleStatsListGps(
+                        address = samsara.models.vehicle_location_address.VehicleLocationAddress(
+                            id = '1234', 
+                            name = 'Address 1', ), 
                         decorations = samsara.models.vehicle_stats_decorations.VehicleStatsDecorations(
                             ambient_air_temperature_milli_c = samsara.models.vehicle_stats_decorations_ambient_air_temperature_milli_c.VehicleStatsDecorations_ambientAirTemperatureMilliC(
                                 value = 31110, ), 
@@ -2700,6 +2772,9 @@ class TestVehicleStatsListResponseData(unittest.TestCase):
                             fuel_percents = samsara.models.vehicle_stats_decorations_fuel_percents.VehicleStatsDecorations_fuelPercents(
                                 value = 54, ), 
                             gps = samsara.models.vehicle_stats_decorations_gps.VehicleStatsDecorations_gps(
+                                address = samsara.models.vehicle_location_address.VehicleLocationAddress(
+                                    id = '1234', 
+                                    name = 'Address 1', ), 
                                 heading_degrees = 120, 
                                 latitude = 122.142, 
                                 longitude = -93.343, 
@@ -2806,6 +2881,9 @@ class TestVehicleStatsListResponseData(unittest.TestCase):
                             fuel_percents = samsara.models.vehicle_stats_decorations_fuel_percents.VehicleStatsDecorations_fuelPercents(
                                 value = 54, ), 
                             gps = samsara.models.vehicle_stats_decorations_gps.VehicleStatsDecorations_gps(
+                                address = samsara.models.vehicle_location_address.VehicleLocationAddress(
+                                    id = '1234', 
+                                    name = 'Address 1', ), 
                                 heading_degrees = 120, 
                                 latitude = 122.142, 
                                 longitude = -93.343, 
@@ -2913,6 +2991,9 @@ class TestVehicleStatsListResponseData(unittest.TestCase):
                             fuel_percents = samsara.models.vehicle_stats_decorations_fuel_percents.VehicleStatsDecorations_fuelPercents(
                                 value = 54, ), 
                             gps = samsara.models.vehicle_stats_decorations_gps.VehicleStatsDecorations_gps(
+                                address = samsara.models.vehicle_location_address.VehicleLocationAddress(
+                                    id = '1234', 
+                                    name = 'Address 1', ), 
                                 heading_degrees = 120, 
                                 latitude = 122.142, 
                                 longitude = -93.343, 
@@ -3022,6 +3103,9 @@ class TestVehicleStatsListResponseData(unittest.TestCase):
                             fuel_percents = samsara.models.vehicle_stats_decorations_fuel_percents.VehicleStatsDecorations_fuelPercents(
                                 value = 54, ), 
                             gps = samsara.models.vehicle_stats_decorations_gps.VehicleStatsDecorations_gps(
+                                address = samsara.models.vehicle_location_address.VehicleLocationAddress(
+                                    id = '1234', 
+                                    name = 'Address 1', ), 
                                 heading_degrees = 120, 
                                 latitude = 122.142, 
                                 longitude = -93.343, 
@@ -3129,6 +3213,9 @@ class TestVehicleStatsListResponseData(unittest.TestCase):
                             fuel_percents = samsara.models.vehicle_stats_decorations_fuel_percents.VehicleStatsDecorations_fuelPercents(
                                 value = 54, ), 
                             gps = samsara.models.vehicle_stats_decorations_gps.VehicleStatsDecorations_gps(
+                                address = samsara.models.vehicle_location_address.VehicleLocationAddress(
+                                    id = '1234', 
+                                    name = 'Address 1', ), 
                                 heading_degrees = 120, 
                                 latitude = 122.142, 
                                 longitude = -93.343, 
@@ -3235,6 +3322,9 @@ class TestVehicleStatsListResponseData(unittest.TestCase):
                             fuel_percents = samsara.models.vehicle_stats_decorations_fuel_percents.VehicleStatsDecorations_fuelPercents(
                                 value = 54, ), 
                             gps = samsara.models.vehicle_stats_decorations_gps.VehicleStatsDecorations_gps(
+                                address = samsara.models.vehicle_location_address.VehicleLocationAddress(
+                                    id = '1234', 
+                                    name = 'Address 1', ), 
                                 heading_degrees = 120, 
                                 latitude = 122.142, 
                                 longitude = -93.343, 
@@ -3341,6 +3431,9 @@ class TestVehicleStatsListResponseData(unittest.TestCase):
                             fuel_percents = samsara.models.vehicle_stats_decorations_fuel_percents.VehicleStatsDecorations_fuelPercents(
                                 value = 54, ), 
                             gps = samsara.models.vehicle_stats_decorations_gps.VehicleStatsDecorations_gps(
+                                address = samsara.models.vehicle_location_address.VehicleLocationAddress(
+                                    id = '1234', 
+                                    name = 'Address 1', ), 
                                 heading_degrees = 120, 
                                 latitude = 122.142, 
                                 longitude = -93.343, 

@@ -33,6 +33,7 @@ class VehicleStatsListGps(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'address': 'VehicleLocationAddress',
         'decorations': 'VehicleStatsDecorations',
         'heading_degrees': 'float',
         'latitude': 'float',
@@ -43,6 +44,7 @@ class VehicleStatsListGps(object):
     }
 
     attribute_map = {
+        'address': 'address',
         'decorations': 'decorations',
         'heading_degrees': 'headingDegrees',
         'latitude': 'latitude',
@@ -52,12 +54,13 @@ class VehicleStatsListGps(object):
         'time': 'time'
     }
 
-    def __init__(self, decorations=None, heading_degrees=None, latitude=None, longitude=None, reverse_geo=None, speed_miles_per_hour=None, time=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, address=None, decorations=None, heading_degrees=None, latitude=None, longitude=None, reverse_geo=None, speed_miles_per_hour=None, time=None, local_vars_configuration=None):  # noqa: E501
         """VehicleStatsListGps - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._address = None
         self._decorations = None
         self._heading_degrees = None
         self._latitude = None
@@ -67,6 +70,8 @@ class VehicleStatsListGps(object):
         self._time = None
         self.discriminator = None
 
+        if address is not None:
+            self.address = address
         if decorations is not None:
             self.decorations = decorations
         if heading_degrees is not None:
@@ -78,6 +83,27 @@ class VehicleStatsListGps(object):
         if speed_miles_per_hour is not None:
             self.speed_miles_per_hour = speed_miles_per_hour
         self.time = time
+
+    @property
+    def address(self):
+        """Gets the address of this VehicleStatsListGps.  # noqa: E501
+
+
+        :return: The address of this VehicleStatsListGps.  # noqa: E501
+        :rtype: VehicleLocationAddress
+        """
+        return self._address
+
+    @address.setter
+    def address(self, address):
+        """Sets the address of this VehicleStatsListGps.
+
+
+        :param address: The address of this VehicleStatsListGps.  # noqa: E501
+        :type: VehicleLocationAddress
+        """
+
+        self._address = address
 
     @property
     def decorations(self):

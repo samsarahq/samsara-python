@@ -366,6 +366,7 @@ Class | Method | HTTP request | Description
  - [VehicleAuxInputType9](docs/VehicleAuxInputType9.md)
  - [VehicleHarshAccelerationSettingType](docs/VehicleHarshAccelerationSettingType.md)
  - [VehicleLocation](docs/VehicleLocation.md)
+ - [VehicleLocationAddress](docs/VehicleLocationAddress.md)
  - [VehicleLocationReverseGeo](docs/VehicleLocationReverseGeo.md)
  - [VehicleLocationTime](docs/VehicleLocationTime.md)
  - [VehicleLocationsListResponse](docs/VehicleLocationsListResponse.md)

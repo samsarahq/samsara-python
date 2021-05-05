@@ -36,6 +36,9 @@ class TestVehicleStatsGps(unittest.TestCase):
         # model = samsara.models.vehicle_stats_gps.VehicleStatsGps()  # noqa: E501
         if include_optional :
             return VehicleStatsGps(
+                address = samsara.models.vehicle_location_address.VehicleLocationAddress(
+                    id = '1234', 
+                    name = 'Address 1', ), 
                 heading_degrees = 120, 
                 latitude = 122.142, 
                 longitude = -93.343, 

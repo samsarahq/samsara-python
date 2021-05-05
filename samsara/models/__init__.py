@@ -226,6 +226,7 @@ from samsara.models.vehicle_aux_input_type8 import VehicleAuxInputType8
 from samsara.models.vehicle_aux_input_type9 import VehicleAuxInputType9
 from samsara.models.vehicle_harsh_acceleration_setting_type import VehicleHarshAccelerationSettingType
 from samsara.models.vehicle_location import VehicleLocation
+from samsara.models.vehicle_location_address import VehicleLocationAddress
 from samsara.models.vehicle_location_reverse_geo import VehicleLocationReverseGeo
 from samsara.models.vehicle_location_time import VehicleLocationTime
 from samsara.models.vehicle_locations_list_response import VehicleLocationsListResponse

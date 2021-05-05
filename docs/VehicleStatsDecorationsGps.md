@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**address** | [**VehicleLocationAddress**](VehicleLocationAddress.md) |  | [optional] 
 **heading_degrees** | **float** | Heading of the vehicle in degrees. | [optional] 
 **latitude** | **float** | GPS latitude represented in degrees | 
 **longitude** | **float** | GPS longitude represented in degrees | 

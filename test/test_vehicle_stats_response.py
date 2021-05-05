@@ -169,6 +169,8 @@ class TestVehicleStatsResponse(unittest.TestCase):
                             time = '2020-01-27T07:06:25Z', 
                             value = 54, ), 
                         gps = samsara.models.vehicle_stats_gps.VehicleStatsGps(
+                            address = samsara.models.vehicle_location_address.VehicleLocationAddress(
+                                id = '1234', ), 
                             heading_degrees = 120, 
                             latitude = 122.142, 
                             longitude = -93.343, 
@@ -349,6 +351,8 @@ class TestVehicleStatsResponse(unittest.TestCase):
                             time = '2020-01-27T07:06:25Z', 
                             value = 54, ), 
                         gps = samsara.models.vehicle_stats_gps.VehicleStatsGps(
+                            address = samsara.models.vehicle_location_address.VehicleLocationAddress(
+                                id = '1234', ), 
                             heading_degrees = 120, 
                             latitude = 122.142, 
                             longitude = -93.343, 
