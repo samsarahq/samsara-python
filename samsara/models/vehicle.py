@@ -33,6 +33,7 @@ class Vehicle(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'attributes': 'list[AttributeTiny]',
         'aux_input_type1': 'VehicleAuxInputType',
         'aux_input_type10': 'VehicleAuxInputType',
         'aux_input_type2': 'VehicleAuxInputType',
@@ -61,6 +62,7 @@ class Vehicle(object):
     }
 
     attribute_map = {
+        'attributes': 'attributes',
         'aux_input_type1': 'auxInputType1',
         'aux_input_type10': 'auxInputType10',
         'aux_input_type2': 'auxInputType2',
@@ -88,12 +90,13 @@ class Vehicle(object):
         'year': 'year'
     }
 
-    def __init__(self, aux_input_type1=None, aux_input_type10=None, aux_input_type2=None, aux_input_type3=None, aux_input_type4=None, aux_input_type5=None, aux_input_type6=None, aux_input_type7=None, aux_input_type8=None, aux_input_type9=None, camera_serial=None, external_ids=None, gateway=None, harsh_acceleration_setting_type=None, id=None, license_plate=None, make=None, model=None, name=None, notes=None, serial=None, static_assigned_driver=None, tags=None, vin=None, year=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, attributes=None, aux_input_type1=None, aux_input_type10=None, aux_input_type2=None, aux_input_type3=None, aux_input_type4=None, aux_input_type5=None, aux_input_type6=None, aux_input_type7=None, aux_input_type8=None, aux_input_type9=None, camera_serial=None, external_ids=None, gateway=None, harsh_acceleration_setting_type=None, id=None, license_plate=None, make=None, model=None, name=None, notes=None, serial=None, static_assigned_driver=None, tags=None, vin=None, year=None, local_vars_configuration=None):  # noqa: E501
         """Vehicle - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._attributes = None
         self._aux_input_type1 = None
         self._aux_input_type10 = None
         self._aux_input_type2 = None
@@ -121,6 +124,8 @@ class Vehicle(object):
         self._year = None
         self.discriminator = None
 
+        if attributes is not None:
+            self.attributes = attributes
         if aux_input_type1 is not None:
             self.aux_input_type1 = aux_input_type1
         if aux_input_type10 is not None:
@@ -170,6 +175,29 @@ class Vehicle(object):
             self.vin = vin
         if year is not None:
             self.year = year
+
+    @property
+    def attributes(self):
+        """Gets the attributes of this Vehicle.  # noqa: E501
+
+        [beta] A minified attribute  # noqa: E501
+
+        :return: The attributes of this Vehicle.  # noqa: E501
+        :rtype: list[AttributeTiny]
+        """
+        return self._attributes
+
+    @attributes.setter
+    def attributes(self, attributes):
+        """Sets the attributes of this Vehicle.
+
+        [beta] A minified attribute  # noqa: E501
+
+        :param attributes: The attributes of this Vehicle.  # noqa: E501
+        :type: list[AttributeTiny]
+        """
+
+        self._attributes = attributes
 
     @property
     def aux_input_type1(self):

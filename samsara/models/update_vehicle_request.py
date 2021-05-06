@@ -33,6 +33,7 @@ class UpdateVehicleRequest(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'attributes': 'list[AttributeTiny]',
         'aux_input_type1': 'str',
         'aux_input_type10': 'str',
         'aux_input_type2': 'str',
@@ -57,6 +58,7 @@ class UpdateVehicleRequest(object):
     }
 
     attribute_map = {
+        'attributes': 'attributes',
         'aux_input_type1': 'auxInputType1',
         'aux_input_type10': 'auxInputType10',
         'aux_input_type2': 'auxInputType2',
@@ -80,12 +82,13 @@ class UpdateVehicleRequest(object):
         'vin': 'vin'
     }
 
-    def __init__(self, aux_input_type1=None, aux_input_type10=None, aux_input_type2=None, aux_input_type3=None, aux_input_type4=None, aux_input_type5=None, aux_input_type6=None, aux_input_type7=None, aux_input_type8=None, aux_input_type9=None, engine_hours=None, external_ids=None, gateway_serial=None, harsh_acceleration_setting_type=None, license_plate=None, name=None, notes=None, odometer_meters=None, static_assigned_driver_id=None, tag_ids=None, vin=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, attributes=None, aux_input_type1=None, aux_input_type10=None, aux_input_type2=None, aux_input_type3=None, aux_input_type4=None, aux_input_type5=None, aux_input_type6=None, aux_input_type7=None, aux_input_type8=None, aux_input_type9=None, engine_hours=None, external_ids=None, gateway_serial=None, harsh_acceleration_setting_type=None, license_plate=None, name=None, notes=None, odometer_meters=None, static_assigned_driver_id=None, tag_ids=None, vin=None, local_vars_configuration=None):  # noqa: E501
         """UpdateVehicleRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._attributes = None
         self._aux_input_type1 = None
         self._aux_input_type10 = None
         self._aux_input_type2 = None
@@ -109,6 +112,8 @@ class UpdateVehicleRequest(object):
         self._vin = None
         self.discriminator = None
 
+        if attributes is not None:
+            self.attributes = attributes
         if aux_input_type1 is not None:
             self.aux_input_type1 = aux_input_type1
         if aux_input_type10 is not None:
@@ -151,6 +156,27 @@ class UpdateVehicleRequest(object):
             self.tag_ids = tag_ids
         if vin is not None:
             self.vin = vin
+
+    @property
+    def attributes(self):
+        """Gets the attributes of this UpdateVehicleRequest.  # noqa: E501
+
+
+        :return: The attributes of this UpdateVehicleRequest.  # noqa: E501
+        :rtype: list[AttributeTiny]
+        """
+        return self._attributes
+
+    @attributes.setter
+    def attributes(self, attributes):
+        """Sets the attributes of this UpdateVehicleRequest.
+
+
+        :param attributes: The attributes of this UpdateVehicleRequest.  # noqa: E501
+        :type: list[AttributeTiny]
+        """
+
+        self._attributes = attributes
 
     @property
     def aux_input_type1(self):

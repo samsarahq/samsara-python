@@ -4,6 +4,7 @@ The vehicle object.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**attributes** | [**list[AttributeTiny]**](AttributeTiny.md) | [beta] A minified attribute | [optional] 
 **aux_input_type1** | [**VehicleAuxInputType**](VehicleAuxInputType.md) |  | [optional] 
 **aux_input_type10** | [**VehicleAuxInputType**](VehicleAuxInputType.md) |  | [optional] 
 **aux_input_type2** | [**VehicleAuxInputType**](VehicleAuxInputType.md) |  | [optional] 

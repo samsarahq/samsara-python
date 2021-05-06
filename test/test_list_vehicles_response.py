@@ -38,6 +38,17 @@ class TestListVehiclesResponse(unittest.TestCase):
             return ListVehiclesResponse(
                 data = [
                     samsara.models.vehicle.Vehicle(
+                        attributes = [
+                            samsara.models.attribute_tiny.attributeTiny(
+                                id = '123e4567-e89b-12d3-a456-426614174000', 
+                                name = 'License Certifications', 
+                                number_values = [
+                                    1.337
+                                    ], 
+                                string_values = [
+                                    '0'
+                                    ], )
+                            ], 
                         aux_input_type1 = 'boom', 
                         aux_input_type10 = 'boom', 
                         aux_input_type2 = 'boom', 
@@ -77,6 +88,17 @@ class TestListVehiclesResponse(unittest.TestCase):
             return ListVehiclesResponse(
                 data = [
                     samsara.models.vehicle.Vehicle(
+                        attributes = [
+                            samsara.models.attribute_tiny.attributeTiny(
+                                id = '123e4567-e89b-12d3-a456-426614174000', 
+                                name = 'License Certifications', 
+                                number_values = [
+                                    1.337
+                                    ], 
+                                string_values = [
+                                    '0'
+                                    ], )
+                            ], 
                         aux_input_type1 = 'boom', 
                         aux_input_type10 = 'boom', 
                         aux_input_type2 = 'boom', 
