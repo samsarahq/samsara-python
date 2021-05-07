@@ -180,6 +180,7 @@ class TestVehicleStatsResponseData(unittest.TestCase):
                         id = '1234', 
                         name = 'Address 1', ), 
                     heading_degrees = 120, 
+                    is_ecu_speed = True, 
                     latitude = 122.142, 
                     longitude = -93.343, 
                     reverse_geo = samsara.models.vehicle_location_reverse_geo.VehicleLocationReverseGeo(
@@ -294,6 +295,7 @@ class TestVehicleStatsResponseData(unittest.TestCase):
                                 id = '1234', 
                                 name = 'Address 1', ), 
                             heading_degrees = 120, 
+                            is_ecu_speed = True, 
                             latitude = 122.142, 
                             longitude = -93.343, 
                             reverse_geo = samsara.models.vehicle_location_reverse_geo.VehicleLocationReverseGeo(

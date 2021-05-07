@@ -36,6 +36,7 @@ class VehicleStatsListGps(object):
         'address': 'VehicleLocationAddress',
         'decorations': 'VehicleStatsDecorations',
         'heading_degrees': 'float',
+        'is_ecu_speed': 'bool',
         'latitude': 'float',
         'longitude': 'float',
         'reverse_geo': 'VehicleLocationReverseGeo',
@@ -47,6 +48,7 @@ class VehicleStatsListGps(object):
         'address': 'address',
         'decorations': 'decorations',
         'heading_degrees': 'headingDegrees',
+        'is_ecu_speed': 'isEcuSpeed',
         'latitude': 'latitude',
         'longitude': 'longitude',
         'reverse_geo': 'reverseGeo',
@@ -54,7 +56,7 @@ class VehicleStatsListGps(object):
         'time': 'time'
     }
 
-    def __init__(self, address=None, decorations=None, heading_degrees=None, latitude=None, longitude=None, reverse_geo=None, speed_miles_per_hour=None, time=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, address=None, decorations=None, heading_degrees=None, is_ecu_speed=None, latitude=None, longitude=None, reverse_geo=None, speed_miles_per_hour=None, time=None, local_vars_configuration=None):  # noqa: E501
         """VehicleStatsListGps - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -63,6 +65,7 @@ class VehicleStatsListGps(object):
         self._address = None
         self._decorations = None
         self._heading_degrees = None
+        self._is_ecu_speed = None
         self._latitude = None
         self._longitude = None
         self._reverse_geo = None
@@ -76,6 +79,8 @@ class VehicleStatsListGps(object):
             self.decorations = decorations
         if heading_degrees is not None:
             self.heading_degrees = heading_degrees
+        if is_ecu_speed is not None:
+            self.is_ecu_speed = is_ecu_speed
         self.latitude = latitude
         self.longitude = longitude
         if reverse_geo is not None:
@@ -148,6 +153,29 @@ class VehicleStatsListGps(object):
         """
 
         self._heading_degrees = heading_degrees
+
+    @property
+    def is_ecu_speed(self):
+        """Gets the is_ecu_speed of this VehicleStatsListGps.  # noqa: E501
+
+        True if the speed value is reported from the ECU. Speed value is reported from GPS otherwise.  # noqa: E501
+
+        :return: The is_ecu_speed of this VehicleStatsListGps.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_ecu_speed
+
+    @is_ecu_speed.setter
+    def is_ecu_speed(self, is_ecu_speed):
+        """Sets the is_ecu_speed of this VehicleStatsListGps.
+
+        True if the speed value is reported from the ECU. Speed value is reported from GPS otherwise.  # noqa: E501
+
+        :param is_ecu_speed: The is_ecu_speed of this VehicleStatsListGps.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_ecu_speed = is_ecu_speed
 
     @property
     def latitude(self):

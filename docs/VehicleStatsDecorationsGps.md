@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **address** | [**VehicleLocationAddress**](VehicleLocationAddress.md) |  | [optional] 
 **heading_degrees** | **float** | Heading of the vehicle in degrees. | [optional] 
+**is_ecu_speed** | **bool** | True if the speed value is reported from the ECU. Speed value is reported from GPS otherwise. | [optional] 
 **latitude** | **float** | GPS latitude represented in degrees | 
 **longitude** | **float** | GPS longitude represented in degrees | 
 **reverse_geo** | [**VehicleLocationReverseGeo**](VehicleLocationReverseGeo.md) |  | [optional] 
