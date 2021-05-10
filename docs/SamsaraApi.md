@@ -671,7 +671,7 @@ from pprint import pprint
 # Create an instance of the API class
 api_instance = samsara.SamsaraApi(api_client)
 id = 'id_example' # str | Samsara-provided UUID of the attribute.
-entity_type = 'entity_type_example' # str | Denotes the type of entity, driver or vehicle.
+entity_type = 'entity_type_example' # str | Denotes the type of entity, driver or asset.
 
 try:
     # [beta] Deleting an attribute
@@ -686,7 +686,7 @@ print("Exception when calling SamsaraApi->delete_attribute: %s\n" % e)
       Name | Type | Description  | Notes
       ------------- | ------------- | ------------- | -------------
      **id** | **str**| Samsara-provided UUID of the attribute. | 
- **entity_type** | **str**| Denotes the type of entity, driver or vehicle. | 
+ **entity_type** | **str**| Denotes the type of entity, driver or asset. | 
 
     ### Return type
 
@@ -1129,7 +1129,7 @@ from pprint import pprint
 # Create an instance of the API class
 api_instance = samsara.SamsaraApi(api_client)
 id = 'id_example' # str | Samsara-provided UUID of the attribute.
-entity_type = 'entity_type_example' # str | Denotes the type of entity, driver or vehicle.
+entity_type = 'entity_type_example' # str | Denotes the type of entity, driver or asset.
 
 try:
     # [beta] Retrieve an attribute
@@ -1144,7 +1144,7 @@ print("Exception when calling SamsaraApi->get_attribute: %s\n" % e)
       Name | Type | Description  | Notes
       ------------- | ------------- | ------------- | -------------
      **id** | **str**| Samsara-provided UUID of the attribute. | 
- **entity_type** | **str**| Denotes the type of entity, driver or vehicle. | 
+ **entity_type** | **str**| Denotes the type of entity, driver or asset. | 
 
     ### Return type
 
@@ -1172,7 +1172,7 @@ print("Exception when calling SamsaraApi->get_attribute: %s\n" % e)
 
     [beta] List all attributes by entity type
 
-      Fetch all attributes in an organization associated with either drivers or vehicles.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href=\"https://forms.gle/zkD4NCH7HjKb7mm69\" target=\"_blank\">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href=\"https://www.samsara.com/help\" target=\"_blank\">submit a case</a> to our support team.
+      Fetch all attributes in an organization associated with either drivers or assets.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href=\"https://forms.gle/zkD4NCH7HjKb7mm69\" target=\"_blank\">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href=\"https://www.samsara.com/help\" target=\"_blank\">submit a case</a> to our support team.
 
     ### Example
 
@@ -1187,7 +1187,7 @@ from pprint import pprint
   with samsara.ApiClient() as api_client:
 # Create an instance of the API class
 api_instance = samsara.SamsaraApi(api_client)
-entity_type = 'entity_type_example' # str | Denotes the type of entity, driver or vehicle.
+entity_type = 'entity_type_example' # str | Denotes the type of entity, driver or asset.
 limit = 56 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional)
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 
@@ -1203,7 +1203,7 @@ print("Exception when calling SamsaraApi->get_attributes_by_entity_type: %s\n" %
     
       Name | Type | Description  | Notes
       ------------- | ------------- | ------------- | -------------
-     **entity_type** | **str**| Denotes the type of entity, driver or vehicle. | 
+     **entity_type** | **str**| Denotes the type of entity, driver or asset. | 
  **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] 
  **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
 

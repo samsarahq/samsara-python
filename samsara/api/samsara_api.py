@@ -1151,7 +1151,7 @@ class SamsaraApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str id: Samsara-provided UUID of the attribute. (required)
-        :param str entity_type: Denotes the type of entity, driver or vehicle. (required)
+        :param str entity_type: Denotes the type of entity, driver or asset. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1177,7 +1177,7 @@ class SamsaraApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str id: Samsara-provided UUID of the attribute. (required)
-        :param str entity_type: Denotes the type of entity, driver or vehicle. (required)
+        :param str entity_type: Denotes the type of entity, driver or asset. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2023,7 +2023,7 @@ class SamsaraApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str id: Samsara-provided UUID of the attribute. (required)
-        :param str entity_type: Denotes the type of entity, driver or vehicle. (required)
+        :param str entity_type: Denotes the type of entity, driver or asset. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -2049,7 +2049,7 @@ class SamsaraApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str id: Samsara-provided UUID of the attribute. (required)
-        :param str entity_type: Denotes the type of entity, driver or vehicle. (required)
+        :param str entity_type: Denotes the type of entity, driver or asset. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2131,14 +2131,14 @@ class SamsaraApi(object):
     def get_attributes_by_entity_type(self, entity_type, **kwargs):  # noqa: E501
         """[beta] List all attributes by entity type  # noqa: E501
 
-        Fetch all attributes in an organization associated with either drivers or vehicles.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href=\"https://forms.gle/zkD4NCH7HjKb7mm69\" target=\"_blank\">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href=\"https://www.samsara.com/help\" target=\"_blank\">submit a case</a> to our support team.  # noqa: E501
+        Fetch all attributes in an organization associated with either drivers or assets.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href=\"https://forms.gle/zkD4NCH7HjKb7mm69\" target=\"_blank\">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href=\"https://www.samsara.com/help\" target=\"_blank\">submit a case</a> to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_attributes_by_entity_type(entity_type, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str entity_type: Denotes the type of entity, driver or vehicle. (required)
+        :param str entity_type: Denotes the type of entity, driver or asset. (required)
         :param int limit: The limit for how many objects will be in the response. Default and max for this value is 512 objects.
         :param str after: If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -2158,14 +2158,14 @@ class SamsaraApi(object):
     def get_attributes_by_entity_type_with_http_info(self, entity_type, **kwargs):  # noqa: E501
         """[beta] List all attributes by entity type  # noqa: E501
 
-        Fetch all attributes in an organization associated with either drivers or vehicles.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href=\"https://forms.gle/zkD4NCH7HjKb7mm69\" target=\"_blank\">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href=\"https://www.samsara.com/help\" target=\"_blank\">submit a case</a> to our support team.  # noqa: E501
+        Fetch all attributes in an organization associated with either drivers or assets.    **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href=\"https://forms.gle/zkD4NCH7HjKb7mm69\" target=\"_blank\">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href=\"https://www.samsara.com/help\" target=\"_blank\">submit a case</a> to our support team.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.get_attributes_by_entity_type_with_http_info(entity_type, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str entity_type: Denotes the type of entity, driver or vehicle. (required)
+        :param str entity_type: Denotes the type of entity, driver or asset. (required)
         :param int limit: The limit for how many objects will be in the response. Default and max for this value is 512 objects.
         :param str after: If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
         :param _return_http_data_only: response data without head status code

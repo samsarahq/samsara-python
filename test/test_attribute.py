@@ -38,7 +38,7 @@ class TestAttribute(unittest.TestCase):
             return Attribute(
                 attribute_type = 'string', 
                 attribute_value_quantity = 'multi', 
-                entity_type = 'vehicle', 
+                entity_type = 'asset', 
                 id = '123e4567-e89b-12d3-a456-426614174000', 
                 name = 'License Certifications', 
                 number_values = [

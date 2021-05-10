@@ -49,7 +49,7 @@ class TestUpdateAttributeRequest(unittest.TestCase):
                             '0'
                             ], )
                     ], 
-                entity_type = 'vehicle', 
+                entity_type = 'asset', 
                 name = 'License Certifications', 
                 number_values = [
                     1.337
@@ -60,7 +60,7 @@ class TestUpdateAttributeRequest(unittest.TestCase):
             )
         else :
             return UpdateAttributeRequest(
-                entity_type = 'vehicle',
+                entity_type = 'asset',
         )
 
     def testUpdateAttributeRequest(self):

@@ -144,7 +144,7 @@ class Attribute(object):
     def entity_type(self):
         """Gets the entity_type of this Attribute.  # noqa: E501
 
-        Denotes the type of entity, driver or vehicle.  # noqa: E501
+        Denotes the type of entity, driver or aset.  # noqa: E501
 
         :return: The entity_type of this Attribute.  # noqa: E501
         :rtype: str
@@ -155,12 +155,12 @@ class Attribute(object):
     def entity_type(self, entity_type):
         """Sets the entity_type of this Attribute.
 
-        Denotes the type of entity, driver or vehicle.  # noqa: E501
+        Denotes the type of entity, driver or aset.  # noqa: E501
 
         :param entity_type: The entity_type of this Attribute.  # noqa: E501
         :type: str
         """
-        allowed_values = ["driver", "vehicle"]  # noqa: E501
+        allowed_values = ["driver", "asset"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and entity_type not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `entity_type` ({0}), must be one of {1}"  # noqa: E501

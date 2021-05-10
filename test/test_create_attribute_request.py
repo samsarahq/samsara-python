@@ -49,7 +49,7 @@ class TestCreateAttributeRequest(unittest.TestCase):
                             '0'
                             ], )
                     ], 
-                entity_type = 'vehicle', 
+                entity_type = 'asset', 
                 name = 'License Certifications', 
                 number_values = [
                     1.337
@@ -62,7 +62,7 @@ class TestCreateAttributeRequest(unittest.TestCase):
             return CreateAttributeRequest(
                 attribute_type = 'string',
                 attribute_value_quantity = 'multi',
-                entity_type = 'vehicle',
+                entity_type = 'asset',
                 name = 'License Certifications',
         )
 
