@@ -172,7 +172,7 @@ class VehicleLocation(object):
     def speed(self):
         """Gets the speed of this VehicleLocation.  # noqa: E501
 
-        GPS speed of the vehicle in miles per hour.  # noqa: E501
+        GPS speed of the vehicle in miles per hour. See `isEcuSpeed` to determine speed data source.  # noqa: E501
 
         :return: The speed of this VehicleLocation.  # noqa: E501
         :rtype: float
@@ -183,7 +183,7 @@ class VehicleLocation(object):
     def speed(self, speed):
         """Sets the speed of this VehicleLocation.
 
-        GPS speed of the vehicle in miles per hour.  # noqa: E501
+        GPS speed of the vehicle in miles per hour. See `isEcuSpeed` to determine speed data source.  # noqa: E501
 
         :param speed: The speed of this VehicleLocation.  # noqa: E501
         :type: float

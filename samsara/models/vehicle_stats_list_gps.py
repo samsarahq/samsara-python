@@ -252,7 +252,7 @@ class VehicleStatsListGps(object):
     def speed_miles_per_hour(self):
         """Gets the speed_miles_per_hour of this VehicleStatsListGps.  # noqa: E501
 
-        GPS speed of the vehicle in miles per hour.  # noqa: E501
+        GPS speed of the vehicle in miles per hour. See `isEcuSpeed` to determine speed data source.  # noqa: E501
 
         :return: The speed_miles_per_hour of this VehicleStatsListGps.  # noqa: E501
         :rtype: float
@@ -263,7 +263,7 @@ class VehicleStatsListGps(object):
     def speed_miles_per_hour(self, speed_miles_per_hour):
         """Sets the speed_miles_per_hour of this VehicleStatsListGps.
 
-        GPS speed of the vehicle in miles per hour.  # noqa: E501
+        GPS speed of the vehicle in miles per hour. See `isEcuSpeed` to determine speed data source.  # noqa: E501
 
         :param speed_miles_per_hour: The speed_miles_per_hour of this VehicleStatsListGps.  # noqa: E501
         :type: float
