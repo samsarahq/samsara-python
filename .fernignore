@@ -1,0 +1,9 @@
+# Specify files that shouldn't be modified by Fern
+
+src/samsara/function.py
+.github/workflows/publish.yml
+README.md
+
+# Webhook signature verification
+src/samsara/utils/webhooks_helper.py
+tests/utils/test_webhooks_helper.py
