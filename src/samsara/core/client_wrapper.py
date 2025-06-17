@@ -20,10 +20,10 @@ class BaseClientWrapper:
 
     def get_headers(self) -> typing.Dict[str, str]:
         headers: typing.Dict[str, str] = {
-            "User-Agent": "samsara-api/0.0.4",
+            "User-Agent": "samsara-api/2.0.0",
             "X-Fern-Language": "Python",
             "X-Fern-SDK-Name": "samsara-api",
-            "X-Fern-SDK-Version": "0.0.4",
+            "X-Fern-SDK-Version": "2.0.0",
         }
         headers["Authorization"] = f"Bearer {self._get_token()}"
         return headers
