@@ -17,8 +17,8 @@ from ..errors.not_implemented_error import NotImplementedError
 from ..errors.service_unavailable_error import ServiceUnavailableError
 from ..errors.too_many_requests_error import TooManyRequestsError
 from ..errors.unauthorized_error import UnauthorizedError
+from ..types.get_training_courses_response_body import GetTrainingCoursesResponseBody
 from ..types.training_course_response_object_response_body import TrainingCourseResponseObjectResponseBody
-from ..types.training_courses_get_training_courses_response_body import TrainingCoursesGetTrainingCoursesResponseBody
 
 
 class RawTrainingCoursesClient:
@@ -81,9 +81,9 @@ class RawTrainingCoursesClient:
         try:
             if 200 <= _response.status_code < 300:
                 _parsed_response = typing.cast(
-                    TrainingCoursesGetTrainingCoursesResponseBody,
+                    GetTrainingCoursesResponseBody,
                     parse_obj_as(
-                        type_=TrainingCoursesGetTrainingCoursesResponseBody,  # type: ignore
+                        type_=GetTrainingCoursesResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -268,9 +268,9 @@ class AsyncRawTrainingCoursesClient:
         try:
             if 200 <= _response.status_code < 300:
                 _parsed_response = typing.cast(
-                    TrainingCoursesGetTrainingCoursesResponseBody,
+                    GetTrainingCoursesResponseBody,
                     parse_obj_as(
-                        type_=TrainingCoursesGetTrainingCoursesResponseBody,  # type: ignore
+                        type_=GetTrainingCoursesResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
