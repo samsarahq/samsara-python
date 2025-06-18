@@ -3,7 +3,7 @@ name = "samsara-api"
 
 [tool.poetry]
 name = "samsara-api"
-version = "2.0.0"
+version = "2.0.1"
 description = ""
 readme = "README.md"
 authors = []
@@ -32,7 +32,7 @@ packages = [
 ]
 
 [project.urls]
-Repository = 'https://github.com/samsarahq/samsara-python-sdk'
+Repository = 'https://github.com/samsarahq/samsara-python'
 
 [tool.poetry.dependencies]
 python = "^3.8"

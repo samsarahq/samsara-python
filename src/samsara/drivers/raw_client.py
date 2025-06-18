@@ -54,6 +54,7 @@ class RawDriversClient:
         parent_tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         attribute_value_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        attributes: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         updated_after_time: typing.Optional[str] = None,
         created_after_time: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
@@ -85,6 +86,9 @@ class RawDriversClient:
         attribute_value_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             A filter on the data based on this comma-separated list of attribute value IDs. Only entities associated with ALL of the referenced values will be returned (i.e. the intersection of the sets of entities with each value). Example: `attributeValueIds=076efac2-83b5-47aa-ba36-18428436dcac,6707b3f0-23b9-4fe3-b7be-11be34aea544`
 
+        attributes : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data to return entities having given attributes using name-value pair, separated by semicolon. Only entities associated with ALL of the referenced values will be returned (i.e. the intersection of the sets of entities with each value). Example: `attributes=ExampleAttributeName:some_value&attributes=SomeOtherAttr:123`
+
         updated_after_time : typing.Optional[str]
             A filter on data to have an updated at time after or equal to this specified time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
 
@@ -109,6 +113,7 @@ class RawDriversClient:
                 "parentTagIds": parent_tag_ids,
                 "tagIds": tag_ids,
                 "attributeValueIds": attribute_value_ids,
+                "attributes": attributes,
                 "updatedAfterTime": updated_after_time,
                 "createdAfterTime": created_after_time,
             },
@@ -136,6 +141,7 @@ class RawDriversClient:
                         parent_tag_ids=parent_tag_ids,
                         tag_ids=tag_ids,
                         attribute_value_ids=attribute_value_ids,
+                        attributes=attributes,
                         updated_after_time=updated_after_time,
                         created_after_time=created_after_time,
                         request_options=request_options,
@@ -765,6 +771,7 @@ class AsyncRawDriversClient:
         parent_tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         attribute_value_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        attributes: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         updated_after_time: typing.Optional[str] = None,
         created_after_time: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
@@ -796,6 +803,9 @@ class AsyncRawDriversClient:
         attribute_value_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             A filter on the data based on this comma-separated list of attribute value IDs. Only entities associated with ALL of the referenced values will be returned (i.e. the intersection of the sets of entities with each value). Example: `attributeValueIds=076efac2-83b5-47aa-ba36-18428436dcac,6707b3f0-23b9-4fe3-b7be-11be34aea544`
 
+        attributes : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data to return entities having given attributes using name-value pair, separated by semicolon. Only entities associated with ALL of the referenced values will be returned (i.e. the intersection of the sets of entities with each value). Example: `attributes=ExampleAttributeName:some_value&attributes=SomeOtherAttr:123`
+
         updated_after_time : typing.Optional[str]
             A filter on data to have an updated at time after or equal to this specified time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
 
@@ -820,6 +830,7 @@ class AsyncRawDriversClient:
                 "parentTagIds": parent_tag_ids,
                 "tagIds": tag_ids,
                 "attributeValueIds": attribute_value_ids,
+                "attributes": attributes,
                 "updatedAfterTime": updated_after_time,
                 "createdAfterTime": created_after_time,
             },
@@ -849,6 +860,7 @@ class AsyncRawDriversClient:
                             parent_tag_ids=parent_tag_ids,
                             tag_ids=tag_ids,
                             attribute_value_ids=attribute_value_ids,
+                            attributes=attributes,
                             updated_after_time=updated_after_time,
                             created_after_time=created_after_time,
                             request_options=request_options,
