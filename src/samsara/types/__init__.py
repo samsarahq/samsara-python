@@ -20,9 +20,6 @@ from .address_tiny_response import AddressTinyResponse
 from .advanced_idling_get_idling_events_bad_gateway_error_response_body import (
     AdvancedIdlingGetIdlingEventsBadGatewayErrorResponseBody,
 )
-from .advanced_idling_get_idling_events_gateway_timeout_error_response_body import (
-    AdvancedIdlingGetIdlingEventsGatewayTimeoutErrorResponseBody,
-)
 from .advanced_idling_get_idling_events_internal_server_error_response_body import (
     AdvancedIdlingGetIdlingEventsInternalServerErrorResponseBody,
 )
@@ -70,9 +67,6 @@ from .alert_object_workforce_camera_device_response_body import AlertObjectWorkf
 from .alerts_delete_configurations_bad_gateway_error_response_body import (
     AlertsDeleteConfigurationsBadGatewayErrorResponseBody,
 )
-from .alerts_delete_configurations_gateway_timeout_error_response_body import (
-    AlertsDeleteConfigurationsGatewayTimeoutErrorResponseBody,
-)
 from .alerts_delete_configurations_internal_server_error_response_body import (
     AlertsDeleteConfigurationsInternalServerErrorResponseBody,
 )
@@ -97,9 +91,6 @@ from .alerts_delete_configurations_unauthorized_error_response_body import (
 from .alerts_get_configurations_bad_gateway_error_response_body import (
     AlertsGetConfigurationsBadGatewayErrorResponseBody,
 )
-from .alerts_get_configurations_gateway_timeout_error_response_body import (
-    AlertsGetConfigurationsGatewayTimeoutErrorResponseBody,
-)
 from .alerts_get_configurations_internal_server_error_response_body import (
     AlertsGetConfigurationsInternalServerErrorResponseBody,
 )
@@ -121,7 +112,6 @@ from .alerts_get_configurations_unauthorized_error_response_body import (
     AlertsGetConfigurationsUnauthorizedErrorResponseBody,
 )
 from .alerts_get_incidents_bad_gateway_error_response_body import AlertsGetIncidentsBadGatewayErrorResponseBody
-from .alerts_get_incidents_gateway_timeout_error_response_body import AlertsGetIncidentsGatewayTimeoutErrorResponseBody
 from .alerts_get_incidents_internal_server_error_response_body import AlertsGetIncidentsInternalServerErrorResponseBody
 from .alerts_get_incidents_method_not_allowed_error_response_body import (
     AlertsGetIncidentsMethodNotAllowedErrorResponseBody,
@@ -138,9 +128,6 @@ from .alerts_get_incidents_too_many_requests_error_response_body import (
 from .alerts_get_incidents_unauthorized_error_response_body import AlertsGetIncidentsUnauthorizedErrorResponseBody
 from .alerts_patch_configurations_bad_gateway_error_response_body import (
     AlertsPatchConfigurationsBadGatewayErrorResponseBody,
-)
-from .alerts_patch_configurations_gateway_timeout_error_response_body import (
-    AlertsPatchConfigurationsGatewayTimeoutErrorResponseBody,
 )
 from .alerts_patch_configurations_internal_server_error_response_body import (
     AlertsPatchConfigurationsInternalServerErrorResponseBody,
@@ -166,9 +153,6 @@ from .alerts_patch_configurations_unauthorized_error_response_body import (
 )
 from .alerts_post_configurations_bad_gateway_error_response_body import (
     AlertsPostConfigurationsBadGatewayErrorResponseBody,
-)
-from .alerts_post_configurations_gateway_timeout_error_response_body import (
-    AlertsPostConfigurationsGatewayTimeoutErrorResponseBody,
 )
 from .alerts_post_configurations_internal_server_error_response_body import (
     AlertsPostConfigurationsInternalServerErrorResponseBody,
@@ -206,7 +190,6 @@ from .asset_response_body_regulation_mode import AssetResponseBodyRegulationMode
 from .asset_response_body_type import AssetResponseBodyType
 from .asset_response_response_body import AssetResponseResponseBody
 from .assets_create_asset_bad_gateway_error_response_body import AssetsCreateAssetBadGatewayErrorResponseBody
-from .assets_create_asset_gateway_timeout_error_response_body import AssetsCreateAssetGatewayTimeoutErrorResponseBody
 from .assets_create_asset_internal_server_error_response_body import AssetsCreateAssetInternalServerErrorResponseBody
 from .assets_create_asset_method_not_allowed_error_response_body import (
     AssetsCreateAssetMethodNotAllowedErrorResponseBody,
@@ -220,7 +203,6 @@ from .assets_create_asset_service_unavailable_error_response_body import (
 from .assets_create_asset_too_many_requests_error_response_body import AssetsCreateAssetTooManyRequestsErrorResponseBody
 from .assets_create_asset_unauthorized_error_response_body import AssetsCreateAssetUnauthorizedErrorResponseBody
 from .assets_delete_asset_bad_gateway_error_response_body import AssetsDeleteAssetBadGatewayErrorResponseBody
-from .assets_delete_asset_gateway_timeout_error_response_body import AssetsDeleteAssetGatewayTimeoutErrorResponseBody
 from .assets_delete_asset_internal_server_error_response_body import AssetsDeleteAssetInternalServerErrorResponseBody
 from .assets_delete_asset_method_not_allowed_error_response_body import (
     AssetsDeleteAssetMethodNotAllowedErrorResponseBody,
@@ -236,9 +218,6 @@ from .assets_inputs_asset_response_response_body import AssetsInputsAssetRespons
 from .assets_inputs_aux_input_response_body import AssetsInputsAuxInputResponseBody
 from .assets_inputs_get_assets_inputs_bad_gateway_error_response_body import (
     AssetsInputsGetAssetsInputsBadGatewayErrorResponseBody,
-)
-from .assets_inputs_get_assets_inputs_gateway_timeout_error_response_body import (
-    AssetsInputsGetAssetsInputsGatewayTimeoutErrorResponseBody,
 )
 from .assets_inputs_get_assets_inputs_internal_server_error_response_body import (
     AssetsInputsGetAssetsInputsInternalServerErrorResponseBody,
@@ -265,7 +244,6 @@ from .assets_inputs_get_assets_inputs_unauthorized_error_response_body import (
 from .assets_inputs_response_response_body import AssetsInputsResponseResponseBody
 from .assets_inputs_response_response_body_units import AssetsInputsResponseResponseBodyUnits
 from .assets_list_assets_bad_gateway_error_response_body import AssetsListAssetsBadGatewayErrorResponseBody
-from .assets_list_assets_gateway_timeout_error_response_body import AssetsListAssetsGatewayTimeoutErrorResponseBody
 from .assets_list_assets_internal_server_error_response_body import AssetsListAssetsInternalServerErrorResponseBody
 from .assets_list_assets_method_not_allowed_error_response_body import AssetsListAssetsMethodNotAllowedErrorResponseBody
 from .assets_list_assets_not_found_error_response_body import AssetsListAssetsNotFoundErrorResponseBody
@@ -287,7 +265,6 @@ from .assets_near_location_link_config_object_response_body import AssetsNearLoc
 from .assets_on_route_link_config_object import AssetsOnRouteLinkConfigObject
 from .assets_on_route_link_config_object_response_body import AssetsOnRouteLinkConfigObjectResponseBody
 from .assets_update_asset_bad_gateway_error_response_body import AssetsUpdateAssetBadGatewayErrorResponseBody
-from .assets_update_asset_gateway_timeout_error_response_body import AssetsUpdateAssetGatewayTimeoutErrorResponseBody
 from .assets_update_asset_internal_server_error_response_body import AssetsUpdateAssetInternalServerErrorResponseBody
 from .assets_update_asset_method_not_allowed_error_response_body import (
     AssetsUpdateAssetMethodNotAllowedErrorResponseBody,
@@ -353,9 +330,6 @@ from .coach_assignment_without_driver_external_ids_response_response_body import
 from .coachable_event_response_body import CoachableEventResponseBody
 from .coaching_sessions_get_coaching_sessions_bad_gateway_error_response_body import (
     CoachingSessionsGetCoachingSessionsBadGatewayErrorResponseBody,
-)
-from .coaching_sessions_get_coaching_sessions_gateway_timeout_error_response_body import (
-    CoachingSessionsGetCoachingSessionsGatewayTimeoutErrorResponseBody,
 )
 from .coaching_sessions_get_coaching_sessions_internal_server_error_response_body import (
     CoachingSessionsGetCoachingSessionsInternalServerErrorResponseBody,
@@ -440,7 +414,6 @@ from .device_movement_trigger_details_object_response_body import DeviceMovement
 from .device_response_response_body import DeviceResponseResponseBody
 from .device_response_response_body_model import DeviceResponseResponseBodyModel
 from .devices_get_devices_bad_gateway_error_response_body import DevicesGetDevicesBadGatewayErrorResponseBody
-from .devices_get_devices_gateway_timeout_error_response_body import DevicesGetDevicesGatewayTimeoutErrorResponseBody
 from .devices_get_devices_internal_server_error_response_body import DevicesGetDevicesInternalServerErrorResponseBody
 from .devices_get_devices_method_not_allowed_error_response_body import (
     DevicesGetDevicesMethodNotAllowedErrorResponseBody,
@@ -467,9 +440,6 @@ from .document_response_object_response_body_state import DocumentResponseObject
 from .document_types_get_document_types_bad_gateway_error_response_body import (
     DocumentTypesGetDocumentTypesBadGatewayErrorResponseBody,
 )
-from .document_types_get_document_types_gateway_timeout_error_response_body import (
-    DocumentTypesGetDocumentTypesGatewayTimeoutErrorResponseBody,
-)
 from .document_types_get_document_types_internal_server_error_response_body import (
     DocumentTypesGetDocumentTypesInternalServerErrorResponseBody,
 )
@@ -495,9 +465,6 @@ from .document_types_get_document_types_unauthorized_error_response_body import 
 from .documents_delete_document_bad_gateway_error_response_body import (
     DocumentsDeleteDocumentBadGatewayErrorResponseBody,
 )
-from .documents_delete_document_gateway_timeout_error_response_body import (
-    DocumentsDeleteDocumentGatewayTimeoutErrorResponseBody,
-)
 from .documents_delete_document_internal_server_error_response_body import (
     DocumentsDeleteDocumentInternalServerErrorResponseBody,
 )
@@ -518,9 +485,6 @@ from .documents_delete_document_unauthorized_error_response_body import (
     DocumentsDeleteDocumentUnauthorizedErrorResponseBody,
 )
 from .documents_get_document_bad_gateway_error_response_body import DocumentsGetDocumentBadGatewayErrorResponseBody
-from .documents_get_document_gateway_timeout_error_response_body import (
-    DocumentsGetDocumentGatewayTimeoutErrorResponseBody,
-)
 from .documents_get_document_internal_server_error_response_body import (
     DocumentsGetDocumentInternalServerErrorResponseBody,
 )
@@ -540,9 +504,6 @@ from .documents_get_document_too_many_requests_error_response_body import (
 )
 from .documents_get_document_unauthorized_error_response_body import DocumentsGetDocumentUnauthorizedErrorResponseBody
 from .documents_get_documents_bad_gateway_error_response_body import DocumentsGetDocumentsBadGatewayErrorResponseBody
-from .documents_get_documents_gateway_timeout_error_response_body import (
-    DocumentsGetDocumentsGatewayTimeoutErrorResponseBody,
-)
 from .documents_get_documents_internal_server_error_response_body import (
     DocumentsGetDocumentsInternalServerErrorResponseBody,
 )
@@ -562,9 +523,6 @@ from .documents_get_documents_too_many_requests_error_response_body import (
 )
 from .documents_get_documents_unauthorized_error_response_body import DocumentsGetDocumentsUnauthorizedErrorResponseBody
 from .documents_post_document_bad_gateway_error_response_body import DocumentsPostDocumentBadGatewayErrorResponseBody
-from .documents_post_document_gateway_timeout_error_response_body import (
-    DocumentsPostDocumentGatewayTimeoutErrorResponseBody,
-)
 from .documents_post_document_internal_server_error_response_body import (
     DocumentsPostDocumentInternalServerErrorResponseBody,
 )
@@ -608,9 +566,6 @@ from .driver_carrier_settings import DriverCarrierSettings
 from .driver_coach_assignments_get_driver_coach_assignment_bad_gateway_error_response_body import (
     DriverCoachAssignmentsGetDriverCoachAssignmentBadGatewayErrorResponseBody,
 )
-from .driver_coach_assignments_get_driver_coach_assignment_gateway_timeout_error_response_body import (
-    DriverCoachAssignmentsGetDriverCoachAssignmentGatewayTimeoutErrorResponseBody,
-)
 from .driver_coach_assignments_get_driver_coach_assignment_internal_server_error_response_body import (
     DriverCoachAssignmentsGetDriverCoachAssignmentInternalServerErrorResponseBody,
 )
@@ -637,9 +592,6 @@ from .driver_coach_assignments_get_driver_coach_assignment_unauthorized_error_re
 )
 from .driver_coach_assignments_put_driver_coach_assignment_bad_gateway_error_response_body import (
     DriverCoachAssignmentsPutDriverCoachAssignmentBadGatewayErrorResponseBody,
-)
-from .driver_coach_assignments_put_driver_coach_assignment_gateway_timeout_error_response_body import (
-    DriverCoachAssignmentsPutDriverCoachAssignmentGatewayTimeoutErrorResponseBody,
 )
 from .driver_coach_assignments_put_driver_coach_assignment_internal_server_error_response_body import (
     DriverCoachAssignmentsPutDriverCoachAssignmentInternalServerErrorResponseBody,
@@ -705,9 +657,6 @@ from .driver_phone import DriverPhone
 from .driver_qr_codes_create_driver_qr_code_bad_gateway_error_response_body import (
     DriverQrCodesCreateDriverQrCodeBadGatewayErrorResponseBody,
 )
-from .driver_qr_codes_create_driver_qr_code_gateway_timeout_error_response_body import (
-    DriverQrCodesCreateDriverQrCodeGatewayTimeoutErrorResponseBody,
-)
 from .driver_qr_codes_create_driver_qr_code_internal_server_error_response_body import (
     DriverQrCodesCreateDriverQrCodeInternalServerErrorResponseBody,
 )
@@ -733,9 +682,6 @@ from .driver_qr_codes_create_driver_qr_code_unauthorized_error_response_body imp
 from .driver_qr_codes_delete_driver_qr_code_bad_gateway_error_response_body import (
     DriverQrCodesDeleteDriverQrCodeBadGatewayErrorResponseBody,
 )
-from .driver_qr_codes_delete_driver_qr_code_gateway_timeout_error_response_body import (
-    DriverQrCodesDeleteDriverQrCodeGatewayTimeoutErrorResponseBody,
-)
 from .driver_qr_codes_delete_driver_qr_code_internal_server_error_response_body import (
     DriverQrCodesDeleteDriverQrCodeInternalServerErrorResponseBody,
 )
@@ -759,9 +705,6 @@ from .driver_qr_codes_delete_driver_qr_code_unauthorized_error_response_body imp
 )
 from .driver_qr_codes_get_drivers_qr_codes_bad_gateway_error_response_body import (
     DriverQrCodesGetDriversQrCodesBadGatewayErrorResponseBody,
-)
-from .driver_qr_codes_get_drivers_qr_codes_gateway_timeout_error_response_body import (
-    DriverQrCodesGetDriversQrCodesGatewayTimeoutErrorResponseBody,
 )
 from .driver_qr_codes_get_drivers_qr_codes_internal_server_error_response_body import (
     DriverQrCodesGetDriversQrCodesInternalServerErrorResponseBody,
@@ -788,9 +731,6 @@ from .driver_qr_codes_get_drivers_qr_codes_unauthorized_error_response_body impo
 from .driver_recorded_response_body import DriverRecordedResponseBody
 from .driver_remote_signout_post_driver_remote_signout_bad_gateway_error_response_body import (
     DriverRemoteSignoutPostDriverRemoteSignoutBadGatewayErrorResponseBody,
-)
-from .driver_remote_signout_post_driver_remote_signout_gateway_timeout_error_response_body import (
-    DriverRemoteSignoutPostDriverRemoteSignoutGatewayTimeoutErrorResponseBody,
 )
 from .driver_remote_signout_post_driver_remote_signout_internal_server_error_response_body import (
     DriverRemoteSignoutPostDriverRemoteSignoutInternalServerErrorResponseBody,
@@ -838,9 +778,6 @@ from .driver_vehicle_assignment_v_2_object_response_body_assignment_type import 
 from .driver_vehicle_assignments_v_2_create_driver_vehicle_assignment_bad_gateway_error_response_body import (
     DriverVehicleAssignmentsV2CreateDriverVehicleAssignmentBadGatewayErrorResponseBody,
 )
-from .driver_vehicle_assignments_v_2_create_driver_vehicle_assignment_gateway_timeout_error_response_body import (
-    DriverVehicleAssignmentsV2CreateDriverVehicleAssignmentGatewayTimeoutErrorResponseBody,
-)
 from .driver_vehicle_assignments_v_2_create_driver_vehicle_assignment_internal_server_error_response_body import (
     DriverVehicleAssignmentsV2CreateDriverVehicleAssignmentInternalServerErrorResponseBody,
 )
@@ -868,9 +805,6 @@ from .driver_vehicle_assignments_v_2_create_driver_vehicle_assignment_unauthoriz
 from .driver_vehicle_assignments_v_2_delete_driver_vehicle_assignments_bad_gateway_error_response_body import (
     DriverVehicleAssignmentsV2DeleteDriverVehicleAssignmentsBadGatewayErrorResponseBody,
 )
-from .driver_vehicle_assignments_v_2_delete_driver_vehicle_assignments_gateway_timeout_error_response_body import (
-    DriverVehicleAssignmentsV2DeleteDriverVehicleAssignmentsGatewayTimeoutErrorResponseBody,
-)
 from .driver_vehicle_assignments_v_2_delete_driver_vehicle_assignments_internal_server_error_response_body import (
     DriverVehicleAssignmentsV2DeleteDriverVehicleAssignmentsInternalServerErrorResponseBody,
 )
@@ -894,9 +828,6 @@ from .driver_vehicle_assignments_v_2_delete_driver_vehicle_assignments_unauthori
 )
 from .driver_vehicle_assignments_v_2_get_driver_vehicle_assignments_bad_gateway_error_response_body import (
     DriverVehicleAssignmentsV2GetDriverVehicleAssignmentsBadGatewayErrorResponseBody,
-)
-from .driver_vehicle_assignments_v_2_get_driver_vehicle_assignments_gateway_timeout_error_response_body import (
-    DriverVehicleAssignmentsV2GetDriverVehicleAssignmentsGatewayTimeoutErrorResponseBody,
 )
 from .driver_vehicle_assignments_v_2_get_driver_vehicle_assignments_internal_server_error_response_body import (
     DriverVehicleAssignmentsV2GetDriverVehicleAssignmentsInternalServerErrorResponseBody,
@@ -924,9 +855,6 @@ from .driver_vehicle_assignments_v_2_get_driver_vehicle_assignments_unauthorized
 )
 from .driver_vehicle_assignments_v_2_update_driver_vehicle_assignment_bad_gateway_error_response_body import (
     DriverVehicleAssignmentsV2UpdateDriverVehicleAssignmentBadGatewayErrorResponseBody,
-)
-from .driver_vehicle_assignments_v_2_update_driver_vehicle_assignment_gateway_timeout_error_response_body import (
-    DriverVehicleAssignmentsV2UpdateDriverVehicleAssignmentGatewayTimeoutErrorResponseBody,
 )
 from .driver_vehicle_assignments_v_2_update_driver_vehicle_assignment_internal_server_error_response_body import (
     DriverVehicleAssignmentsV2UpdateDriverVehicleAssignmentInternalServerErrorResponseBody,
@@ -958,9 +886,6 @@ from .driver_with_external_id_object_response_body import DriverWithExternalIdOb
 from .driver_with_timezone_eld_settings_object_response_body import DriverWithTimezoneEldSettingsObjectResponseBody
 from .drivers_vehicle_assignments_get_drivers_vehicle_assignments_bad_gateway_error_response_body import (
     DriversVehicleAssignmentsGetDriversVehicleAssignmentsBadGatewayErrorResponseBody,
-)
-from .drivers_vehicle_assignments_get_drivers_vehicle_assignments_gateway_timeout_error_response_body import (
-    DriversVehicleAssignmentsGetDriversVehicleAssignmentsGatewayTimeoutErrorResponseBody,
 )
 from .drivers_vehicle_assignments_get_drivers_vehicle_assignments_internal_server_error_response_body import (
     DriversVehicleAssignmentsGetDriversVehicleAssignmentsInternalServerErrorResponseBody,
@@ -994,9 +919,6 @@ from .duty_status_duration_object_response_body import DutyStatusDurationObjectR
 from .dvir import Dvir
 from .dvir_author_signature import DvirAuthorSignature
 from .dvir_defect_get_defect_bad_gateway_error_response_body import DvirDefectGetDefectBadGatewayErrorResponseBody
-from .dvir_defect_get_defect_gateway_timeout_error_response_body import (
-    DvirDefectGetDefectGatewayTimeoutErrorResponseBody,
-)
 from .dvir_defect_get_defect_internal_server_error_response_body import (
     DvirDefectGetDefectInternalServerErrorResponseBody,
 )
@@ -1017,9 +939,6 @@ from .dvir_defect_get_defect_too_many_requests_error_response_body import (
 from .dvir_defect_get_defect_unauthorized_error_response_body import DvirDefectGetDefectUnauthorizedErrorResponseBody
 from .dvir_defect_stream_defects_bad_gateway_error_response_body import (
     DvirDefectStreamDefectsBadGatewayErrorResponseBody,
-)
-from .dvir_defect_stream_defects_gateway_timeout_error_response_body import (
-    DvirDefectStreamDefectsGatewayTimeoutErrorResponseBody,
 )
 from .dvir_defect_stream_defects_internal_server_error_response_body import (
     DvirDefectStreamDefectsInternalServerErrorResponseBody,
@@ -1043,9 +962,6 @@ from .dvir_defect_stream_defects_unauthorized_error_response_body import (
 )
 from .dvir_defect_type_get_defect_types_bad_gateway_error_response_body import (
     DvirDefectTypeGetDefectTypesBadGatewayErrorResponseBody,
-)
-from .dvir_defect_type_get_defect_types_gateway_timeout_error_response_body import (
-    DvirDefectTypeGetDefectTypesGatewayTimeoutErrorResponseBody,
 )
 from .dvir_defect_type_get_defect_types_internal_server_error_response_body import (
     DvirDefectTypeGetDefectTypesInternalServerErrorResponseBody,
@@ -1071,7 +987,6 @@ from .dvir_defect_type_get_defect_types_unauthorized_error_response_body import 
 )
 from .dvir_defects_object_v_20220913_response_body import DvirDefectsObjectV20220913ResponseBody
 from .dvir_get_dvir_bad_gateway_error_response_body import DvirGetDvirBadGatewayErrorResponseBody
-from .dvir_get_dvir_gateway_timeout_error_response_body import DvirGetDvirGatewayTimeoutErrorResponseBody
 from .dvir_get_dvir_internal_server_error_response_body import DvirGetDvirInternalServerErrorResponseBody
 from .dvir_get_dvir_method_not_allowed_error_response_body import DvirGetDvirMethodNotAllowedErrorResponseBody
 from .dvir_get_dvir_not_found_error_response_body import DvirGetDvirNotFoundErrorResponseBody
@@ -1083,7 +998,6 @@ from .dvir_get_dvir_service_unavailable_error_response_body import DvirGetDvirSe
 from .dvir_get_dvir_too_many_requests_error_response_body import DvirGetDvirTooManyRequestsErrorResponseBody
 from .dvir_get_dvir_unauthorized_error_response_body import DvirGetDvirUnauthorizedErrorResponseBody
 from .dvir_get_dvirs_bad_gateway_error_response_body import DvirGetDvirsBadGatewayErrorResponseBody
-from .dvir_get_dvirs_gateway_timeout_error_response_body import DvirGetDvirsGatewayTimeoutErrorResponseBody
 from .dvir_get_dvirs_internal_server_error_response_body import DvirGetDvirsInternalServerErrorResponseBody
 from .dvir_get_dvirs_method_not_allowed_error_response_body import DvirGetDvirsMethodNotAllowedErrorResponseBody
 from .dvir_get_dvirs_not_found_error_response_body import DvirGetDvirsNotFoundErrorResponseBody
@@ -1135,9 +1049,6 @@ from .engine_idle_trigger_details_object_request_body import EngineIdleTriggerDe
 from .engine_idle_trigger_details_object_response_body import EngineIdleTriggerDetailsObjectResponseBody
 from .engine_immobilizer_get_engine_immobilizer_states_bad_gateway_error_response_body import (
     EngineImmobilizerGetEngineImmobilizerStatesBadGatewayErrorResponseBody,
-)
-from .engine_immobilizer_get_engine_immobilizer_states_gateway_timeout_error_response_body import (
-    EngineImmobilizerGetEngineImmobilizerStatesGatewayTimeoutErrorResponseBody,
 )
 from .engine_immobilizer_get_engine_immobilizer_states_internal_server_error_response_body import (
     EngineImmobilizerGetEngineImmobilizerStatesInternalServerErrorResponseBody,
@@ -1259,9 +1170,6 @@ from .form_submission_response_object_response_body_status import FormSubmission
 from .form_submissions_get_form_submissions_bad_gateway_error_response_body import (
     FormSubmissionsGetFormSubmissionsBadGatewayErrorResponseBody,
 )
-from .form_submissions_get_form_submissions_gateway_timeout_error_response_body import (
-    FormSubmissionsGetFormSubmissionsGatewayTimeoutErrorResponseBody,
-)
 from .form_submissions_get_form_submissions_internal_server_error_response_body import (
     FormSubmissionsGetFormSubmissionsInternalServerErrorResponseBody,
 )
@@ -1276,9 +1184,6 @@ from .form_submissions_get_form_submissions_not_implemented_error_response_body 
 )
 from .form_submissions_get_form_submissions_pdf_exports_bad_gateway_error_response_body import (
     FormSubmissionsGetFormSubmissionsPdfExportsBadGatewayErrorResponseBody,
-)
-from .form_submissions_get_form_submissions_pdf_exports_gateway_timeout_error_response_body import (
-    FormSubmissionsGetFormSubmissionsPdfExportsGatewayTimeoutErrorResponseBody,
 )
 from .form_submissions_get_form_submissions_pdf_exports_internal_server_error_response_body import (
     FormSubmissionsGetFormSubmissionsPdfExportsInternalServerErrorResponseBody,
@@ -1310,9 +1215,6 @@ from .form_submissions_get_form_submissions_service_unavailable_error_response_b
 )
 from .form_submissions_get_form_submissions_stream_bad_gateway_error_response_body import (
     FormSubmissionsGetFormSubmissionsStreamBadGatewayErrorResponseBody,
-)
-from .form_submissions_get_form_submissions_stream_gateway_timeout_error_response_body import (
-    FormSubmissionsGetFormSubmissionsStreamGatewayTimeoutErrorResponseBody,
 )
 from .form_submissions_get_form_submissions_stream_internal_server_error_response_body import (
     FormSubmissionsGetFormSubmissionsStreamInternalServerErrorResponseBody,
@@ -1347,9 +1249,6 @@ from .form_submissions_get_form_submissions_unauthorized_error_response_body imp
 from .form_submissions_patch_form_submission_bad_gateway_error_response_body import (
     FormSubmissionsPatchFormSubmissionBadGatewayErrorResponseBody,
 )
-from .form_submissions_patch_form_submission_gateway_timeout_error_response_body import (
-    FormSubmissionsPatchFormSubmissionGatewayTimeoutErrorResponseBody,
-)
 from .form_submissions_patch_form_submission_internal_server_error_response_body import (
     FormSubmissionsPatchFormSubmissionInternalServerErrorResponseBody,
 )
@@ -1375,9 +1274,6 @@ from .form_submissions_patch_form_submission_unauthorized_error_response_body im
 from .form_submissions_post_form_submission_bad_gateway_error_response_body import (
     FormSubmissionsPostFormSubmissionBadGatewayErrorResponseBody,
 )
-from .form_submissions_post_form_submission_gateway_timeout_error_response_body import (
-    FormSubmissionsPostFormSubmissionGatewayTimeoutErrorResponseBody,
-)
 from .form_submissions_post_form_submission_internal_server_error_response_body import (
     FormSubmissionsPostFormSubmissionInternalServerErrorResponseBody,
 )
@@ -1402,9 +1298,6 @@ from .form_submissions_post_form_submission_unauthorized_error_response_body imp
 )
 from .form_submissions_post_form_submissions_pdf_exports_bad_gateway_error_response_body import (
     FormSubmissionsPostFormSubmissionsPdfExportsBadGatewayErrorResponseBody,
-)
-from .form_submissions_post_form_submissions_pdf_exports_gateway_timeout_error_response_body import (
-    FormSubmissionsPostFormSubmissionsPdfExportsGatewayTimeoutErrorResponseBody,
 )
 from .form_submissions_post_form_submissions_pdf_exports_internal_server_error_response_body import (
     FormSubmissionsPostFormSubmissionsPdfExportsInternalServerErrorResponseBody,
@@ -1437,9 +1330,6 @@ from .form_template_response_object_response_body import FormTemplateResponseObj
 from .form_template_section_object_response_body import FormTemplateSectionObjectResponseBody
 from .form_templates_get_form_templates_bad_gateway_error_response_body import (
     FormTemplatesGetFormTemplatesBadGatewayErrorResponseBody,
-)
-from .form_templates_get_form_templates_gateway_timeout_error_response_body import (
-    FormTemplatesGetFormTemplatesGatewayTimeoutErrorResponseBody,
 )
 from .form_templates_get_form_templates_internal_server_error_response_body import (
     FormTemplatesGetFormTemplatesInternalServerErrorResponseBody,
@@ -1535,9 +1425,6 @@ from .fuel_energy_driver_report_object_response_body import FuelEnergyDriverRepo
 from .fuel_energy_get_fuel_energy_driver_reports_bad_gateway_error_response_body import (
     FuelEnergyGetFuelEnergyDriverReportsBadGatewayErrorResponseBody,
 )
-from .fuel_energy_get_fuel_energy_driver_reports_gateway_timeout_error_response_body import (
-    FuelEnergyGetFuelEnergyDriverReportsGatewayTimeoutErrorResponseBody,
-)
 from .fuel_energy_get_fuel_energy_driver_reports_internal_server_error_response_body import (
     FuelEnergyGetFuelEnergyDriverReportsInternalServerErrorResponseBody,
 )
@@ -1562,9 +1449,6 @@ from .fuel_energy_get_fuel_energy_driver_reports_unauthorized_error_response_bod
 )
 from .fuel_energy_get_fuel_energy_vehicle_reports_bad_gateway_error_response_body import (
     FuelEnergyGetFuelEnergyVehicleReportsBadGatewayErrorResponseBody,
-)
-from .fuel_energy_get_fuel_energy_vehicle_reports_gateway_timeout_error_response_body import (
-    FuelEnergyGetFuelEnergyVehicleReportsGatewayTimeoutErrorResponseBody,
 )
 from .fuel_energy_get_fuel_energy_vehicle_reports_internal_server_error_response_body import (
     FuelEnergyGetFuelEnergyVehicleReportsInternalServerErrorResponseBody,
@@ -1597,9 +1481,6 @@ from .fuel_level_trigger_details_object_request_body import FuelLevelTriggerDeta
 from .fuel_level_trigger_details_object_response_body import FuelLevelTriggerDetailsObjectResponseBody
 from .fuel_purchase_post_fuel_purchase_bad_gateway_error_response_body import (
     FuelPurchasePostFuelPurchaseBadGatewayErrorResponseBody,
-)
-from .fuel_purchase_post_fuel_purchase_gateway_timeout_error_response_body import (
-    FuelPurchasePostFuelPurchaseGatewayTimeoutErrorResponseBody,
 )
 from .fuel_purchase_post_fuel_purchase_internal_server_error_response_body import (
     FuelPurchasePostFuelPurchaseInternalServerErrorResponseBody,
@@ -1643,9 +1524,6 @@ from .gateway_unplugged_trigger_details_object_response_body import GatewayUnplu
 from .gateway_with_vehicle_tiny_response_response_body import GatewayWithVehicleTinyResponseResponseBody
 from .gateway_with_vehicle_tiny_response_response_body_model import GatewayWithVehicleTinyResponseResponseBodyModel
 from .gateways_delete_gateway_bad_gateway_error_response_body import GatewaysDeleteGatewayBadGatewayErrorResponseBody
-from .gateways_delete_gateway_gateway_timeout_error_response_body import (
-    GatewaysDeleteGatewayGatewayTimeoutErrorResponseBody,
-)
 from .gateways_delete_gateway_internal_server_error_response_body import (
     GatewaysDeleteGatewayInternalServerErrorResponseBody,
 )
@@ -1664,9 +1542,6 @@ from .gateways_delete_gateway_too_many_requests_error_response_body import (
 )
 from .gateways_delete_gateway_unauthorized_error_response_body import GatewaysDeleteGatewayUnauthorizedErrorResponseBody
 from .gateways_get_gateways_bad_gateway_error_response_body import GatewaysGetGatewaysBadGatewayErrorResponseBody
-from .gateways_get_gateways_gateway_timeout_error_response_body import (
-    GatewaysGetGatewaysGatewayTimeoutErrorResponseBody,
-)
 from .gateways_get_gateways_internal_server_error_response_body import (
     GatewaysGetGatewaysInternalServerErrorResponseBody,
 )
@@ -1686,9 +1561,6 @@ from .gateways_get_gateways_too_many_requests_error_response_body import (
 )
 from .gateways_get_gateways_unauthorized_error_response_body import GatewaysGetGatewaysUnauthorizedErrorResponseBody
 from .gateways_post_gateway_bad_gateway_error_response_body import GatewaysPostGatewayBadGatewayErrorResponseBody
-from .gateways_post_gateway_gateway_timeout_error_response_body import (
-    GatewaysPostGatewayGatewayTimeoutErrorResponseBody,
-)
 from .gateways_post_gateway_internal_server_error_response_body import (
     GatewaysPostGatewayInternalServerErrorResponseBody,
 )
@@ -1807,9 +1679,6 @@ from .hos_cycle import HosCycle
 from .hos_daily_logs_get_hos_daily_logs_bad_gateway_error_response_body import (
     HosDailyLogsGetHosDailyLogsBadGatewayErrorResponseBody,
 )
-from .hos_daily_logs_get_hos_daily_logs_gateway_timeout_error_response_body import (
-    HosDailyLogsGetHosDailyLogsGatewayTimeoutErrorResponseBody,
-)
 from .hos_daily_logs_get_hos_daily_logs_internal_server_error_response_body import (
     HosDailyLogsGetHosDailyLogsInternalServerErrorResponseBody,
 )
@@ -1858,9 +1727,6 @@ from .hos_violations import HosViolations
 from .hos_violations_get_hos_violations_bad_gateway_error_response_body import (
     HosViolationsGetHosViolationsBadGatewayErrorResponseBody,
 )
-from .hos_violations_get_hos_violations_gateway_timeout_error_response_body import (
-    HosViolationsGetHosViolationsGatewayTimeoutErrorResponseBody,
-)
 from .hos_violations_get_hos_violations_internal_server_error_response_body import (
     HosViolationsGetHosViolationsInternalServerErrorResponseBody,
 )
@@ -1891,9 +1757,6 @@ from .idling_report_event_response_body import IdlingReportEventResponseBody
 from .idling_reports_get_vehicle_idling_reports_bad_gateway_error_response_body import (
     IdlingReportsGetVehicleIdlingReportsBadGatewayErrorResponseBody,
 )
-from .idling_reports_get_vehicle_idling_reports_gateway_timeout_error_response_body import (
-    IdlingReportsGetVehicleIdlingReportsGatewayTimeoutErrorResponseBody,
-)
 from .idling_reports_get_vehicle_idling_reports_internal_server_error_response_body import (
     IdlingReportsGetVehicleIdlingReportsInternalServerErrorResponseBody,
 )
@@ -1918,9 +1781,6 @@ from .idling_reports_get_vehicle_idling_reports_unauthorized_error_response_body
 )
 from .ifta_create_ifta_detail_job_bad_gateway_error_response_body import (
     IftaCreateIftaDetailJobBadGatewayErrorResponseBody,
-)
-from .ifta_create_ifta_detail_job_gateway_timeout_error_response_body import (
-    IftaCreateIftaDetailJobGatewayTimeoutErrorResponseBody,
 )
 from .ifta_create_ifta_detail_job_internal_server_error_response_body import (
     IftaCreateIftaDetailJobInternalServerErrorResponseBody,
@@ -1947,9 +1807,6 @@ from .ifta_detail_job_output_response_body import IftaDetailJobOutputResponseBod
 from .ifta_detail_job_response_body import IftaDetailJobResponseBody
 from .ifta_detail_job_response_body_job_status import IftaDetailJobResponseBodyJobStatus
 from .ifta_get_ifta_detail_job_bad_gateway_error_response_body import IftaGetIftaDetailJobBadGatewayErrorResponseBody
-from .ifta_get_ifta_detail_job_gateway_timeout_error_response_body import (
-    IftaGetIftaDetailJobGatewayTimeoutErrorResponseBody,
-)
 from .ifta_get_ifta_detail_job_internal_server_error_response_body import (
     IftaGetIftaDetailJobInternalServerErrorResponseBody,
 )
@@ -1970,9 +1827,6 @@ from .ifta_get_ifta_detail_job_too_many_requests_error_response_body import (
 from .ifta_get_ifta_detail_job_unauthorized_error_response_body import IftaGetIftaDetailJobUnauthorizedErrorResponseBody
 from .ifta_get_ifta_jurisdiction_reports_bad_gateway_error_response_body import (
     IftaGetIftaJurisdictionReportsBadGatewayErrorResponseBody,
-)
-from .ifta_get_ifta_jurisdiction_reports_gateway_timeout_error_response_body import (
-    IftaGetIftaJurisdictionReportsGatewayTimeoutErrorResponseBody,
 )
 from .ifta_get_ifta_jurisdiction_reports_internal_server_error_response_body import (
     IftaGetIftaJurisdictionReportsInternalServerErrorResponseBody,
@@ -1998,9 +1852,6 @@ from .ifta_get_ifta_jurisdiction_reports_unauthorized_error_response_body import
 )
 from .ifta_get_ifta_vehicle_reports_bad_gateway_error_response_body import (
     IftaGetIftaVehicleReportsBadGatewayErrorResponseBody,
-)
-from .ifta_get_ifta_vehicle_reports_gateway_timeout_error_response_body import (
-    IftaGetIftaVehicleReportsGatewayTimeoutErrorResponseBody,
 )
 from .ifta_get_ifta_vehicle_reports_internal_server_error_response_body import (
     IftaGetIftaVehicleReportsInternalServerErrorResponseBody,
@@ -2050,7 +1901,6 @@ from .issue_response_object_response_body_status import IssueResponseObjectRespo
 from .issue_source_object_response_body import IssueSourceObjectResponseBody
 from .issue_source_object_response_body_type import IssueSourceObjectResponseBodyType
 from .issues_get_issues_bad_gateway_error_response_body import IssuesGetIssuesBadGatewayErrorResponseBody
-from .issues_get_issues_gateway_timeout_error_response_body import IssuesGetIssuesGatewayTimeoutErrorResponseBody
 from .issues_get_issues_internal_server_error_response_body import IssuesGetIssuesInternalServerErrorResponseBody
 from .issues_get_issues_method_not_allowed_error_response_body import IssuesGetIssuesMethodNotAllowedErrorResponseBody
 from .issues_get_issues_not_found_error_response_body import IssuesGetIssuesNotFoundErrorResponseBody
@@ -2060,9 +1910,6 @@ from .issues_get_issues_service_unavailable_error_response_body import (
     IssuesGetIssuesServiceUnavailableErrorResponseBody,
 )
 from .issues_get_issues_stream_bad_gateway_error_response_body import IssuesGetIssuesStreamBadGatewayErrorResponseBody
-from .issues_get_issues_stream_gateway_timeout_error_response_body import (
-    IssuesGetIssuesStreamGatewayTimeoutErrorResponseBody,
-)
 from .issues_get_issues_stream_internal_server_error_response_body import (
     IssuesGetIssuesStreamInternalServerErrorResponseBody,
 )
@@ -2086,7 +1933,6 @@ from .issues_get_issues_stream_unauthorized_error_response_body import (
 from .issues_get_issues_too_many_requests_error_response_body import IssuesGetIssuesTooManyRequestsErrorResponseBody
 from .issues_get_issues_unauthorized_error_response_body import IssuesGetIssuesUnauthorizedErrorResponseBody
 from .issues_patch_issue_bad_gateway_error_response_body import IssuesPatchIssueBadGatewayErrorResponseBody
-from .issues_patch_issue_gateway_timeout_error_response_body import IssuesPatchIssueGatewayTimeoutErrorResponseBody
 from .issues_patch_issue_internal_server_error_response_body import IssuesPatchIssueInternalServerErrorResponseBody
 from .issues_patch_issue_method_not_allowed_error_response_body import IssuesPatchIssueMethodNotAllowedErrorResponseBody
 from .issues_patch_issue_not_found_error_response_body import IssuesPatchIssueNotFoundErrorResponseBody
@@ -2113,9 +1959,6 @@ from .live_sharing_link_response_object_response_body import LiveSharingLinkResp
 from .live_sharing_links_create_live_sharing_link_bad_gateway_error_response_body import (
     LiveSharingLinksCreateLiveSharingLinkBadGatewayErrorResponseBody,
 )
-from .live_sharing_links_create_live_sharing_link_gateway_timeout_error_response_body import (
-    LiveSharingLinksCreateLiveSharingLinkGatewayTimeoutErrorResponseBody,
-)
 from .live_sharing_links_create_live_sharing_link_internal_server_error_response_body import (
     LiveSharingLinksCreateLiveSharingLinkInternalServerErrorResponseBody,
 )
@@ -2141,9 +1984,6 @@ from .live_sharing_links_create_live_sharing_link_unauthorized_error_response_bo
 from .live_sharing_links_delete_live_sharing_link_bad_gateway_error_response_body import (
     LiveSharingLinksDeleteLiveSharingLinkBadGatewayErrorResponseBody,
 )
-from .live_sharing_links_delete_live_sharing_link_gateway_timeout_error_response_body import (
-    LiveSharingLinksDeleteLiveSharingLinkGatewayTimeoutErrorResponseBody,
-)
 from .live_sharing_links_delete_live_sharing_link_internal_server_error_response_body import (
     LiveSharingLinksDeleteLiveSharingLinkInternalServerErrorResponseBody,
 )
@@ -2167,9 +2007,6 @@ from .live_sharing_links_delete_live_sharing_link_unauthorized_error_response_bo
 )
 from .live_sharing_links_get_live_sharing_links_bad_gateway_error_response_body import (
     LiveSharingLinksGetLiveSharingLinksBadGatewayErrorResponseBody,
-)
-from .live_sharing_links_get_live_sharing_links_gateway_timeout_error_response_body import (
-    LiveSharingLinksGetLiveSharingLinksGatewayTimeoutErrorResponseBody,
 )
 from .live_sharing_links_get_live_sharing_links_internal_server_error_response_body import (
     LiveSharingLinksGetLiveSharingLinksInternalServerErrorResponseBody,
@@ -2196,9 +2033,6 @@ from .live_sharing_links_get_live_sharing_links_unauthorized_error_response_body
 from .live_sharing_links_update_live_sharing_link_bad_gateway_error_response_body import (
     LiveSharingLinksUpdateLiveSharingLinkBadGatewayErrorResponseBody,
 )
-from .live_sharing_links_update_live_sharing_link_gateway_timeout_error_response_body import (
-    LiveSharingLinksUpdateLiveSharingLinkGatewayTimeoutErrorResponseBody,
-)
 from .live_sharing_links_update_live_sharing_link_internal_server_error_response_body import (
     LiveSharingLinksUpdateLiveSharingLinkInternalServerErrorResponseBody,
 )
@@ -2224,9 +2058,6 @@ from .live_sharing_links_update_live_sharing_link_unauthorized_error_response_bo
 from .location import Location
 from .location_and_speed_get_location_and_speed_bad_gateway_error_response_body import (
     LocationAndSpeedGetLocationAndSpeedBadGatewayErrorResponseBody,
-)
-from .location_and_speed_get_location_and_speed_gateway_timeout_error_response_body import (
-    LocationAndSpeedGetLocationAndSpeedGatewayTimeoutErrorResponseBody,
 )
 from .location_and_speed_get_location_and_speed_internal_server_error_response_body import (
     LocationAndSpeedGetLocationAndSpeedInternalServerErrorResponseBody,
@@ -2264,9 +2095,6 @@ from .media_object_response_body_status import MediaObjectResponseBodyStatus
 from .media_retrieval_get_media_retrieval_bad_gateway_error_response_body import (
     MediaRetrievalGetMediaRetrievalBadGatewayErrorResponseBody,
 )
-from .media_retrieval_get_media_retrieval_gateway_timeout_error_response_body import (
-    MediaRetrievalGetMediaRetrievalGatewayTimeoutErrorResponseBody,
-)
 from .media_retrieval_get_media_retrieval_internal_server_error_response_body import (
     MediaRetrievalGetMediaRetrievalInternalServerErrorResponseBody,
 )
@@ -2292,9 +2120,6 @@ from .media_retrieval_get_media_retrieval_unauthorized_error_response_body impor
 from .media_retrieval_list_uploaded_media_bad_gateway_error_response_body import (
     MediaRetrievalListUploadedMediaBadGatewayErrorResponseBody,
 )
-from .media_retrieval_list_uploaded_media_gateway_timeout_error_response_body import (
-    MediaRetrievalListUploadedMediaGatewayTimeoutErrorResponseBody,
-)
 from .media_retrieval_list_uploaded_media_internal_server_error_response_body import (
     MediaRetrievalListUploadedMediaInternalServerErrorResponseBody,
 )
@@ -2319,9 +2144,6 @@ from .media_retrieval_list_uploaded_media_unauthorized_error_response_body impor
 )
 from .media_retrieval_post_media_retrieval_bad_gateway_error_response_body import (
     MediaRetrievalPostMediaRetrievalBadGatewayErrorResponseBody,
-)
-from .media_retrieval_post_media_retrieval_gateway_timeout_error_response_body import (
-    MediaRetrievalPostMediaRetrievalGatewayTimeoutErrorResponseBody,
 )
 from .media_retrieval_post_media_retrieval_internal_server_error_response_body import (
     MediaRetrievalPostMediaRetrievalInternalServerErrorResponseBody,
@@ -2456,9 +2278,6 @@ from .reading_type_response_body_data_type import ReadingTypeResponseBodyDataTyp
 from .readings_get_readings_history_bad_gateway_error_response_body import (
     ReadingsGetReadingsHistoryBadGatewayErrorResponseBody,
 )
-from .readings_get_readings_history_gateway_timeout_error_response_body import (
-    ReadingsGetReadingsHistoryGatewayTimeoutErrorResponseBody,
-)
 from .readings_get_readings_history_internal_server_error_response_body import (
     ReadingsGetReadingsHistoryInternalServerErrorResponseBody,
 )
@@ -2484,9 +2303,6 @@ from .readings_get_readings_history_unauthorized_error_response_body import (
 from .readings_get_readings_snapshot_bad_gateway_error_response_body import (
     ReadingsGetReadingsSnapshotBadGatewayErrorResponseBody,
 )
-from .readings_get_readings_snapshot_gateway_timeout_error_response_body import (
-    ReadingsGetReadingsSnapshotGatewayTimeoutErrorResponseBody,
-)
 from .readings_get_readings_snapshot_internal_server_error_response_body import (
     ReadingsGetReadingsSnapshotInternalServerErrorResponseBody,
 )
@@ -2511,9 +2327,6 @@ from .readings_get_readings_snapshot_unauthorized_error_response_body import (
 )
 from .readings_list_readings_definitions_bad_gateway_error_response_body import (
     ReadingsListReadingsDefinitionsBadGatewayErrorResponseBody,
-)
-from .readings_list_readings_definitions_gateway_timeout_error_response_body import (
-    ReadingsListReadingsDefinitionsGatewayTimeoutErrorResponseBody,
 )
 from .readings_list_readings_definitions_internal_server_error_response_body import (
     ReadingsListReadingsDefinitionsInternalServerErrorResponseBody,
@@ -2567,7 +2380,6 @@ from .route_stop_estimated_arrival_details_object_response_body import (
 )
 from .route_stop_eta_response_body import RouteStopEtaResponseBody
 from .routes_create_route_bad_gateway_error_response_body import RoutesCreateRouteBadGatewayErrorResponseBody
-from .routes_create_route_gateway_timeout_error_response_body import RoutesCreateRouteGatewayTimeoutErrorResponseBody
 from .routes_create_route_internal_server_error_response_body import RoutesCreateRouteInternalServerErrorResponseBody
 from .routes_create_route_method_not_allowed_error_response_body import (
     RoutesCreateRouteMethodNotAllowedErrorResponseBody,
@@ -2581,7 +2393,6 @@ from .routes_create_route_service_unavailable_error_response_body import (
 from .routes_create_route_too_many_requests_error_response_body import RoutesCreateRouteTooManyRequestsErrorResponseBody
 from .routes_create_route_unauthorized_error_response_body import RoutesCreateRouteUnauthorizedErrorResponseBody
 from .routes_delete_route_bad_gateway_error_response_body import RoutesDeleteRouteBadGatewayErrorResponseBody
-from .routes_delete_route_gateway_timeout_error_response_body import RoutesDeleteRouteGatewayTimeoutErrorResponseBody
 from .routes_delete_route_internal_server_error_response_body import RoutesDeleteRouteInternalServerErrorResponseBody
 from .routes_delete_route_method_not_allowed_error_response_body import (
     RoutesDeleteRouteMethodNotAllowedErrorResponseBody,
@@ -2594,7 +2405,6 @@ from .routes_delete_route_service_unavailable_error_response_body import (
 from .routes_delete_route_too_many_requests_error_response_body import RoutesDeleteRouteTooManyRequestsErrorResponseBody
 from .routes_delete_route_unauthorized_error_response_body import RoutesDeleteRouteUnauthorizedErrorResponseBody
 from .routes_fetch_route_bad_gateway_error_response_body import RoutesFetchRouteBadGatewayErrorResponseBody
-from .routes_fetch_route_gateway_timeout_error_response_body import RoutesFetchRouteGatewayTimeoutErrorResponseBody
 from .routes_fetch_route_internal_server_error_response_body import RoutesFetchRouteInternalServerErrorResponseBody
 from .routes_fetch_route_method_not_allowed_error_response_body import RoutesFetchRouteMethodNotAllowedErrorResponseBody
 from .routes_fetch_route_not_found_error_response_body import RoutesFetchRouteNotFoundErrorResponseBody
@@ -2606,7 +2416,6 @@ from .routes_fetch_route_service_unavailable_error_response_body import (
 from .routes_fetch_route_too_many_requests_error_response_body import RoutesFetchRouteTooManyRequestsErrorResponseBody
 from .routes_fetch_route_unauthorized_error_response_body import RoutesFetchRouteUnauthorizedErrorResponseBody
 from .routes_fetch_routes_bad_gateway_error_response_body import RoutesFetchRoutesBadGatewayErrorResponseBody
-from .routes_fetch_routes_gateway_timeout_error_response_body import RoutesFetchRoutesGatewayTimeoutErrorResponseBody
 from .routes_fetch_routes_internal_server_error_response_body import RoutesFetchRoutesInternalServerErrorResponseBody
 from .routes_fetch_routes_method_not_allowed_error_response_body import (
     RoutesFetchRoutesMethodNotAllowedErrorResponseBody,
@@ -2620,9 +2429,6 @@ from .routes_fetch_routes_service_unavailable_error_response_body import (
 from .routes_fetch_routes_too_many_requests_error_response_body import RoutesFetchRoutesTooManyRequestsErrorResponseBody
 from .routes_fetch_routes_unauthorized_error_response_body import RoutesFetchRoutesUnauthorizedErrorResponseBody
 from .routes_get_routes_feed_bad_gateway_error_response_body import RoutesGetRoutesFeedBadGatewayErrorResponseBody
-from .routes_get_routes_feed_gateway_timeout_error_response_body import (
-    RoutesGetRoutesFeedGatewayTimeoutErrorResponseBody,
-)
 from .routes_get_routes_feed_internal_server_error_response_body import (
     RoutesGetRoutesFeedInternalServerErrorResponseBody,
 )
@@ -2642,7 +2448,6 @@ from .routes_get_routes_feed_too_many_requests_error_response_body import (
 )
 from .routes_get_routes_feed_unauthorized_error_response_body import RoutesGetRoutesFeedUnauthorizedErrorResponseBody
 from .routes_patch_route_bad_gateway_error_response_body import RoutesPatchRouteBadGatewayErrorResponseBody
-from .routes_patch_route_gateway_timeout_error_response_body import RoutesPatchRouteGatewayTimeoutErrorResponseBody
 from .routes_patch_route_internal_server_error_response_body import RoutesPatchRouteInternalServerErrorResponseBody
 from .routes_patch_route_method_not_allowed_error_response_body import RoutesPatchRouteMethodNotAllowedErrorResponseBody
 from .routes_patch_route_not_found_error_response_body import RoutesPatchRouteNotFoundErrorResponseBody
@@ -2680,9 +2485,6 @@ from .safety_event_vehicle_object_response_body import SafetyEventVehicleObjectR
 from .safety_events_get_safety_activity_event_feed_bad_gateway_error_response_body import (
     SafetyEventsGetSafetyActivityEventFeedBadGatewayErrorResponseBody,
 )
-from .safety_events_get_safety_activity_event_feed_gateway_timeout_error_response_body import (
-    SafetyEventsGetSafetyActivityEventFeedGatewayTimeoutErrorResponseBody,
-)
 from .safety_events_get_safety_activity_event_feed_internal_server_error_response_body import (
     SafetyEventsGetSafetyActivityEventFeedInternalServerErrorResponseBody,
 )
@@ -2711,9 +2513,6 @@ from .safety_events_list_response import SafetyEventsListResponse
 from .safety_score_configuration_settings_object_response_body import SafetyScoreConfigurationSettingsObjectResponseBody
 from .safety_settings_get_safety_settings_bad_gateway_error_response_body import (
     SafetySettingsGetSafetySettingsBadGatewayErrorResponseBody,
-)
-from .safety_settings_get_safety_settings_gateway_timeout_error_response_body import (
-    SafetySettingsGetSafetySettingsGatewayTimeoutErrorResponseBody,
 )
 from .safety_settings_get_safety_settings_internal_server_error_response_body import (
     SafetySettingsGetSafetySettingsInternalServerErrorResponseBody,
@@ -2778,9 +2577,6 @@ from .settings_compliance_response_object_response_body import SettingsComplianc
 from .settings_get_compliance_settings_bad_gateway_error_response_body import (
     SettingsGetComplianceSettingsBadGatewayErrorResponseBody,
 )
-from .settings_get_compliance_settings_gateway_timeout_error_response_body import (
-    SettingsGetComplianceSettingsGatewayTimeoutErrorResponseBody,
-)
 from .settings_get_compliance_settings_internal_server_error_response_body import (
     SettingsGetComplianceSettingsInternalServerErrorResponseBody,
 )
@@ -2805,9 +2601,6 @@ from .settings_get_compliance_settings_unauthorized_error_response_body import (
 )
 from .settings_get_driver_app_settings_bad_gateway_error_response_body import (
     SettingsGetDriverAppSettingsBadGatewayErrorResponseBody,
-)
-from .settings_get_driver_app_settings_gateway_timeout_error_response_body import (
-    SettingsGetDriverAppSettingsGatewayTimeoutErrorResponseBody,
 )
 from .settings_get_driver_app_settings_internal_server_error_response_body import (
     SettingsGetDriverAppSettingsInternalServerErrorResponseBody,
@@ -2834,9 +2627,6 @@ from .settings_get_driver_app_settings_unauthorized_error_response_body import (
 from .settings_patch_compliance_settings_bad_gateway_error_response_body import (
     SettingsPatchComplianceSettingsBadGatewayErrorResponseBody,
 )
-from .settings_patch_compliance_settings_gateway_timeout_error_response_body import (
-    SettingsPatchComplianceSettingsGatewayTimeoutErrorResponseBody,
-)
 from .settings_patch_compliance_settings_internal_server_error_response_body import (
     SettingsPatchComplianceSettingsInternalServerErrorResponseBody,
 )
@@ -2861,9 +2651,6 @@ from .settings_patch_compliance_settings_unauthorized_error_response_body import
 )
 from .settings_patch_driver_app_settings_bad_gateway_error_response_body import (
     SettingsPatchDriverAppSettingsBadGatewayErrorResponseBody,
-)
-from .settings_patch_driver_app_settings_gateway_timeout_error_response_body import (
-    SettingsPatchDriverAppSettingsGatewayTimeoutErrorResponseBody,
 )
 from .settings_patch_driver_app_settings_internal_server_error_response_body import (
     SettingsPatchDriverAppSettingsInternalServerErrorResponseBody,
@@ -2912,9 +2699,6 @@ from .speeding_interval_response_body import SpeedingIntervalResponseBody
 from .speeding_interval_response_body_severity_level import SpeedingIntervalResponseBodySeverityLevel
 from .speeding_intervals_get_speeding_intervals_bad_gateway_error_response_body import (
     SpeedingIntervalsGetSpeedingIntervalsBadGatewayErrorResponseBody,
-)
-from .speeding_intervals_get_speeding_intervals_gateway_timeout_error_response_body import (
-    SpeedingIntervalsGetSpeedingIntervalsGatewayTimeoutErrorResponseBody,
 )
 from .speeding_intervals_get_speeding_intervals_internal_server_error_response_body import (
     SpeedingIntervalsGetSpeedingIntervalsInternalServerErrorResponseBody,
@@ -3011,9 +2795,6 @@ from .tire_faults_response_body import TireFaultsResponseBody
 from .trailer_assignments_create_driver_trailer_assignment_bad_gateway_error_response_body import (
     TrailerAssignmentsCreateDriverTrailerAssignmentBadGatewayErrorResponseBody,
 )
-from .trailer_assignments_create_driver_trailer_assignment_gateway_timeout_error_response_body import (
-    TrailerAssignmentsCreateDriverTrailerAssignmentGatewayTimeoutErrorResponseBody,
-)
 from .trailer_assignments_create_driver_trailer_assignment_internal_server_error_response_body import (
     TrailerAssignmentsCreateDriverTrailerAssignmentInternalServerErrorResponseBody,
 )
@@ -3041,9 +2822,6 @@ from .trailer_assignments_create_driver_trailer_assignment_unauthorized_error_re
 from .trailer_assignments_get_driver_trailer_assignments_bad_gateway_error_response_body import (
     TrailerAssignmentsGetDriverTrailerAssignmentsBadGatewayErrorResponseBody,
 )
-from .trailer_assignments_get_driver_trailer_assignments_gateway_timeout_error_response_body import (
-    TrailerAssignmentsGetDriverTrailerAssignmentsGatewayTimeoutErrorResponseBody,
-)
 from .trailer_assignments_get_driver_trailer_assignments_internal_server_error_response_body import (
     TrailerAssignmentsGetDriverTrailerAssignmentsInternalServerErrorResponseBody,
 )
@@ -3070,9 +2848,6 @@ from .trailer_assignments_get_driver_trailer_assignments_unauthorized_error_resp
 )
 from .trailer_assignments_update_driver_trailer_assignment_bad_gateway_error_response_body import (
     TrailerAssignmentsUpdateDriverTrailerAssignmentBadGatewayErrorResponseBody,
-)
-from .trailer_assignments_update_driver_trailer_assignment_gateway_timeout_error_response_body import (
-    TrailerAssignmentsUpdateDriverTrailerAssignmentGatewayTimeoutErrorResponseBody,
 )
 from .trailer_assignments_update_driver_trailer_assignment_internal_server_error_response_body import (
     TrailerAssignmentsUpdateDriverTrailerAssignmentInternalServerErrorResponseBody,
@@ -4138,7 +3913,6 @@ __all__ = [
     "AddressResponseResponseBody",
     "AddressTinyResponse",
     "AdvancedIdlingGetIdlingEventsBadGatewayErrorResponseBody",
-    "AdvancedIdlingGetIdlingEventsGatewayTimeoutErrorResponseBody",
     "AdvancedIdlingGetIdlingEventsInternalServerErrorResponseBody",
     "AdvancedIdlingGetIdlingEventsMethodNotAllowedErrorResponseBody",
     "AdvancedIdlingGetIdlingEventsNotFoundErrorResponseBody",
@@ -4170,7 +3944,6 @@ __all__ = [
     "AlertObjectVehicleResponseBody",
     "AlertObjectWorkforceCameraDeviceResponseBody",
     "AlertsDeleteConfigurationsBadGatewayErrorResponseBody",
-    "AlertsDeleteConfigurationsGatewayTimeoutErrorResponseBody",
     "AlertsDeleteConfigurationsInternalServerErrorResponseBody",
     "AlertsDeleteConfigurationsMethodNotAllowedErrorResponseBody",
     "AlertsDeleteConfigurationsNotFoundErrorResponseBody",
@@ -4179,7 +3952,6 @@ __all__ = [
     "AlertsDeleteConfigurationsTooManyRequestsErrorResponseBody",
     "AlertsDeleteConfigurationsUnauthorizedErrorResponseBody",
     "AlertsGetConfigurationsBadGatewayErrorResponseBody",
-    "AlertsGetConfigurationsGatewayTimeoutErrorResponseBody",
     "AlertsGetConfigurationsInternalServerErrorResponseBody",
     "AlertsGetConfigurationsMethodNotAllowedErrorResponseBody",
     "AlertsGetConfigurationsNotFoundErrorResponseBody",
@@ -4189,7 +3961,6 @@ __all__ = [
     "AlertsGetConfigurationsTooManyRequestsErrorResponseBody",
     "AlertsGetConfigurationsUnauthorizedErrorResponseBody",
     "AlertsGetIncidentsBadGatewayErrorResponseBody",
-    "AlertsGetIncidentsGatewayTimeoutErrorResponseBody",
     "AlertsGetIncidentsInternalServerErrorResponseBody",
     "AlertsGetIncidentsMethodNotAllowedErrorResponseBody",
     "AlertsGetIncidentsNotFoundErrorResponseBody",
@@ -4199,7 +3970,6 @@ __all__ = [
     "AlertsGetIncidentsTooManyRequestsErrorResponseBody",
     "AlertsGetIncidentsUnauthorizedErrorResponseBody",
     "AlertsPatchConfigurationsBadGatewayErrorResponseBody",
-    "AlertsPatchConfigurationsGatewayTimeoutErrorResponseBody",
     "AlertsPatchConfigurationsInternalServerErrorResponseBody",
     "AlertsPatchConfigurationsMethodNotAllowedErrorResponseBody",
     "AlertsPatchConfigurationsNotFoundErrorResponseBody",
@@ -4209,7 +3979,6 @@ __all__ = [
     "AlertsPatchConfigurationsTooManyRequestsErrorResponseBody",
     "AlertsPatchConfigurationsUnauthorizedErrorResponseBody",
     "AlertsPostConfigurationsBadGatewayErrorResponseBody",
-    "AlertsPostConfigurationsGatewayTimeoutErrorResponseBody",
     "AlertsPostConfigurationsInternalServerErrorResponseBody",
     "AlertsPostConfigurationsMethodNotAllowedErrorResponseBody",
     "AlertsPostConfigurationsNotFoundErrorResponseBody",
@@ -4230,7 +3999,6 @@ __all__ = [
     "AssetResponseBodyType",
     "AssetResponseResponseBody",
     "AssetsCreateAssetBadGatewayErrorResponseBody",
-    "AssetsCreateAssetGatewayTimeoutErrorResponseBody",
     "AssetsCreateAssetInternalServerErrorResponseBody",
     "AssetsCreateAssetMethodNotAllowedErrorResponseBody",
     "AssetsCreateAssetNotFoundErrorResponseBody",
@@ -4240,7 +4008,6 @@ __all__ = [
     "AssetsCreateAssetTooManyRequestsErrorResponseBody",
     "AssetsCreateAssetUnauthorizedErrorResponseBody",
     "AssetsDeleteAssetBadGatewayErrorResponseBody",
-    "AssetsDeleteAssetGatewayTimeoutErrorResponseBody",
     "AssetsDeleteAssetInternalServerErrorResponseBody",
     "AssetsDeleteAssetMethodNotAllowedErrorResponseBody",
     "AssetsDeleteAssetNotFoundErrorResponseBody",
@@ -4251,7 +4018,6 @@ __all__ = [
     "AssetsInputsAssetResponseResponseBody",
     "AssetsInputsAuxInputResponseBody",
     "AssetsInputsGetAssetsInputsBadGatewayErrorResponseBody",
-    "AssetsInputsGetAssetsInputsGatewayTimeoutErrorResponseBody",
     "AssetsInputsGetAssetsInputsInternalServerErrorResponseBody",
     "AssetsInputsGetAssetsInputsMethodNotAllowedErrorResponseBody",
     "AssetsInputsGetAssetsInputsNotFoundErrorResponseBody",
@@ -4263,7 +4029,6 @@ __all__ = [
     "AssetsInputsResponseResponseBody",
     "AssetsInputsResponseResponseBodyUnits",
     "AssetsListAssetsBadGatewayErrorResponseBody",
-    "AssetsListAssetsGatewayTimeoutErrorResponseBody",
     "AssetsListAssetsInternalServerErrorResponseBody",
     "AssetsListAssetsMethodNotAllowedErrorResponseBody",
     "AssetsListAssetsNotFoundErrorResponseBody",
@@ -4281,7 +4046,6 @@ __all__ = [
     "AssetsOnRouteLinkConfigObject",
     "AssetsOnRouteLinkConfigObjectResponseBody",
     "AssetsUpdateAssetBadGatewayErrorResponseBody",
-    "AssetsUpdateAssetGatewayTimeoutErrorResponseBody",
     "AssetsUpdateAssetInternalServerErrorResponseBody",
     "AssetsUpdateAssetMethodNotAllowedErrorResponseBody",
     "AssetsUpdateAssetNotFoundErrorResponseBody",
@@ -4338,7 +4102,6 @@ __all__ = [
     "CoachAssignmentWithoutDriverExternalIdsResponseResponseBody",
     "CoachableEventResponseBody",
     "CoachingSessionsGetCoachingSessionsBadGatewayErrorResponseBody",
-    "CoachingSessionsGetCoachingSessionsGatewayTimeoutErrorResponseBody",
     "CoachingSessionsGetCoachingSessionsInternalServerErrorResponseBody",
     "CoachingSessionsGetCoachingSessionsMethodNotAllowedErrorResponseBody",
     "CoachingSessionsGetCoachingSessionsNotFoundErrorResponseBody",
@@ -4404,7 +4167,6 @@ __all__ = [
     "DeviceResponseResponseBody",
     "DeviceResponseResponseBodyModel",
     "DevicesGetDevicesBadGatewayErrorResponseBody",
-    "DevicesGetDevicesGatewayTimeoutErrorResponseBody",
     "DevicesGetDevicesInternalServerErrorResponseBody",
     "DevicesGetDevicesMethodNotAllowedErrorResponseBody",
     "DevicesGetDevicesNotFoundErrorResponseBody",
@@ -4423,7 +4185,6 @@ __all__ = [
     "DocumentResponseObjectResponseBody",
     "DocumentResponseObjectResponseBodyState",
     "DocumentTypesGetDocumentTypesBadGatewayErrorResponseBody",
-    "DocumentTypesGetDocumentTypesGatewayTimeoutErrorResponseBody",
     "DocumentTypesGetDocumentTypesInternalServerErrorResponseBody",
     "DocumentTypesGetDocumentTypesMethodNotAllowedErrorResponseBody",
     "DocumentTypesGetDocumentTypesNotFoundErrorResponseBody",
@@ -4433,7 +4194,6 @@ __all__ = [
     "DocumentTypesGetDocumentTypesTooManyRequestsErrorResponseBody",
     "DocumentTypesGetDocumentTypesUnauthorizedErrorResponseBody",
     "DocumentsDeleteDocumentBadGatewayErrorResponseBody",
-    "DocumentsDeleteDocumentGatewayTimeoutErrorResponseBody",
     "DocumentsDeleteDocumentInternalServerErrorResponseBody",
     "DocumentsDeleteDocumentMethodNotAllowedErrorResponseBody",
     "DocumentsDeleteDocumentNotFoundErrorResponseBody",
@@ -4442,7 +4202,6 @@ __all__ = [
     "DocumentsDeleteDocumentTooManyRequestsErrorResponseBody",
     "DocumentsDeleteDocumentUnauthorizedErrorResponseBody",
     "DocumentsGetDocumentBadGatewayErrorResponseBody",
-    "DocumentsGetDocumentGatewayTimeoutErrorResponseBody",
     "DocumentsGetDocumentInternalServerErrorResponseBody",
     "DocumentsGetDocumentMethodNotAllowedErrorResponseBody",
     "DocumentsGetDocumentNotFoundErrorResponseBody",
@@ -4452,7 +4211,6 @@ __all__ = [
     "DocumentsGetDocumentTooManyRequestsErrorResponseBody",
     "DocumentsGetDocumentUnauthorizedErrorResponseBody",
     "DocumentsGetDocumentsBadGatewayErrorResponseBody",
-    "DocumentsGetDocumentsGatewayTimeoutErrorResponseBody",
     "DocumentsGetDocumentsInternalServerErrorResponseBody",
     "DocumentsGetDocumentsMethodNotAllowedErrorResponseBody",
     "DocumentsGetDocumentsNotFoundErrorResponseBody",
@@ -4462,7 +4220,6 @@ __all__ = [
     "DocumentsGetDocumentsTooManyRequestsErrorResponseBody",
     "DocumentsGetDocumentsUnauthorizedErrorResponseBody",
     "DocumentsPostDocumentBadGatewayErrorResponseBody",
-    "DocumentsPostDocumentGatewayTimeoutErrorResponseBody",
     "DocumentsPostDocumentInternalServerErrorResponseBody",
     "DocumentsPostDocumentMethodNotAllowedErrorResponseBody",
     "DocumentsPostDocumentNotFoundErrorResponseBody",
@@ -4486,7 +4243,6 @@ __all__ = [
     "DriverAssignmentObjectResponseBody",
     "DriverCarrierSettings",
     "DriverCoachAssignmentsGetDriverCoachAssignmentBadGatewayErrorResponseBody",
-    "DriverCoachAssignmentsGetDriverCoachAssignmentGatewayTimeoutErrorResponseBody",
     "DriverCoachAssignmentsGetDriverCoachAssignmentInternalServerErrorResponseBody",
     "DriverCoachAssignmentsGetDriverCoachAssignmentMethodNotAllowedErrorResponseBody",
     "DriverCoachAssignmentsGetDriverCoachAssignmentNotFoundErrorResponseBody",
@@ -4496,7 +4252,6 @@ __all__ = [
     "DriverCoachAssignmentsGetDriverCoachAssignmentTooManyRequestsErrorResponseBody",
     "DriverCoachAssignmentsGetDriverCoachAssignmentUnauthorizedErrorResponseBody",
     "DriverCoachAssignmentsPutDriverCoachAssignmentBadGatewayErrorResponseBody",
-    "DriverCoachAssignmentsPutDriverCoachAssignmentGatewayTimeoutErrorResponseBody",
     "DriverCoachAssignmentsPutDriverCoachAssignmentInternalServerErrorResponseBody",
     "DriverCoachAssignmentsPutDriverCoachAssignmentMethodNotAllowedErrorResponseBody",
     "DriverCoachAssignmentsPutDriverCoachAssignmentNotFoundErrorResponseBody",
@@ -4543,7 +4298,6 @@ __all__ = [
     "DriverObjectResponseBody",
     "DriverPhone",
     "DriverQrCodesCreateDriverQrCodeBadGatewayErrorResponseBody",
-    "DriverQrCodesCreateDriverQrCodeGatewayTimeoutErrorResponseBody",
     "DriverQrCodesCreateDriverQrCodeInternalServerErrorResponseBody",
     "DriverQrCodesCreateDriverQrCodeMethodNotAllowedErrorResponseBody",
     "DriverQrCodesCreateDriverQrCodeNotFoundErrorResponseBody",
@@ -4553,7 +4307,6 @@ __all__ = [
     "DriverQrCodesCreateDriverQrCodeTooManyRequestsErrorResponseBody",
     "DriverQrCodesCreateDriverQrCodeUnauthorizedErrorResponseBody",
     "DriverQrCodesDeleteDriverQrCodeBadGatewayErrorResponseBody",
-    "DriverQrCodesDeleteDriverQrCodeGatewayTimeoutErrorResponseBody",
     "DriverQrCodesDeleteDriverQrCodeInternalServerErrorResponseBody",
     "DriverQrCodesDeleteDriverQrCodeMethodNotAllowedErrorResponseBody",
     "DriverQrCodesDeleteDriverQrCodeNotFoundErrorResponseBody",
@@ -4562,7 +4315,6 @@ __all__ = [
     "DriverQrCodesDeleteDriverQrCodeTooManyRequestsErrorResponseBody",
     "DriverQrCodesDeleteDriverQrCodeUnauthorizedErrorResponseBody",
     "DriverQrCodesGetDriversQrCodesBadGatewayErrorResponseBody",
-    "DriverQrCodesGetDriversQrCodesGatewayTimeoutErrorResponseBody",
     "DriverQrCodesGetDriversQrCodesInternalServerErrorResponseBody",
     "DriverQrCodesGetDriversQrCodesMethodNotAllowedErrorResponseBody",
     "DriverQrCodesGetDriversQrCodesNotFoundErrorResponseBody",
@@ -4573,7 +4325,6 @@ __all__ = [
     "DriverQrCodesGetDriversQrCodesUnauthorizedErrorResponseBody",
     "DriverRecordedResponseBody",
     "DriverRemoteSignoutPostDriverRemoteSignoutBadGatewayErrorResponseBody",
-    "DriverRemoteSignoutPostDriverRemoteSignoutGatewayTimeoutErrorResponseBody",
     "DriverRemoteSignoutPostDriverRemoteSignoutInternalServerErrorResponseBody",
     "DriverRemoteSignoutPostDriverRemoteSignoutMethodNotAllowedErrorResponseBody",
     "DriverRemoteSignoutPostDriverRemoteSignoutNotFoundErrorResponseBody",
@@ -4600,7 +4351,6 @@ __all__ = [
     "DriverVehicleAssignmentV2ObjectResponseBody",
     "DriverVehicleAssignmentV2ObjectResponseBodyAssignmentType",
     "DriverVehicleAssignmentsV2CreateDriverVehicleAssignmentBadGatewayErrorResponseBody",
-    "DriverVehicleAssignmentsV2CreateDriverVehicleAssignmentGatewayTimeoutErrorResponseBody",
     "DriverVehicleAssignmentsV2CreateDriverVehicleAssignmentInternalServerErrorResponseBody",
     "DriverVehicleAssignmentsV2CreateDriverVehicleAssignmentMethodNotAllowedErrorResponseBody",
     "DriverVehicleAssignmentsV2CreateDriverVehicleAssignmentNotFoundErrorResponseBody",
@@ -4610,7 +4360,6 @@ __all__ = [
     "DriverVehicleAssignmentsV2CreateDriverVehicleAssignmentTooManyRequestsErrorResponseBody",
     "DriverVehicleAssignmentsV2CreateDriverVehicleAssignmentUnauthorizedErrorResponseBody",
     "DriverVehicleAssignmentsV2DeleteDriverVehicleAssignmentsBadGatewayErrorResponseBody",
-    "DriverVehicleAssignmentsV2DeleteDriverVehicleAssignmentsGatewayTimeoutErrorResponseBody",
     "DriverVehicleAssignmentsV2DeleteDriverVehicleAssignmentsInternalServerErrorResponseBody",
     "DriverVehicleAssignmentsV2DeleteDriverVehicleAssignmentsMethodNotAllowedErrorResponseBody",
     "DriverVehicleAssignmentsV2DeleteDriverVehicleAssignmentsNotFoundErrorResponseBody",
@@ -4619,7 +4368,6 @@ __all__ = [
     "DriverVehicleAssignmentsV2DeleteDriverVehicleAssignmentsTooManyRequestsErrorResponseBody",
     "DriverVehicleAssignmentsV2DeleteDriverVehicleAssignmentsUnauthorizedErrorResponseBody",
     "DriverVehicleAssignmentsV2GetDriverVehicleAssignmentsBadGatewayErrorResponseBody",
-    "DriverVehicleAssignmentsV2GetDriverVehicleAssignmentsGatewayTimeoutErrorResponseBody",
     "DriverVehicleAssignmentsV2GetDriverVehicleAssignmentsInternalServerErrorResponseBody",
     "DriverVehicleAssignmentsV2GetDriverVehicleAssignmentsMethodNotAllowedErrorResponseBody",
     "DriverVehicleAssignmentsV2GetDriverVehicleAssignmentsNotFoundErrorResponseBody",
@@ -4629,7 +4377,6 @@ __all__ = [
     "DriverVehicleAssignmentsV2GetDriverVehicleAssignmentsTooManyRequestsErrorResponseBody",
     "DriverVehicleAssignmentsV2GetDriverVehicleAssignmentsUnauthorizedErrorResponseBody",
     "DriverVehicleAssignmentsV2UpdateDriverVehicleAssignmentBadGatewayErrorResponseBody",
-    "DriverVehicleAssignmentsV2UpdateDriverVehicleAssignmentGatewayTimeoutErrorResponseBody",
     "DriverVehicleAssignmentsV2UpdateDriverVehicleAssignmentInternalServerErrorResponseBody",
     "DriverVehicleAssignmentsV2UpdateDriverVehicleAssignmentMethodNotAllowedErrorResponseBody",
     "DriverVehicleAssignmentsV2UpdateDriverVehicleAssignmentNotFoundErrorResponseBody",
@@ -4643,7 +4390,6 @@ __all__ = [
     "DriverWithExternalIdObjectResponseBody",
     "DriverWithTimezoneEldSettingsObjectResponseBody",
     "DriversVehicleAssignmentsGetDriversVehicleAssignmentsBadGatewayErrorResponseBody",
-    "DriversVehicleAssignmentsGetDriversVehicleAssignmentsGatewayTimeoutErrorResponseBody",
     "DriversVehicleAssignmentsGetDriversVehicleAssignmentsInternalServerErrorResponseBody",
     "DriversVehicleAssignmentsGetDriversVehicleAssignmentsMethodNotAllowedErrorResponseBody",
     "DriversVehicleAssignmentsGetDriversVehicleAssignmentsNotFoundErrorResponseBody",
@@ -4658,7 +4404,6 @@ __all__ = [
     "Dvir",
     "DvirAuthorSignature",
     "DvirDefectGetDefectBadGatewayErrorResponseBody",
-    "DvirDefectGetDefectGatewayTimeoutErrorResponseBody",
     "DvirDefectGetDefectInternalServerErrorResponseBody",
     "DvirDefectGetDefectMethodNotAllowedErrorResponseBody",
     "DvirDefectGetDefectNotFoundErrorResponseBody",
@@ -4668,7 +4413,6 @@ __all__ = [
     "DvirDefectGetDefectTooManyRequestsErrorResponseBody",
     "DvirDefectGetDefectUnauthorizedErrorResponseBody",
     "DvirDefectStreamDefectsBadGatewayErrorResponseBody",
-    "DvirDefectStreamDefectsGatewayTimeoutErrorResponseBody",
     "DvirDefectStreamDefectsInternalServerErrorResponseBody",
     "DvirDefectStreamDefectsMethodNotAllowedErrorResponseBody",
     "DvirDefectStreamDefectsNotFoundErrorResponseBody",
@@ -4678,7 +4422,6 @@ __all__ = [
     "DvirDefectStreamDefectsTooManyRequestsErrorResponseBody",
     "DvirDefectStreamDefectsUnauthorizedErrorResponseBody",
     "DvirDefectTypeGetDefectTypesBadGatewayErrorResponseBody",
-    "DvirDefectTypeGetDefectTypesGatewayTimeoutErrorResponseBody",
     "DvirDefectTypeGetDefectTypesInternalServerErrorResponseBody",
     "DvirDefectTypeGetDefectTypesMethodNotAllowedErrorResponseBody",
     "DvirDefectTypeGetDefectTypesNotFoundErrorResponseBody",
@@ -4689,7 +4432,6 @@ __all__ = [
     "DvirDefectTypeGetDefectTypesUnauthorizedErrorResponseBody",
     "DvirDefectsObjectV20220913ResponseBody",
     "DvirGetDvirBadGatewayErrorResponseBody",
-    "DvirGetDvirGatewayTimeoutErrorResponseBody",
     "DvirGetDvirInternalServerErrorResponseBody",
     "DvirGetDvirMethodNotAllowedErrorResponseBody",
     "DvirGetDvirNotFoundErrorResponseBody",
@@ -4701,7 +4443,6 @@ __all__ = [
     "DvirGetDvirTooManyRequestsErrorResponseBody",
     "DvirGetDvirUnauthorizedErrorResponseBody",
     "DvirGetDvirsBadGatewayErrorResponseBody",
-    "DvirGetDvirsGatewayTimeoutErrorResponseBody",
     "DvirGetDvirsInternalServerErrorResponseBody",
     "DvirGetDvirsMethodNotAllowedErrorResponseBody",
     "DvirGetDvirsNotFoundErrorResponseBody",
@@ -4744,7 +4485,6 @@ __all__ = [
     "EngineIdleTriggerDetailsObjectRequestBody",
     "EngineIdleTriggerDetailsObjectResponseBody",
     "EngineImmobilizerGetEngineImmobilizerStatesBadGatewayErrorResponseBody",
-    "EngineImmobilizerGetEngineImmobilizerStatesGatewayTimeoutErrorResponseBody",
     "EngineImmobilizerGetEngineImmobilizerStatesInternalServerErrorResponseBody",
     "EngineImmobilizerGetEngineImmobilizerStatesMethodNotAllowedErrorResponseBody",
     "EngineImmobilizerGetEngineImmobilizerStatesNotFoundErrorResponseBody",
@@ -4831,13 +4571,11 @@ __all__ = [
     "FormSubmissionResponseObjectResponseBody",
     "FormSubmissionResponseObjectResponseBodyStatus",
     "FormSubmissionsGetFormSubmissionsBadGatewayErrorResponseBody",
-    "FormSubmissionsGetFormSubmissionsGatewayTimeoutErrorResponseBody",
     "FormSubmissionsGetFormSubmissionsInternalServerErrorResponseBody",
     "FormSubmissionsGetFormSubmissionsMethodNotAllowedErrorResponseBody",
     "FormSubmissionsGetFormSubmissionsNotFoundErrorResponseBody",
     "FormSubmissionsGetFormSubmissionsNotImplementedErrorResponseBody",
     "FormSubmissionsGetFormSubmissionsPdfExportsBadGatewayErrorResponseBody",
-    "FormSubmissionsGetFormSubmissionsPdfExportsGatewayTimeoutErrorResponseBody",
     "FormSubmissionsGetFormSubmissionsPdfExportsInternalServerErrorResponseBody",
     "FormSubmissionsGetFormSubmissionsPdfExportsMethodNotAllowedErrorResponseBody",
     "FormSubmissionsGetFormSubmissionsPdfExportsNotFoundErrorResponseBody",
@@ -4849,7 +4587,6 @@ __all__ = [
     "FormSubmissionsGetFormSubmissionsResponseBody",
     "FormSubmissionsGetFormSubmissionsServiceUnavailableErrorResponseBody",
     "FormSubmissionsGetFormSubmissionsStreamBadGatewayErrorResponseBody",
-    "FormSubmissionsGetFormSubmissionsStreamGatewayTimeoutErrorResponseBody",
     "FormSubmissionsGetFormSubmissionsStreamInternalServerErrorResponseBody",
     "FormSubmissionsGetFormSubmissionsStreamMethodNotAllowedErrorResponseBody",
     "FormSubmissionsGetFormSubmissionsStreamNotFoundErrorResponseBody",
@@ -4861,7 +4598,6 @@ __all__ = [
     "FormSubmissionsGetFormSubmissionsTooManyRequestsErrorResponseBody",
     "FormSubmissionsGetFormSubmissionsUnauthorizedErrorResponseBody",
     "FormSubmissionsPatchFormSubmissionBadGatewayErrorResponseBody",
-    "FormSubmissionsPatchFormSubmissionGatewayTimeoutErrorResponseBody",
     "FormSubmissionsPatchFormSubmissionInternalServerErrorResponseBody",
     "FormSubmissionsPatchFormSubmissionMethodNotAllowedErrorResponseBody",
     "FormSubmissionsPatchFormSubmissionNotFoundErrorResponseBody",
@@ -4871,7 +4607,6 @@ __all__ = [
     "FormSubmissionsPatchFormSubmissionTooManyRequestsErrorResponseBody",
     "FormSubmissionsPatchFormSubmissionUnauthorizedErrorResponseBody",
     "FormSubmissionsPostFormSubmissionBadGatewayErrorResponseBody",
-    "FormSubmissionsPostFormSubmissionGatewayTimeoutErrorResponseBody",
     "FormSubmissionsPostFormSubmissionInternalServerErrorResponseBody",
     "FormSubmissionsPostFormSubmissionMethodNotAllowedErrorResponseBody",
     "FormSubmissionsPostFormSubmissionNotFoundErrorResponseBody",
@@ -4881,7 +4616,6 @@ __all__ = [
     "FormSubmissionsPostFormSubmissionTooManyRequestsErrorResponseBody",
     "FormSubmissionsPostFormSubmissionUnauthorizedErrorResponseBody",
     "FormSubmissionsPostFormSubmissionsPdfExportsBadGatewayErrorResponseBody",
-    "FormSubmissionsPostFormSubmissionsPdfExportsGatewayTimeoutErrorResponseBody",
     "FormSubmissionsPostFormSubmissionsPdfExportsInternalServerErrorResponseBody",
     "FormSubmissionsPostFormSubmissionsPdfExportsMethodNotAllowedErrorResponseBody",
     "FormSubmissionsPostFormSubmissionsPdfExportsNotFoundErrorResponseBody",
@@ -4896,7 +4630,6 @@ __all__ = [
     "FormTemplateResponseObjectResponseBody",
     "FormTemplateSectionObjectResponseBody",
     "FormTemplatesGetFormTemplatesBadGatewayErrorResponseBody",
-    "FormTemplatesGetFormTemplatesGatewayTimeoutErrorResponseBody",
     "FormTemplatesGetFormTemplatesInternalServerErrorResponseBody",
     "FormTemplatesGetFormTemplatesMethodNotAllowedErrorResponseBody",
     "FormTemplatesGetFormTemplatesNotFoundErrorResponseBody",
@@ -4961,7 +4694,6 @@ __all__ = [
     "FuelEnergyDriverReportDataObjectResponseBody",
     "FuelEnergyDriverReportObjectResponseBody",
     "FuelEnergyGetFuelEnergyDriverReportsBadGatewayErrorResponseBody",
-    "FuelEnergyGetFuelEnergyDriverReportsGatewayTimeoutErrorResponseBody",
     "FuelEnergyGetFuelEnergyDriverReportsInternalServerErrorResponseBody",
     "FuelEnergyGetFuelEnergyDriverReportsMethodNotAllowedErrorResponseBody",
     "FuelEnergyGetFuelEnergyDriverReportsNotFoundErrorResponseBody",
@@ -4971,7 +4703,6 @@ __all__ = [
     "FuelEnergyGetFuelEnergyDriverReportsTooManyRequestsErrorResponseBody",
     "FuelEnergyGetFuelEnergyDriverReportsUnauthorizedErrorResponseBody",
     "FuelEnergyGetFuelEnergyVehicleReportsBadGatewayErrorResponseBody",
-    "FuelEnergyGetFuelEnergyVehicleReportsGatewayTimeoutErrorResponseBody",
     "FuelEnergyGetFuelEnergyVehicleReportsInternalServerErrorResponseBody",
     "FuelEnergyGetFuelEnergyVehicleReportsMethodNotAllowedErrorResponseBody",
     "FuelEnergyGetFuelEnergyVehicleReportsNotFoundErrorResponseBody",
@@ -4988,7 +4719,6 @@ __all__ = [
     "FuelLevelTriggerDetailsObjectRequestBody",
     "FuelLevelTriggerDetailsObjectResponseBody",
     "FuelPurchasePostFuelPurchaseBadGatewayErrorResponseBody",
-    "FuelPurchasePostFuelPurchaseGatewayTimeoutErrorResponseBody",
     "FuelPurchasePostFuelPurchaseInternalServerErrorResponseBody",
     "FuelPurchasePostFuelPurchaseMethodNotAllowedErrorResponseBody",
     "FuelPurchasePostFuelPurchaseNotFoundErrorResponseBody",
@@ -5015,7 +4745,6 @@ __all__ = [
     "GatewayWithVehicleTinyResponseResponseBody",
     "GatewayWithVehicleTinyResponseResponseBodyModel",
     "GatewaysDeleteGatewayBadGatewayErrorResponseBody",
-    "GatewaysDeleteGatewayGatewayTimeoutErrorResponseBody",
     "GatewaysDeleteGatewayInternalServerErrorResponseBody",
     "GatewaysDeleteGatewayMethodNotAllowedErrorResponseBody",
     "GatewaysDeleteGatewayNotFoundErrorResponseBody",
@@ -5024,7 +4753,6 @@ __all__ = [
     "GatewaysDeleteGatewayTooManyRequestsErrorResponseBody",
     "GatewaysDeleteGatewayUnauthorizedErrorResponseBody",
     "GatewaysGetGatewaysBadGatewayErrorResponseBody",
-    "GatewaysGetGatewaysGatewayTimeoutErrorResponseBody",
     "GatewaysGetGatewaysInternalServerErrorResponseBody",
     "GatewaysGetGatewaysMethodNotAllowedErrorResponseBody",
     "GatewaysGetGatewaysNotFoundErrorResponseBody",
@@ -5034,7 +4762,6 @@ __all__ = [
     "GatewaysGetGatewaysTooManyRequestsErrorResponseBody",
     "GatewaysGetGatewaysUnauthorizedErrorResponseBody",
     "GatewaysPostGatewayBadGatewayErrorResponseBody",
-    "GatewaysPostGatewayGatewayTimeoutErrorResponseBody",
     "GatewaysPostGatewayInternalServerErrorResponseBody",
     "GatewaysPostGatewayMethodNotAllowedErrorResponseBody",
     "GatewaysPostGatewayNotFoundErrorResponseBody",
@@ -5111,7 +4838,6 @@ __all__ = [
     "HosClocksResponse",
     "HosCycle",
     "HosDailyLogsGetHosDailyLogsBadGatewayErrorResponseBody",
-    "HosDailyLogsGetHosDailyLogsGatewayTimeoutErrorResponseBody",
     "HosDailyLogsGetHosDailyLogsInternalServerErrorResponseBody",
     "HosDailyLogsGetHosDailyLogsMethodNotAllowedErrorResponseBody",
     "HosDailyLogsGetHosDailyLogsNotFoundErrorResponseBody",
@@ -5140,7 +4866,6 @@ __all__ = [
     "HosViolationTriggerDetailsObjectResponseBodyViolation",
     "HosViolations",
     "HosViolationsGetHosViolationsBadGatewayErrorResponseBody",
-    "HosViolationsGetHosViolationsGatewayTimeoutErrorResponseBody",
     "HosViolationsGetHosViolationsInternalServerErrorResponseBody",
     "HosViolationsGetHosViolationsMethodNotAllowedErrorResponseBody",
     "HosViolationsGetHosViolationsNotFoundErrorResponseBody",
@@ -5155,7 +4880,6 @@ __all__ = [
     "IdlingReportEventAddressResponseBody",
     "IdlingReportEventResponseBody",
     "IdlingReportsGetVehicleIdlingReportsBadGatewayErrorResponseBody",
-    "IdlingReportsGetVehicleIdlingReportsGatewayTimeoutErrorResponseBody",
     "IdlingReportsGetVehicleIdlingReportsInternalServerErrorResponseBody",
     "IdlingReportsGetVehicleIdlingReportsMethodNotAllowedErrorResponseBody",
     "IdlingReportsGetVehicleIdlingReportsNotFoundErrorResponseBody",
@@ -5165,7 +4889,6 @@ __all__ = [
     "IdlingReportsGetVehicleIdlingReportsTooManyRequestsErrorResponseBody",
     "IdlingReportsGetVehicleIdlingReportsUnauthorizedErrorResponseBody",
     "IftaCreateIftaDetailJobBadGatewayErrorResponseBody",
-    "IftaCreateIftaDetailJobGatewayTimeoutErrorResponseBody",
     "IftaCreateIftaDetailJobInternalServerErrorResponseBody",
     "IftaCreateIftaDetailJobMethodNotAllowedErrorResponseBody",
     "IftaCreateIftaDetailJobNotFoundErrorResponseBody",
@@ -5179,7 +4902,6 @@ __all__ = [
     "IftaDetailJobResponseBody",
     "IftaDetailJobResponseBodyJobStatus",
     "IftaGetIftaDetailJobBadGatewayErrorResponseBody",
-    "IftaGetIftaDetailJobGatewayTimeoutErrorResponseBody",
     "IftaGetIftaDetailJobInternalServerErrorResponseBody",
     "IftaGetIftaDetailJobMethodNotAllowedErrorResponseBody",
     "IftaGetIftaDetailJobNotFoundErrorResponseBody",
@@ -5189,7 +4911,6 @@ __all__ = [
     "IftaGetIftaDetailJobTooManyRequestsErrorResponseBody",
     "IftaGetIftaDetailJobUnauthorizedErrorResponseBody",
     "IftaGetIftaJurisdictionReportsBadGatewayErrorResponseBody",
-    "IftaGetIftaJurisdictionReportsGatewayTimeoutErrorResponseBody",
     "IftaGetIftaJurisdictionReportsInternalServerErrorResponseBody",
     "IftaGetIftaJurisdictionReportsMethodNotAllowedErrorResponseBody",
     "IftaGetIftaJurisdictionReportsNotFoundErrorResponseBody",
@@ -5199,7 +4920,6 @@ __all__ = [
     "IftaGetIftaJurisdictionReportsTooManyRequestsErrorResponseBody",
     "IftaGetIftaJurisdictionReportsUnauthorizedErrorResponseBody",
     "IftaGetIftaVehicleReportsBadGatewayErrorResponseBody",
-    "IftaGetIftaVehicleReportsGatewayTimeoutErrorResponseBody",
     "IftaGetIftaVehicleReportsInternalServerErrorResponseBody",
     "IftaGetIftaVehicleReportsMethodNotAllowedErrorResponseBody",
     "IftaGetIftaVehicleReportsNotFoundErrorResponseBody",
@@ -5230,7 +4950,6 @@ __all__ = [
     "IssueSourceObjectResponseBody",
     "IssueSourceObjectResponseBodyType",
     "IssuesGetIssuesBadGatewayErrorResponseBody",
-    "IssuesGetIssuesGatewayTimeoutErrorResponseBody",
     "IssuesGetIssuesInternalServerErrorResponseBody",
     "IssuesGetIssuesMethodNotAllowedErrorResponseBody",
     "IssuesGetIssuesNotFoundErrorResponseBody",
@@ -5238,7 +4957,6 @@ __all__ = [
     "IssuesGetIssuesResponseBody",
     "IssuesGetIssuesServiceUnavailableErrorResponseBody",
     "IssuesGetIssuesStreamBadGatewayErrorResponseBody",
-    "IssuesGetIssuesStreamGatewayTimeoutErrorResponseBody",
     "IssuesGetIssuesStreamInternalServerErrorResponseBody",
     "IssuesGetIssuesStreamMethodNotAllowedErrorResponseBody",
     "IssuesGetIssuesStreamNotFoundErrorResponseBody",
@@ -5250,7 +4968,6 @@ __all__ = [
     "IssuesGetIssuesTooManyRequestsErrorResponseBody",
     "IssuesGetIssuesUnauthorizedErrorResponseBody",
     "IssuesPatchIssueBadGatewayErrorResponseBody",
-    "IssuesPatchIssueGatewayTimeoutErrorResponseBody",
     "IssuesPatchIssueInternalServerErrorResponseBody",
     "IssuesPatchIssueMethodNotAllowedErrorResponseBody",
     "IssuesPatchIssueNotFoundErrorResponseBody",
@@ -5273,7 +4990,6 @@ __all__ = [
     "LiveSharingLinkFullResponseObjectResponseBodyType",
     "LiveSharingLinkResponseObjectResponseBody",
     "LiveSharingLinksCreateLiveSharingLinkBadGatewayErrorResponseBody",
-    "LiveSharingLinksCreateLiveSharingLinkGatewayTimeoutErrorResponseBody",
     "LiveSharingLinksCreateLiveSharingLinkInternalServerErrorResponseBody",
     "LiveSharingLinksCreateLiveSharingLinkMethodNotAllowedErrorResponseBody",
     "LiveSharingLinksCreateLiveSharingLinkNotFoundErrorResponseBody",
@@ -5283,7 +4999,6 @@ __all__ = [
     "LiveSharingLinksCreateLiveSharingLinkTooManyRequestsErrorResponseBody",
     "LiveSharingLinksCreateLiveSharingLinkUnauthorizedErrorResponseBody",
     "LiveSharingLinksDeleteLiveSharingLinkBadGatewayErrorResponseBody",
-    "LiveSharingLinksDeleteLiveSharingLinkGatewayTimeoutErrorResponseBody",
     "LiveSharingLinksDeleteLiveSharingLinkInternalServerErrorResponseBody",
     "LiveSharingLinksDeleteLiveSharingLinkMethodNotAllowedErrorResponseBody",
     "LiveSharingLinksDeleteLiveSharingLinkNotFoundErrorResponseBody",
@@ -5292,7 +5007,6 @@ __all__ = [
     "LiveSharingLinksDeleteLiveSharingLinkTooManyRequestsErrorResponseBody",
     "LiveSharingLinksDeleteLiveSharingLinkUnauthorizedErrorResponseBody",
     "LiveSharingLinksGetLiveSharingLinksBadGatewayErrorResponseBody",
-    "LiveSharingLinksGetLiveSharingLinksGatewayTimeoutErrorResponseBody",
     "LiveSharingLinksGetLiveSharingLinksInternalServerErrorResponseBody",
     "LiveSharingLinksGetLiveSharingLinksMethodNotAllowedErrorResponseBody",
     "LiveSharingLinksGetLiveSharingLinksNotFoundErrorResponseBody",
@@ -5302,7 +5016,6 @@ __all__ = [
     "LiveSharingLinksGetLiveSharingLinksTooManyRequestsErrorResponseBody",
     "LiveSharingLinksGetLiveSharingLinksUnauthorizedErrorResponseBody",
     "LiveSharingLinksUpdateLiveSharingLinkBadGatewayErrorResponseBody",
-    "LiveSharingLinksUpdateLiveSharingLinkGatewayTimeoutErrorResponseBody",
     "LiveSharingLinksUpdateLiveSharingLinkInternalServerErrorResponseBody",
     "LiveSharingLinksUpdateLiveSharingLinkMethodNotAllowedErrorResponseBody",
     "LiveSharingLinksUpdateLiveSharingLinkNotFoundErrorResponseBody",
@@ -5313,7 +5026,6 @@ __all__ = [
     "LiveSharingLinksUpdateLiveSharingLinkUnauthorizedErrorResponseBody",
     "Location",
     "LocationAndSpeedGetLocationAndSpeedBadGatewayErrorResponseBody",
-    "LocationAndSpeedGetLocationAndSpeedGatewayTimeoutErrorResponseBody",
     "LocationAndSpeedGetLocationAndSpeedInternalServerErrorResponseBody",
     "LocationAndSpeedGetLocationAndSpeedMethodNotAllowedErrorResponseBody",
     "LocationAndSpeedGetLocationAndSpeedNotFoundErrorResponseBody",
@@ -5334,7 +5046,6 @@ __all__ = [
     "MediaObjectResponseBodyMediaType",
     "MediaObjectResponseBodyStatus",
     "MediaRetrievalGetMediaRetrievalBadGatewayErrorResponseBody",
-    "MediaRetrievalGetMediaRetrievalGatewayTimeoutErrorResponseBody",
     "MediaRetrievalGetMediaRetrievalInternalServerErrorResponseBody",
     "MediaRetrievalGetMediaRetrievalMethodNotAllowedErrorResponseBody",
     "MediaRetrievalGetMediaRetrievalNotFoundErrorResponseBody",
@@ -5344,7 +5055,6 @@ __all__ = [
     "MediaRetrievalGetMediaRetrievalTooManyRequestsErrorResponseBody",
     "MediaRetrievalGetMediaRetrievalUnauthorizedErrorResponseBody",
     "MediaRetrievalListUploadedMediaBadGatewayErrorResponseBody",
-    "MediaRetrievalListUploadedMediaGatewayTimeoutErrorResponseBody",
     "MediaRetrievalListUploadedMediaInternalServerErrorResponseBody",
     "MediaRetrievalListUploadedMediaMethodNotAllowedErrorResponseBody",
     "MediaRetrievalListUploadedMediaNotFoundErrorResponseBody",
@@ -5354,7 +5064,6 @@ __all__ = [
     "MediaRetrievalListUploadedMediaTooManyRequestsErrorResponseBody",
     "MediaRetrievalListUploadedMediaUnauthorizedErrorResponseBody",
     "MediaRetrievalPostMediaRetrievalBadGatewayErrorResponseBody",
-    "MediaRetrievalPostMediaRetrievalGatewayTimeoutErrorResponseBody",
     "MediaRetrievalPostMediaRetrievalInternalServerErrorResponseBody",
     "MediaRetrievalPostMediaRetrievalMethodNotAllowedErrorResponseBody",
     "MediaRetrievalPostMediaRetrievalNotFoundErrorResponseBody",
@@ -5436,7 +5145,6 @@ __all__ = [
     "ReadingTypeResponseBody",
     "ReadingTypeResponseBodyDataType",
     "ReadingsGetReadingsHistoryBadGatewayErrorResponseBody",
-    "ReadingsGetReadingsHistoryGatewayTimeoutErrorResponseBody",
     "ReadingsGetReadingsHistoryInternalServerErrorResponseBody",
     "ReadingsGetReadingsHistoryMethodNotAllowedErrorResponseBody",
     "ReadingsGetReadingsHistoryNotFoundErrorResponseBody",
@@ -5446,7 +5154,6 @@ __all__ = [
     "ReadingsGetReadingsHistoryTooManyRequestsErrorResponseBody",
     "ReadingsGetReadingsHistoryUnauthorizedErrorResponseBody",
     "ReadingsGetReadingsSnapshotBadGatewayErrorResponseBody",
-    "ReadingsGetReadingsSnapshotGatewayTimeoutErrorResponseBody",
     "ReadingsGetReadingsSnapshotInternalServerErrorResponseBody",
     "ReadingsGetReadingsSnapshotMethodNotAllowedErrorResponseBody",
     "ReadingsGetReadingsSnapshotNotFoundErrorResponseBody",
@@ -5456,7 +5163,6 @@ __all__ = [
     "ReadingsGetReadingsSnapshotTooManyRequestsErrorResponseBody",
     "ReadingsGetReadingsSnapshotUnauthorizedErrorResponseBody",
     "ReadingsListReadingsDefinitionsBadGatewayErrorResponseBody",
-    "ReadingsListReadingsDefinitionsGatewayTimeoutErrorResponseBody",
     "ReadingsListReadingsDefinitionsInternalServerErrorResponseBody",
     "ReadingsListReadingsDefinitionsMethodNotAllowedErrorResponseBody",
     "ReadingsListReadingsDefinitionsNotFoundErrorResponseBody",
@@ -5491,7 +5197,6 @@ __all__ = [
     "RouteStopEstimatedArrivalDetailsObjectResponseBody",
     "RouteStopEtaResponseBody",
     "RoutesCreateRouteBadGatewayErrorResponseBody",
-    "RoutesCreateRouteGatewayTimeoutErrorResponseBody",
     "RoutesCreateRouteInternalServerErrorResponseBody",
     "RoutesCreateRouteMethodNotAllowedErrorResponseBody",
     "RoutesCreateRouteNotFoundErrorResponseBody",
@@ -5501,7 +5206,6 @@ __all__ = [
     "RoutesCreateRouteTooManyRequestsErrorResponseBody",
     "RoutesCreateRouteUnauthorizedErrorResponseBody",
     "RoutesDeleteRouteBadGatewayErrorResponseBody",
-    "RoutesDeleteRouteGatewayTimeoutErrorResponseBody",
     "RoutesDeleteRouteInternalServerErrorResponseBody",
     "RoutesDeleteRouteMethodNotAllowedErrorResponseBody",
     "RoutesDeleteRouteNotFoundErrorResponseBody",
@@ -5510,7 +5214,6 @@ __all__ = [
     "RoutesDeleteRouteTooManyRequestsErrorResponseBody",
     "RoutesDeleteRouteUnauthorizedErrorResponseBody",
     "RoutesFetchRouteBadGatewayErrorResponseBody",
-    "RoutesFetchRouteGatewayTimeoutErrorResponseBody",
     "RoutesFetchRouteInternalServerErrorResponseBody",
     "RoutesFetchRouteMethodNotAllowedErrorResponseBody",
     "RoutesFetchRouteNotFoundErrorResponseBody",
@@ -5520,7 +5223,6 @@ __all__ = [
     "RoutesFetchRouteTooManyRequestsErrorResponseBody",
     "RoutesFetchRouteUnauthorizedErrorResponseBody",
     "RoutesFetchRoutesBadGatewayErrorResponseBody",
-    "RoutesFetchRoutesGatewayTimeoutErrorResponseBody",
     "RoutesFetchRoutesInternalServerErrorResponseBody",
     "RoutesFetchRoutesMethodNotAllowedErrorResponseBody",
     "RoutesFetchRoutesNotFoundErrorResponseBody",
@@ -5530,7 +5232,6 @@ __all__ = [
     "RoutesFetchRoutesTooManyRequestsErrorResponseBody",
     "RoutesFetchRoutesUnauthorizedErrorResponseBody",
     "RoutesGetRoutesFeedBadGatewayErrorResponseBody",
-    "RoutesGetRoutesFeedGatewayTimeoutErrorResponseBody",
     "RoutesGetRoutesFeedInternalServerErrorResponseBody",
     "RoutesGetRoutesFeedMethodNotAllowedErrorResponseBody",
     "RoutesGetRoutesFeedNotFoundErrorResponseBody",
@@ -5540,7 +5241,6 @@ __all__ = [
     "RoutesGetRoutesFeedTooManyRequestsErrorResponseBody",
     "RoutesGetRoutesFeedUnauthorizedErrorResponseBody",
     "RoutesPatchRouteBadGatewayErrorResponseBody",
-    "RoutesPatchRouteGatewayTimeoutErrorResponseBody",
     "RoutesPatchRouteInternalServerErrorResponseBody",
     "RoutesPatchRouteMethodNotAllowedErrorResponseBody",
     "RoutesPatchRouteNotFoundErrorResponseBody",
@@ -5574,7 +5274,6 @@ __all__ = [
     "SafetyEventTime",
     "SafetyEventVehicleObjectResponseBody",
     "SafetyEventsGetSafetyActivityEventFeedBadGatewayErrorResponseBody",
-    "SafetyEventsGetSafetyActivityEventFeedGatewayTimeoutErrorResponseBody",
     "SafetyEventsGetSafetyActivityEventFeedInternalServerErrorResponseBody",
     "SafetyEventsGetSafetyActivityEventFeedMethodNotAllowedErrorResponseBody",
     "SafetyEventsGetSafetyActivityEventFeedNotFoundErrorResponseBody",
@@ -5586,7 +5285,6 @@ __all__ = [
     "SafetyEventsListResponse",
     "SafetyScoreConfigurationSettingsObjectResponseBody",
     "SafetySettingsGetSafetySettingsBadGatewayErrorResponseBody",
-    "SafetySettingsGetSafetySettingsGatewayTimeoutErrorResponseBody",
     "SafetySettingsGetSafetySettingsInternalServerErrorResponseBody",
     "SafetySettingsGetSafetySettingsMethodNotAllowedErrorResponseBody",
     "SafetySettingsGetSafetySettingsNotFoundErrorResponseBody",
@@ -5620,7 +5318,6 @@ __all__ = [
     "ServiceTaskInstanceObjectResponseBodyStatus",
     "SettingsComplianceResponseObjectResponseBody",
     "SettingsGetComplianceSettingsBadGatewayErrorResponseBody",
-    "SettingsGetComplianceSettingsGatewayTimeoutErrorResponseBody",
     "SettingsGetComplianceSettingsInternalServerErrorResponseBody",
     "SettingsGetComplianceSettingsMethodNotAllowedErrorResponseBody",
     "SettingsGetComplianceSettingsNotFoundErrorResponseBody",
@@ -5630,7 +5327,6 @@ __all__ = [
     "SettingsGetComplianceSettingsTooManyRequestsErrorResponseBody",
     "SettingsGetComplianceSettingsUnauthorizedErrorResponseBody",
     "SettingsGetDriverAppSettingsBadGatewayErrorResponseBody",
-    "SettingsGetDriverAppSettingsGatewayTimeoutErrorResponseBody",
     "SettingsGetDriverAppSettingsInternalServerErrorResponseBody",
     "SettingsGetDriverAppSettingsMethodNotAllowedErrorResponseBody",
     "SettingsGetDriverAppSettingsNotFoundErrorResponseBody",
@@ -5640,7 +5336,6 @@ __all__ = [
     "SettingsGetDriverAppSettingsTooManyRequestsErrorResponseBody",
     "SettingsGetDriverAppSettingsUnauthorizedErrorResponseBody",
     "SettingsPatchComplianceSettingsBadGatewayErrorResponseBody",
-    "SettingsPatchComplianceSettingsGatewayTimeoutErrorResponseBody",
     "SettingsPatchComplianceSettingsInternalServerErrorResponseBody",
     "SettingsPatchComplianceSettingsMethodNotAllowedErrorResponseBody",
     "SettingsPatchComplianceSettingsNotFoundErrorResponseBody",
@@ -5650,7 +5345,6 @@ __all__ = [
     "SettingsPatchComplianceSettingsTooManyRequestsErrorResponseBody",
     "SettingsPatchComplianceSettingsUnauthorizedErrorResponseBody",
     "SettingsPatchDriverAppSettingsBadGatewayErrorResponseBody",
-    "SettingsPatchDriverAppSettingsGatewayTimeoutErrorResponseBody",
     "SettingsPatchDriverAppSettingsInternalServerErrorResponseBody",
     "SettingsPatchDriverAppSettingsMethodNotAllowedErrorResponseBody",
     "SettingsPatchDriverAppSettingsNotFoundErrorResponseBody",
@@ -5683,7 +5377,6 @@ __all__ = [
     "SpeedingIntervalResponseBody",
     "SpeedingIntervalResponseBodySeverityLevel",
     "SpeedingIntervalsGetSpeedingIntervalsBadGatewayErrorResponseBody",
-    "SpeedingIntervalsGetSpeedingIntervalsGatewayTimeoutErrorResponseBody",
     "SpeedingIntervalsGetSpeedingIntervalsInternalServerErrorResponseBody",
     "SpeedingIntervalsGetSpeedingIntervalsMethodNotAllowedErrorResponseBody",
     "SpeedingIntervalsGetSpeedingIntervalsNotFoundErrorResponseBody",
@@ -5749,7 +5442,6 @@ __all__ = [
     "TireFaultCodeDetailsObjectResponseBodySpecificTireFaultCodesItem",
     "TireFaultsResponseBody",
     "TrailerAssignmentsCreateDriverTrailerAssignmentBadGatewayErrorResponseBody",
-    "TrailerAssignmentsCreateDriverTrailerAssignmentGatewayTimeoutErrorResponseBody",
     "TrailerAssignmentsCreateDriverTrailerAssignmentInternalServerErrorResponseBody",
     "TrailerAssignmentsCreateDriverTrailerAssignmentMethodNotAllowedErrorResponseBody",
     "TrailerAssignmentsCreateDriverTrailerAssignmentNotFoundErrorResponseBody",
@@ -5759,7 +5451,6 @@ __all__ = [
     "TrailerAssignmentsCreateDriverTrailerAssignmentTooManyRequestsErrorResponseBody",
     "TrailerAssignmentsCreateDriverTrailerAssignmentUnauthorizedErrorResponseBody",
     "TrailerAssignmentsGetDriverTrailerAssignmentsBadGatewayErrorResponseBody",
-    "TrailerAssignmentsGetDriverTrailerAssignmentsGatewayTimeoutErrorResponseBody",
     "TrailerAssignmentsGetDriverTrailerAssignmentsInternalServerErrorResponseBody",
     "TrailerAssignmentsGetDriverTrailerAssignmentsMethodNotAllowedErrorResponseBody",
     "TrailerAssignmentsGetDriverTrailerAssignmentsNotFoundErrorResponseBody",
@@ -5769,7 +5460,6 @@ __all__ = [
     "TrailerAssignmentsGetDriverTrailerAssignmentsTooManyRequestsErrorResponseBody",
     "TrailerAssignmentsGetDriverTrailerAssignmentsUnauthorizedErrorResponseBody",
     "TrailerAssignmentsUpdateDriverTrailerAssignmentBadGatewayErrorResponseBody",
-    "TrailerAssignmentsUpdateDriverTrailerAssignmentGatewayTimeoutErrorResponseBody",
     "TrailerAssignmentsUpdateDriverTrailerAssignmentInternalServerErrorResponseBody",
     "TrailerAssignmentsUpdateDriverTrailerAssignmentMethodNotAllowedErrorResponseBody",
     "TrailerAssignmentsUpdateDriverTrailerAssignmentNotFoundErrorResponseBody",
