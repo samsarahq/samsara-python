@@ -8,7 +8,7 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 
 
-class FormSubmissionsGetFormSubmissionsNotImplementedErrorResponseBody(UniversalBaseModel):
+class NotImplementedErrorResponseBody(UniversalBaseModel):
     """
     Requested endpoint is not yet implemented
     """
