@@ -50,9 +50,6 @@ from .sudden_fuel_level_rise_trigger_details_object_response_body import (
     SuddenFuelLevelRiseTriggerDetailsObjectResponseBody,
 )
 from .tire_fault_code_details_object_response_body import TireFaultCodeDetailsObjectResponseBody
-from .training_assignment_near_due_date_trigger_details_object_response_body import (
-    TrainingAssignmentNearDueDateTriggerDetailsObjectResponseBody,
-)
 from .unassigned_driving_trigger_details_object_response_body import UnassignedDrivingTriggerDetailsObjectResponseBody
 from .vehicle_batter_voltage_details_object_response_body import VehicleBatterVoltageDetailsObjectResponseBody
 from .vehicle_fault_code_details_object_response_body import VehicleFaultCodeDetailsObjectResponseBody
@@ -154,8 +151,7 @@ class TriggerParamsObjectResponseBody(UniversalBaseModel):
         typing.Optional[TireFaultCodeDetailsObjectResponseBody], FieldMetadata(alias="tireFaultCode")
     ] = None
     training_assignment_near_due_date: typing_extensions.Annotated[
-        typing.Optional[TrainingAssignmentNearDueDateTriggerDetailsObjectResponseBody],
-        FieldMetadata(alias="trainingAssignmentNearDueDate"),
+        typing.Optional[typing.Optional[typing.Any]], FieldMetadata(alias="trainingAssignmentNearDueDate")
     ] = None
     unassigned_driving: typing_extensions.Annotated[
         typing.Optional[UnassignedDrivingTriggerDetailsObjectResponseBody], FieldMetadata(alias="unassignedDriving")
