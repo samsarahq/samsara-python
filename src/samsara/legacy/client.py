@@ -4,7 +4,9 @@ import typing
 
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.request_options import RequestOptions
-from ..types.get_vehicles_driver_assignments_response_body import GetVehiclesDriverAssignmentsResponseBody
+from ..types.vehicles_driver_assignments_get_vehicles_driver_assignments_response_body import (
+    VehiclesDriverAssignmentsGetVehiclesDriverAssignmentsResponseBody,
+)
 from .raw_client import AsyncRawLegacyClient, RawLegacyClient
 
 
@@ -33,7 +35,7 @@ class LegacyClient:
         parent_tag_ids: typing.Optional[str] = None,
         after: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> GetVehiclesDriverAssignmentsResponseBody:
+    ) -> VehiclesDriverAssignmentsGetVehiclesDriverAssignmentsResponseBody:
         """
         **Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getdrivervehicleassignments) instead. The endpoint will continue to function as documented.** Get all driver assignments for the requested vehicles in the requested time range. The only type of assignment supported right now are assignments created through the driver app.
 
@@ -69,7 +71,7 @@ class LegacyClient:
 
         Returns
         -------
-        GetVehiclesDriverAssignmentsResponseBody
+        VehiclesDriverAssignmentsGetVehiclesDriverAssignmentsResponseBody
             OK response.
 
         Examples
@@ -118,7 +120,7 @@ class AsyncLegacyClient:
         parent_tag_ids: typing.Optional[str] = None,
         after: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> GetVehiclesDriverAssignmentsResponseBody:
+    ) -> VehiclesDriverAssignmentsGetVehiclesDriverAssignmentsResponseBody:
         """
         **Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getdrivervehicleassignments) instead. The endpoint will continue to function as documented.** Get all driver assignments for the requested vehicles in the requested time range. The only type of assignment supported right now are assignments created through the driver app.
 
@@ -154,7 +156,7 @@ class AsyncLegacyClient:
 
         Returns
         -------
-        GetVehiclesDriverAssignmentsResponseBody
+        VehiclesDriverAssignmentsGetVehiclesDriverAssignmentsResponseBody
             OK response.
 
         Examples
