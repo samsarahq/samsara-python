@@ -1223,60 +1223,8 @@ from .trailers_update_trailer_too_many_requests_error_response_body import (
     TrailersUpdateTrailerTooManyRequestsErrorResponseBody,
 )
 from .trailers_update_trailer_unauthorized_error_response_body import TrailersUpdateTrailerUnauthorizedErrorResponseBody
-from .training_assignment_near_due_date_trigger_assignment_group_object_request_body import (
-    TrainingAssignmentNearDueDateTriggerAssignmentGroupObjectRequestBody,
-)
-from .training_assignment_near_due_date_trigger_assignment_group_object_request_body_assignment_group_type import (
-    TrainingAssignmentNearDueDateTriggerAssignmentGroupObjectRequestBodyAssignmentGroupType,
-)
-from .training_assignment_near_due_date_trigger_assignment_group_object_response_body import (
-    TrainingAssignmentNearDueDateTriggerAssignmentGroupObjectResponseBody,
-)
-from .training_assignment_near_due_date_trigger_assignment_group_object_response_body_assignment_group_type import (
-    TrainingAssignmentNearDueDateTriggerAssignmentGroupObjectResponseBodyAssignmentGroupType,
-)
-from .training_assignment_near_due_date_trigger_details_object_request_body import (
-    TrainingAssignmentNearDueDateTriggerDetailsObjectRequestBody,
-)
-from .training_assignment_near_due_date_trigger_details_object_request_body_condition_units import (
-    TrainingAssignmentNearDueDateTriggerDetailsObjectRequestBodyConditionUnits,
-)
-from .training_assignment_near_due_date_trigger_details_object_response_body import (
-    TrainingAssignmentNearDueDateTriggerDetailsObjectResponseBody,
-)
-from .training_assignment_near_due_date_trigger_details_object_response_body_condition_units import (
-    TrainingAssignmentNearDueDateTriggerDetailsObjectResponseBodyConditionUnits,
-)
-from .training_assignment_post_response_object_response_body import TrainingAssignmentPostResponseObjectResponseBody
 from .training_assignment_response_object_response_body import TrainingAssignmentResponseObjectResponseBody
 from .training_assignment_response_object_response_body_status import TrainingAssignmentResponseObjectResponseBodyStatus
-from .training_assignments_delete_training_assignments_bad_gateway_error_response_body import (
-    TrainingAssignmentsDeleteTrainingAssignmentsBadGatewayErrorResponseBody,
-)
-from .training_assignments_delete_training_assignments_gateway_timeout_error_response_body import (
-    TrainingAssignmentsDeleteTrainingAssignmentsGatewayTimeoutErrorResponseBody,
-)
-from .training_assignments_delete_training_assignments_internal_server_error_response_body import (
-    TrainingAssignmentsDeleteTrainingAssignmentsInternalServerErrorResponseBody,
-)
-from .training_assignments_delete_training_assignments_method_not_allowed_error_response_body import (
-    TrainingAssignmentsDeleteTrainingAssignmentsMethodNotAllowedErrorResponseBody,
-)
-from .training_assignments_delete_training_assignments_not_found_error_response_body import (
-    TrainingAssignmentsDeleteTrainingAssignmentsNotFoundErrorResponseBody,
-)
-from .training_assignments_delete_training_assignments_not_implemented_error_response_body import (
-    TrainingAssignmentsDeleteTrainingAssignmentsNotImplementedErrorResponseBody,
-)
-from .training_assignments_delete_training_assignments_service_unavailable_error_response_body import (
-    TrainingAssignmentsDeleteTrainingAssignmentsServiceUnavailableErrorResponseBody,
-)
-from .training_assignments_delete_training_assignments_too_many_requests_error_response_body import (
-    TrainingAssignmentsDeleteTrainingAssignmentsTooManyRequestsErrorResponseBody,
-)
-from .training_assignments_delete_training_assignments_unauthorized_error_response_body import (
-    TrainingAssignmentsDeleteTrainingAssignmentsUnauthorizedErrorResponseBody,
-)
 from .training_assignments_get_training_assignments_stream_bad_gateway_error_response_body import (
     TrainingAssignmentsGetTrainingAssignmentsStreamBadGatewayErrorResponseBody,
 )
@@ -1306,66 +1254,6 @@ from .training_assignments_get_training_assignments_stream_too_many_requests_err
 )
 from .training_assignments_get_training_assignments_stream_unauthorized_error_response_body import (
     TrainingAssignmentsGetTrainingAssignmentsStreamUnauthorizedErrorResponseBody,
-)
-from .training_assignments_patch_training_assignments_bad_gateway_error_response_body import (
-    TrainingAssignmentsPatchTrainingAssignmentsBadGatewayErrorResponseBody,
-)
-from .training_assignments_patch_training_assignments_gateway_timeout_error_response_body import (
-    TrainingAssignmentsPatchTrainingAssignmentsGatewayTimeoutErrorResponseBody,
-)
-from .training_assignments_patch_training_assignments_internal_server_error_response_body import (
-    TrainingAssignmentsPatchTrainingAssignmentsInternalServerErrorResponseBody,
-)
-from .training_assignments_patch_training_assignments_method_not_allowed_error_response_body import (
-    TrainingAssignmentsPatchTrainingAssignmentsMethodNotAllowedErrorResponseBody,
-)
-from .training_assignments_patch_training_assignments_not_found_error_response_body import (
-    TrainingAssignmentsPatchTrainingAssignmentsNotFoundErrorResponseBody,
-)
-from .training_assignments_patch_training_assignments_not_implemented_error_response_body import (
-    TrainingAssignmentsPatchTrainingAssignmentsNotImplementedErrorResponseBody,
-)
-from .training_assignments_patch_training_assignments_response_body import (
-    TrainingAssignmentsPatchTrainingAssignmentsResponseBody,
-)
-from .training_assignments_patch_training_assignments_service_unavailable_error_response_body import (
-    TrainingAssignmentsPatchTrainingAssignmentsServiceUnavailableErrorResponseBody,
-)
-from .training_assignments_patch_training_assignments_too_many_requests_error_response_body import (
-    TrainingAssignmentsPatchTrainingAssignmentsTooManyRequestsErrorResponseBody,
-)
-from .training_assignments_patch_training_assignments_unauthorized_error_response_body import (
-    TrainingAssignmentsPatchTrainingAssignmentsUnauthorizedErrorResponseBody,
-)
-from .training_assignments_post_training_assignments_bad_gateway_error_response_body import (
-    TrainingAssignmentsPostTrainingAssignmentsBadGatewayErrorResponseBody,
-)
-from .training_assignments_post_training_assignments_gateway_timeout_error_response_body import (
-    TrainingAssignmentsPostTrainingAssignmentsGatewayTimeoutErrorResponseBody,
-)
-from .training_assignments_post_training_assignments_internal_server_error_response_body import (
-    TrainingAssignmentsPostTrainingAssignmentsInternalServerErrorResponseBody,
-)
-from .training_assignments_post_training_assignments_method_not_allowed_error_response_body import (
-    TrainingAssignmentsPostTrainingAssignmentsMethodNotAllowedErrorResponseBody,
-)
-from .training_assignments_post_training_assignments_not_found_error_response_body import (
-    TrainingAssignmentsPostTrainingAssignmentsNotFoundErrorResponseBody,
-)
-from .training_assignments_post_training_assignments_not_implemented_error_response_body import (
-    TrainingAssignmentsPostTrainingAssignmentsNotImplementedErrorResponseBody,
-)
-from .training_assignments_post_training_assignments_response_body import (
-    TrainingAssignmentsPostTrainingAssignmentsResponseBody,
-)
-from .training_assignments_post_training_assignments_service_unavailable_error_response_body import (
-    TrainingAssignmentsPostTrainingAssignmentsServiceUnavailableErrorResponseBody,
-)
-from .training_assignments_post_training_assignments_too_many_requests_error_response_body import (
-    TrainingAssignmentsPostTrainingAssignmentsTooManyRequestsErrorResponseBody,
-)
-from .training_assignments_post_training_assignments_unauthorized_error_response_body import (
-    TrainingAssignmentsPostTrainingAssignmentsUnauthorizedErrorResponseBody,
 )
 from .training_category_object_response_body import TrainingCategoryObjectResponseBody
 from .training_course_label_object_response_body import TrainingCourseLabelObjectResponseBody
@@ -2879,26 +2767,8 @@ __all__ = [
     "TrailersUpdateTrailerServiceUnavailableErrorResponseBody",
     "TrailersUpdateTrailerTooManyRequestsErrorResponseBody",
     "TrailersUpdateTrailerUnauthorizedErrorResponseBody",
-    "TrainingAssignmentNearDueDateTriggerAssignmentGroupObjectRequestBody",
-    "TrainingAssignmentNearDueDateTriggerAssignmentGroupObjectRequestBodyAssignmentGroupType",
-    "TrainingAssignmentNearDueDateTriggerAssignmentGroupObjectResponseBody",
-    "TrainingAssignmentNearDueDateTriggerAssignmentGroupObjectResponseBodyAssignmentGroupType",
-    "TrainingAssignmentNearDueDateTriggerDetailsObjectRequestBody",
-    "TrainingAssignmentNearDueDateTriggerDetailsObjectRequestBodyConditionUnits",
-    "TrainingAssignmentNearDueDateTriggerDetailsObjectResponseBody",
-    "TrainingAssignmentNearDueDateTriggerDetailsObjectResponseBodyConditionUnits",
-    "TrainingAssignmentPostResponseObjectResponseBody",
     "TrainingAssignmentResponseObjectResponseBody",
     "TrainingAssignmentResponseObjectResponseBodyStatus",
-    "TrainingAssignmentsDeleteTrainingAssignmentsBadGatewayErrorResponseBody",
-    "TrainingAssignmentsDeleteTrainingAssignmentsGatewayTimeoutErrorResponseBody",
-    "TrainingAssignmentsDeleteTrainingAssignmentsInternalServerErrorResponseBody",
-    "TrainingAssignmentsDeleteTrainingAssignmentsMethodNotAllowedErrorResponseBody",
-    "TrainingAssignmentsDeleteTrainingAssignmentsNotFoundErrorResponseBody",
-    "TrainingAssignmentsDeleteTrainingAssignmentsNotImplementedErrorResponseBody",
-    "TrainingAssignmentsDeleteTrainingAssignmentsServiceUnavailableErrorResponseBody",
-    "TrainingAssignmentsDeleteTrainingAssignmentsTooManyRequestsErrorResponseBody",
-    "TrainingAssignmentsDeleteTrainingAssignmentsUnauthorizedErrorResponseBody",
     "TrainingAssignmentsGetTrainingAssignmentsStreamBadGatewayErrorResponseBody",
     "TrainingAssignmentsGetTrainingAssignmentsStreamGatewayTimeoutErrorResponseBody",
     "TrainingAssignmentsGetTrainingAssignmentsStreamInternalServerErrorResponseBody",
@@ -2909,26 +2779,6 @@ __all__ = [
     "TrainingAssignmentsGetTrainingAssignmentsStreamServiceUnavailableErrorResponseBody",
     "TrainingAssignmentsGetTrainingAssignmentsStreamTooManyRequestsErrorResponseBody",
     "TrainingAssignmentsGetTrainingAssignmentsStreamUnauthorizedErrorResponseBody",
-    "TrainingAssignmentsPatchTrainingAssignmentsBadGatewayErrorResponseBody",
-    "TrainingAssignmentsPatchTrainingAssignmentsGatewayTimeoutErrorResponseBody",
-    "TrainingAssignmentsPatchTrainingAssignmentsInternalServerErrorResponseBody",
-    "TrainingAssignmentsPatchTrainingAssignmentsMethodNotAllowedErrorResponseBody",
-    "TrainingAssignmentsPatchTrainingAssignmentsNotFoundErrorResponseBody",
-    "TrainingAssignmentsPatchTrainingAssignmentsNotImplementedErrorResponseBody",
-    "TrainingAssignmentsPatchTrainingAssignmentsResponseBody",
-    "TrainingAssignmentsPatchTrainingAssignmentsServiceUnavailableErrorResponseBody",
-    "TrainingAssignmentsPatchTrainingAssignmentsTooManyRequestsErrorResponseBody",
-    "TrainingAssignmentsPatchTrainingAssignmentsUnauthorizedErrorResponseBody",
-    "TrainingAssignmentsPostTrainingAssignmentsBadGatewayErrorResponseBody",
-    "TrainingAssignmentsPostTrainingAssignmentsGatewayTimeoutErrorResponseBody",
-    "TrainingAssignmentsPostTrainingAssignmentsInternalServerErrorResponseBody",
-    "TrainingAssignmentsPostTrainingAssignmentsMethodNotAllowedErrorResponseBody",
-    "TrainingAssignmentsPostTrainingAssignmentsNotFoundErrorResponseBody",
-    "TrainingAssignmentsPostTrainingAssignmentsNotImplementedErrorResponseBody",
-    "TrainingAssignmentsPostTrainingAssignmentsResponseBody",
-    "TrainingAssignmentsPostTrainingAssignmentsServiceUnavailableErrorResponseBody",
-    "TrainingAssignmentsPostTrainingAssignmentsTooManyRequestsErrorResponseBody",
-    "TrainingAssignmentsPostTrainingAssignmentsUnauthorizedErrorResponseBody",
     "TrainingCategoryObjectResponseBody",
     "TrainingCourseLabelObjectResponseBody",
     "TrainingCourseObjectResponseBody",
