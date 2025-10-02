@@ -30,7 +30,7 @@ class TokensClient:
         self, *, code: typing.Optional[str] = OMIT, request_options: typing.Optional[RequestOptions] = None
     ) -> CreateTokensResponse:
         """
-        Exchange an authorization code for access token and refresh token.
+        Exchange an authorization code for access and refresh tokens.
 
         Parameters
         ----------
@@ -108,7 +108,7 @@ class AsyncTokensClient:
         self, *, code: typing.Optional[str] = OMIT, request_options: typing.Optional[RequestOptions] = None
     ) -> CreateTokensResponse:
         """
-        Exchange an authorization code for access token and refresh token.
+        Exchange an authorization code for access and refresh tokens.
 
         Parameters
         ----------

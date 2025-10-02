@@ -17,7 +17,9 @@ from ..errors.not_implemented_error import NotImplementedError
 from ..errors.service_unavailable_error import ServiceUnavailableError
 from ..errors.too_many_requests_error import TooManyRequestsError
 from ..errors.unauthorized_error import UnauthorizedError
-from ..types.get_vehicles_driver_assignments_response_body import GetVehiclesDriverAssignmentsResponseBody
+from ..types.vehicles_driver_assignments_get_vehicles_driver_assignments_response_body import (
+    VehiclesDriverAssignmentsGetVehiclesDriverAssignmentsResponseBody,
+)
 
 
 class RawLegacyClient:
@@ -34,7 +36,7 @@ class RawLegacyClient:
         parent_tag_ids: typing.Optional[str] = None,
         after: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[GetVehiclesDriverAssignmentsResponseBody]:
+    ) -> HttpResponse[VehiclesDriverAssignmentsGetVehiclesDriverAssignmentsResponseBody]:
         """
         **Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getdrivervehicleassignments) instead. The endpoint will continue to function as documented.** Get all driver assignments for the requested vehicles in the requested time range. The only type of assignment supported right now are assignments created through the driver app.
 
@@ -70,7 +72,7 @@ class RawLegacyClient:
 
         Returns
         -------
-        HttpResponse[GetVehiclesDriverAssignmentsResponseBody]
+        HttpResponse[VehiclesDriverAssignmentsGetVehiclesDriverAssignmentsResponseBody]
             OK response.
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -89,9 +91,9 @@ class RawLegacyClient:
         try:
             if 200 <= _response.status_code < 300:
                 _data = typing.cast(
-                    GetVehiclesDriverAssignmentsResponseBody,
+                    VehiclesDriverAssignmentsGetVehiclesDriverAssignmentsResponseBody,
                     parse_obj_as(
-                        type_=GetVehiclesDriverAssignmentsResponseBody,  # type: ignore
+                        type_=VehiclesDriverAssignmentsGetVehiclesDriverAssignmentsResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -215,7 +217,7 @@ class AsyncRawLegacyClient:
         parent_tag_ids: typing.Optional[str] = None,
         after: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[GetVehiclesDriverAssignmentsResponseBody]:
+    ) -> AsyncHttpResponse[VehiclesDriverAssignmentsGetVehiclesDriverAssignmentsResponseBody]:
         """
         **Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getdrivervehicleassignments) instead. The endpoint will continue to function as documented.** Get all driver assignments for the requested vehicles in the requested time range. The only type of assignment supported right now are assignments created through the driver app.
 
@@ -251,7 +253,7 @@ class AsyncRawLegacyClient:
 
         Returns
         -------
-        AsyncHttpResponse[GetVehiclesDriverAssignmentsResponseBody]
+        AsyncHttpResponse[VehiclesDriverAssignmentsGetVehiclesDriverAssignmentsResponseBody]
             OK response.
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -270,9 +272,9 @@ class AsyncRawLegacyClient:
         try:
             if 200 <= _response.status_code < 300:
                 _data = typing.cast(
-                    GetVehiclesDriverAssignmentsResponseBody,
+                    VehiclesDriverAssignmentsGetVehiclesDriverAssignmentsResponseBody,
                     parse_obj_as(
-                        type_=GetVehiclesDriverAssignmentsResponseBody,  # type: ignore
+                        type_=VehiclesDriverAssignmentsGetVehiclesDriverAssignmentsResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )

@@ -3,7 +3,7 @@ name = "samsara-api"
 
 [tool.poetry]
 name = "samsara-api"
-version = "2.0.2"
+version = "3.0.0"
 description = ""
 readme = "README.md"
 authors = []

@@ -22,7 +22,7 @@ class RawTokensClient:
         self, *, code: typing.Optional[str] = OMIT, request_options: typing.Optional[RequestOptions] = None
     ) -> HttpResponse[CreateTokensResponse]:
         """
-        Exchange an authorization code for access token and refresh token.
+        Exchange an authorization code for access and refresh tokens.
 
         Parameters
         ----------
@@ -120,7 +120,7 @@ class AsyncRawTokensClient:
         self, *, code: typing.Optional[str] = OMIT, request_options: typing.Optional[RequestOptions] = None
     ) -> AsyncHttpResponse[CreateTokensResponse]:
         """
-        Exchange an authorization code for access token and refresh token.
+        Exchange an authorization code for access and refresh tokens.
 
         Parameters
         ----------
