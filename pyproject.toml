@@ -1,9 +1,9 @@
 [project]
-name = "samsara-api"
+name = "samsara"
 
 [tool.poetry]
-name = "samsara-api"
-version = "3.0.0"
+name = "samsara"
+version = "0.0.0"
 description = ""
 readme = "README.md"
 authors = []
