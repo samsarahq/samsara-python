@@ -18,8 +18,8 @@ from ...errors.not_implemented_error import NotImplementedError
 from ...errors.service_unavailable_error import ServiceUnavailableError
 from ...errors.too_many_requests_error import TooManyRequestsError
 from ...errors.unauthorized_error import UnauthorizedError
-from ...types.get_service_tasks_response_body import GetServiceTasksResponseBody
 from ...types.service_task_definition_object_response_body import ServiceTaskDefinitionObjectResponseBody
+from ...types.work_orders_get_service_tasks_response_body import WorkOrdersGetServiceTasksResponseBody
 
 
 class RawServiceTasksClient:
@@ -76,9 +76,9 @@ class RawServiceTasksClient:
         try:
             if 200 <= _response.status_code < 300:
                 _parsed_response = typing.cast(
-                    GetServiceTasksResponseBody,
+                    WorkOrdersGetServiceTasksResponseBody,
                     parse_obj_as(
-                        type_=GetServiceTasksResponseBody,  # type: ignore
+                        type_=WorkOrdersGetServiceTasksResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -328,9 +328,9 @@ class AsyncRawServiceTasksClient:
         try:
             if 200 <= _response.status_code < 300:
                 _parsed_response = typing.cast(
-                    GetServiceTasksResponseBody,
+                    WorkOrdersGetServiceTasksResponseBody,
                     parse_obj_as(
-                        type_=GetServiceTasksResponseBody,  # type: ignore
+                        type_=WorkOrdersGetServiceTasksResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )

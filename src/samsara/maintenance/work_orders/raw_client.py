@@ -20,15 +20,15 @@ from ...errors.not_implemented_error import NotImplementedError
 from ...errors.service_unavailable_error import ServiceUnavailableError
 from ...errors.too_many_requests_error import TooManyRequestsError
 from ...errors.unauthorized_error import UnauthorizedError
-from ...types.get_work_orders_response_body import GetWorkOrdersResponseBody
-from ...types.patch_work_orders_response_body import PatchWorkOrdersResponseBody
-from ...types.post_work_orders_response_body import PostWorkOrdersResponseBody
 from ...types.service_task_instance_input_object_request_body import ServiceTaskInstanceInputObjectRequestBody
-from ...types.stream_work_orders_response_body import StreamWorkOrdersResponseBody
 from ...types.work_order_discount_object_request_body import WorkOrderDiscountObjectRequestBody
 from ...types.work_order_item_object_request_body import WorkOrderItemObjectRequestBody
 from ...types.work_order_object_response_body import WorkOrderObjectResponseBody
 from ...types.work_order_tax_object_request_body import WorkOrderTaxObjectRequestBody
+from ...types.work_orders_get_work_orders_response_body import WorkOrdersGetWorkOrdersResponseBody
+from ...types.work_orders_patch_work_orders_response_body import WorkOrdersPatchWorkOrdersResponseBody
+from ...types.work_orders_post_work_orders_response_body import WorkOrdersPostWorkOrdersResponseBody
+from ...types.work_orders_stream_work_orders_response_body import WorkOrdersStreamWorkOrdersResponseBody
 from .types.work_orders_patch_work_orders_request_body_category import WorkOrdersPatchWorkOrdersRequestBodyCategory
 from .types.work_orders_patch_work_orders_request_body_priority import WorkOrdersPatchWorkOrdersRequestBodyPriority
 from .types.work_orders_patch_work_orders_request_body_status import WorkOrdersPatchWorkOrdersRequestBodyStatus
@@ -89,9 +89,9 @@ class RawWorkOrdersClient:
         try:
             if 200 <= _response.status_code < 300:
                 _parsed_response = typing.cast(
-                    GetWorkOrdersResponseBody,
+                    WorkOrdersGetWorkOrdersResponseBody,
                     parse_obj_as(
-                        type_=GetWorkOrdersResponseBody,  # type: ignore
+                        type_=WorkOrdersGetWorkOrdersResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -230,7 +230,7 @@ class RawWorkOrdersClient:
         service_task_instances: typing.Optional[typing.Sequence[ServiceTaskInstanceInputObjectRequestBody]] = OMIT,
         tax: typing.Optional[WorkOrderTaxObjectRequestBody] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[PostWorkOrdersResponseBody]:
+    ) -> HttpResponse[WorkOrdersPostWorkOrdersResponseBody]:
         """
         Creates a work order.
 
@@ -285,7 +285,7 @@ class RawWorkOrdersClient:
 
         Returns
         -------
-        HttpResponse[PostWorkOrdersResponseBody]
+        HttpResponse[WorkOrdersPostWorkOrdersResponseBody]
             OK response.
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -325,9 +325,9 @@ class RawWorkOrdersClient:
         try:
             if 200 <= _response.status_code < 300:
                 _data = typing.cast(
-                    PostWorkOrdersResponseBody,
+                    WorkOrdersPostWorkOrdersResponseBody,
                     parse_obj_as(
-                        type_=PostWorkOrdersResponseBody,  # type: ignore
+                        type_=WorkOrdersPostWorkOrdersResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -593,7 +593,7 @@ class RawWorkOrdersClient:
         status: typing.Optional[WorkOrdersPatchWorkOrdersRequestBodyStatus] = OMIT,
         tax: typing.Optional[WorkOrderTaxObjectRequestBody] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[PatchWorkOrdersResponseBody]:
+    ) -> HttpResponse[WorkOrdersPatchWorkOrdersResponseBody]:
         """
         Updates a work order.
 
@@ -654,7 +654,7 @@ class RawWorkOrdersClient:
 
         Returns
         -------
-        HttpResponse[PatchWorkOrdersResponseBody]
+        HttpResponse[WorkOrdersPatchWorkOrdersResponseBody]
             OK response.
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -696,9 +696,9 @@ class RawWorkOrdersClient:
         try:
             if 200 <= _response.status_code < 300:
                 _data = typing.cast(
-                    PatchWorkOrdersResponseBody,
+                    WorkOrdersPatchWorkOrdersResponseBody,
                     parse_obj_as(
-                        type_=PatchWorkOrdersResponseBody,  # type: ignore
+                        type_=WorkOrdersPatchWorkOrdersResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -877,9 +877,9 @@ class RawWorkOrdersClient:
         try:
             if 200 <= _response.status_code < 300:
                 _parsed_response = typing.cast(
-                    StreamWorkOrdersResponseBody,
+                    WorkOrdersStreamWorkOrdersResponseBody,
                     parse_obj_as(
-                        type_=StreamWorkOrdersResponseBody,  # type: ignore
+                        type_=WorkOrdersStreamWorkOrdersResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -1055,9 +1055,9 @@ class AsyncRawWorkOrdersClient:
         try:
             if 200 <= _response.status_code < 300:
                 _parsed_response = typing.cast(
-                    GetWorkOrdersResponseBody,
+                    WorkOrdersGetWorkOrdersResponseBody,
                     parse_obj_as(
-                        type_=GetWorkOrdersResponseBody,  # type: ignore
+                        type_=WorkOrdersGetWorkOrdersResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -1199,7 +1199,7 @@ class AsyncRawWorkOrdersClient:
         service_task_instances: typing.Optional[typing.Sequence[ServiceTaskInstanceInputObjectRequestBody]] = OMIT,
         tax: typing.Optional[WorkOrderTaxObjectRequestBody] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[PostWorkOrdersResponseBody]:
+    ) -> AsyncHttpResponse[WorkOrdersPostWorkOrdersResponseBody]:
         """
         Creates a work order.
 
@@ -1254,7 +1254,7 @@ class AsyncRawWorkOrdersClient:
 
         Returns
         -------
-        AsyncHttpResponse[PostWorkOrdersResponseBody]
+        AsyncHttpResponse[WorkOrdersPostWorkOrdersResponseBody]
             OK response.
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -1294,9 +1294,9 @@ class AsyncRawWorkOrdersClient:
         try:
             if 200 <= _response.status_code < 300:
                 _data = typing.cast(
-                    PostWorkOrdersResponseBody,
+                    WorkOrdersPostWorkOrdersResponseBody,
                     parse_obj_as(
-                        type_=PostWorkOrdersResponseBody,  # type: ignore
+                        type_=WorkOrdersPostWorkOrdersResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -1564,7 +1564,7 @@ class AsyncRawWorkOrdersClient:
         status: typing.Optional[WorkOrdersPatchWorkOrdersRequestBodyStatus] = OMIT,
         tax: typing.Optional[WorkOrderTaxObjectRequestBody] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[PatchWorkOrdersResponseBody]:
+    ) -> AsyncHttpResponse[WorkOrdersPatchWorkOrdersResponseBody]:
         """
         Updates a work order.
 
@@ -1625,7 +1625,7 @@ class AsyncRawWorkOrdersClient:
 
         Returns
         -------
-        AsyncHttpResponse[PatchWorkOrdersResponseBody]
+        AsyncHttpResponse[WorkOrdersPatchWorkOrdersResponseBody]
             OK response.
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -1667,9 +1667,9 @@ class AsyncRawWorkOrdersClient:
         try:
             if 200 <= _response.status_code < 300:
                 _data = typing.cast(
-                    PatchWorkOrdersResponseBody,
+                    WorkOrdersPatchWorkOrdersResponseBody,
                     parse_obj_as(
-                        type_=PatchWorkOrdersResponseBody,  # type: ignore
+                        type_=WorkOrdersPatchWorkOrdersResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -1848,9 +1848,9 @@ class AsyncRawWorkOrdersClient:
         try:
             if 200 <= _response.status_code < 300:
                 _parsed_response = typing.cast(
-                    StreamWorkOrdersResponseBody,
+                    WorkOrdersStreamWorkOrdersResponseBody,
                     parse_obj_as(
-                        type_=StreamWorkOrdersResponseBody,  # type: ignore
+                        type_=WorkOrdersStreamWorkOrdersResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )

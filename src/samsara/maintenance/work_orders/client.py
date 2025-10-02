@@ -6,13 +6,13 @@ import typing
 from ...core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ...core.pagination import AsyncPager, SyncPager
 from ...core.request_options import RequestOptions
-from ...types.patch_work_orders_response_body import PatchWorkOrdersResponseBody
-from ...types.post_work_orders_response_body import PostWorkOrdersResponseBody
 from ...types.service_task_instance_input_object_request_body import ServiceTaskInstanceInputObjectRequestBody
 from ...types.work_order_discount_object_request_body import WorkOrderDiscountObjectRequestBody
 from ...types.work_order_item_object_request_body import WorkOrderItemObjectRequestBody
 from ...types.work_order_object_response_body import WorkOrderObjectResponseBody
 from ...types.work_order_tax_object_request_body import WorkOrderTaxObjectRequestBody
+from ...types.work_orders_patch_work_orders_response_body import WorkOrdersPatchWorkOrdersResponseBody
+from ...types.work_orders_post_work_orders_response_body import WorkOrdersPostWorkOrdersResponseBody
 from .raw_client import AsyncRawWorkOrdersClient, RawWorkOrdersClient
 from .types.work_orders_patch_work_orders_request_body_category import WorkOrdersPatchWorkOrdersRequestBodyCategory
 from .types.work_orders_patch_work_orders_request_body_priority import WorkOrdersPatchWorkOrdersRequestBodyPriority
@@ -106,7 +106,7 @@ class WorkOrdersClient:
         service_task_instances: typing.Optional[typing.Sequence[ServiceTaskInstanceInputObjectRequestBody]] = OMIT,
         tax: typing.Optional[WorkOrderTaxObjectRequestBody] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> PostWorkOrdersResponseBody:
+    ) -> WorkOrdersPostWorkOrdersResponseBody:
         """
         Creates a work order.
 
@@ -161,7 +161,7 @@ class WorkOrdersClient:
 
         Returns
         -------
-        PostWorkOrdersResponseBody
+        WorkOrdersPostWorkOrdersResponseBody
             OK response.
 
         Examples
@@ -249,7 +249,7 @@ class WorkOrdersClient:
         status: typing.Optional[WorkOrdersPatchWorkOrdersRequestBodyStatus] = OMIT,
         tax: typing.Optional[WorkOrderTaxObjectRequestBody] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> PatchWorkOrdersResponseBody:
+    ) -> WorkOrdersPatchWorkOrdersResponseBody:
         """
         Updates a work order.
 
@@ -310,7 +310,7 @@ class WorkOrdersClient:
 
         Returns
         -------
-        PatchWorkOrdersResponseBody
+        WorkOrdersPatchWorkOrdersResponseBody
             OK response.
 
         Examples
@@ -515,7 +515,7 @@ class AsyncWorkOrdersClient:
         service_task_instances: typing.Optional[typing.Sequence[ServiceTaskInstanceInputObjectRequestBody]] = OMIT,
         tax: typing.Optional[WorkOrderTaxObjectRequestBody] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> PostWorkOrdersResponseBody:
+    ) -> WorkOrdersPostWorkOrdersResponseBody:
         """
         Creates a work order.
 
@@ -570,7 +570,7 @@ class AsyncWorkOrdersClient:
 
         Returns
         -------
-        PostWorkOrdersResponseBody
+        WorkOrdersPostWorkOrdersResponseBody
             OK response.
 
         Examples
@@ -674,7 +674,7 @@ class AsyncWorkOrdersClient:
         status: typing.Optional[WorkOrdersPatchWorkOrdersRequestBodyStatus] = OMIT,
         tax: typing.Optional[WorkOrderTaxObjectRequestBody] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> PatchWorkOrdersResponseBody:
+    ) -> WorkOrdersPatchWorkOrdersResponseBody:
         """
         Updates a work order.
 
@@ -735,7 +735,7 @@ class AsyncWorkOrdersClient:
 
         Returns
         -------
-        PatchWorkOrdersResponseBody
+        WorkOrdersPatchWorkOrdersResponseBody
             OK response.
 
         Examples
