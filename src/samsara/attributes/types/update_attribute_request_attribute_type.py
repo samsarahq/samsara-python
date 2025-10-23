@@ -2,4 +2,6 @@
 
 import typing
 
-UpdateAttributeRequestAttributeType = typing.Union[typing.Literal["string", "number"], typing.Any]
+UpdateAttributeRequestAttributeType = typing.Union[
+    typing.Literal["single-select", "multi-select", "text", "freeform-multi-select", "number"], typing.Any
+]

@@ -7,7 +7,6 @@ from ..core.api_error import ApiError
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.http_response import AsyncHttpResponse, HttpResponse
 from ..core.jsonable_encoder import jsonable_encoder
-from ..core.pagination import AsyncPager, BaseHttpResponse, SyncPager
 from ..core.pydantic_utilities import parse_obj_as
 from ..core.request_options import RequestOptions
 from ..core.serialization import convert_and_respect_annotation_metadata
@@ -21,7 +20,6 @@ from ..errors.service_unavailable_error import ServiceUnavailableError
 from ..errors.too_many_requests_error import TooManyRequestsError
 from ..errors.unauthorized_error import UnauthorizedError
 from ..types.custom_headers_object_request_body import CustomHeadersObjectRequestBody
-from ..types.webhook_response_response_body import WebhookResponseResponseBody
 from ..types.webhooks_get_webhook_response_body import WebhooksGetWebhookResponseBody
 from ..types.webhooks_list_webhooks_response_body import WebhooksListWebhooksResponseBody
 from ..types.webhooks_patch_webhook_response_body import WebhooksPatchWebhookResponseBody
@@ -38,14 +36,14 @@ class RawWebhooksClient:
     def __init__(self, *, client_wrapper: SyncClientWrapper):
         self._client_wrapper = client_wrapper
 
-    def list(
+    def list_webhooks(
         self,
         *,
         ids: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         after: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[WebhookResponseResponseBody]:
+    ) -> HttpResponse[WebhooksListWebhooksResponseBody]:
         """
         List all webhooks belonging to a specific org.
 
@@ -72,7 +70,7 @@ class RawWebhooksClient:
 
         Returns
         -------
-        SyncPager[WebhookResponseResponseBody]
+        HttpResponse[WebhooksListWebhooksResponseBody]
             OK response.
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -87,28 +85,14 @@ class RawWebhooksClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _parsed_response = typing.cast(
+                _data = typing.cast(
                     WebhooksListWebhooksResponseBody,
                     parse_obj_as(
                         type_=WebhooksListWebhooksResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                _items = _parsed_response.data
-                _has_next = False
-                _get_next = None
-                if _parsed_response.pagination is not None:
-                    _parsed_next = _parsed_response.pagination.end_cursor
-                    _has_next = _parsed_next is not None and _parsed_next != ""
-                    _get_next = lambda: self.list(
-                        ids=ids,
-                        limit=limit,
-                        after=_parsed_next,
-                        request_options=request_options,
-                    )
-                return SyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return HttpResponse(response=_response, data=_data)
             if _response.status_code == 401:
                 raise UnauthorizedError(
                     headers=dict(_response.headers),
@@ -213,7 +197,7 @@ class RawWebhooksClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    def create(
+    def post_webhooks(
         self,
         *,
         name: str,
@@ -392,7 +376,7 @@ class RawWebhooksClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    def get(
+    def get_webhook(
         self, id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> HttpResponse[WebhooksGetWebhookResponseBody]:
         """
@@ -537,7 +521,7 @@ class RawWebhooksClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> HttpResponse[None]:
+    def delete_webhook(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> HttpResponse[None]:
         """
         Delete a webhook with the given ID.
 
@@ -672,7 +656,7 @@ class RawWebhooksClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    def patch(
+    def patch_webhook(
         self,
         id: str,
         *,
@@ -857,14 +841,14 @@ class AsyncRawWebhooksClient:
     def __init__(self, *, client_wrapper: AsyncClientWrapper):
         self._client_wrapper = client_wrapper
 
-    async def list(
+    async def list_webhooks(
         self,
         *,
         ids: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         after: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[WebhookResponseResponseBody]:
+    ) -> AsyncHttpResponse[WebhooksListWebhooksResponseBody]:
         """
         List all webhooks belonging to a specific org.
 
@@ -891,7 +875,7 @@ class AsyncRawWebhooksClient:
 
         Returns
         -------
-        AsyncPager[WebhookResponseResponseBody]
+        AsyncHttpResponse[WebhooksListWebhooksResponseBody]
             OK response.
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -906,31 +890,14 @@ class AsyncRawWebhooksClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _parsed_response = typing.cast(
+                _data = typing.cast(
                     WebhooksListWebhooksResponseBody,
                     parse_obj_as(
                         type_=WebhooksListWebhooksResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                _items = _parsed_response.data
-                _has_next = False
-                _get_next = None
-                if _parsed_response.pagination is not None:
-                    _parsed_next = _parsed_response.pagination.end_cursor
-                    _has_next = _parsed_next is not None and _parsed_next != ""
-
-                    async def _get_next():
-                        return await self.list(
-                            ids=ids,
-                            limit=limit,
-                            after=_parsed_next,
-                            request_options=request_options,
-                        )
-
-                return AsyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return AsyncHttpResponse(response=_response, data=_data)
             if _response.status_code == 401:
                 raise UnauthorizedError(
                     headers=dict(_response.headers),
@@ -1035,7 +1002,7 @@ class AsyncRawWebhooksClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    async def create(
+    async def post_webhooks(
         self,
         *,
         name: str,
@@ -1214,7 +1181,7 @@ class AsyncRawWebhooksClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    async def get(
+    async def get_webhook(
         self, id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> AsyncHttpResponse[WebhooksGetWebhookResponseBody]:
         """
@@ -1359,7 +1326,7 @@ class AsyncRawWebhooksClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    async def delete(
+    async def delete_webhook(
         self, id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> AsyncHttpResponse[None]:
         """
@@ -1496,7 +1463,7 @@ class AsyncRawWebhooksClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    async def patch(
+    async def patch_webhook(
         self,
         id: str,
         *,

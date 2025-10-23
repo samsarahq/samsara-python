@@ -15,6 +15,7 @@ from ..types.address import Address
 from ..types.address_response import AddressResponse
 from ..types.create_address_request_geofence import CreateAddressRequestGeofence
 from ..types.list_addresses_response import ListAddressesResponse
+from ..types.standard_delete_response import StandardDeleteResponse
 from ..types.update_address_request_geofence import UpdateAddressRequestGeofence
 from .types.create_address_request_address_types_item import CreateAddressRequestAddressTypesItem
 from .types.update_address_request_address_types_item import UpdateAddressRequestAddressTypesItem
@@ -145,7 +146,7 @@ class RawAddressesClient:
             Name of the address.
 
         address_types : typing.Optional[typing.Sequence[CreateAddressRequestAddressTypesItem]]
-            Reporting location type associated with the address (used for ELD reporting purposes). Valid values: `yard`, `shortHaul`, `workforceSite`, `riskZone`, `industrialSite`, `alertsOnly`, `agricultureSource`.
+            Reporting location type associated with the address (used for ELD reporting purposes). Valid values: `yard`, `shortHaul`, `workforceSite`, `riskZone`, `industrialSite`, `alertsOnly`, `agricultureSource`, `avoidanceZone`, `knownGPSJammingZone`.
 
         contact_ids : typing.Optional[typing.Sequence[str]]
             An array of Contact IDs associated with this Address.
@@ -254,7 +255,7 @@ class RawAddressesClient:
 
     def delete(
         self, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> HttpResponse[typing.Optional[typing.Any]]:
+    ) -> HttpResponse[StandardDeleteResponse]:
         """
         Delete a specific address.
 
@@ -272,7 +273,7 @@ class RawAddressesClient:
 
         Returns
         -------
-        HttpResponse[typing.Optional[typing.Any]]
+        HttpResponse[StandardDeleteResponse]
             A successful DELETE response is a 204 with no content.
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -281,13 +282,11 @@ class RawAddressesClient:
             request_options=request_options,
         )
         try:
-            if _response is None or not _response.text.strip():
-                return HttpResponse(response=_response, data=None)
             if 200 <= _response.status_code < 300:
                 _data = typing.cast(
-                    typing.Optional[typing.Any],
+                    StandardDeleteResponse,
                     parse_obj_as(
-                        type_=typing.Optional[typing.Any],  # type: ignore
+                        type_=StandardDeleteResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -326,7 +325,7 @@ class RawAddressesClient:
             ID of the Address. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `crmId:abc123`
 
         address_types : typing.Optional[typing.Sequence[UpdateAddressRequestAddressTypesItem]]
-            Reporting location type associated with the address (used for ELD reporting purposes). Valid values: `yard`, `shortHaul`, `workforceSite`, `riskZone`, `industrialSite`, `alertsOnly`, `agricultureSource`.
+            Reporting location type associated with the address (used for ELD reporting purposes). Valid values: `yard`, `shortHaul`, `workforceSite`, `riskZone`, `industrialSite`, `alertsOnly`, `agricultureSource`, `avoidanceZone`, `knownGPSJammingZone`.
 
         contact_ids : typing.Optional[typing.Sequence[str]]
             An array of Contact IDs associated with this Address.
@@ -526,7 +525,7 @@ class AsyncRawAddressesClient:
             Name of the address.
 
         address_types : typing.Optional[typing.Sequence[CreateAddressRequestAddressTypesItem]]
-            Reporting location type associated with the address (used for ELD reporting purposes). Valid values: `yard`, `shortHaul`, `workforceSite`, `riskZone`, `industrialSite`, `alertsOnly`, `agricultureSource`.
+            Reporting location type associated with the address (used for ELD reporting purposes). Valid values: `yard`, `shortHaul`, `workforceSite`, `riskZone`, `industrialSite`, `alertsOnly`, `agricultureSource`, `avoidanceZone`, `knownGPSJammingZone`.
 
         contact_ids : typing.Optional[typing.Sequence[str]]
             An array of Contact IDs associated with this Address.
@@ -637,7 +636,7 @@ class AsyncRawAddressesClient:
 
     async def delete(
         self, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> AsyncHttpResponse[typing.Optional[typing.Any]]:
+    ) -> AsyncHttpResponse[StandardDeleteResponse]:
         """
         Delete a specific address.
 
@@ -655,7 +654,7 @@ class AsyncRawAddressesClient:
 
         Returns
         -------
-        AsyncHttpResponse[typing.Optional[typing.Any]]
+        AsyncHttpResponse[StandardDeleteResponse]
             A successful DELETE response is a 204 with no content.
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -664,13 +663,11 @@ class AsyncRawAddressesClient:
             request_options=request_options,
         )
         try:
-            if _response is None or not _response.text.strip():
-                return AsyncHttpResponse(response=_response, data=None)
             if 200 <= _response.status_code < 300:
                 _data = typing.cast(
-                    typing.Optional[typing.Any],
+                    StandardDeleteResponse,
                     parse_obj_as(
-                        type_=typing.Optional[typing.Any],  # type: ignore
+                        type_=StandardDeleteResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -709,7 +706,7 @@ class AsyncRawAddressesClient:
             ID of the Address. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `crmId:abc123`
 
         address_types : typing.Optional[typing.Sequence[UpdateAddressRequestAddressTypesItem]]
-            Reporting location type associated with the address (used for ELD reporting purposes). Valid values: `yard`, `shortHaul`, `workforceSite`, `riskZone`, `industrialSite`, `alertsOnly`, `agricultureSource`.
+            Reporting location type associated with the address (used for ELD reporting purposes). Valid values: `yard`, `shortHaul`, `workforceSite`, `riskZone`, `industrialSite`, `alertsOnly`, `agricultureSource`, `avoidanceZone`, `knownGPSJammingZone`.
 
         contact_ids : typing.Optional[typing.Sequence[str]]
             An array of Contact IDs associated with this Address.

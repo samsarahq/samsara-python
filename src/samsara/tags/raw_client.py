@@ -7,11 +7,10 @@ from ..core.api_error import ApiError
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.http_response import AsyncHttpResponse, HttpResponse
 from ..core.jsonable_encoder import jsonable_encoder
-from ..core.pagination import AsyncPager, BaseHttpResponse, SyncPager
 from ..core.pydantic_utilities import parse_obj_as
 from ..core.request_options import RequestOptions
 from ..types.list_tags_response import ListTagsResponse
-from ..types.tag import Tag
+from ..types.standard_delete_response import StandardDeleteResponse
 from ..types.tag_response import TagResponse
 from ..types.tagged_object_id import TaggedObjectId
 
@@ -23,13 +22,13 @@ class RawTagsClient:
     def __init__(self, *, client_wrapper: SyncClientWrapper):
         self._client_wrapper = client_wrapper
 
-    def list(
+    def list_tags(
         self,
         *,
         limit: typing.Optional[int] = None,
         after: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[Tag]:
+    ) -> HttpResponse[ListTagsResponse]:
         """
         Return all of the tags for an organization.
 
@@ -50,7 +49,7 @@ class RawTagsClient:
 
         Returns
         -------
-        SyncPager[Tag]
+        HttpResponse[ListTagsResponse]
             List of tags.
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -64,33 +63,20 @@ class RawTagsClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _parsed_response = typing.cast(
+                _data = typing.cast(
                     ListTagsResponse,
                     parse_obj_as(
                         type_=ListTagsResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                _items = _parsed_response.data
-                _has_next = False
-                _get_next = None
-                if _parsed_response.pagination is not None:
-                    _parsed_next = _parsed_response.pagination.end_cursor
-                    _has_next = _parsed_next is not None and _parsed_next != ""
-                    _get_next = lambda: self.list(
-                        limit=limit,
-                        after=_parsed_next,
-                        request_options=request_options,
-                    )
-                return SyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return HttpResponse(response=_response, data=_data)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    def create(
+    def create_tag(
         self,
         *,
         name: str,
@@ -183,7 +169,7 @@ class RawTagsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    def get(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> HttpResponse[TagResponse]:
+    def get_tag(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> HttpResponse[TagResponse]:
         """
         Fetch a tag by id.
 
@@ -224,7 +210,7 @@ class RawTagsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    def replace(
+    def replace_tag(
         self,
         id: str,
         *,
@@ -316,9 +302,9 @@ class RawTagsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    def delete(
+    def delete_tag(
         self, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> HttpResponse[typing.Optional[typing.Any]]:
+    ) -> HttpResponse[StandardDeleteResponse]:
         """
         Permanently deletes a tag.
 
@@ -336,7 +322,7 @@ class RawTagsClient:
 
         Returns
         -------
-        HttpResponse[typing.Optional[typing.Any]]
+        HttpResponse[StandardDeleteResponse]
             A successful DELETE response is a 204 with no content.
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -345,13 +331,11 @@ class RawTagsClient:
             request_options=request_options,
         )
         try:
-            if _response is None or not _response.text.strip():
-                return HttpResponse(response=_response, data=None)
             if 200 <= _response.status_code < 300:
                 _data = typing.cast(
-                    typing.Optional[typing.Any],
+                    StandardDeleteResponse,
                     parse_obj_as(
-                        type_=typing.Optional[typing.Any],  # type: ignore
+                        type_=StandardDeleteResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -361,7 +345,7 @@ class RawTagsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    def patch(
+    def patch_tag(
         self,
         id: str,
         *,
@@ -467,13 +451,13 @@ class AsyncRawTagsClient:
     def __init__(self, *, client_wrapper: AsyncClientWrapper):
         self._client_wrapper = client_wrapper
 
-    async def list(
+    async def list_tags(
         self,
         *,
         limit: typing.Optional[int] = None,
         after: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[Tag]:
+    ) -> AsyncHttpResponse[ListTagsResponse]:
         """
         Return all of the tags for an organization.
 
@@ -494,7 +478,7 @@ class AsyncRawTagsClient:
 
         Returns
         -------
-        AsyncPager[Tag]
+        AsyncHttpResponse[ListTagsResponse]
             List of tags.
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -508,36 +492,20 @@ class AsyncRawTagsClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _parsed_response = typing.cast(
+                _data = typing.cast(
                     ListTagsResponse,
                     parse_obj_as(
                         type_=ListTagsResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                _items = _parsed_response.data
-                _has_next = False
-                _get_next = None
-                if _parsed_response.pagination is not None:
-                    _parsed_next = _parsed_response.pagination.end_cursor
-                    _has_next = _parsed_next is not None and _parsed_next != ""
-
-                    async def _get_next():
-                        return await self.list(
-                            limit=limit,
-                            after=_parsed_next,
-                            request_options=request_options,
-                        )
-
-                return AsyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return AsyncHttpResponse(response=_response, data=_data)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    async def create(
+    async def create_tag(
         self,
         *,
         name: str,
@@ -630,7 +598,7 @@ class AsyncRawTagsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    async def get(
+    async def get_tag(
         self, id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> AsyncHttpResponse[TagResponse]:
         """
@@ -673,7 +641,7 @@ class AsyncRawTagsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    async def replace(
+    async def replace_tag(
         self,
         id: str,
         *,
@@ -765,9 +733,9 @@ class AsyncRawTagsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    async def delete(
+    async def delete_tag(
         self, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> AsyncHttpResponse[typing.Optional[typing.Any]]:
+    ) -> AsyncHttpResponse[StandardDeleteResponse]:
         """
         Permanently deletes a tag.
 
@@ -785,7 +753,7 @@ class AsyncRawTagsClient:
 
         Returns
         -------
-        AsyncHttpResponse[typing.Optional[typing.Any]]
+        AsyncHttpResponse[StandardDeleteResponse]
             A successful DELETE response is a 204 with no content.
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -794,13 +762,11 @@ class AsyncRawTagsClient:
             request_options=request_options,
         )
         try:
-            if _response is None or not _response.text.strip():
-                return AsyncHttpResponse(response=_response, data=None)
             if 200 <= _response.status_code < 300:
                 _data = typing.cast(
-                    typing.Optional[typing.Any],
+                    StandardDeleteResponse,
                     parse_obj_as(
-                        type_=typing.Optional[typing.Any],  # type: ignore
+                        type_=StandardDeleteResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -810,7 +776,7 @@ class AsyncRawTagsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    async def patch(
+    async def patch_tag(
         self,
         id: str,
         *,

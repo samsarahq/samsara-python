@@ -3,11 +3,10 @@
 import typing
 
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
-from ..core.pagination import AsyncPager, SyncPager
 from ..core.request_options import RequestOptions
 from ..types.custom_headers_object_request_body import CustomHeadersObjectRequestBody
-from ..types.webhook_response_response_body import WebhookResponseResponseBody
 from ..types.webhooks_get_webhook_response_body import WebhooksGetWebhookResponseBody
+from ..types.webhooks_list_webhooks_response_body import WebhooksListWebhooksResponseBody
 from ..types.webhooks_patch_webhook_response_body import WebhooksPatchWebhookResponseBody
 from ..types.webhooks_post_webhooks_response_body import WebhooksPostWebhooksResponseBody
 from .raw_client import AsyncRawWebhooksClient, RawWebhooksClient
@@ -34,14 +33,14 @@ class WebhooksClient:
         """
         return self._raw_client
 
-    def list(
+    def list_webhooks(
         self,
         *,
         ids: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         after: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[WebhookResponseResponseBody]:
+    ) -> WebhooksListWebhooksResponseBody:
         """
         List all webhooks belonging to a specific org.
 
@@ -68,7 +67,7 @@ class WebhooksClient:
 
         Returns
         -------
-        SyncPager[WebhookResponseResponseBody]
+        WebhooksListWebhooksResponseBody
             OK response.
 
         Examples
@@ -78,16 +77,16 @@ class WebhooksClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        response = client.webhooks.list()
-        for item in response:
-            yield item
-        # alternatively, you can paginate page-by-page
-        for page in response.iter_pages():
-            yield page
+        client.webhooks.list_webhooks(
+            ids="ids",
+            limit=1,
+            after="after",
+        )
         """
-        return self._raw_client.list(ids=ids, limit=limit, after=after, request_options=request_options)
+        _response = self._raw_client.list_webhooks(ids=ids, limit=limit, after=after, request_options=request_options)
+        return _response.data
 
-    def create(
+    def post_webhooks(
         self,
         *,
         name: str,
@@ -139,12 +138,12 @@ class WebhooksClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.webhooks.create(
+        client.webhooks.post_webhooks(
             name="Webhook-123",
             url="https://www.Webhook-123.com/webhook/listener",
         )
         """
-        _response = self._raw_client.create(
+        _response = self._raw_client.post_webhooks(
             name=name,
             url=url,
             custom_headers=custom_headers,
@@ -154,7 +153,7 @@ class WebhooksClient:
         )
         return _response.data
 
-    def get(
+    def get_webhook(
         self, id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> WebhooksGetWebhookResponseBody:
         """
@@ -187,14 +186,14 @@ class WebhooksClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.webhooks.get(
+        client.webhooks.get_webhook(
             id="id",
         )
         """
-        _response = self._raw_client.get(id, request_options=request_options)
+        _response = self._raw_client.get_webhook(id, request_options=request_options)
         return _response.data
 
-    def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
+    def delete_webhook(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
         """
         Delete a webhook with the given ID.
 
@@ -224,14 +223,14 @@ class WebhooksClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.webhooks.delete(
+        client.webhooks.delete_webhook(
             id="id",
         )
         """
-        _response = self._raw_client.delete(id, request_options=request_options)
+        _response = self._raw_client.delete_webhook(id, request_options=request_options)
         return _response.data
 
-    def patch(
+    def patch_webhook(
         self,
         id: str,
         *,
@@ -285,11 +284,11 @@ class WebhooksClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.webhooks.patch(
+        client.webhooks.patch_webhook(
             id="id",
         )
         """
-        _response = self._raw_client.patch(
+        _response = self._raw_client.patch_webhook(
             id, custom_headers=custom_headers, name=name, url=url, version=version, request_options=request_options
         )
         return _response.data
@@ -310,14 +309,14 @@ class AsyncWebhooksClient:
         """
         return self._raw_client
 
-    async def list(
+    async def list_webhooks(
         self,
         *,
         ids: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         after: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[WebhookResponseResponseBody]:
+    ) -> WebhooksListWebhooksResponseBody:
         """
         List all webhooks belonging to a specific org.
 
@@ -344,7 +343,7 @@ class AsyncWebhooksClient:
 
         Returns
         -------
-        AsyncPager[WebhookResponseResponseBody]
+        WebhooksListWebhooksResponseBody
             OK response.
 
         Examples
@@ -359,20 +358,21 @@ class AsyncWebhooksClient:
 
 
         async def main() -> None:
-            response = await client.webhooks.list()
-            async for item in response:
-                yield item
-
-            # alternatively, you can paginate page-by-page
-            async for page in response.iter_pages():
-                yield page
+            await client.webhooks.list_webhooks(
+                ids="ids",
+                limit=1,
+                after="after",
+            )
 
 
         asyncio.run(main())
         """
-        return await self._raw_client.list(ids=ids, limit=limit, after=after, request_options=request_options)
+        _response = await self._raw_client.list_webhooks(
+            ids=ids, limit=limit, after=after, request_options=request_options
+        )
+        return _response.data
 
-    async def create(
+    async def post_webhooks(
         self,
         *,
         name: str,
@@ -429,7 +429,7 @@ class AsyncWebhooksClient:
 
 
         async def main() -> None:
-            await client.webhooks.create(
+            await client.webhooks.post_webhooks(
                 name="Webhook-123",
                 url="https://www.Webhook-123.com/webhook/listener",
             )
@@ -437,7 +437,7 @@ class AsyncWebhooksClient:
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.create(
+        _response = await self._raw_client.post_webhooks(
             name=name,
             url=url,
             custom_headers=custom_headers,
@@ -447,7 +447,7 @@ class AsyncWebhooksClient:
         )
         return _response.data
 
-    async def get(
+    async def get_webhook(
         self, id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> WebhooksGetWebhookResponseBody:
         """
@@ -485,17 +485,17 @@ class AsyncWebhooksClient:
 
 
         async def main() -> None:
-            await client.webhooks.get(
+            await client.webhooks.get_webhook(
                 id="id",
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.get(id, request_options=request_options)
+        _response = await self._raw_client.get_webhook(id, request_options=request_options)
         return _response.data
 
-    async def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
+    async def delete_webhook(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
         """
         Delete a webhook with the given ID.
 
@@ -530,17 +530,17 @@ class AsyncWebhooksClient:
 
 
         async def main() -> None:
-            await client.webhooks.delete(
+            await client.webhooks.delete_webhook(
                 id="id",
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.delete(id, request_options=request_options)
+        _response = await self._raw_client.delete_webhook(id, request_options=request_options)
         return _response.data
 
-    async def patch(
+    async def patch_webhook(
         self,
         id: str,
         *,
@@ -599,14 +599,14 @@ class AsyncWebhooksClient:
 
 
         async def main() -> None:
-            await client.webhooks.patch(
+            await client.webhooks.patch_webhook(
                 id="id",
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.patch(
+        _response = await self._raw_client.patch_webhook(
             id, custom_headers=custom_headers, name=name, url=url, version=version, request_options=request_options
         )
         return _response.data

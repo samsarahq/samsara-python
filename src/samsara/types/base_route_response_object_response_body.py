@@ -87,6 +87,13 @@ class BaseRouteResponseObjectResponseBody(UniversalBaseModel):
     List of stops along the route
     """
 
+    tag_ids: typing_extensions.Annotated[typing.Optional[typing.List[str]], FieldMetadata(alias="tagIds")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    An array of IDs of tags to associate with this route.
+    """
+
     vehicle: typing.Optional[GoaVehicleTinyResponseResponseBody] = None
 
     if IS_PYDANTIC_V2:

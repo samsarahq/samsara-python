@@ -11,7 +11,7 @@ from .vehicle_stats_synthetic_engine_seconds_value import VehicleStatsSyntheticE
 
 class VehicleStatsSyntheticEngineSeconds(UniversalBaseModel):
     """
-    Data for the synthetic engine seconds for the vehicle
+    The cumulative number of seconds the engine has run estimated based on when the engine is running. Please note that this method <a href="https://kb.samsara.com/hc/en-us/articles/360043552511-Synthetic-Engine-Hours" target="_blank">requires the addition of a baseline</a> to trigger accumulation.
     """
 
     decorations: typing.Optional[VehicleStatsDecorations] = None

@@ -2,4 +2,6 @@
 
 import typing
 
-GatewayDetailsResponseResponseBodyGatewayBatteryState = typing.Union[typing.Literal["low", "ok", "unknown"], typing.Any]
+GatewayDetailsResponseResponseBodyGatewayBatteryState = typing.Union[
+    typing.Literal["critical", "low", "ok", "unknown"], typing.Any
+]

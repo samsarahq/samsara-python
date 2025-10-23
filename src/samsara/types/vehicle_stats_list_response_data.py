@@ -36,9 +36,13 @@ from .vehicle_stats_ev_distance_driven_meters import VehicleStatsEvDistanceDrive
 from .vehicle_stats_ev_regenerated_energy_micro_wh import VehicleStatsEvRegeneratedEnergyMicroWh
 from .vehicle_stats_ev_state_of_charge_milli_percent import VehicleStatsEvStateOfChargeMilliPercent
 from .vehicle_stats_fault_codes_with_decoration import VehicleStatsFaultCodesWithDecoration
+from .vehicle_stats_fuel_consumed_milliliters_with_decoration import VehicleStatsFuelConsumedMillilitersWithDecoration
 from .vehicle_stats_fuel_percent_with_decoration import VehicleStatsFuelPercentWithDecoration
 from .vehicle_stats_gps_distance_meters_with_decoration import VehicleStatsGpsDistanceMetersWithDecoration
 from .vehicle_stats_gps_odometer_meters_with_decoration import VehicleStatsGpsOdometerMetersWithDecoration
+from .vehicle_stats_idling_duration_milliseconds_with_decoration import (
+    VehicleStatsIdlingDurationMillisecondsWithDecoration,
+)
 from .vehicle_stats_intake_manifold_temp_milli_c_with_decoration import (
     VehicleStatsIntakeManifoldTempMilliCWithDecoration,
 )
@@ -346,6 +350,14 @@ class VehicleStatsListResponseData(UniversalBaseModel):
     A list of engine fault codes.
     """
 
+    fuel_consumed_milliliters: typing_extensions.Annotated[
+        typing.Optional[typing.List[VehicleStatsFuelConsumedMillilitersWithDecoration]],
+        FieldMetadata(alias="fuelConsumedMilliliters"),
+    ] = pydantic.Field(default=None)
+    """
+    A list of cumulative fuel consumption readings in milliliters for the given vehicle. Cumulative values always increase. This includes all fuel consumption reported by vehicles without filtering of invalid data points. For filtered fuel consumption that matches the Fuel & Energy Report, please use <a href="https://developers.samsara.com/reference/getfuelenergyvehiclereports" target="_blank">the Fuel and Energy API</a>.
+    """
+
     fuel_percents: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsFuelPercentWithDecoration]], FieldMetadata(alias="fuelPercents")
     ] = pydantic.Field(default=None)
@@ -375,6 +387,14 @@ class VehicleStatsListResponseData(UniversalBaseModel):
     """
 
     id: typing.Optional[VehicleId] = None
+    idling_duration_milliseconds: typing_extensions.Annotated[
+        typing.Optional[typing.List[VehicleStatsIdlingDurationMillisecondsWithDecoration]],
+        FieldMetadata(alias="idlingDurationMilliseconds"),
+    ] = pydantic.Field(default=None)
+    """
+    A list of cumulative idling duration readings in milliseconds for the given vehicle. Cumulative values always increase. For filtering of idling duration please use <a href="https://developers.samsara.com/reference/getvehicleidlingreports" target="_blank">the Idling Events API</a>.
+    """
+
     intake_manifold_temperature_milli_c: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsIntakeManifoldTempMilliCWithDecoration]],
         FieldMetadata(alias="intakeManifoldTemperatureMilliC"),

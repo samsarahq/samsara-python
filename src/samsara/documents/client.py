@@ -3,13 +3,14 @@
 import typing
 
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
-from ..core.pagination import AsyncPager, SyncPager
 from ..core.request_options import RequestOptions
-from ..types.document_response_object_response_body import DocumentResponseObjectResponseBody
+from ..types.document_pdf_generation_response import DocumentPdfGenerationResponse
+from ..types.document_pdf_query_response import DocumentPdfQueryResponse
+from ..types.document_types_get_document_types_response_body import DocumentTypesGetDocumentTypesResponseBody
 from ..types.documents_get_document_response_body import DocumentsGetDocumentResponseBody
+from ..types.documents_get_documents_response_body import DocumentsGetDocumentsResponseBody
 from ..types.documents_post_document_response_body import DocumentsPostDocumentResponseBody
 from ..types.field_object_post_request_body import FieldObjectPostRequestBody
-from .pdfs.client import AsyncPdfsClient, PdfsClient
 from .raw_client import AsyncRawDocumentsClient, RawDocumentsClient
 from .types.documents_post_document_request_body_state import DocumentsPostDocumentRequestBodyState
 
@@ -20,7 +21,6 @@ OMIT = typing.cast(typing.Any, ...)
 class DocumentsClient:
     def __init__(self, *, client_wrapper: SyncClientWrapper):
         self._raw_client = RawDocumentsClient(client_wrapper=client_wrapper)
-        self.pdfs = PdfsClient(client_wrapper=client_wrapper)
 
     @property
     def with_raw_response(self) -> RawDocumentsClient:
@@ -33,7 +33,47 @@ class DocumentsClient:
         """
         return self._raw_client
 
-    def list(
+    def get_document_types(
+        self, *, after: typing.Optional[str] = None, request_options: typing.Optional[RequestOptions] = None
+    ) -> DocumentTypesGetDocumentTypesResponseBody:
+        """
+        Returns a list of the organization document types. The legacy version of this endpoint can be found at [samsara.com/api-legacy](https://www.samsara.com/api-legacy#operation/getDriverDocumentTypesByOrgId).
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Documents** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        DocumentTypesGetDocumentTypesResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.documents.get_document_types(
+            after="after",
+        )
+        """
+        _response = self._raw_client.get_document_types(after=after, request_options=request_options)
+        return _response.data
+
+    def get_documents(
         self,
         *,
         start_time: str,
@@ -42,7 +82,7 @@ class DocumentsClient:
         document_type_id: typing.Optional[str] = None,
         query_by: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[DocumentResponseObjectResponseBody]:
+    ) -> DocumentsGetDocumentsResponseBody:
         """
         Get all documents for the given time range. The legacy version of this endpoint can be found at [samsara.com/api-legacy](https://www.samsara.com/api-legacy#operation/getDriverDocumentsByOrgId).
 
@@ -75,7 +115,7 @@ class DocumentsClient:
 
         Returns
         -------
-        SyncPager[DocumentResponseObjectResponseBody]
+        DocumentsGetDocumentsResponseBody
             OK response.
 
         Examples
@@ -85,17 +125,15 @@ class DocumentsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        response = client.documents.list(
+        client.documents.get_documents(
             start_time="startTime",
             end_time="endTime",
+            after="after",
+            document_type_id="documentTypeId",
+            query_by="queryBy",
         )
-        for item in response:
-            yield item
-        # alternatively, you can paginate page-by-page
-        for page in response.iter_pages():
-            yield page
         """
-        return self._raw_client.list(
+        _response = self._raw_client.get_documents(
             start_time=start_time,
             end_time=end_time,
             after=after,
@@ -103,8 +141,9 @@ class DocumentsClient:
             query_by=query_by,
             request_options=request_options,
         )
+        return _response.data
 
-    def create(
+    def post_document(
         self,
         *,
         document_type_id: str,
@@ -168,12 +207,12 @@ class DocumentsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.documents.create(
+        client.documents.post_document(
             document_type_id="9814a1fa-f0c6-408b-bf85-51dc3bc71ac7",
             driver_id="45646",
         )
         """
-        _response = self._raw_client.create(
+        _response = self._raw_client.post_document(
             document_type_id=document_type_id,
             driver_id=driver_id,
             fields=fields,
@@ -186,7 +225,81 @@ class DocumentsClient:
         )
         return _response.data
 
-    def get(
+    def generate_document_pdf(
+        self, *, document_id: str, request_options: typing.Optional[RequestOptions] = None
+    ) -> DocumentPdfGenerationResponse:
+        """
+        Request creation of a document PDF.
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Write Documents** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        document_id : str
+            ID of the document.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        DocumentPdfGenerationResponse
+            Newly created PDF generation job.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.documents.generate_document_pdf(
+            document_id="6c8c0c01-206a-41a4-9d21-15b9978d04cb",
+        )
+        """
+        _response = self._raw_client.generate_document_pdf(document_id=document_id, request_options=request_options)
+        return _response.data
+
+    def get_document_pdf(
+        self, id: str, *, request_options: typing.Optional[RequestOptions] = None
+    ) -> DocumentPdfQueryResponse:
+        """
+        Returns generation job status and download URL for a PDF.
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Documents** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        id : str
+            ID of the pdf.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        DocumentPdfQueryResponse
+            Document PDF job status and download URL.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.documents.get_document_pdf(
+            id="id",
+        )
+        """
+        _response = self._raw_client.get_document_pdf(id, request_options=request_options)
+        return _response.data
+
+    def get_document(
         self, id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> DocumentsGetDocumentResponseBody:
         """
@@ -219,14 +332,14 @@ class DocumentsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.documents.get(
+        client.documents.get_document(
             id="id",
         )
         """
-        _response = self._raw_client.get(id, request_options=request_options)
+        _response = self._raw_client.get_document(id, request_options=request_options)
         return _response.data
 
-    def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
+    def delete_document(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
         """
         Deletes a single document. The legacy version of this endpoint can be found at [samsara.com/api-legacy](https://www.samsara.com/api-legacy#operation/deleteDriverDocumentByIdAndDriverId).
 
@@ -256,18 +369,17 @@ class DocumentsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.documents.delete(
+        client.documents.delete_document(
             id="id",
         )
         """
-        _response = self._raw_client.delete(id, request_options=request_options)
+        _response = self._raw_client.delete_document(id, request_options=request_options)
         return _response.data
 
 
 class AsyncDocumentsClient:
     def __init__(self, *, client_wrapper: AsyncClientWrapper):
         self._raw_client = AsyncRawDocumentsClient(client_wrapper=client_wrapper)
-        self.pdfs = AsyncPdfsClient(client_wrapper=client_wrapper)
 
     @property
     def with_raw_response(self) -> AsyncRawDocumentsClient:
@@ -280,7 +392,55 @@ class AsyncDocumentsClient:
         """
         return self._raw_client
 
-    async def list(
+    async def get_document_types(
+        self, *, after: typing.Optional[str] = None, request_options: typing.Optional[RequestOptions] = None
+    ) -> DocumentTypesGetDocumentTypesResponseBody:
+        """
+        Returns a list of the organization document types. The legacy version of this endpoint can be found at [samsara.com/api-legacy](https://www.samsara.com/api-legacy#operation/getDriverDocumentTypesByOrgId).
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Documents** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        DocumentTypesGetDocumentTypesResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.documents.get_document_types(
+                after="after",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_document_types(after=after, request_options=request_options)
+        return _response.data
+
+    async def get_documents(
         self,
         *,
         start_time: str,
@@ -289,7 +449,7 @@ class AsyncDocumentsClient:
         document_type_id: typing.Optional[str] = None,
         query_by: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[DocumentResponseObjectResponseBody]:
+    ) -> DocumentsGetDocumentsResponseBody:
         """
         Get all documents for the given time range. The legacy version of this endpoint can be found at [samsara.com/api-legacy](https://www.samsara.com/api-legacy#operation/getDriverDocumentsByOrgId).
 
@@ -322,7 +482,7 @@ class AsyncDocumentsClient:
 
         Returns
         -------
-        AsyncPager[DocumentResponseObjectResponseBody]
+        DocumentsGetDocumentsResponseBody
             OK response.
 
         Examples
@@ -337,21 +497,18 @@ class AsyncDocumentsClient:
 
 
         async def main() -> None:
-            response = await client.documents.list(
+            await client.documents.get_documents(
                 start_time="startTime",
                 end_time="endTime",
+                after="after",
+                document_type_id="documentTypeId",
+                query_by="queryBy",
             )
-            async for item in response:
-                yield item
-
-            # alternatively, you can paginate page-by-page
-            async for page in response.iter_pages():
-                yield page
 
 
         asyncio.run(main())
         """
-        return await self._raw_client.list(
+        _response = await self._raw_client.get_documents(
             start_time=start_time,
             end_time=end_time,
             after=after,
@@ -359,8 +516,9 @@ class AsyncDocumentsClient:
             query_by=query_by,
             request_options=request_options,
         )
+        return _response.data
 
-    async def create(
+    async def post_document(
         self,
         *,
         document_type_id: str,
@@ -429,7 +587,7 @@ class AsyncDocumentsClient:
 
 
         async def main() -> None:
-            await client.documents.create(
+            await client.documents.post_document(
                 document_type_id="9814a1fa-f0c6-408b-bf85-51dc3bc71ac7",
                 driver_id="45646",
             )
@@ -437,7 +595,7 @@ class AsyncDocumentsClient:
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.create(
+        _response = await self._raw_client.post_document(
             document_type_id=document_type_id,
             driver_id=driver_id,
             fields=fields,
@@ -450,7 +608,99 @@ class AsyncDocumentsClient:
         )
         return _response.data
 
-    async def get(
+    async def generate_document_pdf(
+        self, *, document_id: str, request_options: typing.Optional[RequestOptions] = None
+    ) -> DocumentPdfGenerationResponse:
+        """
+        Request creation of a document PDF.
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Write Documents** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        document_id : str
+            ID of the document.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        DocumentPdfGenerationResponse
+            Newly created PDF generation job.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.documents.generate_document_pdf(
+                document_id="6c8c0c01-206a-41a4-9d21-15b9978d04cb",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.generate_document_pdf(
+            document_id=document_id, request_options=request_options
+        )
+        return _response.data
+
+    async def get_document_pdf(
+        self, id: str, *, request_options: typing.Optional[RequestOptions] = None
+    ) -> DocumentPdfQueryResponse:
+        """
+        Returns generation job status and download URL for a PDF.
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Documents** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        id : str
+            ID of the pdf.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        DocumentPdfQueryResponse
+            Document PDF job status and download URL.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.documents.get_document_pdf(
+                id="id",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_document_pdf(id, request_options=request_options)
+        return _response.data
+
+    async def get_document(
         self, id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> DocumentsGetDocumentResponseBody:
         """
@@ -488,17 +738,17 @@ class AsyncDocumentsClient:
 
 
         async def main() -> None:
-            await client.documents.get(
+            await client.documents.get_document(
                 id="id",
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.get(id, request_options=request_options)
+        _response = await self._raw_client.get_document(id, request_options=request_options)
         return _response.data
 
-    async def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
+    async def delete_document(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
         """
         Deletes a single document. The legacy version of this endpoint can be found at [samsara.com/api-legacy](https://www.samsara.com/api-legacy#operation/deleteDriverDocumentByIdAndDriverId).
 
@@ -533,12 +783,12 @@ class AsyncDocumentsClient:
 
 
         async def main() -> None:
-            await client.documents.delete(
+            await client.documents.delete_document(
                 id="id",
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.delete(id, request_options=request_options)
+        _response = await self._raw_client.delete_document(id, request_options=request_options)
         return _response.data

@@ -19,14 +19,14 @@ class UnitResponseBody(UniversalBaseModel):
         typing.Optional[UnitResponseBodyBaseUnit], FieldMetadata(alias="baseUnit")
     ] = pydantic.Field(default=None)
     """
-    Unit of measurement  Valid values: `bar`, `celsius`, `fahrenheit`, `foot`, `gallon`, `galpermi`, `gforce`, `gperliter`, `gperm`, `hour`, `impgallon`, `impgalpermi`, `inch`, `kelvin`, `kgper100kmgaseousfuel`, `kgpergallon`, `kgperkm`, `kgperliter`, `kgpermi`, `kilogram`, `kilogramgaseousfuel`, `kilometer`, `kilopascal`, `kilowatthour`, `kmperhr`, `lbpermi`, `liter`, `litergaseousfuel`, `lper100km`, `lper100kmgaseousfuel`, `lperkm`, `lperm`, `meter`, `meterspersec`, `mile`, `milliknot`, `millisecond`, `millivolt`, `mipergal`, `miperhr`, `miperimpgal`, `mpgusgalgaseousfuel`, `mpkggaseousfuel`, `percent`, `pound`, `poundsPerSquareInch`, `poundspergallon`, `poundsperliter`, `second`, `usd`, `usgallongaseousfuel`, `volt`, `watthour`
+    Unit of measurement  Valid values: `bar`, `celsius`, `day`, `decimaldegrees`, `fahrenheit`, `foot`, `gallon`, `gallonperkilogram`, `gallonsperhour`, `galpermi`, `gforce`, `gperliter`, `gperm`, `hour`, `imperialgallonperkilogram`, `impgallon`, `impgallonsperhour`, `impgalpermi`, `inch`, `kelvin`, `kgper100kmgaseousfuel`, `kgpergallon`, `kgperkm`, `kgperliter`, `kgpermi`, `kilogram`, `kilogramgaseousfuel`, `kilometer`, `kilopascal`, `kilowatthour`, `kmperhr`, `kmperl`, `kmperlgaseousfuel`, `lbpermi`, `liter`, `litergaseousfuel`, `literperkilogram`, `literpertonne`, `litersperhour`, `lper100km`, `lper100kmgaseousfuel`, `lperkm`, `lperm`, `meter`, `meterspersec`, `mile`, `milliknot`, `millisecond`, `millivolt`, `minute`, `mipergal`, `miperhr`, `miperimpgal`, `month`, `mpgusgalgaseousfuel`, `mpkggaseousfuel`, `percent`, `pound`, `poundsPerSquareInch`, `poundspergallon`, `poundsperliter`, `rpm`, `second`, `usd`, `usgallongaseousfuel`, `volt`, `watthour`, `week`
     """
 
     measurement_type: typing_extensions.Annotated[
         typing.Optional[UnitResponseBodyMeasurementType], FieldMetadata(alias="measurementType")
     ] = pydantic.Field(default=None)
     """
-    Type of measurement  Valid values: `acceleration`, `co2EmissionsPerVolumeRate`, `currency`, `distance`, `drySpreadRate`, `duration`, `energy`, `fuelEconomy`, `gaseousFuel`, `gaseousFuelEconomy`, `pressure`, `ratio`, `speed`, `temperature`, `time`, `voltage`, `volume`, `weight`, `wetSpreadRate`
+    Type of measurement  Valid values: `acceleration`, `co2EmissionsPerVolumeRate`, `currency`, `distance`, `drySpreadRate`, `duration`, `energy`, `fuelBurn`, `fuelEconomy`, `gaseousFuel`, `gaseousFuelEconomy`, `geographicCoordinate`, `pressure`, `ratio`, `rotationalSpeed`, `speed`, `temperature`, `time`, `voltage`, `volume`, `volumePerWeight`, `weight`, `wetSpreadRate`
     """
 
     if IS_PYDANTIC_V2:

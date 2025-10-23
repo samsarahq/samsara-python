@@ -6,6 +6,7 @@ from json.decoder import JSONDecodeError
 from ..core.api_error import ApiError
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.http_response import AsyncHttpResponse, HttpResponse
+from ..core.jsonable_encoder import jsonable_encoder
 from ..core.pagination import AsyncPager, BaseHttpResponse, SyncPager
 from ..core.pydantic_utilities import parse_obj_as
 from ..core.request_options import RequestOptions
@@ -22,6 +23,10 @@ from ..types.asset_response_body import AssetResponseBody
 from ..types.assets_create_asset_response_body import AssetsCreateAssetResponseBody
 from ..types.assets_list_assets_response_body import AssetsListAssetsResponseBody
 from ..types.assets_update_asset_response_body import AssetsUpdateAssetResponseBody
+from ..types.inline_response_2002 import InlineResponse2002
+from ..types.inline_response_2003 import InlineResponse2003
+from ..types.v_1_asset_location_response import V1AssetLocationResponse
+from ..types.v_1_asset_reefer_response import V1AssetReeferResponse
 from .types.assets_create_asset_request_body_regulation_mode import AssetsCreateAssetRequestBodyRegulationMode
 from .types.assets_create_asset_request_body_type import AssetsCreateAssetRequestBodyType
 from .types.assets_list_request_type import AssetsListRequestType
@@ -48,6 +53,7 @@ class RawAssetsClient:
         parent_tag_ids: typing.Optional[str] = None,
         ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         attribute_value_ids: typing.Optional[str] = None,
+        attributes: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> SyncPager[AssetResponseBody]:
         """
@@ -89,6 +95,9 @@ class RawAssetsClient:
         attribute_value_ids : typing.Optional[str]
             A filter on the data based on this comma-separated list of attribute value IDs. Only entities associated with ALL of the referenced values will be returned (i.e. the intersection of the sets of entities with each value). Example: `attributeValueIds=076efac2-83b5-47aa-ba36-18428436dcac,6707b3f0-23b9-4fe3-b7be-11be34aea544`
 
+        attributes : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data to return entities within given range query (only for numeric attributes) separated by a comma. Only entities meeting all the conditions will be returned. At least one bound must be provided. Example: `attributes=Length:range(8,)&attributes=Length:range(10,20)`
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -110,6 +119,7 @@ class RawAssetsClient:
                 "parentTagIds": parent_tag_ids,
                 "ids": ids,
                 "attributeValueIds": attribute_value_ids,
+                "attributes": attributes,
             },
             request_options=request_options,
         )
@@ -138,6 +148,7 @@ class RawAssetsClient:
                         parent_tag_ids=parent_tag_ids,
                         ids=ids,
                         attribute_value_ids=attribute_value_ids,
+                        attributes=attributes,
                         request_options=request_options,
                     )
                 return SyncPager(
@@ -247,7 +258,7 @@ class RawAssetsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    def create(
+    def create_asset(
         self,
         *,
         external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
@@ -256,6 +267,7 @@ class RawAssetsClient:
         model: typing.Optional[str] = OMIT,
         name: typing.Optional[str] = OMIT,
         notes: typing.Optional[str] = OMIT,
+        readings_ingestion_enabled: typing.Optional[bool] = OMIT,
         regulation_mode: typing.Optional[AssetsCreateAssetRequestBodyRegulationMode] = OMIT,
         serial_number: typing.Optional[str] = OMIT,
         type: typing.Optional[AssetsCreateAssetRequestBodyType] = OMIT,
@@ -293,6 +305,9 @@ class RawAssetsClient:
         notes : typing.Optional[str]
             These are generic notes about the asset. Can be set or updated through the Samsara Dashboard or the API at any time.
 
+        readings_ingestion_enabled : typing.Optional[bool]
+            Indicates whether the asset is expected to have data ingested using the Readings API.
+
         regulation_mode : typing.Optional[AssetsCreateAssetRequestBodyRegulationMode]
             Whether or not the asset is regulated, unregulated (non-CMV), or a mixed use unregulated asset. Primarily used with vehicles.  Valid values: `mixed`, `regulated`, `unregulated`
 
@@ -326,6 +341,7 @@ class RawAssetsClient:
                 "model": model,
                 "name": name,
                 "notes": notes,
+                "readingsIngestionEnabled": readings_ingestion_enabled,
                 "regulationMode": regulation_mode,
                 "serialNumber": serial_number,
                 "type": type,
@@ -452,7 +468,7 @@ class RawAssetsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    def delete(self, *, id: str, request_options: typing.Optional[RequestOptions] = None) -> HttpResponse[None]:
+    def delete_asset(self, *, id: str, request_options: typing.Optional[RequestOptions] = None) -> HttpResponse[None]:
         """
         Delete an existing asset.
 
@@ -590,7 +606,7 @@ class RawAssetsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    def update(
+    def update_asset(
         self,
         *,
         id: str,
@@ -600,6 +616,7 @@ class RawAssetsClient:
         model: typing.Optional[str] = OMIT,
         name: typing.Optional[str] = OMIT,
         notes: typing.Optional[str] = OMIT,
+        readings_ingestion_enabled: typing.Optional[bool] = OMIT,
         regulation_mode: typing.Optional[AssetsUpdateAssetRequestBodyRegulationMode] = OMIT,
         serial_number: typing.Optional[str] = OMIT,
         type: typing.Optional[AssetsUpdateAssetRequestBodyType] = OMIT,
@@ -640,6 +657,9 @@ class RawAssetsClient:
         notes : typing.Optional[str]
             These are generic notes about the asset. Can be set or updated through the Samsara Dashboard or the API at any time.
 
+        readings_ingestion_enabled : typing.Optional[bool]
+            Indicates whether the asset is expected to have data ingested using the Readings API.
+
         regulation_mode : typing.Optional[AssetsUpdateAssetRequestBodyRegulationMode]
             Whether or not the asset is regulated, unregulated (non-CMV), or a mixed use unregulated asset. Primarily used with vehicles.  Valid values: `mixed`, `regulated`, `unregulated`
 
@@ -676,6 +696,7 @@ class RawAssetsClient:
                 "model": model,
                 "name": name,
                 "notes": notes,
+                "readingsIngestionEnabled": readings_ingestion_enabled,
                 "regulationMode": regulation_mode,
                 "serialNumber": serial_number,
                 "type": type,
@@ -802,6 +823,320 @@ class RawAssetsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
+    def v_1_get_all_asset_current_locations(
+        self,
+        *,
+        starting_after: typing.Optional[str] = None,
+        ending_before: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[InlineResponse2002]:
+        """
+        <n class="warning">
+        <nh>
+        <i class="fa fa-exclamation-circle"></i>
+        This endpoint is still on our legacy API.
+        </nh>
+        </n>
+
+        Fetch current locations of all assets.
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        starting_after : typing.Optional[str]
+            Pagination parameter indicating the cursor position to continue returning results after. Used in conjunction with the 'limit' parameter. Mutually exclusive with 'endingBefore' parameter.
+
+        ending_before : typing.Optional[str]
+            Pagination parameter indicating the cursor position to return results before. Used in conjunction with the 'limit' parameter. Mutually exclusive with 'startingAfter' parameter.
+
+        limit : typing.Optional[int]
+            Pagination parameter indicating the number of results to return in this request. Used in conjunction with either 'startingAfter' or 'endingBefore'.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[InlineResponse2002]
+            List of assets and their current locations.
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "v1/fleet/assets/locations",
+            method="GET",
+            params={
+                "startingAfter": starting_after,
+                "endingBefore": ending_before,
+                "limit": limit,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    InlineResponse2002,
+                    parse_obj_as(
+                        type_=InlineResponse2002,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def v_1_get_assets_reefers(
+        self,
+        *,
+        start_ms: int,
+        end_ms: int,
+        starting_after: typing.Optional[str] = None,
+        ending_before: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[InlineResponse2003]:
+        """
+        <n class="warning">
+        <nh>
+        <i class="fa fa-exclamation-circle"></i>
+        This endpoint is still on our legacy API.
+        </nh>
+        </n>
+
+        Fetches all reefers and reefer-specific stats.
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Trailers** under the Trailers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        start_ms : int
+            Timestamp in milliseconds representing the start of the period to fetch, inclusive. Used in combination with endMs.
+
+        end_ms : int
+            Timestamp in milliseconds representing the end of the period to fetch, inclusive. Used in combination with startMs.
+
+        starting_after : typing.Optional[str]
+            Pagination parameter indicating the cursor position to continue returning results after. Used in conjunction with the 'limit' parameter. Mutually exclusive with 'endingBefore' parameter.
+
+        ending_before : typing.Optional[str]
+            Pagination parameter indicating the cursor position to return results before. Used in conjunction with the 'limit' parameter. Mutually exclusive with 'startingAfter' parameter.
+
+        limit : typing.Optional[int]
+            Pagination parameter indicating the number of results to return in this request. Used in conjunction with either 'startingAfter' or 'endingBefore'.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[InlineResponse2003]
+            All org reefers and reefer-specific details.
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "v1/fleet/assets/reefers",
+            method="GET",
+            params={
+                "startMs": start_ms,
+                "endMs": end_ms,
+                "startingAfter": starting_after,
+                "endingBefore": ending_before,
+                "limit": limit,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    InlineResponse2003,
+                    parse_obj_as(
+                        type_=InlineResponse2003,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def v_1_get_asset_location(
+        self, asset_id: int, *, start_ms: int, end_ms: int, request_options: typing.Optional[RequestOptions] = None
+    ) -> HttpResponse[V1AssetLocationResponse]:
+        """
+        <n class="warning">
+        <nh>
+        <i class="fa fa-exclamation-circle"></i>
+        This endpoint is still on our legacy API.
+        </nh>
+        </n>
+
+        List historical locations for a given asset.
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        asset_id : int
+            ID of the asset. Must contain only digits 0-9.
+
+        start_ms : int
+            Timestamp in milliseconds representing the start of the period to fetch, inclusive. Used in combination with endMs.
+
+        end_ms : int
+            Timestamp in milliseconds representing the end of the period to fetch, inclusive. Used in combination with startMs.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[V1AssetLocationResponse]
+            Asset location details.
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            f"v1/fleet/assets/{jsonable_encoder(asset_id)}/locations",
+            method="GET",
+            params={
+                "startMs": start_ms,
+                "endMs": end_ms,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    V1AssetLocationResponse,
+                    parse_obj_as(
+                        type_=V1AssetLocationResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def v_1_get_asset_reefer(
+        self, asset_id: int, *, start_ms: int, end_ms: int, request_options: typing.Optional[RequestOptions] = None
+    ) -> HttpResponse[V1AssetReeferResponse]:
+        """
+        <n class="warning">
+        <nh>
+        <i class="fa fa-exclamation-circle"></i>
+        This endpoint is still on our legacy API.
+        </nh>
+        </n>
+
+        Fetch the reefer-specific stats of an asset.
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Trailers** under the Trailers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        asset_id : int
+            ID of the asset. Must contain only digits 0-9.
+
+        start_ms : int
+            Timestamp in milliseconds representing the start of the period to fetch, inclusive. Used in combination with endMs.
+
+        end_ms : int
+            Timestamp in milliseconds representing the end of the period to fetch, inclusive. Used in combination with startMs.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[V1AssetReeferResponse]
+            Reefer-specific asset details.
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            f"v1/fleet/assets/{jsonable_encoder(asset_id)}/reefer",
+            method="GET",
+            params={
+                "startMs": start_ms,
+                "endMs": end_ms,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    V1AssetReeferResponse,
+                    parse_obj_as(
+                        type_=V1AssetReeferResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def get(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> HttpResponse[None]:
+        """
+        Parameters
+        ----------
+        id : str
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[None]
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            f"assets/{jsonable_encoder(id)}",
+            method="GET",
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                return HttpResponse(response=_response, data=None)
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def update(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> HttpResponse[None]:
+        """
+        Parameters
+        ----------
+        id : str
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[None]
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            f"assets/{jsonable_encoder(id)}",
+            method="PATCH",
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                return HttpResponse(response=_response, data=None)
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
 
 class AsyncRawAssetsClient:
     def __init__(self, *, client_wrapper: AsyncClientWrapper):
@@ -819,6 +1154,7 @@ class AsyncRawAssetsClient:
         parent_tag_ids: typing.Optional[str] = None,
         ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         attribute_value_ids: typing.Optional[str] = None,
+        attributes: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncPager[AssetResponseBody]:
         """
@@ -860,6 +1196,9 @@ class AsyncRawAssetsClient:
         attribute_value_ids : typing.Optional[str]
             A filter on the data based on this comma-separated list of attribute value IDs. Only entities associated with ALL of the referenced values will be returned (i.e. the intersection of the sets of entities with each value). Example: `attributeValueIds=076efac2-83b5-47aa-ba36-18428436dcac,6707b3f0-23b9-4fe3-b7be-11be34aea544`
 
+        attributes : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data to return entities within given range query (only for numeric attributes) separated by a comma. Only entities meeting all the conditions will be returned. At least one bound must be provided. Example: `attributes=Length:range(8,)&attributes=Length:range(10,20)`
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -881,6 +1220,7 @@ class AsyncRawAssetsClient:
                 "parentTagIds": parent_tag_ids,
                 "ids": ids,
                 "attributeValueIds": attribute_value_ids,
+                "attributes": attributes,
             },
             request_options=request_options,
         )
@@ -911,6 +1251,7 @@ class AsyncRawAssetsClient:
                             parent_tag_ids=parent_tag_ids,
                             ids=ids,
                             attribute_value_ids=attribute_value_ids,
+                            attributes=attributes,
                             request_options=request_options,
                         )
 
@@ -1021,7 +1362,7 @@ class AsyncRawAssetsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    async def create(
+    async def create_asset(
         self,
         *,
         external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
@@ -1030,6 +1371,7 @@ class AsyncRawAssetsClient:
         model: typing.Optional[str] = OMIT,
         name: typing.Optional[str] = OMIT,
         notes: typing.Optional[str] = OMIT,
+        readings_ingestion_enabled: typing.Optional[bool] = OMIT,
         regulation_mode: typing.Optional[AssetsCreateAssetRequestBodyRegulationMode] = OMIT,
         serial_number: typing.Optional[str] = OMIT,
         type: typing.Optional[AssetsCreateAssetRequestBodyType] = OMIT,
@@ -1067,6 +1409,9 @@ class AsyncRawAssetsClient:
         notes : typing.Optional[str]
             These are generic notes about the asset. Can be set or updated through the Samsara Dashboard or the API at any time.
 
+        readings_ingestion_enabled : typing.Optional[bool]
+            Indicates whether the asset is expected to have data ingested using the Readings API.
+
         regulation_mode : typing.Optional[AssetsCreateAssetRequestBodyRegulationMode]
             Whether or not the asset is regulated, unregulated (non-CMV), or a mixed use unregulated asset. Primarily used with vehicles.  Valid values: `mixed`, `regulated`, `unregulated`
 
@@ -1100,6 +1445,7 @@ class AsyncRawAssetsClient:
                 "model": model,
                 "name": name,
                 "notes": notes,
+                "readingsIngestionEnabled": readings_ingestion_enabled,
                 "regulationMode": regulation_mode,
                 "serialNumber": serial_number,
                 "type": type,
@@ -1226,7 +1572,7 @@ class AsyncRawAssetsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    async def delete(
+    async def delete_asset(
         self, *, id: str, request_options: typing.Optional[RequestOptions] = None
     ) -> AsyncHttpResponse[None]:
         """
@@ -1366,7 +1712,7 @@ class AsyncRawAssetsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    async def update(
+    async def update_asset(
         self,
         *,
         id: str,
@@ -1376,6 +1722,7 @@ class AsyncRawAssetsClient:
         model: typing.Optional[str] = OMIT,
         name: typing.Optional[str] = OMIT,
         notes: typing.Optional[str] = OMIT,
+        readings_ingestion_enabled: typing.Optional[bool] = OMIT,
         regulation_mode: typing.Optional[AssetsUpdateAssetRequestBodyRegulationMode] = OMIT,
         serial_number: typing.Optional[str] = OMIT,
         type: typing.Optional[AssetsUpdateAssetRequestBodyType] = OMIT,
@@ -1416,6 +1763,9 @@ class AsyncRawAssetsClient:
         notes : typing.Optional[str]
             These are generic notes about the asset. Can be set or updated through the Samsara Dashboard or the API at any time.
 
+        readings_ingestion_enabled : typing.Optional[bool]
+            Indicates whether the asset is expected to have data ingested using the Readings API.
+
         regulation_mode : typing.Optional[AssetsUpdateAssetRequestBodyRegulationMode]
             Whether or not the asset is regulated, unregulated (non-CMV), or a mixed use unregulated asset. Primarily used with vehicles.  Valid values: `mixed`, `regulated`, `unregulated`
 
@@ -1452,6 +1802,7 @@ class AsyncRawAssetsClient:
                 "model": model,
                 "name": name,
                 "notes": notes,
+                "readingsIngestionEnabled": readings_ingestion_enabled,
                 "regulationMode": regulation_mode,
                 "serialNumber": serial_number,
                 "type": type,
@@ -1573,6 +1924,322 @@ class AsyncRawAssetsClient:
                         ),
                     ),
                 )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def v_1_get_all_asset_current_locations(
+        self,
+        *,
+        starting_after: typing.Optional[str] = None,
+        ending_before: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[InlineResponse2002]:
+        """
+        <n class="warning">
+        <nh>
+        <i class="fa fa-exclamation-circle"></i>
+        This endpoint is still on our legacy API.
+        </nh>
+        </n>
+
+        Fetch current locations of all assets.
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        starting_after : typing.Optional[str]
+            Pagination parameter indicating the cursor position to continue returning results after. Used in conjunction with the 'limit' parameter. Mutually exclusive with 'endingBefore' parameter.
+
+        ending_before : typing.Optional[str]
+            Pagination parameter indicating the cursor position to return results before. Used in conjunction with the 'limit' parameter. Mutually exclusive with 'startingAfter' parameter.
+
+        limit : typing.Optional[int]
+            Pagination parameter indicating the number of results to return in this request. Used in conjunction with either 'startingAfter' or 'endingBefore'.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[InlineResponse2002]
+            List of assets and their current locations.
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "v1/fleet/assets/locations",
+            method="GET",
+            params={
+                "startingAfter": starting_after,
+                "endingBefore": ending_before,
+                "limit": limit,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    InlineResponse2002,
+                    parse_obj_as(
+                        type_=InlineResponse2002,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def v_1_get_assets_reefers(
+        self,
+        *,
+        start_ms: int,
+        end_ms: int,
+        starting_after: typing.Optional[str] = None,
+        ending_before: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[InlineResponse2003]:
+        """
+        <n class="warning">
+        <nh>
+        <i class="fa fa-exclamation-circle"></i>
+        This endpoint is still on our legacy API.
+        </nh>
+        </n>
+
+        Fetches all reefers and reefer-specific stats.
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Trailers** under the Trailers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        start_ms : int
+            Timestamp in milliseconds representing the start of the period to fetch, inclusive. Used in combination with endMs.
+
+        end_ms : int
+            Timestamp in milliseconds representing the end of the period to fetch, inclusive. Used in combination with startMs.
+
+        starting_after : typing.Optional[str]
+            Pagination parameter indicating the cursor position to continue returning results after. Used in conjunction with the 'limit' parameter. Mutually exclusive with 'endingBefore' parameter.
+
+        ending_before : typing.Optional[str]
+            Pagination parameter indicating the cursor position to return results before. Used in conjunction with the 'limit' parameter. Mutually exclusive with 'startingAfter' parameter.
+
+        limit : typing.Optional[int]
+            Pagination parameter indicating the number of results to return in this request. Used in conjunction with either 'startingAfter' or 'endingBefore'.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[InlineResponse2003]
+            All org reefers and reefer-specific details.
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "v1/fleet/assets/reefers",
+            method="GET",
+            params={
+                "startMs": start_ms,
+                "endMs": end_ms,
+                "startingAfter": starting_after,
+                "endingBefore": ending_before,
+                "limit": limit,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    InlineResponse2003,
+                    parse_obj_as(
+                        type_=InlineResponse2003,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def v_1_get_asset_location(
+        self, asset_id: int, *, start_ms: int, end_ms: int, request_options: typing.Optional[RequestOptions] = None
+    ) -> AsyncHttpResponse[V1AssetLocationResponse]:
+        """
+        <n class="warning">
+        <nh>
+        <i class="fa fa-exclamation-circle"></i>
+        This endpoint is still on our legacy API.
+        </nh>
+        </n>
+
+        List historical locations for a given asset.
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        asset_id : int
+            ID of the asset. Must contain only digits 0-9.
+
+        start_ms : int
+            Timestamp in milliseconds representing the start of the period to fetch, inclusive. Used in combination with endMs.
+
+        end_ms : int
+            Timestamp in milliseconds representing the end of the period to fetch, inclusive. Used in combination with startMs.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[V1AssetLocationResponse]
+            Asset location details.
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            f"v1/fleet/assets/{jsonable_encoder(asset_id)}/locations",
+            method="GET",
+            params={
+                "startMs": start_ms,
+                "endMs": end_ms,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    V1AssetLocationResponse,
+                    parse_obj_as(
+                        type_=V1AssetLocationResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def v_1_get_asset_reefer(
+        self, asset_id: int, *, start_ms: int, end_ms: int, request_options: typing.Optional[RequestOptions] = None
+    ) -> AsyncHttpResponse[V1AssetReeferResponse]:
+        """
+        <n class="warning">
+        <nh>
+        <i class="fa fa-exclamation-circle"></i>
+        This endpoint is still on our legacy API.
+        </nh>
+        </n>
+
+        Fetch the reefer-specific stats of an asset.
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Trailers** under the Trailers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        asset_id : int
+            ID of the asset. Must contain only digits 0-9.
+
+        start_ms : int
+            Timestamp in milliseconds representing the start of the period to fetch, inclusive. Used in combination with endMs.
+
+        end_ms : int
+            Timestamp in milliseconds representing the end of the period to fetch, inclusive. Used in combination with startMs.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[V1AssetReeferResponse]
+            Reefer-specific asset details.
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            f"v1/fleet/assets/{jsonable_encoder(asset_id)}/reefer",
+            method="GET",
+            params={
+                "startMs": start_ms,
+                "endMs": end_ms,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    V1AssetReeferResponse,
+                    parse_obj_as(
+                        type_=V1AssetReeferResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def get(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> AsyncHttpResponse[None]:
+        """
+        Parameters
+        ----------
+        id : str
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[None]
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            f"assets/{jsonable_encoder(id)}",
+            method="GET",
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                return AsyncHttpResponse(response=_response, data=None)
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def update(
+        self, id: str, *, request_options: typing.Optional[RequestOptions] = None
+    ) -> AsyncHttpResponse[None]:
+        """
+        Parameters
+        ----------
+        id : str
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[None]
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            f"assets/{jsonable_encoder(id)}",
+            method="PATCH",
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                return AsyncHttpResponse(response=_response, data=None)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)

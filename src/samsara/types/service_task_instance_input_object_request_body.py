@@ -6,6 +6,7 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .part_instance_input_object_request_body import PartInstanceInputObjectRequestBody
 from .service_task_instance_input_object_request_body_status import ServiceTaskInstanceInputObjectRequestBodyStatus
 from .work_order_money_object_request_body import WorkOrderMoneyObjectRequestBody
 
@@ -28,6 +29,11 @@ class ServiceTaskInstanceInputObjectRequestBody(UniversalBaseModel):
     )
     """
     The time of labor needed
+    """
+
+    parts: typing.Optional[typing.List[PartInstanceInputObjectRequestBody]] = pydantic.Field(default=None)
+    """
+    Parts for the service task.
     """
 
     parts_cost: typing_extensions.Annotated[

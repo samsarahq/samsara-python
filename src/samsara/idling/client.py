@@ -3,11 +3,10 @@
 import typing
 
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
-from ..core.pagination import AsyncPager, SyncPager
 from ..core.request_options import RequestOptions
-from ..types.idling_event_object_response_body import IdlingEventObjectResponseBody
+from ..types.advanced_idling_get_idling_events_response_body import AdvancedIdlingGetIdlingEventsResponseBody
 from .raw_client import AsyncRawIdlingClient, RawIdlingClient
-from .types.idling_list_request_pto_state import IdlingListRequestPtoState
+from .types.get_idling_events_request_pto_state import GetIdlingEventsRequestPtoState
 
 
 class IdlingClient:
@@ -25,14 +24,14 @@ class IdlingClient:
         """
         return self._raw_client
 
-    def list(
+    def get_idling_events(
         self,
         *,
         start_time: str,
         end_time: str,
         asset_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         operator_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        pto_state: typing.Optional[IdlingListRequestPtoState] = None,
+        pto_state: typing.Optional[GetIdlingEventsRequestPtoState] = None,
         min_air_temperature_millicelsius: typing.Optional[int] = None,
         max_air_temperature_millicelsius: typing.Optional[int] = None,
         exclude_events_with_unknown_air_temperature: typing.Optional[bool] = None,
@@ -43,11 +42,11 @@ class IdlingClient:
         after: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[IdlingEventObjectResponseBody]:
+    ) -> AdvancedIdlingGetIdlingEventsResponseBody:
         """
         Get idling events for the requested time duration.
 
-        **Note:** The data from this endpoint comes from the new Advanced Idling Report, which provides additional data fields for each idling event such as air temperature, geofence, PTO state and minimum idle time. This endpoint will initially include data from August 1, 2024. Approx. two weeks later, this will be further back dated to January 1, 2024. If you require additional historical data, you can access it via the [vehicle idling reports API](https://developers.samsara.com/reference/getvehicleidlingreports).
+        **Note:** The data from this endpoint comes from the new Advanced Idling Report, which provides additional data fields for each idling event such as air temperature, geofence, PTO state and minimum idle time. This endpoint includes data from January 1, 2024. If you require additional historical data, you can access it via the [vehicle idling reports API](https://developers.samsara.com/reference/getvehicleidlingreports).
 
          <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -70,7 +69,7 @@ class IdlingClient:
         operator_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             A filter on the data based on this comma-separated list of operator IDs. Operator IDs only include driver IDs at this time.
 
-        pto_state : typing.Optional[IdlingListRequestPtoState]
+        pto_state : typing.Optional[GetIdlingEventsRequestPtoState]
             A filter on the data on this PTO (Power Take-Off) state. If no specific state is provided, data including any state will be included.  Valid values: `active`, `inactive`
 
         min_air_temperature_millicelsius : typing.Optional[int]
@@ -105,7 +104,7 @@ class IdlingClient:
 
         Returns
         -------
-        SyncPager[IdlingEventObjectResponseBody]
+        AdvancedIdlingGetIdlingEventsResponseBody
             OK response.
 
         Examples
@@ -115,17 +114,20 @@ class IdlingClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        response = client.idling.list(
+        client.idling.get_idling_events(
             start_time="startTime",
             end_time="endTime",
+            pto_state="active",
+            min_air_temperature_millicelsius=1,
+            max_air_temperature_millicelsius=1,
+            exclude_events_with_unknown_air_temperature=True,
+            min_duration_milliseconds=1,
+            max_duration_milliseconds=1,
+            after="after",
+            limit=1,
         )
-        for item in response:
-            yield item
-        # alternatively, you can paginate page-by-page
-        for page in response.iter_pages():
-            yield page
         """
-        return self._raw_client.list(
+        _response = self._raw_client.get_idling_events(
             start_time=start_time,
             end_time=end_time,
             asset_ids=asset_ids,
@@ -142,6 +144,7 @@ class IdlingClient:
             limit=limit,
             request_options=request_options,
         )
+        return _response.data
 
 
 class AsyncIdlingClient:
@@ -159,14 +162,14 @@ class AsyncIdlingClient:
         """
         return self._raw_client
 
-    async def list(
+    async def get_idling_events(
         self,
         *,
         start_time: str,
         end_time: str,
         asset_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         operator_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        pto_state: typing.Optional[IdlingListRequestPtoState] = None,
+        pto_state: typing.Optional[GetIdlingEventsRequestPtoState] = None,
         min_air_temperature_millicelsius: typing.Optional[int] = None,
         max_air_temperature_millicelsius: typing.Optional[int] = None,
         exclude_events_with_unknown_air_temperature: typing.Optional[bool] = None,
@@ -177,11 +180,11 @@ class AsyncIdlingClient:
         after: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[IdlingEventObjectResponseBody]:
+    ) -> AdvancedIdlingGetIdlingEventsResponseBody:
         """
         Get idling events for the requested time duration.
 
-        **Note:** The data from this endpoint comes from the new Advanced Idling Report, which provides additional data fields for each idling event such as air temperature, geofence, PTO state and minimum idle time. This endpoint will initially include data from August 1, 2024. Approx. two weeks later, this will be further back dated to January 1, 2024. If you require additional historical data, you can access it via the [vehicle idling reports API](https://developers.samsara.com/reference/getvehicleidlingreports).
+        **Note:** The data from this endpoint comes from the new Advanced Idling Report, which provides additional data fields for each idling event such as air temperature, geofence, PTO state and minimum idle time. This endpoint includes data from January 1, 2024. If you require additional historical data, you can access it via the [vehicle idling reports API](https://developers.samsara.com/reference/getvehicleidlingreports).
 
          <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -204,7 +207,7 @@ class AsyncIdlingClient:
         operator_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             A filter on the data based on this comma-separated list of operator IDs. Operator IDs only include driver IDs at this time.
 
-        pto_state : typing.Optional[IdlingListRequestPtoState]
+        pto_state : typing.Optional[GetIdlingEventsRequestPtoState]
             A filter on the data on this PTO (Power Take-Off) state. If no specific state is provided, data including any state will be included.  Valid values: `active`, `inactive`
 
         min_air_temperature_millicelsius : typing.Optional[int]
@@ -239,7 +242,7 @@ class AsyncIdlingClient:
 
         Returns
         -------
-        AsyncPager[IdlingEventObjectResponseBody]
+        AdvancedIdlingGetIdlingEventsResponseBody
             OK response.
 
         Examples
@@ -254,21 +257,23 @@ class AsyncIdlingClient:
 
 
         async def main() -> None:
-            response = await client.idling.list(
+            await client.idling.get_idling_events(
                 start_time="startTime",
                 end_time="endTime",
+                pto_state="active",
+                min_air_temperature_millicelsius=1,
+                max_air_temperature_millicelsius=1,
+                exclude_events_with_unknown_air_temperature=True,
+                min_duration_milliseconds=1,
+                max_duration_milliseconds=1,
+                after="after",
+                limit=1,
             )
-            async for item in response:
-                yield item
-
-            # alternatively, you can paginate page-by-page
-            async for page in response.iter_pages():
-                yield page
 
 
         asyncio.run(main())
         """
-        return await self._raw_client.list(
+        _response = await self._raw_client.get_idling_events(
             start_time=start_time,
             end_time=end_time,
             asset_ids=asset_ids,
@@ -285,3 +290,4 @@ class AsyncIdlingClient:
             limit=limit,
             request_options=request_options,
         )
+        return _response.data

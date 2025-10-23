@@ -3,20 +3,19 @@
 import typing
 
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
-from ..core.pagination import AsyncPager, SyncPager
 from ..core.request_options import RequestOptions
-from ..types.attribute import Attribute
 from ..types.attribute_expanded_response import AttributeExpandedResponse
 from ..types.create_attribute_request_entities import CreateAttributeRequestEntities
+from ..types.get_attributes_by_entity_type_response import GetAttributesByEntityTypeResponse
+from ..types.standard_delete_response import StandardDeleteResponse
 from .raw_client import AsyncRawAttributesClient, RawAttributesClient
-from .types.attributes_delete_request_entity_type import AttributesDeleteRequestEntityType
-from .types.attributes_get_request_entity_type import AttributesGetRequestEntityType
-from .types.attributes_list_request_entity_type import AttributesListRequestEntityType
 from .types.create_attribute_request_attribute_type import CreateAttributeRequestAttributeType
-from .types.create_attribute_request_attribute_value_quantity import CreateAttributeRequestAttributeValueQuantity
 from .types.create_attribute_request_entity_type import CreateAttributeRequestEntityType
+from .types.create_attribute_request_unit import CreateAttributeRequestUnit
+from .types.delete_attribute_request_entity_type import DeleteAttributeRequestEntityType
+from .types.get_attribute_request_entity_type import GetAttributeRequestEntityType
+from .types.get_attributes_by_entity_type_request_entity_type import GetAttributesByEntityTypeRequestEntityType
 from .types.update_attribute_request_attribute_type import UpdateAttributeRequestAttributeType
-from .types.update_attribute_request_attribute_value_quantity import UpdateAttributeRequestAttributeValueQuantity
 from .types.update_attribute_request_entity_type import UpdateAttributeRequestEntityType
 
 # this is used as the default value for optional parameters
@@ -38,14 +37,14 @@ class AttributesClient:
         """
         return self._raw_client
 
-    def list(
+    def get_attributes_by_entity_type(
         self,
         *,
-        entity_type: AttributesListRequestEntityType,
+        entity_type: GetAttributesByEntityTypeRequestEntityType,
         limit: typing.Optional[int] = None,
         after: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[Attribute]:
+    ) -> GetAttributesByEntityTypeResponse:
         """
         Fetch all attributes in an organization associated with either drivers or assets.
 
@@ -55,7 +54,7 @@ class AttributesClient:
 
         Parameters
         ----------
-        entity_type : AttributesListRequestEntityType
+        entity_type : GetAttributesByEntityTypeRequestEntityType
             Denotes the type of entity, driver or asset.
 
         limit : typing.Optional[int]
@@ -69,7 +68,7 @@ class AttributesClient:
 
         Returns
         -------
-        SyncPager[Attribute]
+        GetAttributesByEntityTypeResponse
             All attributes in an organization for an entity type
 
         Examples
@@ -79,27 +78,27 @@ class AttributesClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        response = client.attributes.list(
+        client.attributes.get_attributes_by_entity_type(
             entity_type="driver",
+            limit=1000000,
+            after="after",
         )
-        for item in response:
-            yield item
-        # alternatively, you can paginate page-by-page
-        for page in response.iter_pages():
-            yield page
         """
-        return self._raw_client.list(entity_type=entity_type, limit=limit, after=after, request_options=request_options)
+        _response = self._raw_client.get_attributes_by_entity_type(
+            entity_type=entity_type, limit=limit, after=after, request_options=request_options
+        )
+        return _response.data
 
-    def create(
+    def create_attribute(
         self,
         *,
         attribute_type: CreateAttributeRequestAttributeType,
-        attribute_value_quantity: CreateAttributeRequestAttributeValueQuantity,
         entity_type: CreateAttributeRequestEntityType,
         name: str,
         entities: typing.Optional[typing.Sequence[CreateAttributeRequestEntities]] = OMIT,
         number_values: typing.Optional[typing.Sequence[float]] = OMIT,
         string_values: typing.Optional[typing.Sequence[str]] = OMIT,
+        unit: typing.Optional[CreateAttributeRequestUnit] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AttributeExpandedResponse:
         """
@@ -112,10 +111,7 @@ class AttributesClient:
         Parameters
         ----------
         attribute_type : CreateAttributeRequestAttributeType
-            Denotes the data type of the attribute's values. Valid values: `string`, `number`.
-
-        attribute_value_quantity : CreateAttributeRequestAttributeValueQuantity
-            Defines whether or not this attribute can be used on the same entity many times (with different values). Valid values: `single`, `multi`.
+            Denotes the data type of the attribute's values. Valid values: `single-select`, `multi-select`, `text`, `freeform-multi-select`.
 
         entity_type : CreateAttributeRequestEntityType
             Denotes the type of entity, driver or asset.
@@ -132,6 +128,9 @@ class AttributesClient:
         string_values : typing.Optional[typing.Sequence[str]]
             String values that can be associated with this attribute
 
+        unit : typing.Optional[CreateAttributeRequestUnit]
+            Unit of the attribute (only for Number attributes).
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -147,30 +146,29 @@ class AttributesClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.attributes.create(
-            attribute_type="string",
-            attribute_value_quantity="single",
+        client.attributes.create_attribute(
+            attribute_type="single-select",
             entity_type="driver",
             name="License Certifications",
         )
         """
-        _response = self._raw_client.create(
+        _response = self._raw_client.create_attribute(
             attribute_type=attribute_type,
-            attribute_value_quantity=attribute_value_quantity,
             entity_type=entity_type,
             name=name,
             entities=entities,
             number_values=number_values,
             string_values=string_values,
+            unit=unit,
             request_options=request_options,
         )
         return _response.data
 
-    def get(
+    def get_attribute(
         self,
         id: str,
         *,
-        entity_type: AttributesGetRequestEntityType,
+        entity_type: GetAttributeRequestEntityType,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AttributeExpandedResponse:
         """
@@ -185,7 +183,7 @@ class AttributesClient:
         id : str
             Samsara-provided UUID of the attribute.
 
-        entity_type : AttributesGetRequestEntityType
+        entity_type : GetAttributeRequestEntityType
             Denotes the type of entity, driver or asset.
 
         request_options : typing.Optional[RequestOptions]
@@ -203,21 +201,21 @@ class AttributesClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.attributes.get(
+        client.attributes.get_attribute(
             id="id",
             entity_type="driver",
         )
         """
-        _response = self._raw_client.get(id, entity_type=entity_type, request_options=request_options)
+        _response = self._raw_client.get_attribute(id, entity_type=entity_type, request_options=request_options)
         return _response.data
 
-    def delete(
+    def delete_attribute(
         self,
         id: str,
         *,
-        entity_type: AttributesDeleteRequestEntityType,
+        entity_type: DeleteAttributeRequestEntityType,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> typing.Optional[typing.Any]:
+    ) -> StandardDeleteResponse:
         """
         Delete an attribute by id, including all of its applications.
 
@@ -230,7 +228,7 @@ class AttributesClient:
         id : str
             Samsara-provided UUID of the attribute.
 
-        entity_type : AttributesDeleteRequestEntityType
+        entity_type : DeleteAttributeRequestEntityType
             Denotes the type of entity, driver or asset.
 
         request_options : typing.Optional[RequestOptions]
@@ -238,7 +236,7 @@ class AttributesClient:
 
         Returns
         -------
-        typing.Optional[typing.Any]
+        StandardDeleteResponse
             A successful DELETE response is a 204 with no content.
 
         Examples
@@ -248,21 +246,20 @@ class AttributesClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.attributes.delete(
+        client.attributes.delete_attribute(
             id="id",
             entity_type="driver",
         )
         """
-        _response = self._raw_client.delete(id, entity_type=entity_type, request_options=request_options)
+        _response = self._raw_client.delete_attribute(id, entity_type=entity_type, request_options=request_options)
         return _response.data
 
-    def update(
+    def update_attribute(
         self,
         id: str,
         *,
         entity_type: UpdateAttributeRequestEntityType,
         attribute_type: typing.Optional[UpdateAttributeRequestAttributeType] = OMIT,
-        attribute_value_quantity: typing.Optional[UpdateAttributeRequestAttributeValueQuantity] = OMIT,
         entities: typing.Optional[typing.Sequence[CreateAttributeRequestEntities]] = OMIT,
         name: typing.Optional[str] = OMIT,
         number_values: typing.Optional[typing.Sequence[float]] = OMIT,
@@ -285,10 +282,7 @@ class AttributesClient:
             Denotes the type of entity, driver or asset.
 
         attribute_type : typing.Optional[UpdateAttributeRequestAttributeType]
-            Denotes the data type of the attribute's values. Valid values: `string`, `number`.
-
-        attribute_value_quantity : typing.Optional[UpdateAttributeRequestAttributeValueQuantity]
-            Defines whether or not this attribute can be used on the same entity many times (with different values). Denotes the type of entity, driver or asset. Valid values: `driver`, `asset`.
+            Denotes the data type of the attribute's values. Valid values: `single-select`, `multi-select`, `text`, `freeform-multi-select`.
 
         entities : typing.Optional[typing.Sequence[CreateAttributeRequestEntities]]
             Entities that will be applied to this attribute
@@ -317,16 +311,15 @@ class AttributesClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.attributes.update(
+        client.attributes.update_attribute(
             id="id",
             entity_type="driver",
         )
         """
-        _response = self._raw_client.update(
+        _response = self._raw_client.update_attribute(
             id,
             entity_type=entity_type,
             attribute_type=attribute_type,
-            attribute_value_quantity=attribute_value_quantity,
             entities=entities,
             name=name,
             number_values=number_values,
@@ -351,14 +344,14 @@ class AsyncAttributesClient:
         """
         return self._raw_client
 
-    async def list(
+    async def get_attributes_by_entity_type(
         self,
         *,
-        entity_type: AttributesListRequestEntityType,
+        entity_type: GetAttributesByEntityTypeRequestEntityType,
         limit: typing.Optional[int] = None,
         after: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[Attribute]:
+    ) -> GetAttributesByEntityTypeResponse:
         """
         Fetch all attributes in an organization associated with either drivers or assets.
 
@@ -368,7 +361,7 @@ class AsyncAttributesClient:
 
         Parameters
         ----------
-        entity_type : AttributesListRequestEntityType
+        entity_type : GetAttributesByEntityTypeRequestEntityType
             Denotes the type of entity, driver or asset.
 
         limit : typing.Optional[int]
@@ -382,7 +375,7 @@ class AsyncAttributesClient:
 
         Returns
         -------
-        AsyncPager[Attribute]
+        GetAttributesByEntityTypeResponse
             All attributes in an organization for an entity type
 
         Examples
@@ -397,33 +390,30 @@ class AsyncAttributesClient:
 
 
         async def main() -> None:
-            response = await client.attributes.list(
+            await client.attributes.get_attributes_by_entity_type(
                 entity_type="driver",
+                limit=1000000,
+                after="after",
             )
-            async for item in response:
-                yield item
-
-            # alternatively, you can paginate page-by-page
-            async for page in response.iter_pages():
-                yield page
 
 
         asyncio.run(main())
         """
-        return await self._raw_client.list(
+        _response = await self._raw_client.get_attributes_by_entity_type(
             entity_type=entity_type, limit=limit, after=after, request_options=request_options
         )
+        return _response.data
 
-    async def create(
+    async def create_attribute(
         self,
         *,
         attribute_type: CreateAttributeRequestAttributeType,
-        attribute_value_quantity: CreateAttributeRequestAttributeValueQuantity,
         entity_type: CreateAttributeRequestEntityType,
         name: str,
         entities: typing.Optional[typing.Sequence[CreateAttributeRequestEntities]] = OMIT,
         number_values: typing.Optional[typing.Sequence[float]] = OMIT,
         string_values: typing.Optional[typing.Sequence[str]] = OMIT,
+        unit: typing.Optional[CreateAttributeRequestUnit] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AttributeExpandedResponse:
         """
@@ -436,10 +426,7 @@ class AsyncAttributesClient:
         Parameters
         ----------
         attribute_type : CreateAttributeRequestAttributeType
-            Denotes the data type of the attribute's values. Valid values: `string`, `number`.
-
-        attribute_value_quantity : CreateAttributeRequestAttributeValueQuantity
-            Defines whether or not this attribute can be used on the same entity many times (with different values). Valid values: `single`, `multi`.
+            Denotes the data type of the attribute's values. Valid values: `single-select`, `multi-select`, `text`, `freeform-multi-select`.
 
         entity_type : CreateAttributeRequestEntityType
             Denotes the type of entity, driver or asset.
@@ -455,6 +442,9 @@ class AsyncAttributesClient:
 
         string_values : typing.Optional[typing.Sequence[str]]
             String values that can be associated with this attribute
+
+        unit : typing.Optional[CreateAttributeRequestUnit]
+            Unit of the attribute (only for Number attributes).
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -476,9 +466,8 @@ class AsyncAttributesClient:
 
 
         async def main() -> None:
-            await client.attributes.create(
-                attribute_type="string",
-                attribute_value_quantity="single",
+            await client.attributes.create_attribute(
+                attribute_type="single-select",
                 entity_type="driver",
                 name="License Certifications",
             )
@@ -486,23 +475,23 @@ class AsyncAttributesClient:
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.create(
+        _response = await self._raw_client.create_attribute(
             attribute_type=attribute_type,
-            attribute_value_quantity=attribute_value_quantity,
             entity_type=entity_type,
             name=name,
             entities=entities,
             number_values=number_values,
             string_values=string_values,
+            unit=unit,
             request_options=request_options,
         )
         return _response.data
 
-    async def get(
+    async def get_attribute(
         self,
         id: str,
         *,
-        entity_type: AttributesGetRequestEntityType,
+        entity_type: GetAttributeRequestEntityType,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AttributeExpandedResponse:
         """
@@ -517,7 +506,7 @@ class AsyncAttributesClient:
         id : str
             Samsara-provided UUID of the attribute.
 
-        entity_type : AttributesGetRequestEntityType
+        entity_type : GetAttributeRequestEntityType
             Denotes the type of entity, driver or asset.
 
         request_options : typing.Optional[RequestOptions]
@@ -540,7 +529,7 @@ class AsyncAttributesClient:
 
 
         async def main() -> None:
-            await client.attributes.get(
+            await client.attributes.get_attribute(
                 id="id",
                 entity_type="driver",
             )
@@ -548,16 +537,16 @@ class AsyncAttributesClient:
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.get(id, entity_type=entity_type, request_options=request_options)
+        _response = await self._raw_client.get_attribute(id, entity_type=entity_type, request_options=request_options)
         return _response.data
 
-    async def delete(
+    async def delete_attribute(
         self,
         id: str,
         *,
-        entity_type: AttributesDeleteRequestEntityType,
+        entity_type: DeleteAttributeRequestEntityType,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> typing.Optional[typing.Any]:
+    ) -> StandardDeleteResponse:
         """
         Delete an attribute by id, including all of its applications.
 
@@ -570,7 +559,7 @@ class AsyncAttributesClient:
         id : str
             Samsara-provided UUID of the attribute.
 
-        entity_type : AttributesDeleteRequestEntityType
+        entity_type : DeleteAttributeRequestEntityType
             Denotes the type of entity, driver or asset.
 
         request_options : typing.Optional[RequestOptions]
@@ -578,7 +567,7 @@ class AsyncAttributesClient:
 
         Returns
         -------
-        typing.Optional[typing.Any]
+        StandardDeleteResponse
             A successful DELETE response is a 204 with no content.
 
         Examples
@@ -593,7 +582,7 @@ class AsyncAttributesClient:
 
 
         async def main() -> None:
-            await client.attributes.delete(
+            await client.attributes.delete_attribute(
                 id="id",
                 entity_type="driver",
             )
@@ -601,16 +590,17 @@ class AsyncAttributesClient:
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.delete(id, entity_type=entity_type, request_options=request_options)
+        _response = await self._raw_client.delete_attribute(
+            id, entity_type=entity_type, request_options=request_options
+        )
         return _response.data
 
-    async def update(
+    async def update_attribute(
         self,
         id: str,
         *,
         entity_type: UpdateAttributeRequestEntityType,
         attribute_type: typing.Optional[UpdateAttributeRequestAttributeType] = OMIT,
-        attribute_value_quantity: typing.Optional[UpdateAttributeRequestAttributeValueQuantity] = OMIT,
         entities: typing.Optional[typing.Sequence[CreateAttributeRequestEntities]] = OMIT,
         name: typing.Optional[str] = OMIT,
         number_values: typing.Optional[typing.Sequence[float]] = OMIT,
@@ -633,10 +623,7 @@ class AsyncAttributesClient:
             Denotes the type of entity, driver or asset.
 
         attribute_type : typing.Optional[UpdateAttributeRequestAttributeType]
-            Denotes the data type of the attribute's values. Valid values: `string`, `number`.
-
-        attribute_value_quantity : typing.Optional[UpdateAttributeRequestAttributeValueQuantity]
-            Defines whether or not this attribute can be used on the same entity many times (with different values). Denotes the type of entity, driver or asset. Valid values: `driver`, `asset`.
+            Denotes the data type of the attribute's values. Valid values: `single-select`, `multi-select`, `text`, `freeform-multi-select`.
 
         entities : typing.Optional[typing.Sequence[CreateAttributeRequestEntities]]
             Entities that will be applied to this attribute
@@ -670,7 +657,7 @@ class AsyncAttributesClient:
 
 
         async def main() -> None:
-            await client.attributes.update(
+            await client.attributes.update_attribute(
                 id="id",
                 entity_type="driver",
             )
@@ -678,11 +665,10 @@ class AsyncAttributesClient:
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.update(
+        _response = await self._raw_client.update_attribute(
             id,
             entity_type=entity_type,
             attribute_type=attribute_type,
-            attribute_value_quantity=attribute_value_quantity,
             entities=entities,
             name=name,
             number_values=number_values,

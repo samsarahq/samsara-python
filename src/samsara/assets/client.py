@@ -8,7 +8,10 @@ from ..core.request_options import RequestOptions
 from ..types.asset_response_body import AssetResponseBody
 from ..types.assets_create_asset_response_body import AssetsCreateAssetResponseBody
 from ..types.assets_update_asset_response_body import AssetsUpdateAssetResponseBody
-from .location_and_speed.client import AsyncLocationAndSpeedClient, LocationAndSpeedClient
+from ..types.inline_response_2002 import InlineResponse2002
+from ..types.inline_response_2003 import InlineResponse2003
+from ..types.v_1_asset_location_response import V1AssetLocationResponse
+from ..types.v_1_asset_reefer_response import V1AssetReeferResponse
 from .raw_client import AsyncRawAssetsClient, RawAssetsClient
 from .types.assets_create_asset_request_body_regulation_mode import AssetsCreateAssetRequestBodyRegulationMode
 from .types.assets_create_asset_request_body_type import AssetsCreateAssetRequestBodyType
@@ -23,7 +26,6 @@ OMIT = typing.cast(typing.Any, ...)
 class AssetsClient:
     def __init__(self, *, client_wrapper: SyncClientWrapper):
         self._raw_client = RawAssetsClient(client_wrapper=client_wrapper)
-        self.location_and_speed = LocationAndSpeedClient(client_wrapper=client_wrapper)
 
     @property
     def with_raw_response(self) -> RawAssetsClient:
@@ -48,6 +50,7 @@ class AssetsClient:
         parent_tag_ids: typing.Optional[str] = None,
         ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         attribute_value_ids: typing.Optional[str] = None,
+        attributes: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> SyncPager[AssetResponseBody]:
         """
@@ -89,6 +92,9 @@ class AssetsClient:
         attribute_value_ids : typing.Optional[str]
             A filter on the data based on this comma-separated list of attribute value IDs. Only entities associated with ALL of the referenced values will be returned (i.e. the intersection of the sets of entities with each value). Example: `attributeValueIds=076efac2-83b5-47aa-ba36-18428436dcac,6707b3f0-23b9-4fe3-b7be-11be34aea544`
 
+        attributes : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data to return entities within given range query (only for numeric attributes) separated by a comma. Only entities meeting all the conditions will be returned. At least one bound must be provided. Example: `attributes=Length:range(8,)&attributes=Length:range(10,20)`
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -104,7 +110,16 @@ class AssetsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        response = client.assets.list()
+        response = client.assets.list(
+            type="uncategorized",
+            after="after",
+            updated_after_time="updatedAfterTime",
+            include_external_ids=True,
+            include_tags=True,
+            tag_ids="tagIds",
+            parent_tag_ids="parentTagIds",
+            attribute_value_ids="attributeValueIds",
+        )
         for item in response:
             yield item
         # alternatively, you can paginate page-by-page
@@ -121,10 +136,11 @@ class AssetsClient:
             parent_tag_ids=parent_tag_ids,
             ids=ids,
             attribute_value_ids=attribute_value_ids,
+            attributes=attributes,
             request_options=request_options,
         )
 
-    def create(
+    def create_asset(
         self,
         *,
         external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
@@ -133,6 +149,7 @@ class AssetsClient:
         model: typing.Optional[str] = OMIT,
         name: typing.Optional[str] = OMIT,
         notes: typing.Optional[str] = OMIT,
+        readings_ingestion_enabled: typing.Optional[bool] = OMIT,
         regulation_mode: typing.Optional[AssetsCreateAssetRequestBodyRegulationMode] = OMIT,
         serial_number: typing.Optional[str] = OMIT,
         type: typing.Optional[AssetsCreateAssetRequestBodyType] = OMIT,
@@ -170,6 +187,9 @@ class AssetsClient:
         notes : typing.Optional[str]
             These are generic notes about the asset. Can be set or updated through the Samsara Dashboard or the API at any time.
 
+        readings_ingestion_enabled : typing.Optional[bool]
+            Indicates whether the asset is expected to have data ingested using the Readings API.
+
         regulation_mode : typing.Optional[AssetsCreateAssetRequestBodyRegulationMode]
             Whether or not the asset is regulated, unregulated (non-CMV), or a mixed use unregulated asset. Primarily used with vehicles.  Valid values: `mixed`, `regulated`, `unregulated`
 
@@ -200,15 +220,16 @@ class AssetsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.assets.create()
+        client.assets.create_asset()
         """
-        _response = self._raw_client.create(
+        _response = self._raw_client.create_asset(
             external_ids=external_ids,
             license_plate=license_plate,
             make=make,
             model=model,
             name=name,
             notes=notes,
+            readings_ingestion_enabled=readings_ingestion_enabled,
             regulation_mode=regulation_mode,
             serial_number=serial_number,
             type=type,
@@ -218,7 +239,7 @@ class AssetsClient:
         )
         return _response.data
 
-    def delete(self, *, id: str, request_options: typing.Optional[RequestOptions] = None) -> None:
+    def delete_asset(self, *, id: str, request_options: typing.Optional[RequestOptions] = None) -> None:
         """
         Delete an existing asset.
 
@@ -248,14 +269,14 @@ class AssetsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.assets.delete(
+        client.assets.delete_asset(
             id="id",
         )
         """
-        _response = self._raw_client.delete(id=id, request_options=request_options)
+        _response = self._raw_client.delete_asset(id=id, request_options=request_options)
         return _response.data
 
-    def update(
+    def update_asset(
         self,
         *,
         id: str,
@@ -265,6 +286,7 @@ class AssetsClient:
         model: typing.Optional[str] = OMIT,
         name: typing.Optional[str] = OMIT,
         notes: typing.Optional[str] = OMIT,
+        readings_ingestion_enabled: typing.Optional[bool] = OMIT,
         regulation_mode: typing.Optional[AssetsUpdateAssetRequestBodyRegulationMode] = OMIT,
         serial_number: typing.Optional[str] = OMIT,
         type: typing.Optional[AssetsUpdateAssetRequestBodyType] = OMIT,
@@ -305,6 +327,9 @@ class AssetsClient:
         notes : typing.Optional[str]
             These are generic notes about the asset. Can be set or updated through the Samsara Dashboard or the API at any time.
 
+        readings_ingestion_enabled : typing.Optional[bool]
+            Indicates whether the asset is expected to have data ingested using the Readings API.
+
         regulation_mode : typing.Optional[AssetsUpdateAssetRequestBodyRegulationMode]
             Whether or not the asset is regulated, unregulated (non-CMV), or a mixed use unregulated asset. Primarily used with vehicles.  Valid values: `mixed`, `regulated`, `unregulated`
 
@@ -335,11 +360,11 @@ class AssetsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.assets.update(
+        client.assets.update_asset(
             id="id",
         )
         """
-        _response = self._raw_client.update(
+        _response = self._raw_client.update_asset(
             id=id,
             external_ids=external_ids,
             license_plate=license_plate,
@@ -347,6 +372,7 @@ class AssetsClient:
             model=model,
             name=name,
             notes=notes,
+            readings_ingestion_enabled=readings_ingestion_enabled,
             regulation_mode=regulation_mode,
             serial_number=serial_number,
             type=type,
@@ -356,11 +382,305 @@ class AssetsClient:
         )
         return _response.data
 
+    def v_1_get_all_asset_current_locations(
+        self,
+        *,
+        starting_after: typing.Optional[str] = None,
+        ending_before: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> InlineResponse2002:
+        """
+        <n class="warning">
+        <nh>
+        <i class="fa fa-exclamation-circle"></i>
+        This endpoint is still on our legacy API.
+        </nh>
+        </n>
+
+        Fetch current locations of all assets.
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        starting_after : typing.Optional[str]
+            Pagination parameter indicating the cursor position to continue returning results after. Used in conjunction with the 'limit' parameter. Mutually exclusive with 'endingBefore' parameter.
+
+        ending_before : typing.Optional[str]
+            Pagination parameter indicating the cursor position to return results before. Used in conjunction with the 'limit' parameter. Mutually exclusive with 'startingAfter' parameter.
+
+        limit : typing.Optional[int]
+            Pagination parameter indicating the number of results to return in this request. Used in conjunction with either 'startingAfter' or 'endingBefore'.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        InlineResponse2002
+            List of assets and their current locations.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.assets.v_1_get_all_asset_current_locations(
+            starting_after="startingAfter",
+            ending_before="endingBefore",
+            limit=1000000,
+        )
+        """
+        _response = self._raw_client.v_1_get_all_asset_current_locations(
+            starting_after=starting_after, ending_before=ending_before, limit=limit, request_options=request_options
+        )
+        return _response.data
+
+    def v_1_get_assets_reefers(
+        self,
+        *,
+        start_ms: int,
+        end_ms: int,
+        starting_after: typing.Optional[str] = None,
+        ending_before: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> InlineResponse2003:
+        """
+        <n class="warning">
+        <nh>
+        <i class="fa fa-exclamation-circle"></i>
+        This endpoint is still on our legacy API.
+        </nh>
+        </n>
+
+        Fetches all reefers and reefer-specific stats.
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Trailers** under the Trailers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        start_ms : int
+            Timestamp in milliseconds representing the start of the period to fetch, inclusive. Used in combination with endMs.
+
+        end_ms : int
+            Timestamp in milliseconds representing the end of the period to fetch, inclusive. Used in combination with startMs.
+
+        starting_after : typing.Optional[str]
+            Pagination parameter indicating the cursor position to continue returning results after. Used in conjunction with the 'limit' parameter. Mutually exclusive with 'endingBefore' parameter.
+
+        ending_before : typing.Optional[str]
+            Pagination parameter indicating the cursor position to return results before. Used in conjunction with the 'limit' parameter. Mutually exclusive with 'startingAfter' parameter.
+
+        limit : typing.Optional[int]
+            Pagination parameter indicating the number of results to return in this request. Used in conjunction with either 'startingAfter' or 'endingBefore'.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        InlineResponse2003
+            All org reefers and reefer-specific details.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.assets.v_1_get_assets_reefers(
+            start_ms=1000000,
+            end_ms=1000000,
+            starting_after="startingAfter",
+            ending_before="endingBefore",
+            limit=1000000,
+        )
+        """
+        _response = self._raw_client.v_1_get_assets_reefers(
+            start_ms=start_ms,
+            end_ms=end_ms,
+            starting_after=starting_after,
+            ending_before=ending_before,
+            limit=limit,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def v_1_get_asset_location(
+        self, asset_id: int, *, start_ms: int, end_ms: int, request_options: typing.Optional[RequestOptions] = None
+    ) -> V1AssetLocationResponse:
+        """
+        <n class="warning">
+        <nh>
+        <i class="fa fa-exclamation-circle"></i>
+        This endpoint is still on our legacy API.
+        </nh>
+        </n>
+
+        List historical locations for a given asset.
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        asset_id : int
+            ID of the asset. Must contain only digits 0-9.
+
+        start_ms : int
+            Timestamp in milliseconds representing the start of the period to fetch, inclusive. Used in combination with endMs.
+
+        end_ms : int
+            Timestamp in milliseconds representing the end of the period to fetch, inclusive. Used in combination with startMs.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        V1AssetLocationResponse
+            Asset location details.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.assets.v_1_get_asset_location(
+            asset_id=1000000,
+            start_ms=1000000,
+            end_ms=1000000,
+        )
+        """
+        _response = self._raw_client.v_1_get_asset_location(
+            asset_id, start_ms=start_ms, end_ms=end_ms, request_options=request_options
+        )
+        return _response.data
+
+    def v_1_get_asset_reefer(
+        self, asset_id: int, *, start_ms: int, end_ms: int, request_options: typing.Optional[RequestOptions] = None
+    ) -> V1AssetReeferResponse:
+        """
+        <n class="warning">
+        <nh>
+        <i class="fa fa-exclamation-circle"></i>
+        This endpoint is still on our legacy API.
+        </nh>
+        </n>
+
+        Fetch the reefer-specific stats of an asset.
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Trailers** under the Trailers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        asset_id : int
+            ID of the asset. Must contain only digits 0-9.
+
+        start_ms : int
+            Timestamp in milliseconds representing the start of the period to fetch, inclusive. Used in combination with endMs.
+
+        end_ms : int
+            Timestamp in milliseconds representing the end of the period to fetch, inclusive. Used in combination with startMs.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        V1AssetReeferResponse
+            Reefer-specific asset details.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.assets.v_1_get_asset_reefer(
+            asset_id=1000000,
+            start_ms=1000000,
+            end_ms=1000000,
+        )
+        """
+        _response = self._raw_client.v_1_get_asset_reefer(
+            asset_id, start_ms=start_ms, end_ms=end_ms, request_options=request_options
+        )
+        return _response.data
+
+    def get(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
+        """
+        Parameters
+        ----------
+        id : str
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.assets.get(
+            id="id",
+        )
+        """
+        _response = self._raw_client.get(id, request_options=request_options)
+        return _response.data
+
+    def update(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
+        """
+        Parameters
+        ----------
+        id : str
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.assets.update(
+            id="id",
+        )
+        """
+        _response = self._raw_client.update(id, request_options=request_options)
+        return _response.data
+
 
 class AsyncAssetsClient:
     def __init__(self, *, client_wrapper: AsyncClientWrapper):
         self._raw_client = AsyncRawAssetsClient(client_wrapper=client_wrapper)
-        self.location_and_speed = AsyncLocationAndSpeedClient(client_wrapper=client_wrapper)
 
     @property
     def with_raw_response(self) -> AsyncRawAssetsClient:
@@ -385,6 +705,7 @@ class AsyncAssetsClient:
         parent_tag_ids: typing.Optional[str] = None,
         ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         attribute_value_ids: typing.Optional[str] = None,
+        attributes: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncPager[AssetResponseBody]:
         """
@@ -426,6 +747,9 @@ class AsyncAssetsClient:
         attribute_value_ids : typing.Optional[str]
             A filter on the data based on this comma-separated list of attribute value IDs. Only entities associated with ALL of the referenced values will be returned (i.e. the intersection of the sets of entities with each value). Example: `attributeValueIds=076efac2-83b5-47aa-ba36-18428436dcac,6707b3f0-23b9-4fe3-b7be-11be34aea544`
 
+        attributes : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data to return entities within given range query (only for numeric attributes) separated by a comma. Only entities meeting all the conditions will be returned. At least one bound must be provided. Example: `attributes=Length:range(8,)&attributes=Length:range(10,20)`
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -446,7 +770,16 @@ class AsyncAssetsClient:
 
 
         async def main() -> None:
-            response = await client.assets.list()
+            response = await client.assets.list(
+                type="uncategorized",
+                after="after",
+                updated_after_time="updatedAfterTime",
+                include_external_ids=True,
+                include_tags=True,
+                tag_ids="tagIds",
+                parent_tag_ids="parentTagIds",
+                attribute_value_ids="attributeValueIds",
+            )
             async for item in response:
                 yield item
 
@@ -467,10 +800,11 @@ class AsyncAssetsClient:
             parent_tag_ids=parent_tag_ids,
             ids=ids,
             attribute_value_ids=attribute_value_ids,
+            attributes=attributes,
             request_options=request_options,
         )
 
-    async def create(
+    async def create_asset(
         self,
         *,
         external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
@@ -479,6 +813,7 @@ class AsyncAssetsClient:
         model: typing.Optional[str] = OMIT,
         name: typing.Optional[str] = OMIT,
         notes: typing.Optional[str] = OMIT,
+        readings_ingestion_enabled: typing.Optional[bool] = OMIT,
         regulation_mode: typing.Optional[AssetsCreateAssetRequestBodyRegulationMode] = OMIT,
         serial_number: typing.Optional[str] = OMIT,
         type: typing.Optional[AssetsCreateAssetRequestBodyType] = OMIT,
@@ -516,6 +851,9 @@ class AsyncAssetsClient:
         notes : typing.Optional[str]
             These are generic notes about the asset. Can be set or updated through the Samsara Dashboard or the API at any time.
 
+        readings_ingestion_enabled : typing.Optional[bool]
+            Indicates whether the asset is expected to have data ingested using the Readings API.
+
         regulation_mode : typing.Optional[AssetsCreateAssetRequestBodyRegulationMode]
             Whether or not the asset is regulated, unregulated (non-CMV), or a mixed use unregulated asset. Primarily used with vehicles.  Valid values: `mixed`, `regulated`, `unregulated`
 
@@ -551,18 +889,19 @@ class AsyncAssetsClient:
 
 
         async def main() -> None:
-            await client.assets.create()
+            await client.assets.create_asset()
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.create(
+        _response = await self._raw_client.create_asset(
             external_ids=external_ids,
             license_plate=license_plate,
             make=make,
             model=model,
             name=name,
             notes=notes,
+            readings_ingestion_enabled=readings_ingestion_enabled,
             regulation_mode=regulation_mode,
             serial_number=serial_number,
             type=type,
@@ -572,7 +911,7 @@ class AsyncAssetsClient:
         )
         return _response.data
 
-    async def delete(self, *, id: str, request_options: typing.Optional[RequestOptions] = None) -> None:
+    async def delete_asset(self, *, id: str, request_options: typing.Optional[RequestOptions] = None) -> None:
         """
         Delete an existing asset.
 
@@ -607,17 +946,17 @@ class AsyncAssetsClient:
 
 
         async def main() -> None:
-            await client.assets.delete(
+            await client.assets.delete_asset(
                 id="id",
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.delete(id=id, request_options=request_options)
+        _response = await self._raw_client.delete_asset(id=id, request_options=request_options)
         return _response.data
 
-    async def update(
+    async def update_asset(
         self,
         *,
         id: str,
@@ -627,6 +966,7 @@ class AsyncAssetsClient:
         model: typing.Optional[str] = OMIT,
         name: typing.Optional[str] = OMIT,
         notes: typing.Optional[str] = OMIT,
+        readings_ingestion_enabled: typing.Optional[bool] = OMIT,
         regulation_mode: typing.Optional[AssetsUpdateAssetRequestBodyRegulationMode] = OMIT,
         serial_number: typing.Optional[str] = OMIT,
         type: typing.Optional[AssetsUpdateAssetRequestBodyType] = OMIT,
@@ -667,6 +1007,9 @@ class AsyncAssetsClient:
         notes : typing.Optional[str]
             These are generic notes about the asset. Can be set or updated through the Samsara Dashboard or the API at any time.
 
+        readings_ingestion_enabled : typing.Optional[bool]
+            Indicates whether the asset is expected to have data ingested using the Readings API.
+
         regulation_mode : typing.Optional[AssetsUpdateAssetRequestBodyRegulationMode]
             Whether or not the asset is regulated, unregulated (non-CMV), or a mixed use unregulated asset. Primarily used with vehicles.  Valid values: `mixed`, `regulated`, `unregulated`
 
@@ -702,14 +1045,14 @@ class AsyncAssetsClient:
 
 
         async def main() -> None:
-            await client.assets.update(
+            await client.assets.update_asset(
                 id="id",
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.update(
+        _response = await self._raw_client.update_asset(
             id=id,
             external_ids=external_ids,
             license_plate=license_plate,
@@ -717,6 +1060,7 @@ class AsyncAssetsClient:
             model=model,
             name=name,
             notes=notes,
+            readings_ingestion_enabled=readings_ingestion_enabled,
             regulation_mode=regulation_mode,
             serial_number=serial_number,
             type=type,
@@ -724,4 +1068,347 @@ class AsyncAssetsClient:
             year=year,
             request_options=request_options,
         )
+        return _response.data
+
+    async def v_1_get_all_asset_current_locations(
+        self,
+        *,
+        starting_after: typing.Optional[str] = None,
+        ending_before: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> InlineResponse2002:
+        """
+        <n class="warning">
+        <nh>
+        <i class="fa fa-exclamation-circle"></i>
+        This endpoint is still on our legacy API.
+        </nh>
+        </n>
+
+        Fetch current locations of all assets.
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        starting_after : typing.Optional[str]
+            Pagination parameter indicating the cursor position to continue returning results after. Used in conjunction with the 'limit' parameter. Mutually exclusive with 'endingBefore' parameter.
+
+        ending_before : typing.Optional[str]
+            Pagination parameter indicating the cursor position to return results before. Used in conjunction with the 'limit' parameter. Mutually exclusive with 'startingAfter' parameter.
+
+        limit : typing.Optional[int]
+            Pagination parameter indicating the number of results to return in this request. Used in conjunction with either 'startingAfter' or 'endingBefore'.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        InlineResponse2002
+            List of assets and their current locations.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.assets.v_1_get_all_asset_current_locations(
+                starting_after="startingAfter",
+                ending_before="endingBefore",
+                limit=1000000,
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.v_1_get_all_asset_current_locations(
+            starting_after=starting_after, ending_before=ending_before, limit=limit, request_options=request_options
+        )
+        return _response.data
+
+    async def v_1_get_assets_reefers(
+        self,
+        *,
+        start_ms: int,
+        end_ms: int,
+        starting_after: typing.Optional[str] = None,
+        ending_before: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> InlineResponse2003:
+        """
+        <n class="warning">
+        <nh>
+        <i class="fa fa-exclamation-circle"></i>
+        This endpoint is still on our legacy API.
+        </nh>
+        </n>
+
+        Fetches all reefers and reefer-specific stats.
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Trailers** under the Trailers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        start_ms : int
+            Timestamp in milliseconds representing the start of the period to fetch, inclusive. Used in combination with endMs.
+
+        end_ms : int
+            Timestamp in milliseconds representing the end of the period to fetch, inclusive. Used in combination with startMs.
+
+        starting_after : typing.Optional[str]
+            Pagination parameter indicating the cursor position to continue returning results after. Used in conjunction with the 'limit' parameter. Mutually exclusive with 'endingBefore' parameter.
+
+        ending_before : typing.Optional[str]
+            Pagination parameter indicating the cursor position to return results before. Used in conjunction with the 'limit' parameter. Mutually exclusive with 'startingAfter' parameter.
+
+        limit : typing.Optional[int]
+            Pagination parameter indicating the number of results to return in this request. Used in conjunction with either 'startingAfter' or 'endingBefore'.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        InlineResponse2003
+            All org reefers and reefer-specific details.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.assets.v_1_get_assets_reefers(
+                start_ms=1000000,
+                end_ms=1000000,
+                starting_after="startingAfter",
+                ending_before="endingBefore",
+                limit=1000000,
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.v_1_get_assets_reefers(
+            start_ms=start_ms,
+            end_ms=end_ms,
+            starting_after=starting_after,
+            ending_before=ending_before,
+            limit=limit,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def v_1_get_asset_location(
+        self, asset_id: int, *, start_ms: int, end_ms: int, request_options: typing.Optional[RequestOptions] = None
+    ) -> V1AssetLocationResponse:
+        """
+        <n class="warning">
+        <nh>
+        <i class="fa fa-exclamation-circle"></i>
+        This endpoint is still on our legacy API.
+        </nh>
+        </n>
+
+        List historical locations for a given asset.
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        asset_id : int
+            ID of the asset. Must contain only digits 0-9.
+
+        start_ms : int
+            Timestamp in milliseconds representing the start of the period to fetch, inclusive. Used in combination with endMs.
+
+        end_ms : int
+            Timestamp in milliseconds representing the end of the period to fetch, inclusive. Used in combination with startMs.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        V1AssetLocationResponse
+            Asset location details.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.assets.v_1_get_asset_location(
+                asset_id=1000000,
+                start_ms=1000000,
+                end_ms=1000000,
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.v_1_get_asset_location(
+            asset_id, start_ms=start_ms, end_ms=end_ms, request_options=request_options
+        )
+        return _response.data
+
+    async def v_1_get_asset_reefer(
+        self, asset_id: int, *, start_ms: int, end_ms: int, request_options: typing.Optional[RequestOptions] = None
+    ) -> V1AssetReeferResponse:
+        """
+        <n class="warning">
+        <nh>
+        <i class="fa fa-exclamation-circle"></i>
+        This endpoint is still on our legacy API.
+        </nh>
+        </n>
+
+        Fetch the reefer-specific stats of an asset.
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Trailers** under the Trailers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        asset_id : int
+            ID of the asset. Must contain only digits 0-9.
+
+        start_ms : int
+            Timestamp in milliseconds representing the start of the period to fetch, inclusive. Used in combination with endMs.
+
+        end_ms : int
+            Timestamp in milliseconds representing the end of the period to fetch, inclusive. Used in combination with startMs.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        V1AssetReeferResponse
+            Reefer-specific asset details.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.assets.v_1_get_asset_reefer(
+                asset_id=1000000,
+                start_ms=1000000,
+                end_ms=1000000,
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.v_1_get_asset_reefer(
+            asset_id, start_ms=start_ms, end_ms=end_ms, request_options=request_options
+        )
+        return _response.data
+
+    async def get(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
+        """
+        Parameters
+        ----------
+        id : str
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.assets.get(
+                id="id",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get(id, request_options=request_options)
+        return _response.data
+
+    async def update(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
+        """
+        Parameters
+        ----------
+        id : str
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.assets.update(
+                id="id",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.update(id, request_options=request_options)
         return _response.data

@@ -26,7 +26,7 @@ class GatewayDetailsResponseResponseBody(UniversalBaseModel):
         FieldMetadata(alias="gatewayBatteryState"),
     ] = pydantic.Field(default=None)
     """
-    The gateway's battery state.  Valid values: `low`, `ok`, `unknown`
+    The gateway's battery state.  Valid values: `critical`, `low`, `ok`, `unknown`
     """
 
     gateway_battery_temp: typing_extensions.Annotated[
