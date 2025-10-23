@@ -12,10 +12,7 @@ from ..types.vehicle_regulation_mode import VehicleRegulationMode
 from ..types.vehicle_response import VehicleResponse
 from ..types.vehicle_response_object_response_body import VehicleResponseObjectResponseBody
 from ..types.vehicle_type import VehicleType
-from .immobilizer.client import AsyncImmobilizerClient, ImmobilizerClient
-from .locations.client import AsyncLocationsClient, LocationsClient
 from .raw_client import AsyncRawVehiclesClient, RawVehiclesClient
-from .stats.client import AsyncStatsClient, StatsClient
 from .types.update_vehicle_request_aux_input_type_1 import UpdateVehicleRequestAuxInputType1
 from .types.update_vehicle_request_aux_input_type_2 import UpdateVehicleRequestAuxInputType2
 from .types.update_vehicle_request_aux_input_type_3 import UpdateVehicleRequestAuxInputType3
@@ -40,11 +37,6 @@ OMIT = typing.cast(typing.Any, ...)
 class VehiclesClient:
     def __init__(self, *, client_wrapper: SyncClientWrapper):
         self._raw_client = RawVehiclesClient(client_wrapper=client_wrapper)
-        self.immobilizer = ImmobilizerClient(client_wrapper=client_wrapper)
-
-        self.locations = LocationsClient(client_wrapper=client_wrapper)
-
-        self.stats = StatsClient(client_wrapper=client_wrapper)
 
     @property
     def with_raw_response(self) -> RawVehiclesClient:
@@ -98,7 +90,7 @@ class VehiclesClient:
             A filter on the data based on this comma-separated list of attribute value IDs. Only entities associated with ALL of the referenced values will be returned (i.e. the intersection of the sets of entities with each value). Example: `attributeValueIds=076efac2-83b5-47aa-ba36-18428436dcac,6707b3f0-23b9-4fe3-b7be-11be34aea544`
 
         attributes : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            A filter on the data to return entities having given attributes using name-value pair, separated by semicolon. Only entities associated with ALL of the referenced values will be returned (i.e. the intersection of the sets of entities with each value). Example: `attributes=ExampleAttributeName:some_value&attributes=SomeOtherAttr:123`
+            A filter on the data to return entities having given attributes using either name-value pair, or range query (only for numeric attributes) separated by a comma. Only entities meeting all the conditions will be returned. Example: `attributes=ExampleAttributeName:some_value&attributes=SomeOtherAttr:123&attributes=Length:range(10,20)`
 
         updated_after_time : typing.Optional[str]
              A filter on data to have an updated at time after or equal to this specified time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
@@ -121,7 +113,15 @@ class VehiclesClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        response = client.vehicles.list()
+        response = client.vehicles.list(
+            limit=1,
+            after="after",
+            parent_tag_ids="parentTagIds",
+            tag_ids="tagIds",
+            attribute_value_ids="attributeValueIds",
+            updated_after_time="updatedAfterTime",
+            created_after_time="createdAfterTime",
+        )
         for item in response:
             yield item
         # alternatively, you can paginate page-by-page
@@ -363,11 +363,6 @@ class VehiclesClient:
 class AsyncVehiclesClient:
     def __init__(self, *, client_wrapper: AsyncClientWrapper):
         self._raw_client = AsyncRawVehiclesClient(client_wrapper=client_wrapper)
-        self.immobilizer = AsyncImmobilizerClient(client_wrapper=client_wrapper)
-
-        self.locations = AsyncLocationsClient(client_wrapper=client_wrapper)
-
-        self.stats = AsyncStatsClient(client_wrapper=client_wrapper)
 
     @property
     def with_raw_response(self) -> AsyncRawVehiclesClient:
@@ -421,7 +416,7 @@ class AsyncVehiclesClient:
             A filter on the data based on this comma-separated list of attribute value IDs. Only entities associated with ALL of the referenced values will be returned (i.e. the intersection of the sets of entities with each value). Example: `attributeValueIds=076efac2-83b5-47aa-ba36-18428436dcac,6707b3f0-23b9-4fe3-b7be-11be34aea544`
 
         attributes : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            A filter on the data to return entities having given attributes using name-value pair, separated by semicolon. Only entities associated with ALL of the referenced values will be returned (i.e. the intersection of the sets of entities with each value). Example: `attributes=ExampleAttributeName:some_value&attributes=SomeOtherAttr:123`
+            A filter on the data to return entities having given attributes using either name-value pair, or range query (only for numeric attributes) separated by a comma. Only entities meeting all the conditions will be returned. Example: `attributes=ExampleAttributeName:some_value&attributes=SomeOtherAttr:123&attributes=Length:range(10,20)`
 
         updated_after_time : typing.Optional[str]
              A filter on data to have an updated at time after or equal to this specified time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
@@ -449,7 +444,15 @@ class AsyncVehiclesClient:
 
 
         async def main() -> None:
-            response = await client.vehicles.list()
+            response = await client.vehicles.list(
+                limit=1,
+                after="after",
+                parent_tag_ids="parentTagIds",
+                tag_ids="tagIds",
+                attribute_value_ids="attributeValueIds",
+                updated_after_time="updatedAfterTime",
+                created_after_time="createdAfterTime",
+            )
             async for item in response:
                 yield item
 

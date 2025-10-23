@@ -7,22 +7,20 @@ from ..core.api_error import ApiError
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.http_response import AsyncHttpResponse, HttpResponse
 from ..core.jsonable_encoder import jsonable_encoder
-from ..core.pagination import AsyncPager, BaseHttpResponse, SyncPager
 from ..core.pydantic_utilities import parse_obj_as
 from ..core.request_options import RequestOptions
 from ..core.serialization import convert_and_respect_annotation_metadata
-from ..types.attribute import Attribute
 from ..types.attribute_expanded_response import AttributeExpandedResponse
 from ..types.create_attribute_request_entities import CreateAttributeRequestEntities
 from ..types.get_attributes_by_entity_type_response import GetAttributesByEntityTypeResponse
-from .types.attributes_delete_request_entity_type import AttributesDeleteRequestEntityType
-from .types.attributes_get_request_entity_type import AttributesGetRequestEntityType
-from .types.attributes_list_request_entity_type import AttributesListRequestEntityType
+from ..types.standard_delete_response import StandardDeleteResponse
 from .types.create_attribute_request_attribute_type import CreateAttributeRequestAttributeType
-from .types.create_attribute_request_attribute_value_quantity import CreateAttributeRequestAttributeValueQuantity
 from .types.create_attribute_request_entity_type import CreateAttributeRequestEntityType
+from .types.create_attribute_request_unit import CreateAttributeRequestUnit
+from .types.delete_attribute_request_entity_type import DeleteAttributeRequestEntityType
+from .types.get_attribute_request_entity_type import GetAttributeRequestEntityType
+from .types.get_attributes_by_entity_type_request_entity_type import GetAttributesByEntityTypeRequestEntityType
 from .types.update_attribute_request_attribute_type import UpdateAttributeRequestAttributeType
-from .types.update_attribute_request_attribute_value_quantity import UpdateAttributeRequestAttributeValueQuantity
 from .types.update_attribute_request_entity_type import UpdateAttributeRequestEntityType
 
 # this is used as the default value for optional parameters
@@ -33,14 +31,14 @@ class RawAttributesClient:
     def __init__(self, *, client_wrapper: SyncClientWrapper):
         self._client_wrapper = client_wrapper
 
-    def list(
+    def get_attributes_by_entity_type(
         self,
         *,
-        entity_type: AttributesListRequestEntityType,
+        entity_type: GetAttributesByEntityTypeRequestEntityType,
         limit: typing.Optional[int] = None,
         after: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[Attribute]:
+    ) -> HttpResponse[GetAttributesByEntityTypeResponse]:
         """
         Fetch all attributes in an organization associated with either drivers or assets.
 
@@ -50,7 +48,7 @@ class RawAttributesClient:
 
         Parameters
         ----------
-        entity_type : AttributesListRequestEntityType
+        entity_type : GetAttributesByEntityTypeRequestEntityType
             Denotes the type of entity, driver or asset.
 
         limit : typing.Optional[int]
@@ -64,7 +62,7 @@ class RawAttributesClient:
 
         Returns
         -------
-        SyncPager[Attribute]
+        HttpResponse[GetAttributesByEntityTypeResponse]
             All attributes in an organization for an entity type
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -79,43 +77,29 @@ class RawAttributesClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _parsed_response = typing.cast(
+                _data = typing.cast(
                     GetAttributesByEntityTypeResponse,
                     parse_obj_as(
                         type_=GetAttributesByEntityTypeResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                _items = _parsed_response.data
-                _has_next = False
-                _get_next = None
-                if _parsed_response.pagination is not None:
-                    _parsed_next = _parsed_response.pagination.end_cursor
-                    _has_next = _parsed_next is not None and _parsed_next != ""
-                    _get_next = lambda: self.list(
-                        entity_type=entity_type,
-                        limit=limit,
-                        after=_parsed_next,
-                        request_options=request_options,
-                    )
-                return SyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return HttpResponse(response=_response, data=_data)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    def create(
+    def create_attribute(
         self,
         *,
         attribute_type: CreateAttributeRequestAttributeType,
-        attribute_value_quantity: CreateAttributeRequestAttributeValueQuantity,
         entity_type: CreateAttributeRequestEntityType,
         name: str,
         entities: typing.Optional[typing.Sequence[CreateAttributeRequestEntities]] = OMIT,
         number_values: typing.Optional[typing.Sequence[float]] = OMIT,
         string_values: typing.Optional[typing.Sequence[str]] = OMIT,
+        unit: typing.Optional[CreateAttributeRequestUnit] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[AttributeExpandedResponse]:
         """
@@ -128,10 +112,7 @@ class RawAttributesClient:
         Parameters
         ----------
         attribute_type : CreateAttributeRequestAttributeType
-            Denotes the data type of the attribute's values. Valid values: `string`, `number`.
-
-        attribute_value_quantity : CreateAttributeRequestAttributeValueQuantity
-            Defines whether or not this attribute can be used on the same entity many times (with different values). Valid values: `single`, `multi`.
+            Denotes the data type of the attribute's values. Valid values: `single-select`, `multi-select`, `text`, `freeform-multi-select`.
 
         entity_type : CreateAttributeRequestEntityType
             Denotes the type of entity, driver or asset.
@@ -148,6 +129,9 @@ class RawAttributesClient:
         string_values : typing.Optional[typing.Sequence[str]]
             String values that can be associated with this attribute
 
+        unit : typing.Optional[CreateAttributeRequestUnit]
+            Unit of the attribute (only for Number attributes).
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -161,7 +145,6 @@ class RawAttributesClient:
             method="POST",
             json={
                 "attributeType": attribute_type,
-                "attributeValueQuantity": attribute_value_quantity,
                 "entities": convert_and_respect_annotation_metadata(
                     object_=entities, annotation=typing.Sequence[CreateAttributeRequestEntities], direction="write"
                 ),
@@ -169,6 +152,7 @@ class RawAttributesClient:
                 "name": name,
                 "numberValues": number_values,
                 "stringValues": string_values,
+                "unit": unit,
             },
             headers={
                 "content-type": "application/json",
@@ -191,11 +175,11 @@ class RawAttributesClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    def get(
+    def get_attribute(
         self,
         id: str,
         *,
-        entity_type: AttributesGetRequestEntityType,
+        entity_type: GetAttributeRequestEntityType,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[AttributeExpandedResponse]:
         """
@@ -210,7 +194,7 @@ class RawAttributesClient:
         id : str
             Samsara-provided UUID of the attribute.
 
-        entity_type : AttributesGetRequestEntityType
+        entity_type : GetAttributeRequestEntityType
             Denotes the type of entity, driver or asset.
 
         request_options : typing.Optional[RequestOptions]
@@ -244,13 +228,13 @@ class RawAttributesClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    def delete(
+    def delete_attribute(
         self,
         id: str,
         *,
-        entity_type: AttributesDeleteRequestEntityType,
+        entity_type: DeleteAttributeRequestEntityType,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[typing.Optional[typing.Any]]:
+    ) -> HttpResponse[StandardDeleteResponse]:
         """
         Delete an attribute by id, including all of its applications.
 
@@ -263,7 +247,7 @@ class RawAttributesClient:
         id : str
             Samsara-provided UUID of the attribute.
 
-        entity_type : AttributesDeleteRequestEntityType
+        entity_type : DeleteAttributeRequestEntityType
             Denotes the type of entity, driver or asset.
 
         request_options : typing.Optional[RequestOptions]
@@ -271,7 +255,7 @@ class RawAttributesClient:
 
         Returns
         -------
-        HttpResponse[typing.Optional[typing.Any]]
+        HttpResponse[StandardDeleteResponse]
             A successful DELETE response is a 204 with no content.
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -283,13 +267,11 @@ class RawAttributesClient:
             request_options=request_options,
         )
         try:
-            if _response is None or not _response.text.strip():
-                return HttpResponse(response=_response, data=None)
             if 200 <= _response.status_code < 300:
                 _data = typing.cast(
-                    typing.Optional[typing.Any],
+                    StandardDeleteResponse,
                     parse_obj_as(
-                        type_=typing.Optional[typing.Any],  # type: ignore
+                        type_=StandardDeleteResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -299,13 +281,12 @@ class RawAttributesClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    def update(
+    def update_attribute(
         self,
         id: str,
         *,
         entity_type: UpdateAttributeRequestEntityType,
         attribute_type: typing.Optional[UpdateAttributeRequestAttributeType] = OMIT,
-        attribute_value_quantity: typing.Optional[UpdateAttributeRequestAttributeValueQuantity] = OMIT,
         entities: typing.Optional[typing.Sequence[CreateAttributeRequestEntities]] = OMIT,
         name: typing.Optional[str] = OMIT,
         number_values: typing.Optional[typing.Sequence[float]] = OMIT,
@@ -328,10 +309,7 @@ class RawAttributesClient:
             Denotes the type of entity, driver or asset.
 
         attribute_type : typing.Optional[UpdateAttributeRequestAttributeType]
-            Denotes the data type of the attribute's values. Valid values: `string`, `number`.
-
-        attribute_value_quantity : typing.Optional[UpdateAttributeRequestAttributeValueQuantity]
-            Defines whether or not this attribute can be used on the same entity many times (with different values). Denotes the type of entity, driver or asset. Valid values: `driver`, `asset`.
+            Denotes the data type of the attribute's values. Valid values: `single-select`, `multi-select`, `text`, `freeform-multi-select`.
 
         entities : typing.Optional[typing.Sequence[CreateAttributeRequestEntities]]
             Entities that will be applied to this attribute
@@ -358,7 +336,6 @@ class RawAttributesClient:
             method="PATCH",
             json={
                 "attributeType": attribute_type,
-                "attributeValueQuantity": attribute_value_quantity,
                 "entities": convert_and_respect_annotation_metadata(
                     object_=entities, annotation=typing.Sequence[CreateAttributeRequestEntities], direction="write"
                 ),
@@ -393,14 +370,14 @@ class AsyncRawAttributesClient:
     def __init__(self, *, client_wrapper: AsyncClientWrapper):
         self._client_wrapper = client_wrapper
 
-    async def list(
+    async def get_attributes_by_entity_type(
         self,
         *,
-        entity_type: AttributesListRequestEntityType,
+        entity_type: GetAttributesByEntityTypeRequestEntityType,
         limit: typing.Optional[int] = None,
         after: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[Attribute]:
+    ) -> AsyncHttpResponse[GetAttributesByEntityTypeResponse]:
         """
         Fetch all attributes in an organization associated with either drivers or assets.
 
@@ -410,7 +387,7 @@ class AsyncRawAttributesClient:
 
         Parameters
         ----------
-        entity_type : AttributesListRequestEntityType
+        entity_type : GetAttributesByEntityTypeRequestEntityType
             Denotes the type of entity, driver or asset.
 
         limit : typing.Optional[int]
@@ -424,7 +401,7 @@ class AsyncRawAttributesClient:
 
         Returns
         -------
-        AsyncPager[Attribute]
+        AsyncHttpResponse[GetAttributesByEntityTypeResponse]
             All attributes in an organization for an entity type
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -439,46 +416,29 @@ class AsyncRawAttributesClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _parsed_response = typing.cast(
+                _data = typing.cast(
                     GetAttributesByEntityTypeResponse,
                     parse_obj_as(
                         type_=GetAttributesByEntityTypeResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                _items = _parsed_response.data
-                _has_next = False
-                _get_next = None
-                if _parsed_response.pagination is not None:
-                    _parsed_next = _parsed_response.pagination.end_cursor
-                    _has_next = _parsed_next is not None and _parsed_next != ""
-
-                    async def _get_next():
-                        return await self.list(
-                            entity_type=entity_type,
-                            limit=limit,
-                            after=_parsed_next,
-                            request_options=request_options,
-                        )
-
-                return AsyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return AsyncHttpResponse(response=_response, data=_data)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    async def create(
+    async def create_attribute(
         self,
         *,
         attribute_type: CreateAttributeRequestAttributeType,
-        attribute_value_quantity: CreateAttributeRequestAttributeValueQuantity,
         entity_type: CreateAttributeRequestEntityType,
         name: str,
         entities: typing.Optional[typing.Sequence[CreateAttributeRequestEntities]] = OMIT,
         number_values: typing.Optional[typing.Sequence[float]] = OMIT,
         string_values: typing.Optional[typing.Sequence[str]] = OMIT,
+        unit: typing.Optional[CreateAttributeRequestUnit] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[AttributeExpandedResponse]:
         """
@@ -491,10 +451,7 @@ class AsyncRawAttributesClient:
         Parameters
         ----------
         attribute_type : CreateAttributeRequestAttributeType
-            Denotes the data type of the attribute's values. Valid values: `string`, `number`.
-
-        attribute_value_quantity : CreateAttributeRequestAttributeValueQuantity
-            Defines whether or not this attribute can be used on the same entity many times (with different values). Valid values: `single`, `multi`.
+            Denotes the data type of the attribute's values. Valid values: `single-select`, `multi-select`, `text`, `freeform-multi-select`.
 
         entity_type : CreateAttributeRequestEntityType
             Denotes the type of entity, driver or asset.
@@ -511,6 +468,9 @@ class AsyncRawAttributesClient:
         string_values : typing.Optional[typing.Sequence[str]]
             String values that can be associated with this attribute
 
+        unit : typing.Optional[CreateAttributeRequestUnit]
+            Unit of the attribute (only for Number attributes).
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -524,7 +484,6 @@ class AsyncRawAttributesClient:
             method="POST",
             json={
                 "attributeType": attribute_type,
-                "attributeValueQuantity": attribute_value_quantity,
                 "entities": convert_and_respect_annotation_metadata(
                     object_=entities, annotation=typing.Sequence[CreateAttributeRequestEntities], direction="write"
                 ),
@@ -532,6 +491,7 @@ class AsyncRawAttributesClient:
                 "name": name,
                 "numberValues": number_values,
                 "stringValues": string_values,
+                "unit": unit,
             },
             headers={
                 "content-type": "application/json",
@@ -554,11 +514,11 @@ class AsyncRawAttributesClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    async def get(
+    async def get_attribute(
         self,
         id: str,
         *,
-        entity_type: AttributesGetRequestEntityType,
+        entity_type: GetAttributeRequestEntityType,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[AttributeExpandedResponse]:
         """
@@ -573,7 +533,7 @@ class AsyncRawAttributesClient:
         id : str
             Samsara-provided UUID of the attribute.
 
-        entity_type : AttributesGetRequestEntityType
+        entity_type : GetAttributeRequestEntityType
             Denotes the type of entity, driver or asset.
 
         request_options : typing.Optional[RequestOptions]
@@ -607,13 +567,13 @@ class AsyncRawAttributesClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    async def delete(
+    async def delete_attribute(
         self,
         id: str,
         *,
-        entity_type: AttributesDeleteRequestEntityType,
+        entity_type: DeleteAttributeRequestEntityType,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[typing.Optional[typing.Any]]:
+    ) -> AsyncHttpResponse[StandardDeleteResponse]:
         """
         Delete an attribute by id, including all of its applications.
 
@@ -626,7 +586,7 @@ class AsyncRawAttributesClient:
         id : str
             Samsara-provided UUID of the attribute.
 
-        entity_type : AttributesDeleteRequestEntityType
+        entity_type : DeleteAttributeRequestEntityType
             Denotes the type of entity, driver or asset.
 
         request_options : typing.Optional[RequestOptions]
@@ -634,7 +594,7 @@ class AsyncRawAttributesClient:
 
         Returns
         -------
-        AsyncHttpResponse[typing.Optional[typing.Any]]
+        AsyncHttpResponse[StandardDeleteResponse]
             A successful DELETE response is a 204 with no content.
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -646,13 +606,11 @@ class AsyncRawAttributesClient:
             request_options=request_options,
         )
         try:
-            if _response is None or not _response.text.strip():
-                return AsyncHttpResponse(response=_response, data=None)
             if 200 <= _response.status_code < 300:
                 _data = typing.cast(
-                    typing.Optional[typing.Any],
+                    StandardDeleteResponse,
                     parse_obj_as(
-                        type_=typing.Optional[typing.Any],  # type: ignore
+                        type_=StandardDeleteResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -662,13 +620,12 @@ class AsyncRawAttributesClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    async def update(
+    async def update_attribute(
         self,
         id: str,
         *,
         entity_type: UpdateAttributeRequestEntityType,
         attribute_type: typing.Optional[UpdateAttributeRequestAttributeType] = OMIT,
-        attribute_value_quantity: typing.Optional[UpdateAttributeRequestAttributeValueQuantity] = OMIT,
         entities: typing.Optional[typing.Sequence[CreateAttributeRequestEntities]] = OMIT,
         name: typing.Optional[str] = OMIT,
         number_values: typing.Optional[typing.Sequence[float]] = OMIT,
@@ -691,10 +648,7 @@ class AsyncRawAttributesClient:
             Denotes the type of entity, driver or asset.
 
         attribute_type : typing.Optional[UpdateAttributeRequestAttributeType]
-            Denotes the data type of the attribute's values. Valid values: `string`, `number`.
-
-        attribute_value_quantity : typing.Optional[UpdateAttributeRequestAttributeValueQuantity]
-            Defines whether or not this attribute can be used on the same entity many times (with different values). Denotes the type of entity, driver or asset. Valid values: `driver`, `asset`.
+            Denotes the data type of the attribute's values. Valid values: `single-select`, `multi-select`, `text`, `freeform-multi-select`.
 
         entities : typing.Optional[typing.Sequence[CreateAttributeRequestEntities]]
             Entities that will be applied to this attribute
@@ -721,7 +675,6 @@ class AsyncRawAttributesClient:
             method="PATCH",
             json={
                 "attributeType": attribute_type,
-                "attributeValueQuantity": attribute_value_quantity,
                 "entities": convert_and_respect_annotation_metadata(
                     object_=entities, annotation=typing.Sequence[CreateAttributeRequestEntities], direction="write"
                 ),

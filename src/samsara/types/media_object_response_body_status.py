@@ -2,4 +2,6 @@
 
 import typing
 
-MediaObjectResponseBodyStatus = typing.Union[typing.Literal["available", "invalid", "pending", "failed"], typing.Any]
+MediaObjectResponseBodyStatus = typing.Union[
+    typing.Literal["available", "invalid", "pending", "failed", "unavailable"], typing.Any
+]

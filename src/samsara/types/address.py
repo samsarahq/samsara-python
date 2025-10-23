@@ -8,9 +8,9 @@ import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .address_address_types_item import AddressAddressTypesItem
+from .address_external_ids import AddressExternalIds
 from .address_geofence import AddressGeofence
 from .contact_tiny_response import ContactTinyResponse
-from .external_ids import ExternalIds
 from .tag_tiny_response import TagTinyResponse
 
 
@@ -23,7 +23,7 @@ class Address(UniversalBaseModel):
         typing.Optional[typing.List[AddressAddressTypesItem]], FieldMetadata(alias="addressTypes")
     ] = pydantic.Field(default=None)
     """
-    Reporting location type associated with the address (used for ELD reporting purposes). Valid values: `yard`, `shortHaul`, `workforceSite`, `riskZone`, `industrialSite`, `alertsOnly`, `agricultureSource`.
+    Reporting location type associated with the address (used for ELD reporting purposes). Valid values: `yard`, `shortHaul`, `workforceSite`, `riskZone`, `industrialSite`, `alertsOnly`, `agricultureSource`, `avoidanceZone`, `knownGPSJammingZone`.
     """
 
     contacts: typing.Optional[typing.List[ContactTinyResponse]] = pydantic.Field(default=None)
@@ -38,9 +38,9 @@ class Address(UniversalBaseModel):
     The date and time this address was created in RFC 3339 format.
     """
 
-    external_ids: typing_extensions.Annotated[typing.Optional[ExternalIds], FieldMetadata(alias="externalIds")] = (
-        pydantic.Field(default=None)
-    )
+    external_ids: typing_extensions.Annotated[
+        typing.Optional[AddressExternalIds], FieldMetadata(alias="externalIds")
+    ] = pydantic.Field(default=None)
     """
     The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.
     """

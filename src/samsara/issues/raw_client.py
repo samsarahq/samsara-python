@@ -7,7 +7,6 @@ from json.decoder import JSONDecodeError
 from ..core.api_error import ApiError
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.http_response import AsyncHttpResponse, HttpResponse
-from ..core.pagination import AsyncPager, BaseHttpResponse, SyncPager
 from ..core.pydantic_utilities import parse_obj_as
 from ..core.request_options import RequestOptions
 from ..core.serialization import convert_and_respect_annotation_metadata
@@ -20,7 +19,6 @@ from ..errors.not_implemented_error import NotImplementedError
 from ..errors.service_unavailable_error import ServiceUnavailableError
 from ..errors.too_many_requests_error import TooManyRequestsError
 from ..errors.unauthorized_error import UnauthorizedError
-from ..types.issue_response_object_response_body import IssueResponseObjectResponseBody
 from ..types.issues_get_issues_response_body import IssuesGetIssuesResponseBody
 from ..types.issues_get_issues_stream_response_body import IssuesGetIssuesStreamResponseBody
 from ..types.issues_patch_issue_response_body import IssuesPatchIssueResponseBody
@@ -35,7 +33,7 @@ class RawIssuesClient:
     def __init__(self, *, client_wrapper: SyncClientWrapper):
         self._client_wrapper = client_wrapper
 
-    def list(
+    def get_issues(
         self,
         *,
         ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
@@ -191,7 +189,7 @@ class RawIssuesClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    def update(
+    def patch_issue(
         self,
         *,
         id: str,
@@ -367,7 +365,7 @@ class RawIssuesClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    def stream(
+    def get_issues_stream(
         self,
         *,
         start_time: str,
@@ -376,8 +374,9 @@ class RawIssuesClient:
         status: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         asset_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         include: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        assigned_to_route_stop_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[IssueResponseObjectResponseBody]:
+    ) -> HttpResponse[IssuesGetIssuesStreamResponseBody]:
         """
         Returns all issues data that has been created or modified for your organization based on the time parameters passed in. Results are paginated and are sorted by last modified date. If you include an endTime, the endpoint will return data up until that point (exclusive). If you don’t include an endTime, you can continue to poll the API real-time with the pagination cursor that gets returned on every call.
 
@@ -408,12 +407,15 @@ class RawIssuesClient:
         include : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             A comma separated list of additional fields to include on requested objects. Valid values: `externalIds`
 
+        assigned_to_route_stop_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A comma-separated list containing up to 50 route stop IDs to filter data on.
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
         Returns
         -------
-        SyncPager[IssueResponseObjectResponseBody]
+        HttpResponse[IssuesGetIssuesStreamResponseBody]
             OK response.
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -426,36 +428,20 @@ class RawIssuesClient:
                 "status": status,
                 "assetIds": asset_ids,
                 "include": include,
+                "assignedToRouteStopIds": assigned_to_route_stop_ids,
             },
             request_options=request_options,
         )
         try:
             if 200 <= _response.status_code < 300:
-                _parsed_response = typing.cast(
+                _data = typing.cast(
                     IssuesGetIssuesStreamResponseBody,
                     parse_obj_as(
                         type_=IssuesGetIssuesStreamResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                _items = _parsed_response.data
-                _has_next = False
-                _get_next = None
-                if _parsed_response.pagination is not None:
-                    _parsed_next = _parsed_response.pagination.end_cursor
-                    _has_next = _parsed_next is not None and _parsed_next != ""
-                    _get_next = lambda: self.stream(
-                        start_time=start_time,
-                        end_time=end_time,
-                        after=_parsed_next,
-                        status=status,
-                        asset_ids=asset_ids,
-                        include=include,
-                        request_options=request_options,
-                    )
-                return SyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return HttpResponse(response=_response, data=_data)
             if _response.status_code == 401:
                 raise UnauthorizedError(
                     headers=dict(_response.headers),
@@ -565,7 +551,7 @@ class AsyncRawIssuesClient:
     def __init__(self, *, client_wrapper: AsyncClientWrapper):
         self._client_wrapper = client_wrapper
 
-    async def list(
+    async def get_issues(
         self,
         *,
         ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
@@ -721,7 +707,7 @@ class AsyncRawIssuesClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    async def update(
+    async def patch_issue(
         self,
         *,
         id: str,
@@ -897,7 +883,7 @@ class AsyncRawIssuesClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    async def stream(
+    async def get_issues_stream(
         self,
         *,
         start_time: str,
@@ -906,8 +892,9 @@ class AsyncRawIssuesClient:
         status: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         asset_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         include: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        assigned_to_route_stop_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[IssueResponseObjectResponseBody]:
+    ) -> AsyncHttpResponse[IssuesGetIssuesStreamResponseBody]:
         """
         Returns all issues data that has been created or modified for your organization based on the time parameters passed in. Results are paginated and are sorted by last modified date. If you include an endTime, the endpoint will return data up until that point (exclusive). If you don’t include an endTime, you can continue to poll the API real-time with the pagination cursor that gets returned on every call.
 
@@ -938,12 +925,15 @@ class AsyncRawIssuesClient:
         include : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             A comma separated list of additional fields to include on requested objects. Valid values: `externalIds`
 
+        assigned_to_route_stop_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A comma-separated list containing up to 50 route stop IDs to filter data on.
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
         Returns
         -------
-        AsyncPager[IssueResponseObjectResponseBody]
+        AsyncHttpResponse[IssuesGetIssuesStreamResponseBody]
             OK response.
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -956,39 +946,20 @@ class AsyncRawIssuesClient:
                 "status": status,
                 "assetIds": asset_ids,
                 "include": include,
+                "assignedToRouteStopIds": assigned_to_route_stop_ids,
             },
             request_options=request_options,
         )
         try:
             if 200 <= _response.status_code < 300:
-                _parsed_response = typing.cast(
+                _data = typing.cast(
                     IssuesGetIssuesStreamResponseBody,
                     parse_obj_as(
                         type_=IssuesGetIssuesStreamResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                _items = _parsed_response.data
-                _has_next = False
-                _get_next = None
-                if _parsed_response.pagination is not None:
-                    _parsed_next = _parsed_response.pagination.end_cursor
-                    _has_next = _parsed_next is not None and _parsed_next != ""
-
-                    async def _get_next():
-                        return await self.stream(
-                            start_time=start_time,
-                            end_time=end_time,
-                            after=_parsed_next,
-                            status=status,
-                            asset_ids=asset_ids,
-                            include=include,
-                            request_options=request_options,
-                        )
-
-                return AsyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return AsyncHttpResponse(response=_response, data=_data)
             if _response.status_code == 401:
                 raise UnauthorizedError(
                     headers=dict(_response.headers),

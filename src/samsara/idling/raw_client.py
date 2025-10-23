@@ -5,7 +5,7 @@ from json.decoder import JSONDecodeError
 
 from ..core.api_error import ApiError
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
-from ..core.pagination import AsyncPager, BaseHttpResponse, SyncPager
+from ..core.http_response import AsyncHttpResponse, HttpResponse
 from ..core.pydantic_utilities import parse_obj_as
 from ..core.request_options import RequestOptions
 from ..errors.bad_gateway_error import BadGatewayError
@@ -18,22 +18,21 @@ from ..errors.service_unavailable_error import ServiceUnavailableError
 from ..errors.too_many_requests_error import TooManyRequestsError
 from ..errors.unauthorized_error import UnauthorizedError
 from ..types.advanced_idling_get_idling_events_response_body import AdvancedIdlingGetIdlingEventsResponseBody
-from ..types.idling_event_object_response_body import IdlingEventObjectResponseBody
-from .types.idling_list_request_pto_state import IdlingListRequestPtoState
+from .types.get_idling_events_request_pto_state import GetIdlingEventsRequestPtoState
 
 
 class RawIdlingClient:
     def __init__(self, *, client_wrapper: SyncClientWrapper):
         self._client_wrapper = client_wrapper
 
-    def list(
+    def get_idling_events(
         self,
         *,
         start_time: str,
         end_time: str,
         asset_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         operator_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        pto_state: typing.Optional[IdlingListRequestPtoState] = None,
+        pto_state: typing.Optional[GetIdlingEventsRequestPtoState] = None,
         min_air_temperature_millicelsius: typing.Optional[int] = None,
         max_air_temperature_millicelsius: typing.Optional[int] = None,
         exclude_events_with_unknown_air_temperature: typing.Optional[bool] = None,
@@ -44,11 +43,11 @@ class RawIdlingClient:
         after: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[IdlingEventObjectResponseBody]:
+    ) -> HttpResponse[AdvancedIdlingGetIdlingEventsResponseBody]:
         """
         Get idling events for the requested time duration.
 
-        **Note:** The data from this endpoint comes from the new Advanced Idling Report, which provides additional data fields for each idling event such as air temperature, geofence, PTO state and minimum idle time. This endpoint will initially include data from August 1, 2024. Approx. two weeks later, this will be further back dated to January 1, 2024. If you require additional historical data, you can access it via the [vehicle idling reports API](https://developers.samsara.com/reference/getvehicleidlingreports).
+        **Note:** The data from this endpoint comes from the new Advanced Idling Report, which provides additional data fields for each idling event such as air temperature, geofence, PTO state and minimum idle time. This endpoint includes data from January 1, 2024. If you require additional historical data, you can access it via the [vehicle idling reports API](https://developers.samsara.com/reference/getvehicleidlingreports).
 
          <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -71,7 +70,7 @@ class RawIdlingClient:
         operator_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             A filter on the data based on this comma-separated list of operator IDs. Operator IDs only include driver IDs at this time.
 
-        pto_state : typing.Optional[IdlingListRequestPtoState]
+        pto_state : typing.Optional[GetIdlingEventsRequestPtoState]
             A filter on the data on this PTO (Power Take-Off) state. If no specific state is provided, data including any state will be included.  Valid values: `active`, `inactive`
 
         min_air_temperature_millicelsius : typing.Optional[int]
@@ -106,7 +105,7 @@ class RawIdlingClient:
 
         Returns
         -------
-        SyncPager[IdlingEventObjectResponseBody]
+        HttpResponse[AdvancedIdlingGetIdlingEventsResponseBody]
             OK response.
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -132,39 +131,14 @@ class RawIdlingClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _parsed_response = typing.cast(
+                _data = typing.cast(
                     AdvancedIdlingGetIdlingEventsResponseBody,
                     parse_obj_as(
                         type_=AdvancedIdlingGetIdlingEventsResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                _items = _parsed_response.data
-                _has_next = False
-                _get_next = None
-                if _parsed_response.pagination is not None:
-                    _parsed_next = _parsed_response.pagination.end_cursor
-                    _has_next = _parsed_next is not None and _parsed_next != ""
-                    _get_next = lambda: self.list(
-                        start_time=start_time,
-                        end_time=end_time,
-                        asset_ids=asset_ids,
-                        operator_ids=operator_ids,
-                        pto_state=pto_state,
-                        min_air_temperature_millicelsius=min_air_temperature_millicelsius,
-                        max_air_temperature_millicelsius=max_air_temperature_millicelsius,
-                        exclude_events_with_unknown_air_temperature=exclude_events_with_unknown_air_temperature,
-                        min_duration_milliseconds=min_duration_milliseconds,
-                        max_duration_milliseconds=max_duration_milliseconds,
-                        tag_ids=tag_ids,
-                        parent_tag_ids=parent_tag_ids,
-                        after=_parsed_next,
-                        limit=limit,
-                        request_options=request_options,
-                    )
-                return SyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return HttpResponse(response=_response, data=_data)
             if _response.status_code == 401:
                 raise UnauthorizedError(
                     headers=dict(_response.headers),
@@ -274,14 +248,14 @@ class AsyncRawIdlingClient:
     def __init__(self, *, client_wrapper: AsyncClientWrapper):
         self._client_wrapper = client_wrapper
 
-    async def list(
+    async def get_idling_events(
         self,
         *,
         start_time: str,
         end_time: str,
         asset_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         operator_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        pto_state: typing.Optional[IdlingListRequestPtoState] = None,
+        pto_state: typing.Optional[GetIdlingEventsRequestPtoState] = None,
         min_air_temperature_millicelsius: typing.Optional[int] = None,
         max_air_temperature_millicelsius: typing.Optional[int] = None,
         exclude_events_with_unknown_air_temperature: typing.Optional[bool] = None,
@@ -292,11 +266,11 @@ class AsyncRawIdlingClient:
         after: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[IdlingEventObjectResponseBody]:
+    ) -> AsyncHttpResponse[AdvancedIdlingGetIdlingEventsResponseBody]:
         """
         Get idling events for the requested time duration.
 
-        **Note:** The data from this endpoint comes from the new Advanced Idling Report, which provides additional data fields for each idling event such as air temperature, geofence, PTO state and minimum idle time. This endpoint will initially include data from August 1, 2024. Approx. two weeks later, this will be further back dated to January 1, 2024. If you require additional historical data, you can access it via the [vehicle idling reports API](https://developers.samsara.com/reference/getvehicleidlingreports).
+        **Note:** The data from this endpoint comes from the new Advanced Idling Report, which provides additional data fields for each idling event such as air temperature, geofence, PTO state and minimum idle time. This endpoint includes data from January 1, 2024. If you require additional historical data, you can access it via the [vehicle idling reports API](https://developers.samsara.com/reference/getvehicleidlingreports).
 
          <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -319,7 +293,7 @@ class AsyncRawIdlingClient:
         operator_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             A filter on the data based on this comma-separated list of operator IDs. Operator IDs only include driver IDs at this time.
 
-        pto_state : typing.Optional[IdlingListRequestPtoState]
+        pto_state : typing.Optional[GetIdlingEventsRequestPtoState]
             A filter on the data on this PTO (Power Take-Off) state. If no specific state is provided, data including any state will be included.  Valid values: `active`, `inactive`
 
         min_air_temperature_millicelsius : typing.Optional[int]
@@ -354,7 +328,7 @@ class AsyncRawIdlingClient:
 
         Returns
         -------
-        AsyncPager[IdlingEventObjectResponseBody]
+        AsyncHttpResponse[AdvancedIdlingGetIdlingEventsResponseBody]
             OK response.
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -380,42 +354,14 @@ class AsyncRawIdlingClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _parsed_response = typing.cast(
+                _data = typing.cast(
                     AdvancedIdlingGetIdlingEventsResponseBody,
                     parse_obj_as(
                         type_=AdvancedIdlingGetIdlingEventsResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                _items = _parsed_response.data
-                _has_next = False
-                _get_next = None
-                if _parsed_response.pagination is not None:
-                    _parsed_next = _parsed_response.pagination.end_cursor
-                    _has_next = _parsed_next is not None and _parsed_next != ""
-
-                    async def _get_next():
-                        return await self.list(
-                            start_time=start_time,
-                            end_time=end_time,
-                            asset_ids=asset_ids,
-                            operator_ids=operator_ids,
-                            pto_state=pto_state,
-                            min_air_temperature_millicelsius=min_air_temperature_millicelsius,
-                            max_air_temperature_millicelsius=max_air_temperature_millicelsius,
-                            exclude_events_with_unknown_air_temperature=exclude_events_with_unknown_air_temperature,
-                            min_duration_milliseconds=min_duration_milliseconds,
-                            max_duration_milliseconds=max_duration_milliseconds,
-                            tag_ids=tag_ids,
-                            parent_tag_ids=parent_tag_ids,
-                            after=_parsed_next,
-                            limit=limit,
-                            request_options=request_options,
-                        )
-
-                return AsyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return AsyncHttpResponse(response=_response, data=_data)
             if _response.status_code == 401:
                 raise UnauthorizedError(
                     headers=dict(_response.headers),

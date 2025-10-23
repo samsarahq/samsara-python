@@ -24,19 +24,19 @@ class AttributeEntity(UniversalBaseModel):
         typing.Optional[typing.List[float]], FieldMetadata(alias="numberValues")
     ] = pydantic.Field(default=None)
     """
-    Number values that are associated with this attribute.
+    Number values that are associated with this attribute. Note: this field is `null` for `text` and `freeform-multi-select` attribute types.`
     """
 
     string_values: typing_extensions.Annotated[
         typing.Optional[typing.List[str]], FieldMetadata(alias="stringValues")
     ] = pydantic.Field(default=None)
     """
-    String values that are associated with this attribute.
+    String values that are associated with this attribute. Note: this field is `null` for `text` and `freeform-multi-select` attribute types.`
     """
 
     values: typing.Optional[typing.List[AttributeValueTiny]] = pydantic.Field(default=None)
     """
-    Representation of values that includes ids.
+    Representation of values that includes ids. Note: this field is `null` for `text` and `freeform-multi-select` attribute types.`
     """
 
     if IS_PYDANTIC_V2:

@@ -24,6 +24,8 @@ WebhooksPatchWebhookResponseBodyEventTypesItem = typing.Union[
         "PredictiveMaintenanceAlert",
         "RouteStopArrival",
         "RouteStopDeparture",
+        "RouteStopEarlyLateArrival",
+        "RouteStopEtaUpdated",
         "RouteStopResequence",
         "SevereSpeedingEnded",
         "SevereSpeedingStarted",

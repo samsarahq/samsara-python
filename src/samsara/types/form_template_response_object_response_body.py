@@ -7,6 +7,9 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .form_template_response_object_response_body_form_category import (
+    FormTemplateResponseObjectResponseBodyFormCategory,
+)
 from .form_template_section_object_response_body import FormTemplateSectionObjectResponseBody
 from .forms_approval_config_object_response_body import FormsApprovalConfigObjectResponseBody
 from .forms_field_definition_object_response_body import FormsFieldDefinitionObjectResponseBody
@@ -35,6 +38,13 @@ class FormTemplateResponseObjectResponseBody(UniversalBaseModel):
     fields: typing.List[FormsFieldDefinitionObjectResponseBody] = pydantic.Field()
     """
     List of fields in the form template.
+    """
+
+    form_category: typing_extensions.Annotated[
+        typing.Optional[FormTemplateResponseObjectResponseBodyFormCategory], FieldMetadata(alias="formCategory")
+    ] = pydantic.Field(default=None)
+    """
+    Category of the form template.  Valid values: `general`, `routing`, `fuel`
     """
 
     id: str = pydantic.Field()

@@ -3,7 +3,9 @@
 import typing
 
 import pydantic
+import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
+from ..core.serialization import FieldMetadata
 
 
 class RoutesSingleUseAddressObjectRequestBody(UniversalBaseModel):
@@ -24,6 +26,13 @@ class RoutesSingleUseAddressObjectRequestBody(UniversalBaseModel):
     longitude: float = pydantic.Field()
     """
     The longitude of the location
+    """
+
+    radius_meters: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="radiusMeters")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    The radius in meters for the geofence around this location. Must be a positive value.
     """
 
     if IS_PYDANTIC_V2:

@@ -6,6 +6,7 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .uploaded_media_object_response_body_camera_role import UploadedMediaObjectResponseBodyCameraRole
 from .uploaded_media_object_response_body_input import UploadedMediaObjectResponseBodyInput
 from .uploaded_media_object_response_body_media_type import UploadedMediaObjectResponseBodyMediaType
 from .uploaded_media_object_response_body_trigger_reason import UploadedMediaObjectResponseBodyTriggerReason
@@ -18,6 +19,13 @@ class UploadedMediaObjectResponseBody(UniversalBaseModel):
     Timestamp, in RFC 3339 format, at which the media item was made available. Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00
     """
 
+    camera_role: typing_extensions.Annotated[
+        typing.Optional[UploadedMediaObjectResponseBodyCameraRole], FieldMetadata(alias="cameraRole")
+    ] = pydantic.Field(default=None)
+    """
+    Camera role for this media.  Valid values: `leftMirrorMount`, `leftSide`, `rightMirrorMount`, `rightSide`, `rearHigh`, `rearBumper`, `inCab`, `front`, `hopper`, `other1`, `other2`, `other3`, `other4`, `leftBev`, `rightBev`, `rearBev`, `frontBev`, `otherBev`, `bevNotUsed`
+    """
+
     end_time: typing_extensions.Annotated[str, FieldMetadata(alias="endTime")] = pydantic.Field()
     """
      An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
@@ -25,7 +33,7 @@ class UploadedMediaObjectResponseBody(UniversalBaseModel):
 
     input: UploadedMediaObjectResponseBodyInput = pydantic.Field()
     """
-    Input type for this media.  Valid values: `dashcamForwardFacing`, `dashcamInwardFacing`, `analog1`
+    Input type for this media.  Valid values: `dashcamForwardFacing`, `dashcamInwardFacing`, `analog1`, `analog2`, `analog3`, `analog4`
     """
 
     media_type: typing_extensions.Annotated[

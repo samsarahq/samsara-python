@@ -3,21 +3,22 @@
 import typing
 
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
-from ..core.pagination import AsyncPager, SyncPager
 from ..core.request_options import RequestOptions
-from ..types.equipment_object import EquipmentObject
+from ..types.equipment_list_response import EquipmentListResponse
+from ..types.equipment_locations_list_response import EquipmentLocationsListResponse
+from ..types.equipment_locations_response import EquipmentLocationsResponse
 from ..types.equipment_response import EquipmentResponse
-from .locations.client import AsyncLocationsClient, LocationsClient
+from ..types.equipment_stats_list_response import EquipmentStatsListResponse
+from ..types.equipment_stats_response import EquipmentStatsResponse
 from .raw_client import AsyncRawEquipmentClient, RawEquipmentClient
-from .stats.client import AsyncStatsClient, StatsClient
+from .types.get_equipment_stats_feed_request_types_item import GetEquipmentStatsFeedRequestTypesItem
+from .types.get_equipment_stats_history_request_types_item import GetEquipmentStatsHistoryRequestTypesItem
+from .types.get_equipment_stats_request_types_item import GetEquipmentStatsRequestTypesItem
 
 
 class EquipmentClient:
     def __init__(self, *, client_wrapper: SyncClientWrapper):
         self._raw_client = RawEquipmentClient(client_wrapper=client_wrapper)
-        self.locations = LocationsClient(client_wrapper=client_wrapper)
-
-        self.stats = StatsClient(client_wrapper=client_wrapper)
 
     @property
     def with_raw_response(self) -> RawEquipmentClient:
@@ -30,7 +31,7 @@ class EquipmentClient:
         """
         return self._raw_client
 
-    def list(
+    def list_equipment(
         self,
         *,
         limit: typing.Optional[int] = None,
@@ -38,7 +39,7 @@ class EquipmentClient:
         parent_tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[EquipmentObject]:
+    ) -> EquipmentListResponse:
         """
         Returns a list of all equipment in an organization.
 
@@ -61,7 +62,7 @@ class EquipmentClient:
 
         Returns
         -------
-        SyncPager[EquipmentObject]
+        EquipmentListResponse
             List of all equipment objects, and pagination information
 
         Examples
@@ -71,18 +72,464 @@ class EquipmentClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        response = client.equipment.list()
-        for item in response:
-            yield item
-        # alternatively, you can paginate page-by-page
-        for page in response.iter_pages():
-            yield page
+        client.equipment.list_equipment(
+            limit=1000000,
+            after="after",
+        )
         """
-        return self._raw_client.list(
+        _response = self._raw_client.list_equipment(
             limit=limit, after=after, parent_tag_ids=parent_tag_ids, tag_ids=tag_ids, request_options=request_options
         )
+        return _response.data
 
-    def get(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> EquipmentResponse:
+    def get_equipment_locations(
+        self,
+        *,
+        after: typing.Optional[str] = None,
+        parent_tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        equipment_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EquipmentLocationsResponse:
+        """
+        Returns last known locations for all equipment. This can be optionally filtered by tags or specific equipment IDs.
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        after : typing.Optional[str]
+            If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        parent_tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+
+        tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+
+        equipment_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of equipment IDs. Example: `equipmentIds=1234,5678`
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EquipmentLocationsResponse
+            The most recent equipment locations and pagination information
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.equipment.get_equipment_locations(
+            after="after",
+        )
+        """
+        _response = self._raw_client.get_equipment_locations(
+            after=after,
+            parent_tag_ids=parent_tag_ids,
+            tag_ids=tag_ids,
+            equipment_ids=equipment_ids,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def get_equipment_locations_feed(
+        self,
+        *,
+        after: typing.Optional[str] = None,
+        parent_tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        equipment_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EquipmentLocationsListResponse:
+        """
+        Follow a continuous feed of all equipment locations.
+
+        Your first call to this endpoint will provide you with the most recent location for each unit of equipment and a `pagination` object that contains an `endCursor`.
+
+        You can provide the `endCursor` to subsequent calls via the `after` parameter. The response will contain any equipment location updates since that `endCursor`.
+
+        If `hasNextPage` is `false`, no updates are readily available yet. We'd suggest waiting a minimum of 5 seconds before requesting updates.
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        after : typing.Optional[str]
+            If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        parent_tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+
+        tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+
+        equipment_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of equipment IDs. Example: `equipmentIds=1234,5678`
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EquipmentLocationsListResponse
+            The feed of equipment locations and pagination information
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.equipment.get_equipment_locations_feed(
+            after="after",
+        )
+        """
+        _response = self._raw_client.get_equipment_locations_feed(
+            after=after,
+            parent_tag_ids=parent_tag_ids,
+            tag_ids=tag_ids,
+            equipment_ids=equipment_ids,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def get_equipment_locations_history(
+        self,
+        *,
+        start_time: str,
+        end_time: str,
+        after: typing.Optional[str] = None,
+        parent_tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        equipment_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EquipmentLocationsListResponse:
+        """
+        Returns historical equipment locations during the given time range. This can be optionally filtered by tags or specific equipment IDs.
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        start_time : str
+            A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        end_time : str
+            An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        after : typing.Optional[str]
+            If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        parent_tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+
+        tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+
+        equipment_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of equipment IDs. Example: `equipmentIds=1234,5678`
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EquipmentLocationsListResponse
+            Historical equipment locations and pagination information
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.equipment.get_equipment_locations_history(
+            after="after",
+            start_time="startTime",
+            end_time="endTime",
+        )
+        """
+        _response = self._raw_client.get_equipment_locations_history(
+            start_time=start_time,
+            end_time=end_time,
+            after=after,
+            parent_tag_ids=parent_tag_ids,
+            tag_ids=tag_ids,
+            equipment_ids=equipment_ids,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def get_equipment_stats(
+        self,
+        *,
+        after: typing.Optional[str] = None,
+        parent_tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        equipment_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        types: typing.Optional[
+            typing.Union[GetEquipmentStatsRequestTypesItem, typing.Sequence[GetEquipmentStatsRequestTypesItem]]
+        ] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EquipmentStatsResponse:
+        """
+        Returns the last known stats for all equipment. This can be optionally filtered by tags or specific equipment IDs.
+
+         <b>Rate limit:</b> 150 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        after : typing.Optional[str]
+            If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        parent_tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+
+        tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+
+        equipment_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of equipment IDs. Example: `equipmentIds=1234,5678`
+
+        types : typing.Optional[typing.Union[GetEquipmentStatsRequestTypesItem, typing.Sequence[GetEquipmentStatsRequestTypesItem]]]
+            The types of equipment stats you want to query. Currently, you may submit up to 4 types.
+
+            - `engineRpm`: The revolutions per minute of the engine.
+            - `fuelPercents`: The percent of fuel in the unit of equipment.
+            - `obdEngineSeconds`: The number of seconds the engine has been running as reported directly from on-board diagnostics. This is supported with the following hardware configurations: AG24/AG26 + AOPEN/A9PIN/ACT9/ACT14.
+            - `gatewayEngineSeconds`: An approximation of the number of seconds the engine has been running since it was new, based on the amount of time the asset gateway has been receiving power with an offset provided manually through the Samsara cloud dashboard. This is supported with the following hardware configurations:
+              - AG24/AG26/AG46P + APWR cable ([Auxiliary engine configuration](https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs#UUID-d514abff-d10a-efaf-35d9-e10fa6c4888d) required)
+              - AG52 + BPWR/BEQP cable ([Auxiliary engine configuration](https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs#UUID-d514abff-d10a-efaf-35d9-e10fa6c4888d) required).
+            - `gatewayJ1939EngineSeconds`: An approximation of the number of seconds the engine has been running since it was new, based on the amount of time the AG26 device is receiving power via J1939/CAT cable and an offset provided manually through the Samsara cloud dashboard.
+            - `obdEngineStates`: The state of the engine read from on-board diagnostics. Can be `Off`, `On`, or `Idle`.
+            - `gatewayEngineStates`: An approximation of engine state based on readings the AG26 receives from the aux/digio cable. Can be `Off` or `On`.
+            - `gpsOdometerMeters`: An approximation of odometer reading based on GPS calculations since the AG26 was activated, and a manual odometer offset provided in the Samsara cloud dashboard. Valid values: `Off`, `On`.
+            - `gps`: GPS data including lat/long, heading, speed, address book entry (if exists), and a reverse geocoded address.
+            - `engineTotalIdleTimeMinutes`: Total time in minutes that the engine has been idling.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EquipmentStatsResponse
+            The most recent equipment stats and pagination information
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.equipment.get_equipment_stats()
+        """
+        _response = self._raw_client.get_equipment_stats(
+            after=after,
+            parent_tag_ids=parent_tag_ids,
+            tag_ids=tag_ids,
+            equipment_ids=equipment_ids,
+            types=types,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def get_equipment_stats_feed(
+        self,
+        *,
+        after: typing.Optional[str] = None,
+        parent_tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        equipment_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        types: typing.Optional[
+            typing.Union[GetEquipmentStatsFeedRequestTypesItem, typing.Sequence[GetEquipmentStatsFeedRequestTypesItem]]
+        ] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EquipmentStatsListResponse:
+        """
+        Follow a continuous feed of all equipment stats.
+
+        Your first call to this endpoint will provide you with the most recent stats for each unit of equipment and a `pagination` object that contains an `endCursor`.
+
+        You can provide the `endCursor` to subsequent calls via the `after` parameter. The response will contain any equipment stats updates since that `endCursor`.
+
+        If `hasNextPage` is `false`, no updates are readily available yet. Each stat type has a different refresh rate, but in general we'd suggest waiting a minimum of 5 seconds before requesting updates.
+
+         <b>Rate limit:</b> 150 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        after : typing.Optional[str]
+            If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        parent_tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+
+        tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+
+        equipment_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of equipment IDs. Example: `equipmentIds=1234,5678`
+
+        types : typing.Optional[typing.Union[GetEquipmentStatsFeedRequestTypesItem, typing.Sequence[GetEquipmentStatsFeedRequestTypesItem]]]
+            The types of equipment stats you want to query. Currently, you may submit up to 4 types.
+
+            - `engineRpm`: The revolutions per minute of the engine.
+            - `fuelPercents`: The percent of fuel in the unit of equipment.
+            - `obdEngineSeconds`: The number of seconds the engine has been running as reported directly from on-board diagnostics. This is supported with the following hardware configurations: AG24/AG26 + AOPEN/A9PIN/ACT9/ACT14.
+            - `gatewayEngineSeconds`: An approximation of the number of seconds the engine has been running since it was new, based on the amount of time the asset gateway has been receiving power with an offset provided manually through the Samsara cloud dashboard. This is supported with the following hardware configurations:
+              - AG24/AG26/AG46P + APWR cable ([Auxiliary engine configuration](https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs#UUID-d514abff-d10a-efaf-35d9-e10fa6c4888d) required)
+              - AG52 + BPWR/BEQP cable ([Auxiliary engine configuration](https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs#UUID-d514abff-d10a-efaf-35d9-e10fa6c4888d) required).
+            - `gatewayJ1939EngineSeconds`: An approximation of the number of seconds the engine has been running since it was new, based on the amount of time the AG26 device is receiving power via J1939/CAT cable and an offset provided manually through the Samsara cloud dashboard.
+            - `obdEngineStates`: The state of the engine read from on-board diagnostics. Can be `Off`, `On`, or `Idle`.
+            - `gatewayEngineStates`: An approximation of engine state based on readings the AG26 receives from the aux/digio cable. Can be `Off` or `On`.
+            - `gpsOdometerMeters`: An approximation of odometer reading based on GPS calculations since the AG26 was activated, and a manual odometer offset provided in the Samsara cloud dashboard. Valid values: `Off`, `On`.
+            - `gps`: GPS data including lat/long, heading, speed, address book entry (if exists), and a reverse geocoded address.
+            - `engineTotalIdleTimeMinutes`: Total time in minutes that the engine has been idling.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EquipmentStatsListResponse
+            The feed of equipment stats and pagination information
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.equipment.get_equipment_stats_feed()
+        """
+        _response = self._raw_client.get_equipment_stats_feed(
+            after=after,
+            parent_tag_ids=parent_tag_ids,
+            tag_ids=tag_ids,
+            equipment_ids=equipment_ids,
+            types=types,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def get_equipment_stats_history(
+        self,
+        *,
+        start_time: str,
+        end_time: str,
+        after: typing.Optional[str] = None,
+        parent_tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        equipment_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        types: typing.Optional[
+            typing.Union[
+                GetEquipmentStatsHistoryRequestTypesItem, typing.Sequence[GetEquipmentStatsHistoryRequestTypesItem]
+            ]
+        ] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EquipmentStatsListResponse:
+        """
+        Returns historical equipment status during the given time range. This can be optionally filtered by tags or specific equipment IDs.
+
+         <b>Rate limit:</b> 150 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        start_time : str
+            A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        end_time : str
+            An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        after : typing.Optional[str]
+            If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        parent_tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+
+        tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+
+        equipment_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of equipment IDs. Example: `equipmentIds=1234,5678`
+
+        types : typing.Optional[typing.Union[GetEquipmentStatsHistoryRequestTypesItem, typing.Sequence[GetEquipmentStatsHistoryRequestTypesItem]]]
+            The types of equipment stats you want to query. Currently, you may submit up to 4 types.
+
+            - `engineRpm`: The revolutions per minute of the engine.
+            - `fuelPercents`: The percent of fuel in the unit of equipment.
+            - `obdEngineSeconds`: The number of seconds the engine has been running as reported directly from on-board diagnostics. This is supported with the following hardware configurations: AG24/AG26 + AOPEN/A9PIN/ACT9/ACT14.
+            - `gatewayEngineSeconds`: An approximation of the number of seconds the engine has been running since it was new, based on the amount of time the asset gateway has been receiving power with an offset provided manually through the Samsara cloud dashboard. This is supported with the following hardware configurations:
+              - AG24/AG26/AG46P + APWR cable ([Auxiliary engine configuration](https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs#UUID-d514abff-d10a-efaf-35d9-e10fa6c4888d) required)
+              - AG52 + BPWR/BEQP cable ([Auxiliary engine configuration](https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs#UUID-d514abff-d10a-efaf-35d9-e10fa6c4888d) required).
+            - `gatewayJ1939EngineSeconds`: An approximation of the number of seconds the engine has been running since it was new, based on the amount of time the AG26 device is receiving power via J1939/CAT cable and an offset provided manually through the Samsara cloud dashboard.
+            - `obdEngineStates`: The state of the engine read from on-board diagnostics. Can be `Off`, `On`, or `Idle`.
+            - `gatewayEngineStates`: An approximation of engine state based on readings the AG26 receives from the aux/digio cable. Can be `Off` or `On`.
+            - `gpsOdometerMeters`: An approximation of odometer reading based on GPS calculations since the AG26 was activated, and a manual odometer offset provided in the Samsara cloud dashboard. Valid values: `Off`, `On`.
+            - `gps`: GPS data including lat/long, heading, speed, address book entry (if exists), and a reverse geocoded address.
+            - `engineTotalIdleTimeMinutes`: Total time in minutes that the engine has been idling.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EquipmentStatsListResponse
+            Historical equipment stats and pagination information
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.equipment.get_equipment_stats_history(
+            start_time="startTime",
+            end_time="endTime",
+        )
+        """
+        _response = self._raw_client.get_equipment_stats_history(
+            start_time=start_time,
+            end_time=end_time,
+            after=after,
+            parent_tag_ids=parent_tag_ids,
+            tag_ids=tag_ids,
+            equipment_ids=equipment_ids,
+            types=types,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def get_equipment(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> EquipmentResponse:
         """
         Retrieves the unit of equipment with the given Samsara ID.
 
@@ -110,20 +557,17 @@ class EquipmentClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.equipment.get(
+        client.equipment.get_equipment(
             id="id",
         )
         """
-        _response = self._raw_client.get(id, request_options=request_options)
+        _response = self._raw_client.get_equipment(id, request_options=request_options)
         return _response.data
 
 
 class AsyncEquipmentClient:
     def __init__(self, *, client_wrapper: AsyncClientWrapper):
         self._raw_client = AsyncRawEquipmentClient(client_wrapper=client_wrapper)
-        self.locations = AsyncLocationsClient(client_wrapper=client_wrapper)
-
-        self.stats = AsyncStatsClient(client_wrapper=client_wrapper)
 
     @property
     def with_raw_response(self) -> AsyncRawEquipmentClient:
@@ -136,7 +580,7 @@ class AsyncEquipmentClient:
         """
         return self._raw_client
 
-    async def list(
+    async def list_equipment(
         self,
         *,
         limit: typing.Optional[int] = None,
@@ -144,7 +588,7 @@ class AsyncEquipmentClient:
         parent_tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[EquipmentObject]:
+    ) -> EquipmentListResponse:
         """
         Returns a list of all equipment in an organization.
 
@@ -167,7 +611,7 @@ class AsyncEquipmentClient:
 
         Returns
         -------
-        AsyncPager[EquipmentObject]
+        EquipmentListResponse
             List of all equipment objects, and pagination information
 
         Examples
@@ -182,22 +626,517 @@ class AsyncEquipmentClient:
 
 
         async def main() -> None:
-            response = await client.equipment.list()
-            async for item in response:
-                yield item
-
-            # alternatively, you can paginate page-by-page
-            async for page in response.iter_pages():
-                yield page
+            await client.equipment.list_equipment(
+                limit=1000000,
+                after="after",
+            )
 
 
         asyncio.run(main())
         """
-        return await self._raw_client.list(
+        _response = await self._raw_client.list_equipment(
             limit=limit, after=after, parent_tag_ids=parent_tag_ids, tag_ids=tag_ids, request_options=request_options
         )
+        return _response.data
 
-    async def get(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> EquipmentResponse:
+    async def get_equipment_locations(
+        self,
+        *,
+        after: typing.Optional[str] = None,
+        parent_tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        equipment_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EquipmentLocationsResponse:
+        """
+        Returns last known locations for all equipment. This can be optionally filtered by tags or specific equipment IDs.
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        after : typing.Optional[str]
+            If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        parent_tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+
+        tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+
+        equipment_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of equipment IDs. Example: `equipmentIds=1234,5678`
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EquipmentLocationsResponse
+            The most recent equipment locations and pagination information
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.equipment.get_equipment_locations(
+                after="after",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_equipment_locations(
+            after=after,
+            parent_tag_ids=parent_tag_ids,
+            tag_ids=tag_ids,
+            equipment_ids=equipment_ids,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def get_equipment_locations_feed(
+        self,
+        *,
+        after: typing.Optional[str] = None,
+        parent_tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        equipment_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EquipmentLocationsListResponse:
+        """
+        Follow a continuous feed of all equipment locations.
+
+        Your first call to this endpoint will provide you with the most recent location for each unit of equipment and a `pagination` object that contains an `endCursor`.
+
+        You can provide the `endCursor` to subsequent calls via the `after` parameter. The response will contain any equipment location updates since that `endCursor`.
+
+        If `hasNextPage` is `false`, no updates are readily available yet. We'd suggest waiting a minimum of 5 seconds before requesting updates.
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        after : typing.Optional[str]
+            If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        parent_tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+
+        tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+
+        equipment_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of equipment IDs. Example: `equipmentIds=1234,5678`
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EquipmentLocationsListResponse
+            The feed of equipment locations and pagination information
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.equipment.get_equipment_locations_feed(
+                after="after",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_equipment_locations_feed(
+            after=after,
+            parent_tag_ids=parent_tag_ids,
+            tag_ids=tag_ids,
+            equipment_ids=equipment_ids,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def get_equipment_locations_history(
+        self,
+        *,
+        start_time: str,
+        end_time: str,
+        after: typing.Optional[str] = None,
+        parent_tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        equipment_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EquipmentLocationsListResponse:
+        """
+        Returns historical equipment locations during the given time range. This can be optionally filtered by tags or specific equipment IDs.
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        start_time : str
+            A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        end_time : str
+            An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        after : typing.Optional[str]
+            If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        parent_tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+
+        tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+
+        equipment_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of equipment IDs. Example: `equipmentIds=1234,5678`
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EquipmentLocationsListResponse
+            Historical equipment locations and pagination information
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.equipment.get_equipment_locations_history(
+                after="after",
+                start_time="startTime",
+                end_time="endTime",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_equipment_locations_history(
+            start_time=start_time,
+            end_time=end_time,
+            after=after,
+            parent_tag_ids=parent_tag_ids,
+            tag_ids=tag_ids,
+            equipment_ids=equipment_ids,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def get_equipment_stats(
+        self,
+        *,
+        after: typing.Optional[str] = None,
+        parent_tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        equipment_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        types: typing.Optional[
+            typing.Union[GetEquipmentStatsRequestTypesItem, typing.Sequence[GetEquipmentStatsRequestTypesItem]]
+        ] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EquipmentStatsResponse:
+        """
+        Returns the last known stats for all equipment. This can be optionally filtered by tags or specific equipment IDs.
+
+         <b>Rate limit:</b> 150 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        after : typing.Optional[str]
+            If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        parent_tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+
+        tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+
+        equipment_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of equipment IDs. Example: `equipmentIds=1234,5678`
+
+        types : typing.Optional[typing.Union[GetEquipmentStatsRequestTypesItem, typing.Sequence[GetEquipmentStatsRequestTypesItem]]]
+            The types of equipment stats you want to query. Currently, you may submit up to 4 types.
+
+            - `engineRpm`: The revolutions per minute of the engine.
+            - `fuelPercents`: The percent of fuel in the unit of equipment.
+            - `obdEngineSeconds`: The number of seconds the engine has been running as reported directly from on-board diagnostics. This is supported with the following hardware configurations: AG24/AG26 + AOPEN/A9PIN/ACT9/ACT14.
+            - `gatewayEngineSeconds`: An approximation of the number of seconds the engine has been running since it was new, based on the amount of time the asset gateway has been receiving power with an offset provided manually through the Samsara cloud dashboard. This is supported with the following hardware configurations:
+              - AG24/AG26/AG46P + APWR cable ([Auxiliary engine configuration](https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs#UUID-d514abff-d10a-efaf-35d9-e10fa6c4888d) required)
+              - AG52 + BPWR/BEQP cable ([Auxiliary engine configuration](https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs#UUID-d514abff-d10a-efaf-35d9-e10fa6c4888d) required).
+            - `gatewayJ1939EngineSeconds`: An approximation of the number of seconds the engine has been running since it was new, based on the amount of time the AG26 device is receiving power via J1939/CAT cable and an offset provided manually through the Samsara cloud dashboard.
+            - `obdEngineStates`: The state of the engine read from on-board diagnostics. Can be `Off`, `On`, or `Idle`.
+            - `gatewayEngineStates`: An approximation of engine state based on readings the AG26 receives from the aux/digio cable. Can be `Off` or `On`.
+            - `gpsOdometerMeters`: An approximation of odometer reading based on GPS calculations since the AG26 was activated, and a manual odometer offset provided in the Samsara cloud dashboard. Valid values: `Off`, `On`.
+            - `gps`: GPS data including lat/long, heading, speed, address book entry (if exists), and a reverse geocoded address.
+            - `engineTotalIdleTimeMinutes`: Total time in minutes that the engine has been idling.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EquipmentStatsResponse
+            The most recent equipment stats and pagination information
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.equipment.get_equipment_stats()
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_equipment_stats(
+            after=after,
+            parent_tag_ids=parent_tag_ids,
+            tag_ids=tag_ids,
+            equipment_ids=equipment_ids,
+            types=types,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def get_equipment_stats_feed(
+        self,
+        *,
+        after: typing.Optional[str] = None,
+        parent_tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        equipment_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        types: typing.Optional[
+            typing.Union[GetEquipmentStatsFeedRequestTypesItem, typing.Sequence[GetEquipmentStatsFeedRequestTypesItem]]
+        ] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EquipmentStatsListResponse:
+        """
+        Follow a continuous feed of all equipment stats.
+
+        Your first call to this endpoint will provide you with the most recent stats for each unit of equipment and a `pagination` object that contains an `endCursor`.
+
+        You can provide the `endCursor` to subsequent calls via the `after` parameter. The response will contain any equipment stats updates since that `endCursor`.
+
+        If `hasNextPage` is `false`, no updates are readily available yet. Each stat type has a different refresh rate, but in general we'd suggest waiting a minimum of 5 seconds before requesting updates.
+
+         <b>Rate limit:</b> 150 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        after : typing.Optional[str]
+            If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        parent_tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+
+        tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+
+        equipment_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of equipment IDs. Example: `equipmentIds=1234,5678`
+
+        types : typing.Optional[typing.Union[GetEquipmentStatsFeedRequestTypesItem, typing.Sequence[GetEquipmentStatsFeedRequestTypesItem]]]
+            The types of equipment stats you want to query. Currently, you may submit up to 4 types.
+
+            - `engineRpm`: The revolutions per minute of the engine.
+            - `fuelPercents`: The percent of fuel in the unit of equipment.
+            - `obdEngineSeconds`: The number of seconds the engine has been running as reported directly from on-board diagnostics. This is supported with the following hardware configurations: AG24/AG26 + AOPEN/A9PIN/ACT9/ACT14.
+            - `gatewayEngineSeconds`: An approximation of the number of seconds the engine has been running since it was new, based on the amount of time the asset gateway has been receiving power with an offset provided manually through the Samsara cloud dashboard. This is supported with the following hardware configurations:
+              - AG24/AG26/AG46P + APWR cable ([Auxiliary engine configuration](https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs#UUID-d514abff-d10a-efaf-35d9-e10fa6c4888d) required)
+              - AG52 + BPWR/BEQP cable ([Auxiliary engine configuration](https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs#UUID-d514abff-d10a-efaf-35d9-e10fa6c4888d) required).
+            - `gatewayJ1939EngineSeconds`: An approximation of the number of seconds the engine has been running since it was new, based on the amount of time the AG26 device is receiving power via J1939/CAT cable and an offset provided manually through the Samsara cloud dashboard.
+            - `obdEngineStates`: The state of the engine read from on-board diagnostics. Can be `Off`, `On`, or `Idle`.
+            - `gatewayEngineStates`: An approximation of engine state based on readings the AG26 receives from the aux/digio cable. Can be `Off` or `On`.
+            - `gpsOdometerMeters`: An approximation of odometer reading based on GPS calculations since the AG26 was activated, and a manual odometer offset provided in the Samsara cloud dashboard. Valid values: `Off`, `On`.
+            - `gps`: GPS data including lat/long, heading, speed, address book entry (if exists), and a reverse geocoded address.
+            - `engineTotalIdleTimeMinutes`: Total time in minutes that the engine has been idling.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EquipmentStatsListResponse
+            The feed of equipment stats and pagination information
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.equipment.get_equipment_stats_feed()
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_equipment_stats_feed(
+            after=after,
+            parent_tag_ids=parent_tag_ids,
+            tag_ids=tag_ids,
+            equipment_ids=equipment_ids,
+            types=types,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def get_equipment_stats_history(
+        self,
+        *,
+        start_time: str,
+        end_time: str,
+        after: typing.Optional[str] = None,
+        parent_tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        equipment_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        types: typing.Optional[
+            typing.Union[
+                GetEquipmentStatsHistoryRequestTypesItem, typing.Sequence[GetEquipmentStatsHistoryRequestTypesItem]
+            ]
+        ] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EquipmentStatsListResponse:
+        """
+        Returns historical equipment status during the given time range. This can be optionally filtered by tags or specific equipment IDs.
+
+         <b>Rate limit:</b> 150 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        start_time : str
+            A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        end_time : str
+            An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        after : typing.Optional[str]
+            If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        parent_tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+
+        tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+
+        equipment_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of equipment IDs. Example: `equipmentIds=1234,5678`
+
+        types : typing.Optional[typing.Union[GetEquipmentStatsHistoryRequestTypesItem, typing.Sequence[GetEquipmentStatsHistoryRequestTypesItem]]]
+            The types of equipment stats you want to query. Currently, you may submit up to 4 types.
+
+            - `engineRpm`: The revolutions per minute of the engine.
+            - `fuelPercents`: The percent of fuel in the unit of equipment.
+            - `obdEngineSeconds`: The number of seconds the engine has been running as reported directly from on-board diagnostics. This is supported with the following hardware configurations: AG24/AG26 + AOPEN/A9PIN/ACT9/ACT14.
+            - `gatewayEngineSeconds`: An approximation of the number of seconds the engine has been running since it was new, based on the amount of time the asset gateway has been receiving power with an offset provided manually through the Samsara cloud dashboard. This is supported with the following hardware configurations:
+              - AG24/AG26/AG46P + APWR cable ([Auxiliary engine configuration](https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs#UUID-d514abff-d10a-efaf-35d9-e10fa6c4888d) required)
+              - AG52 + BPWR/BEQP cable ([Auxiliary engine configuration](https://kb.samsara.com/hc/en-us/articles/360043040512-Auxiliary-Inputs#UUID-d514abff-d10a-efaf-35d9-e10fa6c4888d) required).
+            - `gatewayJ1939EngineSeconds`: An approximation of the number of seconds the engine has been running since it was new, based on the amount of time the AG26 device is receiving power via J1939/CAT cable and an offset provided manually through the Samsara cloud dashboard.
+            - `obdEngineStates`: The state of the engine read from on-board diagnostics. Can be `Off`, `On`, or `Idle`.
+            - `gatewayEngineStates`: An approximation of engine state based on readings the AG26 receives from the aux/digio cable. Can be `Off` or `On`.
+            - `gpsOdometerMeters`: An approximation of odometer reading based on GPS calculations since the AG26 was activated, and a manual odometer offset provided in the Samsara cloud dashboard. Valid values: `Off`, `On`.
+            - `gps`: GPS data including lat/long, heading, speed, address book entry (if exists), and a reverse geocoded address.
+            - `engineTotalIdleTimeMinutes`: Total time in minutes that the engine has been idling.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EquipmentStatsListResponse
+            Historical equipment stats and pagination information
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.equipment.get_equipment_stats_history(
+                start_time="startTime",
+                end_time="endTime",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_equipment_stats_history(
+            start_time=start_time,
+            end_time=end_time,
+            after=after,
+            parent_tag_ids=parent_tag_ids,
+            tag_ids=tag_ids,
+            equipment_ids=equipment_ids,
+            types=types,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def get_equipment(
+        self, id: str, *, request_options: typing.Optional[RequestOptions] = None
+    ) -> EquipmentResponse:
         """
         Retrieves the unit of equipment with the given Samsara ID.
 
@@ -230,12 +1169,12 @@ class AsyncEquipmentClient:
 
 
         async def main() -> None:
-            await client.equipment.get(
+            await client.equipment.get_equipment(
                 id="id",
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.get(id, request_options=request_options)
+        _response = await self._raw_client.get_equipment(id, request_options=request_options)
         return _response.data

@@ -2,6 +2,3 @@
 
 # isort: skip_file
 
-from . import compliance, driver_app, safety
-
-__all__ = ["compliance", "driver_app", "safety"]

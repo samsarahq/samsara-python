@@ -33,10 +33,10 @@ from ..types.patch_driver_vehicle_assignments_v_2_request_body_metadata_request_
 from ..types.post_driver_vehicle_assignments_v_2_request_body_metadata_request_body import (
     PostDriverVehicleAssignmentsV2RequestBodyMetadataRequestBody,
 )
-from .types.driver_vehicle_assignments_get_request_assignment_type import (
-    DriverVehicleAssignmentsGetRequestAssignmentType,
+from .types.get_driver_vehicle_assignments_request_assignment_type import (
+    GetDriverVehicleAssignmentsRequestAssignmentType,
 )
-from .types.driver_vehicle_assignments_get_request_filter_by import DriverVehicleAssignmentsGetRequestFilterBy
+from .types.get_driver_vehicle_assignments_request_filter_by import GetDriverVehicleAssignmentsRequestFilterBy
 
 # this is used as the default value for optional parameters
 OMIT = typing.cast(typing.Any, ...)
@@ -46,10 +46,10 @@ class RawDriverVehicleAssignmentsClient:
     def __init__(self, *, client_wrapper: SyncClientWrapper):
         self._client_wrapper = client_wrapper
 
-    def get(
+    def get_driver_vehicle_assignments(
         self,
         *,
-        filter_by: DriverVehicleAssignmentsGetRequestFilterBy,
+        filter_by: GetDriverVehicleAssignmentsRequestFilterBy,
         start_time: typing.Optional[str] = None,
         end_time: typing.Optional[str] = None,
         driver_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
@@ -57,7 +57,7 @@ class RawDriverVehicleAssignmentsClient:
         driver_tag_ids: typing.Optional[str] = None,
         vehicle_tag_ids: typing.Optional[str] = None,
         after: typing.Optional[str] = None,
-        assignment_type: typing.Optional[DriverVehicleAssignmentsGetRequestAssignmentType] = None,
+        assignment_type: typing.Optional[GetDriverVehicleAssignmentsRequestAssignmentType] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[DriverVehicleAssignmentsV2GetDriverVehicleAssignmentsResponseBody]:
         """
@@ -72,7 +72,7 @@ class RawDriverVehicleAssignmentsClient:
 
         Parameters
         ----------
-        filter_by : DriverVehicleAssignmentsGetRequestFilterBy
+        filter_by : GetDriverVehicleAssignmentsRequestFilterBy
             Option to filter by drivers or vehicles.  Valid values: `drivers`, `vehicles`
 
         start_time : typing.Optional[str]
@@ -96,7 +96,7 @@ class RawDriverVehicleAssignmentsClient:
         after : typing.Optional[str]
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
 
-        assignment_type : typing.Optional[DriverVehicleAssignmentsGetRequestAssignmentType]
+        assignment_type : typing.Optional[GetDriverVehicleAssignmentsRequestAssignmentType]
             Specifies which assignment type to filter by.  Valid values: `HOS`, `idCard`, `static`, `faceId`, `tachograph`, `safetyManual`, `RFID`, `trailer`, `external`, `qrCode`
 
         request_options : typing.Optional[RequestOptions]
@@ -237,7 +237,7 @@ class RawDriverVehicleAssignmentsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    def create(
+    def create_driver_vehicle_assignment(
         self,
         *,
         driver_id: str,
@@ -425,7 +425,7 @@ class RawDriverVehicleAssignmentsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    def delete(
+    def delete_driver_vehicle_assignments(
         self,
         *,
         vehicle_id: str,
@@ -592,7 +592,7 @@ class RawDriverVehicleAssignmentsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    def update(
+    def update_driver_vehicle_assignment(
         self,
         *,
         driver_id: str,
@@ -785,10 +785,10 @@ class AsyncRawDriverVehicleAssignmentsClient:
     def __init__(self, *, client_wrapper: AsyncClientWrapper):
         self._client_wrapper = client_wrapper
 
-    async def get(
+    async def get_driver_vehicle_assignments(
         self,
         *,
-        filter_by: DriverVehicleAssignmentsGetRequestFilterBy,
+        filter_by: GetDriverVehicleAssignmentsRequestFilterBy,
         start_time: typing.Optional[str] = None,
         end_time: typing.Optional[str] = None,
         driver_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
@@ -796,7 +796,7 @@ class AsyncRawDriverVehicleAssignmentsClient:
         driver_tag_ids: typing.Optional[str] = None,
         vehicle_tag_ids: typing.Optional[str] = None,
         after: typing.Optional[str] = None,
-        assignment_type: typing.Optional[DriverVehicleAssignmentsGetRequestAssignmentType] = None,
+        assignment_type: typing.Optional[GetDriverVehicleAssignmentsRequestAssignmentType] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[DriverVehicleAssignmentsV2GetDriverVehicleAssignmentsResponseBody]:
         """
@@ -811,7 +811,7 @@ class AsyncRawDriverVehicleAssignmentsClient:
 
         Parameters
         ----------
-        filter_by : DriverVehicleAssignmentsGetRequestFilterBy
+        filter_by : GetDriverVehicleAssignmentsRequestFilterBy
             Option to filter by drivers or vehicles.  Valid values: `drivers`, `vehicles`
 
         start_time : typing.Optional[str]
@@ -835,7 +835,7 @@ class AsyncRawDriverVehicleAssignmentsClient:
         after : typing.Optional[str]
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
 
-        assignment_type : typing.Optional[DriverVehicleAssignmentsGetRequestAssignmentType]
+        assignment_type : typing.Optional[GetDriverVehicleAssignmentsRequestAssignmentType]
             Specifies which assignment type to filter by.  Valid values: `HOS`, `idCard`, `static`, `faceId`, `tachograph`, `safetyManual`, `RFID`, `trailer`, `external`, `qrCode`
 
         request_options : typing.Optional[RequestOptions]
@@ -976,7 +976,7 @@ class AsyncRawDriverVehicleAssignmentsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    async def create(
+    async def create_driver_vehicle_assignment(
         self,
         *,
         driver_id: str,
@@ -1164,7 +1164,7 @@ class AsyncRawDriverVehicleAssignmentsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    async def delete(
+    async def delete_driver_vehicle_assignments(
         self,
         *,
         vehicle_id: str,
@@ -1331,7 +1331,7 @@ class AsyncRawDriverVehicleAssignmentsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    async def update(
+    async def update_driver_vehicle_assignment(
         self,
         *,
         driver_id: str,

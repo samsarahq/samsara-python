@@ -3,8 +3,11 @@
 import typing
 
 import pydantic
+import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
+from ..core.serialization import FieldMetadata
 from .alert_object_driver_response_body import AlertObjectDriverResponseBody
+from .alert_object_vehicle_response_body import AlertObjectVehicleResponseBody
 
 
 class DriverAppSignInResponseBody(UniversalBaseModel):
@@ -13,6 +16,9 @@ class DriverAppSignInResponseBody(UniversalBaseModel):
     """
 
     driver: typing.Optional[AlertObjectDriverResponseBody] = None
+    pinned_vehicle: typing_extensions.Annotated[
+        typing.Optional[AlertObjectVehicleResponseBody], FieldMetadata(alias="pinnedVehicle")
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
