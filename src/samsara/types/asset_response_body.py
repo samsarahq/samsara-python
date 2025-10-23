@@ -60,6 +60,13 @@ class AssetResponseBody(UniversalBaseModel):
     These are generic notes about the asset. Can be set or updated through the Samsara Dashboard or the API at any time.
     """
 
+    readings_ingestion_enabled: typing_extensions.Annotated[
+        typing.Optional[bool], FieldMetadata(alias="readingsIngestionEnabled")
+    ] = pydantic.Field(default=None)
+    """
+    Indicates whether the asset is expected to have data ingested using the Readings API.
+    """
+
     regulation_mode: typing_extensions.Annotated[
         typing.Optional[AssetResponseBodyRegulationMode], FieldMetadata(alias="regulationMode")
     ] = pydantic.Field(default=None)

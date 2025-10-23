@@ -19,7 +19,7 @@ class SafetyEventBehaviorLabelsResponseBody(UniversalBaseModel):
 
     type: typing.Optional[SafetyEventBehaviorLabelsResponseBodyType] = pydantic.Field(default=None)
     """
-    Type of the BehaviorLabel.  Valid values: `Acceleration`, `Braking`, `Crash`, `DefensiveDriving`, `DidNotYield`, `Drinking`, `Drowsy`, `Eating`, `EatingDrinking`, `EdgeDistractedDriving`, `EdgeRailroadCrossingViolation`, `FollowingDistance`, `FollowingDistanceModerate`, `FollowingDistanceSevere`, `ForwardCollisionWarning`, `GenericDistraction`, `GenericTailgating`, `HarshTurn`, `Invalid`, `LaneDeparture`, `LateResponse`, `MobileUsage`, `NearCollison`, `NoSeatbelt`, `ObstructedCamera`, `Passenger`, `PolicyViolationMask`, `RanRedLight`, `RollingStop`, `RolloverProtection`, `Smoking`, `Speeding`, `VulnerableRoadUserCollisionWarning`, `YawControl`
+    Type of the BehaviorLabel.  Valid values: `Acceleration`, `Braking`, `Crash`, `DefensiveDriving`, `DidNotYield`, `Drinking`, `Drowsy`, `Eating`, `EatingDrinking`, `EdgeDistractedDriving`, `EdgeRailroadCrossingViolation`, `FollowingDistance`, `FollowingDistanceModerate`, `FollowingDistanceSevere`, `ForwardCollisionWarning`, `GenericDistraction`, `GenericTailgating`, `HarshTurn`, `Invalid`, `LaneDeparture`, `LateResponse`, `MobileUsage`, `NearCollison`, `NoSeatbelt`, `ObstructedCamera`, `Passenger`, `PolicyViolationMask`, `ProtectiveEquipment`, `RanRedLight`, `RollingStop`, `RolloverProtection`, `Smoking`, `Speeding`, `VulnerableRoadUserCollisionWarning`, `YawControl`
     """
 
     if IS_PYDANTIC_V2:

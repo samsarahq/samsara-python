@@ -27,7 +27,7 @@ class IdlingEventObjectResponseBody(UniversalBaseModel):
         typing.Optional[IdlingEventObjectResponseBodyAddressType], FieldMetadata(alias="addressType")
     ] = pydantic.Field(default=None)
     """
-    The type of the geofence address of the idling location, if applicable.  Valid values: `agricultureSource`, `alertsOnly`, `industrialSite`, `riskZone`, `shortHaul`, `undefined`, `workforceSite`, `yard`
+    The type of the geofence address of the idling location, if applicable.  Valid values: `agricultureSource`, `alertsOnly`, `avoidanceZone`, `industrialSite`, `knownGPSJammingZone`, `riskZone`, `shortHaul`, `undefined`, `workforceSite`, `yard`
     """
 
     air_temperature_millicelsius: typing_extensions.Annotated[

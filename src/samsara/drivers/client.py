@@ -9,20 +9,21 @@ from ..types.create_driver_request_attributes import CreateDriverRequestAttribut
 from ..types.driver import Driver
 from ..types.driver_carrier_settings import DriverCarrierSettings
 from ..types.driver_has_driving_features_hidden import DriverHasDrivingFeaturesHidden
+from ..types.driver_has_vehicle_unpinning_enabled import DriverHasVehicleUnpinningEnabled
 from ..types.driver_hos_setting import DriverHosSetting
+from ..types.driver_profile_image_base_64 import DriverProfileImageBase64
+from ..types.driver_profile_image_url import DriverProfileImageUrl
 from ..types.driver_remote_signout_post_driver_remote_signout_response_body import (
     DriverRemoteSignoutPostDriverRemoteSignoutResponseBody,
 )
 from ..types.driver_response import DriverResponse
 from ..types.update_driver_request_hos_setting import UpdateDriverRequestHosSetting
 from ..types.us_driver_ruleset_override import UsDriverRulesetOverride
-from .qr_codes.client import AsyncQrCodesClient, QrCodesClient
 from .raw_client import AsyncRawDriversClient, RawDriversClient
 from .types.create_driver_request_locale import CreateDriverRequestLocale
 from .types.drivers_list_request_driver_activation_status import DriversListRequestDriverActivationStatus
 from .types.update_driver_request_driver_activation_status import UpdateDriverRequestDriverActivationStatus
 from .types.update_driver_request_locale import UpdateDriverRequestLocale
-from .vehicle_assignments.client import AsyncVehicleAssignmentsClient, VehicleAssignmentsClient
 
 # this is used as the default value for optional parameters
 OMIT = typing.cast(typing.Any, ...)
@@ -31,9 +32,6 @@ OMIT = typing.cast(typing.Any, ...)
 class DriversClient:
     def __init__(self, *, client_wrapper: SyncClientWrapper):
         self._raw_client = RawDriversClient(client_wrapper=client_wrapper)
-        self.qr_codes = QrCodesClient(client_wrapper=client_wrapper)
-
-        self.vehicle_assignments = VehicleAssignmentsClient(client_wrapper=client_wrapper)
 
     @property
     def with_raw_response(self) -> RawDriversClient:
@@ -88,7 +86,7 @@ class DriversClient:
             A filter on the data based on this comma-separated list of attribute value IDs. Only entities associated with ALL of the referenced values will be returned (i.e. the intersection of the sets of entities with each value). Example: `attributeValueIds=076efac2-83b5-47aa-ba36-18428436dcac,6707b3f0-23b9-4fe3-b7be-11be34aea544`
 
         attributes : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            A filter on the data to return entities having given attributes using name-value pair, separated by semicolon. Only entities associated with ALL of the referenced values will be returned (i.e. the intersection of the sets of entities with each value). Example: `attributes=ExampleAttributeName:some_value&attributes=SomeOtherAttr:123`
+            A filter on the data to return entities having given attributes using name-value pair or range query (only for numeric attributes), separated by semicolon. Only entities associated with ALL of the referenced values will be returned (i.e. the intersection of the sets of entities with each value). Example: `attributes=ExampleAttributeName:some_value&attributes=SomeOtherAttr:123&attributes=someNumericAttribute:range(10,20)`
 
         updated_after_time : typing.Optional[str]
             A filter on data to have an updated at time after or equal to this specified time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
@@ -111,7 +109,13 @@ class DriversClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        response = client.drivers.list()
+        response = client.drivers.list(
+            driver_activation_status="active",
+            limit=1000000,
+            after="after",
+            updated_after_time="updatedAfterTime",
+            created_after_time="createdAfterTime",
+        )
         for item in response:
             yield item
         # alternatively, you can paginate page-by-page
@@ -149,6 +153,7 @@ class DriversClient:
         eld_ym_enabled: typing.Optional[bool] = OMIT,
         external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
         has_driving_features_hidden: typing.Optional[DriverHasDrivingFeaturesHidden] = OMIT,
+        has_vehicle_unpinning_enabled: typing.Optional[DriverHasVehicleUnpinningEnabled] = OMIT,
         hos_setting: typing.Optional[DriverHosSetting] = OMIT,
         license_number: typing.Optional[str] = OMIT,
         license_state: typing.Optional[str] = OMIT,
@@ -156,6 +161,8 @@ class DriversClient:
         notes: typing.Optional[str] = OMIT,
         peer_group_tag_id: typing.Optional[str] = OMIT,
         phone: typing.Optional[str] = OMIT,
+        profile_image_base_64: typing.Optional[DriverProfileImageBase64] = OMIT,
+        profile_image_url: typing.Optional[DriverProfileImageUrl] = OMIT,
         static_assigned_vehicle_id: typing.Optional[str] = OMIT,
         tachograph_card_number: typing.Optional[str] = OMIT,
         tag_ids: typing.Optional[typing.Sequence[str]] = OMIT,
@@ -216,6 +223,8 @@ class DriversClient:
 
         has_driving_features_hidden : typing.Optional[DriverHasDrivingFeaturesHidden]
 
+        has_vehicle_unpinning_enabled : typing.Optional[DriverHasVehicleUnpinningEnabled]
+
         hos_setting : typing.Optional[DriverHosSetting]
 
         license_number : typing.Optional[str]
@@ -235,6 +244,10 @@ class DriversClient:
 
         phone : typing.Optional[str]
             Phone number of the driver.
+
+        profile_image_base_64 : typing.Optional[DriverProfileImageBase64]
+
+        profile_image_url : typing.Optional[DriverProfileImageUrl]
 
         static_assigned_vehicle_id : typing.Optional[str]
             ID of vehicle that the driver is permanently assigned to. (uncommon).
@@ -293,6 +306,7 @@ class DriversClient:
             eld_ym_enabled=eld_ym_enabled,
             external_ids=external_ids,
             has_driving_features_hidden=has_driving_features_hidden,
+            has_vehicle_unpinning_enabled=has_vehicle_unpinning_enabled,
             hos_setting=hos_setting,
             license_number=license_number,
             license_state=license_state,
@@ -300,6 +314,8 @@ class DriversClient:
             notes=notes,
             peer_group_tag_id=peer_group_tag_id,
             phone=phone,
+            profile_image_base_64=profile_image_base_64,
+            profile_image_url=profile_image_url,
             static_assigned_vehicle_id=static_assigned_vehicle_id,
             tachograph_card_number=tachograph_card_number,
             tag_ids=tag_ids,
@@ -311,7 +327,7 @@ class DriversClient:
         )
         return _response.data
 
-    def sign_out(
+    def post_driver_remote_signout(
         self, *, driver_id: str, request_options: typing.Optional[RequestOptions] = None
     ) -> DriverRemoteSignoutPostDriverRemoteSignoutResponseBody:
         """
@@ -323,7 +339,7 @@ class DriversClient:
 
          <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-        To use this endpoint, select **Write Driver Remote Signout** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Write Driver Remote Signout** under the Drivers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -348,11 +364,11 @@ class DriversClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.drivers.sign_out(
+        client.drivers.post_driver_remote_signout(
             driver_id="12434",
         )
         """
-        _response = self._raw_client.sign_out(driver_id=driver_id, request_options=request_options)
+        _response = self._raw_client.post_driver_remote_signout(driver_id=driver_id, request_options=request_options)
         return _response.data
 
     def get(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> DriverResponse:
@@ -390,6 +406,33 @@ class DriversClient:
         _response = self._raw_client.get(id, request_options=request_options)
         return _response.data
 
+    def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
+        """
+        Parameters
+        ----------
+        id : str
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.drivers.delete(
+            id="id",
+        )
+        """
+        _response = self._raw_client.delete(id, request_options=request_options)
+        return _response.data
+
     def update(
         self,
         id: str,
@@ -408,6 +451,7 @@ class DriversClient:
         eld_ym_enabled: typing.Optional[bool] = OMIT,
         external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
         has_driving_features_hidden: typing.Optional[DriverHasDrivingFeaturesHidden] = OMIT,
+        has_vehicle_unpinning_enabled: typing.Optional[DriverHasVehicleUnpinningEnabled] = OMIT,
         hos_setting: typing.Optional[UpdateDriverRequestHosSetting] = OMIT,
         license_number: typing.Optional[str] = OMIT,
         license_state: typing.Optional[str] = OMIT,
@@ -417,6 +461,8 @@ class DriversClient:
         password: typing.Optional[str] = OMIT,
         peer_group_tag_id: typing.Optional[str] = OMIT,
         phone: typing.Optional[str] = OMIT,
+        profile_image_base_64: typing.Optional[DriverProfileImageBase64] = OMIT,
+        profile_image_url: typing.Optional[DriverProfileImageUrl] = OMIT,
         static_assigned_vehicle_id: typing.Optional[str] = OMIT,
         tachograph_card_number: typing.Optional[str] = OMIT,
         tag_ids: typing.Optional[typing.Sequence[str]] = OMIT,
@@ -478,6 +524,8 @@ class DriversClient:
 
         has_driving_features_hidden : typing.Optional[DriverHasDrivingFeaturesHidden]
 
+        has_vehicle_unpinning_enabled : typing.Optional[DriverHasVehicleUnpinningEnabled]
+
         hos_setting : typing.Optional[UpdateDriverRequestHosSetting]
 
         license_number : typing.Optional[str]
@@ -503,6 +551,10 @@ class DriversClient:
 
         phone : typing.Optional[str]
             Phone number of the driver.
+
+        profile_image_base_64 : typing.Optional[DriverProfileImageBase64]
+
+        profile_image_url : typing.Optional[DriverProfileImageUrl]
 
         static_assigned_vehicle_id : typing.Optional[str]
             ID of vehicle that the driver is permanently assigned to. (uncommon).
@@ -562,6 +614,7 @@ class DriversClient:
             eld_ym_enabled=eld_ym_enabled,
             external_ids=external_ids,
             has_driving_features_hidden=has_driving_features_hidden,
+            has_vehicle_unpinning_enabled=has_vehicle_unpinning_enabled,
             hos_setting=hos_setting,
             license_number=license_number,
             license_state=license_state,
@@ -571,6 +624,8 @@ class DriversClient:
             password=password,
             peer_group_tag_id=peer_group_tag_id,
             phone=phone,
+            profile_image_base_64=profile_image_base_64,
+            profile_image_url=profile_image_url,
             static_assigned_vehicle_id=static_assigned_vehicle_id,
             tachograph_card_number=tachograph_card_number,
             tag_ids=tag_ids,
@@ -587,9 +642,6 @@ class DriversClient:
 class AsyncDriversClient:
     def __init__(self, *, client_wrapper: AsyncClientWrapper):
         self._raw_client = AsyncRawDriversClient(client_wrapper=client_wrapper)
-        self.qr_codes = AsyncQrCodesClient(client_wrapper=client_wrapper)
-
-        self.vehicle_assignments = AsyncVehicleAssignmentsClient(client_wrapper=client_wrapper)
 
     @property
     def with_raw_response(self) -> AsyncRawDriversClient:
@@ -644,7 +696,7 @@ class AsyncDriversClient:
             A filter on the data based on this comma-separated list of attribute value IDs. Only entities associated with ALL of the referenced values will be returned (i.e. the intersection of the sets of entities with each value). Example: `attributeValueIds=076efac2-83b5-47aa-ba36-18428436dcac,6707b3f0-23b9-4fe3-b7be-11be34aea544`
 
         attributes : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            A filter on the data to return entities having given attributes using name-value pair, separated by semicolon. Only entities associated with ALL of the referenced values will be returned (i.e. the intersection of the sets of entities with each value). Example: `attributes=ExampleAttributeName:some_value&attributes=SomeOtherAttr:123`
+            A filter on the data to return entities having given attributes using name-value pair or range query (only for numeric attributes), separated by semicolon. Only entities associated with ALL of the referenced values will be returned (i.e. the intersection of the sets of entities with each value). Example: `attributes=ExampleAttributeName:some_value&attributes=SomeOtherAttr:123&attributes=someNumericAttribute:range(10,20)`
 
         updated_after_time : typing.Optional[str]
             A filter on data to have an updated at time after or equal to this specified time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
@@ -672,7 +724,13 @@ class AsyncDriversClient:
 
 
         async def main() -> None:
-            response = await client.drivers.list()
+            response = await client.drivers.list(
+                driver_activation_status="active",
+                limit=1000000,
+                after="after",
+                updated_after_time="updatedAfterTime",
+                created_after_time="createdAfterTime",
+            )
             async for item in response:
                 yield item
 
@@ -714,6 +772,7 @@ class AsyncDriversClient:
         eld_ym_enabled: typing.Optional[bool] = OMIT,
         external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
         has_driving_features_hidden: typing.Optional[DriverHasDrivingFeaturesHidden] = OMIT,
+        has_vehicle_unpinning_enabled: typing.Optional[DriverHasVehicleUnpinningEnabled] = OMIT,
         hos_setting: typing.Optional[DriverHosSetting] = OMIT,
         license_number: typing.Optional[str] = OMIT,
         license_state: typing.Optional[str] = OMIT,
@@ -721,6 +780,8 @@ class AsyncDriversClient:
         notes: typing.Optional[str] = OMIT,
         peer_group_tag_id: typing.Optional[str] = OMIT,
         phone: typing.Optional[str] = OMIT,
+        profile_image_base_64: typing.Optional[DriverProfileImageBase64] = OMIT,
+        profile_image_url: typing.Optional[DriverProfileImageUrl] = OMIT,
         static_assigned_vehicle_id: typing.Optional[str] = OMIT,
         tachograph_card_number: typing.Optional[str] = OMIT,
         tag_ids: typing.Optional[typing.Sequence[str]] = OMIT,
@@ -781,6 +842,8 @@ class AsyncDriversClient:
 
         has_driving_features_hidden : typing.Optional[DriverHasDrivingFeaturesHidden]
 
+        has_vehicle_unpinning_enabled : typing.Optional[DriverHasVehicleUnpinningEnabled]
+
         hos_setting : typing.Optional[DriverHosSetting]
 
         license_number : typing.Optional[str]
@@ -800,6 +863,10 @@ class AsyncDriversClient:
 
         phone : typing.Optional[str]
             Phone number of the driver.
+
+        profile_image_base_64 : typing.Optional[DriverProfileImageBase64]
+
+        profile_image_url : typing.Optional[DriverProfileImageUrl]
 
         static_assigned_vehicle_id : typing.Optional[str]
             ID of vehicle that the driver is permanently assigned to. (uncommon).
@@ -866,6 +933,7 @@ class AsyncDriversClient:
             eld_ym_enabled=eld_ym_enabled,
             external_ids=external_ids,
             has_driving_features_hidden=has_driving_features_hidden,
+            has_vehicle_unpinning_enabled=has_vehicle_unpinning_enabled,
             hos_setting=hos_setting,
             license_number=license_number,
             license_state=license_state,
@@ -873,6 +941,8 @@ class AsyncDriversClient:
             notes=notes,
             peer_group_tag_id=peer_group_tag_id,
             phone=phone,
+            profile_image_base_64=profile_image_base_64,
+            profile_image_url=profile_image_url,
             static_assigned_vehicle_id=static_assigned_vehicle_id,
             tachograph_card_number=tachograph_card_number,
             tag_ids=tag_ids,
@@ -884,7 +954,7 @@ class AsyncDriversClient:
         )
         return _response.data
 
-    async def sign_out(
+    async def post_driver_remote_signout(
         self, *, driver_id: str, request_options: typing.Optional[RequestOptions] = None
     ) -> DriverRemoteSignoutPostDriverRemoteSignoutResponseBody:
         """
@@ -896,7 +966,7 @@ class AsyncDriversClient:
 
          <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-        To use this endpoint, select **Write Driver Remote Signout** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Write Driver Remote Signout** under the Drivers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -926,14 +996,16 @@ class AsyncDriversClient:
 
 
         async def main() -> None:
-            await client.drivers.sign_out(
+            await client.drivers.post_driver_remote_signout(
                 driver_id="12434",
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.sign_out(driver_id=driver_id, request_options=request_options)
+        _response = await self._raw_client.post_driver_remote_signout(
+            driver_id=driver_id, request_options=request_options
+        )
         return _response.data
 
     async def get(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> DriverResponse:
@@ -979,6 +1051,41 @@ class AsyncDriversClient:
         _response = await self._raw_client.get(id, request_options=request_options)
         return _response.data
 
+    async def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
+        """
+        Parameters
+        ----------
+        id : str
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.drivers.delete(
+                id="id",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.delete(id, request_options=request_options)
+        return _response.data
+
     async def update(
         self,
         id: str,
@@ -997,6 +1104,7 @@ class AsyncDriversClient:
         eld_ym_enabled: typing.Optional[bool] = OMIT,
         external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
         has_driving_features_hidden: typing.Optional[DriverHasDrivingFeaturesHidden] = OMIT,
+        has_vehicle_unpinning_enabled: typing.Optional[DriverHasVehicleUnpinningEnabled] = OMIT,
         hos_setting: typing.Optional[UpdateDriverRequestHosSetting] = OMIT,
         license_number: typing.Optional[str] = OMIT,
         license_state: typing.Optional[str] = OMIT,
@@ -1006,6 +1114,8 @@ class AsyncDriversClient:
         password: typing.Optional[str] = OMIT,
         peer_group_tag_id: typing.Optional[str] = OMIT,
         phone: typing.Optional[str] = OMIT,
+        profile_image_base_64: typing.Optional[DriverProfileImageBase64] = OMIT,
+        profile_image_url: typing.Optional[DriverProfileImageUrl] = OMIT,
         static_assigned_vehicle_id: typing.Optional[str] = OMIT,
         tachograph_card_number: typing.Optional[str] = OMIT,
         tag_ids: typing.Optional[typing.Sequence[str]] = OMIT,
@@ -1067,6 +1177,8 @@ class AsyncDriversClient:
 
         has_driving_features_hidden : typing.Optional[DriverHasDrivingFeaturesHidden]
 
+        has_vehicle_unpinning_enabled : typing.Optional[DriverHasVehicleUnpinningEnabled]
+
         hos_setting : typing.Optional[UpdateDriverRequestHosSetting]
 
         license_number : typing.Optional[str]
@@ -1092,6 +1204,10 @@ class AsyncDriversClient:
 
         phone : typing.Optional[str]
             Phone number of the driver.
+
+        profile_image_base_64 : typing.Optional[DriverProfileImageBase64]
+
+        profile_image_url : typing.Optional[DriverProfileImageUrl]
 
         static_assigned_vehicle_id : typing.Optional[str]
             ID of vehicle that the driver is permanently assigned to. (uncommon).
@@ -1159,6 +1275,7 @@ class AsyncDriversClient:
             eld_ym_enabled=eld_ym_enabled,
             external_ids=external_ids,
             has_driving_features_hidden=has_driving_features_hidden,
+            has_vehicle_unpinning_enabled=has_vehicle_unpinning_enabled,
             hos_setting=hos_setting,
             license_number=license_number,
             license_state=license_state,
@@ -1168,6 +1285,8 @@ class AsyncDriversClient:
             password=password,
             peer_group_tag_id=peer_group_tag_id,
             phone=phone,
+            profile_image_base_64=profile_image_base_64,
+            profile_image_url=profile_image_url,
             static_assigned_vehicle_id=static_assigned_vehicle_id,
             tachograph_card_number=tachograph_card_number,
             tag_ids=tag_ids,

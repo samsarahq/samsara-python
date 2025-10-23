@@ -3,9 +3,8 @@
 import typing
 
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
-from ..core.pagination import AsyncPager, SyncPager
 from ..core.request_options import RequestOptions
-from ..types.gateway_response_object_response_body import GatewayResponseObjectResponseBody
+from ..types.gateways_get_gateways_response_body import GatewaysGetGatewaysResponseBody
 from ..types.gateways_post_gateway_response_body import GatewaysPostGatewayResponseBody
 from .raw_client import AsyncRawGatewaysClient, RawGatewaysClient
 
@@ -28,13 +27,13 @@ class GatewaysClient:
         """
         return self._raw_client
 
-    def list(
+    def get_gateways(
         self,
         *,
         models: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         after: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[GatewayResponseObjectResponseBody]:
+    ) -> GatewaysGetGatewaysResponseBody:
         """
         List all gateways
 
@@ -58,7 +57,7 @@ class GatewaysClient:
 
         Returns
         -------
-        SyncPager[GatewayResponseObjectResponseBody]
+        GatewaysGetGatewaysResponseBody
             OK response.
 
         Examples
@@ -68,16 +67,14 @@ class GatewaysClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        response = client.gateways.list()
-        for item in response:
-            yield item
-        # alternatively, you can paginate page-by-page
-        for page in response.iter_pages():
-            yield page
+        client.gateways.get_gateways(
+            after="after",
+        )
         """
-        return self._raw_client.list(models=models, after=after, request_options=request_options)
+        _response = self._raw_client.get_gateways(models=models, after=after, request_options=request_options)
+        return _response.data
 
-    def create(
+    def post_gateway(
         self, *, serial: str, request_options: typing.Optional[RequestOptions] = None
     ) -> GatewaysPostGatewayResponseBody:
         """
@@ -110,14 +107,14 @@ class GatewaysClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.gateways.create(
+        client.gateways.post_gateway(
             serial="GFRV-43N-VGX",
         )
         """
-        _response = self._raw_client.create(serial=serial, request_options=request_options)
+        _response = self._raw_client.post_gateway(serial=serial, request_options=request_options)
         return _response.data
 
-    def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
+    def delete_gateway(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
         """
         Deactivate a gateway
 
@@ -147,11 +144,11 @@ class GatewaysClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.gateways.delete(
+        client.gateways.delete_gateway(
             id="id",
         )
         """
-        _response = self._raw_client.delete(id, request_options=request_options)
+        _response = self._raw_client.delete_gateway(id, request_options=request_options)
         return _response.data
 
 
@@ -170,13 +167,13 @@ class AsyncGatewaysClient:
         """
         return self._raw_client
 
-    async def list(
+    async def get_gateways(
         self,
         *,
         models: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         after: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[GatewayResponseObjectResponseBody]:
+    ) -> GatewaysGetGatewaysResponseBody:
         """
         List all gateways
 
@@ -200,7 +197,7 @@ class AsyncGatewaysClient:
 
         Returns
         -------
-        AsyncPager[GatewayResponseObjectResponseBody]
+        GatewaysGetGatewaysResponseBody
             OK response.
 
         Examples
@@ -215,20 +212,17 @@ class AsyncGatewaysClient:
 
 
         async def main() -> None:
-            response = await client.gateways.list()
-            async for item in response:
-                yield item
-
-            # alternatively, you can paginate page-by-page
-            async for page in response.iter_pages():
-                yield page
+            await client.gateways.get_gateways(
+                after="after",
+            )
 
 
         asyncio.run(main())
         """
-        return await self._raw_client.list(models=models, after=after, request_options=request_options)
+        _response = await self._raw_client.get_gateways(models=models, after=after, request_options=request_options)
+        return _response.data
 
-    async def create(
+    async def post_gateway(
         self, *, serial: str, request_options: typing.Optional[RequestOptions] = None
     ) -> GatewaysPostGatewayResponseBody:
         """
@@ -266,17 +260,17 @@ class AsyncGatewaysClient:
 
 
         async def main() -> None:
-            await client.gateways.create(
+            await client.gateways.post_gateway(
                 serial="GFRV-43N-VGX",
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.create(serial=serial, request_options=request_options)
+        _response = await self._raw_client.post_gateway(serial=serial, request_options=request_options)
         return _response.data
 
-    async def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
+    async def delete_gateway(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
         """
         Deactivate a gateway
 
@@ -311,12 +305,12 @@ class AsyncGatewaysClient:
 
 
         async def main() -> None:
-            await client.gateways.delete(
+            await client.gateways.delete_gateway(
                 id="id",
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.delete(id, request_options=request_options)
+        _response = await self._raw_client.delete_gateway(id, request_options=request_options)
         return _response.data

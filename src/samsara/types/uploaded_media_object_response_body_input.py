@@ -3,5 +3,6 @@
 import typing
 
 UploadedMediaObjectResponseBodyInput = typing.Union[
-    typing.Literal["dashcamForwardFacing", "dashcamInwardFacing", "analog1"], typing.Any
+    typing.Literal["dashcamForwardFacing", "dashcamInwardFacing", "analog1", "analog2", "analog3", "analog4"],
+    typing.Any,
 ]

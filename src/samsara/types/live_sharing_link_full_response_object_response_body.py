@@ -6,7 +6,9 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
-from .assets_location_link_config_object_response_body import AssetsLocationLinkConfigObjectResponseBody
+from .assets_location_link_response_config_object_response_body import (
+    AssetsLocationLinkResponseConfigObjectResponseBody,
+)
 from .assets_near_location_link_config_object_response_body import AssetsNearLocationLinkConfigObjectResponseBody
 from .assets_on_route_link_config_object_response_body import AssetsOnRouteLinkConfigObjectResponseBody
 from .live_sharing_link_full_response_object_response_body_type import LiveSharingLinkFullResponseObjectResponseBodyType
@@ -18,7 +20,8 @@ class LiveSharingLinkFullResponseObjectResponseBody(UniversalBaseModel):
     """
 
     assets_location_link_config: typing_extensions.Annotated[
-        typing.Optional[AssetsLocationLinkConfigObjectResponseBody], FieldMetadata(alias="assetsLocationLinkConfig")
+        typing.Optional[AssetsLocationLinkResponseConfigObjectResponseBody],
+        FieldMetadata(alias="assetsLocationLinkConfig"),
     ] = None
     assets_near_location_link_config: typing_extensions.Annotated[
         typing.Optional[AssetsNearLocationLinkConfigObjectResponseBody],

@@ -2,4 +2,6 @@
 
 import typing
 
-AttributeAttributeType = typing.Union[typing.Literal["string", "number"], typing.Any]
+AttributeAttributeType = typing.Union[
+    typing.Literal["single-select", "multi-select", "text", "freeform-multi-select", "number"], typing.Any
+]

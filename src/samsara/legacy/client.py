@@ -4,9 +4,7 @@ import typing
 
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.request_options import RequestOptions
-from ..types.vehicles_driver_assignments_get_vehicles_driver_assignments_response_body import (
-    VehiclesDriverAssignmentsGetVehiclesDriverAssignmentsResponseBody,
-)
+from ..types.inline_response_2001 import InlineResponse2001
 from .raw_client import AsyncRawLegacyClient, RawLegacyClient
 
 
@@ -25,54 +23,25 @@ class LegacyClient:
         """
         return self._raw_client
 
-    def get_vehicles_driver_assignments(
-        self,
-        *,
-        start_time: typing.Optional[str] = None,
-        end_time: typing.Optional[str] = None,
-        vehicle_ids: typing.Optional[str] = None,
-        tag_ids: typing.Optional[str] = None,
-        parent_tag_ids: typing.Optional[str] = None,
-        after: typing.Optional[str] = None,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> VehiclesDriverAssignmentsGetVehiclesDriverAssignmentsResponseBody:
+    def v_1_get_all_assets(self, *, request_options: typing.Optional[RequestOptions] = None) -> InlineResponse2001:
         """
-        **Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getdrivervehicleassignments) instead. The endpoint will continue to function as documented.** Get all driver assignments for the requested vehicles in the requested time range. The only type of assignment supported right now are assignments created through the driver app.
+        **Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/listassets) instead. The endpoint will continue to function as documented.**
 
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Read Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
+         Fetch all powered and unpowered equipment.
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
+        To use this endpoint, select **Read Equipment** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
         Parameters
         ----------
-        start_time : typing.Optional[str]
-             A start time in RFC 3339 format. Defaults to now if not provided. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). The maximum allowed startTime-endTime range is 7 days.
-
-        end_time : typing.Optional[str]
-             An end time in RFC 3339 format. Defaults to now if not provided. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). The maximum allowed startTime-endTime range is 7 days.
-
-        vehicle_ids : typing.Optional[str]
-             A filter on the data based on this comma-separated list of vehicle IDs and externalIds. Example: `vehicleIds=1234,5678,samsara.vin:1HGBH41JXMN109186`
-
-        tag_ids : typing.Optional[str]
-             A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
-
-        parent_tag_ids : typing.Optional[str]
-             A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
-
-        after : typing.Optional[str]
-             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
         Returns
         -------
-        VehiclesDriverAssignmentsGetVehiclesDriverAssignmentsResponseBody
-            OK response.
+        InlineResponse2001
+            List of assets.
 
         Examples
         --------
@@ -81,17 +50,9 @@ class LegacyClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.legacy.get_vehicles_driver_assignments()
+        client.legacy.v_1_get_all_assets()
         """
-        _response = self._raw_client.get_vehicles_driver_assignments(
-            start_time=start_time,
-            end_time=end_time,
-            vehicle_ids=vehicle_ids,
-            tag_ids=tag_ids,
-            parent_tag_ids=parent_tag_ids,
-            after=after,
-            request_options=request_options,
-        )
+        _response = self._raw_client.v_1_get_all_assets(request_options=request_options)
         return _response.data
 
 
@@ -110,54 +71,27 @@ class AsyncLegacyClient:
         """
         return self._raw_client
 
-    async def get_vehicles_driver_assignments(
-        self,
-        *,
-        start_time: typing.Optional[str] = None,
-        end_time: typing.Optional[str] = None,
-        vehicle_ids: typing.Optional[str] = None,
-        tag_ids: typing.Optional[str] = None,
-        parent_tag_ids: typing.Optional[str] = None,
-        after: typing.Optional[str] = None,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> VehiclesDriverAssignmentsGetVehiclesDriverAssignmentsResponseBody:
+    async def v_1_get_all_assets(
+        self, *, request_options: typing.Optional[RequestOptions] = None
+    ) -> InlineResponse2001:
         """
-        **Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getdrivervehicleassignments) instead. The endpoint will continue to function as documented.** Get all driver assignments for the requested vehicles in the requested time range. The only type of assignment supported right now are assignments created through the driver app.
+        **Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/listassets) instead. The endpoint will continue to function as documented.**
 
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Read Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
+         Fetch all powered and unpowered equipment.
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
+        To use this endpoint, select **Read Equipment** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
         Parameters
         ----------
-        start_time : typing.Optional[str]
-             A start time in RFC 3339 format. Defaults to now if not provided. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). The maximum allowed startTime-endTime range is 7 days.
-
-        end_time : typing.Optional[str]
-             An end time in RFC 3339 format. Defaults to now if not provided. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). The maximum allowed startTime-endTime range is 7 days.
-
-        vehicle_ids : typing.Optional[str]
-             A filter on the data based on this comma-separated list of vehicle IDs and externalIds. Example: `vehicleIds=1234,5678,samsara.vin:1HGBH41JXMN109186`
-
-        tag_ids : typing.Optional[str]
-             A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
-
-        parent_tag_ids : typing.Optional[str]
-             A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
-
-        after : typing.Optional[str]
-             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
         Returns
         -------
-        VehiclesDriverAssignmentsGetVehiclesDriverAssignmentsResponseBody
-            OK response.
+        InlineResponse2001
+            List of assets.
 
         Examples
         --------
@@ -171,18 +105,10 @@ class AsyncLegacyClient:
 
 
         async def main() -> None:
-            await client.legacy.get_vehicles_driver_assignments()
+            await client.legacy.v_1_get_all_assets()
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.get_vehicles_driver_assignments(
-            start_time=start_time,
-            end_time=end_time,
-            vehicle_ids=vehicle_ids,
-            tag_ids=tag_ids,
-            parent_tag_ids=parent_tag_ids,
-            after=after,
-            request_options=request_options,
-        )
+        _response = await self._raw_client.v_1_get_all_assets(request_options=request_options)
         return _response.data
