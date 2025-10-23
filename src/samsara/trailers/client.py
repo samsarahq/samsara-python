@@ -3,12 +3,11 @@
 import typing
 
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
-from ..core.pagination import AsyncPager, SyncPager
 from ..core.request_options import RequestOptions
 from ..types.goa_attribute_tiny_request_body import GoaAttributeTinyRequestBody
-from ..types.trailer_response_object_response_body import TrailerResponseObjectResponseBody
 from ..types.trailers_create_trailer_response_body import TrailersCreateTrailerResponseBody
 from ..types.trailers_get_trailer_response_body import TrailersGetTrailerResponseBody
+from ..types.trailers_list_trailers_response_body import TrailersListTrailersResponseBody
 from ..types.trailers_update_trailer_response_body import TrailersUpdateTrailerResponseBody
 from .raw_client import AsyncRawTrailersClient, RawTrailersClient
 
@@ -31,7 +30,7 @@ class TrailersClient:
         """
         return self._raw_client
 
-    def list(
+    def list_trailers(
         self,
         *,
         tag_ids: typing.Optional[str] = None,
@@ -39,7 +38,7 @@ class TrailersClient:
         limit: typing.Optional[int] = None,
         after: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[TrailerResponseObjectResponseBody]:
+    ) -> TrailersListTrailersResponseBody:
         """
         List all trailers.
 
@@ -69,7 +68,7 @@ class TrailersClient:
 
         Returns
         -------
-        SyncPager[TrailerResponseObjectResponseBody]
+        TrailersListTrailersResponseBody
             OK response.
 
         Examples
@@ -79,18 +78,19 @@ class TrailersClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        response = client.trailers.list()
-        for item in response:
-            yield item
-        # alternatively, you can paginate page-by-page
-        for page in response.iter_pages():
-            yield page
+        client.trailers.list_trailers(
+            tag_ids="tagIds",
+            parent_tag_ids="parentTagIds",
+            limit=1,
+            after="after",
+        )
         """
-        return self._raw_client.list(
+        _response = self._raw_client.list_trailers(
             tag_ids=tag_ids, parent_tag_ids=parent_tag_ids, limit=limit, after=after, request_options=request_options
         )
+        return _response.data
 
-    def create(
+    def create_trailer(
         self,
         *,
         name: str,
@@ -154,11 +154,11 @@ class TrailersClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.trailers.create(
+        client.trailers.create_trailer(
             name="Trailer-123",
         )
         """
-        _response = self._raw_client.create(
+        _response = self._raw_client.create_trailer(
             name=name,
             attributes=attributes,
             enabled_for_mobile=enabled_for_mobile,
@@ -171,7 +171,7 @@ class TrailersClient:
         )
         return _response.data
 
-    def get(
+    def get_trailer(
         self, id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> TrailersGetTrailerResponseBody:
         """
@@ -204,14 +204,14 @@ class TrailersClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.trailers.get(
+        client.trailers.get_trailer(
             id="id",
         )
         """
-        _response = self._raw_client.get(id, request_options=request_options)
+        _response = self._raw_client.get_trailer(id, request_options=request_options)
         return _response.data
 
-    def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
+    def delete_trailer(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
         """
         Delete a trailer with the given ID.
 
@@ -241,14 +241,14 @@ class TrailersClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.trailers.delete(
+        client.trailers.delete_trailer(
             id="id",
         )
         """
-        _response = self._raw_client.delete(id, request_options=request_options)
+        _response = self._raw_client.delete_trailer(id, request_options=request_options)
         return _response.data
 
-    def update(
+    def update_trailer(
         self,
         id: str,
         *,
@@ -322,11 +322,11 @@ class TrailersClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.trailers.update(
+        client.trailers.update_trailer(
             id="id",
         )
         """
-        _response = self._raw_client.update(
+        _response = self._raw_client.update_trailer(
             id,
             attributes=attributes,
             enabled_for_mobile=enabled_for_mobile,
@@ -357,7 +357,7 @@ class AsyncTrailersClient:
         """
         return self._raw_client
 
-    async def list(
+    async def list_trailers(
         self,
         *,
         tag_ids: typing.Optional[str] = None,
@@ -365,7 +365,7 @@ class AsyncTrailersClient:
         limit: typing.Optional[int] = None,
         after: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[TrailerResponseObjectResponseBody]:
+    ) -> TrailersListTrailersResponseBody:
         """
         List all trailers.
 
@@ -395,7 +395,7 @@ class AsyncTrailersClient:
 
         Returns
         -------
-        AsyncPager[TrailerResponseObjectResponseBody]
+        TrailersListTrailersResponseBody
             OK response.
 
         Examples
@@ -410,22 +410,22 @@ class AsyncTrailersClient:
 
 
         async def main() -> None:
-            response = await client.trailers.list()
-            async for item in response:
-                yield item
-
-            # alternatively, you can paginate page-by-page
-            async for page in response.iter_pages():
-                yield page
+            await client.trailers.list_trailers(
+                tag_ids="tagIds",
+                parent_tag_ids="parentTagIds",
+                limit=1,
+                after="after",
+            )
 
 
         asyncio.run(main())
         """
-        return await self._raw_client.list(
+        _response = await self._raw_client.list_trailers(
             tag_ids=tag_ids, parent_tag_ids=parent_tag_ids, limit=limit, after=after, request_options=request_options
         )
+        return _response.data
 
-    async def create(
+    async def create_trailer(
         self,
         *,
         name: str,
@@ -494,14 +494,14 @@ class AsyncTrailersClient:
 
 
         async def main() -> None:
-            await client.trailers.create(
+            await client.trailers.create_trailer(
                 name="Trailer-123",
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.create(
+        _response = await self._raw_client.create_trailer(
             name=name,
             attributes=attributes,
             enabled_for_mobile=enabled_for_mobile,
@@ -514,7 +514,7 @@ class AsyncTrailersClient:
         )
         return _response.data
 
-    async def get(
+    async def get_trailer(
         self, id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> TrailersGetTrailerResponseBody:
         """
@@ -552,17 +552,17 @@ class AsyncTrailersClient:
 
 
         async def main() -> None:
-            await client.trailers.get(
+            await client.trailers.get_trailer(
                 id="id",
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.get(id, request_options=request_options)
+        _response = await self._raw_client.get_trailer(id, request_options=request_options)
         return _response.data
 
-    async def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
+    async def delete_trailer(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
         """
         Delete a trailer with the given ID.
 
@@ -597,17 +597,17 @@ class AsyncTrailersClient:
 
 
         async def main() -> None:
-            await client.trailers.delete(
+            await client.trailers.delete_trailer(
                 id="id",
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.delete(id, request_options=request_options)
+        _response = await self._raw_client.delete_trailer(id, request_options=request_options)
         return _response.data
 
-    async def update(
+    async def update_trailer(
         self,
         id: str,
         *,
@@ -686,14 +686,14 @@ class AsyncTrailersClient:
 
 
         async def main() -> None:
-            await client.trailers.update(
+            await client.trailers.update_trailer(
                 id="id",
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.update(
+        _response = await self._raw_client.update_trailer(
             id,
             attributes=attributes,
             enabled_for_mobile=enabled_for_mobile,

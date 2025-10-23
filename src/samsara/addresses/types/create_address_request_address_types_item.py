@@ -4,7 +4,15 @@ import typing
 
 CreateAddressRequestAddressTypesItem = typing.Union[
     typing.Literal[
-        "yard", "shortHaul", "workforceSite", "riskZone", "industrialSite", "alertsOnly", "agricultureSource"
+        "yard",
+        "shortHaul",
+        "workforceSite",
+        "riskZone",
+        "industrialSite",
+        "alertsOnly",
+        "agricultureSource",
+        "avoidanceZone",
+        "knownGPSJammingZone",
     ],
     typing.Any,
 ]

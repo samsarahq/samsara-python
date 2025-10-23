@@ -2,6 +2,3 @@
 
 # isort: skip_file
 
-from . import driver_coach_assignments, sessions
-
-__all__ = ["driver_coach_assignments", "sessions"]

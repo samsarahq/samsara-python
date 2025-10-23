@@ -25,6 +25,7 @@ from .engine_idle_data_response_body import EngineIdleDataResponseBody
 from .engine_off_response_body import EngineOffResponseBody
 from .engine_on_response_body import EngineOnResponseBody
 from .form_submitted_response_body import FormSubmittedResponseBody
+from .form_updated_response_body import FormUpdatedResponseBody
 from .fuel_level_percentage_response_body import FuelLevelPercentageResponseBody
 from .gateway_disconnected_response_body import GatewayDisconnectedResponseBody
 from .gateway_with_vehicle_tiny_response_response_body import GatewayWithVehicleTinyResponseResponseBody
@@ -127,6 +128,9 @@ class WorkflowIncidentDetailsObjectResponseBody(UniversalBaseModel):
     )
     form_submitted: typing_extensions.Annotated[
         typing.Optional[FormSubmittedResponseBody], FieldMetadata(alias="formSubmitted")
+    ] = None
+    form_updated: typing_extensions.Annotated[
+        typing.Optional[FormUpdatedResponseBody], FieldMetadata(alias="formUpdated")
     ] = None
     fuel_level_percentage: typing_extensions.Annotated[
         typing.Optional[FuelLevelPercentageResponseBody], FieldMetadata(alias="fuelLevelPercentage")

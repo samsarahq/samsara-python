@@ -2,4 +2,6 @@
 
 import typing
 
-MediaObjectResponseBodyInput = typing.Union[typing.Literal["dashcamDriverFacing", "dashcamRoadFacing"], typing.Any]
+MediaObjectResponseBodyInput = typing.Union[
+    typing.Literal["dashcamDriverFacing", "dashcamRoadFacing", "analog1", "analog2", "analog3", "analog4"], typing.Any
+]

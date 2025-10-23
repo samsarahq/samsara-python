@@ -37,6 +37,11 @@ class ReadingDefinitionResponseBody(UniversalBaseModel):
     Array of enumeration values
     """
 
+    ingestion_enabled: typing_extensions.Annotated[bool, FieldMetadata(alias="ingestionEnabled")] = pydantic.Field()
+    """
+    Indicates whether this reading can be ingested using the API.
+    """
+
     label: str = pydantic.Field()
     """
     The label for this reading that is suitable to show to a user. Translated to English.

@@ -3,11 +3,12 @@
 import typing
 
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
-from ..core.pagination import AsyncPager, SyncPager
 from ..core.request_options import RequestOptions
-from ..types.trip_speeding_intervals_response_body import TripSpeedingIntervalsResponseBody
+from ..types.speeding_intervals_get_speeding_intervals_response_body import (
+    SpeedingIntervalsGetSpeedingIntervalsResponseBody,
+)
 from .raw_client import AsyncRawSpeedingIntervalsClient, RawSpeedingIntervalsClient
-from .types.speeding_intervals_stream_request_query_by import SpeedingIntervalsStreamRequestQueryBy
+from .types.get_speeding_intervals_request_query_by import GetSpeedingIntervalsRequestQueryBy
 
 
 class SpeedingIntervalsClient:
@@ -25,19 +26,19 @@ class SpeedingIntervalsClient:
         """
         return self._raw_client
 
-    def stream(
+    def get_speeding_intervals(
         self,
         *,
         start_time: str,
         asset_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         end_time: typing.Optional[str] = None,
-        query_by: typing.Optional[SpeedingIntervalsStreamRequestQueryBy] = None,
+        query_by: typing.Optional[GetSpeedingIntervalsRequestQueryBy] = None,
         include_asset: typing.Optional[bool] = None,
         include_driver_id: typing.Optional[bool] = None,
         after: typing.Optional[str] = None,
         severity_levels: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[TripSpeedingIntervalsResponseBody]:
+    ) -> SpeedingIntervalsGetSpeedingIntervalsResponseBody:
         """
         This endpoint will return all speeding intervals associated with all trips that have been collected for your organization based on the time parameters passed in. Only completed trips are included. Trips with no speeding intervals detected will be returned with an empty list of intervals. Results are paginated.
 
@@ -59,7 +60,7 @@ class SpeedingIntervalsClient:
         end_time : typing.Optional[str]
             RFC 3339 timestamp which is compared against `updatedAtTime` or `tripStartTime` depending on the queryBy parameter. If not provided then the endpoint behaves as an unending feed of changes.
 
-        query_by : typing.Optional[SpeedingIntervalsStreamRequestQueryBy]
+        query_by : typing.Optional[GetSpeedingIntervalsRequestQueryBy]
             Decide which timestamp the `startTime` and `endTime` are compared to.  Valid values: `updatedAtTime`, `tripStartTime`
 
         include_asset : typing.Optional[bool]
@@ -79,7 +80,7 @@ class SpeedingIntervalsClient:
 
         Returns
         -------
-        SyncPager[TripSpeedingIntervalsResponseBody]
+        SpeedingIntervalsGetSpeedingIntervalsResponseBody
             OK response.
 
         Examples
@@ -89,16 +90,11 @@ class SpeedingIntervalsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        response = client.speeding_intervals.stream(
+        client.speeding_intervals.get_speeding_intervals(
             start_time="startTime",
         )
-        for item in response:
-            yield item
-        # alternatively, you can paginate page-by-page
-        for page in response.iter_pages():
-            yield page
         """
-        return self._raw_client.stream(
+        _response = self._raw_client.get_speeding_intervals(
             start_time=start_time,
             asset_ids=asset_ids,
             end_time=end_time,
@@ -109,6 +105,7 @@ class SpeedingIntervalsClient:
             severity_levels=severity_levels,
             request_options=request_options,
         )
+        return _response.data
 
 
 class AsyncSpeedingIntervalsClient:
@@ -126,19 +123,19 @@ class AsyncSpeedingIntervalsClient:
         """
         return self._raw_client
 
-    async def stream(
+    async def get_speeding_intervals(
         self,
         *,
         start_time: str,
         asset_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         end_time: typing.Optional[str] = None,
-        query_by: typing.Optional[SpeedingIntervalsStreamRequestQueryBy] = None,
+        query_by: typing.Optional[GetSpeedingIntervalsRequestQueryBy] = None,
         include_asset: typing.Optional[bool] = None,
         include_driver_id: typing.Optional[bool] = None,
         after: typing.Optional[str] = None,
         severity_levels: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[TripSpeedingIntervalsResponseBody]:
+    ) -> SpeedingIntervalsGetSpeedingIntervalsResponseBody:
         """
         This endpoint will return all speeding intervals associated with all trips that have been collected for your organization based on the time parameters passed in. Only completed trips are included. Trips with no speeding intervals detected will be returned with an empty list of intervals. Results are paginated.
 
@@ -160,7 +157,7 @@ class AsyncSpeedingIntervalsClient:
         end_time : typing.Optional[str]
             RFC 3339 timestamp which is compared against `updatedAtTime` or `tripStartTime` depending on the queryBy parameter. If not provided then the endpoint behaves as an unending feed of changes.
 
-        query_by : typing.Optional[SpeedingIntervalsStreamRequestQueryBy]
+        query_by : typing.Optional[GetSpeedingIntervalsRequestQueryBy]
             Decide which timestamp the `startTime` and `endTime` are compared to.  Valid values: `updatedAtTime`, `tripStartTime`
 
         include_asset : typing.Optional[bool]
@@ -180,7 +177,7 @@ class AsyncSpeedingIntervalsClient:
 
         Returns
         -------
-        AsyncPager[TripSpeedingIntervalsResponseBody]
+        SpeedingIntervalsGetSpeedingIntervalsResponseBody
             OK response.
 
         Examples
@@ -195,20 +192,14 @@ class AsyncSpeedingIntervalsClient:
 
 
         async def main() -> None:
-            response = await client.speeding_intervals.stream(
+            await client.speeding_intervals.get_speeding_intervals(
                 start_time="startTime",
             )
-            async for item in response:
-                yield item
-
-            # alternatively, you can paginate page-by-page
-            async for page in response.iter_pages():
-                yield page
 
 
         asyncio.run(main())
         """
-        return await self._raw_client.stream(
+        _response = await self._raw_client.get_speeding_intervals(
             start_time=start_time,
             asset_ids=asset_ids,
             end_time=end_time,
@@ -219,3 +210,4 @@ class AsyncSpeedingIntervalsClient:
             severity_levels=severity_levels,
             request_options=request_options,
         )
+        return _response.data

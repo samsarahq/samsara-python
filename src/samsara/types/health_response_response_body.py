@@ -64,6 +64,12 @@ class HealthResponseResponseBody(UniversalBaseModel):
     * `recommendedActionAgNoGpsSignal`: Gateway has no GPS signal. Verify that the gateway is securely attached to the exterior of the asset. Ensure that the device is outside and avoid obstructions such as underground structures, heavily insulated buildings, bridges, and trees.
     * `recommendedActionAgNotDetected`: The gateway has not been detected for at least 24 hours. See troubleshooting steps to reboot the gateway.
     * `recommendedActionAgUnplugged`: The asset gateway is unplugged or cut. Check the gateway connection to ensure it is plugged in and has been installed correctly
+    * `recommendedActionBLEHealthy`: Device is healthy. No action required.
+    * `recommendedActionBLELowBattery`: The device battery is low. Please contact support.
+    * `recommendedActionBLENotDetected`: The device has not been detected by a gateway in the Samsara Network for at least 30 days. Verify that the device is securely attached to the asset, not in a remote area, and minimize obstructions that may disrupt detection by nearby gateways.
+    * `recommendedActionCcHealthy`: Device is healthy. No action required.
+    * `recommendedActionCcLowUptime`: Please ensure all cameras are physically connected to the device.
+    * `recommendedActionCcMediaInputUptime`: Please ensure the camera is properly connected to the device.
     * `recommendedActionCmCameraMisaligned`: The position of the road-facing dash cam is not aligned with the horizon. Video quality and AI detection may be impacted. Reposition dash cam and Test Dash Cam Positioning.
     * `recommendedActionCmHealthy`: Dash cam recording is healthy. No action required.
     * `recommendedActionCmInwardCameraObstruction`: The inward-facing dash cam does not have a clear view of the vehicle cab. Video quality and AI detection may be impacted. Remove obstruction and Test Dash Cam Positioning.
@@ -74,6 +80,10 @@ class HealthResponseResponseBody(UniversalBaseModel):
     * `recommendedActionCmRecordingTimeRequired`: At least 30 hours of recording time is required to determine device health. No action required.
     * `recommendedActionCmVgUnplugged`: The vehicle gateway is unplugged and the dash cam health cannot be determined. Check the vehicle gateway connection and ensure it is plugged in and has been installed correctly.
     * `recommendedActionGatewayNewlyInstalledDevice`: This gateway has recently been installed and more data is required to calculate health. No action required.
+    * `recommendedActionHealthy`: Asset is healthy. No action required.
+    * `recommendedActionLowBatteryVoltage`: Asset has reported low battery voltage. Please contact support.
+    * `recommendedActionOemNotReporting`: Data for this asset has not been received as expected. Please contact support.
+    * `recommendedActionVehicleOff`: Asset has reported an expected power-off event, and is healthy. No action required.
     * `recommendedActionVgHealthy`: Gateway is healthy. No action required.
     * `recommendedActionVgMissingEldDiagnostics`: To ensure full compliance, request exchange.
     * `recommendedActionVgMissingEldDiagnosticsExchangeSubmitted`: Exchange submitted. Please allow 12-24 hours for exchange to appear in the orders and exchanges page.
@@ -86,7 +96,7 @@ class HealthResponseResponseBody(UniversalBaseModel):
     * `unknown`: None
     
     
-      Valid values: `recommendedActionAgHealthy`, `recommendedActionAgLowDeviceBatteryAG45`, `recommendedActionAgLowDeviceBatteryAG46`, `recommendedActionAgLowDeviceBatteryAG51`, `recommendedActionAgLowDeviceBatteryPoweredAG`, `recommendedActionAgNoGpsSignal`, `recommendedActionAgNotDetected`, `recommendedActionAgUnplugged`, `recommendedActionCmCameraMisaligned`, `recommendedActionCmHealthy`, `recommendedActionCmInwardCameraObstruction`, `recommendedActionCmIrregularRecording`, `recommendedActionCmNewlyInstalledDevice`, `recommendedActionCmNotDetected`, `recommendedActionCmOutwardCameraObstruction`, `recommendedActionCmRecordingTimeRequired`, `recommendedActionCmVgUnplugged`, `recommendedActionGatewayNewlyInstalledDevice`, `recommendedActionVgHealthy`, `recommendedActionVgMissingEldDiagnostics`, `recommendedActionVgMissingEldDiagnosticsExchangeSubmitted`, `recommendedActionVgMissingEldDiagnosticsHardwareExchanged`, `recommendedActionVgMissingEldDiagnosticsNoExchangeSubmitted`, `recommendedActionVgMissingVin`, `recommendedActionVgNeedsReplacement`, `recommendedActionVgNotDetected`, `recommendedActionVgVgUnplugged`, `unknown`
+      Valid values: `recommendedActionAgHealthy`, `recommendedActionAgLowDeviceBatteryAG45`, `recommendedActionAgLowDeviceBatteryAG46`, `recommendedActionAgLowDeviceBatteryAG51`, `recommendedActionAgLowDeviceBatteryPoweredAG`, `recommendedActionAgNoGpsSignal`, `recommendedActionAgNotDetected`, `recommendedActionAgUnplugged`, `recommendedActionBLEHealthy`, `recommendedActionBLELowBattery`, `recommendedActionBLENotDetected`, `recommendedActionCcHealthy`, `recommendedActionCcLowUptime`, `recommendedActionCcMediaInputUptime`, `recommendedActionCmCameraMisaligned`, `recommendedActionCmHealthy`, `recommendedActionCmInwardCameraObstruction`, `recommendedActionCmIrregularRecording`, `recommendedActionCmNewlyInstalledDevice`, `recommendedActionCmNotDetected`, `recommendedActionCmOutwardCameraObstruction`, `recommendedActionCmRecordingTimeRequired`, `recommendedActionCmVgUnplugged`, `recommendedActionGatewayNewlyInstalledDevice`, `recommendedActionHealthy`, `recommendedActionLowBatteryVoltage`, `recommendedActionOemNotReporting`, `recommendedActionVehicleOff`, `recommendedActionVgHealthy`, `recommendedActionVgMissingEldDiagnostics`, `recommendedActionVgMissingEldDiagnosticsExchangeSubmitted`, `recommendedActionVgMissingEldDiagnosticsHardwareExchanged`, `recommendedActionVgMissingEldDiagnosticsNoExchangeSubmitted`, `recommendedActionVgMissingVin`, `recommendedActionVgNeedsReplacement`, `recommendedActionVgNotDetected`, `recommendedActionVgVgUnplugged`, `unknown`
     """
 
     if IS_PYDANTIC_V2:

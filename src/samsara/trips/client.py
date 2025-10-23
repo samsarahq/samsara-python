@@ -3,12 +3,9 @@
 import typing
 
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
-from ..core.pagination import AsyncPager, SyncPager
 from ..core.request_options import RequestOptions
-from ..types.trip_response_body import TripResponseBody
+from ..types.v_1_trip_response import V1TripResponse
 from .raw_client import AsyncRawTripsClient, RawTripsClient
-from .types.trips_stream_request_completion_status import TripsStreamRequestCompletionStatus
-from .types.trips_stream_request_query_by import TripsStreamRequestQueryBy
 
 
 class TripsClient:
@@ -26,58 +23,41 @@ class TripsClient:
         """
         return self._raw_client
 
-    def stream(
-        self,
-        *,
-        start_time: str,
-        include_asset: typing.Optional[bool] = None,
-        completion_status: typing.Optional[TripsStreamRequestCompletionStatus] = None,
-        end_time: typing.Optional[str] = None,
-        query_by: typing.Optional[TripsStreamRequestQueryBy] = None,
-        after: typing.Optional[str] = None,
-        ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[TripResponseBody]:
+    def v_1_get_fleet_trips(
+        self, *, vehicle_id: int, start_ms: int, end_ms: int, request_options: typing.Optional[RequestOptions] = None
+    ) -> V1TripResponse:
         """
-        This endpoint will return trips that have been collected for your organization based on the time parameters passed in. Results are paginated. Reach out to your Samsara Representative to have this API enabled for your organization.
+        <n class="warning">
+        <nh>
+        <i class="fa fa-exclamation-circle"></i>
+        This endpoint is still on our legacy API.
+        </nh>
+        </n>
 
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Read Trips** under the Trips category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
+        Get historical trips data for specified vehicle. This method returns a set of historical trips data for the specified vehicle in the specified time range.
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
+        To use this endpoint, select **Read Vehicle Trips** under the Vehicles category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
         Parameters
         ----------
-        start_time : str
-            RFC 3339 timestamp that indicates when to begin receiving data. Value is compared against `updatedAtTime` or `tripStartTime` depending on the queryBy parameter.
+        vehicle_id : int
+            Vehicle ID to query.
 
-        include_asset : typing.Optional[bool]
-            Indicates whether or not to return expanded “asset” data
+        start_ms : int
+            Beginning of the time range, specified in milliseconds UNIX time. Limited to a 90 day window with respect to startMs and endMs
 
-        completion_status : typing.Optional[TripsStreamRequestCompletionStatus]
-            Filters trips based on a specific completion status  Valid values: `inProgress`, `completed`, `all`
-
-        end_time : typing.Optional[str]
-            RFC 3339 timestamp which is compared against `updatedAtTime` or `tripStartTime` depending on the queryBy parameter. If not provided then the endpoint behaves as an unending feed of changes.
-
-        query_by : typing.Optional[TripsStreamRequestQueryBy]
-            Decide which timestamp the `startTime` and `endTime` are compared to.  Valid values: `updatedAtTime`, `tripStartTime`
-
-        after : typing.Optional[str]
-             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-
-        ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Comma-separated list of asset IDs. Include up to 50 asset IDs.
+        end_ms : int
+            End of the time range, specified in milliseconds UNIX time.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
         Returns
         -------
-        SyncPager[TripResponseBody]
-            OK response.
+        V1TripResponse
+            List of trips taken by the requested vehicle within the specified timeframe. Ongoing trips will be returned with 9223372036854775807 as their endMs.
 
         Examples
         --------
@@ -86,25 +66,16 @@ class TripsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        response = client.trips.stream(
-            start_time="startTime",
+        client.trips.v_1_get_fleet_trips(
+            vehicle_id=1000000,
+            start_ms=1000000,
+            end_ms=1000000,
         )
-        for item in response:
-            yield item
-        # alternatively, you can paginate page-by-page
-        for page in response.iter_pages():
-            yield page
         """
-        return self._raw_client.stream(
-            start_time=start_time,
-            include_asset=include_asset,
-            completion_status=completion_status,
-            end_time=end_time,
-            query_by=query_by,
-            after=after,
-            ids=ids,
-            request_options=request_options,
+        _response = self._raw_client.v_1_get_fleet_trips(
+            vehicle_id=vehicle_id, start_ms=start_ms, end_ms=end_ms, request_options=request_options
         )
+        return _response.data
 
 
 class AsyncTripsClient:
@@ -122,58 +93,41 @@ class AsyncTripsClient:
         """
         return self._raw_client
 
-    async def stream(
-        self,
-        *,
-        start_time: str,
-        include_asset: typing.Optional[bool] = None,
-        completion_status: typing.Optional[TripsStreamRequestCompletionStatus] = None,
-        end_time: typing.Optional[str] = None,
-        query_by: typing.Optional[TripsStreamRequestQueryBy] = None,
-        after: typing.Optional[str] = None,
-        ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[TripResponseBody]:
+    async def v_1_get_fleet_trips(
+        self, *, vehicle_id: int, start_ms: int, end_ms: int, request_options: typing.Optional[RequestOptions] = None
+    ) -> V1TripResponse:
         """
-        This endpoint will return trips that have been collected for your organization based on the time parameters passed in. Results are paginated. Reach out to your Samsara Representative to have this API enabled for your organization.
+        <n class="warning">
+        <nh>
+        <i class="fa fa-exclamation-circle"></i>
+        This endpoint is still on our legacy API.
+        </nh>
+        </n>
 
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Read Trips** under the Trips category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
+        Get historical trips data for specified vehicle. This method returns a set of historical trips data for the specified vehicle in the specified time range.
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
+        To use this endpoint, select **Read Vehicle Trips** under the Vehicles category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
         Parameters
         ----------
-        start_time : str
-            RFC 3339 timestamp that indicates when to begin receiving data. Value is compared against `updatedAtTime` or `tripStartTime` depending on the queryBy parameter.
+        vehicle_id : int
+            Vehicle ID to query.
 
-        include_asset : typing.Optional[bool]
-            Indicates whether or not to return expanded “asset” data
+        start_ms : int
+            Beginning of the time range, specified in milliseconds UNIX time. Limited to a 90 day window with respect to startMs and endMs
 
-        completion_status : typing.Optional[TripsStreamRequestCompletionStatus]
-            Filters trips based on a specific completion status  Valid values: `inProgress`, `completed`, `all`
-
-        end_time : typing.Optional[str]
-            RFC 3339 timestamp which is compared against `updatedAtTime` or `tripStartTime` depending on the queryBy parameter. If not provided then the endpoint behaves as an unending feed of changes.
-
-        query_by : typing.Optional[TripsStreamRequestQueryBy]
-            Decide which timestamp the `startTime` and `endTime` are compared to.  Valid values: `updatedAtTime`, `tripStartTime`
-
-        after : typing.Optional[str]
-             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-
-        ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Comma-separated list of asset IDs. Include up to 50 asset IDs.
+        end_ms : int
+            End of the time range, specified in milliseconds UNIX time.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
         Returns
         -------
-        AsyncPager[TripResponseBody]
-            OK response.
+        V1TripResponse
+            List of trips taken by the requested vehicle within the specified timeframe. Ongoing trips will be returned with 9223372036854775807 as their endMs.
 
         Examples
         --------
@@ -187,26 +141,16 @@ class AsyncTripsClient:
 
 
         async def main() -> None:
-            response = await client.trips.stream(
-                start_time="startTime",
+            await client.trips.v_1_get_fleet_trips(
+                vehicle_id=1000000,
+                start_ms=1000000,
+                end_ms=1000000,
             )
-            async for item in response:
-                yield item
-
-            # alternatively, you can paginate page-by-page
-            async for page in response.iter_pages():
-                yield page
 
 
         asyncio.run(main())
         """
-        return await self._raw_client.stream(
-            start_time=start_time,
-            include_asset=include_asset,
-            completion_status=completion_status,
-            end_time=end_time,
-            query_by=query_by,
-            after=after,
-            ids=ids,
-            request_options=request_options,
+        _response = await self._raw_client.v_1_get_fleet_trips(
+            vehicle_id=vehicle_id, start_ms=start_ms, end_ms=end_ms, request_options=request_options
         )
+        return _response.data

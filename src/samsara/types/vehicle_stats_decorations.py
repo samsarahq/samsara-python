@@ -21,10 +21,12 @@ from .vehicle_stats_decorations_engine_load_percent import VehicleStatsDecoratio
 from .vehicle_stats_decorations_engine_oil_pressure_k_pa import VehicleStatsDecorationsEngineOilPressureKPa
 from .vehicle_stats_decorations_engine_rpm import VehicleStatsDecorationsEngineRpm
 from .vehicle_stats_decorations_engine_states import VehicleStatsDecorationsEngineStates
+from .vehicle_stats_decorations_fuel_consumed_milliliters import VehicleStatsDecorationsFuelConsumedMilliliters
 from .vehicle_stats_decorations_fuel_percents import VehicleStatsDecorationsFuelPercents
 from .vehicle_stats_decorations_gps import VehicleStatsDecorationsGps
 from .vehicle_stats_decorations_gps_distance_meters import VehicleStatsDecorationsGpsDistanceMeters
 from .vehicle_stats_decorations_gps_odometer_meters import VehicleStatsDecorationsGpsOdometerMeters
+from .vehicle_stats_decorations_idling_duration_milliseconds import VehicleStatsDecorationsIdlingDurationMilliseconds
 from .vehicle_stats_decorations_intake_manifold_temperature_milli_c import (
     VehicleStatsDecorationsIntakeManifoldTemperatureMilliC,
 )
@@ -193,6 +195,9 @@ class VehicleStatsDecorations(UniversalBaseModel):
     fault_codes: typing_extensions.Annotated[
         typing.Optional[VehicleStatsFaultCodesValue], FieldMetadata(alias="faultCodes")
     ] = None
+    fuel_consumed_milliliters: typing_extensions.Annotated[
+        typing.Optional[VehicleStatsDecorationsFuelConsumedMilliliters], FieldMetadata(alias="fuelConsumedMilliliters")
+    ] = None
     fuel_percents: typing_extensions.Annotated[
         typing.Optional[VehicleStatsDecorationsFuelPercents], FieldMetadata(alias="fuelPercents")
     ] = None
@@ -202,6 +207,10 @@ class VehicleStatsDecorations(UniversalBaseModel):
     ] = None
     gps_odometer_meters: typing_extensions.Annotated[
         typing.Optional[VehicleStatsDecorationsGpsOdometerMeters], FieldMetadata(alias="gpsOdometerMeters")
+    ] = None
+    idling_duration_milliseconds: typing_extensions.Annotated[
+        typing.Optional[VehicleStatsDecorationsIdlingDurationMilliseconds],
+        FieldMetadata(alias="idlingDurationMilliseconds"),
     ] = None
     intake_manifold_temperature_milli_c: typing_extensions.Annotated[
         typing.Optional[VehicleStatsDecorationsIntakeManifoldTemperatureMilliC],

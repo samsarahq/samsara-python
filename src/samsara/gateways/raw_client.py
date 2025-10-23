@@ -7,7 +7,6 @@ from ..core.api_error import ApiError
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.http_response import AsyncHttpResponse, HttpResponse
 from ..core.jsonable_encoder import jsonable_encoder
-from ..core.pagination import AsyncPager, BaseHttpResponse, SyncPager
 from ..core.pydantic_utilities import parse_obj_as
 from ..core.request_options import RequestOptions
 from ..errors.bad_gateway_error import BadGatewayError
@@ -19,7 +18,6 @@ from ..errors.not_implemented_error import NotImplementedError
 from ..errors.service_unavailable_error import ServiceUnavailableError
 from ..errors.too_many_requests_error import TooManyRequestsError
 from ..errors.unauthorized_error import UnauthorizedError
-from ..types.gateway_response_object_response_body import GatewayResponseObjectResponseBody
 from ..types.gateways_get_gateways_response_body import GatewaysGetGatewaysResponseBody
 from ..types.gateways_post_gateway_response_body import GatewaysPostGatewayResponseBody
 
@@ -31,13 +29,13 @@ class RawGatewaysClient:
     def __init__(self, *, client_wrapper: SyncClientWrapper):
         self._client_wrapper = client_wrapper
 
-    def list(
+    def get_gateways(
         self,
         *,
         models: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         after: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[GatewayResponseObjectResponseBody]:
+    ) -> HttpResponse[GatewaysGetGatewaysResponseBody]:
         """
         List all gateways
 
@@ -61,7 +59,7 @@ class RawGatewaysClient:
 
         Returns
         -------
-        SyncPager[GatewayResponseObjectResponseBody]
+        HttpResponse[GatewaysGetGatewaysResponseBody]
             OK response.
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -75,27 +73,14 @@ class RawGatewaysClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _parsed_response = typing.cast(
+                _data = typing.cast(
                     GatewaysGetGatewaysResponseBody,
                     parse_obj_as(
                         type_=GatewaysGetGatewaysResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                _items = _parsed_response.data
-                _has_next = False
-                _get_next = None
-                if _parsed_response.pagination is not None:
-                    _parsed_next = _parsed_response.pagination.end_cursor
-                    _has_next = _parsed_next is not None and _parsed_next != ""
-                    _get_next = lambda: self.list(
-                        models=models,
-                        after=_parsed_next,
-                        request_options=request_options,
-                    )
-                return SyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return HttpResponse(response=_response, data=_data)
             if _response.status_code == 401:
                 raise UnauthorizedError(
                     headers=dict(_response.headers),
@@ -200,7 +185,7 @@ class RawGatewaysClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    def create(
+    def post_gateway(
         self, *, serial: str, request_options: typing.Optional[RequestOptions] = None
     ) -> HttpResponse[GatewaysPostGatewayResponseBody]:
         """
@@ -352,7 +337,7 @@ class RawGatewaysClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> HttpResponse[None]:
+    def delete_gateway(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> HttpResponse[None]:
         """
         Deactivate a gateway
 
@@ -492,13 +477,13 @@ class AsyncRawGatewaysClient:
     def __init__(self, *, client_wrapper: AsyncClientWrapper):
         self._client_wrapper = client_wrapper
 
-    async def list(
+    async def get_gateways(
         self,
         *,
         models: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         after: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[GatewayResponseObjectResponseBody]:
+    ) -> AsyncHttpResponse[GatewaysGetGatewaysResponseBody]:
         """
         List all gateways
 
@@ -522,7 +507,7 @@ class AsyncRawGatewaysClient:
 
         Returns
         -------
-        AsyncPager[GatewayResponseObjectResponseBody]
+        AsyncHttpResponse[GatewaysGetGatewaysResponseBody]
             OK response.
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -536,30 +521,14 @@ class AsyncRawGatewaysClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _parsed_response = typing.cast(
+                _data = typing.cast(
                     GatewaysGetGatewaysResponseBody,
                     parse_obj_as(
                         type_=GatewaysGetGatewaysResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                _items = _parsed_response.data
-                _has_next = False
-                _get_next = None
-                if _parsed_response.pagination is not None:
-                    _parsed_next = _parsed_response.pagination.end_cursor
-                    _has_next = _parsed_next is not None and _parsed_next != ""
-
-                    async def _get_next():
-                        return await self.list(
-                            models=models,
-                            after=_parsed_next,
-                            request_options=request_options,
-                        )
-
-                return AsyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return AsyncHttpResponse(response=_response, data=_data)
             if _response.status_code == 401:
                 raise UnauthorizedError(
                     headers=dict(_response.headers),
@@ -664,7 +633,7 @@ class AsyncRawGatewaysClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    async def create(
+    async def post_gateway(
         self, *, serial: str, request_options: typing.Optional[RequestOptions] = None
     ) -> AsyncHttpResponse[GatewaysPostGatewayResponseBody]:
         """
@@ -816,7 +785,7 @@ class AsyncRawGatewaysClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    async def delete(
+    async def delete_gateway(
         self, id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> AsyncHttpResponse[None]:
         """

@@ -20,10 +20,10 @@ from ..types.post_driver_vehicle_assignments_v_2_request_body_metadata_request_b
     PostDriverVehicleAssignmentsV2RequestBodyMetadataRequestBody,
 )
 from .raw_client import AsyncRawDriverVehicleAssignmentsClient, RawDriverVehicleAssignmentsClient
-from .types.driver_vehicle_assignments_get_request_assignment_type import (
-    DriverVehicleAssignmentsGetRequestAssignmentType,
+from .types.get_driver_vehicle_assignments_request_assignment_type import (
+    GetDriverVehicleAssignmentsRequestAssignmentType,
 )
-from .types.driver_vehicle_assignments_get_request_filter_by import DriverVehicleAssignmentsGetRequestFilterBy
+from .types.get_driver_vehicle_assignments_request_filter_by import GetDriverVehicleAssignmentsRequestFilterBy
 
 # this is used as the default value for optional parameters
 OMIT = typing.cast(typing.Any, ...)
@@ -44,10 +44,10 @@ class DriverVehicleAssignmentsClient:
         """
         return self._raw_client
 
-    def get(
+    def get_driver_vehicle_assignments(
         self,
         *,
-        filter_by: DriverVehicleAssignmentsGetRequestFilterBy,
+        filter_by: GetDriverVehicleAssignmentsRequestFilterBy,
         start_time: typing.Optional[str] = None,
         end_time: typing.Optional[str] = None,
         driver_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
@@ -55,7 +55,7 @@ class DriverVehicleAssignmentsClient:
         driver_tag_ids: typing.Optional[str] = None,
         vehicle_tag_ids: typing.Optional[str] = None,
         after: typing.Optional[str] = None,
-        assignment_type: typing.Optional[DriverVehicleAssignmentsGetRequestAssignmentType] = None,
+        assignment_type: typing.Optional[GetDriverVehicleAssignmentsRequestAssignmentType] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> DriverVehicleAssignmentsV2GetDriverVehicleAssignmentsResponseBody:
         """
@@ -70,7 +70,7 @@ class DriverVehicleAssignmentsClient:
 
         Parameters
         ----------
-        filter_by : DriverVehicleAssignmentsGetRequestFilterBy
+        filter_by : GetDriverVehicleAssignmentsRequestFilterBy
             Option to filter by drivers or vehicles.  Valid values: `drivers`, `vehicles`
 
         start_time : typing.Optional[str]
@@ -94,7 +94,7 @@ class DriverVehicleAssignmentsClient:
         after : typing.Optional[str]
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
 
-        assignment_type : typing.Optional[DriverVehicleAssignmentsGetRequestAssignmentType]
+        assignment_type : typing.Optional[GetDriverVehicleAssignmentsRequestAssignmentType]
             Specifies which assignment type to filter by.  Valid values: `HOS`, `idCard`, `static`, `faceId`, `tachograph`, `safetyManual`, `RFID`, `trailer`, `external`, `qrCode`
 
         request_options : typing.Optional[RequestOptions]
@@ -112,11 +112,17 @@ class DriverVehicleAssignmentsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.driver_vehicle_assignments.get(
+        client.driver_vehicle_assignments.get_driver_vehicle_assignments(
             filter_by="drivers",
+            start_time="startTime",
+            end_time="endTime",
+            driver_tag_ids="driverTagIds",
+            vehicle_tag_ids="vehicleTagIds",
+            after="after",
+            assignment_type="HOS",
         )
         """
-        _response = self._raw_client.get(
+        _response = self._raw_client.get_driver_vehicle_assignments(
             filter_by=filter_by,
             start_time=start_time,
             end_time=end_time,
@@ -130,7 +136,7 @@ class DriverVehicleAssignmentsClient:
         )
         return _response.data
 
-    def create(
+    def create_driver_vehicle_assignment(
         self,
         *,
         driver_id: str,
@@ -189,12 +195,12 @@ class DriverVehicleAssignmentsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.driver_vehicle_assignments.create(
+        client.driver_vehicle_assignments.create_driver_vehicle_assignment(
             driver_id="494123",
             vehicle_id="281474978683353",
         )
         """
-        _response = self._raw_client.create(
+        _response = self._raw_client.create_driver_vehicle_assignment(
             driver_id=driver_id,
             vehicle_id=vehicle_id,
             assigned_at_time=assigned_at_time,
@@ -206,7 +212,7 @@ class DriverVehicleAssignmentsClient:
         )
         return _response.data
 
-    def delete(
+    def delete_driver_vehicle_assignments(
         self,
         *,
         vehicle_id: str,
@@ -257,11 +263,11 @@ class DriverVehicleAssignmentsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.driver_vehicle_assignments.delete(
+        client.driver_vehicle_assignments.delete_driver_vehicle_assignments(
             vehicle_id="281474978683353",
         )
         """
-        _response = self._raw_client.delete(
+        _response = self._raw_client.delete_driver_vehicle_assignments(
             vehicle_id=vehicle_id,
             assigned_at_time=assigned_at_time,
             end_time=end_time,
@@ -271,7 +277,7 @@ class DriverVehicleAssignmentsClient:
         )
         return _response.data
 
-    def update(
+    def update_driver_vehicle_assignment(
         self,
         *,
         driver_id: str,
@@ -330,13 +336,13 @@ class DriverVehicleAssignmentsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.driver_vehicle_assignments.update(
+        client.driver_vehicle_assignments.update_driver_vehicle_assignment(
             driver_id="494123",
             start_time="2019-06-13T19:08:25Z",
             vehicle_id="281474978683353",
         )
         """
-        _response = self._raw_client.update(
+        _response = self._raw_client.update_driver_vehicle_assignment(
             driver_id=driver_id,
             start_time=start_time,
             vehicle_id=vehicle_id,
@@ -364,10 +370,10 @@ class AsyncDriverVehicleAssignmentsClient:
         """
         return self._raw_client
 
-    async def get(
+    async def get_driver_vehicle_assignments(
         self,
         *,
-        filter_by: DriverVehicleAssignmentsGetRequestFilterBy,
+        filter_by: GetDriverVehicleAssignmentsRequestFilterBy,
         start_time: typing.Optional[str] = None,
         end_time: typing.Optional[str] = None,
         driver_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
@@ -375,7 +381,7 @@ class AsyncDriverVehicleAssignmentsClient:
         driver_tag_ids: typing.Optional[str] = None,
         vehicle_tag_ids: typing.Optional[str] = None,
         after: typing.Optional[str] = None,
-        assignment_type: typing.Optional[DriverVehicleAssignmentsGetRequestAssignmentType] = None,
+        assignment_type: typing.Optional[GetDriverVehicleAssignmentsRequestAssignmentType] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> DriverVehicleAssignmentsV2GetDriverVehicleAssignmentsResponseBody:
         """
@@ -390,7 +396,7 @@ class AsyncDriverVehicleAssignmentsClient:
 
         Parameters
         ----------
-        filter_by : DriverVehicleAssignmentsGetRequestFilterBy
+        filter_by : GetDriverVehicleAssignmentsRequestFilterBy
             Option to filter by drivers or vehicles.  Valid values: `drivers`, `vehicles`
 
         start_time : typing.Optional[str]
@@ -414,7 +420,7 @@ class AsyncDriverVehicleAssignmentsClient:
         after : typing.Optional[str]
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
 
-        assignment_type : typing.Optional[DriverVehicleAssignmentsGetRequestAssignmentType]
+        assignment_type : typing.Optional[GetDriverVehicleAssignmentsRequestAssignmentType]
             Specifies which assignment type to filter by.  Valid values: `HOS`, `idCard`, `static`, `faceId`, `tachograph`, `safetyManual`, `RFID`, `trailer`, `external`, `qrCode`
 
         request_options : typing.Optional[RequestOptions]
@@ -437,14 +443,20 @@ class AsyncDriverVehicleAssignmentsClient:
 
 
         async def main() -> None:
-            await client.driver_vehicle_assignments.get(
+            await client.driver_vehicle_assignments.get_driver_vehicle_assignments(
                 filter_by="drivers",
+                start_time="startTime",
+                end_time="endTime",
+                driver_tag_ids="driverTagIds",
+                vehicle_tag_ids="vehicleTagIds",
+                after="after",
+                assignment_type="HOS",
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.get(
+        _response = await self._raw_client.get_driver_vehicle_assignments(
             filter_by=filter_by,
             start_time=start_time,
             end_time=end_time,
@@ -458,7 +470,7 @@ class AsyncDriverVehicleAssignmentsClient:
         )
         return _response.data
 
-    async def create(
+    async def create_driver_vehicle_assignment(
         self,
         *,
         driver_id: str,
@@ -522,7 +534,7 @@ class AsyncDriverVehicleAssignmentsClient:
 
 
         async def main() -> None:
-            await client.driver_vehicle_assignments.create(
+            await client.driver_vehicle_assignments.create_driver_vehicle_assignment(
                 driver_id="494123",
                 vehicle_id="281474978683353",
             )
@@ -530,7 +542,7 @@ class AsyncDriverVehicleAssignmentsClient:
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.create(
+        _response = await self._raw_client.create_driver_vehicle_assignment(
             driver_id=driver_id,
             vehicle_id=vehicle_id,
             assigned_at_time=assigned_at_time,
@@ -542,7 +554,7 @@ class AsyncDriverVehicleAssignmentsClient:
         )
         return _response.data
 
-    async def delete(
+    async def delete_driver_vehicle_assignments(
         self,
         *,
         vehicle_id: str,
@@ -598,14 +610,14 @@ class AsyncDriverVehicleAssignmentsClient:
 
 
         async def main() -> None:
-            await client.driver_vehicle_assignments.delete(
+            await client.driver_vehicle_assignments.delete_driver_vehicle_assignments(
                 vehicle_id="281474978683353",
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.delete(
+        _response = await self._raw_client.delete_driver_vehicle_assignments(
             vehicle_id=vehicle_id,
             assigned_at_time=assigned_at_time,
             end_time=end_time,
@@ -615,7 +627,7 @@ class AsyncDriverVehicleAssignmentsClient:
         )
         return _response.data
 
-    async def update(
+    async def update_driver_vehicle_assignment(
         self,
         *,
         driver_id: str,
@@ -679,7 +691,7 @@ class AsyncDriverVehicleAssignmentsClient:
 
 
         async def main() -> None:
-            await client.driver_vehicle_assignments.update(
+            await client.driver_vehicle_assignments.update_driver_vehicle_assignment(
                 driver_id="494123",
                 start_time="2019-06-13T19:08:25Z",
                 vehicle_id="281474978683353",
@@ -688,7 +700,7 @@ class AsyncDriverVehicleAssignmentsClient:
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.update(
+        _response = await self._raw_client.update_driver_vehicle_assignment(
             driver_id=driver_id,
             start_time=start_time,
             vehicle_id=vehicle_id,

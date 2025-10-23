@@ -56,6 +56,13 @@ class VehicleFaultCodeDetailsObjectRequestBody(UniversalBaseModel):
     If true then alert when the ABS light is on. Defaults to false.
     """
 
+    min_duration_milliseconds: typing_extensions.Annotated[
+        typing.Optional[int], FieldMetadata(alias="minDurationMilliseconds")
+    ] = pydantic.Field(default=None)
+    """
+    The number of milliseconds the trigger needs to stay active before alerting.
+    """
+
     specific_fault_codes: typing_extensions.Annotated[
         typing.Optional[typing.List[SpecificVehicleFaultCodeObjectRequestBody]],
         FieldMetadata(alias="specificFaultCodes"),

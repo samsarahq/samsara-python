@@ -6,6 +6,7 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .media_object_response_body_camera_role import MediaObjectResponseBodyCameraRole
 from .media_object_response_body_input import MediaObjectResponseBodyInput
 from .media_object_response_body_media_type import MediaObjectResponseBodyMediaType
 from .media_object_response_body_status import MediaObjectResponseBodyStatus
@@ -20,6 +21,13 @@ class MediaObjectResponseBody(UniversalBaseModel):
     Timestamp, in RFC 3339 format, at which the media item was made available. Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00
     """
 
+    camera_role: typing_extensions.Annotated[
+        typing.Optional[MediaObjectResponseBodyCameraRole], FieldMetadata(alias="cameraRole")
+    ] = pydantic.Field(default=None)
+    """
+    Camera role for this media.  Valid values: `leftMirrorMount`, `leftSide`, `rightMirrorMount`, `rightSide`, `rearHigh`, `rearBumper`, `inCab`, `front`, `hopper`, `other1`, `other2`, `other3`, `other4`, `leftBev`, `rightBev`, `rearBev`, `frontBev`, `otherBev`, `bevNotUsed`
+    """
+
     end_time: typing_extensions.Annotated[str, FieldMetadata(alias="endTime")] = pydantic.Field()
     """
      An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
@@ -27,7 +35,7 @@ class MediaObjectResponseBody(UniversalBaseModel):
 
     input: MediaObjectResponseBodyInput = pydantic.Field()
     """
-    Input type for this media.  Valid values: `dashcamDriverFacing`, `dashcamRoadFacing`
+    Input type for this media.  Valid values: `dashcamDriverFacing`, `dashcamRoadFacing`, `analog1`, `analog2`, `analog3`, `analog4`
     """
 
     media_type: typing_extensions.Annotated[MediaObjectResponseBodyMediaType, FieldMetadata(alias="mediaType")] = (
@@ -44,7 +52,7 @@ class MediaObjectResponseBody(UniversalBaseModel):
 
     status: MediaObjectResponseBodyStatus = pydantic.Field()
     """
-    Status of the media.  Valid values: `available`, `invalid`, `pending`, `failed`
+    Status of the media.  Valid values: `available`, `invalid`, `pending`, `failed`, `unavailable`
     """
 
     url_info: typing_extensions.Annotated[

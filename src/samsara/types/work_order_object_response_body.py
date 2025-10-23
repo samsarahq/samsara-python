@@ -102,6 +102,13 @@ class WorkOrderObjectResponseBody(UniversalBaseModel):
     The unique id of the work order.
     """
 
+    invoice_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="invoiceNumber")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    The invoice number for the work order.
+    """
+
     items: typing.Optional[typing.List[WorkOrderItemObjectResponseBody]] = pydantic.Field(default=None)
     """
     Items related to the work order.
@@ -112,6 +119,13 @@ class WorkOrderObjectResponseBody(UniversalBaseModel):
     )
     """
     The odometer reading at the time of the work order.
+    """
+
+    po_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="poNumber")] = pydantic.Field(
+        default=None
+    )
+    """
+    The purchase order number for the work order.
     """
 
     priority: typing.Optional[WorkOrderObjectResponseBodyPriority] = pydantic.Field(default=None)
@@ -135,6 +149,13 @@ class WorkOrderObjectResponseBody(UniversalBaseModel):
     updated_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAtTime")] = pydantic.Field()
     """
     The time the work order was last updated in RFC 3339 format.
+    """
+
+    vendor_uuid: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="vendorUuid")] = pydantic.Field(
+        default=None
+    )
+    """
+    The vendor UUID for the work order.
     """
 
     if IS_PYDANTIC_V2:

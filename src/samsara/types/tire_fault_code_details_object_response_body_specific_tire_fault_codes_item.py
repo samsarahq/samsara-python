@@ -7,6 +7,8 @@ TireFaultCodeDetailsObjectResponseBodySpecificTireFaultCodesItem = typing.Union[
         "TIRE_ALERT_ACROSS_AXLE_FAULT",
         "TIRE_ALERT_EXTREME_OVER_PRESSURE",
         "TIRE_ALERT_EXTREME_UNDER_PRESSURE",
+        "TIRE_ALERT_FLAT_SPOT",
+        "TIRE_ALERT_IMBALANCE",
         "TIRE_ALERT_INVALID",
         "TIRE_ALERT_LEAK_DETECTED",
         "TIRE_ALERT_OVER_PRESSURE",

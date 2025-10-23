@@ -31,6 +31,7 @@ SafetyEventBehaviorLabelsResponseBodyType = typing.Union[
         "ObstructedCamera",
         "Passenger",
         "PolicyViolationMask",
+        "ProtectiveEquipment",
         "RanRedLight",
         "RollingStop",
         "RolloverProtection",

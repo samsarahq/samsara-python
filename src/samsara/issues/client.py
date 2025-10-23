@@ -4,10 +4,9 @@ import datetime as dt
 import typing
 
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
-from ..core.pagination import AsyncPager, SyncPager
 from ..core.request_options import RequestOptions
-from ..types.issue_response_object_response_body import IssueResponseObjectResponseBody
 from ..types.issues_get_issues_response_body import IssuesGetIssuesResponseBody
+from ..types.issues_get_issues_stream_response_body import IssuesGetIssuesStreamResponseBody
 from ..types.issues_patch_issue_response_body import IssuesPatchIssueResponseBody
 from ..types.patch_issue_request_body_assigned_to_request_body import PatchIssueRequestBodyAssignedToRequestBody
 from .raw_client import AsyncRawIssuesClient, RawIssuesClient
@@ -32,7 +31,7 @@ class IssuesClient:
         """
         return self._raw_client
 
-    def list(
+    def get_issues(
         self,
         *,
         ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
@@ -72,12 +71,12 @@ class IssuesClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.issues.list()
+        client.issues.get_issues()
         """
-        _response = self._raw_client.list(ids=ids, include=include, request_options=request_options)
+        _response = self._raw_client.get_issues(ids=ids, include=include, request_options=request_options)
         return _response.data
 
-    def update(
+    def patch_issue(
         self,
         *,
         id: str,
@@ -128,11 +127,11 @@ class IssuesClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.issues.update(
+        client.issues.patch_issue(
             id="9814a1fa-f0c6-408b-bf85-51dc3bc71ac7",
         )
         """
-        _response = self._raw_client.update(
+        _response = self._raw_client.patch_issue(
             id=id,
             assigned_to=assigned_to,
             due_date=due_date,
@@ -142,7 +141,7 @@ class IssuesClient:
         )
         return _response.data
 
-    def stream(
+    def get_issues_stream(
         self,
         *,
         start_time: str,
@@ -151,8 +150,9 @@ class IssuesClient:
         status: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         asset_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         include: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        assigned_to_route_stop_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[IssueResponseObjectResponseBody]:
+    ) -> IssuesGetIssuesStreamResponseBody:
         """
         Returns all issues data that has been created or modified for your organization based on the time parameters passed in. Results are paginated and are sorted by last modified date. If you include an endTime, the endpoint will return data up until that point (exclusive). If you don’t include an endTime, you can continue to poll the API real-time with the pagination cursor that gets returned on every call.
 
@@ -183,12 +183,15 @@ class IssuesClient:
         include : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             A comma separated list of additional fields to include on requested objects. Valid values: `externalIds`
 
+        assigned_to_route_stop_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A comma-separated list containing up to 50 route stop IDs to filter data on.
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
         Returns
         -------
-        SyncPager[IssueResponseObjectResponseBody]
+        IssuesGetIssuesStreamResponseBody
             OK response.
 
         Examples
@@ -198,24 +201,23 @@ class IssuesClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        response = client.issues.stream(
+        client.issues.get_issues_stream(
             start_time="startTime",
+            end_time="endTime",
+            after="after",
         )
-        for item in response:
-            yield item
-        # alternatively, you can paginate page-by-page
-        for page in response.iter_pages():
-            yield page
         """
-        return self._raw_client.stream(
+        _response = self._raw_client.get_issues_stream(
             start_time=start_time,
             end_time=end_time,
             after=after,
             status=status,
             asset_ids=asset_ids,
             include=include,
+            assigned_to_route_stop_ids=assigned_to_route_stop_ids,
             request_options=request_options,
         )
+        return _response.data
 
 
 class AsyncIssuesClient:
@@ -233,7 +235,7 @@ class AsyncIssuesClient:
         """
         return self._raw_client
 
-    async def list(
+    async def get_issues(
         self,
         *,
         ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
@@ -278,15 +280,15 @@ class AsyncIssuesClient:
 
 
         async def main() -> None:
-            await client.issues.list()
+            await client.issues.get_issues()
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.list(ids=ids, include=include, request_options=request_options)
+        _response = await self._raw_client.get_issues(ids=ids, include=include, request_options=request_options)
         return _response.data
 
-    async def update(
+    async def patch_issue(
         self,
         *,
         id: str,
@@ -342,14 +344,14 @@ class AsyncIssuesClient:
 
 
         async def main() -> None:
-            await client.issues.update(
+            await client.issues.patch_issue(
                 id="9814a1fa-f0c6-408b-bf85-51dc3bc71ac7",
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.update(
+        _response = await self._raw_client.patch_issue(
             id=id,
             assigned_to=assigned_to,
             due_date=due_date,
@@ -359,7 +361,7 @@ class AsyncIssuesClient:
         )
         return _response.data
 
-    async def stream(
+    async def get_issues_stream(
         self,
         *,
         start_time: str,
@@ -368,8 +370,9 @@ class AsyncIssuesClient:
         status: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         asset_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         include: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        assigned_to_route_stop_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[IssueResponseObjectResponseBody]:
+    ) -> IssuesGetIssuesStreamResponseBody:
         """
         Returns all issues data that has been created or modified for your organization based on the time parameters passed in. Results are paginated and are sorted by last modified date. If you include an endTime, the endpoint will return data up until that point (exclusive). If you don’t include an endTime, you can continue to poll the API real-time with the pagination cursor that gets returned on every call.
 
@@ -400,12 +403,15 @@ class AsyncIssuesClient:
         include : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             A comma separated list of additional fields to include on requested objects. Valid values: `externalIds`
 
+        assigned_to_route_stop_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A comma-separated list containing up to 50 route stop IDs to filter data on.
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
         Returns
         -------
-        AsyncPager[IssueResponseObjectResponseBody]
+        IssuesGetIssuesStreamResponseBody
             OK response.
 
         Examples
@@ -420,25 +426,23 @@ class AsyncIssuesClient:
 
 
         async def main() -> None:
-            response = await client.issues.stream(
+            await client.issues.get_issues_stream(
                 start_time="startTime",
+                end_time="endTime",
+                after="after",
             )
-            async for item in response:
-                yield item
-
-            # alternatively, you can paginate page-by-page
-            async for page in response.iter_pages():
-                yield page
 
 
         asyncio.run(main())
         """
-        return await self._raw_client.stream(
+        _response = await self._raw_client.get_issues_stream(
             start_time=start_time,
             end_time=end_time,
             after=after,
             status=status,
             asset_ids=asset_ids,
             include=include,
+            assigned_to_route_stop_ids=assigned_to_route_stop_ids,
             request_options=request_options,
         )
+        return _response.data

@@ -3,10 +3,10 @@
 import typing
 
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
-from ..core.pagination import AsyncPager, SyncPager
 from ..core.request_options import RequestOptions
-from ..types.carrier_proposed_assignment import CarrierProposedAssignment
 from ..types.carrier_proposed_assignment_response import CarrierProposedAssignmentResponse
+from ..types.list_carrier_proposed_assignment_response import ListCarrierProposedAssignmentResponse
+from ..types.standard_delete_response import StandardDeleteResponse
 from .raw_client import AsyncRawCarrierProposedAssignmentsClient, RawCarrierProposedAssignmentsClient
 
 # this is used as the default value for optional parameters
@@ -28,7 +28,7 @@ class CarrierProposedAssignmentsClient:
         """
         return self._raw_client
 
-    def list(
+    def list_carrier_proposed_assignments(
         self,
         *,
         limit: typing.Optional[int] = None,
@@ -36,7 +36,7 @@ class CarrierProposedAssignmentsClient:
         driver_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         active_time: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[CarrierProposedAssignment]:
+    ) -> ListCarrierProposedAssignmentResponse:
         """
         Show the assignments created by the POST fleet/carrier-proposed-assignments. This endpoint will only show the assignments that are active for drivers and currently visible to them in the driver app. Once a proposed assignment has been accepted, the endpoint will not return any data.
 
@@ -63,7 +63,7 @@ class CarrierProposedAssignmentsClient:
 
         Returns
         -------
-        SyncPager[CarrierProposedAssignment]
+        ListCarrierProposedAssignmentResponse
             Returns the assignments that drivers would see in the future, if any.
 
         Examples
@@ -73,18 +73,18 @@ class CarrierProposedAssignmentsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        response = client.carrier_proposed_assignments.list()
-        for item in response:
-            yield item
-        # alternatively, you can paginate page-by-page
-        for page in response.iter_pages():
-            yield page
+        client.carrier_proposed_assignments.list_carrier_proposed_assignments(
+            limit=1000000,
+            after="after",
+            active_time="activeTime",
+        )
         """
-        return self._raw_client.list(
+        _response = self._raw_client.list_carrier_proposed_assignments(
             limit=limit, after=after, driver_ids=driver_ids, active_time=active_time, request_options=request_options
         )
+        return _response.data
 
-    def create(
+    def create_carrier_proposed_assignment(
         self,
         *,
         driver_id: str,
@@ -137,12 +137,12 @@ class CarrierProposedAssignmentsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.carrier_proposed_assignments.create(
+        client.carrier_proposed_assignments.create_carrier_proposed_assignment(
             driver_id="42",
             vehicle_id="123",
         )
         """
-        _response = self._raw_client.create(
+        _response = self._raw_client.create_carrier_proposed_assignment(
             driver_id=driver_id,
             vehicle_id=vehicle_id,
             active_time=active_time,
@@ -153,9 +153,9 @@ class CarrierProposedAssignmentsClient:
         )
         return _response.data
 
-    def delete(
+    def delete_carrier_proposed_assignment(
         self, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> typing.Optional[typing.Any]:
+    ) -> StandardDeleteResponse:
         """
         Permanently delete an assignment. You can only delete assignments that are not yet active. To override a currently active assignment, create a new empty one, instead.
 
@@ -173,7 +173,7 @@ class CarrierProposedAssignmentsClient:
 
         Returns
         -------
-        typing.Optional[typing.Any]
+        StandardDeleteResponse
             A successful DELETE response is a 204 with no content.
 
         Examples
@@ -183,11 +183,11 @@ class CarrierProposedAssignmentsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.carrier_proposed_assignments.delete(
+        client.carrier_proposed_assignments.delete_carrier_proposed_assignment(
             id="id",
         )
         """
-        _response = self._raw_client.delete(id, request_options=request_options)
+        _response = self._raw_client.delete_carrier_proposed_assignment(id, request_options=request_options)
         return _response.data
 
 
@@ -206,7 +206,7 @@ class AsyncCarrierProposedAssignmentsClient:
         """
         return self._raw_client
 
-    async def list(
+    async def list_carrier_proposed_assignments(
         self,
         *,
         limit: typing.Optional[int] = None,
@@ -214,7 +214,7 @@ class AsyncCarrierProposedAssignmentsClient:
         driver_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         active_time: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[CarrierProposedAssignment]:
+    ) -> ListCarrierProposedAssignmentResponse:
         """
         Show the assignments created by the POST fleet/carrier-proposed-assignments. This endpoint will only show the assignments that are active for drivers and currently visible to them in the driver app. Once a proposed assignment has been accepted, the endpoint will not return any data.
 
@@ -241,7 +241,7 @@ class AsyncCarrierProposedAssignmentsClient:
 
         Returns
         -------
-        AsyncPager[CarrierProposedAssignment]
+        ListCarrierProposedAssignmentResponse
             Returns the assignments that drivers would see in the future, if any.
 
         Examples
@@ -256,22 +256,21 @@ class AsyncCarrierProposedAssignmentsClient:
 
 
         async def main() -> None:
-            response = await client.carrier_proposed_assignments.list()
-            async for item in response:
-                yield item
-
-            # alternatively, you can paginate page-by-page
-            async for page in response.iter_pages():
-                yield page
+            await client.carrier_proposed_assignments.list_carrier_proposed_assignments(
+                limit=1000000,
+                after="after",
+                active_time="activeTime",
+            )
 
 
         asyncio.run(main())
         """
-        return await self._raw_client.list(
+        _response = await self._raw_client.list_carrier_proposed_assignments(
             limit=limit, after=after, driver_ids=driver_ids, active_time=active_time, request_options=request_options
         )
+        return _response.data
 
-    async def create(
+    async def create_carrier_proposed_assignment(
         self,
         *,
         driver_id: str,
@@ -329,7 +328,7 @@ class AsyncCarrierProposedAssignmentsClient:
 
 
         async def main() -> None:
-            await client.carrier_proposed_assignments.create(
+            await client.carrier_proposed_assignments.create_carrier_proposed_assignment(
                 driver_id="42",
                 vehicle_id="123",
             )
@@ -337,7 +336,7 @@ class AsyncCarrierProposedAssignmentsClient:
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.create(
+        _response = await self._raw_client.create_carrier_proposed_assignment(
             driver_id=driver_id,
             vehicle_id=vehicle_id,
             active_time=active_time,
@@ -348,9 +347,9 @@ class AsyncCarrierProposedAssignmentsClient:
         )
         return _response.data
 
-    async def delete(
+    async def delete_carrier_proposed_assignment(
         self, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> typing.Optional[typing.Any]:
+    ) -> StandardDeleteResponse:
         """
         Permanently delete an assignment. You can only delete assignments that are not yet active. To override a currently active assignment, create a new empty one, instead.
 
@@ -368,7 +367,7 @@ class AsyncCarrierProposedAssignmentsClient:
 
         Returns
         -------
-        typing.Optional[typing.Any]
+        StandardDeleteResponse
             A successful DELETE response is a 204 with no content.
 
         Examples
@@ -383,12 +382,12 @@ class AsyncCarrierProposedAssignmentsClient:
 
 
         async def main() -> None:
-            await client.carrier_proposed_assignments.delete(
+            await client.carrier_proposed_assignments.delete_carrier_proposed_assignment(
                 id="id",
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.delete(id, request_options=request_options)
+        _response = await self._raw_client.delete_carrier_proposed_assignment(id, request_options=request_options)
         return _response.data

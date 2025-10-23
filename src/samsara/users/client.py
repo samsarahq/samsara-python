@@ -3,10 +3,11 @@
 import typing
 
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
-from ..core.pagination import AsyncPager, SyncPager
 from ..core.request_options import RequestOptions
 from ..types.create_user_request_roles import CreateUserRequestRoles
-from ..types.user import User
+from ..types.list_user_roles_response import ListUserRolesResponse
+from ..types.list_users_response import ListUsersResponse
+from ..types.standard_delete_response import StandardDeleteResponse
 from ..types.user_response import UserResponse
 from .raw_client import AsyncRawUsersClient, RawUsersClient
 from .types.create_user_request_auth_type import CreateUserRequestAuthType
@@ -31,13 +32,58 @@ class UsersClient:
         """
         return self._raw_client
 
-    def list(
+    def list_user_roles(
         self,
         *,
         limit: typing.Optional[int] = None,
         after: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[User]:
+    ) -> ListUserRolesResponse:
+        """
+        Returns a list of all user roles in an organization.
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Users** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 512 objects.
+
+        after : typing.Optional[str]
+            If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        ListUserRolesResponse
+            List all user roles.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.users.list_user_roles(
+            limit=1000000,
+            after="after",
+        )
+        """
+        _response = self._raw_client.list_user_roles(limit=limit, after=after, request_options=request_options)
+        return _response.data
+
+    def list_users(
+        self,
+        *,
+        limit: typing.Optional[int] = None,
+        after: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> ListUsersResponse:
         """
         Returns a list of all users in an organization. Users that have expired access will not be returned.
 
@@ -58,7 +104,7 @@ class UsersClient:
 
         Returns
         -------
-        SyncPager[User]
+        ListUsersResponse
             List all users.
 
         Examples
@@ -68,16 +114,15 @@ class UsersClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        response = client.users.list()
-        for item in response:
-            yield item
-        # alternatively, you can paginate page-by-page
-        for page in response.iter_pages():
-            yield page
+        client.users.list_users(
+            limit=1000000,
+            after="after",
+        )
         """
-        return self._raw_client.list(limit=limit, after=after, request_options=request_options)
+        _response = self._raw_client.list_users(limit=limit, after=after, request_options=request_options)
+        return _response.data
 
-    def create(
+    def create_user(
         self,
         *,
         auth_type: CreateUserRequestAuthType,
@@ -126,7 +171,7 @@ class UsersClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.users.create(
+        client.users.create_user(
             auth_type="default",
             email="user@company.com",
             name="Bob Smith",
@@ -137,7 +182,7 @@ class UsersClient:
             ],
         )
         """
-        _response = self._raw_client.create(
+        _response = self._raw_client.create_user(
             auth_type=auth_type,
             email=email,
             name=name,
@@ -147,7 +192,7 @@ class UsersClient:
         )
         return _response.data
 
-    def get(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> UserResponse:
+    def get_user(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> UserResponse:
         """
         Get a specific user's information. Users that have expired access will not be returned.
 
@@ -175,16 +220,16 @@ class UsersClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.users.get(
+        client.users.get_user(
             id="id",
         )
         """
-        _response = self._raw_client.get(id, request_options=request_options)
+        _response = self._raw_client.get_user(id, request_options=request_options)
         return _response.data
 
-    def delete(
+    def delete_user(
         self, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> typing.Optional[typing.Any]:
+    ) -> StandardDeleteResponse:
         """
         Delete the given user.
 
@@ -202,7 +247,7 @@ class UsersClient:
 
         Returns
         -------
-        typing.Optional[typing.Any]
+        StandardDeleteResponse
             A successful DELETE response is a 204 with no content.
 
         Examples
@@ -212,14 +257,14 @@ class UsersClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.users.delete(
+        client.users.delete_user(
             id="id",
         )
         """
-        _response = self._raw_client.delete(id, request_options=request_options)
+        _response = self._raw_client.delete_user(id, request_options=request_options)
         return _response.data
 
-    def update(
+    def update_user(
         self,
         id: str,
         *,
@@ -268,11 +313,11 @@ class UsersClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.users.update(
+        client.users.update_user(
             id="id",
         )
         """
-        _response = self._raw_client.update(
+        _response = self._raw_client.update_user(
             id, auth_type=auth_type, expire_at=expire_at, name=name, roles=roles, request_options=request_options
         )
         return _response.data
@@ -293,13 +338,66 @@ class AsyncUsersClient:
         """
         return self._raw_client
 
-    async def list(
+    async def list_user_roles(
         self,
         *,
         limit: typing.Optional[int] = None,
         after: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[User]:
+    ) -> ListUserRolesResponse:
+        """
+        Returns a list of all user roles in an organization.
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Users** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 512 objects.
+
+        after : typing.Optional[str]
+            If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        ListUserRolesResponse
+            List all user roles.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.users.list_user_roles(
+                limit=1000000,
+                after="after",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.list_user_roles(limit=limit, after=after, request_options=request_options)
+        return _response.data
+
+    async def list_users(
+        self,
+        *,
+        limit: typing.Optional[int] = None,
+        after: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> ListUsersResponse:
         """
         Returns a list of all users in an organization. Users that have expired access will not be returned.
 
@@ -320,7 +418,7 @@ class AsyncUsersClient:
 
         Returns
         -------
-        AsyncPager[User]
+        ListUsersResponse
             List all users.
 
         Examples
@@ -335,20 +433,18 @@ class AsyncUsersClient:
 
 
         async def main() -> None:
-            response = await client.users.list()
-            async for item in response:
-                yield item
-
-            # alternatively, you can paginate page-by-page
-            async for page in response.iter_pages():
-                yield page
+            await client.users.list_users(
+                limit=1000000,
+                after="after",
+            )
 
 
         asyncio.run(main())
         """
-        return await self._raw_client.list(limit=limit, after=after, request_options=request_options)
+        _response = await self._raw_client.list_users(limit=limit, after=after, request_options=request_options)
+        return _response.data
 
-    async def create(
+    async def create_user(
         self,
         *,
         auth_type: CreateUserRequestAuthType,
@@ -402,7 +498,7 @@ class AsyncUsersClient:
 
 
         async def main() -> None:
-            await client.users.create(
+            await client.users.create_user(
                 auth_type="default",
                 email="user@company.com",
                 name="Bob Smith",
@@ -416,7 +512,7 @@ class AsyncUsersClient:
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.create(
+        _response = await self._raw_client.create_user(
             auth_type=auth_type,
             email=email,
             name=name,
@@ -426,7 +522,7 @@ class AsyncUsersClient:
         )
         return _response.data
 
-    async def get(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> UserResponse:
+    async def get_user(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> UserResponse:
         """
         Get a specific user's information. Users that have expired access will not be returned.
 
@@ -459,19 +555,19 @@ class AsyncUsersClient:
 
 
         async def main() -> None:
-            await client.users.get(
+            await client.users.get_user(
                 id="id",
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.get(id, request_options=request_options)
+        _response = await self._raw_client.get_user(id, request_options=request_options)
         return _response.data
 
-    async def delete(
+    async def delete_user(
         self, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> typing.Optional[typing.Any]:
+    ) -> StandardDeleteResponse:
         """
         Delete the given user.
 
@@ -489,7 +585,7 @@ class AsyncUsersClient:
 
         Returns
         -------
-        typing.Optional[typing.Any]
+        StandardDeleteResponse
             A successful DELETE response is a 204 with no content.
 
         Examples
@@ -504,17 +600,17 @@ class AsyncUsersClient:
 
 
         async def main() -> None:
-            await client.users.delete(
+            await client.users.delete_user(
                 id="id",
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.delete(id, request_options=request_options)
+        _response = await self._raw_client.delete_user(id, request_options=request_options)
         return _response.data
 
-    async def update(
+    async def update_user(
         self,
         id: str,
         *,
@@ -568,14 +664,14 @@ class AsyncUsersClient:
 
 
         async def main() -> None:
-            await client.users.update(
+            await client.users.update_user(
                 id="id",
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.update(
+        _response = await self._raw_client.update_user(
             id, auth_type=auth_type, expire_at=expire_at, name=name, roles=roles, request_options=request_options
         )
         return _response.data

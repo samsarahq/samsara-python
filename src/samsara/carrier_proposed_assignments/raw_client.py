@@ -7,12 +7,11 @@ from ..core.api_error import ApiError
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.http_response import AsyncHttpResponse, HttpResponse
 from ..core.jsonable_encoder import jsonable_encoder
-from ..core.pagination import AsyncPager, BaseHttpResponse, SyncPager
 from ..core.pydantic_utilities import parse_obj_as
 from ..core.request_options import RequestOptions
-from ..types.carrier_proposed_assignment import CarrierProposedAssignment
 from ..types.carrier_proposed_assignment_response import CarrierProposedAssignmentResponse
 from ..types.list_carrier_proposed_assignment_response import ListCarrierProposedAssignmentResponse
+from ..types.standard_delete_response import StandardDeleteResponse
 
 # this is used as the default value for optional parameters
 OMIT = typing.cast(typing.Any, ...)
@@ -22,7 +21,7 @@ class RawCarrierProposedAssignmentsClient:
     def __init__(self, *, client_wrapper: SyncClientWrapper):
         self._client_wrapper = client_wrapper
 
-    def list(
+    def list_carrier_proposed_assignments(
         self,
         *,
         limit: typing.Optional[int] = None,
@@ -30,7 +29,7 @@ class RawCarrierProposedAssignmentsClient:
         driver_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         active_time: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[CarrierProposedAssignment]:
+    ) -> HttpResponse[ListCarrierProposedAssignmentResponse]:
         """
         Show the assignments created by the POST fleet/carrier-proposed-assignments. This endpoint will only show the assignments that are active for drivers and currently visible to them in the driver app. Once a proposed assignment has been accepted, the endpoint will not return any data.
 
@@ -57,7 +56,7 @@ class RawCarrierProposedAssignmentsClient:
 
         Returns
         -------
-        SyncPager[CarrierProposedAssignment]
+        HttpResponse[ListCarrierProposedAssignmentResponse]
             Returns the assignments that drivers would see in the future, if any.
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -73,35 +72,20 @@ class RawCarrierProposedAssignmentsClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _parsed_response = typing.cast(
+                _data = typing.cast(
                     ListCarrierProposedAssignmentResponse,
                     parse_obj_as(
                         type_=ListCarrierProposedAssignmentResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                _items = _parsed_response.data
-                _has_next = False
-                _get_next = None
-                if _parsed_response.pagination is not None:
-                    _parsed_next = _parsed_response.pagination.end_cursor
-                    _has_next = _parsed_next is not None and _parsed_next != ""
-                    _get_next = lambda: self.list(
-                        limit=limit,
-                        after=_parsed_next,
-                        driver_ids=driver_ids,
-                        active_time=active_time,
-                        request_options=request_options,
-                    )
-                return SyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return HttpResponse(response=_response, data=_data)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    def create(
+    def create_carrier_proposed_assignment(
         self,
         *,
         driver_id: str,
@@ -179,9 +163,9 @@ class RawCarrierProposedAssignmentsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    def delete(
+    def delete_carrier_proposed_assignment(
         self, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> HttpResponse[typing.Optional[typing.Any]]:
+    ) -> HttpResponse[StandardDeleteResponse]:
         """
         Permanently delete an assignment. You can only delete assignments that are not yet active. To override a currently active assignment, create a new empty one, instead.
 
@@ -199,7 +183,7 @@ class RawCarrierProposedAssignmentsClient:
 
         Returns
         -------
-        HttpResponse[typing.Optional[typing.Any]]
+        HttpResponse[StandardDeleteResponse]
             A successful DELETE response is a 204 with no content.
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -208,13 +192,11 @@ class RawCarrierProposedAssignmentsClient:
             request_options=request_options,
         )
         try:
-            if _response is None or not _response.text.strip():
-                return HttpResponse(response=_response, data=None)
             if 200 <= _response.status_code < 300:
                 _data = typing.cast(
-                    typing.Optional[typing.Any],
+                    StandardDeleteResponse,
                     parse_obj_as(
-                        type_=typing.Optional[typing.Any],  # type: ignore
+                        type_=StandardDeleteResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -229,7 +211,7 @@ class AsyncRawCarrierProposedAssignmentsClient:
     def __init__(self, *, client_wrapper: AsyncClientWrapper):
         self._client_wrapper = client_wrapper
 
-    async def list(
+    async def list_carrier_proposed_assignments(
         self,
         *,
         limit: typing.Optional[int] = None,
@@ -237,7 +219,7 @@ class AsyncRawCarrierProposedAssignmentsClient:
         driver_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         active_time: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[CarrierProposedAssignment]:
+    ) -> AsyncHttpResponse[ListCarrierProposedAssignmentResponse]:
         """
         Show the assignments created by the POST fleet/carrier-proposed-assignments. This endpoint will only show the assignments that are active for drivers and currently visible to them in the driver app. Once a proposed assignment has been accepted, the endpoint will not return any data.
 
@@ -264,7 +246,7 @@ class AsyncRawCarrierProposedAssignmentsClient:
 
         Returns
         -------
-        AsyncPager[CarrierProposedAssignment]
+        AsyncHttpResponse[ListCarrierProposedAssignmentResponse]
             Returns the assignments that drivers would see in the future, if any.
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -280,38 +262,20 @@ class AsyncRawCarrierProposedAssignmentsClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _parsed_response = typing.cast(
+                _data = typing.cast(
                     ListCarrierProposedAssignmentResponse,
                     parse_obj_as(
                         type_=ListCarrierProposedAssignmentResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                _items = _parsed_response.data
-                _has_next = False
-                _get_next = None
-                if _parsed_response.pagination is not None:
-                    _parsed_next = _parsed_response.pagination.end_cursor
-                    _has_next = _parsed_next is not None and _parsed_next != ""
-
-                    async def _get_next():
-                        return await self.list(
-                            limit=limit,
-                            after=_parsed_next,
-                            driver_ids=driver_ids,
-                            active_time=active_time,
-                            request_options=request_options,
-                        )
-
-                return AsyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return AsyncHttpResponse(response=_response, data=_data)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    async def create(
+    async def create_carrier_proposed_assignment(
         self,
         *,
         driver_id: str,
@@ -389,9 +353,9 @@ class AsyncRawCarrierProposedAssignmentsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    async def delete(
+    async def delete_carrier_proposed_assignment(
         self, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> AsyncHttpResponse[typing.Optional[typing.Any]]:
+    ) -> AsyncHttpResponse[StandardDeleteResponse]:
         """
         Permanently delete an assignment. You can only delete assignments that are not yet active. To override a currently active assignment, create a new empty one, instead.
 
@@ -409,7 +373,7 @@ class AsyncRawCarrierProposedAssignmentsClient:
 
         Returns
         -------
-        AsyncHttpResponse[typing.Optional[typing.Any]]
+        AsyncHttpResponse[StandardDeleteResponse]
             A successful DELETE response is a 204 with no content.
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -418,13 +382,11 @@ class AsyncRawCarrierProposedAssignmentsClient:
             request_options=request_options,
         )
         try:
-            if _response is None or not _response.text.strip():
-                return AsyncHttpResponse(response=_response, data=None)
             if 200 <= _response.status_code < 300:
                 _data = typing.cast(
-                    typing.Optional[typing.Any],
+                    StandardDeleteResponse,
                     parse_obj_as(
-                        type_=typing.Optional[typing.Any],  # type: ignore
+                        type_=StandardDeleteResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )

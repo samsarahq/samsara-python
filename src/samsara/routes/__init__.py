@@ -2,6 +2,3 @@
 
 # isort: skip_file
 
-from . import audit_logs
-
-__all__ = ["audit_logs"]

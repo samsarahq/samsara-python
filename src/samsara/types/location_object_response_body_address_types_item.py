@@ -6,7 +6,9 @@ LocationObjectResponseBodyAddressTypesItem = typing.Union[
     typing.Literal[
         "agricultureSource",
         "alertsOnly",
+        "avoidanceZone",
         "industrialSite",
+        "knownGPSJammingZone",
         "riskZone",
         "shortHaul",
         "undefined",

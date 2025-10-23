@@ -22,10 +22,12 @@ from .vehicle_stats_engine_oil_pressure_k_pa import VehicleStatsEngineOilPressur
 from .vehicle_stats_engine_rpm import VehicleStatsEngineRpm
 from .vehicle_stats_engine_state import VehicleStatsEngineState
 from .vehicle_stats_fault_codes import VehicleStatsFaultCodes
+from .vehicle_stats_fuel_consumed_milliliters import VehicleStatsFuelConsumedMilliliters
 from .vehicle_stats_fuel_percent import VehicleStatsFuelPercent
 from .vehicle_stats_gps import VehicleStatsGps
 from .vehicle_stats_gps_distance_meters import VehicleStatsGpsDistanceMeters
 from .vehicle_stats_gps_odometer_meters import VehicleStatsGpsOdometerMeters
+from .vehicle_stats_idling_duration_milliseconds import VehicleStatsIdlingDurationMilliseconds
 from .vehicle_stats_intake_manifold_temp_milli_c import VehicleStatsIntakeManifoldTempMilliC
 from .vehicle_stats_nfc_card_scan import VehicleStatsNfcCardScan
 from .vehicle_stats_obd_engine_seconds import VehicleStatsObdEngineSeconds
@@ -186,6 +188,9 @@ class VehicleStatsResponseData(UniversalBaseModel):
     fault_codes: typing_extensions.Annotated[
         typing.Optional[VehicleStatsFaultCodes], FieldMetadata(alias="faultCodes")
     ] = None
+    fuel_consumed_milliliters: typing_extensions.Annotated[
+        typing.Optional[VehicleStatsFuelConsumedMilliliters], FieldMetadata(alias="fuelConsumedMilliliters")
+    ] = None
     fuel_percent: typing_extensions.Annotated[
         typing.Optional[VehicleStatsFuelPercent], FieldMetadata(alias="fuelPercent")
     ] = None
@@ -197,6 +202,9 @@ class VehicleStatsResponseData(UniversalBaseModel):
         typing.Optional[VehicleStatsGpsOdometerMeters], FieldMetadata(alias="gpsOdometerMeters")
     ] = None
     id: VehicleId
+    idling_duration_milliseconds: typing_extensions.Annotated[
+        typing.Optional[VehicleStatsIdlingDurationMilliseconds], FieldMetadata(alias="idlingDurationMilliseconds")
+    ] = None
     intake_manifold_temperature_milli_c: typing_extensions.Annotated[
         typing.Optional[VehicleStatsIntakeManifoldTempMilliC], FieldMetadata(alias="intakeManifoldTemperatureMilliC")
     ] = None

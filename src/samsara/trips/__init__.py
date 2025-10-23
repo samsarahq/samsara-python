@@ -2,6 +2,3 @@
 
 # isort: skip_file
 
-from .types import TripsStreamRequestCompletionStatus, TripsStreamRequestQueryBy
-
-__all__ = ["TripsStreamRequestCompletionStatus", "TripsStreamRequestQueryBy"]

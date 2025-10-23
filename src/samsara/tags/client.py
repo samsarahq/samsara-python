@@ -3,9 +3,9 @@
 import typing
 
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
-from ..core.pagination import AsyncPager, SyncPager
 from ..core.request_options import RequestOptions
-from ..types.tag import Tag
+from ..types.list_tags_response import ListTagsResponse
+from ..types.standard_delete_response import StandardDeleteResponse
 from ..types.tag_response import TagResponse
 from ..types.tagged_object_id import TaggedObjectId
 from .raw_client import AsyncRawTagsClient, RawTagsClient
@@ -29,13 +29,13 @@ class TagsClient:
         """
         return self._raw_client
 
-    def list(
+    def list_tags(
         self,
         *,
         limit: typing.Optional[int] = None,
         after: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[Tag]:
+    ) -> ListTagsResponse:
         """
         Return all of the tags for an organization.
 
@@ -56,7 +56,7 @@ class TagsClient:
 
         Returns
         -------
-        SyncPager[Tag]
+        ListTagsResponse
             List of tags.
 
         Examples
@@ -66,16 +66,15 @@ class TagsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        response = client.tags.list()
-        for item in response:
-            yield item
-        # alternatively, you can paginate page-by-page
-        for page in response.iter_pages():
-            yield page
+        client.tags.list_tags(
+            limit=1000000,
+            after="after",
+        )
         """
-        return self._raw_client.list(limit=limit, after=after, request_options=request_options)
+        _response = self._raw_client.list_tags(limit=limit, after=after, request_options=request_options)
+        return _response.data
 
-    def create(
+    def create_tag(
         self,
         *,
         name: str,
@@ -140,11 +139,11 @@ class TagsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.tags.create(
+        client.tags.create_tag(
             name="California",
         )
         """
-        _response = self._raw_client.create(
+        _response = self._raw_client.create_tag(
             name=name,
             addresses=addresses,
             assets=assets,
@@ -158,7 +157,7 @@ class TagsClient:
         )
         return _response.data
 
-    def get(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> TagResponse:
+    def get_tag(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> TagResponse:
         """
         Fetch a tag by id.
 
@@ -186,14 +185,14 @@ class TagsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.tags.get(
+        client.tags.get_tag(
             id="id",
         )
         """
-        _response = self._raw_client.get(id, request_options=request_options)
+        _response = self._raw_client.get_tag(id, request_options=request_options)
         return _response.data
 
-    def replace(
+    def replace_tag(
         self,
         id: str,
         *,
@@ -258,11 +257,11 @@ class TagsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.tags.replace(
+        client.tags.replace_tag(
             id="id",
         )
         """
-        _response = self._raw_client.replace(
+        _response = self._raw_client.replace_tag(
             id,
             addresses=addresses,
             assets=assets,
@@ -276,9 +275,7 @@ class TagsClient:
         )
         return _response.data
 
-    def delete(
-        self, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> typing.Optional[typing.Any]:
+    def delete_tag(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> StandardDeleteResponse:
         """
         Permanently deletes a tag.
 
@@ -296,7 +293,7 @@ class TagsClient:
 
         Returns
         -------
-        typing.Optional[typing.Any]
+        StandardDeleteResponse
             A successful DELETE response is a 204 with no content.
 
         Examples
@@ -306,14 +303,14 @@ class TagsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.tags.delete(
+        client.tags.delete_tag(
             id="id",
         )
         """
-        _response = self._raw_client.delete(id, request_options=request_options)
+        _response = self._raw_client.delete_tag(id, request_options=request_options)
         return _response.data
 
-    def patch(
+    def patch_tag(
         self,
         id: str,
         *,
@@ -386,11 +383,11 @@ class TagsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.tags.patch(
+        client.tags.patch_tag(
             id="id",
         )
         """
-        _response = self._raw_client.patch(
+        _response = self._raw_client.patch_tag(
             id,
             addresses=addresses,
             assets=assets,
@@ -421,13 +418,13 @@ class AsyncTagsClient:
         """
         return self._raw_client
 
-    async def list(
+    async def list_tags(
         self,
         *,
         limit: typing.Optional[int] = None,
         after: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[Tag]:
+    ) -> ListTagsResponse:
         """
         Return all of the tags for an organization.
 
@@ -448,7 +445,7 @@ class AsyncTagsClient:
 
         Returns
         -------
-        AsyncPager[Tag]
+        ListTagsResponse
             List of tags.
 
         Examples
@@ -463,20 +460,18 @@ class AsyncTagsClient:
 
 
         async def main() -> None:
-            response = await client.tags.list()
-            async for item in response:
-                yield item
-
-            # alternatively, you can paginate page-by-page
-            async for page in response.iter_pages():
-                yield page
+            await client.tags.list_tags(
+                limit=1000000,
+                after="after",
+            )
 
 
         asyncio.run(main())
         """
-        return await self._raw_client.list(limit=limit, after=after, request_options=request_options)
+        _response = await self._raw_client.list_tags(limit=limit, after=after, request_options=request_options)
+        return _response.data
 
-    async def create(
+    async def create_tag(
         self,
         *,
         name: str,
@@ -546,14 +541,14 @@ class AsyncTagsClient:
 
 
         async def main() -> None:
-            await client.tags.create(
+            await client.tags.create_tag(
                 name="California",
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.create(
+        _response = await self._raw_client.create_tag(
             name=name,
             addresses=addresses,
             assets=assets,
@@ -567,7 +562,7 @@ class AsyncTagsClient:
         )
         return _response.data
 
-    async def get(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> TagResponse:
+    async def get_tag(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> TagResponse:
         """
         Fetch a tag by id.
 
@@ -600,17 +595,17 @@ class AsyncTagsClient:
 
 
         async def main() -> None:
-            await client.tags.get(
+            await client.tags.get_tag(
                 id="id",
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.get(id, request_options=request_options)
+        _response = await self._raw_client.get_tag(id, request_options=request_options)
         return _response.data
 
-    async def replace(
+    async def replace_tag(
         self,
         id: str,
         *,
@@ -680,14 +675,14 @@ class AsyncTagsClient:
 
 
         async def main() -> None:
-            await client.tags.replace(
+            await client.tags.replace_tag(
                 id="id",
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.replace(
+        _response = await self._raw_client.replace_tag(
             id,
             addresses=addresses,
             assets=assets,
@@ -701,9 +696,9 @@ class AsyncTagsClient:
         )
         return _response.data
 
-    async def delete(
+    async def delete_tag(
         self, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> typing.Optional[typing.Any]:
+    ) -> StandardDeleteResponse:
         """
         Permanently deletes a tag.
 
@@ -721,7 +716,7 @@ class AsyncTagsClient:
 
         Returns
         -------
-        typing.Optional[typing.Any]
+        StandardDeleteResponse
             A successful DELETE response is a 204 with no content.
 
         Examples
@@ -736,17 +731,17 @@ class AsyncTagsClient:
 
 
         async def main() -> None:
-            await client.tags.delete(
+            await client.tags.delete_tag(
                 id="id",
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.delete(id, request_options=request_options)
+        _response = await self._raw_client.delete_tag(id, request_options=request_options)
         return _response.data
 
-    async def patch(
+    async def patch_tag(
         self,
         id: str,
         *,
@@ -824,14 +819,14 @@ class AsyncTagsClient:
 
 
         async def main() -> None:
-            await client.tags.patch(
+            await client.tags.patch_tag(
                 id="id",
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.patch(
+        _response = await self._raw_client.patch_tag(
             id,
             addresses=addresses,
             assets=assets,

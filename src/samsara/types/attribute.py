@@ -7,8 +7,8 @@ import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .attribute_attribute_type import AttributeAttributeType
-from .attribute_attribute_value_quantity import AttributeAttributeValueQuantity
 from .attribute_entity_type import AttributeEntityType
+from .attribute_unit import AttributeUnit
 from .attribute_value_tiny import AttributeValueTiny
 
 
@@ -17,14 +17,7 @@ class Attribute(UniversalBaseModel):
         typing.Optional[AttributeAttributeType], FieldMetadata(alias="attributeType")
     ] = pydantic.Field(default=None)
     """
-    Denotes the data type of the attribute's values. Valid values: `string`, `number`.
-    """
-
-    attribute_value_quantity: typing_extensions.Annotated[
-        typing.Optional[AttributeAttributeValueQuantity], FieldMetadata(alias="attributeValueQuantity")
-    ] = pydantic.Field(default=None)
-    """
-    Defines whether or not this attribute can be used on the same entity many times (with different values). Valid values: `single`, `multi`.
+    Denotes the data type of the attribute's values. Valid values: `single-select`, `multi-select`, `text`, `freeform-multi-select`, `number`.
     """
 
     entity_type: typing_extensions.Annotated[
@@ -48,19 +41,24 @@ class Attribute(UniversalBaseModel):
         typing.Optional[typing.List[float]], FieldMetadata(alias="numberValues")
     ] = pydantic.Field(default=None)
     """
-    Number values that can be associated with this attribute
+    Number values that can be associated with this attribute. Note: this field is `null` for `text` and `freeform-multi-select` attribute types.`
     """
 
     string_values: typing_extensions.Annotated[
         typing.Optional[typing.List[str]], FieldMetadata(alias="stringValues")
     ] = pydantic.Field(default=None)
     """
-    String values that can be associated with this attribute
+    String values that can be associated with this attribute. Note: this field is `null` for `text` and `freeform-multi-select` attribute types.`
+    """
+
+    unit: typing.Optional[AttributeUnit] = pydantic.Field(default=None)
+    """
+    Unit of the attribute (only for Number attributes).
     """
 
     values: typing.Optional[typing.List[AttributeValueTiny]] = pydantic.Field(default=None)
     """
-    Representation of values that includes ids.
+    Representation of values that includes ids. Note: this field is `null` for `text` and `freeform-multi-select` attribute types.`
     """
 
     if IS_PYDANTIC_V2:

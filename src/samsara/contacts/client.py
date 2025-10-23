@@ -3,10 +3,10 @@
 import typing
 
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
-from ..core.pagination import AsyncPager, SyncPager
 from ..core.request_options import RequestOptions
-from ..types.contact import Contact
 from ..types.contact_response import ContactResponse
+from ..types.list_contacts_response import ListContactsResponse
+from ..types.standard_delete_response import StandardDeleteResponse
 from .raw_client import AsyncRawContactsClient, RawContactsClient
 
 # this is used as the default value for optional parameters
@@ -28,13 +28,13 @@ class ContactsClient:
         """
         return self._raw_client
 
-    def list(
+    def list_contacts(
         self,
         *,
         limit: typing.Optional[int] = None,
         after: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[Contact]:
+    ) -> ListContactsResponse:
         """
         Returns a list of all contacts in an organization.
 
@@ -55,7 +55,7 @@ class ContactsClient:
 
         Returns
         -------
-        SyncPager[Contact]
+        ListContactsResponse
             List of all contacts
 
         Examples
@@ -65,16 +65,15 @@ class ContactsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        response = client.contacts.list()
-        for item in response:
-            yield item
-        # alternatively, you can paginate page-by-page
-        for page in response.iter_pages():
-            yield page
+        client.contacts.list_contacts(
+            limit=1000000,
+            after="after",
+        )
         """
-        return self._raw_client.list(limit=limit, after=after, request_options=request_options)
+        _response = self._raw_client.list_contacts(limit=limit, after=after, request_options=request_options)
+        return _response.data
 
-    def create(
+    def create_contact(
         self,
         *,
         email: typing.Optional[str] = OMIT,
@@ -119,14 +118,14 @@ class ContactsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.contacts.create()
+        client.contacts.create_contact()
         """
-        _response = self._raw_client.create(
+        _response = self._raw_client.create_contact(
             email=email, first_name=first_name, last_name=last_name, phone=phone, request_options=request_options
         )
         return _response.data
 
-    def get(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> ContactResponse:
+    def get_contact(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> ContactResponse:
         """
         Get a specific contact's information.
 
@@ -154,16 +153,16 @@ class ContactsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.contacts.get(
+        client.contacts.get_contact(
             id="id",
         )
         """
-        _response = self._raw_client.get(id, request_options=request_options)
+        _response = self._raw_client.get_contact(id, request_options=request_options)
         return _response.data
 
-    def delete(
+    def delete_contact(
         self, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> typing.Optional[typing.Any]:
+    ) -> StandardDeleteResponse:
         """
         Delete the given contact.
 
@@ -181,7 +180,7 @@ class ContactsClient:
 
         Returns
         -------
-        typing.Optional[typing.Any]
+        StandardDeleteResponse
             A successful DELETE response is a 204 with no content.
 
         Examples
@@ -191,14 +190,14 @@ class ContactsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.contacts.delete(
+        client.contacts.delete_contact(
             id="id",
         )
         """
-        _response = self._raw_client.delete(id, request_options=request_options)
+        _response = self._raw_client.delete_contact(id, request_options=request_options)
         return _response.data
 
-    def update(
+    def update_contact(
         self,
         id: str,
         *,
@@ -247,11 +246,11 @@ class ContactsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.contacts.update(
+        client.contacts.update_contact(
             id="id",
         )
         """
-        _response = self._raw_client.update(
+        _response = self._raw_client.update_contact(
             id, email=email, first_name=first_name, last_name=last_name, phone=phone, request_options=request_options
         )
         return _response.data
@@ -272,13 +271,13 @@ class AsyncContactsClient:
         """
         return self._raw_client
 
-    async def list(
+    async def list_contacts(
         self,
         *,
         limit: typing.Optional[int] = None,
         after: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[Contact]:
+    ) -> ListContactsResponse:
         """
         Returns a list of all contacts in an organization.
 
@@ -299,7 +298,7 @@ class AsyncContactsClient:
 
         Returns
         -------
-        AsyncPager[Contact]
+        ListContactsResponse
             List of all contacts
 
         Examples
@@ -314,20 +313,18 @@ class AsyncContactsClient:
 
 
         async def main() -> None:
-            response = await client.contacts.list()
-            async for item in response:
-                yield item
-
-            # alternatively, you can paginate page-by-page
-            async for page in response.iter_pages():
-                yield page
+            await client.contacts.list_contacts(
+                limit=1000000,
+                after="after",
+            )
 
 
         asyncio.run(main())
         """
-        return await self._raw_client.list(limit=limit, after=after, request_options=request_options)
+        _response = await self._raw_client.list_contacts(limit=limit, after=after, request_options=request_options)
+        return _response.data
 
-    async def create(
+    async def create_contact(
         self,
         *,
         email: typing.Optional[str] = OMIT,
@@ -377,17 +374,17 @@ class AsyncContactsClient:
 
 
         async def main() -> None:
-            await client.contacts.create()
+            await client.contacts.create_contact()
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.create(
+        _response = await self._raw_client.create_contact(
             email=email, first_name=first_name, last_name=last_name, phone=phone, request_options=request_options
         )
         return _response.data
 
-    async def get(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> ContactResponse:
+    async def get_contact(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> ContactResponse:
         """
         Get a specific contact's information.
 
@@ -420,19 +417,19 @@ class AsyncContactsClient:
 
 
         async def main() -> None:
-            await client.contacts.get(
+            await client.contacts.get_contact(
                 id="id",
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.get(id, request_options=request_options)
+        _response = await self._raw_client.get_contact(id, request_options=request_options)
         return _response.data
 
-    async def delete(
+    async def delete_contact(
         self, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> typing.Optional[typing.Any]:
+    ) -> StandardDeleteResponse:
         """
         Delete the given contact.
 
@@ -450,7 +447,7 @@ class AsyncContactsClient:
 
         Returns
         -------
-        typing.Optional[typing.Any]
+        StandardDeleteResponse
             A successful DELETE response is a 204 with no content.
 
         Examples
@@ -465,17 +462,17 @@ class AsyncContactsClient:
 
 
         async def main() -> None:
-            await client.contacts.delete(
+            await client.contacts.delete_contact(
                 id="id",
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.delete(id, request_options=request_options)
+        _response = await self._raw_client.delete_contact(id, request_options=request_options)
         return _response.data
 
-    async def update(
+    async def update_contact(
         self,
         id: str,
         *,
@@ -529,14 +526,14 @@ class AsyncContactsClient:
 
 
         async def main() -> None:
-            await client.contacts.update(
+            await client.contacts.update_contact(
                 id="id",
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.update(
+        _response = await self._raw_client.update_contact(
             id, email=email, first_name=first_name, last_name=last_name, phone=phone, request_options=request_options
         )
         return _response.data

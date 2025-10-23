@@ -20,6 +20,7 @@ from .driver_eld_settings import DriverEldSettings
 from .driver_eld_ym_enabled import DriverEldYmEnabled
 from .driver_external_ids import DriverExternalIds
 from .driver_has_driving_features_hidden import DriverHasDrivingFeaturesHidden
+from .driver_has_vehicle_unpinning_enabled import DriverHasVehicleUnpinningEnabled
 from .driver_id import DriverId
 from .driver_id_card_code import DriverIdCardCode
 from .driver_is_deactivated import DriverIsDeactivated
@@ -29,6 +30,7 @@ from .driver_locale import DriverLocale
 from .driver_name import DriverName
 from .driver_notes import DriverNotes
 from .driver_phone import DriverPhone
+from .driver_profile_image_url import DriverProfileImageUrl
 from .driver_static_assigned_vehicle import DriverStaticAssignedVehicle
 from .driver_tachograph_card_number import DriverTachographCardNumber
 from .driver_tags import DriverTags
@@ -92,6 +94,9 @@ class Driver(UniversalBaseModel):
     has_driving_features_hidden: typing_extensions.Annotated[
         typing.Optional[DriverHasDrivingFeaturesHidden], FieldMetadata(alias="hasDrivingFeaturesHidden")
     ] = None
+    has_vehicle_unpinning_enabled: typing_extensions.Annotated[
+        typing.Optional[DriverHasVehicleUnpinningEnabled], FieldMetadata(alias="hasVehicleUnpinningEnabled")
+    ] = None
     id: typing.Optional[DriverId] = None
     is_deactivated: typing_extensions.Annotated[
         typing.Optional[DriverIsDeactivated], FieldMetadata(alias="isDeactivated")
@@ -109,6 +114,9 @@ class Driver(UniversalBaseModel):
         typing.Optional[TagTinyResponse], FieldMetadata(alias="peerGroupTag")
     ] = None
     phone: typing.Optional[DriverPhone] = None
+    profile_image_url: typing_extensions.Annotated[
+        typing.Optional[DriverProfileImageUrl], FieldMetadata(alias="profileImageUrl")
+    ] = None
     static_assigned_vehicle: typing_extensions.Annotated[
         typing.Optional[DriverStaticAssignedVehicle], FieldMetadata(alias="staticAssignedVehicle")
     ] = None
