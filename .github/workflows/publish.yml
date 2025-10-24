@@ -2,11 +2,6 @@ name: Release Python SDK
 
 on:
   workflow_dispatch:
-    inputs:
-      version:
-        description: "The version of the Python SDK that you would like to release"
-        required: true
-        type: string
 
 jobs:
   release:
