@@ -4,24 +4,47 @@ on:
   workflow_dispatch:
   workflow_call:
 
+permissions:
+  contents: read
+  id-token: write
+
 jobs:
   release:
     runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.get-version.outputs.version }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+
       - name: Set up python
         uses: actions/setup-python@v4
         with:
           python-version: 3.8
+
       - name: Bootstrap poetry
         run: |
           curl -sSL https://install.python-poetry.org | python - -y --version 1.5.1
+
       - name: Install dependencies
         run: poetry install
+
       - name: Publish to pypi
         run: |
           poetry config repositories.remote https://upload.pypi.org/legacy/
           poetry --no-interaction -v publish --build --repository remote -u __token__ -p "$PYPI_ACCESS_TOKEN"
         env:
           PYPI_ACCESS_TOKEN: ${{ secrets.PYPI_ACCESS_TOKEN }}
+
+      - name: Get version from pyproject.toml
+        id: get-version
+        run: |
+          VERSION=$(poetry version --short)
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "SDK version: $VERSION"
+
+  publish-layer:
+    needs: release
+    uses: ./.github/workflows/publish-layer.yml
+    with:
+      sdk_version: ${{ needs.release.outputs.version }}
