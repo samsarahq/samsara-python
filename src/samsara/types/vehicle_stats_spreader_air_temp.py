@@ -4,7 +4,7 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from .time import Time
+from .vehicle_stats_time import VehicleStatsTime
 
 
 class VehicleStatsSpreaderAirTemp(UniversalBaseModel):
@@ -12,7 +12,7 @@ class VehicleStatsSpreaderAirTemp(UniversalBaseModel):
     Air (ambient) temperature in milli celsius reading from material spreader.
     """
 
-    time: Time
+    time: VehicleStatsTime
     value: int = pydantic.Field()
     """
     Air (ambient) temperature in milli celsius reading from material spreader.

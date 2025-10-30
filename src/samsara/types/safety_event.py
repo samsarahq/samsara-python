@@ -6,17 +6,17 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
-from .driver_tiny_response import DriverTinyResponse
-from .location import Location
 from .safety_event_behavior_labels import SafetyEventBehaviorLabels
 from .safety_event_coaching_state import SafetyEventCoachingState
 from .safety_event_download_forward_video_url import SafetyEventDownloadForwardVideoUrl
 from .safety_event_download_inward_video_url import SafetyEventDownloadInwardVideoUrl
 from .safety_event_download_tracked_inward_video_url import SafetyEventDownloadTrackedInwardVideoUrl
+from .safety_event_driver import SafetyEventDriver
 from .safety_event_id import SafetyEventId
+from .safety_event_location import SafetyEventLocation
 from .safety_event_max_acceleration_g_force import SafetyEventMaxAccelerationGForce
 from .safety_event_time import SafetyEventTime
-from .vehicle_tiny_response import VehicleTinyResponse
+from .safety_event_vehicle import SafetyEventVehicle
 
 
 class SafetyEvent(UniversalBaseModel):
@@ -39,14 +39,14 @@ class SafetyEvent(UniversalBaseModel):
     download_tracked_inward_video_url: typing_extensions.Annotated[
         typing.Optional[SafetyEventDownloadTrackedInwardVideoUrl], FieldMetadata(alias="downloadTrackedInwardVideoUrl")
     ] = None
-    driver: typing.Optional[DriverTinyResponse] = None
+    driver: typing.Optional[SafetyEventDriver] = None
     id: typing.Optional[SafetyEventId] = None
-    location: typing.Optional[Location] = None
+    location: typing.Optional[SafetyEventLocation] = None
     max_acceleration_g_force: typing_extensions.Annotated[
         typing.Optional[SafetyEventMaxAccelerationGForce], FieldMetadata(alias="maxAccelerationGForce")
     ] = None
     time: typing.Optional[SafetyEventTime] = None
-    vehicle: typing.Optional[VehicleTinyResponse] = None
+    vehicle: typing.Optional[SafetyEventVehicle] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

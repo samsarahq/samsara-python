@@ -46,6 +46,7 @@ if typing.TYPE_CHECKING:
     from .organization_info.client import AsyncOrganizationInfoClient, OrganizationInfoClient
     from .plans.client import AsyncPlansClient, PlansClient
     from .preview_ap_is.client import AsyncPreviewApIsClient, PreviewApIsClient
+    from .route_events.client import AsyncRouteEventsClient, RouteEventsClient
     from .routes.client import AsyncRoutesClient, RoutesClient
     from .safety.client import AsyncSafetyClient, SafetyClient
     from .sensors.client import AsyncSensorsClient, SensorsClient
@@ -168,6 +169,7 @@ class Samsara:
         self._work_orders: typing.Optional[WorkOrdersClient] = None
         self._organization_info: typing.Optional[OrganizationInfoClient] = None
         self._preview_ap_is: typing.Optional[PreviewApIsClient] = None
+        self._route_events: typing.Optional[RouteEventsClient] = None
         self._speeding_intervals: typing.Optional[SpeedingIntervalsClient] = None
         self._tags: typing.Optional[TagsClient] = None
         self._users: typing.Optional[UsersClient] = None
@@ -492,6 +494,14 @@ class Samsara:
         return self._preview_ap_is
 
     @property
+    def route_events(self):
+        if self._route_events is None:
+            from .route_events.client import RouteEventsClient  # noqa: E402
+
+            self._route_events = RouteEventsClient(client_wrapper=self._client_wrapper)
+        return self._route_events
+
+    @property
     def speeding_intervals(self):
         if self._speeding_intervals is None:
             from .speeding_intervals.client import SpeedingIntervalsClient  # noqa: E402
@@ -676,6 +686,7 @@ class AsyncSamsara:
         self._work_orders: typing.Optional[AsyncWorkOrdersClient] = None
         self._organization_info: typing.Optional[AsyncOrganizationInfoClient] = None
         self._preview_ap_is: typing.Optional[AsyncPreviewApIsClient] = None
+        self._route_events: typing.Optional[AsyncRouteEventsClient] = None
         self._speeding_intervals: typing.Optional[AsyncSpeedingIntervalsClient] = None
         self._tags: typing.Optional[AsyncTagsClient] = None
         self._users: typing.Optional[AsyncUsersClient] = None
@@ -1000,6 +1011,14 @@ class AsyncSamsara:
 
             self._preview_ap_is = AsyncPreviewApIsClient(client_wrapper=self._client_wrapper)
         return self._preview_ap_is
+
+    @property
+    def route_events(self):
+        if self._route_events is None:
+            from .route_events.client import AsyncRouteEventsClient  # noqa: E402
+
+            self._route_events = AsyncRouteEventsClient(client_wrapper=self._client_wrapper)
+        return self._route_events
 
     @property
     def speeding_intervals(self):

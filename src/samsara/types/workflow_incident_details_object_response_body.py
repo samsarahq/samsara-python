@@ -15,6 +15,7 @@ from .dashcam_disconnected_response_body import DashcamDisconnectedResponseBody
 from .data_input_value_response_body import DataInputValueResponseBody
 from .device_movement_data_response_body import DeviceMovementDataResponseBody
 from .device_movement_stopped_data_response_body import DeviceMovementStoppedDataResponseBody
+from .door_open_response_body import DoorOpenResponseBody
 from .driver_app_sign_in_response_body import DriverAppSignInResponseBody
 from .driver_app_sign_out_response_body import DriverAppSignOutResponseBody
 from .driver_document_submitted_response_body import DriverDocumentSubmittedResponseBody
@@ -96,6 +97,9 @@ class WorkflowIncidentDetailsObjectResponseBody(UniversalBaseModel):
     device_movement_stopped: typing_extensions.Annotated[
         typing.Optional[DeviceMovementStoppedDataResponseBody], FieldMetadata(alias="deviceMovementStopped")
     ] = None
+    door_open: typing_extensions.Annotated[typing.Optional[DoorOpenResponseBody], FieldMetadata(alias="doorOpen")] = (
+        None
+    )
     driver_app_sign_in: typing_extensions.Annotated[
         typing.Optional[DriverAppSignInResponseBody], FieldMetadata(alias="driverAppSignIn")
     ] = None

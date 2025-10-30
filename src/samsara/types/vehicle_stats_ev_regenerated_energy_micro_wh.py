@@ -4,7 +4,7 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from .time import Time
+from .vehicle_stats_time import VehicleStatsTime
 
 
 class VehicleStatsEvRegeneratedEnergyMicroWh(UniversalBaseModel):
@@ -12,7 +12,7 @@ class VehicleStatsEvRegeneratedEnergyMicroWh(UniversalBaseModel):
     Regenerated energy for electric and hybrid vehicles in microwatt hours. Not all EV and HEVs may report this field.
     """
 
-    time: Time
+    time: VehicleStatsTime
     value: int = pydantic.Field()
     """
     Regenerated energy for electric and hybrid vehicles in microwatt hours.

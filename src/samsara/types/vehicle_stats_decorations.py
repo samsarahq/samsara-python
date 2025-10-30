@@ -32,6 +32,7 @@ from .vehicle_stats_decorations_intake_manifold_temperature_milli_c import (
 )
 from .vehicle_stats_decorations_obd_engine_seconds import VehicleStatsDecorationsObdEngineSeconds
 from .vehicle_stats_decorations_obd_odometer_meters import VehicleStatsDecorationsObdOdometerMeters
+from .vehicle_stats_ecu_door_status import VehicleStatsEcuDoorStatus
 from .vehicle_stats_engine_immobilizer import VehicleStatsEngineImmobilizer
 from .vehicle_stats_ev_average_battery_temperature_milli_celsius import (
     VehicleStatsEvAverageBatteryTemperatureMilliCelsius,
@@ -131,6 +132,9 @@ class VehicleStatsDecorations(UniversalBaseModel):
     ] = None
     def_level_milli_percent: typing_extensions.Annotated[
         typing.Optional[VehicleStatsDecorationsDefLevelMilliPercent], FieldMetadata(alias="defLevelMilliPercent")
+    ] = None
+    ecu_door_status: typing_extensions.Annotated[
+        typing.Optional[VehicleStatsEcuDoorStatus], FieldMetadata(alias="ecuDoorStatus")
     ] = None
     ecu_speed_mph: typing_extensions.Annotated[
         typing.Optional[VehicleStatsDecorationsEcuSpeedMph], FieldMetadata(alias="ecuSpeedMph")
