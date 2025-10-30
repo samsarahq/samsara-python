@@ -4,7 +4,7 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from .time import Time
+from .vehicle_stats_time import VehicleStatsTime
 
 
 class VehicleStatsEngineRpm(UniversalBaseModel):
@@ -12,7 +12,7 @@ class VehicleStatsEngineRpm(UniversalBaseModel):
     Vehicle engine RPM reading.
     """
 
-    time: Time
+    time: VehicleStatsTime
     value: int = pydantic.Field()
     """
     The revolutions per minute of the engine.

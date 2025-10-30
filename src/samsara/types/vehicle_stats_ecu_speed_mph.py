@@ -4,7 +4,7 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from .time import Time
+from .vehicle_stats_time import VehicleStatsTime
 
 
 class VehicleStatsEcuSpeedMph(UniversalBaseModel):
@@ -12,7 +12,7 @@ class VehicleStatsEcuSpeedMph(UniversalBaseModel):
     The speed of the vehicle in miles per hour, as reported by the ECU.
     """
 
-    time: Time
+    time: VehicleStatsTime
     value: float = pydantic.Field()
     """
     The speed of the vehicle in miles per hour.

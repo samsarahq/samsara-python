@@ -52,6 +52,7 @@ GetVehicleStatsFeedRequestDecorationsItem = typing.Union[
         "spreaderPlowStatus",
         "seatbeltDriver",
         "tellTales",
+        "ecuDoorStatus",
     ],
     typing.Any,
 ]

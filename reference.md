@@ -20229,6 +20229,7 @@ You may list ***up to 3*** types using comma-separated format. For example: `typ
 - `spreaderPlowStatus`: Snow plow status (`Up` or `Down`), as read from the material spreader. Note: this is separate from plow status defined via auxInput.
 - `seatbeltDriver`: Seatbelt Driver Status as read from the vehicle. `Buckled` or `Unbuckled`. (Beta only)
 - `tellTales`: Tell tales status as read from the vehicle.
+- `ecuDoorStatus`: Status of doors, sourced from ECU or from AUX port assigned to a Door label if diagnostic from ECU is not available. Either `Closed`, `Open` or `Unknown`.
     
 </dd>
 </dl>
@@ -20403,6 +20404,7 @@ You may list ***up to 3*** types using comma-separated format. For example: `typ
 - `spreaderPlowStatus`: Snow plow status (`Up` or `Down`), as read from the material spreader. Note: this is separate from plow status defined via auxInput.
 - `seatbeltDriver`: Seatbelt Driver Status as read from the vehicle. `Buckled` or `Unbuckled`. (Beta only)
 - `tellTales`: Tell tales status as read from the vehicle.
+- `ecuDoorStatus`: Status of doors, sourced from ECU or from AUX port assigned to a Door label if diagnostic from ECU is not available. Either `Closed`, `Open` or `Unknown`.
     
 </dd>
 </dl>
@@ -20470,7 +20472,8 @@ Note that decorations may significantly increase the response payload size.
 - `spreaderLiquidName`: Name of most recent type of liquid material spread, read from the material spreader.
 - `spreaderPlowStatus`: Snow plow status (`Up` or `Down`), as read from the material spreader. Note: this is separate from plow status defined via auxInput.
 - `seatbeltDriver`: Seatbelt Driver Status as read from the vehicle. `Buckled` or `Unbuckled`. (Beta only)
-- `tellTales`: Tell tales status as read from the vehicle. 
+- `tellTales`: Tell tales status as read from the vehicle.
+- `ecuDoorStatus`: Status of doors, sourced from ECU or from AUX port assigned to a Door label if diagnostic from ECU is not available. Either `Closed`, `Open` or `Unknown`.
     
 </dd>
 </dl>
@@ -20658,6 +20661,7 @@ You may list ***up to 3*** types using comma-separated format. For example: `typ
 - `spreaderPlowStatus`: Snow plow status (`Up` or `Down`), as read from the material spreader. Note: this is separate from plow status defined via auxInput.
 - `seatbeltDriver`: Seatbelt Driver Status as read from the vehicle. `Buckled` or `Unbuckled`. (Beta only)
 - `tellTales`: Tell tales status as read from the vehicle.
+- `ecuDoorStatus`: Status of doors, sourced from ECU or from AUX port assigned to a Door label if diagnostic from ECU is not available. Either `Closed`, `Open` or `Unknown`.
     
 </dd>
 </dl>
@@ -20725,7 +20729,8 @@ Note that decorations may significantly increase the response payload size.
 - `spreaderLiquidName`: Name of most recent type of liquid material spread, read from the material spreader.
 - `spreaderPlowStatus`: Snow plow status (`Up` or `Down`), as read from the material spreader. Note: this is separate from plow status defined via auxInput.
 - `seatbeltDriver`: Seatbelt Driver Status as read from the vehicle. `Buckled` or `Unbuckled`. (Beta only)
-- `tellTales`: Tell tales status as read from the vehicle. 
+- `tellTales`: Tell tales status as read from the vehicle.
+- `ecuDoorStatus`: Status of doors, sourced from ECU or from AUX port assigned to a Door label if diagnostic from ECU is not available. Either `Closed`, `Open` or `Unknown`.
     
 </dd>
 </dl>
@@ -26381,6 +26386,111 @@ client.preview_ap_is.unlock_vehicle(
 <dd>
 
 **id:** `str` — The ID of the vehicle to lock or unlock. This can be a Samsara internal ID or an external ID in the format `samsara.vin:{VIN}`.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## RouteEvents
+<details><summary><code>client.route_events.<a href="src/samsara/route_events/client.py">get_route_events_stream</a>(...)</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Subscribes to a feed of immutable, append-only updates for routes. The initial request to this feed endpoint returns a cursor, which can be used in subsequent requests to fetch events on all routes that occurred after the last retrieved event. An initial request (with empty after and startTime parameters) will return events from the past 24 hours.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.route_events.get_route_events_stream(
+    after="after",
+    start_time="startTime",
+    limit=1,
+    include_external_ids=True,
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**start_time:** `typing.Optional[str]` — A start time in RFC 3339 format. Defaults to 24 hours ago if not provided. Millisecond precision and timezones are supported. (Examples: 2025-07-01T19:08:25Z, 2025-07-01T19:08:25.455Z, OR 2025-07-01T14:00:12-04:00). Cannot be more than 7 days in the past.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**limit:** `typing.Optional[int]` — The limit for how many events will be in the response. Default and max for this value is 200 events.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_external_ids:** `typing.Optional[bool]` — Optional boolean indicating whether to return external IDs on supported entities
     
 </dd>
 </dl>

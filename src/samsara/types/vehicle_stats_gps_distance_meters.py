@@ -4,7 +4,7 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from .time import Time
+from .vehicle_stats_time import VehicleStatsTime
 
 
 class VehicleStatsGpsDistanceMeters(UniversalBaseModel):
@@ -12,7 +12,7 @@ class VehicleStatsGpsDistanceMeters(UniversalBaseModel):
     Vehicle GPS distance event.
     """
 
-    time: Time
+    time: VehicleStatsTime
     value: float = pydantic.Field()
     """
     Number of meters the vehicle has traveled since the gateway was installed, based on GPS calculations.

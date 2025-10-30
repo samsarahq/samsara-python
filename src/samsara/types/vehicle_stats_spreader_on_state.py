@@ -4,8 +4,8 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from .time import Time
 from .vehicle_stats_spreader_on_state_value import VehicleStatsSpreaderOnStateValue
+from .vehicle_stats_time import VehicleStatsTime
 
 
 class VehicleStatsSpreaderOnState(UniversalBaseModel):
@@ -13,7 +13,7 @@ class VehicleStatsSpreaderOnState(UniversalBaseModel):
     Whether vehicle spreader is enabled.
     """
 
-    time: Time
+    time: VehicleStatsTime
     value: VehicleStatsSpreaderOnStateValue = pydantic.Field()
     """
     Whether vehicle spreader is enabled.

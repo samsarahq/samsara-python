@@ -4,9 +4,9 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from .time import Time
 from .vehicle_stats_decorations import VehicleStatsDecorations
 from .vehicle_stats_engine_state_setting import VehicleStatsEngineStateSetting
+from .vehicle_stats_time import VehicleStatsTime
 
 
 class VehicleStatsEngineStateWithDecoration(UniversalBaseModel):
@@ -15,7 +15,7 @@ class VehicleStatsEngineStateWithDecoration(UniversalBaseModel):
     """
 
     decorations: typing.Optional[VehicleStatsDecorations] = None
-    time: Time
+    time: VehicleStatsTime
     value: VehicleStatsEngineStateSetting
 
     if IS_PYDANTIC_V2:

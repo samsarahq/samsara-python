@@ -125,6 +125,7 @@ class VehicleStatsClient:
             - `spreaderPlowStatus`: Snow plow status (`Up` or `Down`), as read from the material spreader. Note: this is separate from plow status defined via auxInput.
             - `seatbeltDriver`: Seatbelt Driver Status as read from the vehicle. `Buckled` or `Unbuckled`. (Beta only)
             - `tellTales`: Tell tales status as read from the vehicle.
+            - `ecuDoorStatus`: Status of doors, sourced from ECU or from AUX port assigned to a Door label if diagnostic from ECU is not available. Either `Closed`, `Open` or `Unknown`.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -257,6 +258,7 @@ class VehicleStatsClient:
             - `spreaderPlowStatus`: Snow plow status (`Up` or `Down`), as read from the material spreader. Note: this is separate from plow status defined via auxInput.
             - `seatbeltDriver`: Seatbelt Driver Status as read from the vehicle. `Buckled` or `Unbuckled`. (Beta only)
             - `tellTales`: Tell tales status as read from the vehicle.
+            - `ecuDoorStatus`: Status of doors, sourced from ECU or from AUX port assigned to a Door label if diagnostic from ECU is not available. Either `Closed`, `Open` or `Unknown`.
 
         decorations : typing.Optional[typing.Union[GetVehicleStatsFeedRequestDecorationsItem, typing.Sequence[GetVehicleStatsFeedRequestDecorationsItem]]]
             Decorations to add to the primary stats listed in the `types` parameter. For example, if you wish to know the vehicle's location whenever the engine changes state, you may set `types=engineStates&decorations=gps`.
@@ -313,6 +315,7 @@ class VehicleStatsClient:
             - `spreaderPlowStatus`: Snow plow status (`Up` or `Down`), as read from the material spreader. Note: this is separate from plow status defined via auxInput.
             - `seatbeltDriver`: Seatbelt Driver Status as read from the vehicle. `Buckled` or `Unbuckled`. (Beta only)
             - `tellTales`: Tell tales status as read from the vehicle.
+            - `ecuDoorStatus`: Status of doors, sourced from ECU or from AUX port assigned to a Door label if diagnostic from ECU is not available. Either `Closed`, `Open` or `Unknown`.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -450,6 +453,7 @@ class VehicleStatsClient:
             - `spreaderPlowStatus`: Snow plow status (`Up` or `Down`), as read from the material spreader. Note: this is separate from plow status defined via auxInput.
             - `seatbeltDriver`: Seatbelt Driver Status as read from the vehicle. `Buckled` or `Unbuckled`. (Beta only)
             - `tellTales`: Tell tales status as read from the vehicle.
+            - `ecuDoorStatus`: Status of doors, sourced from ECU or from AUX port assigned to a Door label if diagnostic from ECU is not available. Either `Closed`, `Open` or `Unknown`.
 
         decorations : typing.Optional[typing.Union[GetVehicleStatsHistoryRequestDecorationsItem, typing.Sequence[GetVehicleStatsHistoryRequestDecorationsItem]]]
             Decorations to add to the primary stats listed in the `types` parameter. For example, if you wish to know the vehicle's location whenever the engine changes state, you may set `types=engineStates&decorations=gps`.
@@ -506,6 +510,7 @@ class VehicleStatsClient:
             - `spreaderPlowStatus`: Snow plow status (`Up` or `Down`), as read from the material spreader. Note: this is separate from plow status defined via auxInput.
             - `seatbeltDriver`: Seatbelt Driver Status as read from the vehicle. `Buckled` or `Unbuckled`. (Beta only)
             - `tellTales`: Tell tales status as read from the vehicle.
+            - `ecuDoorStatus`: Status of doors, sourced from ECU or from AUX port assigned to a Door label if diagnostic from ECU is not available. Either `Closed`, `Open` or `Unknown`.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -652,6 +657,7 @@ class AsyncVehicleStatsClient:
             - `spreaderPlowStatus`: Snow plow status (`Up` or `Down`), as read from the material spreader. Note: this is separate from plow status defined via auxInput.
             - `seatbeltDriver`: Seatbelt Driver Status as read from the vehicle. `Buckled` or `Unbuckled`. (Beta only)
             - `tellTales`: Tell tales status as read from the vehicle.
+            - `ecuDoorStatus`: Status of doors, sourced from ECU or from AUX port assigned to a Door label if diagnostic from ECU is not available. Either `Closed`, `Open` or `Unknown`.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -792,6 +798,7 @@ class AsyncVehicleStatsClient:
             - `spreaderPlowStatus`: Snow plow status (`Up` or `Down`), as read from the material spreader. Note: this is separate from plow status defined via auxInput.
             - `seatbeltDriver`: Seatbelt Driver Status as read from the vehicle. `Buckled` or `Unbuckled`. (Beta only)
             - `tellTales`: Tell tales status as read from the vehicle.
+            - `ecuDoorStatus`: Status of doors, sourced from ECU or from AUX port assigned to a Door label if diagnostic from ECU is not available. Either `Closed`, `Open` or `Unknown`.
 
         decorations : typing.Optional[typing.Union[GetVehicleStatsFeedRequestDecorationsItem, typing.Sequence[GetVehicleStatsFeedRequestDecorationsItem]]]
             Decorations to add to the primary stats listed in the `types` parameter. For example, if you wish to know the vehicle's location whenever the engine changes state, you may set `types=engineStates&decorations=gps`.
@@ -848,6 +855,7 @@ class AsyncVehicleStatsClient:
             - `spreaderPlowStatus`: Snow plow status (`Up` or `Down`), as read from the material spreader. Note: this is separate from plow status defined via auxInput.
             - `seatbeltDriver`: Seatbelt Driver Status as read from the vehicle. `Buckled` or `Unbuckled`. (Beta only)
             - `tellTales`: Tell tales status as read from the vehicle.
+            - `ecuDoorStatus`: Status of doors, sourced from ECU or from AUX port assigned to a Door label if diagnostic from ECU is not available. Either `Closed`, `Open` or `Unknown`.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -993,6 +1001,7 @@ class AsyncVehicleStatsClient:
             - `spreaderPlowStatus`: Snow plow status (`Up` or `Down`), as read from the material spreader. Note: this is separate from plow status defined via auxInput.
             - `seatbeltDriver`: Seatbelt Driver Status as read from the vehicle. `Buckled` or `Unbuckled`. (Beta only)
             - `tellTales`: Tell tales status as read from the vehicle.
+            - `ecuDoorStatus`: Status of doors, sourced from ECU or from AUX port assigned to a Door label if diagnostic from ECU is not available. Either `Closed`, `Open` or `Unknown`.
 
         decorations : typing.Optional[typing.Union[GetVehicleStatsHistoryRequestDecorationsItem, typing.Sequence[GetVehicleStatsHistoryRequestDecorationsItem]]]
             Decorations to add to the primary stats listed in the `types` parameter. For example, if you wish to know the vehicle's location whenever the engine changes state, you may set `types=engineStates&decorations=gps`.
@@ -1049,6 +1058,7 @@ class AsyncVehicleStatsClient:
             - `spreaderPlowStatus`: Snow plow status (`Up` or `Down`), as read from the material spreader. Note: this is separate from plow status defined via auxInput.
             - `seatbeltDriver`: Seatbelt Driver Status as read from the vehicle. `Buckled` or `Unbuckled`. (Beta only)
             - `tellTales`: Tell tales status as read from the vehicle.
+            - `ecuDoorStatus`: Status of doors, sourced from ECU or from AUX port assigned to a Door label if diagnostic from ECU is not available. Either `Closed`, `Open` or `Unknown`.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.

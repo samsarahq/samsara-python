@@ -6,14 +6,14 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
-from .reverse_geo import ReverseGeo
-from .time import Time
 from .vehicle_location_address import VehicleLocationAddress
 from .vehicle_location_heading import VehicleLocationHeading
 from .vehicle_location_is_ecu_speed import VehicleLocationIsEcuSpeed
 from .vehicle_location_latitude import VehicleLocationLatitude
 from .vehicle_location_longitude import VehicleLocationLongitude
+from .vehicle_location_reverse_geo import VehicleLocationReverseGeo
 from .vehicle_location_speed import VehicleLocationSpeed
+from .vehicle_stats_time import VehicleStatsTime
 
 
 class VehicleStatsGps(UniversalBaseModel):
@@ -30,11 +30,13 @@ class VehicleStatsGps(UniversalBaseModel):
     ] = None
     latitude: VehicleLocationLatitude
     longitude: VehicleLocationLongitude
-    reverse_geo: typing_extensions.Annotated[typing.Optional[ReverseGeo], FieldMetadata(alias="reverseGeo")] = None
+    reverse_geo: typing_extensions.Annotated[
+        typing.Optional[VehicleLocationReverseGeo], FieldMetadata(alias="reverseGeo")
+    ] = None
     speed_miles_per_hour: typing_extensions.Annotated[
         typing.Optional[VehicleLocationSpeed], FieldMetadata(alias="speedMilesPerHour")
     ] = None
-    time: Time
+    time: VehicleStatsTime
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

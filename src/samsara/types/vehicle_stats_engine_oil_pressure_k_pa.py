@@ -4,7 +4,7 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from .time import Time
+from .vehicle_stats_time import VehicleStatsTime
 
 
 class VehicleStatsEngineOilPressureKPa(UniversalBaseModel):
@@ -12,7 +12,7 @@ class VehicleStatsEngineOilPressureKPa(UniversalBaseModel):
     Vehicle engine oil pressure reading.
     """
 
-    time: Time
+    time: VehicleStatsTime
     value: int = pydantic.Field()
     """
     The engine oil pressure reading in kilopascals.

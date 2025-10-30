@@ -4,7 +4,7 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from .time import Time
+from .vehicle_stats_time import VehicleStatsTime
 
 
 class VehicleStatsEvChargingStatus(UniversalBaseModel):
@@ -12,7 +12,7 @@ class VehicleStatsEvChargingStatus(UniversalBaseModel):
     Charging status for electric and hybrid vehicles. Not all EV and HEVs may report this field.
     """
 
-    time: Time
+    time: VehicleStatsTime
     value: int = pydantic.Field()
     """
     Charging status for electric and hybrid vehicles. Statuses:

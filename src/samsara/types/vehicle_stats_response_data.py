@@ -32,6 +32,7 @@ from .vehicle_stats_intake_manifold_temp_milli_c import VehicleStatsIntakeManifo
 from .vehicle_stats_nfc_card_scan import VehicleStatsNfcCardScan
 from .vehicle_stats_obd_engine_seconds import VehicleStatsObdEngineSeconds
 from .vehicle_stats_obd_odometer_meters import VehicleStatsObdOdometerMeters
+from .vehicle_stats_response_ecu_door_status import VehicleStatsResponseEcuDoorStatus
 from .vehicle_stats_response_ev_average_battery_temperature_milli_celsius import (
     VehicleStatsResponseEvAverageBatteryTemperatureMilliCelsius,
 )
@@ -119,6 +120,9 @@ class VehicleStatsResponseData(UniversalBaseModel):
     ] = None
     def_level_milli_percent: typing_extensions.Annotated[
         typing.Optional[VehicleStatsDefLevelMilliPercent], FieldMetadata(alias="defLevelMilliPercent")
+    ] = None
+    ecu_door_status: typing_extensions.Annotated[
+        typing.Optional[VehicleStatsResponseEcuDoorStatus], FieldMetadata(alias="ecuDoorStatus")
     ] = None
     ecu_speed_mph: typing_extensions.Annotated[
         typing.Optional[VehicleStatsEcuSpeedMph], FieldMetadata(alias="ecuSpeedMph")

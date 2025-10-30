@@ -4,7 +4,7 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from .time import Time
+from .vehicle_stats_time import VehicleStatsTime
 
 
 class VehicleStatsDefLevelMilliPercent(UniversalBaseModel):
@@ -12,7 +12,7 @@ class VehicleStatsDefLevelMilliPercent(UniversalBaseModel):
     The Diesel Exhaust Fluid (DEF) milli percentage reading.
     """
 
-    time: Time
+    time: VehicleStatsTime
     value: int = pydantic.Field()
     """
     The Diesel Exhaust Fluid (DEF) level in milli percentage points (e.g. `99001`, `49999`, etc).

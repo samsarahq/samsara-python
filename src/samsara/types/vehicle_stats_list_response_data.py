@@ -14,6 +14,7 @@ from .vehicle_stats_aux_input_with_decoration import VehicleStatsAuxInputWithDec
 from .vehicle_stats_barometric_pressure_pa_with_decoration import VehicleStatsBarometricPressurePaWithDecoration
 from .vehicle_stats_battery_voltage_with_decoration import VehicleStatsBatteryVoltageWithDecoration
 from .vehicle_stats_def_level_milli_percent_with_decoration import VehicleStatsDefLevelMilliPercentWithDecoration
+from .vehicle_stats_ecu_door_status import VehicleStatsEcuDoorStatus
 from .vehicle_stats_ecu_speed_mph_with_decoration import VehicleStatsEcuSpeedMphWithDecoration
 from .vehicle_stats_engine_coolant_temp_milli_c_with_decoration import VehicleStatsEngineCoolantTempMilliCWithDecoration
 from .vehicle_stats_engine_immobilizer_with_decoration import VehicleStatsEngineImmobilizerWithDecoration
@@ -191,6 +192,13 @@ class VehicleStatsListResponseData(UniversalBaseModel):
     ] = pydantic.Field(default=None)
     """
     A list of DEF level milli percentage readings for the given vehicle.
+    """
+
+    ecu_door_status: typing_extensions.Annotated[
+        typing.Optional[typing.List[VehicleStatsEcuDoorStatus]], FieldMetadata(alias="ecuDoorStatus")
+    ] = pydantic.Field(default=None)
+    """
+    Door status as read from the vehicle (either from ECU or AUX as a fallback).
     """
 
     ecu_speed_mph: typing_extensions.Annotated[

@@ -772,6 +772,7 @@ if typing.TYPE_CHECKING:
     from .documents_post_document_unauthorized_error_response_body import (
         DocumentsPostDocumentUnauthorizedErrorResponseBody,
     )
+    from .door_open_response_body import DoorOpenResponseBody
     from .drive_time_duration_ms import DriveTimeDurationMs
     from .driver import Driver
     from .driver_activation_status import DriverActivationStatus
@@ -3731,6 +3732,11 @@ if typing.TYPE_CHECKING:
         RollingStopDetectionAlertSettingsObjectResponseBody,
     )
     from .route_changes_response_body import RouteChangesResponseBody
+    from .route_event_details_response_body import RouteEventDetailsResponseBody
+    from .route_event_response_response_body import RouteEventResponseResponseBody
+    from .route_event_response_response_body_event_type import RouteEventResponseResponseBodyEventType
+    from .route_event_route_response_response_body import RouteEventRouteResponseResponseBody
+    from .route_event_stop_response_response_body import RouteEventStopResponseResponseBody
     from .route_feed_object_response_body import RouteFeedObjectResponseBody
     from .route_feed_object_response_body_operation import RouteFeedObjectResponseBodyOperation
     from .route_feed_object_response_body_source import RouteFeedObjectResponseBodySource
@@ -3834,6 +3840,34 @@ if typing.TYPE_CHECKING:
         RoutesFetchRoutesTooManyRequestsErrorResponseBody,
     )
     from .routes_fetch_routes_unauthorized_error_response_body import RoutesFetchRoutesUnauthorizedErrorResponseBody
+    from .routes_get_route_events_stream_bad_gateway_error_response_body import (
+        RoutesGetRouteEventsStreamBadGatewayErrorResponseBody,
+    )
+    from .routes_get_route_events_stream_gateway_timeout_error_response_body import (
+        RoutesGetRouteEventsStreamGatewayTimeoutErrorResponseBody,
+    )
+    from .routes_get_route_events_stream_internal_server_error_response_body import (
+        RoutesGetRouteEventsStreamInternalServerErrorResponseBody,
+    )
+    from .routes_get_route_events_stream_method_not_allowed_error_response_body import (
+        RoutesGetRouteEventsStreamMethodNotAllowedErrorResponseBody,
+    )
+    from .routes_get_route_events_stream_not_found_error_response_body import (
+        RoutesGetRouteEventsStreamNotFoundErrorResponseBody,
+    )
+    from .routes_get_route_events_stream_not_implemented_error_response_body import (
+        RoutesGetRouteEventsStreamNotImplementedErrorResponseBody,
+    )
+    from .routes_get_route_events_stream_response_body import RoutesGetRouteEventsStreamResponseBody
+    from .routes_get_route_events_stream_service_unavailable_error_response_body import (
+        RoutesGetRouteEventsStreamServiceUnavailableErrorResponseBody,
+    )
+    from .routes_get_route_events_stream_too_many_requests_error_response_body import (
+        RoutesGetRouteEventsStreamTooManyRequestsErrorResponseBody,
+    )
+    from .routes_get_route_events_stream_unauthorized_error_response_body import (
+        RoutesGetRouteEventsStreamUnauthorizedErrorResponseBody,
+    )
     from .routes_get_routes_feed_bad_gateway_error_response_body import RoutesGetRoutesFeedBadGatewayErrorResponseBody
     from .routes_get_routes_feed_gateway_timeout_error_response_body import (
         RoutesGetRoutesFeedGatewayTimeoutErrorResponseBody,
@@ -3894,8 +3928,10 @@ if typing.TYPE_CHECKING:
     from .safety_event_download_forward_video_url import SafetyEventDownloadForwardVideoUrl
     from .safety_event_download_inward_video_url import SafetyEventDownloadInwardVideoUrl
     from .safety_event_download_tracked_inward_video_url import SafetyEventDownloadTrackedInwardVideoUrl
+    from .safety_event_driver import SafetyEventDriver
     from .safety_event_driver_object_response_body import SafetyEventDriverObjectResponseBody
     from .safety_event_id import SafetyEventId
+    from .safety_event_location import SafetyEventLocation
     from .safety_event_max_acceleration_g_force import SafetyEventMaxAccelerationGForce
     from .safety_event_object_response_body import SafetyEventObjectResponseBody
     from .safety_event_time import SafetyEventTime
@@ -3908,6 +3944,7 @@ if typing.TYPE_CHECKING:
     from .safety_event_v_2_driver_object_response_body import SafetyEventV2DriverObjectResponseBody
     from .safety_event_v_2_object_response_body import SafetyEventV2ObjectResponseBody
     from .safety_event_v_2_object_response_body_event_state import SafetyEventV2ObjectResponseBodyEventState
+    from .safety_event_vehicle import SafetyEventVehicle
     from .safety_event_vehicle_object_response_body import SafetyEventVehicleObjectResponseBody
     from .safety_events_get_safety_activity_event_feed_bad_gateway_error_response_body import (
         SafetyEventsGetSafetyActivityEventFeedBadGatewayErrorResponseBody,
@@ -4427,6 +4464,13 @@ if typing.TYPE_CHECKING:
     from .speeding_severity_level_response_body_severity_level import SpeedingSeverityLevelResponseBodySeverityLevel
     from .standard_delete_response import StandardDeleteResponse
     from .start_function_run_response_body_response_body import StartFunctionRunResponseBodyResponseBody
+    from .stop_eta_updated_event_details_response_body import StopEtaUpdatedEventDetailsResponseBody
+    from .stop_task_completed_event_details_response_body import StopTaskCompletedEventDetailsResponseBody
+    from .stop_task_completed_event_details_response_body_task_type import (
+        StopTaskCompletedEventDetailsResponseBodyTaskType,
+    )
+    from .stop_task_skipped_event_details_response_body import StopTaskSkippedEventDetailsResponseBody
+    from .stop_task_skipped_event_details_response_body_task_type import StopTaskSkippedEventDetailsResponseBodyTaskType
     from .string_data_point import StringDataPoint
     from .sudden_fuel_level_drop_response_body import SuddenFuelLevelDropResponseBody
     from .sudden_fuel_level_drop_trigger_details_object_request_body import (
@@ -5328,6 +5372,19 @@ if typing.TYPE_CHECKING:
     from .vehicle_assignment_object_response_body import VehicleAssignmentObjectResponseBody
     from .vehicle_aux_input_name import VehicleAuxInputName
     from .vehicle_aux_input_type import VehicleAuxInputType
+    from .vehicle_aux_input_type_1 import VehicleAuxInputType1
+    from .vehicle_aux_input_type_10 import VehicleAuxInputType10
+    from .vehicle_aux_input_type_11 import VehicleAuxInputType11
+    from .vehicle_aux_input_type_12 import VehicleAuxInputType12
+    from .vehicle_aux_input_type_13 import VehicleAuxInputType13
+    from .vehicle_aux_input_type_2 import VehicleAuxInputType2
+    from .vehicle_aux_input_type_3 import VehicleAuxInputType3
+    from .vehicle_aux_input_type_4 import VehicleAuxInputType4
+    from .vehicle_aux_input_type_5 import VehicleAuxInputType5
+    from .vehicle_aux_input_type_6 import VehicleAuxInputType6
+    from .vehicle_aux_input_type_7 import VehicleAuxInputType7
+    from .vehicle_aux_input_type_8 import VehicleAuxInputType8
+    from .vehicle_aux_input_type_9 import VehicleAuxInputType9
     from .vehicle_batter_voltage_details_object_request_body import VehicleBatterVoltageDetailsObjectRequestBody
     from .vehicle_batter_voltage_details_object_request_body_operation import (
         VehicleBatterVoltageDetailsObjectRequestBodyOperation,
@@ -5354,7 +5411,9 @@ if typing.TYPE_CHECKING:
     from .vehicle_location_is_ecu_speed import VehicleLocationIsEcuSpeed
     from .vehicle_location_latitude import VehicleLocationLatitude
     from .vehicle_location_longitude import VehicleLocationLongitude
+    from .vehicle_location_reverse_geo import VehicleLocationReverseGeo
     from .vehicle_location_speed import VehicleLocationSpeed
+    from .vehicle_location_time import VehicleLocationTime
     from .vehicle_locations_list_response import VehicleLocationsListResponse
     from .vehicle_locations_list_response_data import VehicleLocationsListResponseData
     from .vehicle_locations_response import VehicleLocationsResponse
@@ -5387,6 +5446,7 @@ if typing.TYPE_CHECKING:
         VehicleSensorConfigurationDoorResponseBodyPosition,
     )
     from .vehicle_sensor_configuration_response_body import VehicleSensorConfigurationResponseBody
+    from .vehicle_static_assigned_driver import VehicleStaticAssignedDriver
     from .vehicle_stats_ambient_air_temp_milli_c import VehicleStatsAmbientAirTempMilliC
     from .vehicle_stats_ambient_air_temp_milli_c_value import VehicleStatsAmbientAirTempMilliCValue
     from .vehicle_stats_ambient_air_temp_milli_c_with_decoration import VehicleStatsAmbientAirTempMilliCWithDecoration
@@ -5433,6 +5493,8 @@ if typing.TYPE_CHECKING:
     from .vehicle_stats_def_level_milli_percent import VehicleStatsDefLevelMilliPercent
     from .vehicle_stats_def_level_milli_percent_value import VehicleStatsDefLevelMilliPercentValue
     from .vehicle_stats_def_level_milli_percent_with_decoration import VehicleStatsDefLevelMilliPercentWithDecoration
+    from .vehicle_stats_ecu_door_status import VehicleStatsEcuDoorStatus
+    from .vehicle_stats_ecu_door_status_value import VehicleStatsEcuDoorStatusValue
     from .vehicle_stats_ecu_speed_mph import VehicleStatsEcuSpeedMph
     from .vehicle_stats_ecu_speed_mph_value import VehicleStatsEcuSpeedMphValue
     from .vehicle_stats_ecu_speed_mph_with_decoration import VehicleStatsEcuSpeedMphWithDecoration
@@ -5588,6 +5650,8 @@ if typing.TYPE_CHECKING:
     from .vehicle_stats_obd_odometer_meters_with_decoration import VehicleStatsObdOdometerMetersWithDecoration
     from .vehicle_stats_response import VehicleStatsResponse
     from .vehicle_stats_response_data import VehicleStatsResponseData
+    from .vehicle_stats_response_ecu_door_status import VehicleStatsResponseEcuDoorStatus
+    from .vehicle_stats_response_ecu_door_status_value import VehicleStatsResponseEcuDoorStatusValue
     from .vehicle_stats_response_ev_average_battery_temperature_milli_celsius import (
         VehicleStatsResponseEvAverageBatteryTemperatureMilliCelsius,
     )
@@ -5642,6 +5706,7 @@ if typing.TYPE_CHECKING:
     from .vehicle_stats_spreader_road_temp import VehicleStatsSpreaderRoadTemp
     from .vehicle_stats_synthetic_engine_seconds import VehicleStatsSyntheticEngineSeconds
     from .vehicle_stats_synthetic_engine_seconds_value import VehicleStatsSyntheticEngineSecondsValue
+    from .vehicle_stats_time import VehicleStatsTime
     from .vehicle_stats_tire_pressures import VehicleStatsTirePressures
     from .vehicle_summary import VehicleSummary
     from .vehicle_tags import VehicleTags
@@ -6514,6 +6579,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "DocumentsPostDocumentServiceUnavailableErrorResponseBody": ".documents_post_document_service_unavailable_error_response_body",
     "DocumentsPostDocumentTooManyRequestsErrorResponseBody": ".documents_post_document_too_many_requests_error_response_body",
     "DocumentsPostDocumentUnauthorizedErrorResponseBody": ".documents_post_document_unauthorized_error_response_body",
+    "DoorOpenResponseBody": ".door_open_response_body",
     "DriveTimeDurationMs": ".drive_time_duration_ms",
     "Driver": ".driver",
     "DriverActivationStatus": ".driver_activation_status",
@@ -7941,6 +8007,11 @@ _dynamic_imports: typing.Dict[str, str] = {
     "ReverseGeoObjectResponseBody": ".reverse_geo_object_response_body",
     "RollingStopDetectionAlertSettingsObjectResponseBody": ".rolling_stop_detection_alert_settings_object_response_body",
     "RouteChangesResponseBody": ".route_changes_response_body",
+    "RouteEventDetailsResponseBody": ".route_event_details_response_body",
+    "RouteEventResponseResponseBody": ".route_event_response_response_body",
+    "RouteEventResponseResponseBodyEventType": ".route_event_response_response_body_event_type",
+    "RouteEventRouteResponseResponseBody": ".route_event_route_response_response_body",
+    "RouteEventStopResponseResponseBody": ".route_event_stop_response_response_body",
     "RouteFeedObjectResponseBody": ".route_feed_object_response_body",
     "RouteFeedObjectResponseBodyOperation": ".route_feed_object_response_body_operation",
     "RouteFeedObjectResponseBodySource": ".route_feed_object_response_body_source",
@@ -7996,6 +8067,16 @@ _dynamic_imports: typing.Dict[str, str] = {
     "RoutesFetchRoutesServiceUnavailableErrorResponseBody": ".routes_fetch_routes_service_unavailable_error_response_body",
     "RoutesFetchRoutesTooManyRequestsErrorResponseBody": ".routes_fetch_routes_too_many_requests_error_response_body",
     "RoutesFetchRoutesUnauthorizedErrorResponseBody": ".routes_fetch_routes_unauthorized_error_response_body",
+    "RoutesGetRouteEventsStreamBadGatewayErrorResponseBody": ".routes_get_route_events_stream_bad_gateway_error_response_body",
+    "RoutesGetRouteEventsStreamGatewayTimeoutErrorResponseBody": ".routes_get_route_events_stream_gateway_timeout_error_response_body",
+    "RoutesGetRouteEventsStreamInternalServerErrorResponseBody": ".routes_get_route_events_stream_internal_server_error_response_body",
+    "RoutesGetRouteEventsStreamMethodNotAllowedErrorResponseBody": ".routes_get_route_events_stream_method_not_allowed_error_response_body",
+    "RoutesGetRouteEventsStreamNotFoundErrorResponseBody": ".routes_get_route_events_stream_not_found_error_response_body",
+    "RoutesGetRouteEventsStreamNotImplementedErrorResponseBody": ".routes_get_route_events_stream_not_implemented_error_response_body",
+    "RoutesGetRouteEventsStreamResponseBody": ".routes_get_route_events_stream_response_body",
+    "RoutesGetRouteEventsStreamServiceUnavailableErrorResponseBody": ".routes_get_route_events_stream_service_unavailable_error_response_body",
+    "RoutesGetRouteEventsStreamTooManyRequestsErrorResponseBody": ".routes_get_route_events_stream_too_many_requests_error_response_body",
+    "RoutesGetRouteEventsStreamUnauthorizedErrorResponseBody": ".routes_get_route_events_stream_unauthorized_error_response_body",
     "RoutesGetRoutesFeedBadGatewayErrorResponseBody": ".routes_get_routes_feed_bad_gateway_error_response_body",
     "RoutesGetRoutesFeedGatewayTimeoutErrorResponseBody": ".routes_get_routes_feed_gateway_timeout_error_response_body",
     "RoutesGetRoutesFeedInternalServerErrorResponseBody": ".routes_get_routes_feed_internal_server_error_response_body",
@@ -8036,8 +8117,10 @@ _dynamic_imports: typing.Dict[str, str] = {
     "SafetyEventDownloadForwardVideoUrl": ".safety_event_download_forward_video_url",
     "SafetyEventDownloadInwardVideoUrl": ".safety_event_download_inward_video_url",
     "SafetyEventDownloadTrackedInwardVideoUrl": ".safety_event_download_tracked_inward_video_url",
+    "SafetyEventDriver": ".safety_event_driver",
     "SafetyEventDriverObjectResponseBody": ".safety_event_driver_object_response_body",
     "SafetyEventId": ".safety_event_id",
+    "SafetyEventLocation": ".safety_event_location",
     "SafetyEventMaxAccelerationGForce": ".safety_event_max_acceleration_g_force",
     "SafetyEventObjectResponseBody": ".safety_event_object_response_body",
     "SafetyEventTime": ".safety_event_time",
@@ -8050,6 +8133,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "SafetyEventV2DriverObjectResponseBody": ".safety_event_v_2_driver_object_response_body",
     "SafetyEventV2ObjectResponseBody": ".safety_event_v_2_object_response_body",
     "SafetyEventV2ObjectResponseBodyEventState": ".safety_event_v_2_object_response_body_event_state",
+    "SafetyEventVehicle": ".safety_event_vehicle",
     "SafetyEventVehicleObjectResponseBody": ".safety_event_vehicle_object_response_body",
     "SafetyEventsGetSafetyActivityEventFeedBadGatewayErrorResponseBody": ".safety_events_get_safety_activity_event_feed_bad_gateway_error_response_body",
     "SafetyEventsGetSafetyActivityEventFeedGatewayTimeoutErrorResponseBody": ".safety_events_get_safety_activity_event_feed_gateway_timeout_error_response_body",
@@ -8265,6 +8349,11 @@ _dynamic_imports: typing.Dict[str, str] = {
     "SpeedingSeverityLevelResponseBodySeverityLevel": ".speeding_severity_level_response_body_severity_level",
     "StandardDeleteResponse": ".standard_delete_response",
     "StartFunctionRunResponseBodyResponseBody": ".start_function_run_response_body_response_body",
+    "StopEtaUpdatedEventDetailsResponseBody": ".stop_eta_updated_event_details_response_body",
+    "StopTaskCompletedEventDetailsResponseBody": ".stop_task_completed_event_details_response_body",
+    "StopTaskCompletedEventDetailsResponseBodyTaskType": ".stop_task_completed_event_details_response_body_task_type",
+    "StopTaskSkippedEventDetailsResponseBody": ".stop_task_skipped_event_details_response_body",
+    "StopTaskSkippedEventDetailsResponseBodyTaskType": ".stop_task_skipped_event_details_response_body_task_type",
     "StringDataPoint": ".string_data_point",
     "SuddenFuelLevelDropResponseBody": ".sudden_fuel_level_drop_response_body",
     "SuddenFuelLevelDropTriggerDetailsObjectRequestBody": ".sudden_fuel_level_drop_trigger_details_object_request_body",
@@ -8736,6 +8825,19 @@ _dynamic_imports: typing.Dict[str, str] = {
     "VehicleAssignmentObjectResponseBody": ".vehicle_assignment_object_response_body",
     "VehicleAuxInputName": ".vehicle_aux_input_name",
     "VehicleAuxInputType": ".vehicle_aux_input_type",
+    "VehicleAuxInputType1": ".vehicle_aux_input_type_1",
+    "VehicleAuxInputType10": ".vehicle_aux_input_type_10",
+    "VehicleAuxInputType11": ".vehicle_aux_input_type_11",
+    "VehicleAuxInputType12": ".vehicle_aux_input_type_12",
+    "VehicleAuxInputType13": ".vehicle_aux_input_type_13",
+    "VehicleAuxInputType2": ".vehicle_aux_input_type_2",
+    "VehicleAuxInputType3": ".vehicle_aux_input_type_3",
+    "VehicleAuxInputType4": ".vehicle_aux_input_type_4",
+    "VehicleAuxInputType5": ".vehicle_aux_input_type_5",
+    "VehicleAuxInputType6": ".vehicle_aux_input_type_6",
+    "VehicleAuxInputType7": ".vehicle_aux_input_type_7",
+    "VehicleAuxInputType8": ".vehicle_aux_input_type_8",
+    "VehicleAuxInputType9": ".vehicle_aux_input_type_9",
     "VehicleBatterVoltageDetailsObjectRequestBody": ".vehicle_batter_voltage_details_object_request_body",
     "VehicleBatterVoltageDetailsObjectRequestBodyOperation": ".vehicle_batter_voltage_details_object_request_body_operation",
     "VehicleBatterVoltageDetailsObjectResponseBody": ".vehicle_batter_voltage_details_object_response_body",
@@ -8758,7 +8860,9 @@ _dynamic_imports: typing.Dict[str, str] = {
     "VehicleLocationIsEcuSpeed": ".vehicle_location_is_ecu_speed",
     "VehicleLocationLatitude": ".vehicle_location_latitude",
     "VehicleLocationLongitude": ".vehicle_location_longitude",
+    "VehicleLocationReverseGeo": ".vehicle_location_reverse_geo",
     "VehicleLocationSpeed": ".vehicle_location_speed",
+    "VehicleLocationTime": ".vehicle_location_time",
     "VehicleLocationsListResponse": ".vehicle_locations_list_response",
     "VehicleLocationsListResponseData": ".vehicle_locations_list_response_data",
     "VehicleLocationsResponse": ".vehicle_locations_response",
@@ -8785,6 +8889,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "VehicleSensorConfigurationDoorResponseBody": ".vehicle_sensor_configuration_door_response_body",
     "VehicleSensorConfigurationDoorResponseBodyPosition": ".vehicle_sensor_configuration_door_response_body_position",
     "VehicleSensorConfigurationResponseBody": ".vehicle_sensor_configuration_response_body",
+    "VehicleStaticAssignedDriver": ".vehicle_static_assigned_driver",
     "VehicleStatsAmbientAirTempMilliC": ".vehicle_stats_ambient_air_temp_milli_c",
     "VehicleStatsAmbientAirTempMilliCValue": ".vehicle_stats_ambient_air_temp_milli_c_value",
     "VehicleStatsAmbientAirTempMilliCWithDecoration": ".vehicle_stats_ambient_air_temp_milli_c_with_decoration",
@@ -8823,6 +8928,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "VehicleStatsDefLevelMilliPercent": ".vehicle_stats_def_level_milli_percent",
     "VehicleStatsDefLevelMilliPercentValue": ".vehicle_stats_def_level_milli_percent_value",
     "VehicleStatsDefLevelMilliPercentWithDecoration": ".vehicle_stats_def_level_milli_percent_with_decoration",
+    "VehicleStatsEcuDoorStatus": ".vehicle_stats_ecu_door_status",
+    "VehicleStatsEcuDoorStatusValue": ".vehicle_stats_ecu_door_status_value",
     "VehicleStatsEcuSpeedMph": ".vehicle_stats_ecu_speed_mph",
     "VehicleStatsEcuSpeedMphValue": ".vehicle_stats_ecu_speed_mph_value",
     "VehicleStatsEcuSpeedMphWithDecoration": ".vehicle_stats_ecu_speed_mph_with_decoration",
@@ -8932,6 +9039,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "VehicleStatsObdOdometerMetersWithDecoration": ".vehicle_stats_obd_odometer_meters_with_decoration",
     "VehicleStatsResponse": ".vehicle_stats_response",
     "VehicleStatsResponseData": ".vehicle_stats_response_data",
+    "VehicleStatsResponseEcuDoorStatus": ".vehicle_stats_response_ecu_door_status",
+    "VehicleStatsResponseEcuDoorStatusValue": ".vehicle_stats_response_ecu_door_status_value",
     "VehicleStatsResponseEvAverageBatteryTemperatureMilliCelsius": ".vehicle_stats_response_ev_average_battery_temperature_milli_celsius",
     "VehicleStatsResponseEvBatteryCurrentMilliAmp": ".vehicle_stats_response_ev_battery_current_milli_amp",
     "VehicleStatsResponseEvBatteryStateOfHealthMilliPercent": ".vehicle_stats_response_ev_battery_state_of_health_milli_percent",
@@ -8982,6 +9091,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "VehicleStatsSpreaderRoadTemp": ".vehicle_stats_spreader_road_temp",
     "VehicleStatsSyntheticEngineSeconds": ".vehicle_stats_synthetic_engine_seconds",
     "VehicleStatsSyntheticEngineSecondsValue": ".vehicle_stats_synthetic_engine_seconds_value",
+    "VehicleStatsTime": ".vehicle_stats_time",
     "VehicleStatsTirePressures": ".vehicle_stats_tire_pressures",
     "VehicleSummary": ".vehicle_summary",
     "VehicleTags": ".vehicle_tags",
@@ -9622,6 +9732,7 @@ __all__ = [
     "DocumentsPostDocumentServiceUnavailableErrorResponseBody",
     "DocumentsPostDocumentTooManyRequestsErrorResponseBody",
     "DocumentsPostDocumentUnauthorizedErrorResponseBody",
+    "DoorOpenResponseBody",
     "DriveTimeDurationMs",
     "Driver",
     "DriverActivationStatus",
@@ -11049,6 +11160,11 @@ __all__ = [
     "ReverseGeoObjectResponseBody",
     "RollingStopDetectionAlertSettingsObjectResponseBody",
     "RouteChangesResponseBody",
+    "RouteEventDetailsResponseBody",
+    "RouteEventResponseResponseBody",
+    "RouteEventResponseResponseBodyEventType",
+    "RouteEventRouteResponseResponseBody",
+    "RouteEventStopResponseResponseBody",
     "RouteFeedObjectResponseBody",
     "RouteFeedObjectResponseBodyOperation",
     "RouteFeedObjectResponseBodySource",
@@ -11104,6 +11220,16 @@ __all__ = [
     "RoutesFetchRoutesServiceUnavailableErrorResponseBody",
     "RoutesFetchRoutesTooManyRequestsErrorResponseBody",
     "RoutesFetchRoutesUnauthorizedErrorResponseBody",
+    "RoutesGetRouteEventsStreamBadGatewayErrorResponseBody",
+    "RoutesGetRouteEventsStreamGatewayTimeoutErrorResponseBody",
+    "RoutesGetRouteEventsStreamInternalServerErrorResponseBody",
+    "RoutesGetRouteEventsStreamMethodNotAllowedErrorResponseBody",
+    "RoutesGetRouteEventsStreamNotFoundErrorResponseBody",
+    "RoutesGetRouteEventsStreamNotImplementedErrorResponseBody",
+    "RoutesGetRouteEventsStreamResponseBody",
+    "RoutesGetRouteEventsStreamServiceUnavailableErrorResponseBody",
+    "RoutesGetRouteEventsStreamTooManyRequestsErrorResponseBody",
+    "RoutesGetRouteEventsStreamUnauthorizedErrorResponseBody",
     "RoutesGetRoutesFeedBadGatewayErrorResponseBody",
     "RoutesGetRoutesFeedGatewayTimeoutErrorResponseBody",
     "RoutesGetRoutesFeedInternalServerErrorResponseBody",
@@ -11144,8 +11270,10 @@ __all__ = [
     "SafetyEventDownloadForwardVideoUrl",
     "SafetyEventDownloadInwardVideoUrl",
     "SafetyEventDownloadTrackedInwardVideoUrl",
+    "SafetyEventDriver",
     "SafetyEventDriverObjectResponseBody",
     "SafetyEventId",
+    "SafetyEventLocation",
     "SafetyEventMaxAccelerationGForce",
     "SafetyEventObjectResponseBody",
     "SafetyEventTime",
@@ -11158,6 +11286,7 @@ __all__ = [
     "SafetyEventV2DriverObjectResponseBody",
     "SafetyEventV2ObjectResponseBody",
     "SafetyEventV2ObjectResponseBodyEventState",
+    "SafetyEventVehicle",
     "SafetyEventVehicleObjectResponseBody",
     "SafetyEventsGetSafetyActivityEventFeedBadGatewayErrorResponseBody",
     "SafetyEventsGetSafetyActivityEventFeedGatewayTimeoutErrorResponseBody",
@@ -11373,6 +11502,11 @@ __all__ = [
     "SpeedingSeverityLevelResponseBodySeverityLevel",
     "StandardDeleteResponse",
     "StartFunctionRunResponseBodyResponseBody",
+    "StopEtaUpdatedEventDetailsResponseBody",
+    "StopTaskCompletedEventDetailsResponseBody",
+    "StopTaskCompletedEventDetailsResponseBodyTaskType",
+    "StopTaskSkippedEventDetailsResponseBody",
+    "StopTaskSkippedEventDetailsResponseBodyTaskType",
     "StringDataPoint",
     "SuddenFuelLevelDropResponseBody",
     "SuddenFuelLevelDropTriggerDetailsObjectRequestBody",
@@ -11844,6 +11978,19 @@ __all__ = [
     "VehicleAssignmentObjectResponseBody",
     "VehicleAuxInputName",
     "VehicleAuxInputType",
+    "VehicleAuxInputType1",
+    "VehicleAuxInputType10",
+    "VehicleAuxInputType11",
+    "VehicleAuxInputType12",
+    "VehicleAuxInputType13",
+    "VehicleAuxInputType2",
+    "VehicleAuxInputType3",
+    "VehicleAuxInputType4",
+    "VehicleAuxInputType5",
+    "VehicleAuxInputType6",
+    "VehicleAuxInputType7",
+    "VehicleAuxInputType8",
+    "VehicleAuxInputType9",
     "VehicleBatterVoltageDetailsObjectRequestBody",
     "VehicleBatterVoltageDetailsObjectRequestBodyOperation",
     "VehicleBatterVoltageDetailsObjectResponseBody",
@@ -11866,7 +12013,9 @@ __all__ = [
     "VehicleLocationIsEcuSpeed",
     "VehicleLocationLatitude",
     "VehicleLocationLongitude",
+    "VehicleLocationReverseGeo",
     "VehicleLocationSpeed",
+    "VehicleLocationTime",
     "VehicleLocationsListResponse",
     "VehicleLocationsListResponseData",
     "VehicleLocationsResponse",
@@ -11893,6 +12042,7 @@ __all__ = [
     "VehicleSensorConfigurationDoorResponseBody",
     "VehicleSensorConfigurationDoorResponseBodyPosition",
     "VehicleSensorConfigurationResponseBody",
+    "VehicleStaticAssignedDriver",
     "VehicleStatsAmbientAirTempMilliC",
     "VehicleStatsAmbientAirTempMilliCValue",
     "VehicleStatsAmbientAirTempMilliCWithDecoration",
@@ -11931,6 +12081,8 @@ __all__ = [
     "VehicleStatsDefLevelMilliPercent",
     "VehicleStatsDefLevelMilliPercentValue",
     "VehicleStatsDefLevelMilliPercentWithDecoration",
+    "VehicleStatsEcuDoorStatus",
+    "VehicleStatsEcuDoorStatusValue",
     "VehicleStatsEcuSpeedMph",
     "VehicleStatsEcuSpeedMphValue",
     "VehicleStatsEcuSpeedMphWithDecoration",
@@ -12040,6 +12192,8 @@ __all__ = [
     "VehicleStatsObdOdometerMetersWithDecoration",
     "VehicleStatsResponse",
     "VehicleStatsResponseData",
+    "VehicleStatsResponseEcuDoorStatus",
+    "VehicleStatsResponseEcuDoorStatusValue",
     "VehicleStatsResponseEvAverageBatteryTemperatureMilliCelsius",
     "VehicleStatsResponseEvBatteryCurrentMilliAmp",
     "VehicleStatsResponseEvBatteryStateOfHealthMilliPercent",
@@ -12090,6 +12244,7 @@ __all__ = [
     "VehicleStatsSpreaderRoadTemp",
     "VehicleStatsSyntheticEngineSeconds",
     "VehicleStatsSyntheticEngineSecondsValue",
+    "VehicleStatsTime",
     "VehicleStatsTirePressures",
     "VehicleSummary",
     "VehicleTags",

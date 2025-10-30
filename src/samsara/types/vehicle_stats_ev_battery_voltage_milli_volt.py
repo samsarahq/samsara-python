@@ -4,7 +4,7 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from .time import Time
+from .vehicle_stats_time import VehicleStatsTime
 
 
 class VehicleStatsEvBatteryVoltageMilliVolt(UniversalBaseModel):
@@ -12,7 +12,7 @@ class VehicleStatsEvBatteryVoltageMilliVolt(UniversalBaseModel):
     Battery voltage for electric and hybrid vehicles in milli volts. Not all EV and HEVs may report this field.
     """
 
-    time: Time
+    time: VehicleStatsTime
     value: int = pydantic.Field()
     """
     Battery voltage for electric and hybrid vehicles in milli volts.
