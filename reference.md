@@ -25600,6 +25600,14 @@ client.work_orders.post_work_orders(
 <dl>
 <dd>
 
+**invoice_number:** `typing.Optional[str]` — The invoice number for the work order.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **items:** `typing.Optional[typing.Sequence[WorkOrderItemObjectRequestBody]]` — Items related to the work order.
     
 </dd>
@@ -25609,6 +25617,14 @@ client.work_orders.post_work_orders(
 <dd>
 
 **odometer_meters:** `typing.Optional[int]` — The odometer reading at the time of the work order. Will default to current asset reading if unset.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**po_number:** `typing.Optional[str]` — The purchase order number for the work order.
     
 </dd>
 </dl>
@@ -25633,6 +25649,14 @@ client.work_orders.post_work_orders(
 <dd>
 
 **tax:** `typing.Optional[WorkOrderTaxCreateObjectRequestBody]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**vendor_uuid:** `typing.Optional[str]` — The vendor UUID for the work order.
     
 </dd>
 </dl>
