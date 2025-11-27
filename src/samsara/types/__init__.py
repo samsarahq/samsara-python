@@ -2629,8 +2629,13 @@ if typing.TYPE_CHECKING:
     from .hubs_list_hubs_too_many_requests_error_response_body import HubsListHubsTooManyRequestsErrorResponseBody
     from .hubs_list_hubs_unauthorized_error_response_body import HubsListHubsUnauthorizedErrorResponseBody
     from .idle_time_duration_ms import IdleTimeDurationMs
-    from .idling_event_object_response_body import IdlingEventObjectResponseBody
-    from .idling_event_object_response_body_address_type import IdlingEventObjectResponseBodyAddressType
+    from .idling_event_address_object_response_body import IdlingEventAddressObjectResponseBody
+    from .idling_event_address_object_response_body_address_types_item import (
+        IdlingEventAddressObjectResponseBodyAddressTypesItem,
+    )
+    from .idling_event_asset_object_response_body import IdlingEventAssetObjectResponseBody
+    from .idling_event_object_v_20251023_response_body import IdlingEventObjectV20251023ResponseBody
+    from .idling_event_operator_object_response_body import IdlingEventOperatorObjectResponseBody
     from .idling_report_event_address_response_body import IdlingReportEventAddressResponseBody
     from .idling_report_event_response_body import IdlingReportEventResponseBody
     from .idling_reports_get_vehicle_idling_reports_bad_gateway_error_response_body import (
@@ -7474,8 +7479,11 @@ _dynamic_imports: typing.Dict[str, str] = {
     "HubsListHubsTooManyRequestsErrorResponseBody": ".hubs_list_hubs_too_many_requests_error_response_body",
     "HubsListHubsUnauthorizedErrorResponseBody": ".hubs_list_hubs_unauthorized_error_response_body",
     "IdleTimeDurationMs": ".idle_time_duration_ms",
-    "IdlingEventObjectResponseBody": ".idling_event_object_response_body",
-    "IdlingEventObjectResponseBodyAddressType": ".idling_event_object_response_body_address_type",
+    "IdlingEventAddressObjectResponseBody": ".idling_event_address_object_response_body",
+    "IdlingEventAddressObjectResponseBodyAddressTypesItem": ".idling_event_address_object_response_body_address_types_item",
+    "IdlingEventAssetObjectResponseBody": ".idling_event_asset_object_response_body",
+    "IdlingEventObjectV20251023ResponseBody": ".idling_event_object_v_20251023_response_body",
+    "IdlingEventOperatorObjectResponseBody": ".idling_event_operator_object_response_body",
     "IdlingReportEventAddressResponseBody": ".idling_report_event_address_response_body",
     "IdlingReportEventResponseBody": ".idling_report_event_response_body",
     "IdlingReportsGetVehicleIdlingReportsBadGatewayErrorResponseBody": ".idling_reports_get_vehicle_idling_reports_bad_gateway_error_response_body",
@@ -10627,8 +10635,11 @@ __all__ = [
     "HubsListHubsTooManyRequestsErrorResponseBody",
     "HubsListHubsUnauthorizedErrorResponseBody",
     "IdleTimeDurationMs",
-    "IdlingEventObjectResponseBody",
-    "IdlingEventObjectResponseBodyAddressType",
+    "IdlingEventAddressObjectResponseBody",
+    "IdlingEventAddressObjectResponseBodyAddressTypesItem",
+    "IdlingEventAssetObjectResponseBody",
+    "IdlingEventObjectV20251023ResponseBody",
+    "IdlingEventOperatorObjectResponseBody",
     "IdlingReportEventAddressResponseBody",
     "IdlingReportEventResponseBody",
     "IdlingReportsGetVehicleIdlingReportsBadGatewayErrorResponseBody",

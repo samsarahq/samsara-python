@@ -2,7 +2,7 @@
 
 import typing
 
-IdlingEventObjectResponseBodyAddressType = typing.Union[
+IdlingEventAddressObjectResponseBodyAddressTypesItem = typing.Union[
     typing.Literal[
         "agricultureSource",
         "alertsOnly",

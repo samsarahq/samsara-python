@@ -40,6 +40,7 @@ class RawIdlingClient:
         max_duration_milliseconds: typing.Optional[int] = None,
         tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         parent_tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        include_external_ids: typing.Optional[bool] = None,
         after: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
@@ -94,6 +95,9 @@ class RawIdlingClient:
         parent_tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             A filter on the data based on this comma-separated list of parent tag IDs. Parent tag IDs only include vehicle IDs at this time.
 
+        include_external_ids : typing.Optional[bool]
+            Optional boolean indicating whether to return external IDs on supported entities
+
         after : typing.Optional[str]
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
 
@@ -124,6 +128,7 @@ class RawIdlingClient:
                 "maxDurationMilliseconds": max_duration_milliseconds,
                 "tagIds": tag_ids,
                 "parentTagIds": parent_tag_ids,
+                "includeExternalIds": include_external_ids,
                 "after": after,
                 "limit": limit,
             },
@@ -263,6 +268,7 @@ class AsyncRawIdlingClient:
         max_duration_milliseconds: typing.Optional[int] = None,
         tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         parent_tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        include_external_ids: typing.Optional[bool] = None,
         after: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
@@ -317,6 +323,9 @@ class AsyncRawIdlingClient:
         parent_tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             A filter on the data based on this comma-separated list of parent tag IDs. Parent tag IDs only include vehicle IDs at this time.
 
+        include_external_ids : typing.Optional[bool]
+            Optional boolean indicating whether to return external IDs on supported entities
+
         after : typing.Optional[str]
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
 
@@ -347,6 +356,7 @@ class AsyncRawIdlingClient:
                 "maxDurationMilliseconds": max_duration_milliseconds,
                 "tagIds": tag_ids,
                 "parentTagIds": parent_tag_ids,
+                "includeExternalIds": include_external_ids,
                 "after": after,
                 "limit": limit,
             },

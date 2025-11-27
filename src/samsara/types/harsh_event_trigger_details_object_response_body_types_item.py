@@ -39,6 +39,7 @@ HarshEventTriggerDetailsObjectResponseBodyTypesItem = typing.Union[
         "haTailgating",
         "haTileRollingRailroadCrossing",
         "haTileRollingStopSign",
+        "haTrafficLightDetection",
         "haUnsafeParking",
         "haVulnerableRoadUserCollisionWarning",
         "haYawControlBrakeControlActivated",

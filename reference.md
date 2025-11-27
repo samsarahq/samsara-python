@@ -3494,7 +3494,7 @@ client.beta_ap_is.update_engine_immobilizer_state(
     relay_states=[
         UpdateEngineImmobilizerRelayStateRequestBodyRequestBody(
             id="relay1",
-            is_open=True,
+            is_open=False,
         )
     ],
 )
@@ -8591,12 +8591,7 @@ client = Samsara(
 )
 client.media.post_media_retrieval(
     end_time="2019-06-13T19:08:55Z",
-    inputs=[
-        "dashcamRoadFacing",
-        "dashcamRoadFacing",
-        "dashcamRoadFacing",
-        "dashcamRoadFacing",
-    ],
+    inputs=["dashcamRoadFacing", "dashcamRoadFacing"],
     media_type="image",
     start_time="2019-06-13T19:08:25Z",
     vehicle_id="1234",
@@ -22731,6 +22726,7 @@ client.idling.get_idling_events(
     exclude_events_with_unknown_air_temperature=True,
     min_duration_milliseconds=1,
     max_duration_milliseconds=1,
+    include_external_ids=True,
     after="after",
     limit=1,
 )
@@ -22838,6 +22834,14 @@ client.idling.get_idling_events(
 <dd>
 
 **parent_tag_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — A filter on the data based on this comma-separated list of parent tag IDs. Parent tag IDs only include vehicle IDs at this time.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_external_ids:** `typing.Optional[bool]` — Optional boolean indicating whether to return external IDs on supported entities
     
 </dd>
 </dl>

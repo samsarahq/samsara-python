@@ -226,12 +226,7 @@ class MediaClient:
         )
         client.media.post_media_retrieval(
             end_time="2019-06-13T19:08:55Z",
-            inputs=[
-                "dashcamRoadFacing",
-                "dashcamRoadFacing",
-                "dashcamRoadFacing",
-                "dashcamRoadFacing",
-            ],
+            inputs=["dashcamRoadFacing", "dashcamRoadFacing"],
             media_type="image",
             start_time="2019-06-13T19:08:25Z",
             vehicle_id="1234",
@@ -475,12 +470,7 @@ class AsyncMediaClient:
         async def main() -> None:
             await client.media.post_media_retrieval(
                 end_time="2019-06-13T19:08:55Z",
-                inputs=[
-                    "dashcamRoadFacing",
-                    "dashcamRoadFacing",
-                    "dashcamRoadFacing",
-                    "dashcamRoadFacing",
-                ],
+                inputs=["dashcamRoadFacing", "dashcamRoadFacing"],
                 media_type="image",
                 start_time="2019-06-13T19:08:25Z",
                 vehicle_id="1234",
