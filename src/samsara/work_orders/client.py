@@ -153,11 +153,14 @@ class WorkOrdersClient:
         discount: typing.Optional[WorkOrderDiscountObjectRequestBody] = OMIT,
         due_at_time: typing.Optional[dt.datetime] = OMIT,
         engine_hours: typing.Optional[int] = OMIT,
+        invoice_number: typing.Optional[str] = OMIT,
         items: typing.Optional[typing.Sequence[WorkOrderItemObjectRequestBody]] = OMIT,
         odometer_meters: typing.Optional[int] = OMIT,
+        po_number: typing.Optional[str] = OMIT,
         priority: typing.Optional[WorkOrdersPostWorkOrdersRequestBodyPriority] = OMIT,
         service_task_instances: typing.Optional[typing.Sequence[ServiceTaskInstanceInputObjectRequestBody]] = OMIT,
         tax: typing.Optional[WorkOrderTaxCreateObjectRequestBody] = OMIT,
+        vendor_uuid: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> WorkOrdersPostWorkOrdersResponseBody:
         """
@@ -192,11 +195,17 @@ class WorkOrdersClient:
         engine_hours : typing.Optional[int]
             The engine hours at the time of the work order. Will default to current asset reading if unset.
 
+        invoice_number : typing.Optional[str]
+            The invoice number for the work order.
+
         items : typing.Optional[typing.Sequence[WorkOrderItemObjectRequestBody]]
             Items related to the work order.
 
         odometer_meters : typing.Optional[int]
             The odometer reading at the time of the work order. Will default to current asset reading if unset.
+
+        po_number : typing.Optional[str]
+            The purchase order number for the work order.
 
         priority : typing.Optional[WorkOrdersPostWorkOrdersRequestBodyPriority]
             The priority of the work order  Valid values: `High`, `Low`, `Medium`, `Urgent`
@@ -205,6 +214,9 @@ class WorkOrdersClient:
             Service Tasks for the work order.
 
         tax : typing.Optional[WorkOrderTaxCreateObjectRequestBody]
+
+        vendor_uuid : typing.Optional[str]
+            The vendor UUID for the work order.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -233,11 +245,14 @@ class WorkOrdersClient:
             discount=discount,
             due_at_time=due_at_time,
             engine_hours=engine_hours,
+            invoice_number=invoice_number,
             items=items,
             odometer_meters=odometer_meters,
+            po_number=po_number,
             priority=priority,
             service_task_instances=service_task_instances,
             tax=tax,
+            vendor_uuid=vendor_uuid,
             request_options=request_options,
         )
         return _response.data
@@ -629,11 +644,14 @@ class AsyncWorkOrdersClient:
         discount: typing.Optional[WorkOrderDiscountObjectRequestBody] = OMIT,
         due_at_time: typing.Optional[dt.datetime] = OMIT,
         engine_hours: typing.Optional[int] = OMIT,
+        invoice_number: typing.Optional[str] = OMIT,
         items: typing.Optional[typing.Sequence[WorkOrderItemObjectRequestBody]] = OMIT,
         odometer_meters: typing.Optional[int] = OMIT,
+        po_number: typing.Optional[str] = OMIT,
         priority: typing.Optional[WorkOrdersPostWorkOrdersRequestBodyPriority] = OMIT,
         service_task_instances: typing.Optional[typing.Sequence[ServiceTaskInstanceInputObjectRequestBody]] = OMIT,
         tax: typing.Optional[WorkOrderTaxCreateObjectRequestBody] = OMIT,
+        vendor_uuid: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> WorkOrdersPostWorkOrdersResponseBody:
         """
@@ -668,11 +686,17 @@ class AsyncWorkOrdersClient:
         engine_hours : typing.Optional[int]
             The engine hours at the time of the work order. Will default to current asset reading if unset.
 
+        invoice_number : typing.Optional[str]
+            The invoice number for the work order.
+
         items : typing.Optional[typing.Sequence[WorkOrderItemObjectRequestBody]]
             Items related to the work order.
 
         odometer_meters : typing.Optional[int]
             The odometer reading at the time of the work order. Will default to current asset reading if unset.
+
+        po_number : typing.Optional[str]
+            The purchase order number for the work order.
 
         priority : typing.Optional[WorkOrdersPostWorkOrdersRequestBodyPriority]
             The priority of the work order  Valid values: `High`, `Low`, `Medium`, `Urgent`
@@ -681,6 +705,9 @@ class AsyncWorkOrdersClient:
             Service Tasks for the work order.
 
         tax : typing.Optional[WorkOrderTaxCreateObjectRequestBody]
+
+        vendor_uuid : typing.Optional[str]
+            The vendor UUID for the work order.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -717,11 +744,14 @@ class AsyncWorkOrdersClient:
             discount=discount,
             due_at_time=due_at_time,
             engine_hours=engine_hours,
+            invoice_number=invoice_number,
             items=items,
             odometer_meters=odometer_meters,
+            po_number=po_number,
             priority=priority,
             service_task_instances=service_task_instances,
             tax=tax,
+            vendor_uuid=vendor_uuid,
             request_options=request_options,
         )
         return _response.data
