@@ -371,11 +371,14 @@ class RawWorkOrdersClient:
         discount: typing.Optional[WorkOrderDiscountObjectRequestBody] = OMIT,
         due_at_time: typing.Optional[dt.datetime] = OMIT,
         engine_hours: typing.Optional[int] = OMIT,
+        invoice_number: typing.Optional[str] = OMIT,
         items: typing.Optional[typing.Sequence[WorkOrderItemObjectRequestBody]] = OMIT,
         odometer_meters: typing.Optional[int] = OMIT,
+        po_number: typing.Optional[str] = OMIT,
         priority: typing.Optional[WorkOrdersPostWorkOrdersRequestBodyPriority] = OMIT,
         service_task_instances: typing.Optional[typing.Sequence[ServiceTaskInstanceInputObjectRequestBody]] = OMIT,
         tax: typing.Optional[WorkOrderTaxCreateObjectRequestBody] = OMIT,
+        vendor_uuid: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[WorkOrdersPostWorkOrdersResponseBody]:
         """
@@ -410,11 +413,17 @@ class RawWorkOrdersClient:
         engine_hours : typing.Optional[int]
             The engine hours at the time of the work order. Will default to current asset reading if unset.
 
+        invoice_number : typing.Optional[str]
+            The invoice number for the work order.
+
         items : typing.Optional[typing.Sequence[WorkOrderItemObjectRequestBody]]
             Items related to the work order.
 
         odometer_meters : typing.Optional[int]
             The odometer reading at the time of the work order. Will default to current asset reading if unset.
+
+        po_number : typing.Optional[str]
+            The purchase order number for the work order.
 
         priority : typing.Optional[WorkOrdersPostWorkOrdersRequestBodyPriority]
             The priority of the work order  Valid values: `High`, `Low`, `Medium`, `Urgent`
@@ -423,6 +432,9 @@ class RawWorkOrdersClient:
             Service Tasks for the work order.
 
         tax : typing.Optional[WorkOrderTaxCreateObjectRequestBody]
+
+        vendor_uuid : typing.Optional[str]
+            The vendor UUID for the work order.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -445,10 +457,12 @@ class RawWorkOrdersClient:
                 ),
                 "dueAtTime": due_at_time,
                 "engineHours": engine_hours,
+                "invoiceNumber": invoice_number,
                 "items": convert_and_respect_annotation_metadata(
                     object_=items, annotation=typing.Sequence[WorkOrderItemObjectRequestBody], direction="write"
                 ),
                 "odometerMeters": odometer_meters,
+                "poNumber": po_number,
                 "priority": priority,
                 "serviceTaskInstances": convert_and_respect_annotation_metadata(
                     object_=service_task_instances,
@@ -458,6 +472,7 @@ class RawWorkOrdersClient:
                 "tax": convert_and_respect_annotation_metadata(
                     object_=tax, annotation=WorkOrderTaxCreateObjectRequestBody, direction="write"
                 ),
+                "vendorUuid": vendor_uuid,
             },
             headers={
                 "content-type": "application/json",
@@ -1480,11 +1495,14 @@ class AsyncRawWorkOrdersClient:
         discount: typing.Optional[WorkOrderDiscountObjectRequestBody] = OMIT,
         due_at_time: typing.Optional[dt.datetime] = OMIT,
         engine_hours: typing.Optional[int] = OMIT,
+        invoice_number: typing.Optional[str] = OMIT,
         items: typing.Optional[typing.Sequence[WorkOrderItemObjectRequestBody]] = OMIT,
         odometer_meters: typing.Optional[int] = OMIT,
+        po_number: typing.Optional[str] = OMIT,
         priority: typing.Optional[WorkOrdersPostWorkOrdersRequestBodyPriority] = OMIT,
         service_task_instances: typing.Optional[typing.Sequence[ServiceTaskInstanceInputObjectRequestBody]] = OMIT,
         tax: typing.Optional[WorkOrderTaxCreateObjectRequestBody] = OMIT,
+        vendor_uuid: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[WorkOrdersPostWorkOrdersResponseBody]:
         """
@@ -1519,11 +1537,17 @@ class AsyncRawWorkOrdersClient:
         engine_hours : typing.Optional[int]
             The engine hours at the time of the work order. Will default to current asset reading if unset.
 
+        invoice_number : typing.Optional[str]
+            The invoice number for the work order.
+
         items : typing.Optional[typing.Sequence[WorkOrderItemObjectRequestBody]]
             Items related to the work order.
 
         odometer_meters : typing.Optional[int]
             The odometer reading at the time of the work order. Will default to current asset reading if unset.
+
+        po_number : typing.Optional[str]
+            The purchase order number for the work order.
 
         priority : typing.Optional[WorkOrdersPostWorkOrdersRequestBodyPriority]
             The priority of the work order  Valid values: `High`, `Low`, `Medium`, `Urgent`
@@ -1532,6 +1556,9 @@ class AsyncRawWorkOrdersClient:
             Service Tasks for the work order.
 
         tax : typing.Optional[WorkOrderTaxCreateObjectRequestBody]
+
+        vendor_uuid : typing.Optional[str]
+            The vendor UUID for the work order.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -1554,10 +1581,12 @@ class AsyncRawWorkOrdersClient:
                 ),
                 "dueAtTime": due_at_time,
                 "engineHours": engine_hours,
+                "invoiceNumber": invoice_number,
                 "items": convert_and_respect_annotation_metadata(
                     object_=items, annotation=typing.Sequence[WorkOrderItemObjectRequestBody], direction="write"
                 ),
                 "odometerMeters": odometer_meters,
+                "poNumber": po_number,
                 "priority": priority,
                 "serviceTaskInstances": convert_and_respect_annotation_metadata(
                     object_=service_task_instances,
@@ -1567,6 +1596,7 @@ class AsyncRawWorkOrdersClient:
                 "tax": convert_and_respect_annotation_metadata(
                     object_=tax, annotation=WorkOrderTaxCreateObjectRequestBody, direction="write"
                 ),
+                "vendorUuid": vendor_uuid,
             },
             headers={
                 "content-type": "application/json",
