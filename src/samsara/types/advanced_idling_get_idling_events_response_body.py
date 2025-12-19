@@ -5,11 +5,11 @@ import typing
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from .goa_pagination_response_response_body import GoaPaginationResponseResponseBody
-from .idling_event_object_response_body import IdlingEventObjectResponseBody
+from .idling_event_object_v_20251023_response_body import IdlingEventObjectV20251023ResponseBody
 
 
 class AdvancedIdlingGetIdlingEventsResponseBody(UniversalBaseModel):
-    data: typing.List[IdlingEventObjectResponseBody] = pydantic.Field()
+    data: typing.List[IdlingEventObjectV20251023ResponseBody] = pydantic.Field()
     """
     List of idling event objects.
     """

@@ -39,6 +39,7 @@ class IdlingClient:
         max_duration_milliseconds: typing.Optional[int] = None,
         tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         parent_tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        include_external_ids: typing.Optional[bool] = None,
         after: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
@@ -93,6 +94,9 @@ class IdlingClient:
         parent_tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             A filter on the data based on this comma-separated list of parent tag IDs. Parent tag IDs only include vehicle IDs at this time.
 
+        include_external_ids : typing.Optional[bool]
+            Optional boolean indicating whether to return external IDs on supported entities
+
         after : typing.Optional[str]
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
 
@@ -123,6 +127,7 @@ class IdlingClient:
             exclude_events_with_unknown_air_temperature=True,
             min_duration_milliseconds=1,
             max_duration_milliseconds=1,
+            include_external_ids=True,
             after="after",
             limit=1,
         )
@@ -140,6 +145,7 @@ class IdlingClient:
             max_duration_milliseconds=max_duration_milliseconds,
             tag_ids=tag_ids,
             parent_tag_ids=parent_tag_ids,
+            include_external_ids=include_external_ids,
             after=after,
             limit=limit,
             request_options=request_options,
@@ -177,6 +183,7 @@ class AsyncIdlingClient:
         max_duration_milliseconds: typing.Optional[int] = None,
         tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         parent_tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        include_external_ids: typing.Optional[bool] = None,
         after: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
@@ -231,6 +238,9 @@ class AsyncIdlingClient:
         parent_tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             A filter on the data based on this comma-separated list of parent tag IDs. Parent tag IDs only include vehicle IDs at this time.
 
+        include_external_ids : typing.Optional[bool]
+            Optional boolean indicating whether to return external IDs on supported entities
+
         after : typing.Optional[str]
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
 
@@ -266,6 +276,7 @@ class AsyncIdlingClient:
                 exclude_events_with_unknown_air_temperature=True,
                 min_duration_milliseconds=1,
                 max_duration_milliseconds=1,
+                include_external_ids=True,
                 after="after",
                 limit=1,
             )
@@ -286,6 +297,7 @@ class AsyncIdlingClient:
             max_duration_milliseconds=max_duration_milliseconds,
             tag_ids=tag_ids,
             parent_tag_ids=parent_tag_ids,
+            include_external_ids=include_external_ids,
             after=after,
             limit=limit,
             request_options=request_options,

@@ -8,28 +8,17 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .fuel_cost_object_response_body import FuelCostObjectResponseBody
 from .gaseous_fuel_cost_object_response_body import GaseousFuelCostObjectResponseBody
-from .idling_event_object_response_body_address_type import IdlingEventObjectResponseBodyAddressType
+from .idling_event_address_object_response_body import IdlingEventAddressObjectResponseBody
+from .idling_event_asset_object_response_body import IdlingEventAssetObjectResponseBody
+from .idling_event_operator_object_response_body import IdlingEventOperatorObjectResponseBody
 
 
-class IdlingEventObjectResponseBody(UniversalBaseModel):
+class IdlingEventObjectV20251023ResponseBody(UniversalBaseModel):
     """
     An idling event object.
     """
 
-    address_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="addressId")] = pydantic.Field(
-        default=None
-    )
-    """
-    The ID of the geofence address of the idling location, if applicable. It will be the address at the time of idling.
-    """
-
-    address_type: typing_extensions.Annotated[
-        typing.Optional[IdlingEventObjectResponseBodyAddressType], FieldMetadata(alias="addressType")
-    ] = pydantic.Field(default=None)
-    """
-    The type of the geofence address of the idling location, if applicable.  Valid values: `agricultureSource`, `alertsOnly`, `avoidanceZone`, `industrialSite`, `knownGPSJammingZone`, `riskZone`, `shortHaul`, `undefined`, `workforceSite`, `yard`
-    """
-
+    address: typing.Optional[IdlingEventAddressObjectResponseBody] = None
     air_temperature_millicelsius: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="airTemperatureMillicelsius")
     ] = pydantic.Field(default=None)
@@ -37,11 +26,7 @@ class IdlingEventObjectResponseBody(UniversalBaseModel):
     The air temperature in millicelsius during the idling event. Value is returned only when it is known.
     """
 
-    asset_id: typing_extensions.Annotated[int, FieldMetadata(alias="assetId")] = pydantic.Field()
-    """
-    Samsara ID of the asset assigned to the event. Returns vehicle ID at this time.
-    """
-
+    asset: IdlingEventAssetObjectResponseBody
     duration_milliseconds: typing_extensions.Annotated[int, FieldMetadata(alias="durationMilliseconds")] = (
         pydantic.Field()
     )
@@ -72,13 +57,17 @@ class IdlingEventObjectResponseBody(UniversalBaseModel):
     gaseous_fuel_cost: typing_extensions.Annotated[
         GaseousFuelCostObjectResponseBody, FieldMetadata(alias="gaseousFuelCost")
     ]
-    operator_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="operatorId")] = pydantic.Field(
-        default=None
-    )
+    latitude: typing.Optional[float] = pydantic.Field(default=None)
     """
-    Samsara ID of the operator assigned the event. Returns driver ID at this time. Value is returned when the driver is assigned to the vehicle.
+    The latitude of the location where the idling event occurred.
     """
 
+    longitude: typing.Optional[float] = pydantic.Field(default=None)
+    """
+    The longitude of the location where the idling event occurred.
+    """
+
+    operator: typing.Optional[IdlingEventOperatorObjectResponseBody] = None
     pto_state: typing_extensions.Annotated[typing.Literal["active, inactive"], FieldMetadata(alias="ptoState")] = (
         pydantic.Field(default="active, inactive")
     )
