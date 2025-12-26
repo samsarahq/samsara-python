@@ -1,0 +1,92 @@
+name: Build & Publish Lambda Layer
+
+on:
+  workflow_call:
+    inputs:
+      sdk_version:
+        description: "The version of the SDK that was just released to PyPI"
+        required: true
+        type: string
+
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  AWS_ACCOUNT_ID: "699475920961"
+  LAYER_NAME: "ScriptExecutionLambdaSamsaraSDKLayer"
+  PYTHON_RUNTIME: "python3.11"
+  ARTIFACT_NAME: "python-layer-zip"
+  ARTIFACT_FILE: "python-layer.zip"
+  MAX_ZIP_BYTES: "50000000"  # 50 MB Lambda limit
+  SDK_VERSION: ${{ inputs.sdk_version }}
+
+jobs:
+  build:
+    name: Build Lambda Layer in Amazon Linux
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build inside Amazon Linux container
+        run: |
+          docker run --rm -v "$PWD":/work -w /work amazonlinux:2023 bash -lc "
+            set -euo pipefail
+            dnf -y install python3-pip zip findutils
+            mkdir -p python
+            echo \"Installing samsara-python==${SDK_VERSION}\"
+            python3 -m pip install samsara-python==${SDK_VERSION} -t python
+            # Clean unnecessary files but keep .dist-info for license/version metadata
+            find python -type f -name '*.pyc' -delete
+            find python -type d -name '__pycache__' -prune -exec rm -rf {} +
+            find python -type d -name 'tests' -prune -exec rm -rf {} +
+            # Create the zip
+            (cd python && zip -r ../${ARTIFACT_FILE} .)
+            BYTES=$(stat -c%s ${ARTIFACT_FILE})
+            echo \"ZIP size: $BYTES bytes\"
+            [ \"$BYTES\" -lt \"${MAX_ZIP_BYTES}\" ] || { echo 'ZIP exceeds 50MB!'; exit 1; }
+          "
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.ARTIFACT_NAME }}
+          path: ${{ env.ARTIFACT_FILE }}
+
+  publish:
+    name: Publish to AWS Lambda Layers
+    runs-on: ubuntu-latest
+    needs: build
+    strategy:
+      fail-fast: false
+      matrix:
+        region: [ us-west-2, eu-west-1, ca-central-1 ]
+
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: ${{ env.ARTIFACT_NAME }}
+          path: .
+
+      - name: Configure AWS Credentials via OIDC
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::${{ env.AWS_ACCOUNT_ID }}:role/GithubPythonSdkLayerPublisher
+          aws-region: ${{ matrix.region }}
+
+      - name: Publish Lambda Layer
+        run: |
+          aws lambda publish-layer-version \
+            --layer-name "${LAYER_NAME}" \
+            --compatible-runtimes "${PYTHON_RUNTIME}" \
+            --zip-file "fileb://${ARTIFACT_FILE}" \
+            --description "Built from ${{ github.repository }}@${{ github.sha }}" \
+            --region "${{ matrix.region }}"
+
+      - name: Output latest version ARN
+        run: |
+          aws lambda list-layer-versions \
+            --layer-name "${LAYER_NAME}" \
+            --max-items 1 \
+            --region "${{ matrix.region }}"
