@@ -121,15 +121,6 @@ class IdlingClient:
         client.idling.get_idling_events(
             start_time="startTime",
             end_time="endTime",
-            pto_state="active",
-            min_air_temperature_millicelsius=1,
-            max_air_temperature_millicelsius=1,
-            exclude_events_with_unknown_air_temperature=True,
-            min_duration_milliseconds=1,
-            max_duration_milliseconds=1,
-            include_external_ids=True,
-            after="after",
-            limit=1,
         )
         """
         _response = self._raw_client.get_idling_events(
@@ -270,15 +261,6 @@ class AsyncIdlingClient:
             await client.idling.get_idling_events(
                 start_time="startTime",
                 end_time="endTime",
-                pto_state="active",
-                min_air_temperature_millicelsius=1,
-                max_air_temperature_millicelsius=1,
-                exclude_events_with_unknown_air_temperature=True,
-                min_duration_milliseconds=1,
-                max_duration_milliseconds=1,
-                include_external_ids=True,
-                after="after",
-                limit=1,
             )
 
 

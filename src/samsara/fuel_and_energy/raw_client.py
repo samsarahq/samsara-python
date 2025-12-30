@@ -132,9 +132,9 @@ class RawFuelAndEnergyClient:
                 raise UnauthorizedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -143,9 +143,9 @@ class RawFuelAndEnergyClient:
                 raise NotFoundError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -154,9 +154,9 @@ class RawFuelAndEnergyClient:
                 raise MethodNotAllowedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -165,9 +165,9 @@ class RawFuelAndEnergyClient:
                 raise TooManyRequestsError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -176,9 +176,9 @@ class RawFuelAndEnergyClient:
                 raise InternalServerError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -187,9 +187,9 @@ class RawFuelAndEnergyClient:
                 raise NotImplementedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -198,9 +198,9 @@ class RawFuelAndEnergyClient:
                 raise BadGatewayError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -209,9 +209,9 @@ class RawFuelAndEnergyClient:
                 raise ServiceUnavailableError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -220,9 +220,9 @@ class RawFuelAndEnergyClient:
                 raise GatewayTimeoutError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -315,9 +315,9 @@ class RawFuelAndEnergyClient:
                 raise UnauthorizedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -326,9 +326,9 @@ class RawFuelAndEnergyClient:
                 raise NotFoundError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -337,9 +337,9 @@ class RawFuelAndEnergyClient:
                 raise MethodNotAllowedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -348,9 +348,9 @@ class RawFuelAndEnergyClient:
                 raise TooManyRequestsError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -359,9 +359,9 @@ class RawFuelAndEnergyClient:
                 raise InternalServerError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -370,9 +370,9 @@ class RawFuelAndEnergyClient:
                 raise NotImplementedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -381,9 +381,9 @@ class RawFuelAndEnergyClient:
                 raise BadGatewayError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -392,9 +392,9 @@ class RawFuelAndEnergyClient:
                 raise ServiceUnavailableError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -403,9 +403,9 @@ class RawFuelAndEnergyClient:
                 raise GatewayTimeoutError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -491,9 +491,9 @@ class RawFuelAndEnergyClient:
                 raise UnauthorizedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -502,9 +502,9 @@ class RawFuelAndEnergyClient:
                 raise NotFoundError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -513,9 +513,9 @@ class RawFuelAndEnergyClient:
                 raise MethodNotAllowedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -524,9 +524,9 @@ class RawFuelAndEnergyClient:
                 raise TooManyRequestsError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -535,9 +535,9 @@ class RawFuelAndEnergyClient:
                 raise InternalServerError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -546,9 +546,9 @@ class RawFuelAndEnergyClient:
                 raise NotImplementedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -557,9 +557,9 @@ class RawFuelAndEnergyClient:
                 raise BadGatewayError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -568,9 +568,9 @@ class RawFuelAndEnergyClient:
                 raise ServiceUnavailableError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -579,9 +579,9 @@ class RawFuelAndEnergyClient:
                 raise GatewayTimeoutError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -672,9 +672,9 @@ class RawFuelAndEnergyClient:
                 raise UnauthorizedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -683,9 +683,9 @@ class RawFuelAndEnergyClient:
                 raise NotFoundError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -694,9 +694,9 @@ class RawFuelAndEnergyClient:
                 raise MethodNotAllowedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -705,9 +705,9 @@ class RawFuelAndEnergyClient:
                 raise TooManyRequestsError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -716,9 +716,9 @@ class RawFuelAndEnergyClient:
                 raise InternalServerError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -727,9 +727,9 @@ class RawFuelAndEnergyClient:
                 raise NotImplementedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -738,9 +738,9 @@ class RawFuelAndEnergyClient:
                 raise BadGatewayError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -749,9 +749,9 @@ class RawFuelAndEnergyClient:
                 raise ServiceUnavailableError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -760,9 +760,9 @@ class RawFuelAndEnergyClient:
                 raise GatewayTimeoutError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -884,9 +884,9 @@ class RawFuelAndEnergyClient:
                 raise UnauthorizedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -895,9 +895,9 @@ class RawFuelAndEnergyClient:
                 raise NotFoundError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -906,9 +906,9 @@ class RawFuelAndEnergyClient:
                 raise MethodNotAllowedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -917,9 +917,9 @@ class RawFuelAndEnergyClient:
                 raise TooManyRequestsError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -928,9 +928,9 @@ class RawFuelAndEnergyClient:
                 raise InternalServerError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -939,9 +939,9 @@ class RawFuelAndEnergyClient:
                 raise NotImplementedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -950,9 +950,9 @@ class RawFuelAndEnergyClient:
                 raise BadGatewayError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -961,9 +961,9 @@ class RawFuelAndEnergyClient:
                 raise ServiceUnavailableError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -972,9 +972,9 @@ class RawFuelAndEnergyClient:
                 raise GatewayTimeoutError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1072,9 +1072,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise UnauthorizedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1083,9 +1083,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise NotFoundError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1094,9 +1094,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise MethodNotAllowedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1105,9 +1105,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise TooManyRequestsError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1116,9 +1116,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise InternalServerError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1127,9 +1127,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise NotImplementedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1138,9 +1138,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise BadGatewayError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1149,9 +1149,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise ServiceUnavailableError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1160,9 +1160,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise GatewayTimeoutError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1255,9 +1255,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise UnauthorizedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1266,9 +1266,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise NotFoundError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1277,9 +1277,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise MethodNotAllowedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1288,9 +1288,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise TooManyRequestsError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1299,9 +1299,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise InternalServerError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1310,9 +1310,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise NotImplementedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1321,9 +1321,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise BadGatewayError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1332,9 +1332,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise ServiceUnavailableError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1343,9 +1343,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise GatewayTimeoutError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1431,9 +1431,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise UnauthorizedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1442,9 +1442,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise NotFoundError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1453,9 +1453,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise MethodNotAllowedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1464,9 +1464,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise TooManyRequestsError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1475,9 +1475,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise InternalServerError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1486,9 +1486,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise NotImplementedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1497,9 +1497,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise BadGatewayError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1508,9 +1508,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise ServiceUnavailableError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1519,9 +1519,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise GatewayTimeoutError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1612,9 +1612,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise UnauthorizedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1623,9 +1623,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise NotFoundError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1634,9 +1634,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise MethodNotAllowedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1645,9 +1645,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise TooManyRequestsError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1656,9 +1656,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise InternalServerError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1667,9 +1667,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise NotImplementedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1678,9 +1678,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise BadGatewayError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1689,9 +1689,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise ServiceUnavailableError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1700,9 +1700,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise GatewayTimeoutError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1824,9 +1824,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise UnauthorizedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1835,9 +1835,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise NotFoundError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1846,9 +1846,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise MethodNotAllowedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1857,9 +1857,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise TooManyRequestsError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1868,9 +1868,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise InternalServerError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1879,9 +1879,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise NotImplementedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1890,9 +1890,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise BadGatewayError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1901,9 +1901,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise ServiceUnavailableError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1912,9 +1912,9 @@ class AsyncRawFuelAndEnergyClient:
                 raise GatewayTimeoutError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),

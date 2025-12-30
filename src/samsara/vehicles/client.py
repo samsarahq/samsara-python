@@ -12,6 +12,7 @@ from ..types.vehicle_regulation_mode import VehicleRegulationMode
 from ..types.vehicle_response import VehicleResponse
 from ..types.vehicle_response_object_response_body import VehicleResponseObjectResponseBody
 from ..types.vehicle_type import VehicleType
+from ..types.vehicles_list_vehicles_response_body import VehiclesListVehiclesResponseBody
 from .raw_client import AsyncRawVehiclesClient, RawVehiclesClient
 from .types.update_vehicle_request_aux_input_type_1 import UpdateVehicleRequestAuxInputType1
 from .types.update_vehicle_request_aux_input_type_2 import UpdateVehicleRequestAuxInputType2
@@ -61,7 +62,7 @@ class VehiclesClient:
         updated_after_time: typing.Optional[str] = None,
         created_after_time: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[VehicleResponseObjectResponseBody]:
+    ) -> SyncPager[VehicleResponseObjectResponseBody, VehiclesListVehiclesResponseBody]:
         """
         Returns a list of all vehicles.
 
@@ -103,7 +104,7 @@ class VehiclesClient:
 
         Returns
         -------
-        SyncPager[VehicleResponseObjectResponseBody]
+        SyncPager[VehicleResponseObjectResponseBody, VehiclesListVehiclesResponseBody]
             OK response.
 
         Examples
@@ -113,15 +114,7 @@ class VehiclesClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        response = client.vehicles.list(
-            limit=1,
-            after="after",
-            parent_tag_ids="parentTagIds",
-            tag_ids="tagIds",
-            attribute_value_ids="attributeValueIds",
-            updated_after_time="updatedAfterTime",
-            created_after_time="createdAfterTime",
-        )
+        response = client.vehicles.list()
         for item in response:
             yield item
         # alternatively, you can paginate page-by-page
@@ -387,7 +380,7 @@ class AsyncVehiclesClient:
         updated_after_time: typing.Optional[str] = None,
         created_after_time: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[VehicleResponseObjectResponseBody]:
+    ) -> AsyncPager[VehicleResponseObjectResponseBody, VehiclesListVehiclesResponseBody]:
         """
         Returns a list of all vehicles.
 
@@ -429,7 +422,7 @@ class AsyncVehiclesClient:
 
         Returns
         -------
-        AsyncPager[VehicleResponseObjectResponseBody]
+        AsyncPager[VehicleResponseObjectResponseBody, VehiclesListVehiclesResponseBody]
             OK response.
 
         Examples
@@ -444,15 +437,7 @@ class AsyncVehiclesClient:
 
 
         async def main() -> None:
-            response = await client.vehicles.list(
-                limit=1,
-                after="after",
-                parent_tag_ids="parentTagIds",
-                tag_ids="tagIds",
-                attribute_value_ids="attributeValueIds",
-                updated_after_time="updatedAfterTime",
-                created_after_time="createdAfterTime",
-            )
+            response = await client.vehicles.list()
             async for item in response:
                 yield item
 

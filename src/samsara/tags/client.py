@@ -66,10 +66,7 @@ class TagsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.tags.list_tags(
-            limit=1000000,
-            after="after",
-        )
+        client.tags.list_tags()
         """
         _response = self._raw_client.list_tags(limit=limit, after=after, request_options=request_options)
         return _response.data
@@ -460,10 +457,7 @@ class AsyncTagsClient:
 
 
         async def main() -> None:
-            await client.tags.list_tags(
-                limit=1000000,
-                after="after",
-            )
+            await client.tags.list_tags()
 
 
         asyncio.run(main())

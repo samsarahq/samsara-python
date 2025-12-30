@@ -72,10 +72,7 @@ class EquipmentClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.equipment.list_equipment(
-            limit=1000000,
-            after="after",
-        )
+        client.equipment.list_equipment()
         """
         _response = self._raw_client.list_equipment(
             limit=limit, after=after, parent_tag_ids=parent_tag_ids, tag_ids=tag_ids, request_options=request_options
@@ -127,9 +124,7 @@ class EquipmentClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.equipment.get_equipment_locations(
-            after="after",
-        )
+        client.equipment.get_equipment_locations()
         """
         _response = self._raw_client.get_equipment_locations(
             after=after,
@@ -191,9 +186,7 @@ class EquipmentClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.equipment.get_equipment_locations_feed(
-            after="after",
-        )
+        client.equipment.get_equipment_locations_feed()
         """
         _response = self._raw_client.get_equipment_locations_feed(
             after=after,
@@ -258,7 +251,6 @@ class EquipmentClient:
             token="YOUR_TOKEN",
         )
         client.equipment.get_equipment_locations_history(
-            after="after",
             start_time="startTime",
             end_time="endTime",
         )
@@ -626,10 +618,7 @@ class AsyncEquipmentClient:
 
 
         async def main() -> None:
-            await client.equipment.list_equipment(
-                limit=1000000,
-                after="after",
-            )
+            await client.equipment.list_equipment()
 
 
         asyncio.run(main())
@@ -689,9 +678,7 @@ class AsyncEquipmentClient:
 
 
         async def main() -> None:
-            await client.equipment.get_equipment_locations(
-                after="after",
-            )
+            await client.equipment.get_equipment_locations()
 
 
         asyncio.run(main())
@@ -761,9 +748,7 @@ class AsyncEquipmentClient:
 
 
         async def main() -> None:
-            await client.equipment.get_equipment_locations_feed(
-                after="after",
-            )
+            await client.equipment.get_equipment_locations_feed()
 
 
         asyncio.run(main())
@@ -836,7 +821,6 @@ class AsyncEquipmentClient:
 
         async def main() -> None:
             await client.equipment.get_equipment_locations_history(
-                after="after",
                 start_time="startTime",
                 end_time="endTime",
             )

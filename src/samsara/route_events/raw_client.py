@@ -90,9 +90,9 @@ class RawRouteEventsClient:
                 raise UnauthorizedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -101,9 +101,9 @@ class RawRouteEventsClient:
                 raise NotFoundError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -112,9 +112,9 @@ class RawRouteEventsClient:
                 raise MethodNotAllowedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -123,9 +123,9 @@ class RawRouteEventsClient:
                 raise TooManyRequestsError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -134,9 +134,9 @@ class RawRouteEventsClient:
                 raise InternalServerError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -145,9 +145,9 @@ class RawRouteEventsClient:
                 raise NotImplementedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -156,9 +156,9 @@ class RawRouteEventsClient:
                 raise BadGatewayError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -167,9 +167,9 @@ class RawRouteEventsClient:
                 raise ServiceUnavailableError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -178,9 +178,9 @@ class RawRouteEventsClient:
                 raise GatewayTimeoutError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -261,9 +261,9 @@ class AsyncRawRouteEventsClient:
                 raise UnauthorizedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -272,9 +272,9 @@ class AsyncRawRouteEventsClient:
                 raise NotFoundError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -283,9 +283,9 @@ class AsyncRawRouteEventsClient:
                 raise MethodNotAllowedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -294,9 +294,9 @@ class AsyncRawRouteEventsClient:
                 raise TooManyRequestsError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -305,9 +305,9 @@ class AsyncRawRouteEventsClient:
                 raise InternalServerError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -316,9 +316,9 @@ class AsyncRawRouteEventsClient:
                 raise NotImplementedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -327,9 +327,9 @@ class AsyncRawRouteEventsClient:
                 raise BadGatewayError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -338,9 +338,9 @@ class AsyncRawRouteEventsClient:
                 raise ServiceUnavailableError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -349,9 +349,9 @@ class AsyncRawRouteEventsClient:
                 raise GatewayTimeoutError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),

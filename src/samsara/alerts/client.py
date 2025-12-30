@@ -127,11 +127,7 @@ class AlertsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.alerts.get_configurations(
-            status="all",
-            after="after",
-            include_external_ids=True,
-        )
+        client.alerts.get_configurations()
         """
         _response = self._raw_client.get_configurations(
             ids=ids,
@@ -526,11 +522,7 @@ class AsyncAlertsClient:
 
 
         async def main() -> None:
-            await client.alerts.get_configurations(
-                status="all",
-                after="after",
-                include_external_ids=True,
-            )
+            await client.alerts.get_configurations()
 
 
         asyncio.run(main())

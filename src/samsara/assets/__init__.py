@@ -9,16 +9,16 @@ if typing.TYPE_CHECKING:
     from .types import (
         AssetsCreateAssetRequestBodyRegulationMode,
         AssetsCreateAssetRequestBodyType,
-        AssetsListRequestType,
         AssetsUpdateAssetRequestBodyRegulationMode,
         AssetsUpdateAssetRequestBodyType,
+        ListAssetsRequestType,
     )
 _dynamic_imports: typing.Dict[str, str] = {
     "AssetsCreateAssetRequestBodyRegulationMode": ".types",
     "AssetsCreateAssetRequestBodyType": ".types",
-    "AssetsListRequestType": ".types",
     "AssetsUpdateAssetRequestBodyRegulationMode": ".types",
     "AssetsUpdateAssetRequestBodyType": ".types",
+    "ListAssetsRequestType": ".types",
 }
 
 
@@ -46,7 +46,7 @@ def __dir__():
 __all__ = [
     "AssetsCreateAssetRequestBodyRegulationMode",
     "AssetsCreateAssetRequestBodyType",
-    "AssetsListRequestType",
     "AssetsUpdateAssetRequestBodyRegulationMode",
     "AssetsUpdateAssetRequestBodyType",
+    "ListAssetsRequestType",
 ]

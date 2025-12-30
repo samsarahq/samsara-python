@@ -65,10 +65,7 @@ class ContactsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.contacts.list_contacts(
-            limit=1000000,
-            after="after",
-        )
+        client.contacts.list_contacts()
         """
         _response = self._raw_client.list_contacts(limit=limit, after=after, request_options=request_options)
         return _response.data
@@ -313,10 +310,7 @@ class AsyncContactsClient:
 
 
         async def main() -> None:
-            await client.contacts.list_contacts(
-                limit=1000000,
-                after="after",
-            )
+            await client.contacts.list_contacts()
 
 
         asyncio.run(main())

@@ -7,12 +7,12 @@ from importlib import import_module
 
 if typing.TYPE_CHECKING:
     from .create_driver_request_locale import CreateDriverRequestLocale
-    from .drivers_list_request_driver_activation_status import DriversListRequestDriverActivationStatus
+    from .list_drivers_request_driver_activation_status import ListDriversRequestDriverActivationStatus
     from .update_driver_request_driver_activation_status import UpdateDriverRequestDriverActivationStatus
     from .update_driver_request_locale import UpdateDriverRequestLocale
 _dynamic_imports: typing.Dict[str, str] = {
     "CreateDriverRequestLocale": ".create_driver_request_locale",
-    "DriversListRequestDriverActivationStatus": ".drivers_list_request_driver_activation_status",
+    "ListDriversRequestDriverActivationStatus": ".list_drivers_request_driver_activation_status",
     "UpdateDriverRequestDriverActivationStatus": ".update_driver_request_driver_activation_status",
     "UpdateDriverRequestLocale": ".update_driver_request_locale",
 }
@@ -41,7 +41,7 @@ def __dir__():
 
 __all__ = [
     "CreateDriverRequestLocale",
-    "DriversListRequestDriverActivationStatus",
+    "ListDriversRequestDriverActivationStatus",
     "UpdateDriverRequestDriverActivationStatus",
     "UpdateDriverRequestLocale",
 ]

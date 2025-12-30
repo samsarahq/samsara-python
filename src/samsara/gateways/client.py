@@ -67,9 +67,7 @@ class GatewaysClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.gateways.get_gateways(
-            after="after",
-        )
+        client.gateways.get_gateways()
         """
         _response = self._raw_client.get_gateways(models=models, after=after, request_options=request_options)
         return _response.data
@@ -212,9 +210,7 @@ class AsyncGatewaysClient:
 
 
         async def main() -> None:
-            await client.gateways.get_gateways(
-                after="after",
-            )
+            await client.gateways.get_gateways()
 
 
         asyncio.run(main())

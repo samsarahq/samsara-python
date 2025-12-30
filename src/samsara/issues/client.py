@@ -203,8 +203,6 @@ class IssuesClient:
         )
         client.issues.get_issues_stream(
             start_time="startTime",
-            end_time="endTime",
-            after="after",
         )
         """
         _response = self._raw_client.get_issues_stream(
@@ -428,8 +426,6 @@ class AsyncIssuesClient:
         async def main() -> None:
             await client.issues.get_issues_stream(
                 start_time="startTime",
-                end_time="endTime",
-                after="after",
             )
 
 

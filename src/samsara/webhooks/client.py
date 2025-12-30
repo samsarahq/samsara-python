@@ -77,11 +77,7 @@ class WebhooksClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.webhooks.list_webhooks(
-            ids="ids",
-            limit=1,
-            after="after",
-        )
+        client.webhooks.list_webhooks()
         """
         _response = self._raw_client.list_webhooks(ids=ids, limit=limit, after=after, request_options=request_options)
         return _response.data
@@ -358,11 +354,7 @@ class AsyncWebhooksClient:
 
 
         async def main() -> None:
-            await client.webhooks.list_webhooks(
-                ids="ids",
-                limit=1,
-                after="after",
-            )
+            await client.webhooks.list_webhooks()
 
 
         asyncio.run(main())

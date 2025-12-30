@@ -124,6 +124,13 @@ class RoutesStopResponseObjectResponseBody(UniversalBaseModel):
     Scheduled departure time, if it exists, for the stop in RFC 3339 format.
     """
 
+    sequence_number: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="sequenceNumber")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Manual sequence position of this stop. Only used when route.settings.sequencingMethod=manual.
+    """
+
     single_use_location: typing_extensions.Annotated[
         typing.Optional[RoutesSingleUseAddressObjectResponseBody], FieldMetadata(alias="singleUseLocation")
     ] = None

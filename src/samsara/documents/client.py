@@ -66,9 +66,7 @@ class DocumentsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.documents.get_document_types(
-            after="after",
-        )
+        client.documents.get_document_types()
         """
         _response = self._raw_client.get_document_types(after=after, request_options=request_options)
         return _response.data
@@ -128,9 +126,6 @@ class DocumentsClient:
         client.documents.get_documents(
             start_time="startTime",
             end_time="endTime",
-            after="after",
-            document_type_id="documentTypeId",
-            query_by="queryBy",
         )
         """
         _response = self._raw_client.get_documents(
@@ -430,9 +425,7 @@ class AsyncDocumentsClient:
 
 
         async def main() -> None:
-            await client.documents.get_document_types(
-                after="after",
-            )
+            await client.documents.get_document_types()
 
 
         asyncio.run(main())
@@ -500,9 +493,6 @@ class AsyncDocumentsClient:
             await client.documents.get_documents(
                 start_time="startTime",
                 end_time="endTime",
-                after="after",
-                document_type_id="documentTypeId",
-                query_by="queryBy",
             )
 
 

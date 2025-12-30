@@ -73,11 +73,7 @@ class CarrierProposedAssignmentsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.carrier_proposed_assignments.list_carrier_proposed_assignments(
-            limit=1000000,
-            after="after",
-            active_time="activeTime",
-        )
+        client.carrier_proposed_assignments.list_carrier_proposed_assignments()
         """
         _response = self._raw_client.list_carrier_proposed_assignments(
             limit=limit, after=after, driver_ids=driver_ids, active_time=active_time, request_options=request_options
@@ -256,11 +252,7 @@ class AsyncCarrierProposedAssignmentsClient:
 
 
         async def main() -> None:
-            await client.carrier_proposed_assignments.list_carrier_proposed_assignments(
-                limit=1000000,
-                after="after",
-                active_time="activeTime",
-            )
+            await client.carrier_proposed_assignments.list_carrier_proposed_assignments()
 
 
         asyncio.run(main())

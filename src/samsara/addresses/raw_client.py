@@ -7,7 +7,7 @@ from ..core.api_error import ApiError
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.http_response import AsyncHttpResponse, HttpResponse
 from ..core.jsonable_encoder import jsonable_encoder
-from ..core.pagination import AsyncPager, BaseHttpResponse, SyncPager
+from ..core.pagination import AsyncPager, SyncPager
 from ..core.pydantic_utilities import parse_obj_as
 from ..core.request_options import RequestOptions
 from ..core.serialization import convert_and_respect_annotation_metadata
@@ -37,7 +37,7 @@ class RawAddressesClient:
         tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         created_after_time: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[Address]:
+    ) -> SyncPager[Address, ListAddressesResponse]:
         """
         Returns a list of all addresses in an organization.
 
@@ -67,7 +67,7 @@ class RawAddressesClient:
 
         Returns
         -------
-        SyncPager[Address]
+        SyncPager[Address, ListAddressesResponse]
             List of all addresses in the organization
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -105,9 +105,7 @@ class RawAddressesClient:
                         created_after_time=created_after_time,
                         request_options=request_options,
                     )
-                return SyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return SyncPager(has_next=_has_next, items=_items, get_next=_get_next, response=_parsed_response)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -413,7 +411,7 @@ class AsyncRawAddressesClient:
         tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         created_after_time: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[Address]:
+    ) -> AsyncPager[Address, ListAddressesResponse]:
         """
         Returns a list of all addresses in an organization.
 
@@ -443,7 +441,7 @@ class AsyncRawAddressesClient:
 
         Returns
         -------
-        AsyncPager[Address]
+        AsyncPager[Address, ListAddressesResponse]
             List of all addresses in the organization
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -484,9 +482,7 @@ class AsyncRawAddressesClient:
                             request_options=request_options,
                         )
 
-                return AsyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return AsyncPager(has_next=_has_next, items=_items, get_next=_get_next, response=_parsed_response)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)

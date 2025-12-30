@@ -77,10 +77,7 @@ class VehicleLocationsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.vehicle_locations.get_vehicle_locations(
-            after="after",
-            time="time",
-        )
+        client.vehicle_locations.get_vehicle_locations()
         """
         _response = self._raw_client.get_vehicle_locations(
             after=after,
@@ -147,9 +144,7 @@ class VehicleLocationsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.vehicle_locations.get_vehicle_locations_feed(
-            after="after",
-        )
+        client.vehicle_locations.get_vehicle_locations_feed()
         """
         _response = self._raw_client.get_vehicle_locations_feed(
             after=after,
@@ -218,7 +213,6 @@ class VehicleLocationsClient:
             token="YOUR_TOKEN",
         )
         client.vehicle_locations.get_vehicle_locations_history(
-            after="after",
             start_time="startTime",
             end_time="endTime",
         )
@@ -308,10 +302,7 @@ class AsyncVehicleLocationsClient:
 
 
         async def main() -> None:
-            await client.vehicle_locations.get_vehicle_locations(
-                after="after",
-                time="time",
-            )
+            await client.vehicle_locations.get_vehicle_locations()
 
 
         asyncio.run(main())
@@ -386,9 +377,7 @@ class AsyncVehicleLocationsClient:
 
 
         async def main() -> None:
-            await client.vehicle_locations.get_vehicle_locations_feed(
-                after="after",
-            )
+            await client.vehicle_locations.get_vehicle_locations_feed()
 
 
         asyncio.run(main())
@@ -465,7 +454,6 @@ class AsyncVehicleLocationsClient:
 
         async def main() -> None:
             await client.vehicle_locations.get_vehicle_locations_history(
-                after="after",
                 start_time="startTime",
                 end_time="endTime",
             )

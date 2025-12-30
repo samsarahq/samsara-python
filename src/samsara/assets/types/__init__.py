@@ -8,15 +8,15 @@ from importlib import import_module
 if typing.TYPE_CHECKING:
     from .assets_create_asset_request_body_regulation_mode import AssetsCreateAssetRequestBodyRegulationMode
     from .assets_create_asset_request_body_type import AssetsCreateAssetRequestBodyType
-    from .assets_list_request_type import AssetsListRequestType
     from .assets_update_asset_request_body_regulation_mode import AssetsUpdateAssetRequestBodyRegulationMode
     from .assets_update_asset_request_body_type import AssetsUpdateAssetRequestBodyType
+    from .list_assets_request_type import ListAssetsRequestType
 _dynamic_imports: typing.Dict[str, str] = {
     "AssetsCreateAssetRequestBodyRegulationMode": ".assets_create_asset_request_body_regulation_mode",
     "AssetsCreateAssetRequestBodyType": ".assets_create_asset_request_body_type",
-    "AssetsListRequestType": ".assets_list_request_type",
     "AssetsUpdateAssetRequestBodyRegulationMode": ".assets_update_asset_request_body_regulation_mode",
     "AssetsUpdateAssetRequestBodyType": ".assets_update_asset_request_body_type",
+    "ListAssetsRequestType": ".list_assets_request_type",
 }
 
 
@@ -44,7 +44,7 @@ def __dir__():
 __all__ = [
     "AssetsCreateAssetRequestBodyRegulationMode",
     "AssetsCreateAssetRequestBodyType",
-    "AssetsListRequestType",
     "AssetsUpdateAssetRequestBodyRegulationMode",
     "AssetsUpdateAssetRequestBodyType",
+    "ListAssetsRequestType",
 ]
