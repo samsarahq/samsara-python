@@ -795,6 +795,7 @@ if typing.TYPE_CHECKING:
     from .driver_app_sign_out_response_body import DriverAppSignOutResponseBody
     from .driver_assignment_metadata_tiny_object_response_body import DriverAssignmentMetadataTinyObjectResponseBody
     from .driver_assignment_object_response_body import DriverAssignmentObjectResponseBody
+    from .driver_assignment_object_response_body_assignment_type import DriverAssignmentObjectResponseBodyAssignmentType
     from .driver_carrier_settings import DriverCarrierSettings
     from .driver_coach_assignments_get_driver_coach_assignment_bad_gateway_error_response_body import (
         DriverCoachAssignmentsGetDriverCoachAssignmentBadGatewayErrorResponseBody,
@@ -1851,6 +1852,7 @@ if typing.TYPE_CHECKING:
     from .forms_action_object_response_body import FormsActionObjectResponseBody
     from .forms_action_object_response_body_type import FormsActionObjectResponseBodyType
     from .forms_approval_config_object_response_body import FormsApprovalConfigObjectResponseBody
+    from .forms_approval_config_object_response_body_type import FormsApprovalConfigObjectResponseBodyType
     from .forms_asset_object_response_body import FormsAssetObjectResponseBody
     from .forms_asset_object_response_body_entry_type import FormsAssetObjectResponseBodyEntryType
     from .forms_asset_value_object_response_body import FormsAssetValueObjectResponseBody
@@ -1984,7 +1986,13 @@ if typing.TYPE_CHECKING:
     from .fuel_energy_vehicle_report_object_response_body import FuelEnergyVehicleReportObjectResponseBody
     from .fuel_level_percentage_response_body import FuelLevelPercentageResponseBody
     from .fuel_level_trigger_details_object_request_body import FuelLevelTriggerDetailsObjectRequestBody
+    from .fuel_level_trigger_details_object_request_body_operation import (
+        FuelLevelTriggerDetailsObjectRequestBodyOperation,
+    )
     from .fuel_level_trigger_details_object_response_body import FuelLevelTriggerDetailsObjectResponseBody
+    from .fuel_level_trigger_details_object_response_body_operation import (
+        FuelLevelTriggerDetailsObjectResponseBodyOperation,
+    )
     from .fuel_purchase_post_fuel_purchase_bad_gateway_error_response_body import (
         FuelPurchasePostFuelPurchaseBadGatewayErrorResponseBody,
     )
@@ -2635,6 +2643,7 @@ if typing.TYPE_CHECKING:
     )
     from .idling_event_asset_object_response_body import IdlingEventAssetObjectResponseBody
     from .idling_event_object_v_20251023_response_body import IdlingEventObjectV20251023ResponseBody
+    from .idling_event_object_v_20251023_response_body_pto_state import IdlingEventObjectV20251023ResponseBodyPtoState
     from .idling_event_operator_object_response_body import IdlingEventOperatorObjectResponseBody
     from .idling_report_event_address_response_body import IdlingReportEventAddressResponseBody
     from .idling_report_event_response_body import IdlingReportEventResponseBody
@@ -3255,6 +3264,7 @@ if typing.TYPE_CHECKING:
         PatchDriverVehicleAssignmentsV2ResponseBodyResponseBody,
     )
     from .patch_issue_request_body_assigned_to_request_body import PatchIssueRequestBodyAssignedToRequestBody
+    from .patch_issue_request_body_assigned_to_request_body_type import PatchIssueRequestBodyAssignedToRequestBodyType
     from .patch_job_object_request_body import PatchJobObjectRequestBody
     from .patch_job_objectjob_location_request_object_request_body import (
         PatchJobObjectjobLocationRequestObjectRequestBody,
@@ -3592,6 +3602,7 @@ if typing.TYPE_CHECKING:
     )
     from .quantity_object_response_body import QuantityObjectResponseBody
     from .reading_datapoint_request_body import ReadingDatapointRequestBody
+    from .reading_datapoint_request_body_entity_type import ReadingDatapointRequestBodyEntityType
     from .reading_definition_response_body import ReadingDefinitionResponseBody
     from .reading_history_response_body import ReadingHistoryResponseBody
     from .reading_snapshot_response_body import ReadingSnapshotResponseBody
@@ -3731,6 +3742,7 @@ if typing.TYPE_CHECKING:
     from .recipient_object_response_body_type import RecipientObjectResponseBodyType
     from .reefer_temperature_response_body import ReeferTemperatureResponseBody
     from .resolved_by import ResolvedBy
+    from .resolved_by_type import ResolvedByType
     from .reverse_geo import ReverseGeo
     from .reverse_geo_object_response_body import ReverseGeoObjectResponseBody
     from .rolling_stop_detection_alert_settings_object_response_body import (
@@ -3745,17 +3757,21 @@ if typing.TYPE_CHECKING:
     from .route_feed_object_response_body import RouteFeedObjectResponseBody
     from .route_feed_object_response_body_operation import RouteFeedObjectResponseBodyOperation
     from .route_feed_object_response_body_source import RouteFeedObjectResponseBodySource
+    from .route_feed_object_response_body_type import RouteFeedObjectResponseBodyType
     from .route_object_response_body import RouteObjectResponseBody
     from .route_settings_request_body import RouteSettingsRequestBody
     from .route_settings_request_body_route_completion_condition import RouteSettingsRequestBodyRouteCompletionCondition
     from .route_settings_request_body_route_starting_condition import RouteSettingsRequestBodyRouteStartingCondition
+    from .route_settings_request_body_sequencing_method import RouteSettingsRequestBodySequencingMethod
     from .route_settings_response_body import RouteSettingsResponseBody
     from .route_settings_response_body_route_completion_condition import (
         RouteSettingsResponseBodyRouteCompletionCondition,
     )
     from .route_settings_response_body_route_starting_condition import RouteSettingsResponseBodyRouteStartingCondition
+    from .route_settings_response_body_sequencing_method import RouteSettingsResponseBodySequencingMethod
     from .route_stop_details_object_response_body import RouteStopDetailsObjectResponseBody
     from .route_stop_details_object_response_body_operation import RouteStopDetailsObjectResponseBodyOperation
+    from .route_stop_details_object_response_body_type import RouteStopDetailsObjectResponseBodyType
     from .route_stop_estimated_arrival_details_object_request_body import (
         RouteStopEstimatedArrivalDetailsObjectRequestBody,
     )
@@ -5173,6 +5189,7 @@ if typing.TYPE_CHECKING:
         TrainingCoursesGetTrainingCoursesUnauthorizedErrorResponseBody,
     )
     from .training_learner_object_response_body import TrainingLearnerObjectResponseBody
+    from .training_learner_object_response_body_type import TrainingLearnerObjectResponseBodyType
     from .trigger_params_object_request_body import TriggerParamsObjectRequestBody
     from .trigger_params_object_response_body import TriggerParamsObjectResponseBody
     from .trip_asset_response_body import TripAssetResponseBody
@@ -5375,6 +5392,9 @@ if typing.TYPE_CHECKING:
     from .v_1_vision_step_results_item_text_match import V1VisionStepResultsItemTextMatch
     from .vehicle import Vehicle
     from .vehicle_assignment_object_response_body import VehicleAssignmentObjectResponseBody
+    from .vehicle_assignment_object_response_body_assignment_type import (
+        VehicleAssignmentObjectResponseBodyAssignmentType,
+    )
     from .vehicle_aux_input_name import VehicleAuxInputName
     from .vehicle_aux_input_type import VehicleAuxInputType
     from .vehicle_aux_input_type_1 import VehicleAuxInputType1
@@ -5984,7 +6004,9 @@ if typing.TYPE_CHECKING:
     from .work_order_item_object_response_body import WorkOrderItemObjectResponseBody
     from .work_order_item_object_response_body_type import WorkOrderItemObjectResponseBodyType
     from .work_order_money_object_request_body import WorkOrderMoneyObjectRequestBody
+    from .work_order_money_object_request_body_currency import WorkOrderMoneyObjectRequestBodyCurrency
     from .work_order_money_object_response_body import WorkOrderMoneyObjectResponseBody
+    from .work_order_money_object_response_body_currency import WorkOrderMoneyObjectResponseBodyCurrency
     from .work_order_object_response_body import WorkOrderObjectResponseBody
     from .work_order_object_response_body_category import WorkOrderObjectResponseBodyCategory
     from .work_order_object_response_body_priority import WorkOrderObjectResponseBodyPriority
@@ -6599,6 +6621,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "DriverAppSignOutResponseBody": ".driver_app_sign_out_response_body",
     "DriverAssignmentMetadataTinyObjectResponseBody": ".driver_assignment_metadata_tiny_object_response_body",
     "DriverAssignmentObjectResponseBody": ".driver_assignment_object_response_body",
+    "DriverAssignmentObjectResponseBodyAssignmentType": ".driver_assignment_object_response_body_assignment_type",
     "DriverCarrierSettings": ".driver_carrier_settings",
     "DriverCoachAssignmentsGetDriverCoachAssignmentBadGatewayErrorResponseBody": ".driver_coach_assignments_get_driver_coach_assignment_bad_gateway_error_response_body",
     "DriverCoachAssignmentsGetDriverCoachAssignmentGatewayTimeoutErrorResponseBody": ".driver_coach_assignments_get_driver_coach_assignment_gateway_timeout_error_response_body",
@@ -7095,6 +7118,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "FormsActionObjectResponseBody": ".forms_action_object_response_body",
     "FormsActionObjectResponseBodyType": ".forms_action_object_response_body_type",
     "FormsApprovalConfigObjectResponseBody": ".forms_approval_config_object_response_body",
+    "FormsApprovalConfigObjectResponseBodyType": ".forms_approval_config_object_response_body_type",
     "FormsAssetObjectResponseBody": ".forms_asset_object_response_body",
     "FormsAssetObjectResponseBodyEntryType": ".forms_asset_object_response_body_entry_type",
     "FormsAssetValueObjectResponseBody": ".forms_asset_value_object_response_body",
@@ -7174,7 +7198,9 @@ _dynamic_imports: typing.Dict[str, str] = {
     "FuelEnergyVehicleReportObjectResponseBody": ".fuel_energy_vehicle_report_object_response_body",
     "FuelLevelPercentageResponseBody": ".fuel_level_percentage_response_body",
     "FuelLevelTriggerDetailsObjectRequestBody": ".fuel_level_trigger_details_object_request_body",
+    "FuelLevelTriggerDetailsObjectRequestBodyOperation": ".fuel_level_trigger_details_object_request_body_operation",
     "FuelLevelTriggerDetailsObjectResponseBody": ".fuel_level_trigger_details_object_response_body",
+    "FuelLevelTriggerDetailsObjectResponseBodyOperation": ".fuel_level_trigger_details_object_response_body_operation",
     "FuelPurchasePostFuelPurchaseBadGatewayErrorResponseBody": ".fuel_purchase_post_fuel_purchase_bad_gateway_error_response_body",
     "FuelPurchasePostFuelPurchaseGatewayTimeoutErrorResponseBody": ".fuel_purchase_post_fuel_purchase_gateway_timeout_error_response_body",
     "FuelPurchasePostFuelPurchaseInternalServerErrorResponseBody": ".fuel_purchase_post_fuel_purchase_internal_server_error_response_body",
@@ -7483,6 +7509,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "IdlingEventAddressObjectResponseBodyAddressTypesItem": ".idling_event_address_object_response_body_address_types_item",
     "IdlingEventAssetObjectResponseBody": ".idling_event_asset_object_response_body",
     "IdlingEventObjectV20251023ResponseBody": ".idling_event_object_v_20251023_response_body",
+    "IdlingEventObjectV20251023ResponseBodyPtoState": ".idling_event_object_v_20251023_response_body_pto_state",
     "IdlingEventOperatorObjectResponseBody": ".idling_event_operator_object_response_body",
     "IdlingReportEventAddressResponseBody": ".idling_report_event_address_response_body",
     "IdlingReportEventResponseBody": ".idling_report_event_response_body",
@@ -7815,6 +7842,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "PatchDriverVehicleAssignmentsV2RequestBodyMetadataRequestBody": ".patch_driver_vehicle_assignments_v_2_request_body_metadata_request_body",
     "PatchDriverVehicleAssignmentsV2ResponseBodyResponseBody": ".patch_driver_vehicle_assignments_v_2_response_body_response_body",
     "PatchIssueRequestBodyAssignedToRequestBody": ".patch_issue_request_body_assigned_to_request_body",
+    "PatchIssueRequestBodyAssignedToRequestBodyType": ".patch_issue_request_body_assigned_to_request_body_type",
     "PatchJobObjectRequestBody": ".patch_job_object_request_body",
     "PatchJobObjectjobLocationRequestObjectRequestBody": ".patch_job_objectjob_location_request_object_request_body",
     "PatchResponseWorkflowConfigurationObjectResponseBody": ".patch_response_workflow_configuration_object_response_body",
@@ -7948,6 +7976,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "QualificationsUnarchiveQualificationRecordUnauthorizedErrorResponseBody": ".qualifications_unarchive_qualification_record_unauthorized_error_response_body",
     "QuantityObjectResponseBody": ".quantity_object_response_body",
     "ReadingDatapointRequestBody": ".reading_datapoint_request_body",
+    "ReadingDatapointRequestBodyEntityType": ".reading_datapoint_request_body_entity_type",
     "ReadingDefinitionResponseBody": ".reading_definition_response_body",
     "ReadingHistoryResponseBody": ".reading_history_response_body",
     "ReadingSnapshotResponseBody": ".reading_snapshot_response_body",
@@ -8011,6 +8040,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "RecipientObjectResponseBodyType": ".recipient_object_response_body_type",
     "ReeferTemperatureResponseBody": ".reefer_temperature_response_body",
     "ResolvedBy": ".resolved_by",
+    "ResolvedByType": ".resolved_by_type",
     "ReverseGeo": ".reverse_geo",
     "ReverseGeoObjectResponseBody": ".reverse_geo_object_response_body",
     "RollingStopDetectionAlertSettingsObjectResponseBody": ".rolling_stop_detection_alert_settings_object_response_body",
@@ -8023,15 +8053,19 @@ _dynamic_imports: typing.Dict[str, str] = {
     "RouteFeedObjectResponseBody": ".route_feed_object_response_body",
     "RouteFeedObjectResponseBodyOperation": ".route_feed_object_response_body_operation",
     "RouteFeedObjectResponseBodySource": ".route_feed_object_response_body_source",
+    "RouteFeedObjectResponseBodyType": ".route_feed_object_response_body_type",
     "RouteObjectResponseBody": ".route_object_response_body",
     "RouteSettingsRequestBody": ".route_settings_request_body",
     "RouteSettingsRequestBodyRouteCompletionCondition": ".route_settings_request_body_route_completion_condition",
     "RouteSettingsRequestBodyRouteStartingCondition": ".route_settings_request_body_route_starting_condition",
+    "RouteSettingsRequestBodySequencingMethod": ".route_settings_request_body_sequencing_method",
     "RouteSettingsResponseBody": ".route_settings_response_body",
     "RouteSettingsResponseBodyRouteCompletionCondition": ".route_settings_response_body_route_completion_condition",
     "RouteSettingsResponseBodyRouteStartingCondition": ".route_settings_response_body_route_starting_condition",
+    "RouteSettingsResponseBodySequencingMethod": ".route_settings_response_body_sequencing_method",
     "RouteStopDetailsObjectResponseBody": ".route_stop_details_object_response_body",
     "RouteStopDetailsObjectResponseBodyOperation": ".route_stop_details_object_response_body_operation",
+    "RouteStopDetailsObjectResponseBodyType": ".route_stop_details_object_response_body_type",
     "RouteStopEstimatedArrivalDetailsObjectRequestBody": ".route_stop_estimated_arrival_details_object_request_body",
     "RouteStopEstimatedArrivalDetailsObjectResponseBody": ".route_stop_estimated_arrival_details_object_response_body",
     "RouteStopEtaResponseBody": ".route_stop_eta_response_body",
@@ -8657,6 +8691,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "TrainingCoursesGetTrainingCoursesTooManyRequestsErrorResponseBody": ".training_courses_get_training_courses_too_many_requests_error_response_body",
     "TrainingCoursesGetTrainingCoursesUnauthorizedErrorResponseBody": ".training_courses_get_training_courses_unauthorized_error_response_body",
     "TrainingLearnerObjectResponseBody": ".training_learner_object_response_body",
+    "TrainingLearnerObjectResponseBodyType": ".training_learner_object_response_body_type",
     "TriggerParamsObjectRequestBody": ".trigger_params_object_request_body",
     "TriggerParamsObjectResponseBody": ".trigger_params_object_response_body",
     "TripAssetResponseBody": ".trip_asset_response_body",
@@ -8831,6 +8866,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "V1VisionStepResultsItemTextMatch": ".v_1_vision_step_results_item_text_match",
     "Vehicle": ".vehicle",
     "VehicleAssignmentObjectResponseBody": ".vehicle_assignment_object_response_body",
+    "VehicleAssignmentObjectResponseBodyAssignmentType": ".vehicle_assignment_object_response_body_assignment_type",
     "VehicleAuxInputName": ".vehicle_aux_input_name",
     "VehicleAuxInputType": ".vehicle_aux_input_type",
     "VehicleAuxInputType1": ".vehicle_aux_input_type_1",
@@ -9226,7 +9262,9 @@ _dynamic_imports: typing.Dict[str, str] = {
     "WorkOrderItemObjectResponseBody": ".work_order_item_object_response_body",
     "WorkOrderItemObjectResponseBodyType": ".work_order_item_object_response_body_type",
     "WorkOrderMoneyObjectRequestBody": ".work_order_money_object_request_body",
+    "WorkOrderMoneyObjectRequestBodyCurrency": ".work_order_money_object_request_body_currency",
     "WorkOrderMoneyObjectResponseBody": ".work_order_money_object_response_body",
+    "WorkOrderMoneyObjectResponseBodyCurrency": ".work_order_money_object_response_body_currency",
     "WorkOrderObjectResponseBody": ".work_order_object_response_body",
     "WorkOrderObjectResponseBodyCategory": ".work_order_object_response_body_category",
     "WorkOrderObjectResponseBodyPriority": ".work_order_object_response_body_priority",
@@ -9755,6 +9793,7 @@ __all__ = [
     "DriverAppSignOutResponseBody",
     "DriverAssignmentMetadataTinyObjectResponseBody",
     "DriverAssignmentObjectResponseBody",
+    "DriverAssignmentObjectResponseBodyAssignmentType",
     "DriverCarrierSettings",
     "DriverCoachAssignmentsGetDriverCoachAssignmentBadGatewayErrorResponseBody",
     "DriverCoachAssignmentsGetDriverCoachAssignmentGatewayTimeoutErrorResponseBody",
@@ -10251,6 +10290,7 @@ __all__ = [
     "FormsActionObjectResponseBody",
     "FormsActionObjectResponseBodyType",
     "FormsApprovalConfigObjectResponseBody",
+    "FormsApprovalConfigObjectResponseBodyType",
     "FormsAssetObjectResponseBody",
     "FormsAssetObjectResponseBodyEntryType",
     "FormsAssetValueObjectResponseBody",
@@ -10330,7 +10370,9 @@ __all__ = [
     "FuelEnergyVehicleReportObjectResponseBody",
     "FuelLevelPercentageResponseBody",
     "FuelLevelTriggerDetailsObjectRequestBody",
+    "FuelLevelTriggerDetailsObjectRequestBodyOperation",
     "FuelLevelTriggerDetailsObjectResponseBody",
+    "FuelLevelTriggerDetailsObjectResponseBodyOperation",
     "FuelPurchasePostFuelPurchaseBadGatewayErrorResponseBody",
     "FuelPurchasePostFuelPurchaseGatewayTimeoutErrorResponseBody",
     "FuelPurchasePostFuelPurchaseInternalServerErrorResponseBody",
@@ -10639,6 +10681,7 @@ __all__ = [
     "IdlingEventAddressObjectResponseBodyAddressTypesItem",
     "IdlingEventAssetObjectResponseBody",
     "IdlingEventObjectV20251023ResponseBody",
+    "IdlingEventObjectV20251023ResponseBodyPtoState",
     "IdlingEventOperatorObjectResponseBody",
     "IdlingReportEventAddressResponseBody",
     "IdlingReportEventResponseBody",
@@ -10971,6 +11014,7 @@ __all__ = [
     "PatchDriverVehicleAssignmentsV2RequestBodyMetadataRequestBody",
     "PatchDriverVehicleAssignmentsV2ResponseBodyResponseBody",
     "PatchIssueRequestBodyAssignedToRequestBody",
+    "PatchIssueRequestBodyAssignedToRequestBodyType",
     "PatchJobObjectRequestBody",
     "PatchJobObjectjobLocationRequestObjectRequestBody",
     "PatchResponseWorkflowConfigurationObjectResponseBody",
@@ -11104,6 +11148,7 @@ __all__ = [
     "QualificationsUnarchiveQualificationRecordUnauthorizedErrorResponseBody",
     "QuantityObjectResponseBody",
     "ReadingDatapointRequestBody",
+    "ReadingDatapointRequestBodyEntityType",
     "ReadingDefinitionResponseBody",
     "ReadingHistoryResponseBody",
     "ReadingSnapshotResponseBody",
@@ -11167,6 +11212,7 @@ __all__ = [
     "RecipientObjectResponseBodyType",
     "ReeferTemperatureResponseBody",
     "ResolvedBy",
+    "ResolvedByType",
     "ReverseGeo",
     "ReverseGeoObjectResponseBody",
     "RollingStopDetectionAlertSettingsObjectResponseBody",
@@ -11179,15 +11225,19 @@ __all__ = [
     "RouteFeedObjectResponseBody",
     "RouteFeedObjectResponseBodyOperation",
     "RouteFeedObjectResponseBodySource",
+    "RouteFeedObjectResponseBodyType",
     "RouteObjectResponseBody",
     "RouteSettingsRequestBody",
     "RouteSettingsRequestBodyRouteCompletionCondition",
     "RouteSettingsRequestBodyRouteStartingCondition",
+    "RouteSettingsRequestBodySequencingMethod",
     "RouteSettingsResponseBody",
     "RouteSettingsResponseBodyRouteCompletionCondition",
     "RouteSettingsResponseBodyRouteStartingCondition",
+    "RouteSettingsResponseBodySequencingMethod",
     "RouteStopDetailsObjectResponseBody",
     "RouteStopDetailsObjectResponseBodyOperation",
+    "RouteStopDetailsObjectResponseBodyType",
     "RouteStopEstimatedArrivalDetailsObjectRequestBody",
     "RouteStopEstimatedArrivalDetailsObjectResponseBody",
     "RouteStopEtaResponseBody",
@@ -11813,6 +11863,7 @@ __all__ = [
     "TrainingCoursesGetTrainingCoursesTooManyRequestsErrorResponseBody",
     "TrainingCoursesGetTrainingCoursesUnauthorizedErrorResponseBody",
     "TrainingLearnerObjectResponseBody",
+    "TrainingLearnerObjectResponseBodyType",
     "TriggerParamsObjectRequestBody",
     "TriggerParamsObjectResponseBody",
     "TripAssetResponseBody",
@@ -11987,6 +12038,7 @@ __all__ = [
     "V1VisionStepResultsItemTextMatch",
     "Vehicle",
     "VehicleAssignmentObjectResponseBody",
+    "VehicleAssignmentObjectResponseBodyAssignmentType",
     "VehicleAuxInputName",
     "VehicleAuxInputType",
     "VehicleAuxInputType1",
@@ -12382,7 +12434,9 @@ __all__ = [
     "WorkOrderItemObjectResponseBody",
     "WorkOrderItemObjectResponseBodyType",
     "WorkOrderMoneyObjectRequestBody",
+    "WorkOrderMoneyObjectRequestBodyCurrency",
     "WorkOrderMoneyObjectResponseBody",
+    "WorkOrderMoneyObjectResponseBodyCurrency",
     "WorkOrderObjectResponseBody",
     "WorkOrderObjectResponseBodyCategory",
     "WorkOrderObjectResponseBodyPriority",

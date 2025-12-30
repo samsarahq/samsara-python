@@ -80,8 +80,6 @@ class AttributesClient:
         )
         client.attributes.get_attributes_by_entity_type(
             entity_type="driver",
-            limit=1000000,
-            after="after",
         )
         """
         _response = self._raw_client.get_attributes_by_entity_type(
@@ -392,8 +390,6 @@ class AsyncAttributesClient:
         async def main() -> None:
             await client.attributes.get_attributes_by_entity_type(
                 entity_type="driver",
-                limit=1000000,
-                after="after",
             )
 
 

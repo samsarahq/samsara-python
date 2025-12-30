@@ -112,9 +112,6 @@ class FuelAndEnergyClient:
         client.fuel_and_energy.get_driver_efficiency_by_drivers(
             start_time="startTime",
             end_time="endTime",
-            tag_ids="tagIds",
-            parent_tag_ids="parentTagIds",
-            after="after",
         )
         """
         _response = self._raw_client.get_driver_efficiency_by_drivers(
@@ -194,10 +191,6 @@ class FuelAndEnergyClient:
         client.fuel_and_energy.get_driver_efficiency_by_vehicles(
             start_time="startTime",
             end_time="endTime",
-            vehicle_ids="vehicleIds",
-            tag_ids="tagIds",
-            parent_tag_ids="parentTagIds",
-            after="after",
         )
         """
         _response = self._raw_client.get_driver_efficiency_by_vehicles(
@@ -271,9 +264,6 @@ class FuelAndEnergyClient:
         client.fuel_and_energy.get_fuel_energy_driver_reports(
             start_date="startDate",
             end_date="endDate",
-            tag_ids="tagIds",
-            parent_tag_ids="parentTagIds",
-            after="after",
         )
         """
         _response = self._raw_client.get_fuel_energy_driver_reports(
@@ -350,11 +340,6 @@ class FuelAndEnergyClient:
         client.fuel_and_energy.get_fuel_energy_vehicle_reports(
             start_date="startDate",
             end_date="endDate",
-            vehicle_ids="vehicleIds",
-            energy_type="fuel",
-            tag_ids="tagIds",
-            parent_tag_ids="parentTagIds",
-            after="after",
         )
         """
         _response = self._raw_client.get_fuel_energy_vehicle_reports(
@@ -561,9 +546,6 @@ class AsyncFuelAndEnergyClient:
             await client.fuel_and_energy.get_driver_efficiency_by_drivers(
                 start_time="startTime",
                 end_time="endTime",
-                tag_ids="tagIds",
-                parent_tag_ids="parentTagIds",
-                after="after",
             )
 
 
@@ -651,10 +633,6 @@ class AsyncFuelAndEnergyClient:
             await client.fuel_and_energy.get_driver_efficiency_by_vehicles(
                 start_time="startTime",
                 end_time="endTime",
-                vehicle_ids="vehicleIds",
-                tag_ids="tagIds",
-                parent_tag_ids="parentTagIds",
-                after="after",
             )
 
 
@@ -736,9 +714,6 @@ class AsyncFuelAndEnergyClient:
             await client.fuel_and_energy.get_fuel_energy_driver_reports(
                 start_date="startDate",
                 end_date="endDate",
-                tag_ids="tagIds",
-                parent_tag_ids="parentTagIds",
-                after="after",
             )
 
 
@@ -823,11 +798,6 @@ class AsyncFuelAndEnergyClient:
             await client.fuel_and_energy.get_fuel_energy_vehicle_reports(
                 start_date="startDate",
                 end_date="endDate",
-                vehicle_ids="vehicleIds",
-                energy_type="fuel",
-                tag_ids="tagIds",
-                parent_tag_ids="parentTagIds",
-                after="after",
             )
 
 

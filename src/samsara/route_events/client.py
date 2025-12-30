@@ -71,12 +71,7 @@ class RouteEventsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.route_events.get_route_events_stream(
-            after="after",
-            start_time="startTime",
-            limit=1,
-            include_external_ids=True,
-        )
+        client.route_events.get_route_events_stream()
         """
         _response = self._raw_client.get_route_events_stream(
             after=after,
@@ -156,12 +151,7 @@ class AsyncRouteEventsClient:
 
 
         async def main() -> None:
-            await client.route_events.get_route_events_stream(
-                after="after",
-                start_time="startTime",
-                limit=1,
-                include_external_ids=True,
-            )
+            await client.route_events.get_route_events_stream()
 
 
         asyncio.run(main())

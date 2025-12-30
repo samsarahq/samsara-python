@@ -97,10 +97,7 @@ class IndustrialClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.industrial.get_industrial_assets(
-            limit=1000000,
-            after="after",
-        )
+        client.industrial.get_industrial_assets()
         """
         _response = self._raw_client.get_industrial_assets(
             limit=limit,
@@ -300,11 +297,7 @@ class IndustrialClient:
         return _response.data
 
     def patch_asset_data_outputs(
-        self,
-        id: str,
-        *,
-        values: typing.Dict[str, typing.Optional[typing.Any]],
-        request_options: typing.Optional[RequestOptions] = None,
+        self, id: str, *, values: typing.Dict[str, typing.Any], request_options: typing.Optional[RequestOptions] = None
     ) -> AssetDataOutputsPatchAssetDataOutputsResponseBody:
         """
         Writes values to multiple data outputs on an asset simultaneously. Only the provided data outputs will be updated.
@@ -321,7 +314,7 @@ class IndustrialClient:
         id : str
             Asset ID
 
-        values : typing.Dict[str, typing.Optional[typing.Any]]
+        values : typing.Dict[str, typing.Any]
             A map of data output IDs to values. All data outputs must belong to the same asset. Only the specified IDs will be written to.
 
         request_options : typing.Optional[RequestOptions]
@@ -396,10 +389,7 @@ class IndustrialClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.industrial.get_data_inputs(
-            limit=1000000,
-            after="after",
-        )
+        client.industrial.get_data_inputs()
         """
         _response = self._raw_client.get_data_inputs(
             limit=limit,
@@ -460,9 +450,7 @@ class IndustrialClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.industrial.get_data_input_data_snapshot(
-            after="after",
-        )
+        client.industrial.get_data_input_data_snapshot()
         """
         _response = self._raw_client.get_data_input_data_snapshot(
             after=after,
@@ -529,9 +517,7 @@ class IndustrialClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.industrial.get_data_input_data_feed(
-            after="after",
-        )
+        client.industrial.get_data_input_data_feed()
         """
         _response = self._raw_client.get_data_input_data_feed(
             after=after,
@@ -603,7 +589,6 @@ class IndustrialClient:
         client.industrial.get_data_input_data_history(
             start_time="startTime",
             end_time="endTime",
-            after="after",
         )
         """
         _response = self._raw_client.get_data_input_data_history(
@@ -750,10 +735,6 @@ class IndustrialClient:
         )
         client.industrial.v_1_get_vision_latest_run_camera(
             camera_id=1000000,
-            program_id=1000000,
-            started_at_ms=1000000,
-            include="include",
-            limit=1000000,
         )
         """
         _response = self._raw_client.v_1_get_vision_latest_run_camera(
@@ -812,7 +793,6 @@ class IndustrialClient:
         )
         client.industrial.v_1_get_vision_runs(
             duration_ms=1000000,
-            end_ms=1000000,
         )
         """
         _response = self._raw_client.v_1_get_vision_runs(
@@ -871,7 +851,6 @@ class IndustrialClient:
         client.industrial.get_vision_runs_by_camera(
             camera_id=1000000,
             duration_ms=1000000,
-            end_ms=1000000,
         )
         """
         _response = self._raw_client.get_vision_runs_by_camera(
@@ -935,7 +914,6 @@ class IndustrialClient:
             camera_id=1000000,
             program_id=1000000,
             started_at_ms=1000000,
-            include="include",
         )
         """
         _response = self._raw_client.v_1_get_vision_runs_by_camera_and_program(
@@ -1100,10 +1078,7 @@ class AsyncIndustrialClient:
 
 
         async def main() -> None:
-            await client.industrial.get_industrial_assets(
-                limit=1000000,
-                after="after",
-            )
+            await client.industrial.get_industrial_assets()
 
 
         asyncio.run(main())
@@ -1330,11 +1305,7 @@ class AsyncIndustrialClient:
         return _response.data
 
     async def patch_asset_data_outputs(
-        self,
-        id: str,
-        *,
-        values: typing.Dict[str, typing.Optional[typing.Any]],
-        request_options: typing.Optional[RequestOptions] = None,
+        self, id: str, *, values: typing.Dict[str, typing.Any], request_options: typing.Optional[RequestOptions] = None
     ) -> AssetDataOutputsPatchAssetDataOutputsResponseBody:
         """
         Writes values to multiple data outputs on an asset simultaneously. Only the provided data outputs will be updated.
@@ -1351,7 +1322,7 @@ class AsyncIndustrialClient:
         id : str
             Asset ID
 
-        values : typing.Dict[str, typing.Optional[typing.Any]]
+        values : typing.Dict[str, typing.Any]
             A map of data output IDs to values. All data outputs must belong to the same asset. Only the specified IDs will be written to.
 
         request_options : typing.Optional[RequestOptions]
@@ -1439,10 +1410,7 @@ class AsyncIndustrialClient:
 
 
         async def main() -> None:
-            await client.industrial.get_data_inputs(
-                limit=1000000,
-                after="after",
-            )
+            await client.industrial.get_data_inputs()
 
 
         asyncio.run(main())
@@ -1511,9 +1479,7 @@ class AsyncIndustrialClient:
 
 
         async def main() -> None:
-            await client.industrial.get_data_input_data_snapshot(
-                after="after",
-            )
+            await client.industrial.get_data_input_data_snapshot()
 
 
         asyncio.run(main())
@@ -1588,9 +1554,7 @@ class AsyncIndustrialClient:
 
 
         async def main() -> None:
-            await client.industrial.get_data_input_data_feed(
-                after="after",
-            )
+            await client.industrial.get_data_input_data_feed()
 
 
         asyncio.run(main())
@@ -1670,7 +1634,6 @@ class AsyncIndustrialClient:
             await client.industrial.get_data_input_data_history(
                 start_time="startTime",
                 end_time="endTime",
-                after="after",
             )
 
 
@@ -1843,10 +1806,6 @@ class AsyncIndustrialClient:
         async def main() -> None:
             await client.industrial.v_1_get_vision_latest_run_camera(
                 camera_id=1000000,
-                program_id=1000000,
-                started_at_ms=1000000,
-                include="include",
-                limit=1000000,
             )
 
 
@@ -1913,7 +1872,6 @@ class AsyncIndustrialClient:
         async def main() -> None:
             await client.industrial.v_1_get_vision_runs(
                 duration_ms=1000000,
-                end_ms=1000000,
             )
 
 
@@ -1980,7 +1938,6 @@ class AsyncIndustrialClient:
             await client.industrial.get_vision_runs_by_camera(
                 camera_id=1000000,
                 duration_ms=1000000,
-                end_ms=1000000,
             )
 
 
@@ -2052,7 +2009,6 @@ class AsyncIndustrialClient:
                 camera_id=1000000,
                 program_id=1000000,
                 started_at_ms=1000000,
-                include="include",
             )
 
 

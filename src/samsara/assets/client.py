@@ -7,6 +7,7 @@ from ..core.pagination import AsyncPager, SyncPager
 from ..core.request_options import RequestOptions
 from ..types.asset_response_body import AssetResponseBody
 from ..types.assets_create_asset_response_body import AssetsCreateAssetResponseBody
+from ..types.assets_list_assets_response_body import AssetsListAssetsResponseBody
 from ..types.assets_update_asset_response_body import AssetsUpdateAssetResponseBody
 from ..types.inline_response_2002 import InlineResponse2002
 from ..types.inline_response_2003 import InlineResponse2003
@@ -15,9 +16,9 @@ from ..types.v_1_asset_reefer_response import V1AssetReeferResponse
 from .raw_client import AsyncRawAssetsClient, RawAssetsClient
 from .types.assets_create_asset_request_body_regulation_mode import AssetsCreateAssetRequestBodyRegulationMode
 from .types.assets_create_asset_request_body_type import AssetsCreateAssetRequestBodyType
-from .types.assets_list_request_type import AssetsListRequestType
 from .types.assets_update_asset_request_body_regulation_mode import AssetsUpdateAssetRequestBodyRegulationMode
 from .types.assets_update_asset_request_body_type import AssetsUpdateAssetRequestBodyType
+from .types.list_assets_request_type import ListAssetsRequestType
 
 # this is used as the default value for optional parameters
 OMIT = typing.cast(typing.Any, ...)
@@ -41,7 +42,7 @@ class AssetsClient:
     def list(
         self,
         *,
-        type: typing.Optional[AssetsListRequestType] = None,
+        type: typing.Optional[ListAssetsRequestType] = None,
         after: typing.Optional[str] = None,
         updated_after_time: typing.Optional[str] = None,
         include_external_ids: typing.Optional[bool] = None,
@@ -52,7 +53,7 @@ class AssetsClient:
         attribute_value_ids: typing.Optional[str] = None,
         attributes: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[AssetResponseBody]:
+    ) -> SyncPager[AssetResponseBody, AssetsListAssetsResponseBody]:
         """
         List all assets. Up to 300 assets will be returned per page.
 
@@ -65,7 +66,7 @@ class AssetsClient:
 
         Parameters
         ----------
-        type : typing.Optional[AssetsListRequestType]
+        type : typing.Optional[ListAssetsRequestType]
             The operational context in which the asset interacts with the Samsara system. Examples: Vehicle (eg: truck, bus...), Trailer (eg: dry van, reefer, flatbed...), Powered Equipment (eg: dozer, crane...), Unpowered Equipment (eg: container, dumpster...), or Uncategorized.  Valid values: `uncategorized`, `trailer`, `equipment`, `unpowered`, `vehicle`
 
         after : typing.Optional[str]
@@ -100,7 +101,7 @@ class AssetsClient:
 
         Returns
         -------
-        SyncPager[AssetResponseBody]
+        SyncPager[AssetResponseBody, AssetsListAssetsResponseBody]
             OK response.
 
         Examples
@@ -110,16 +111,7 @@ class AssetsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        response = client.assets.list(
-            type="uncategorized",
-            after="after",
-            updated_after_time="updatedAfterTime",
-            include_external_ids=True,
-            include_tags=True,
-            tag_ids="tagIds",
-            parent_tag_ids="parentTagIds",
-            attribute_value_ids="attributeValueIds",
-        )
+        response = client.assets.list()
         for item in response:
             yield item
         # alternatively, you can paginate page-by-page
@@ -430,11 +422,7 @@ class AssetsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.assets.v_1_get_all_asset_current_locations(
-            starting_after="startingAfter",
-            ending_before="endingBefore",
-            limit=1000000,
-        )
+        client.assets.v_1_get_all_asset_current_locations()
         """
         _response = self._raw_client.v_1_get_all_asset_current_locations(
             starting_after=starting_after, ending_before=ending_before, limit=limit, request_options=request_options
@@ -500,9 +488,6 @@ class AssetsClient:
         client.assets.v_1_get_assets_reefers(
             start_ms=1000000,
             end_ms=1000000,
-            starting_after="startingAfter",
-            ending_before="endingBefore",
-            limit=1000000,
         )
         """
         _response = self._raw_client.v_1_get_assets_reefers(
@@ -696,7 +681,7 @@ class AsyncAssetsClient:
     async def list(
         self,
         *,
-        type: typing.Optional[AssetsListRequestType] = None,
+        type: typing.Optional[ListAssetsRequestType] = None,
         after: typing.Optional[str] = None,
         updated_after_time: typing.Optional[str] = None,
         include_external_ids: typing.Optional[bool] = None,
@@ -707,7 +692,7 @@ class AsyncAssetsClient:
         attribute_value_ids: typing.Optional[str] = None,
         attributes: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[AssetResponseBody]:
+    ) -> AsyncPager[AssetResponseBody, AssetsListAssetsResponseBody]:
         """
         List all assets. Up to 300 assets will be returned per page.
 
@@ -720,7 +705,7 @@ class AsyncAssetsClient:
 
         Parameters
         ----------
-        type : typing.Optional[AssetsListRequestType]
+        type : typing.Optional[ListAssetsRequestType]
             The operational context in which the asset interacts with the Samsara system. Examples: Vehicle (eg: truck, bus...), Trailer (eg: dry van, reefer, flatbed...), Powered Equipment (eg: dozer, crane...), Unpowered Equipment (eg: container, dumpster...), or Uncategorized.  Valid values: `uncategorized`, `trailer`, `equipment`, `unpowered`, `vehicle`
 
         after : typing.Optional[str]
@@ -755,7 +740,7 @@ class AsyncAssetsClient:
 
         Returns
         -------
-        AsyncPager[AssetResponseBody]
+        AsyncPager[AssetResponseBody, AssetsListAssetsResponseBody]
             OK response.
 
         Examples
@@ -770,16 +755,7 @@ class AsyncAssetsClient:
 
 
         async def main() -> None:
-            response = await client.assets.list(
-                type="uncategorized",
-                after="after",
-                updated_after_time="updatedAfterTime",
-                include_external_ids=True,
-                include_tags=True,
-                tag_ids="tagIds",
-                parent_tag_ids="parentTagIds",
-                attribute_value_ids="attributeValueIds",
-            )
+            response = await client.assets.list()
             async for item in response:
                 yield item
 
@@ -1123,11 +1099,7 @@ class AsyncAssetsClient:
 
 
         async def main() -> None:
-            await client.assets.v_1_get_all_asset_current_locations(
-                starting_after="startingAfter",
-                ending_before="endingBefore",
-                limit=1000000,
-            )
+            await client.assets.v_1_get_all_asset_current_locations()
 
 
         asyncio.run(main())
@@ -1201,9 +1173,6 @@ class AsyncAssetsClient:
             await client.assets.v_1_get_assets_reefers(
                 start_ms=1000000,
                 end_ms=1000000,
-                starting_after="startingAfter",
-                ending_before="endingBefore",
-                limit=1000000,
             )
 
 

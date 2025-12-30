@@ -2,6 +2,6 @@
 
 import typing
 
-AssetsListRequestType = typing.Union[
+ListAssetsRequestType = typing.Union[
     typing.Literal["uncategorized", "trailer", "equipment", "unpowered", "vehicle"], typing.Any
 ]

@@ -73,10 +73,7 @@ class MessagesClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.messages.v_1_get_messages(
-            end_ms=1000000,
-            duration_ms=1000000,
-        )
+        client.messages.v_1_get_messages()
         """
         _response = self._raw_client.v_1_get_messages(
             end_ms=end_ms, duration_ms=duration_ms, request_options=request_options
@@ -200,10 +197,7 @@ class AsyncMessagesClient:
 
 
         async def main() -> None:
-            await client.messages.v_1_get_messages(
-                end_ms=1000000,
-                duration_ms=1000000,
-            )
+            await client.messages.v_1_get_messages()
 
 
         asyncio.run(main())

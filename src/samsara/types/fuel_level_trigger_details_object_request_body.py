@@ -6,6 +6,7 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .fuel_level_trigger_details_object_request_body_operation import FuelLevelTriggerDetailsObjectRequestBodyOperation
 
 
 class FuelLevelTriggerDetailsObjectRequestBody(UniversalBaseModel):
@@ -25,7 +26,7 @@ class FuelLevelTriggerDetailsObjectRequestBody(UniversalBaseModel):
     The number of milliseconds the trigger needs to stay active before alerting.
     """
 
-    operation: typing.Literal["LESS"] = pydantic.Field(default="LESS")
+    operation: FuelLevelTriggerDetailsObjectRequestBodyOperation = pydantic.Field()
     """
     How to evaluate the threshold.  Valid values: `LESS`
     """

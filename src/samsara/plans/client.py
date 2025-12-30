@@ -123,8 +123,6 @@ class PlansClient:
 
         Examples
         --------
-        import datetime
-
         from samsara import Samsara
 
         client = Samsara(
@@ -132,15 +130,6 @@ class PlansClient:
         )
         client.plans.list_hub_plans(
             hub_id="hubId",
-            plan_ids="planIds",
-            start_time=datetime.datetime.fromisoformat(
-                "2024-01-15 09:30:00+00:00",
-            ),
-            end_time=datetime.datetime.fromisoformat(
-                "2024-01-15 09:30:00+00:00",
-            ),
-            after="after",
-            limit=1,
         )
         """
         _response = self._raw_client.list_hub_plans(
@@ -274,7 +263,6 @@ class AsyncPlansClient:
         Examples
         --------
         import asyncio
-        import datetime
 
         from samsara import AsyncSamsara
 
@@ -286,15 +274,6 @@ class AsyncPlansClient:
         async def main() -> None:
             await client.plans.list_hub_plans(
                 hub_id="hubId",
-                plan_ids="planIds",
-                start_time=datetime.datetime.fromisoformat(
-                    "2024-01-15 09:30:00+00:00",
-                ),
-                end_time=datetime.datetime.fromisoformat(
-                    "2024-01-15 09:30:00+00:00",
-                ),
-                after="after",
-                limit=1,
             )
 
 

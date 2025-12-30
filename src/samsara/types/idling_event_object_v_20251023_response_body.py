@@ -10,6 +10,7 @@ from .fuel_cost_object_response_body import FuelCostObjectResponseBody
 from .gaseous_fuel_cost_object_response_body import GaseousFuelCostObjectResponseBody
 from .idling_event_address_object_response_body import IdlingEventAddressObjectResponseBody
 from .idling_event_asset_object_response_body import IdlingEventAssetObjectResponseBody
+from .idling_event_object_v_20251023_response_body_pto_state import IdlingEventObjectV20251023ResponseBodyPtoState
 from .idling_event_operator_object_response_body import IdlingEventOperatorObjectResponseBody
 
 
@@ -68,9 +69,9 @@ class IdlingEventObjectV20251023ResponseBody(UniversalBaseModel):
     """
 
     operator: typing.Optional[IdlingEventOperatorObjectResponseBody] = None
-    pto_state: typing_extensions.Annotated[typing.Literal["active, inactive"], FieldMetadata(alias="ptoState")] = (
-        pydantic.Field(default="active, inactive")
-    )
+    pto_state: typing_extensions.Annotated[
+        IdlingEventObjectV20251023ResponseBodyPtoState, FieldMetadata(alias="ptoState")
+    ] = pydantic.Field()
     """
     The PTO (Power Take-Off) state during the idling event.  Valid values: `active, inactive`
     """

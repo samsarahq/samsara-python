@@ -69,10 +69,7 @@ class UsersClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.users.list_user_roles(
-            limit=1000000,
-            after="after",
-        )
+        client.users.list_user_roles()
         """
         _response = self._raw_client.list_user_roles(limit=limit, after=after, request_options=request_options)
         return _response.data
@@ -114,10 +111,7 @@ class UsersClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.users.list_users(
-            limit=1000000,
-            after="after",
-        )
+        client.users.list_users()
         """
         _response = self._raw_client.list_users(limit=limit, after=after, request_options=request_options)
         return _response.data
@@ -380,10 +374,7 @@ class AsyncUsersClient:
 
 
         async def main() -> None:
-            await client.users.list_user_roles(
-                limit=1000000,
-                after="after",
-            )
+            await client.users.list_user_roles()
 
 
         asyncio.run(main())
@@ -433,10 +424,7 @@ class AsyncUsersClient:
 
 
         async def main() -> None:
-            await client.users.list_users(
-                limit=1000000,
-                after="after",
-            )
+            await client.users.list_users()
 
 
         asyncio.run(main())

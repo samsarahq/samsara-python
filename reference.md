@@ -1,6 +1,6 @@
 # Reference
 ## Addresses
-<details><summary><code>client.addresses.<a href="src/samsara/addresses/client.py">list</a>(...)</code></summary>
+<details><summary><code>client.addresses.<a href="src/samsara/addresses/client.py">list</a>(...) -> AsyncPager[Address, ListAddressesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -36,11 +36,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-response = client.addresses.list(
-    limit=1000000,
-    after="after",
-    created_after_time="createdAfterTime",
-)
+response = client.addresses.list()
 for item in response:
     yield item
 # alternatively, you can paginate page-by-page
@@ -113,7 +109,7 @@ for page in response.iter_pages():
 </dl>
 </details>
 
-<details><summary><code>client.addresses.<a href="src/samsara/addresses/client.py">create</a>(...)</code></summary>
+<details><summary><code>client.addresses.<a href="src/samsara/addresses/client.py">create</a>(...) -> AsyncHttpResponse[AddressResponse]</code></summary>
 <dl>
 <dd>
 
@@ -261,7 +257,7 @@ client.addresses.create(
 </dl>
 </details>
 
-<details><summary><code>client.addresses.<a href="src/samsara/addresses/client.py">get</a>(...)</code></summary>
+<details><summary><code>client.addresses.<a href="src/samsara/addresses/client.py">get</a>(...) -> AsyncHttpResponse[AddressResponse]</code></summary>
 <dl>
 <dd>
 
@@ -335,7 +331,7 @@ client.addresses.get(
 </dl>
 </details>
 
-<details><summary><code>client.addresses.<a href="src/samsara/addresses/client.py">delete</a>(...)</code></summary>
+<details><summary><code>client.addresses.<a href="src/samsara/addresses/client.py">delete</a>(...) -> AsyncHttpResponse[StandardDeleteResponse]</code></summary>
 <dl>
 <dd>
 
@@ -409,7 +405,7 @@ client.addresses.delete(
 </dl>
 </details>
 
-<details><summary><code>client.addresses.<a href="src/samsara/addresses/client.py">update</a>(...)</code></summary>
+<details><summary><code>client.addresses.<a href="src/samsara/addresses/client.py">update</a>(...) -> AsyncHttpResponse[AddressResponse]</code></summary>
 <dl>
 <dd>
 
@@ -564,7 +560,7 @@ client.addresses.update(
 </details>
 
 ## Alerts
-<details><summary><code>client.alerts.<a href="src/samsara/alerts/client.py">get_configurations</a>(...)</code></summary>
+<details><summary><code>client.alerts.<a href="src/samsara/alerts/client.py">get_configurations</a>(...) -> AsyncHttpResponse[AlertsGetConfigurationsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -648,11 +644,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.alerts.get_configurations(
-    status="all",
-    after="after",
-    include_external_ids=True,
-)
+client.alerts.get_configurations()
 
 ```
 </dd>
@@ -712,7 +704,7 @@ client.alerts.get_configurations(
 </dl>
 </details>
 
-<details><summary><code>client.alerts.<a href="src/samsara/alerts/client.py">post_configurations</a>(...)</code></summary>
+<details><summary><code>client.alerts.<a href="src/samsara/alerts/client.py">post_configurations</a>(...) -> AsyncHttpResponse[AlertsPostConfigurationsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -856,7 +848,7 @@ client.alerts.post_configurations(
 </dl>
 </details>
 
-<details><summary><code>client.alerts.<a href="src/samsara/alerts/client.py">delete_configurations</a>(...)</code></summary>
+<details><summary><code>client.alerts.<a href="src/samsara/alerts/client.py">delete_configurations</a>(...) -> AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -933,7 +925,7 @@ client.alerts.delete_configurations(
 </dl>
 </details>
 
-<details><summary><code>client.alerts.<a href="src/samsara/alerts/client.py">patch_configurations</a>(...)</code></summary>
+<details><summary><code>client.alerts.<a href="src/samsara/alerts/client.py">patch_configurations</a>(...) -> AsyncHttpResponse[AlertsPatchConfigurationsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -1066,7 +1058,7 @@ client.alerts.patch_configurations(
 </dl>
 </details>
 
-<details><summary><code>client.alerts.<a href="src/samsara/alerts/client.py">get_incidents</a>(...)</code></summary>
+<details><summary><code>client.alerts.<a href="src/samsara/alerts/client.py">get_incidents</a>(...) -> AsyncHttpResponse[AlertsGetIncidentsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -1168,7 +1160,7 @@ client.alerts.get_incidents(
 </details>
 
 ## Assets
-<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">list</a>(...)</code></summary>
+<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">list</a>(...) -> AsyncPager[AssetResponseBody, AssetsListAssetsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -1207,16 +1199,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-response = client.assets.list(
-    type="uncategorized",
-    after="after",
-    updated_after_time="updatedAfterTime",
-    include_external_ids=True,
-    include_tags=True,
-    tag_ids="tagIds",
-    parent_tag_ids="parentTagIds",
-    attribute_value_ids="attributeValueIds",
-)
+response = client.assets.list()
 for item in response:
     yield item
 # alternatively, you can paginate page-by-page
@@ -1237,7 +1220,7 @@ for page in response.iter_pages():
 <dl>
 <dd>
 
-**type:** `typing.Optional[AssetsListRequestType]` — The operational context in which the asset interacts with the Samsara system. Examples: Vehicle (eg: truck, bus...), Trailer (eg: dry van, reefer, flatbed...), Powered Equipment (eg: dozer, crane...), Unpowered Equipment (eg: container, dumpster...), or Uncategorized.  Valid values: `uncategorized`, `trailer`, `equipment`, `unpowered`, `vehicle`
+**type:** `typing.Optional[ListAssetsRequestType]` — The operational context in which the asset interacts with the Samsara system. Examples: Vehicle (eg: truck, bus...), Trailer (eg: dry van, reefer, flatbed...), Powered Equipment (eg: dozer, crane...), Unpowered Equipment (eg: container, dumpster...), or Uncategorized.  Valid values: `uncategorized`, `trailer`, `equipment`, `unpowered`, `vehicle`
     
 </dd>
 </dl>
@@ -1329,7 +1312,7 @@ for page in response.iter_pages():
 </dl>
 </details>
 
-<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">create_asset</a>(...)</code></summary>
+<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">create_asset</a>(...) -> AsyncHttpResponse[AssetsCreateAssetResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -1492,7 +1475,7 @@ client.assets.create_asset()
 </dl>
 </details>
 
-<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">delete_asset</a>(...)</code></summary>
+<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">delete_asset</a>(...) -> AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -1569,7 +1552,7 @@ client.assets.delete_asset(
 </dl>
 </details>
 
-<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">update_asset</a>(...)</code></summary>
+<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">update_asset</a>(...) -> AsyncHttpResponse[AssetsUpdateAssetResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -1742,7 +1725,7 @@ client.assets.update_asset(
 </dl>
 </details>
 
-<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">v_1_get_all_asset_current_locations</a>(...)</code></summary>
+<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">v_1_get_all_asset_current_locations</a>(...) -> AsyncHttpResponse[InlineResponse2002]</code></summary>
 <dl>
 <dd>
 
@@ -1785,11 +1768,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.assets.v_1_get_all_asset_current_locations(
-    starting_after="startingAfter",
-    ending_before="endingBefore",
-    limit=1000000,
-)
+client.assets.v_1_get_all_asset_current_locations()
 
 ```
 </dd>
@@ -1841,7 +1820,7 @@ client.assets.v_1_get_all_asset_current_locations(
 </dl>
 </details>
 
-<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">v_1_get_assets_reefers</a>(...)</code></summary>
+<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">v_1_get_assets_reefers</a>(...) -> AsyncHttpResponse[InlineResponse2003]</code></summary>
 <dl>
 <dd>
 
@@ -1887,9 +1866,6 @@ client = Samsara(
 client.assets.v_1_get_assets_reefers(
     start_ms=1000000,
     end_ms=1000000,
-    starting_after="startingAfter",
-    ending_before="endingBefore",
-    limit=1000000,
 )
 
 ```
@@ -1958,7 +1934,7 @@ client.assets.v_1_get_assets_reefers(
 </dl>
 </details>
 
-<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">v_1_get_asset_location</a>(...)</code></summary>
+<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">v_1_get_asset_location</a>(...) -> AsyncHttpResponse[V1AssetLocationResponse]</code></summary>
 <dl>
 <dd>
 
@@ -2057,7 +2033,7 @@ client.assets.v_1_get_asset_location(
 </dl>
 </details>
 
-<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">v_1_get_asset_reefer</a>(...)</code></summary>
+<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">v_1_get_asset_reefer</a>(...) -> AsyncHttpResponse[V1AssetReeferResponse]</code></summary>
 <dl>
 <dd>
 
@@ -2156,7 +2132,7 @@ client.assets.v_1_get_asset_reefer(
 </dl>
 </details>
 
-<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">get</a>(...)</code></summary>
+<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">get</a>(...) -> AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -2212,7 +2188,7 @@ client.assets.get(
 </dl>
 </details>
 
-<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">update</a>(...)</code></summary>
+<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">update</a>(...) -> AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -2269,7 +2245,7 @@ client.assets.update(
 </details>
 
 ## Beta APIs
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_assets_inputs</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_assets_inputs</a>(...) -> AsyncHttpResponse[AssetsInputsGetAssetsInputsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -2403,7 +2379,7 @@ client.beta_ap_is.get_assets_inputs(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_aemp_equipment_list</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_aemp_equipment_list</a>(...) -> AsyncHttpResponse[AempEquipmentGetAempEquipmentListResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -2480,7 +2456,7 @@ client.beta_ap_is.get_aemp_equipment_list(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_driver_efficiency</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_driver_efficiency</a>(...) -> AsyncHttpResponse[DriverEfficienciesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -2515,23 +2491,12 @@ To use this endpoint, select **Read Fuel & Energy** under the Fuel & Energy cate
 <dd>
 
 ```python
-import datetime
-
 from samsara import Samsara
 
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_ap_is.get_driver_efficiency(
-    driver_activation_status="active",
-    after="after",
-    start_time=datetime.datetime.fromisoformat(
-        "2024-01-15 09:30:00+00:00",
-    ),
-    end_time=datetime.datetime.fromisoformat(
-        "2024-01-15 09:30:00+00:00",
-    ),
-)
+client.beta_ap_is.get_driver_efficiency()
 
 ```
 </dd>
@@ -2623,7 +2588,7 @@ Note that the most recent 72 hours of data may still be processing and is subjec
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">patch_equipment</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">patch_equipment</a>(...) -> AsyncHttpResponse[EquipmentPatchEquipmentResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -2722,14 +2687,6 @@ client.beta_ap_is.patch_equipment(
 <dl>
 <dd>
 
-**equipment_patch_equipment_request_body_id:** `typing.Optional[str]` — The unique Samsara ID of the Equipment. This is automatically generated when the Equipment object is created. It cannot be changed.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
 **name:** `typing.Optional[str]` — The human-readable name of the Equipment. This is set by a fleet administrator and will appear in both Samsara’s cloud dashboard as well as the Samsara Driver mobile app. By default, this name is the serial number of the Samsara Asset Gateway. It can be set or updated through the Samsara Dashboard or through the API at any time.
     
 </dd>
@@ -2774,7 +2731,7 @@ client.beta_ap_is.patch_equipment(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_hos_eld_events</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_hos_eld_events</a>(...) -> AsyncHttpResponse[HosEldEventsGetHosEldEventsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -2816,11 +2773,6 @@ client = Samsara(
 client.beta_ap_is.get_hos_eld_events(
     start_time="startTime",
     end_time="endTime",
-    tag_ids="tagIds",
-    parent_tag_ids="parentTagIds",
-    driver_activation_status="active",
-    after="after",
-    limit=1,
 )
 
 ```
@@ -2913,7 +2865,7 @@ client.beta_ap_is.get_hos_eld_events(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_trailer_stats_snapshot</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_trailer_stats_snapshot</a>(...) -> AsyncHttpResponse[TrailerStatsGetTrailerStatsSnapshotResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -2954,11 +2906,6 @@ client = Samsara(
 )
 client.beta_ap_is.get_trailer_stats_snapshot(
     types="types",
-    tag_ids="tagIds",
-    parent_tag_ids="parentTagIds",
-    after="after",
-    trailer_ids="trailerIds",
-    time="time",
 )
 
 ```
@@ -3063,7 +3010,7 @@ You may list **up to 3** types using comma-separated format. For example: `types
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_trailer_stats_feed</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_trailer_stats_feed</a>(...) -> AsyncHttpResponse[TrailerStatsGetTrailerStatsFeedResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -3110,11 +3057,6 @@ client = Samsara(
 )
 client.beta_ap_is.get_trailer_stats_feed(
     types="types",
-    tag_ids="tagIds",
-    parent_tag_ids="parentTagIds",
-    after="after",
-    trailer_ids="trailerIds",
-    decorations="decorations",
 )
 
 ```
@@ -3249,7 +3191,7 @@ Note that decorations may significantly increase the response payload size.
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_trailer_stats_history</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_trailer_stats_history</a>(...) -> AsyncHttpResponse[TrailerStatsGetTrailerStatsHistoryResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -3292,11 +3234,6 @@ client.beta_ap_is.get_trailer_stats_history(
     start_time="startTime",
     end_time="endTime",
     types="types",
-    tag_ids="tagIds",
-    parent_tag_ids="parentTagIds",
-    after="after",
-    trailer_ids="trailerIds",
-    decorations="decorations",
 )
 
 ```
@@ -3447,7 +3384,7 @@ Note that decorations may significantly increase the response payload size.
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">update_engine_immobilizer_state</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">update_engine_immobilizer_state</a>(...) -> AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -3541,7 +3478,7 @@ client.beta_ap_is.update_engine_immobilizer_state(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_jobs</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_jobs</a>(...) -> AsyncHttpResponse[JobsGetJobsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -3578,14 +3515,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_ap_is.get_jobs(
-    id="id",
-    start_date="startDate",
-    end_date="endDate",
-    status="active",
-    customer_name="customerName",
-    after="after",
-)
+client.beta_ap_is.get_jobs()
 
 ```
 </dd>
@@ -3677,7 +3607,7 @@ client.beta_ap_is.get_jobs(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">create_job</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">create_job</a>(...) -> AsyncHttpResponse[JobsCreateJobResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -3757,7 +3687,7 @@ client.beta_ap_is.create_job(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">delete_job</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">delete_job</a>(...) -> AsyncHttpResponse[JobsDeleteJobResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -3832,7 +3762,7 @@ client.beta_ap_is.delete_job(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">patch_job</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">patch_job</a>(...) -> AsyncHttpResponse[JobsPatchJobResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -3924,7 +3854,7 @@ client.beta_ap_is.patch_job(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_detections</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_detections</a>(...) -> AsyncHttpResponse[DetectionLogGetDetectionsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -3966,13 +3896,7 @@ client = Samsara(
     token="YOUR_TOKEN",
 )
 client.beta_ap_is.get_detections(
-    inbox_event=True,
-    in_cab_alert_played=True,
-    include_asset=True,
-    include_driver=True,
     start_time="startTime",
-    end_time="endTime",
-    after="after",
 )
 
 ```
@@ -4097,7 +4021,7 @@ client.beta_ap_is.get_detections(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_devices</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_devices</a>(...) -> AsyncHttpResponse[DevicesGetDevicesResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -4138,11 +4062,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_ap_is.get_devices(
-    include_health=True,
-    after="after",
-    limit=1,
-)
+client.beta_ap_is.get_devices()
 
 ```
 </dd>
@@ -4210,7 +4130,7 @@ client.beta_ap_is.get_devices(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_driver_trailer_assignments</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_driver_trailer_assignments</a>(...) -> AsyncHttpResponse[TrailerAssignmentsGetDriverTrailerAssignmentsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -4301,7 +4221,7 @@ client.beta_ap_is.get_driver_trailer_assignments()
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">create_driver_trailer_assignment</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">create_driver_trailer_assignment</a>(...) -> AsyncHttpResponse[TrailerAssignmentsCreateDriverTrailerAssignmentResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -4395,7 +4315,7 @@ client.beta_ap_is.create_driver_trailer_assignment(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">update_driver_trailer_assignment</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">update_driver_trailer_assignment</a>(...) -> AsyncHttpResponse[TrailerAssignmentsUpdateDriverTrailerAssignmentResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -4481,7 +4401,108 @@ client.beta_ap_is.update_driver_trailer_assignment(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_engine_immobilizer_states</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">create_driver_auth_token</a>(...) -> AsyncHttpResponse[DriversAuthTokenCreateDriverAuthTokenResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Creates a short-lived auth token for a driver.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Driver Auth Token** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.create_driver_auth_token(
+    code="dp[gZc1wAigz4uGa0Hh",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**code:** `str` — Required. Random 12+ character string, used with the auth token to help secure the client from intercepted tokens.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**external_id:** `typing.Optional[str]` — Optional. External ID of the driver, in the format `key:value` (e.g., `payrollId:ABFS18600`). One of `id`, `externalId`, or `username` is required.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**id:** `typing.Optional[int]` — Optional. Samsara ID of the driver. One of `id`, `externalId`, or `username` is required.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**username:** `typing.Optional[str]` — Optional. Username of the driver. This is the login identifier configured when the driver is created. One of `id`, `externalId`, or `username` is required.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_engine_immobilizer_states</a>(...) -> AsyncHttpResponse[EngineImmobilizerGetEngineImmobilizerStatesResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -4523,8 +4544,6 @@ client = Samsara(
 client.beta_ap_is.get_engine_immobilizer_states(
     vehicle_ids="vehicleIds",
     start_time="startTime",
-    end_time="endTime",
-    after="after",
 )
 
 ```
@@ -4585,7 +4604,7 @@ client.beta_ap_is.get_engine_immobilizer_states(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">start_function_run</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">start_function_run</a>(...) -> AsyncHttpResponse[FunctionsStartFunctionRunResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -4674,7 +4693,7 @@ client.beta_ap_is.start_function_run(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">update_shipping_docs</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">update_shipping_docs</a>(...) -> AsyncHttpResponse[HosDailyLogsUpdateShippingDocsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -4769,7 +4788,7 @@ client.beta_ap_is.update_shipping_docs(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">create_plan_orders</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">create_plan_orders</a>(...) -> AsyncHttpResponse[PlanOrdersCreatePlanOrdersResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -4862,7 +4881,7 @@ client.beta_ap_is.create_plan_orders(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_qualification_records</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_qualification_records</a>(...) -> AsyncHttpResponse[QualificationsGetQualificationRecordsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -4945,7 +4964,7 @@ client.beta_ap_is.get_qualification_records()
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">post_qualification_record</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">post_qualification_record</a>(...) -> AsyncHttpResponse[QualificationsPostQualificationRecordResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -5086,7 +5105,7 @@ client.beta_ap_is.post_qualification_record(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">delete_qualification_record</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">delete_qualification_record</a>(...) -> AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -5163,7 +5182,7 @@ client.beta_ap_is.delete_qualification_record(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">patch_qualification_record</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">patch_qualification_record</a>(...) -> AsyncHttpResponse[QualificationsPatchQualificationRecordResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -5291,7 +5310,7 @@ client.beta_ap_is.patch_qualification_record(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">archive_qualification_record</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">archive_qualification_record</a>(...) -> AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -5368,7 +5387,7 @@ client.beta_ap_is.archive_qualification_record(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_qualification_records_stream</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_qualification_records_stream</a>(...) -> AsyncHttpResponse[QualificationsGetQualificationRecordsStreamResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -5414,12 +5433,6 @@ client.beta_ap_is.get_qualification_records_stream(
     start_time=datetime.datetime.fromisoformat(
         "2024-01-15 09:30:00+00:00",
     ),
-    end_time=datetime.datetime.fromisoformat(
-        "2024-01-15 09:30:00+00:00",
-    ),
-    after="after",
-    include_deleted=True,
-    include_external_ids=True,
 )
 
 ```
@@ -5512,7 +5525,7 @@ client.beta_ap_is.get_qualification_records_stream(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">unarchive_qualification_record</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">unarchive_qualification_record</a>(...) -> AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -5589,7 +5602,7 @@ client.beta_ap_is.unarchive_qualification_record(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_qualification_types</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_qualification_types</a>(...) -> AsyncHttpResponse[QualificationsGetQualificationTypesResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -5630,7 +5643,6 @@ client = Samsara(
 )
 client.beta_ap_is.get_qualification_types(
     entity_type="worker",
-    after="after",
 )
 
 ```
@@ -5683,7 +5695,7 @@ client.beta_ap_is.get_qualification_types(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">post_readings</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">post_readings</a>(...) -> AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -5728,6 +5740,7 @@ client.beta_ap_is.post_readings(
     data=[
         ReadingDatapointRequestBody(
             entity_id="123451234512345",
+            entity_type="asset",
             happened_at_time="2023-10-27T10:00:00Z",
             reading_id="airInletPressure",
             value={"key": "value"},
@@ -5769,7 +5782,7 @@ client.beta_ap_is.post_readings(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_readings_definitions</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_readings_definitions</a>(...) -> AsyncHttpResponse[ReadingsListReadingsDefinitionsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -5812,11 +5825,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_ap_is.list_readings_definitions(
-    after="after",
-    ids="ids",
-    entity_types="entityTypes",
-)
+client.beta_ap_is.list_readings_definitions()
 
 ```
 </dd>
@@ -5868,7 +5877,7 @@ client.beta_ap_is.list_readings_definitions(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_readings_history</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_readings_history</a>(...) -> AsyncHttpResponse[ReadingsGetReadingsHistoryResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -5922,15 +5931,8 @@ client = Samsara(
     token="YOUR_TOKEN",
 )
 client.beta_ap_is.get_readings_history(
-    after="after",
     reading_id="readingId",
-    entity_ids="entityIds",
     entity_type="entityType",
-    external_ids="externalIds",
-    start_time="startTime",
-    end_time="endTime",
-    feed=True,
-    include_external_ids=True,
 )
 
 ```
@@ -6031,7 +6033,7 @@ client.beta_ap_is.get_readings_history(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_readings_snapshot</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_readings_snapshot</a>(...) -> AsyncHttpResponse[ReadingsGetReadingsSnapshotResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -6081,13 +6083,8 @@ client = Samsara(
     token="YOUR_TOKEN",
 )
 client.beta_ap_is.get_readings_snapshot(
-    after="after",
     reading_ids="readingIds",
-    entity_ids="entityIds",
-    external_ids="externalIds",
-    as_of_time="asOfTime",
     entity_type="entityType",
-    include_external_ids=True,
 )
 
 ```
@@ -6172,7 +6169,7 @@ client.beta_ap_is.get_readings_snapshot(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_safety_events_v_2</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_safety_events_v_2</a>(...) -> AsyncHttpResponse[SafetyEventsV2GetSafetyEventsV2ResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -6271,7 +6268,7 @@ client.beta_ap_is.get_safety_events_v_2()
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_safety_events_v_2_stream</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_safety_events_v_2_stream</a>(...) -> AsyncHttpResponse[SafetyEventsV2GetSafetyEventsV2StreamResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -6312,10 +6309,6 @@ client = Samsara(
 )
 client.beta_ap_is.get_safety_events_v_2_stream(
     start_time="startTime",
-    end_time="endTime",
-    include_asset=True,
-    include_driver=True,
-    after="after",
 )
 
 ```
@@ -6432,7 +6425,7 @@ client.beta_ap_is.get_safety_events_v_2_stream(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_driver_safety_scores</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_driver_safety_scores</a>(...) -> AsyncHttpResponse[SafetyScoresGetDriverSafetyScoresResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -6474,7 +6467,6 @@ client = Samsara(
 client.beta_ap_is.get_driver_safety_scores(
     end_time="endTime",
     start_time="startTime",
-    after="after",
 )
 
 ```
@@ -6535,7 +6527,7 @@ client.beta_ap_is.get_driver_safety_scores(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_driver_safety_score_trips</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_driver_safety_score_trips</a>(...) -> AsyncHttpResponse[SafetyScoresGetDriverSafetyScoreTripsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -6637,7 +6629,7 @@ client.beta_ap_is.get_driver_safety_score_trips(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_tag_group_safety_scores</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_tag_group_safety_scores</a>(...) -> AsyncHttpResponse[SafetyScoresGetTagGroupSafetyScoresResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -6740,7 +6732,7 @@ client.beta_ap_is.get_tag_group_safety_scores(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_tag_safety_scores</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_tag_safety_scores</a>(...) -> AsyncHttpResponse[SafetyScoresGetTagSafetyScoresResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -6783,7 +6775,6 @@ client.beta_ap_is.get_tag_safety_scores(
     end_time="endTime",
     start_time="startTime",
     score_type="driver",
-    after="after",
 )
 
 ```
@@ -6852,7 +6843,7 @@ client.beta_ap_is.get_tag_safety_scores(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_vehicle_safety_scores</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_vehicle_safety_scores</a>(...) -> AsyncHttpResponse[SafetyScoresGetVehicleSafetyScoresResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -6894,7 +6885,6 @@ client = Samsara(
 client.beta_ap_is.get_vehicle_safety_scores(
     end_time="endTime",
     start_time="startTime",
-    after="after",
 )
 
 ```
@@ -6955,7 +6945,7 @@ client.beta_ap_is.get_vehicle_safety_scores(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_vehicle_safety_score_trips</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_vehicle_safety_score_trips</a>(...) -> AsyncHttpResponse[SafetyScoresGetVehicleSafetyScoreTripsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -7057,7 +7047,7 @@ client.beta_ap_is.get_vehicle_safety_score_trips(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">post_training_assignments</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">post_training_assignments</a>(...) -> AsyncHttpResponse[TrainingAssignmentsPostTrainingAssignmentsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -7153,7 +7143,7 @@ client.beta_ap_is.post_training_assignments(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">delete_training_assignments</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">delete_training_assignments</a>(...) -> AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -7230,7 +7220,7 @@ client.beta_ap_is.delete_training_assignments()
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">patch_training_assignments</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">patch_training_assignments</a>(...) -> AsyncHttpResponse[TrainingAssignmentsPatchTrainingAssignmentsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -7317,7 +7307,7 @@ client.beta_ap_is.patch_training_assignments(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_training_assignments_stream</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_training_assignments_stream</a>(...) -> AsyncHttpResponse[TrainingAssignmentsGetTrainingAssignmentsStreamResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -7359,9 +7349,7 @@ client = Samsara(
     token="YOUR_TOKEN",
 )
 client.beta_ap_is.get_training_assignments_stream(
-    after="after",
     start_time="startTime",
-    end_time="endTime",
 )
 
 ```
@@ -7438,7 +7426,7 @@ client.beta_ap_is.get_training_assignments_stream(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_training_courses</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_training_courses</a>(...) -> AsyncHttpResponse[TrainingCoursesGetTrainingCoursesResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -7478,9 +7466,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_ap_is.get_training_courses(
-    after="after",
-)
+client.beta_ap_is.get_training_courses()
 
 ```
 </dd>
@@ -7540,7 +7526,7 @@ client.beta_ap_is.get_training_courses(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_trips</a>(...)</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_trips</a>(...) -> AsyncHttpResponse[TripsGetTripsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -7666,7 +7652,7 @@ client.beta_ap_is.get_trips(
 </details>
 
 ## LocationAndSpeed
-<details><summary><code>client.location_and_speed.<a href="src/samsara/location_and_speed/client.py">get_location_and_speed</a>(...)</code></summary>
+<details><summary><code>client.location_and_speed.<a href="src/samsara/location_and_speed/client.py">get_location_and_speed</a>(...) -> AsyncHttpResponse[LocationAndSpeedGetLocationAndSpeedResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -7705,16 +7691,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.location_and_speed.get_location_and_speed(
-    after="after",
-    limit=1,
-    start_time="startTime",
-    end_time="endTime",
-    include_speed=True,
-    include_reverse_geo=True,
-    include_geofence_lookup=True,
-    include_external_ids=True,
-)
+client.location_and_speed.get_location_and_speed()
 
 ```
 </dd>
@@ -7815,7 +7792,7 @@ client.location_and_speed.get_location_and_speed(
 </details>
 
 ## Attributes
-<details><summary><code>client.attributes.<a href="src/samsara/attributes/client.py">get_attributes_by_entity_type</a>(...)</code></summary>
+<details><summary><code>client.attributes.<a href="src/samsara/attributes/client.py">get_attributes_by_entity_type</a>(...) -> AsyncHttpResponse[GetAttributesByEntityTypeResponse]</code></summary>
 <dl>
 <dd>
 
@@ -7853,8 +7830,6 @@ client = Samsara(
 )
 client.attributes.get_attributes_by_entity_type(
     entity_type="driver",
-    limit=1000000,
-    after="after",
 )
 
 ```
@@ -7907,7 +7882,7 @@ client.attributes.get_attributes_by_entity_type(
 </dl>
 </details>
 
-<details><summary><code>client.attributes.<a href="src/samsara/attributes/client.py">create_attribute</a>(...)</code></summary>
+<details><summary><code>client.attributes.<a href="src/samsara/attributes/client.py">create_attribute</a>(...) -> AsyncHttpResponse[AttributeExpandedResponse]</code></summary>
 <dl>
 <dd>
 
@@ -8031,7 +8006,7 @@ client.attributes.create_attribute(
 </dl>
 </details>
 
-<details><summary><code>client.attributes.<a href="src/samsara/attributes/client.py">get_attribute</a>(...)</code></summary>
+<details><summary><code>client.attributes.<a href="src/samsara/attributes/client.py">get_attribute</a>(...) -> AsyncHttpResponse[AttributeExpandedResponse]</code></summary>
 <dl>
 <dd>
 
@@ -8114,7 +8089,7 @@ client.attributes.get_attribute(
 </dl>
 </details>
 
-<details><summary><code>client.attributes.<a href="src/samsara/attributes/client.py">delete_attribute</a>(...)</code></summary>
+<details><summary><code>client.attributes.<a href="src/samsara/attributes/client.py">delete_attribute</a>(...) -> AsyncHttpResponse[StandardDeleteResponse]</code></summary>
 <dl>
 <dd>
 
@@ -8197,7 +8172,7 @@ client.attributes.delete_attribute(
 </dl>
 </details>
 
-<details><summary><code>client.attributes.<a href="src/samsara/attributes/client.py">update_attribute</a>(...)</code></summary>
+<details><summary><code>client.attributes.<a href="src/samsara/attributes/client.py">update_attribute</a>(...) -> AsyncHttpResponse[AttributeExpandedResponse]</code></summary>
 <dl>
 <dd>
 
@@ -8321,7 +8296,7 @@ client.attributes.update_attribute(
 </details>
 
 ## Media
-<details><summary><code>client.media.<a href="src/samsara/media/client.py">list_uploaded_media</a>(...)</code></summary>
+<details><summary><code>client.media.<a href="src/samsara/media/client.py">list_uploaded_media</a>(...) -> AsyncHttpResponse[MediaRetrievalListUploadedMediaResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -8364,8 +8339,6 @@ client.media.list_uploaded_media(
     vehicle_ids="vehicleIds",
     start_time="startTime",
     end_time="endTime",
-    available_after_time="availableAfterTime",
-    after="after",
 )
 
 ```
@@ -8473,7 +8446,7 @@ client.media.list_uploaded_media(
 </dl>
 </details>
 
-<details><summary><code>client.media.<a href="src/samsara/media/client.py">get_media_retrieval</a>(...)</code></summary>
+<details><summary><code>client.media.<a href="src/samsara/media/client.py">get_media_retrieval</a>(...) -> AsyncHttpResponse[MediaRetrievalGetMediaRetrievalResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -8550,7 +8523,7 @@ client.media.get_media_retrieval(
 </dl>
 </details>
 
-<details><summary><code>client.media.<a href="src/samsara/media/client.py">post_media_retrieval</a>(...)</code></summary>
+<details><summary><code>client.media.<a href="src/samsara/media/client.py">post_media_retrieval</a>(...) -> AsyncHttpResponse[MediaRetrievalPostMediaRetrievalResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -8664,7 +8637,7 @@ client.media.post_media_retrieval(
 </details>
 
 ## Coaching
-<details><summary><code>client.coaching.<a href="src/samsara/coaching/client.py">get_driver_coach_assignment</a>(...)</code></summary>
+<details><summary><code>client.coaching.<a href="src/samsara/coaching/client.py">get_driver_coach_assignment</a>(...) -> AsyncHttpResponse[DriverCoachAssignmentsGetDriverCoachAssignmentResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -8703,10 +8676,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.coaching.get_driver_coach_assignment(
-    include_external_ids=True,
-    after="after",
-)
+client.coaching.get_driver_coach_assignment()
 
 ```
 </dd>
@@ -8766,7 +8736,7 @@ client.coaching.get_driver_coach_assignment(
 </dl>
 </details>
 
-<details><summary><code>client.coaching.<a href="src/samsara/coaching/client.py">put_driver_coach_assignment</a>(...)</code></summary>
+<details><summary><code>client.coaching.<a href="src/samsara/coaching/client.py">put_driver_coach_assignment</a>(...) -> AsyncHttpResponse[DriverCoachAssignmentsPutDriverCoachAssignmentResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -8807,7 +8777,6 @@ client = Samsara(
 )
 client.coaching.put_driver_coach_assignment(
     driver_id="driverId",
-    coach_id="coachId",
 )
 
 ```
@@ -8852,7 +8821,7 @@ client.coaching.put_driver_coach_assignment(
 </dl>
 </details>
 
-<details><summary><code>client.coaching.<a href="src/samsara/coaching/client.py">get_coaching_sessions</a>(...)</code></summary>
+<details><summary><code>client.coaching.<a href="src/samsara/coaching/client.py">get_coaching_sessions</a>(...) -> AsyncHttpResponse[CoachingSessionsGetCoachingSessionsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -8894,15 +8863,9 @@ client = Samsara(
     token="YOUR_TOKEN",
 )
 client.coaching.get_coaching_sessions(
-    include_coachable_events=True,
     start_time=datetime.datetime.fromisoformat(
         "2024-01-15 09:30:00+00:00",
     ),
-    end_time=datetime.datetime.fromisoformat(
-        "2024-01-15 09:30:00+00:00",
-    ),
-    after="after",
-    include_external_ids=True,
 )
 
 ```
@@ -8996,7 +8959,7 @@ client.coaching.get_coaching_sessions(
 </details>
 
 ## Contacts
-<details><summary><code>client.contacts.<a href="src/samsara/contacts/client.py">list_contacts</a>(...)</code></summary>
+<details><summary><code>client.contacts.<a href="src/samsara/contacts/client.py">list_contacts</a>(...) -> AsyncHttpResponse[ListContactsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -9032,10 +8995,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.contacts.list_contacts(
-    limit=1000000,
-    after="after",
-)
+client.contacts.list_contacts()
 
 ```
 </dd>
@@ -9079,7 +9039,7 @@ client.contacts.list_contacts(
 </dl>
 </details>
 
-<details><summary><code>client.contacts.<a href="src/samsara/contacts/client.py">create_contact</a>(...)</code></summary>
+<details><summary><code>client.contacts.<a href="src/samsara/contacts/client.py">create_contact</a>(...) -> AsyncHttpResponse[ContactResponse]</code></summary>
 <dl>
 <dd>
 
@@ -9175,7 +9135,7 @@ client.contacts.create_contact()
 </dl>
 </details>
 
-<details><summary><code>client.contacts.<a href="src/samsara/contacts/client.py">get_contact</a>(...)</code></summary>
+<details><summary><code>client.contacts.<a href="src/samsara/contacts/client.py">get_contact</a>(...) -> AsyncHttpResponse[ContactResponse]</code></summary>
 <dl>
 <dd>
 
@@ -9249,7 +9209,7 @@ client.contacts.get_contact(
 </dl>
 </details>
 
-<details><summary><code>client.contacts.<a href="src/samsara/contacts/client.py">delete_contact</a>(...)</code></summary>
+<details><summary><code>client.contacts.<a href="src/samsara/contacts/client.py">delete_contact</a>(...) -> AsyncHttpResponse[StandardDeleteResponse]</code></summary>
 <dl>
 <dd>
 
@@ -9323,7 +9283,7 @@ client.contacts.delete_contact(
 </dl>
 </details>
 
-<details><summary><code>client.contacts.<a href="src/samsara/contacts/client.py">update_contact</a>(...)</code></summary>
+<details><summary><code>client.contacts.<a href="src/samsara/contacts/client.py">update_contact</a>(...) -> AsyncHttpResponse[ContactResponse]</code></summary>
 <dl>
 <dd>
 
@@ -9430,7 +9390,7 @@ client.contacts.update_contact(
 </details>
 
 ## Maintenance
-<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">get_defect_types</a>(...)</code></summary>
+<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">get_defect_types</a>(...) -> AsyncHttpResponse[DvirDefectTypeGetDefectTypesResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -9469,10 +9429,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.maintenance.get_defect_types(
-    after="after",
-    limit=1,
-)
+client.maintenance.get_defect_types()
 
 ```
 </dd>
@@ -9524,7 +9481,7 @@ client.maintenance.get_defect_types(
 </dl>
 </details>
 
-<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">stream_defects</a>(...)</code></summary>
+<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">stream_defects</a>(...) -> AsyncHttpResponse[DvirDefectStreamDefectsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -9564,12 +9521,7 @@ client = Samsara(
     token="YOUR_TOKEN",
 )
 client.maintenance.stream_defects(
-    after="after",
-    limit=1,
     start_time="startTime",
-    end_time="endTime",
-    include_external_ids=True,
-    is_resolved=True,
 )
 
 ```
@@ -9646,7 +9598,7 @@ client.maintenance.stream_defects(
 </dl>
 </details>
 
-<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">get_defect</a>(...)</code></summary>
+<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">get_defect</a>(...) -> AsyncHttpResponse[DvirDefectGetDefectResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -9687,7 +9639,6 @@ client = Samsara(
 )
 client.maintenance.get_defect(
     id="id",
-    include_external_ids=True,
 )
 
 ```
@@ -9732,7 +9683,7 @@ client.maintenance.get_defect(
 </dl>
 </details>
 
-<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">get_dvirs</a>(...)</code></summary>
+<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">get_dvirs</a>(...) -> AsyncHttpResponse[DvirGetDvirsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -9772,11 +9723,7 @@ client = Samsara(
     token="YOUR_TOKEN",
 )
 client.maintenance.get_dvirs(
-    after="after",
-    limit=1,
-    include_external_ids=True,
     start_time="startTime",
-    end_time="endTime",
 )
 
 ```
@@ -9853,7 +9800,7 @@ client.maintenance.get_dvirs(
 </dl>
 </details>
 
-<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">get_dvir</a>(...)</code></summary>
+<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">get_dvir</a>(...) -> AsyncHttpResponse[DvirGetDvirResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -9894,7 +9841,6 @@ client = Samsara(
 )
 client.maintenance.get_dvir(
     id="id",
-    include_external_ids=True,
 )
 
 ```
@@ -9939,7 +9885,7 @@ client.maintenance.get_dvir(
 </dl>
 </details>
 
-<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">update_dvir_defect</a>(...)</code></summary>
+<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">update_dvir_defect</a>(...) -> AsyncHttpResponse[DefectResponse]</code></summary>
 <dl>
 <dd>
 
@@ -10045,7 +9991,7 @@ client.maintenance.update_dvir_defect(
 </dl>
 </details>
 
-<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">create_dvir</a>(...)</code></summary>
+<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">create_dvir</a>(...) -> AsyncHttpResponse[DvirResponse]</code></summary>
 <dl>
 <dd>
 
@@ -10084,6 +10030,7 @@ client = Samsara(
 client.maintenance.create_dvir(
     author_id="11",
     safety_status="safe",
+    type="mechanic",
 )
 
 ```
@@ -10109,6 +10056,14 @@ client.maintenance.create_dvir(
 <dd>
 
 **safety_status:** `CreateDvirRequestSafetyStatus` — Whether or not this vehicle or trailer is safe to drive.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**type:** `CreateDvirRequestType` — Only type 'mechanic' is currently accepted.
     
 </dd>
 </dl>
@@ -10184,7 +10139,7 @@ client.maintenance.create_dvir(
 </dl>
 </details>
 
-<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">update_dvir</a>(...)</code></summary>
+<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">update_dvir</a>(...) -> AsyncHttpResponse[DvirResponse]</code></summary>
 <dl>
 <dd>
 
@@ -10292,7 +10247,7 @@ client.maintenance.update_dvir(
 </dl>
 </details>
 
-<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">v_1_get_fleet_maintenance_list</a>()</code></summary>
+<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">v_1_get_fleet_maintenance_list</a>() -> AsyncHttpResponse[InlineResponse2004]</code></summary>
 <dl>
 <dd>
 
@@ -10364,7 +10319,7 @@ client.maintenance.v_1_get_fleet_maintenance_list()
 </details>
 
 ## FuelAndEnergy
-<details><summary><code>client.fuel_and_energy.<a href="src/samsara/fuel_and_energy/client.py">get_driver_efficiency_by_drivers</a>(...)</code></summary>
+<details><summary><code>client.fuel_and_energy.<a href="src/samsara/fuel_and_energy/client.py">get_driver_efficiency_by_drivers</a>(...) -> AsyncHttpResponse[DriverEfficiencyGetDriverEfficiencyByDriversResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -10408,9 +10363,6 @@ client = Samsara(
 client.fuel_and_energy.get_driver_efficiency_by_drivers(
     start_time="startTime",
     end_time="endTime",
-    tag_ids="tagIds",
-    parent_tag_ids="parentTagIds",
-    after="after",
 )
 
 ```
@@ -10495,7 +10447,7 @@ client.fuel_and_energy.get_driver_efficiency_by_drivers(
 </dl>
 </details>
 
-<details><summary><code>client.fuel_and_energy.<a href="src/samsara/fuel_and_energy/client.py">get_driver_efficiency_by_vehicles</a>(...)</code></summary>
+<details><summary><code>client.fuel_and_energy.<a href="src/samsara/fuel_and_energy/client.py">get_driver_efficiency_by_vehicles</a>(...) -> AsyncHttpResponse[DriverEfficiencyGetDriverEfficiencyByVehiclesResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -10539,10 +10491,6 @@ client = Samsara(
 client.fuel_and_energy.get_driver_efficiency_by_vehicles(
     start_time="startTime",
     end_time="endTime",
-    vehicle_ids="vehicleIds",
-    tag_ids="tagIds",
-    parent_tag_ids="parentTagIds",
-    after="after",
 )
 
 ```
@@ -10627,7 +10575,7 @@ client.fuel_and_energy.get_driver_efficiency_by_vehicles(
 </dl>
 </details>
 
-<details><summary><code>client.fuel_and_energy.<a href="src/samsara/fuel_and_energy/client.py">get_fuel_energy_driver_reports</a>(...)</code></summary>
+<details><summary><code>client.fuel_and_energy.<a href="src/samsara/fuel_and_energy/client.py">get_fuel_energy_driver_reports</a>(...) -> AsyncHttpResponse[FuelEnergyGetFuelEnergyDriverReportsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -10669,9 +10617,6 @@ client = Samsara(
 client.fuel_and_energy.get_fuel_energy_driver_reports(
     start_date="startDate",
     end_date="endDate",
-    tag_ids="tagIds",
-    parent_tag_ids="parentTagIds",
-    after="after",
 )
 
 ```
@@ -10748,7 +10693,7 @@ client.fuel_and_energy.get_fuel_energy_driver_reports(
 </dl>
 </details>
 
-<details><summary><code>client.fuel_and_energy.<a href="src/samsara/fuel_and_energy/client.py">get_fuel_energy_vehicle_reports</a>(...)</code></summary>
+<details><summary><code>client.fuel_and_energy.<a href="src/samsara/fuel_and_energy/client.py">get_fuel_energy_vehicle_reports</a>(...) -> AsyncHttpResponse[FuelEnergyGetFuelEnergyVehicleReportsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -10790,11 +10735,6 @@ client = Samsara(
 client.fuel_and_energy.get_fuel_energy_vehicle_reports(
     start_date="startDate",
     end_date="endDate",
-    vehicle_ids="vehicleIds",
-    energy_type="fuel",
-    tag_ids="tagIds",
-    parent_tag_ids="parentTagIds",
-    after="after",
 )
 
 ```
@@ -10879,7 +10819,7 @@ client.fuel_and_energy.get_fuel_energy_vehicle_reports(
 </dl>
 </details>
 
-<details><summary><code>client.fuel_and_energy.<a href="src/samsara/fuel_and_energy/client.py">post_fuel_purchase</a>(...)</code></summary>
+<details><summary><code>client.fuel_and_energy.<a href="src/samsara/fuel_and_energy/client.py">post_fuel_purchase</a>(...) -> AsyncHttpResponse[FuelPurchasePostFuelPurchaseResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -11052,7 +10992,7 @@ client.fuel_and_energy.post_fuel_purchase(
 </details>
 
 ## DriverQrCodes
-<details><summary><code>client.driver_qr_codes.<a href="src/samsara/driver_qr_codes/client.py">get_drivers_qr_codes</a>(...)</code></summary>
+<details><summary><code>client.driver_qr_codes.<a href="src/samsara/driver_qr_codes/client.py">get_drivers_qr_codes</a>(...) -> AsyncHttpResponse[DriverQrCodesGetDriversQrCodesResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -11127,7 +11067,7 @@ client.driver_qr_codes.get_drivers_qr_codes()
 </dl>
 </details>
 
-<details><summary><code>client.driver_qr_codes.<a href="src/samsara/driver_qr_codes/client.py">create_driver_qr_code</a>(...)</code></summary>
+<details><summary><code>client.driver_qr_codes.<a href="src/samsara/driver_qr_codes/client.py">create_driver_qr_code</a>(...) -> AsyncHttpResponse[DriverQrCodesCreateDriverQrCodeResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -11204,7 +11144,7 @@ client.driver_qr_codes.create_driver_qr_code(
 </dl>
 </details>
 
-<details><summary><code>client.driver_qr_codes.<a href="src/samsara/driver_qr_codes/client.py">delete_driver_qr_code</a>(...)</code></summary>
+<details><summary><code>client.driver_qr_codes.<a href="src/samsara/driver_qr_codes/client.py">delete_driver_qr_code</a>(...) -> AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -11282,7 +11222,7 @@ client.driver_qr_codes.delete_driver_qr_code(
 </details>
 
 ## Carrier Proposed Assignments
-<details><summary><code>client.carrier_proposed_assignments.<a href="src/samsara/carrier_proposed_assignments/client.py">list_carrier_proposed_assignments</a>(...)</code></summary>
+<details><summary><code>client.carrier_proposed_assignments.<a href="src/samsara/carrier_proposed_assignments/client.py">list_carrier_proposed_assignments</a>(...) -> AsyncHttpResponse[ListCarrierProposedAssignmentResponse]</code></summary>
 <dl>
 <dd>
 
@@ -11318,11 +11258,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.carrier_proposed_assignments.list_carrier_proposed_assignments(
-    limit=1000000,
-    after="after",
-    active_time="activeTime",
-)
+client.carrier_proposed_assignments.list_carrier_proposed_assignments()
 
 ```
 </dd>
@@ -11382,7 +11318,7 @@ client.carrier_proposed_assignments.list_carrier_proposed_assignments(
 </dl>
 </details>
 
-<details><summary><code>client.carrier_proposed_assignments.<a href="src/samsara/carrier_proposed_assignments/client.py">create_carrier_proposed_assignment</a>(...)</code></summary>
+<details><summary><code>client.carrier_proposed_assignments.<a href="src/samsara/carrier_proposed_assignments/client.py">create_carrier_proposed_assignment</a>(...) -> AsyncHttpResponse[CarrierProposedAssignmentResponse]</code></summary>
 <dl>
 <dd>
 
@@ -11497,7 +11433,7 @@ client.carrier_proposed_assignments.create_carrier_proposed_assignment(
 </dl>
 </details>
 
-<details><summary><code>client.carrier_proposed_assignments.<a href="src/samsara/carrier_proposed_assignments/client.py">delete_carrier_proposed_assignment</a>(...)</code></summary>
+<details><summary><code>client.carrier_proposed_assignments.<a href="src/samsara/carrier_proposed_assignments/client.py">delete_carrier_proposed_assignment</a>(...) -> AsyncHttpResponse[StandardDeleteResponse]</code></summary>
 <dl>
 <dd>
 
@@ -11572,7 +11508,7 @@ client.carrier_proposed_assignments.delete_carrier_proposed_assignment(
 </details>
 
 ## Legacy APIs
-<details><summary><code>client.legacy_ap_is.<a href="src/samsara/legacy_ap_is/client.py">get_dvir_defects</a>(...)</code></summary>
+<details><summary><code>client.legacy_ap_is.<a href="src/samsara/legacy_ap_is/client.py">get_dvir_defects</a>(...) -> AsyncHttpResponse[DefectsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -11611,11 +11547,8 @@ client = Samsara(
     token="YOUR_TOKEN",
 )
 client.legacy_ap_is.get_dvir_defects(
-    limit=1000000,
-    after="after",
     start_time="startTime",
     end_time="endTime",
-    is_resolved=True,
 )
 
 ```
@@ -11684,7 +11617,9 @@ client.legacy_ap_is.get_dvir_defects(
 </dl>
 </details>
 
-<details><summary><code>client.legacy_ap_is.<a href="src/samsara/legacy_ap_is/client.py">get_drivers_vehicle_assignments</a>(...)</code></summary>
+<details><summary><code>client.legacy_ap_is.<a href="src/samsara/legacy_ap_is/client.py">get_drivers_vehicle_assignments</a>(...) -> AsyncHttpResponse[
+    DriversVehicleAssignmentsGetDriversVehicleAssignmentsResponseBody
+]</code></summary>
 <dl>
 <dd>
 
@@ -11723,14 +11658,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.legacy_ap_is.get_drivers_vehicle_assignments(
-    start_time="startTime",
-    end_time="endTime",
-    tag_ids="tagIds",
-    parent_tag_ids="parentTagIds",
-    driver_activation_status="active",
-    after="after",
-)
+client.legacy_ap_is.get_drivers_vehicle_assignments()
 
 ```
 </dd>
@@ -11814,7 +11742,7 @@ client.legacy_ap_is.get_drivers_vehicle_assignments(
 </dl>
 </details>
 
-<details><summary><code>client.legacy_ap_is.<a href="src/samsara/legacy_ap_is/client.py">get_dvir_history</a>(...)</code></summary>
+<details><summary><code>client.legacy_ap_is.<a href="src/samsara/legacy_ap_is/client.py">get_dvir_history</a>(...) -> AsyncHttpResponse[DvirsListResponse]</code></summary>
 <dl>
 <dd>
 
@@ -11853,8 +11781,6 @@ client = Samsara(
     token="YOUR_TOKEN",
 )
 client.legacy_ap_is.get_dvir_history(
-    limit=1000000,
-    after="after",
     start_time="startTime",
     end_time="endTime",
 )
@@ -11933,7 +11859,7 @@ client.legacy_ap_is.get_dvir_history(
 </dl>
 </details>
 
-<details><summary><code>client.legacy_ap_is.<a href="src/samsara/legacy_ap_is/client.py">get_vehicle_idling_reports</a>(...)</code></summary>
+<details><summary><code>client.legacy_ap_is.<a href="src/samsara/legacy_ap_is/client.py">get_vehicle_idling_reports</a>(...) -> AsyncHttpResponse[IdlingReportsGetVehicleIdlingReportsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -11973,15 +11899,8 @@ client = Samsara(
     token="YOUR_TOKEN",
 )
 client.legacy_ap_is.get_vehicle_idling_reports(
-    after="after",
-    limit=1,
     start_time="startTime",
     end_time="endTime",
-    vehicle_ids="vehicleIds",
-    tag_ids="tagIds",
-    parent_tag_ids="parentTagIds",
-    is_pto_active=True,
-    min_idling_duration_minutes=1,
 )
 
 ```
@@ -12082,7 +12001,9 @@ client.legacy_ap_is.get_vehicle_idling_reports(
 </dl>
 </details>
 
-<details><summary><code>client.legacy_ap_is.<a href="src/samsara/legacy_ap_is/client.py">get_vehicles_driver_assignments</a>(...)</code></summary>
+<details><summary><code>client.legacy_ap_is.<a href="src/samsara/legacy_ap_is/client.py">get_vehicles_driver_assignments</a>(...) -> AsyncHttpResponse[
+    VehiclesDriverAssignmentsGetVehiclesDriverAssignmentsResponseBody
+]</code></summary>
 <dl>
 <dd>
 
@@ -12121,14 +12042,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.legacy_ap_is.get_vehicles_driver_assignments(
-    start_time="startTime",
-    end_time="endTime",
-    vehicle_ids="vehicleIds",
-    tag_ids="tagIds",
-    parent_tag_ids="parentTagIds",
-    after="after",
-)
+client.legacy_ap_is.get_vehicles_driver_assignments()
 
 ```
 </dd>
@@ -12205,7 +12119,7 @@ client.legacy_ap_is.get_vehicles_driver_assignments(
 </details>
 
 ## Documents
-<details><summary><code>client.documents.<a href="src/samsara/documents/client.py">get_document_types</a>(...)</code></summary>
+<details><summary><code>client.documents.<a href="src/samsara/documents/client.py">get_document_types</a>(...) -> AsyncHttpResponse[DocumentTypesGetDocumentTypesResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -12244,9 +12158,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.documents.get_document_types(
-    after="after",
-)
+client.documents.get_document_types()
 
 ```
 </dd>
@@ -12282,7 +12194,7 @@ client.documents.get_document_types(
 </dl>
 </details>
 
-<details><summary><code>client.documents.<a href="src/samsara/documents/client.py">get_documents</a>(...)</code></summary>
+<details><summary><code>client.documents.<a href="src/samsara/documents/client.py">get_documents</a>(...) -> AsyncHttpResponse[DocumentsGetDocumentsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -12324,9 +12236,6 @@ client = Samsara(
 client.documents.get_documents(
     start_time="startTime",
     end_time="endTime",
-    after="after",
-    document_type_id="documentTypeId",
-    query_by="queryBy",
 )
 
 ```
@@ -12395,7 +12304,7 @@ client.documents.get_documents(
 </dl>
 </details>
 
-<details><summary><code>client.documents.<a href="src/samsara/documents/client.py">post_document</a>(...)</code></summary>
+<details><summary><code>client.documents.<a href="src/samsara/documents/client.py">post_document</a>(...) -> AsyncHttpResponse[DocumentsPostDocumentResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -12529,7 +12438,7 @@ client.documents.post_document(
 </dl>
 </details>
 
-<details><summary><code>client.documents.<a href="src/samsara/documents/client.py">generate_document_pdf</a>(...)</code></summary>
+<details><summary><code>client.documents.<a href="src/samsara/documents/client.py">generate_document_pdf</a>(...) -> AsyncHttpResponse[DocumentPdfGenerationResponse]</code></summary>
 <dl>
 <dd>
 
@@ -12603,7 +12512,7 @@ client.documents.generate_document_pdf(
 </dl>
 </details>
 
-<details><summary><code>client.documents.<a href="src/samsara/documents/client.py">get_document_pdf</a>(...)</code></summary>
+<details><summary><code>client.documents.<a href="src/samsara/documents/client.py">get_document_pdf</a>(...) -> AsyncHttpResponse[DocumentPdfQueryResponse]</code></summary>
 <dl>
 <dd>
 
@@ -12677,7 +12586,7 @@ client.documents.get_document_pdf(
 </dl>
 </details>
 
-<details><summary><code>client.documents.<a href="src/samsara/documents/client.py">get_document</a>(...)</code></summary>
+<details><summary><code>client.documents.<a href="src/samsara/documents/client.py">get_document</a>(...) -> AsyncHttpResponse[DocumentsGetDocumentResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -12754,7 +12663,7 @@ client.documents.get_document(
 </dl>
 </details>
 
-<details><summary><code>client.documents.<a href="src/samsara/documents/client.py">delete_document</a>(...)</code></summary>
+<details><summary><code>client.documents.<a href="src/samsara/documents/client.py">delete_document</a>(...) -> AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -12832,7 +12741,9 @@ client.documents.delete_document(
 </details>
 
 ## DriverVehicleAssignments
-<details><summary><code>client.driver_vehicle_assignments.<a href="src/samsara/driver_vehicle_assignments/client.py">get_driver_vehicle_assignments</a>(...)</code></summary>
+<details><summary><code>client.driver_vehicle_assignments.<a href="src/samsara/driver_vehicle_assignments/client.py">get_driver_vehicle_assignments</a>(...) -> AsyncHttpResponse[
+    DriverVehicleAssignmentsV2GetDriverVehicleAssignmentsResponseBody
+]</code></summary>
 <dl>
 <dd>
 
@@ -12873,12 +12784,6 @@ client = Samsara(
 )
 client.driver_vehicle_assignments.get_driver_vehicle_assignments(
     filter_by="drivers",
-    start_time="startTime",
-    end_time="endTime",
-    driver_tag_ids="driverTagIds",
-    vehicle_tag_ids="vehicleTagIds",
-    after="after",
-    assignment_type="HOS",
 )
 
 ```
@@ -12979,7 +12884,9 @@ client.driver_vehicle_assignments.get_driver_vehicle_assignments(
 </dl>
 </details>
 
-<details><summary><code>client.driver_vehicle_assignments.<a href="src/samsara/driver_vehicle_assignments/client.py">create_driver_vehicle_assignment</a>(...)</code></summary>
+<details><summary><code>client.driver_vehicle_assignments.<a href="src/samsara/driver_vehicle_assignments/client.py">create_driver_vehicle_assignment</a>(...) -> AsyncHttpResponse[
+    DriverVehicleAssignmentsV2CreateDriverVehicleAssignmentResponseBody
+]</code></summary>
 <dl>
 <dd>
 
@@ -13105,7 +13012,7 @@ client.driver_vehicle_assignments.create_driver_vehicle_assignment(
 </dl>
 </details>
 
-<details><summary><code>client.driver_vehicle_assignments.<a href="src/samsara/driver_vehicle_assignments/client.py">delete_driver_vehicle_assignments</a>(...)</code></summary>
+<details><summary><code>client.driver_vehicle_assignments.<a href="src/samsara/driver_vehicle_assignments/client.py">delete_driver_vehicle_assignments</a>(...) -> AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -13214,7 +13121,9 @@ client.driver_vehicle_assignments.delete_driver_vehicle_assignments(
 </dl>
 </details>
 
-<details><summary><code>client.driver_vehicle_assignments.<a href="src/samsara/driver_vehicle_assignments/client.py">update_driver_vehicle_assignment</a>(...)</code></summary>
+<details><summary><code>client.driver_vehicle_assignments.<a href="src/samsara/driver_vehicle_assignments/client.py">update_driver_vehicle_assignment</a>(...) -> AsyncHttpResponse[
+    DriverVehicleAssignmentsV2UpdateDriverVehicleAssignmentResponseBody
+]</code></summary>
 <dl>
 <dd>
 
@@ -13342,7 +13251,7 @@ client.driver_vehicle_assignments.update_driver_vehicle_assignment(
 </details>
 
 ## Drivers
-<details><summary><code>client.drivers.<a href="src/samsara/drivers/client.py">list</a>(...)</code></summary>
+<details><summary><code>client.drivers.<a href="src/samsara/drivers/client.py">list</a>(...) -> AsyncPager[Driver, ListDriversResponse]</code></summary>
 <dl>
 <dd>
 
@@ -13378,13 +13287,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-response = client.drivers.list(
-    driver_activation_status="active",
-    limit=1000000,
-    after="after",
-    updated_after_time="updatedAfterTime",
-    created_after_time="createdAfterTime",
-)
+response = client.drivers.list()
 for item in response:
     yield item
 # alternatively, you can paginate page-by-page
@@ -13405,7 +13308,7 @@ for page in response.iter_pages():
 <dl>
 <dd>
 
-**driver_activation_status:** `typing.Optional[DriversListRequestDriverActivationStatus]` — If value is `deactivated`, only drivers that are deactivated will appear in the response. This parameter will default to `active` if not provided (fetching only active drivers).
+**driver_activation_status:** `typing.Optional[ListDriversRequestDriverActivationStatus]` — If value is `deactivated`, only drivers that are deactivated will appear in the response. This parameter will default to `active` if not provided (fetching only active drivers).
     
 </dd>
 </dl>
@@ -13489,7 +13392,7 @@ for page in response.iter_pages():
 </dl>
 </details>
 
-<details><summary><code>client.drivers.<a href="src/samsara/drivers/client.py">create</a>(...)</code></summary>
+<details><summary><code>client.drivers.<a href="src/samsara/drivers/client.py">create</a>(...) -> AsyncHttpResponse[DriverResponse]</code></summary>
 <dl>
 <dd>
 
@@ -13813,7 +13716,7 @@ client.drivers.create(
 </dl>
 </details>
 
-<details><summary><code>client.drivers.<a href="src/samsara/drivers/client.py">post_driver_remote_signout</a>(...)</code></summary>
+<details><summary><code>client.drivers.<a href="src/samsara/drivers/client.py">post_driver_remote_signout</a>(...) -> AsyncHttpResponse[DriverRemoteSignoutPostDriverRemoteSignoutResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -13894,7 +13797,7 @@ client.drivers.post_driver_remote_signout(
 </dl>
 </details>
 
-<details><summary><code>client.drivers.<a href="src/samsara/drivers/client.py">get</a>(...)</code></summary>
+<details><summary><code>client.drivers.<a href="src/samsara/drivers/client.py">get</a>(...) -> AsyncHttpResponse[DriverResponse]</code></summary>
 <dl>
 <dd>
 
@@ -13968,7 +13871,7 @@ client.drivers.get(
 </dl>
 </details>
 
-<details><summary><code>client.drivers.<a href="src/samsara/drivers/client.py">delete</a>(...)</code></summary>
+<details><summary><code>client.drivers.<a href="src/samsara/drivers/client.py">delete</a>(...) -> AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -14024,7 +13927,7 @@ client.drivers.delete(
 </dl>
 </details>
 
-<details><summary><code>client.drivers.<a href="src/samsara/drivers/client.py">update</a>(...)</code></summary>
+<details><summary><code>client.drivers.<a href="src/samsara/drivers/client.py">update</a>(...) -> AsyncHttpResponse[DriverResponse]</code></summary>
 <dl>
 <dd>
 
@@ -14371,7 +14274,7 @@ client.drivers.update(
 </details>
 
 ## Tachograph (EU Only)
-<details><summary><code>client.tachograph_eu_only.<a href="src/samsara/tachograph_eu_only/client.py">get_driver_tachograph_activity</a>(...)</code></summary>
+<details><summary><code>client.tachograph_eu_only.<a href="src/samsara/tachograph_eu_only/client.py">get_driver_tachograph_activity</a>(...) -> AsyncHttpResponse[DriverTachographActivityResponse]</code></summary>
 <dl>
 <dd>
 
@@ -14408,7 +14311,6 @@ client = Samsara(
     token="YOUR_TOKEN",
 )
 client.tachograph_eu_only.get_driver_tachograph_activity(
-    after="after",
     start_time="startTime",
     end_time="endTime",
 )
@@ -14487,7 +14389,7 @@ client.tachograph_eu_only.get_driver_tachograph_activity(
 </dl>
 </details>
 
-<details><summary><code>client.tachograph_eu_only.<a href="src/samsara/tachograph_eu_only/client.py">get_driver_tachograph_files</a>(...)</code></summary>
+<details><summary><code>client.tachograph_eu_only.<a href="src/samsara/tachograph_eu_only/client.py">get_driver_tachograph_files</a>(...) -> AsyncHttpResponse[TachographDriverFilesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -14526,7 +14428,6 @@ client = Samsara(
     token="YOUR_TOKEN",
 )
 client.tachograph_eu_only.get_driver_tachograph_files(
-    after="after",
     start_time="startTime",
     end_time="endTime",
 )
@@ -14605,7 +14506,7 @@ client.tachograph_eu_only.get_driver_tachograph_files(
 </dl>
 </details>
 
-<details><summary><code>client.tachograph_eu_only.<a href="src/samsara/tachograph_eu_only/client.py">get_vehicle_tachograph_files</a>(...)</code></summary>
+<details><summary><code>client.tachograph_eu_only.<a href="src/samsara/tachograph_eu_only/client.py">get_vehicle_tachograph_files</a>(...) -> AsyncHttpResponse[TachographVehicleFilesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -14644,7 +14545,6 @@ client = Samsara(
     token="YOUR_TOKEN",
 )
 client.tachograph_eu_only.get_vehicle_tachograph_files(
-    after="after",
     start_time="startTime",
     end_time="endTime",
 )
@@ -14724,7 +14624,7 @@ client.tachograph_eu_only.get_vehicle_tachograph_files(
 </details>
 
 ## Equipment
-<details><summary><code>client.equipment.<a href="src/samsara/equipment/client.py">list_equipment</a>(...)</code></summary>
+<details><summary><code>client.equipment.<a href="src/samsara/equipment/client.py">list_equipment</a>(...) -> AsyncHttpResponse[EquipmentListResponse]</code></summary>
 <dl>
 <dd>
 
@@ -14756,10 +14656,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.equipment.list_equipment(
-    limit=1000000,
-    after="after",
-)
+client.equipment.list_equipment()
 
 ```
 </dd>
@@ -14819,7 +14716,7 @@ client.equipment.list_equipment(
 </dl>
 </details>
 
-<details><summary><code>client.equipment.<a href="src/samsara/equipment/client.py">get_equipment_locations</a>(...)</code></summary>
+<details><summary><code>client.equipment.<a href="src/samsara/equipment/client.py">get_equipment_locations</a>(...) -> AsyncHttpResponse[EquipmentLocationsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -14855,9 +14752,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.equipment.get_equipment_locations(
-    after="after",
-)
+client.equipment.get_equipment_locations()
 
 ```
 </dd>
@@ -14917,7 +14812,7 @@ client.equipment.get_equipment_locations(
 </dl>
 </details>
 
-<details><summary><code>client.equipment.<a href="src/samsara/equipment/client.py">get_equipment_locations_feed</a>(...)</code></summary>
+<details><summary><code>client.equipment.<a href="src/samsara/equipment/client.py">get_equipment_locations_feed</a>(...) -> AsyncHttpResponse[EquipmentLocationsListResponse]</code></summary>
 <dl>
 <dd>
 
@@ -14959,9 +14854,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.equipment.get_equipment_locations_feed(
-    after="after",
-)
+client.equipment.get_equipment_locations_feed()
 
 ```
 </dd>
@@ -15021,7 +14914,7 @@ client.equipment.get_equipment_locations_feed(
 </dl>
 </details>
 
-<details><summary><code>client.equipment.<a href="src/samsara/equipment/client.py">get_equipment_locations_history</a>(...)</code></summary>
+<details><summary><code>client.equipment.<a href="src/samsara/equipment/client.py">get_equipment_locations_history</a>(...) -> AsyncHttpResponse[EquipmentLocationsListResponse]</code></summary>
 <dl>
 <dd>
 
@@ -15058,7 +14951,6 @@ client = Samsara(
     token="YOUR_TOKEN",
 )
 client.equipment.get_equipment_locations_history(
-    after="after",
     start_time="startTime",
     end_time="endTime",
 )
@@ -15137,7 +15029,7 @@ client.equipment.get_equipment_locations_history(
 </dl>
 </details>
 
-<details><summary><code>client.equipment.<a href="src/samsara/equipment/client.py">get_equipment_stats</a>(...)</code></summary>
+<details><summary><code>client.equipment.<a href="src/samsara/equipment/client.py">get_equipment_stats</a>(...) -> AsyncHttpResponse[EquipmentStatsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -15263,7 +15155,7 @@ The types of equipment stats you want to query. Currently, you may submit up to 
 </dl>
 </details>
 
-<details><summary><code>client.equipment.<a href="src/samsara/equipment/client.py">get_equipment_stats_feed</a>(...)</code></summary>
+<details><summary><code>client.equipment.<a href="src/samsara/equipment/client.py">get_equipment_stats_feed</a>(...) -> AsyncHttpResponse[EquipmentStatsListResponse]</code></summary>
 <dl>
 <dd>
 
@@ -15395,7 +15287,7 @@ The types of equipment stats you want to query. Currently, you may submit up to 
 </dl>
 </details>
 
-<details><summary><code>client.equipment.<a href="src/samsara/equipment/client.py">get_equipment_stats_history</a>(...)</code></summary>
+<details><summary><code>client.equipment.<a href="src/samsara/equipment/client.py">get_equipment_stats_history</a>(...) -> AsyncHttpResponse[EquipmentStatsListResponse]</code></summary>
 <dl>
 <dd>
 
@@ -15540,7 +15432,7 @@ The types of equipment stats you want to query. Currently, you may submit up to 
 </dl>
 </details>
 
-<details><summary><code>client.equipment.<a href="src/samsara/equipment/client.py">get_equipment</a>(...)</code></summary>
+<details><summary><code>client.equipment.<a href="src/samsara/equipment/client.py">get_equipment</a>(...) -> AsyncHttpResponse[EquipmentResponse]</code></summary>
 <dl>
 <dd>
 
@@ -15615,7 +15507,7 @@ client.equipment.get_equipment(
 </details>
 
 ## Hours of Service
-<details><summary><code>client.hours_of_service.<a href="src/samsara/hours_of_service/client.py">get_hos_clocks</a>(...)</code></summary>
+<details><summary><code>client.hours_of_service.<a href="src/samsara/hours_of_service/client.py">get_hos_clocks</a>(...) -> AsyncHttpResponse[HosClocksResponse]</code></summary>
 <dl>
 <dd>
 
@@ -15651,10 +15543,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.hours_of_service.get_hos_clocks(
-    after="after",
-    limit=1000000,
-)
+client.hours_of_service.get_hos_clocks()
 
 ```
 </dd>
@@ -15722,7 +15611,7 @@ client.hours_of_service.get_hos_clocks(
 </dl>
 </details>
 
-<details><summary><code>client.hours_of_service.<a href="src/samsara/hours_of_service/client.py">get_hos_daily_logs</a>(...)</code></summary>
+<details><summary><code>client.hours_of_service.<a href="src/samsara/hours_of_service/client.py">get_hos_daily_logs</a>(...) -> AsyncHttpResponse[HosDailyLogsGetHosDailyLogsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -15769,14 +15658,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.hours_of_service.get_hos_daily_logs(
-    start_date="startDate",
-    end_date="endDate",
-    tag_ids="tagIds",
-    parent_tag_ids="parentTagIds",
-    driver_activation_status="active",
-    after="after",
-)
+client.hours_of_service.get_hos_daily_logs()
 
 ```
 </dd>
@@ -15848,7 +15730,7 @@ client.hours_of_service.get_hos_daily_logs(
 <dl>
 <dd>
 
-**expand:** `typing.Optional[typing.Literal["vehicle"]]` 
+**expand:** `typing.Optional[GetHosDailyLogsRequestExpand]` 
 
 Expands the specified value(s) in the response object. Expansion populates additional fields in an object, if supported. Unsupported fields are ignored. To expand multiple fields, input a comma-separated list.
 
@@ -15872,7 +15754,7 @@ Valid value: `vehicle`  Valid values: `vehicle`
 </dl>
 </details>
 
-<details><summary><code>client.hours_of_service.<a href="src/samsara/hours_of_service/client.py">get_hos_logs</a>(...)</code></summary>
+<details><summary><code>client.hours_of_service.<a href="src/samsara/hours_of_service/client.py">get_hos_logs</a>(...) -> AsyncHttpResponse[HosLogsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -15912,11 +15794,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.hours_of_service.get_hos_logs(
-    start_time="startTime",
-    end_time="endTime",
-    after="after",
-)
+client.hours_of_service.get_hos_logs()
 
 ```
 </dd>
@@ -15992,7 +15870,7 @@ client.hours_of_service.get_hos_logs(
 </dl>
 </details>
 
-<details><summary><code>client.hours_of_service.<a href="src/samsara/hours_of_service/client.py">get_hos_violations</a>(...)</code></summary>
+<details><summary><code>client.hours_of_service.<a href="src/samsara/hours_of_service/client.py">get_hos_violations</a>(...) -> AsyncHttpResponse[HosViolationsGetHosViolationsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -16037,13 +15915,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.hours_of_service.get_hos_violations(
-    start_time="startTime",
-    end_time="endTime",
-    tag_ids="tagIds",
-    parent_tag_ids="parentTagIds",
-    after="after",
-)
+client.hours_of_service.get_hos_violations()
 
 ```
 </dd>
@@ -16127,7 +15999,7 @@ client.hours_of_service.get_hos_violations(
 </dl>
 </details>
 
-<details><summary><code>client.hours_of_service.<a href="src/samsara/hours_of_service/client.py">set_current_duty_status</a>(...)</code></summary>
+<details><summary><code>client.hours_of_service.<a href="src/samsara/hours_of_service/client.py">set_current_duty_status</a>(...) -> AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -16251,7 +16123,7 @@ client.hours_of_service.set_current_duty_status(
 </dl>
 </details>
 
-<details><summary><code>client.hours_of_service.<a href="src/samsara/hours_of_service/client.py">v_1_get_fleet_hos_authentication_logs</a>(...)</code></summary>
+<details><summary><code>client.hours_of_service.<a href="src/samsara/hours_of_service/client.py">v_1_get_fleet_hos_authentication_logs</a>(...) -> AsyncHttpResponse[V1HosAuthenticationLogsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -16353,7 +16225,7 @@ client.hours_of_service.v_1_get_fleet_hos_authentication_logs(
 </details>
 
 ## Ifta
-<details><summary><code>client.ifta.<a href="src/samsara/ifta/client.py">get_ifta_jurisdiction_reports</a>(...)</code></summary>
+<details><summary><code>client.ifta.<a href="src/samsara/ifta/client.py">get_ifta_jurisdiction_reports</a>(...) -> AsyncHttpResponse[IftaGetIftaJurisdictionReportsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -16395,14 +16267,7 @@ client = Samsara(
     token="YOUR_TOKEN",
 )
 client.ifta.get_ifta_jurisdiction_reports(
-    year=1,
-    month="January",
-    quarter="Q1",
-    jurisdictions="jurisdictions",
-    fuel_type="Unspecified",
-    vehicle_ids="vehicleIds",
-    tag_ids="tagIds",
-    parent_tag_ids="parentTagIds",
+    year=1000000,
 )
 
 ```
@@ -16495,7 +16360,7 @@ client.ifta.get_ifta_jurisdiction_reports(
 </dl>
 </details>
 
-<details><summary><code>client.ifta.<a href="src/samsara/ifta/client.py">get_ifta_vehicle_reports</a>(...)</code></summary>
+<details><summary><code>client.ifta.<a href="src/samsara/ifta/client.py">get_ifta_vehicle_reports</a>(...) -> AsyncHttpResponse[IftaGetIftaVehicleReportsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -16537,15 +16402,7 @@ client = Samsara(
     token="YOUR_TOKEN",
 )
 client.ifta.get_ifta_vehicle_reports(
-    year=1,
-    month="January",
-    quarter="Q1",
-    jurisdictions="jurisdictions",
-    fuel_type="Unspecified",
-    vehicle_ids="vehicleIds",
-    tag_ids="tagIds",
-    parent_tag_ids="parentTagIds",
-    after="after",
+    year=1000000,
 )
 
 ```
@@ -16646,7 +16503,7 @@ client.ifta.get_ifta_vehicle_reports(
 </dl>
 </details>
 
-<details><summary><code>client.ifta.<a href="src/samsara/ifta/client.py">create_ifta_detail_job</a>(...)</code></summary>
+<details><summary><code>client.ifta.<a href="src/samsara/ifta/client.py">create_ifta_detail_job</a>(...) -> AsyncHttpResponse[IftaCreateIftaDetailJobResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -16756,7 +16613,7 @@ client.ifta.create_ifta_detail_job(
 </dl>
 </details>
 
-<details><summary><code>client.ifta.<a href="src/samsara/ifta/client.py">get_ifta_detail_job</a>(...)</code></summary>
+<details><summary><code>client.ifta.<a href="src/samsara/ifta/client.py">get_ifta_detail_job</a>(...) -> AsyncHttpResponse[IftaGetIftaDetailJobResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -16834,7 +16691,7 @@ client.ifta.get_ifta_detail_job(
 </details>
 
 ## Routes
-<details><summary><code>client.routes.<a href="src/samsara/routes/client.py">fetch_routes</a>(...)</code></summary>
+<details><summary><code>client.routes.<a href="src/samsara/routes/client.py">fetch_routes</a>(...) -> AsyncHttpResponse[RoutesFetchRoutesResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -16876,8 +16733,6 @@ client = Samsara(
 client.routes.fetch_routes(
     start_time="startTime",
     end_time="endTime",
-    limit=1,
-    after="after",
 )
 
 ```
@@ -16938,7 +16793,7 @@ client.routes.fetch_routes(
 </dl>
 </details>
 
-<details><summary><code>client.routes.<a href="src/samsara/routes/client.py">create_route</a>(...)</code></summary>
+<details><summary><code>client.routes.<a href="src/samsara/routes/client.py">create_route</a>(...) -> AsyncHttpResponse[RoutesCreateRouteResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -17080,7 +16935,7 @@ client.routes.create_route(
 </dl>
 </details>
 
-<details><summary><code>client.routes.<a href="src/samsara/routes/client.py">get_routes_feed</a>(...)</code></summary>
+<details><summary><code>client.routes.<a href="src/samsara/routes/client.py">get_routes_feed</a>(...) -> AsyncHttpResponse[RoutesGetRoutesFeedResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -17121,9 +16976,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.routes.get_routes_feed(
-    after="after",
-)
+client.routes.get_routes_feed()
 
 ```
 </dd>
@@ -17147,7 +17000,7 @@ client.routes.get_routes_feed(
 <dl>
 <dd>
 
-**expand:** `typing.Optional[typing.Literal["route"]]` 
+**expand:** `typing.Optional[GetRoutesFeedRequestExpand]` 
 
 Expands the specified value(s) in the response object. Expansion populates additional fields in an object, if supported. Unsupported fields are ignored. To expand multiple fields, input a comma-separated list.
 
@@ -17171,7 +17024,7 @@ Valid value: `route`  Valid values: `route`
 </dl>
 </details>
 
-<details><summary><code>client.routes.<a href="src/samsara/routes/client.py">fetch_route</a>(...)</code></summary>
+<details><summary><code>client.routes.<a href="src/samsara/routes/client.py">fetch_route</a>(...) -> AsyncHttpResponse[RoutesFetchRouteResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -17248,7 +17101,7 @@ client.routes.fetch_route(
 </dl>
 </details>
 
-<details><summary><code>client.routes.<a href="src/samsara/routes/client.py">delete_route</a>(...)</code></summary>
+<details><summary><code>client.routes.<a href="src/samsara/routes/client.py">delete_route</a>(...) -> AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -17325,7 +17178,7 @@ client.routes.delete_route(
 </dl>
 </details>
 
-<details><summary><code>client.routes.<a href="src/samsara/routes/client.py">patch_route</a>(...)</code></summary>
+<details><summary><code>client.routes.<a href="src/samsara/routes/client.py">patch_route</a>(...) -> AsyncHttpResponse[RoutesPatchRouteResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -17478,7 +17331,7 @@ client.routes.patch_route(
 </dl>
 </details>
 
-<details><summary><code>client.routes.<a href="src/samsara/routes/client.py">list_hub_plan_routes</a>(...)</code></summary>
+<details><summary><code>client.routes.<a href="src/samsara/routes/client.py">list_hub_plan_routes</a>(...) -> AsyncHttpResponse[HubPlanRoutesListHubPlanRoutesResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -17512,8 +17365,6 @@ To use this endpoint, select **Read Routes** under the Driver Workflow category 
 <dd>
 
 ```python
-import datetime
-
 from samsara import Samsara
 
 client = Samsara(
@@ -17521,15 +17372,6 @@ client = Samsara(
 )
 client.routes.list_hub_plan_routes(
     plan_id="planId",
-    route_ids="routeIds",
-    start_time=datetime.datetime.fromisoformat(
-        "2024-01-15 09:30:00+00:00",
-    ),
-    end_time=datetime.datetime.fromisoformat(
-        "2024-01-15 09:30:00+00:00",
-    ),
-    after="after",
-    limit=1,
 )
 
 ```
@@ -17606,7 +17448,7 @@ client.routes.list_hub_plan_routes(
 </dl>
 </details>
 
-<details><summary><code>client.routes.<a href="src/samsara/routes/client.py">v_1_delete_dispatch_route_by_id</a>(...)</code></summary>
+<details><summary><code>client.routes.<a href="src/samsara/routes/client.py">v_1_delete_dispatch_route_by_id</a>(...) -> AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -17696,7 +17538,7 @@ client.routes.v_1_delete_dispatch_route_by_id(
 </details>
 
 ## Safety
-<details><summary><code>client.safety.<a href="src/samsara/safety/client.py">get_safety_events</a>(...)</code></summary>
+<details><summary><code>client.safety.<a href="src/samsara/safety/client.py">get_safety_events</a>(...) -> AsyncHttpResponse[SafetyEventsListResponse]</code></summary>
 <dl>
 <dd>
 
@@ -17733,7 +17575,6 @@ client = Samsara(
     token="YOUR_TOKEN",
 )
 client.safety.get_safety_events(
-    after="after",
     start_time="startTime",
     end_time="endTime",
 )
@@ -17812,7 +17653,7 @@ client.safety.get_safety_events(
 </dl>
 </details>
 
-<details><summary><code>client.safety.<a href="src/samsara/safety/client.py">get_safety_activity_event_feed</a>(...)</code></summary>
+<details><summary><code>client.safety.<a href="src/samsara/safety/client.py">get_safety_activity_event_feed</a>(...) -> AsyncHttpResponse[SafetyEventsGetSafetyActivityEventFeedResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -17857,10 +17698,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.safety.get_safety_activity_event_feed(
-    after="after",
-    start_time="startTime",
-)
+client.safety.get_safety_activity_event_feed()
 
 ```
 </dd>
@@ -17904,7 +17742,7 @@ client.safety.get_safety_activity_event_feed(
 </dl>
 </details>
 
-<details><summary><code>client.safety.<a href="src/samsara/safety/client.py">v_1_get_driver_safety_score</a>(...)</code></summary>
+<details><summary><code>client.safety.<a href="src/samsara/safety/client.py">v_1_get_driver_safety_score</a>(...) -> AsyncHttpResponse[V1DriverSafetyScoreResponse]</code></summary>
 <dl>
 <dd>
 
@@ -18005,7 +17843,7 @@ client.safety.v_1_get_driver_safety_score(
 </dl>
 </details>
 
-<details><summary><code>client.safety.<a href="src/samsara/safety/client.py">v_1_get_vehicle_harsh_event</a>(...)</code></summary>
+<details><summary><code>client.safety.<a href="src/samsara/safety/client.py">v_1_get_vehicle_harsh_event</a>(...) -> AsyncHttpResponse[V1VehicleHarshEventResponse]</code></summary>
 <dl>
 <dd>
 
@@ -18095,7 +17933,7 @@ client.safety.v_1_get_vehicle_harsh_event(
 </dl>
 </details>
 
-<details><summary><code>client.safety.<a href="src/samsara/safety/client.py">v_1_get_vehicle_safety_score</a>(...)</code></summary>
+<details><summary><code>client.safety.<a href="src/samsara/safety/client.py">v_1_get_vehicle_safety_score</a>(...) -> AsyncHttpResponse[V1VehicleSafetyScoreResponse]</code></summary>
 <dl>
 <dd>
 
@@ -18197,7 +18035,7 @@ client.safety.v_1_get_vehicle_safety_score(
 </details>
 
 ## Settings
-<details><summary><code>client.settings.<a href="src/samsara/settings/client.py">get_compliance_settings</a>()</code></summary>
+<details><summary><code>client.settings.<a href="src/samsara/settings/client.py">get_compliance_settings</a>() -> AsyncHttpResponse[SettingsGetComplianceSettingsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -18264,7 +18102,7 @@ client.settings.get_compliance_settings()
 </dl>
 </details>
 
-<details><summary><code>client.settings.<a href="src/samsara/settings/client.py">patch_compliance_settings</a>(...)</code></summary>
+<details><summary><code>client.settings.<a href="src/samsara/settings/client.py">patch_compliance_settings</a>(...) -> AsyncHttpResponse[SettingsPatchComplianceSettingsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -18411,7 +18249,7 @@ client.settings.patch_compliance_settings()
 </dl>
 </details>
 
-<details><summary><code>client.settings.<a href="src/samsara/settings/client.py">get_driver_app_settings</a>()</code></summary>
+<details><summary><code>client.settings.<a href="src/samsara/settings/client.py">get_driver_app_settings</a>() -> AsyncHttpResponse[SettingsGetDriverAppSettingsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -18478,7 +18316,7 @@ client.settings.get_driver_app_settings()
 </dl>
 </details>
 
-<details><summary><code>client.settings.<a href="src/samsara/settings/client.py">patch_driver_app_settings</a>(...)</code></summary>
+<details><summary><code>client.settings.<a href="src/samsara/settings/client.py">patch_driver_app_settings</a>(...) -> AsyncHttpResponse[SettingsPatchDriverAppSettingsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -18593,7 +18431,7 @@ client.settings.patch_driver_app_settings()
 </dl>
 </details>
 
-<details><summary><code>client.settings.<a href="src/samsara/settings/client.py">get_safety_settings</a>()</code></summary>
+<details><summary><code>client.settings.<a href="src/samsara/settings/client.py">get_safety_settings</a>() -> AsyncHttpResponse[SafetySettingsGetSafetySettingsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -18661,7 +18499,7 @@ client.settings.get_safety_settings()
 </details>
 
 ## Trailers
-<details><summary><code>client.trailers.<a href="src/samsara/trailers/client.py">list_trailers</a>(...)</code></summary>
+<details><summary><code>client.trailers.<a href="src/samsara/trailers/client.py">list_trailers</a>(...) -> AsyncHttpResponse[TrailersListTrailersResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -18700,12 +18538,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.trailers.list_trailers(
-    tag_ids="tagIds",
-    parent_tag_ids="parentTagIds",
-    limit=1,
-    after="after",
-)
+client.trailers.list_trailers()
 
 ```
 </dd>
@@ -18765,7 +18598,7 @@ client.trailers.list_trailers(
 </dl>
 </details>
 
-<details><summary><code>client.trailers.<a href="src/samsara/trailers/client.py">create_trailer</a>(...)</code></summary>
+<details><summary><code>client.trailers.<a href="src/samsara/trailers/client.py">create_trailer</a>(...) -> AsyncHttpResponse[TrailersCreateTrailerResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -18898,7 +18731,7 @@ client.trailers.create_trailer(
 </dl>
 </details>
 
-<details><summary><code>client.trailers.<a href="src/samsara/trailers/client.py">get_trailer</a>(...)</code></summary>
+<details><summary><code>client.trailers.<a href="src/samsara/trailers/client.py">get_trailer</a>(...) -> AsyncHttpResponse[TrailersGetTrailerResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -18975,7 +18808,7 @@ client.trailers.get_trailer(
 </dl>
 </details>
 
-<details><summary><code>client.trailers.<a href="src/samsara/trailers/client.py">delete_trailer</a>(...)</code></summary>
+<details><summary><code>client.trailers.<a href="src/samsara/trailers/client.py">delete_trailer</a>(...) -> AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -19052,7 +18885,7 @@ client.trailers.delete_trailer(
 </dl>
 </details>
 
-<details><summary><code>client.trailers.<a href="src/samsara/trailers/client.py">update_trailer</a>(...)</code></summary>
+<details><summary><code>client.trailers.<a href="src/samsara/trailers/client.py">update_trailer</a>(...) -> AsyncHttpResponse[TrailersUpdateTrailerResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -19204,7 +19037,7 @@ client.trailers.update_trailer(
 </details>
 
 ## Vehicles
-<details><summary><code>client.vehicles.<a href="src/samsara/vehicles/client.py">list</a>(...)</code></summary>
+<details><summary><code>client.vehicles.<a href="src/samsara/vehicles/client.py">list</a>(...) -> AsyncPager[VehicleResponseObjectResponseBody, VehiclesListVehiclesResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -19243,15 +19076,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-response = client.vehicles.list(
-    limit=1,
-    after="after",
-    parent_tag_ids="parentTagIds",
-    tag_ids="tagIds",
-    attribute_value_ids="attributeValueIds",
-    updated_after_time="updatedAfterTime",
-    created_after_time="createdAfterTime",
-)
+response = client.vehicles.list()
 for item in response:
     yield item
 # alternatively, you can paginate page-by-page
@@ -19348,7 +19173,7 @@ for page in response.iter_pages():
 </dl>
 </details>
 
-<details><summary><code>client.vehicles.<a href="src/samsara/vehicles/client.py">get</a>(...)</code></summary>
+<details><summary><code>client.vehicles.<a href="src/samsara/vehicles/client.py">get</a>(...) -> AsyncHttpResponse[VehicleResponse]</code></summary>
 <dl>
 <dd>
 
@@ -19422,7 +19247,7 @@ client.vehicles.get(
 </dl>
 </details>
 
-<details><summary><code>client.vehicles.<a href="src/samsara/vehicles/client.py">update</a>(...)</code></summary>
+<details><summary><code>client.vehicles.<a href="src/samsara/vehicles/client.py">update</a>(...) -> AsyncHttpResponse[VehicleResponse]</code></summary>
 <dl>
 <dd>
 
@@ -19727,7 +19552,7 @@ client.vehicles.update(
 </details>
 
 ## Vehicle Locations
-<details><summary><code>client.vehicle_locations.<a href="src/samsara/vehicle_locations/client.py">get_vehicle_locations</a>(...)</code></summary>
+<details><summary><code>client.vehicle_locations.<a href="src/samsara/vehicle_locations/client.py">get_vehicle_locations</a>(...) -> AsyncHttpResponse[VehicleLocationsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -19767,10 +19592,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.vehicle_locations.get_vehicle_locations(
-    after="after",
-    time="time",
-)
+client.vehicle_locations.get_vehicle_locations()
 
 ```
 </dd>
@@ -19838,7 +19660,7 @@ client.vehicle_locations.get_vehicle_locations(
 </dl>
 </details>
 
-<details><summary><code>client.vehicle_locations.<a href="src/samsara/vehicle_locations/client.py">get_vehicle_locations_feed</a>(...)</code></summary>
+<details><summary><code>client.vehicle_locations.<a href="src/samsara/vehicle_locations/client.py">get_vehicle_locations_feed</a>(...) -> AsyncHttpResponse[VehicleLocationsListResponse]</code></summary>
 <dl>
 <dd>
 
@@ -19884,9 +19706,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.vehicle_locations.get_vehicle_locations_feed(
-    after="after",
-)
+client.vehicle_locations.get_vehicle_locations_feed()
 
 ```
 </dd>
@@ -19946,7 +19766,7 @@ client.vehicle_locations.get_vehicle_locations_feed(
 </dl>
 </details>
 
-<details><summary><code>client.vehicle_locations.<a href="src/samsara/vehicle_locations/client.py">get_vehicle_locations_history</a>(...)</code></summary>
+<details><summary><code>client.vehicle_locations.<a href="src/samsara/vehicle_locations/client.py">get_vehicle_locations_history</a>(...) -> AsyncHttpResponse[VehicleLocationsListResponse]</code></summary>
 <dl>
 <dd>
 
@@ -19987,7 +19807,6 @@ client = Samsara(
     token="YOUR_TOKEN",
 )
 client.vehicle_locations.get_vehicle_locations_history(
-    after="after",
     start_time="startTime",
     end_time="endTime",
 )
@@ -20067,7 +19886,7 @@ client.vehicle_locations.get_vehicle_locations_history(
 </details>
 
 ## Vehicle Stats
-<details><summary><code>client.vehicle_stats.<a href="src/samsara/vehicle_stats/client.py">get_vehicle_stats</a>(...)</code></summary>
+<details><summary><code>client.vehicle_stats.<a href="src/samsara/vehicle_stats/client.py">get_vehicle_stats</a>(...) -> AsyncHttpResponse[VehicleStatsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -20244,7 +20063,7 @@ You may list ***up to 3*** types using comma-separated format. For example: `typ
 </dl>
 </details>
 
-<details><summary><code>client.vehicle_stats.<a href="src/samsara/vehicle_stats/client.py">get_vehicle_stats_feed</a>(...)</code></summary>
+<details><summary><code>client.vehicle_stats.<a href="src/samsara/vehicle_stats/client.py">get_vehicle_stats_feed</a>(...) -> AsyncHttpResponse[VehicleStatsListResponse]</code></summary>
 <dl>
 <dd>
 
@@ -20488,7 +20307,7 @@ Note that decorations may significantly increase the response payload size.
 </dl>
 </details>
 
-<details><summary><code>client.vehicle_stats.<a href="src/samsara/vehicle_stats/client.py">get_vehicle_stats_history</a>(...)</code></summary>
+<details><summary><code>client.vehicle_stats.<a href="src/samsara/vehicle_stats/client.py">get_vehicle_stats_history</a>(...) -> AsyncHttpResponse[VehicleStatsListResponse]</code></summary>
 <dl>
 <dd>
 
@@ -20746,7 +20565,7 @@ Note that decorations may significantly increase the response payload size.
 </details>
 
 ## Forms
-<details><summary><code>client.forms.<a href="src/samsara/forms/client.py">get_form_submissions</a>(...)</code></summary>
+<details><summary><code>client.forms.<a href="src/samsara/forms/client.py">get_form_submissions</a>(...) -> AsyncHttpResponse[FormSubmissionsGetFormSubmissionsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -20829,7 +20648,7 @@ client.forms.get_form_submissions()
 </dl>
 </details>
 
-<details><summary><code>client.forms.<a href="src/samsara/forms/client.py">post_form_submission</a>(...)</code></summary>
+<details><summary><code>client.forms.<a href="src/samsara/forms/client.py">post_form_submission</a>(...) -> AsyncHttpResponse[FormSubmissionsPostFormSubmissionResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -20873,6 +20692,7 @@ client.forms.post_form_submission(
         id="9814a1fa-f0c6-408b-bf85-51dc3bc71ac7",
         revision_id="1214a1fa-f0c6-408b-bf85-51dc3bc71ac7",
     ),
+    status="notStarted",
 )
 
 ```
@@ -20890,6 +20710,14 @@ client.forms.post_form_submission(
 <dd>
 
 **form_template:** `FormTemplateRequestObjectRequestBody` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**status:** `FormSubmissionsPostFormSubmissionRequestBodyStatus` — Status of the form submission.  Valid values: `notStarted`
     
 </dd>
 </dl>
@@ -20959,7 +20787,7 @@ client.forms.post_form_submission(
 </dl>
 </details>
 
-<details><summary><code>client.forms.<a href="src/samsara/forms/client.py">patch_form_submission</a>(...)</code></summary>
+<details><summary><code>client.forms.<a href="src/samsara/forms/client.py">patch_form_submission</a>(...) -> AsyncHttpResponse[FormSubmissionsPatchFormSubmissionResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -21093,7 +20921,7 @@ client.forms.patch_form_submission(
 </dl>
 </details>
 
-<details><summary><code>client.forms.<a href="src/samsara/forms/client.py">get_form_submissions_pdf_exports</a>(...)</code></summary>
+<details><summary><code>client.forms.<a href="src/samsara/forms/client.py">get_form_submissions_pdf_exports</a>(...) -> AsyncHttpResponse[FormSubmissionsGetFormSubmissionsPdfExportsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -21170,7 +20998,7 @@ client.forms.get_form_submissions_pdf_exports(
 </dl>
 </details>
 
-<details><summary><code>client.forms.<a href="src/samsara/forms/client.py">post_form_submissions_pdf_exports</a>(...)</code></summary>
+<details><summary><code>client.forms.<a href="src/samsara/forms/client.py">post_form_submissions_pdf_exports</a>(...) -> AsyncHttpResponse[FormSubmissionsPostFormSubmissionsPdfExportsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -21247,7 +21075,7 @@ client.forms.post_form_submissions_pdf_exports(
 </dl>
 </details>
 
-<details><summary><code>client.forms.<a href="src/samsara/forms/client.py">get_form_submissions_stream</a>(...)</code></summary>
+<details><summary><code>client.forms.<a href="src/samsara/forms/client.py">get_form_submissions_stream</a>(...) -> AsyncHttpResponse[FormSubmissionsGetFormSubmissionsStreamResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -21288,8 +21116,6 @@ client = Samsara(
 )
 client.forms.get_form_submissions_stream(
     start_time="startTime",
-    end_time="endTime",
-    after="after",
 )
 
 ```
@@ -21382,7 +21208,7 @@ client.forms.get_form_submissions_stream(
 </dl>
 </details>
 
-<details><summary><code>client.forms.<a href="src/samsara/forms/client.py">get_form_templates</a>(...)</code></summary>
+<details><summary><code>client.forms.<a href="src/samsara/forms/client.py">get_form_templates</a>(...) -> AsyncHttpResponse[FormTemplatesGetFormTemplatesResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -21421,9 +21247,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.forms.get_form_templates(
-    after="after",
-)
+client.forms.get_form_templates()
 
 ```
 </dd>
@@ -21468,7 +21292,7 @@ client.forms.get_form_templates(
 </details>
 
 ## Gateways
-<details><summary><code>client.gateways.<a href="src/samsara/gateways/client.py">get_gateways</a>(...)</code></summary>
+<details><summary><code>client.gateways.<a href="src/samsara/gateways/client.py">get_gateways</a>(...) -> AsyncHttpResponse[GatewaysGetGatewaysResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -21507,9 +21331,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.gateways.get_gateways(
-    after="after",
-)
+client.gateways.get_gateways()
 
 ```
 </dd>
@@ -21553,7 +21375,7 @@ client.gateways.get_gateways(
 </dl>
 </details>
 
-<details><summary><code>client.gateways.<a href="src/samsara/gateways/client.py">post_gateway</a>(...)</code></summary>
+<details><summary><code>client.gateways.<a href="src/samsara/gateways/client.py">post_gateway</a>(...) -> AsyncHttpResponse[GatewaysPostGatewayResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -21630,7 +21452,7 @@ client.gateways.post_gateway(
 </dl>
 </details>
 
-<details><summary><code>client.gateways.<a href="src/samsara/gateways/client.py">delete_gateway</a>(...)</code></summary>
+<details><summary><code>client.gateways.<a href="src/samsara/gateways/client.py">delete_gateway</a>(...) -> AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -21708,7 +21530,7 @@ client.gateways.delete_gateway(
 </details>
 
 ## Hubs
-<details><summary><code>client.hubs.<a href="src/samsara/hubs/client.py">list_hub_capacities</a>(...)</code></summary>
+<details><summary><code>client.hubs.<a href="src/samsara/hubs/client.py">list_hub_capacities</a>(...) -> AsyncHttpResponse[HubCapacitiesListHubCapacitiesResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -21742,8 +21564,6 @@ To use this endpoint, select **Read Routes** under the Driver Workflow category 
 <dd>
 
 ```python
-import datetime
-
 from samsara import Samsara
 
 client = Samsara(
@@ -21751,16 +21571,6 @@ client = Samsara(
 )
 client.hubs.list_hub_capacities(
     hub_id="hubId",
-    capacity_ids="capacityIds",
-    capacity_names="capacityNames",
-    start_time=datetime.datetime.fromisoformat(
-        "2024-01-15 09:30:00+00:00",
-    ),
-    end_time=datetime.datetime.fromisoformat(
-        "2024-01-15 09:30:00+00:00",
-    ),
-    after="after",
-    limit=1,
 )
 
 ```
@@ -21845,7 +21655,7 @@ client.hubs.list_hub_capacities(
 </dl>
 </details>
 
-<details><summary><code>client.hubs.<a href="src/samsara/hubs/client.py">update_hub_location</a>(...)</code></summary>
+<details><summary><code>client.hubs.<a href="src/samsara/hubs/client.py">update_hub_location</a>(...) -> AsyncHttpResponse[HubLocationsUpdateHubLocationResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -21959,7 +21769,7 @@ client.hubs.update_hub_location(
 </dl>
 </details>
 
-<details><summary><code>client.hubs.<a href="src/samsara/hubs/client.py">list_hub_locations</a>(...)</code></summary>
+<details><summary><code>client.hubs.<a href="src/samsara/hubs/client.py">list_hub_locations</a>(...) -> AsyncHttpResponse[HubLocationsListHubLocationsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -21993,8 +21803,6 @@ To use this endpoint, select **Read Routes** under the Driver Workflow category 
 <dd>
 
 ```python
-import datetime
-
 from samsara import Samsara
 
 client = Samsara(
@@ -22002,16 +21810,6 @@ client = Samsara(
 )
 client.hubs.list_hub_locations(
     hub_id="hubId",
-    location_ids="locationIds",
-    customer_location_ids="customerLocationIds",
-    start_time=datetime.datetime.fromisoformat(
-        "2024-01-15 09:30:00+00:00",
-    ),
-    end_time=datetime.datetime.fromisoformat(
-        "2024-01-15 09:30:00+00:00",
-    ),
-    after="after",
-    limit=1,
 )
 
 ```
@@ -22096,7 +21894,7 @@ client.hubs.list_hub_locations(
 </dl>
 </details>
 
-<details><summary><code>client.hubs.<a href="src/samsara/hubs/client.py">create_hub_locations</a>(...)</code></summary>
+<details><summary><code>client.hubs.<a href="src/samsara/hubs/client.py">create_hub_locations</a>(...) -> AsyncHttpResponse[HubLocationsCreateHubLocationsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -22204,7 +22002,7 @@ client.hubs.create_hub_locations(
 </dl>
 </details>
 
-<details><summary><code>client.hubs.<a href="src/samsara/hubs/client.py">list_hub_skills</a>(...)</code></summary>
+<details><summary><code>client.hubs.<a href="src/samsara/hubs/client.py">list_hub_skills</a>(...) -> AsyncHttpResponse[HubSkillsListHubSkillsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -22238,8 +22036,6 @@ To use this endpoint, select **Read Routes** under the Driver Workflow category 
 <dd>
 
 ```python
-import datetime
-
 from samsara import Samsara
 
 client = Samsara(
@@ -22247,16 +22043,6 @@ client = Samsara(
 )
 client.hubs.list_hub_skills(
     hub_id="hubId",
-    skill_ids="skillIds",
-    skill_names="skillNames",
-    start_time=datetime.datetime.fromisoformat(
-        "2024-01-15 09:30:00+00:00",
-    ),
-    end_time=datetime.datetime.fromisoformat(
-        "2024-01-15 09:30:00+00:00",
-    ),
-    after="after",
-    limit=1,
 )
 
 ```
@@ -22341,7 +22127,7 @@ client.hubs.list_hub_skills(
 </dl>
 </details>
 
-<details><summary><code>client.hubs.<a href="src/samsara/hubs/client.py">list_hubs</a>(...)</code></summary>
+<details><summary><code>client.hubs.<a href="src/samsara/hubs/client.py">list_hubs</a>(...) -> AsyncHttpResponse[HubsListHubsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -22375,24 +22161,12 @@ To use this endpoint, select **Read Routes** under the Driver Workflow category 
 <dd>
 
 ```python
-import datetime
-
 from samsara import Samsara
 
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.hubs.list_hubs(
-    hub_ids="hubIds",
-    start_time=datetime.datetime.fromisoformat(
-        "2024-01-15 09:30:00+00:00",
-    ),
-    end_time=datetime.datetime.fromisoformat(
-        "2024-01-15 09:30:00+00:00",
-    ),
-    after="after",
-    limit=1,
-)
+client.hubs.list_hubs()
 
 ```
 </dd>
@@ -22461,7 +22235,7 @@ client.hubs.list_hubs(
 </details>
 
 ## Plans
-<details><summary><code>client.plans.<a href="src/samsara/plans/client.py">create_hub_plan</a>(...)</code></summary>
+<details><summary><code>client.plans.<a href="src/samsara/plans/client.py">create_hub_plan</a>(...) -> AsyncHttpResponse[HubPlansCreateHubPlanResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -22547,7 +22321,7 @@ client.plans.create_hub_plan(
 </dl>
 </details>
 
-<details><summary><code>client.plans.<a href="src/samsara/plans/client.py">list_hub_plans</a>(...)</code></summary>
+<details><summary><code>client.plans.<a href="src/samsara/plans/client.py">list_hub_plans</a>(...) -> AsyncHttpResponse[HubPlansListHubPlansResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -22581,8 +22355,6 @@ To use this endpoint, select **Read Routes** under the Driver Workflow category 
 <dd>
 
 ```python
-import datetime
-
 from samsara import Samsara
 
 client = Samsara(
@@ -22590,15 +22362,6 @@ client = Samsara(
 )
 client.plans.list_hub_plans(
     hub_id="hubId",
-    plan_ids="planIds",
-    start_time=datetime.datetime.fromisoformat(
-        "2024-01-15 09:30:00+00:00",
-    ),
-    end_time=datetime.datetime.fromisoformat(
-        "2024-01-15 09:30:00+00:00",
-    ),
-    after="after",
-    limit=1,
 )
 
 ```
@@ -22676,7 +22439,7 @@ client.plans.list_hub_plans(
 </details>
 
 ## Idling
-<details><summary><code>client.idling.<a href="src/samsara/idling/client.py">get_idling_events</a>(...)</code></summary>
+<details><summary><code>client.idling.<a href="src/samsara/idling/client.py">get_idling_events</a>(...) -> AsyncHttpResponse[AdvancedIdlingGetIdlingEventsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -22720,15 +22483,6 @@ client = Samsara(
 client.idling.get_idling_events(
     start_time="startTime",
     end_time="endTime",
-    pto_state="active",
-    min_air_temperature_millicelsius=1,
-    max_air_temperature_millicelsius=1,
-    exclude_events_with_unknown_air_temperature=True,
-    min_duration_milliseconds=1,
-    max_duration_milliseconds=1,
-    include_external_ids=True,
-    after="after",
-    limit=1,
 )
 
 ```
@@ -22878,7 +22632,7 @@ client.idling.get_idling_events(
 </details>
 
 ## Industrial
-<details><summary><code>client.industrial.<a href="src/samsara/industrial/client.py">get_industrial_assets</a>(...)</code></summary>
+<details><summary><code>client.industrial.<a href="src/samsara/industrial/client.py">get_industrial_assets</a>(...) -> AsyncHttpResponse[ListIndustrialAssetsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -22914,10 +22668,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.industrial.get_industrial_assets(
-    limit=1000000,
-    after="after",
-)
+client.industrial.get_industrial_assets()
 
 ```
 </dd>
@@ -22985,7 +22736,7 @@ client.industrial.get_industrial_assets(
 </dl>
 </details>
 
-<details><summary><code>client.industrial.<a href="src/samsara/industrial/client.py">create_industrial_asset</a>(...)</code></summary>
+<details><summary><code>client.industrial.<a href="src/samsara/industrial/client.py">create_industrial_asset</a>(...) -> AsyncHttpResponse[InlineResponse200]</code></summary>
 <dl>
 <dd>
 
@@ -23115,7 +22866,7 @@ client.industrial.create_industrial_asset(
 </dl>
 </details>
 
-<details><summary><code>client.industrial.<a href="src/samsara/industrial/client.py">delete_industrial_asset</a>(...)</code></summary>
+<details><summary><code>client.industrial.<a href="src/samsara/industrial/client.py">delete_industrial_asset</a>(...) -> AsyncHttpResponse[StandardDeleteResponse]</code></summary>
 <dl>
 <dd>
 
@@ -23189,7 +22940,7 @@ client.industrial.delete_industrial_asset(
 </dl>
 </details>
 
-<details><summary><code>client.industrial.<a href="src/samsara/industrial/client.py">patch_industrial_asset</a>(...)</code></summary>
+<details><summary><code>client.industrial.<a href="src/samsara/industrial/client.py">patch_industrial_asset</a>(...) -> AsyncHttpResponse[InlineResponse200]</code></summary>
 <dl>
 <dd>
 
@@ -23327,7 +23078,7 @@ client.industrial.patch_industrial_asset(
 </dl>
 </details>
 
-<details><summary><code>client.industrial.<a href="src/samsara/industrial/client.py">patch_asset_data_outputs</a>(...)</code></summary>
+<details><summary><code>client.industrial.<a href="src/samsara/industrial/client.py">patch_asset_data_outputs</a>(...) -> AsyncHttpResponse[AssetDataOutputsPatchAssetDataOutputsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -23393,7 +23144,7 @@ client.industrial.patch_asset_data_outputs(
 <dl>
 <dd>
 
-**values:** `typing.Dict[str, typing.Optional[typing.Any]]` — A map of data output IDs to values. All data outputs must belong to the same asset. Only the specified IDs will be written to.
+**values:** `typing.Dict[str, typing.Any]` — A map of data output IDs to values. All data outputs must belong to the same asset. Only the specified IDs will be written to.
     
 </dd>
 </dl>
@@ -23413,7 +23164,7 @@ client.industrial.patch_asset_data_outputs(
 </dl>
 </details>
 
-<details><summary><code>client.industrial.<a href="src/samsara/industrial/client.py">get_data_inputs</a>(...)</code></summary>
+<details><summary><code>client.industrial.<a href="src/samsara/industrial/client.py">get_data_inputs</a>(...) -> AsyncHttpResponse[DataInputsTinyResponse]</code></summary>
 <dl>
 <dd>
 
@@ -23449,10 +23200,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.industrial.get_data_inputs(
-    limit=1000000,
-    after="after",
-)
+client.industrial.get_data_inputs()
 
 ```
 </dd>
@@ -23520,7 +23268,7 @@ client.industrial.get_data_inputs(
 </dl>
 </details>
 
-<details><summary><code>client.industrial.<a href="src/samsara/industrial/client.py">get_data_input_data_snapshot</a>(...)</code></summary>
+<details><summary><code>client.industrial.<a href="src/samsara/industrial/client.py">get_data_input_data_snapshot</a>(...) -> AsyncHttpResponse[DataInputSnapshotResponse]</code></summary>
 <dl>
 <dd>
 
@@ -23556,9 +23304,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.industrial.get_data_input_data_snapshot(
-    after="after",
-)
+client.industrial.get_data_input_data_snapshot()
 
 ```
 </dd>
@@ -23626,7 +23372,7 @@ client.industrial.get_data_input_data_snapshot(
 </dl>
 </details>
 
-<details><summary><code>client.industrial.<a href="src/samsara/industrial/client.py">get_data_input_data_feed</a>(...)</code></summary>
+<details><summary><code>client.industrial.<a href="src/samsara/industrial/client.py">get_data_input_data_feed</a>(...) -> AsyncHttpResponse[DataInputListResponse]</code></summary>
 <dl>
 <dd>
 
@@ -23668,9 +23414,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.industrial.get_data_input_data_feed(
-    after="after",
-)
+client.industrial.get_data_input_data_feed()
 
 ```
 </dd>
@@ -23738,7 +23482,7 @@ client.industrial.get_data_input_data_feed(
 </dl>
 </details>
 
-<details><summary><code>client.industrial.<a href="src/samsara/industrial/client.py">get_data_input_data_history</a>(...)</code></summary>
+<details><summary><code>client.industrial.<a href="src/samsara/industrial/client.py">get_data_input_data_history</a>(...) -> AsyncHttpResponse[DataInputListResponse]</code></summary>
 <dl>
 <dd>
 
@@ -23777,7 +23521,6 @@ client = Samsara(
 client.industrial.get_data_input_data_history(
     start_time="startTime",
     end_time="endTime",
-    after="after",
 )
 
 ```
@@ -23862,7 +23605,7 @@ client.industrial.get_data_input_data_history(
 </dl>
 </details>
 
-<details><summary><code>client.industrial.<a href="src/samsara/industrial/client.py">v_1_get_cameras</a>()</code></summary>
+<details><summary><code>client.industrial.<a href="src/samsara/industrial/client.py">v_1_get_cameras</a>() -> AsyncHttpResponse[V1VisionCamerasResponse]</code></summary>
 <dl>
 <dd>
 
@@ -23933,7 +23676,7 @@ client.industrial.v_1_get_cameras()
 </dl>
 </details>
 
-<details><summary><code>client.industrial.<a href="src/samsara/industrial/client.py">v_1_get_vision_programs_by_camera</a>(...)</code></summary>
+<details><summary><code>client.industrial.<a href="src/samsara/industrial/client.py">v_1_get_vision_programs_by_camera</a>(...) -> AsyncHttpResponse[V1ProgramsForTheCameraResponse]</code></summary>
 <dl>
 <dd>
 
@@ -24014,7 +23757,7 @@ client.industrial.v_1_get_vision_programs_by_camera(
 </dl>
 </details>
 
-<details><summary><code>client.industrial.<a href="src/samsara/industrial/client.py">v_1_get_vision_latest_run_camera</a>(...)</code></summary>
+<details><summary><code>client.industrial.<a href="src/samsara/industrial/client.py">v_1_get_vision_latest_run_camera</a>(...) -> AsyncHttpResponse[V1VisionRunByCameraResponse]</code></summary>
 <dl>
 <dd>
 
@@ -24052,10 +23795,6 @@ client = Samsara(
 )
 client.industrial.v_1_get_vision_latest_run_camera(
     camera_id=1000000,
-    program_id=1000000,
-    started_at_ms=1000000,
-    include="include",
-    limit=1000000,
 )
 
 ```
@@ -24124,7 +23863,7 @@ client.industrial.v_1_get_vision_latest_run_camera(
 </dl>
 </details>
 
-<details><summary><code>client.industrial.<a href="src/samsara/industrial/client.py">v_1_get_vision_runs</a>(...)</code></summary>
+<details><summary><code>client.industrial.<a href="src/samsara/industrial/client.py">v_1_get_vision_runs</a>(...) -> AsyncHttpResponse[V1VisionRunsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -24169,7 +23908,6 @@ client = Samsara(
 )
 client.industrial.v_1_get_vision_runs(
     duration_ms=1000000,
-    end_ms=1000000,
 )
 
 ```
@@ -24214,7 +23952,7 @@ client.industrial.v_1_get_vision_runs(
 </dl>
 </details>
 
-<details><summary><code>client.industrial.<a href="src/samsara/industrial/client.py">get_vision_runs_by_camera</a>(...)</code></summary>
+<details><summary><code>client.industrial.<a href="src/samsara/industrial/client.py">get_vision_runs_by_camera</a>(...) -> AsyncHttpResponse[V1VisionRunsByCameraResponse]</code></summary>
 <dl>
 <dd>
 
@@ -24260,7 +23998,6 @@ client = Samsara(
 client.industrial.get_vision_runs_by_camera(
     camera_id=1000000,
     duration_ms=1000000,
-    end_ms=1000000,
 )
 
 ```
@@ -24313,7 +24050,7 @@ client.industrial.get_vision_runs_by_camera(
 </dl>
 </details>
 
-<details><summary><code>client.industrial.<a href="src/samsara/industrial/client.py">v_1_get_vision_runs_by_camera_and_program</a>(...)</code></summary>
+<details><summary><code>client.industrial.<a href="src/samsara/industrial/client.py">v_1_get_vision_runs_by_camera_and_program</a>(...) -> AsyncHttpResponse[V1VisionRunsByCameraAndProgramResponse]</code></summary>
 <dl>
 <dd>
 
@@ -24360,7 +24097,6 @@ client.industrial.v_1_get_vision_runs_by_camera_and_program(
     camera_id=1000000,
     program_id=1000000,
     started_at_ms=1000000,
-    include="include",
 )
 
 ```
@@ -24421,7 +24157,7 @@ client.industrial.v_1_get_vision_runs_by_camera_and_program(
 </dl>
 </details>
 
-<details><summary><code>client.industrial.<a href="src/samsara/industrial/client.py">v_1_get_machines_history</a>(...)</code></summary>
+<details><summary><code>client.industrial.<a href="src/samsara/industrial/client.py">v_1_get_machines_history</a>(...) -> AsyncHttpResponse[V1MachineHistoryResponse]</code></summary>
 <dl>
 <dd>
 
@@ -24511,7 +24247,7 @@ client.industrial.v_1_get_machines_history(
 </dl>
 </details>
 
-<details><summary><code>client.industrial.<a href="src/samsara/industrial/client.py">v_1_get_machines</a>()</code></summary>
+<details><summary><code>client.industrial.<a href="src/samsara/industrial/client.py">v_1_get_machines</a>() -> AsyncHttpResponse[InlineResponse2008]</code></summary>
 <dl>
 <dd>
 
@@ -24583,7 +24319,7 @@ client.industrial.v_1_get_machines()
 </details>
 
 ## Issues
-<details><summary><code>client.issues.<a href="src/samsara/issues/client.py">get_issues</a>(...)</code></summary>
+<details><summary><code>client.issues.<a href="src/samsara/issues/client.py">get_issues</a>(...) -> AsyncHttpResponse[IssuesGetIssuesResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -24666,7 +24402,7 @@ client.issues.get_issues()
 </dl>
 </details>
 
-<details><summary><code>client.issues.<a href="src/samsara/issues/client.py">patch_issue</a>(...)</code></summary>
+<details><summary><code>client.issues.<a href="src/samsara/issues/client.py">patch_issue</a>(...) -> AsyncHttpResponse[IssuesPatchIssueResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -24775,7 +24511,7 @@ client.issues.patch_issue(
 </dl>
 </details>
 
-<details><summary><code>client.issues.<a href="src/samsara/issues/client.py">get_issues_stream</a>(...)</code></summary>
+<details><summary><code>client.issues.<a href="src/samsara/issues/client.py">get_issues_stream</a>(...) -> AsyncHttpResponse[IssuesGetIssuesStreamResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -24816,8 +24552,6 @@ client = Samsara(
 )
 client.issues.get_issues_stream(
     start_time="startTime",
-    end_time="endTime",
-    after="after",
 )
 
 ```
@@ -24903,7 +24637,7 @@ client.issues.get_issues_stream(
 </details>
 
 ## LiveSharingLinks
-<details><summary><code>client.live_sharing_links.<a href="src/samsara/live_sharing_links/client.py">get_live_sharing_links</a>(...)</code></summary>
+<details><summary><code>client.live_sharing_links.<a href="src/samsara/live_sharing_links/client.py">get_live_sharing_links</a>(...) -> AsyncHttpResponse[LiveSharingLinksGetLiveSharingLinksResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -24942,11 +24676,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.live_sharing_links.get_live_sharing_links(
-    type="all",
-    limit=1,
-    after="after",
-)
+client.live_sharing_links.get_live_sharing_links()
 
 ```
 </dd>
@@ -25006,7 +24736,7 @@ client.live_sharing_links.get_live_sharing_links(
 </dl>
 </details>
 
-<details><summary><code>client.live_sharing_links.<a href="src/samsara/live_sharing_links/client.py">create_live_sharing_link</a>(...)</code></summary>
+<details><summary><code>client.live_sharing_links.<a href="src/samsara/live_sharing_links/client.py">create_live_sharing_link</a>(...) -> AsyncHttpResponse[LiveSharingLinksCreateLiveSharingLinkResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -25132,7 +24862,7 @@ client.live_sharing_links.create_live_sharing_link(
 </dl>
 </details>
 
-<details><summary><code>client.live_sharing_links.<a href="src/samsara/live_sharing_links/client.py">delete_live_sharing_link</a>(...)</code></summary>
+<details><summary><code>client.live_sharing_links.<a href="src/samsara/live_sharing_links/client.py">delete_live_sharing_link</a>(...) -> AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -25209,7 +24939,7 @@ client.live_sharing_links.delete_live_sharing_link(
 </dl>
 </details>
 
-<details><summary><code>client.live_sharing_links.<a href="src/samsara/live_sharing_links/client.py">update_live_sharing_link</a>(...)</code></summary>
+<details><summary><code>client.live_sharing_links.<a href="src/samsara/live_sharing_links/client.py">update_live_sharing_link</a>(...) -> AsyncHttpResponse[LiveSharingLinksUpdateLiveSharingLinkResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -25312,7 +25042,7 @@ client.live_sharing_links.update_live_sharing_link(
 </details>
 
 ## WorkOrders
-<details><summary><code>client.work_orders.<a href="src/samsara/work_orders/client.py">get_service_tasks</a>(...)</code></summary>
+<details><summary><code>client.work_orders.<a href="src/samsara/work_orders/client.py">get_service_tasks</a>(...) -> AsyncHttpResponse[WorkOrdersGetServiceTasksResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -25351,10 +25081,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.work_orders.get_service_tasks(
-    include_archived=True,
-    after="after",
-)
+client.work_orders.get_service_tasks()
 
 ```
 </dd>
@@ -25406,7 +25133,7 @@ client.work_orders.get_service_tasks(
 </dl>
 </details>
 
-<details><summary><code>client.work_orders.<a href="src/samsara/work_orders/client.py">get_work_orders</a>(...)</code></summary>
+<details><summary><code>client.work_orders.<a href="src/samsara/work_orders/client.py">get_work_orders</a>(...) -> AsyncHttpResponse[WorkOrdersGetWorkOrdersResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -25445,9 +25172,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.work_orders.get_work_orders(
-    after="after",
-)
+client.work_orders.get_work_orders()
 
 ```
 </dd>
@@ -25491,7 +25216,7 @@ client.work_orders.get_work_orders(
 </dl>
 </details>
 
-<details><summary><code>client.work_orders.<a href="src/samsara/work_orders/client.py">post_work_orders</a>(...)</code></summary>
+<details><summary><code>client.work_orders.<a href="src/samsara/work_orders/client.py">post_work_orders</a>(...) -> AsyncHttpResponse[WorkOrdersPostWorkOrdersResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -25680,7 +25405,7 @@ client.work_orders.post_work_orders(
 </dl>
 </details>
 
-<details><summary><code>client.work_orders.<a href="src/samsara/work_orders/client.py">delete_work_orders</a>(...)</code></summary>
+<details><summary><code>client.work_orders.<a href="src/samsara/work_orders/client.py">delete_work_orders</a>(...) -> AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -25757,7 +25482,7 @@ client.work_orders.delete_work_orders(
 </dl>
 </details>
 
-<details><summary><code>client.work_orders.<a href="src/samsara/work_orders/client.py">patch_work_orders</a>(...)</code></summary>
+<details><summary><code>client.work_orders.<a href="src/samsara/work_orders/client.py">patch_work_orders</a>(...) -> AsyncHttpResponse[WorkOrdersPatchWorkOrdersResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -25970,7 +25695,7 @@ client.work_orders.patch_work_orders(
 </dl>
 </details>
 
-<details><summary><code>client.work_orders.<a href="src/samsara/work_orders/client.py">stream_work_orders</a>(...)</code></summary>
+<details><summary><code>client.work_orders.<a href="src/samsara/work_orders/client.py">stream_work_orders</a>(...) -> AsyncHttpResponse[WorkOrdersStreamWorkOrdersResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -26010,9 +25735,7 @@ client = Samsara(
     token="YOUR_TOKEN",
 )
 client.work_orders.stream_work_orders(
-    after="after",
     start_time="startTime",
-    end_time="endTime",
 )
 
 ```
@@ -26095,7 +25818,7 @@ client.work_orders.stream_work_orders(
 </details>
 
 ## Organization Info
-<details><summary><code>client.organization_info.<a href="src/samsara/organization_info/client.py">get_organization_info</a>()</code></summary>
+<details><summary><code>client.organization_info.<a href="src/samsara/organization_info/client.py">get_organization_info</a>() -> AsyncHttpResponse[OrganizationInfoResponse]</code></summary>
 <dl>
 <dd>
 
@@ -26160,114 +25883,7 @@ client.organization_info.get_organization_info()
 </details>
 
 ## Preview APIs
-<details><summary><code>client.preview_ap_is.<a href="src/samsara/preview_ap_is/client.py">create_driver_auth_token</a>(...)</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Creates a short-lived auth token for a driver.
-
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Write Driver Auth Token** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
-
-- Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
-
-- When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.preview_ap_is.create_driver_auth_token(
-    code="dp[gZc1wAigz4uGa0Hh",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**code:** `str` — Required. Random 12+ character string, used with the auth token to help secure the client from intercepted tokens.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**external_id:** `typing.Optional[str]` — Optional. External ID of the driver, in the format `key:value` (e.g., `payrollId:ABFS18600`). One of `id`, `externalId`, or `username` is required.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**id:** `typing.Optional[int]` — Optional. Samsara ID of the driver. One of `id`, `externalId`, or `username` is required.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**username:** `typing.Optional[str]` — Optional. Username of the driver. This is the login identifier configured when the driver is created. One of `id`, `externalId`, or `username` is required.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.preview_ap_is.<a href="src/samsara/preview_ap_is/client.py">lock_vehicle</a>(...)</code></summary>
+<details><summary><code>client.preview_ap_is.<a href="src/samsara/preview_ap_is/client.py">lock_vehicle</a>(...) -> AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -26350,7 +25966,7 @@ client.preview_ap_is.lock_vehicle(
 </dl>
 </details>
 
-<details><summary><code>client.preview_ap_is.<a href="src/samsara/preview_ap_is/client.py">unlock_vehicle</a>(...)</code></summary>
+<details><summary><code>client.preview_ap_is.<a href="src/samsara/preview_ap_is/client.py">unlock_vehicle</a>(...) -> AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -26434,7 +26050,7 @@ client.preview_ap_is.unlock_vehicle(
 </details>
 
 ## RouteEvents
-<details><summary><code>client.route_events.<a href="src/samsara/route_events/client.py">get_route_events_stream</a>(...)</code></summary>
+<details><summary><code>client.route_events.<a href="src/samsara/route_events/client.py">get_route_events_stream</a>(...) -> AsyncHttpResponse[RoutesGetRouteEventsStreamResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -26473,12 +26089,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.route_events.get_route_events_stream(
-    after="after",
-    start_time="startTime",
-    limit=1,
-    include_external_ids=True,
-)
+client.route_events.get_route_events_stream()
 
 ```
 </dd>
@@ -26539,7 +26150,7 @@ client.route_events.get_route_events_stream(
 </details>
 
 ## SpeedingIntervals
-<details><summary><code>client.speeding_intervals.<a href="src/samsara/speeding_intervals/client.py">get_speeding_intervals</a>(...)</code></summary>
+<details><summary><code>client.speeding_intervals.<a href="src/samsara/speeding_intervals/client.py">get_speeding_intervals</a>(...) -> AsyncHttpResponse[SpeedingIntervalsGetSpeedingIntervalsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -26673,7 +26284,7 @@ client.speeding_intervals.get_speeding_intervals(
 </details>
 
 ## Tags
-<details><summary><code>client.tags.<a href="src/samsara/tags/client.py">list_tags</a>(...)</code></summary>
+<details><summary><code>client.tags.<a href="src/samsara/tags/client.py">list_tags</a>(...) -> AsyncHttpResponse[ListTagsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -26709,10 +26320,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.tags.list_tags(
-    limit=1000000,
-    after="after",
-)
+client.tags.list_tags()
 
 ```
 </dd>
@@ -26756,7 +26364,7 @@ client.tags.list_tags(
 </dl>
 </details>
 
-<details><summary><code>client.tags.<a href="src/samsara/tags/client.py">create_tag</a>(...)</code></summary>
+<details><summary><code>client.tags.<a href="src/samsara/tags/client.py">create_tag</a>(...) -> AsyncHttpResponse[TagResponse]</code></summary>
 <dl>
 <dd>
 
@@ -26894,7 +26502,7 @@ client.tags.create_tag(
 </dl>
 </details>
 
-<details><summary><code>client.tags.<a href="src/samsara/tags/client.py">get_tag</a>(...)</code></summary>
+<details><summary><code>client.tags.<a href="src/samsara/tags/client.py">get_tag</a>(...) -> AsyncHttpResponse[TagResponse]</code></summary>
 <dl>
 <dd>
 
@@ -26968,7 +26576,7 @@ client.tags.get_tag(
 </dl>
 </details>
 
-<details><summary><code>client.tags.<a href="src/samsara/tags/client.py">replace_tag</a>(...)</code></summary>
+<details><summary><code>client.tags.<a href="src/samsara/tags/client.py">replace_tag</a>(...) -> AsyncHttpResponse[TagResponse]</code></summary>
 <dl>
 <dd>
 
@@ -27106,7 +26714,7 @@ client.tags.replace_tag(
 </dl>
 </details>
 
-<details><summary><code>client.tags.<a href="src/samsara/tags/client.py">delete_tag</a>(...)</code></summary>
+<details><summary><code>client.tags.<a href="src/samsara/tags/client.py">delete_tag</a>(...) -> AsyncHttpResponse[StandardDeleteResponse]</code></summary>
 <dl>
 <dd>
 
@@ -27180,7 +26788,7 @@ client.tags.delete_tag(
 </dl>
 </details>
 
-<details><summary><code>client.tags.<a href="src/samsara/tags/client.py">patch_tag</a>(...)</code></summary>
+<details><summary><code>client.tags.<a href="src/samsara/tags/client.py">patch_tag</a>(...) -> AsyncHttpResponse[TagResponse]</code></summary>
 <dl>
 <dd>
 
@@ -27331,7 +26939,7 @@ client.tags.patch_tag(
 </details>
 
 ## Users
-<details><summary><code>client.users.<a href="src/samsara/users/client.py">list_user_roles</a>(...)</code></summary>
+<details><summary><code>client.users.<a href="src/samsara/users/client.py">list_user_roles</a>(...) -> AsyncHttpResponse[ListUserRolesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -27367,10 +26975,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.users.list_user_roles(
-    limit=1000000,
-    after="after",
-)
+client.users.list_user_roles()
 
 ```
 </dd>
@@ -27414,7 +27019,7 @@ client.users.list_user_roles(
 </dl>
 </details>
 
-<details><summary><code>client.users.<a href="src/samsara/users/client.py">list_users</a>(...)</code></summary>
+<details><summary><code>client.users.<a href="src/samsara/users/client.py">list_users</a>(...) -> AsyncHttpResponse[ListUsersResponse]</code></summary>
 <dl>
 <dd>
 
@@ -27450,10 +27055,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.users.list_users(
-    limit=1000000,
-    after="after",
-)
+client.users.list_users()
 
 ```
 </dd>
@@ -27497,7 +27099,7 @@ client.users.list_users(
 </dl>
 </details>
 
-<details><summary><code>client.users.<a href="src/samsara/users/client.py">create_user</a>(...)</code></summary>
+<details><summary><code>client.users.<a href="src/samsara/users/client.py">create_user</a>(...) -> AsyncHttpResponse[UserResponse]</code></summary>
 <dl>
 <dd>
 
@@ -27610,7 +27212,7 @@ client.users.create_user(
 </dl>
 </details>
 
-<details><summary><code>client.users.<a href="src/samsara/users/client.py">get_user</a>(...)</code></summary>
+<details><summary><code>client.users.<a href="src/samsara/users/client.py">get_user</a>(...) -> AsyncHttpResponse[UserResponse]</code></summary>
 <dl>
 <dd>
 
@@ -27684,7 +27286,7 @@ client.users.get_user(
 </dl>
 </details>
 
-<details><summary><code>client.users.<a href="src/samsara/users/client.py">delete_user</a>(...)</code></summary>
+<details><summary><code>client.users.<a href="src/samsara/users/client.py">delete_user</a>(...) -> AsyncHttpResponse[StandardDeleteResponse]</code></summary>
 <dl>
 <dd>
 
@@ -27758,7 +27360,7 @@ client.users.delete_user(
 </dl>
 </details>
 
-<details><summary><code>client.users.<a href="src/samsara/users/client.py">update_user</a>(...)</code></summary>
+<details><summary><code>client.users.<a href="src/samsara/users/client.py">update_user</a>(...) -> AsyncHttpResponse[UserResponse]</code></summary>
 <dl>
 <dd>
 
@@ -27865,7 +27467,7 @@ client.users.update_user(
 </details>
 
 ## Legacy
-<details><summary><code>client.legacy.<a href="src/samsara/legacy/client.py">v_1_get_all_assets</a>()</code></summary>
+<details><summary><code>client.legacy.<a href="src/samsara/legacy/client.py">v_1_get_all_assets</a>() -> AsyncHttpResponse[InlineResponse2001]</code></summary>
 <dl>
 <dd>
 
@@ -27932,7 +27534,7 @@ client.legacy.v_1_get_all_assets()
 </details>
 
 ## Messages
-<details><summary><code>client.messages.<a href="src/samsara/messages/client.py">v_1_get_messages</a>(...)</code></summary>
+<details><summary><code>client.messages.<a href="src/samsara/messages/client.py">v_1_get_messages</a>(...) -> AsyncHttpResponse[InlineResponse2005]</code></summary>
 <dl>
 <dd>
 
@@ -27977,10 +27579,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.messages.v_1_get_messages(
-    end_ms=1000000,
-    duration_ms=1000000,
-)
+client.messages.v_1_get_messages()
 
 ```
 </dd>
@@ -28024,7 +27623,7 @@ client.messages.v_1_get_messages(
 </dl>
 </details>
 
-<details><summary><code>client.messages.<a href="src/samsara/messages/client.py">v_1_create_messages</a>(...)</code></summary>
+<details><summary><code>client.messages.<a href="src/samsara/messages/client.py">v_1_create_messages</a>(...) -> AsyncHttpResponse[InlineResponse2006]</code></summary>
 <dl>
 <dd>
 
@@ -28115,7 +27714,7 @@ client.messages.v_1_create_messages(
 </details>
 
 ## Trailer Assignments
-<details><summary><code>client.trailer_assignments.<a href="src/samsara/trailer_assignments/client.py">v_1_get_all_trailer_assignments</a>(...)</code></summary>
+<details><summary><code>client.trailer_assignments.<a href="src/samsara/trailer_assignments/client.py">v_1_get_all_trailer_assignments</a>(...) -> AsyncHttpResponse[InlineResponse2007]</code></summary>
 <dl>
 <dd>
 
@@ -28160,13 +27759,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.trailer_assignments.v_1_get_all_trailer_assignments(
-    start_ms=1000000,
-    end_ms=1000000,
-    limit=1000000,
-    starting_after="startingAfter",
-    ending_before="endingBefore",
-)
+client.trailer_assignments.v_1_get_all_trailer_assignments()
 
 ```
 </dd>
@@ -28234,7 +27827,7 @@ client.trailer_assignments.v_1_get_all_trailer_assignments(
 </dl>
 </details>
 
-<details><summary><code>client.trailer_assignments.<a href="src/samsara/trailer_assignments/client.py">v_1_get_fleet_trailer_assignments</a>(...)</code></summary>
+<details><summary><code>client.trailer_assignments.<a href="src/samsara/trailer_assignments/client.py">v_1_get_fleet_trailer_assignments</a>(...) -> AsyncHttpResponse[V1TrailerAssignmentsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -28281,8 +27874,6 @@ client = Samsara(
 )
 client.trailer_assignments.v_1_get_fleet_trailer_assignments(
     trailer_id=1000000,
-    start_ms=1000000,
-    end_ms=1000000,
 )
 
 ```
@@ -28336,7 +27927,7 @@ client.trailer_assignments.v_1_get_fleet_trailer_assignments(
 </details>
 
 ## Trips
-<details><summary><code>client.trips.<a href="src/samsara/trips/client.py">v_1_get_fleet_trips</a>(...)</code></summary>
+<details><summary><code>client.trips.<a href="src/samsara/trips/client.py">v_1_get_fleet_trips</a>(...) -> AsyncHttpResponse[V1TripResponse]</code></summary>
 <dl>
 <dd>
 
@@ -28436,7 +28027,7 @@ client.trips.v_1_get_fleet_trips(
 </details>
 
 ## Sensors
-<details><summary><code>client.sensors.<a href="src/samsara/sensors/client.py">v_1_get_sensors_cargo</a>(...)</code></summary>
+<details><summary><code>client.sensors.<a href="src/samsara/sensors/client.py">v_1_get_sensors_cargo</a>(...) -> AsyncHttpResponse[V1CargoResponse]</code></summary>
 <dl>
 <dd>
 
@@ -28517,7 +28108,7 @@ client.sensors.v_1_get_sensors_cargo(
 </dl>
 </details>
 
-<details><summary><code>client.sensors.<a href="src/samsara/sensors/client.py">v_1_get_sensors_door</a>(...)</code></summary>
+<details><summary><code>client.sensors.<a href="src/samsara/sensors/client.py">v_1_get_sensors_door</a>(...) -> AsyncHttpResponse[V1DoorResponse]</code></summary>
 <dl>
 <dd>
 
@@ -28598,7 +28189,7 @@ client.sensors.v_1_get_sensors_door(
 </dl>
 </details>
 
-<details><summary><code>client.sensors.<a href="src/samsara/sensors/client.py">v_1_get_sensors_history</a>(...)</code></summary>
+<details><summary><code>client.sensors.<a href="src/samsara/sensors/client.py">v_1_get_sensors_history</a>(...) -> AsyncHttpResponse[V1SensorHistoryResponse]</code></summary>
 <dl>
 <dd>
 
@@ -28721,7 +28312,7 @@ client.sensors.v_1_get_sensors_history(
 </dl>
 </details>
 
-<details><summary><code>client.sensors.<a href="src/samsara/sensors/client.py">v_1_get_sensors_humidity</a>(...)</code></summary>
+<details><summary><code>client.sensors.<a href="src/samsara/sensors/client.py">v_1_get_sensors_humidity</a>(...) -> AsyncHttpResponse[V1HumidityResponse]</code></summary>
 <dl>
 <dd>
 
@@ -28802,7 +28393,7 @@ client.sensors.v_1_get_sensors_humidity(
 </dl>
 </details>
 
-<details><summary><code>client.sensors.<a href="src/samsara/sensors/client.py">v_1_get_sensors</a>()</code></summary>
+<details><summary><code>client.sensors.<a href="src/samsara/sensors/client.py">v_1_get_sensors</a>() -> AsyncHttpResponse[InlineResponse2009]</code></summary>
 <dl>
 <dd>
 
@@ -28873,7 +28464,7 @@ client.sensors.v_1_get_sensors()
 </dl>
 </details>
 
-<details><summary><code>client.sensors.<a href="src/samsara/sensors/client.py">v_1_get_sensors_temperature</a>(...)</code></summary>
+<details><summary><code>client.sensors.<a href="src/samsara/sensors/client.py">v_1_get_sensors_temperature</a>(...) -> AsyncHttpResponse[V1TemperatureResponse]</code></summary>
 <dl>
 <dd>
 
@@ -28955,7 +28546,7 @@ client.sensors.v_1_get_sensors_temperature(
 </details>
 
 ## Webhooks
-<details><summary><code>client.webhooks.<a href="src/samsara/webhooks/client.py">list_webhooks</a>(...)</code></summary>
+<details><summary><code>client.webhooks.<a href="src/samsara/webhooks/client.py">list_webhooks</a>(...) -> AsyncHttpResponse[WebhooksListWebhooksResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -28994,11 +28585,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.webhooks.list_webhooks(
-    ids="ids",
-    limit=1,
-    after="after",
-)
+client.webhooks.list_webhooks()
 
 ```
 </dd>
@@ -29050,7 +28637,7 @@ client.webhooks.list_webhooks(
 </dl>
 </details>
 
-<details><summary><code>client.webhooks.<a href="src/samsara/webhooks/client.py">post_webhooks</a>(...)</code></summary>
+<details><summary><code>client.webhooks.<a href="src/samsara/webhooks/client.py">post_webhooks</a>(...) -> AsyncHttpResponse[WebhooksPostWebhooksResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -29160,7 +28747,7 @@ client.webhooks.post_webhooks(
 </dl>
 </details>
 
-<details><summary><code>client.webhooks.<a href="src/samsara/webhooks/client.py">get_webhook</a>(...)</code></summary>
+<details><summary><code>client.webhooks.<a href="src/samsara/webhooks/client.py">get_webhook</a>(...) -> AsyncHttpResponse[WebhooksGetWebhookResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -29237,7 +28824,7 @@ client.webhooks.get_webhook(
 </dl>
 </details>
 
-<details><summary><code>client.webhooks.<a href="src/samsara/webhooks/client.py">delete_webhook</a>(...)</code></summary>
+<details><summary><code>client.webhooks.<a href="src/samsara/webhooks/client.py">delete_webhook</a>(...) -> AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -29314,7 +28901,7 @@ client.webhooks.delete_webhook(
 </dl>
 </details>
 
-<details><summary><code>client.webhooks.<a href="src/samsara/webhooks/client.py">patch_webhook</a>(...)</code></summary>
+<details><summary><code>client.webhooks.<a href="src/samsara/webhooks/client.py">patch_webhook</a>(...) -> AsyncHttpResponse[WebhooksPatchWebhookResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -29426,7 +29013,7 @@ client.webhooks.patch_webhook(
 </details>
 
 ## Fleet Attributes
-<details><summary><code>client.fleet.attributes.<a href="src/samsara/fleet/attributes/client.py">update</a>(...)</code></summary>
+<details><summary><code>client.fleet.attributes.<a href="src/samsara/fleet/attributes/client.py">update</a>(...) -> AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 

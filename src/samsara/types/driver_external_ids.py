@@ -2,4 +2,4 @@
 
 import typing
 
-DriverExternalIds = typing.Dict[str, typing.Optional[typing.Any]]
+DriverExternalIds = typing.Dict[str, typing.Any]

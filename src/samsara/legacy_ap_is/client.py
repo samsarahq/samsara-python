@@ -88,11 +88,8 @@ class LegacyApIsClient:
             token="YOUR_TOKEN",
         )
         client.legacy_ap_is.get_dvir_defects(
-            limit=1000000,
-            after="after",
             start_time="startTime",
             end_time="endTime",
-            is_resolved=True,
         )
         """
         _response = self._raw_client.get_dvir_defects(
@@ -165,14 +162,7 @@ class LegacyApIsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.legacy_ap_is.get_drivers_vehicle_assignments(
-            start_time="startTime",
-            end_time="endTime",
-            tag_ids="tagIds",
-            parent_tag_ids="parentTagIds",
-            driver_activation_status="active",
-            after="after",
-        )
+        client.legacy_ap_is.get_drivers_vehicle_assignments()
         """
         _response = self._raw_client.get_drivers_vehicle_assignments(
             driver_ids=driver_ids,
@@ -242,8 +232,6 @@ class LegacyApIsClient:
             token="YOUR_TOKEN",
         )
         client.legacy_ap_is.get_dvir_history(
-            limit=1000000,
-            after="after",
             start_time="startTime",
             end_time="endTime",
         )
@@ -328,15 +316,8 @@ class LegacyApIsClient:
             token="YOUR_TOKEN",
         )
         client.legacy_ap_is.get_vehicle_idling_reports(
-            after="after",
-            limit=1,
             start_time="startTime",
             end_time="endTime",
-            vehicle_ids="vehicleIds",
-            tag_ids="tagIds",
-            parent_tag_ids="parentTagIds",
-            is_pto_active=True,
-            min_idling_duration_minutes=1,
         )
         """
         _response = self._raw_client.get_vehicle_idling_reports(
@@ -409,14 +390,7 @@ class LegacyApIsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.legacy_ap_is.get_vehicles_driver_assignments(
-            start_time="startTime",
-            end_time="endTime",
-            vehicle_ids="vehicleIds",
-            tag_ids="tagIds",
-            parent_tag_ids="parentTagIds",
-            after="after",
-        )
+        client.legacy_ap_is.get_vehicles_driver_assignments()
         """
         _response = self._raw_client.get_vehicles_driver_assignments(
             start_time=start_time,
@@ -502,11 +476,8 @@ class AsyncLegacyApIsClient:
 
         async def main() -> None:
             await client.legacy_ap_is.get_dvir_defects(
-                limit=1000000,
-                after="after",
                 start_time="startTime",
                 end_time="endTime",
-                is_resolved=True,
             )
 
 
@@ -587,14 +558,7 @@ class AsyncLegacyApIsClient:
 
 
         async def main() -> None:
-            await client.legacy_ap_is.get_drivers_vehicle_assignments(
-                start_time="startTime",
-                end_time="endTime",
-                tag_ids="tagIds",
-                parent_tag_ids="parentTagIds",
-                driver_activation_status="active",
-                after="after",
-            )
+            await client.legacy_ap_is.get_drivers_vehicle_assignments()
 
 
         asyncio.run(main())
@@ -672,8 +636,6 @@ class AsyncLegacyApIsClient:
 
         async def main() -> None:
             await client.legacy_ap_is.get_dvir_history(
-                limit=1000000,
-                after="after",
                 start_time="startTime",
                 end_time="endTime",
             )
@@ -766,15 +728,8 @@ class AsyncLegacyApIsClient:
 
         async def main() -> None:
             await client.legacy_ap_is.get_vehicle_idling_reports(
-                after="after",
-                limit=1,
                 start_time="startTime",
                 end_time="endTime",
-                vehicle_ids="vehicleIds",
-                tag_ids="tagIds",
-                parent_tag_ids="parentTagIds",
-                is_pto_active=True,
-                min_idling_duration_minutes=1,
             )
 
 
@@ -855,14 +810,7 @@ class AsyncLegacyApIsClient:
 
 
         async def main() -> None:
-            await client.legacy_ap_is.get_vehicles_driver_assignments(
-                start_time="startTime",
-                end_time="endTime",
-                vehicle_ids="vehicleIds",
-                tag_ids="tagIds",
-                parent_tag_ids="parentTagIds",
-                after="after",
-            )
+            await client.legacy_ap_is.get_vehicles_driver_assignments()
 
 
         asyncio.run(main())

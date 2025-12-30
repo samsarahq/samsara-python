@@ -89,11 +89,7 @@ class LiveSharingLinksClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.live_sharing_links.get_live_sharing_links(
-            type="all",
-            limit=1,
-            after="after",
-        )
+        client.live_sharing_links.get_live_sharing_links()
         """
         _response = self._raw_client.get_live_sharing_links(
             ids=ids, type=type, limit=limit, after=after, request_options=request_options
@@ -338,11 +334,7 @@ class AsyncLiveSharingLinksClient:
 
 
         async def main() -> None:
-            await client.live_sharing_links.get_live_sharing_links(
-                type="all",
-                limit=1,
-                after="after",
-            )
+            await client.live_sharing_links.get_live_sharing_links()
 
 
         asyncio.run(main())

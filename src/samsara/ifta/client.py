@@ -102,14 +102,7 @@ class IftaClient:
             token="YOUR_TOKEN",
         )
         client.ifta.get_ifta_jurisdiction_reports(
-            year=1,
-            month="January",
-            quarter="Q1",
-            jurisdictions="jurisdictions",
-            fuel_type="Unspecified",
-            vehicle_ids="vehicleIds",
-            tag_ids="tagIds",
-            parent_tag_ids="parentTagIds",
+            year=1000000,
         )
         """
         _response = self._raw_client.get_ifta_jurisdiction_reports(
@@ -196,15 +189,7 @@ class IftaClient:
             token="YOUR_TOKEN",
         )
         client.ifta.get_ifta_vehicle_reports(
-            year=1,
-            month="January",
-            quarter="Q1",
-            jurisdictions="jurisdictions",
-            fuel_type="Unspecified",
-            vehicle_ids="vehicleIds",
-            tag_ids="tagIds",
-            parent_tag_ids="parentTagIds",
-            after="after",
+            year=1000000,
         )
         """
         _response = self._raw_client.get_ifta_vehicle_reports(
@@ -416,14 +401,7 @@ class AsyncIftaClient:
 
         async def main() -> None:
             await client.ifta.get_ifta_jurisdiction_reports(
-                year=1,
-                month="January",
-                quarter="Q1",
-                jurisdictions="jurisdictions",
-                fuel_type="Unspecified",
-                vehicle_ids="vehicleIds",
-                tag_ids="tagIds",
-                parent_tag_ids="parentTagIds",
+                year=1000000,
             )
 
 
@@ -518,15 +496,7 @@ class AsyncIftaClient:
 
         async def main() -> None:
             await client.ifta.get_ifta_vehicle_reports(
-                year=1,
-                month="January",
-                quarter="Q1",
-                jurisdictions="jurisdictions",
-                fuel_type="Unspecified",
-                vehicle_ids="vehicleIds",
-                tag_ids="tagIds",
-                parent_tag_ids="parentTagIds",
-                after="after",
+                year=1000000,
             )
 
 

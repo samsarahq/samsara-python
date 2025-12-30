@@ -15,6 +15,7 @@ from ..types.routes_get_routes_feed_response_body import RoutesGetRoutesFeedResp
 from ..types.routes_patch_route_response_body import RoutesPatchRouteResponseBody
 from ..types.update_routes_stop_request_object_request_body import UpdateRoutesStopRequestObjectRequestBody
 from .raw_client import AsyncRawRoutesClient, RawRoutesClient
+from .types.get_routes_feed_request_expand import GetRoutesFeedRequestExpand
 
 # this is used as the default value for optional parameters
 OMIT = typing.cast(typing.Any, ...)
@@ -86,8 +87,6 @@ class RoutesClient:
         client.routes.fetch_routes(
             start_time="startTime",
             end_time="endTime",
-            limit=1,
-            after="after",
         )
         """
         _response = self._raw_client.fetch_routes(
@@ -185,7 +184,7 @@ class RoutesClient:
         self,
         *,
         after: typing.Optional[str] = None,
-        expand: typing.Optional[typing.Literal["route"]] = None,
+        expand: typing.Optional[GetRoutesFeedRequestExpand] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> RoutesGetRoutesFeedResponseBody:
         """
@@ -205,7 +204,7 @@ class RoutesClient:
         after : typing.Optional[str]
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
 
-        expand : typing.Optional[typing.Literal["route"]]
+        expand : typing.Optional[GetRoutesFeedRequestExpand]
             Expands the specified value(s) in the response object. Expansion populates additional fields in an object, if supported. Unsupported fields are ignored. To expand multiple fields, input a comma-separated list.
 
             Valid value: `route`  Valid values: `route`
@@ -225,9 +224,7 @@ class RoutesClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.routes.get_routes_feed(
-            after="after",
-        )
+        client.routes.get_routes_feed()
         """
         _response = self._raw_client.get_routes_feed(after=after, expand=expand, request_options=request_options)
         return _response.data
@@ -454,8 +451,6 @@ class RoutesClient:
 
         Examples
         --------
-        import datetime
-
         from samsara import Samsara
 
         client = Samsara(
@@ -463,15 +458,6 @@ class RoutesClient:
         )
         client.routes.list_hub_plan_routes(
             plan_id="planId",
-            route_ids="routeIds",
-            start_time=datetime.datetime.fromisoformat(
-                "2024-01-15 09:30:00+00:00",
-            ),
-            end_time=datetime.datetime.fromisoformat(
-                "2024-01-15 09:30:00+00:00",
-            ),
-            after="after",
-            limit=1,
         )
         """
         _response = self._raw_client.list_hub_plan_routes(
@@ -609,8 +595,6 @@ class AsyncRoutesClient:
             await client.routes.fetch_routes(
                 start_time="startTime",
                 end_time="endTime",
-                limit=1,
-                after="after",
             )
 
 
@@ -719,7 +703,7 @@ class AsyncRoutesClient:
         self,
         *,
         after: typing.Optional[str] = None,
-        expand: typing.Optional[typing.Literal["route"]] = None,
+        expand: typing.Optional[GetRoutesFeedRequestExpand] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> RoutesGetRoutesFeedResponseBody:
         """
@@ -739,7 +723,7 @@ class AsyncRoutesClient:
         after : typing.Optional[str]
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
 
-        expand : typing.Optional[typing.Literal["route"]]
+        expand : typing.Optional[GetRoutesFeedRequestExpand]
             Expands the specified value(s) in the response object. Expansion populates additional fields in an object, if supported. Unsupported fields are ignored. To expand multiple fields, input a comma-separated list.
 
             Valid value: `route`  Valid values: `route`
@@ -764,9 +748,7 @@ class AsyncRoutesClient:
 
 
         async def main() -> None:
-            await client.routes.get_routes_feed(
-                after="after",
-            )
+            await client.routes.get_routes_feed()
 
 
         asyncio.run(main())
@@ -1021,7 +1003,6 @@ class AsyncRoutesClient:
         Examples
         --------
         import asyncio
-        import datetime
 
         from samsara import AsyncSamsara
 
@@ -1033,15 +1014,6 @@ class AsyncRoutesClient:
         async def main() -> None:
             await client.routes.list_hub_plan_routes(
                 plan_id="planId",
-                route_ids="routeIds",
-                start_time=datetime.datetime.fromisoformat(
-                    "2024-01-15 09:30:00+00:00",
-                ),
-                end_time=datetime.datetime.fromisoformat(
-                    "2024-01-15 09:30:00+00:00",
-                ),
-                after="after",
-                limit=1,
             )
 
 

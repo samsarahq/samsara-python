@@ -37,7 +37,7 @@ class ReadingSnapshotResponseBody(UniversalBaseModel):
     The ID of the reading for which the data is being returned.
     """
 
-    value: typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]] = pydantic.Field(default=None)
+    value: typing.Optional[typing.Dict[str, typing.Any]] = pydantic.Field(default=None)
     """
     The value of the reading.
     """

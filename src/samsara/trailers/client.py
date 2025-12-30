@@ -78,12 +78,7 @@ class TrailersClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.trailers.list_trailers(
-            tag_ids="tagIds",
-            parent_tag_ids="parentTagIds",
-            limit=1,
-            after="after",
-        )
+        client.trailers.list_trailers()
         """
         _response = self._raw_client.list_trailers(
             tag_ids=tag_ids, parent_tag_ids=parent_tag_ids, limit=limit, after=after, request_options=request_options
@@ -410,12 +405,7 @@ class AsyncTrailersClient:
 
 
         async def main() -> None:
-            await client.trailers.list_trailers(
-                tag_ids="tagIds",
-                parent_tag_ids="parentTagIds",
-                limit=1,
-                after="after",
-            )
+            await client.trailers.list_trailers()
 
 
         asyncio.run(main())

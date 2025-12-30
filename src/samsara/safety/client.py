@@ -83,7 +83,6 @@ class SafetyClient:
             token="YOUR_TOKEN",
         )
         client.safety.get_safety_events(
-            after="after",
             start_time="startTime",
             end_time="endTime",
         )
@@ -145,10 +144,7 @@ class SafetyClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.safety.get_safety_activity_event_feed(
-            after="after",
-            start_time="startTime",
-        )
+        client.safety.get_safety_activity_event_feed()
         """
         _response = self._raw_client.get_safety_activity_event_feed(
             after=after, start_time=start_time, request_options=request_options
@@ -392,7 +388,6 @@ class AsyncSafetyClient:
 
         async def main() -> None:
             await client.safety.get_safety_events(
-                after="after",
                 start_time="startTime",
                 end_time="endTime",
             )
@@ -462,10 +457,7 @@ class AsyncSafetyClient:
 
 
         async def main() -> None:
-            await client.safety.get_safety_activity_event_feed(
-                after="after",
-                start_time="startTime",
-            )
+            await client.safety.get_safety_activity_event_feed()
 
 
         asyncio.run(main())

@@ -86,10 +86,7 @@ class WorkOrdersClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.work_orders.get_service_tasks(
-            include_archived=True,
-            after="after",
-        )
+        client.work_orders.get_service_tasks()
         """
         _response = self._raw_client.get_service_tasks(
             ids=ids, include_archived=include_archived, after=after, request_options=request_options
@@ -136,9 +133,7 @@ class WorkOrdersClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.work_orders.get_work_orders(
-            after="after",
-        )
+        client.work_orders.get_work_orders()
         """
         _response = self._raw_client.get_work_orders(ids=ids, after=after, request_options=request_options)
         return _response.data
@@ -485,9 +480,7 @@ class WorkOrdersClient:
             token="YOUR_TOKEN",
         )
         client.work_orders.stream_work_orders(
-            after="after",
             start_time="startTime",
-            end_time="endTime",
         )
         """
         _response = self._raw_client.stream_work_orders(
@@ -566,10 +559,7 @@ class AsyncWorkOrdersClient:
 
 
         async def main() -> None:
-            await client.work_orders.get_service_tasks(
-                include_archived=True,
-                after="after",
-            )
+            await client.work_orders.get_service_tasks()
 
 
         asyncio.run(main())
@@ -624,9 +614,7 @@ class AsyncWorkOrdersClient:
 
 
         async def main() -> None:
-            await client.work_orders.get_work_orders(
-                after="after",
-            )
+            await client.work_orders.get_work_orders()
 
 
         asyncio.run(main())
@@ -1005,9 +993,7 @@ class AsyncWorkOrdersClient:
 
         async def main() -> None:
             await client.work_orders.stream_work_orders(
-                after="after",
                 start_time="startTime",
-                end_time="endTime",
             )
 
 

@@ -10,6 +10,7 @@ from ..core.serialization import FieldMetadata
 from .goa_driver_tiny_response_response_body import GoaDriverTinyResponseResponseBody
 from .minimal_route_stop_response_body import MinimalRouteStopResponseBody
 from .route_stop_details_object_response_body_operation import RouteStopDetailsObjectResponseBodyOperation
+from .route_stop_details_object_response_body_type import RouteStopDetailsObjectResponseBodyType
 from .vehicle_with_gateway_tiny_response_response_body import VehicleWithGatewayTinyResponseResponseBody
 from .webhook_route_response_object_response_body import WebhookRouteResponseObjectResponseBody
 
@@ -30,7 +31,7 @@ class RouteStopDetailsObjectResponseBody(UniversalBaseModel):
     The timestamp of the route in RFC 3339 format.
     """
 
-    type: typing.Literal["route tracking"] = pydantic.Field(default="route tracking")
+    type: RouteStopDetailsObjectResponseBodyType = pydantic.Field()
     """
     The type of route update. The route tracking updates occur as a route is completed and stops transition from one state to another. Currently only Route Tracking updates are supported, but this will change in the future when additional types are added.  Valid values: `route tracking`
     """

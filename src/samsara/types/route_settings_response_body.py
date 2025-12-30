@@ -8,6 +8,7 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .route_settings_response_body_route_completion_condition import RouteSettingsResponseBodyRouteCompletionCondition
 from .route_settings_response_body_route_starting_condition import RouteSettingsResponseBodyRouteStartingCondition
+from .route_settings_response_body_sequencing_method import RouteSettingsResponseBodySequencingMethod
 
 
 class RouteSettingsResponseBody(UniversalBaseModel):
@@ -31,6 +32,13 @@ class RouteSettingsResponseBody(UniversalBaseModel):
     Defaults to 'departFirstStop' which starts the route upon departing the first stop in the route.
      The condition 'arriveFirstStop' starts the route upon arriving at the first stop in the route. If 'departFirstStop' is set,
     the arrival time of the first stop should not be set.  Valid values: `departFirstStop`, `arriveFirstStop`
+    """
+
+    sequencing_method: typing_extensions.Annotated[
+        typing.Optional[RouteSettingsResponseBodySequencingMethod], FieldMetadata(alias="sequencingMethod")
+    ] = pydantic.Field(default=None)
+    """
+    Determines how stops are sequenced on the route. 'scheduledArrivalTime' sequences stops by their scheduled arrival times (default). 'manual' allows custom sequencing via stop.sequenceNumber. 'unknown' indicates the method is not specified.  Valid values: `unknown`, `scheduledArrivalTime`, `manual`
     """
 
     if IS_PYDANTIC_V2:

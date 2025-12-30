@@ -8,13 +8,13 @@ from importlib import import_module
 if typing.TYPE_CHECKING:
     from .types import (
         CreateDriverRequestLocale,
-        DriversListRequestDriverActivationStatus,
+        ListDriversRequestDriverActivationStatus,
         UpdateDriverRequestDriverActivationStatus,
         UpdateDriverRequestLocale,
     )
 _dynamic_imports: typing.Dict[str, str] = {
     "CreateDriverRequestLocale": ".types",
-    "DriversListRequestDriverActivationStatus": ".types",
+    "ListDriversRequestDriverActivationStatus": ".types",
     "UpdateDriverRequestDriverActivationStatus": ".types",
     "UpdateDriverRequestLocale": ".types",
 }
@@ -43,7 +43,7 @@ def __dir__():
 
 __all__ = [
     "CreateDriverRequestLocale",
-    "DriversListRequestDriverActivationStatus",
+    "ListDriversRequestDriverActivationStatus",
     "UpdateDriverRequestDriverActivationStatus",
     "UpdateDriverRequestLocale",
 ]

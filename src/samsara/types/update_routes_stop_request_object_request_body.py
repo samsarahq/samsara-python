@@ -68,6 +68,13 @@ class UpdateRoutesStopRequestObjectRequestBody(UniversalBaseModel):
     This is a required field for all stops EXCEPT the start and end, based on route start and stop settings selected.
     """
 
+    sequence_number: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="sequenceNumber")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Manual sequence position for this stop. Only meaningful when route.settings.sequencingMethod=manual. Must be unique and positive when specified.
+    """
+
     single_use_location: typing_extensions.Annotated[
         typing.Optional[RoutesSingleUseAddressObjectRequestBody], FieldMetadata(alias="singleUseLocation")
     ] = None

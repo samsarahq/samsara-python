@@ -79,7 +79,6 @@ class TachographEuOnlyClient:
             token="YOUR_TOKEN",
         )
         client.tachograph_eu_only.get_driver_tachograph_activity(
-            after="after",
             start_time="startTime",
             end_time="endTime",
         )
@@ -151,7 +150,6 @@ class TachographEuOnlyClient:
             token="YOUR_TOKEN",
         )
         client.tachograph_eu_only.get_driver_tachograph_files(
-            after="after",
             start_time="startTime",
             end_time="endTime",
         )
@@ -223,7 +221,6 @@ class TachographEuOnlyClient:
             token="YOUR_TOKEN",
         )
         client.tachograph_eu_only.get_vehicle_tachograph_files(
-            after="after",
             start_time="startTime",
             end_time="endTime",
         )
@@ -314,7 +311,6 @@ class AsyncTachographEuOnlyClient:
 
         async def main() -> None:
             await client.tachograph_eu_only.get_driver_tachograph_activity(
-                after="after",
                 start_time="startTime",
                 end_time="endTime",
             )
@@ -394,7 +390,6 @@ class AsyncTachographEuOnlyClient:
 
         async def main() -> None:
             await client.tachograph_eu_only.get_driver_tachograph_files(
-                after="after",
                 start_time="startTime",
                 end_time="endTime",
             )
@@ -474,7 +469,6 @@ class AsyncTachographEuOnlyClient:
 
         async def main() -> None:
             await client.tachograph_eu_only.get_vehicle_tachograph_files(
-                after="after",
                 start_time="startTime",
                 end_time="endTime",
             )

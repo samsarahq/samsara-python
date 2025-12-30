@@ -4,6 +4,7 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
+from .patch_issue_request_body_assigned_to_request_body_type import PatchIssueRequestBodyAssignedToRequestBodyType
 
 
 class PatchIssueRequestBodyAssignedToRequestBody(UniversalBaseModel):
@@ -16,7 +17,7 @@ class PatchIssueRequestBodyAssignedToRequestBody(UniversalBaseModel):
     ID of the issue assignee.
     """
 
-    type: typing.Literal["user"] = pydantic.Field(default="user")
+    type: PatchIssueRequestBodyAssignedToRequestBodyType = pydantic.Field()
     """
     Type of the issue assignee.  Valid values: `user`
     """

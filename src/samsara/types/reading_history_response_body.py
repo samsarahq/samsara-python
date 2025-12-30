@@ -32,7 +32,7 @@ class ReadingHistoryResponseBody(UniversalBaseModel):
     The time in RFC 3339 format when the reading was measured.
     """
 
-    value: typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]] = pydantic.Field(default=None)
+    value: typing.Optional[typing.Dict[str, typing.Any]] = pydantic.Field(default=None)
     """
     The value of the reading.
     """

@@ -6,6 +6,7 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .forms_approval_config_object_response_body_type import FormsApprovalConfigObjectResponseBodyType
 from .forms_single_approval_config_object_response_body import FormsSingleApprovalConfigObjectResponseBody
 
 
@@ -17,7 +18,7 @@ class FormsApprovalConfigObjectResponseBody(UniversalBaseModel):
     single_approval_config: typing_extensions.Annotated[
         typing.Optional[FormsSingleApprovalConfigObjectResponseBody], FieldMetadata(alias="singleApprovalConfig")
     ] = None
-    type: typing.Literal["singleApproval"] = pydantic.Field(default="singleApproval")
+    type: FormsApprovalConfigObjectResponseBodyType = pydantic.Field()
     """
     Type of approval.  Valid values: `singleApproval`
     """
