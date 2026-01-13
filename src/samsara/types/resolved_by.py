@@ -4,6 +4,7 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
+from .resolved_by_type import ResolvedByType
 
 
 class ResolvedBy(UniversalBaseModel):
@@ -16,7 +17,7 @@ class ResolvedBy(UniversalBaseModel):
     The Id of user who is resolving the defect.
     """
 
-    type: typing.Literal["mechanic"] = pydantic.Field(default="mechanic")
+    type: ResolvedByType = pydantic.Field()
     """
     The type of user who is resolving the defect. Must be "mechanic".
     """

@@ -6,6 +6,7 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .reading_datapoint_request_body_entity_type import ReadingDatapointRequestBodyEntityType
 
 
 class ReadingDatapointRequestBody(UniversalBaseModel):
@@ -18,9 +19,9 @@ class ReadingDatapointRequestBody(UniversalBaseModel):
     Samsara entity ID. In case of an asset, it’s the assetId. If the asset is not yet present in the system, it is required to create a new one via the /assets endpoint.
     """
 
-    entity_type: typing_extensions.Annotated[typing.Literal["asset"], FieldMetadata(alias="entityType")] = (
-        pydantic.Field(default="asset")
-    )
+    entity_type: typing_extensions.Annotated[
+        ReadingDatapointRequestBodyEntityType, FieldMetadata(alias="entityType")
+    ] = pydantic.Field()
     """
     The type of the entity (e.g., asset).  Valid values: `asset`
     """
@@ -35,7 +36,7 @@ class ReadingDatapointRequestBody(UniversalBaseModel):
     The ID of the reading, you can get it from the /readings/definitions endpoint.
     """
 
-    value: typing.Dict[str, typing.Optional[typing.Any]] = pydantic.Field()
+    value: typing.Dict[str, typing.Any] = pydantic.Field()
     """
     The value of the reading. Can be any object. See the /readings/definitions endpoint for the value type for each reading.
     """

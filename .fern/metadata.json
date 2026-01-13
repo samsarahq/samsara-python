@@ -1,0 +1,11 @@
+{
+  "cliVersion": "3.23.0",
+  "generatorName": "fernapi/fern-python-sdk",
+  "generatorVersion": "4.46.0",
+  "generatorConfig": {
+    "client_class_name": "Samsara",
+    "improved_imports": true,
+    "inline_request_params": true,
+    "skip_formatting": false
+  }
+}

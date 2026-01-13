@@ -17,11 +17,12 @@ from ..types.driver_remote_signout_post_driver_remote_signout_response_body impo
     DriverRemoteSignoutPostDriverRemoteSignoutResponseBody,
 )
 from ..types.driver_response import DriverResponse
+from ..types.list_drivers_response import ListDriversResponse
 from ..types.update_driver_request_hos_setting import UpdateDriverRequestHosSetting
 from ..types.us_driver_ruleset_override import UsDriverRulesetOverride
 from .raw_client import AsyncRawDriversClient, RawDriversClient
 from .types.create_driver_request_locale import CreateDriverRequestLocale
-from .types.drivers_list_request_driver_activation_status import DriversListRequestDriverActivationStatus
+from .types.list_drivers_request_driver_activation_status import ListDriversRequestDriverActivationStatus
 from .types.update_driver_request_driver_activation_status import UpdateDriverRequestDriverActivationStatus
 from .types.update_driver_request_locale import UpdateDriverRequestLocale
 
@@ -47,7 +48,7 @@ class DriversClient:
     def list(
         self,
         *,
-        driver_activation_status: typing.Optional[DriversListRequestDriverActivationStatus] = None,
+        driver_activation_status: typing.Optional[ListDriversRequestDriverActivationStatus] = None,
         limit: typing.Optional[int] = None,
         after: typing.Optional[str] = None,
         parent_tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
@@ -57,7 +58,7 @@ class DriversClient:
         updated_after_time: typing.Optional[str] = None,
         created_after_time: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[Driver]:
+    ) -> SyncPager[Driver, ListDriversResponse]:
         """
         Get all drivers in organization.
 
@@ -67,7 +68,7 @@ class DriversClient:
 
         Parameters
         ----------
-        driver_activation_status : typing.Optional[DriversListRequestDriverActivationStatus]
+        driver_activation_status : typing.Optional[ListDriversRequestDriverActivationStatus]
             If value is `deactivated`, only drivers that are deactivated will appear in the response. This parameter will default to `active` if not provided (fetching only active drivers).
 
         limit : typing.Optional[int]
@@ -99,7 +100,7 @@ class DriversClient:
 
         Returns
         -------
-        SyncPager[Driver]
+        SyncPager[Driver, ListDriversResponse]
             List of all driver objects.
 
         Examples
@@ -109,13 +110,7 @@ class DriversClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        response = client.drivers.list(
-            driver_activation_status="active",
-            limit=1000000,
-            after="after",
-            updated_after_time="updatedAfterTime",
-            created_after_time="createdAfterTime",
-        )
+        response = client.drivers.list()
         for item in response:
             yield item
         # alternatively, you can paginate page-by-page
@@ -657,7 +652,7 @@ class AsyncDriversClient:
     async def list(
         self,
         *,
-        driver_activation_status: typing.Optional[DriversListRequestDriverActivationStatus] = None,
+        driver_activation_status: typing.Optional[ListDriversRequestDriverActivationStatus] = None,
         limit: typing.Optional[int] = None,
         after: typing.Optional[str] = None,
         parent_tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
@@ -667,7 +662,7 @@ class AsyncDriversClient:
         updated_after_time: typing.Optional[str] = None,
         created_after_time: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[Driver]:
+    ) -> AsyncPager[Driver, ListDriversResponse]:
         """
         Get all drivers in organization.
 
@@ -677,7 +672,7 @@ class AsyncDriversClient:
 
         Parameters
         ----------
-        driver_activation_status : typing.Optional[DriversListRequestDriverActivationStatus]
+        driver_activation_status : typing.Optional[ListDriversRequestDriverActivationStatus]
             If value is `deactivated`, only drivers that are deactivated will appear in the response. This parameter will default to `active` if not provided (fetching only active drivers).
 
         limit : typing.Optional[int]
@@ -709,7 +704,7 @@ class AsyncDriversClient:
 
         Returns
         -------
-        AsyncPager[Driver]
+        AsyncPager[Driver, ListDriversResponse]
             List of all driver objects.
 
         Examples
@@ -724,13 +719,7 @@ class AsyncDriversClient:
 
 
         async def main() -> None:
-            response = await client.drivers.list(
-                driver_activation_status="active",
-                limit=1000000,
-                after="after",
-                updated_after_time="updatedAfterTime",
-                created_after_time="createdAfterTime",
-            )
+            response = await client.drivers.list()
             async for item in response:
                 yield item
 

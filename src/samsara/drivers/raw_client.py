@@ -7,7 +7,7 @@ from ..core.api_error import ApiError
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.http_response import AsyncHttpResponse, HttpResponse
 from ..core.jsonable_encoder import jsonable_encoder
-from ..core.pagination import AsyncPager, BaseHttpResponse, SyncPager
+from ..core.pagination import AsyncPager, SyncPager
 from ..core.pydantic_utilities import parse_obj_as
 from ..core.request_options import RequestOptions
 from ..core.serialization import convert_and_respect_annotation_metadata
@@ -36,7 +36,7 @@ from ..types.list_drivers_response import ListDriversResponse
 from ..types.update_driver_request_hos_setting import UpdateDriverRequestHosSetting
 from ..types.us_driver_ruleset_override import UsDriverRulesetOverride
 from .types.create_driver_request_locale import CreateDriverRequestLocale
-from .types.drivers_list_request_driver_activation_status import DriversListRequestDriverActivationStatus
+from .types.list_drivers_request_driver_activation_status import ListDriversRequestDriverActivationStatus
 from .types.update_driver_request_driver_activation_status import UpdateDriverRequestDriverActivationStatus
 from .types.update_driver_request_locale import UpdateDriverRequestLocale
 
@@ -51,7 +51,7 @@ class RawDriversClient:
     def list(
         self,
         *,
-        driver_activation_status: typing.Optional[DriversListRequestDriverActivationStatus] = None,
+        driver_activation_status: typing.Optional[ListDriversRequestDriverActivationStatus] = None,
         limit: typing.Optional[int] = None,
         after: typing.Optional[str] = None,
         parent_tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
@@ -61,7 +61,7 @@ class RawDriversClient:
         updated_after_time: typing.Optional[str] = None,
         created_after_time: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[Driver]:
+    ) -> SyncPager[Driver, ListDriversResponse]:
         """
         Get all drivers in organization.
 
@@ -71,7 +71,7 @@ class RawDriversClient:
 
         Parameters
         ----------
-        driver_activation_status : typing.Optional[DriversListRequestDriverActivationStatus]
+        driver_activation_status : typing.Optional[ListDriversRequestDriverActivationStatus]
             If value is `deactivated`, only drivers that are deactivated will appear in the response. This parameter will default to `active` if not provided (fetching only active drivers).
 
         limit : typing.Optional[int]
@@ -103,7 +103,7 @@ class RawDriversClient:
 
         Returns
         -------
-        SyncPager[Driver]
+        SyncPager[Driver, ListDriversResponse]
             List of all driver objects.
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -149,9 +149,7 @@ class RawDriversClient:
                         created_after_time=created_after_time,
                         request_options=request_options,
                     )
-                return SyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return SyncPager(has_next=_has_next, items=_items, get_next=_get_next, response=_parsed_response)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -421,9 +419,9 @@ class RawDriversClient:
                 raise UnauthorizedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -432,9 +430,9 @@ class RawDriversClient:
                 raise NotFoundError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -443,9 +441,9 @@ class RawDriversClient:
                 raise MethodNotAllowedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -454,9 +452,9 @@ class RawDriversClient:
                 raise TooManyRequestsError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -465,9 +463,9 @@ class RawDriversClient:
                 raise InternalServerError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -476,9 +474,9 @@ class RawDriversClient:
                 raise NotImplementedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -487,9 +485,9 @@ class RawDriversClient:
                 raise BadGatewayError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -498,9 +496,9 @@ class RawDriversClient:
                 raise ServiceUnavailableError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -509,9 +507,9 @@ class RawDriversClient:
                 raise GatewayTimeoutError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -818,7 +816,7 @@ class AsyncRawDriversClient:
     async def list(
         self,
         *,
-        driver_activation_status: typing.Optional[DriversListRequestDriverActivationStatus] = None,
+        driver_activation_status: typing.Optional[ListDriversRequestDriverActivationStatus] = None,
         limit: typing.Optional[int] = None,
         after: typing.Optional[str] = None,
         parent_tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
@@ -828,7 +826,7 @@ class AsyncRawDriversClient:
         updated_after_time: typing.Optional[str] = None,
         created_after_time: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[Driver]:
+    ) -> AsyncPager[Driver, ListDriversResponse]:
         """
         Get all drivers in organization.
 
@@ -838,7 +836,7 @@ class AsyncRawDriversClient:
 
         Parameters
         ----------
-        driver_activation_status : typing.Optional[DriversListRequestDriverActivationStatus]
+        driver_activation_status : typing.Optional[ListDriversRequestDriverActivationStatus]
             If value is `deactivated`, only drivers that are deactivated will appear in the response. This parameter will default to `active` if not provided (fetching only active drivers).
 
         limit : typing.Optional[int]
@@ -870,7 +868,7 @@ class AsyncRawDriversClient:
 
         Returns
         -------
-        AsyncPager[Driver]
+        AsyncPager[Driver, ListDriversResponse]
             List of all driver objects.
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -919,9 +917,7 @@ class AsyncRawDriversClient:
                             request_options=request_options,
                         )
 
-                return AsyncPager(
-                    has_next=_has_next, items=_items, get_next=_get_next, response=BaseHttpResponse(response=_response)
-                )
+                return AsyncPager(has_next=_has_next, items=_items, get_next=_get_next, response=_parsed_response)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -1191,9 +1187,9 @@ class AsyncRawDriversClient:
                 raise UnauthorizedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1202,9 +1198,9 @@ class AsyncRawDriversClient:
                 raise NotFoundError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1213,9 +1209,9 @@ class AsyncRawDriversClient:
                 raise MethodNotAllowedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1224,9 +1220,9 @@ class AsyncRawDriversClient:
                 raise TooManyRequestsError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1235,9 +1231,9 @@ class AsyncRawDriversClient:
                 raise InternalServerError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1246,9 +1242,9 @@ class AsyncRawDriversClient:
                 raise NotImplementedError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1257,9 +1253,9 @@ class AsyncRawDriversClient:
                 raise BadGatewayError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1268,9 +1264,9 @@ class AsyncRawDriversClient:
                 raise ServiceUnavailableError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),
@@ -1279,9 +1275,9 @@ class AsyncRawDriversClient:
                 raise GatewayTimeoutError(
                     headers=dict(_response.headers),
                     body=typing.cast(
-                        typing.Optional[typing.Any],
+                        typing.Any,
                         parse_obj_as(
-                            type_=typing.Optional[typing.Any],  # type: ignore
+                            type_=typing.Any,  # type: ignore
                             object_=_response.json(),
                         ),
                     ),

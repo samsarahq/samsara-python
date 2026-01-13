@@ -10,6 +10,9 @@ from ..types.assets_inputs_get_assets_inputs_response_body import AssetsInputsGe
 from ..types.detection_log_get_detections_response_body import DetectionLogGetDetectionsResponseBody
 from ..types.devices_get_devices_response_body import DevicesGetDevicesResponseBody
 from ..types.driver_efficiencies_response import DriverEfficienciesResponse
+from ..types.drivers_auth_token_create_driver_auth_token_response_body import (
+    DriversAuthTokenCreateDriverAuthTokenResponseBody,
+)
 from ..types.engine_immobilizer_get_engine_immobilizer_states_response_body import (
     EngineImmobilizerGetEngineImmobilizerStatesResponseBody,
 )
@@ -310,23 +313,12 @@ class BetaApIsClient:
 
         Examples
         --------
-        import datetime
-
         from samsara import Samsara
 
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.beta_ap_is.get_driver_efficiency(
-            driver_activation_status="active",
-            after="after",
-            start_time=datetime.datetime.fromisoformat(
-                "2024-01-15 09:30:00+00:00",
-            ),
-            end_time=datetime.datetime.fromisoformat(
-                "2024-01-15 09:30:00+00:00",
-            ),
-        )
+        client.beta_ap_is.get_driver_efficiency()
         """
         _response = self._raw_client.get_driver_efficiency(
             driver_activation_status=driver_activation_status,
@@ -348,7 +340,6 @@ class BetaApIsClient:
         engine_hours: typing.Optional[int] = OMIT,
         equipment_serial_number: typing.Optional[str] = OMIT,
         external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
-        equipment_patch_equipment_request_body_id: typing.Optional[str] = OMIT,
         name: typing.Optional[str] = OMIT,
         notes: typing.Optional[str] = OMIT,
         odometer_meters: typing.Optional[int] = OMIT,
@@ -383,9 +374,6 @@ class BetaApIsClient:
 
         external_ids : typing.Optional[typing.Dict[str, str]]
             A map of external ids
-
-        equipment_patch_equipment_request_body_id : typing.Optional[str]
-            The unique Samsara ID of the Equipment. This is automatically generated when the Equipment object is created. It cannot be changed.
 
         name : typing.Optional[str]
             The human-readable name of the Equipment. This is set by a fleet administrator and will appear in both Samsara’s cloud dashboard as well as the Samsara Driver mobile app. By default, this name is the serial number of the Samsara Asset Gateway. It can be set or updated through the Samsara Dashboard or through the API at any time.
@@ -424,7 +412,6 @@ class BetaApIsClient:
             engine_hours=engine_hours,
             equipment_serial_number=equipment_serial_number,
             external_ids=external_ids,
-            equipment_patch_equipment_request_body_id=equipment_patch_equipment_request_body_id,
             name=name,
             notes=notes,
             odometer_meters=odometer_meters,
@@ -500,11 +487,6 @@ class BetaApIsClient:
         client.beta_ap_is.get_hos_eld_events(
             start_time="startTime",
             end_time="endTime",
-            tag_ids="tagIds",
-            parent_tag_ids="parentTagIds",
-            driver_activation_status="active",
-            after="after",
-            limit=1,
         )
         """
         _response = self._raw_client.get_hos_eld_events(
@@ -604,11 +586,6 @@ class BetaApIsClient:
         )
         client.beta_ap_is.get_trailer_stats_snapshot(
             types="types",
-            tag_ids="tagIds",
-            parent_tag_ids="parentTagIds",
-            after="after",
-            trailer_ids="trailerIds",
-            time="time",
         )
         """
         _response = self._raw_client.get_trailer_stats_snapshot(
@@ -740,11 +717,6 @@ class BetaApIsClient:
         )
         client.beta_ap_is.get_trailer_stats_feed(
             types="types",
-            tag_ids="tagIds",
-            parent_tag_ids="parentTagIds",
-            after="after",
-            trailer_ids="trailerIds",
-            decorations="decorations",
         )
         """
         _response = self._raw_client.get_trailer_stats_feed(
@@ -880,11 +852,6 @@ class BetaApIsClient:
             start_time="startTime",
             end_time="endTime",
             types="types",
-            tag_ids="tagIds",
-            parent_tag_ids="parentTagIds",
-            after="after",
-            trailer_ids="trailerIds",
-            decorations="decorations",
         )
         """
         _response = self._raw_client.get_trailer_stats_history(
@@ -1019,14 +986,7 @@ class BetaApIsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.beta_ap_is.get_jobs(
-            id="id",
-            start_date="startDate",
-            end_date="endDate",
-            status="active",
-            customer_name="customerName",
-            after="after",
-        )
+        client.beta_ap_is.get_jobs()
         """
         _response = self._raw_client.get_jobs(
             id=id,
@@ -1255,13 +1215,7 @@ class BetaApIsClient:
             token="YOUR_TOKEN",
         )
         client.beta_ap_is.get_detections(
-            inbox_event=True,
-            in_cab_alert_played=True,
-            include_asset=True,
-            include_driver=True,
             start_time="startTime",
-            end_time="endTime",
-            after="after",
         )
         """
         _response = self._raw_client.get_detections(
@@ -1335,11 +1289,7 @@ class BetaApIsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.beta_ap_is.get_devices(
-            include_health=True,
-            after="after",
-            limit=1,
-        )
+        client.beta_ap_is.get_devices()
         """
         _response = self._raw_client.get_devices(
             models=models,
@@ -1505,6 +1455,63 @@ class BetaApIsClient:
         )
         return _response.data
 
+    def create_driver_auth_token(
+        self,
+        *,
+        code: str,
+        external_id: typing.Optional[str] = OMIT,
+        id: typing.Optional[int] = OMIT,
+        username: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> DriversAuthTokenCreateDriverAuthTokenResponseBody:
+        """
+        Creates a short-lived auth token for a driver.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Driver Auth Token** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        code : str
+            Required. Random 12+ character string, used with the auth token to help secure the client from intercepted tokens.
+
+        external_id : typing.Optional[str]
+            Optional. External ID of the driver, in the format `key:value` (e.g., `payrollId:ABFS18600`). One of `id`, `externalId`, or `username` is required.
+
+        id : typing.Optional[int]
+            Optional. Samsara ID of the driver. One of `id`, `externalId`, or `username` is required.
+
+        username : typing.Optional[str]
+            Optional. Username of the driver. This is the login identifier configured when the driver is created. One of `id`, `externalId`, or `username` is required.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        DriversAuthTokenCreateDriverAuthTokenResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.create_driver_auth_token(
+            code="dp[gZc1wAigz4uGa0Hh",
+        )
+        """
+        _response = self._raw_client.create_driver_auth_token(
+            code=code, external_id=external_id, id=id, username=username, request_options=request_options
+        )
+        return _response.data
+
     def get_engine_immobilizer_states(
         self,
         *,
@@ -1556,8 +1563,6 @@ class BetaApIsClient:
         client.beta_ap_is.get_engine_immobilizer_states(
             vehicle_ids="vehicleIds",
             start_time="startTime",
-            end_time="endTime",
-            after="after",
         )
         """
         _response = self._raw_client.get_engine_immobilizer_states(
@@ -2096,12 +2101,6 @@ class BetaApIsClient:
             start_time=datetime.datetime.fromisoformat(
                 "2024-01-15 09:30:00+00:00",
             ),
-            end_time=datetime.datetime.fromisoformat(
-                "2024-01-15 09:30:00+00:00",
-            ),
-            after="after",
-            include_deleted=True,
-            include_external_ids=True,
         )
         """
         _response = self._raw_client.get_qualification_records_stream(
@@ -2202,7 +2201,6 @@ class BetaApIsClient:
         )
         client.beta_ap_is.get_qualification_types(
             entity_type="worker",
-            after="after",
         )
         """
         _response = self._raw_client.get_qualification_types(
@@ -2251,6 +2249,7 @@ class BetaApIsClient:
             data=[
                 ReadingDatapointRequestBody(
                     entity_id="123451234512345",
+                    entity_type="asset",
                     happened_at_time="2023-10-27T10:00:00Z",
                     reading_id="airInletPressure",
                     value={"key": "value"},
@@ -2309,11 +2308,7 @@ class BetaApIsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.beta_ap_is.list_readings_definitions(
-            after="after",
-            ids="ids",
-            entity_types="entityTypes",
-        )
+        client.beta_ap_is.list_readings_definitions()
         """
         _response = self._raw_client.list_readings_definitions(
             after=after, ids=ids, entity_types=entity_types, request_options=request_options
@@ -2403,15 +2398,8 @@ class BetaApIsClient:
             token="YOUR_TOKEN",
         )
         client.beta_ap_is.get_readings_history(
-            after="after",
             reading_id="readingId",
-            entity_ids="entityIds",
             entity_type="entityType",
-            external_ids="externalIds",
-            start_time="startTime",
-            end_time="endTime",
-            feed=True,
-            include_external_ids=True,
         )
         """
         _response = self._raw_client.get_readings_history(
@@ -2499,13 +2487,8 @@ class BetaApIsClient:
             token="YOUR_TOKEN",
         )
         client.beta_ap_is.get_readings_snapshot(
-            after="after",
             reading_ids="readingIds",
-            entity_ids="entityIds",
-            external_ids="externalIds",
-            as_of_time="asOfTime",
             entity_type="entityType",
-            include_external_ids=True,
         )
         """
         _response = self._raw_client.get_readings_snapshot(
@@ -2657,10 +2640,6 @@ class BetaApIsClient:
         )
         client.beta_ap_is.get_safety_events_v_2_stream(
             start_time="startTime",
-            end_time="endTime",
-            include_asset=True,
-            include_driver=True,
-            after="after",
         )
         """
         _response = self._raw_client.get_safety_events_v_2_stream(
@@ -2730,7 +2709,6 @@ class BetaApIsClient:
         client.beta_ap_is.get_driver_safety_scores(
             end_time="endTime",
             start_time="startTime",
-            after="after",
         )
         """
         _response = self._raw_client.get_driver_safety_scores(
@@ -2923,7 +2901,6 @@ class BetaApIsClient:
             end_time="endTime",
             start_time="startTime",
             score_type="driver",
-            after="after",
         )
         """
         _response = self._raw_client.get_tag_safety_scores(
@@ -2987,7 +2964,6 @@ class BetaApIsClient:
         client.beta_ap_is.get_vehicle_safety_scores(
             end_time="endTime",
             start_time="startTime",
-            after="after",
         )
         """
         _response = self._raw_client.get_vehicle_safety_scores(
@@ -3269,9 +3245,7 @@ class BetaApIsClient:
             token="YOUR_TOKEN",
         )
         client.beta_ap_is.get_training_assignments_stream(
-            after="after",
             start_time="startTime",
-            end_time="endTime",
         )
         """
         _response = self._raw_client.get_training_assignments_stream(
@@ -3334,9 +3308,7 @@ class BetaApIsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.beta_ap_is.get_training_courses(
-            after="after",
-        )
+        client.beta_ap_is.get_training_courses()
         """
         _response = self._raw_client.get_training_courses(
             after=after,
@@ -3638,7 +3610,6 @@ class AsyncBetaApIsClient:
         Examples
         --------
         import asyncio
-        import datetime
 
         from samsara import AsyncSamsara
 
@@ -3648,16 +3619,7 @@ class AsyncBetaApIsClient:
 
 
         async def main() -> None:
-            await client.beta_ap_is.get_driver_efficiency(
-                driver_activation_status="active",
-                after="after",
-                start_time=datetime.datetime.fromisoformat(
-                    "2024-01-15 09:30:00+00:00",
-                ),
-                end_time=datetime.datetime.fromisoformat(
-                    "2024-01-15 09:30:00+00:00",
-                ),
-            )
+            await client.beta_ap_is.get_driver_efficiency()
 
 
         asyncio.run(main())
@@ -3682,7 +3644,6 @@ class AsyncBetaApIsClient:
         engine_hours: typing.Optional[int] = OMIT,
         equipment_serial_number: typing.Optional[str] = OMIT,
         external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
-        equipment_patch_equipment_request_body_id: typing.Optional[str] = OMIT,
         name: typing.Optional[str] = OMIT,
         notes: typing.Optional[str] = OMIT,
         odometer_meters: typing.Optional[int] = OMIT,
@@ -3717,9 +3678,6 @@ class AsyncBetaApIsClient:
 
         external_ids : typing.Optional[typing.Dict[str, str]]
             A map of external ids
-
-        equipment_patch_equipment_request_body_id : typing.Optional[str]
-            The unique Samsara ID of the Equipment. This is automatically generated when the Equipment object is created. It cannot be changed.
 
         name : typing.Optional[str]
             The human-readable name of the Equipment. This is set by a fleet administrator and will appear in both Samsara’s cloud dashboard as well as the Samsara Driver mobile app. By default, this name is the serial number of the Samsara Asset Gateway. It can be set or updated through the Samsara Dashboard or through the API at any time.
@@ -3766,7 +3724,6 @@ class AsyncBetaApIsClient:
             engine_hours=engine_hours,
             equipment_serial_number=equipment_serial_number,
             external_ids=external_ids,
-            equipment_patch_equipment_request_body_id=equipment_patch_equipment_request_body_id,
             name=name,
             notes=notes,
             odometer_meters=odometer_meters,
@@ -3847,11 +3804,6 @@ class AsyncBetaApIsClient:
             await client.beta_ap_is.get_hos_eld_events(
                 start_time="startTime",
                 end_time="endTime",
-                tag_ids="tagIds",
-                parent_tag_ids="parentTagIds",
-                driver_activation_status="active",
-                after="after",
-                limit=1,
             )
 
 
@@ -3959,11 +3911,6 @@ class AsyncBetaApIsClient:
         async def main() -> None:
             await client.beta_ap_is.get_trailer_stats_snapshot(
                 types="types",
-                tag_ids="tagIds",
-                parent_tag_ids="parentTagIds",
-                after="after",
-                trailer_ids="trailerIds",
-                time="time",
             )
 
 
@@ -4103,11 +4050,6 @@ class AsyncBetaApIsClient:
         async def main() -> None:
             await client.beta_ap_is.get_trailer_stats_feed(
                 types="types",
-                tag_ids="tagIds",
-                parent_tag_ids="parentTagIds",
-                after="after",
-                trailer_ids="trailerIds",
-                decorations="decorations",
             )
 
 
@@ -4251,11 +4193,6 @@ class AsyncBetaApIsClient:
                 start_time="startTime",
                 end_time="endTime",
                 types="types",
-                tag_ids="tagIds",
-                parent_tag_ids="parentTagIds",
-                after="after",
-                trailer_ids="trailerIds",
-                decorations="decorations",
             )
 
 
@@ -4406,14 +4343,7 @@ class AsyncBetaApIsClient:
 
 
         async def main() -> None:
-            await client.beta_ap_is.get_jobs(
-                id="id",
-                start_date="startDate",
-                end_date="endDate",
-                status="active",
-                customer_name="customerName",
-                after="after",
-            )
+            await client.beta_ap_is.get_jobs()
 
 
         asyncio.run(main())
@@ -4674,13 +4604,7 @@ class AsyncBetaApIsClient:
 
         async def main() -> None:
             await client.beta_ap_is.get_detections(
-                inbox_event=True,
-                in_cab_alert_played=True,
-                include_asset=True,
-                include_driver=True,
                 start_time="startTime",
-                end_time="endTime",
-                after="after",
             )
 
 
@@ -4762,11 +4686,7 @@ class AsyncBetaApIsClient:
 
 
         async def main() -> None:
-            await client.beta_ap_is.get_devices(
-                include_health=True,
-                after="after",
-                limit=1,
-            )
+            await client.beta_ap_is.get_devices()
 
 
         asyncio.run(main())
@@ -4959,6 +4879,71 @@ class AsyncBetaApIsClient:
         )
         return _response.data
 
+    async def create_driver_auth_token(
+        self,
+        *,
+        code: str,
+        external_id: typing.Optional[str] = OMIT,
+        id: typing.Optional[int] = OMIT,
+        username: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> DriversAuthTokenCreateDriverAuthTokenResponseBody:
+        """
+        Creates a short-lived auth token for a driver.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Driver Auth Token** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        code : str
+            Required. Random 12+ character string, used with the auth token to help secure the client from intercepted tokens.
+
+        external_id : typing.Optional[str]
+            Optional. External ID of the driver, in the format `key:value` (e.g., `payrollId:ABFS18600`). One of `id`, `externalId`, or `username` is required.
+
+        id : typing.Optional[int]
+            Optional. Samsara ID of the driver. One of `id`, `externalId`, or `username` is required.
+
+        username : typing.Optional[str]
+            Optional. Username of the driver. This is the login identifier configured when the driver is created. One of `id`, `externalId`, or `username` is required.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        DriversAuthTokenCreateDriverAuthTokenResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.create_driver_auth_token(
+                code="dp[gZc1wAigz4uGa0Hh",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.create_driver_auth_token(
+            code=code, external_id=external_id, id=id, username=username, request_options=request_options
+        )
+        return _response.data
+
     async def get_engine_immobilizer_states(
         self,
         *,
@@ -5015,8 +5000,6 @@ class AsyncBetaApIsClient:
             await client.beta_ap_is.get_engine_immobilizer_states(
                 vehicle_ids="vehicleIds",
                 start_time="startTime",
-                end_time="endTime",
-                after="after",
             )
 
 
@@ -5628,12 +5611,6 @@ class AsyncBetaApIsClient:
                 start_time=datetime.datetime.fromisoformat(
                     "2024-01-15 09:30:00+00:00",
                 ),
-                end_time=datetime.datetime.fromisoformat(
-                    "2024-01-15 09:30:00+00:00",
-                ),
-                after="after",
-                include_deleted=True,
-                include_external_ids=True,
             )
 
 
@@ -5750,7 +5727,6 @@ class AsyncBetaApIsClient:
         async def main() -> None:
             await client.beta_ap_is.get_qualification_types(
                 entity_type="worker",
-                after="after",
             )
 
 
@@ -5807,6 +5783,7 @@ class AsyncBetaApIsClient:
                 data=[
                     ReadingDatapointRequestBody(
                         entity_id="123451234512345",
+                        entity_type="asset",
                         happened_at_time="2023-10-27T10:00:00Z",
                         reading_id="airInletPressure",
                         value={"key": "value"},
@@ -5873,11 +5850,7 @@ class AsyncBetaApIsClient:
 
 
         async def main() -> None:
-            await client.beta_ap_is.list_readings_definitions(
-                after="after",
-                ids="ids",
-                entity_types="entityTypes",
-            )
+            await client.beta_ap_is.list_readings_definitions()
 
 
         asyncio.run(main())
@@ -5975,15 +5948,8 @@ class AsyncBetaApIsClient:
 
         async def main() -> None:
             await client.beta_ap_is.get_readings_history(
-                after="after",
                 reading_id="readingId",
-                entity_ids="entityIds",
                 entity_type="entityType",
-                external_ids="externalIds",
-                start_time="startTime",
-                end_time="endTime",
-                feed=True,
-                include_external_ids=True,
             )
 
 
@@ -6079,13 +6045,8 @@ class AsyncBetaApIsClient:
 
         async def main() -> None:
             await client.beta_ap_is.get_readings_snapshot(
-                after="after",
                 reading_ids="readingIds",
-                entity_ids="entityIds",
-                external_ids="externalIds",
-                as_of_time="asOfTime",
                 entity_type="entityType",
-                include_external_ids=True,
             )
 
 
@@ -6253,10 +6214,6 @@ class AsyncBetaApIsClient:
         async def main() -> None:
             await client.beta_ap_is.get_safety_events_v_2_stream(
                 start_time="startTime",
-                end_time="endTime",
-                include_asset=True,
-                include_driver=True,
-                after="after",
             )
 
 
@@ -6334,7 +6291,6 @@ class AsyncBetaApIsClient:
             await client.beta_ap_is.get_driver_safety_scores(
                 end_time="endTime",
                 start_time="startTime",
-                after="after",
             )
 
 
@@ -6551,7 +6507,6 @@ class AsyncBetaApIsClient:
                 end_time="endTime",
                 start_time="startTime",
                 score_type="driver",
-                after="after",
             )
 
 
@@ -6623,7 +6578,6 @@ class AsyncBetaApIsClient:
             await client.beta_ap_is.get_vehicle_safety_scores(
                 end_time="endTime",
                 start_time="startTime",
-                after="after",
             )
 
 
@@ -6945,9 +6899,7 @@ class AsyncBetaApIsClient:
 
         async def main() -> None:
             await client.beta_ap_is.get_training_assignments_stream(
-                after="after",
                 start_time="startTime",
-                end_time="endTime",
             )
 
 
@@ -7018,9 +6970,7 @@ class AsyncBetaApIsClient:
 
 
         async def main() -> None:
-            await client.beta_ap_is.get_training_courses(
-                after="after",
-            )
+            await client.beta_ap_is.get_training_courses()
 
 
         asyncio.run(main())

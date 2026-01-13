@@ -80,10 +80,7 @@ class CoachingClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.coaching.get_driver_coach_assignment(
-            include_external_ids=True,
-            after="after",
-        )
+        client.coaching.get_driver_coach_assignment()
         """
         _response = self._raw_client.get_driver_coach_assignment(
             driver_ids=driver_ids,
@@ -136,7 +133,6 @@ class CoachingClient:
         )
         client.coaching.put_driver_coach_assignment(
             driver_id="driverId",
-            coach_id="coachId",
         )
         """
         _response = self._raw_client.put_driver_coach_assignment(
@@ -211,15 +207,9 @@ class CoachingClient:
             token="YOUR_TOKEN",
         )
         client.coaching.get_coaching_sessions(
-            include_coachable_events=True,
             start_time=datetime.datetime.fromisoformat(
                 "2024-01-15 09:30:00+00:00",
             ),
-            end_time=datetime.datetime.fromisoformat(
-                "2024-01-15 09:30:00+00:00",
-            ),
-            after="after",
-            include_external_ids=True,
         )
         """
         _response = self._raw_client.get_coaching_sessions(
@@ -304,10 +294,7 @@ class AsyncCoachingClient:
 
 
         async def main() -> None:
-            await client.coaching.get_driver_coach_assignment(
-                include_external_ids=True,
-                after="after",
-            )
+            await client.coaching.get_driver_coach_assignment()
 
 
         asyncio.run(main())
@@ -368,7 +355,6 @@ class AsyncCoachingClient:
         async def main() -> None:
             await client.coaching.put_driver_coach_assignment(
                 driver_id="driverId",
-                coach_id="coachId",
             )
 
 
@@ -450,15 +436,9 @@ class AsyncCoachingClient:
 
         async def main() -> None:
             await client.coaching.get_coaching_sessions(
-                include_coachable_events=True,
                 start_time=datetime.datetime.fromisoformat(
                     "2024-01-15 09:30:00+00:00",
                 ),
-                end_time=datetime.datetime.fromisoformat(
-                    "2024-01-15 09:30:00+00:00",
-                ),
-                after="after",
-                include_external_ids=True,
             )
 
 

@@ -93,16 +93,7 @@ class LocationAndSpeedClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.location_and_speed.get_location_and_speed(
-            after="after",
-            limit=1,
-            start_time="startTime",
-            end_time="endTime",
-            include_speed=True,
-            include_reverse_geo=True,
-            include_geofence_lookup=True,
-            include_external_ids=True,
-        )
+        client.location_and_speed.get_location_and_speed()
         """
         _response = self._raw_client.get_location_and_speed(
             after=after,
@@ -207,16 +198,7 @@ class AsyncLocationAndSpeedClient:
 
 
         async def main() -> None:
-            await client.location_and_speed.get_location_and_speed(
-                after="after",
-                limit=1,
-                start_time="startTime",
-                end_time="endTime",
-                include_speed=True,
-                include_reverse_geo=True,
-                include_geofence_lookup=True,
-                include_external_ids=True,
-            )
+            await client.location_and_speed.get_location_and_speed()
 
 
         asyncio.run(main())

@@ -82,13 +82,7 @@ class TrailerAssignmentsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.trailer_assignments.v_1_get_all_trailer_assignments(
-            start_ms=1000000,
-            end_ms=1000000,
-            limit=1000000,
-            starting_after="startingAfter",
-            ending_before="endingBefore",
-        )
+        client.trailer_assignments.v_1_get_all_trailer_assignments()
         """
         _response = self._raw_client.v_1_get_all_trailer_assignments(
             start_ms=start_ms,
@@ -152,8 +146,6 @@ class TrailerAssignmentsClient:
         )
         client.trailer_assignments.v_1_get_fleet_trailer_assignments(
             trailer_id=1000000,
-            start_ms=1000000,
-            end_ms=1000000,
         )
         """
         _response = self._raw_client.v_1_get_fleet_trailer_assignments(
@@ -240,13 +232,7 @@ class AsyncTrailerAssignmentsClient:
 
 
         async def main() -> None:
-            await client.trailer_assignments.v_1_get_all_trailer_assignments(
-                start_ms=1000000,
-                end_ms=1000000,
-                limit=1000000,
-                starting_after="startingAfter",
-                ending_before="endingBefore",
-            )
+            await client.trailer_assignments.v_1_get_all_trailer_assignments()
 
 
         asyncio.run(main())
@@ -318,8 +304,6 @@ class AsyncTrailerAssignmentsClient:
         async def main() -> None:
             await client.trailer_assignments.v_1_get_fleet_trailer_assignments(
                 trailer_id=1000000,
-                start_ms=1000000,
-                end_ms=1000000,
             )
 
 

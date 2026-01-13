@@ -8,6 +8,7 @@ from ..core.request_options import RequestOptions
 from ..types.address import Address
 from ..types.address_response import AddressResponse
 from ..types.create_address_request_geofence import CreateAddressRequestGeofence
+from ..types.list_addresses_response import ListAddressesResponse
 from ..types.standard_delete_response import StandardDeleteResponse
 from ..types.update_address_request_geofence import UpdateAddressRequestGeofence
 from .raw_client import AsyncRawAddressesClient, RawAddressesClient
@@ -42,7 +43,7 @@ class AddressesClient:
         tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         created_after_time: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SyncPager[Address]:
+    ) -> SyncPager[Address, ListAddressesResponse]:
         """
         Returns a list of all addresses in an organization.
 
@@ -72,7 +73,7 @@ class AddressesClient:
 
         Returns
         -------
-        SyncPager[Address]
+        SyncPager[Address, ListAddressesResponse]
             List of all addresses in the organization
 
         Examples
@@ -82,11 +83,7 @@ class AddressesClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        response = client.addresses.list(
-            limit=1000000,
-            after="after",
-            created_after_time="createdAfterTime",
-        )
+        response = client.addresses.list()
         for item in response:
             yield item
         # alternatively, you can paginate page-by-page
@@ -378,7 +375,7 @@ class AsyncAddressesClient:
         tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         created_after_time: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncPager[Address]:
+    ) -> AsyncPager[Address, ListAddressesResponse]:
         """
         Returns a list of all addresses in an organization.
 
@@ -408,7 +405,7 @@ class AsyncAddressesClient:
 
         Returns
         -------
-        AsyncPager[Address]
+        AsyncPager[Address, ListAddressesResponse]
             List of all addresses in the organization
 
         Examples
@@ -423,11 +420,7 @@ class AsyncAddressesClient:
 
 
         async def main() -> None:
-            response = await client.addresses.list(
-                limit=1000000,
-                after="after",
-                created_after_time="createdAfterTime",
-            )
+            response = await client.addresses.list()
             async for item in response:
                 yield item
 

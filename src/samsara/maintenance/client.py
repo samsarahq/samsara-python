@@ -15,6 +15,7 @@ from ..types.inline_response_2004 import InlineResponse2004
 from ..types.resolved_by import ResolvedBy
 from .raw_client import AsyncRawMaintenanceClient, RawMaintenanceClient
 from .types.create_dvir_request_safety_status import CreateDvirRequestSafetyStatus
+from .types.create_dvir_request_type import CreateDvirRequestType
 
 # this is used as the default value for optional parameters
 OMIT = typing.cast(typing.Any, ...)
@@ -79,10 +80,7 @@ class MaintenanceClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.maintenance.get_defect_types(
-            after="after",
-            limit=1,
-        )
+        client.maintenance.get_defect_types()
         """
         _response = self._raw_client.get_defect_types(
             after=after, limit=limit, ids=ids, request_options=request_options
@@ -146,12 +144,7 @@ class MaintenanceClient:
             token="YOUR_TOKEN",
         )
         client.maintenance.stream_defects(
-            after="after",
-            limit=1,
             start_time="startTime",
-            end_time="endTime",
-            include_external_ids=True,
-            is_resolved=True,
         )
         """
         _response = self._raw_client.stream_defects(
@@ -207,7 +200,6 @@ class MaintenanceClient:
         )
         client.maintenance.get_defect(
             id="id",
-            include_external_ids=True,
         )
         """
         _response = self._raw_client.get_defect(
@@ -272,11 +264,7 @@ class MaintenanceClient:
             token="YOUR_TOKEN",
         )
         client.maintenance.get_dvirs(
-            after="after",
-            limit=1,
-            include_external_ids=True,
             start_time="startTime",
-            end_time="endTime",
         )
         """
         _response = self._raw_client.get_dvirs(
@@ -332,7 +320,6 @@ class MaintenanceClient:
         )
         client.maintenance.get_dvir(
             id="id",
-            include_external_ids=True,
         )
         """
         _response = self._raw_client.get_dvir(
@@ -407,6 +394,7 @@ class MaintenanceClient:
         *,
         author_id: str,
         safety_status: CreateDvirRequestSafetyStatus,
+        type: CreateDvirRequestType,
         license_plate: typing.Optional[str] = OMIT,
         location: typing.Optional[str] = OMIT,
         mechanic_notes: typing.Optional[str] = OMIT,
@@ -430,6 +418,9 @@ class MaintenanceClient:
 
         safety_status : CreateDvirRequestSafetyStatus
             Whether or not this vehicle or trailer is safe to drive.
+
+        type : CreateDvirRequestType
+            Only type 'mechanic' is currently accepted.
 
         license_plate : typing.Optional[str]
             The license plate of this vehicle.
@@ -470,11 +461,13 @@ class MaintenanceClient:
         client.maintenance.create_dvir(
             author_id="11",
             safety_status="safe",
+            type="mechanic",
         )
         """
         _response = self._raw_client.create_dvir(
             author_id=author_id,
             safety_status=safety_status,
+            type=type,
             license_plate=license_plate,
             location=location,
             mechanic_notes=mechanic_notes,
@@ -655,10 +648,7 @@ class AsyncMaintenanceClient:
 
 
         async def main() -> None:
-            await client.maintenance.get_defect_types(
-                after="after",
-                limit=1,
-            )
+            await client.maintenance.get_defect_types()
 
 
         asyncio.run(main())
@@ -730,12 +720,7 @@ class AsyncMaintenanceClient:
 
         async def main() -> None:
             await client.maintenance.stream_defects(
-                after="after",
-                limit=1,
                 start_time="startTime",
-                end_time="endTime",
-                include_external_ids=True,
-                is_resolved=True,
             )
 
 
@@ -799,7 +784,6 @@ class AsyncMaintenanceClient:
         async def main() -> None:
             await client.maintenance.get_defect(
                 id="id",
-                include_external_ids=True,
             )
 
 
@@ -872,11 +856,7 @@ class AsyncMaintenanceClient:
 
         async def main() -> None:
             await client.maintenance.get_dvirs(
-                after="after",
-                limit=1,
-                include_external_ids=True,
                 start_time="startTime",
-                end_time="endTime",
             )
 
 
@@ -940,7 +920,6 @@ class AsyncMaintenanceClient:
         async def main() -> None:
             await client.maintenance.get_dvir(
                 id="id",
-                include_external_ids=True,
             )
 
 
@@ -1026,6 +1005,7 @@ class AsyncMaintenanceClient:
         *,
         author_id: str,
         safety_status: CreateDvirRequestSafetyStatus,
+        type: CreateDvirRequestType,
         license_plate: typing.Optional[str] = OMIT,
         location: typing.Optional[str] = OMIT,
         mechanic_notes: typing.Optional[str] = OMIT,
@@ -1049,6 +1029,9 @@ class AsyncMaintenanceClient:
 
         safety_status : CreateDvirRequestSafetyStatus
             Whether or not this vehicle or trailer is safe to drive.
+
+        type : CreateDvirRequestType
+            Only type 'mechanic' is currently accepted.
 
         license_plate : typing.Optional[str]
             The license plate of this vehicle.
@@ -1094,6 +1077,7 @@ class AsyncMaintenanceClient:
             await client.maintenance.create_dvir(
                 author_id="11",
                 safety_status="safe",
+                type="mechanic",
             )
 
 
@@ -1102,6 +1086,7 @@ class AsyncMaintenanceClient:
         _response = await self._raw_client.create_dvir(
             author_id=author_id,
             safety_status=safety_status,
+            type=type,
             license_plate=license_plate,
             location=location,
             mechanic_notes=mechanic_notes,

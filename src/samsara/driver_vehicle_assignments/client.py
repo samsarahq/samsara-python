@@ -114,12 +114,6 @@ class DriverVehicleAssignmentsClient:
         )
         client.driver_vehicle_assignments.get_driver_vehicle_assignments(
             filter_by="drivers",
-            start_time="startTime",
-            end_time="endTime",
-            driver_tag_ids="driverTagIds",
-            vehicle_tag_ids="vehicleTagIds",
-            after="after",
-            assignment_type="HOS",
         )
         """
         _response = self._raw_client.get_driver_vehicle_assignments(
@@ -445,12 +439,6 @@ class AsyncDriverVehicleAssignmentsClient:
         async def main() -> None:
             await client.driver_vehicle_assignments.get_driver_vehicle_assignments(
                 filter_by="drivers",
-                start_time="startTime",
-                end_time="endTime",
-                driver_tag_ids="driverTagIds",
-                vehicle_tag_ids="vehicleTagIds",
-                after="after",
-                assignment_type="HOS",
             )
 
 

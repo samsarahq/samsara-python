@@ -89,8 +89,6 @@ class HubsClient:
 
         Examples
         --------
-        import datetime
-
         from samsara import Samsara
 
         client = Samsara(
@@ -98,16 +96,6 @@ class HubsClient:
         )
         client.hubs.list_hub_capacities(
             hub_id="hubId",
-            capacity_ids="capacityIds",
-            capacity_names="capacityNames",
-            start_time=datetime.datetime.fromisoformat(
-                "2024-01-15 09:30:00+00:00",
-            ),
-            end_time=datetime.datetime.fromisoformat(
-                "2024-01-15 09:30:00+00:00",
-            ),
-            after="after",
-            limit=1,
         )
         """
         _response = self._raw_client.list_hub_capacities(
@@ -252,8 +240,6 @@ class HubsClient:
 
         Examples
         --------
-        import datetime
-
         from samsara import Samsara
 
         client = Samsara(
@@ -261,16 +247,6 @@ class HubsClient:
         )
         client.hubs.list_hub_locations(
             hub_id="hubId",
-            location_ids="locationIds",
-            customer_location_ids="customerLocationIds",
-            start_time=datetime.datetime.fromisoformat(
-                "2024-01-15 09:30:00+00:00",
-            ),
-            end_time=datetime.datetime.fromisoformat(
-                "2024-01-15 09:30:00+00:00",
-            ),
-            after="after",
-            limit=1,
         )
         """
         _response = self._raw_client.list_hub_locations(
@@ -414,8 +390,6 @@ class HubsClient:
 
         Examples
         --------
-        import datetime
-
         from samsara import Samsara
 
         client = Samsara(
@@ -423,16 +397,6 @@ class HubsClient:
         )
         client.hubs.list_hub_skills(
             hub_id="hubId",
-            skill_ids="skillIds",
-            skill_names="skillNames",
-            start_time=datetime.datetime.fromisoformat(
-                "2024-01-15 09:30:00+00:00",
-            ),
-            end_time=datetime.datetime.fromisoformat(
-                "2024-01-15 09:30:00+00:00",
-            ),
-            after="after",
-            limit=1,
         )
         """
         _response = self._raw_client.list_hub_skills(
@@ -494,24 +458,12 @@ class HubsClient:
 
         Examples
         --------
-        import datetime
-
         from samsara import Samsara
 
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.hubs.list_hubs(
-            hub_ids="hubIds",
-            start_time=datetime.datetime.fromisoformat(
-                "2024-01-15 09:30:00+00:00",
-            ),
-            end_time=datetime.datetime.fromisoformat(
-                "2024-01-15 09:30:00+00:00",
-            ),
-            after="after",
-            limit=1,
-        )
+        client.hubs.list_hubs()
         """
         _response = self._raw_client.list_hubs(
             hub_ids=hub_ids,
@@ -595,7 +547,6 @@ class AsyncHubsClient:
         Examples
         --------
         import asyncio
-        import datetime
 
         from samsara import AsyncSamsara
 
@@ -607,16 +558,6 @@ class AsyncHubsClient:
         async def main() -> None:
             await client.hubs.list_hub_capacities(
                 hub_id="hubId",
-                capacity_ids="capacityIds",
-                capacity_names="capacityNames",
-                start_time=datetime.datetime.fromisoformat(
-                    "2024-01-15 09:30:00+00:00",
-                ),
-                end_time=datetime.datetime.fromisoformat(
-                    "2024-01-15 09:30:00+00:00",
-                ),
-                after="after",
-                limit=1,
             )
 
 
@@ -773,7 +714,6 @@ class AsyncHubsClient:
         Examples
         --------
         import asyncio
-        import datetime
 
         from samsara import AsyncSamsara
 
@@ -785,16 +725,6 @@ class AsyncHubsClient:
         async def main() -> None:
             await client.hubs.list_hub_locations(
                 hub_id="hubId",
-                location_ids="locationIds",
-                customer_location_ids="customerLocationIds",
-                start_time=datetime.datetime.fromisoformat(
-                    "2024-01-15 09:30:00+00:00",
-                ),
-                end_time=datetime.datetime.fromisoformat(
-                    "2024-01-15 09:30:00+00:00",
-                ),
-                after="after",
-                limit=1,
             )
 
 
@@ -950,7 +880,6 @@ class AsyncHubsClient:
         Examples
         --------
         import asyncio
-        import datetime
 
         from samsara import AsyncSamsara
 
@@ -962,16 +891,6 @@ class AsyncHubsClient:
         async def main() -> None:
             await client.hubs.list_hub_skills(
                 hub_id="hubId",
-                skill_ids="skillIds",
-                skill_names="skillNames",
-                start_time=datetime.datetime.fromisoformat(
-                    "2024-01-15 09:30:00+00:00",
-                ),
-                end_time=datetime.datetime.fromisoformat(
-                    "2024-01-15 09:30:00+00:00",
-                ),
-                after="after",
-                limit=1,
             )
 
 
@@ -1037,7 +956,6 @@ class AsyncHubsClient:
         Examples
         --------
         import asyncio
-        import datetime
 
         from samsara import AsyncSamsara
 
@@ -1047,17 +965,7 @@ class AsyncHubsClient:
 
 
         async def main() -> None:
-            await client.hubs.list_hubs(
-                hub_ids="hubIds",
-                start_time=datetime.datetime.fromisoformat(
-                    "2024-01-15 09:30:00+00:00",
-                ),
-                end_time=datetime.datetime.fromisoformat(
-                    "2024-01-15 09:30:00+00:00",
-                ),
-                after="after",
-                limit=1,
-            )
+            await client.hubs.list_hubs()
 
 
         asyncio.run(main())

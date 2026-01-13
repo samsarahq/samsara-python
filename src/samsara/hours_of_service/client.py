@@ -11,6 +11,7 @@ from ..types.hos_violations_get_hos_violations_response_body import HosViolation
 from ..types.v_1_hos_authentication_logs_response import V1HosAuthenticationLogsResponse
 from .raw_client import AsyncRawHoursOfServiceClient, RawHoursOfServiceClient
 from .types.get_hos_daily_logs_request_driver_activation_status import GetHosDailyLogsRequestDriverActivationStatus
+from .types.get_hos_daily_logs_request_expand import GetHosDailyLogsRequestExpand
 
 # this is used as the default value for optional parameters
 OMIT = typing.cast(typing.Any, ...)
@@ -80,10 +81,7 @@ class HoursOfServiceClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.hours_of_service.get_hos_clocks(
-            after="after",
-            limit=1000000,
-        )
+        client.hours_of_service.get_hos_clocks()
         """
         _response = self._raw_client.get_hos_clocks(
             tag_ids=tag_ids,
@@ -105,7 +103,7 @@ class HoursOfServiceClient:
         parent_tag_ids: typing.Optional[str] = None,
         driver_activation_status: typing.Optional[GetHosDailyLogsRequestDriverActivationStatus] = None,
         after: typing.Optional[str] = None,
-        expand: typing.Optional[typing.Literal["vehicle"]] = None,
+        expand: typing.Optional[GetHosDailyLogsRequestExpand] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HosDailyLogsGetHosDailyLogsResponseBody:
         """
@@ -149,7 +147,7 @@ class HoursOfServiceClient:
         after : typing.Optional[str]
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
 
-        expand : typing.Optional[typing.Literal["vehicle"]]
+        expand : typing.Optional[GetHosDailyLogsRequestExpand]
             Expands the specified value(s) in the response object. Expansion populates additional fields in an object, if supported. Unsupported fields are ignored. To expand multiple fields, input a comma-separated list.
 
             Valid value: `vehicle`  Valid values: `vehicle`
@@ -169,14 +167,7 @@ class HoursOfServiceClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.hours_of_service.get_hos_daily_logs(
-            start_date="startDate",
-            end_date="endDate",
-            tag_ids="tagIds",
-            parent_tag_ids="parentTagIds",
-            driver_activation_status="active",
-            after="after",
-        )
+        client.hours_of_service.get_hos_daily_logs()
         """
         _response = self._raw_client.get_hos_daily_logs(
             driver_ids=driver_ids,
@@ -248,11 +239,7 @@ class HoursOfServiceClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.hours_of_service.get_hos_logs(
-            start_time="startTime",
-            end_time="endTime",
-            after="after",
-        )
+        client.hours_of_service.get_hos_logs()
         """
         _response = self._raw_client.get_hos_logs(
             tag_ids=tag_ids,
@@ -331,13 +318,7 @@ class HoursOfServiceClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.hours_of_service.get_hos_violations(
-            start_time="startTime",
-            end_time="endTime",
-            tag_ids="tagIds",
-            parent_tag_ids="parentTagIds",
-            after="after",
-        )
+        client.hours_of_service.get_hos_violations()
         """
         _response = self._raw_client.get_hos_violations(
             driver_ids=driver_ids,
@@ -554,10 +535,7 @@ class AsyncHoursOfServiceClient:
 
 
         async def main() -> None:
-            await client.hours_of_service.get_hos_clocks(
-                after="after",
-                limit=1000000,
-            )
+            await client.hours_of_service.get_hos_clocks()
 
 
         asyncio.run(main())
@@ -582,7 +560,7 @@ class AsyncHoursOfServiceClient:
         parent_tag_ids: typing.Optional[str] = None,
         driver_activation_status: typing.Optional[GetHosDailyLogsRequestDriverActivationStatus] = None,
         after: typing.Optional[str] = None,
-        expand: typing.Optional[typing.Literal["vehicle"]] = None,
+        expand: typing.Optional[GetHosDailyLogsRequestExpand] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HosDailyLogsGetHosDailyLogsResponseBody:
         """
@@ -626,7 +604,7 @@ class AsyncHoursOfServiceClient:
         after : typing.Optional[str]
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
 
-        expand : typing.Optional[typing.Literal["vehicle"]]
+        expand : typing.Optional[GetHosDailyLogsRequestExpand]
             Expands the specified value(s) in the response object. Expansion populates additional fields in an object, if supported. Unsupported fields are ignored. To expand multiple fields, input a comma-separated list.
 
             Valid value: `vehicle`  Valid values: `vehicle`
@@ -651,14 +629,7 @@ class AsyncHoursOfServiceClient:
 
 
         async def main() -> None:
-            await client.hours_of_service.get_hos_daily_logs(
-                start_date="startDate",
-                end_date="endDate",
-                tag_ids="tagIds",
-                parent_tag_ids="parentTagIds",
-                driver_activation_status="active",
-                after="after",
-            )
+            await client.hours_of_service.get_hos_daily_logs()
 
 
         asyncio.run(main())
@@ -738,11 +709,7 @@ class AsyncHoursOfServiceClient:
 
 
         async def main() -> None:
-            await client.hours_of_service.get_hos_logs(
-                start_time="startTime",
-                end_time="endTime",
-                after="after",
-            )
+            await client.hours_of_service.get_hos_logs()
 
 
         asyncio.run(main())
@@ -829,13 +796,7 @@ class AsyncHoursOfServiceClient:
 
 
         async def main() -> None:
-            await client.hours_of_service.get_hos_violations(
-                start_time="startTime",
-                end_time="endTime",
-                tag_ids="tagIds",
-                parent_tag_ids="parentTagIds",
-                after="after",
-            )
+            await client.hours_of_service.get_hos_violations()
 
 
         asyncio.run(main())

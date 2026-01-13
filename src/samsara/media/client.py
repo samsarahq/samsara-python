@@ -115,8 +115,6 @@ class MediaClient:
             vehicle_ids="vehicleIds",
             start_time="startTime",
             end_time="endTime",
-            available_after_time="availableAfterTime",
-            after="after",
         )
         """
         _response = self._raw_client.list_uploaded_media(
@@ -341,8 +339,6 @@ class AsyncMediaClient:
                 vehicle_ids="vehicleIds",
                 start_time="startTime",
                 end_time="endTime",
-                available_after_time="availableAfterTime",
-                after="after",
             )
 
 
