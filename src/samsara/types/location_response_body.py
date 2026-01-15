@@ -14,14 +14,14 @@ class LocationResponseBody(UniversalBaseModel):
     """
 
     latitude: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="Latitude")] = pydantic.Field(
-        default=None
+        alias="Latitude", default=None
     )
     """
     Location latitude.
     """
 
     longitude: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="Longitude")] = pydantic.Field(
-        default=None
+        alias="Longitude", default=None
     )
     """
     Location longitude.

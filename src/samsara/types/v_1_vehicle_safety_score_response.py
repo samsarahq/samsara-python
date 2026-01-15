@@ -15,21 +15,21 @@ class V1VehicleSafetyScoreResponse(UniversalBaseModel):
     """
 
     crash_count: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="crashCount")] = pydantic.Field(
-        default=None
+        alias="crashCount", default=None
     )
     """
     Crash event count
     """
 
     harsh_accel_count: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="harshAccelCount")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="harshAccelCount", default=None)
     )
     """
     Harsh acceleration event count
     """
 
     harsh_braking_count: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="harshBrakingCount")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="harshBrakingCount", default=None)
     )
     """
     Harsh braking event count
@@ -37,23 +37,23 @@ class V1VehicleSafetyScoreResponse(UniversalBaseModel):
 
     harsh_events: typing_extensions.Annotated[
         typing.Optional[typing.List[V1SafetyReportHarshEvent]], FieldMetadata(alias="harshEvents")
-    ] = None
+    ] = pydantic.Field(alias="harshEvents", default=None)
     harsh_turning_count: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="harshTurningCount")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="harshTurningCount", default=None)
     )
     """
     Harsh turning event count
     """
 
     safety_score: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="safetyScore")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="safetyScore", default=None)
     )
     """
     The vehicle’s Safety Score for the requested period. Note that if the vehicle has zero drive time in this period, the Safety Score will be returned as 100.
     """
 
     safety_score_rank: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="safetyScoreRank")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="safetyScoreRank", default=None)
     )
     """
     Safety Score Rank
@@ -61,34 +61,34 @@ class V1VehicleSafetyScoreResponse(UniversalBaseModel):
 
     time_over_speed_limit_ms: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="timeOverSpeedLimitMs")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="timeOverSpeedLimitMs", default=None)
     """
     Amount of time driven over the speed limit in milliseconds
     """
 
     total_distance_driven_meters: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="totalDistanceDrivenMeters")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="totalDistanceDrivenMeters", default=None)
     """
     Total distance driven in meters
     """
 
     total_harsh_event_count: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="totalHarshEventCount")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="totalHarshEventCount", default=None)
     """
     Total harsh event count
     """
 
     total_time_driven_ms: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="totalTimeDrivenMs")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="totalTimeDrivenMs", default=None)
     """
     Amount of time driven in milliseconds
     """
 
     vehicle_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="vehicleId")] = pydantic.Field(
-        default=None
+        alias="vehicleId", default=None
     )
     """
     Vehicle ID

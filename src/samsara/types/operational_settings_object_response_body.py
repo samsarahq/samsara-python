@@ -19,14 +19,14 @@ class OperationalSettingsObjectResponseBody(UniversalBaseModel):
 
     time_range_type: typing_extensions.Annotated[
         OperationalSettingsObjectResponseBodyTimeRangeType, FieldMetadata(alias="timeRangeType")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="timeRangeType")
     """
     The type of time ranges.  Valid values: `activeBetween`, `inactiveBetween`
     """
 
     time_ranges: typing_extensions.Annotated[
         typing.List[TimeRangeObjectResponseBody], FieldMetadata(alias="timeRanges")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="timeRanges")
     """
     The time ranges this alert applies to.
     """

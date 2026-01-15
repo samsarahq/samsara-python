@@ -21,38 +21,42 @@ class HosEldEventObjectResponseBody(UniversalBaseModel):
 
     accumulated_vehicle_meters: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="accumulatedVehicleMeters")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="accumulatedVehicleMeters", default=None)
     """
     The accumulated meters in the given ignition power on cycle.
     """
 
     elapsed_engine_hours: typing_extensions.Annotated[
         typing.Optional[float], FieldMetadata(alias="elapsedEngineHours")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="elapsedEngineHours", default=None)
     """
     The elapsed time in the engine's operation in the given ignition power on cycle.
     """
 
-    eld_event_code: typing_extensions.Annotated[int, FieldMetadata(alias="eldEventCode")] = pydantic.Field()
+    eld_event_code: typing_extensions.Annotated[int, FieldMetadata(alias="eldEventCode")] = pydantic.Field(
+        alias="eldEventCode"
+    )
     """
     A dependent attribute on `eldEventType` that specifies the nature of the event, as defined in the ELD Mandate [section 7.20](https://www.ecfr.gov/cgi-bin/retrieveECFR?gp=1&ty=HTML&h=L&mc=true&=PART&n=pt49.5.395#ap49.5.395_138.a).  Valid values: `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`
     """
 
     eld_event_record_origin: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="eldEventRecordOrigin")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="eldEventRecordOrigin", default=None)
     """
     An attribute for the event record indicating whether it is automatically recorded, or edited, entered or accepted by the driver, requested by another authenticated user, or assumed from unidentified driver profile, as defined in the ELD Mandate [section 7.22](https://www.ecfr.gov/cgi-bin/retrieveECFR?gp=1&ty=HTML&h=L&mc=true&=PART&n=pt49.5.395#ap49.5.395_138.a).  Valid values: `1`, `2`, `3`, `4`
     """
 
     eld_event_record_status: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="eldEventRecordStatus")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="eldEventRecordStatus", default=None)
     """
     An attribute for the event record indicating whether an event is active or inactive and further, if inactive, whether it is due to a change or lack of confirmation by the driver or due to a driver's rejection of change request, as defined in the ELD Mandate [section 7.23](https://www.ecfr.gov/cgi-bin/retrieveECFR?gp=1&ty=HTML&h=L&mc=true&=PART&n=pt49.5.395#ap49.5.395_138.a).  Valid values: `1`, `2`, `3`, `4`
     """
 
-    eld_event_type: typing_extensions.Annotated[int, FieldMetadata(alias="eldEventType")] = pydantic.Field()
+    eld_event_type: typing_extensions.Annotated[int, FieldMetadata(alias="eldEventType")] = pydantic.Field(
+        alias="eldEventType"
+    )
     """
     An attribute specifying the type of ELD event, as defined in the ELD Mandate [section 7.25](https://www.ecfr.gov/cgi-bin/retrieveECFR?gp=1&ty=HTML&h=L&mc=true&=PART&n=pt49.5.395#ap49.5.395_138.a).  Valid values: `1`, `2`, `3`, `4`, `5`, `6`, `7`
     """
@@ -61,7 +65,7 @@ class HosEldEventObjectResponseBody(UniversalBaseModel):
     malfunction_diagnostic_code: typing_extensions.Annotated[
         typing.Optional[HosEldEventObjectResponseBodyMalfunctionDiagnosticCode],
         FieldMetadata(alias="malfunctionDiagnosticCode"),
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="malfunctionDiagnosticCode", default=None)
     """
     A code that further specifies the underlying malfunction or data diagnostic event, as defined in the ELD Mandate [section 7.34](https://www.ecfr.gov/cgi-bin/retrieveECFR?gp=1&ty=HTML&h=L&mc=true&=PART&n=pt49.5.395#ap49.5.395_138.a).  Valid values: `P`, `E`, `T`, `L`, `R`, `S`, `O`, `1`, `2`, `3`, `4`, `5`, `6`
     """
@@ -73,7 +77,7 @@ class HosEldEventObjectResponseBody(UniversalBaseModel):
     """
 
     total_engine_hours: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="totalEngineHours")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="totalEngineHours", default=None)
     )
     """
     The aggregated time of a vehicle's engine's operation since its inception.
@@ -81,7 +85,7 @@ class HosEldEventObjectResponseBody(UniversalBaseModel):
 
     total_vehicle_meters: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="totalVehicleMeters")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="totalVehicleMeters", default=None)
     """
     The total meters recorded for the vehicle.
     """

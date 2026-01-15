@@ -19,37 +19,43 @@ class TrainingAssignmentResponseObjectResponseBody(UniversalBaseModel):
 
     completed_at_time: typing_extensions.Annotated[
         typing.Optional[dt.datetime], FieldMetadata(alias="completedAtTime")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="completedAtTime", default=None)
     """
     Time training assignment is completed. UTC timestamp in RFC 3339 format. Returned when a training assignment completion status is "complete".
     """
 
     course: TrainingCourseObjectResponseBody
-    created_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAtTime")] = pydantic.Field()
+    created_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAtTime")] = pydantic.Field(
+        alias="createdAtTime"
+    )
     """
     Creation time of the training assignment. UTC timestamp in RFC 3339 format.
     """
 
-    created_by_id: typing_extensions.Annotated[str, FieldMetadata(alias="createdById")] = pydantic.Field()
+    created_by_id: typing_extensions.Annotated[str, FieldMetadata(alias="createdById")] = pydantic.Field(
+        alias="createdById"
+    )
     """
     ID of the user who created the training assignment.
     """
 
     deleted_at_time: typing_extensions.Annotated[typing.Optional[dt.datetime], FieldMetadata(alias="deletedAtTime")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="deletedAtTime", default=None)
     )
     """
     Time training assignment is deleted. UTC timestamp in RFC 3339 format.
     """
 
     due_at_time: typing_extensions.Annotated[typing.Optional[dt.datetime], FieldMetadata(alias="dueAtTime")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="dueAtTime", default=None)
     )
     """
     Time training assignment is due. UTC timestamp in RFC 3339 format. Returned when an assignment has a due date set by an admin.
     """
 
-    duration_minutes: typing_extensions.Annotated[int, FieldMetadata(alias="durationMinutes")] = pydantic.Field()
+    duration_minutes: typing_extensions.Annotated[int, FieldMetadata(alias="durationMinutes")] = pydantic.Field(
+        alias="durationMinutes"
+    )
     """
     Time spent on the training assignment.
     """
@@ -60,14 +66,14 @@ class TrainingAssignmentResponseObjectResponseBody(UniversalBaseModel):
     """
 
     is_completed_late: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="isCompletedLate")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="isCompletedLate", default=None)
     )
     """
     Indicates whether the training assignment was completed on time or not. Returned when a training assignment completion status is "complete" and has a dueAtTime set by an admin.
     """
 
     is_overdue: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="isOverdue")] = pydantic.Field(
-        default=None
+        alias="isOverdue", default=None
     )
     """
     Indicates whether the training assignment is past the due date. Returned when a training assignment completion status is 'inProgress' or 'notStarted' and has a dueAtTime set by an admin.
@@ -75,14 +81,14 @@ class TrainingAssignmentResponseObjectResponseBody(UniversalBaseModel):
 
     learner: TrainingLearnerObjectResponseBody
     score_percent: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="scorePercent")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="scorePercent", default=None)
     )
     """
     Quiz score associated with training assignment. Returned when a training assignment completion status is "complete".
     """
 
     started_at_time: typing_extensions.Annotated[typing.Optional[dt.datetime], FieldMetadata(alias="startedAtTime")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="startedAtTime", default=None)
     )
     """
     Time training assignment is started. UTC timestamp in RFC 3339 format. Returned when a training assignment completion status is "complete" or "inProgress".
@@ -93,12 +99,16 @@ class TrainingAssignmentResponseObjectResponseBody(UniversalBaseModel):
     State for the Training Assignment. Always returned.  Valid values: `notStarted`, `inProgress`, `completed`
     """
 
-    updated_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAtTime")] = pydantic.Field()
+    updated_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAtTime")] = pydantic.Field(
+        alias="updatedAtTime"
+    )
     """
     Time training assignment was updated by either a learner or an admin. UTC timestamp in RFC 3339 format.
     """
 
-    updated_by_id: typing_extensions.Annotated[str, FieldMetadata(alias="updatedById")] = pydantic.Field()
+    updated_by_id: typing_extensions.Annotated[str, FieldMetadata(alias="updatedById")] = pydantic.Field(
+        alias="updatedById"
+    )
     """
     ID of the user who updated the training assignment, either an admin or a learner.
     """

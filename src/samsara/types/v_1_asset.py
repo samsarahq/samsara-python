@@ -15,7 +15,7 @@ class V1Asset(UniversalBaseModel):
     """
 
     asset_serial_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="assetSerialNumber")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="assetSerialNumber", default=None)
     )
     """
     Serial number of the host asset
@@ -23,7 +23,7 @@ class V1Asset(UniversalBaseModel):
 
     cable: typing.Optional[V1AssetCable] = None
     engine_hours: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="engineHours")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="engineHours", default=None)
     )
     """
     Engine hours
@@ -40,7 +40,7 @@ class V1Asset(UniversalBaseModel):
     """
 
     vehicle_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="vehicleId")] = pydantic.Field(
-        default=None
+        alias="vehicleId", default=None
     )
     """
     The ID of the Vehicle associated to the Asset (if present)

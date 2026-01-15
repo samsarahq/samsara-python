@@ -13,12 +13,16 @@ class ScheduledMaintenanceOdometerTriggerDetailsObjectRequestBody(UniversalBaseM
     Details specific to Scheduled Maintenance by Odometer
     """
 
-    due_in_meters: typing_extensions.Annotated[int, FieldMetadata(alias="dueInMeters")] = pydantic.Field()
+    due_in_meters: typing_extensions.Annotated[int, FieldMetadata(alias="dueInMeters")] = pydantic.Field(
+        alias="dueInMeters"
+    )
     """
     Alert when vehicle odometer has this many meters left until maintenance is due.
     """
 
-    schedule_id: typing_extensions.Annotated[str, FieldMetadata(alias="scheduleId")] = pydantic.Field()
+    schedule_id: typing_extensions.Annotated[str, FieldMetadata(alias="scheduleId")] = pydantic.Field(
+        alias="scheduleId"
+    )
     """
     The id of the maintenance schedule.
     """

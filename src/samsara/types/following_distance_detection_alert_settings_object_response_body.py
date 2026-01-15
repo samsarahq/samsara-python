@@ -14,7 +14,7 @@ class FollowingDistanceDetectionAlertSettingsObjectResponseBody(UniversalBaseMod
     """
 
     duration_ms: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="durationMs")] = pydantic.Field(
-        default=None
+        alias="durationMs", default=None
     )
     """
     Duration of following distance at which to alert, measured in milliseconds.
@@ -22,13 +22,13 @@ class FollowingDistanceDetectionAlertSettingsObjectResponseBody(UniversalBaseMod
 
     has_in_cab_audio_alerts_enabled: typing_extensions.Annotated[
         typing.Optional[bool], FieldMetadata(alias="hasInCabAudioAlertsEnabled")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="hasInCabAudioAlertsEnabled", default=None)
     """
     Indicates whether in-cab audio alerts for following distance are turned on.
     """
 
     is_enabled: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="isEnabled")] = pydantic.Field(
-        default=None
+        alias="isEnabled", default=None
     )
     """
     Indicates whether AI event detection for following distance is turned on.
@@ -36,7 +36,7 @@ class FollowingDistanceDetectionAlertSettingsObjectResponseBody(UniversalBaseMod
 
     speeding_threshold_mph: typing_extensions.Annotated[
         typing.Optional[float], FieldMetadata(alias="speedingThresholdMph")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="speedingThresholdMph", default=None)
     """
     Alert when speed is over this many miles per hour.
     """

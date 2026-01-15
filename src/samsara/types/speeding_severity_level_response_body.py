@@ -14,25 +14,27 @@ class SpeedingSeverityLevelResponseBody(UniversalBaseModel):
     The settings for a specific speeding severity level.
     """
 
-    duration_ms: typing_extensions.Annotated[int, FieldMetadata(alias="durationMs")] = pydantic.Field()
+    duration_ms: typing_extensions.Annotated[int, FieldMetadata(alias="durationMs")] = pydantic.Field(
+        alias="durationMs"
+    )
     """
     The amount of time the vehicle is speeding in this category before being attributed to this level
     """
 
-    is_enabled: typing_extensions.Annotated[bool, FieldMetadata(alias="isEnabled")] = pydantic.Field()
+    is_enabled: typing_extensions.Annotated[bool, FieldMetadata(alias="isEnabled")] = pydantic.Field(alias="isEnabled")
     """
     Indicates the severity level is enabled
     """
 
     severity_level: typing_extensions.Annotated[
         SpeedingSeverityLevelResponseBodySeverityLevel, FieldMetadata(alias="severityLevel")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="severityLevel")
     """
     The severity level name.  Valid values: `light`, `moderate`, `heavy`, `severe`
     """
 
     speed_over_limit_threshold: typing_extensions.Annotated[float, FieldMetadata(alias="speedOverLimitThreshold")] = (
-        pydantic.Field()
+        pydantic.Field(alias="speedOverLimitThreshold")
     )
     """
     The minimum speed above the speed limit that will get attributed to this severity level.

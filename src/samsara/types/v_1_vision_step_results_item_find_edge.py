@@ -14,7 +14,7 @@ from .v_1_vision_step_results_item_find_edge_straightness_range import V1VisionS
 
 class V1VisionStepResultsItemFindEdge(UniversalBaseModel):
     angle_found: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="angleFound")] = pydantic.Field(
-        default=None
+        alias="angleFound", default=None
     )
     """
     The detected angle in degrees
@@ -22,13 +22,13 @@ class V1VisionStepResultsItemFindEdge(UniversalBaseModel):
 
     angle_range: typing_extensions.Annotated[
         typing.Optional[V1VisionStepResultsItemFindEdgeAngleRange], FieldMetadata(alias="angleRange")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="angleRange", default=None)
     """
     The configured angle allowance range
     """
 
     contrast_percent: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="contrastPercent")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="contrastPercent", default=None)
     )
     """
     The detected contrast percentage
@@ -36,20 +36,20 @@ class V1VisionStepResultsItemFindEdge(UniversalBaseModel):
 
     contrast_range: typing_extensions.Annotated[
         typing.Optional[V1VisionStepResultsItemFindEdgeContrastRange], FieldMetadata(alias="contrastRange")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="contrastRange", default=None)
     """
     The configured contrast allowance range
     """
 
     filter_polarity: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="filterPolarity")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="filterPolarity", default=None)
     )
     """
     The configured polarity for finding edges. Valid values: `LIGHT TO DARK`, `DARK TO LIGHT`.
     """
 
     sharpness_percent: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="sharpnessPercent")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="sharpnessPercent", default=None)
     )
     """
     The detected sharpness percentage
@@ -57,13 +57,13 @@ class V1VisionStepResultsItemFindEdge(UniversalBaseModel):
 
     sharpness_range: typing_extensions.Annotated[
         typing.Optional[V1VisionStepResultsItemFindEdgeSharpnessRange], FieldMetadata(alias="sharpnessRange")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="sharpnessRange", default=None)
     """
     The configured sharpness allowance range
     """
 
     straightness_found: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="straightnessFound")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="straightnessFound", default=None)
     )
     """
     The detected straightness percentage
@@ -71,7 +71,7 @@ class V1VisionStepResultsItemFindEdge(UniversalBaseModel):
 
     straightness_range: typing_extensions.Annotated[
         typing.Optional[V1VisionStepResultsItemFindEdgeStraightnessRange], FieldMetadata(alias="straightnessRange")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="straightnessRange", default=None)
     """
     The configured straightness allowance range
     """

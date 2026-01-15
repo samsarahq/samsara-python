@@ -15,12 +15,14 @@ class SpeedingIntervalResponseBody(UniversalBaseModel):
     Speeding Interval Object
     """
 
-    end_time: typing_extensions.Annotated[str, FieldMetadata(alias="endTime")] = pydantic.Field()
+    end_time: typing_extensions.Annotated[str, FieldMetadata(alias="endTime")] = pydantic.Field(alias="endTime")
     """
     UTC time the interval ended in RFC 3339 format.
     """
 
-    is_dismissed: typing_extensions.Annotated[bool, FieldMetadata(alias="isDismissed")] = pydantic.Field()
+    is_dismissed: typing_extensions.Annotated[bool, FieldMetadata(alias="isDismissed")] = pydantic.Field(
+        alias="isDismissed"
+    )
     """
     Whether the interval is dismissed.
     """
@@ -28,26 +30,26 @@ class SpeedingIntervalResponseBody(UniversalBaseModel):
     location: SpeedingIntervalLocationResponseResponseBody
     max_speed_kilometers_per_hour: typing_extensions.Annotated[
         float, FieldMetadata(alias="maxSpeedKilometersPerHour")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="maxSpeedKilometersPerHour")
     """
     The max speed exceeded for the speeding interval.
     """
 
     posted_speed_limit_kilometers_per_hour: typing_extensions.Annotated[
         float, FieldMetadata(alias="postedSpeedLimitKilometersPerHour")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="postedSpeedLimitKilometersPerHour")
     """
     The posted speed limit associated with the speeding interval.
     """
 
     severity_level: typing_extensions.Annotated[
         SpeedingIntervalResponseBodySeverityLevel, FieldMetadata(alias="severityLevel")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="severityLevel")
     """
     Specifies the severity level of the speeding interval.  Valid values: `light`, `moderate`, `heavy`, `severe`
     """
 
-    start_time: typing_extensions.Annotated[str, FieldMetadata(alias="startTime")] = pydantic.Field()
+    start_time: typing_extensions.Annotated[str, FieldMetadata(alias="startTime")] = pydantic.Field(alias="startTime")
     """
     UTC time the interval started in RFC 3339 format.
     """

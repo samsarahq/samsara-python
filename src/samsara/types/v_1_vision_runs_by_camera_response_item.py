@@ -11,13 +11,19 @@ from .v_1_vision_runs_by_camera_response_item_report_metadata import V1VisionRun
 
 
 class V1VisionRunsByCameraResponseItem(UniversalBaseModel):
-    device_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="deviceId")] = None
-    ended_at_ms: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="endedAtMs")] = None
+    device_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="deviceId")] = pydantic.Field(
+        alias="deviceId", default=None
+    )
+    ended_at_ms: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="endedAtMs")] = pydantic.Field(
+        alias="endedAtMs", default=None
+    )
     program: typing.Optional[V1VisionRunsByCameraResponseItemProgram] = None
     report_metadata: typing_extensions.Annotated[
         typing.Optional[V1VisionRunsByCameraResponseItemReportMetadata], FieldMetadata(alias="reportMetadata")
-    ] = None
-    started_at_ms: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="startedAtMs")] = None
+    ] = pydantic.Field(alias="reportMetadata", default=None)
+    started_at_ms: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="startedAtMs")] = (
+        pydantic.Field(alias="startedAtMs", default=None)
+    )
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

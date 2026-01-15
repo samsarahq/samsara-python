@@ -15,7 +15,7 @@ class V1SensorHistoryResponseResults(UniversalBaseModel):
     """
 
     time_ms: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="timeMs")] = pydantic.Field(
-        default=None
+        alias="timeMs", default=None
     )
     """
     Timestamp in UNIX milliseconds.

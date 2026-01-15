@@ -21,22 +21,26 @@ class QualificationRecordResponseObjectResponseBody(UniversalBaseModel):
     Qualification Record response object.
     """
 
-    created_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAtTime")] = pydantic.Field()
+    created_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAtTime")] = pydantic.Field(
+        alias="createdAtTime"
+    )
     """
     Creation time. UTC timestamp in RFC 3339 format.
     """
 
-    created_by: typing_extensions.Annotated[FormsPolymorphicUserObjectResponseBody, FieldMetadata(alias="createdBy")]
+    created_by: typing_extensions.Annotated[
+        FormsPolymorphicUserObjectResponseBody, FieldMetadata(alias="createdBy")
+    ] = pydantic.Field(alias="createdBy")
     expiration_date: typing_extensions.Annotated[
         typing.Optional[dt.datetime], FieldMetadata(alias="expirationDate")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="expirationDate", default=None)
     """
     Expiration date. UTC timestamp in RFC 3339 format.
     """
 
     external_ids: typing_extensions.Annotated[
         typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="externalIds", default=None)
     """
     A map of external ids
     """
@@ -51,7 +55,9 @@ class QualificationRecordResponseObjectResponseBody(UniversalBaseModel):
     ID of the qualification record.
     """
 
-    issue_date: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="issueDate")] = pydantic.Field()
+    issue_date: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="issueDate")] = pydantic.Field(
+        alias="issueDate"
+    )
     """
     Issue/effective date. UTC timestamp in RFC 3339 format.
     """
@@ -59,20 +65,24 @@ class QualificationRecordResponseObjectResponseBody(UniversalBaseModel):
     owner: QualificationOwnerObjectResponseBody
     qualification_type: typing_extensions.Annotated[
         QualificationTypeReferenceObjectResponseBody, FieldMetadata(alias="qualificationType")
-    ]
+    ] = pydantic.Field(alias="qualificationType")
     record_status: typing_extensions.Annotated[
         QualificationRecordResponseObjectResponseBodyRecordStatus, FieldMetadata(alias="recordStatus")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="recordStatus")
     """
     Status of the qualification record.  Valid values: `active`, `archived`, `deleted`
     """
 
-    updated_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAtTime")] = pydantic.Field()
+    updated_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAtTime")] = pydantic.Field(
+        alias="updatedAtTime"
+    )
     """
     Last updated time. UTC timestamp in RFC 3339 format.
     """
 
-    updated_by: typing_extensions.Annotated[FormsPolymorphicUserObjectResponseBody, FieldMetadata(alias="updatedBy")]
+    updated_by: typing_extensions.Annotated[
+        FormsPolymorphicUserObjectResponseBody, FieldMetadata(alias="updatedBy")
+    ] = pydantic.Field(alias="updatedBy")
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

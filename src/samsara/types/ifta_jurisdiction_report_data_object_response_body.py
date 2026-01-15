@@ -17,7 +17,7 @@ class IftaJurisdictionReportDataObjectResponseBody(UniversalBaseModel):
 
     jurisdiction_reports: typing_extensions.Annotated[
         typing.List[IftaJurisdictionSummaryObjectResponseBody], FieldMetadata(alias="jurisdictionReports")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="jurisdictionReports")
     """
     List of summarized jurisdiction reports.
     """

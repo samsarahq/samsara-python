@@ -20,7 +20,7 @@ class FormsSelectOptionObjectResponseBody(UniversalBaseModel):
 
     ignore_question_from_score_if_selected: typing_extensions.Annotated[
         typing.Optional[bool], FieldMetadata(alias="ignoreQuestionFromScoreIfSelected")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="ignoreQuestionFromScoreIfSelected", default=None)
     """
     Indicates whether the question should be ignored from the total score if this option is selected. Returns true if a score weight was not given to this option. Only present when the select form field has scoring.
     """
@@ -31,7 +31,7 @@ class FormsSelectOptionObjectResponseBody(UniversalBaseModel):
     """
 
     option_score_weight: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="optionScoreWeight")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="optionScoreWeight", default=None)
     )
     """
     Score weight of the option, indicates number of score points received if this option is selected. Only present if the select form field has scoring.

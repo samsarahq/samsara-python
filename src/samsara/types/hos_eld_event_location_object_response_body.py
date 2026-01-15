@@ -15,7 +15,7 @@ class HosEldEventLocationObjectResponseBody(UniversalBaseModel):
     """
 
     eld_location: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="eldLocation")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="eldLocation", default=None)
     )
     """
     Relative location to the city, village, or town with population of 5,000 or greater.

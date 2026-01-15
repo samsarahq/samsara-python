@@ -12,7 +12,9 @@ from .v_1_vision_step_results_item_fixture_coordinates import V1VisionStepResult
 class V1VisionStepResultsItemFixture(UniversalBaseModel):
     coordinates: typing.Optional[V1VisionStepResultsItemFixtureCoordinates] = None
     found: typing.Optional[bool] = None
-    rotation_degrees: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="rotationDegrees")] = None
+    rotation_degrees: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="rotationDegrees")] = (
+        pydantic.Field(alias="rotationDegrees", default=None)
+    )
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

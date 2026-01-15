@@ -21,14 +21,14 @@ class TagSafetyScoreResponseBody(UniversalBaseModel):
     """
 
     drive_distance_meters: typing_extensions.Annotated[int, FieldMetadata(alias="driveDistanceMeters")] = (
-        pydantic.Field()
+        pydantic.Field(alias="driveDistanceMeters")
     )
     """
     Total sum of distance driven by drivers / vehicles in the tag.
     """
 
     drive_time_milliseconds: typing_extensions.Annotated[int, FieldMetadata(alias="driveTimeMilliseconds")] = (
-        pydantic.Field()
+        pydantic.Field(alias="driveTimeMilliseconds")
     )
     """
     Total time spent driving by drivers / vehicles in the tag.
@@ -39,12 +39,12 @@ class TagSafetyScoreResponseBody(UniversalBaseModel):
     Aggregated list of speeding events, one row for each unique type of speeding.
     """
 
-    tag_id: typing_extensions.Annotated[str, FieldMetadata(alias="tagId")] = pydantic.Field()
+    tag_id: typing_extensions.Annotated[str, FieldMetadata(alias="tagId")] = pydantic.Field(alias="tagId")
     """
     ID of the tag.
     """
 
-    tag_score: typing_extensions.Annotated[int, FieldMetadata(alias="tagScore")] = pydantic.Field()
+    tag_score: typing_extensions.Annotated[int, FieldMetadata(alias="tagScore")] = pydantic.Field(alias="tagScore")
     """
     Safety score for the tag. The score is a rounded number between 0-100.
     """

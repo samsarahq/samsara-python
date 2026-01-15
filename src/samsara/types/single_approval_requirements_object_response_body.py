@@ -13,7 +13,9 @@ class SingleApprovalRequirementsObjectResponseBody(UniversalBaseModel):
     Single approval requirements object.
     """
 
-    role_ids: typing_extensions.Annotated[typing.List[str], FieldMetadata(alias="roleIds")] = pydantic.Field()
+    role_ids: typing_extensions.Annotated[typing.List[str], FieldMetadata(alias="roleIds")] = pydantic.Field(
+        alias="roleIds"
+    )
     """
     List of role IDs representing which user roles can be approvers.
     """

@@ -29,21 +29,21 @@ class EquipmentStatsListResponseData(UniversalBaseModel):
 
     engine_rpm: typing_extensions.Annotated[
         typing.Optional[typing.List[EquipmentEngineRpm]], FieldMetadata(alias="engineRpm")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="engineRpm", default=None)
     """
     A time-series of engine RPM readings for the given unit of equipment.
     """
 
     engine_seconds: typing_extensions.Annotated[
         typing.Optional[typing.List[EquipmentEngineSeconds]], FieldMetadata(alias="engineSeconds")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="engineSeconds", default=None)
     """
     [DEPRECATED] Please use either `gatewayEngineSeconds`, `obdEngineSeconds`, or `gatewayJ1939EngineSeconds`.
     """
 
     engine_states: typing_extensions.Annotated[
         typing.Optional[typing.List[EquipmentEngineState]], FieldMetadata(alias="engineStates")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="engineStates", default=None)
     """
     [DEPRECATED] Please use either `gatewayEngineStates` or `obdEngineStates`.
     """
@@ -51,28 +51,28 @@ class EquipmentStatsListResponseData(UniversalBaseModel):
     engine_total_idle_time_minutes: typing_extensions.Annotated[
         typing.Optional[typing.List[EquipmentEngineTotalIdleTimeMinutes]],
         FieldMetadata(alias="engineTotalIdleTimeMinutes"),
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="engineTotalIdleTimeMinutes", default=None)
     """
     A time-series of engine total idle time minutes. (Beta)
     """
 
     fuel_percents: typing_extensions.Annotated[
         typing.Optional[typing.List[EquipmentFuelPercent]], FieldMetadata(alias="fuelPercents")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="fuelPercents", default=None)
     """
     A time-series of fuel percent level changes for the given unit of equipment.
     """
 
     gateway_engine_seconds: typing_extensions.Annotated[
         typing.Optional[typing.List[EquipmentGatewayEngineSeconds]], FieldMetadata(alias="gatewayEngineSeconds")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="gatewayEngineSeconds", default=None)
     """
     A time-series of engine seconds readings for the given unit of equipment as an approximate based on readings from the AG26's aux/digio cable.
     """
 
     gateway_engine_states: typing_extensions.Annotated[
         typing.Optional[typing.List[EquipmentGatewayEngineState]], FieldMetadata(alias="gatewayEngineStates")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="gatewayEngineStates", default=None)
     """
     A time-series of engine state changes (as read from the AG26's aux/digio cable) for the given unit of equipment.
     """
@@ -80,7 +80,7 @@ class EquipmentStatsListResponseData(UniversalBaseModel):
     gateway_j_1939_engine_seconds: typing_extensions.Annotated[
         typing.Optional[typing.List[EquipmentGatewayJ1939EngineSeconds]],
         FieldMetadata(alias="gatewayJ1939EngineSeconds"),
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="gatewayJ1939EngineSeconds", default=None)
     """
     A time-series of engine seconds readings for the given unit of equipment as an approximate based on readings from the AG26's CAT/J1939 cable.
     """
@@ -92,7 +92,7 @@ class EquipmentStatsListResponseData(UniversalBaseModel):
 
     gps_odometer_meters: typing_extensions.Annotated[
         typing.Optional[typing.List[EquipmentGpsOdometerMeters]], FieldMetadata(alias="gpsOdometerMeters")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="gpsOdometerMeters", default=None)
     """
     A time-series of GPS odometer readings for the given unit of equipment.
     """
@@ -101,14 +101,14 @@ class EquipmentStatsListResponseData(UniversalBaseModel):
     name: EquipmentName
     obd_engine_seconds: typing_extensions.Annotated[
         typing.Optional[typing.List[EquipmentObdEngineSeconds]], FieldMetadata(alias="obdEngineSeconds")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="obdEngineSeconds", default=None)
     """
     A time-series of engine seconds readings for the given unit of equipment directly from on-board diagnostics.
     """
 
     obd_engine_states: typing_extensions.Annotated[
         typing.Optional[typing.List[EquipmentObdEngineState]], FieldMetadata(alias="obdEngineStates")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="obdEngineStates", default=None)
     """
     A time-series of engine state changes (as read from on-board diagnostics) for the given unit of equipment.
     """

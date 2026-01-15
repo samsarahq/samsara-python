@@ -18,7 +18,7 @@ class ActionParamsObjectResponseBody(UniversalBaseModel):
 
     driver_app_notification: typing_extensions.Annotated[
         typing.Optional[DriverAppNotificationObjectResponseBody], FieldMetadata(alias="driverAppNotification")
-    ] = None
+    ] = pydantic.Field(alias="driverAppNotification", default=None)
     recipients: typing.Optional[typing.List[RecipientObjectResponseBody]] = pydantic.Field(default=None)
     """
     Recipient of the action.

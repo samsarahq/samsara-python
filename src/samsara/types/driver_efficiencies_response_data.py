@@ -13,21 +13,21 @@ from .driver_efficiency import DriverEfficiency
 class DriverEfficienciesResponseData(UniversalBaseModel):
     driver_summaries: typing_extensions.Annotated[
         typing.Optional[typing.List[DriverEfficiency]], FieldMetadata(alias="driverSummaries")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="driverSummaries", default=None)
     """
     A list of driver and associated vehicle efficiency data.
     """
 
     summary_end_time: typing_extensions.Annotated[
         typing.Optional[dt.datetime], FieldMetadata(alias="summaryEndTime")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="summaryEndTime", default=None)
     """
     End time of the window for which this efficiency report was computed. Will be a UTC timestamp in RFC 3339 format. For example: `2020-03-16T16:00:00Z`
     """
 
     summary_start_time: typing_extensions.Annotated[
         typing.Optional[dt.datetime], FieldMetadata(alias="summaryStartTime")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="summaryStartTime", default=None)
     """
     Start time of the window for which this efficiency report was computed. Will be a UTC timestamp in RFC 3339 format. For example: `2020-03-15T16:00:00Z`
     """

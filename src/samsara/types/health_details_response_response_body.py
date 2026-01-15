@@ -17,10 +17,10 @@ class HealthDetailsResponseResponseBody(UniversalBaseModel):
 
     camera_details: typing_extensions.Annotated[
         typing.Optional[CameraDetailsResponseResponseBody], FieldMetadata(alias="cameraDetails")
-    ] = None
+    ] = pydantic.Field(alias="cameraDetails", default=None)
     gateway_details: typing_extensions.Annotated[
         typing.Optional[GatewayDetailsResponseResponseBody], FieldMetadata(alias="gatewayDetails")
-    ] = None
+    ] = pydantic.Field(alias="gatewayDetails", default=None)
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

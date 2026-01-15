@@ -17,7 +17,7 @@ class RouteStopObjectResponseBody(UniversalBaseModel):
     """
 
     hub_location_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="hubLocationId")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="hubLocationId", default=None)
     )
     """
     The hub location identifier from dispatch
@@ -44,7 +44,7 @@ class RouteStopObjectResponseBody(UniversalBaseModel):
     """
 
     scheduled_arrival_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="scheduledArrivalTime")] = (
-        pydantic.Field()
+        pydantic.Field(alias="scheduledArrivalTime")
     )
     """
     The scheduled arrival time at the stop
@@ -52,14 +52,14 @@ class RouteStopObjectResponseBody(UniversalBaseModel):
 
     scheduled_departure_time: typing_extensions.Annotated[
         dt.datetime, FieldMetadata(alias="scheduledDepartureTime")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="scheduledDepartureTime")
     """
     The scheduled departure time from the stop
     """
 
     single_use_location: typing_extensions.Annotated[
         typing.Optional[SingleUseLocationObjectResponseBody], FieldMetadata(alias="singleUseLocation")
-    ] = None
+    ] = pydantic.Field(alias="singleUseLocation", default=None)
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

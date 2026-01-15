@@ -16,27 +16,33 @@ class IdlingReportEventResponseBody(UniversalBaseModel):
     """
 
     address: IdlingReportEventAddressResponseBody
-    duration_ms: typing_extensions.Annotated[int, FieldMetadata(alias="durationMs")] = pydantic.Field()
+    duration_ms: typing_extensions.Annotated[int, FieldMetadata(alias="durationMs")] = pydantic.Field(
+        alias="durationMs"
+    )
     """
     The duration of this idling event in milliseconds.
     """
 
-    end_time: typing_extensions.Annotated[str, FieldMetadata(alias="endTime")] = pydantic.Field()
+    end_time: typing_extensions.Annotated[str, FieldMetadata(alias="endTime")] = pydantic.Field(alias="endTime")
     """
     The end time of this idling event in RFC 3339 format.
     """
 
-    fuel_consumption_ml: typing_extensions.Annotated[float, FieldMetadata(alias="fuelConsumptionMl")] = pydantic.Field()
+    fuel_consumption_ml: typing_extensions.Annotated[float, FieldMetadata(alias="fuelConsumptionMl")] = pydantic.Field(
+        alias="fuelConsumptionMl"
+    )
     """
     The amount of fuel consumed in milliliters during this idling event.
     """
 
-    is_pto_active: typing_extensions.Annotated[bool, FieldMetadata(alias="isPtoActive")] = pydantic.Field()
+    is_pto_active: typing_extensions.Annotated[bool, FieldMetadata(alias="isPtoActive")] = pydantic.Field(
+        alias="isPtoActive"
+    )
     """
     Whether or not power take-off was active during this idling event.
     """
 
-    start_time: typing_extensions.Annotated[str, FieldMetadata(alias="startTime")] = pydantic.Field()
+    start_time: typing_extensions.Annotated[str, FieldMetadata(alias="startTime")] = pydantic.Field(alias="startTime")
     """
     The start time of this idling event in RFC 3339 format.
     """

@@ -16,8 +16,10 @@ class ActionObjectResponseBody(UniversalBaseModel):
 
     action_params: typing_extensions.Annotated[
         typing.Optional[ActionParamsObjectResponseBody], FieldMetadata(alias="actionParams")
-    ] = None
-    action_type_id: typing_extensions.Annotated[int, FieldMetadata(alias="actionTypeId")] = pydantic.Field()
+    ] = pydantic.Field(alias="actionParams", default=None)
+    action_type_id: typing_extensions.Annotated[int, FieldMetadata(alias="actionTypeId")] = pydantic.Field(
+        alias="actionTypeId"
+    )
     """
     The id of the of the action type. Reference the following list for the ids:
     The following action types are in Beta:

@@ -14,7 +14,9 @@ class JobsDeleteJobResponseBody(UniversalBaseModel):
     The job id of the failed request
     """
 
-    uuid_: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="uuid")] = pydantic.Field(default=None)
+    uuid_: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="uuid")] = pydantic.Field(
+        alias="uuid", default=None
+    )
     """
     The uuid of the failed request
     """

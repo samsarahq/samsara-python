@@ -14,7 +14,7 @@ class RollingStopDetectionAlertSettingsObjectResponseBody(UniversalBaseModel):
     """
 
     is_enabled: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="isEnabled")] = pydantic.Field(
-        default=None
+        alias="isEnabled", default=None
     )
     """
     Indicates whether AI event detection for rolling stops is turned on.
@@ -22,7 +22,7 @@ class RollingStopDetectionAlertSettingsObjectResponseBody(UniversalBaseModel):
 
     speeding_threshold_mph: typing_extensions.Annotated[
         typing.Optional[float], FieldMetadata(alias="speedingThresholdMph")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="speedingThresholdMph", default=None)
     """
     Alert when speed is over this many miles per hour.
     """

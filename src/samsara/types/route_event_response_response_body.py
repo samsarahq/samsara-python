@@ -20,20 +20,24 @@ class RouteEventResponseResponseBody(UniversalBaseModel):
 
     event_details: typing_extensions.Annotated[
         typing.Optional[RouteEventDetailsResponseBody], FieldMetadata(alias="eventDetails")
-    ] = None
-    event_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="eventTime")] = pydantic.Field()
+    ] = pydantic.Field(alias="eventDetails", default=None)
+    event_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="eventTime")] = pydantic.Field(
+        alias="eventTime"
+    )
     """
     Time the event was processed in RFC 3339 format
     """
 
     event_type: typing_extensions.Annotated[
         RouteEventResponseResponseBodyEventType, FieldMetadata(alias="eventType")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="eventType")
     """
     Type of the event that occurred.  Valid values: `stopArrived`, `stopCompleted`, `stopEnRoute`, `stopSkipped`, `stopTaskCompleted`, `stopTaskSkipped`, `stopEtaUpdated`, `unspecified`
     """
 
-    happened_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="happenedAtTime")] = pydantic.Field()
+    happened_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="happenedAtTime")] = pydantic.Field(
+        alias="happenedAtTime"
+    )
     """
     Time the event happened in RFC 3339 format
     """

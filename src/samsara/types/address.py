@@ -21,7 +21,7 @@ class Address(UniversalBaseModel):
 
     address_types: typing_extensions.Annotated[
         typing.Optional[typing.List[AddressAddressTypesItem]], FieldMetadata(alias="addressTypes")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="addressTypes", default=None)
     """
     Reporting location type associated with the address (used for ELD reporting purposes). Valid values: `yard`, `shortHaul`, `workforceSite`, `riskZone`, `industrialSite`, `alertsOnly`, `agricultureSource`, `avoidanceZone`, `knownGPSJammingZone`.
     """
@@ -32,7 +32,7 @@ class Address(UniversalBaseModel):
     """
 
     created_at_time: typing_extensions.Annotated[typing.Optional[dt.datetime], FieldMetadata(alias="createdAtTime")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="createdAtTime", default=None)
     )
     """
     The date and time this address was created in RFC 3339 format.
@@ -40,12 +40,14 @@ class Address(UniversalBaseModel):
 
     external_ids: typing_extensions.Annotated[
         typing.Optional[AddressExternalIds], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="externalIds", default=None)
     """
     The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.
     """
 
-    formatted_address: typing_extensions.Annotated[str, FieldMetadata(alias="formattedAddress")] = pydantic.Field()
+    formatted_address: typing_extensions.Annotated[str, FieldMetadata(alias="formattedAddress")] = pydantic.Field(
+        alias="formattedAddress"
+    )
     """
     The full street address for this address/geofence, as it might be recognized by Google Maps.
     """

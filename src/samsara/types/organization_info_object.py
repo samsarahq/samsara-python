@@ -16,7 +16,7 @@ class OrganizationInfoObject(UniversalBaseModel):
 
     carrier_settings: typing_extensions.Annotated[
         typing.Optional[OrganizationInfoCarrierSettings], FieldMetadata(alias="carrierSettings")
-    ] = None
+    ] = pydantic.Field(alias="carrierSettings", default=None)
     id: typing.Optional[str] = pydantic.Field(default=None)
     """
     ID of the organization.

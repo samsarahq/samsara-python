@@ -21,21 +21,21 @@ class SingleDriverEfficiencyByDriverDataObjectResponseBody(UniversalBaseModel):
 
     difficulty_score: typing_extensions.Annotated[
         typing.Optional[DriverEfficiencyDifficultyScoreDataObjectResponseBody], FieldMetadata(alias="difficultyScore")
-    ] = None
-    driver_id: typing_extensions.Annotated[str, FieldMetadata(alias="driverId")] = pydantic.Field()
+    ] = pydantic.Field(alias="difficultyScore", default=None)
+    driver_id: typing_extensions.Annotated[str, FieldMetadata(alias="driverId")] = pydantic.Field(alias="driverId")
     """
     ID of the driver.
     """
 
     percentage_data: typing_extensions.Annotated[
         typing.Optional[DriverEfficiencyPercentageDataObjectResponseBody], FieldMetadata(alias="percentageData")
-    ] = None
+    ] = pydantic.Field(alias="percentageData", default=None)
     raw_data: typing_extensions.Annotated[
         typing.Optional[DriverEfficiencyRawDataObjectResponseBody], FieldMetadata(alias="rawData")
-    ] = None
+    ] = pydantic.Field(alias="rawData", default=None)
     score_data: typing_extensions.Annotated[
         typing.Optional[DriverEfficiencyDataObjectResponseBody], FieldMetadata(alias="scoreData")
-    ] = None
+    ] = pydantic.Field(alias="scoreData", default=None)
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

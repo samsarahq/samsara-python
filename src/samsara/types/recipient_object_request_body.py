@@ -16,7 +16,7 @@ class RecipientObjectRequestBody(UniversalBaseModel):
     """
 
     contact_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="contactId")] = pydantic.Field(
-        default=None
+        alias="contactId", default=None
     )
     """
     The ID of the contact.
@@ -25,13 +25,13 @@ class RecipientObjectRequestBody(UniversalBaseModel):
     notification_types: typing_extensions.Annotated[
         typing.Optional[typing.List[RecipientObjectRequestBodyNotificationTypesItem]],
         FieldMetadata(alias="notificationTypes"),
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="notificationTypes", default=None)
     """
     How the user/contact/role should be notified.
     """
 
     role_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="roleId")] = pydantic.Field(
-        default=None
+        alias="roleId", default=None
     )
     """
     The ID of the role.
@@ -43,7 +43,7 @@ class RecipientObjectRequestBody(UniversalBaseModel):
     """
 
     user_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="userId")] = pydantic.Field(
-        default=None
+        alias="userId", default=None
     )
     """
     The ID of the user.
