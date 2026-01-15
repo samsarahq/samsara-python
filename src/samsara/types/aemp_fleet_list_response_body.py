@@ -17,19 +17,21 @@ class AempFleetListResponseBody(UniversalBaseModel):
 
     equipment: typing_extensions.Annotated[
         typing.List[AempEquipmentWithAdditionalFieldsResponseBody], FieldMetadata(alias="Equipment")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="Equipment")
     """
     The list of Equipment objects.
     """
 
     links: typing_extensions.Annotated[typing.List[AempLinkResponseBody], FieldMetadata(alias="Links")] = (
-        pydantic.Field()
+        pydantic.Field(alias="Links")
     )
     """
     The list of links associated with the current API request.
     """
 
-    snapshot_time: typing_extensions.Annotated[str, FieldMetadata(alias="snapshotTime")] = pydantic.Field()
+    snapshot_time: typing_extensions.Annotated[str, FieldMetadata(alias="snapshotTime")] = pydantic.Field(
+        alias="snapshotTime"
+    )
     """
     Date and time at which the snapshot of the fleet was created in RFC 3339 format.
     """

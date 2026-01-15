@@ -14,7 +14,7 @@ class EngineStatusResponseBody(UniversalBaseModel):
     """
 
     running: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="Running")] = pydantic.Field(
-        default=None
+        alias="Running", default=None
     )
     """
     Boolean value for whether engine is running or not.

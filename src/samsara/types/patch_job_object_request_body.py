@@ -16,14 +16,14 @@ class PatchJobObjectRequestBody(UniversalBaseModel):
 
     address: typing.Optional[PatchJobObjectjobLocationRequestObjectRequestBody] = None
     customer_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="customerName")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="customerName", default=None)
     )
     """
     Customer name for job
     """
 
     end_date: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="endDate")] = pydantic.Field(
-        default=None
+        alias="endDate", default=None
     )
     """
     End date of job in RFC 3339 format. Must be greater than or equal to the start date
@@ -31,7 +31,7 @@ class PatchJobObjectRequestBody(UniversalBaseModel):
 
     fleet_device_ids: typing_extensions.Annotated[
         typing.Optional[typing.List[int]], FieldMetadata(alias="fleetDeviceIds")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="fleetDeviceIds", default=None)
     """
     Fleet devices to be added to this job (cannot have both industrial assets and fleet devices in the same job)
     """
@@ -43,7 +43,7 @@ class PatchJobObjectRequestBody(UniversalBaseModel):
 
     industrial_asset_ids: typing_extensions.Annotated[
         typing.Optional[typing.List[str]], FieldMetadata(alias="industrialAssetIds")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="industrialAssetIds", default=None)
     """
     IndustrialAssets to be added to this job (cannot have both industrial assets and fleet devices in the same job)
     """
@@ -60,20 +60,20 @@ class PatchJobObjectRequestBody(UniversalBaseModel):
 
     ontime_window_after_arrival_ms: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="ontimeWindowAfterArrivalMs")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="ontimeWindowAfterArrivalMs", default=None)
     """
     Specifies the time window (in milliseconds) after a stop's scheduled arrival time during which the stop is considered 'on-time'.
     """
 
     ontime_window_before_arrival_ms: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="ontimeWindowBeforeArrivalMs")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="ontimeWindowBeforeArrivalMs", default=None)
     """
     Specifies the time window (in milliseconds) before a stop's scheduled arrival time during which the stop is considered 'on-time'.
     """
 
     start_date: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="startDate")] = pydantic.Field(
-        default=None
+        alias="startDate", default=None
     )
     """
     Start date of job in RFC 3339 format.

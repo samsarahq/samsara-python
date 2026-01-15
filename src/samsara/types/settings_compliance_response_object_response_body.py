@@ -15,27 +15,27 @@ class SettingsComplianceResponseObjectResponseBody(UniversalBaseModel):
 
     allow_unregulated_vehicles_enabled: typing_extensions.Annotated[
         typing.Optional[bool], FieldMetadata(alias="allowUnregulatedVehiclesEnabled")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="allowUnregulatedVehiclesEnabled", default=None)
     """
     [deprecated] Allow Unregulated Vehicles. This setting is deprecated as all organizations can now mark vehicles as unregulated.
     """
 
     canada_hos_enabled: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="canadaHosEnabled")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="canadaHosEnabled", default=None)
     )
     """
     Enable Canada HOS
     """
 
     carrier_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="carrierName")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="carrierName", default=None)
     )
     """
     Carrier name of the organization
     """
 
     dot_number: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="dotNumber")] = pydantic.Field(
-        default=None
+        alias="dotNumber", default=None
     )
     """
     DOT Number
@@ -43,42 +43,42 @@ class SettingsComplianceResponseObjectResponseBody(UniversalBaseModel):
 
     driver_auto_duty_enabled: typing_extensions.Annotated[
         typing.Optional[bool], FieldMetadata(alias="driverAutoDutyEnabled")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="driverAutoDutyEnabled", default=None)
     """
     Enable Driver Auto-Duty
     """
 
     edit_certified_logs_enabled: typing_extensions.Annotated[
         typing.Optional[bool], FieldMetadata(alias="editCertifiedLogsEnabled")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="editCertifiedLogsEnabled", default=None)
     """
     Drivers Can Edit Certified Log
     """
 
     force_manual_location_for_duty_status_changes_enabled: typing_extensions.Annotated[
         typing.Optional[bool], FieldMetadata(alias="forceManualLocationForDutyStatusChangesEnabled")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="forceManualLocationForDutyStatusChangesEnabled", default=None)
     """
     Force Manual Location For Duty Status Changes
     """
 
     force_review_unassigned_hos_enabled: typing_extensions.Annotated[
         typing.Optional[bool], FieldMetadata(alias="forceReviewUnassignedHosEnabled")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="forceReviewUnassignedHosEnabled", default=None)
     """
     Force Review of Unassigned HOS
     """
 
     main_office_formatted_address: typing_extensions.Annotated[
         typing.Optional[str], FieldMetadata(alias="mainOfficeFormattedAddress")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="mainOfficeFormattedAddress", default=None)
     """
     Office Address
     """
 
     persistent_duty_status_enabled: typing_extensions.Annotated[
         typing.Optional[bool], FieldMetadata(alias="persistentDutyStatusEnabled")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="persistentDutyStatusEnabled", default=None)
     """
     Persistent Duty Status
     """

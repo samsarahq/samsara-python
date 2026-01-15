@@ -12,7 +12,7 @@ from .carrier_proposed_assignment_driver_all_of_2_external_ids import CarrierPro
 class CarrierProposedAssignmentDriverAllOf(UniversalBaseModel):
     external_ids: typing_extensions.Annotated[
         typing.Optional[CarrierProposedAssignmentDriverAllOf2ExternalIds], FieldMetadata(alias="externalIds")
-    ] = None
+    ] = pydantic.Field(alias="externalIds", default=None)
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

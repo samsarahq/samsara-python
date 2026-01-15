@@ -15,7 +15,7 @@ class HosDrive(UniversalBaseModel):
 
     drive_remaining_duration_ms: typing_extensions.Annotated[
         typing.Optional[float], FieldMetadata(alias="driveRemainingDurationMs")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="driveRemainingDurationMs", default=None)
     """
     Remaining driving time the driver has in the current shift in milliseconds. For property-carrying drivers, this is the amount of time the driver can drive before hitting the 11-hour limit.
     """

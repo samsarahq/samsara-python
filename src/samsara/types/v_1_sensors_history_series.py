@@ -19,7 +19,7 @@ class V1SensorsHistorySeries(UniversalBaseModel):
     Field to query.
     """
 
-    widget_id: typing_extensions.Annotated[int, FieldMetadata(alias="widgetId")] = pydantic.Field()
+    widget_id: typing_extensions.Annotated[int, FieldMetadata(alias="widgetId")] = pydantic.Field(alias="widgetId")
     """
     V1Sensor ID to query.
     """

@@ -13,24 +13,26 @@ from .vehicle_assignment_object_response_body_assignment_type import VehicleAssi
 class VehicleAssignmentObjectResponseBody(UniversalBaseModel):
     assignment_type: typing_extensions.Annotated[
         VehicleAssignmentObjectResponseBodyAssignmentType, FieldMetadata(alias="assignmentType")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="assignmentType")
     """
     Assignment type of the driver-vehicle assignment, indicating the provenance of the assignment. The only type of assignment supported right now is `driverApp` assignments. This list could change, so it is recommended that clients gracefully handle any types not enumerated in this list.  Valid values: `driverApp`
     """
 
     end_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="endTime")] = pydantic.Field(
-        default=None
+        alias="endTime", default=None
     )
     """
      An end time in RFC 3339 format. Omitted if not applicable. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
     """
 
-    is_passenger: typing_extensions.Annotated[bool, FieldMetadata(alias="isPassenger")] = pydantic.Field()
+    is_passenger: typing_extensions.Annotated[bool, FieldMetadata(alias="isPassenger")] = pydantic.Field(
+        alias="isPassenger"
+    )
     """
     Boolean indicating whether the driver is a passenger.
     """
 
-    start_time: typing_extensions.Annotated[str, FieldMetadata(alias="startTime")] = pydantic.Field()
+    start_time: typing_extensions.Annotated[str, FieldMetadata(alias="startTime")] = pydantic.Field(alias="startTime")
     """
      A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
     """

@@ -21,13 +21,13 @@ class TripsBreakdownResponseBody(UniversalBaseModel):
     """
 
     drive_distance_meters: typing_extensions.Annotated[int, FieldMetadata(alias="driveDistanceMeters")] = (
-        pydantic.Field()
+        pydantic.Field(alias="driveDistanceMeters")
     )
     """
     Distance driven during the trip.
     """
 
-    driver_id: typing_extensions.Annotated[str, FieldMetadata(alias="driverId")] = pydantic.Field()
+    driver_id: typing_extensions.Annotated[str, FieldMetadata(alias="driverId")] = pydantic.Field(alias="driverId")
     """
     ID of the driver associated with the trip.
     """
@@ -37,22 +37,28 @@ class TripsBreakdownResponseBody(UniversalBaseModel):
     Aggregated list of speeding events that occurred during the trip, one row for each unique type of speeding.
     """
 
-    trip_end_time: typing_extensions.Annotated[str, FieldMetadata(alias="tripEndTime")] = pydantic.Field()
+    trip_end_time: typing_extensions.Annotated[str, FieldMetadata(alias="tripEndTime")] = pydantic.Field(
+        alias="tripEndTime"
+    )
     """
     [RFC 3339] Time the trip ended in UTC.
     """
 
-    trip_score_impact: typing_extensions.Annotated[float, FieldMetadata(alias="tripScoreImpact")] = pydantic.Field()
+    trip_score_impact: typing_extensions.Annotated[float, FieldMetadata(alias="tripScoreImpact")] = pydantic.Field(
+        alias="tripScoreImpact"
+    )
     """
     Impact of the trip to the overall score. This is the effective sum of all risk factors in the trip.
     """
 
-    trip_start_time: typing_extensions.Annotated[str, FieldMetadata(alias="tripStartTime")] = pydantic.Field()
+    trip_start_time: typing_extensions.Annotated[str, FieldMetadata(alias="tripStartTime")] = pydantic.Field(
+        alias="tripStartTime"
+    )
     """
     [RFC 3339] Time the trip started in UTC.
     """
 
-    vehicle_id: typing_extensions.Annotated[str, FieldMetadata(alias="vehicleId")] = pydantic.Field()
+    vehicle_id: typing_extensions.Annotated[str, FieldMetadata(alias="vehicleId")] = pydantic.Field(alias="vehicleId")
     """
     ID of the vehicle associated with the trip.
     """

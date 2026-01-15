@@ -13,7 +13,9 @@ class OrderQuantityResponseBody(UniversalBaseModel):
     Quantity requirement
     """
 
-    capacity_id: typing_extensions.Annotated[str, FieldMetadata(alias="capacityId")] = pydantic.Field()
+    capacity_id: typing_extensions.Annotated[str, FieldMetadata(alias="capacityId")] = pydantic.Field(
+        alias="capacityId"
+    )
     """
     The ID of the required capacity type
     """

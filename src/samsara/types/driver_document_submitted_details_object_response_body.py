@@ -13,7 +13,9 @@ class DriverDocumentSubmittedDetailsObjectResponseBody(UniversalBaseModel):
     Details specific to Driver Document Submitted
     """
 
-    template_ids: typing_extensions.Annotated[typing.List[str], FieldMetadata(alias="templateIds")] = pydantic.Field()
+    template_ids: typing_extensions.Annotated[typing.List[str], FieldMetadata(alias="templateIds")] = pydantic.Field(
+        alias="templateIds"
+    )
     """
     Specific template IDs to be alerted on.
     """

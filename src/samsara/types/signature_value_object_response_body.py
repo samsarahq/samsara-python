@@ -25,7 +25,7 @@ class SignatureValueObjectResponseBody(UniversalBaseModel):
     """
 
     signed_at_time: typing_extensions.Annotated[typing.Optional[dt.datetime], FieldMetadata(alias="signedAtTime")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="signedAtTime", default=None)
     )
     """
     Time the signature was captured in RFC 3339 format.

@@ -21,17 +21,17 @@ class SingleDriverEfficiencyByVehicleDataObjectResponseBody(UniversalBaseModel):
 
     difficulty_score: typing_extensions.Annotated[
         typing.Optional[DriverEfficiencyDifficultyScoreDataObjectResponseBody], FieldMetadata(alias="difficultyScore")
-    ] = None
+    ] = pydantic.Field(alias="difficultyScore", default=None)
     percentage_data: typing_extensions.Annotated[
         typing.Optional[DriverEfficiencyPercentageDataObjectResponseBody], FieldMetadata(alias="percentageData")
-    ] = None
+    ] = pydantic.Field(alias="percentageData", default=None)
     raw_data: typing_extensions.Annotated[
         typing.Optional[DriverEfficiencyRawDataObjectResponseBody], FieldMetadata(alias="rawData")
-    ] = None
+    ] = pydantic.Field(alias="rawData", default=None)
     score_data: typing_extensions.Annotated[
         typing.Optional[DriverEfficiencyDataObjectResponseBody], FieldMetadata(alias="scoreData")
-    ] = None
-    vehicle_id: typing_extensions.Annotated[str, FieldMetadata(alias="vehicleId")] = pydantic.Field()
+    ] = pydantic.Field(alias="scoreData", default=None)
+    vehicle_id: typing_extensions.Annotated[str, FieldMetadata(alias="vehicleId")] = pydantic.Field(alias="vehicleId")
     """
     ID of the vehicle.
     """

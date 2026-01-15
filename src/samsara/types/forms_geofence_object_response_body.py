@@ -21,14 +21,14 @@ class FormsGeofenceObjectResponseBody(UniversalBaseModel):
 
     entry_type: typing_extensions.Annotated[
         FormsGeofenceObjectResponseBodyEntryType, FieldMetadata(alias="entryType")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="entryType")
     """
     The type of entry for the geofence.  Valid values: `tracked`, `untracked`
     """
 
     external_ids: typing_extensions.Annotated[
         typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="externalIds", default=None)
     """
     A map of external ids
     """

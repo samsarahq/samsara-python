@@ -19,13 +19,13 @@ class TrainingAssignmentNearDueDateTriggerAssignmentGroupObjectResponseBody(Univ
     assignment_group_type: typing_extensions.Annotated[
         TrainingAssignmentNearDueDateTriggerAssignmentGroupObjectResponseBodyAssignmentGroupType,
         FieldMetadata(alias="assignmentGroupType"),
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="assignmentGroupType")
     """
     Assignment group type.  Valid values: `CATEGORY`, `COURSE`
     """
 
     assignment_group_uuid: typing_extensions.Annotated[str, FieldMetadata(alias="assignmentGroupUuid")] = (
-        pydantic.Field()
+        pydantic.Field(alias="assignmentGroupUuid")
     )
     """
     The unique ID of the assignment group.

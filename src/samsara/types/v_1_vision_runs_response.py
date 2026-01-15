@@ -12,7 +12,7 @@ from .v_1_vision_runs_response_vision_runs import V1VisionRunsResponseVisionRuns
 class V1VisionRunsResponse(UniversalBaseModel):
     vision_runs: typing_extensions.Annotated[
         typing.Optional[typing.List[V1VisionRunsResponseVisionRuns]], FieldMetadata(alias="visionRuns")
-    ] = None
+    ] = pydantic.Field(alias="visionRuns", default=None)
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

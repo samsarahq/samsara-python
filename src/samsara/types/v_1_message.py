@@ -9,7 +9,7 @@ from ..core.serialization import FieldMetadata
 
 
 class V1Message(UniversalBaseModel):
-    driver_id: typing_extensions.Annotated[int, FieldMetadata(alias="driverId")] = pydantic.Field()
+    driver_id: typing_extensions.Annotated[int, FieldMetadata(alias="driverId")] = pydantic.Field(alias="driverId")
     """
     ID of the driver for whom the message is sent to or sent by.
     """

@@ -22,7 +22,7 @@ class SafetyEventV2ObjectResponseBody(UniversalBaseModel):
 
     asset: SafetyEventV2AssetObjectResponseBody
     assigned_coach: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="assignedCoach")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="assignedCoach", default=None)
     )
     """
     Unique user ID for the assigned coach.
@@ -30,49 +30,51 @@ class SafetyEventV2ObjectResponseBody(UniversalBaseModel):
 
     behavior_labels: typing_extensions.Annotated[
         typing.List[SafetyEventV2BehaviorLabelsResponseBody], FieldMetadata(alias="behaviorLabels")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="behaviorLabels")
     """
     The most up-to-date behavior labels associated with the safety event. These labels can be updated by Safety Admins.
     """
 
     context_labels: typing_extensions.Annotated[
         typing.List[SafetyEventV2ContextLabelsResponseBody], FieldMetadata(alias="contextLabels")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="contextLabels")
     """
     The most up-to-date context labels associated with the safety event. AI generated labels can be updated by Safety Admins.
     """
 
-    created_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="createdAtTime")] = pydantic.Field()
+    created_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="createdAtTime")] = pydantic.Field(
+        alias="createdAtTime"
+    )
     """
     UTC time the Safety Event was created in Samsara in RFC 3339 format.
     """
 
     dismissal_reason: typing_extensions.Annotated[
         typing.Optional[SafetyEventDismissalReasonResponseBody], FieldMetadata(alias="dismissalReason")
-    ] = None
+    ] = pydantic.Field(alias="dismissalReason", default=None)
     download_forward_video_url: typing_extensions.Annotated[
         typing.Optional[str], FieldMetadata(alias="downloadForwardVideoUrl")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="downloadForwardVideoUrl", default=None)
     """
     URL to download the forward video. Only returned with sufficient Read Camera Media permissions.
     """
 
     download_inward_video_url: typing_extensions.Annotated[
         typing.Optional[str], FieldMetadata(alias="downloadInwardVideoUrl")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="downloadInwardVideoUrl", default=None)
     """
     URL to download the inward video. Only returned with sufficient Read Camera Media permissions.
     """
 
     driver: SafetyEventV2DriverObjectResponseBody
-    end_ms: typing_extensions.Annotated[str, FieldMetadata(alias="endMs")] = pydantic.Field()
+    end_ms: typing_extensions.Annotated[str, FieldMetadata(alias="endMs")] = pydantic.Field(alias="endMs")
     """
     UTC time the Safety Event ended in RFC 3339 format.
     """
 
     event_state: typing_extensions.Annotated[
         SafetyEventV2ObjectResponseBodyEventState, FieldMetadata(alias="eventState")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="eventState")
     """
     The current state of the Safety Event.  Valid values: `unknown`, `needsReview`, `reviewed`, `needsCoaching`, `coached`, `dismissed`, `needsRecognition`, `recognized`
     """
@@ -82,43 +84,49 @@ class SafetyEventV2ObjectResponseBody(UniversalBaseModel):
     The unique Samsara ID (uuid) of the safety event.
     """
 
-    inbox_event_url: typing_extensions.Annotated[str, FieldMetadata(alias="inboxEventUrl")] = pydantic.Field()
+    inbox_event_url: typing_extensions.Annotated[str, FieldMetadata(alias="inboxEventUrl")] = pydantic.Field(
+        alias="inboxEventUrl"
+    )
     """
     A link to the Safety Event review page for the associated event.
     """
 
-    incident_report_url: typing_extensions.Annotated[str, FieldMetadata(alias="incidentReportUrl")] = pydantic.Field()
+    incident_report_url: typing_extensions.Annotated[str, FieldMetadata(alias="incidentReportUrl")] = pydantic.Field(
+        alias="incidentReportUrl"
+    )
     """
     If a harsh event, returns the URL of the associated incident report page. If a speeding event, returns the URL of the associated speeding report page.
     """
 
     location: LocationResponseResponseBody
     max_acceleration_g_force: typing_extensions.Annotated[float, FieldMetadata(alias="maxAccelerationGForce")] = (
-        pydantic.Field()
+        pydantic.Field(alias="maxAccelerationGForce")
     )
     """
     The maximum acceleration value as a multiplier on the force of gravity (g).
     """
 
-    start_ms: typing_extensions.Annotated[str, FieldMetadata(alias="startMs")] = pydantic.Field()
+    start_ms: typing_extensions.Annotated[str, FieldMetadata(alias="startMs")] = pydantic.Field(alias="startMs")
     """
     UTC time the Safety Event started in RFC 3339 format.
     """
 
     trip_start_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="tripStartTime")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="tripStartTime", default=None)
     )
     """
     UTC time the trip started in RFC 3339 format. Null when Safety Event occurs off-trip.
     """
 
-    updated_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="updatedAtTime")] = pydantic.Field()
+    updated_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="updatedAtTime")] = pydantic.Field(
+        alias="updatedAtTime"
+    )
     """
     UTC time the Safety Event was updated in Samsara in RFC 3339 format.
     """
 
     updated_by_user_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="updatedByUserId")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="updatedByUserId", default=None)
     )
     """
     The user ID associated with the user who made the event state change. Only returned if the event state changes.

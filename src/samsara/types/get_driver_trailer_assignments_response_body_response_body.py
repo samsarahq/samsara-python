@@ -16,7 +16,7 @@ class GetDriverTrailerAssignmentsResponseBodyResponseBody(UniversalBaseModel):
     """
 
     created_at_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="createdAtTime")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="createdAtTime", default=None)
     )
     """
     Time when the driver trailer assignment was created, in RFC 3339 format.
@@ -24,7 +24,7 @@ class GetDriverTrailerAssignmentsResponseBodyResponseBody(UniversalBaseModel):
 
     driver: DriverWithExternalIdObjectResponseBody
     end_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="endTime")] = pydantic.Field(
-        default=None
+        alias="endTime", default=None
     )
     """
     Time when the driver trailer assignment will end, in RFC 3339 format.
@@ -35,14 +35,14 @@ class GetDriverTrailerAssignmentsResponseBodyResponseBody(UniversalBaseModel):
     Samsara ID of the driver trailer assignment.
     """
 
-    start_time: typing_extensions.Annotated[str, FieldMetadata(alias="startTime")] = pydantic.Field()
+    start_time: typing_extensions.Annotated[str, FieldMetadata(alias="startTime")] = pydantic.Field(alias="startTime")
     """
     Time when the driver trailer assignment starts, in RFC 3339 format.
     """
 
     trailer: TrailerObjectResponseBody
     updated_at_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="updatedAtTime")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="updatedAtTime", default=None)
     )
     """
     Time when the driver trailer assignment was last updated, in RFC 3339 format.

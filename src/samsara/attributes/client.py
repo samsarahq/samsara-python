@@ -109,7 +109,7 @@ class AttributesClient:
         Parameters
         ----------
         attribute_type : CreateAttributeRequestAttributeType
-            Denotes the data type of the attribute's values. Valid values: `single-select`, `multi-select`, `text`, `freeform-multi-select`.
+            Denotes the data type of the attribute's values. Valid values: `single-select`, `multi-select`, `text`, `freeform-multi-select`, `number`, `date`.
 
         entity_type : CreateAttributeRequestEntityType
             Denotes the type of entity, driver or asset.
@@ -280,7 +280,7 @@ class AttributesClient:
             Denotes the type of entity, driver or asset.
 
         attribute_type : typing.Optional[UpdateAttributeRequestAttributeType]
-            Denotes the data type of the attribute's values. Valid values: `single-select`, `multi-select`, `text`, `freeform-multi-select`.
+            Denotes the data type of the attribute's values. Valid values: `single-select`, `multi-select`, `text`, `freeform-multi-select`, `number`, `date`.
 
         entities : typing.Optional[typing.Sequence[CreateAttributeRequestEntities]]
             Entities that will be applied to this attribute
@@ -422,7 +422,7 @@ class AsyncAttributesClient:
         Parameters
         ----------
         attribute_type : CreateAttributeRequestAttributeType
-            Denotes the data type of the attribute's values. Valid values: `single-select`, `multi-select`, `text`, `freeform-multi-select`.
+            Denotes the data type of the attribute's values. Valid values: `single-select`, `multi-select`, `text`, `freeform-multi-select`, `number`, `date`.
 
         entity_type : CreateAttributeRequestEntityType
             Denotes the type of entity, driver or asset.
@@ -619,7 +619,7 @@ class AsyncAttributesClient:
             Denotes the type of entity, driver or asset.
 
         attribute_type : typing.Optional[UpdateAttributeRequestAttributeType]
-            Denotes the data type of the attribute's values. Valid values: `single-select`, `multi-select`, `text`, `freeform-multi-select`.
+            Denotes the data type of the attribute's values. Valid values: `single-select`, `multi-select`, `text`, `freeform-multi-select`, `number`, `date`.
 
         entities : typing.Optional[typing.Sequence[CreateAttributeRequestEntities]]
             Entities that will be applied to this attribute

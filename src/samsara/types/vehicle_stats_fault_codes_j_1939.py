@@ -17,10 +17,10 @@ class VehicleStatsFaultCodesJ1939(UniversalBaseModel):
 
     check_engine_lights: typing_extensions.Annotated[
         typing.Optional[VehicleStatsFaultCodesJ1939Lights], FieldMetadata(alias="checkEngineLights")
-    ] = None
+    ] = pydantic.Field(alias="checkEngineLights", default=None)
     diagnostic_trouble_codes: typing_extensions.Annotated[
         typing.Optional[VehicleStatsFaultCodesJ1939TroubleCodes], FieldMetadata(alias="diagnosticTroubleCodes")
-    ] = None
+    ] = pydantic.Field(alias="diagnosticTroubleCodes", default=None)
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

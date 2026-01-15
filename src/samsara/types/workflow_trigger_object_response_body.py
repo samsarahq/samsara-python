@@ -16,8 +16,10 @@ class WorkflowTriggerObjectResponseBody(UniversalBaseModel):
 
     trigger_params: typing_extensions.Annotated[
         typing.Optional[TriggerParamsObjectResponseBody], FieldMetadata(alias="triggerParams")
-    ] = None
-    trigger_type_id: typing_extensions.Annotated[int, FieldMetadata(alias="triggerTypeId")] = pydantic.Field()
+    ] = pydantic.Field(alias="triggerParams", default=None)
+    trigger_type_id: typing_extensions.Annotated[int, FieldMetadata(alias="triggerTypeId")] = pydantic.Field(
+        alias="triggerTypeId"
+    )
     """
     The id of the trigger type. Reference the following list for the ids:
     

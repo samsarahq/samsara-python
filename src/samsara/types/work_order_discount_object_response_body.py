@@ -15,7 +15,7 @@ class WorkOrderDiscountObjectResponseBody(UniversalBaseModel):
     """
 
     basis_points: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="basisPoints")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="basisPoints", default=None)
     )
     """
     The discount in basis points. 100 basis points = 1%.

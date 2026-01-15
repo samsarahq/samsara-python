@@ -14,12 +14,14 @@ class AppointmentWindowRequestBody(UniversalBaseModel):
     Appointment window
     """
 
-    end_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="endTime")] = pydantic.Field()
+    end_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="endTime")] = pydantic.Field(alias="endTime")
     """
     End time of the appointment window, in RFC 3339 format
     """
 
-    start_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="startTime")] = pydantic.Field()
+    start_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="startTime")] = pydantic.Field(
+        alias="startTime"
+    )
     """
     Start time of the appointment window, in RFC 3339 format
     """

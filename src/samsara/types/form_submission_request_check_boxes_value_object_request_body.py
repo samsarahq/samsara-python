@@ -13,7 +13,9 @@ class FormSubmissionRequestCheckBoxesValueObjectRequestBody(UniversalBaseModel):
     The value of a check boxes form input field. Only valid for check boxes form input fields.
     """
 
-    value_ids: typing_extensions.Annotated[typing.List[str], FieldMetadata(alias="valueIds")]
+    value_ids: typing_extensions.Annotated[typing.List[str], FieldMetadata(alias="valueIds")] = pydantic.Field(
+        alias="valueIds"
+    )
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

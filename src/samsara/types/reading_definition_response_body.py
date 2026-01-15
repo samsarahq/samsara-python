@@ -25,19 +25,23 @@ class ReadingDefinitionResponseBody(UniversalBaseModel):
     The human readable description for this reading. Translated to English.
     """
 
-    entity_type: typing_extensions.Annotated[str, FieldMetadata(alias="entityType")] = pydantic.Field()
+    entity_type: typing_extensions.Annotated[str, FieldMetadata(alias="entityType")] = pydantic.Field(
+        alias="entityType"
+    )
     """
     Entity type of this reading.
     """
 
     enum_values: typing_extensions.Annotated[
         typing.Optional[typing.List[EnumValueResponseBody]], FieldMetadata(alias="enumValues")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="enumValues", default=None)
     """
     Array of enumeration values
     """
 
-    ingestion_enabled: typing_extensions.Annotated[bool, FieldMetadata(alias="ingestionEnabled")] = pydantic.Field()
+    ingestion_enabled: typing_extensions.Annotated[bool, FieldMetadata(alias="ingestionEnabled")] = pydantic.Field(
+        alias="ingestionEnabled"
+    )
     """
     Indicates whether this reading can be ingested using the API.
     """
@@ -47,7 +51,7 @@ class ReadingDefinitionResponseBody(UniversalBaseModel):
     The label for this reading that is suitable to show to a user. Translated to English.
     """
 
-    reading_id: typing_extensions.Annotated[str, FieldMetadata(alias="readingId")] = pydantic.Field()
+    reading_id: typing_extensions.Annotated[str, FieldMetadata(alias="readingId")] = pydantic.Field(alias="readingId")
     """
     The ID of the reading used to fetch time series data in other endpoints.
     """

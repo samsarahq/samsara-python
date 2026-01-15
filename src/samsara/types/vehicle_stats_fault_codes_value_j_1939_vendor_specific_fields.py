@@ -14,7 +14,7 @@ class VehicleStatsFaultCodesValueJ1939VendorSpecificFields(UniversalBaseModel):
     """
 
     dtc_description: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="dtcDescription")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="dtcDescription", default=None)
     )
     """
     The DTC description, if available.
@@ -22,7 +22,7 @@ class VehicleStatsFaultCodesValueJ1939VendorSpecificFields(UniversalBaseModel):
 
     repair_instructions_url: typing_extensions.Annotated[
         typing.Optional[str], FieldMetadata(alias="repairInstructionsUrl")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="repairInstructionsUrl", default=None)
     """
     A link to vendor repair instructions, if available.
     """

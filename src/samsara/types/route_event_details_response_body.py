@@ -18,13 +18,13 @@ class RouteEventDetailsResponseBody(UniversalBaseModel):
 
     stop_eta_updated: typing_extensions.Annotated[
         typing.Optional[StopEtaUpdatedEventDetailsResponseBody], FieldMetadata(alias="stopEtaUpdated")
-    ] = None
+    ] = pydantic.Field(alias="stopEtaUpdated", default=None)
     stop_task_completed: typing_extensions.Annotated[
         typing.Optional[StopTaskCompletedEventDetailsResponseBody], FieldMetadata(alias="stopTaskCompleted")
-    ] = None
+    ] = pydantic.Field(alias="stopTaskCompleted", default=None)
     stop_task_skipped: typing_extensions.Annotated[
         typing.Optional[StopTaskSkippedEventDetailsResponseBody], FieldMetadata(alias="stopTaskSkipped")
-    ] = None
+    ] = pydantic.Field(alias="stopTaskSkipped", default=None)
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -13,13 +13,15 @@ class OutOfRouteDetailsObjectResponseBody(UniversalBaseModel):
     Details specific to Out Of Route
     """
 
-    max_off_route_meters: typing_extensions.Annotated[int, FieldMetadata(alias="maxOffRouteMeters")] = pydantic.Field()
+    max_off_route_meters: typing_extensions.Annotated[int, FieldMetadata(alias="maxOffRouteMeters")] = pydantic.Field(
+        alias="maxOffRouteMeters"
+    )
     """
     The minimum distance in meters a vehicle has to be from its active route path to be considered out of its route.
     """
 
     min_duration_milliseconds: typing_extensions.Annotated[int, FieldMetadata(alias="minDurationMilliseconds")] = (
-        pydantic.Field()
+        pydantic.Field(alias="minDurationMilliseconds")
     )
     """
     The number of milliseconds the trigger needs to stay active before alerting.

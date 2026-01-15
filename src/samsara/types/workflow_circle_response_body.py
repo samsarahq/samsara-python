@@ -23,7 +23,9 @@ class WorkflowCircleResponseBody(UniversalBaseModel):
     Longitude of the address. Will be geocoded from formattedAddress if not provided.
     """
 
-    radius_meters: typing_extensions.Annotated[int, FieldMetadata(alias="radiusMeters")] = pydantic.Field()
+    radius_meters: typing_extensions.Annotated[int, FieldMetadata(alias="radiusMeters")] = pydantic.Field(
+        alias="radiusMeters"
+    )
     """
     The radius of the circular geofence in meters.
     """

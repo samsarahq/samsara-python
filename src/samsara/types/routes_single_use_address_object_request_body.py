@@ -29,7 +29,7 @@ class RoutesSingleUseAddressObjectRequestBody(UniversalBaseModel):
     """
 
     radius_meters: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="radiusMeters")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="radiusMeters", default=None)
     )
     """
     The radius in meters for the geofence around this location. Must be a positive value.

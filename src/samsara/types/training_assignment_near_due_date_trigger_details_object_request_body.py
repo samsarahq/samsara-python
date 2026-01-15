@@ -22,7 +22,7 @@ class TrainingAssignmentNearDueDateTriggerDetailsObjectRequestBody(UniversalBase
     assignment_groups: typing_extensions.Annotated[
         typing.Optional[typing.List[TrainingAssignmentNearDueDateTriggerAssignmentGroupObjectRequestBody]],
         FieldMetadata(alias="assignmentGroups"),
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="assignmentGroups", default=None)
     """
     The assignment groups the trigger is configured for.
     """
@@ -30,12 +30,14 @@ class TrainingAssignmentNearDueDateTriggerDetailsObjectRequestBody(UniversalBase
     condition_units: typing_extensions.Annotated[
         TrainingAssignmentNearDueDateTriggerDetailsObjectRequestBodyConditionUnits,
         FieldMetadata(alias="conditionUnits"),
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="conditionUnits")
     """
     Whether the trigger is configured in days or weeks.  Valid values: `DAYS`, `WEEKS`
     """
 
-    condition_value: typing_extensions.Annotated[int, FieldMetadata(alias="conditionValue")] = pydantic.Field()
+    condition_value: typing_extensions.Annotated[int, FieldMetadata(alias="conditionValue")] = pydantic.Field(
+        alias="conditionValue"
+    )
     """
     The number of days or weeks near the due date to trigger on.
     """

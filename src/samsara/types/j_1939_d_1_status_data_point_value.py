@@ -13,16 +13,26 @@ class J1939D1StatusDataPointValue(UniversalBaseModel):
     A single J1939D1 status
     """
 
-    amber_lamp_status: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="amberLampStatus")] = None
-    fmi: typing.Optional[int] = None
-    mil_status: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="milStatus")] = None
-    occurance_count: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="occuranceCount")] = None
-    protect_lamp_status: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="protectLampStatus")] = (
-        None
+    amber_lamp_status: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="amberLampStatus")] = (
+        pydantic.Field(alias="amberLampStatus", default=None)
     )
-    red_lamp_status: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="redLampStatus")] = None
+    fmi: typing.Optional[int] = None
+    mil_status: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="milStatus")] = pydantic.Field(
+        alias="milStatus", default=None
+    )
+    occurance_count: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="occuranceCount")] = (
+        pydantic.Field(alias="occuranceCount", default=None)
+    )
+    protect_lamp_status: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="protectLampStatus")] = (
+        pydantic.Field(alias="protectLampStatus", default=None)
+    )
+    red_lamp_status: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="redLampStatus")] = (
+        pydantic.Field(alias="redLampStatus", default=None)
+    )
     spn: typing.Optional[int] = None
-    tx_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="txId")] = None
+    tx_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="txId")] = pydantic.Field(
+        alias="txId", default=None
+    )
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

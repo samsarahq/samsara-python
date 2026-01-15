@@ -13,18 +13,22 @@ class IftaDetailJobOutputResponseBody(UniversalBaseModel):
     The file outputs produced by a successfully completed job.
     """
 
-    created_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="createdAtTime")] = pydantic.Field()
+    created_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="createdAtTime")] = pydantic.Field(
+        alias="createdAtTime"
+    )
     """
      When this file was created.
     """
 
-    download_url: typing_extensions.Annotated[str, FieldMetadata(alias="downloadUrl")] = pydantic.Field()
+    download_url: typing_extensions.Annotated[str, FieldMetadata(alias="downloadUrl")] = pydantic.Field(
+        alias="downloadUrl"
+    )
     """
     A url to download the generated file. The contents will be gzipped. This url has an expiration and will no longer be valid after expiration.
     """
 
     download_url_expiration_time: typing_extensions.Annotated[str, FieldMetadata(alias="downloadUrlExpirationTime")] = (
-        pydantic.Field()
+        pydantic.Field(alias="downloadUrlExpirationTime")
     )
     """
      The expiration time of this file's download url. Requesting this job again by ID will refresh the download urls, if expired.
@@ -35,7 +39,9 @@ class IftaDetailJobOutputResponseBody(UniversalBaseModel):
     The name of this file.
     """
 
-    record_count: typing_extensions.Annotated[int, FieldMetadata(alias="recordCount")] = pydantic.Field()
+    record_count: typing_extensions.Annotated[int, FieldMetadata(alias="recordCount")] = pydantic.Field(
+        alias="recordCount"
+    )
     """
     The number of records in this file.
     """

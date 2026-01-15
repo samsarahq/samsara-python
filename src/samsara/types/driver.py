@@ -55,89 +55,91 @@ class Driver(UniversalBaseModel):
 
     carrier_settings: typing_extensions.Annotated[
         typing.Optional[DriverCarrierSettings], FieldMetadata(alias="carrierSettings")
-    ] = None
+    ] = pydantic.Field(alias="carrierSettings", default=None)
     created_at_time: typing_extensions.Annotated[
         typing.Optional[DriverCreatedAtTime], FieldMetadata(alias="createdAtTime")
-    ] = None
+    ] = pydantic.Field(alias="createdAtTime", default=None)
     current_id_card_code: typing_extensions.Annotated[
         typing.Optional[DriverIdCardCode], FieldMetadata(alias="currentIdCardCode")
-    ] = None
+    ] = pydantic.Field(alias="currentIdCardCode", default=None)
     driver_activation_status: typing_extensions.Annotated[
         typing.Optional[DriverActivationStatus], FieldMetadata(alias="driverActivationStatus")
-    ] = None
+    ] = pydantic.Field(alias="driverActivationStatus", default=None)
     eld_adverse_weather_exemption_enabled: typing_extensions.Annotated[
         typing.Optional[DriverEldAdverseWeatherExemptionEnabled],
         FieldMetadata(alias="eldAdverseWeatherExemptionEnabled"),
-    ] = None
+    ] = pydantic.Field(alias="eldAdverseWeatherExemptionEnabled", default=None)
     eld_big_day_exemption_enabled: typing_extensions.Annotated[
         typing.Optional[DriverEldBigDayExemptionEnabled], FieldMetadata(alias="eldBigDayExemptionEnabled")
-    ] = None
+    ] = pydantic.Field(alias="eldBigDayExemptionEnabled", default=None)
     eld_day_start_hour: typing_extensions.Annotated[
         typing.Optional[DriverEldDayStartHour], FieldMetadata(alias="eldDayStartHour")
-    ] = None
-    eld_exempt: typing_extensions.Annotated[typing.Optional[DriverEldExempt], FieldMetadata(alias="eldExempt")] = None
+    ] = pydantic.Field(alias="eldDayStartHour", default=None)
+    eld_exempt: typing_extensions.Annotated[typing.Optional[DriverEldExempt], FieldMetadata(alias="eldExempt")] = (
+        pydantic.Field(alias="eldExempt", default=None)
+    )
     eld_exempt_reason: typing_extensions.Annotated[
         typing.Optional[DriverEldExemptReason], FieldMetadata(alias="eldExemptReason")
-    ] = None
+    ] = pydantic.Field(alias="eldExemptReason", default=None)
     eld_pc_enabled: typing_extensions.Annotated[
         typing.Optional[DriverEldPcEnabled], FieldMetadata(alias="eldPcEnabled")
-    ] = None
+    ] = pydantic.Field(alias="eldPcEnabled", default=None)
     eld_settings: typing_extensions.Annotated[
         typing.Optional[DriverEldSettings], FieldMetadata(alias="eldSettings")
-    ] = None
+    ] = pydantic.Field(alias="eldSettings", default=None)
     eld_ym_enabled: typing_extensions.Annotated[
         typing.Optional[DriverEldYmEnabled], FieldMetadata(alias="eldYmEnabled")
-    ] = None
+    ] = pydantic.Field(alias="eldYmEnabled", default=None)
     external_ids: typing_extensions.Annotated[
         typing.Optional[DriverExternalIds], FieldMetadata(alias="externalIds")
-    ] = None
+    ] = pydantic.Field(alias="externalIds", default=None)
     has_driving_features_hidden: typing_extensions.Annotated[
         typing.Optional[DriverHasDrivingFeaturesHidden], FieldMetadata(alias="hasDrivingFeaturesHidden")
-    ] = None
+    ] = pydantic.Field(alias="hasDrivingFeaturesHidden", default=None)
     has_vehicle_unpinning_enabled: typing_extensions.Annotated[
         typing.Optional[DriverHasVehicleUnpinningEnabled], FieldMetadata(alias="hasVehicleUnpinningEnabled")
-    ] = None
+    ] = pydantic.Field(alias="hasVehicleUnpinningEnabled", default=None)
     id: typing.Optional[DriverId] = None
     is_deactivated: typing_extensions.Annotated[
         typing.Optional[DriverIsDeactivated], FieldMetadata(alias="isDeactivated")
-    ] = None
+    ] = pydantic.Field(alias="isDeactivated", default=None)
     license_number: typing_extensions.Annotated[
         typing.Optional[DriverLicenseNumber], FieldMetadata(alias="licenseNumber")
-    ] = None
+    ] = pydantic.Field(alias="licenseNumber", default=None)
     license_state: typing_extensions.Annotated[
         typing.Optional[DriverLicenseState], FieldMetadata(alias="licenseState")
-    ] = None
+    ] = pydantic.Field(alias="licenseState", default=None)
     locale: typing.Optional[DriverLocale] = None
     name: typing.Optional[DriverName] = None
     notes: typing.Optional[DriverNotes] = None
     peer_group_tag: typing_extensions.Annotated[
         typing.Optional[TagTinyResponse], FieldMetadata(alias="peerGroupTag")
-    ] = None
+    ] = pydantic.Field(alias="peerGroupTag", default=None)
     phone: typing.Optional[DriverPhone] = None
     profile_image_url: typing_extensions.Annotated[
         typing.Optional[DriverProfileImageUrl], FieldMetadata(alias="profileImageUrl")
-    ] = None
+    ] = pydantic.Field(alias="profileImageUrl", default=None)
     static_assigned_vehicle: typing_extensions.Annotated[
         typing.Optional[DriverStaticAssignedVehicle], FieldMetadata(alias="staticAssignedVehicle")
-    ] = None
+    ] = pydantic.Field(alias="staticAssignedVehicle", default=None)
     tachograph_card_number: typing_extensions.Annotated[
         typing.Optional[DriverTachographCardNumber], FieldMetadata(alias="tachographCardNumber")
-    ] = None
+    ] = pydantic.Field(alias="tachographCardNumber", default=None)
     tags: typing.Optional[DriverTags] = None
     timezone: typing.Optional[DriverTimezone] = None
     updated_at_time: typing_extensions.Annotated[
         typing.Optional[DriverUpdatedAtTime], FieldMetadata(alias="updatedAtTime")
-    ] = None
+    ] = pydantic.Field(alias="updatedAtTime", default=None)
     us_driver_ruleset_override: typing_extensions.Annotated[
         typing.Optional[UsDriverRulesetOverride], FieldMetadata(alias="usDriverRulesetOverride")
-    ] = None
+    ] = pydantic.Field(alias="usDriverRulesetOverride", default=None)
     username: typing.Optional[DriverUsername] = None
     vehicle_group_tag: typing_extensions.Annotated[
         typing.Optional[DriverVehicleGroupTag], FieldMetadata(alias="vehicleGroupTag")
-    ] = None
+    ] = pydantic.Field(alias="vehicleGroupTag", default=None)
     waiting_time_duty_status_enabled: typing_extensions.Annotated[
         typing.Optional[DriverWaitingTimeDutyStatusEnabled], FieldMetadata(alias="waitingTimeDutyStatusEnabled")
-    ] = None
+    ] = pydantic.Field(alias="waitingTimeDutyStatusEnabled", default=None)
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

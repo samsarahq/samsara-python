@@ -23,9 +23,9 @@ class ServiceTaskInstanceObjectResponseBody(UniversalBaseModel):
 
     labor_hourly_cost: typing_extensions.Annotated[
         typing.Optional[WorkOrderMoneyObjectResponseBody], FieldMetadata(alias="laborHourlyCost")
-    ] = None
+    ] = pydantic.Field(alias="laborHourlyCost", default=None)
     labor_time_minutes: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="laborTimeMinutes")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="laborTimeMinutes", default=None)
     )
     """
     The time of labor needed
@@ -38,8 +38,10 @@ class ServiceTaskInstanceObjectResponseBody(UniversalBaseModel):
 
     parts_cost: typing_extensions.Annotated[
         typing.Optional[WorkOrderMoneyObjectResponseBody], FieldMetadata(alias="partsCost")
-    ] = None
-    service_task_id: typing_extensions.Annotated[str, FieldMetadata(alias="serviceTaskId")] = pydantic.Field()
+    ] = pydantic.Field(alias="partsCost", default=None)
+    service_task_id: typing_extensions.Annotated[str, FieldMetadata(alias="serviceTaskId")] = pydantic.Field(
+        alias="serviceTaskId"
+    )
     """
     ID of the service task.
     """

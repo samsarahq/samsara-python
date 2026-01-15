@@ -16,18 +16,22 @@ class OrderObjectResponseBody(UniversalBaseModel):
     Order object
     """
 
-    created_at: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAt")] = pydantic.Field()
+    created_at: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAt")] = pydantic.Field(
+        alias="createdAt"
+    )
     """
     The timestamp (in UTC) when the order was created
     """
 
-    customer_order_id: typing_extensions.Annotated[str, FieldMetadata(alias="customerOrderId")] = pydantic.Field()
+    customer_order_id: typing_extensions.Annotated[str, FieldMetadata(alias="customerOrderId")] = pydantic.Field(
+        alias="customerOrderId"
+    )
     """
     The customer-provided identifier for the order
     """
 
     delivery: typing.Optional[OrderTaskResponseBody] = None
-    hub_id: typing_extensions.Annotated[str, FieldMetadata(alias="hubId")] = pydantic.Field()
+    hub_id: typing_extensions.Annotated[str, FieldMetadata(alias="hubId")] = pydantic.Field(alias="hubId")
     """
     The ID of the hub the order belongs to
     """
@@ -38,7 +42,7 @@ class OrderObjectResponseBody(UniversalBaseModel):
     """
 
     pickup: typing.Optional[OrderTaskResponseBody] = None
-    plan_id: typing_extensions.Annotated[str, FieldMetadata(alias="planId")] = pydantic.Field()
+    plan_id: typing_extensions.Annotated[str, FieldMetadata(alias="planId")] = pydantic.Field(alias="planId")
     """
     The ID of the plan the order belongs to
     """
@@ -54,13 +58,15 @@ class OrderObjectResponseBody(UniversalBaseModel):
     """
 
     skills_required: typing_extensions.Annotated[typing.List[str], FieldMetadata(alias="skillsRequired")] = (
-        pydantic.Field()
+        pydantic.Field(alias="skillsRequired")
     )
     """
     An array of skill IDs required to fulfill the order
     """
 
-    updated_at: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAt")] = pydantic.Field()
+    updated_at: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAt")] = pydantic.Field(
+        alias="updatedAt"
+    )
     """
     The timestamp (in UTC) when the order was last updated
     """

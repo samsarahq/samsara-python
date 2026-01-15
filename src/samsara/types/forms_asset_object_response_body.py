@@ -15,7 +15,7 @@ class FormsAssetObjectResponseBody(UniversalBaseModel):
     """
 
     entry_type: typing_extensions.Annotated[FormsAssetObjectResponseBodyEntryType, FieldMetadata(alias="entryType")] = (
-        pydantic.Field()
+        pydantic.Field(alias="entryType")
     )
     """
     The type of entry for the asset.  Valid values: `tracked`, `untracked`
@@ -23,7 +23,7 @@ class FormsAssetObjectResponseBody(UniversalBaseModel):
 
     external_ids: typing_extensions.Annotated[
         typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="externalIds", default=None)
     """
     A map of external ids
     """
