@@ -3,24 +3,53 @@ name: Release Python SDK
 on:
   workflow_dispatch:
 
+permissions:
+  contents: read
+  actions: write
+
 jobs:
   release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
+        
       - name: Set up python
         uses: actions/setup-python@v4
         with:
           python-version: 3.8
+
       - name: Bootstrap poetry
         run: |
           curl -sSL https://install.python-poetry.org | python - -y --version 1.5.1
+
       - name: Install dependencies
         run: poetry install
+
       - name: Publish to pypi
         run: |
           poetry config repositories.remote https://upload.pypi.org/legacy/
           poetry --no-interaction -v publish --build --repository remote -u __token__ -p "$PYPI_ACCESS_TOKEN"
         env:
           PYPI_ACCESS_TOKEN: ${{ secrets.PYPI_ACCESS_TOKEN }}
+      
+      - name: Get version from pyproject.toml
+        id: get-version
+        run: |
+          VERSION=$(poetry version --short)
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "SDK version: $VERSION"
+      
+      - name: Trigger Lambda Layer Publishing
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'publish-layer.yml',
+              ref: context.ref,
+              inputs: {
+                sdk_version: '${{ steps.get-version.outputs.version }}'
+              }
+            });
