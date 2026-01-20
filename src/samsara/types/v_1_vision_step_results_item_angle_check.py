@@ -12,27 +12,27 @@ from .v_1_vision_step_results_item_angle_check_angle_configured import V1VisionS
 class V1VisionStepResultsItemAngleCheck(UniversalBaseModel):
     angle_configured: typing_extensions.Annotated[
         typing.Optional[V1VisionStepResultsItemAngleCheckAngleConfigured], FieldMetadata(alias="angleConfigured")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="angleConfigured", default=None)
     """
     The configured angle allowance range (in degrees)
     """
 
     angle_found: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="angleFound")] = pydantic.Field(
-        default=None
+        alias="angleFound", default=None
     )
     """
     The counter-clockwise angle detected from the first edge to the second edge
     """
 
     end_step_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="endStepName")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="endStepName", default=None)
     )
     """
     The name of the second reference step used to check the angle
     """
 
     start_step_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="startStepName")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="startStepName", default=None)
     )
     """
     The name of the first reference step used to check the angle

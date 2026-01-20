@@ -14,7 +14,7 @@ class DriverAssignmentMetadataTinyObjectResponseBody(UniversalBaseModel):
     """
 
     source_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="sourceName")] = pydantic.Field(
-        default=None
+        alias="sourceName", default=None
     )
     """
     Assigned source name from an external source.

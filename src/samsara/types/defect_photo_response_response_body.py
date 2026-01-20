@@ -13,7 +13,9 @@ class DefectPhotoResponseResponseBody(UniversalBaseModel):
     Defect's photo object
     """
 
-    created_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="createdAtTime")] = pydantic.Field()
+    created_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="createdAtTime")] = pydantic.Field(
+        alias="createdAtTime"
+    )
     """
     Time when defect's photo was created in RFC 3339 format.
     """

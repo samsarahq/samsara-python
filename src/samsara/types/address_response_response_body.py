@@ -29,14 +29,14 @@ class AddressResponseResponseBody(UniversalBaseModel):
     """
 
     point_of_interest: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="pointOfInterest")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="pointOfInterest", default=None)
     )
     """
     Point that may be of interest to the user
     """
 
     postal_code: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="postalCode")] = pydantic.Field(
-        default=None
+        alias="postalCode", default=None
     )
     """
     The zip code
@@ -53,7 +53,7 @@ class AddressResponseResponseBody(UniversalBaseModel):
     """
 
     street_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="streetNumber")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="streetNumber", default=None)
     )
     """
     Street number of the address

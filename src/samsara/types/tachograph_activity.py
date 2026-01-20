@@ -15,21 +15,21 @@ class TachographActivity(UniversalBaseModel):
     """
 
     end_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="endTime")] = pydantic.Field(
-        default=None
+        alias="endTime", default=None
     )
     """
     End time of state in RFC 3339 format.
     """
 
     is_manual_entry: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="isManualEntry")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="isManualEntry", default=None)
     )
     """
     A flag indicating whether the activity was manually entered by the driver. If this is `true`, the state cannot be "UNKNOWN"
     """
 
     start_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="startTime")] = pydantic.Field(
-        default=None
+        alias="startTime", default=None
     )
     """
     Start time of state in RFC 3339 format.

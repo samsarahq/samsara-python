@@ -25,38 +25,38 @@ from .v_1_vision_step_results_item_text_match import V1VisionStepResultsItemText
 class V1VisionStepResultsItem(UniversalBaseModel):
     angle_check: typing_extensions.Annotated[
         typing.Optional[V1VisionStepResultsItemAngleCheck], FieldMetadata(alias="angleCheck")
-    ] = None
+    ] = pydantic.Field(alias="angleCheck", default=None)
     barcode: typing.Optional[typing.List[V1VisionStepResultsItemBarcodeItem]] = None
     boolean_logic: typing_extensions.Annotated[
         typing.Optional[V1VisionStepResultsItemBooleanLogic], FieldMetadata(alias="booleanLogic")
-    ] = None
+    ] = pydantic.Field(alias="booleanLogic", default=None)
     caliper: typing.Optional[V1VisionStepResultsItemCaliper] = None
     contour: typing.Optional[V1VisionStepResultsItemContour] = None
     distance: typing.Optional[V1VisionStepResultsItemDistance] = None
     expiration_date: typing_extensions.Annotated[
         typing.Optional[V1VisionStepResultsItemExpirationDate], FieldMetadata(alias="expirationDate")
-    ] = None
+    ] = pydantic.Field(alias="expirationDate", default=None)
     find_copies: typing_extensions.Annotated[
         typing.Optional[V1VisionStepResultsItemFindCopies], FieldMetadata(alias="findCopies")
-    ] = None
+    ] = pydantic.Field(alias="findCopies", default=None)
     find_edge: typing_extensions.Annotated[
         typing.Optional[V1VisionStepResultsItemFindEdge], FieldMetadata(alias="findEdge")
-    ] = None
+    ] = pydantic.Field(alias="findEdge", default=None)
     find_shapes: typing_extensions.Annotated[
         typing.Optional[V1VisionStepResultsItemFindShapes], FieldMetadata(alias="findShapes")
-    ] = None
+    ] = pydantic.Field(alias="findShapes", default=None)
     fixture: typing.Optional[V1VisionStepResultsItemFixture] = None
     label_match: typing_extensions.Annotated[
         typing.Optional[V1VisionStepResultsItemLabelMatch], FieldMetadata(alias="labelMatch")
-    ] = None
+    ] = pydantic.Field(alias="labelMatch", default=None)
     name: typing.Optional[str] = None
     presence_absence: typing_extensions.Annotated[
         typing.Optional[V1VisionStepResultsItemPresenceAbsence], FieldMetadata(alias="presenceAbsence")
-    ] = None
+    ] = pydantic.Field(alias="presenceAbsence", default=None)
     result: typing.Optional[str] = None
     text_match: typing_extensions.Annotated[
         typing.Optional[V1VisionStepResultsItemTextMatch], FieldMetadata(alias="textMatch")
-    ] = None
+    ] = pydantic.Field(alias="textMatch", default=None)
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

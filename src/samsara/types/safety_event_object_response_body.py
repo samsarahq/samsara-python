@@ -18,7 +18,7 @@ class SafetyEventObjectResponseBody(UniversalBaseModel):
 
     behavior_labels: typing_extensions.Annotated[
         typing.Optional[typing.List[SafetyEventBehaviorLabelsResponseBody]], FieldMetadata(alias="behaviorLabels")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="behaviorLabels", default=None)
     """
     Behavior labels for a safety event.
     """

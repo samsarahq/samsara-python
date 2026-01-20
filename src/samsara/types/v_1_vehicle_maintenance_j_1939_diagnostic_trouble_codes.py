@@ -9,12 +9,16 @@ from ..core.serialization import FieldMetadata
 
 
 class V1VehicleMaintenanceJ1939DiagnosticTroubleCodes(UniversalBaseModel):
-    fmi_id: typing_extensions.Annotated[int, FieldMetadata(alias="fmiId")]
-    fmi_text: typing_extensions.Annotated[str, FieldMetadata(alias="fmiText")]
-    occurrence_count: typing_extensions.Annotated[int, FieldMetadata(alias="occurrenceCount")]
-    spn_description: typing_extensions.Annotated[str, FieldMetadata(alias="spnDescription")]
-    spn_id: typing_extensions.Annotated[int, FieldMetadata(alias="spnId")]
-    tx_id: typing_extensions.Annotated[int, FieldMetadata(alias="txId")]
+    fmi_id: typing_extensions.Annotated[int, FieldMetadata(alias="fmiId")] = pydantic.Field(alias="fmiId")
+    fmi_text: typing_extensions.Annotated[str, FieldMetadata(alias="fmiText")] = pydantic.Field(alias="fmiText")
+    occurrence_count: typing_extensions.Annotated[int, FieldMetadata(alias="occurrenceCount")] = pydantic.Field(
+        alias="occurrenceCount"
+    )
+    spn_description: typing_extensions.Annotated[str, FieldMetadata(alias="spnDescription")] = pydantic.Field(
+        alias="spnDescription"
+    )
+    spn_id: typing_extensions.Annotated[int, FieldMetadata(alias="spnId")] = pydantic.Field(alias="spnId")
+    tx_id: typing_extensions.Annotated[int, FieldMetadata(alias="txId")] = pydantic.Field(alias="txId")
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

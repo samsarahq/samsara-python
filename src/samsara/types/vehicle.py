@@ -54,77 +54,79 @@ class Vehicle(UniversalBaseModel):
 
     aux_input_type_1: typing_extensions.Annotated[
         typing.Optional[VehicleAuxInputType1], FieldMetadata(alias="auxInputType1")
-    ] = None
+    ] = pydantic.Field(alias="auxInputType1", default=None)
     aux_input_type_10: typing_extensions.Annotated[
         typing.Optional[VehicleAuxInputType10], FieldMetadata(alias="auxInputType10")
-    ] = None
+    ] = pydantic.Field(alias="auxInputType10", default=None)
     aux_input_type_11: typing_extensions.Annotated[
         typing.Optional[VehicleAuxInputType11], FieldMetadata(alias="auxInputType11")
-    ] = None
+    ] = pydantic.Field(alias="auxInputType11", default=None)
     aux_input_type_12: typing_extensions.Annotated[
         typing.Optional[VehicleAuxInputType12], FieldMetadata(alias="auxInputType12")
-    ] = None
+    ] = pydantic.Field(alias="auxInputType12", default=None)
     aux_input_type_13: typing_extensions.Annotated[
         typing.Optional[VehicleAuxInputType13], FieldMetadata(alias="auxInputType13")
-    ] = None
+    ] = pydantic.Field(alias="auxInputType13", default=None)
     aux_input_type_2: typing_extensions.Annotated[
         typing.Optional[VehicleAuxInputType2], FieldMetadata(alias="auxInputType2")
-    ] = None
+    ] = pydantic.Field(alias="auxInputType2", default=None)
     aux_input_type_3: typing_extensions.Annotated[
         typing.Optional[VehicleAuxInputType3], FieldMetadata(alias="auxInputType3")
-    ] = None
+    ] = pydantic.Field(alias="auxInputType3", default=None)
     aux_input_type_4: typing_extensions.Annotated[
         typing.Optional[VehicleAuxInputType4], FieldMetadata(alias="auxInputType4")
-    ] = None
+    ] = pydantic.Field(alias="auxInputType4", default=None)
     aux_input_type_5: typing_extensions.Annotated[
         typing.Optional[VehicleAuxInputType5], FieldMetadata(alias="auxInputType5")
-    ] = None
+    ] = pydantic.Field(alias="auxInputType5", default=None)
     aux_input_type_6: typing_extensions.Annotated[
         typing.Optional[VehicleAuxInputType6], FieldMetadata(alias="auxInputType6")
-    ] = None
+    ] = pydantic.Field(alias="auxInputType6", default=None)
     aux_input_type_7: typing_extensions.Annotated[
         typing.Optional[VehicleAuxInputType7], FieldMetadata(alias="auxInputType7")
-    ] = None
+    ] = pydantic.Field(alias="auxInputType7", default=None)
     aux_input_type_8: typing_extensions.Annotated[
         typing.Optional[VehicleAuxInputType8], FieldMetadata(alias="auxInputType8")
-    ] = None
+    ] = pydantic.Field(alias="auxInputType8", default=None)
     aux_input_type_9: typing_extensions.Annotated[
         typing.Optional[VehicleAuxInputType9], FieldMetadata(alias="auxInputType9")
-    ] = None
+    ] = pydantic.Field(alias="auxInputType9", default=None)
     camera_serial: typing_extensions.Annotated[typing.Optional[CameraSerial], FieldMetadata(alias="cameraSerial")] = (
-        None
+        pydantic.Field(alias="cameraSerial", default=None)
     )
     esn: typing.Optional[VehicleEsn] = None
     external_ids: typing_extensions.Annotated[
         typing.Optional[VehicleExternalIds], FieldMetadata(alias="externalIds")
-    ] = None
+    ] = pydantic.Field(alias="externalIds", default=None)
     gateway: typing.Optional[GatewayTiny] = None
     gross_vehicle_weight: typing_extensions.Annotated[
         typing.Optional[GrossVehicleWeight], FieldMetadata(alias="grossVehicleWeight")
-    ] = None
+    ] = pydantic.Field(alias="grossVehicleWeight", default=None)
     harsh_acceleration_setting_type: typing_extensions.Annotated[
         typing.Optional[VehicleHarshAccelerationSettingType], FieldMetadata(alias="harshAccelerationSettingType")
-    ] = None
+    ] = pydantic.Field(alias="harshAccelerationSettingType", default=None)
     id: VehicleId
     license_plate: typing_extensions.Annotated[
         typing.Optional[VehicleLicensePlate], FieldMetadata(alias="licensePlate")
-    ] = None
+    ] = pydantic.Field(alias="licensePlate", default=None)
     make: typing.Optional[VehicleMake] = None
     model: typing.Optional[VehicleModel] = None
     name: typing.Optional[VehicleName] = None
     notes: typing.Optional[VehicleNotes] = None
     sensor_configuration: typing_extensions.Annotated[
         typing.Optional[VehicleSensorConfiguration], FieldMetadata(alias="sensorConfiguration")
-    ] = None
+    ] = pydantic.Field(alias="sensorConfiguration", default=None)
     serial: typing.Optional[Serial] = None
     static_assigned_driver: typing_extensions.Annotated[
         typing.Optional[VehicleStaticAssignedDriver], FieldMetadata(alias="staticAssignedDriver")
-    ] = None
+    ] = pydantic.Field(alias="staticAssignedDriver", default=None)
     tags: typing.Optional[VehicleTags] = None
     vehicle_regulation_mode: typing_extensions.Annotated[
         typing.Optional[VehicleRegulationMode], FieldMetadata(alias="vehicleRegulationMode")
-    ] = None
-    vehicle_type: typing_extensions.Annotated[typing.Optional[VehicleType], FieldMetadata(alias="vehicleType")] = None
+    ] = pydantic.Field(alias="vehicleRegulationMode", default=None)
+    vehicle_type: typing_extensions.Annotated[typing.Optional[VehicleType], FieldMetadata(alias="vehicleType")] = (
+        pydantic.Field(alias="vehicleType", default=None)
+    )
     vin: typing.Optional[VehicleVin] = None
     year: typing.Optional[VehicleYear] = None
 

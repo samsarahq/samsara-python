@@ -15,7 +15,7 @@ from .driver_ruleset_object_response_body_shift import DriverRulesetObjectRespon
 class DriverRulesetObjectResponseBody(UniversalBaseModel):
     break_: typing_extensions.Annotated[
         typing.Optional[DriverRulesetObjectResponseBodyBreak], FieldMetadata(alias="break")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="break", default=None)
     """
     The rest break required setting of the ELD ruleset applied to this driver.  Valid values: `Property (off-duty/sleeper)`, `Explosives/HazMat (on-duty)`
     """

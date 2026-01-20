@@ -19,7 +19,7 @@ class EquipmentObject(UniversalBaseModel):
     """
 
     asset_serial: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="assetSerial")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="assetSerial", default=None)
     )
     """
     An equipment identification number.
@@ -27,11 +27,11 @@ class EquipmentObject(UniversalBaseModel):
 
     external_ids: typing_extensions.Annotated[
         typing.Optional[CarrierProposedAssignmentDriverAllOf2ExternalIds], FieldMetadata(alias="externalIds")
-    ] = None
+    ] = pydantic.Field(alias="externalIds", default=None)
     id: EquipmentId
     installed_gateway: typing_extensions.Annotated[
         typing.Optional[EquipmentInstalledGateway], FieldMetadata(alias="installedGateway")
-    ] = None
+    ] = pydantic.Field(alias="installedGateway", default=None)
     name: typing.Optional[EquipmentName] = None
     notes: typing.Optional[str] = pydantic.Field(default=None)
     """

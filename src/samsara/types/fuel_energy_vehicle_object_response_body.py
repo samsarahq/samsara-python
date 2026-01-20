@@ -16,14 +16,14 @@ class FuelEnergyVehicleObjectResponseBody(UniversalBaseModel):
 
     energy_type: typing_extensions.Annotated[
         FuelEnergyVehicleObjectResponseBodyEnergyType, FieldMetadata(alias="energyType")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="energyType")
     """
     Type of energy used by the vehicle  Valid values: `fuel`, `hybrid`, `electric`
     """
 
     external_ids: typing_extensions.Annotated[
         typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="externalIds", default=None)
     """
     A map of external ids
     """

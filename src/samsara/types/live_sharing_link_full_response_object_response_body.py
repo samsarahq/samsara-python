@@ -22,21 +22,21 @@ class LiveSharingLinkFullResponseObjectResponseBody(UniversalBaseModel):
     assets_location_link_config: typing_extensions.Annotated[
         typing.Optional[AssetsLocationLinkResponseConfigObjectResponseBody],
         FieldMetadata(alias="assetsLocationLinkConfig"),
-    ] = None
+    ] = pydantic.Field(alias="assetsLocationLinkConfig", default=None)
     assets_near_location_link_config: typing_extensions.Annotated[
         typing.Optional[AssetsNearLocationLinkConfigObjectResponseBody],
         FieldMetadata(alias="assetsNearLocationLinkConfig"),
-    ] = None
+    ] = pydantic.Field(alias="assetsNearLocationLinkConfig", default=None)
     assets_on_route_link_config: typing_extensions.Annotated[
         typing.Optional[AssetsOnRouteLinkConfigObjectResponseBody], FieldMetadata(alias="assetsOnRouteLinkConfig")
-    ] = None
+    ] = pydantic.Field(alias="assetsOnRouteLinkConfig", default=None)
     description: typing.Optional[str] = pydantic.Field(default=None)
     """
     Description for the Live Sharing Link (not applicable for 'assetsOnRoute' type).
     """
 
     expires_at_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="expiresAtTime")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="expiresAtTime", default=None)
     )
     """
     Date that this link expires, in RFC 3339 format.
@@ -47,7 +47,9 @@ class LiveSharingLinkFullResponseObjectResponseBody(UniversalBaseModel):
     Unique identifier for the Live Sharing Link.
     """
 
-    live_sharing_url: typing_extensions.Annotated[str, FieldMetadata(alias="liveSharingUrl")] = pydantic.Field()
+    live_sharing_url: typing_extensions.Annotated[str, FieldMetadata(alias="liveSharingUrl")] = pydantic.Field(
+        alias="liveSharingUrl"
+    )
     """
     The shareable URL of the vehicle's location.
     """

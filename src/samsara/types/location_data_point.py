@@ -17,7 +17,7 @@ class LocationDataPoint(UniversalBaseModel):
 
     gps_location: typing_extensions.Annotated[
         typing.Optional[LocationDataPointGpsLocation], FieldMetadata(alias="gpsLocation")
-    ] = None
+    ] = pydantic.Field(alias="gpsLocation", default=None)
     time: typing.Optional[Time] = None
 
     if IS_PYDANTIC_V2:

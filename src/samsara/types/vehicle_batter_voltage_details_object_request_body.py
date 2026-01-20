@@ -16,13 +16,15 @@ class VehicleBatterVoltageDetailsObjectRequestBody(UniversalBaseModel):
     Details specific to Vehicle Battery Voltage
     """
 
-    battery_volts: typing_extensions.Annotated[int, FieldMetadata(alias="batteryVolts")] = pydantic.Field()
+    battery_volts: typing_extensions.Annotated[int, FieldMetadata(alias="batteryVolts")] = pydantic.Field(
+        alias="batteryVolts"
+    )
     """
     The battery volt threshold value.
     """
 
     min_duration_milliseconds: typing_extensions.Annotated[int, FieldMetadata(alias="minDurationMilliseconds")] = (
-        pydantic.Field()
+        pydantic.Field(alias="minDurationMilliseconds")
     )
     """
     The number of milliseconds the trigger needs to stay active before alerting.

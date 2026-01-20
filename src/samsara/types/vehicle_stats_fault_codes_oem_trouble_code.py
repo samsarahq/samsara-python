@@ -14,28 +14,28 @@ class VehicleStatsFaultCodesOemTroubleCode(UniversalBaseModel):
     """
 
     code_description: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="codeDescription")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="codeDescription", default=None)
     )
     """
     The OEM code description.
     """
 
     code_identifier: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="codeIdentifier")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="codeIdentifier", default=None)
     )
     """
     The OEM code identifier.
     """
 
     code_severity: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="codeSeverity")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="codeSeverity", default=None)
     )
     """
     The OEM code severity.
     """
 
     code_source: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="codeSource")] = pydantic.Field(
-        default=None
+        alias="codeSource", default=None
     )
     """
     The OEM code source.

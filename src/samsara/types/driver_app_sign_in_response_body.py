@@ -18,7 +18,7 @@ class DriverAppSignInResponseBody(UniversalBaseModel):
     driver: typing.Optional[AlertObjectDriverResponseBody] = None
     pinned_vehicle: typing_extensions.Annotated[
         typing.Optional[AlertObjectVehicleResponseBody], FieldMetadata(alias="pinnedVehicle")
-    ] = None
+    ] = pydantic.Field(alias="pinnedVehicle", default=None)
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

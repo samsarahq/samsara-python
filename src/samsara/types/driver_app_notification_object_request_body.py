@@ -17,10 +17,10 @@ class DriverAppNotificationObjectRequestBody(UniversalBaseModel):
 
     in_app_notification_options: typing_extensions.Annotated[
         typing.Optional[InAppNotificationOptionsObjectRequestBody], FieldMetadata(alias="inAppNotificationOptions")
-    ] = None
+    ] = pydantic.Field(alias="inAppNotificationOptions", default=None)
     push_notification_options: typing_extensions.Annotated[
         typing.Optional[PushNotificationOptionsObjectRequestBody], FieldMetadata(alias="pushNotificationOptions")
-    ] = None
+    ] = pydantic.Field(alias="pushNotificationOptions", default=None)
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

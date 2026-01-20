@@ -17,7 +17,7 @@ class FormsPersonObjectResponseBody(UniversalBaseModel):
 
     entry_type: typing_extensions.Annotated[
         FormsPersonObjectResponseBodyEntryType, FieldMetadata(alias="entryType")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="entryType")
     """
     The type of entry for the person.  Valid values: `tracked`, `untracked`
     """
@@ -29,7 +29,7 @@ class FormsPersonObjectResponseBody(UniversalBaseModel):
 
     polymorphic_user_id: typing_extensions.Annotated[
         typing.Optional[FormsPolymorphicUserObjectResponseBody], FieldMetadata(alias="polymorphicUserId")
-    ] = None
+    ] = pydantic.Field(alias="polymorphicUserId", default=None)
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

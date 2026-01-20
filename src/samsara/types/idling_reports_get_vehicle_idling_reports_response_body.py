@@ -17,12 +17,16 @@ class IdlingReportsGetVehicleIdlingReportsResponseBody(UniversalBaseModel):
     """
 
     pagination: GoaPaginationResponseResponseBody
-    request_end_time: typing_extensions.Annotated[str, FieldMetadata(alias="requestEndTime")] = pydantic.Field()
+    request_end_time: typing_extensions.Annotated[str, FieldMetadata(alias="requestEndTime")] = pydantic.Field(
+        alias="requestEndTime"
+    )
     """
     The requested end time in RFC 3339 format.
     """
 
-    request_start_time: typing_extensions.Annotated[str, FieldMetadata(alias="requestStartTime")] = pydantic.Field()
+    request_start_time: typing_extensions.Annotated[str, FieldMetadata(alias="requestStartTime")] = pydantic.Field(
+        alias="requestStartTime"
+    )
     """
     The requested start time in RFC 3339 format.
     """

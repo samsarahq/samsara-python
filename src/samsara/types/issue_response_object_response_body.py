@@ -23,8 +23,10 @@ class IssueResponseObjectResponseBody(UniversalBaseModel):
     asset: typing.Optional[FormsAssetObjectResponseBody] = None
     assigned_to: typing_extensions.Annotated[
         typing.Optional[FormsPolymorphicUserObjectResponseBody], FieldMetadata(alias="assignedTo")
-    ] = None
-    created_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAtTime")] = pydantic.Field()
+    ] = pydantic.Field(alias="assignedTo", default=None)
+    created_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAtTime")] = pydantic.Field(
+        alias="createdAtTime"
+    )
     """
     Creation time of the issue. UTC timestamp in RFC 3339 format.
     """
@@ -35,7 +37,7 @@ class IssueResponseObjectResponseBody(UniversalBaseModel):
     """
 
     due_date: typing_extensions.Annotated[typing.Optional[dt.datetime], FieldMetadata(alias="dueDate")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="dueDate", default=None)
     )
     """
     Due date of the issue. UTC timestamp in RFC 3339 format. Included if the issue was assigned a due date.
@@ -43,7 +45,7 @@ class IssueResponseObjectResponseBody(UniversalBaseModel):
 
     external_ids: typing_extensions.Annotated[
         typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="externalIds", default=None)
     """
     A map of external ids
     """
@@ -53,10 +55,12 @@ class IssueResponseObjectResponseBody(UniversalBaseModel):
     ID of the issue.
     """
 
-    issue_source: typing_extensions.Annotated[IssueSourceObjectResponseBody, FieldMetadata(alias="issueSource")]
+    issue_source: typing_extensions.Annotated[IssueSourceObjectResponseBody, FieldMetadata(alias="issueSource")] = (
+        pydantic.Field(alias="issueSource")
+    )
     media_list: typing_extensions.Annotated[
         typing.Optional[typing.List[FormsMediaRecordObjectResponseBody]], FieldMetadata(alias="mediaList")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="mediaList", default=None)
     """
     List of media objects for the issue. Included if the issue has media.
     """
@@ -72,7 +76,7 @@ class IssueResponseObjectResponseBody(UniversalBaseModel):
     """
 
     submitted_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="submittedAtTime")] = (
-        pydantic.Field()
+        pydantic.Field(alias="submittedAtTime")
     )
     """
     Submission time of the issue. UTC timestamp in RFC 3339 format.
@@ -80,13 +84,15 @@ class IssueResponseObjectResponseBody(UniversalBaseModel):
 
     submitted_by: typing_extensions.Annotated[
         FormsPolymorphicUserObjectResponseBody, FieldMetadata(alias="submittedBy")
-    ]
+    ] = pydantic.Field(alias="submittedBy")
     title: str = pydantic.Field()
     """
     Title of the issue.
     """
 
-    updated_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAtTime")] = pydantic.Field()
+    updated_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAtTime")] = pydantic.Field(
+        alias="updatedAtTime"
+    )
     """
     Update time of the issue. UTC timestamp in RFC 3339 format.
     """

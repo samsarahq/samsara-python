@@ -10,7 +10,7 @@ from ..core.serialization import FieldMetadata
 
 class V1AssetReeferResponseReeferStatsPowerStatus(UniversalBaseModel):
     changed_at_ms: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="changedAtMs")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="changedAtMs", default=None)
     )
     """
     Timestamp in Unix milliseconds since epoch.

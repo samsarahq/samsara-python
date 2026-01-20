@@ -14,7 +14,7 @@ class CreateAddressRequestGeofenceSettings(UniversalBaseModel):
     """
 
     show_addresses: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="showAddresses")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="showAddresses", default=None)
     )
     """
     If this property is set to true, then underlying geofence addresses will be shown in reports instead of a geofence's name.

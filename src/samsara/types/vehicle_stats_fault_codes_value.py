@@ -17,7 +17,7 @@ class VehicleStatsFaultCodesValue(UniversalBaseModel):
     """
 
     can_bus_type: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="canBusType")] = pydantic.Field(
-        default=None
+        alias="canBusType", default=None
     )
     """
     The CAN bus type of the vehicle.
@@ -25,7 +25,7 @@ class VehicleStatsFaultCodesValue(UniversalBaseModel):
 
     j_1939: typing_extensions.Annotated[
         typing.Optional[VehicleStatsFaultCodesValueJ1939], FieldMetadata(alias="j1939")
-    ] = None
+    ] = pydantic.Field(alias="j1939", default=None)
     obdii: typing.Optional[VehicleStatsFaultCodesValueObdii] = None
     oem: typing.Optional[VehicleStatsFaultCodesValueOem] = None
 

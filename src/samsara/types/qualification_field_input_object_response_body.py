@@ -24,10 +24,10 @@ class QualificationFieldInputObjectResponseBody(UniversalBaseModel):
 
     check_boxes_value: typing_extensions.Annotated[
         typing.Optional[FormsCheckBoxesValueObjectResponseBody], FieldMetadata(alias="checkBoxesValue")
-    ] = None
+    ] = pydantic.Field(alias="checkBoxesValue", default=None)
     date_time_value: typing_extensions.Annotated[
         typing.Optional[FormsDateTimeValueObjectResponseBody], FieldMetadata(alias="dateTimeValue")
-    ] = None
+    ] = pydantic.Field(alias="dateTimeValue", default=None)
     id: str = pydantic.Field()
     """
     ID of the qualification input field object.
@@ -40,26 +40,26 @@ class QualificationFieldInputObjectResponseBody(UniversalBaseModel):
 
     media_list: typing_extensions.Annotated[
         typing.Optional[typing.List[FormsMediaRecordObjectResponseBody]], FieldMetadata(alias="mediaList")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="mediaList", default=None)
     """
     List of qualification media record objects.
     """
 
     multiple_choice_value: typing_extensions.Annotated[
         typing.Optional[FormsMultipleChoiceValueObjectResponseBody], FieldMetadata(alias="multipleChoiceValue")
-    ] = None
+    ] = pydantic.Field(alias="multipleChoiceValue", default=None)
     number_value: typing_extensions.Annotated[
         typing.Optional[FormsNumberValueObjectResponseBody], FieldMetadata(alias="numberValue")
-    ] = None
+    ] = pydantic.Field(alias="numberValue", default=None)
     signature_value: typing_extensions.Annotated[
         typing.Optional[FormsSignatureValueObjectResponseBody], FieldMetadata(alias="signatureValue")
-    ] = None
+    ] = pydantic.Field(alias="signatureValue", default=None)
     table_value: typing_extensions.Annotated[
         typing.Optional[FormsTableValueObjectResponseBody], FieldMetadata(alias="tableValue")
-    ] = None
+    ] = pydantic.Field(alias="tableValue", default=None)
     text_value: typing_extensions.Annotated[
         typing.Optional[FormsTextValueObjectResponseBody], FieldMetadata(alias="textValue")
-    ] = None
+    ] = pydantic.Field(alias="textValue", default=None)
     type: QualificationFieldInputObjectResponseBodyType = pydantic.Field()
     """
     Type of the qualification field.  Valid values: `number`, `text`, `multiple_choice`, `check_boxes`, `datetime`, `signature`, `media`, `table`

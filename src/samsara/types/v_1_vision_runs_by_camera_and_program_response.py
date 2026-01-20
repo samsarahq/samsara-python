@@ -11,14 +11,22 @@ from .v_1_vision_run_by_camera_response_run_summary import V1VisionRunByCameraRe
 
 
 class V1VisionRunsByCameraAndProgramResponse(UniversalBaseModel):
-    device_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="deviceId")] = None
-    ended_at_ms: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="endedAtMs")] = None
-    program_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="programId")] = None
+    device_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="deviceId")] = pydantic.Field(
+        alias="deviceId", default=None
+    )
+    ended_at_ms: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="endedAtMs")] = pydantic.Field(
+        alias="endedAtMs", default=None
+    )
+    program_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="programId")] = pydantic.Field(
+        alias="programId", default=None
+    )
     report_metadata: typing_extensions.Annotated[
         typing.Optional[V1VisionRunByCameraResponseRunSummary], FieldMetadata(alias="reportMetadata")
-    ] = None
+    ] = pydantic.Field(alias="reportMetadata", default=None)
     results: typing.Optional[typing.List[V1VisionRunByCameraResponseInspectionResults]] = None
-    started_at_ms: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="startedAtMs")] = None
+    started_at_ms: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="startedAtMs")] = (
+        pydantic.Field(alias="startedAtMs", default=None)
+    )
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

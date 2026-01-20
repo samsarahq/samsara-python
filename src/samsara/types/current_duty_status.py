@@ -16,7 +16,7 @@ class CurrentDutyStatus(UniversalBaseModel):
 
     hos_status_type: typing_extensions.Annotated[
         typing.Optional[CurrentDutyStatusHosStatusType], FieldMetadata(alias="hosStatusType")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="hosStatusType", default=None)
     """
     The Hours of Service status type.  If the driver app is disconnected, an empty string will be returned. To reconnect the app and return updated values, drivers should have the app open with good cell service. Valid values: `offDuty`, `sleeperBed`, `driving`, `onDuty`, `yardMove`, `personalConveyance`.
     """

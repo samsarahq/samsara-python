@@ -18,7 +18,7 @@ class SuddenFuelLevelDropResponseBody(UniversalBaseModel):
     """
 
     change_end_time: typing_extensions.Annotated[typing.Optional[dt.datetime], FieldMetadata(alias="changeEndTime")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="changeEndTime", default=None)
     )
     """
     The end time of the fuel level change in RFC 3339 format.
@@ -26,7 +26,7 @@ class SuddenFuelLevelDropResponseBody(UniversalBaseModel):
 
     change_start_time: typing_extensions.Annotated[
         typing.Optional[dt.datetime], FieldMetadata(alias="changeStartTime")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="changeStartTime", default=None)
     """
     The start time of the fuel level change in RFC 3339 format.
     """
@@ -34,14 +34,14 @@ class SuddenFuelLevelDropResponseBody(UniversalBaseModel):
     driver: typing.Optional[AlertObjectDriverResponseBody] = None
     fuel_level_after_millipercent: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="fuelLevelAfterMillipercent")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="fuelLevelAfterMillipercent", default=None)
     """
     The fuel level after the sudden fuel level drop in millipercents.
     """
 
     fuel_level_before_millipercent: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="fuelLevelBeforeMillipercent")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="fuelLevelBeforeMillipercent", default=None)
     """
     The fuel level before the sudden fuel level drop in millipercents.
     """

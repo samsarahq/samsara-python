@@ -13,7 +13,9 @@ class StartFunctionRunResponseBodyResponseBody(UniversalBaseModel):
     Response body after successfully starting a Function run.
     """
 
-    correlation_id: typing_extensions.Annotated[str, FieldMetadata(alias="correlationId")] = pydantic.Field()
+    correlation_id: typing_extensions.Annotated[str, FieldMetadata(alias="correlationId")] = pydantic.Field(
+        alias="correlationId"
+    )
     """
     Unique identifier for this function execution.
     """

@@ -19,14 +19,14 @@ class TireFaultCodeDetailsObjectRequestBody(UniversalBaseModel):
 
     has_cautionary_tire_fault_codes: typing_extensions.Annotated[
         typing.Optional[bool], FieldMetadata(alias="hasCautionaryTireFaultCodes")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="hasCautionaryTireFaultCodes", default=None)
     """
     If true then alert over pressure, under pressure, across axle fault, or leak detected fault codes. Defaults to false.
     """
 
     has_critical_tire_fault_codes: typing_extensions.Annotated[
         typing.Optional[bool], FieldMetadata(alias="hasCriticalTireFaultCodes")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="hasCriticalTireFaultCodes", default=None)
     """
     If true then alert over temperature or extreme pressure over or under fault codes. Defaults to false.
     """
@@ -39,7 +39,7 @@ class TireFaultCodeDetailsObjectRequestBody(UniversalBaseModel):
     specific_tire_fault_codes: typing_extensions.Annotated[
         typing.Optional[typing.List[TireFaultCodeDetailsObjectRequestBodySpecificTireFaultCodesItem]],
         FieldMetadata(alias="specificTireFaultCodes"),
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="specificTireFaultCodes", default=None)
     """
     The list of specific tire fault codes to be alerted on.
     """

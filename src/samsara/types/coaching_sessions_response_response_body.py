@@ -19,7 +19,7 @@ class CoachingSessionsResponseResponseBody(UniversalBaseModel):
     """
 
     assigned_coach_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="assignedCoachId")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="assignedCoachId", default=None)
     )
     """
     Unique user ID for a coaching session. Returned when a coaching session status is “incomplete”.
@@ -32,27 +32,29 @@ class CoachingSessionsResponseResponseBody(UniversalBaseModel):
 
     coaching_type: typing_extensions.Annotated[
         CoachingSessionsResponseResponseBodyCoachingType, FieldMetadata(alias="coachingType")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="coachingType")
     """
     Coaching type for the coaching session.  Valid values: `fullySharedWithManager`, `selfCoaching`, `unknown`, `unshared`, `withManager`
     """
 
     completed_at_time: typing_extensions.Annotated[
         typing.Optional[dt.datetime], FieldMetadata(alias="completedAtTime")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="completedAtTime", default=None)
     """
     Time coaching session is completed in UTC. Returned when a coaching session status is “completed”.
     """
 
     completed_coach_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="completedCoachId")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="completedCoachId", default=None)
     )
     """
     Unique user ID for a completed coaching session. Returned when a coaching session status is “completed”.
     """
 
     driver: DriverWithExternalIdObjectResponseBody
-    due_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="dueAtTime")] = pydantic.Field()
+    due_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="dueAtTime")] = pydantic.Field(
+        alias="dueAtTime"
+    )
     """
     Time coaching session is due in UTC.
     """
@@ -63,7 +65,7 @@ class CoachingSessionsResponseResponseBody(UniversalBaseModel):
     """
 
     session_note: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="sessionNote")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="sessionNote", default=None)
     )
     """
     Associated note for the coaching session. Returned when present.
@@ -71,12 +73,14 @@ class CoachingSessionsResponseResponseBody(UniversalBaseModel):
 
     session_status: typing_extensions.Annotated[
         CoachingSessionsResponseResponseBodySessionStatus, FieldMetadata(alias="sessionStatus")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="sessionStatus")
     """
     Status for the coaching session.  Valid values: `unknown`, `upcoming`, `completed`, `deleted`
     """
 
-    updated_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAtTime")] = pydantic.Field()
+    updated_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAtTime")] = pydantic.Field(
+        alias="updatedAtTime"
+    )
     """
     Time coaching session was updated in UTC.
     """

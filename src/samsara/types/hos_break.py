@@ -15,7 +15,7 @@ class HosBreak(UniversalBaseModel):
 
     time_until_break_duration_ms: typing_extensions.Annotated[
         typing.Optional[float], FieldMetadata(alias="timeUntilBreakDurationMs")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="timeUntilBreakDurationMs", default=None)
     """
     Time until the driver has a required break in milliseconds.
     """

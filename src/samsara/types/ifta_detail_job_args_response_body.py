@@ -13,17 +13,19 @@ class IftaDetailJobArgsResponseBody(UniversalBaseModel):
     The arguments used to create this job.
     """
 
-    end_hour: typing_extensions.Annotated[str, FieldMetadata(alias="endHour")] = pydantic.Field()
+    end_hour: typing_extensions.Annotated[str, FieldMetadata(alias="endHour")] = pydantic.Field(alias="endHour")
     """
     The `endHour` used to create this job.
     """
 
-    start_hour: typing_extensions.Annotated[str, FieldMetadata(alias="startHour")] = pydantic.Field()
+    start_hour: typing_extensions.Annotated[str, FieldMetadata(alias="startHour")] = pydantic.Field(alias="startHour")
     """
     The `startHour` used to create this job.
     """
 
-    vehicle_ids: typing_extensions.Annotated[typing.List[int], FieldMetadata(alias="vehicleIds")] = pydantic.Field()
+    vehicle_ids: typing_extensions.Annotated[typing.List[int], FieldMetadata(alias="vehicleIds")] = pydantic.Field(
+        alias="vehicleIds"
+    )
     """
     The vehicleIds used to create this job. Determined by the filter list of `vehicleIds`, `vehicleTagIds`, and `vehicleParentTagIds` parameters (if provided).
     """

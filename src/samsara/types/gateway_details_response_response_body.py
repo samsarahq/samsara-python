@@ -20,39 +20,39 @@ class GatewayDetailsResponseResponseBody(UniversalBaseModel):
 
     cell_connectivity: typing_extensions.Annotated[
         typing.Optional[CellConnectivityResponseResponseBody], FieldMetadata(alias="cellConnectivity")
-    ] = None
+    ] = pydantic.Field(alias="cellConnectivity", default=None)
     gateway_battery_state: typing_extensions.Annotated[
         typing.Optional[GatewayDetailsResponseResponseBodyGatewayBatteryState],
         FieldMetadata(alias="gatewayBatteryState"),
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="gatewayBatteryState", default=None)
     """
     The gateway's battery state.  Valid values: `critical`, `low`, `ok`, `unknown`
     """
 
     gateway_battery_temp: typing_extensions.Annotated[
         typing.Optional[float], FieldMetadata(alias="gatewayBatteryTemp")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="gatewayBatteryTemp", default=None)
     """
     The battery temperature of the gateway, in degrees Celsius.
     """
 
     gateway_battery_volts: typing_extensions.Annotated[
         typing.Optional[float], FieldMetadata(alias="gatewayBatteryVolts")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="gatewayBatteryVolts", default=None)
     """
     The battery voltage of the gateway, in volts.
     """
 
     last_check_in_time: typing_extensions.Annotated[
         typing.Optional[dt.datetime], FieldMetadata(alias="lastCheckInTime")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="lastCheckInTime", default=None)
     """
     The timestamp of the gateway's last check-in, in RFC 3339 format.
     """
 
     vehicle_battery_volts: typing_extensions.Annotated[
         typing.Optional[float], FieldMetadata(alias="vehicleBatteryVolts")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="vehicleBatteryVolts", default=None)
     """
     The battery voltage of the vehicle that gateway is connected to, in volts.
     """

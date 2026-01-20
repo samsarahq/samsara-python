@@ -27,13 +27,13 @@ class OrderTaskObjectResponseBody(UniversalBaseModel):
 
     required_skills: typing_extensions.Annotated[
         typing.Optional[typing.List[OrderTaskSkillObjectResponseBody]], FieldMetadata(alias="requiredSkills")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="requiredSkills", default=None)
     """
     List of required skills for the order
     """
 
     service_window: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="serviceWindow")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="serviceWindow", default=None)
     )
     """
     The service window time range

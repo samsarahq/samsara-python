@@ -21,7 +21,7 @@ class CellConnectivityResponseResponseBody(UniversalBaseModel):
 
     signal_bar: typing_extensions.Annotated[
         typing.Optional[CellConnectivityResponseResponseBodySignalBar], FieldMetadata(alias="signalBar")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="signalBar", default=None)
     """
     The cellular signal strength indicator.  Valid values: `1/4`, `2/4`, `3/4`, `4/4`, `unknown`
     """

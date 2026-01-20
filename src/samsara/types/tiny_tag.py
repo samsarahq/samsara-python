@@ -14,7 +14,9 @@ from .tag_name import TagName
 class TinyTag(UniversalBaseModel):
     id: typing.Optional[TagId] = None
     name: typing.Optional[TagName] = None
-    parent_tag_id: typing_extensions.Annotated[typing.Optional[ParentTagId], FieldMetadata(alias="parentTagId")] = None
+    parent_tag_id: typing_extensions.Annotated[typing.Optional[ParentTagId], FieldMetadata(alias="parentTagId")] = (
+        pydantic.Field(alias="parentTagId", default=None)
+    )
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

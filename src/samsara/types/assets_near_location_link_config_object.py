@@ -13,7 +13,7 @@ class AssetsNearLocationLinkConfigObject(UniversalBaseModel):
     Configuration details specific to the 'By Location' Live Sharing Link.
     """
 
-    address_id: typing_extensions.Annotated[str, FieldMetadata(alias="addressId")] = pydantic.Field()
+    address_id: typing_extensions.Annotated[str, FieldMetadata(alias="addressId")] = pydantic.Field(alias="addressId")
     """
     ID of the address. Can be either a unique Samsara ID or an external ID for the address.
     """

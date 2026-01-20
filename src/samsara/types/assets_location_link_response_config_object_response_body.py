@@ -18,7 +18,7 @@ class AssetsLocationLinkResponseConfigObjectResponseBody(UniversalBaseModel):
     """
 
     asset_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="assetId")] = pydantic.Field(
-        default=None
+        alias="assetId", default=None
     )
     """
     Unique assets ID that Live Sharing Link will show.

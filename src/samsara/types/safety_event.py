@@ -26,25 +26,25 @@ class SafetyEvent(UniversalBaseModel):
 
     behavior_labels: typing_extensions.Annotated[
         typing.Optional[SafetyEventBehaviorLabels], FieldMetadata(alias="behaviorLabels")
-    ] = None
+    ] = pydantic.Field(alias="behaviorLabels", default=None)
     coaching_state: typing_extensions.Annotated[
         typing.Optional[SafetyEventCoachingState], FieldMetadata(alias="coachingState")
-    ] = None
+    ] = pydantic.Field(alias="coachingState", default=None)
     download_forward_video_url: typing_extensions.Annotated[
         typing.Optional[SafetyEventDownloadForwardVideoUrl], FieldMetadata(alias="downloadForwardVideoUrl")
-    ] = None
+    ] = pydantic.Field(alias="downloadForwardVideoUrl", default=None)
     download_inward_video_url: typing_extensions.Annotated[
         typing.Optional[SafetyEventDownloadInwardVideoUrl], FieldMetadata(alias="downloadInwardVideoUrl")
-    ] = None
+    ] = pydantic.Field(alias="downloadInwardVideoUrl", default=None)
     download_tracked_inward_video_url: typing_extensions.Annotated[
         typing.Optional[SafetyEventDownloadTrackedInwardVideoUrl], FieldMetadata(alias="downloadTrackedInwardVideoUrl")
-    ] = None
+    ] = pydantic.Field(alias="downloadTrackedInwardVideoUrl", default=None)
     driver: typing.Optional[SafetyEventDriver] = None
     id: typing.Optional[SafetyEventId] = None
     location: typing.Optional[SafetyEventLocation] = None
     max_acceleration_g_force: typing_extensions.Annotated[
         typing.Optional[SafetyEventMaxAccelerationGForce], FieldMetadata(alias="maxAccelerationGForce")
-    ] = None
+    ] = pydantic.Field(alias="maxAccelerationGForce", default=None)
     time: typing.Optional[SafetyEventTime] = None
     vehicle: typing.Optional[SafetyEventVehicle] = None
 

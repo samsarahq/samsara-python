@@ -22,14 +22,14 @@ class DeviceResponseResponseBody(UniversalBaseModel):
     health: typing.Optional[HealthResponseResponseBody] = None
     last_connected_time: typing_extensions.Annotated[
         typing.Optional[dt.datetime], FieldMetadata(alias="lastConnectedTime")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="lastConnectedTime", default=None)
     """
     The last time the device was connected, in RFC 3339 format.
     """
 
     last_known_location: typing_extensions.Annotated[
         typing.Optional[LastKnownLocationResponseResponseBody], FieldMetadata(alias="lastKnownLocation")
-    ] = None
+    ] = pydantic.Field(alias="lastKnownLocation", default=None)
     model: DeviceResponseResponseBodyModel = pydantic.Field()
     """
     The product model name of the device.  Valid values: `AG24`, `AG24EU`, `AG26`, `AG26EU`, `AG45`, `AG45EU`, `AG46`, `AG46EU`, `AG46P`, `AG46PEU`, `AG51`, `AG51EU`, `AG52`, `AG52EU`, `AG53`, `AG53EU`, `AT11`, `AT11X`, `CM31`, `CM32`, `CM33`, `CM34`, `OEM`, `OEMP`, `OEMR`, `OEMV`, `VG34`, `VG34EU`, `VG34FN`, `VG34M`, `VG54EU`, `VG54NA`, `VG55EU`, `VG55NA`

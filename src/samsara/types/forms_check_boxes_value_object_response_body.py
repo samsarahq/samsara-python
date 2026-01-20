@@ -18,7 +18,9 @@ class FormsCheckBoxesValueObjectResponseBody(UniversalBaseModel):
     List of selected options.
     """
 
-    value_ids: typing_extensions.Annotated[typing.List[str], FieldMetadata(alias="valueIds")] = pydantic.Field()
+    value_ids: typing_extensions.Annotated[typing.List[str], FieldMetadata(alias="valueIds")] = pydantic.Field(
+        alias="valueIds"
+    )
     """
     List of selected option IDs.
     """
