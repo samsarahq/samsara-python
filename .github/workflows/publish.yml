@@ -2,6 +2,7 @@ name: Release Python SDK
 
 on:
   workflow_dispatch:
+  workflow_call:
 
 jobs:
   release:
