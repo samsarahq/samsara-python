@@ -13,7 +13,7 @@ class FormSubmissionRequestMultipleChoiceValueObjectRequestBody(UniversalBaseMod
     The value of a multiple choice form input field. Only valid for multiple choice form input fields.
     """
 
-    value_id: typing_extensions.Annotated[str, FieldMetadata(alias="valueId")]
+    value_id: typing_extensions.Annotated[str, FieldMetadata(alias="valueId")] = pydantic.Field(alias="valueId")
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

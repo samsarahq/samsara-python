@@ -13,7 +13,9 @@ class WalkaroundPhotoObjectResponseBody(UniversalBaseModel):
     Walkaround's photo object
     """
 
-    created_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="createdAtTime")] = pydantic.Field()
+    created_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="createdAtTime")] = pydantic.Field(
+        alias="createdAtTime"
+    )
     """
     Time when walkaround's photo was created in RFC 3339 format.
     """

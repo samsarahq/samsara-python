@@ -25,14 +25,14 @@ class GoaAttributeTiny(UniversalBaseModel):
 
     number_values: typing_extensions.Annotated[
         typing.Optional[typing.List[float]], FieldMetadata(alias="numberValues")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="numberValues", default=None)
     """
     List of number values associated with the attribute
     """
 
     string_values: typing_extensions.Annotated[
         typing.Optional[typing.List[str]], FieldMetadata(alias="stringValues")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="stringValues", default=None)
     """
     List of string values associated with the attribute.
     """

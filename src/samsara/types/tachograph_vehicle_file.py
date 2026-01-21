@@ -14,7 +14,7 @@ class TachographVehicleFile(UniversalBaseModel):
     """
 
     created_at_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="createdAtTime")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="createdAtTime", default=None)
     )
     """
     Creation time of files in RFC 3339 format. This is either the download time from the tachograph itself (for files downloaded via Samsara VG) or upload time (for files manually uploaded via Samsara UI).
@@ -32,7 +32,7 @@ class TachographVehicleFile(UniversalBaseModel):
 
     vehicle_identification_number: typing_extensions.Annotated[
         typing.Optional[str], FieldMetadata(alias="vehicleIdentificationNumber")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="vehicleIdentificationNumber", default=None)
     """
     VIN associated with the vehicle file.
     """

@@ -15,14 +15,14 @@ from .vehicle_assignment_object_response_body import VehicleAssignmentObjectResp
 class DriversVehicleAssignmentsObjectResponseBody(UniversalBaseModel):
     driver_activation_status: typing_extensions.Annotated[
         DriversVehicleAssignmentsObjectResponseBodyDriverActivationStatus, FieldMetadata(alias="driverActivationStatus")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="driverActivationStatus")
     """
     A value indicating whether the driver is active or deactivated.  Valid values: `active`, `deactivated`
     """
 
     external_ids: typing_extensions.Annotated[
         typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="externalIds", default=None)
     """
     A map of external ids
     """
@@ -39,7 +39,7 @@ class DriversVehicleAssignmentsObjectResponseBody(UniversalBaseModel):
 
     vehicle_assignments: typing_extensions.Annotated[
         typing.List[VehicleAssignmentObjectResponseBody], FieldMetadata(alias="vehicleAssignments")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="vehicleAssignments")
     """
     List of vehicle assignment objects.
     """

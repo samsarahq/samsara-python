@@ -14,14 +14,14 @@ class HarshBrakeSensitivityGForceSettingsObjectResponseBody(UniversalBaseModel):
     """
 
     heavy_duty: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="heavyDuty")] = pydantic.Field(
-        default=None
+        alias="heavyDuty", default=None
     )
     """
     Harsh brake sensitivity settings for heavy duty vehicle.
     """
 
     light_duty: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="lightDuty")] = pydantic.Field(
-        default=None
+        alias="lightDuty", default=None
     )
     """
     Harsh brake sensitivity settings for light duty vehicle.

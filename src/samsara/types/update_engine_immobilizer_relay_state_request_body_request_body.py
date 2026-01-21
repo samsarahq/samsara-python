@@ -21,7 +21,7 @@ class UpdateEngineImmobilizerRelayStateRequestBodyRequestBody(UniversalBaseModel
     The ID of the relay  Valid values: `relay1`, `relay2`
     """
 
-    is_open: typing_extensions.Annotated[bool, FieldMetadata(alias="isOpen")] = pydantic.Field()
+    is_open: typing_extensions.Annotated[bool, FieldMetadata(alias="isOpen")] = pydantic.Field(alias="isOpen")
     """
     The desired state of the relay. Provide `true` to open the relay, or `false` to close the relay.
     """

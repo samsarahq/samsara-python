@@ -14,7 +14,7 @@ from .signature_field_type_meta_data_object_response_body import SignatureFieldT
 
 class FieldTypesObjectResponseBody(UniversalBaseModel):
     field_type: typing_extensions.Annotated[FieldTypesObjectResponseBodyFieldType, FieldMetadata(alias="fieldType")] = (
-        pydantic.Field()
+        pydantic.Field(alias="fieldType")
     )
     """
     The type of value this field can have.  Valid values: `photo`, `string`, `number`, `multipleChoice`, `signature`, `dateTime`, `scannedDocument`, `barcode`
@@ -28,22 +28,24 @@ class FieldTypesObjectResponseBody(UniversalBaseModel):
     multiple_choice_field_type_meta_data: typing_extensions.Annotated[
         typing.Optional[typing.List[MultipleChoiceFieldTypeMetaDataObjectResponseBody]],
         FieldMetadata(alias="multipleChoiceFieldTypeMetaData"),
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="multipleChoiceFieldTypeMetaData", default=None)
     """
     A list of the multiple choice field option labels.
     """
 
     number_field_type_meta_data: typing_extensions.Annotated[
         typing.Optional[NumberFieldTypeMetaDataObjectResponseBody], FieldMetadata(alias="numberFieldTypeMetaData")
-    ] = None
-    required_field: typing_extensions.Annotated[bool, FieldMetadata(alias="requiredField")] = pydantic.Field()
+    ] = pydantic.Field(alias="numberFieldTypeMetaData", default=None)
+    required_field: typing_extensions.Annotated[bool, FieldMetadata(alias="requiredField")] = pydantic.Field(
+        alias="requiredField"
+    )
     """
     The indicator that states if the field is required.
     """
 
     signature_field_type_meta_data: typing_extensions.Annotated[
         typing.Optional[SignatureFieldTypeMetaDataObjectResponseBody], FieldMetadata(alias="signatureFieldTypeMetaData")
-    ] = None
+    ] = pydantic.Field(alias="signatureFieldTypeMetaData", default=None)
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -10,14 +10,14 @@ from ..core.serialization import FieldMetadata
 
 class V1AssetReeferResponseReeferStatsEngineHours(UniversalBaseModel):
     changed_at_ms: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="changedAtMs")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="changedAtMs", default=None)
     )
     """
     Timestamp in Unix milliseconds since epoch.
     """
 
     engine_hours: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="engineHours")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="engineHours", default=None)
     )
     """
     Engine hours of the reefer.

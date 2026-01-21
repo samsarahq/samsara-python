@@ -23,14 +23,14 @@ class EquipmentWithAttributesResponseObjectResponseBody(UniversalBaseModel):
 
     equipment_serial_number: typing_extensions.Annotated[
         typing.Optional[str], FieldMetadata(alias="equipmentSerialNumber")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="equipmentSerialNumber", default=None)
     """
     The serial number of the equipment.
     """
 
     external_ids: typing_extensions.Annotated[
         typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="externalIds", default=None)
     """
     A map of external ids
     """
@@ -42,7 +42,7 @@ class EquipmentWithAttributesResponseObjectResponseBody(UniversalBaseModel):
 
     installed_gateway: typing_extensions.Annotated[
         typing.Optional[GoaGatewayTinyResponseResponseBody], FieldMetadata(alias="installedGateway")
-    ] = None
+    ] = pydantic.Field(alias="installedGateway", default=None)
     name: typing.Optional[str] = pydantic.Field(default=None)
     """
     The human-readable name of the Equipment. This is set by a fleet administrator and will appear in both Samsara’s cloud dashboard as well as the Samsara Driver mobile app. By default, this name is the serial number of the Samsara Asset Gateway. It can be set or updated through the Samsara Dashboard or through the API at any time.

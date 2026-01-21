@@ -21,25 +21,27 @@ class DriverSafetyScoreResponseBody(UniversalBaseModel):
     """
 
     drive_distance_meters: typing_extensions.Annotated[int, FieldMetadata(alias="driveDistanceMeters")] = (
-        pydantic.Field()
+        pydantic.Field(alias="driveDistanceMeters")
     )
     """
     Total sum of distance driven by the driver.
     """
 
     drive_time_milliseconds: typing_extensions.Annotated[int, FieldMetadata(alias="driveTimeMilliseconds")] = (
-        pydantic.Field()
+        pydantic.Field(alias="driveTimeMilliseconds")
     )
     """
     Total time spent driving by the driver.
     """
 
-    driver_id: typing_extensions.Annotated[str, FieldMetadata(alias="driverId")] = pydantic.Field()
+    driver_id: typing_extensions.Annotated[str, FieldMetadata(alias="driverId")] = pydantic.Field(alias="driverId")
     """
     ID of the driver.
     """
 
-    driver_score: typing_extensions.Annotated[int, FieldMetadata(alias="driverScore")] = pydantic.Field()
+    driver_score: typing_extensions.Annotated[int, FieldMetadata(alias="driverScore")] = pydantic.Field(
+        alias="driverScore"
+    )
     """
     Safety score for the driver. The score is a rounded number between 0-100.
     """

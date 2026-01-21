@@ -19,7 +19,7 @@ class EngineImmobilizerRelayStateResponseBody(UniversalBaseModel):
     The ID of the relay  Valid values: `relay1`, `relay2`
     """
 
-    is_open: typing_extensions.Annotated[bool, FieldMetadata(alias="isOpen")] = pydantic.Field()
+    is_open: typing_extensions.Annotated[bool, FieldMetadata(alias="isOpen")] = pydantic.Field(alias="isOpen")
     """
     Whether the relay is open.
     """

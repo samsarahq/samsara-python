@@ -15,28 +15,28 @@ class VehicleStatsTirePressures(UniversalBaseModel):
 
     back_left_tire_pressure_k_pa: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="backLeftTirePressureKPa")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="backLeftTirePressureKPa", default=None)
     """
     The tire pressure of the rear left tire as seen when standing behind the vehicle in kilopascals.
     """
 
     back_right_tire_pressure_k_pa: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="backRightTirePressureKPa")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="backRightTirePressureKPa", default=None)
     """
     The tire pressure of the rear right tire as seen when standing behind the vehicle in kilopascals.
     """
 
     front_left_tire_pressure_k_pa: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="frontLeftTirePressureKPa")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="frontLeftTirePressureKPa", default=None)
     """
     The tire pressure of the front left tire as seen when standing behind the vehicle in kilopascals.
     """
 
     front_right_tire_pressure_k_pa: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="frontRightTirePressureKPa")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="frontRightTirePressureKPa", default=None)
     """
     The tire pressure of the front right tire as seen when standing behind the vehicle in kilopascals.
     """

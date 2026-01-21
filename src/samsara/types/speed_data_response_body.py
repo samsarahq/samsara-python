@@ -19,14 +19,14 @@ class SpeedDataResponseBody(UniversalBaseModel):
 
     current_speed_kilometers_per_hour: typing_extensions.Annotated[
         int, FieldMetadata(alias="currentSpeedKilometersPerHour")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="currentSpeedKilometersPerHour")
     """
     Current speed of the vehicle in kilometers per hour.
     """
 
     driver: typing.Optional[AlertObjectDriverResponseBody] = None
     min_duration_milliseconds: typing_extensions.Annotated[int, FieldMetadata(alias="minDurationMilliseconds")] = (
-        pydantic.Field()
+        pydantic.Field(alias="minDurationMilliseconds")
     )
     """
     Minimum duration of the current speed in milliseconds.
@@ -39,7 +39,7 @@ class SpeedDataResponseBody(UniversalBaseModel):
 
     threshold_speed_kilometers_per_hour: typing_extensions.Annotated[
         int, FieldMetadata(alias="thresholdSpeedKilometersPerHour")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="thresholdSpeedKilometersPerHour")
     """
     Threshold speed of the vehicle in kilometers per hour.
     """

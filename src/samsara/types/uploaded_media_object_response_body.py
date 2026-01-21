@@ -14,19 +14,21 @@ from .url_info_object_response_body import UrlInfoObjectResponseBody
 
 
 class UploadedMediaObjectResponseBody(UniversalBaseModel):
-    available_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="availableAtTime")] = pydantic.Field()
+    available_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="availableAtTime")] = pydantic.Field(
+        alias="availableAtTime"
+    )
     """
     Timestamp, in RFC 3339 format, at which the media item was made available. Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00
     """
 
     camera_role: typing_extensions.Annotated[
         typing.Optional[UploadedMediaObjectResponseBodyCameraRole], FieldMetadata(alias="cameraRole")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="cameraRole", default=None)
     """
     Camera role for this media.  Valid values: `leftMirrorMount`, `leftSide`, `rightMirrorMount`, `rightSide`, `rearHigh`, `rearBumper`, `inCab`, `front`, `hopper`, `other1`, `other2`, `other3`, `other4`, `leftBev`, `rightBev`, `rearBev`, `frontBev`, `otherBev`, `bevNotUsed`
     """
 
-    end_time: typing_extensions.Annotated[str, FieldMetadata(alias="endTime")] = pydantic.Field()
+    end_time: typing_extensions.Annotated[str, FieldMetadata(alias="endTime")] = pydantic.Field(alias="endTime")
     """
      An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
     """
@@ -38,27 +40,27 @@ class UploadedMediaObjectResponseBody(UniversalBaseModel):
 
     media_type: typing_extensions.Annotated[
         UploadedMediaObjectResponseBodyMediaType, FieldMetadata(alias="mediaType")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="mediaType")
     """
     Type of media.  Valid values: `image`, `video`
     """
 
-    start_time: typing_extensions.Annotated[str, FieldMetadata(alias="startTime")] = pydantic.Field()
+    start_time: typing_extensions.Annotated[str, FieldMetadata(alias="startTime")] = pydantic.Field(alias="startTime")
     """
      A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
     """
 
     trigger_reason: typing_extensions.Annotated[
         UploadedMediaObjectResponseBodyTriggerReason, FieldMetadata(alias="triggerReason")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="triggerReason")
     """
     Trigger reason for this media capture.  Valid values: `api`, `panicButton`, `periodicStill`, `rfidEvent`, `safetyEvent`, `tripEndStill`, `tripStartStill`, `videoRetrieval`
     """
 
     url_info: typing_extensions.Annotated[
         typing.Optional[UrlInfoObjectResponseBody], FieldMetadata(alias="urlInfo")
-    ] = None
-    vehicle_id: typing_extensions.Annotated[str, FieldMetadata(alias="vehicleId")] = pydantic.Field()
+    ] = pydantic.Field(alias="urlInfo", default=None)
+    vehicle_id: typing_extensions.Annotated[str, FieldMetadata(alias="vehicleId")] = pydantic.Field(alias="vehicleId")
     """
     Vehicle ID for which this media was captured. Examples: 1234
     """

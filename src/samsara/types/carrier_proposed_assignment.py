@@ -24,19 +24,21 @@ class CarrierProposedAssignment(UniversalBaseModel):
 
     accepted_time: typing_extensions.Annotated[
         typing.Optional[CarrierProposedAssignmentAcceptedTime], FieldMetadata(alias="acceptedTime")
-    ] = None
-    active_time: typing_extensions.Annotated[CarrierProposedAssignmentActiveTime, FieldMetadata(alias="activeTime")]
+    ] = pydantic.Field(alias="acceptedTime", default=None)
+    active_time: typing_extensions.Annotated[CarrierProposedAssignmentActiveTime, FieldMetadata(alias="activeTime")] = (
+        pydantic.Field(alias="activeTime")
+    )
     driver: typing.Optional[CarrierProposedAssignmentDriver] = None
     first_seen_time: typing_extensions.Annotated[
         typing.Optional[CarrierProposedAssignmentFirstSeenTime], FieldMetadata(alias="firstSeenTime")
-    ] = None
+    ] = pydantic.Field(alias="firstSeenTime", default=None)
     id: CarrierProposedAssignmentId
     rejected_time: typing_extensions.Annotated[
         typing.Optional[CarrierProposedAssignmentRejectedTime], FieldMetadata(alias="rejectedTime")
-    ] = None
+    ] = pydantic.Field(alias="rejectedTime", default=None)
     shipping_docs: typing_extensions.Annotated[
         typing.Optional[CarrierProposedAssignmentShippingDocs], FieldMetadata(alias="shippingDocs")
-    ] = None
+    ] = pydantic.Field(alias="shippingDocs", default=None)
     trailers: typing.Optional[CarrierProposedAssignmentTrailers] = None
     vehicle: typing.Optional[CarrierProposedAssignmentVehicle] = None
 

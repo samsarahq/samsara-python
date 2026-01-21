@@ -29,6 +29,8 @@ WebhookResponseResponseBodyEventTypesItem = typing.Union[
         "RouteStopResequence",
         "SevereSpeedingEnded",
         "SevereSpeedingStarted",
+        "SpeedingEventEnded",
+        "SpeedingEventStarted",
         "SuddenFuelLevelDrop",
         "SuddenFuelLevelRise",
         "VehicleCreated",

@@ -10,7 +10,7 @@ from ..core.serialization import FieldMetadata
 
 class DriverRemoteSignoutPostDriverRemoteSignoutResponseBody(UniversalBaseModel):
     driver_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="driverName")] = pydantic.Field(
-        default=None
+        alias="driverName", default=None
     )
     """
     The name of the driver

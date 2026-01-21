@@ -21,20 +21,20 @@ class UpdateHubLocationRequestBodyRequestBody(UniversalBaseModel):
 
     customer_location_id: typing_extensions.Annotated[
         typing.Optional[str], FieldMetadata(alias="customerLocationId")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="customerLocationId", default=None)
     """
     The customer-provided identifier for the location
     """
 
     driver_instructions: typing_extensions.Annotated[
         typing.Optional[str], FieldMetadata(alias="driverInstructions")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="driverInstructions", default=None)
     """
     Instructions for the driver
     """
 
     is_depot: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="isDepot")] = pydantic.Field(
-        default=None
+        alias="isDepot", default=None
     )
     """
     Indicates if the location is a depot
@@ -56,7 +56,7 @@ class UpdateHubLocationRequestBodyRequestBody(UniversalBaseModel):
     """
 
     planner_notes: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="plannerNotes")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="plannerNotes", default=None)
     )
     """
     Notes for the planner
@@ -64,21 +64,21 @@ class UpdateHubLocationRequestBodyRequestBody(UniversalBaseModel):
 
     service_time_seconds: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="serviceTimeSeconds")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="serviceTimeSeconds", default=None)
     """
     Estimated service time at this location in seconds
     """
 
     service_windows: typing_extensions.Annotated[
         typing.Optional[typing.List[HubLocationServiceWindowInputRequestBody]], FieldMetadata(alias="serviceWindows")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="serviceWindows", default=None)
     """
     An array of time windows during which service can be performed at this location
     """
 
     skills_required: typing_extensions.Annotated[
         typing.Optional[typing.List[str]], FieldMetadata(alias="skillsRequired")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="skillsRequired", default=None)
     """
     An array of skill IDs required for service at this location
     """

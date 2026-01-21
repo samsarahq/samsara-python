@@ -14,7 +14,7 @@ class V1AssetCable(UniversalBaseModel):
     """
 
     asset_type: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="assetType")] = pydantic.Field(
-        default=None
+        alias="assetType", default=None
     )
     """
     Asset type

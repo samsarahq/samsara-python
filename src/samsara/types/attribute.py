@@ -15,14 +15,14 @@ from .attribute_value_tiny import AttributeValueTiny
 class Attribute(UniversalBaseModel):
     attribute_type: typing_extensions.Annotated[
         typing.Optional[AttributeAttributeType], FieldMetadata(alias="attributeType")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="attributeType", default=None)
     """
-    Denotes the data type of the attribute's values. Valid values: `single-select`, `multi-select`, `text`, `freeform-multi-select`, `number`.
+    Denotes the data type of the attribute's values. Valid values: `single-select`, `multi-select`, `text`, `freeform-multi-select`, `number`, `date`.
     """
 
     entity_type: typing_extensions.Annotated[
         typing.Optional[AttributeEntityType], FieldMetadata(alias="entityType")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="entityType", default=None)
     """
     Denotes the type of entity, driver or asset. Valid values: `driver`, `asset`.
     """
@@ -39,14 +39,14 @@ class Attribute(UniversalBaseModel):
 
     number_values: typing_extensions.Annotated[
         typing.Optional[typing.List[float]], FieldMetadata(alias="numberValues")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="numberValues", default=None)
     """
     Number values that can be associated with this attribute. Note: this field is `null` for `text` and `freeform-multi-select` attribute types.`
     """
 
     string_values: typing_extensions.Annotated[
         typing.Optional[typing.List[str]], FieldMetadata(alias="stringValues")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="stringValues", default=None)
     """
     String values that can be associated with this attribute. Note: this field is `null` for `text` and `freeform-multi-select` attribute types.`
     """

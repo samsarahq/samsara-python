@@ -19,7 +19,7 @@ class RouteSettingsResponseBody(UniversalBaseModel):
     route_completion_condition: typing_extensions.Annotated[
         typing.Optional[RouteSettingsResponseBodyRouteCompletionCondition],
         FieldMetadata(alias="routeCompletionCondition"),
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="routeCompletionCondition", default=None)
     """
     Defaults to 'arriveLastStop' which ends the route upon arriving at the final stop. The condition 'departLastStop' 
     ends the route upon departing the last stop. If 'arriveLastStop' is set, then the departure time of the final stop should not be set.  Valid values: `arriveLastStop`, `departLastStop`
@@ -27,7 +27,7 @@ class RouteSettingsResponseBody(UniversalBaseModel):
 
     route_starting_condition: typing_extensions.Annotated[
         typing.Optional[RouteSettingsResponseBodyRouteStartingCondition], FieldMetadata(alias="routeStartingCondition")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="routeStartingCondition", default=None)
     """
     Defaults to 'departFirstStop' which starts the route upon departing the first stop in the route.
      The condition 'arriveFirstStop' starts the route upon arriving at the first stop in the route. If 'departFirstStop' is set,
@@ -36,7 +36,7 @@ class RouteSettingsResponseBody(UniversalBaseModel):
 
     sequencing_method: typing_extensions.Annotated[
         typing.Optional[RouteSettingsResponseBodySequencingMethod], FieldMetadata(alias="sequencingMethod")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="sequencingMethod", default=None)
     """
     Determines how stops are sequenced on the route. 'scheduledArrivalTime' sequences stops by their scheduled arrival times (default). 'manual' allows custom sequencing via stop.sequenceNumber. 'unknown' indicates the method is not specified.  Valid values: `unknown`, `scheduledArrivalTime`, `manual`
     """

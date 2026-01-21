@@ -22,7 +22,7 @@ class AlertObjectTrailerResponseBody(UniversalBaseModel):
 
     external_ids: typing_extensions.Annotated[
         typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="externalIds", default=None)
     """
     A map of external ids
     """
@@ -44,7 +44,7 @@ class AlertObjectTrailerResponseBody(UniversalBaseModel):
 
     trailer_serial_number: typing_extensions.Annotated[
         typing.Optional[str], FieldMetadata(alias="trailerSerialNumber")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="trailerSerialNumber", default=None)
     """
     The serial number of the trailer.
     """

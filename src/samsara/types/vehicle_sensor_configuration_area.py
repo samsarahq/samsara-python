@@ -17,14 +17,14 @@ class VehicleSensorConfigurationArea(UniversalBaseModel):
 
     cargo_sensors: typing_extensions.Annotated[
         typing.Optional[typing.List[Sensor]], FieldMetadata(alias="cargoSensors")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="cargoSensors", default=None)
     """
     Cargo sensors configured in this position of the vehicle
     """
 
     humidity_sensors: typing_extensions.Annotated[
         typing.Optional[typing.List[Sensor]], FieldMetadata(alias="humiditySensors")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="humiditySensors", default=None)
     """
     Humidity sensors configured in this position of the vehicle
     """
@@ -36,7 +36,7 @@ class VehicleSensorConfigurationArea(UniversalBaseModel):
 
     temperature_sensors: typing_extensions.Annotated[
         typing.Optional[typing.List[Sensor]], FieldMetadata(alias="temperatureSensors")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="temperatureSensors", default=None)
     """
     Temperature sensors configured in this position of the vehicle
     """

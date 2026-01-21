@@ -10,11 +10,13 @@ from .v_1_vision_step_results import V1VisionStepResults
 
 
 class V1VisionRunByCameraResponseInspectionResults(UniversalBaseModel):
-    capture_at_ms: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="captureAtMs")] = None
+    capture_at_ms: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="captureAtMs")] = (
+        pydantic.Field(alias="captureAtMs", default=None)
+    )
     result: typing.Optional[str] = None
     step_results: typing_extensions.Annotated[
         typing.Optional[V1VisionStepResults], FieldMetadata(alias="stepResults")
-    ] = None
+    ] = pydantic.Field(alias="stepResults", default=None)
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

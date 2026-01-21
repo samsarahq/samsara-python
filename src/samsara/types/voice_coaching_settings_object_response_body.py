@@ -20,13 +20,13 @@ class VoiceCoachingSettingsObjectResponseBody(UniversalBaseModel):
     events_to_coach: typing_extensions.Annotated[
         typing.Optional[typing.List[VoiceCoachingSettingsObjectResponseBodyEventsToCoachItem]],
         FieldMetadata(alias="eventsToCoach"),
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="eventsToCoach", default=None)
     """
     Selected driving events will be enabled for voice coaching. Harsh driving events include harsh acceleration and harsh brake.
     """
 
     is_enabled: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="isEnabled")] = pydantic.Field(
-        default=None
+        alias="isEnabled", default=None
     )
     """
     Indicates whether voice coaching is turned on.
@@ -39,7 +39,7 @@ class VoiceCoachingSettingsObjectResponseBody(UniversalBaseModel):
 
     speeding_threshold_mph: typing_extensions.Annotated[
         typing.Optional[float], FieldMetadata(alias="speedingThresholdMph")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="speedingThresholdMph", default=None)
     """
     Alert when speed is over this many miles per hour.
     """

@@ -11,7 +11,7 @@ from .v_1_assets_reefer_reefer_stats_power_status_status import V1AssetsReeferRe
 
 class V1AssetsReeferReeferStatsPowerStatus(UniversalBaseModel):
     changed_at_ms: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="changedAtMs")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="changedAtMs", default=None)
     )
     """
     Timestamp in Unix milliseconds since epoch.

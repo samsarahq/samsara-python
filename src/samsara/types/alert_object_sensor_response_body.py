@@ -26,7 +26,7 @@ class AlertObjectSensorResponseBody(UniversalBaseModel):
     """
 
     pinned_device_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="pinnedDeviceId")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="pinnedDeviceId", default=None)
     )
     """
     The Pinned Device ID associated with the alert

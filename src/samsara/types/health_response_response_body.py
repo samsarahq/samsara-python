@@ -21,38 +21,38 @@ class HealthResponseResponseBody(UniversalBaseModel):
 
     health_details: typing_extensions.Annotated[
         typing.Optional[HealthDetailsResponseResponseBody], FieldMetadata(alias="healthDetails")
-    ] = None
+    ] = pydantic.Field(alias="healthDetails", default=None)
     health_reasons: typing_extensions.Annotated[
         typing.Optional[typing.List[HealthReasonResponseResponseBody]], FieldMetadata(alias="healthReasons")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="healthReasons", default=None)
     """
     The list of active health reasons affecting this device.
     """
 
     health_status: typing_extensions.Annotated[
         typing.Optional[HealthResponseResponseBodyHealthStatus], FieldMetadata(alias="healthStatus")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="healthStatus", default=None)
     """
     Current overall health status of the device.  Valid values: `dataPending`, `healthy`, `needsAttention`, `needsReplacement`
     """
 
     primary_health_reason: typing_extensions.Annotated[
         typing.Optional[HealthResponseResponseBodyPrimaryHealthReason], FieldMetadata(alias="primaryHealthReason")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="primaryHealthReason", default=None)
     """
     Primary health reason affecting the device's current health status.  Valid values: `assetUnplugged`, `cameraMisaligned`, `healthy`, `inwardCameraObstruction`, `irregularRecording`, `lowDeviceBattery`, `missingEldDiagnostics`, `missingVin`, `needsReplacement`, `newlyInstalledDevice`, `noGpsSignal`, `notDetected`, `outwardCameraObstruction`, `recordingTimeRequired`, `unknown`, `vgUnplugged`
     """
 
     primary_health_reason_start_time: typing_extensions.Annotated[
         typing.Optional[dt.datetime], FieldMetadata(alias="primaryHealthReasonStartTime")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="primaryHealthReasonStartTime", default=None)
     """
     The timestamp when the primary health reason began, in RFC3339 format.
     """
 
     recommended_action: typing_extensions.Annotated[
         typing.Optional[HealthResponseResponseBodyRecommendedAction], FieldMetadata(alias="recommendedAction")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="recommendedAction", default=None)
     """
     Recommended steps to resolve the current health reason.
     

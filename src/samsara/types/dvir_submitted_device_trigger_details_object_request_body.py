@@ -18,7 +18,7 @@ class DvirSubmittedDeviceTriggerDetailsObjectRequestBody(UniversalBaseModel):
 
     dvir_min_duration_milliseconds: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="dvirMinDurationMilliseconds")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="dvirMinDurationMilliseconds", default=None)
     """
     The trigger will only fire if the selected DVIR types are submitted within the duration.
     """
@@ -26,7 +26,7 @@ class DvirSubmittedDeviceTriggerDetailsObjectRequestBody(UniversalBaseModel):
     dvir_submission_types: typing_extensions.Annotated[
         typing.Optional[typing.List[DvirSubmittedDeviceTriggerDetailsObjectRequestBodyDvirSubmissionTypesItem]],
         FieldMetadata(alias="dvirSubmissionTypes"),
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="dvirSubmissionTypes", default=None)
     """
     Filter to these types of DVIR submissions.
     """

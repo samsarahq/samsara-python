@@ -14,12 +14,14 @@ class PlanObjectResponseBody(UniversalBaseModel):
     Plan object
     """
 
-    created_at: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAt")] = pydantic.Field()
+    created_at: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAt")] = pydantic.Field(
+        alias="createdAt"
+    )
     """
     The timestamp (in UTC) when the plan was created
     """
 
-    hub_id: typing_extensions.Annotated[str, FieldMetadata(alias="hubId")] = pydantic.Field()
+    hub_id: typing_extensions.Annotated[str, FieldMetadata(alias="hubId")] = pydantic.Field(alias="hubId")
     """
     The ID of the hub this plan belongs to
     """
@@ -34,7 +36,9 @@ class PlanObjectResponseBody(UniversalBaseModel):
     The name of the plan
     """
 
-    updated_at: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAt")] = pydantic.Field()
+    updated_at: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAt")] = pydantic.Field(
+        alias="updatedAt"
+    )
     """
     The timestamp (in UTC) when the plan was last updated
     """

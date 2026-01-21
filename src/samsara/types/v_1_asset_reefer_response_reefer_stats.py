@@ -22,7 +22,7 @@ class V1AssetReeferResponseReeferStats(UniversalBaseModel):
 
     engine_hours: typing_extensions.Annotated[
         typing.Optional[typing.List[V1AssetReeferResponseReeferStatsEngineHours]], FieldMetadata(alias="engineHours")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="engineHours", default=None)
     """
     Engine hours of the reefer
     """
@@ -30,14 +30,14 @@ class V1AssetReeferResponseReeferStats(UniversalBaseModel):
     fuel_percentage: typing_extensions.Annotated[
         typing.Optional[typing.List[V1AssetReeferResponseReeferStatsFuelPercentage]],
         FieldMetadata(alias="fuelPercentage"),
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="fuelPercentage", default=None)
     """
     Fuel percentage of the reefer
     """
 
     power_status: typing_extensions.Annotated[
         typing.Optional[typing.List[V1AssetReeferResponseReeferStatsPowerStatus]], FieldMetadata(alias="powerStatus")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="powerStatus", default=None)
     """
     Power status of the reefer
     """
@@ -45,14 +45,14 @@ class V1AssetReeferResponseReeferStats(UniversalBaseModel):
     return_air_temp: typing_extensions.Annotated[
         typing.Optional[typing.List[V1AssetReeferResponseReeferStatsReturnAirTemp]],
         FieldMetadata(alias="returnAirTemp"),
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="returnAirTemp", default=None)
     """
     Return air temperature of the reefer
     """
 
     set_point: typing_extensions.Annotated[
         typing.Optional[typing.List[V1AssetReeferResponseReeferStatsSetPoint]], FieldMetadata(alias="setPoint")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="setPoint", default=None)
     """
     Set point temperature of the reefer
     """

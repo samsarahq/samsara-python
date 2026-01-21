@@ -15,7 +15,7 @@ class V1HumidityResponseSensors(UniversalBaseModel):
     """
 
     humidity_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="humidityTime")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="humidityTime", default=None)
     )
     """
     The timestamp of reported relative humidity, specified in RFC 3339 time.
@@ -32,14 +32,14 @@ class V1HumidityResponseSensors(UniversalBaseModel):
     """
 
     trailer_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="trailerId")] = pydantic.Field(
-        default=None
+        alias="trailerId", default=None
     )
     """
     ID of the trailer associated with the sensor for the data point. If no trailer is connected, this parameter will not be reported.
     """
 
     vehicle_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="vehicleId")] = pydantic.Field(
-        default=None
+        alias="vehicleId", default=None
     )
     """
     ID of the vehicle associated with the sensor for the data point. If no vehicle is connected, this parameter will not be reported.

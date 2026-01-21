@@ -23,7 +23,7 @@ class DefectsResponseDataResponseBody(UniversalBaseModel):
     """
 
     created_at_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="createdAtTime")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="createdAtTime", default=None)
     )
     """
     Time when defect was created in RFC 3339 format.
@@ -31,19 +31,19 @@ class DefectsResponseDataResponseBody(UniversalBaseModel):
 
     defect_photos: typing_extensions.Annotated[
         typing.Optional[typing.List[DefectPhotoResponseResponseBody]], FieldMetadata(alias="defectPhotos")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="defectPhotos", default=None)
     """
     List of DVIR defect's photos
     """
 
     defect_type_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="defectTypeId")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="defectTypeId", default=None)
     )
     """
     The unique ID of the defect type.
     """
 
-    dvir_id: typing_extensions.Annotated[str, FieldMetadata(alias="dvirId")] = pydantic.Field()
+    dvir_id: typing_extensions.Annotated[str, FieldMetadata(alias="dvirId")] = pydantic.Field(alias="dvirId")
     """
     The unique ID of the defect's DVIR.
     """
@@ -53,20 +53,22 @@ class DefectsResponseDataResponseBody(UniversalBaseModel):
     The unique ID of the DVIR defect.
     """
 
-    is_resolved: typing_extensions.Annotated[bool, FieldMetadata(alias="isResolved")] = pydantic.Field()
+    is_resolved: typing_extensions.Annotated[bool, FieldMetadata(alias="isResolved")] = pydantic.Field(
+        alias="isResolved"
+    )
     """
     Signifies if this defect is resolved.
     """
 
     mechanic_notes: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="mechanicNotes")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="mechanicNotes", default=None)
     )
     """
     The mechanics notes on the defect.
     """
 
     resolved_at_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="resolvedAtTime")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="resolvedAtTime", default=None)
     )
     """
     Time when this defect was resolved in RFC 3339 format. Will not be returned if the defect is unresolved.
@@ -74,10 +76,10 @@ class DefectsResponseDataResponseBody(UniversalBaseModel):
 
     resolved_by: typing_extensions.Annotated[
         typing.Optional[DvirResolvedByObjectResponseBody], FieldMetadata(alias="resolvedBy")
-    ] = None
+    ] = pydantic.Field(alias="resolvedBy", default=None)
     trailer: typing.Optional[DefectTrailerResponseResponseBody] = None
     updated_at_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="updatedAtTime")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="updatedAtTime", default=None)
     )
     """
     Time when defect was last updated in RFC 3339 format.

@@ -14,7 +14,7 @@ class TrailerStatReeferStateTypeResponseBody(UniversalBaseModel):
     """
 
     substate_value: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="substateValue")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="substateValue", default=None)
     )
     """
     The substate of the multizone carrier reefer, if available.

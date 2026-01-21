@@ -10,28 +10,28 @@ from ..core.serialization import FieldMetadata
 
 class V1VisionStepResultsItemFindCopies(UniversalBaseModel):
     angle_tolerance: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="angleTolerance")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="angleTolerance", default=None)
     )
     """
     The orientation angle tolerance (+/- °)
     """
 
     found_count: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="foundCount")] = pydantic.Field(
-        default=None
+        alias="foundCount", default=None
     )
     """
     The number of copies found
     """
 
     max_count: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="maxCount")] = pydantic.Field(
-        default=None
+        alias="maxCount", default=None
     )
     """
     The maximum number of copies allowed
     """
 
     min_count: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="minCount")] = pydantic.Field(
-        default=None
+        alias="minCount", default=None
     )
     """
     The minimum number of copies allowed

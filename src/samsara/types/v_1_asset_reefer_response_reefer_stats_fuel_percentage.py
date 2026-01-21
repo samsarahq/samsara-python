@@ -10,14 +10,14 @@ from ..core.serialization import FieldMetadata
 
 class V1AssetReeferResponseReeferStatsFuelPercentage(UniversalBaseModel):
     changed_at_ms: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="changedAtMs")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="changedAtMs", default=None)
     )
     """
     Timestamp in Unix milliseconds since epoch.
     """
 
     fuel_percentage: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="fuelPercentage")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="fuelPercentage", default=None)
     )
     """
     Fuel percentage of the reefer.

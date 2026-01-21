@@ -16,7 +16,7 @@ class ReadingTypeResponseBody(UniversalBaseModel):
     """
 
     data_type: typing_extensions.Annotated[ReadingTypeResponseBodyDataType, FieldMetadata(alias="dataType")] = (
-        pydantic.Field()
+        pydantic.Field(alias="dataType")
     )
     """
     The data type of the reading.  Valid values: `integer`, `float`, `string`

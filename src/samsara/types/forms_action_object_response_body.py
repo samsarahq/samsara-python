@@ -15,14 +15,14 @@ class FormsActionObjectResponseBody(UniversalBaseModel):
     """
 
     field_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="fieldId")] = pydantic.Field(
-        default=None
+        alias="fieldId", default=None
     )
     """
     Identifier of the followup question that will be shown if the condition is met. Only returned when the action type is `askFollowupQuestion`.
     """
 
     section_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="sectionId")] = pydantic.Field(
-        default=None
+        alias="sectionId", default=None
     )
     """
     Identifier of the conditional section that will be shown if the condition is met. Only returned when the action type is `showSection`.

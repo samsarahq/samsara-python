@@ -13,7 +13,7 @@ class TinyWidgetObjectRequestBody(UniversalBaseModel):
     Widget to be tracked.
     """
 
-    widget_id: typing_extensions.Annotated[str, FieldMetadata(alias="widgetId")] = pydantic.Field()
+    widget_id: typing_extensions.Annotated[str, FieldMetadata(alias="widgetId")] = pydantic.Field(alias="widgetId")
     """
     ID of the widget.
     """

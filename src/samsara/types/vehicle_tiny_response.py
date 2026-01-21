@@ -15,7 +15,7 @@ class VehicleTinyResponse(UniversalBaseModel):
 
     external_ids: typing_extensions.Annotated[
         typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="ExternalIds")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="ExternalIds", default=None)
     """
     The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.
     """

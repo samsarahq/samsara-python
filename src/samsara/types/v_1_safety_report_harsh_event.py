@@ -14,21 +14,21 @@ class V1SafetyReportHarshEvent(UniversalBaseModel):
     """
 
     harsh_event_type: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="harshEventType")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="harshEventType", default=None)
     )
     """
     Sensor generated harsh event type.
     """
 
     timestamp_ms: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="timestampMs")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="timestampMs", default=None)
     )
     """
     Timestamp that the harsh event occurred in Unix milliseconds since epoch
     """
 
     vehicle_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="vehicleId")] = pydantic.Field(
-        default=None
+        alias="vehicleId", default=None
     )
     """
     Vehicle associated with the harsh event

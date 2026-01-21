@@ -10,28 +10,28 @@ from ..core.serialization import FieldMetadata
 
 class V1VisionStepResultsItemContour(UniversalBaseModel):
     angle_degrees: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="angleDegrees")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="angleDegrees", default=None)
     )
     """
     The rotation angle found
     """
 
     angle_tolerance: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="angleTolerance")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="angleTolerance", default=None)
     )
     """
     The rotation angle allowance
     """
 
     match_percentage: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="matchPercentage")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="matchPercentage", default=None)
     )
     """
     The contour match percentage with the configured contour
     """
 
     match_threshold: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="matchThreshold")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="matchThreshold", default=None)
     )
     """
     The configured match threshold for contours

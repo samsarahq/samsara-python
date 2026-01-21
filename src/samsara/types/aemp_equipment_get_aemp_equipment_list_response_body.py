@@ -10,7 +10,9 @@ from .aemp_fleet_list_response_body import AempFleetListResponseBody
 
 
 class AempEquipmentGetAempEquipmentListResponseBody(UniversalBaseModel):
-    fleet: typing_extensions.Annotated[AempFleetListResponseBody, FieldMetadata(alias="Fleet")]
+    fleet: typing_extensions.Annotated[AempFleetListResponseBody, FieldMetadata(alias="Fleet")] = pydantic.Field(
+        alias="Fleet"
+    )
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

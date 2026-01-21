@@ -35,7 +35,7 @@ class ReadingTriggerContinuousValueObjectRequestBody(UniversalBaseModel):
     """
 
     upper_threshold: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="upperThreshold")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="upperThreshold", default=None)
     )
     """
     The upper threshold of criticality. Required for RANGE operations.

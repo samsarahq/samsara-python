@@ -15,19 +15,21 @@ class OrderInputObjectRequestBody(UniversalBaseModel):
     Input object for creating orders
     """
 
-    customer_order_id: typing_extensions.Annotated[str, FieldMetadata(alias="customerOrderId")] = pydantic.Field()
+    customer_order_id: typing_extensions.Annotated[str, FieldMetadata(alias="customerOrderId")] = pydantic.Field(
+        alias="customerOrderId"
+    )
     """
     The customer-provided identifier for the order
     """
 
     delivery: typing.Optional[OrderTaskRequestBody] = None
-    hub_id: typing_extensions.Annotated[str, FieldMetadata(alias="hubId")] = pydantic.Field()
+    hub_id: typing_extensions.Annotated[str, FieldMetadata(alias="hubId")] = pydantic.Field(alias="hubId")
     """
     The ID of the hub the order belongs to
     """
 
     pickup: typing.Optional[OrderTaskRequestBody] = None
-    plan_id: typing_extensions.Annotated[str, FieldMetadata(alias="planId")] = pydantic.Field()
+    plan_id: typing_extensions.Annotated[str, FieldMetadata(alias="planId")] = pydantic.Field(alias="planId")
     """
     The ID of the plan the order belongs to
     """
@@ -44,7 +46,7 @@ class OrderInputObjectRequestBody(UniversalBaseModel):
 
     skills_required: typing_extensions.Annotated[
         typing.Optional[typing.List[str]], FieldMetadata(alias="skillsRequired")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="skillsRequired", default=None)
     """
     An array of skill IDs required to fulfill the order
     """
