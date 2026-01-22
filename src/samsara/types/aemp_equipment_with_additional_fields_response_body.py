@@ -22,21 +22,25 @@ class AempEquipmentWithAdditionalFieldsResponseBody(UniversalBaseModel):
 
     cumulative_operating_hours: typing_extensions.Annotated[
         typing.Optional[CumulativeOperatingHoursResponseBody], FieldMetadata(alias="CumulativeOperatingHours")
-    ] = None
+    ] = pydantic.Field(alias="CumulativeOperatingHours", default=None)
     def_remaining: typing_extensions.Annotated[
         typing.Optional[DefRemainingResponseBody], FieldMetadata(alias="DEFRemaining")
-    ] = None
-    distance: typing_extensions.Annotated[typing.Optional[DistanceResponseBody], FieldMetadata(alias="Distance")] = None
+    ] = pydantic.Field(alias="DEFRemaining", default=None)
+    distance: typing_extensions.Annotated[typing.Optional[DistanceResponseBody], FieldMetadata(alias="Distance")] = (
+        pydantic.Field(alias="Distance", default=None)
+    )
     engine_status: typing_extensions.Annotated[
         typing.Optional[EngineStatusResponseBody], FieldMetadata(alias="EngineStatus")
-    ] = None
+    ] = pydantic.Field(alias="EngineStatus", default=None)
     equipment_header: typing_extensions.Annotated[
         EquipmentHeaderWithAdditionalFieldsResponseBody, FieldMetadata(alias="EquipmentHeader")
-    ]
+    ] = pydantic.Field(alias="EquipmentHeader")
     fuel_remaining: typing_extensions.Annotated[
         typing.Optional[FuelRemainingResponseBody], FieldMetadata(alias="FuelRemaining")
-    ] = None
-    location: typing_extensions.Annotated[LocationResponseBody, FieldMetadata(alias="Location")]
+    ] = pydantic.Field(alias="FuelRemaining", default=None)
+    location: typing_extensions.Annotated[LocationResponseBody, FieldMetadata(alias="Location")] = pydantic.Field(
+        alias="Location"
+    )
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

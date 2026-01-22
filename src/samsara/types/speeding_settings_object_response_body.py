@@ -17,7 +17,7 @@ class SpeedingSettingsObjectResponseBody(UniversalBaseModel):
 
     severity_levels: typing_extensions.Annotated[
         typing.Optional[typing.List[SpeedingSeverityLevelResponseBody]], FieldMetadata(alias="severityLevels")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="severityLevels", default=None)
     """
     The speeding severity levels for an organization.
     """

@@ -15,7 +15,7 @@ class DateTimeValueObjectRequestBody(UniversalBaseModel):
     """
 
     date_time: typing_extensions.Annotated[typing.Optional[dt.datetime], FieldMetadata(alias="dateTime")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="dateTime", default=None)
     )
     """
     Date time value inin RFC 3339 format.

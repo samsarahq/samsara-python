@@ -17,22 +17,24 @@ class ReadingTriggerDetailsObjectRequestBody(UniversalBaseModel):
 
     continuous_threshold: typing_extensions.Annotated[
         typing.Optional[ReadingTriggerContinuousValueObjectRequestBody], FieldMetadata(alias="continuousThreshold")
-    ] = None
-    entity_type: typing_extensions.Annotated[str, FieldMetadata(alias="entityType")] = pydantic.Field()
+    ] = pydantic.Field(alias="continuousThreshold", default=None)
+    entity_type: typing_extensions.Annotated[str, FieldMetadata(alias="entityType")] = pydantic.Field(
+        alias="entityType"
+    )
     """
     The type of the entity associated with the reading.
     """
 
     enum_threshold: typing_extensions.Annotated[
         typing.Optional[ReadingTriggerEnumValueObjectRequestBody], FieldMetadata(alias="enumThreshold")
-    ] = None
+    ] = pydantic.Field(alias="enumThreshold", default=None)
     id: str = pydantic.Field()
     """
     The ID of the reading.
     """
 
     min_duration_milliseconds: typing_extensions.Annotated[int, FieldMetadata(alias="minDurationMilliseconds")] = (
-        pydantic.Field()
+        pydantic.Field(alias="minDurationMilliseconds")
     )
     """
     The number of milliseconds the trigger needs to stay active before alerting.

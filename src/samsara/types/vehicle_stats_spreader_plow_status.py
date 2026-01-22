@@ -4,8 +4,8 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
+from .time import Time
 from .vehicle_stats_spreader_plow_status_value import VehicleStatsSpreaderPlowStatusValue
-from .vehicle_stats_time import VehicleStatsTime
 
 
 class VehicleStatsSpreaderPlowStatus(UniversalBaseModel):
@@ -13,7 +13,7 @@ class VehicleStatsSpreaderPlowStatus(UniversalBaseModel):
     Snow plow status (`Up` or `Down`), as read from the material spreader. Note: this is separate from plow status defined via auxInput.
     """
 
-    time: VehicleStatsTime
+    time: Time
     value: VehicleStatsSpreaderPlowStatusValue = pydantic.Field()
     """
     Snow plow status, as read from the material spreader

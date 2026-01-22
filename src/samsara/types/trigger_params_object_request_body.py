@@ -31,6 +31,7 @@ from .outside_geofence_trigger_details_object_request_body import OutsideGeofenc
 from .panic_button_details_object_request_body import PanicButtonDetailsObjectRequestBody
 from .reading_trigger_details_object_request_body import ReadingTriggerDetailsObjectRequestBody
 from .route_stop_estimated_arrival_details_object_request_body import RouteStopEstimatedArrivalDetailsObjectRequestBody
+from .safety_behavior_trigger_details_object_request_body import SafetyBehaviorTriggerDetailsObjectRequestBody
 from .scheduled_maintenance_by_engine_hours_details_object_request_body import (
     ScheduledMaintenanceByEngineHoursDetailsObjectRequestBody,
 )
@@ -63,107 +64,110 @@ class TriggerParamsObjectRequestBody(UniversalBaseModel):
 
     ambient_temperature: typing_extensions.Annotated[
         typing.Optional[AmbientTemperatureDetailsObjectRequestBody], FieldMetadata(alias="ambientTemperature")
-    ] = None
+    ] = pydantic.Field(alias="ambientTemperature", default=None)
     cell_signal_loss: typing_extensions.Annotated[
         typing.Optional[CellSignalLossDetailsObjectRequestBody], FieldMetadata(alias="cellSignalLoss")
-    ] = None
+    ] = pydantic.Field(alias="cellSignalLoss", default=None)
     def_level: typing_extensions.Annotated[
         typing.Optional[DefLevelTriggerDetailsObjectRequestBody], FieldMetadata(alias="defLevel")
-    ] = None
+    ] = pydantic.Field(alias="defLevel", default=None)
     device_movement: typing_extensions.Annotated[
         typing.Optional[DeviceMovementTriggerDetailsObjectRequestBody], FieldMetadata(alias="deviceMovement")
-    ] = None
+    ] = pydantic.Field(alias="deviceMovement", default=None)
     document_submitted: typing_extensions.Annotated[
         typing.Optional[DriverDocumentSubmittedDetailsObjectRequestBody], FieldMetadata(alias="documentSubmitted")
-    ] = None
+    ] = pydantic.Field(alias="documentSubmitted", default=None)
     dvir_submitted_device: typing_extensions.Annotated[
         typing.Optional[DvirSubmittedDeviceTriggerDetailsObjectRequestBody], FieldMetadata(alias="dvirSubmittedDevice")
-    ] = None
+    ] = pydantic.Field(alias="dvirSubmittedDevice", default=None)
     engine_idle: typing_extensions.Annotated[
         typing.Optional[EngineIdleTriggerDetailsObjectRequestBody], FieldMetadata(alias="engineIdle")
-    ] = None
+    ] = pydantic.Field(alias="engineIdle", default=None)
     engine_off: typing_extensions.Annotated[
         typing.Optional[EngineOffDetailsObjectRequestBody], FieldMetadata(alias="engineOff")
-    ] = None
+    ] = pydantic.Field(alias="engineOff", default=None)
     engine_on: typing_extensions.Annotated[
         typing.Optional[EngineOnDetailsObjectRequestBody], FieldMetadata(alias="engineOn")
-    ] = None
+    ] = pydantic.Field(alias="engineOn", default=None)
     fuel_level: typing_extensions.Annotated[
         typing.Optional[FuelLevelTriggerDetailsObjectRequestBody], FieldMetadata(alias="fuelLevel")
-    ] = None
+    ] = pydantic.Field(alias="fuelLevel", default=None)
     gateway_disconnected: typing_extensions.Annotated[
         typing.Optional[GatewayDisconnectedDetailsObjectRequestBody], FieldMetadata(alias="gatewayDisconnected")
-    ] = None
+    ] = pydantic.Field(alias="gatewayDisconnected", default=None)
     gateway_unplugged: typing_extensions.Annotated[
         typing.Optional[GatewayUnpluggedTriggerDetailsObjectRequestBody], FieldMetadata(alias="gatewayUnplugged")
-    ] = None
+    ] = pydantic.Field(alias="gatewayUnplugged", default=None)
     geofence_entry: typing_extensions.Annotated[
         typing.Optional[GeofenceEntryTriggerDetailsObjectRequestBody], FieldMetadata(alias="geofenceEntry")
-    ] = None
+    ] = pydantic.Field(alias="geofenceEntry", default=None)
     geofence_exit: typing_extensions.Annotated[
         typing.Optional[GeofenceExitTriggerDetailsObjectRequestBody], FieldMetadata(alias="geofenceExit")
-    ] = None
+    ] = pydantic.Field(alias="geofenceExit", default=None)
     gps_signal_loss: typing_extensions.Annotated[
         typing.Optional[GpsSignalLossDetailsObjectRequestBody], FieldMetadata(alias="gpsSignalLoss")
-    ] = None
+    ] = pydantic.Field(alias="gpsSignalLoss", default=None)
     harsh_event: typing_extensions.Annotated[
         typing.Optional[HarshEventTriggerDetailsObjectRequestBody], FieldMetadata(alias="harshEvent")
-    ] = None
+    ] = pydantic.Field(alias="harshEvent", default=None)
     hos_violation: typing_extensions.Annotated[
         typing.Optional[HosViolationTriggerDetailsObjectRequestBody], FieldMetadata(alias="hosViolation")
-    ] = None
+    ] = pydantic.Field(alias="hosViolation", default=None)
     inside_geofence: typing_extensions.Annotated[
         typing.Optional[InsideGeofenceTriggerDetailsObjectRequestBody], FieldMetadata(alias="insideGeofence")
-    ] = None
+    ] = pydantic.Field(alias="insideGeofence", default=None)
     out_of_route: typing_extensions.Annotated[
         typing.Optional[OutOfRouteDetailsObjectRequestBody], FieldMetadata(alias="outOfRoute")
-    ] = None
+    ] = pydantic.Field(alias="outOfRoute", default=None)
     outside_geofence: typing_extensions.Annotated[
         typing.Optional[OutsideGeofenceTriggerDetailsObjectRequestBody], FieldMetadata(alias="outsideGeofence")
-    ] = None
+    ] = pydantic.Field(alias="outsideGeofence", default=None)
     panic_button: typing_extensions.Annotated[
         typing.Optional[PanicButtonDetailsObjectRequestBody], FieldMetadata(alias="panicButton")
-    ] = None
+    ] = pydantic.Field(alias="panicButton", default=None)
     reading: typing.Optional[ReadingTriggerDetailsObjectRequestBody] = None
     route_stop_estimated_arrival: typing_extensions.Annotated[
         typing.Optional[RouteStopEstimatedArrivalDetailsObjectRequestBody],
         FieldMetadata(alias="routeStopEstimatedArrival"),
-    ] = None
+    ] = pydantic.Field(alias="routeStopEstimatedArrival", default=None)
+    safety_behavior: typing_extensions.Annotated[
+        typing.Optional[SafetyBehaviorTriggerDetailsObjectRequestBody], FieldMetadata(alias="safetyBehavior")
+    ] = pydantic.Field(alias="safetyBehavior", default=None)
     scheduled_maintenance: typing_extensions.Annotated[
         typing.Optional[ScheduledMaintenanceTriggerDetailsObjectRequestBody],
         FieldMetadata(alias="scheduledMaintenance"),
-    ] = None
+    ] = pydantic.Field(alias="scheduledMaintenance", default=None)
     scheduled_maintenance_by_engine_hours: typing_extensions.Annotated[
         typing.Optional[ScheduledMaintenanceByEngineHoursDetailsObjectRequestBody],
         FieldMetadata(alias="scheduledMaintenanceByEngineHours"),
-    ] = None
+    ] = pydantic.Field(alias="scheduledMaintenanceByEngineHours", default=None)
     scheduled_maintenance_odometer: typing_extensions.Annotated[
         typing.Optional[ScheduledMaintenanceOdometerTriggerDetailsObjectRequestBody],
         FieldMetadata(alias="scheduledMaintenanceOdometer"),
-    ] = None
+    ] = pydantic.Field(alias="scheduledMaintenanceOdometer", default=None)
     speed: typing.Optional[SpeedTriggerDetailsObjectRequestBody] = None
     sudden_fuel_level_drop: typing_extensions.Annotated[
         typing.Optional[SuddenFuelLevelDropTriggerDetailsObjectRequestBody], FieldMetadata(alias="suddenFuelLevelDrop")
-    ] = None
+    ] = pydantic.Field(alias="suddenFuelLevelDrop", default=None)
     sudden_fuel_level_rise: typing_extensions.Annotated[
         typing.Optional[SuddenFuelLevelRiseTriggerDetailsObjectRequestBody], FieldMetadata(alias="suddenFuelLevelRise")
-    ] = None
+    ] = pydantic.Field(alias="suddenFuelLevelRise", default=None)
     tire_fault_code: typing_extensions.Annotated[
         typing.Optional[TireFaultCodeDetailsObjectRequestBody], FieldMetadata(alias="tireFaultCode")
-    ] = None
+    ] = pydantic.Field(alias="tireFaultCode", default=None)
     training_assignment_near_due_date: typing_extensions.Annotated[
         typing.Optional[TrainingAssignmentNearDueDateTriggerDetailsObjectRequestBody],
         FieldMetadata(alias="trainingAssignmentNearDueDate"),
-    ] = None
+    ] = pydantic.Field(alias="trainingAssignmentNearDueDate", default=None)
     unassigned_driving: typing_extensions.Annotated[
         typing.Optional[UnassignedDrivingTriggerDetailsObjectRequestBody], FieldMetadata(alias="unassignedDriving")
-    ] = None
+    ] = pydantic.Field(alias="unassignedDriving", default=None)
     vehicle_battery_voltage: typing_extensions.Annotated[
         typing.Optional[VehicleBatterVoltageDetailsObjectRequestBody], FieldMetadata(alias="vehicleBatteryVoltage")
-    ] = None
+    ] = pydantic.Field(alias="vehicleBatteryVoltage", default=None)
     vehicle_fault_code: typing_extensions.Annotated[
         typing.Optional[VehicleFaultCodeDetailsObjectRequestBody], FieldMetadata(alias="vehicleFaultCode")
-    ] = None
+    ] = pydantic.Field(alias="vehicleFaultCode", default=None)
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

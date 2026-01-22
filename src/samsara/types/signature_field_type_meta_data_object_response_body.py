@@ -14,7 +14,7 @@ class SignatureFieldTypeMetaDataObjectResponseBody(UniversalBaseModel):
     """
 
     legal_text: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="legalText")] = pydantic.Field(
-        default=None
+        alias="legalText", default=None
     )
     """
     The signature field legal text.

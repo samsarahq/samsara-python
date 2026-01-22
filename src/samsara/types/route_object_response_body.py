@@ -21,29 +21,35 @@ class RouteObjectResponseBody(UniversalBaseModel):
     The cost of the route
     """
 
-    created_at: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAt")] = pydantic.Field()
+    created_at: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAt")] = pydantic.Field(
+        alias="createdAt"
+    )
     """
     The timestamp (in UTC) when the route was created
     """
 
     dispatch_route_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="dispatchRouteId")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="dispatchRouteId", default=None)
     )
     """
     The dispatch route identifier
     """
 
-    distance_meters: typing_extensions.Annotated[int, FieldMetadata(alias="distanceMeters")] = pydantic.Field()
+    distance_meters: typing_extensions.Annotated[int, FieldMetadata(alias="distanceMeters")] = pydantic.Field(
+        alias="distanceMeters"
+    )
     """
     The total distance of the route in meters
     """
 
-    duration_seconds: typing_extensions.Annotated[int, FieldMetadata(alias="durationSeconds")] = pydantic.Field()
+    duration_seconds: typing_extensions.Annotated[int, FieldMetadata(alias="durationSeconds")] = pydantic.Field(
+        alias="durationSeconds"
+    )
     """
     The total duration of the route in seconds
     """
 
-    hub_id: typing_extensions.Annotated[str, FieldMetadata(alias="hubId")] = pydantic.Field()
+    hub_id: typing_extensions.Annotated[str, FieldMetadata(alias="hubId")] = pydantic.Field(alias="hubId")
     """
     The ID of the hub this route belongs to
     """
@@ -53,12 +59,12 @@ class RouteObjectResponseBody(UniversalBaseModel):
     The Samsara-generated unique identifier (UUID) for the route
     """
 
-    is_edited: typing_extensions.Annotated[bool, FieldMetadata(alias="isEdited")] = pydantic.Field()
+    is_edited: typing_extensions.Annotated[bool, FieldMetadata(alias="isEdited")] = pydantic.Field(alias="isEdited")
     """
     Whether the route has been edited
     """
 
-    is_pinned: typing_extensions.Annotated[bool, FieldMetadata(alias="isPinned")] = pydantic.Field()
+    is_pinned: typing_extensions.Annotated[bool, FieldMetadata(alias="isPinned")] = pydantic.Field(alias="isPinned")
     """
     Whether the route is pinned
     """
@@ -69,13 +75,13 @@ class RouteObjectResponseBody(UniversalBaseModel):
     """
 
     org_location_timezone: typing_extensions.Annotated[str, FieldMetadata(alias="orgLocationTimezone")] = (
-        pydantic.Field()
+        pydantic.Field(alias="orgLocationTimezone")
     )
     """
     The organization location timezone calculated from hub
     """
 
-    plan_id: typing_extensions.Annotated[str, FieldMetadata(alias="planId")] = pydantic.Field()
+    plan_id: typing_extensions.Annotated[str, FieldMetadata(alias="planId")] = pydantic.Field(alias="planId")
     """
     The ID of the plan this route belongs to
     """
@@ -86,7 +92,7 @@ class RouteObjectResponseBody(UniversalBaseModel):
     """
 
     scheduled_route_end_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="scheduledRouteEndTime")] = (
-        pydantic.Field()
+        pydantic.Field(alias="scheduledRouteEndTime")
     )
     """
     The scheduled end time of the route calculated from last stop
@@ -94,7 +100,7 @@ class RouteObjectResponseBody(UniversalBaseModel):
 
     scheduled_route_start_time: typing_extensions.Annotated[
         dt.datetime, FieldMetadata(alias="scheduledRouteStartTime")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="scheduledRouteStartTime")
     """
     The scheduled start time of the route calculated from first stop
     """
@@ -109,7 +115,9 @@ class RouteObjectResponseBody(UniversalBaseModel):
     The type of route
     """
 
-    updated_at: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAt")] = pydantic.Field()
+    updated_at: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAt")] = pydantic.Field(
+        alias="updatedAt"
+    )
     """
     The timestamp (in UTC) when the route was last updated
     """

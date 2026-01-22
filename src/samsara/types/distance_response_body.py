@@ -14,14 +14,14 @@ class DistanceResponseBody(UniversalBaseModel):
     """
 
     odometer: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="Odometer")] = pydantic.Field(
-        default=None
+        alias="Odometer", default=None
     )
     """
     Odometer value reported by equipment.
     """
 
     odometer_units: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="OdometerUnits")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="OdometerUnits", default=None)
     )
     """
     Unit of measurement for distance.

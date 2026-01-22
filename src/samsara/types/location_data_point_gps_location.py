@@ -15,7 +15,7 @@ class LocationDataPointGpsLocation(UniversalBaseModel):
     """
 
     formatted_address: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="formattedAddress")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="formattedAddress", default=None)
     )
     """
     Formatted address of the location
@@ -23,13 +23,13 @@ class LocationDataPointGpsLocation(UniversalBaseModel):
 
     gps_meters_per_second: typing_extensions.Annotated[
         typing.Optional[float], FieldMetadata(alias="gpsMetersPerSecond")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="gpsMetersPerSecond", default=None)
     """
     Speed of GPS (meters per second)
     """
 
     heading_degrees: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="headingDegrees")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="headingDegrees", default=None)
     )
     """
     Heading degrees

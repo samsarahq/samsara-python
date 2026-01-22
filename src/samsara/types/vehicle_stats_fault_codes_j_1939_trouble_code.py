@@ -16,50 +16,54 @@ class VehicleStatsFaultCodesJ1939TroubleCode(UniversalBaseModel):
     """
 
     fmi_description: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="fmiDescription")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="fmiDescription", default=None)
     )
     """
     A short description of the FMI identifier, if available.
     """
 
-    fmi_id: typing_extensions.Annotated[int, FieldMetadata(alias="fmiId")] = pydantic.Field()
+    fmi_id: typing_extensions.Annotated[int, FieldMetadata(alias="fmiId")] = pydantic.Field(alias="fmiId")
     """
     The FMI identifier.
     """
 
-    mil_status: typing_extensions.Annotated[int, FieldMetadata(alias="milStatus")] = pydantic.Field()
+    mil_status: typing_extensions.Annotated[int, FieldMetadata(alias="milStatus")] = pydantic.Field(alias="milStatus")
     """
     The MIL status, indicating a check engine light.
     """
 
-    occurrence_count: typing_extensions.Annotated[int, FieldMetadata(alias="occurrenceCount")] = pydantic.Field()
+    occurrence_count: typing_extensions.Annotated[int, FieldMetadata(alias="occurrenceCount")] = pydantic.Field(
+        alias="occurrenceCount"
+    )
     """
     The number of times this fault has triggered.
     """
 
     source_address_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="sourceAddressName")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="sourceAddressName", default=None)
     )
     """
     The source address name corresponding to the txId
     """
 
     spn_description: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="spnDescription")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="spnDescription", default=None)
     )
     """
     A short description of the SPN identifier, if available.
     """
 
-    spn_id: typing_extensions.Annotated[int, FieldMetadata(alias="spnId")] = pydantic.Field()
+    spn_id: typing_extensions.Annotated[int, FieldMetadata(alias="spnId")] = pydantic.Field(alias="spnId")
     """
     The SPN identifier.
     """
 
-    tx_id: typing_extensions.Annotated[VehicleStatsFaultCodesTxId, FieldMetadata(alias="txId")]
+    tx_id: typing_extensions.Annotated[VehicleStatsFaultCodesTxId, FieldMetadata(alias="txId")] = pydantic.Field(
+        alias="txId"
+    )
     vendor_specific_fields: typing_extensions.Annotated[
         typing.Optional[VehicleStatsFaultCodesVendorSpecificFields], FieldMetadata(alias="vendorSpecificFields")
-    ] = None
+    ] = pydantic.Field(alias="vendorSpecificFields", default=None)
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -15,6 +15,7 @@ DetectionLogSafetyEventObjectResponseBodyInboxFilterReason = typing.Union[
         "belowSpeedThreshold",
         "nighttimeFilter",
         "speedingFilter",
+        "inCabAlertOnly",
         "unknown",
     ],
     typing.Any,

@@ -14,13 +14,13 @@ class TinyAssetObjectRequestBody(UniversalBaseModel):
     Vehicle, trailer or other equipment to be tracked.
     """
 
-    asset_id: typing_extensions.Annotated[str, FieldMetadata(alias="assetId")] = pydantic.Field()
+    asset_id: typing_extensions.Annotated[str, FieldMetadata(alias="assetId")] = pydantic.Field(alias="assetId")
     """
     ID of the asset.
     """
 
     asset_type: typing_extensions.Annotated[TinyAssetObjectRequestBodyAssetType, FieldMetadata(alias="assetType")] = (
-        pydantic.Field()
+        pydantic.Field(alias="assetType")
     )
     """
     The operational context in which the asset interacts with the Samsara system. Examples: Vehicle (eg: truck, bus...), Trailer (eg: dry van, reefer, flatbed...), Powered Equipment (eg: dozer, crane...), Unpowered Equipment (eg: container, dumpster...), or Uncategorized.  Valid values: `uncategorized`, `trailer`, `equipment`, `unpowered`, `vehicle`

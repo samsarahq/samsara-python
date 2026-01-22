@@ -13,28 +13,28 @@ from .goa_driver_tiny_response_response_body import GoaDriverTinyResponseRespons
 class DriverAssignmentObjectResponseBody(UniversalBaseModel):
     assignment_type: typing_extensions.Annotated[
         typing.Optional[DriverAssignmentObjectResponseBodyAssignmentType], FieldMetadata(alias="assignmentType")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="assignmentType", default=None)
     """
     Assignment type of the driver-vehicle assignment, indicating the provenance of the assignment. The only type of assignment supported right now is `driverApp` assignments. This list could change, so it is recommended that clients gracefully handle any types not enumerated in this list.  Valid values: `driverApp`
     """
 
     driver: typing.Optional[GoaDriverTinyResponseResponseBody] = None
     end_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="endTime")] = pydantic.Field(
-        default=None
+        alias="endTime", default=None
     )
     """
      An end time in RFC 3339 format. Omitted if not applicable. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
     """
 
     is_passenger: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="isPassenger")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="isPassenger", default=None)
     )
     """
     Boolean indicating whether the driver is a passenger.
     """
 
     start_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="startTime")] = pydantic.Field(
-        default=None
+        alias="startTime", default=None
     )
     """
      A start time in RFC 3339 format. Defaults to now if not provided. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).

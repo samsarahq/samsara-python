@@ -24,7 +24,7 @@ class WorkOrderAttachmentObjectResponseBody(UniversalBaseModel):
 
     processing_status: typing_extensions.Annotated[
         WorkOrderAttachmentObjectResponseBodyProcessingStatus, FieldMetadata(alias="processingStatus")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="processingStatus")
     """
     Status of the media record.  Valid values: `unknown`, `processing`, `finished`
     """
@@ -35,7 +35,7 @@ class WorkOrderAttachmentObjectResponseBody(UniversalBaseModel):
     """
 
     url_expires_at: typing_extensions.Annotated[typing.Optional[dt.datetime], FieldMetadata(alias="urlExpiresAt")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="urlExpiresAt", default=None)
     )
     """
     Expiration time of the media record 'url'. UTC timestamp in RFC 3339 format.

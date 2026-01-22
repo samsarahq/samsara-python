@@ -15,13 +15,13 @@ class SafetyScoreConfigurationSettingsObjectResponseBody(UniversalBaseModel):
 
     ai_inattentive_driving_detection_weight: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="aiInattentiveDrivingDetectionWeight")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="aiInattentiveDrivingDetectionWeight", default=None)
     """
     Score weight for AI-detected inattentive driving behavior.
     """
 
     crash_weight: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="crashWeight")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="crashWeight", default=None)
     )
     """
     Score weight for crash behavior.
@@ -29,20 +29,20 @@ class SafetyScoreConfigurationSettingsObjectResponseBody(UniversalBaseModel):
 
     defensive_driving_weight: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="defensiveDrivingWeight")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="defensiveDrivingWeight", default=None)
     """
     Score weight for defensive driving behavior. This behavior has a positive impact on the safety score.
     """
 
     did_not_yield_weight: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="didNotYieldWeight")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="didNotYieldWeight", default=None)
     """
     Score weight for driver not yielding.
     """
 
     drowsy_weight: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="drowsyWeight")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="drowsyWeight", default=None)
     )
     """
     Score weight for drowsy behavior.
@@ -50,55 +50,55 @@ class SafetyScoreConfigurationSettingsObjectResponseBody(UniversalBaseModel):
 
     eating_drinking_weight: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="eatingDrinkingWeight")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="eatingDrinkingWeight", default=None)
     """
     Score weight for eating/drinking behavior.
     """
 
     following_distance_moderate_weight: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="followingDistanceModerateWeight")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="followingDistanceModerateWeight", default=None)
     """
     Score weight for moderate (2-4s) following distance behavior.
     """
 
     following_distance_severe_weight: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="followingDistanceSevereWeight")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="followingDistanceSevereWeight", default=None)
     """
     Score weight for severe (0-2s) following distance behavior.
     """
 
     following_distance_weight: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="followingDistanceWeight")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="followingDistanceWeight", default=None)
     """
     Score weight for following distance behavior.
     """
 
     forward_collision_warning_weight: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="forwardCollisionWarningWeight")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="forwardCollisionWarningWeight", default=None)
     """
     Score weight for forward collision warning behavior.
     """
 
     harsh_accel_weight: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="harshAccelWeight")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="harshAccelWeight", default=None)
     )
     """
     Score weight for harsh acceleration behavior.
     """
 
     harsh_brake_weight: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="harshBrakeWeight")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="harshBrakeWeight", default=None)
     )
     """
     Score weight for harsh braking behavior.
     """
 
     harsh_turn_weight: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="harshTurnWeight")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="harshTurnWeight", default=None)
     )
     """
     Score weight for harsh turn behavior.
@@ -106,48 +106,48 @@ class SafetyScoreConfigurationSettingsObjectResponseBody(UniversalBaseModel):
 
     heavy_speeding_weight: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="heavySpeedingWeight")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="heavySpeedingWeight", default=None)
     """
     Score weight for heavy speeding (20-30% over limit).
     """
 
     inattentive_driving_weight: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="inattentiveDrivingWeight")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="inattentiveDrivingWeight", default=None)
     """
     Score weight for inattentive driving behavior.
     """
 
     lane_departure_weight: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="laneDepartureWeight")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="laneDepartureWeight", default=None)
     """
     Score weight for lane departure behavior.
     """
 
     late_response_weight: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="lateResponseWeight")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="lateResponseWeight", default=None)
     """
     Score weight for late response behavior.
     """
 
     light_speeding_weight: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="lightSpeedingWeight")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="lightSpeedingWeight", default=None)
     """
     Score weight for light speeding (0-10% over limit).
     """
 
     max_speed_weight: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="maxSpeedWeight")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="maxSpeedWeight", default=None)
     )
     """
     Score weight for max speed events.
     """
 
     mobile_usage_weight: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="mobileUsageWeight")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="mobileUsageWeight", default=None)
     )
     """
     Score weight for mobile usage behavior.
@@ -155,20 +155,20 @@ class SafetyScoreConfigurationSettingsObjectResponseBody(UniversalBaseModel):
 
     moderate_speeding_weight: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="moderateSpeedingWeight")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="moderateSpeedingWeight", default=None)
     """
     Score weight for moderate speeding (10-20% over limit).
     """
 
     near_collision_weight: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="nearCollisionWeight")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="nearCollisionWeight", default=None)
     """
     Score weight for near collision behavior.
     """
 
     no_seatbelt_weight: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="noSeatbeltWeight")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="noSeatbeltWeight", default=None)
     )
     """
     Score weight for no seatbelt behavior.
@@ -176,20 +176,20 @@ class SafetyScoreConfigurationSettingsObjectResponseBody(UniversalBaseModel):
 
     obstructed_camera_weight: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="obstructedCameraWeight")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="obstructedCameraWeight", default=None)
     """
     Score weight for obstructed camera behavior.
     """
 
     ran_red_light_weight: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="ranRedLightWeight")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="ranRedLightWeight", default=None)
     """
     Score weight for driver running red light.
     """
 
     rolling_stop_weight: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="rollingStopWeight")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="rollingStopWeight", default=None)
     )
     """
     Score weight for rolling stop behavior.
@@ -197,20 +197,20 @@ class SafetyScoreConfigurationSettingsObjectResponseBody(UniversalBaseModel):
 
     severe_speeding_weight: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="severeSpeedingWeight")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="severeSpeedingWeight", default=None)
     """
     Score weight for severe speeding (over 30% over limit).
     """
 
     smoking_weight: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="smokingWeight")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="smokingWeight", default=None)
     )
     """
     Score weight for smoking behavior.
     """
 
     speeding_weight: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="speedingWeight")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="speedingWeight", default=None)
     )
     """
     Score weight for manual speeding event.
@@ -218,7 +218,7 @@ class SafetyScoreConfigurationSettingsObjectResponseBody(UniversalBaseModel):
 
     vulnerable_road_user_weight: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="vulnerableRoadUserWeight")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="vulnerableRoadUserWeight", default=None)
     """
     Score weight for vulnerable road user behavior.
     """

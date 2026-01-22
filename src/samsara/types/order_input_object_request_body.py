@@ -6,6 +6,7 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .order_custom_property_input_request_body import OrderCustomPropertyInputRequestBody
 from .order_quantity_input_request_body import OrderQuantityInputRequestBody
 from .order_task_request_body import OrderTaskRequestBody
 
@@ -15,19 +16,28 @@ class OrderInputObjectRequestBody(UniversalBaseModel):
     Input object for creating orders
     """
 
-    customer_order_id: typing_extensions.Annotated[str, FieldMetadata(alias="customerOrderId")] = pydantic.Field()
+    custom_properties: typing_extensions.Annotated[
+        typing.Optional[typing.List[OrderCustomPropertyInputRequestBody]], FieldMetadata(alias="customProperties")
+    ] = pydantic.Field(alias="customProperties", default=None)
+    """
+    An array of custom property values for the order
+    """
+
+    customer_order_id: typing_extensions.Annotated[str, FieldMetadata(alias="customerOrderId")] = pydantic.Field(
+        alias="customerOrderId"
+    )
     """
     The customer-provided identifier for the order
     """
 
     delivery: typing.Optional[OrderTaskRequestBody] = None
-    hub_id: typing_extensions.Annotated[str, FieldMetadata(alias="hubId")] = pydantic.Field()
+    hub_id: typing_extensions.Annotated[str, FieldMetadata(alias="hubId")] = pydantic.Field(alias="hubId")
     """
     The ID of the hub the order belongs to
     """
 
     pickup: typing.Optional[OrderTaskRequestBody] = None
-    plan_id: typing_extensions.Annotated[str, FieldMetadata(alias="planId")] = pydantic.Field()
+    plan_id: typing_extensions.Annotated[str, FieldMetadata(alias="planId")] = pydantic.Field(alias="planId")
     """
     The ID of the plan the order belongs to
     """
@@ -44,7 +54,7 @@ class OrderInputObjectRequestBody(UniversalBaseModel):
 
     skills_required: typing_extensions.Annotated[
         typing.Optional[typing.List[str]], FieldMetadata(alias="skillsRequired")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="skillsRequired", default=None)
     """
     An array of skill IDs required to fulfill the order
     """

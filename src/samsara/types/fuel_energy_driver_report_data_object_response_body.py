@@ -16,7 +16,7 @@ class FuelEnergyDriverReportDataObjectResponseBody(UniversalBaseModel):
 
     driver_reports: typing_extensions.Annotated[
         typing.List[FuelEnergyDriverReportObjectResponseBody], FieldMetadata(alias="driverReports")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="driverReports")
     """
     List of summarized driver reports.
     """

@@ -15,7 +15,7 @@ class V1AssetsReefer(UniversalBaseModel):
     """
 
     asset_type: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="assetType")] = pydantic.Field(
-        default=None
+        alias="assetType", default=None
     )
     """
     Asset type
@@ -33,7 +33,7 @@ class V1AssetsReefer(UniversalBaseModel):
 
     reefer_stats: typing_extensions.Annotated[
         typing.Optional[V1AssetsReeferReeferStats], FieldMetadata(alias="reeferStats")
-    ] = None
+    ] = pydantic.Field(alias="reeferStats", default=None)
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

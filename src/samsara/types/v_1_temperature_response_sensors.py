@@ -11,14 +11,14 @@ from ..core.serialization import FieldMetadata
 class V1TemperatureResponseSensors(UniversalBaseModel):
     ambient_temperature: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="ambientTemperature")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="ambientTemperature", default=None)
     """
     Currently reported ambient temperature in millidegrees celsius.
     """
 
     ambient_temperature_time: typing_extensions.Annotated[
         typing.Optional[str], FieldMetadata(alias="ambientTemperatureTime")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="ambientTemperatureTime", default=None)
     """
     The timestamp of reported ambient temperature, specified in RFC 3339 time.
     """
@@ -34,7 +34,7 @@ class V1TemperatureResponseSensors(UniversalBaseModel):
     """
 
     probe_temperature: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="probeTemperature")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="probeTemperature", default=None)
     )
     """
     Currently reported probe temperature in millidegrees celsius. If no probe is connected, this parameter will not be reported.
@@ -42,20 +42,20 @@ class V1TemperatureResponseSensors(UniversalBaseModel):
 
     probe_temperature_time: typing_extensions.Annotated[
         typing.Optional[str], FieldMetadata(alias="probeTemperatureTime")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="probeTemperatureTime", default=None)
     """
     The timestamp of reported probe temperature, specified in RFC 3339 time.
     """
 
     trailer_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="trailerId")] = pydantic.Field(
-        default=None
+        alias="trailerId", default=None
     )
     """
     ID of the trailer associated with the sensor for the data point. If no trailer is connected, this parameter will not be reported.
     """
 
     vehicle_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="vehicleId")] = pydantic.Field(
-        default=None
+        alias="vehicleId", default=None
     )
     """
     ID of the vehicle associated with the sensor for the data point. If no vehicle is connected, this parameter will not be reported.

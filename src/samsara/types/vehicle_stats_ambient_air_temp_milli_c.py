@@ -4,7 +4,7 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from .vehicle_stats_time import VehicleStatsTime
+from .time import Time
 
 
 class VehicleStatsAmbientAirTempMilliC(UniversalBaseModel):
@@ -12,7 +12,7 @@ class VehicleStatsAmbientAirTempMilliC(UniversalBaseModel):
     Vehicle ambient air temperature reading.
     """
 
-    time: VehicleStatsTime
+    time: Time
     value: int = pydantic.Field()
     """
     The ambient air temperature reading in millidegree Celsius.

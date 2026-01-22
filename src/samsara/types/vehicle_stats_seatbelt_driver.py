@@ -4,8 +4,8 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
+from .time import Time
 from .vehicle_stats_seatbelt_driver_value import VehicleStatsSeatbeltDriverValue
-from .vehicle_stats_time import VehicleStatsTime
 
 
 class VehicleStatsSeatbeltDriver(UniversalBaseModel):
@@ -13,7 +13,7 @@ class VehicleStatsSeatbeltDriver(UniversalBaseModel):
     Seatbelt Driver Status as read from the vehicle. `Buckled` or `Unbuckled`.
     """
 
-    time: VehicleStatsTime
+    time: Time
     value: VehicleStatsSeatbeltDriverValue = pydantic.Field()
     """
     Seatbelt Driver Status as read from the vehicle. `Buckled` or `Unbuckled`.

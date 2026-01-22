@@ -4,7 +4,7 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from .vehicle_stats_time import VehicleStatsTime
+from .time import Time
 
 
 class VehicleStatsEvBatteryStateOfHealthMilliPercent(UniversalBaseModel):
@@ -12,7 +12,7 @@ class VehicleStatsEvBatteryStateOfHealthMilliPercent(UniversalBaseModel):
     Milli percent battery state of health for electric and hybrid vehicles. Not all EV and HEVs may report this field.
     """
 
-    time: VehicleStatsTime
+    time: Time
     value: int = pydantic.Field()
     """
     Milli percent battery state of health for electric and hybrid vehicles.

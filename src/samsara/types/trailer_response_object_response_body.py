@@ -12,7 +12,7 @@ from .trailer_goa_gateway_tiny_response_response_body import TrailerGoaGatewayTi
 
 class TrailerResponseObjectResponseBody(UniversalBaseModel):
     enabled_for_mobile: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="enabledForMobile")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="enabledForMobile", default=None)
     )
     """
     Indicates if the trailer is visible on the Samsara mobile apps.
@@ -20,7 +20,7 @@ class TrailerResponseObjectResponseBody(UniversalBaseModel):
 
     external_ids: typing_extensions.Annotated[
         typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="externalIds", default=None)
     """
     A map of external ids
     """
@@ -32,9 +32,9 @@ class TrailerResponseObjectResponseBody(UniversalBaseModel):
 
     installed_gateway: typing_extensions.Annotated[
         typing.Optional[TrailerGoaGatewayTinyResponseResponseBody], FieldMetadata(alias="installedGateway")
-    ] = None
+    ] = pydantic.Field(alias="installedGateway", default=None)
     license_plate: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="licensePlate")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="licensePlate", default=None)
     )
     """
     The license plate of the Trailer. **By default**: empty. Can be set or updated through the Samsara Dashboard or the API at any time.
@@ -57,7 +57,7 @@ class TrailerResponseObjectResponseBody(UniversalBaseModel):
 
     trailer_serial_number: typing_extensions.Annotated[
         typing.Optional[str], FieldMetadata(alias="trailerSerialNumber")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="trailerSerialNumber", default=None)
     """
     The serial number of the trailer.
     """

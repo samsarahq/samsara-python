@@ -3,5 +3,5 @@
 import typing
 
 CreateAttributeRequestAttributeType = typing.Union[
-    typing.Literal["single-select", "multi-select", "text", "freeform-multi-select", "number"], typing.Any
+    typing.Literal["single-select", "multi-select", "text", "freeform-multi-select", "number", "date"], typing.Any
 ]

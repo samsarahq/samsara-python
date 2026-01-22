@@ -27,25 +27,27 @@ class FormSubmissionResponseObjectResponseBody(UniversalBaseModel):
 
     approval_details: typing_extensions.Annotated[
         typing.Optional[FormsProductSubmissionApprovalDetailsObjectResponseBody], FieldMetadata(alias="approvalDetails")
-    ] = None
+    ] = pydantic.Field(alias="approvalDetails", default=None)
     asset: typing.Optional[FormsAssetObjectResponseBody] = None
     assigned_at_time: typing_extensions.Annotated[
         typing.Optional[dt.datetime], FieldMetadata(alias="assignedAtTime")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="assignedAtTime", default=None)
     """
     Assignment time of the form submission. Sometimes returned if the submission was assigned to a user or driver. UTC timestamp in RFC 3339 format.
     """
 
     assigned_to: typing_extensions.Annotated[
         typing.Optional[FormsPolymorphicUserObjectResponseBody], FieldMetadata(alias="assignedTo")
-    ] = None
-    created_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAtTime")] = pydantic.Field()
+    ] = pydantic.Field(alias="assignedTo", default=None)
+    created_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAtTime")] = pydantic.Field(
+        alias="createdAtTime"
+    )
     """
     Creation time of the form submission. UTC timestamp in RFC 3339 format.
     """
 
     due_at_time: typing_extensions.Annotated[typing.Optional[dt.datetime], FieldMetadata(alias="dueAtTime")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="dueAtTime", default=None)
     )
     """
     Time of when the submission is due. Sometimes returned, if the submission has a due date. UTC timestamp in RFC 3339 format.
@@ -53,7 +55,7 @@ class FormSubmissionResponseObjectResponseBody(UniversalBaseModel):
 
     external_ids: typing_extensions.Annotated[
         typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="externalIds", default=None)
     """
     A map of external ids
     """
@@ -65,28 +67,30 @@ class FormSubmissionResponseObjectResponseBody(UniversalBaseModel):
 
     form_template: typing_extensions.Annotated[
         FormTemplateReferenceObjectResponseBody, FieldMetadata(alias="formTemplate")
-    ]
+    ] = pydantic.Field(alias="formTemplate")
     geofence: typing.Optional[FormsGeofenceObjectResponseBody] = None
     id: str = pydantic.Field()
     """
     ID of the form submission.
     """
 
-    is_required: typing_extensions.Annotated[bool, FieldMetadata(alias="isRequired")] = pydantic.Field()
+    is_required: typing_extensions.Annotated[bool, FieldMetadata(alias="isRequired")] = pydantic.Field(
+        alias="isRequired"
+    )
     """
     Indicates whether the worker is required to complete this form or not. Always returned.
     """
 
     location: typing.Optional[FormsLocationObjectResponseBody] = None
     route_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="routeId")] = pydantic.Field(
-        default=None
+        alias="routeId", default=None
     )
     """
     ID of the route. Sometimes returned if the submission was assigned to a route stop.
     """
 
     route_stop_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="routeStopId")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="routeStopId", default=None)
     )
     """
     ID of the route stop. Sometimes returned if the submission was assigned to a route stop.
@@ -99,7 +103,7 @@ class FormSubmissionResponseObjectResponseBody(UniversalBaseModel):
     """
 
     submitted_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="submittedAtTime")] = (
-        pydantic.Field()
+        pydantic.Field(alias="submittedAtTime")
     )
     """
     Submission time of the form submission. UTC timestamp in RFC 3339 format.
@@ -107,13 +111,15 @@ class FormSubmissionResponseObjectResponseBody(UniversalBaseModel):
 
     submitted_by: typing_extensions.Annotated[
         FormsPolymorphicUserObjectResponseBody, FieldMetadata(alias="submittedBy")
-    ]
+    ] = pydantic.Field(alias="submittedBy")
     title: typing.Optional[str] = pydantic.Field(default=None)
     """
     Title of the form submission. Sometimes returned if the submission has a title.
     """
 
-    updated_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAtTime")] = pydantic.Field()
+    updated_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAtTime")] = pydantic.Field(
+        alias="updatedAtTime"
+    )
     """
     Update time of the form submission. UTC timestamp in RFC 3339 format.
     """

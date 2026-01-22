@@ -15,21 +15,21 @@ class DistanceTraveledObjectResponseBody(UniversalBaseModel):
 
     drive_distance_meters: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="driveDistanceMeters")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="driveDistanceMeters", default=None)
     """
     Distance driven in meters, rounded to two decimal places.
     """
 
     personal_conveyance_distance_meters: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="personalConveyanceDistanceMeters")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="personalConveyanceDistanceMeters", default=None)
     """
     Distance driven for personal conveyance, rounded to two decimal places.
     """
 
     yard_move_distance_meters: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="yardMoveDistanceMeters")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="yardMoveDistanceMeters", default=None)
     """
     Distance driven for yard moves, rounded to two decimal places.
     """

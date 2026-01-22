@@ -14,7 +14,7 @@ class CumulativeOperatingHoursResponseBody(UniversalBaseModel):
     """
 
     hour: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="Hour")] = pydantic.Field(
-        default=None
+        alias="Hour", default=None
     )
     """
     Total number of equipment operating hours.

@@ -23,12 +23,13 @@ from ..errors.too_many_requests_error import TooManyRequestsError
 from ..errors.unauthorized_error import UnauthorizedError
 from ..types.aemp_equipment_get_aemp_equipment_list_response_body import AempEquipmentGetAempEquipmentListResponseBody
 from ..types.assets_inputs_get_assets_inputs_response_body import AssetsInputsGetAssetsInputsResponseBody
+from ..types.create_report_config_object_request_body import CreateReportConfigObjectRequestBody
+from ..types.depreciation_get_depreciation_transactions_response_body import (
+    DepreciationGetDepreciationTransactionsResponseBody,
+)
 from ..types.detection_log_get_detections_response_body import DetectionLogGetDetectionsResponseBody
 from ..types.devices_get_devices_response_body import DevicesGetDevicesResponseBody
 from ..types.driver_efficiencies_response import DriverEfficienciesResponse
-from ..types.drivers_auth_token_create_driver_auth_token_response_body import (
-    DriversAuthTokenCreateDriverAuthTokenResponseBody,
-)
 from ..types.engine_immobilizer_get_engine_immobilizer_states_response_body import (
     EngineImmobilizerGetEngineImmobilizerStatesResponseBody,
 )
@@ -37,6 +38,9 @@ from ..types.functions_start_function_run_response_body import FunctionsStartFun
 from ..types.goa_attribute_tiny import GoaAttributeTiny
 from ..types.hos_daily_logs_update_shipping_docs_response_body import HosDailyLogsUpdateShippingDocsResponseBody
 from ..types.hos_eld_events_get_hos_eld_events_response_body import HosEldEventsGetHosEldEventsResponseBody
+from ..types.hub_custom_properties_list_hub_custom_properties_response_body import (
+    HubCustomPropertiesListHubCustomPropertiesResponseBody,
+)
 from ..types.jobs_create_job_response_body import JobsCreateJobResponseBody
 from ..types.jobs_delete_job_response_body import JobsDeleteJobResponseBody
 from ..types.jobs_get_jobs_response_body import JobsGetJobsResponseBody
@@ -67,10 +71,11 @@ from ..types.reading_datapoint_request_body import ReadingDatapointRequestBody
 from ..types.readings_get_readings_history_response_body import ReadingsGetReadingsHistoryResponseBody
 from ..types.readings_get_readings_snapshot_response_body import ReadingsGetReadingsSnapshotResponseBody
 from ..types.readings_list_readings_definitions_response_body import ReadingsListReadingsDefinitionsResponseBody
-from ..types.safety_events_v_2_get_safety_events_v_2_response_body import SafetyEventsV2GetSafetyEventsV2ResponseBody
-from ..types.safety_events_v_2_get_safety_events_v_2_stream_response_body import (
-    SafetyEventsV2GetSafetyEventsV2StreamResponseBody,
-)
+from ..types.reports_create_report_run_response_body import ReportsCreateReportRunResponseBody
+from ..types.reports_get_datasets_response_body import ReportsGetDatasetsResponseBody
+from ..types.reports_get_report_configs_response_body import ReportsGetReportConfigsResponseBody
+from ..types.reports_get_report_run_data_response_body import ReportsGetReportRunDataResponseBody
+from ..types.reports_get_report_runs_response_body import ReportsGetReportRunsResponseBody
 from ..types.safety_scores_get_driver_safety_score_trips_response_body import (
     SafetyScoresGetDriverSafetyScoreTripsResponseBody,
 )
@@ -83,15 +88,6 @@ from ..types.safety_scores_get_vehicle_safety_score_trips_response_body import (
     SafetyScoresGetVehicleSafetyScoreTripsResponseBody,
 )
 from ..types.safety_scores_get_vehicle_safety_scores_response_body import SafetyScoresGetVehicleSafetyScoresResponseBody
-from ..types.trailer_assignments_create_driver_trailer_assignment_response_body import (
-    TrailerAssignmentsCreateDriverTrailerAssignmentResponseBody,
-)
-from ..types.trailer_assignments_get_driver_trailer_assignments_response_body import (
-    TrailerAssignmentsGetDriverTrailerAssignmentsResponseBody,
-)
-from ..types.trailer_assignments_update_driver_trailer_assignment_response_body import (
-    TrailerAssignmentsUpdateDriverTrailerAssignmentResponseBody,
-)
 from ..types.trailer_stats_get_trailer_stats_feed_response_body import TrailerStatsGetTrailerStatsFeedResponseBody
 from ..types.trailer_stats_get_trailer_stats_history_response_body import TrailerStatsGetTrailerStatsHistoryResponseBody
 from ..types.trailer_stats_get_trailer_stats_snapshot_response_body import (
@@ -107,7 +103,6 @@ from ..types.training_assignments_post_training_assignments_response_body import
     TrainingAssignmentsPostTrainingAssignmentsResponseBody,
 )
 from ..types.training_courses_get_training_courses_response_body import TrainingCoursesGetTrainingCoursesResponseBody
-from ..types.trips_get_trips_response_body import TripsGetTripsResponseBody
 from ..types.update_engine_immobilizer_relay_state_request_body_request_body import (
     UpdateEngineImmobilizerRelayStateRequestBodyRequestBody,
 )
@@ -124,8 +119,6 @@ from .types.get_qualification_records_stream_request_entity_type import GetQuali
 from .types.get_qualification_types_request_entity_type import GetQualificationTypesRequestEntityType
 from .types.get_tag_group_safety_scores_request_score_type import GetTagGroupSafetyScoresRequestScoreType
 from .types.get_tag_safety_scores_request_score_type import GetTagSafetyScoresRequestScoreType
-from .types.get_trips_request_completion_status import GetTripsRequestCompletionStatus
-from .types.get_trips_request_query_by import GetTripsRequestQueryBy
 
 # this is used as the default value for optional parameters
 OMIT = typing.cast(typing.Any, ...)
@@ -134,6 +127,172 @@ OMIT = typing.cast(typing.Any, ...)
 class RawBetaApIsClient:
     def __init__(self, *, client_wrapper: SyncClientWrapper):
         self._client_wrapper = client_wrapper
+
+    def get_depreciation_transactions(
+        self,
+        *,
+        start_time: typing.Optional[dt.datetime] = None,
+        end_time: typing.Optional[dt.datetime] = None,
+        asset_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        after: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[DepreciationGetDepreciationTransactionsResponseBody]:
+        """
+        Returns depreciation and adjustment transactions for assets. Transactions are returned ordered by updatedAt in ascending order (oldest to newest). Use startTime parameter for incremental sync.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        start_time : typing.Optional[dt.datetime]
+            RFC 3339 timestamp. Returns transactions updated after this time. Compared against updatedAt. If not provided, returns all transactions. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        end_time : typing.Optional[dt.datetime]
+            RFC 3339 timestamp. Returns transactions updated before this time. Compared against updatedAt. If not provided, behaves as an unending feed of changes. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        asset_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Filter by asset IDs. Up to 50 ids.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[DepreciationGetDepreciationTransactionsResponseBody]
+            OK response.
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "assets/depreciation",
+            method="GET",
+            params={
+                "startTime": serialize_datetime(start_time) if start_time is not None else None,
+                "endTime": serialize_datetime(end_time) if end_time is not None else None,
+                "assetIds": asset_ids,
+                "after": after,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    DepreciationGetDepreciationTransactionsResponseBody,
+                    parse_obj_as(
+                        type_=DepreciationGetDepreciationTransactionsResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
     def get_assets_inputs(
         self,
@@ -2458,10 +2617,10 @@ class RawBetaApIsClient:
             Optional string of comma separated asset IDs. If asset ID is present, events for the specified asset(s) will be returned. Max for this value is 2000 objects. (Example: 281474982859091,281471982957527)
 
         detection_behavior_labels : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated labels to filter behavior labels. Uses OR semantics for filtering. An empty list allows all values. Valid values: `acceleration`, `braking`, `crash`, `drowsy`, `eatingDrinking`, `edgeRailroadCrossingViolation`, `followingDistance`, `forwardCollisionWarning`, `genericDistraction`, `harshTurn`, `laneDeparture`, `maxSpeed`, `mobileUsage`, `noSeatbelt`, `obstructedCamera`, `passenger`, `policyViolationMask`, `rollingStop`, `rolloverProtection`, `smoking`, `speeding`, `unsafeParking`, `vulnerableRoadUserCollisionWarning`, `yawControl`. (Example: rollingStop,obstructedCamera,noSeatbelt)
+            Optional string of comma separated labels to filter behavior labels. Uses OR semantics for filtering. An empty list allows all values. Valid values: `acceleration`, `braking`, `crash`, `drowsy`, `eatingDrinking`, `edgeRailroadCrossingViolation`, `followingDistance`, `forwardCollisionWarning`, `genericDistraction`, `harshTurn`, `heavySpeeding`, `laneDeparture`, `lightSpeeding`, `maxSpeed`, `mobileUsage`, `moderateSpeeding`, `noSeatbelt`, `obstructedCamera`, `passenger`, `policyViolationMask`, `ranRedLight`, `rearCollisionWarning`, `rollingStop`, `rolloverProtection`, `severeSpeeding`, `smoking`, `unsafeParking`, `vehicleInBlindSpotWarning`, `vulnerableRoadUserCollisionWarning`, `yawControl`. (Example: rollingStop,obstructedCamera,noSeatbelt)
 
         inbox_filter_reason : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated reasons to filter detections. Uses OR semantics for filtering. An empty list allows all values. Valid values: `overDailyLimit`, `overHourlyLimit`, `overTripLimit`, `belowConfidenceThreshold`, `belowSeverityThreshold`, `overEventRateLimit`, `geofenceFilter`, `belowNudgeThreshold`, `belowSpeedThreshold`, `nighttimeFilter`, `speedingFilter`, `unknown`. (Example: overDailyLimit,overHourlyLimit,belowConfidenceThreshold)
+            Optional string of comma separated reasons to filter detections. Uses OR semantics for filtering. An empty list allows all values. Valid values: `overDailyLimit`, `overHourlyLimit`, `overTripLimit`, `belowConfidenceThreshold`, `belowSeverityThreshold`, `overEventRateLimit`, `geofenceFilter`, `belowNudgeThreshold`, `belowSpeedThreshold`, `nighttimeFilter`, `speedingFilter`, `inCabAlertOnly`, `unknown`. (Example: overDailyLimit,overHourlyLimit,belowConfidenceThreshold)
 
         inbox_event : typing.Optional[bool]
             Indicates whether or not to return detections with an associated Safety Inbox event. An empty entry allows all values. (Example: true)
@@ -2633,6 +2792,9 @@ class RawBetaApIsClient:
         include_health: typing.Optional[bool] = None,
         after: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
+        include_tags: typing.Optional[bool] = None,
+        tag_ids: typing.Optional[str] = None,
+        parent_tag_ids: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[DevicesGetDevicesResponseBody]:
         """
@@ -2664,6 +2826,15 @@ class RawBetaApIsClient:
         limit : typing.Optional[int]
             The limit for how many objects will be in the response. Default and max for this value is 100 objects.
 
+        include_tags : typing.Optional[bool]
+            Optional boolean to control whether tags are returned in the response. Defaults to false.
+
+        tag_ids : typing.Optional[str]
+             A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+
+        parent_tag_ids : typing.Optional[str]
+             A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -2681,6 +2852,9 @@ class RawBetaApIsClient:
                 "includeHealth": include_health,
                 "after": after,
                 "limit": limit,
+                "includeTags": include_tags,
+                "tagIds": tag_ids,
+                "parentTagIds": parent_tag_ids,
             },
             request_options=request_options,
         )
@@ -2690,660 +2864,6 @@ class RawBetaApIsClient:
                     DevicesGetDevicesResponseBody,
                     parse_obj_as(
                         type_=DevicesGetDevicesResponseBody,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
-                return HttpResponse(response=_response, data=_data)
-            if _response.status_code == 401:
-                raise UnauthorizedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 404:
-                raise NotFoundError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 405:
-                raise MethodNotAllowedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 429:
-                raise TooManyRequestsError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 500:
-                raise InternalServerError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 501:
-                raise NotImplementedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 502:
-                raise BadGatewayError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 503:
-                raise ServiceUnavailableError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 504:
-                raise GatewayTimeoutError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            _response_json = _response.json()
-        except JSONDecodeError:
-            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
-        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
-
-    def get_driver_trailer_assignments(
-        self,
-        *,
-        driver_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        after: typing.Optional[str] = None,
-        include_external_ids: typing.Optional[bool] = None,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[TrailerAssignmentsGetDriverTrailerAssignmentsResponseBody]:
-        """
-        Get currently active driver-trailer assignments for driver.
-
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Read Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        driver_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-             A filter on the data based on this comma-separated list of driver IDs and externalIds. Example: `driverIds=1234,5678,payroll:4841`
-
-        after : typing.Optional[str]
-             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-
-        include_external_ids : typing.Optional[bool]
-            Optional boolean indicating whether to return external IDs on supported entities
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        HttpResponse[TrailerAssignmentsGetDriverTrailerAssignmentsResponseBody]
-            OK response.
-        """
-        _response = self._client_wrapper.httpx_client.request(
-            "driver-trailer-assignments",
-            method="GET",
-            params={
-                "driverIds": driver_ids,
-                "after": after,
-                "includeExternalIds": include_external_ids,
-            },
-            request_options=request_options,
-        )
-        try:
-            if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    TrailerAssignmentsGetDriverTrailerAssignmentsResponseBody,
-                    parse_obj_as(
-                        type_=TrailerAssignmentsGetDriverTrailerAssignmentsResponseBody,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
-                return HttpResponse(response=_response, data=_data)
-            if _response.status_code == 401:
-                raise UnauthorizedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 404:
-                raise NotFoundError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 405:
-                raise MethodNotAllowedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 429:
-                raise TooManyRequestsError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 500:
-                raise InternalServerError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 501:
-                raise NotImplementedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 502:
-                raise BadGatewayError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 503:
-                raise ServiceUnavailableError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 504:
-                raise GatewayTimeoutError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            _response_json = _response.json()
-        except JSONDecodeError:
-            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
-        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
-
-    def create_driver_trailer_assignment(
-        self,
-        *,
-        driver_id: str,
-        trailer_id: str,
-        start_time: typing.Optional[str] = OMIT,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[TrailerAssignmentsCreateDriverTrailerAssignmentResponseBody]:
-        """
-        Create a new driver-trailer assignment
-
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Write Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        driver_id : str
-            ID of the driver. This can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the driver.
-
-        trailer_id : str
-            ID of the trailer. This can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the trailer.
-
-        start_time : typing.Optional[str]
-            The start time in RFC 3339 format. The time needs to be current or within the past 7 days. Defaults to now if not provided
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        HttpResponse[TrailerAssignmentsCreateDriverTrailerAssignmentResponseBody]
-            OK response.
-        """
-        _response = self._client_wrapper.httpx_client.request(
-            "driver-trailer-assignments",
-            method="POST",
-            json={
-                "driverId": driver_id,
-                "startTime": start_time,
-                "trailerId": trailer_id,
-            },
-            headers={
-                "content-type": "application/json",
-            },
-            request_options=request_options,
-            omit=OMIT,
-        )
-        try:
-            if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    TrailerAssignmentsCreateDriverTrailerAssignmentResponseBody,
-                    parse_obj_as(
-                        type_=TrailerAssignmentsCreateDriverTrailerAssignmentResponseBody,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
-                return HttpResponse(response=_response, data=_data)
-            if _response.status_code == 401:
-                raise UnauthorizedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 404:
-                raise NotFoundError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 405:
-                raise MethodNotAllowedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 429:
-                raise TooManyRequestsError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 500:
-                raise InternalServerError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 501:
-                raise NotImplementedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 502:
-                raise BadGatewayError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 503:
-                raise ServiceUnavailableError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 504:
-                raise GatewayTimeoutError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            _response_json = _response.json()
-        except JSONDecodeError:
-            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
-        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
-
-    def update_driver_trailer_assignment(
-        self, *, id: str, end_time: str, request_options: typing.Optional[RequestOptions] = None
-    ) -> HttpResponse[TrailerAssignmentsUpdateDriverTrailerAssignmentResponseBody]:
-        """
-        Update an existing driver-trailer assignment.
-
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Write Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        id : str
-            Samsara ID for the assignment.
-
-        end_time : str
-            The end time in RFC 3339 format. The end time should not be in the future
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        HttpResponse[TrailerAssignmentsUpdateDriverTrailerAssignmentResponseBody]
-            OK response.
-        """
-        _response = self._client_wrapper.httpx_client.request(
-            "driver-trailer-assignments",
-            method="PATCH",
-            params={
-                "id": id,
-            },
-            json={
-                "endTime": end_time,
-            },
-            headers={
-                "content-type": "application/json",
-            },
-            request_options=request_options,
-            omit=OMIT,
-        )
-        try:
-            if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    TrailerAssignmentsUpdateDriverTrailerAssignmentResponseBody,
-                    parse_obj_as(
-                        type_=TrailerAssignmentsUpdateDriverTrailerAssignmentResponseBody,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
-                return HttpResponse(response=_response, data=_data)
-            if _response.status_code == 401:
-                raise UnauthorizedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 404:
-                raise NotFoundError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 405:
-                raise MethodNotAllowedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 429:
-                raise TooManyRequestsError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 500:
-                raise InternalServerError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 501:
-                raise NotImplementedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 502:
-                raise BadGatewayError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 503:
-                raise ServiceUnavailableError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 504:
-                raise GatewayTimeoutError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            _response_json = _response.json()
-        except JSONDecodeError:
-            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
-        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
-
-    def create_driver_auth_token(
-        self,
-        *,
-        code: str,
-        external_id: typing.Optional[str] = OMIT,
-        id: typing.Optional[int] = OMIT,
-        username: typing.Optional[str] = OMIT,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[DriversAuthTokenCreateDriverAuthTokenResponseBody]:
-        """
-        Creates a short-lived auth token for a driver.
-
-         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Write Driver Auth Token** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        code : str
-            Required. Random 12+ character string, used with the auth token to help secure the client from intercepted tokens.
-
-        external_id : typing.Optional[str]
-            Optional. External ID of the driver, in the format `key:value` (e.g., `payrollId:ABFS18600`). One of `id`, `externalId`, or `username` is required.
-
-        id : typing.Optional[int]
-            Optional. Samsara ID of the driver. One of `id`, `externalId`, or `username` is required.
-
-        username : typing.Optional[str]
-            Optional. Username of the driver. This is the login identifier configured when the driver is created. One of `id`, `externalId`, or `username` is required.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        HttpResponse[DriversAuthTokenCreateDriverAuthTokenResponseBody]
-            OK response.
-        """
-        _response = self._client_wrapper.httpx_client.request(
-            "fleet/drivers/create-auth-token",
-            method="POST",
-            json={
-                "code": code,
-                "externalId": external_id,
-                "id": id,
-                "username": username,
-            },
-            headers={
-                "content-type": "application/json",
-            },
-            request_options=request_options,
-            omit=OMIT,
-        )
-        try:
-            if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    DriversAuthTokenCreateDriverAuthTokenResponseBody,
-                    parse_obj_as(
-                        type_=DriversAuthTokenCreateDriverAuthTokenResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -3840,6 +3360,189 @@ class RawBetaApIsClient:
                     HosDailyLogsUpdateShippingDocsResponseBody,
                     parse_obj_as(
                         type_=HosDailyLogsUpdateShippingDocsResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def list_hub_custom_properties(
+        self,
+        *,
+        hub_id: str,
+        custom_property_ids: typing.Optional[str] = None,
+        custom_property_names: typing.Optional[str] = None,
+        start_time: typing.Optional[dt.datetime] = None,
+        end_time: typing.Optional[dt.datetime] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[HubCustomPropertiesListHubCustomPropertiesResponseBody]:
+        """
+        Retrieve custom properties for a specific hub.
+
+        **Beta:** This endpoint is in beta and is likely to change before being broadly available. Reach out to your Samsara Representative to have RoutePlanning APIs enabled for your organization.
+
+         <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        hub_id : str
+            The hub identifier
+
+        custom_property_ids : typing.Optional[str]
+            A comma-separated list of custom property IDs that can be used for filtering.
+
+        custom_property_names : typing.Optional[str]
+            A comma-separated list of custom property names that can be used for filtering.
+
+        start_time : typing.Optional[dt.datetime]
+            Time filter of when the custom property was updated, in RFC 3339 format
+
+        end_time : typing.Optional[dt.datetime]
+            Time filter of when the custom property was updated, in RFC 3339 format
+
+        after : typing.Optional[str]
+            If specified, should be the endCursor from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            Maximum number of objects to return. Default and maximum is 100
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[HubCustomPropertiesListHubCustomPropertiesResponseBody]
+            OK response.
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "hub/customProperties",
+            method="GET",
+            params={
+                "hubId": hub_id,
+                "customPropertyIds": custom_property_ids,
+                "customPropertyNames": custom_property_names,
+                "startTime": serialize_datetime(start_time) if start_time is not None else None,
+                "endTime": serialize_datetime(end_time) if end_time is not None else None,
+                "after": after,
+                "limit": limit,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    HubCustomPropertiesListHubCustomPropertiesResponseBody,
+                    parse_obj_as(
+                        type_=HubCustomPropertiesListHubCustomPropertiesResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -4941,7 +4644,7 @@ class RawBetaApIsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[QualificationsGetQualificationRecordsStreamResponseBody]:
         """
-        Returns all qualification records that have been created or modified for your organization based on the time parameters passed in. Results are paginated and sorted by last modified time. If you include an endTime, the endpoint will return data up until that point (exclusive). If you don’t include an endTime, you can continue to poll the API real-time with the pagination cursor that gets returned on every call.
+        Returns all qualification records that have been created or modified for your organization based on the time parameters passed in. Results are paginated and are sorted by last modified date. If you include an endTime, the endpoint will return data up until that point (exclusive). If you don't include an endTime, the API will continue to poll with the pagination cursor that gets returned on every call. The hasNextPage response value will be true if there is no endTime specified and endCursor is nonempty.
 
          <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -5579,10 +5282,6 @@ class RawBetaApIsClient:
     ) -> HttpResponse[ReadingsListReadingsDefinitionsResponseBody]:
         """
         An introspection endpoint for discovering the set of readings including their name, description, data type, unit, and other metadata.
-            Examples:
-            Diagnostic/Engine Readings: engineState, engineSpeed, fuelLevelPerc etc.
-            Level Monitoring Readings: defLevel, defLevelMilliPercent etc.
-            Smart Trailer Readings: reeferState  etc.
 
          <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -5750,20 +5449,6 @@ class RawBetaApIsClient:
     ) -> HttpResponse[ReadingsGetReadingsHistoryResponseBody]:
         """
         Get the values of a reading for a set of entities within the specified time range. Returns a paginated response with data for the specified resource IDs where startTime <= happenedAtTime < endTime. End time of null implies endTime is infinite and all known readings are returned.
-            Example:
-            engineRpm Readings for entityId 212014918105584 between time 2025-01-27T19:22:30Z and 2025-01-27T19:25:00Z
-            "data": [
-            {
-              "entityId": "212014918105584",
-              "value": 807,
-              "happenedAtTime": "2025-01-27T19:22:30Z"
-            },
-            {
-              "entityId": "212014918105584",
-              "value": 811,
-              "happenedAtTime": "2025-01-27T19:24:30Z"
-            }
-          ],
 
          <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -5787,7 +5472,7 @@ class RawBetaApIsClient:
             A filter on the data based on this comma-separated list of entity IDs or external IDs. If not set, all entities are returned.
 
         external_ids : typing.Optional[str]
-            A filter on the data based on this comma-separated list of external IDs.
+            A filter on the data based on this comma-separated list of external IDs. (Examples: samsara.serial:ZPXKLMN7VJ, samsara.serial:ABXKIMN4NM)
 
         start_time : typing.Optional[str]
             A filter on the data that returns the last known data points with timestamps greater than or equal to this value. Must be a string in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2020-01-27T07:06:25Z)
@@ -5953,16 +5638,6 @@ class RawBetaApIsClient:
     ) -> HttpResponse[ReadingsGetReadingsSnapshotResponseBody]:
         """
         An endpoint to get the last value of a reading for a set of entities at the specified time.
-            Example:
-            engineRpm Readings for entityId 212014918105584 at time 2025-04-16T20:49:19Z
-            "data": [
-            {
-              "readingId": "engineRpm",
-              "entityId": "212014918105584",
-              "value": 600,
-              "happenedAtTime": "2025-04-16T20:49:19Z"
-            }
-          ],
 
          <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -5986,7 +5661,7 @@ class RawBetaApIsClient:
             A filter on the data based on this comma-separated list of entity IDs or external IDs. If not set, all entities are returned.
 
         external_ids : typing.Optional[str]
-            A filter on the data based on this comma-separated list of external IDs.
+            A filter on the data based on this comma-separated list of external IDs. (Examples: samsara.serial:ZPXKLMN7VJ, samsara.serial:ABXKIMN4NM)
 
         as_of_time : typing.Optional[str]
             A filter on the data that returns the last known data points with timestamps less than or equal to this value. Defaults to now if not provided. Must be a string in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2020-01-27T07:06:25Z)
@@ -6130,64 +5805,59 @@ class RawBetaApIsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    def get_safety_events_v_2(
+    def get_report_configs(
         self,
         *,
-        safety_event_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        include_asset: typing.Optional[bool] = None,
-        include_driver: typing.Optional[bool] = None,
         after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[SafetyEventsV2GetSafetyEventsV2ResponseBody]:
+    ) -> HttpResponse[ReportsGetReportConfigsResponseBody]:
         """
-        This endpoint will return details for the specified safety events based on the parameters passed in. Results are paginated.
+        Get report configs created in the organization.
 
          <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-        To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read Custom Reports** under the Custom Reports category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
         Parameters
         ----------
-        safety_event_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Required string of comma separated Safety Event IDs. Unique Samsara IDs (uuid) of the safety event.
-
-        include_asset : typing.Optional[bool]
-            Indicates whether or not to return expanded “asset” data
-
-        include_driver : typing.Optional[bool]
-            Indicates whether or not to return expanded “driver” data
-
         after : typing.Optional[str]
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            Maximum number of configs to return
+
+        ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            The list of report config IDs to retrieve. Include up to 10 report config IDs. If not provided, all configs will be returned.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
         Returns
         -------
-        HttpResponse[SafetyEventsV2GetSafetyEventsV2ResponseBody]
+        HttpResponse[ReportsGetReportConfigsResponseBody]
             OK response.
         """
         _response = self._client_wrapper.httpx_client.request(
-            "safety-events",
+            "reports/configs",
             method="GET",
             params={
-                "safetyEventIds": safety_event_ids,
-                "includeAsset": include_asset,
-                "includeDriver": include_driver,
                 "after": after,
+                "limit": limit,
+                "ids": ids,
             },
             request_options=request_options,
         )
         try:
             if 200 <= _response.status_code < 300:
                 _data = typing.cast(
-                    SafetyEventsV2GetSafetyEventsV2ResponseBody,
+                    ReportsGetReportConfigsResponseBody,
                     parse_obj_as(
-                        type_=SafetyEventsV2GetSafetyEventsV2ResponseBody,  # type: ignore
+                        type_=ReportsGetReportConfigsResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -6296,99 +5966,542 @@ class RawBetaApIsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    def get_safety_events_v_2_stream(
+    def get_datasets(
         self,
         *,
-        start_time: str,
-        end_time: typing.Optional[str] = None,
-        asset_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        driver_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        assigned_coaches: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        behavior_labels: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        event_states: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        include_asset: typing.Optional[bool] = None,
-        include_driver: typing.Optional[bool] = None,
+        ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[SafetyEventsV2GetSafetyEventsV2StreamResponseBody]:
+    ) -> HttpResponse[ReportsGetDatasetsResponseBody]:
         """
-        This endpoint will return all safety events associated with your organization based on the parameters passed in. To get core endpoint data, select Read Safety Events & Scores under the Safety & Cameras category when creating or editing an API token. Read Camera Media permissions required to get Safety Event video media via this endpoint. If you include an endTime, the endpoint will return data up until that point. If you do not include an endTime, you can continue to poll the API real-time with the pagination cursor that gets returned on every call. Results are paginated.
+        Get datasets for custom reports.
 
          <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-        To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read Custom Reports** under the Custom Reports category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
         Parameters
         ----------
-        start_time : str
-            RFC 3339 timestamp that indicates when to begin receiving data. Value is compared against `updatedAtTime` of the events.
-
-        end_time : typing.Optional[str]
-            RFC 3339 timestamp which is compared against `updatedAtTime` of the events. If not provided then the endpoint behaves as an unending feed of changes.
-
-        asset_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated asset IDs. If asset ID is present, events for the specified asset(s) will be returned. Limit of 2000 asset IDs.
-
-        driver_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated driver IDs. If driver ID is present, events for the specified driver(s) will be returned. Limit of 2000 driver IDs.
-
-        tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated tag IDs. If tag ID is present, events for the specified tag(s) will be returned. Limit of 2000 tag IDs.
-
-        assigned_coaches : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated coach IDs to filter events assigned to a particular coach. Limit of 2000 coach IDs.
-
-        behavior_labels : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated labels to filter behavior labels.  Valid values: `Acceleration`, `AggressiveDriving`, `BluetoothHeadset`, `Braking`, `ContextConstructionOrWorkZone`, `ContextSnowyOrIcy`, `ContextVulnerableRoadUser`, `ContextWet`, `Crash`, `DefensiveDriving`, `DidNotYield`, `Drinking`, `Drowsy`, `Eating`, `EatingDrinking`, `EdgeDistractedDriving`, `EdgeRailroadCrossingViolation`, `FollowingDistance`, `FollowingDistanceModerate`, `FollowingDistanceSevere`, `ForwardCollisionWarning`, `GenericDistraction`, `GenericTailgating`, `HarshTurn`, `HeavySpeeding`, `HosViolation`, `Idling`, `Invalid`, `LaneDeparture`, `LateResponse`, `LeftTurn`, `LightSpeeding`, `MaxSpeed`, `MobileUsage`, `ModerateSpeeding`, `NearCollison`, `NearPedestrianCollision`, `NoSeatbelt`, `ObstructedCamera`, `OtherViolation`, `Passenger`, `PolicyViolationMask`, `ProtectiveEquipment`, `RanRedLight`, `Reversing`, `RollingStop`, `RolloverProtection`, `SevereSpeeding`, `Smoking`, `Speeding`, `UTurn`, `UnsafeManeuver`, `UnsafeParking`, `VulnerableRoadUserCollisionWarning`, `YawControl`
-
-        event_states : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated values to filter event states.  Valid values: `needsReview`, `reviewed`, `needsCoaching`, `coached`, `dismissed`, `needsRecognition`, `recognized`
-
-        include_asset : typing.Optional[bool]
-            Indicates whether or not to return expanded “asset” data
-
-        include_driver : typing.Optional[bool]
-            Indicates whether or not to return expanded “driver” data
+        ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            The list of dataset IDs to retrieve the datasets for. Include up to 10 dataset IDs. If not provided, all datasets will be returned.
 
         after : typing.Optional[str]
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            Maximum number of datasets to return.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
         Returns
         -------
-        HttpResponse[SafetyEventsV2GetSafetyEventsV2StreamResponseBody]
+        HttpResponse[ReportsGetDatasetsResponseBody]
             OK response.
         """
         _response = self._client_wrapper.httpx_client.request(
-            "safety-events/stream",
+            "reports/datasets",
             method="GET",
             params={
-                "startTime": start_time,
-                "endTime": end_time,
-                "assetIds": asset_ids,
-                "driverIds": driver_ids,
-                "tagIds": tag_ids,
-                "assignedCoaches": assigned_coaches,
-                "behaviorLabels": behavior_labels,
-                "eventStates": event_states,
-                "includeAsset": include_asset,
-                "includeDriver": include_driver,
+                "ids": ids,
                 "after": after,
+                "limit": limit,
             },
             request_options=request_options,
         )
         try:
             if 200 <= _response.status_code < 300:
                 _data = typing.cast(
-                    SafetyEventsV2GetSafetyEventsV2StreamResponseBody,
+                    ReportsGetDatasetsResponseBody,
                     parse_obj_as(
-                        type_=SafetyEventsV2GetSafetyEventsV2StreamResponseBody,  # type: ignore
+                        type_=ReportsGetDatasetsResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def get_report_runs(
+        self,
+        *,
+        report_config_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[ReportsGetReportRunsResponseBody]:
+        """
+        Get custom report runs created by the user.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Custom Reports** under the Custom Reports category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        report_config_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            The list of report config IDs to retrieve the report runs for. Include up to 10 report config IDs. If not provided, runs for all configs will be returned.
+
+        ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            The list of report run IDs to retrieve the report runs for. Include up to 10 report run IDs. If not provided, all report runs will be returned.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            Maximum number of runs to return.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[ReportsGetReportRunsResponseBody]
+            OK response.
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "reports/runs",
+            method="GET",
+            params={
+                "reportConfigIds": report_config_ids,
+                "ids": ids,
+                "after": after,
+                "limit": limit,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    ReportsGetReportRunsResponseBody,
+                    parse_obj_as(
+                        type_=ReportsGetReportRunsResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def create_report_run(
+        self,
+        *,
+        report_config: CreateReportConfigObjectRequestBody,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[ReportsCreateReportRunResponseBody]:
+        """
+        Triggers a new custom report run based on the provided configuration.
+
+         <b>Rate limit:</b> 50 requests/hour (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Custom Reports** under the Custom Reports category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        report_config : CreateReportConfigObjectRequestBody
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[ReportsCreateReportRunResponseBody]
+            Accepted response.
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "reports/runs",
+            method="POST",
+            json={
+                "reportConfig": convert_and_respect_annotation_metadata(
+                    object_=report_config, annotation=CreateReportConfigObjectRequestBody, direction="write"
+                ),
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    ReportsCreateReportRunResponseBody,
+                    parse_obj_as(
+                        type_=ReportsCreateReportRunResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def get_report_run_data(
+        self,
+        *,
+        id: str,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[ReportsGetReportRunDataResponseBody]:
+        """
+        Get data for the given custom report run.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Custom Reports** under the Custom Reports category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            ID of the report run.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            Maximum number of rows to return.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[ReportsGetReportRunDataResponseBody]
+            OK response.
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "reports/runs/data",
+            method="GET",
+            params={
+                "id": id,
+                "after": after,
+                "limit": limit,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    ReportsGetReportRunDataResponseBody,
+                    parse_obj_as(
+                        type_=ReportsGetReportRunDataResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -7682,7 +7795,7 @@ class RawBetaApIsClient:
         Parameters
         ----------
         ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            String of comma separated assignments IDs. Max value for this value is 100 objects .Example: `ids=a4db8702-79d5-4396-a717-e301d52ecc11,c6490f6a-d84e-49b5-b0ad-b6baae304075`
+            String of comma separated assignments IDs. Max value for this value is 100 objects. Example: `ids=a4db8702-79d5-4396-a717-e301d52ecc11,c6490f6a-d84e-49b5-b0ad-b6baae304075`
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -7831,7 +7944,7 @@ class RawBetaApIsClient:
             Due date of the training assignment in RFC 3339 format. Millisecond precision and timezones are supported.
 
         ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            String of comma separated assignments IDs. Max value for this value is 100 objects .Example: `ids=a4db8702-79d5-4396-a717-e301d52ecc11,c6490f6a-d84e-49b5-b0ad-b6baae304075`
+            String of comma separated assignments IDs. Max value for this value is 100 objects. Example: `ids=a4db8702-79d5-4396-a717-e301d52ecc11,c6490f6a-d84e-49b5-b0ad-b6baae304075`
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -7973,12 +8086,12 @@ class RawBetaApIsClient:
         learner_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         course_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         status: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        is_overdue: typing.Optional[bool] = None,
+        category_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[TrainingAssignmentsGetTrainingAssignmentsStreamResponseBody]:
         """
-        Returns all training assignments data that has been created or modified for your organization based on the time parameters passed in. Results are paginated and are sorted by last modified date. If you include an endTime, the endpoint will return data up until that point (exclusive). If you don't include an endTime, you can continue to poll the API real-time with the pagination cursor that gets returned on every call.
-
-        **Beta:** This endpoint is in beta and is likely to change before being broadly available. Reach out to your Samsara Representative to have Training APIs enabled for your organization.
+        Returns all training assignments data that has been created or modified for your organization based on the time parameters passed in. Results are paginated and are sorted by last modified date. If you include an endTime, the endpoint will return data up until that point (exclusive). If you don't include an endTime, the API will continue to poll with the pagination cursor that gets returned on every call. The hasNextPage response value will be true if there is no endTime specified and endCursor is nonempty.
 
          <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -8007,6 +8120,12 @@ class RawBetaApIsClient:
         status : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             Optional string of comma separated values. If status is present, training assignments for the specified status(s) will be returned. Valid values: "notStarted", "inProgress", "completed". Defaults to returning all courses.
 
+        is_overdue : typing.Optional[bool]
+            Optional boolean value. If present, training assignments for the specified overdue status will be returned. Valid values: true, false. Defaults to returning all assignments.
+
+        category_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Optional string of comma separated category IDs. If category ID is present, training assignments for the specified category ID(s) will be returned. Max value for this value is 100 objects. Example: `categoryIds=a4db8702-79d5-4396-a717-e301d52ecc11,c6490f6a-d84e-49b5-b0ad-b6baae304075`
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -8025,6 +8144,8 @@ class RawBetaApIsClient:
                 "learnerIds": learner_ids,
                 "courseIds": course_ids,
                 "status": status,
+                "isOverdue": is_overdue,
+                "categoryIds": category_ids,
             },
             request_options=request_options,
         )
@@ -8309,83 +8430,73 @@ class RawBetaApIsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    def get_trips(
+
+class AsyncRawBetaApIsClient:
+    def __init__(self, *, client_wrapper: AsyncClientWrapper):
+        self._client_wrapper = client_wrapper
+
+    async def get_depreciation_transactions(
         self,
         *,
-        start_time: str,
-        include_asset: typing.Optional[bool] = None,
-        completion_status: typing.Optional[GetTripsRequestCompletionStatus] = None,
-        end_time: typing.Optional[str] = None,
-        query_by: typing.Optional[GetTripsRequestQueryBy] = None,
+        start_time: typing.Optional[dt.datetime] = None,
+        end_time: typing.Optional[dt.datetime] = None,
+        asset_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         after: typing.Optional[str] = None,
-        ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[TripsGetTripsResponseBody]:
+    ) -> AsyncHttpResponse[DepreciationGetDepreciationTransactionsResponseBody]:
         """
-        This endpoint will return trips that have been collected for your organization based on the time parameters passed in. Results are paginated. Reach out to your Samsara Representative to have this API enabled for your organization.
+        Returns depreciation and adjustment transactions for assets. Transactions are returned ordered by updatedAt in ascending order (oldest to newest). Use startTime parameter for incremental sync.
 
          <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-        To use this endpoint, select **Read Trips** under the Trips category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
         Parameters
         ----------
-        start_time : str
-            RFC 3339 timestamp that indicates when to begin receiving data. Value is compared against `updatedAtTime` or `tripStartTime` depending on the queryBy parameter.
+        start_time : typing.Optional[dt.datetime]
+            RFC 3339 timestamp. Returns transactions updated after this time. Compared against updatedAt. If not provided, returns all transactions. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
 
-        include_asset : typing.Optional[bool]
-            Indicates whether or not to return expanded “asset” data
+        end_time : typing.Optional[dt.datetime]
+            RFC 3339 timestamp. Returns transactions updated before this time. Compared against updatedAt. If not provided, behaves as an unending feed of changes. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
 
-        completion_status : typing.Optional[GetTripsRequestCompletionStatus]
-            Filters trips based on a specific completion status  Valid values: `inProgress`, `completed`, `all`
-
-        end_time : typing.Optional[str]
-            RFC 3339 timestamp which is compared against `updatedAtTime` or `tripStartTime` depending on the queryBy parameter. If not provided then the endpoint behaves as an unending feed of changes.
-
-        query_by : typing.Optional[GetTripsRequestQueryBy]
-            Decide which timestamp the `startTime` and `endTime` are compared to.  Valid values: `updatedAtTime`, `tripStartTime`
+        asset_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Filter by asset IDs. Up to 50 ids.
 
         after : typing.Optional[str]
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-
-        ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Comma-separated list of asset IDs. Include up to 50 asset IDs.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
         Returns
         -------
-        HttpResponse[TripsGetTripsResponseBody]
+        AsyncHttpResponse[DepreciationGetDepreciationTransactionsResponseBody]
             OK response.
         """
-        _response = self._client_wrapper.httpx_client.request(
-            "trips/stream",
+        _response = await self._client_wrapper.httpx_client.request(
+            "assets/depreciation",
             method="GET",
             params={
-                "includeAsset": include_asset,
-                "completionStatus": completion_status,
-                "startTime": start_time,
-                "endTime": end_time,
-                "queryBy": query_by,
+                "startTime": serialize_datetime(start_time) if start_time is not None else None,
+                "endTime": serialize_datetime(end_time) if end_time is not None else None,
+                "assetIds": asset_ids,
                 "after": after,
-                "ids": ids,
             },
             request_options=request_options,
         )
         try:
             if 200 <= _response.status_code < 300:
                 _data = typing.cast(
-                    TripsGetTripsResponseBody,
+                    DepreciationGetDepreciationTransactionsResponseBody,
                     parse_obj_as(
-                        type_=TripsGetTripsResponseBody,  # type: ignore
+                        type_=DepreciationGetDepreciationTransactionsResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
-                return HttpResponse(response=_response, data=_data)
+                return AsyncHttpResponse(response=_response, data=_data)
             if _response.status_code == 401:
                 raise UnauthorizedError(
                     headers=dict(_response.headers),
@@ -8489,11 +8600,6 @@ class RawBetaApIsClient:
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
-
-
-class AsyncRawBetaApIsClient:
-    def __init__(self, *, client_wrapper: AsyncClientWrapper):
-        self._client_wrapper = client_wrapper
 
     async def get_assets_inputs(
         self,
@@ -10818,10 +10924,10 @@ class AsyncRawBetaApIsClient:
             Optional string of comma separated asset IDs. If asset ID is present, events for the specified asset(s) will be returned. Max for this value is 2000 objects. (Example: 281474982859091,281471982957527)
 
         detection_behavior_labels : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated labels to filter behavior labels. Uses OR semantics for filtering. An empty list allows all values. Valid values: `acceleration`, `braking`, `crash`, `drowsy`, `eatingDrinking`, `edgeRailroadCrossingViolation`, `followingDistance`, `forwardCollisionWarning`, `genericDistraction`, `harshTurn`, `laneDeparture`, `maxSpeed`, `mobileUsage`, `noSeatbelt`, `obstructedCamera`, `passenger`, `policyViolationMask`, `rollingStop`, `rolloverProtection`, `smoking`, `speeding`, `unsafeParking`, `vulnerableRoadUserCollisionWarning`, `yawControl`. (Example: rollingStop,obstructedCamera,noSeatbelt)
+            Optional string of comma separated labels to filter behavior labels. Uses OR semantics for filtering. An empty list allows all values. Valid values: `acceleration`, `braking`, `crash`, `drowsy`, `eatingDrinking`, `edgeRailroadCrossingViolation`, `followingDistance`, `forwardCollisionWarning`, `genericDistraction`, `harshTurn`, `heavySpeeding`, `laneDeparture`, `lightSpeeding`, `maxSpeed`, `mobileUsage`, `moderateSpeeding`, `noSeatbelt`, `obstructedCamera`, `passenger`, `policyViolationMask`, `ranRedLight`, `rearCollisionWarning`, `rollingStop`, `rolloverProtection`, `severeSpeeding`, `smoking`, `unsafeParking`, `vehicleInBlindSpotWarning`, `vulnerableRoadUserCollisionWarning`, `yawControl`. (Example: rollingStop,obstructedCamera,noSeatbelt)
 
         inbox_filter_reason : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated reasons to filter detections. Uses OR semantics for filtering. An empty list allows all values. Valid values: `overDailyLimit`, `overHourlyLimit`, `overTripLimit`, `belowConfidenceThreshold`, `belowSeverityThreshold`, `overEventRateLimit`, `geofenceFilter`, `belowNudgeThreshold`, `belowSpeedThreshold`, `nighttimeFilter`, `speedingFilter`, `unknown`. (Example: overDailyLimit,overHourlyLimit,belowConfidenceThreshold)
+            Optional string of comma separated reasons to filter detections. Uses OR semantics for filtering. An empty list allows all values. Valid values: `overDailyLimit`, `overHourlyLimit`, `overTripLimit`, `belowConfidenceThreshold`, `belowSeverityThreshold`, `overEventRateLimit`, `geofenceFilter`, `belowNudgeThreshold`, `belowSpeedThreshold`, `nighttimeFilter`, `speedingFilter`, `inCabAlertOnly`, `unknown`. (Example: overDailyLimit,overHourlyLimit,belowConfidenceThreshold)
 
         inbox_event : typing.Optional[bool]
             Indicates whether or not to return detections with an associated Safety Inbox event. An empty entry allows all values. (Example: true)
@@ -10993,6 +11099,9 @@ class AsyncRawBetaApIsClient:
         include_health: typing.Optional[bool] = None,
         after: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
+        include_tags: typing.Optional[bool] = None,
+        tag_ids: typing.Optional[str] = None,
+        parent_tag_ids: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[DevicesGetDevicesResponseBody]:
         """
@@ -11024,6 +11133,15 @@ class AsyncRawBetaApIsClient:
         limit : typing.Optional[int]
             The limit for how many objects will be in the response. Default and max for this value is 100 objects.
 
+        include_tags : typing.Optional[bool]
+            Optional boolean to control whether tags are returned in the response. Defaults to false.
+
+        tag_ids : typing.Optional[str]
+             A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+
+        parent_tag_ids : typing.Optional[str]
+             A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -11041,6 +11159,9 @@ class AsyncRawBetaApIsClient:
                 "includeHealth": include_health,
                 "after": after,
                 "limit": limit,
+                "includeTags": include_tags,
+                "tagIds": tag_ids,
+                "parentTagIds": parent_tag_ids,
             },
             request_options=request_options,
         )
@@ -11050,660 +11171,6 @@ class AsyncRawBetaApIsClient:
                     DevicesGetDevicesResponseBody,
                     parse_obj_as(
                         type_=DevicesGetDevicesResponseBody,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
-                return AsyncHttpResponse(response=_response, data=_data)
-            if _response.status_code == 401:
-                raise UnauthorizedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 404:
-                raise NotFoundError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 405:
-                raise MethodNotAllowedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 429:
-                raise TooManyRequestsError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 500:
-                raise InternalServerError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 501:
-                raise NotImplementedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 502:
-                raise BadGatewayError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 503:
-                raise ServiceUnavailableError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 504:
-                raise GatewayTimeoutError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            _response_json = _response.json()
-        except JSONDecodeError:
-            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
-        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
-
-    async def get_driver_trailer_assignments(
-        self,
-        *,
-        driver_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        after: typing.Optional[str] = None,
-        include_external_ids: typing.Optional[bool] = None,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[TrailerAssignmentsGetDriverTrailerAssignmentsResponseBody]:
-        """
-        Get currently active driver-trailer assignments for driver.
-
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Read Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        driver_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-             A filter on the data based on this comma-separated list of driver IDs and externalIds. Example: `driverIds=1234,5678,payroll:4841`
-
-        after : typing.Optional[str]
-             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-
-        include_external_ids : typing.Optional[bool]
-            Optional boolean indicating whether to return external IDs on supported entities
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        AsyncHttpResponse[TrailerAssignmentsGetDriverTrailerAssignmentsResponseBody]
-            OK response.
-        """
-        _response = await self._client_wrapper.httpx_client.request(
-            "driver-trailer-assignments",
-            method="GET",
-            params={
-                "driverIds": driver_ids,
-                "after": after,
-                "includeExternalIds": include_external_ids,
-            },
-            request_options=request_options,
-        )
-        try:
-            if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    TrailerAssignmentsGetDriverTrailerAssignmentsResponseBody,
-                    parse_obj_as(
-                        type_=TrailerAssignmentsGetDriverTrailerAssignmentsResponseBody,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
-                return AsyncHttpResponse(response=_response, data=_data)
-            if _response.status_code == 401:
-                raise UnauthorizedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 404:
-                raise NotFoundError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 405:
-                raise MethodNotAllowedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 429:
-                raise TooManyRequestsError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 500:
-                raise InternalServerError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 501:
-                raise NotImplementedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 502:
-                raise BadGatewayError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 503:
-                raise ServiceUnavailableError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 504:
-                raise GatewayTimeoutError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            _response_json = _response.json()
-        except JSONDecodeError:
-            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
-        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
-
-    async def create_driver_trailer_assignment(
-        self,
-        *,
-        driver_id: str,
-        trailer_id: str,
-        start_time: typing.Optional[str] = OMIT,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[TrailerAssignmentsCreateDriverTrailerAssignmentResponseBody]:
-        """
-        Create a new driver-trailer assignment
-
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Write Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        driver_id : str
-            ID of the driver. This can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the driver.
-
-        trailer_id : str
-            ID of the trailer. This can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the trailer.
-
-        start_time : typing.Optional[str]
-            The start time in RFC 3339 format. The time needs to be current or within the past 7 days. Defaults to now if not provided
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        AsyncHttpResponse[TrailerAssignmentsCreateDriverTrailerAssignmentResponseBody]
-            OK response.
-        """
-        _response = await self._client_wrapper.httpx_client.request(
-            "driver-trailer-assignments",
-            method="POST",
-            json={
-                "driverId": driver_id,
-                "startTime": start_time,
-                "trailerId": trailer_id,
-            },
-            headers={
-                "content-type": "application/json",
-            },
-            request_options=request_options,
-            omit=OMIT,
-        )
-        try:
-            if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    TrailerAssignmentsCreateDriverTrailerAssignmentResponseBody,
-                    parse_obj_as(
-                        type_=TrailerAssignmentsCreateDriverTrailerAssignmentResponseBody,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
-                return AsyncHttpResponse(response=_response, data=_data)
-            if _response.status_code == 401:
-                raise UnauthorizedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 404:
-                raise NotFoundError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 405:
-                raise MethodNotAllowedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 429:
-                raise TooManyRequestsError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 500:
-                raise InternalServerError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 501:
-                raise NotImplementedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 502:
-                raise BadGatewayError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 503:
-                raise ServiceUnavailableError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 504:
-                raise GatewayTimeoutError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            _response_json = _response.json()
-        except JSONDecodeError:
-            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
-        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
-
-    async def update_driver_trailer_assignment(
-        self, *, id: str, end_time: str, request_options: typing.Optional[RequestOptions] = None
-    ) -> AsyncHttpResponse[TrailerAssignmentsUpdateDriverTrailerAssignmentResponseBody]:
-        """
-        Update an existing driver-trailer assignment.
-
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Write Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        id : str
-            Samsara ID for the assignment.
-
-        end_time : str
-            The end time in RFC 3339 format. The end time should not be in the future
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        AsyncHttpResponse[TrailerAssignmentsUpdateDriverTrailerAssignmentResponseBody]
-            OK response.
-        """
-        _response = await self._client_wrapper.httpx_client.request(
-            "driver-trailer-assignments",
-            method="PATCH",
-            params={
-                "id": id,
-            },
-            json={
-                "endTime": end_time,
-            },
-            headers={
-                "content-type": "application/json",
-            },
-            request_options=request_options,
-            omit=OMIT,
-        )
-        try:
-            if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    TrailerAssignmentsUpdateDriverTrailerAssignmentResponseBody,
-                    parse_obj_as(
-                        type_=TrailerAssignmentsUpdateDriverTrailerAssignmentResponseBody,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
-                return AsyncHttpResponse(response=_response, data=_data)
-            if _response.status_code == 401:
-                raise UnauthorizedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 404:
-                raise NotFoundError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 405:
-                raise MethodNotAllowedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 429:
-                raise TooManyRequestsError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 500:
-                raise InternalServerError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 501:
-                raise NotImplementedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 502:
-                raise BadGatewayError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 503:
-                raise ServiceUnavailableError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 504:
-                raise GatewayTimeoutError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            _response_json = _response.json()
-        except JSONDecodeError:
-            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
-        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
-
-    async def create_driver_auth_token(
-        self,
-        *,
-        code: str,
-        external_id: typing.Optional[str] = OMIT,
-        id: typing.Optional[int] = OMIT,
-        username: typing.Optional[str] = OMIT,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[DriversAuthTokenCreateDriverAuthTokenResponseBody]:
-        """
-        Creates a short-lived auth token for a driver.
-
-         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Write Driver Auth Token** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        code : str
-            Required. Random 12+ character string, used with the auth token to help secure the client from intercepted tokens.
-
-        external_id : typing.Optional[str]
-            Optional. External ID of the driver, in the format `key:value` (e.g., `payrollId:ABFS18600`). One of `id`, `externalId`, or `username` is required.
-
-        id : typing.Optional[int]
-            Optional. Samsara ID of the driver. One of `id`, `externalId`, or `username` is required.
-
-        username : typing.Optional[str]
-            Optional. Username of the driver. This is the login identifier configured when the driver is created. One of `id`, `externalId`, or `username` is required.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        AsyncHttpResponse[DriversAuthTokenCreateDriverAuthTokenResponseBody]
-            OK response.
-        """
-        _response = await self._client_wrapper.httpx_client.request(
-            "fleet/drivers/create-auth-token",
-            method="POST",
-            json={
-                "code": code,
-                "externalId": external_id,
-                "id": id,
-                "username": username,
-            },
-            headers={
-                "content-type": "application/json",
-            },
-            request_options=request_options,
-            omit=OMIT,
-        )
-        try:
-            if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    DriversAuthTokenCreateDriverAuthTokenResponseBody,
-                    parse_obj_as(
-                        type_=DriversAuthTokenCreateDriverAuthTokenResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -12200,6 +11667,189 @@ class AsyncRawBetaApIsClient:
                     HosDailyLogsUpdateShippingDocsResponseBody,
                     parse_obj_as(
                         type_=HosDailyLogsUpdateShippingDocsResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def list_hub_custom_properties(
+        self,
+        *,
+        hub_id: str,
+        custom_property_ids: typing.Optional[str] = None,
+        custom_property_names: typing.Optional[str] = None,
+        start_time: typing.Optional[dt.datetime] = None,
+        end_time: typing.Optional[dt.datetime] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[HubCustomPropertiesListHubCustomPropertiesResponseBody]:
+        """
+        Retrieve custom properties for a specific hub.
+
+        **Beta:** This endpoint is in beta and is likely to change before being broadly available. Reach out to your Samsara Representative to have RoutePlanning APIs enabled for your organization.
+
+         <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        hub_id : str
+            The hub identifier
+
+        custom_property_ids : typing.Optional[str]
+            A comma-separated list of custom property IDs that can be used for filtering.
+
+        custom_property_names : typing.Optional[str]
+            A comma-separated list of custom property names that can be used for filtering.
+
+        start_time : typing.Optional[dt.datetime]
+            Time filter of when the custom property was updated, in RFC 3339 format
+
+        end_time : typing.Optional[dt.datetime]
+            Time filter of when the custom property was updated, in RFC 3339 format
+
+        after : typing.Optional[str]
+            If specified, should be the endCursor from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            Maximum number of objects to return. Default and maximum is 100
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[HubCustomPropertiesListHubCustomPropertiesResponseBody]
+            OK response.
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "hub/customProperties",
+            method="GET",
+            params={
+                "hubId": hub_id,
+                "customPropertyIds": custom_property_ids,
+                "customPropertyNames": custom_property_names,
+                "startTime": serialize_datetime(start_time) if start_time is not None else None,
+                "endTime": serialize_datetime(end_time) if end_time is not None else None,
+                "after": after,
+                "limit": limit,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    HubCustomPropertiesListHubCustomPropertiesResponseBody,
+                    parse_obj_as(
+                        type_=HubCustomPropertiesListHubCustomPropertiesResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -13301,7 +12951,7 @@ class AsyncRawBetaApIsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[QualificationsGetQualificationRecordsStreamResponseBody]:
         """
-        Returns all qualification records that have been created or modified for your organization based on the time parameters passed in. Results are paginated and sorted by last modified time. If you include an endTime, the endpoint will return data up until that point (exclusive). If you don’t include an endTime, you can continue to poll the API real-time with the pagination cursor that gets returned on every call.
+        Returns all qualification records that have been created or modified for your organization based on the time parameters passed in. Results are paginated and are sorted by last modified date. If you include an endTime, the endpoint will return data up until that point (exclusive). If you don't include an endTime, the API will continue to poll with the pagination cursor that gets returned on every call. The hasNextPage response value will be true if there is no endTime specified and endCursor is nonempty.
 
          <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -13939,10 +13589,6 @@ class AsyncRawBetaApIsClient:
     ) -> AsyncHttpResponse[ReadingsListReadingsDefinitionsResponseBody]:
         """
         An introspection endpoint for discovering the set of readings including their name, description, data type, unit, and other metadata.
-            Examples:
-            Diagnostic/Engine Readings: engineState, engineSpeed, fuelLevelPerc etc.
-            Level Monitoring Readings: defLevel, defLevelMilliPercent etc.
-            Smart Trailer Readings: reeferState  etc.
 
          <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -14110,20 +13756,6 @@ class AsyncRawBetaApIsClient:
     ) -> AsyncHttpResponse[ReadingsGetReadingsHistoryResponseBody]:
         """
         Get the values of a reading for a set of entities within the specified time range. Returns a paginated response with data for the specified resource IDs where startTime <= happenedAtTime < endTime. End time of null implies endTime is infinite and all known readings are returned.
-            Example:
-            engineRpm Readings for entityId 212014918105584 between time 2025-01-27T19:22:30Z and 2025-01-27T19:25:00Z
-            "data": [
-            {
-              "entityId": "212014918105584",
-              "value": 807,
-              "happenedAtTime": "2025-01-27T19:22:30Z"
-            },
-            {
-              "entityId": "212014918105584",
-              "value": 811,
-              "happenedAtTime": "2025-01-27T19:24:30Z"
-            }
-          ],
 
          <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -14147,7 +13779,7 @@ class AsyncRawBetaApIsClient:
             A filter on the data based on this comma-separated list of entity IDs or external IDs. If not set, all entities are returned.
 
         external_ids : typing.Optional[str]
-            A filter on the data based on this comma-separated list of external IDs.
+            A filter on the data based on this comma-separated list of external IDs. (Examples: samsara.serial:ZPXKLMN7VJ, samsara.serial:ABXKIMN4NM)
 
         start_time : typing.Optional[str]
             A filter on the data that returns the last known data points with timestamps greater than or equal to this value. Must be a string in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2020-01-27T07:06:25Z)
@@ -14313,16 +13945,6 @@ class AsyncRawBetaApIsClient:
     ) -> AsyncHttpResponse[ReadingsGetReadingsSnapshotResponseBody]:
         """
         An endpoint to get the last value of a reading for a set of entities at the specified time.
-            Example:
-            engineRpm Readings for entityId 212014918105584 at time 2025-04-16T20:49:19Z
-            "data": [
-            {
-              "readingId": "engineRpm",
-              "entityId": "212014918105584",
-              "value": 600,
-              "happenedAtTime": "2025-04-16T20:49:19Z"
-            }
-          ],
 
          <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -14346,7 +13968,7 @@ class AsyncRawBetaApIsClient:
             A filter on the data based on this comma-separated list of entity IDs or external IDs. If not set, all entities are returned.
 
         external_ids : typing.Optional[str]
-            A filter on the data based on this comma-separated list of external IDs.
+            A filter on the data based on this comma-separated list of external IDs. (Examples: samsara.serial:ZPXKLMN7VJ, samsara.serial:ABXKIMN4NM)
 
         as_of_time : typing.Optional[str]
             A filter on the data that returns the last known data points with timestamps less than or equal to this value. Defaults to now if not provided. Must be a string in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2020-01-27T07:06:25Z)
@@ -14490,64 +14112,59 @@ class AsyncRawBetaApIsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    async def get_safety_events_v_2(
+    async def get_report_configs(
         self,
         *,
-        safety_event_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        include_asset: typing.Optional[bool] = None,
-        include_driver: typing.Optional[bool] = None,
         after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[SafetyEventsV2GetSafetyEventsV2ResponseBody]:
+    ) -> AsyncHttpResponse[ReportsGetReportConfigsResponseBody]:
         """
-        This endpoint will return details for the specified safety events based on the parameters passed in. Results are paginated.
+        Get report configs created in the organization.
 
          <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-        To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read Custom Reports** under the Custom Reports category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
         Parameters
         ----------
-        safety_event_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Required string of comma separated Safety Event IDs. Unique Samsara IDs (uuid) of the safety event.
-
-        include_asset : typing.Optional[bool]
-            Indicates whether or not to return expanded “asset” data
-
-        include_driver : typing.Optional[bool]
-            Indicates whether or not to return expanded “driver” data
-
         after : typing.Optional[str]
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            Maximum number of configs to return
+
+        ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            The list of report config IDs to retrieve. Include up to 10 report config IDs. If not provided, all configs will be returned.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
         Returns
         -------
-        AsyncHttpResponse[SafetyEventsV2GetSafetyEventsV2ResponseBody]
+        AsyncHttpResponse[ReportsGetReportConfigsResponseBody]
             OK response.
         """
         _response = await self._client_wrapper.httpx_client.request(
-            "safety-events",
+            "reports/configs",
             method="GET",
             params={
-                "safetyEventIds": safety_event_ids,
-                "includeAsset": include_asset,
-                "includeDriver": include_driver,
                 "after": after,
+                "limit": limit,
+                "ids": ids,
             },
             request_options=request_options,
         )
         try:
             if 200 <= _response.status_code < 300:
                 _data = typing.cast(
-                    SafetyEventsV2GetSafetyEventsV2ResponseBody,
+                    ReportsGetReportConfigsResponseBody,
                     parse_obj_as(
-                        type_=SafetyEventsV2GetSafetyEventsV2ResponseBody,  # type: ignore
+                        type_=ReportsGetReportConfigsResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -14656,99 +14273,542 @@ class AsyncRawBetaApIsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    async def get_safety_events_v_2_stream(
+    async def get_datasets(
         self,
         *,
-        start_time: str,
-        end_time: typing.Optional[str] = None,
-        asset_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        driver_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        assigned_coaches: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        behavior_labels: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        event_states: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        include_asset: typing.Optional[bool] = None,
-        include_driver: typing.Optional[bool] = None,
+        ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[SafetyEventsV2GetSafetyEventsV2StreamResponseBody]:
+    ) -> AsyncHttpResponse[ReportsGetDatasetsResponseBody]:
         """
-        This endpoint will return all safety events associated with your organization based on the parameters passed in. To get core endpoint data, select Read Safety Events & Scores under the Safety & Cameras category when creating or editing an API token. Read Camera Media permissions required to get Safety Event video media via this endpoint. If you include an endTime, the endpoint will return data up until that point. If you do not include an endTime, you can continue to poll the API real-time with the pagination cursor that gets returned on every call. Results are paginated.
+        Get datasets for custom reports.
 
          <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-        To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read Custom Reports** under the Custom Reports category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
         Parameters
         ----------
-        start_time : str
-            RFC 3339 timestamp that indicates when to begin receiving data. Value is compared against `updatedAtTime` of the events.
-
-        end_time : typing.Optional[str]
-            RFC 3339 timestamp which is compared against `updatedAtTime` of the events. If not provided then the endpoint behaves as an unending feed of changes.
-
-        asset_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated asset IDs. If asset ID is present, events for the specified asset(s) will be returned. Limit of 2000 asset IDs.
-
-        driver_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated driver IDs. If driver ID is present, events for the specified driver(s) will be returned. Limit of 2000 driver IDs.
-
-        tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated tag IDs. If tag ID is present, events for the specified tag(s) will be returned. Limit of 2000 tag IDs.
-
-        assigned_coaches : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated coach IDs to filter events assigned to a particular coach. Limit of 2000 coach IDs.
-
-        behavior_labels : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated labels to filter behavior labels.  Valid values: `Acceleration`, `AggressiveDriving`, `BluetoothHeadset`, `Braking`, `ContextConstructionOrWorkZone`, `ContextSnowyOrIcy`, `ContextVulnerableRoadUser`, `ContextWet`, `Crash`, `DefensiveDriving`, `DidNotYield`, `Drinking`, `Drowsy`, `Eating`, `EatingDrinking`, `EdgeDistractedDriving`, `EdgeRailroadCrossingViolation`, `FollowingDistance`, `FollowingDistanceModerate`, `FollowingDistanceSevere`, `ForwardCollisionWarning`, `GenericDistraction`, `GenericTailgating`, `HarshTurn`, `HeavySpeeding`, `HosViolation`, `Idling`, `Invalid`, `LaneDeparture`, `LateResponse`, `LeftTurn`, `LightSpeeding`, `MaxSpeed`, `MobileUsage`, `ModerateSpeeding`, `NearCollison`, `NearPedestrianCollision`, `NoSeatbelt`, `ObstructedCamera`, `OtherViolation`, `Passenger`, `PolicyViolationMask`, `ProtectiveEquipment`, `RanRedLight`, `Reversing`, `RollingStop`, `RolloverProtection`, `SevereSpeeding`, `Smoking`, `Speeding`, `UTurn`, `UnsafeManeuver`, `UnsafeParking`, `VulnerableRoadUserCollisionWarning`, `YawControl`
-
-        event_states : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated values to filter event states.  Valid values: `needsReview`, `reviewed`, `needsCoaching`, `coached`, `dismissed`, `needsRecognition`, `recognized`
-
-        include_asset : typing.Optional[bool]
-            Indicates whether or not to return expanded “asset” data
-
-        include_driver : typing.Optional[bool]
-            Indicates whether or not to return expanded “driver” data
+        ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            The list of dataset IDs to retrieve the datasets for. Include up to 10 dataset IDs. If not provided, all datasets will be returned.
 
         after : typing.Optional[str]
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            Maximum number of datasets to return.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
         Returns
         -------
-        AsyncHttpResponse[SafetyEventsV2GetSafetyEventsV2StreamResponseBody]
+        AsyncHttpResponse[ReportsGetDatasetsResponseBody]
             OK response.
         """
         _response = await self._client_wrapper.httpx_client.request(
-            "safety-events/stream",
+            "reports/datasets",
             method="GET",
             params={
-                "startTime": start_time,
-                "endTime": end_time,
-                "assetIds": asset_ids,
-                "driverIds": driver_ids,
-                "tagIds": tag_ids,
-                "assignedCoaches": assigned_coaches,
-                "behaviorLabels": behavior_labels,
-                "eventStates": event_states,
-                "includeAsset": include_asset,
-                "includeDriver": include_driver,
+                "ids": ids,
                 "after": after,
+                "limit": limit,
             },
             request_options=request_options,
         )
         try:
             if 200 <= _response.status_code < 300:
                 _data = typing.cast(
-                    SafetyEventsV2GetSafetyEventsV2StreamResponseBody,
+                    ReportsGetDatasetsResponseBody,
                     parse_obj_as(
-                        type_=SafetyEventsV2GetSafetyEventsV2StreamResponseBody,  # type: ignore
+                        type_=ReportsGetDatasetsResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def get_report_runs(
+        self,
+        *,
+        report_config_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[ReportsGetReportRunsResponseBody]:
+        """
+        Get custom report runs created by the user.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Custom Reports** under the Custom Reports category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        report_config_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            The list of report config IDs to retrieve the report runs for. Include up to 10 report config IDs. If not provided, runs for all configs will be returned.
+
+        ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            The list of report run IDs to retrieve the report runs for. Include up to 10 report run IDs. If not provided, all report runs will be returned.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            Maximum number of runs to return.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[ReportsGetReportRunsResponseBody]
+            OK response.
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "reports/runs",
+            method="GET",
+            params={
+                "reportConfigIds": report_config_ids,
+                "ids": ids,
+                "after": after,
+                "limit": limit,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    ReportsGetReportRunsResponseBody,
+                    parse_obj_as(
+                        type_=ReportsGetReportRunsResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def create_report_run(
+        self,
+        *,
+        report_config: CreateReportConfigObjectRequestBody,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[ReportsCreateReportRunResponseBody]:
+        """
+        Triggers a new custom report run based on the provided configuration.
+
+         <b>Rate limit:</b> 50 requests/hour (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Custom Reports** under the Custom Reports category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        report_config : CreateReportConfigObjectRequestBody
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[ReportsCreateReportRunResponseBody]
+            Accepted response.
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "reports/runs",
+            method="POST",
+            json={
+                "reportConfig": convert_and_respect_annotation_metadata(
+                    object_=report_config, annotation=CreateReportConfigObjectRequestBody, direction="write"
+                ),
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    ReportsCreateReportRunResponseBody,
+                    parse_obj_as(
+                        type_=ReportsCreateReportRunResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def get_report_run_data(
+        self,
+        *,
+        id: str,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[ReportsGetReportRunDataResponseBody]:
+        """
+        Get data for the given custom report run.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Custom Reports** under the Custom Reports category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            ID of the report run.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            Maximum number of rows to return.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[ReportsGetReportRunDataResponseBody]
+            OK response.
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "reports/runs/data",
+            method="GET",
+            params={
+                "id": id,
+                "after": after,
+                "limit": limit,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    ReportsGetReportRunDataResponseBody,
+                    parse_obj_as(
+                        type_=ReportsGetReportRunDataResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -16042,7 +16102,7 @@ class AsyncRawBetaApIsClient:
         Parameters
         ----------
         ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            String of comma separated assignments IDs. Max value for this value is 100 objects .Example: `ids=a4db8702-79d5-4396-a717-e301d52ecc11,c6490f6a-d84e-49b5-b0ad-b6baae304075`
+            String of comma separated assignments IDs. Max value for this value is 100 objects. Example: `ids=a4db8702-79d5-4396-a717-e301d52ecc11,c6490f6a-d84e-49b5-b0ad-b6baae304075`
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -16191,7 +16251,7 @@ class AsyncRawBetaApIsClient:
             Due date of the training assignment in RFC 3339 format. Millisecond precision and timezones are supported.
 
         ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            String of comma separated assignments IDs. Max value for this value is 100 objects .Example: `ids=a4db8702-79d5-4396-a717-e301d52ecc11,c6490f6a-d84e-49b5-b0ad-b6baae304075`
+            String of comma separated assignments IDs. Max value for this value is 100 objects. Example: `ids=a4db8702-79d5-4396-a717-e301d52ecc11,c6490f6a-d84e-49b5-b0ad-b6baae304075`
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -16333,12 +16393,12 @@ class AsyncRawBetaApIsClient:
         learner_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         course_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         status: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        is_overdue: typing.Optional[bool] = None,
+        category_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[TrainingAssignmentsGetTrainingAssignmentsStreamResponseBody]:
         """
-        Returns all training assignments data that has been created or modified for your organization based on the time parameters passed in. Results are paginated and are sorted by last modified date. If you include an endTime, the endpoint will return data up until that point (exclusive). If you don't include an endTime, you can continue to poll the API real-time with the pagination cursor that gets returned on every call.
-
-        **Beta:** This endpoint is in beta and is likely to change before being broadly available. Reach out to your Samsara Representative to have Training APIs enabled for your organization.
+        Returns all training assignments data that has been created or modified for your organization based on the time parameters passed in. Results are paginated and are sorted by last modified date. If you include an endTime, the endpoint will return data up until that point (exclusive). If you don't include an endTime, the API will continue to poll with the pagination cursor that gets returned on every call. The hasNextPage response value will be true if there is no endTime specified and endCursor is nonempty.
 
          <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -16367,6 +16427,12 @@ class AsyncRawBetaApIsClient:
         status : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             Optional string of comma separated values. If status is present, training assignments for the specified status(s) will be returned. Valid values: "notStarted", "inProgress", "completed". Defaults to returning all courses.
 
+        is_overdue : typing.Optional[bool]
+            Optional boolean value. If present, training assignments for the specified overdue status will be returned. Valid values: true, false. Defaults to returning all assignments.
+
+        category_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Optional string of comma separated category IDs. If category ID is present, training assignments for the specified category ID(s) will be returned. Max value for this value is 100 objects. Example: `categoryIds=a4db8702-79d5-4396-a717-e301d52ecc11,c6490f6a-d84e-49b5-b0ad-b6baae304075`
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -16385,6 +16451,8 @@ class AsyncRawBetaApIsClient:
                 "learnerIds": learner_ids,
                 "courseIds": course_ids,
                 "status": status,
+                "isOverdue": is_overdue,
+                "categoryIds": category_ids,
             },
             request_options=request_options,
         )
@@ -16561,187 +16629,6 @@ class AsyncRawBetaApIsClient:
                     TrainingCoursesGetTrainingCoursesResponseBody,
                     parse_obj_as(
                         type_=TrainingCoursesGetTrainingCoursesResponseBody,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
-                return AsyncHttpResponse(response=_response, data=_data)
-            if _response.status_code == 401:
-                raise UnauthorizedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 404:
-                raise NotFoundError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 405:
-                raise MethodNotAllowedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 429:
-                raise TooManyRequestsError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 500:
-                raise InternalServerError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 501:
-                raise NotImplementedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 502:
-                raise BadGatewayError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 503:
-                raise ServiceUnavailableError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 504:
-                raise GatewayTimeoutError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            _response_json = _response.json()
-        except JSONDecodeError:
-            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
-        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
-
-    async def get_trips(
-        self,
-        *,
-        start_time: str,
-        include_asset: typing.Optional[bool] = None,
-        completion_status: typing.Optional[GetTripsRequestCompletionStatus] = None,
-        end_time: typing.Optional[str] = None,
-        query_by: typing.Optional[GetTripsRequestQueryBy] = None,
-        after: typing.Optional[str] = None,
-        ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[TripsGetTripsResponseBody]:
-        """
-        This endpoint will return trips that have been collected for your organization based on the time parameters passed in. Results are paginated. Reach out to your Samsara Representative to have this API enabled for your organization.
-
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Read Trips** under the Trips category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        start_time : str
-            RFC 3339 timestamp that indicates when to begin receiving data. Value is compared against `updatedAtTime` or `tripStartTime` depending on the queryBy parameter.
-
-        include_asset : typing.Optional[bool]
-            Indicates whether or not to return expanded “asset” data
-
-        completion_status : typing.Optional[GetTripsRequestCompletionStatus]
-            Filters trips based on a specific completion status  Valid values: `inProgress`, `completed`, `all`
-
-        end_time : typing.Optional[str]
-            RFC 3339 timestamp which is compared against `updatedAtTime` or `tripStartTime` depending on the queryBy parameter. If not provided then the endpoint behaves as an unending feed of changes.
-
-        query_by : typing.Optional[GetTripsRequestQueryBy]
-            Decide which timestamp the `startTime` and `endTime` are compared to.  Valid values: `updatedAtTime`, `tripStartTime`
-
-        after : typing.Optional[str]
-             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-
-        ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Comma-separated list of asset IDs. Include up to 50 asset IDs.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        AsyncHttpResponse[TripsGetTripsResponseBody]
-            OK response.
-        """
-        _response = await self._client_wrapper.httpx_client.request(
-            "trips/stream",
-            method="GET",
-            params={
-                "includeAsset": include_asset,
-                "completionStatus": completion_status,
-                "startTime": start_time,
-                "endTime": end_time,
-                "queryBy": query_by,
-                "after": after,
-                "ids": ids,
-            },
-            request_options=request_options,
-        )
-        try:
-            if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    TripsGetTripsResponseBody,
-                    parse_obj_as(
-                        type_=TripsGetTripsResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )

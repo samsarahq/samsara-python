@@ -5,6 +5,7 @@ import typing
 
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.request_options import RequestOptions
+from ..types.invoice_scan_file_request_body import InvoiceScanFileRequestBody
 from ..types.service_task_instance_input_object_request_body import ServiceTaskInstanceInputObjectRequestBody
 from ..types.work_order_discount_object_request_body import WorkOrderDiscountObjectRequestBody
 from ..types.work_order_item_object_request_body import WorkOrderItemObjectRequestBody
@@ -13,14 +14,13 @@ from ..types.work_order_tax_object_request_body import WorkOrderTaxObjectRequest
 from ..types.work_orders_get_service_tasks_response_body import WorkOrdersGetServiceTasksResponseBody
 from ..types.work_orders_get_work_orders_response_body import WorkOrdersGetWorkOrdersResponseBody
 from ..types.work_orders_patch_work_orders_response_body import WorkOrdersPatchWorkOrdersResponseBody
+from ..types.work_orders_post_invoice_scan_response_body import WorkOrdersPostInvoiceScanResponseBody
 from ..types.work_orders_post_work_orders_response_body import WorkOrdersPostWorkOrdersResponseBody
 from ..types.work_orders_stream_work_orders_response_body import WorkOrdersStreamWorkOrdersResponseBody
 from .raw_client import AsyncRawWorkOrdersClient, RawWorkOrdersClient
 from .types.stream_work_orders_request_work_order_statuses_item import StreamWorkOrdersRequestWorkOrderStatusesItem
-from .types.work_orders_patch_work_orders_request_body_category import WorkOrdersPatchWorkOrdersRequestBodyCategory
 from .types.work_orders_patch_work_orders_request_body_priority import WorkOrdersPatchWorkOrdersRequestBodyPriority
 from .types.work_orders_patch_work_orders_request_body_status import WorkOrdersPatchWorkOrdersRequestBodyStatus
-from .types.work_orders_post_work_orders_request_body_category import WorkOrdersPostWorkOrdersRequestBodyCategory
 from .types.work_orders_post_work_orders_request_body_priority import WorkOrdersPostWorkOrdersRequestBodyPriority
 
 # this is used as the default value for optional parameters
@@ -41,6 +41,61 @@ class WorkOrdersClient:
         RawWorkOrdersClient
         """
         return self._raw_client
+
+    def post_invoice_scan(
+        self,
+        *,
+        file: InvoiceScanFileRequestBody,
+        asset_id: typing.Optional[str] = OMIT,
+        work_order_id: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> WorkOrdersPostInvoiceScanResponseBody:
+        """
+        Process an invoice scan to create or update a work order with AI-extracted data. Accepts base64 encoded invoice files (PDF, JPEG, PNG) up to 10MB.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Work Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        file : InvoiceScanFileRequestBody
+
+        asset_id : typing.Optional[str]
+            Asset ID to create a new work order for the invoice. Provide either workOrderId OR assetId, but not both. If assetId is provided, a new work order will be created for that asset. If workOrderId is provided instead, the invoice will be attached to the existing work order.
+
+        work_order_id : typing.Optional[str]
+            Work order ID to attach the invoice to an existing work order. Provide either workOrderId OR assetId, but not both. If workOrderId is provided, the invoice will be attached to the existing work order. If assetId is provided instead, a new work order will be created for that asset.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        WorkOrdersPostInvoiceScanResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import InvoiceScanFileRequestBody, Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.work_orders.post_invoice_scan(
+            file=InvoiceScanFileRequestBody(
+                base_64_content="JVBERi0xLjQKJeLjz9MKMyAwIG9iago8P...",
+                content_type="application/pdf",
+            ),
+        )
+        """
+        _response = self._raw_client.post_invoice_scan(
+            file=file, asset_id=asset_id, work_order_id=work_order_id, request_options=request_options
+        )
+        return _response.data
 
     def get_service_tasks(
         self,
@@ -143,7 +198,7 @@ class WorkOrdersClient:
         *,
         asset_id: str,
         assigned_user_id: typing.Optional[str] = OMIT,
-        category: typing.Optional[WorkOrdersPostWorkOrdersRequestBodyCategory] = OMIT,
+        category: typing.Optional[str] = OMIT,
         description: typing.Optional[str] = OMIT,
         discount: typing.Optional[WorkOrderDiscountObjectRequestBody] = OMIT,
         due_at_time: typing.Optional[dt.datetime] = OMIT,
@@ -176,8 +231,8 @@ class WorkOrdersClient:
         assigned_user_id : typing.Optional[str]
             The ID of the assigned mechanic.
 
-        category : typing.Optional[WorkOrdersPostWorkOrdersRequestBodyCategory]
-            The category of the work order  Valid values: `Annual`, `Corrective`, `Damage Repair`, `Preventive`, `Recall`, `Unspecified`
+        category : typing.Optional[str]
+            The category of the work order
 
         description : typing.Optional[str]
             A description of what needs to be fixed.
@@ -294,7 +349,7 @@ class WorkOrdersClient:
         *,
         id: str,
         assigned_user_id: typing.Optional[str] = OMIT,
-        category: typing.Optional[WorkOrdersPatchWorkOrdersRequestBodyCategory] = OMIT,
+        category: typing.Optional[str] = OMIT,
         closing_notes: typing.Optional[str] = OMIT,
         completed_at_time: typing.Optional[dt.datetime] = OMIT,
         description: typing.Optional[str] = OMIT,
@@ -330,8 +385,8 @@ class WorkOrdersClient:
         assigned_user_id : typing.Optional[str]
             The ID of the assigned mechanic.
 
-        category : typing.Optional[WorkOrdersPatchWorkOrdersRequestBodyCategory]
-            The category of the work order  Valid values: `Annual`, `Corrective`, `Damage Repair`, `Preventive`, `Recall`, `Unspecified`
+        category : typing.Optional[str]
+            The category of the work order
 
         closing_notes : typing.Optional[str]
             Notes on the work order.
@@ -510,6 +565,69 @@ class AsyncWorkOrdersClient:
         """
         return self._raw_client
 
+    async def post_invoice_scan(
+        self,
+        *,
+        file: InvoiceScanFileRequestBody,
+        asset_id: typing.Optional[str] = OMIT,
+        work_order_id: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> WorkOrdersPostInvoiceScanResponseBody:
+        """
+        Process an invoice scan to create or update a work order with AI-extracted data. Accepts base64 encoded invoice files (PDF, JPEG, PNG) up to 10MB.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Work Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        file : InvoiceScanFileRequestBody
+
+        asset_id : typing.Optional[str]
+            Asset ID to create a new work order for the invoice. Provide either workOrderId OR assetId, but not both. If assetId is provided, a new work order will be created for that asset. If workOrderId is provided instead, the invoice will be attached to the existing work order.
+
+        work_order_id : typing.Optional[str]
+            Work order ID to attach the invoice to an existing work order. Provide either workOrderId OR assetId, but not both. If workOrderId is provided, the invoice will be attached to the existing work order. If assetId is provided instead, a new work order will be created for that asset.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        WorkOrdersPostInvoiceScanResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara, InvoiceScanFileRequestBody
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.work_orders.post_invoice_scan(
+                file=InvoiceScanFileRequestBody(
+                    base_64_content="JVBERi0xLjQKJeLjz9MKMyAwIG9iago8P...",
+                    content_type="application/pdf",
+                ),
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.post_invoice_scan(
+            file=file, asset_id=asset_id, work_order_id=work_order_id, request_options=request_options
+        )
+        return _response.data
+
     async def get_service_tasks(
         self,
         *,
@@ -627,7 +745,7 @@ class AsyncWorkOrdersClient:
         *,
         asset_id: str,
         assigned_user_id: typing.Optional[str] = OMIT,
-        category: typing.Optional[WorkOrdersPostWorkOrdersRequestBodyCategory] = OMIT,
+        category: typing.Optional[str] = OMIT,
         description: typing.Optional[str] = OMIT,
         discount: typing.Optional[WorkOrderDiscountObjectRequestBody] = OMIT,
         due_at_time: typing.Optional[dt.datetime] = OMIT,
@@ -660,8 +778,8 @@ class AsyncWorkOrdersClient:
         assigned_user_id : typing.Optional[str]
             The ID of the assigned mechanic.
 
-        category : typing.Optional[WorkOrdersPostWorkOrdersRequestBodyCategory]
-            The category of the work order  Valid values: `Annual`, `Corrective`, `Damage Repair`, `Preventive`, `Recall`, `Unspecified`
+        category : typing.Optional[str]
+            The category of the work order
 
         description : typing.Optional[str]
             A description of what needs to be fixed.
@@ -794,7 +912,7 @@ class AsyncWorkOrdersClient:
         *,
         id: str,
         assigned_user_id: typing.Optional[str] = OMIT,
-        category: typing.Optional[WorkOrdersPatchWorkOrdersRequestBodyCategory] = OMIT,
+        category: typing.Optional[str] = OMIT,
         closing_notes: typing.Optional[str] = OMIT,
         completed_at_time: typing.Optional[dt.datetime] = OMIT,
         description: typing.Optional[str] = OMIT,
@@ -830,8 +948,8 @@ class AsyncWorkOrdersClient:
         assigned_user_id : typing.Optional[str]
             The ID of the assigned mechanic.
 
-        category : typing.Optional[WorkOrdersPatchWorkOrdersRequestBodyCategory]
-            The category of the work order  Valid values: `Annual`, `Corrective`, `Damage Repair`, `Preventive`, `Recall`, `Unspecified`
+        category : typing.Optional[str]
+            The category of the work order
 
         closing_notes : typing.Optional[str]
             Notes on the work order.

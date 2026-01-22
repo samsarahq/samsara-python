@@ -4,7 +4,7 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from .vehicle_stats_time import VehicleStatsTime
+from .time import Time
 
 
 class VehicleStatsFuelPercent(UniversalBaseModel):
@@ -12,7 +12,7 @@ class VehicleStatsFuelPercent(UniversalBaseModel):
     Vehicle fuel percentage reading.
     """
 
-    time: VehicleStatsTime
+    time: Time
     value: int = pydantic.Field()
     """
     The engine fuel level in percentage points (e.g. `99`, `50`, etc).

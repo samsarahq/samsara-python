@@ -29,104 +29,106 @@ class VehicleResponseObjectResponseBody(UniversalBaseModel):
     """
 
     aux_input_type_1: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="auxInputType1")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="auxInputType1", default=None)
     )
     """
     The type of auxiliary input configured for this Vehicle.
     """
 
     aux_input_type_10: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="auxInputType10")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="auxInputType10", default=None)
     )
     """
     The type of auxiliary input configured for this Vehicle.
     """
 
     aux_input_type_11: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="auxInputType11")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="auxInputType11", default=None)
     )
     """
     The type of auxiliary input configured for this Vehicle.
     """
 
     aux_input_type_12: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="auxInputType12")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="auxInputType12", default=None)
     )
     """
     The type of auxiliary input configured for this Vehicle.
     """
 
     aux_input_type_13: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="auxInputType13")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="auxInputType13", default=None)
     )
     """
     The type of auxiliary input configured for this Vehicle.
     """
 
     aux_input_type_2: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="auxInputType2")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="auxInputType2", default=None)
     )
     """
     The type of auxiliary input configured for this Vehicle.
     """
 
     aux_input_type_3: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="auxInputType3")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="auxInputType3", default=None)
     )
     """
     The type of auxiliary input configured for this Vehicle.
     """
 
     aux_input_type_4: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="auxInputType4")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="auxInputType4", default=None)
     )
     """
     The type of auxiliary input configured for this Vehicle.
     """
 
     aux_input_type_5: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="auxInputType5")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="auxInputType5", default=None)
     )
     """
     The type of auxiliary input configured for this Vehicle.
     """
 
     aux_input_type_6: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="auxInputType6")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="auxInputType6", default=None)
     )
     """
     The type of auxiliary input configured for this Vehicle.
     """
 
     aux_input_type_7: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="auxInputType7")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="auxInputType7", default=None)
     )
     """
     The type of auxiliary input configured for this Vehicle.
     """
 
     aux_input_type_8: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="auxInputType8")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="auxInputType8", default=None)
     )
     """
     The type of auxiliary input configured for this Vehicle.
     """
 
     aux_input_type_9: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="auxInputType9")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="auxInputType9", default=None)
     )
     """
     The type of auxiliary input configured for this Vehicle.
     """
 
     camera_serial: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="cameraSerial")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="cameraSerial", default=None)
     )
     """
     The serial number of the camera installed in the vehicle
     """
 
-    created_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAtTime")] = pydantic.Field()
+    created_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAtTime")] = pydantic.Field(
+        alias="createdAtTime"
+    )
     """
     Time the vehicle was created in RFC 3339 format.
     """
@@ -138,7 +140,7 @@ class VehicleResponseObjectResponseBody(UniversalBaseModel):
 
     external_ids: typing_extensions.Annotated[
         typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="externalIds", default=None)
     """
     A map of external ids
     """
@@ -146,7 +148,7 @@ class VehicleResponseObjectResponseBody(UniversalBaseModel):
     gateway: typing.Optional[GoaGatewayTinyResponseResponseBody] = None
     harsh_acceleration_setting_type: typing_extensions.Annotated[
         typing.Optional[str], FieldMetadata(alias="harshAccelerationSettingType")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="harshAccelerationSettingType", default=None)
     """
     The harsh acceleration setting type.
     """
@@ -156,8 +158,15 @@ class VehicleResponseObjectResponseBody(UniversalBaseModel):
     ID of the vehicle
     """
 
+    is_remote_privacy_button_enabled: typing_extensions.Annotated[
+        typing.Optional[bool], FieldMetadata(alias="isRemotePrivacyButtonEnabled")
+    ] = pydantic.Field(alias="isRemotePrivacyButtonEnabled", default=None)
+    """
+    Whether the remote privacy button is enabled for the vehicle. If omitted, the organization does not have the remote privacy button feature enabled.
+    """
+
     license_plate: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="licensePlate")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="licensePlate", default=None)
     )
     """
     The license plate of the vehicle.
@@ -185,7 +194,7 @@ class VehicleResponseObjectResponseBody(UniversalBaseModel):
 
     sensor_configuration: typing_extensions.Annotated[
         typing.Optional[VehicleSensorConfigurationResponseBody], FieldMetadata(alias="sensorConfiguration")
-    ] = None
+    ] = pydantic.Field(alias="sensorConfiguration", default=None)
     serial: typing.Optional[str] = pydantic.Field(default=None)
     """
     The serial number of the gateway installed in the vehicle.
@@ -193,14 +202,14 @@ class VehicleResponseObjectResponseBody(UniversalBaseModel):
 
     static_assigned_driver: typing_extensions.Annotated[
         typing.Optional[DriverObjectResponseBody], FieldMetadata(alias="staticAssignedDriver")
-    ] = None
+    ] = pydantic.Field(alias="staticAssignedDriver", default=None)
     tags: typing.Optional[typing.List[GoaTagTinyResponseResponseBody]] = pydantic.Field(default=None)
     """
     The list of tags associated with the Vehicle.
     """
 
     updated_at_time: typing_extensions.Annotated[typing.Optional[dt.datetime], FieldMetadata(alias="updatedAtTime")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="updatedAtTime", default=None)
     )
     """
     Time the vehicle was updated in RFC 3339 format.
@@ -209,20 +218,20 @@ class VehicleResponseObjectResponseBody(UniversalBaseModel):
     vehicle_regulation_mode: typing_extensions.Annotated[
         typing.Optional[VehicleResponseObjectResponseBodyVehicleRegulationMode],
         FieldMetadata(alias="vehicleRegulationMode"),
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="vehicleRegulationMode", default=None)
     """
     Whether the vehicle is regulated or unregulated (non-CMV).  Valid values: `regulated`, `unregulated`
     """
 
     vehicle_type: typing_extensions.Annotated[
         typing.Optional[VehicleResponseObjectResponseBodyVehicleType], FieldMetadata(alias="vehicleType")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="vehicleType", default=None)
     """
     The type of the vehicle. Only returned for customers with commercial speed limits (CSL) enabled.  Valid values: `unset`, `passenger`, `truck`, `bus`
     """
 
     vehicle_weight: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="vehicleWeight")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="vehicleWeight", default=None)
     )
     """
     The weight of the vehicle in either pounds (lb) or kilograms (kg). Unit of weight is unknown. Only returned for customers with commercial speed limits (CSL) enabled.
@@ -230,14 +239,14 @@ class VehicleResponseObjectResponseBody(UniversalBaseModel):
 
     vehicle_weight_in_kilograms: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="vehicleWeightInKilograms")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="vehicleWeightInKilograms", default=None)
     """
     The weight of the vehicle in kilograms (kg). Only returned for customers with commercial speed limits (CSL) enabled.
     """
 
     vehicle_weight_in_pounds: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="vehicleWeightInPounds")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="vehicleWeightInPounds", default=None)
     """
     The weight of the vehicle in pounds (lb). Only returned for customers with commercial speed limits (CSL) enabled.
     """

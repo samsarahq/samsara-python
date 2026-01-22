@@ -4,7 +4,7 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from .vehicle_stats_time import VehicleStatsTime
+from .time import Time
 
 
 class VehicleStatsSpreaderGranularName(UniversalBaseModel):
@@ -12,7 +12,7 @@ class VehicleStatsSpreaderGranularName(UniversalBaseModel):
     Name of most recent type of granular material spread, read from the material spreader.
     """
 
-    time: VehicleStatsTime
+    time: Time
     value: str = pydantic.Field()
     """
     Name of most recent type of granular material spread, read from the material spreader.

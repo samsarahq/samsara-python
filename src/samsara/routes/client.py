@@ -43,6 +43,7 @@ class RoutesClient:
         end_time: str,
         limit: typing.Optional[int] = None,
         after: typing.Optional[str] = None,
+        include: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> RoutesFetchRoutesResponseBody:
         """
@@ -69,6 +70,9 @@ class RoutesClient:
         after : typing.Optional[str]
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
 
+        include : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A comma-separated list of additional fields to include in the response. Valid values: `stops.actualDistanceMeters`
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -90,7 +94,12 @@ class RoutesClient:
         )
         """
         _response = self._raw_client.fetch_routes(
-            start_time=start_time, end_time=end_time, limit=limit, after=after, request_options=request_options
+            start_time=start_time,
+            end_time=end_time,
+            limit=limit,
+            after=after,
+            include=include,
+            request_options=request_options,
         )
         return _response.data
 
@@ -230,7 +239,11 @@ class RoutesClient:
         return _response.data
 
     def fetch_route(
-        self, id: str, *, request_options: typing.Optional[RequestOptions] = None
+        self,
+        id: str,
+        *,
+        include: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        request_options: typing.Optional[RequestOptions] = None,
     ) -> RoutesFetchRouteResponseBody:
         """
         Returns a single route. The legacy version of this endpoint can be found at [samsara.com/api-legacy](https://www.samsara.com/api-legacy#operation/getDispatchRouteById).
@@ -246,6 +259,9 @@ class RoutesClient:
         ----------
         id : str
             ID of the route. This can either be the Samsara-specified ID, or an external ID. External IDs are customer specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `payrollId:ABFS18600`
+
+        include : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A comma-separated list of additional fields to include in the response. Valid values: `stops.actualDistanceMeters`
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -266,7 +282,7 @@ class RoutesClient:
             id="id",
         )
         """
-        _response = self._raw_client.fetch_route(id, request_options=request_options)
+        _response = self._raw_client.fetch_route(id, include=include, request_options=request_options)
         return _response.data
 
     def delete_route(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
@@ -546,6 +562,7 @@ class AsyncRoutesClient:
         end_time: str,
         limit: typing.Optional[int] = None,
         after: typing.Optional[str] = None,
+        include: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> RoutesFetchRoutesResponseBody:
         """
@@ -571,6 +588,9 @@ class AsyncRoutesClient:
 
         after : typing.Optional[str]
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        include : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A comma-separated list of additional fields to include in the response. Valid values: `stops.actualDistanceMeters`
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -601,7 +621,12 @@ class AsyncRoutesClient:
         asyncio.run(main())
         """
         _response = await self._raw_client.fetch_routes(
-            start_time=start_time, end_time=end_time, limit=limit, after=after, request_options=request_options
+            start_time=start_time,
+            end_time=end_time,
+            limit=limit,
+            after=after,
+            include=include,
+            request_options=request_options,
         )
         return _response.data
 
@@ -757,7 +782,11 @@ class AsyncRoutesClient:
         return _response.data
 
     async def fetch_route(
-        self, id: str, *, request_options: typing.Optional[RequestOptions] = None
+        self,
+        id: str,
+        *,
+        include: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        request_options: typing.Optional[RequestOptions] = None,
     ) -> RoutesFetchRouteResponseBody:
         """
         Returns a single route. The legacy version of this endpoint can be found at [samsara.com/api-legacy](https://www.samsara.com/api-legacy#operation/getDispatchRouteById).
@@ -773,6 +802,9 @@ class AsyncRoutesClient:
         ----------
         id : str
             ID of the route. This can either be the Samsara-specified ID, or an external ID. External IDs are customer specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `payrollId:ABFS18600`
+
+        include : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A comma-separated list of additional fields to include in the response. Valid values: `stops.actualDistanceMeters`
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -801,7 +833,7 @@ class AsyncRoutesClient:
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.fetch_route(id, request_options=request_options)
+        _response = await self._raw_client.fetch_route(id, include=include, request_options=request_options)
         return _response.data
 
     async def delete_route(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:

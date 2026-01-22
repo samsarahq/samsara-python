@@ -14,28 +14,28 @@ class V1VisionRunsResponseReportMetadata(UniversalBaseModel):
     """
 
     items_per_minute: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="itemsPerMinute")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="itemsPerMinute", default=None)
     )
     """
     Returns average scanned items per minute. Should be used instead of scanRate.
     """
 
     no_read_count: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="noReadCount")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="noReadCount", default=None)
     )
     """
     Returns no read count for the run. Should be used instead of noReadScansCount
     """
 
     reject_count: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="rejectCount")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="rejectCount", default=None)
     )
     """
     Returns reject count for the run. Should be used instead of failedScansCount
     """
 
     success_count: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="successCount")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="successCount", default=None)
     )
     """
     Returns success count for the run. Should be used instead of successfulScansCount

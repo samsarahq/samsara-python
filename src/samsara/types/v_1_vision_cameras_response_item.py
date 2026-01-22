@@ -9,10 +9,18 @@ from ..core.serialization import FieldMetadata
 
 
 class V1VisionCamerasResponseItem(UniversalBaseModel):
-    camera_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="cameraId")] = None
-    camera_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="cameraName")] = None
-    ethernet_ip: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="ethernetIp")] = None
-    wifi_ip: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="wifiIp")] = None
+    camera_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="cameraId")] = pydantic.Field(
+        alias="cameraId", default=None
+    )
+    camera_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="cameraName")] = pydantic.Field(
+        alias="cameraName", default=None
+    )
+    ethernet_ip: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="ethernetIp")] = pydantic.Field(
+        alias="ethernetIp", default=None
+    )
+    wifi_ip: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="wifiIp")] = pydantic.Field(
+        alias="wifiIp", default=None
+    )
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

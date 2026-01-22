@@ -4,7 +4,7 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from .vehicle_stats_time import VehicleStatsTime
+from .time import Time
 
 
 class VehicleStatsObdEngineSeconds(UniversalBaseModel):
@@ -12,7 +12,7 @@ class VehicleStatsObdEngineSeconds(UniversalBaseModel):
     Vehicle OBD engine seconds reading.
     """
 
-    time: VehicleStatsTime
+    time: Time
     value: int = pydantic.Field()
     """
     Number of seconds the vehicle's engine has been on according to the on-board diagnostics.

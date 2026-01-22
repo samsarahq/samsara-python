@@ -15,13 +15,13 @@ class DataUsageResponseObjectResponseBody(UniversalBaseModel):
 
     cellular_data_usage_bytes: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="cellularDataUsageBytes")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="cellularDataUsageBytes", default=None)
     """
     Celluar data usage in bytes.
     """
 
     hotspot_usage_bytes: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="hotspotUsageBytes")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="hotspotUsageBytes", default=None)
     )
     """
     Wifi hotspot data usage in bytes.

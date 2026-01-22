@@ -418,11 +418,38 @@ if typing.TYPE_CHECKING:
     from .attribute_tiny import AttributeTiny
     from .attribute_unit import AttributeUnit
     from .attribute_value_tiny import AttributeValueTiny
+    from .auth_token_auth_token_bad_gateway_error_response_body import AuthTokenAuthTokenBadGatewayErrorResponseBody
+    from .auth_token_auth_token_gateway_timeout_error_response_body import (
+        AuthTokenAuthTokenGatewayTimeoutErrorResponseBody,
+    )
+    from .auth_token_auth_token_internal_server_error_response_body import (
+        AuthTokenAuthTokenInternalServerErrorResponseBody,
+    )
+    from .auth_token_auth_token_method_not_allowed_error_response_body import (
+        AuthTokenAuthTokenMethodNotAllowedErrorResponseBody,
+    )
+    from .auth_token_auth_token_not_found_error_response_body import AuthTokenAuthTokenNotFoundErrorResponseBody
+    from .auth_token_auth_token_not_implemented_error_response_body import (
+        AuthTokenAuthTokenNotImplementedErrorResponseBody,
+    )
+    from .auth_token_auth_token_response_body import AuthTokenAuthTokenResponseBody
+    from .auth_token_auth_token_service_unavailable_error_response_body import (
+        AuthTokenAuthTokenServiceUnavailableErrorResponseBody,
+    )
+    from .auth_token_auth_token_too_many_requests_error_response_body import (
+        AuthTokenAuthTokenTooManyRequestsErrorResponseBody,
+    )
+    from .auth_token_auth_token_unauthorized_error_response_body import AuthTokenAuthTokenUnauthorizedErrorResponseBody
+    from .auth_token_for_driver_response_response_body import AuthTokenForDriverResponseResponseBody
     from .author_signature_object_response_body import AuthorSignatureObjectResponseBody
     from .author_signature_object_response_body_type import AuthorSignatureObjectResponseBodyType
     from .barcode_value_object_request_body import BarcodeValueObjectRequestBody
     from .barcode_value_object_response_body import BarcodeValueObjectResponseBody
     from .base_route_response_object_response_body import BaseRouteResponseObjectResponseBody
+    from .behavior_count_details_request_body import BehaviorCountDetailsRequestBody
+    from .behavior_count_details_request_body_comparison import BehaviorCountDetailsRequestBodyComparison
+    from .behavior_count_details_response_body import BehaviorCountDetailsResponseBody
+    from .behavior_count_details_response_body_comparison import BehaviorCountDetailsResponseBodyComparison
     from .behavior_response_body import BehaviorResponseBody
     from .behavior_response_body_coachable_behavior_type import BehaviorResponseBodyCoachableBehaviorType
     from .camera_connector_disconected_response_body import CameraConnectorDisconectedResponseBody
@@ -494,6 +521,9 @@ if typing.TYPE_CHECKING:
         CoachingSessionsResponseResponseBodySessionStatus,
     )
     from .coasting_duration_ms import CoastingDurationMs
+    from .column_response_body import ColumnResponseBody
+    from .column_response_body_data_type import ColumnResponseBodyDataType
+    from .column_response_body_unit import ColumnResponseBodyUnit
     from .conditional_field_section_object_response_body import ConditionalFieldSectionObjectResponseBody
     from .connection_status_response_object_response_body import ConnectionStatusResponseObjectResponseBody
     from .connection_status_response_object_response_body_health_status import (
@@ -517,6 +547,8 @@ if typing.TYPE_CHECKING:
     from .create_attribute_request_entities import CreateAttributeRequestEntities
     from .create_driver_auth_token_response_response_body import CreateDriverAuthTokenResponseResponseBody
     from .create_driver_request_attributes import CreateDriverRequestAttributes
+    from .create_report_config_column_request_body import CreateReportConfigColumnRequestBody
+    from .create_report_config_object_request_body import CreateReportConfigObjectRequestBody
     from .create_routes_stop_request_object_request_body import CreateRoutesStopRequestObjectRequestBody
     from .create_user_request_roles import CreateUserRequestRoles
     from .cruise_control_duration_ms import CruiseControlDurationMs
@@ -561,6 +593,44 @@ if typing.TYPE_CHECKING:
     from .defect_vehicle_response_response_body import DefectVehicleResponseResponseBody
     from .defects_response import DefectsResponse
     from .defects_response_data_response_body import DefectsResponseDataResponseBody
+    from .depreciation_get_depreciation_transactions_bad_gateway_error_response_body import (
+        DepreciationGetDepreciationTransactionsBadGatewayErrorResponseBody,
+    )
+    from .depreciation_get_depreciation_transactions_gateway_timeout_error_response_body import (
+        DepreciationGetDepreciationTransactionsGatewayTimeoutErrorResponseBody,
+    )
+    from .depreciation_get_depreciation_transactions_internal_server_error_response_body import (
+        DepreciationGetDepreciationTransactionsInternalServerErrorResponseBody,
+    )
+    from .depreciation_get_depreciation_transactions_method_not_allowed_error_response_body import (
+        DepreciationGetDepreciationTransactionsMethodNotAllowedErrorResponseBody,
+    )
+    from .depreciation_get_depreciation_transactions_not_found_error_response_body import (
+        DepreciationGetDepreciationTransactionsNotFoundErrorResponseBody,
+    )
+    from .depreciation_get_depreciation_transactions_not_implemented_error_response_body import (
+        DepreciationGetDepreciationTransactionsNotImplementedErrorResponseBody,
+    )
+    from .depreciation_get_depreciation_transactions_response_body import (
+        DepreciationGetDepreciationTransactionsResponseBody,
+    )
+    from .depreciation_get_depreciation_transactions_service_unavailable_error_response_body import (
+        DepreciationGetDepreciationTransactionsServiceUnavailableErrorResponseBody,
+    )
+    from .depreciation_get_depreciation_transactions_too_many_requests_error_response_body import (
+        DepreciationGetDepreciationTransactionsTooManyRequestsErrorResponseBody,
+    )
+    from .depreciation_get_depreciation_transactions_unauthorized_error_response_body import (
+        DepreciationGetDepreciationTransactionsUnauthorizedErrorResponseBody,
+    )
+    from .depreciation_transaction_money_object_response_body import DepreciationTransactionMoneyObjectResponseBody
+    from .depreciation_transaction_money_object_response_body_currency import (
+        DepreciationTransactionMoneyObjectResponseBodyCurrency,
+    )
+    from .depreciation_transaction_object_response_body import DepreciationTransactionObjectResponseBody
+    from .depreciation_transaction_object_response_body_transaction_type import (
+        DepreciationTransactionObjectResponseBodyTransactionType,
+    )
     from .detection_log_asset_object_response_body import DetectionLogAssetObjectResponseBody
     from .detection_log_detection_object_response_body import DetectionLogDetectionObjectResponseBody
     from .detection_log_detection_object_response_body_trigger_detection_label import (
@@ -963,6 +1033,8 @@ if typing.TYPE_CHECKING:
     from .driver_name import DriverName
     from .driver_notes import DriverNotes
     from .driver_object_response_body import DriverObjectResponseBody
+    from .driver_or_tag_ids_details_request_body import DriverOrTagIdsDetailsRequestBody
+    from .driver_or_tag_ids_details_response_body import DriverOrTagIdsDetailsResponseBody
     from .driver_phone import DriverPhone
     from .driver_profile_image_base_64 import DriverProfileImageBase64
     from .driver_profile_image_url import DriverProfileImageUrl
@@ -1577,6 +1649,8 @@ if typing.TYPE_CHECKING:
     from .field_object_value_response_body import FieldObjectValueResponseBody
     from .field_types_object_response_body import FieldTypesObjectResponseBody
     from .field_types_object_response_body_field_type import FieldTypesObjectResponseBodyFieldType
+    from .filters_request_body import FiltersRequestBody
+    from .filters_response_body import FiltersResponseBody
     from .fleet_device_object_response_body import FleetDeviceObjectResponseBody
     from .following_distance_detection_alert_settings_object_response_body import (
         FollowingDistanceDetectionAlertSettingsObjectResponseBody,
@@ -2149,6 +2223,8 @@ if typing.TYPE_CHECKING:
         GetDriverTrailerAssignmentsResponseBodyResponseBody,
     )
     from .get_media_retrieval_object_response_body import GetMediaRetrievalObjectResponseBody
+    from .get_report_runs_data_object_response_body import GetReportRunsDataObjectResponseBody
+    from .get_report_runs_data_object_response_body_status import GetReportRunsDataObjectResponseBodyStatus
     from .get_response_workflow_configuration_object_response_body import (
         GetResponseWorkflowConfigurationObjectResponseBody,
     )
@@ -2427,6 +2503,37 @@ if typing.TYPE_CHECKING:
         HubCapacitiesListHubCapacitiesUnauthorizedErrorResponseBody,
     )
     from .hub_capacity_object_response_body import HubCapacityObjectResponseBody
+    from .hub_custom_properties_list_hub_custom_properties_bad_gateway_error_response_body import (
+        HubCustomPropertiesListHubCustomPropertiesBadGatewayErrorResponseBody,
+    )
+    from .hub_custom_properties_list_hub_custom_properties_gateway_timeout_error_response_body import (
+        HubCustomPropertiesListHubCustomPropertiesGatewayTimeoutErrorResponseBody,
+    )
+    from .hub_custom_properties_list_hub_custom_properties_internal_server_error_response_body import (
+        HubCustomPropertiesListHubCustomPropertiesInternalServerErrorResponseBody,
+    )
+    from .hub_custom_properties_list_hub_custom_properties_method_not_allowed_error_response_body import (
+        HubCustomPropertiesListHubCustomPropertiesMethodNotAllowedErrorResponseBody,
+    )
+    from .hub_custom_properties_list_hub_custom_properties_not_found_error_response_body import (
+        HubCustomPropertiesListHubCustomPropertiesNotFoundErrorResponseBody,
+    )
+    from .hub_custom_properties_list_hub_custom_properties_not_implemented_error_response_body import (
+        HubCustomPropertiesListHubCustomPropertiesNotImplementedErrorResponseBody,
+    )
+    from .hub_custom_properties_list_hub_custom_properties_response_body import (
+        HubCustomPropertiesListHubCustomPropertiesResponseBody,
+    )
+    from .hub_custom_properties_list_hub_custom_properties_service_unavailable_error_response_body import (
+        HubCustomPropertiesListHubCustomPropertiesServiceUnavailableErrorResponseBody,
+    )
+    from .hub_custom_properties_list_hub_custom_properties_too_many_requests_error_response_body import (
+        HubCustomPropertiesListHubCustomPropertiesTooManyRequestsErrorResponseBody,
+    )
+    from .hub_custom_properties_list_hub_custom_properties_unauthorized_error_response_body import (
+        HubCustomPropertiesListHubCustomPropertiesUnauthorizedErrorResponseBody,
+    )
+    from .hub_custom_property_object_response_body import HubCustomPropertyObjectResponseBody
     from .hub_location_created_object_response_body import HubLocationCreatedObjectResponseBody
     from .hub_location_input_object_request_body import HubLocationInputObjectRequestBody
     from .hub_location_object_response_body import HubLocationObjectResponseBody
@@ -2819,6 +2926,7 @@ if typing.TYPE_CHECKING:
     from .inside_geofence_data_response_body import InsideGeofenceDataResponseBody
     from .inside_geofence_trigger_details_object_request_body import InsideGeofenceTriggerDetailsObjectRequestBody
     from .inside_geofence_trigger_details_object_response_body import InsideGeofenceTriggerDetailsObjectResponseBody
+    from .invoice_scan_file_request_body import InvoiceScanFileRequestBody
     from .issue_created_response_body import IssueCreatedResponseBody
     from .issue_response_object_response_body import IssueResponseObjectResponseBody
     from .issue_response_object_response_body_priority import IssueResponseObjectResponseBodyPriority
@@ -2938,6 +3046,9 @@ if typing.TYPE_CHECKING:
     from .list_contacts_response import ListContactsResponse
     from .list_drivers_response import ListDriversResponse
     from .list_hub_capacities_response_pagination_response_body import ListHubCapacitiesResponsePaginationResponseBody
+    from .list_hub_custom_properties_response_pagination_response_body import (
+        ListHubCustomPropertiesResponsePaginationResponseBody,
+    )
     from .list_hub_locations_response_pagination_response_body import ListHubLocationsResponsePaginationResponseBody
     from .list_hub_plan_routes_response_pagination_response_body import ListHubPlanRoutesResponsePaginationResponseBody
     from .list_hub_plans_response_pagination_response_body import ListHubPlansResponsePaginationResponseBody
@@ -3223,10 +3334,13 @@ if typing.TYPE_CHECKING:
     from .operational_settings_object_response_body_time_range_type import (
         OperationalSettingsObjectResponseBodyTimeRangeType,
     )
+    from .order_custom_property_input_request_body import OrderCustomPropertyInputRequestBody
+    from .order_custom_property_response_body import OrderCustomPropertyResponseBody
     from .order_input_object_request_body import OrderInputObjectRequestBody
     from .order_object_response_body import OrderObjectResponseBody
     from .order_quantity_input_request_body import OrderQuantityInputRequestBody
     from .order_quantity_response_body import OrderQuantityResponseBody
+    from .order_task_custom_property_object_response_body import OrderTaskCustomPropertyObjectResponseBody
     from .order_task_object_response_body import OrderTaskObjectResponseBody
     from .order_task_request_body import OrderTaskRequestBody
     from .order_task_request_body_position import OrderTaskRequestBodyPosition
@@ -3335,6 +3449,7 @@ if typing.TYPE_CHECKING:
         PostFuelPurchaseRequestBodyPriceRequestBodyCurrency,
     )
     from .post_fuel_purchase_response_body_response_body import PostFuelPurchaseResponseBodyResponseBody
+    from .post_invoice_scan_response_data_response_body import PostInvoiceScanResponseDataResponseBody
     from .post_job_object_request_body import PostJobObjectRequestBody
     from .post_job_objectjob_location_request_object_request_body import (
         PostJobObjectjobLocationRequestObjectRequestBody,
@@ -3344,6 +3459,8 @@ if typing.TYPE_CHECKING:
         PostResponseResWorkflowConfigurationObjectResponseBody,
     )
     from .power_take_off_duration_ms import PowerTakeOffDurationMs
+    from .primary_time_range_request_body import PrimaryTimeRangeRequestBody
+    from .primary_time_range_response_body import PrimaryTimeRangeResponseBody
     from .push_notification_options_object_request_body import PushNotificationOptionsObjectRequestBody
     from .push_notification_options_object_response_body import PushNotificationOptionsObjectResponseBody
     from .qr_code_response_object_response_body import QrCodeResponseObjectResponseBody
@@ -3625,8 +3742,6 @@ if typing.TYPE_CHECKING:
     from .reading_trigger_details_response_body import ReadingTriggerDetailsResponseBody
     from .reading_trigger_enum_value_object_request_body import ReadingTriggerEnumValueObjectRequestBody
     from .reading_trigger_enum_value_object_response_body import ReadingTriggerEnumValueObjectResponseBody
-    from .reading_type_response_body import ReadingTypeResponseBody
-    from .reading_type_response_body_data_type import ReadingTypeResponseBodyDataType
     from .readings_get_readings_history_bad_gateway_error_response_body import (
         ReadingsGetReadingsHistoryBadGatewayErrorResponseBody,
     )
@@ -3741,6 +3856,144 @@ if typing.TYPE_CHECKING:
     from .recipient_object_response_body_notification_types_item import RecipientObjectResponseBodyNotificationTypesItem
     from .recipient_object_response_body_type import RecipientObjectResponseBodyType
     from .reefer_temperature_response_body import ReeferTemperatureResponseBody
+    from .report_columns_object_response_body import ReportColumnsObjectResponseBody
+    from .report_columns_object_response_body_data_type import ReportColumnsObjectResponseBodyDataType
+    from .report_columns_object_response_body_unit import ReportColumnsObjectResponseBodyUnit
+    from .report_config_object_response_body import ReportConfigObjectResponseBody
+    from .report_run_object_response_body import ReportRunObjectResponseBody
+    from .report_run_object_response_body_status import ReportRunObjectResponseBodyStatus
+    from .reports_create_report_run_bad_gateway_error_response_body import (
+        ReportsCreateReportRunBadGatewayErrorResponseBody,
+    )
+    from .reports_create_report_run_gateway_timeout_error_response_body import (
+        ReportsCreateReportRunGatewayTimeoutErrorResponseBody,
+    )
+    from .reports_create_report_run_internal_server_error_response_body import (
+        ReportsCreateReportRunInternalServerErrorResponseBody,
+    )
+    from .reports_create_report_run_method_not_allowed_error_response_body import (
+        ReportsCreateReportRunMethodNotAllowedErrorResponseBody,
+    )
+    from .reports_create_report_run_not_found_error_response_body import ReportsCreateReportRunNotFoundErrorResponseBody
+    from .reports_create_report_run_not_implemented_error_response_body import (
+        ReportsCreateReportRunNotImplementedErrorResponseBody,
+    )
+    from .reports_create_report_run_response_body import ReportsCreateReportRunResponseBody
+    from .reports_create_report_run_service_unavailable_error_response_body import (
+        ReportsCreateReportRunServiceUnavailableErrorResponseBody,
+    )
+    from .reports_create_report_run_too_many_requests_error_response_body import (
+        ReportsCreateReportRunTooManyRequestsErrorResponseBody,
+    )
+    from .reports_create_report_run_unauthorized_error_response_body import (
+        ReportsCreateReportRunUnauthorizedErrorResponseBody,
+    )
+    from .reports_dataset_field_response_body import ReportsDatasetFieldResponseBody
+    from .reports_dataset_field_response_body_data_type import ReportsDatasetFieldResponseBodyDataType
+    from .reports_dataset_field_response_body_unit import ReportsDatasetFieldResponseBodyUnit
+    from .reports_dataset_response_body import ReportsDatasetResponseBody
+    from .reports_get_datasets_bad_gateway_error_response_body import ReportsGetDatasetsBadGatewayErrorResponseBody
+    from .reports_get_datasets_gateway_timeout_error_response_body import (
+        ReportsGetDatasetsGatewayTimeoutErrorResponseBody,
+    )
+    from .reports_get_datasets_internal_server_error_response_body import (
+        ReportsGetDatasetsInternalServerErrorResponseBody,
+    )
+    from .reports_get_datasets_method_not_allowed_error_response_body import (
+        ReportsGetDatasetsMethodNotAllowedErrorResponseBody,
+    )
+    from .reports_get_datasets_not_found_error_response_body import ReportsGetDatasetsNotFoundErrorResponseBody
+    from .reports_get_datasets_not_implemented_error_response_body import (
+        ReportsGetDatasetsNotImplementedErrorResponseBody,
+    )
+    from .reports_get_datasets_response_body import ReportsGetDatasetsResponseBody
+    from .reports_get_datasets_service_unavailable_error_response_body import (
+        ReportsGetDatasetsServiceUnavailableErrorResponseBody,
+    )
+    from .reports_get_datasets_too_many_requests_error_response_body import (
+        ReportsGetDatasetsTooManyRequestsErrorResponseBody,
+    )
+    from .reports_get_datasets_unauthorized_error_response_body import ReportsGetDatasetsUnauthorizedErrorResponseBody
+    from .reports_get_report_configs_bad_gateway_error_response_body import (
+        ReportsGetReportConfigsBadGatewayErrorResponseBody,
+    )
+    from .reports_get_report_configs_gateway_timeout_error_response_body import (
+        ReportsGetReportConfigsGatewayTimeoutErrorResponseBody,
+    )
+    from .reports_get_report_configs_internal_server_error_response_body import (
+        ReportsGetReportConfigsInternalServerErrorResponseBody,
+    )
+    from .reports_get_report_configs_method_not_allowed_error_response_body import (
+        ReportsGetReportConfigsMethodNotAllowedErrorResponseBody,
+    )
+    from .reports_get_report_configs_not_found_error_response_body import (
+        ReportsGetReportConfigsNotFoundErrorResponseBody,
+    )
+    from .reports_get_report_configs_not_implemented_error_response_body import (
+        ReportsGetReportConfigsNotImplementedErrorResponseBody,
+    )
+    from .reports_get_report_configs_response_body import ReportsGetReportConfigsResponseBody
+    from .reports_get_report_configs_service_unavailable_error_response_body import (
+        ReportsGetReportConfigsServiceUnavailableErrorResponseBody,
+    )
+    from .reports_get_report_configs_too_many_requests_error_response_body import (
+        ReportsGetReportConfigsTooManyRequestsErrorResponseBody,
+    )
+    from .reports_get_report_configs_unauthorized_error_response_body import (
+        ReportsGetReportConfigsUnauthorizedErrorResponseBody,
+    )
+    from .reports_get_report_run_data_bad_gateway_error_response_body import (
+        ReportsGetReportRunDataBadGatewayErrorResponseBody,
+    )
+    from .reports_get_report_run_data_gateway_timeout_error_response_body import (
+        ReportsGetReportRunDataGatewayTimeoutErrorResponseBody,
+    )
+    from .reports_get_report_run_data_internal_server_error_response_body import (
+        ReportsGetReportRunDataInternalServerErrorResponseBody,
+    )
+    from .reports_get_report_run_data_method_not_allowed_error_response_body import (
+        ReportsGetReportRunDataMethodNotAllowedErrorResponseBody,
+    )
+    from .reports_get_report_run_data_not_found_error_response_body import (
+        ReportsGetReportRunDataNotFoundErrorResponseBody,
+    )
+    from .reports_get_report_run_data_not_implemented_error_response_body import (
+        ReportsGetReportRunDataNotImplementedErrorResponseBody,
+    )
+    from .reports_get_report_run_data_response_body import ReportsGetReportRunDataResponseBody
+    from .reports_get_report_run_data_service_unavailable_error_response_body import (
+        ReportsGetReportRunDataServiceUnavailableErrorResponseBody,
+    )
+    from .reports_get_report_run_data_too_many_requests_error_response_body import (
+        ReportsGetReportRunDataTooManyRequestsErrorResponseBody,
+    )
+    from .reports_get_report_run_data_unauthorized_error_response_body import (
+        ReportsGetReportRunDataUnauthorizedErrorResponseBody,
+    )
+    from .reports_get_report_runs_bad_gateway_error_response_body import ReportsGetReportRunsBadGatewayErrorResponseBody
+    from .reports_get_report_runs_gateway_timeout_error_response_body import (
+        ReportsGetReportRunsGatewayTimeoutErrorResponseBody,
+    )
+    from .reports_get_report_runs_internal_server_error_response_body import (
+        ReportsGetReportRunsInternalServerErrorResponseBody,
+    )
+    from .reports_get_report_runs_method_not_allowed_error_response_body import (
+        ReportsGetReportRunsMethodNotAllowedErrorResponseBody,
+    )
+    from .reports_get_report_runs_not_found_error_response_body import ReportsGetReportRunsNotFoundErrorResponseBody
+    from .reports_get_report_runs_not_implemented_error_response_body import (
+        ReportsGetReportRunsNotImplementedErrorResponseBody,
+    )
+    from .reports_get_report_runs_response_body import ReportsGetReportRunsResponseBody
+    from .reports_get_report_runs_service_unavailable_error_response_body import (
+        ReportsGetReportRunsServiceUnavailableErrorResponseBody,
+    )
+    from .reports_get_report_runs_too_many_requests_error_response_body import (
+        ReportsGetReportRunsTooManyRequestsErrorResponseBody,
+    )
+    from .reports_get_report_runs_unauthorized_error_response_body import (
+        ReportsGetReportRunsUnauthorizedErrorResponseBody,
+    )
     from .resolved_by import ResolvedBy
     from .resolved_by_type import ResolvedByType
     from .reverse_geo import ReverseGeo
@@ -3933,6 +4186,26 @@ if typing.TYPE_CHECKING:
     from .routes_single_use_address_object_response_body import RoutesSingleUseAddressObjectResponseBody
     from .routes_stop_response_object_response_body import RoutesStopResponseObjectResponseBody
     from .routes_stop_response_object_response_body_state import RoutesStopResponseObjectResponseBodyState
+    from .safety_behavior_trigger_details_object_request_body import SafetyBehaviorTriggerDetailsObjectRequestBody
+    from .safety_behavior_trigger_details_object_request_body_behaviors_item import (
+        SafetyBehaviorTriggerDetailsObjectRequestBodyBehaviorsItem,
+    )
+    from .safety_behavior_trigger_details_object_request_body_severities_item import (
+        SafetyBehaviorTriggerDetailsObjectRequestBodySeveritiesItem,
+    )
+    from .safety_behavior_trigger_details_object_request_body_statuses_item import (
+        SafetyBehaviorTriggerDetailsObjectRequestBodyStatusesItem,
+    )
+    from .safety_behavior_trigger_details_object_response_body import SafetyBehaviorTriggerDetailsObjectResponseBody
+    from .safety_behavior_trigger_details_object_response_body_behaviors_item import (
+        SafetyBehaviorTriggerDetailsObjectResponseBodyBehaviorsItem,
+    )
+    from .safety_behavior_trigger_details_object_response_body_severities_item import (
+        SafetyBehaviorTriggerDetailsObjectResponseBodySeveritiesItem,
+    )
+    from .safety_behavior_trigger_details_object_response_body_statuses_item import (
+        SafetyBehaviorTriggerDetailsObjectResponseBodyStatusesItem,
+    )
     from .safety_event import SafetyEvent
     from .safety_event_activity_feed_item_response_body import SafetyEventActivityFeedItemResponseBody
     from .safety_event_activity_feed_item_response_body_type import SafetyEventActivityFeedItemResponseBodyType
@@ -3949,12 +4222,11 @@ if typing.TYPE_CHECKING:
     from .safety_event_download_forward_video_url import SafetyEventDownloadForwardVideoUrl
     from .safety_event_download_inward_video_url import SafetyEventDownloadInwardVideoUrl
     from .safety_event_download_tracked_inward_video_url import SafetyEventDownloadTrackedInwardVideoUrl
-    from .safety_event_driver import SafetyEventDriver
     from .safety_event_driver_object_response_body import SafetyEventDriverObjectResponseBody
     from .safety_event_id import SafetyEventId
-    from .safety_event_location import SafetyEventLocation
     from .safety_event_max_acceleration_g_force import SafetyEventMaxAccelerationGForce
     from .safety_event_object_response_body import SafetyEventObjectResponseBody
+    from .safety_event_speeding_metadata_response_body import SafetyEventSpeedingMetadataResponseBody
     from .safety_event_time import SafetyEventTime
     from .safety_event_v_2_asset_object_response_body import SafetyEventV2AssetObjectResponseBody
     from .safety_event_v_2_asset_object_response_body_type import SafetyEventV2AssetObjectResponseBodyType
@@ -3963,9 +4235,11 @@ if typing.TYPE_CHECKING:
     from .safety_event_v_2_behavior_labels_response_body_source import SafetyEventV2BehaviorLabelsResponseBodySource
     from .safety_event_v_2_context_labels_response_body import SafetyEventV2ContextLabelsResponseBody
     from .safety_event_v_2_driver_object_response_body import SafetyEventV2DriverObjectResponseBody
+    from .safety_event_v_2_media_response_body import SafetyEventV2MediaResponseBody
+    from .safety_event_v_2_media_response_body_camera_role import SafetyEventV2MediaResponseBodyCameraRole
+    from .safety_event_v_2_media_response_body_input import SafetyEventV2MediaResponseBodyInput
     from .safety_event_v_2_object_response_body import SafetyEventV2ObjectResponseBody
     from .safety_event_v_2_object_response_body_event_state import SafetyEventV2ObjectResponseBodyEventState
-    from .safety_event_vehicle import SafetyEventVehicle
     from .safety_event_vehicle_object_response_body import SafetyEventVehicleObjectResponseBody
     from .safety_events_get_safety_activity_event_feed_bad_gateway_error_response_body import (
         SafetyEventsGetSafetyActivityEventFeedBadGatewayErrorResponseBody,
@@ -4063,6 +4337,10 @@ if typing.TYPE_CHECKING:
     from .safety_score_configuration_settings_object_response_body import (
         SafetyScoreConfigurationSettingsObjectResponseBody,
     )
+    from .safety_score_details_request_body import SafetyScoreDetailsRequestBody
+    from .safety_score_details_request_body_comparison import SafetyScoreDetailsRequestBodyComparison
+    from .safety_score_details_response_body import SafetyScoreDetailsResponseBody
+    from .safety_score_details_response_body_comparison import SafetyScoreDetailsResponseBodyComparison
     from .safety_score_speeding_object_response_body import SafetyScoreSpeedingObjectResponseBody
     from .safety_score_speeding_object_response_body_speeding_type import (
         SafetyScoreSpeedingObjectResponseBodySpeedingType,
@@ -5215,10 +5493,8 @@ if typing.TYPE_CHECKING:
     from .unassigned_driving_trigger_details_object_response_body import (
         UnassignedDrivingTriggerDetailsObjectResponseBody,
     )
-    from .unit_response_body import UnitResponseBody
-    from .unit_response_body_base_unit import UnitResponseBodyBaseUnit
-    from .unit_response_body_measurement_type import UnitResponseBodyMeasurementType
     from .update_address_request_geofence import UpdateAddressRequestGeofence
+    from .update_driver_request_attributes import UpdateDriverRequestAttributes
     from .update_driver_request_hos_setting import UpdateDriverRequestHosSetting
     from .update_engine_immobilizer_relay_state_request_body_request_body import (
         UpdateEngineImmobilizerRelayStateRequestBodyRequestBody,
@@ -5397,19 +5673,6 @@ if typing.TYPE_CHECKING:
     )
     from .vehicle_aux_input_name import VehicleAuxInputName
     from .vehicle_aux_input_type import VehicleAuxInputType
-    from .vehicle_aux_input_type_1 import VehicleAuxInputType1
-    from .vehicle_aux_input_type_10 import VehicleAuxInputType10
-    from .vehicle_aux_input_type_11 import VehicleAuxInputType11
-    from .vehicle_aux_input_type_12 import VehicleAuxInputType12
-    from .vehicle_aux_input_type_13 import VehicleAuxInputType13
-    from .vehicle_aux_input_type_2 import VehicleAuxInputType2
-    from .vehicle_aux_input_type_3 import VehicleAuxInputType3
-    from .vehicle_aux_input_type_4 import VehicleAuxInputType4
-    from .vehicle_aux_input_type_5 import VehicleAuxInputType5
-    from .vehicle_aux_input_type_6 import VehicleAuxInputType6
-    from .vehicle_aux_input_type_7 import VehicleAuxInputType7
-    from .vehicle_aux_input_type_8 import VehicleAuxInputType8
-    from .vehicle_aux_input_type_9 import VehicleAuxInputType9
     from .vehicle_batter_voltage_details_object_request_body import VehicleBatterVoltageDetailsObjectRequestBody
     from .vehicle_batter_voltage_details_object_request_body_operation import (
         VehicleBatterVoltageDetailsObjectRequestBodyOperation,
@@ -5436,9 +5699,7 @@ if typing.TYPE_CHECKING:
     from .vehicle_location_is_ecu_speed import VehicleLocationIsEcuSpeed
     from .vehicle_location_latitude import VehicleLocationLatitude
     from .vehicle_location_longitude import VehicleLocationLongitude
-    from .vehicle_location_reverse_geo import VehicleLocationReverseGeo
     from .vehicle_location_speed import VehicleLocationSpeed
-    from .vehicle_location_time import VehicleLocationTime
     from .vehicle_locations_list_response import VehicleLocationsListResponse
     from .vehicle_locations_list_response_data import VehicleLocationsListResponseData
     from .vehicle_locations_response import VehicleLocationsResponse
@@ -5471,7 +5732,6 @@ if typing.TYPE_CHECKING:
         VehicleSensorConfigurationDoorResponseBodyPosition,
     )
     from .vehicle_sensor_configuration_response_body import VehicleSensorConfigurationResponseBody
-    from .vehicle_static_assigned_driver import VehicleStaticAssignedDriver
     from .vehicle_stats_ambient_air_temp_milli_c import VehicleStatsAmbientAirTempMilliC
     from .vehicle_stats_ambient_air_temp_milli_c_value import VehicleStatsAmbientAirTempMilliCValue
     from .vehicle_stats_ambient_air_temp_milli_c_with_decoration import VehicleStatsAmbientAirTempMilliCWithDecoration
@@ -5731,7 +5991,6 @@ if typing.TYPE_CHECKING:
     from .vehicle_stats_spreader_road_temp import VehicleStatsSpreaderRoadTemp
     from .vehicle_stats_synthetic_engine_seconds import VehicleStatsSyntheticEngineSeconds
     from .vehicle_stats_synthetic_engine_seconds_value import VehicleStatsSyntheticEngineSecondsValue
-    from .vehicle_stats_time import VehicleStatsTime
     from .vehicle_stats_tire_pressures import VehicleStatsTirePressures
     from .vehicle_summary import VehicleSummary
     from .vehicle_tags import VehicleTags
@@ -6008,7 +6267,6 @@ if typing.TYPE_CHECKING:
     from .work_order_money_object_response_body import WorkOrderMoneyObjectResponseBody
     from .work_order_money_object_response_body_currency import WorkOrderMoneyObjectResponseBodyCurrency
     from .work_order_object_response_body import WorkOrderObjectResponseBody
-    from .work_order_object_response_body_category import WorkOrderObjectResponseBodyCategory
     from .work_order_object_response_body_priority import WorkOrderObjectResponseBodyPriority
     from .work_order_object_response_body_status import WorkOrderObjectResponseBodyStatus
     from .work_order_tax_create_object_request_body import WorkOrderTaxCreateObjectRequestBody
@@ -6125,6 +6383,34 @@ if typing.TYPE_CHECKING:
     from .work_orders_patch_work_orders_unauthorized_error_response_body import (
         WorkOrdersPatchWorkOrdersUnauthorizedErrorResponseBody,
     )
+    from .work_orders_post_invoice_scan_bad_gateway_error_response_body import (
+        WorkOrdersPostInvoiceScanBadGatewayErrorResponseBody,
+    )
+    from .work_orders_post_invoice_scan_gateway_timeout_error_response_body import (
+        WorkOrdersPostInvoiceScanGatewayTimeoutErrorResponseBody,
+    )
+    from .work_orders_post_invoice_scan_internal_server_error_response_body import (
+        WorkOrdersPostInvoiceScanInternalServerErrorResponseBody,
+    )
+    from .work_orders_post_invoice_scan_method_not_allowed_error_response_body import (
+        WorkOrdersPostInvoiceScanMethodNotAllowedErrorResponseBody,
+    )
+    from .work_orders_post_invoice_scan_not_found_error_response_body import (
+        WorkOrdersPostInvoiceScanNotFoundErrorResponseBody,
+    )
+    from .work_orders_post_invoice_scan_not_implemented_error_response_body import (
+        WorkOrdersPostInvoiceScanNotImplementedErrorResponseBody,
+    )
+    from .work_orders_post_invoice_scan_response_body import WorkOrdersPostInvoiceScanResponseBody
+    from .work_orders_post_invoice_scan_service_unavailable_error_response_body import (
+        WorkOrdersPostInvoiceScanServiceUnavailableErrorResponseBody,
+    )
+    from .work_orders_post_invoice_scan_too_many_requests_error_response_body import (
+        WorkOrdersPostInvoiceScanTooManyRequestsErrorResponseBody,
+    )
+    from .work_orders_post_invoice_scan_unauthorized_error_response_body import (
+        WorkOrdersPostInvoiceScanUnauthorizedErrorResponseBody,
+    )
     from .work_orders_post_work_orders_bad_gateway_error_response_body import (
         WorkOrdersPostWorkOrdersBadGatewayErrorResponseBody,
     )
@@ -6181,6 +6467,8 @@ if typing.TYPE_CHECKING:
     from .work_orders_stream_work_orders_unauthorized_error_response_body import (
         WorkOrdersStreamWorkOrdersUnauthorizedErrorResponseBody,
     )
+    from .worker_safety_sos_data_response_body import WorkerSafetySosDataResponseBody
+    from .worker_safety_sos_data_response_body_source_type import WorkerSafetySosDataResponseBodySourceType
     from .workflow_address_event_with_geofence_object_response_body import (
         WorkflowAddressEventWithGeofenceObjectResponseBody,
     )
@@ -6404,11 +6692,26 @@ _dynamic_imports: typing.Dict[str, str] = {
     "AttributeTiny": ".attribute_tiny",
     "AttributeUnit": ".attribute_unit",
     "AttributeValueTiny": ".attribute_value_tiny",
+    "AuthTokenAuthTokenBadGatewayErrorResponseBody": ".auth_token_auth_token_bad_gateway_error_response_body",
+    "AuthTokenAuthTokenGatewayTimeoutErrorResponseBody": ".auth_token_auth_token_gateway_timeout_error_response_body",
+    "AuthTokenAuthTokenInternalServerErrorResponseBody": ".auth_token_auth_token_internal_server_error_response_body",
+    "AuthTokenAuthTokenMethodNotAllowedErrorResponseBody": ".auth_token_auth_token_method_not_allowed_error_response_body",
+    "AuthTokenAuthTokenNotFoundErrorResponseBody": ".auth_token_auth_token_not_found_error_response_body",
+    "AuthTokenAuthTokenNotImplementedErrorResponseBody": ".auth_token_auth_token_not_implemented_error_response_body",
+    "AuthTokenAuthTokenResponseBody": ".auth_token_auth_token_response_body",
+    "AuthTokenAuthTokenServiceUnavailableErrorResponseBody": ".auth_token_auth_token_service_unavailable_error_response_body",
+    "AuthTokenAuthTokenTooManyRequestsErrorResponseBody": ".auth_token_auth_token_too_many_requests_error_response_body",
+    "AuthTokenAuthTokenUnauthorizedErrorResponseBody": ".auth_token_auth_token_unauthorized_error_response_body",
+    "AuthTokenForDriverResponseResponseBody": ".auth_token_for_driver_response_response_body",
     "AuthorSignatureObjectResponseBody": ".author_signature_object_response_body",
     "AuthorSignatureObjectResponseBodyType": ".author_signature_object_response_body_type",
     "BarcodeValueObjectRequestBody": ".barcode_value_object_request_body",
     "BarcodeValueObjectResponseBody": ".barcode_value_object_response_body",
     "BaseRouteResponseObjectResponseBody": ".base_route_response_object_response_body",
+    "BehaviorCountDetailsRequestBody": ".behavior_count_details_request_body",
+    "BehaviorCountDetailsRequestBodyComparison": ".behavior_count_details_request_body_comparison",
+    "BehaviorCountDetailsResponseBody": ".behavior_count_details_response_body",
+    "BehaviorCountDetailsResponseBodyComparison": ".behavior_count_details_response_body_comparison",
     "BehaviorResponseBody": ".behavior_response_body",
     "BehaviorResponseBodyCoachableBehaviorType": ".behavior_response_body_coachable_behavior_type",
     "CameraConnectorDisconectedResponseBody": ".camera_connector_disconected_response_body",
@@ -6454,6 +6757,9 @@ _dynamic_imports: typing.Dict[str, str] = {
     "CoachingSessionsResponseResponseBodyCoachingType": ".coaching_sessions_response_response_body_coaching_type",
     "CoachingSessionsResponseResponseBodySessionStatus": ".coaching_sessions_response_response_body_session_status",
     "CoastingDurationMs": ".coasting_duration_ms",
+    "ColumnResponseBody": ".column_response_body",
+    "ColumnResponseBodyDataType": ".column_response_body_data_type",
+    "ColumnResponseBodyUnit": ".column_response_body_unit",
     "ConditionalFieldSectionObjectResponseBody": ".conditional_field_section_object_response_body",
     "ConnectionStatusResponseObjectResponseBody": ".connection_status_response_object_response_body",
     "ConnectionStatusResponseObjectResponseBodyHealthStatus": ".connection_status_response_object_response_body_health_status",
@@ -6473,6 +6779,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "CreateAttributeRequestEntities": ".create_attribute_request_entities",
     "CreateDriverAuthTokenResponseResponseBody": ".create_driver_auth_token_response_response_body",
     "CreateDriverRequestAttributes": ".create_driver_request_attributes",
+    "CreateReportConfigColumnRequestBody": ".create_report_config_column_request_body",
+    "CreateReportConfigObjectRequestBody": ".create_report_config_object_request_body",
     "CreateRoutesStopRequestObjectRequestBody": ".create_routes_stop_request_object_request_body",
     "CreateUserRequestRoles": ".create_user_request_roles",
     "CruiseControlDurationMs": ".cruise_control_duration_ms",
@@ -6513,6 +6821,20 @@ _dynamic_imports: typing.Dict[str, str] = {
     "DefectVehicleResponseResponseBody": ".defect_vehicle_response_response_body",
     "DefectsResponse": ".defects_response",
     "DefectsResponseDataResponseBody": ".defects_response_data_response_body",
+    "DepreciationGetDepreciationTransactionsBadGatewayErrorResponseBody": ".depreciation_get_depreciation_transactions_bad_gateway_error_response_body",
+    "DepreciationGetDepreciationTransactionsGatewayTimeoutErrorResponseBody": ".depreciation_get_depreciation_transactions_gateway_timeout_error_response_body",
+    "DepreciationGetDepreciationTransactionsInternalServerErrorResponseBody": ".depreciation_get_depreciation_transactions_internal_server_error_response_body",
+    "DepreciationGetDepreciationTransactionsMethodNotAllowedErrorResponseBody": ".depreciation_get_depreciation_transactions_method_not_allowed_error_response_body",
+    "DepreciationGetDepreciationTransactionsNotFoundErrorResponseBody": ".depreciation_get_depreciation_transactions_not_found_error_response_body",
+    "DepreciationGetDepreciationTransactionsNotImplementedErrorResponseBody": ".depreciation_get_depreciation_transactions_not_implemented_error_response_body",
+    "DepreciationGetDepreciationTransactionsResponseBody": ".depreciation_get_depreciation_transactions_response_body",
+    "DepreciationGetDepreciationTransactionsServiceUnavailableErrorResponseBody": ".depreciation_get_depreciation_transactions_service_unavailable_error_response_body",
+    "DepreciationGetDepreciationTransactionsTooManyRequestsErrorResponseBody": ".depreciation_get_depreciation_transactions_too_many_requests_error_response_body",
+    "DepreciationGetDepreciationTransactionsUnauthorizedErrorResponseBody": ".depreciation_get_depreciation_transactions_unauthorized_error_response_body",
+    "DepreciationTransactionMoneyObjectResponseBody": ".depreciation_transaction_money_object_response_body",
+    "DepreciationTransactionMoneyObjectResponseBodyCurrency": ".depreciation_transaction_money_object_response_body_currency",
+    "DepreciationTransactionObjectResponseBody": ".depreciation_transaction_object_response_body",
+    "DepreciationTransactionObjectResponseBodyTransactionType": ".depreciation_transaction_object_response_body_transaction_type",
     "DetectionLogAssetObjectResponseBody": ".detection_log_asset_object_response_body",
     "DetectionLogDetectionObjectResponseBody": ".detection_log_detection_object_response_body",
     "DetectionLogDetectionObjectResponseBodyTriggerDetectionLabel": ".detection_log_detection_object_response_body_trigger_detection_label",
@@ -6707,6 +7029,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "DriverName": ".driver_name",
     "DriverNotes": ".driver_notes",
     "DriverObjectResponseBody": ".driver_object_response_body",
+    "DriverOrTagIdsDetailsRequestBody": ".driver_or_tag_ids_details_request_body",
+    "DriverOrTagIdsDetailsResponseBody": ".driver_or_tag_ids_details_response_body",
     "DriverPhone": ".driver_phone",
     "DriverProfileImageBase64": ".driver_profile_image_base_64",
     "DriverProfileImageUrl": ".driver_profile_image_url",
@@ -7009,6 +7333,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "FieldObjectValueResponseBody": ".field_object_value_response_body",
     "FieldTypesObjectResponseBody": ".field_types_object_response_body",
     "FieldTypesObjectResponseBodyFieldType": ".field_types_object_response_body_field_type",
+    "FiltersRequestBody": ".filters_request_body",
+    "FiltersResponseBody": ".filters_response_body",
     "FleetDeviceObjectResponseBody": ".fleet_device_object_response_body",
     "FollowingDistanceDetectionAlertSettingsObjectResponseBody": ".following_distance_detection_alert_settings_object_response_body",
     "FormSubmissionPdfExportResponseObjectResponseBody": ".form_submission_pdf_export_response_object_response_body",
@@ -7277,6 +7603,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "GetDocumentTypeResponseObjectResponseBody": ".get_document_type_response_object_response_body",
     "GetDriverTrailerAssignmentsResponseBodyResponseBody": ".get_driver_trailer_assignments_response_body_response_body",
     "GetMediaRetrievalObjectResponseBody": ".get_media_retrieval_object_response_body",
+    "GetReportRunsDataObjectResponseBody": ".get_report_runs_data_object_response_body",
+    "GetReportRunsDataObjectResponseBodyStatus": ".get_report_runs_data_object_response_body_status",
     "GetResponseWorkflowConfigurationObjectResponseBody": ".get_response_workflow_configuration_object_response_body",
     "GetWorkflowIncidentResponseObjectResponseBody": ".get_workflow_incident_response_object_response_body",
     "GoaAddressTinyResponseResponseBody": ".goa_address_tiny_response_response_body",
@@ -7417,6 +7745,17 @@ _dynamic_imports: typing.Dict[str, str] = {
     "HubCapacitiesListHubCapacitiesTooManyRequestsErrorResponseBody": ".hub_capacities_list_hub_capacities_too_many_requests_error_response_body",
     "HubCapacitiesListHubCapacitiesUnauthorizedErrorResponseBody": ".hub_capacities_list_hub_capacities_unauthorized_error_response_body",
     "HubCapacityObjectResponseBody": ".hub_capacity_object_response_body",
+    "HubCustomPropertiesListHubCustomPropertiesBadGatewayErrorResponseBody": ".hub_custom_properties_list_hub_custom_properties_bad_gateway_error_response_body",
+    "HubCustomPropertiesListHubCustomPropertiesGatewayTimeoutErrorResponseBody": ".hub_custom_properties_list_hub_custom_properties_gateway_timeout_error_response_body",
+    "HubCustomPropertiesListHubCustomPropertiesInternalServerErrorResponseBody": ".hub_custom_properties_list_hub_custom_properties_internal_server_error_response_body",
+    "HubCustomPropertiesListHubCustomPropertiesMethodNotAllowedErrorResponseBody": ".hub_custom_properties_list_hub_custom_properties_method_not_allowed_error_response_body",
+    "HubCustomPropertiesListHubCustomPropertiesNotFoundErrorResponseBody": ".hub_custom_properties_list_hub_custom_properties_not_found_error_response_body",
+    "HubCustomPropertiesListHubCustomPropertiesNotImplementedErrorResponseBody": ".hub_custom_properties_list_hub_custom_properties_not_implemented_error_response_body",
+    "HubCustomPropertiesListHubCustomPropertiesResponseBody": ".hub_custom_properties_list_hub_custom_properties_response_body",
+    "HubCustomPropertiesListHubCustomPropertiesServiceUnavailableErrorResponseBody": ".hub_custom_properties_list_hub_custom_properties_service_unavailable_error_response_body",
+    "HubCustomPropertiesListHubCustomPropertiesTooManyRequestsErrorResponseBody": ".hub_custom_properties_list_hub_custom_properties_too_many_requests_error_response_body",
+    "HubCustomPropertiesListHubCustomPropertiesUnauthorizedErrorResponseBody": ".hub_custom_properties_list_hub_custom_properties_unauthorized_error_response_body",
+    "HubCustomPropertyObjectResponseBody": ".hub_custom_property_object_response_body",
     "HubLocationCreatedObjectResponseBody": ".hub_location_created_object_response_body",
     "HubLocationInputObjectRequestBody": ".hub_location_input_object_request_body",
     "HubLocationObjectResponseBody": ".hub_location_object_response_body",
@@ -7591,6 +7930,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "InsideGeofenceDataResponseBody": ".inside_geofence_data_response_body",
     "InsideGeofenceTriggerDetailsObjectRequestBody": ".inside_geofence_trigger_details_object_request_body",
     "InsideGeofenceTriggerDetailsObjectResponseBody": ".inside_geofence_trigger_details_object_response_body",
+    "InvoiceScanFileRequestBody": ".invoice_scan_file_request_body",
     "IssueCreatedResponseBody": ".issue_created_response_body",
     "IssueResponseObjectResponseBody": ".issue_response_object_response_body",
     "IssueResponseObjectResponseBodyPriority": ".issue_response_object_response_body_priority",
@@ -7680,6 +8020,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "ListContactsResponse": ".list_contacts_response",
     "ListDriversResponse": ".list_drivers_response",
     "ListHubCapacitiesResponsePaginationResponseBody": ".list_hub_capacities_response_pagination_response_body",
+    "ListHubCustomPropertiesResponsePaginationResponseBody": ".list_hub_custom_properties_response_pagination_response_body",
     "ListHubLocationsResponsePaginationResponseBody": ".list_hub_locations_response_pagination_response_body",
     "ListHubPlanRoutesResponsePaginationResponseBody": ".list_hub_plan_routes_response_pagination_response_body",
     "ListHubPlansResponsePaginationResponseBody": ".list_hub_plans_response_pagination_response_body",
@@ -7807,10 +8148,13 @@ _dynamic_imports: typing.Dict[str, str] = {
     "OperationalSettingsObjectRequestBodyTimeRangeType": ".operational_settings_object_request_body_time_range_type",
     "OperationalSettingsObjectResponseBody": ".operational_settings_object_response_body",
     "OperationalSettingsObjectResponseBodyTimeRangeType": ".operational_settings_object_response_body_time_range_type",
+    "OrderCustomPropertyInputRequestBody": ".order_custom_property_input_request_body",
+    "OrderCustomPropertyResponseBody": ".order_custom_property_response_body",
     "OrderInputObjectRequestBody": ".order_input_object_request_body",
     "OrderObjectResponseBody": ".order_object_response_body",
     "OrderQuantityInputRequestBody": ".order_quantity_input_request_body",
     "OrderQuantityResponseBody": ".order_quantity_response_body",
+    "OrderTaskCustomPropertyObjectResponseBody": ".order_task_custom_property_object_response_body",
     "OrderTaskObjectResponseBody": ".order_task_object_response_body",
     "OrderTaskRequestBody": ".order_task_request_body",
     "OrderTaskRequestBodyPosition": ".order_task_request_body_position",
@@ -7875,11 +8219,14 @@ _dynamic_imports: typing.Dict[str, str] = {
     "PostFuelPurchaseRequestBodyPriceRequestBody": ".post_fuel_purchase_request_body_price_request_body",
     "PostFuelPurchaseRequestBodyPriceRequestBodyCurrency": ".post_fuel_purchase_request_body_price_request_body_currency",
     "PostFuelPurchaseResponseBodyResponseBody": ".post_fuel_purchase_response_body_response_body",
+    "PostInvoiceScanResponseDataResponseBody": ".post_invoice_scan_response_data_response_body",
     "PostJobObjectRequestBody": ".post_job_object_request_body",
     "PostJobObjectjobLocationRequestObjectRequestBody": ".post_job_objectjob_location_request_object_request_body",
     "PostMediaRetrievalObjectResponseBody": ".post_media_retrieval_object_response_body",
     "PostResponseResWorkflowConfigurationObjectResponseBody": ".post_response_res_workflow_configuration_object_response_body",
     "PowerTakeOffDurationMs": ".power_take_off_duration_ms",
+    "PrimaryTimeRangeRequestBody": ".primary_time_range_request_body",
+    "PrimaryTimeRangeResponseBody": ".primary_time_range_response_body",
     "PushNotificationOptionsObjectRequestBody": ".push_notification_options_object_request_body",
     "PushNotificationOptionsObjectResponseBody": ".push_notification_options_object_response_body",
     "QrCodeResponseObjectResponseBody": ".qr_code_response_object_response_body",
@@ -7991,8 +8338,6 @@ _dynamic_imports: typing.Dict[str, str] = {
     "ReadingTriggerDetailsResponseBody": ".reading_trigger_details_response_body",
     "ReadingTriggerEnumValueObjectRequestBody": ".reading_trigger_enum_value_object_request_body",
     "ReadingTriggerEnumValueObjectResponseBody": ".reading_trigger_enum_value_object_response_body",
-    "ReadingTypeResponseBody": ".reading_type_response_body",
-    "ReadingTypeResponseBodyDataType": ".reading_type_response_body_data_type",
     "ReadingsGetReadingsHistoryBadGatewayErrorResponseBody": ".readings_get_readings_history_bad_gateway_error_response_body",
     "ReadingsGetReadingsHistoryGatewayTimeoutErrorResponseBody": ".readings_get_readings_history_gateway_timeout_error_response_body",
     "ReadingsGetReadingsHistoryInternalServerErrorResponseBody": ".readings_get_readings_history_internal_server_error_response_body",
@@ -8039,6 +8384,66 @@ _dynamic_imports: typing.Dict[str, str] = {
     "RecipientObjectResponseBodyNotificationTypesItem": ".recipient_object_response_body_notification_types_item",
     "RecipientObjectResponseBodyType": ".recipient_object_response_body_type",
     "ReeferTemperatureResponseBody": ".reefer_temperature_response_body",
+    "ReportColumnsObjectResponseBody": ".report_columns_object_response_body",
+    "ReportColumnsObjectResponseBodyDataType": ".report_columns_object_response_body_data_type",
+    "ReportColumnsObjectResponseBodyUnit": ".report_columns_object_response_body_unit",
+    "ReportConfigObjectResponseBody": ".report_config_object_response_body",
+    "ReportRunObjectResponseBody": ".report_run_object_response_body",
+    "ReportRunObjectResponseBodyStatus": ".report_run_object_response_body_status",
+    "ReportsCreateReportRunBadGatewayErrorResponseBody": ".reports_create_report_run_bad_gateway_error_response_body",
+    "ReportsCreateReportRunGatewayTimeoutErrorResponseBody": ".reports_create_report_run_gateway_timeout_error_response_body",
+    "ReportsCreateReportRunInternalServerErrorResponseBody": ".reports_create_report_run_internal_server_error_response_body",
+    "ReportsCreateReportRunMethodNotAllowedErrorResponseBody": ".reports_create_report_run_method_not_allowed_error_response_body",
+    "ReportsCreateReportRunNotFoundErrorResponseBody": ".reports_create_report_run_not_found_error_response_body",
+    "ReportsCreateReportRunNotImplementedErrorResponseBody": ".reports_create_report_run_not_implemented_error_response_body",
+    "ReportsCreateReportRunResponseBody": ".reports_create_report_run_response_body",
+    "ReportsCreateReportRunServiceUnavailableErrorResponseBody": ".reports_create_report_run_service_unavailable_error_response_body",
+    "ReportsCreateReportRunTooManyRequestsErrorResponseBody": ".reports_create_report_run_too_many_requests_error_response_body",
+    "ReportsCreateReportRunUnauthorizedErrorResponseBody": ".reports_create_report_run_unauthorized_error_response_body",
+    "ReportsDatasetFieldResponseBody": ".reports_dataset_field_response_body",
+    "ReportsDatasetFieldResponseBodyDataType": ".reports_dataset_field_response_body_data_type",
+    "ReportsDatasetFieldResponseBodyUnit": ".reports_dataset_field_response_body_unit",
+    "ReportsDatasetResponseBody": ".reports_dataset_response_body",
+    "ReportsGetDatasetsBadGatewayErrorResponseBody": ".reports_get_datasets_bad_gateway_error_response_body",
+    "ReportsGetDatasetsGatewayTimeoutErrorResponseBody": ".reports_get_datasets_gateway_timeout_error_response_body",
+    "ReportsGetDatasetsInternalServerErrorResponseBody": ".reports_get_datasets_internal_server_error_response_body",
+    "ReportsGetDatasetsMethodNotAllowedErrorResponseBody": ".reports_get_datasets_method_not_allowed_error_response_body",
+    "ReportsGetDatasetsNotFoundErrorResponseBody": ".reports_get_datasets_not_found_error_response_body",
+    "ReportsGetDatasetsNotImplementedErrorResponseBody": ".reports_get_datasets_not_implemented_error_response_body",
+    "ReportsGetDatasetsResponseBody": ".reports_get_datasets_response_body",
+    "ReportsGetDatasetsServiceUnavailableErrorResponseBody": ".reports_get_datasets_service_unavailable_error_response_body",
+    "ReportsGetDatasetsTooManyRequestsErrorResponseBody": ".reports_get_datasets_too_many_requests_error_response_body",
+    "ReportsGetDatasetsUnauthorizedErrorResponseBody": ".reports_get_datasets_unauthorized_error_response_body",
+    "ReportsGetReportConfigsBadGatewayErrorResponseBody": ".reports_get_report_configs_bad_gateway_error_response_body",
+    "ReportsGetReportConfigsGatewayTimeoutErrorResponseBody": ".reports_get_report_configs_gateway_timeout_error_response_body",
+    "ReportsGetReportConfigsInternalServerErrorResponseBody": ".reports_get_report_configs_internal_server_error_response_body",
+    "ReportsGetReportConfigsMethodNotAllowedErrorResponseBody": ".reports_get_report_configs_method_not_allowed_error_response_body",
+    "ReportsGetReportConfigsNotFoundErrorResponseBody": ".reports_get_report_configs_not_found_error_response_body",
+    "ReportsGetReportConfigsNotImplementedErrorResponseBody": ".reports_get_report_configs_not_implemented_error_response_body",
+    "ReportsGetReportConfigsResponseBody": ".reports_get_report_configs_response_body",
+    "ReportsGetReportConfigsServiceUnavailableErrorResponseBody": ".reports_get_report_configs_service_unavailable_error_response_body",
+    "ReportsGetReportConfigsTooManyRequestsErrorResponseBody": ".reports_get_report_configs_too_many_requests_error_response_body",
+    "ReportsGetReportConfigsUnauthorizedErrorResponseBody": ".reports_get_report_configs_unauthorized_error_response_body",
+    "ReportsGetReportRunDataBadGatewayErrorResponseBody": ".reports_get_report_run_data_bad_gateway_error_response_body",
+    "ReportsGetReportRunDataGatewayTimeoutErrorResponseBody": ".reports_get_report_run_data_gateway_timeout_error_response_body",
+    "ReportsGetReportRunDataInternalServerErrorResponseBody": ".reports_get_report_run_data_internal_server_error_response_body",
+    "ReportsGetReportRunDataMethodNotAllowedErrorResponseBody": ".reports_get_report_run_data_method_not_allowed_error_response_body",
+    "ReportsGetReportRunDataNotFoundErrorResponseBody": ".reports_get_report_run_data_not_found_error_response_body",
+    "ReportsGetReportRunDataNotImplementedErrorResponseBody": ".reports_get_report_run_data_not_implemented_error_response_body",
+    "ReportsGetReportRunDataResponseBody": ".reports_get_report_run_data_response_body",
+    "ReportsGetReportRunDataServiceUnavailableErrorResponseBody": ".reports_get_report_run_data_service_unavailable_error_response_body",
+    "ReportsGetReportRunDataTooManyRequestsErrorResponseBody": ".reports_get_report_run_data_too_many_requests_error_response_body",
+    "ReportsGetReportRunDataUnauthorizedErrorResponseBody": ".reports_get_report_run_data_unauthorized_error_response_body",
+    "ReportsGetReportRunsBadGatewayErrorResponseBody": ".reports_get_report_runs_bad_gateway_error_response_body",
+    "ReportsGetReportRunsGatewayTimeoutErrorResponseBody": ".reports_get_report_runs_gateway_timeout_error_response_body",
+    "ReportsGetReportRunsInternalServerErrorResponseBody": ".reports_get_report_runs_internal_server_error_response_body",
+    "ReportsGetReportRunsMethodNotAllowedErrorResponseBody": ".reports_get_report_runs_method_not_allowed_error_response_body",
+    "ReportsGetReportRunsNotFoundErrorResponseBody": ".reports_get_report_runs_not_found_error_response_body",
+    "ReportsGetReportRunsNotImplementedErrorResponseBody": ".reports_get_report_runs_not_implemented_error_response_body",
+    "ReportsGetReportRunsResponseBody": ".reports_get_report_runs_response_body",
+    "ReportsGetReportRunsServiceUnavailableErrorResponseBody": ".reports_get_report_runs_service_unavailable_error_response_body",
+    "ReportsGetReportRunsTooManyRequestsErrorResponseBody": ".reports_get_report_runs_too_many_requests_error_response_body",
+    "ReportsGetReportRunsUnauthorizedErrorResponseBody": ".reports_get_report_runs_unauthorized_error_response_body",
     "ResolvedBy": ".resolved_by",
     "ResolvedByType": ".resolved_by_type",
     "ReverseGeo": ".reverse_geo",
@@ -8143,6 +8548,14 @@ _dynamic_imports: typing.Dict[str, str] = {
     "RoutesSingleUseAddressObjectResponseBody": ".routes_single_use_address_object_response_body",
     "RoutesStopResponseObjectResponseBody": ".routes_stop_response_object_response_body",
     "RoutesStopResponseObjectResponseBodyState": ".routes_stop_response_object_response_body_state",
+    "SafetyBehaviorTriggerDetailsObjectRequestBody": ".safety_behavior_trigger_details_object_request_body",
+    "SafetyBehaviorTriggerDetailsObjectRequestBodyBehaviorsItem": ".safety_behavior_trigger_details_object_request_body_behaviors_item",
+    "SafetyBehaviorTriggerDetailsObjectRequestBodySeveritiesItem": ".safety_behavior_trigger_details_object_request_body_severities_item",
+    "SafetyBehaviorTriggerDetailsObjectRequestBodyStatusesItem": ".safety_behavior_trigger_details_object_request_body_statuses_item",
+    "SafetyBehaviorTriggerDetailsObjectResponseBody": ".safety_behavior_trigger_details_object_response_body",
+    "SafetyBehaviorTriggerDetailsObjectResponseBodyBehaviorsItem": ".safety_behavior_trigger_details_object_response_body_behaviors_item",
+    "SafetyBehaviorTriggerDetailsObjectResponseBodySeveritiesItem": ".safety_behavior_trigger_details_object_response_body_severities_item",
+    "SafetyBehaviorTriggerDetailsObjectResponseBodyStatusesItem": ".safety_behavior_trigger_details_object_response_body_statuses_item",
     "SafetyEvent": ".safety_event",
     "SafetyEventActivityFeedItemResponseBody": ".safety_event_activity_feed_item_response_body",
     "SafetyEventActivityFeedItemResponseBodyType": ".safety_event_activity_feed_item_response_body_type",
@@ -8159,12 +8572,11 @@ _dynamic_imports: typing.Dict[str, str] = {
     "SafetyEventDownloadForwardVideoUrl": ".safety_event_download_forward_video_url",
     "SafetyEventDownloadInwardVideoUrl": ".safety_event_download_inward_video_url",
     "SafetyEventDownloadTrackedInwardVideoUrl": ".safety_event_download_tracked_inward_video_url",
-    "SafetyEventDriver": ".safety_event_driver",
     "SafetyEventDriverObjectResponseBody": ".safety_event_driver_object_response_body",
     "SafetyEventId": ".safety_event_id",
-    "SafetyEventLocation": ".safety_event_location",
     "SafetyEventMaxAccelerationGForce": ".safety_event_max_acceleration_g_force",
     "SafetyEventObjectResponseBody": ".safety_event_object_response_body",
+    "SafetyEventSpeedingMetadataResponseBody": ".safety_event_speeding_metadata_response_body",
     "SafetyEventTime": ".safety_event_time",
     "SafetyEventV2AssetObjectResponseBody": ".safety_event_v_2_asset_object_response_body",
     "SafetyEventV2AssetObjectResponseBodyType": ".safety_event_v_2_asset_object_response_body_type",
@@ -8173,9 +8585,11 @@ _dynamic_imports: typing.Dict[str, str] = {
     "SafetyEventV2BehaviorLabelsResponseBodySource": ".safety_event_v_2_behavior_labels_response_body_source",
     "SafetyEventV2ContextLabelsResponseBody": ".safety_event_v_2_context_labels_response_body",
     "SafetyEventV2DriverObjectResponseBody": ".safety_event_v_2_driver_object_response_body",
+    "SafetyEventV2MediaResponseBody": ".safety_event_v_2_media_response_body",
+    "SafetyEventV2MediaResponseBodyCameraRole": ".safety_event_v_2_media_response_body_camera_role",
+    "SafetyEventV2MediaResponseBodyInput": ".safety_event_v_2_media_response_body_input",
     "SafetyEventV2ObjectResponseBody": ".safety_event_v_2_object_response_body",
     "SafetyEventV2ObjectResponseBodyEventState": ".safety_event_v_2_object_response_body_event_state",
-    "SafetyEventVehicle": ".safety_event_vehicle",
     "SafetyEventVehicleObjectResponseBody": ".safety_event_vehicle_object_response_body",
     "SafetyEventsGetSafetyActivityEventFeedBadGatewayErrorResponseBody": ".safety_events_get_safety_activity_event_feed_bad_gateway_error_response_body",
     "SafetyEventsGetSafetyActivityEventFeedGatewayTimeoutErrorResponseBody": ".safety_events_get_safety_activity_event_feed_gateway_timeout_error_response_body",
@@ -8211,6 +8625,10 @@ _dynamic_imports: typing.Dict[str, str] = {
     "SafetyScoreBehaviorObjectResponseBody": ".safety_score_behavior_object_response_body",
     "SafetyScoreBehaviorObjectResponseBodyBehaviorType": ".safety_score_behavior_object_response_body_behavior_type",
     "SafetyScoreConfigurationSettingsObjectResponseBody": ".safety_score_configuration_settings_object_response_body",
+    "SafetyScoreDetailsRequestBody": ".safety_score_details_request_body",
+    "SafetyScoreDetailsRequestBodyComparison": ".safety_score_details_request_body_comparison",
+    "SafetyScoreDetailsResponseBody": ".safety_score_details_response_body",
+    "SafetyScoreDetailsResponseBodyComparison": ".safety_score_details_response_body_comparison",
     "SafetyScoreSpeedingObjectResponseBody": ".safety_score_speeding_object_response_body",
     "SafetyScoreSpeedingObjectResponseBodySpeedingType": ".safety_score_speeding_object_response_body_speeding_type",
     "SafetyScoresGetDriverSafetyScoreTripsBadGatewayErrorResponseBody": ".safety_scores_get_driver_safety_score_trips_bad_gateway_error_response_body",
@@ -8713,10 +9131,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "UnassignedDrivingDataResponseBody": ".unassigned_driving_data_response_body",
     "UnassignedDrivingTriggerDetailsObjectRequestBody": ".unassigned_driving_trigger_details_object_request_body",
     "UnassignedDrivingTriggerDetailsObjectResponseBody": ".unassigned_driving_trigger_details_object_response_body",
-    "UnitResponseBody": ".unit_response_body",
-    "UnitResponseBodyBaseUnit": ".unit_response_body_base_unit",
-    "UnitResponseBodyMeasurementType": ".unit_response_body_measurement_type",
     "UpdateAddressRequestGeofence": ".update_address_request_geofence",
+    "UpdateDriverRequestAttributes": ".update_driver_request_attributes",
     "UpdateDriverRequestHosSetting": ".update_driver_request_hos_setting",
     "UpdateEngineImmobilizerRelayStateRequestBodyRequestBody": ".update_engine_immobilizer_relay_state_request_body_request_body",
     "UpdateEngineImmobilizerRelayStateRequestBodyRequestBodyId": ".update_engine_immobilizer_relay_state_request_body_request_body_id",
@@ -8869,19 +9285,6 @@ _dynamic_imports: typing.Dict[str, str] = {
     "VehicleAssignmentObjectResponseBodyAssignmentType": ".vehicle_assignment_object_response_body_assignment_type",
     "VehicleAuxInputName": ".vehicle_aux_input_name",
     "VehicleAuxInputType": ".vehicle_aux_input_type",
-    "VehicleAuxInputType1": ".vehicle_aux_input_type_1",
-    "VehicleAuxInputType10": ".vehicle_aux_input_type_10",
-    "VehicleAuxInputType11": ".vehicle_aux_input_type_11",
-    "VehicleAuxInputType12": ".vehicle_aux_input_type_12",
-    "VehicleAuxInputType13": ".vehicle_aux_input_type_13",
-    "VehicleAuxInputType2": ".vehicle_aux_input_type_2",
-    "VehicleAuxInputType3": ".vehicle_aux_input_type_3",
-    "VehicleAuxInputType4": ".vehicle_aux_input_type_4",
-    "VehicleAuxInputType5": ".vehicle_aux_input_type_5",
-    "VehicleAuxInputType6": ".vehicle_aux_input_type_6",
-    "VehicleAuxInputType7": ".vehicle_aux_input_type_7",
-    "VehicleAuxInputType8": ".vehicle_aux_input_type_8",
-    "VehicleAuxInputType9": ".vehicle_aux_input_type_9",
     "VehicleBatterVoltageDetailsObjectRequestBody": ".vehicle_batter_voltage_details_object_request_body",
     "VehicleBatterVoltageDetailsObjectRequestBodyOperation": ".vehicle_batter_voltage_details_object_request_body_operation",
     "VehicleBatterVoltageDetailsObjectResponseBody": ".vehicle_batter_voltage_details_object_response_body",
@@ -8904,9 +9307,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "VehicleLocationIsEcuSpeed": ".vehicle_location_is_ecu_speed",
     "VehicleLocationLatitude": ".vehicle_location_latitude",
     "VehicleLocationLongitude": ".vehicle_location_longitude",
-    "VehicleLocationReverseGeo": ".vehicle_location_reverse_geo",
     "VehicleLocationSpeed": ".vehicle_location_speed",
-    "VehicleLocationTime": ".vehicle_location_time",
     "VehicleLocationsListResponse": ".vehicle_locations_list_response",
     "VehicleLocationsListResponseData": ".vehicle_locations_list_response_data",
     "VehicleLocationsResponse": ".vehicle_locations_response",
@@ -8933,7 +9334,6 @@ _dynamic_imports: typing.Dict[str, str] = {
     "VehicleSensorConfigurationDoorResponseBody": ".vehicle_sensor_configuration_door_response_body",
     "VehicleSensorConfigurationDoorResponseBodyPosition": ".vehicle_sensor_configuration_door_response_body_position",
     "VehicleSensorConfigurationResponseBody": ".vehicle_sensor_configuration_response_body",
-    "VehicleStaticAssignedDriver": ".vehicle_static_assigned_driver",
     "VehicleStatsAmbientAirTempMilliC": ".vehicle_stats_ambient_air_temp_milli_c",
     "VehicleStatsAmbientAirTempMilliCValue": ".vehicle_stats_ambient_air_temp_milli_c_value",
     "VehicleStatsAmbientAirTempMilliCWithDecoration": ".vehicle_stats_ambient_air_temp_milli_c_with_decoration",
@@ -9135,7 +9535,6 @@ _dynamic_imports: typing.Dict[str, str] = {
     "VehicleStatsSpreaderRoadTemp": ".vehicle_stats_spreader_road_temp",
     "VehicleStatsSyntheticEngineSeconds": ".vehicle_stats_synthetic_engine_seconds",
     "VehicleStatsSyntheticEngineSecondsValue": ".vehicle_stats_synthetic_engine_seconds_value",
-    "VehicleStatsTime": ".vehicle_stats_time",
     "VehicleStatsTirePressures": ".vehicle_stats_tire_pressures",
     "VehicleSummary": ".vehicle_summary",
     "VehicleTags": ".vehicle_tags",
@@ -9266,7 +9665,6 @@ _dynamic_imports: typing.Dict[str, str] = {
     "WorkOrderMoneyObjectResponseBody": ".work_order_money_object_response_body",
     "WorkOrderMoneyObjectResponseBodyCurrency": ".work_order_money_object_response_body_currency",
     "WorkOrderObjectResponseBody": ".work_order_object_response_body",
-    "WorkOrderObjectResponseBodyCategory": ".work_order_object_response_body_category",
     "WorkOrderObjectResponseBodyPriority": ".work_order_object_response_body_priority",
     "WorkOrderObjectResponseBodyStatus": ".work_order_object_response_body_status",
     "WorkOrderTaxCreateObjectRequestBody": ".work_order_tax_create_object_request_body",
@@ -9311,6 +9709,16 @@ _dynamic_imports: typing.Dict[str, str] = {
     "WorkOrdersPatchWorkOrdersServiceUnavailableErrorResponseBody": ".work_orders_patch_work_orders_service_unavailable_error_response_body",
     "WorkOrdersPatchWorkOrdersTooManyRequestsErrorResponseBody": ".work_orders_patch_work_orders_too_many_requests_error_response_body",
     "WorkOrdersPatchWorkOrdersUnauthorizedErrorResponseBody": ".work_orders_patch_work_orders_unauthorized_error_response_body",
+    "WorkOrdersPostInvoiceScanBadGatewayErrorResponseBody": ".work_orders_post_invoice_scan_bad_gateway_error_response_body",
+    "WorkOrdersPostInvoiceScanGatewayTimeoutErrorResponseBody": ".work_orders_post_invoice_scan_gateway_timeout_error_response_body",
+    "WorkOrdersPostInvoiceScanInternalServerErrorResponseBody": ".work_orders_post_invoice_scan_internal_server_error_response_body",
+    "WorkOrdersPostInvoiceScanMethodNotAllowedErrorResponseBody": ".work_orders_post_invoice_scan_method_not_allowed_error_response_body",
+    "WorkOrdersPostInvoiceScanNotFoundErrorResponseBody": ".work_orders_post_invoice_scan_not_found_error_response_body",
+    "WorkOrdersPostInvoiceScanNotImplementedErrorResponseBody": ".work_orders_post_invoice_scan_not_implemented_error_response_body",
+    "WorkOrdersPostInvoiceScanResponseBody": ".work_orders_post_invoice_scan_response_body",
+    "WorkOrdersPostInvoiceScanServiceUnavailableErrorResponseBody": ".work_orders_post_invoice_scan_service_unavailable_error_response_body",
+    "WorkOrdersPostInvoiceScanTooManyRequestsErrorResponseBody": ".work_orders_post_invoice_scan_too_many_requests_error_response_body",
+    "WorkOrdersPostInvoiceScanUnauthorizedErrorResponseBody": ".work_orders_post_invoice_scan_unauthorized_error_response_body",
     "WorkOrdersPostWorkOrdersBadGatewayErrorResponseBody": ".work_orders_post_work_orders_bad_gateway_error_response_body",
     "WorkOrdersPostWorkOrdersGatewayTimeoutErrorResponseBody": ".work_orders_post_work_orders_gateway_timeout_error_response_body",
     "WorkOrdersPostWorkOrdersInternalServerErrorResponseBody": ".work_orders_post_work_orders_internal_server_error_response_body",
@@ -9331,6 +9739,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "WorkOrdersStreamWorkOrdersServiceUnavailableErrorResponseBody": ".work_orders_stream_work_orders_service_unavailable_error_response_body",
     "WorkOrdersStreamWorkOrdersTooManyRequestsErrorResponseBody": ".work_orders_stream_work_orders_too_many_requests_error_response_body",
     "WorkOrdersStreamWorkOrdersUnauthorizedErrorResponseBody": ".work_orders_stream_work_orders_unauthorized_error_response_body",
+    "WorkerSafetySosDataResponseBody": ".worker_safety_sos_data_response_body",
+    "WorkerSafetySosDataResponseBodySourceType": ".worker_safety_sos_data_response_body_source_type",
     "WorkflowAddressEventWithGeofenceObjectResponseBody": ".workflow_address_event_with_geofence_object_response_body",
     "WorkflowAuthorSignatureObjectResponseBody": ".workflow_author_signature_object_response_body",
     "WorkflowAuthorSignatureObjectResponseBodyType": ".workflow_author_signature_object_response_body_type",
@@ -9576,11 +9986,26 @@ __all__ = [
     "AttributeTiny",
     "AttributeUnit",
     "AttributeValueTiny",
+    "AuthTokenAuthTokenBadGatewayErrorResponseBody",
+    "AuthTokenAuthTokenGatewayTimeoutErrorResponseBody",
+    "AuthTokenAuthTokenInternalServerErrorResponseBody",
+    "AuthTokenAuthTokenMethodNotAllowedErrorResponseBody",
+    "AuthTokenAuthTokenNotFoundErrorResponseBody",
+    "AuthTokenAuthTokenNotImplementedErrorResponseBody",
+    "AuthTokenAuthTokenResponseBody",
+    "AuthTokenAuthTokenServiceUnavailableErrorResponseBody",
+    "AuthTokenAuthTokenTooManyRequestsErrorResponseBody",
+    "AuthTokenAuthTokenUnauthorizedErrorResponseBody",
+    "AuthTokenForDriverResponseResponseBody",
     "AuthorSignatureObjectResponseBody",
     "AuthorSignatureObjectResponseBodyType",
     "BarcodeValueObjectRequestBody",
     "BarcodeValueObjectResponseBody",
     "BaseRouteResponseObjectResponseBody",
+    "BehaviorCountDetailsRequestBody",
+    "BehaviorCountDetailsRequestBodyComparison",
+    "BehaviorCountDetailsResponseBody",
+    "BehaviorCountDetailsResponseBodyComparison",
     "BehaviorResponseBody",
     "BehaviorResponseBodyCoachableBehaviorType",
     "CameraConnectorDisconectedResponseBody",
@@ -9626,6 +10051,9 @@ __all__ = [
     "CoachingSessionsResponseResponseBodyCoachingType",
     "CoachingSessionsResponseResponseBodySessionStatus",
     "CoastingDurationMs",
+    "ColumnResponseBody",
+    "ColumnResponseBodyDataType",
+    "ColumnResponseBodyUnit",
     "ConditionalFieldSectionObjectResponseBody",
     "ConnectionStatusResponseObjectResponseBody",
     "ConnectionStatusResponseObjectResponseBodyHealthStatus",
@@ -9645,6 +10073,8 @@ __all__ = [
     "CreateAttributeRequestEntities",
     "CreateDriverAuthTokenResponseResponseBody",
     "CreateDriverRequestAttributes",
+    "CreateReportConfigColumnRequestBody",
+    "CreateReportConfigObjectRequestBody",
     "CreateRoutesStopRequestObjectRequestBody",
     "CreateUserRequestRoles",
     "CruiseControlDurationMs",
@@ -9685,6 +10115,20 @@ __all__ = [
     "DefectVehicleResponseResponseBody",
     "DefectsResponse",
     "DefectsResponseDataResponseBody",
+    "DepreciationGetDepreciationTransactionsBadGatewayErrorResponseBody",
+    "DepreciationGetDepreciationTransactionsGatewayTimeoutErrorResponseBody",
+    "DepreciationGetDepreciationTransactionsInternalServerErrorResponseBody",
+    "DepreciationGetDepreciationTransactionsMethodNotAllowedErrorResponseBody",
+    "DepreciationGetDepreciationTransactionsNotFoundErrorResponseBody",
+    "DepreciationGetDepreciationTransactionsNotImplementedErrorResponseBody",
+    "DepreciationGetDepreciationTransactionsResponseBody",
+    "DepreciationGetDepreciationTransactionsServiceUnavailableErrorResponseBody",
+    "DepreciationGetDepreciationTransactionsTooManyRequestsErrorResponseBody",
+    "DepreciationGetDepreciationTransactionsUnauthorizedErrorResponseBody",
+    "DepreciationTransactionMoneyObjectResponseBody",
+    "DepreciationTransactionMoneyObjectResponseBodyCurrency",
+    "DepreciationTransactionObjectResponseBody",
+    "DepreciationTransactionObjectResponseBodyTransactionType",
     "DetectionLogAssetObjectResponseBody",
     "DetectionLogDetectionObjectResponseBody",
     "DetectionLogDetectionObjectResponseBodyTriggerDetectionLabel",
@@ -9879,6 +10323,8 @@ __all__ = [
     "DriverName",
     "DriverNotes",
     "DriverObjectResponseBody",
+    "DriverOrTagIdsDetailsRequestBody",
+    "DriverOrTagIdsDetailsResponseBody",
     "DriverPhone",
     "DriverProfileImageBase64",
     "DriverProfileImageUrl",
@@ -10181,6 +10627,8 @@ __all__ = [
     "FieldObjectValueResponseBody",
     "FieldTypesObjectResponseBody",
     "FieldTypesObjectResponseBodyFieldType",
+    "FiltersRequestBody",
+    "FiltersResponseBody",
     "FleetDeviceObjectResponseBody",
     "FollowingDistanceDetectionAlertSettingsObjectResponseBody",
     "FormSubmissionPdfExportResponseObjectResponseBody",
@@ -10449,6 +10897,8 @@ __all__ = [
     "GetDocumentTypeResponseObjectResponseBody",
     "GetDriverTrailerAssignmentsResponseBodyResponseBody",
     "GetMediaRetrievalObjectResponseBody",
+    "GetReportRunsDataObjectResponseBody",
+    "GetReportRunsDataObjectResponseBodyStatus",
     "GetResponseWorkflowConfigurationObjectResponseBody",
     "GetWorkflowIncidentResponseObjectResponseBody",
     "GoaAddressTinyResponseResponseBody",
@@ -10589,6 +11039,17 @@ __all__ = [
     "HubCapacitiesListHubCapacitiesTooManyRequestsErrorResponseBody",
     "HubCapacitiesListHubCapacitiesUnauthorizedErrorResponseBody",
     "HubCapacityObjectResponseBody",
+    "HubCustomPropertiesListHubCustomPropertiesBadGatewayErrorResponseBody",
+    "HubCustomPropertiesListHubCustomPropertiesGatewayTimeoutErrorResponseBody",
+    "HubCustomPropertiesListHubCustomPropertiesInternalServerErrorResponseBody",
+    "HubCustomPropertiesListHubCustomPropertiesMethodNotAllowedErrorResponseBody",
+    "HubCustomPropertiesListHubCustomPropertiesNotFoundErrorResponseBody",
+    "HubCustomPropertiesListHubCustomPropertiesNotImplementedErrorResponseBody",
+    "HubCustomPropertiesListHubCustomPropertiesResponseBody",
+    "HubCustomPropertiesListHubCustomPropertiesServiceUnavailableErrorResponseBody",
+    "HubCustomPropertiesListHubCustomPropertiesTooManyRequestsErrorResponseBody",
+    "HubCustomPropertiesListHubCustomPropertiesUnauthorizedErrorResponseBody",
+    "HubCustomPropertyObjectResponseBody",
     "HubLocationCreatedObjectResponseBody",
     "HubLocationInputObjectRequestBody",
     "HubLocationObjectResponseBody",
@@ -10763,6 +11224,7 @@ __all__ = [
     "InsideGeofenceDataResponseBody",
     "InsideGeofenceTriggerDetailsObjectRequestBody",
     "InsideGeofenceTriggerDetailsObjectResponseBody",
+    "InvoiceScanFileRequestBody",
     "IssueCreatedResponseBody",
     "IssueResponseObjectResponseBody",
     "IssueResponseObjectResponseBodyPriority",
@@ -10852,6 +11314,7 @@ __all__ = [
     "ListContactsResponse",
     "ListDriversResponse",
     "ListHubCapacitiesResponsePaginationResponseBody",
+    "ListHubCustomPropertiesResponsePaginationResponseBody",
     "ListHubLocationsResponsePaginationResponseBody",
     "ListHubPlanRoutesResponsePaginationResponseBody",
     "ListHubPlansResponsePaginationResponseBody",
@@ -10979,10 +11442,13 @@ __all__ = [
     "OperationalSettingsObjectRequestBodyTimeRangeType",
     "OperationalSettingsObjectResponseBody",
     "OperationalSettingsObjectResponseBodyTimeRangeType",
+    "OrderCustomPropertyInputRequestBody",
+    "OrderCustomPropertyResponseBody",
     "OrderInputObjectRequestBody",
     "OrderObjectResponseBody",
     "OrderQuantityInputRequestBody",
     "OrderQuantityResponseBody",
+    "OrderTaskCustomPropertyObjectResponseBody",
     "OrderTaskObjectResponseBody",
     "OrderTaskRequestBody",
     "OrderTaskRequestBodyPosition",
@@ -11047,11 +11513,14 @@ __all__ = [
     "PostFuelPurchaseRequestBodyPriceRequestBody",
     "PostFuelPurchaseRequestBodyPriceRequestBodyCurrency",
     "PostFuelPurchaseResponseBodyResponseBody",
+    "PostInvoiceScanResponseDataResponseBody",
     "PostJobObjectRequestBody",
     "PostJobObjectjobLocationRequestObjectRequestBody",
     "PostMediaRetrievalObjectResponseBody",
     "PostResponseResWorkflowConfigurationObjectResponseBody",
     "PowerTakeOffDurationMs",
+    "PrimaryTimeRangeRequestBody",
+    "PrimaryTimeRangeResponseBody",
     "PushNotificationOptionsObjectRequestBody",
     "PushNotificationOptionsObjectResponseBody",
     "QrCodeResponseObjectResponseBody",
@@ -11163,8 +11632,6 @@ __all__ = [
     "ReadingTriggerDetailsResponseBody",
     "ReadingTriggerEnumValueObjectRequestBody",
     "ReadingTriggerEnumValueObjectResponseBody",
-    "ReadingTypeResponseBody",
-    "ReadingTypeResponseBodyDataType",
     "ReadingsGetReadingsHistoryBadGatewayErrorResponseBody",
     "ReadingsGetReadingsHistoryGatewayTimeoutErrorResponseBody",
     "ReadingsGetReadingsHistoryInternalServerErrorResponseBody",
@@ -11211,6 +11678,66 @@ __all__ = [
     "RecipientObjectResponseBodyNotificationTypesItem",
     "RecipientObjectResponseBodyType",
     "ReeferTemperatureResponseBody",
+    "ReportColumnsObjectResponseBody",
+    "ReportColumnsObjectResponseBodyDataType",
+    "ReportColumnsObjectResponseBodyUnit",
+    "ReportConfigObjectResponseBody",
+    "ReportRunObjectResponseBody",
+    "ReportRunObjectResponseBodyStatus",
+    "ReportsCreateReportRunBadGatewayErrorResponseBody",
+    "ReportsCreateReportRunGatewayTimeoutErrorResponseBody",
+    "ReportsCreateReportRunInternalServerErrorResponseBody",
+    "ReportsCreateReportRunMethodNotAllowedErrorResponseBody",
+    "ReportsCreateReportRunNotFoundErrorResponseBody",
+    "ReportsCreateReportRunNotImplementedErrorResponseBody",
+    "ReportsCreateReportRunResponseBody",
+    "ReportsCreateReportRunServiceUnavailableErrorResponseBody",
+    "ReportsCreateReportRunTooManyRequestsErrorResponseBody",
+    "ReportsCreateReportRunUnauthorizedErrorResponseBody",
+    "ReportsDatasetFieldResponseBody",
+    "ReportsDatasetFieldResponseBodyDataType",
+    "ReportsDatasetFieldResponseBodyUnit",
+    "ReportsDatasetResponseBody",
+    "ReportsGetDatasetsBadGatewayErrorResponseBody",
+    "ReportsGetDatasetsGatewayTimeoutErrorResponseBody",
+    "ReportsGetDatasetsInternalServerErrorResponseBody",
+    "ReportsGetDatasetsMethodNotAllowedErrorResponseBody",
+    "ReportsGetDatasetsNotFoundErrorResponseBody",
+    "ReportsGetDatasetsNotImplementedErrorResponseBody",
+    "ReportsGetDatasetsResponseBody",
+    "ReportsGetDatasetsServiceUnavailableErrorResponseBody",
+    "ReportsGetDatasetsTooManyRequestsErrorResponseBody",
+    "ReportsGetDatasetsUnauthorizedErrorResponseBody",
+    "ReportsGetReportConfigsBadGatewayErrorResponseBody",
+    "ReportsGetReportConfigsGatewayTimeoutErrorResponseBody",
+    "ReportsGetReportConfigsInternalServerErrorResponseBody",
+    "ReportsGetReportConfigsMethodNotAllowedErrorResponseBody",
+    "ReportsGetReportConfigsNotFoundErrorResponseBody",
+    "ReportsGetReportConfigsNotImplementedErrorResponseBody",
+    "ReportsGetReportConfigsResponseBody",
+    "ReportsGetReportConfigsServiceUnavailableErrorResponseBody",
+    "ReportsGetReportConfigsTooManyRequestsErrorResponseBody",
+    "ReportsGetReportConfigsUnauthorizedErrorResponseBody",
+    "ReportsGetReportRunDataBadGatewayErrorResponseBody",
+    "ReportsGetReportRunDataGatewayTimeoutErrorResponseBody",
+    "ReportsGetReportRunDataInternalServerErrorResponseBody",
+    "ReportsGetReportRunDataMethodNotAllowedErrorResponseBody",
+    "ReportsGetReportRunDataNotFoundErrorResponseBody",
+    "ReportsGetReportRunDataNotImplementedErrorResponseBody",
+    "ReportsGetReportRunDataResponseBody",
+    "ReportsGetReportRunDataServiceUnavailableErrorResponseBody",
+    "ReportsGetReportRunDataTooManyRequestsErrorResponseBody",
+    "ReportsGetReportRunDataUnauthorizedErrorResponseBody",
+    "ReportsGetReportRunsBadGatewayErrorResponseBody",
+    "ReportsGetReportRunsGatewayTimeoutErrorResponseBody",
+    "ReportsGetReportRunsInternalServerErrorResponseBody",
+    "ReportsGetReportRunsMethodNotAllowedErrorResponseBody",
+    "ReportsGetReportRunsNotFoundErrorResponseBody",
+    "ReportsGetReportRunsNotImplementedErrorResponseBody",
+    "ReportsGetReportRunsResponseBody",
+    "ReportsGetReportRunsServiceUnavailableErrorResponseBody",
+    "ReportsGetReportRunsTooManyRequestsErrorResponseBody",
+    "ReportsGetReportRunsUnauthorizedErrorResponseBody",
     "ResolvedBy",
     "ResolvedByType",
     "ReverseGeo",
@@ -11315,6 +11842,14 @@ __all__ = [
     "RoutesSingleUseAddressObjectResponseBody",
     "RoutesStopResponseObjectResponseBody",
     "RoutesStopResponseObjectResponseBodyState",
+    "SafetyBehaviorTriggerDetailsObjectRequestBody",
+    "SafetyBehaviorTriggerDetailsObjectRequestBodyBehaviorsItem",
+    "SafetyBehaviorTriggerDetailsObjectRequestBodySeveritiesItem",
+    "SafetyBehaviorTriggerDetailsObjectRequestBodyStatusesItem",
+    "SafetyBehaviorTriggerDetailsObjectResponseBody",
+    "SafetyBehaviorTriggerDetailsObjectResponseBodyBehaviorsItem",
+    "SafetyBehaviorTriggerDetailsObjectResponseBodySeveritiesItem",
+    "SafetyBehaviorTriggerDetailsObjectResponseBodyStatusesItem",
     "SafetyEvent",
     "SafetyEventActivityFeedItemResponseBody",
     "SafetyEventActivityFeedItemResponseBodyType",
@@ -11331,12 +11866,11 @@ __all__ = [
     "SafetyEventDownloadForwardVideoUrl",
     "SafetyEventDownloadInwardVideoUrl",
     "SafetyEventDownloadTrackedInwardVideoUrl",
-    "SafetyEventDriver",
     "SafetyEventDriverObjectResponseBody",
     "SafetyEventId",
-    "SafetyEventLocation",
     "SafetyEventMaxAccelerationGForce",
     "SafetyEventObjectResponseBody",
+    "SafetyEventSpeedingMetadataResponseBody",
     "SafetyEventTime",
     "SafetyEventV2AssetObjectResponseBody",
     "SafetyEventV2AssetObjectResponseBodyType",
@@ -11345,9 +11879,11 @@ __all__ = [
     "SafetyEventV2BehaviorLabelsResponseBodySource",
     "SafetyEventV2ContextLabelsResponseBody",
     "SafetyEventV2DriverObjectResponseBody",
+    "SafetyEventV2MediaResponseBody",
+    "SafetyEventV2MediaResponseBodyCameraRole",
+    "SafetyEventV2MediaResponseBodyInput",
     "SafetyEventV2ObjectResponseBody",
     "SafetyEventV2ObjectResponseBodyEventState",
-    "SafetyEventVehicle",
     "SafetyEventVehicleObjectResponseBody",
     "SafetyEventsGetSafetyActivityEventFeedBadGatewayErrorResponseBody",
     "SafetyEventsGetSafetyActivityEventFeedGatewayTimeoutErrorResponseBody",
@@ -11383,6 +11919,10 @@ __all__ = [
     "SafetyScoreBehaviorObjectResponseBody",
     "SafetyScoreBehaviorObjectResponseBodyBehaviorType",
     "SafetyScoreConfigurationSettingsObjectResponseBody",
+    "SafetyScoreDetailsRequestBody",
+    "SafetyScoreDetailsRequestBodyComparison",
+    "SafetyScoreDetailsResponseBody",
+    "SafetyScoreDetailsResponseBodyComparison",
     "SafetyScoreSpeedingObjectResponseBody",
     "SafetyScoreSpeedingObjectResponseBodySpeedingType",
     "SafetyScoresGetDriverSafetyScoreTripsBadGatewayErrorResponseBody",
@@ -11885,10 +12425,8 @@ __all__ = [
     "UnassignedDrivingDataResponseBody",
     "UnassignedDrivingTriggerDetailsObjectRequestBody",
     "UnassignedDrivingTriggerDetailsObjectResponseBody",
-    "UnitResponseBody",
-    "UnitResponseBodyBaseUnit",
-    "UnitResponseBodyMeasurementType",
     "UpdateAddressRequestGeofence",
+    "UpdateDriverRequestAttributes",
     "UpdateDriverRequestHosSetting",
     "UpdateEngineImmobilizerRelayStateRequestBodyRequestBody",
     "UpdateEngineImmobilizerRelayStateRequestBodyRequestBodyId",
@@ -12041,19 +12579,6 @@ __all__ = [
     "VehicleAssignmentObjectResponseBodyAssignmentType",
     "VehicleAuxInputName",
     "VehicleAuxInputType",
-    "VehicleAuxInputType1",
-    "VehicleAuxInputType10",
-    "VehicleAuxInputType11",
-    "VehicleAuxInputType12",
-    "VehicleAuxInputType13",
-    "VehicleAuxInputType2",
-    "VehicleAuxInputType3",
-    "VehicleAuxInputType4",
-    "VehicleAuxInputType5",
-    "VehicleAuxInputType6",
-    "VehicleAuxInputType7",
-    "VehicleAuxInputType8",
-    "VehicleAuxInputType9",
     "VehicleBatterVoltageDetailsObjectRequestBody",
     "VehicleBatterVoltageDetailsObjectRequestBodyOperation",
     "VehicleBatterVoltageDetailsObjectResponseBody",
@@ -12076,9 +12601,7 @@ __all__ = [
     "VehicleLocationIsEcuSpeed",
     "VehicleLocationLatitude",
     "VehicleLocationLongitude",
-    "VehicleLocationReverseGeo",
     "VehicleLocationSpeed",
-    "VehicleLocationTime",
     "VehicleLocationsListResponse",
     "VehicleLocationsListResponseData",
     "VehicleLocationsResponse",
@@ -12105,7 +12628,6 @@ __all__ = [
     "VehicleSensorConfigurationDoorResponseBody",
     "VehicleSensorConfigurationDoorResponseBodyPosition",
     "VehicleSensorConfigurationResponseBody",
-    "VehicleStaticAssignedDriver",
     "VehicleStatsAmbientAirTempMilliC",
     "VehicleStatsAmbientAirTempMilliCValue",
     "VehicleStatsAmbientAirTempMilliCWithDecoration",
@@ -12307,7 +12829,6 @@ __all__ = [
     "VehicleStatsSpreaderRoadTemp",
     "VehicleStatsSyntheticEngineSeconds",
     "VehicleStatsSyntheticEngineSecondsValue",
-    "VehicleStatsTime",
     "VehicleStatsTirePressures",
     "VehicleSummary",
     "VehicleTags",
@@ -12438,7 +12959,6 @@ __all__ = [
     "WorkOrderMoneyObjectResponseBody",
     "WorkOrderMoneyObjectResponseBodyCurrency",
     "WorkOrderObjectResponseBody",
-    "WorkOrderObjectResponseBodyCategory",
     "WorkOrderObjectResponseBodyPriority",
     "WorkOrderObjectResponseBodyStatus",
     "WorkOrderTaxCreateObjectRequestBody",
@@ -12483,6 +13003,16 @@ __all__ = [
     "WorkOrdersPatchWorkOrdersServiceUnavailableErrorResponseBody",
     "WorkOrdersPatchWorkOrdersTooManyRequestsErrorResponseBody",
     "WorkOrdersPatchWorkOrdersUnauthorizedErrorResponseBody",
+    "WorkOrdersPostInvoiceScanBadGatewayErrorResponseBody",
+    "WorkOrdersPostInvoiceScanGatewayTimeoutErrorResponseBody",
+    "WorkOrdersPostInvoiceScanInternalServerErrorResponseBody",
+    "WorkOrdersPostInvoiceScanMethodNotAllowedErrorResponseBody",
+    "WorkOrdersPostInvoiceScanNotFoundErrorResponseBody",
+    "WorkOrdersPostInvoiceScanNotImplementedErrorResponseBody",
+    "WorkOrdersPostInvoiceScanResponseBody",
+    "WorkOrdersPostInvoiceScanServiceUnavailableErrorResponseBody",
+    "WorkOrdersPostInvoiceScanTooManyRequestsErrorResponseBody",
+    "WorkOrdersPostInvoiceScanUnauthorizedErrorResponseBody",
     "WorkOrdersPostWorkOrdersBadGatewayErrorResponseBody",
     "WorkOrdersPostWorkOrdersGatewayTimeoutErrorResponseBody",
     "WorkOrdersPostWorkOrdersInternalServerErrorResponseBody",
@@ -12503,6 +13033,8 @@ __all__ = [
     "WorkOrdersStreamWorkOrdersServiceUnavailableErrorResponseBody",
     "WorkOrdersStreamWorkOrdersTooManyRequestsErrorResponseBody",
     "WorkOrdersStreamWorkOrdersUnauthorizedErrorResponseBody",
+    "WorkerSafetySosDataResponseBody",
+    "WorkerSafetySosDataResponseBodySourceType",
     "WorkflowAddressEventWithGeofenceObjectResponseBody",
     "WorkflowAuthorSignatureObjectResponseBody",
     "WorkflowAuthorSignatureObjectResponseBodyType",

@@ -19,18 +19,22 @@ class IftaJurisdictionSummaryObjectResponseBody(UniversalBaseModel):
     """
 
     tax_paid_liters: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="taxPaidLiters")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="taxPaidLiters", default=None)
     )
     """
     Liters purchased for all qualified vehicles.
     """
 
-    taxable_meters: typing_extensions.Annotated[float, FieldMetadata(alias="taxableMeters")] = pydantic.Field()
+    taxable_meters: typing_extensions.Annotated[float, FieldMetadata(alias="taxableMeters")] = pydantic.Field(
+        alias="taxableMeters"
+    )
     """
     Distance in meters traveled on public roads in an IFTA jurisdiction.
     """
 
-    total_meters: typing_extensions.Annotated[float, FieldMetadata(alias="totalMeters")] = pydantic.Field()
+    total_meters: typing_extensions.Annotated[float, FieldMetadata(alias="totalMeters")] = pydantic.Field(
+        alias="totalMeters"
+    )
     """
     Total meters driven in this jurisdiction, taxable and non-taxable.
     """

@@ -18,7 +18,7 @@ class HosViolationTriggerDetailsObjectResponseBody(UniversalBaseModel):
 
     max_until_violation_milliseconds: typing_extensions.Annotated[
         int, FieldMetadata(alias="maxUntilViolationMilliseconds")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="maxUntilViolationMilliseconds")
     """
     Alert if driver has this specified time until driving causes an HOS violation.
     """

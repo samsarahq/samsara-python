@@ -16,7 +16,7 @@ class FormsConditionObjectResponseBody(UniversalBaseModel):
 
     selected_option_ids: typing_extensions.Annotated[
         typing.Optional[typing.List[str]], FieldMetadata(alias="selectedOptionIds")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="selectedOptionIds", default=None)
     """
     List of option IDs that will satisfy the condition if selected. For check boxes fields, the condition will be met if any of these option IDs are selected. Only returned for multiple choice or check boxes fields when the condition type is `multipleChoiceValueCondition` or `checkBoxesValueCondition`.
     """

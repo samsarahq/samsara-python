@@ -13,7 +13,9 @@ class AssetsLocationLinkConfigAddressDetailsObject(UniversalBaseModel):
     Location object that indicates what address information (destination point and/or ETA) will be shown by Live Sharing Link.
     """
 
-    formatted_address: typing_extensions.Annotated[str, FieldMetadata(alias="formattedAddress")] = pydantic.Field()
+    formatted_address: typing_extensions.Annotated[str, FieldMetadata(alias="formattedAddress")] = pydantic.Field(
+        alias="formattedAddress"
+    )
     """
     Formatted address of a location
     """

@@ -16,37 +16,41 @@ class V1VehicleHarshEventResponse(UniversalBaseModel):
 
     download_forward_video_url: typing_extensions.Annotated[
         typing.Optional[str], FieldMetadata(alias="downloadForwardVideoUrl")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="downloadForwardVideoUrl", default=None)
     """
     URL for downloading the forward facing video
     """
 
     download_inward_video_url: typing_extensions.Annotated[
         typing.Optional[str], FieldMetadata(alias="downloadInwardVideoUrl")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="downloadInwardVideoUrl", default=None)
     """
     URL for downloading the inward facing video
     """
 
     download_tracked_inward_video_url: typing_extensions.Annotated[
         typing.Optional[str], FieldMetadata(alias="downloadTrackedInwardVideoUrl")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="downloadTrackedInwardVideoUrl", default=None)
     """
     URL for downloading the tracked inward facing video
     """
 
-    harsh_event_type: typing_extensions.Annotated[str, FieldMetadata(alias="harshEventType")] = pydantic.Field()
+    harsh_event_type: typing_extensions.Annotated[str, FieldMetadata(alias="harshEventType")] = pydantic.Field(
+        alias="harshEventType"
+    )
     """
     Type of the harsh event. One of: [Crash, Harsh Acceleration, Harsh Braking, Harsh Turn, ROP Engine, ROP Brake, YC Engine, YC Brake, Harsh Event]
     """
 
-    incident_report_url: typing_extensions.Annotated[str, FieldMetadata(alias="incidentReportUrl")] = pydantic.Field()
+    incident_report_url: typing_extensions.Annotated[str, FieldMetadata(alias="incidentReportUrl")] = pydantic.Field(
+        alias="incidentReportUrl"
+    )
     """
     URL of the associated incident report page
     """
 
     is_distracted: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="isDistracted")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="isDistracted", default=None)
     )
     """
     Whether the driver was deemed distracted during this harsh event
