@@ -1,7 +1,10 @@
 # Specify files that shouldn't be modified by Fern
 
 src/samsara/function.py
+.github/workflows/pr-merged.yml
+.github/workflows/pr-opened.yml
 .github/workflows/publish.yml
+.github/workflows/release.yml
 README.md
 
 # Webhook signature verification
