@@ -19,16 +19,16 @@ class VehicleStatsFaultCodesObdiiTroubleCode(UniversalBaseModel):
 
     confirmed_dtcs: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsFaultCodesPassengerDtc]], FieldMetadata(alias="confirmedDtcs")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="confirmedDtcs", default=None)
     """
     Confirmed DTC codes.
     """
 
     ignition_type: typing_extensions.Annotated[
         typing.Optional[VehicleStatsFaultCodesIgnitionType], FieldMetadata(alias="ignitionType")
-    ] = None
+    ] = pydantic.Field(alias="ignitionType", default=None)
     mil_status: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="milStatus")] = pydantic.Field(
-        default=None
+        alias="milStatus", default=None
     )
     """
     The MIL status, indicating a check engine light.
@@ -36,22 +36,24 @@ class VehicleStatsFaultCodesObdiiTroubleCode(UniversalBaseModel):
 
     monitor_status: typing_extensions.Annotated[
         typing.Optional[VehicleStatsFaultCodesPassengerMonitorStatus], FieldMetadata(alias="monitorStatus")
-    ] = None
+    ] = pydantic.Field(alias="monitorStatus", default=None)
     pending_dtcs: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsFaultCodesPassengerDtc]], FieldMetadata(alias="pendingDtcs")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="pendingDtcs", default=None)
     """
     Pending DTC codes.
     """
 
     permanent_dtcs: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsFaultCodesPassengerDtc]], FieldMetadata(alias="permanentDtcs")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="permanentDtcs", default=None)
     """
     Permanent DTC codes.
     """
 
-    tx_id: typing_extensions.Annotated[VehicleStatsFaultCodesTxId, FieldMetadata(alias="txId")]
+    tx_id: typing_extensions.Annotated[VehicleStatsFaultCodesTxId, FieldMetadata(alias="txId")] = pydantic.Field(
+        alias="txId"
+    )
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

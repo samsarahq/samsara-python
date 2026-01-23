@@ -24,7 +24,7 @@ class PolicyViolationsDetectionAlertSettingsObjectResponseBody(UniversalBaseMode
             typing.List[PolicyViolationsDetectionAlertSettingsObjectResponseBodyEventsAvailableForTestingItem]
         ],
         FieldMetadata(alias="eventsAvailableForTesting"),
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="eventsAvailableForTesting", default=None)
     """
     List of selectable beta policy violation events to be tested.
     """
@@ -32,20 +32,20 @@ class PolicyViolationsDetectionAlertSettingsObjectResponseBody(UniversalBaseMode
     events_to_coach: typing_extensions.Annotated[
         typing.Optional[typing.List[PolicyViolationsDetectionAlertSettingsObjectResponseBodyEventsToCoachItem]],
         FieldMetadata(alias="eventsToCoach"),
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="eventsToCoach", default=None)
     """
     List of selectable policy violation events to enable coaching for.
     """
 
     has_in_cab_audio_alerts_enabled: typing_extensions.Annotated[
         typing.Optional[bool], FieldMetadata(alias="hasInCabAudioAlertsEnabled")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="hasInCabAudioAlertsEnabled", default=None)
     """
     Indicates whether in-cab audio alerts for rolling stops are turned on.
     """
 
     is_enabled: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="isEnabled")] = pydantic.Field(
-        default=None
+        alias="isEnabled", default=None
     )
     """
     Indicates whether AI event detection for rolling stops is turned on.
@@ -53,7 +53,7 @@ class PolicyViolationsDetectionAlertSettingsObjectResponseBody(UniversalBaseMode
 
     speeding_threshold_mph: typing_extensions.Annotated[
         typing.Optional[float], FieldMetadata(alias="speedingThresholdMph")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="speedingThresholdMph", default=None)
     """
     Alert when speed is over this many miles per hour.
     """

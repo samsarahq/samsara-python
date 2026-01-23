@@ -4,14 +4,16 @@ import typing
 
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.request_options import RequestOptions
-from ..types.safety_events_get_safety_activity_event_feed_response_body import (
-    SafetyEventsGetSafetyActivityEventFeedResponseBody,
+from ..types.safety_events_v_2_get_safety_events_v_2_response_body import SafetyEventsV2GetSafetyEventsV2ResponseBody
+from ..types.safety_events_v_2_get_safety_events_v_2_stream_response_body import (
+    SafetyEventsV2GetSafetyEventsV2StreamResponseBody,
 )
-from ..types.safety_events_list_response import SafetyEventsListResponse
 from ..types.v_1_driver_safety_score_response import V1DriverSafetyScoreResponse
-from ..types.v_1_vehicle_harsh_event_response import V1VehicleHarshEventResponse
 from ..types.v_1_vehicle_safety_score_response import V1VehicleSafetyScoreResponse
 from .raw_client import AsyncRawSafetyClient, RawSafetyClient
+from .types.get_safety_events_v_2_stream_request_query_by_time_field import (
+    GetSafetyEventsV2StreamRequestQueryByTimeField,
+)
 
 
 class SafetyClient:
@@ -29,90 +31,18 @@ class SafetyClient:
         """
         return self._raw_client
 
-    def get_safety_events(
+    def get_safety_events_v_2(
         self,
         *,
-        start_time: str,
-        end_time: str,
+        safety_event_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        include_asset: typing.Optional[bool] = None,
+        include_driver: typing.Optional[bool] = None,
+        include_vg_only_events: typing.Optional[bool] = None,
         after: typing.Optional[str] = None,
-        tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        parent_tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        vehicle_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SafetyEventsListResponse:
+    ) -> SafetyEventsV2GetSafetyEventsV2ResponseBody:
         """
-        Fetch safety events for the organization in a given time period.
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-        Parameters
-        ----------
-        start_time : str
-            A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-
-        end_time : str
-            An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-
-        after : typing.Optional[str]
-            If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-
-        tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
-
-        parent_tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
-
-        vehicle_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            A filter on the data based on this comma-separated list of vehicle IDs. Example: `vehicleIds=1234,5678`
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        SafetyEventsListResponse
-            List of safety events from given time period.
-
-        Examples
-        --------
-        from samsara import Samsara
-
-        client = Samsara(
-            token="YOUR_TOKEN",
-        )
-        client.safety.get_safety_events(
-            start_time="startTime",
-            end_time="endTime",
-        )
-        """
-        _response = self._raw_client.get_safety_events(
-            start_time=start_time,
-            end_time=end_time,
-            after=after,
-            tag_ids=tag_ids,
-            parent_tag_ids=parent_tag_ids,
-            vehicle_ids=vehicle_ids,
-            request_options=request_options,
-        )
-        return _response.data
-
-    def get_safety_activity_event_feed(
-        self,
-        *,
-        after: typing.Optional[str] = None,
-        start_time: typing.Optional[str] = None,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> SafetyEventsGetSafetyActivityEventFeedResponseBody:
-        """
-        Get continuous safety events. The safety activity event feed offers a change-log for safety events. Use this endpoint to subscribe to safety event changes. See documentation below for all supported change-log types.
-
-        | ActivityType      | Description |
-        | ----------- | ----------- |
-        | CreateSafetyEventActivityType | a new safety event is processed by Samsara      |
-        | BehaviorLabelActivityType     | a label is added or removed from a safety event |
-        | CoachingStateActivityType     | a safety event coaching state is updated        |
+        This endpoint will return details for the specified safety events based on the parameters passed in. Results are paginated.
 
          <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -123,18 +53,27 @@ class SafetyClient:
 
         Parameters
         ----------
+        safety_event_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Required string of comma separated Safety Event IDs. Unique Samsara IDs (uuid) of the safety event.
+
+        include_asset : typing.Optional[bool]
+            Indicates whether or not to return expanded “asset” data
+
+        include_driver : typing.Optional[bool]
+            Indicates whether or not to return expanded “driver” data
+
+        include_vg_only_events : typing.Optional[bool]
+            Indicates whether or not to return events that are captured by devices with only a Vehicle Gateway (VG) installed.
+
         after : typing.Optional[str]
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-
-        start_time : typing.Optional[str]
-             A start time in RFC 3339 format. Defaults to now if not provided. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
         Returns
         -------
-        SafetyEventsGetSafetyActivityEventFeedResponseBody
+        SafetyEventsV2GetSafetyEventsV2ResponseBody
             OK response.
 
         Examples
@@ -144,10 +83,121 @@ class SafetyClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.safety.get_safety_activity_event_feed()
+        client.safety.get_safety_events_v_2()
         """
-        _response = self._raw_client.get_safety_activity_event_feed(
-            after=after, start_time=start_time, request_options=request_options
+        _response = self._raw_client.get_safety_events_v_2(
+            safety_event_ids=safety_event_ids,
+            include_asset=include_asset,
+            include_driver=include_driver,
+            include_vg_only_events=include_vg_only_events,
+            after=after,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def get_safety_events_v_2_stream(
+        self,
+        *,
+        start_time: str,
+        end_time: typing.Optional[str] = None,
+        query_by_time_field: typing.Optional[GetSafetyEventsV2StreamRequestQueryByTimeField] = None,
+        asset_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        driver_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        assigned_coaches: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        behavior_labels: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        event_states: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        include_asset: typing.Optional[bool] = None,
+        include_driver: typing.Optional[bool] = None,
+        include_vg_only_events: typing.Optional[bool] = None,
+        after: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> SafetyEventsV2GetSafetyEventsV2StreamResponseBody:
+        """
+        This endpoint will return all safety events associated with your organization based on the parameters passed in. To get core endpoint data, select Read Safety Events & Scores under the Safety & Cameras category when creating or editing an API token. Read Camera Media permissions required to get Safety Event video media via this endpoint. If you include an endTime, the endpoint will return data up until that point. If you do not include an endTime, you can continue to poll the API real-time with the pagination cursor that gets returned on every call. Results are paginated.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        start_time : str
+            RFC 3339 timestamp that indicates when to begin receiving data. Value is compared against `updatedAtTime` or `createdAtTime` depending on the `queryByTimeField` parameter.
+
+        end_time : typing.Optional[str]
+            RFC 3339 timestamp. If not provided and filtering by `updatedAtTime` then the endpoint behaves as an unending feed of changes. If endTime is set the same as startTime, the most recent data point before that time will be returned per asset. Value is compared against `updatedAtTime` or `createdAtTime` depending on the `queryByTimeField` parameter.
+
+        query_by_time_field : typing.Optional[GetSafetyEventsV2StreamRequestQueryByTimeField]
+            Optional string that decides which field to compare against the provided time range.  Valid values: `updatedAtTime`, `createdAtTime`
+
+        asset_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Optional string of comma separated asset IDs. If asset ID is present, events for the specified asset(s) will be returned. Limit of 2000 asset IDs.
+
+        driver_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Optional string of comma separated driver IDs. If driver ID is present, events for the specified driver(s) will be returned. Limit of 2000 driver IDs.
+
+        tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Optional string of comma separated tag IDs. If tag ID is present, events for the specified tag(s) will be returned. Limit of 2000 tag IDs.
+
+        assigned_coaches : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Optional string of comma separated coach IDs to filter events assigned to a particular coach. Limit of 2000 coach IDs.
+
+        behavior_labels : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Optional string of comma separated values to filter behavior labels. Valid values: `Acceleration`, `AggressiveDriving`, `BluetoothHeadset`, `Braking`, `ContextConstructionOrWorkZone`, `ContextSnowyOrIcy`, `ContextVulnerableRoadUser`, `ContextWet`, `Crash`, `DefensiveDriving`, `DidNotYield`, `Drinking`, `Drowsy`, `Eating`, `EatingDrinking`, `EdgeDistractedDriving`, `EdgeRailroadCrossingViolation`, `FollowingDistance`, `FollowingDistanceModerate`, `FollowingDistanceSevere`, `ForwardCollisionWarning`, `GenericDistraction`, `GenericTailgating`, `HarshTurn`, `HeavySpeeding`, `HosViolation`, `Idling`, `Invalid`, `LaneDeparture`, `LateResponse`, `LeftTurn`, `LightSpeeding`, `MaxSpeed`, `MobileUsage`, `ModerateSpeeding`, `NearCollison`, `NearPedestrianCollision`, `NoSeatbelt`, `ObstructedCamera`, `OtherViolation`, `Passenger`, `PolicyViolationMask`, `ProtectiveEquipment`, `RanRedLight`, `Reversing`, `RollingStop`, `RolloverProtection`, `SevereSpeeding`, `Smoking`, `Speeding`, `UTurn`, `UnsafeManeuver`, `UnsafeParking`, `VulnerableRoadUserCollisionWarning`, `YawControl`
+
+        event_states : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Optional string of comma separated values to filter event states. Valid values: `needsReview`, `reviewed`, `needsCoaching`, `coached`, `dismissed`, `needsRecognition`, `recognized`
+
+        include_asset : typing.Optional[bool]
+            Indicates whether or not to return expanded “asset” data
+
+        include_driver : typing.Optional[bool]
+            Indicates whether or not to return expanded “driver” data
+
+        include_vg_only_events : typing.Optional[bool]
+            Indicates whether or not to return events that are captured by devices with only a Vehicle Gateway (VG) installed.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        SafetyEventsV2GetSafetyEventsV2StreamResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.safety.get_safety_events_v_2_stream(
+            start_time="startTime",
+        )
+        """
+        _response = self._raw_client.get_safety_events_v_2_stream(
+            start_time=start_time,
+            end_time=end_time,
+            query_by_time_field=query_by_time_field,
+            asset_ids=asset_ids,
+            driver_ids=driver_ids,
+            tag_ids=tag_ids,
+            assigned_coaches=assigned_coaches,
+            behavior_labels=behavior_labels,
+            event_states=event_states,
+            include_asset=include_asset,
+            include_driver=include_driver,
+            include_vg_only_events=include_vg_only_events,
+            after=after,
+            request_options=request_options,
         )
         return _response.data
 
@@ -204,56 +254,6 @@ class SafetyClient:
         """
         _response = self._raw_client.v_1_get_driver_safety_score(
             driver_id, start_ms=start_ms, end_ms=end_ms, request_options=request_options
-        )
-        return _response.data
-
-    def v_1_get_vehicle_harsh_event(
-        self, vehicle_id: int, *, timestamp: int, request_options: typing.Optional[RequestOptions] = None
-    ) -> V1VehicleHarshEventResponse:
-        """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
-
-        Fetch harsh event details for a vehicle.
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-        Parameters
-        ----------
-        vehicle_id : int
-            ID of the vehicle. Must contain only digits 0-9.
-
-        timestamp : int
-            Timestamp in milliseconds representing the timestamp of a harsh event.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        V1VehicleHarshEventResponse
-            Harsh event details.
-
-        Examples
-        --------
-        from samsara import Samsara
-
-        client = Samsara(
-            token="YOUR_TOKEN",
-        )
-        client.safety.v_1_get_vehicle_harsh_event(
-            vehicle_id=1000000,
-            timestamp=1000000,
-        )
-        """
-        _response = self._raw_client.v_1_get_vehicle_harsh_event(
-            vehicle_id, timestamp=timestamp, request_options=request_options
         )
         return _response.data
 
@@ -329,98 +329,18 @@ class AsyncSafetyClient:
         """
         return self._raw_client
 
-    async def get_safety_events(
+    async def get_safety_events_v_2(
         self,
         *,
-        start_time: str,
-        end_time: str,
+        safety_event_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        include_asset: typing.Optional[bool] = None,
+        include_driver: typing.Optional[bool] = None,
+        include_vg_only_events: typing.Optional[bool] = None,
         after: typing.Optional[str] = None,
-        tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        parent_tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        vehicle_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SafetyEventsListResponse:
+    ) -> SafetyEventsV2GetSafetyEventsV2ResponseBody:
         """
-        Fetch safety events for the organization in a given time period.
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-        Parameters
-        ----------
-        start_time : str
-            A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-
-        end_time : str
-            An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-
-        after : typing.Optional[str]
-            If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-
-        tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
-
-        parent_tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
-
-        vehicle_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            A filter on the data based on this comma-separated list of vehicle IDs. Example: `vehicleIds=1234,5678`
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        SafetyEventsListResponse
-            List of safety events from given time period.
-
-        Examples
-        --------
-        import asyncio
-
-        from samsara import AsyncSamsara
-
-        client = AsyncSamsara(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.safety.get_safety_events(
-                start_time="startTime",
-                end_time="endTime",
-            )
-
-
-        asyncio.run(main())
-        """
-        _response = await self._raw_client.get_safety_events(
-            start_time=start_time,
-            end_time=end_time,
-            after=after,
-            tag_ids=tag_ids,
-            parent_tag_ids=parent_tag_ids,
-            vehicle_ids=vehicle_ids,
-            request_options=request_options,
-        )
-        return _response.data
-
-    async def get_safety_activity_event_feed(
-        self,
-        *,
-        after: typing.Optional[str] = None,
-        start_time: typing.Optional[str] = None,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> SafetyEventsGetSafetyActivityEventFeedResponseBody:
-        """
-        Get continuous safety events. The safety activity event feed offers a change-log for safety events. Use this endpoint to subscribe to safety event changes. See documentation below for all supported change-log types.
-
-        | ActivityType      | Description |
-        | ----------- | ----------- |
-        | CreateSafetyEventActivityType | a new safety event is processed by Samsara      |
-        | BehaviorLabelActivityType     | a label is added or removed from a safety event |
-        | CoachingStateActivityType     | a safety event coaching state is updated        |
+        This endpoint will return details for the specified safety events based on the parameters passed in. Results are paginated.
 
          <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -431,18 +351,27 @@ class AsyncSafetyClient:
 
         Parameters
         ----------
+        safety_event_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Required string of comma separated Safety Event IDs. Unique Samsara IDs (uuid) of the safety event.
+
+        include_asset : typing.Optional[bool]
+            Indicates whether or not to return expanded “asset” data
+
+        include_driver : typing.Optional[bool]
+            Indicates whether or not to return expanded “driver” data
+
+        include_vg_only_events : typing.Optional[bool]
+            Indicates whether or not to return events that are captured by devices with only a Vehicle Gateway (VG) installed.
+
         after : typing.Optional[str]
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-
-        start_time : typing.Optional[str]
-             A start time in RFC 3339 format. Defaults to now if not provided. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
         Returns
         -------
-        SafetyEventsGetSafetyActivityEventFeedResponseBody
+        SafetyEventsV2GetSafetyEventsV2ResponseBody
             OK response.
 
         Examples
@@ -457,13 +386,132 @@ class AsyncSafetyClient:
 
 
         async def main() -> None:
-            await client.safety.get_safety_activity_event_feed()
+            await client.safety.get_safety_events_v_2()
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.get_safety_activity_event_feed(
-            after=after, start_time=start_time, request_options=request_options
+        _response = await self._raw_client.get_safety_events_v_2(
+            safety_event_ids=safety_event_ids,
+            include_asset=include_asset,
+            include_driver=include_driver,
+            include_vg_only_events=include_vg_only_events,
+            after=after,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def get_safety_events_v_2_stream(
+        self,
+        *,
+        start_time: str,
+        end_time: typing.Optional[str] = None,
+        query_by_time_field: typing.Optional[GetSafetyEventsV2StreamRequestQueryByTimeField] = None,
+        asset_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        driver_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        assigned_coaches: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        behavior_labels: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        event_states: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        include_asset: typing.Optional[bool] = None,
+        include_driver: typing.Optional[bool] = None,
+        include_vg_only_events: typing.Optional[bool] = None,
+        after: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> SafetyEventsV2GetSafetyEventsV2StreamResponseBody:
+        """
+        This endpoint will return all safety events associated with your organization based on the parameters passed in. To get core endpoint data, select Read Safety Events & Scores under the Safety & Cameras category when creating or editing an API token. Read Camera Media permissions required to get Safety Event video media via this endpoint. If you include an endTime, the endpoint will return data up until that point. If you do not include an endTime, you can continue to poll the API real-time with the pagination cursor that gets returned on every call. Results are paginated.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        start_time : str
+            RFC 3339 timestamp that indicates when to begin receiving data. Value is compared against `updatedAtTime` or `createdAtTime` depending on the `queryByTimeField` parameter.
+
+        end_time : typing.Optional[str]
+            RFC 3339 timestamp. If not provided and filtering by `updatedAtTime` then the endpoint behaves as an unending feed of changes. If endTime is set the same as startTime, the most recent data point before that time will be returned per asset. Value is compared against `updatedAtTime` or `createdAtTime` depending on the `queryByTimeField` parameter.
+
+        query_by_time_field : typing.Optional[GetSafetyEventsV2StreamRequestQueryByTimeField]
+            Optional string that decides which field to compare against the provided time range.  Valid values: `updatedAtTime`, `createdAtTime`
+
+        asset_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Optional string of comma separated asset IDs. If asset ID is present, events for the specified asset(s) will be returned. Limit of 2000 asset IDs.
+
+        driver_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Optional string of comma separated driver IDs. If driver ID is present, events for the specified driver(s) will be returned. Limit of 2000 driver IDs.
+
+        tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Optional string of comma separated tag IDs. If tag ID is present, events for the specified tag(s) will be returned. Limit of 2000 tag IDs.
+
+        assigned_coaches : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Optional string of comma separated coach IDs to filter events assigned to a particular coach. Limit of 2000 coach IDs.
+
+        behavior_labels : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Optional string of comma separated values to filter behavior labels. Valid values: `Acceleration`, `AggressiveDriving`, `BluetoothHeadset`, `Braking`, `ContextConstructionOrWorkZone`, `ContextSnowyOrIcy`, `ContextVulnerableRoadUser`, `ContextWet`, `Crash`, `DefensiveDriving`, `DidNotYield`, `Drinking`, `Drowsy`, `Eating`, `EatingDrinking`, `EdgeDistractedDriving`, `EdgeRailroadCrossingViolation`, `FollowingDistance`, `FollowingDistanceModerate`, `FollowingDistanceSevere`, `ForwardCollisionWarning`, `GenericDistraction`, `GenericTailgating`, `HarshTurn`, `HeavySpeeding`, `HosViolation`, `Idling`, `Invalid`, `LaneDeparture`, `LateResponse`, `LeftTurn`, `LightSpeeding`, `MaxSpeed`, `MobileUsage`, `ModerateSpeeding`, `NearCollison`, `NearPedestrianCollision`, `NoSeatbelt`, `ObstructedCamera`, `OtherViolation`, `Passenger`, `PolicyViolationMask`, `ProtectiveEquipment`, `RanRedLight`, `Reversing`, `RollingStop`, `RolloverProtection`, `SevereSpeeding`, `Smoking`, `Speeding`, `UTurn`, `UnsafeManeuver`, `UnsafeParking`, `VulnerableRoadUserCollisionWarning`, `YawControl`
+
+        event_states : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Optional string of comma separated values to filter event states. Valid values: `needsReview`, `reviewed`, `needsCoaching`, `coached`, `dismissed`, `needsRecognition`, `recognized`
+
+        include_asset : typing.Optional[bool]
+            Indicates whether or not to return expanded “asset” data
+
+        include_driver : typing.Optional[bool]
+            Indicates whether or not to return expanded “driver” data
+
+        include_vg_only_events : typing.Optional[bool]
+            Indicates whether or not to return events that are captured by devices with only a Vehicle Gateway (VG) installed.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        SafetyEventsV2GetSafetyEventsV2StreamResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.safety.get_safety_events_v_2_stream(
+                start_time="startTime",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_safety_events_v_2_stream(
+            start_time=start_time,
+            end_time=end_time,
+            query_by_time_field=query_by_time_field,
+            asset_ids=asset_ids,
+            driver_ids=driver_ids,
+            tag_ids=tag_ids,
+            assigned_coaches=assigned_coaches,
+            behavior_labels=behavior_labels,
+            event_states=event_states,
+            include_asset=include_asset,
+            include_driver=include_driver,
+            include_vg_only_events=include_vg_only_events,
+            after=after,
+            request_options=request_options,
         )
         return _response.data
 
@@ -528,64 +576,6 @@ class AsyncSafetyClient:
         """
         _response = await self._raw_client.v_1_get_driver_safety_score(
             driver_id, start_ms=start_ms, end_ms=end_ms, request_options=request_options
-        )
-        return _response.data
-
-    async def v_1_get_vehicle_harsh_event(
-        self, vehicle_id: int, *, timestamp: int, request_options: typing.Optional[RequestOptions] = None
-    ) -> V1VehicleHarshEventResponse:
-        """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
-
-        Fetch harsh event details for a vehicle.
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-        Parameters
-        ----------
-        vehicle_id : int
-            ID of the vehicle. Must contain only digits 0-9.
-
-        timestamp : int
-            Timestamp in milliseconds representing the timestamp of a harsh event.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        V1VehicleHarshEventResponse
-            Harsh event details.
-
-        Examples
-        --------
-        import asyncio
-
-        from samsara import AsyncSamsara
-
-        client = AsyncSamsara(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.safety.v_1_get_vehicle_harsh_event(
-                vehicle_id=1000000,
-                timestamp=1000000,
-            )
-
-
-        asyncio.run(main())
-        """
-        _response = await self._raw_client.v_1_get_vehicle_harsh_event(
-            vehicle_id, timestamp=timestamp, request_options=request_options
         )
         return _response.data
 

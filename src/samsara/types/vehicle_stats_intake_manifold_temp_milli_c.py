@@ -4,7 +4,7 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from .vehicle_stats_time import VehicleStatsTime
+from .time import Time
 
 
 class VehicleStatsIntakeManifoldTempMilliC(UniversalBaseModel):
@@ -12,7 +12,7 @@ class VehicleStatsIntakeManifoldTempMilliC(UniversalBaseModel):
     Vehicle intake manifold temperature reading.
     """
 
-    time: VehicleStatsTime
+    time: Time
     value: int = pydantic.Field()
     """
     The intake manifold temperature reading in millidegree Celsius.

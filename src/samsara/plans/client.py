@@ -29,7 +29,12 @@ class PlansClient:
         return self._raw_client
 
     def create_hub_plan(
-        self, *, hub_id: str, name: str, request_options: typing.Optional[RequestOptions] = None
+        self,
+        *,
+        hub_id: str,
+        name: str,
+        shift_start_time: typing.Optional[dt.datetime] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
     ) -> HubPlansCreateHubPlanResponseBody:
         """
         Create a new plan.
@@ -48,6 +53,9 @@ class PlansClient:
 
         name : str
             The name of the plan
+
+        shift_start_time : typing.Optional[dt.datetime]
+            The shift start time for the plan in RFC 3339 format. If not provided, defaults to 9:00 AM on the next business day in the hub's timezone.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -69,7 +77,9 @@ class PlansClient:
             name="Weekly Plan - Week 15",
         )
         """
-        _response = self._raw_client.create_hub_plan(hub_id=hub_id, name=name, request_options=request_options)
+        _response = self._raw_client.create_hub_plan(
+            hub_id=hub_id, name=name, shift_start_time=shift_start_time, request_options=request_options
+        )
         return _response.data
 
     def list_hub_plans(
@@ -160,7 +170,12 @@ class AsyncPlansClient:
         return self._raw_client
 
     async def create_hub_plan(
-        self, *, hub_id: str, name: str, request_options: typing.Optional[RequestOptions] = None
+        self,
+        *,
+        hub_id: str,
+        name: str,
+        shift_start_time: typing.Optional[dt.datetime] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
     ) -> HubPlansCreateHubPlanResponseBody:
         """
         Create a new plan.
@@ -179,6 +194,9 @@ class AsyncPlansClient:
 
         name : str
             The name of the plan
+
+        shift_start_time : typing.Optional[dt.datetime]
+            The shift start time for the plan in RFC 3339 format. If not provided, defaults to 9:00 AM on the next business day in the hub's timezone.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -208,7 +226,9 @@ class AsyncPlansClient:
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.create_hub_plan(hub_id=hub_id, name=name, request_options=request_options)
+        _response = await self._raw_client.create_hub_plan(
+            hub_id=hub_id, name=name, shift_start_time=shift_start_time, request_options=request_options
+        )
         return _response.data
 
     async def list_hub_plans(

@@ -14,19 +14,19 @@ class VehicleStatsFaultCodesValueObdiiConfirmedDtcs(UniversalBaseModel):
     """
 
     dtc_description: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="dtcDescription")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="dtcDescription", default=None)
     )
     """
     The DTC description, if available.
     """
 
-    dtc_id: typing_extensions.Annotated[int, FieldMetadata(alias="dtcId")] = pydantic.Field()
+    dtc_id: typing_extensions.Annotated[int, FieldMetadata(alias="dtcId")] = pydantic.Field(alias="dtcId")
     """
     The DTC identifier.
     """
 
     dtc_short_code: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="dtcShortCode")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="dtcShortCode", default=None)
     )
     """
     The DTC short code, if available.

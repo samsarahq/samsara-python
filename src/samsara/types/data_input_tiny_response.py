@@ -14,14 +14,14 @@ class DataInputTinyResponse(UniversalBaseModel):
     """
 
     asset_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="assetId")] = pydantic.Field(
-        default=None
+        alias="assetId", default=None
     )
     """
     Unique identifier for the data input's asset.
     """
 
     data_group: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="dataGroup")] = pydantic.Field(
-        default=None
+        alias="dataGroup", default=None
     )
     """
     Data group for this data input.

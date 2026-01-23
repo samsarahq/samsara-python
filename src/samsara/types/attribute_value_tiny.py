@@ -19,7 +19,7 @@ class AttributeValueTiny(UniversalBaseModel):
     """
 
     string_value: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="stringValue")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="stringValue", default=None)
     )
     """
     The human-readable string for this value.

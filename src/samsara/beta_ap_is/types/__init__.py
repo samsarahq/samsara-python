@@ -17,8 +17,6 @@ if typing.TYPE_CHECKING:
     from .get_qualification_types_request_entity_type import GetQualificationTypesRequestEntityType
     from .get_tag_group_safety_scores_request_score_type import GetTagGroupSafetyScoresRequestScoreType
     from .get_tag_safety_scores_request_score_type import GetTagSafetyScoresRequestScoreType
-    from .get_trips_request_completion_status import GetTripsRequestCompletionStatus
-    from .get_trips_request_query_by import GetTripsRequestQueryBy
 _dynamic_imports: typing.Dict[str, str] = {
     "FunctionsStartFunctionRunRequestBodyParamsOverride": ".functions_start_function_run_request_body_params_override",
     "GetAssetsInputsRequestType": ".get_assets_inputs_request_type",
@@ -29,8 +27,6 @@ _dynamic_imports: typing.Dict[str, str] = {
     "GetQualificationTypesRequestEntityType": ".get_qualification_types_request_entity_type",
     "GetTagGroupSafetyScoresRequestScoreType": ".get_tag_group_safety_scores_request_score_type",
     "GetTagSafetyScoresRequestScoreType": ".get_tag_safety_scores_request_score_type",
-    "GetTripsRequestCompletionStatus": ".get_trips_request_completion_status",
-    "GetTripsRequestQueryBy": ".get_trips_request_query_by",
 }
 
 
@@ -65,6 +61,4 @@ __all__ = [
     "GetQualificationTypesRequestEntityType",
     "GetTagGroupSafetyScoresRequestScoreType",
     "GetTagSafetyScoresRequestScoreType",
-    "GetTripsRequestCompletionStatus",
-    "GetTripsRequestQueryBy",
 ]

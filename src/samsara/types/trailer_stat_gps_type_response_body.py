@@ -15,7 +15,7 @@ class TrailerStatGpsTypeResponseBody(UniversalBaseModel):
     """
 
     heading_degrees: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="headingDegrees")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="headingDegrees", default=None)
     )
     """
     Heading of the trailer in degrees.
@@ -33,10 +33,10 @@ class TrailerStatGpsTypeResponseBody(UniversalBaseModel):
 
     reverse_geo: typing_extensions.Annotated[
         typing.Optional[ReverseGeoObjectResponseBody], FieldMetadata(alias="reverseGeo")
-    ] = None
+    ] = pydantic.Field(alias="reverseGeo", default=None)
     speed_miles_per_hour: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="speedMilesPerHour")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="speedMilesPerHour", default=None)
     """
     GPS speed of the trailer in miles per hour.
     """

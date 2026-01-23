@@ -4,8 +4,8 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
+from .time import Time
 from .vehicle_stats_decorations import VehicleStatsDecorations
-from .vehicle_stats_time import VehicleStatsTime
 
 
 class VehicleStatsEngineLoadPercentWithDecoration(UniversalBaseModel):
@@ -14,7 +14,7 @@ class VehicleStatsEngineLoadPercentWithDecoration(UniversalBaseModel):
     """
 
     decorations: typing.Optional[VehicleStatsDecorations] = None
-    time: VehicleStatsTime
+    time: Time
     value: int = pydantic.Field()
     """
     The engine load in percentage points (e.g. `99`, `50`, etc).

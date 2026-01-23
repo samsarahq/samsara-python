@@ -14,7 +14,7 @@ class PanicButtonDetailsObjectResponseBody(UniversalBaseModel):
     """
 
     is_filtering_out_power_loss: typing_extensions.Annotated[bool, FieldMetadata(alias="isFilteringOutPowerLoss")] = (
-        pydantic.Field()
+        pydantic.Field(alias="isFilteringOutPowerLoss")
     )
     """
     If true, only receive alerts when the panic button is pressed, otherwise receive alerts when the panic button is pressed or looses connection.

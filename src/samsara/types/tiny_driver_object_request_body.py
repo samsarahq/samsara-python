@@ -13,7 +13,7 @@ class TinyDriverObjectRequestBody(UniversalBaseModel):
     The driver of a vehicle.
     """
 
-    driver_id: typing_extensions.Annotated[str, FieldMetadata(alias="driverId")] = pydantic.Field()
+    driver_id: typing_extensions.Annotated[str, FieldMetadata(alias="driverId")] = pydantic.Field(alias="driverId")
     """
     ID of the driver.
     """

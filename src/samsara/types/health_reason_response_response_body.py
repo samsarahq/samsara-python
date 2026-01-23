@@ -17,13 +17,13 @@ class HealthReasonResponseResponseBody(UniversalBaseModel):
 
     health_reason_code: typing_extensions.Annotated[
         typing.Optional[HealthReasonResponseResponseBodyHealthReasonCode], FieldMetadata(alias="healthReasonCode")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="healthReasonCode", default=None)
     """
-    The type of health reason detected.  Valid values: `assetUnplugged`, `cameraMisaligned`, `healthy`, `inwardCameraObstruction`, `irregularRecording`, `lowDeviceBattery`, `missingEldDiagnostics`, `missingVin`, `needsReplacement`, `newlyInstalledDevice`, `noGpsSignal`, `notDetected`, `outwardCameraObstruction`, `recordingTimeRequired`, `unknown`, `vgUnplugged`
+    The type of health reason detected.  Valid values: `assetUnplugged`, `cameraMisaligned`, `dataPending`, `healthy`, `inwardCameraObstruction`, `irregularRecording`, `lowDeviceBattery`, `missingEldDiagnostics`, `missingVin`, `needsReplacement`, `newlyInstalledDevice`, `noGpsSignal`, `notDetected`, `outwardCameraObstruction`, `recordingTimeRequired`, `unknown`, `vgUnplugged`
     """
 
     start_time: typing_extensions.Annotated[typing.Optional[dt.datetime], FieldMetadata(alias="startTime")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="startTime", default=None)
     )
     """
     The timestamp when this health reason began, in RFC3339 format.

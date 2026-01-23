@@ -16,17 +16,17 @@ class HosCycle(UniversalBaseModel):
 
     cycle_remaining_duration_ms: typing_extensions.Annotated[
         typing.Optional[float], FieldMetadata(alias="cycleRemainingDurationMs")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="cycleRemainingDurationMs", default=None)
     """
     Remaining on duty or driving time the driver has in the current cycle in milliseconds. For property-carrying drivers, this is the amount of time the driver can be on duty or driving before hitting the 60/70-hour limit in 7/8 days.
     """
 
     cycle_started_at_time: typing_extensions.Annotated[
         typing.Optional[Time], FieldMetadata(alias="cycleStartedAtTime")
-    ] = None
+    ] = pydantic.Field(alias="cycleStartedAtTime", default=None)
     cycle_tomorrow_duration_ms: typing_extensions.Annotated[
         typing.Optional[float], FieldMetadata(alias="cycleTomorrowDurationMs")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="cycleTomorrowDurationMs", default=None)
     """
     Remaining on duty or driving time the driver has available tomorrow in milliseconds. For property-carrying drivers this is calculated based on the 60/70-hour limit in 7/8 days rule.
     """

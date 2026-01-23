@@ -13,7 +13,9 @@ class CreateDriverAuthTokenResponseResponseBody(UniversalBaseModel):
     Response object for create driver auth token
     """
 
-    expiration_time: typing_extensions.Annotated[int, FieldMetadata(alias="expirationTime")] = pydantic.Field()
+    expiration_time: typing_extensions.Annotated[int, FieldMetadata(alias="expirationTime")] = pydantic.Field(
+        alias="expirationTime"
+    )
     """
     Expiration time of the token in Unix milliseconds since epoch. Clients must redeem the token before this timestamp.
     """

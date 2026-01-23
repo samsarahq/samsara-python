@@ -19,33 +19,41 @@ class TripResponseBody(UniversalBaseModel):
     asset: TripAssetResponseBody
     completion_status: typing_extensions.Annotated[
         TripResponseBodyCompletionStatus, FieldMetadata(alias="completionStatus")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="completionStatus")
     """
     Trip completion status  Valid values: `inProgress`, `completed`
     """
 
-    created_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="createdAtTime")] = pydantic.Field()
+    created_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="createdAtTime")] = pydantic.Field(
+        alias="createdAtTime"
+    )
     """
     [RFC 3339] Time the trip was created in Samsara in UTC.
     """
 
     end_location: typing_extensions.Annotated[
         typing.Optional[LocationResponseResponseBody], FieldMetadata(alias="endLocation")
-    ] = None
-    start_location: typing_extensions.Annotated[LocationResponseResponseBody, FieldMetadata(alias="startLocation")]
+    ] = pydantic.Field(alias="endLocation", default=None)
+    start_location: typing_extensions.Annotated[LocationResponseResponseBody, FieldMetadata(alias="startLocation")] = (
+        pydantic.Field(alias="startLocation")
+    )
     trip_end_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="tripEndTime")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="tripEndTime", default=None)
     )
     """
     [RFC 3339] Time the trip ended in UTC.
     """
 
-    trip_start_time: typing_extensions.Annotated[str, FieldMetadata(alias="tripStartTime")] = pydantic.Field()
+    trip_start_time: typing_extensions.Annotated[str, FieldMetadata(alias="tripStartTime")] = pydantic.Field(
+        alias="tripStartTime"
+    )
     """
     [RFC 3339] Time the trip started in UTC.
     """
 
-    updated_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="updatedAtTime")] = pydantic.Field()
+    updated_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="updatedAtTime")] = pydantic.Field(
+        alias="updatedAtTime"
+    )
     """
     [RFC 3339] Time the trip was updated in Samsara in UTC. Valid updates are when `endTime` populates or `completionStatus` changes values.
     """

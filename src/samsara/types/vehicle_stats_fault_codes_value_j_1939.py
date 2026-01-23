@@ -21,11 +21,11 @@ class VehicleStatsFaultCodesValueJ1939(UniversalBaseModel):
 
     check_engine_lights: typing_extensions.Annotated[
         typing.Optional[VehicleStatsFaultCodesValueJ1939CheckEngineLights], FieldMetadata(alias="checkEngineLights")
-    ] = None
+    ] = pydantic.Field(alias="checkEngineLights", default=None)
     diagnostic_trouble_codes: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsFaultCodesValueJ1939DiagnosticTroubleCodes]],
         FieldMetadata(alias="diagnosticTroubleCodes"),
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="diagnosticTroubleCodes", default=None)
     """
     Diagnostic trouble codes for J1939 vehicles.
     """

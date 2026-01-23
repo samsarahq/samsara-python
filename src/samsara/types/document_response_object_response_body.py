@@ -25,19 +25,21 @@ class DocumentResponseObjectResponseBody(UniversalBaseModel):
     conditional_field_sections: typing_extensions.Annotated[
         typing.Optional[typing.List[ConditionalFieldSectionObjectResponseBody]],
         FieldMetadata(alias="conditionalFieldSections"),
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="conditionalFieldSections", default=None)
     """
     List of the document conditional field sections.
     """
 
-    created_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAtTime")] = pydantic.Field()
+    created_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAtTime")] = pydantic.Field(
+        alias="createdAtTime"
+    )
     """
     Time the document was created in RFC 3339 format.
     """
 
     document_type: typing_extensions.Annotated[
         GoaDocumentTypeTinyResponseResponseBody, FieldMetadata(alias="documentType")
-    ]
+    ] = pydantic.Field(alias="documentType")
     driver: GoaDriverTinyResponseResponseBody
     fields: typing.List[FieldObjectResponseBody] = pydantic.Field()
     """
@@ -62,14 +64,14 @@ class DocumentResponseObjectResponseBody(UniversalBaseModel):
     route: typing.Optional[GoaRouteTinyResponseResponseBody] = None
     route_stop: typing_extensions.Annotated[
         typing.Optional[GoaRouteStopTinyResponseResponseBody], FieldMetadata(alias="routeStop")
-    ] = None
+    ] = pydantic.Field(alias="routeStop", default=None)
     state: DocumentResponseObjectResponseBodyState = pydantic.Field()
     """
     The condition of the document created for the driver. Can be either Required or Submitted. Required documents are pre-populated documents for the Driver to fill out in the Driver App and have not yet been submitted. Submitted documents have been submitted by the driver in the Driver App. Archived documents have been archived by the admin in the cloud dashboard.  Valid values: `submitted`, `required`, `archived`
     """
 
     updated_at_time: typing_extensions.Annotated[typing.Optional[dt.datetime], FieldMetadata(alias="updatedAtTime")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="updatedAtTime", default=None)
     )
     """
     Time the document was updated in RFC 3339 format.

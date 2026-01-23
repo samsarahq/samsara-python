@@ -19,14 +19,14 @@ class VehicleWithGatewayTinyResponseResponseBody(UniversalBaseModel):
 
     asset_type: typing_extensions.Annotated[
         typing.Optional[VehicleWithGatewayTinyResponseResponseBodyAssetType], FieldMetadata(alias="assetType")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="assetType", default=None)
     """
     The type of the asset.  Valid values: `uncategorized`, `trailer`, `equipment`, `unpowered`, `vehicle`
     """
 
     external_ids: typing_extensions.Annotated[
         typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="externalIds", default=None)
     """
     A map of external ids
     """
@@ -38,7 +38,7 @@ class VehicleWithGatewayTinyResponseResponseBody(UniversalBaseModel):
     """
 
     license_plate: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="licensePlate")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="licensePlate", default=None)
     )
     """
     The license plate of the vehicle.

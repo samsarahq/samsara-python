@@ -25,14 +25,14 @@ class CreateDriverRequestAttributes(UniversalBaseModel):
 
     number_values: typing_extensions.Annotated[
         typing.Optional[typing.List[float]], FieldMetadata(alias="numberValues")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="numberValues", default=None)
     """
     Number values that are associated with this attribute.
     """
 
     string_values: typing_extensions.Annotated[
         typing.Optional[typing.List[str]], FieldMetadata(alias="stringValues")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="stringValues", default=None)
     """
     String values that are associated with this attribute.
     """

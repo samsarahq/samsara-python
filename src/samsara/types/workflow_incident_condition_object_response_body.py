@@ -20,7 +20,7 @@ class WorkflowIncidentConditionObjectResponseBody(UniversalBaseModel):
     """
 
     details: WorkflowIncidentDetailsObjectResponseBody
-    trigger_id: typing_extensions.Annotated[int, FieldMetadata(alias="triggerId")] = pydantic.Field()
+    trigger_id: typing_extensions.Annotated[int, FieldMetadata(alias="triggerId")] = pydantic.Field(alias="triggerId")
     """
     Unique identifier describing the type of condition being represented.
     """

@@ -18,7 +18,9 @@ class TrainingCourseObjectResponseBody(UniversalBaseModel):
     ID of the course.
     """
 
-    revision_id: typing_extensions.Annotated[str, FieldMetadata(alias="revisionId")] = pydantic.Field()
+    revision_id: typing_extensions.Annotated[str, FieldMetadata(alias="revisionId")] = pydantic.Field(
+        alias="revisionId"
+    )
     """
     ID of the course's specific version.
     """

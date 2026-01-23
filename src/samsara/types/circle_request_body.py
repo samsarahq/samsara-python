@@ -28,7 +28,9 @@ class CircleRequestBody(UniversalBaseModel):
     The name of the cirlce.
     """
 
-    radius_meters: typing_extensions.Annotated[int, FieldMetadata(alias="radiusMeters")] = pydantic.Field()
+    radius_meters: typing_extensions.Annotated[int, FieldMetadata(alias="radiusMeters")] = pydantic.Field(
+        alias="radiusMeters"
+    )
     """
     The radius of the circular geofence in meters.
     """

@@ -8,18 +8,14 @@ from importlib import import_module
 if typing.TYPE_CHECKING:
     from .types import (
         StreamWorkOrdersRequestWorkOrderStatusesItem,
-        WorkOrdersPatchWorkOrdersRequestBodyCategory,
         WorkOrdersPatchWorkOrdersRequestBodyPriority,
         WorkOrdersPatchWorkOrdersRequestBodyStatus,
-        WorkOrdersPostWorkOrdersRequestBodyCategory,
         WorkOrdersPostWorkOrdersRequestBodyPriority,
     )
 _dynamic_imports: typing.Dict[str, str] = {
     "StreamWorkOrdersRequestWorkOrderStatusesItem": ".types",
-    "WorkOrdersPatchWorkOrdersRequestBodyCategory": ".types",
     "WorkOrdersPatchWorkOrdersRequestBodyPriority": ".types",
     "WorkOrdersPatchWorkOrdersRequestBodyStatus": ".types",
-    "WorkOrdersPostWorkOrdersRequestBodyCategory": ".types",
     "WorkOrdersPostWorkOrdersRequestBodyPriority": ".types",
 }
 
@@ -47,9 +43,7 @@ def __dir__():
 
 __all__ = [
     "StreamWorkOrdersRequestWorkOrderStatusesItem",
-    "WorkOrdersPatchWorkOrdersRequestBodyCategory",
     "WorkOrdersPatchWorkOrdersRequestBodyPriority",
     "WorkOrdersPatchWorkOrdersRequestBodyStatus",
-    "WorkOrdersPostWorkOrdersRequestBodyCategory",
     "WorkOrdersPostWorkOrdersRequestBodyPriority",
 ]

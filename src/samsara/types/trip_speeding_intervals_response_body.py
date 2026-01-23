@@ -16,13 +16,15 @@ class TripSpeedingIntervalsResponseBody(UniversalBaseModel):
     """
 
     asset: TripAssetResponseBody
-    created_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="createdAtTime")] = pydantic.Field()
+    created_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="createdAtTime")] = pydantic.Field(
+        alias="createdAtTime"
+    )
     """
     UTC time the trip was created in Samsara in RFC 3339 format.
     """
 
     driver_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="driverId")] = pydantic.Field(
-        default=None
+        alias="driverId", default=None
     )
     """
     The driver ID assigned to the trip. Only returned if includeDriverId is set to true. 'null' if no driver id.
@@ -33,12 +35,16 @@ class TripSpeedingIntervalsResponseBody(UniversalBaseModel):
     List of speeding intervals that belong to the trip. The full list of intervals associated with the trip is always returned, empty if no intervals exist.
     """
 
-    trip_start_time: typing_extensions.Annotated[str, FieldMetadata(alias="tripStartTime")] = pydantic.Field()
+    trip_start_time: typing_extensions.Annotated[str, FieldMetadata(alias="tripStartTime")] = pydantic.Field(
+        alias="tripStartTime"
+    )
     """
     UTC time the trip started in RFC 3339 format.
     """
 
-    updated_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="updatedAtTime")] = pydantic.Field()
+    updated_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="updatedAtTime")] = pydantic.Field(
+        alias="updatedAtTime"
+    )
     """
     UTC time the trip was last updated in Samsara in RFC 3339 format. Valid updates are when trip's endTime populates or interval.isDismissed changes value.
     """

@@ -144,7 +144,7 @@ class RawAddressesClient:
             Name of the address.
 
         address_types : typing.Optional[typing.Sequence[CreateAddressRequestAddressTypesItem]]
-            Reporting location type associated with the address (used for ELD reporting purposes). Valid values: `yard`, `shortHaul`, `workforceSite`, `riskZone`, `industrialSite`, `alertsOnly`, `agricultureSource`, `avoidanceZone`, `knownGPSJammingZone`.
+            Reporting location type associated with the address (used for ELD reporting purposes). Valid values: `yard`, `shortHaul`, `workforceSite`, `riskZone`, `industrialSite`, `alertsOnly`, `agricultureSource`, `avoidanceZone`, `knownGPSJammingZone`, `authorizedZone`, `unauthorizedZone`.
 
         contact_ids : typing.Optional[typing.Sequence[str]]
             An array of Contact IDs associated with this Address.
@@ -323,7 +323,7 @@ class RawAddressesClient:
             ID of the Address. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `crmId:abc123`
 
         address_types : typing.Optional[typing.Sequence[UpdateAddressRequestAddressTypesItem]]
-            Reporting location type associated with the address (used for ELD reporting purposes). Valid values: `yard`, `shortHaul`, `workforceSite`, `riskZone`, `industrialSite`, `alertsOnly`, `agricultureSource`, `avoidanceZone`, `knownGPSJammingZone`.
+            Reporting location type associated with the address (used for ELD reporting purposes). Valid values: `yard`, `shortHaul`, `workforceSite`, `riskZone`, `industrialSite`, `alertsOnly`, `agricultureSource`, `avoidanceZone`, `knownGPSJammingZone`, `authorizedZone`, `unauthorizedZone`.
 
         contact_ids : typing.Optional[typing.Sequence[str]]
             An array of Contact IDs associated with this Address.
@@ -521,7 +521,7 @@ class AsyncRawAddressesClient:
             Name of the address.
 
         address_types : typing.Optional[typing.Sequence[CreateAddressRequestAddressTypesItem]]
-            Reporting location type associated with the address (used for ELD reporting purposes). Valid values: `yard`, `shortHaul`, `workforceSite`, `riskZone`, `industrialSite`, `alertsOnly`, `agricultureSource`, `avoidanceZone`, `knownGPSJammingZone`.
+            Reporting location type associated with the address (used for ELD reporting purposes). Valid values: `yard`, `shortHaul`, `workforceSite`, `riskZone`, `industrialSite`, `alertsOnly`, `agricultureSource`, `avoidanceZone`, `knownGPSJammingZone`, `authorizedZone`, `unauthorizedZone`.
 
         contact_ids : typing.Optional[typing.Sequence[str]]
             An array of Contact IDs associated with this Address.
@@ -702,7 +702,7 @@ class AsyncRawAddressesClient:
             ID of the Address. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `crmId:abc123`
 
         address_types : typing.Optional[typing.Sequence[UpdateAddressRequestAddressTypesItem]]
-            Reporting location type associated with the address (used for ELD reporting purposes). Valid values: `yard`, `shortHaul`, `workforceSite`, `riskZone`, `industrialSite`, `alertsOnly`, `agricultureSource`, `avoidanceZone`, `knownGPSJammingZone`.
+            Reporting location type associated with the address (used for ELD reporting purposes). Valid values: `yard`, `shortHaul`, `workforceSite`, `riskZone`, `industrialSite`, `alertsOnly`, `agricultureSource`, `avoidanceZone`, `knownGPSJammingZone`, `authorizedZone`, `unauthorizedZone`.
 
         contact_ids : typing.Optional[typing.Sequence[str]]
             An array of Contact IDs associated with this Address.

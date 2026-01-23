@@ -23,13 +23,17 @@ class FormTemplateResponseObjectResponseBody(UniversalBaseModel):
 
     approval_config: typing_extensions.Annotated[
         typing.Optional[FormsApprovalConfigObjectResponseBody], FieldMetadata(alias="approvalConfig")
-    ] = None
-    created_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAtTime")] = pydantic.Field()
+    ] = pydantic.Field(alias="approvalConfig", default=None)
+    created_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAtTime")] = pydantic.Field(
+        alias="createdAtTime"
+    )
     """
     Creation time of the form template. UTC timestamp in RFC 3339 format.
     """
 
-    created_by: typing_extensions.Annotated[FormsPolymorphicUserObjectResponseBody, FieldMetadata(alias="createdBy")]
+    created_by: typing_extensions.Annotated[
+        FormsPolymorphicUserObjectResponseBody, FieldMetadata(alias="createdBy")
+    ] = pydantic.Field(alias="createdBy")
     description: typing.Optional[str] = pydantic.Field(default=None)
     """
     Description of the form template. Sometimes returned if the template has a description.
@@ -42,7 +46,7 @@ class FormTemplateResponseObjectResponseBody(UniversalBaseModel):
 
     form_category: typing_extensions.Annotated[
         typing.Optional[FormTemplateResponseObjectResponseBodyFormCategory], FieldMetadata(alias="formCategory")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="formCategory", default=None)
     """
     Category of the form template.  Valid values: `general`, `routing`, `fuel`
     """
@@ -52,7 +56,9 @@ class FormTemplateResponseObjectResponseBody(UniversalBaseModel):
     Unique identifier of the form template.
     """
 
-    revision_id: typing_extensions.Annotated[str, FieldMetadata(alias="revisionId")] = pydantic.Field()
+    revision_id: typing_extensions.Annotated[str, FieldMetadata(alias="revisionId")] = pydantic.Field(
+        alias="revisionId"
+    )
     """
     Unique identifier of the form template revision.
     """
@@ -67,12 +73,16 @@ class FormTemplateResponseObjectResponseBody(UniversalBaseModel):
     Title of the form template.
     """
 
-    updated_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAtTime")] = pydantic.Field()
+    updated_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAtTime")] = pydantic.Field(
+        alias="updatedAtTime"
+    )
     """
     Update time of the form template. UTC timestamp in RFC 3339 format.
     """
 
-    updated_by: typing_extensions.Annotated[FormsPolymorphicUserObjectResponseBody, FieldMetadata(alias="updatedBy")]
+    updated_by: typing_extensions.Annotated[
+        FormsPolymorphicUserObjectResponseBody, FieldMetadata(alias="updatedBy")
+    ] = pydantic.Field(alias="updatedBy")
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

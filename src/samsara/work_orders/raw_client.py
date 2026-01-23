@@ -19,6 +19,7 @@ from ..errors.not_implemented_error import NotImplementedError
 from ..errors.service_unavailable_error import ServiceUnavailableError
 from ..errors.too_many_requests_error import TooManyRequestsError
 from ..errors.unauthorized_error import UnauthorizedError
+from ..types.invoice_scan_file_request_body import InvoiceScanFileRequestBody
 from ..types.service_task_instance_input_object_request_body import ServiceTaskInstanceInputObjectRequestBody
 from ..types.work_order_discount_object_request_body import WorkOrderDiscountObjectRequestBody
 from ..types.work_order_item_object_request_body import WorkOrderItemObjectRequestBody
@@ -27,13 +28,12 @@ from ..types.work_order_tax_object_request_body import WorkOrderTaxObjectRequest
 from ..types.work_orders_get_service_tasks_response_body import WorkOrdersGetServiceTasksResponseBody
 from ..types.work_orders_get_work_orders_response_body import WorkOrdersGetWorkOrdersResponseBody
 from ..types.work_orders_patch_work_orders_response_body import WorkOrdersPatchWorkOrdersResponseBody
+from ..types.work_orders_post_invoice_scan_response_body import WorkOrdersPostInvoiceScanResponseBody
 from ..types.work_orders_post_work_orders_response_body import WorkOrdersPostWorkOrdersResponseBody
 from ..types.work_orders_stream_work_orders_response_body import WorkOrdersStreamWorkOrdersResponseBody
 from .types.stream_work_orders_request_work_order_statuses_item import StreamWorkOrdersRequestWorkOrderStatusesItem
-from .types.work_orders_patch_work_orders_request_body_category import WorkOrdersPatchWorkOrdersRequestBodyCategory
 from .types.work_orders_patch_work_orders_request_body_priority import WorkOrdersPatchWorkOrdersRequestBodyPriority
 from .types.work_orders_patch_work_orders_request_body_status import WorkOrdersPatchWorkOrdersRequestBodyStatus
-from .types.work_orders_post_work_orders_request_body_category import WorkOrdersPostWorkOrdersRequestBodyCategory
 from .types.work_orders_post_work_orders_request_body_priority import WorkOrdersPostWorkOrdersRequestBodyPriority
 
 # this is used as the default value for optional parameters
@@ -43,6 +43,172 @@ OMIT = typing.cast(typing.Any, ...)
 class RawWorkOrdersClient:
     def __init__(self, *, client_wrapper: SyncClientWrapper):
         self._client_wrapper = client_wrapper
+
+    def post_invoice_scan(
+        self,
+        *,
+        file: InvoiceScanFileRequestBody,
+        asset_id: typing.Optional[str] = OMIT,
+        work_order_id: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[WorkOrdersPostInvoiceScanResponseBody]:
+        """
+        Process an invoice scan to create or update a work order with AI-extracted data. Accepts base64 encoded invoice files (PDF, JPEG, PNG) up to 10MB.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Work Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        file : InvoiceScanFileRequestBody
+
+        asset_id : typing.Optional[str]
+            Asset ID to create a new work order for the invoice. Provide either workOrderId OR assetId, but not both. If assetId is provided, a new work order will be created for that asset. If workOrderId is provided instead, the invoice will be attached to the existing work order.
+
+        work_order_id : typing.Optional[str]
+            Work order ID to attach the invoice to an existing work order. Provide either workOrderId OR assetId, but not both. If workOrderId is provided, the invoice will be attached to the existing work order. If assetId is provided instead, a new work order will be created for that asset.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[WorkOrdersPostInvoiceScanResponseBody]
+            OK response.
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "maintenance/invoice-scans",
+            method="POST",
+            json={
+                "assetId": asset_id,
+                "file": convert_and_respect_annotation_metadata(
+                    object_=file, annotation=InvoiceScanFileRequestBody, direction="write"
+                ),
+                "workOrderId": work_order_id,
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    WorkOrdersPostInvoiceScanResponseBody,
+                    parse_obj_as(
+                        type_=WorkOrdersPostInvoiceScanResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
     def get_service_tasks(
         self,
@@ -366,7 +532,7 @@ class RawWorkOrdersClient:
         *,
         asset_id: str,
         assigned_user_id: typing.Optional[str] = OMIT,
-        category: typing.Optional[WorkOrdersPostWorkOrdersRequestBodyCategory] = OMIT,
+        category: typing.Optional[str] = OMIT,
         description: typing.Optional[str] = OMIT,
         discount: typing.Optional[WorkOrderDiscountObjectRequestBody] = OMIT,
         due_at_time: typing.Optional[dt.datetime] = OMIT,
@@ -399,8 +565,8 @@ class RawWorkOrdersClient:
         assigned_user_id : typing.Optional[str]
             The ID of the assigned mechanic.
 
-        category : typing.Optional[WorkOrdersPostWorkOrdersRequestBodyCategory]
-            The category of the work order  Valid values: `Annual`, `Corrective`, `Damage Repair`, `Preventive`, `Recall`, `Unspecified`
+        category : typing.Optional[str]
+            The category of the work order
 
         description : typing.Optional[str]
             A description of what needs to be fixed.
@@ -739,7 +905,7 @@ class RawWorkOrdersClient:
         *,
         id: str,
         assigned_user_id: typing.Optional[str] = OMIT,
-        category: typing.Optional[WorkOrdersPatchWorkOrdersRequestBodyCategory] = OMIT,
+        category: typing.Optional[str] = OMIT,
         closing_notes: typing.Optional[str] = OMIT,
         completed_at_time: typing.Optional[dt.datetime] = OMIT,
         description: typing.Optional[str] = OMIT,
@@ -775,8 +941,8 @@ class RawWorkOrdersClient:
         assigned_user_id : typing.Optional[str]
             The ID of the assigned mechanic.
 
-        category : typing.Optional[WorkOrdersPatchWorkOrdersRequestBodyCategory]
-            The category of the work order  Valid values: `Annual`, `Corrective`, `Damage Repair`, `Preventive`, `Recall`, `Unspecified`
+        category : typing.Optional[str]
+            The category of the work order
 
         closing_notes : typing.Optional[str]
             Notes on the work order.
@@ -1168,6 +1334,172 @@ class AsyncRawWorkOrdersClient:
     def __init__(self, *, client_wrapper: AsyncClientWrapper):
         self._client_wrapper = client_wrapper
 
+    async def post_invoice_scan(
+        self,
+        *,
+        file: InvoiceScanFileRequestBody,
+        asset_id: typing.Optional[str] = OMIT,
+        work_order_id: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[WorkOrdersPostInvoiceScanResponseBody]:
+        """
+        Process an invoice scan to create or update a work order with AI-extracted data. Accepts base64 encoded invoice files (PDF, JPEG, PNG) up to 10MB.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Work Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        file : InvoiceScanFileRequestBody
+
+        asset_id : typing.Optional[str]
+            Asset ID to create a new work order for the invoice. Provide either workOrderId OR assetId, but not both. If assetId is provided, a new work order will be created for that asset. If workOrderId is provided instead, the invoice will be attached to the existing work order.
+
+        work_order_id : typing.Optional[str]
+            Work order ID to attach the invoice to an existing work order. Provide either workOrderId OR assetId, but not both. If workOrderId is provided, the invoice will be attached to the existing work order. If assetId is provided instead, a new work order will be created for that asset.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[WorkOrdersPostInvoiceScanResponseBody]
+            OK response.
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "maintenance/invoice-scans",
+            method="POST",
+            json={
+                "assetId": asset_id,
+                "file": convert_and_respect_annotation_metadata(
+                    object_=file, annotation=InvoiceScanFileRequestBody, direction="write"
+                ),
+                "workOrderId": work_order_id,
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    WorkOrdersPostInvoiceScanResponseBody,
+                    parse_obj_as(
+                        type_=WorkOrdersPostInvoiceScanResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
     async def get_service_tasks(
         self,
         *,
@@ -1490,7 +1822,7 @@ class AsyncRawWorkOrdersClient:
         *,
         asset_id: str,
         assigned_user_id: typing.Optional[str] = OMIT,
-        category: typing.Optional[WorkOrdersPostWorkOrdersRequestBodyCategory] = OMIT,
+        category: typing.Optional[str] = OMIT,
         description: typing.Optional[str] = OMIT,
         discount: typing.Optional[WorkOrderDiscountObjectRequestBody] = OMIT,
         due_at_time: typing.Optional[dt.datetime] = OMIT,
@@ -1523,8 +1855,8 @@ class AsyncRawWorkOrdersClient:
         assigned_user_id : typing.Optional[str]
             The ID of the assigned mechanic.
 
-        category : typing.Optional[WorkOrdersPostWorkOrdersRequestBodyCategory]
-            The category of the work order  Valid values: `Annual`, `Corrective`, `Damage Repair`, `Preventive`, `Recall`, `Unspecified`
+        category : typing.Optional[str]
+            The category of the work order
 
         description : typing.Optional[str]
             A description of what needs to be fixed.
@@ -1863,7 +2195,7 @@ class AsyncRawWorkOrdersClient:
         *,
         id: str,
         assigned_user_id: typing.Optional[str] = OMIT,
-        category: typing.Optional[WorkOrdersPatchWorkOrdersRequestBodyCategory] = OMIT,
+        category: typing.Optional[str] = OMIT,
         closing_notes: typing.Optional[str] = OMIT,
         completed_at_time: typing.Optional[dt.datetime] = OMIT,
         description: typing.Optional[str] = OMIT,
@@ -1899,8 +2231,8 @@ class AsyncRawWorkOrdersClient:
         assigned_user_id : typing.Optional[str]
             The ID of the assigned mechanic.
 
-        category : typing.Optional[WorkOrdersPatchWorkOrdersRequestBodyCategory]
-            The category of the work order  Valid values: `Annual`, `Corrective`, `Damage Repair`, `Preventive`, `Recall`, `Unspecified`
+        category : typing.Optional[str]
+            The category of the work order
 
         closing_notes : typing.Optional[str]
             Notes on the work order.

@@ -14,14 +14,14 @@ class StopTaskSkippedEventDetailsResponseBody(UniversalBaseModel):
     Details for stop task skipped events.
     """
 
-    task_id: typing_extensions.Annotated[str, FieldMetadata(alias="taskId")] = pydantic.Field()
+    task_id: typing_extensions.Annotated[str, FieldMetadata(alias="taskId")] = pydantic.Field(alias="taskId")
     """
     ID of the skipped stop task.
     """
 
     task_type: typing_extensions.Annotated[
         StopTaskSkippedEventDetailsResponseBodyTaskType, FieldMetadata(alias="taskType")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="taskType")
     """
     Type of the skipped stop task.  Valid values: `form`, `document`
     """

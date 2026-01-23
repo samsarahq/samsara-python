@@ -22,12 +22,12 @@ class SafetyEventV2DriverObjectResponseBody(UniversalBaseModel):
 
     external_ids: typing_extensions.Annotated[
         typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="externalIds", default=None)
     """
     A map of external ids
     """
 
-    id: typing.Optional[str] = pydantic.Field(default=None)
+    id: str = pydantic.Field()
     """
     Unique ID for the driver object that is assigned to the safety event.
     """

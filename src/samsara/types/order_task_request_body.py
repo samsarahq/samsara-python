@@ -22,22 +22,22 @@ class OrderTaskRequestBody(UniversalBaseModel):
 
     appointment_window: typing_extensions.Annotated[
         typing.Optional[AppointmentWindowRequestBody], FieldMetadata(alias="appointmentWindow")
-    ] = None
+    ] = pydantic.Field(alias="appointmentWindow", default=None)
     customer_location_id: typing_extensions.Annotated[
         typing.Optional[str], FieldMetadata(alias="customerLocationId")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="customerLocationId", default=None)
     """
     The customer-provided identifier of the location associated with the order
     """
 
     latitude: typing.Optional[float] = pydantic.Field(default=None)
     """
-    Latitude of the order
+    Latitude of the order. Optional if address is provided; the address will be geocoded to obtain coordinates.
     """
 
     longitude: typing.Optional[float] = pydantic.Field(default=None)
     """
-    Longitude of the order
+    Longitude of the order. Optional if address is provided; the address will be geocoded to obtain coordinates.
     """
 
     notes: typing.Optional[str] = pydantic.Field(default=None)
@@ -52,7 +52,7 @@ class OrderTaskRequestBody(UniversalBaseModel):
 
     service_time_seconds: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="serviceTimeSeconds")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="serviceTimeSeconds", default=None)
     """
     Estimated service time for the order in seconds
     """

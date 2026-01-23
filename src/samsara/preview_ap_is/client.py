@@ -4,7 +4,13 @@ import typing
 
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.request_options import RequestOptions
+from ..types.drivers_auth_token_create_driver_auth_token_response_body import (
+    DriversAuthTokenCreateDriverAuthTokenResponseBody,
+)
 from .raw_client import AsyncRawPreviewApIsClient, RawPreviewApIsClient
+
+# this is used as the default value for optional parameters
+OMIT = typing.cast(typing.Any, ...)
 
 
 class PreviewApIsClient:
@@ -21,6 +27,69 @@ class PreviewApIsClient:
         RawPreviewApIsClient
         """
         return self._raw_client
+
+    def create_driver_auth_token(
+        self,
+        *,
+        code: str,
+        external_id: typing.Optional[str] = OMIT,
+        id: typing.Optional[int] = OMIT,
+        username: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> DriversAuthTokenCreateDriverAuthTokenResponseBody:
+        """
+        Creates a short-lived auth token for a driver.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Driver Auth Token** under the Drivers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        code : str
+            Required. Random 12+ character string, used with the auth token to help secure the client from intercepted tokens.
+
+        external_id : typing.Optional[str]
+            Optional. External ID of the driver, in the format `key:value` (e.g., `payrollId:ABFS18600`). One of `id`, `externalId`, or `username` is required.
+
+        id : typing.Optional[int]
+            Optional. Samsara ID of the driver. One of `id`, `externalId`, or `username` is required.
+
+        username : typing.Optional[str]
+            Optional. Username of the driver. This is the login identifier configured when the driver is created. One of `id`, `externalId`, or `username` is required.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        DriversAuthTokenCreateDriverAuthTokenResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.preview_ap_is.create_driver_auth_token(
+            code="dp[gZc1wAigz4uGa0Hh",
+        )
+        """
+        _response = self._raw_client.create_driver_auth_token(
+            code=code, external_id=external_id, id=id, username=username, request_options=request_options
+        )
+        return _response.data
 
     def lock_vehicle(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
         """
@@ -123,6 +192,77 @@ class AsyncPreviewApIsClient:
         AsyncRawPreviewApIsClient
         """
         return self._raw_client
+
+    async def create_driver_auth_token(
+        self,
+        *,
+        code: str,
+        external_id: typing.Optional[str] = OMIT,
+        id: typing.Optional[int] = OMIT,
+        username: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> DriversAuthTokenCreateDriverAuthTokenResponseBody:
+        """
+        Creates a short-lived auth token for a driver.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Driver Auth Token** under the Drivers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        code : str
+            Required. Random 12+ character string, used with the auth token to help secure the client from intercepted tokens.
+
+        external_id : typing.Optional[str]
+            Optional. External ID of the driver, in the format `key:value` (e.g., `payrollId:ABFS18600`). One of `id`, `externalId`, or `username` is required.
+
+        id : typing.Optional[int]
+            Optional. Samsara ID of the driver. One of `id`, `externalId`, or `username` is required.
+
+        username : typing.Optional[str]
+            Optional. Username of the driver. This is the login identifier configured when the driver is created. One of `id`, `externalId`, or `username` is required.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        DriversAuthTokenCreateDriverAuthTokenResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.preview_ap_is.create_driver_auth_token(
+                code="dp[gZc1wAigz4uGa0Hh",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.create_driver_auth_token(
+            code=code, external_id=external_id, id=id, username=username, request_options=request_options
+        )
+        return _response.data
 
     async def lock_vehicle(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
         """

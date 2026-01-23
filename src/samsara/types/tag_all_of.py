@@ -29,7 +29,7 @@ class TagAllOf(UniversalBaseModel):
 
     external_ids: typing_extensions.Annotated[
         typing.Optional[TagAllOfExternalIds], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="externalIds", default=None)
     """
     The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.
     """
@@ -39,7 +39,9 @@ class TagAllOf(UniversalBaseModel):
     The machines that belong to thistag.
     """
 
-    parent_tag: typing_extensions.Annotated[typing.Optional[ParentTag], FieldMetadata(alias="parentTag")] = None
+    parent_tag: typing_extensions.Annotated[typing.Optional[ParentTag], FieldMetadata(alias="parentTag")] = (
+        pydantic.Field(alias="parentTag", default=None)
+    )
     sensors: typing.Optional[typing.List[TaggedObject]] = pydantic.Field(default=None)
     """
     The sensors that belong to this tag.

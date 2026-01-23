@@ -14,7 +14,7 @@ class GatewayDisconnectedDetailsObjectRequestBody(UniversalBaseModel):
     """
 
     min_duration_milliseconds: typing_extensions.Annotated[int, FieldMetadata(alias="minDurationMilliseconds")] = (
-        pydantic.Field()
+        pydantic.Field(alias="minDurationMilliseconds")
     )
     """
     The number of milliseconds the trigger needs to stay active before alerting. Can only be either 900000 (15 minutes) or 3600000 (60 min).

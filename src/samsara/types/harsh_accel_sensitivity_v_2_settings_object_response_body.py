@@ -24,14 +24,14 @@ class HarshAccelSensitivityV2SettingsObjectResponseBody(UniversalBaseModel):
 
     heavy_duty: typing_extensions.Annotated[
         typing.Optional[HarshAccelSensitivityV2SettingsObjectResponseBodyHeavyDuty], FieldMetadata(alias="heavyDuty")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="heavyDuty", default=None)
     """
     Harsh acceleration sensitivity settings for heavy duty vehicle.  Valid values: `unknown`, `invalid`, `off`, `low`, `normal`, `high`
     """
 
     light_duty: typing_extensions.Annotated[
         typing.Optional[HarshAccelSensitivityV2SettingsObjectResponseBodyLightDuty], FieldMetadata(alias="lightDuty")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="lightDuty", default=None)
     """
     Harsh acceleration sensitivity settings for light duty vehicle.  Valid values: `unknown`, `invalid`, `off`, `low`, `normal`, `high`
     """

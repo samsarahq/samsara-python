@@ -10,14 +10,14 @@ from ..core.serialization import FieldMetadata
 
 class V1DoorResponseSensors(UniversalBaseModel):
     door_closed: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="doorClosed")] = pydantic.Field(
-        default=None
+        alias="doorClosed", default=None
     )
     """
     Flag indicating whether the current door is closed or open.
     """
 
     door_status_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="doorStatusTime")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="doorStatusTime", default=None)
     )
     """
     The timestamp of reported door status, specified in RFC 3339 time.
@@ -34,14 +34,14 @@ class V1DoorResponseSensors(UniversalBaseModel):
     """
 
     trailer_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="trailerId")] = pydantic.Field(
-        default=None
+        alias="trailerId", default=None
     )
     """
     ID of the trailer associated with the sensor for the data point. If no trailer is connected, this parameter will not be reported.
     """
 
     vehicle_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="vehicleId")] = pydantic.Field(
-        default=None
+        alias="vehicleId", default=None
     )
     """
     ID of the vehicle associated with the sensor for the data point. If no vehicle is connected, this parameter will not be reported.

@@ -4,8 +4,8 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
+from .time import Time
 from .vehicle_stats_ecu_door_status_value import VehicleStatsEcuDoorStatusValue
-from .vehicle_stats_time import VehicleStatsTime
 
 
 class VehicleStatsEcuDoorStatus(UniversalBaseModel):
@@ -13,7 +13,7 @@ class VehicleStatsEcuDoorStatus(UniversalBaseModel):
     Door status as read from the vehicle (either from ECU or AUX as a fallback).
     """
 
-    time: VehicleStatsTime
+    time: Time
     value: VehicleStatsEcuDoorStatusValue = pydantic.Field()
     """
     Status of doors. Either `Closed`, `Open` or `Unknown`.

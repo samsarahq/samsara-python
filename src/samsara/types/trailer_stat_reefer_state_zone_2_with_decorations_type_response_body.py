@@ -16,7 +16,7 @@ class TrailerStatReeferStateZone2WithDecorationsTypeResponseBody(UniversalBaseMo
 
     decorations: typing.Optional[TrailerStatDecorationResponseBody] = None
     substate_value: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="substateValue")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="substateValue", default=None)
     )
     """
     The substate zone 2 of the reefer, if available.

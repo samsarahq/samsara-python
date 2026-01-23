@@ -18,7 +18,9 @@ class FuelEnergyCostResponseResponseBody(UniversalBaseModel):
     Amount of the currency.
     """
 
-    currency_code: typing_extensions.Annotated[str, FieldMetadata(alias="currencyCode")] = pydantic.Field()
+    currency_code: typing_extensions.Annotated[str, FieldMetadata(alias="currencyCode")] = pydantic.Field(
+        alias="currencyCode"
+    )
     """
     Type of the currency.
     """

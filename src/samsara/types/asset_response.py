@@ -24,10 +24,10 @@ class AssetResponse(UniversalBaseModel):
 
     custom_metadata: typing_extensions.Annotated[
         typing.Optional[CustomMetadata], FieldMetadata(alias="customMetadata")
-    ] = None
+    ] = pydantic.Field(alias="customMetadata", default=None)
     data_outputs: typing_extensions.Annotated[
         typing.Optional[typing.List[AssetDataOutput]], FieldMetadata(alias="dataOutputs")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="dataOutputs", default=None)
     """
     The list of data outputs configured on the asset.
     """
@@ -37,7 +37,7 @@ class AssetResponse(UniversalBaseModel):
     The id of the asset
     """
 
-    is_running: typing_extensions.Annotated[bool, FieldMetadata(alias="isRunning")] = pydantic.Field()
+    is_running: typing_extensions.Annotated[bool, FieldMetadata(alias="isRunning")] = pydantic.Field(alias="isRunning")
     """
     The running status of the asset. Returns True for On, and False for Off.
     """
@@ -45,17 +45,17 @@ class AssetResponse(UniversalBaseModel):
     location: typing.Optional[AssetLocation] = None
     location_data_input: typing_extensions.Annotated[
         typing.Optional[AssetResponseLocationDataInput], FieldMetadata(alias="locationDataInput")
-    ] = None
+    ] = pydantic.Field(alias="locationDataInput", default=None)
     location_type: typing_extensions.Annotated[typing.Optional[LocationType], FieldMetadata(alias="locationType")] = (
-        None
+        pydantic.Field(alias="locationType", default=None)
     )
     name: AssetName
     parent_asset: typing_extensions.Annotated[
         typing.Optional[AssetResponseParentAsset], FieldMetadata(alias="parentAsset")
-    ] = None
+    ] = pydantic.Field(alias="parentAsset", default=None)
     running_status_data_input: typing_extensions.Annotated[
         typing.Optional[AssetResponseRunningStatusDataInput], FieldMetadata(alias="runningStatusDataInput")
-    ] = None
+    ] = pydantic.Field(alias="runningStatusDataInput", default=None)
     tags: typing.Optional[typing.List[TagTinyResponse]] = pydantic.Field(default=None)
     """
     The list of [tags](https://kb.samsara.com/hc/en-us/articles/360026674631-Using-Tags-and-Tag-Nesting) associated with the Industrial Asset. **By default**: empty. Can be set or updated through the Samsara Dashboard or the API at any time.

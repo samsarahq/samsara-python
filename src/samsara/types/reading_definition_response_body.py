@@ -7,7 +7,6 @@ import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .enum_value_response_body import EnumValueResponseBody
-from .reading_type_response_body import ReadingTypeResponseBody
 
 
 class ReadingDefinitionResponseBody(UniversalBaseModel):
@@ -25,19 +24,23 @@ class ReadingDefinitionResponseBody(UniversalBaseModel):
     The human readable description for this reading. Translated to English.
     """
 
-    entity_type: typing_extensions.Annotated[str, FieldMetadata(alias="entityType")] = pydantic.Field()
+    entity_type: typing_extensions.Annotated[str, FieldMetadata(alias="entityType")] = pydantic.Field(
+        alias="entityType"
+    )
     """
     Entity type of this reading.
     """
 
     enum_values: typing_extensions.Annotated[
         typing.Optional[typing.List[EnumValueResponseBody]], FieldMetadata(alias="enumValues")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="enumValues", default=None)
     """
     Array of enumeration values
     """
 
-    ingestion_enabled: typing_extensions.Annotated[bool, FieldMetadata(alias="ingestionEnabled")] = pydantic.Field()
+    ingestion_enabled: typing_extensions.Annotated[bool, FieldMetadata(alias="ingestionEnabled")] = pydantic.Field(
+        alias="ingestionEnabled"
+    )
     """
     Indicates whether this reading can be ingested using the API.
     """
@@ -47,12 +50,15 @@ class ReadingDefinitionResponseBody(UniversalBaseModel):
     The label for this reading that is suitable to show to a user. Translated to English.
     """
 
-    reading_id: typing_extensions.Annotated[str, FieldMetadata(alias="readingId")] = pydantic.Field()
+    reading_id: typing_extensions.Annotated[str, FieldMetadata(alias="readingId")] = pydantic.Field(alias="readingId")
     """
     The ID of the reading used to fetch time series data in other endpoints.
     """
 
-    type: ReadingTypeResponseBody
+    type: typing.Dict[str, typing.Any] = pydantic.Field()
+    """
+    The type information for the reading. Contains the complete type structure including dataType, unit, enumValues, fields, etc.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

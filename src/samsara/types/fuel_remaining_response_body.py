@@ -14,7 +14,7 @@ class FuelRemainingResponseBody(UniversalBaseModel):
     """
 
     percent: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="Percent")] = pydantic.Field(
-        default=None
+        alias="Percent", default=None
     )
     """
     Percent of fuel remaining in tank.
