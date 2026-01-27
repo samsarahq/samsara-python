@@ -15,7 +15,7 @@ class NumberFieldTypeMetaDataObjectResponseBody(UniversalBaseModel):
 
     number_of_decimal_places: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="numberOfDecimalPlaces")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="numberOfDecimalPlaces", default=None)
     """
     The number of decimal places allowed for the field.
     """

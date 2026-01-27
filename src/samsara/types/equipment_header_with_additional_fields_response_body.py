@@ -14,33 +14,35 @@ class EquipmentHeaderWithAdditionalFieldsResponseBody(UniversalBaseModel):
     """
 
     equipment_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="EquipmentID")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="EquipmentID", default=None)
     )
     """
     The unique Samsara ID of the equipment. This is automatically generated when the Equipment object is created. It cannot be changed.
     """
 
     model: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="Model")] = pydantic.Field(
-        default=None
+        alias="Model", default=None
     )
     """
     The model of the equipment.
     """
 
     oem_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="OEMName")] = pydantic.Field(
-        default=None
+        alias="OEMName", default=None
     )
     """
     The make of the equipment.
     """
 
-    pin: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="PIN")] = pydantic.Field(default=None)
+    pin: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="PIN")] = pydantic.Field(
+        alias="PIN", default=None
+    )
     """
     The PIN number of the equipment.
     """
 
     serial_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="SerialNumber")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="SerialNumber", default=None)
     )
     """
     The serial number of the equipment.
@@ -48,7 +50,7 @@ class EquipmentHeaderWithAdditionalFieldsResponseBody(UniversalBaseModel):
 
     unit_install_date_time: typing_extensions.Annotated[
         typing.Optional[str], FieldMetadata(alias="UnitInstallDateTime")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="UnitInstallDateTime", default=None)
     """
     Telematics unit install date in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
     """

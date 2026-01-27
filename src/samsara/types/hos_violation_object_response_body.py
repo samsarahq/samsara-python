@@ -24,7 +24,9 @@ class HosViolationObjectResponseBody(UniversalBaseModel):
     """
 
     driver: GoaDriverTinyResponseResponseBody
-    duration_ms: typing_extensions.Annotated[int, FieldMetadata(alias="durationMs")] = pydantic.Field()
+    duration_ms: typing_extensions.Annotated[int, FieldMetadata(alias="durationMs")] = pydantic.Field(
+        alias="durationMs"
+    )
     """
     Duration the driver was in violation in milliseconds. This is the time between the time the driver starts being in violation until the end of the time window for violations that have one (e.g. `shiftDrivingHours`) or until the end of the day. The duration of some violations may cover the whole day (e.g. `unsubmittedLogs`).
     """
@@ -34,7 +36,9 @@ class HosViolationObjectResponseBody(UniversalBaseModel):
     The string value of the violation type.  Valid values: `NONE`, `californiaMealbreakMissed`, `cycleHoursOn`, `cycleOffHoursAfterOnDutyHours`, `dailyDrivingHours`, `dailyOffDutyDeferralAddToDay2Consecutive`, `dailyOffDutyDeferralNotPartMandatory`, `dailyOffDutyDeferralTwoDayDrivingLimit`, `dailyOffDutyDeferralTwoDayOffDuty`, `dailyOffDutyNonResetHours`, `dailyOffDutyTotalHours`, `dailyOnDutyHours`, `mandatory24HoursOffDuty`, `restbreakMissed`, `shiftDrivingHours`, `shiftHours`, `shiftOnDutyHours`, `unsubmittedLogs`
     """
 
-    violation_start_time: typing_extensions.Annotated[str, FieldMetadata(alias="violationStartTime")] = pydantic.Field()
+    violation_start_time: typing_extensions.Annotated[str, FieldMetadata(alias="violationStartTime")] = pydantic.Field(
+        alias="violationStartTime"
+    )
     """
     The start time of the violation in RFC 3339 format.
     """

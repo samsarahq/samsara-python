@@ -16,8 +16,10 @@ class WorkflowTriggerObjectRequestBody(UniversalBaseModel):
 
     trigger_params: typing_extensions.Annotated[
         typing.Optional[TriggerParamsObjectRequestBody], FieldMetadata(alias="triggerParams")
-    ] = None
-    trigger_type_id: typing_extensions.Annotated[int, FieldMetadata(alias="triggerTypeId")] = pydantic.Field()
+    ] = pydantic.Field(alias="triggerParams", default=None)
+    trigger_type_id: typing_extensions.Annotated[int, FieldMetadata(alias="triggerTypeId")] = pydantic.Field(
+        alias="triggerTypeId"
+    )
     """
     The id of the trigger type. Reference the following list for the ids:
     
@@ -64,6 +66,10 @@ class WorkflowTriggerObjectRequestBody(UniversalBaseModel):
     Geofence Exit = 5017
     Route Stop ETA Alert = 5018
     Scheduled Date And Time = 8001
+    
+    The following trigger types are in Preview:
+    A safety event occurred = 5033
+    A safety event occurred = 5039
     """
 
     if IS_PYDANTIC_V2:

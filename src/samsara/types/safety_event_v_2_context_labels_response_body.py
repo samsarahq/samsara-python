@@ -13,12 +13,14 @@ class SafetyEventV2ContextLabelsResponseBody(UniversalBaseModel):
     The most up-to-date context labels associated with the safety event. AI generated labels can be updated by Safety Admins.
     """
 
-    author_id: typing_extensions.Annotated[str, FieldMetadata(alias="authorId")] = pydantic.Field()
+    author_id: typing_extensions.Annotated[str, FieldMetadata(alias="authorId")] = pydantic.Field(alias="authorId")
     """
     The user ID associated with the user who created the context label. A value of 0 indicates the label is auto-generated.
     """
 
-    created_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="createdAtTime")] = pydantic.Field()
+    created_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="createdAtTime")] = pydantic.Field(
+        alias="createdAtTime"
+    )
     """
     Time the context label was created.
     """

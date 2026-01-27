@@ -14,7 +14,7 @@ class ReverseGeo(UniversalBaseModel):
     """
 
     formatted_location: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="formattedLocation")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="formattedLocation", default=None)
     )
     """
     Formatted address of the reverse geocoding data.

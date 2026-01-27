@@ -16,7 +16,9 @@ class HosLogsForDriver(UniversalBaseModel):
     """
 
     driver: typing.Optional[DriverTinyResponse] = None
-    hos_logs: typing_extensions.Annotated[typing.Optional[HosLogsList], FieldMetadata(alias="hosLogs")] = None
+    hos_logs: typing_extensions.Annotated[typing.Optional[HosLogsList], FieldMetadata(alias="hosLogs")] = (
+        pydantic.Field(alias="hosLogs", default=None)
+    )
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -193,13 +193,13 @@ class MediaClient:
         Parameters
         ----------
         end_time : str
-            An end time in RFC 3339 format. If endTime is the same as startTime, an image will be captured at startTime. Must be 1 second or more after startTime and no more than 60 seconds after startTime (Examples: 2019-06-13T19:08:55Z, 2019-06-13T19:08:55.455Z, OR 2015-09-15T14:00:42-04:00).
+            An end time in RFC 3339 format. If endTime is the same as startTime, an image will be captured at startTime. Must be 1 second or more after startTime and no more than the maximum allowed duration per video retrieval type. Please refer to our KB articles for more information. (Examples: 2019-06-13T19:08:55Z, 2019-06-13T19:08:55.455Z, OR 2015-09-15T14:00:42-04:00).
 
         inputs : typing.Sequence[MediaRetrievalPostMediaRetrievalRequestBodyInputsItem]
             A list of desired camera inputs for which to capture media. Only media with valid inputs (e.g. device has that input stream and device was recording at the time) will be uploaded. An empty list is invalid.
 
         media_type : MediaRetrievalPostMediaRetrievalRequestBodyMediaType
-            The desired media type. If a video is requested, endTime must be after startTime. If an image is requested, endTime must be the same as startTime. Must be one of: image, videoHighRes. Examples: image, videoHighRes.  Valid values: `image`, `videoHighRes`
+            The desired media type. If a video is requested, endTime must be after startTime. If an image is requested, endTime must be the same as startTime. Must be one of: image, videoHighRes, videoLowRes. Examples: image, videoHighRes, videoLowRes.  Valid values: `image`, `videoHighRes`, `videoLowRes`
 
         start_time : str
             A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
@@ -224,7 +224,7 @@ class MediaClient:
         )
         client.media.post_media_retrieval(
             end_time="2019-06-13T19:08:55Z",
-            inputs=["dashcamRoadFacing", "dashcamRoadFacing"],
+            inputs=["dashcamRoadFacing", "dashcamRoadFacing", "dashcamRoadFacing"],
             media_type="image",
             start_time="2019-06-13T19:08:25Z",
             vehicle_id="1234",
@@ -430,13 +430,13 @@ class AsyncMediaClient:
         Parameters
         ----------
         end_time : str
-            An end time in RFC 3339 format. If endTime is the same as startTime, an image will be captured at startTime. Must be 1 second or more after startTime and no more than 60 seconds after startTime (Examples: 2019-06-13T19:08:55Z, 2019-06-13T19:08:55.455Z, OR 2015-09-15T14:00:42-04:00).
+            An end time in RFC 3339 format. If endTime is the same as startTime, an image will be captured at startTime. Must be 1 second or more after startTime and no more than the maximum allowed duration per video retrieval type. Please refer to our KB articles for more information. (Examples: 2019-06-13T19:08:55Z, 2019-06-13T19:08:55.455Z, OR 2015-09-15T14:00:42-04:00).
 
         inputs : typing.Sequence[MediaRetrievalPostMediaRetrievalRequestBodyInputsItem]
             A list of desired camera inputs for which to capture media. Only media with valid inputs (e.g. device has that input stream and device was recording at the time) will be uploaded. An empty list is invalid.
 
         media_type : MediaRetrievalPostMediaRetrievalRequestBodyMediaType
-            The desired media type. If a video is requested, endTime must be after startTime. If an image is requested, endTime must be the same as startTime. Must be one of: image, videoHighRes. Examples: image, videoHighRes.  Valid values: `image`, `videoHighRes`
+            The desired media type. If a video is requested, endTime must be after startTime. If an image is requested, endTime must be the same as startTime. Must be one of: image, videoHighRes, videoLowRes. Examples: image, videoHighRes, videoLowRes.  Valid values: `image`, `videoHighRes`, `videoLowRes`
 
         start_time : str
             A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
@@ -466,7 +466,7 @@ class AsyncMediaClient:
         async def main() -> None:
             await client.media.post_media_retrieval(
                 end_time="2019-06-13T19:08:55Z",
-                inputs=["dashcamRoadFacing", "dashcamRoadFacing"],
+                inputs=["dashcamRoadFacing", "dashcamRoadFacing", "dashcamRoadFacing"],
                 media_type="image",
                 start_time="2019-06-13T19:08:25Z",
                 vehicle_id="1234",

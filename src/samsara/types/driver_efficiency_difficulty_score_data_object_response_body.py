@@ -14,14 +14,14 @@ class DriverEfficiencyDifficultyScoreDataObjectResponseBody(UniversalBaseModel):
     """
 
     overall_score: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="overallScore")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="overallScore", default=None)
     )
     """
     Represents the overall difficulty score. It has scores from 1 to 5.
     """
 
     topography_score: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="topographyScore")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="topographyScore", default=None)
     )
     """
     Represents the topography difficulty score. It has scores from 1 to 5.
@@ -29,7 +29,7 @@ class DriverEfficiencyDifficultyScoreDataObjectResponseBody(UniversalBaseModel):
 
     vehicle_weight_score: typing_extensions.Annotated[
         typing.Optional[str], FieldMetadata(alias="vehicleWeightScore")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="vehicleWeightScore", default=None)
     """
      Represents the average vehicle weight score. It has scores from 1 to 5.
     """

@@ -12,7 +12,7 @@ from .v_1_trailer_assignment_response import V1TrailerAssignmentResponse
 class V1TrailerAssignmentsResponseAllOf(UniversalBaseModel):
     trailer_assignments: typing_extensions.Annotated[
         typing.Optional[typing.List[V1TrailerAssignmentResponse]], FieldMetadata(alias="trailerAssignments")
-    ] = None
+    ] = pydantic.Field(alias="trailerAssignments", default=None)
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

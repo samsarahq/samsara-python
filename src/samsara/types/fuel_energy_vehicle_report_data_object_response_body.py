@@ -16,7 +16,7 @@ class FuelEnergyVehicleReportDataObjectResponseBody(UniversalBaseModel):
 
     vehicle_reports: typing_extensions.Annotated[
         typing.List[FuelEnergyVehicleReportObjectResponseBody], FieldMetadata(alias="vehicleReports")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="vehicleReports")
     """
     List of summarized vehicle reports.
     """

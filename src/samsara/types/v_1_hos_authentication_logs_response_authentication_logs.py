@@ -10,7 +10,7 @@ from ..core.serialization import FieldMetadata
 
 class V1HosAuthenticationLogsResponseAuthenticationLogs(UniversalBaseModel):
     action_type: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="actionType")] = pydantic.Field(
-        default=None
+        alias="actionType", default=None
     )
     """
     The log type - one of 'signin' or 'signout'
@@ -22,7 +22,7 @@ class V1HosAuthenticationLogsResponseAuthenticationLogs(UniversalBaseModel):
     """
 
     address_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="addressName")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="addressName", default=None)
     )
     """
     DEPRECATED: THIS FIELD MAY NOT BE POPULATED
@@ -34,7 +34,7 @@ class V1HosAuthenticationLogsResponseAuthenticationLogs(UniversalBaseModel):
     """
 
     happened_at_ms: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="happenedAtMs")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="happenedAtMs", default=None)
     )
     """
     The time at which the event was recorded in UNIX milliseconds.

@@ -19,15 +19,19 @@ class QualificationTypeResponseObjectResponseBody(UniversalBaseModel):
     Qualification type response object.
     """
 
-    created_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAtTime")] = pydantic.Field()
+    created_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAtTime")] = pydantic.Field(
+        alias="createdAtTime"
+    )
     """
     Creation time of the qualification type. UTC timestamp in RFC 3339 format.
     """
 
-    created_by: typing_extensions.Annotated[FormsPolymorphicUserObjectResponseBody, FieldMetadata(alias="createdBy")]
+    created_by: typing_extensions.Annotated[
+        FormsPolymorphicUserObjectResponseBody, FieldMetadata(alias="createdBy")
+    ] = pydantic.Field(alias="createdBy")
     entity_type: typing_extensions.Annotated[
         QualificationTypeResponseObjectResponseBodyEntityType, FieldMetadata(alias="entityType")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="entityType")
     """
     Owner entity type  Valid values: `worker`, `asset`
     """
@@ -47,17 +51,23 @@ class QualificationTypeResponseObjectResponseBody(UniversalBaseModel):
     Name of the qualification type.
     """
 
-    revision_id: typing_extensions.Annotated[str, FieldMetadata(alias="revisionId")] = pydantic.Field()
+    revision_id: typing_extensions.Annotated[str, FieldMetadata(alias="revisionId")] = pydantic.Field(
+        alias="revisionId"
+    )
     """
     Unique identifier of the qualification type revision.
     """
 
-    updated_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAtTime")] = pydantic.Field()
+    updated_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAtTime")] = pydantic.Field(
+        alias="updatedAtTime"
+    )
     """
     Update time of the qualification type. UTC timestamp in RFC 3339 format.
     """
 
-    updated_by: typing_extensions.Annotated[FormsPolymorphicUserObjectResponseBody, FieldMetadata(alias="updatedBy")]
+    updated_by: typing_extensions.Annotated[
+        FormsPolymorphicUserObjectResponseBody, FieldMetadata(alias="updatedBy")
+    ] = pydantic.Field(alias="updatedBy")
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

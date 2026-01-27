@@ -15,20 +15,22 @@ class SafetyScoreSpeedingObjectResponseBody(UniversalBaseModel):
     """
 
     duration_milliseconds: typing_extensions.Annotated[int, FieldMetadata(alias="durationMilliseconds")] = (
-        pydantic.Field()
+        pydantic.Field(alias="durationMilliseconds")
     )
     """
     Total time spent speeding for the speeding type.
     """
 
-    score_impact: typing_extensions.Annotated[float, FieldMetadata(alias="scoreImpact")] = pydantic.Field()
+    score_impact: typing_extensions.Annotated[float, FieldMetadata(alias="scoreImpact")] = pydantic.Field(
+        alias="scoreImpact"
+    )
     """
     Total points increased or deducted from the score due to the total time spent speeding of this type. Weights for this calculation are defined in organisation settings. Negative numbers indicate points deducted.
     """
 
     speeding_type: typing_extensions.Annotated[
         SafetyScoreSpeedingObjectResponseBodySpeedingType, FieldMetadata(alias="speedingType")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="speedingType")
     """
     Type of speeding.  Valid values: `light`, `moderate`, `heavy`, `severe`, `maxSpeed`, `unknown`
     """

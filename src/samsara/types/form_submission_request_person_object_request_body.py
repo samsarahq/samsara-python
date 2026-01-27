@@ -13,7 +13,9 @@ class FormSubmissionRequestPersonObjectRequestBody(UniversalBaseModel):
     Person object.
     """
 
-    polymorphic_user_id: typing_extensions.Annotated[str, FieldMetadata(alias="polymorphicUserId")] = pydantic.Field()
+    polymorphic_user_id: typing_extensions.Annotated[str, FieldMetadata(alias="polymorphicUserId")] = pydantic.Field(
+        alias="polymorphicUserId"
+    )
     """
     Samsara polymorphicUserID of the person.
     """

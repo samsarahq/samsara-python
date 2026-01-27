@@ -22,28 +22,30 @@ from .v_1_vision_step_results_item_presence_absence_value_range import V1VisionS
 class V1VisionStepResultsItemPresenceAbsence(UniversalBaseModel):
     blue_range: typing_extensions.Annotated[
         typing.Optional[V1VisionStepResultsItemPresenceAbsenceBlueRange], FieldMetadata(alias="blueRange")
-    ] = None
-    check_for_absence: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="checkForAbsence")] = None
+    ] = pydantic.Field(alias="blueRange", default=None)
+    check_for_absence: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="checkForAbsence")] = (
+        pydantic.Field(alias="checkForAbsence", default=None)
+    )
     grayscale_range: typing_extensions.Annotated[
         typing.Optional[V1VisionStepResultsItemPresenceAbsenceGrayscaleRange], FieldMetadata(alias="grayscaleRange")
-    ] = None
+    ] = pydantic.Field(alias="grayscaleRange", default=None)
     green_range: typing_extensions.Annotated[
         typing.Optional[V1VisionStepResultsItemPresenceAbsenceGreenRange], FieldMetadata(alias="greenRange")
-    ] = None
+    ] = pydantic.Field(alias="greenRange", default=None)
     hue_range: typing_extensions.Annotated[
         typing.Optional[V1VisionStepResultsItemPresenceAbsenceHueRange], FieldMetadata(alias="hueRange")
-    ] = None
+    ] = pydantic.Field(alias="hueRange", default=None)
     red_range: typing_extensions.Annotated[
         typing.Optional[V1VisionStepResultsItemPresenceAbsenceRedRange], FieldMetadata(alias="redRange")
-    ] = None
+    ] = pydantic.Field(alias="redRange", default=None)
     saturation_range: typing_extensions.Annotated[
         typing.Optional[V1VisionStepResultsItemPresenceAbsenceSaturationRange], FieldMetadata(alias="saturationRange")
-    ] = None
+    ] = pydantic.Field(alias="saturationRange", default=None)
     score: typing.Optional[int] = None
     threshold: typing.Optional[int] = None
     value_range: typing_extensions.Annotated[
         typing.Optional[V1VisionStepResultsItemPresenceAbsenceValueRange], FieldMetadata(alias="valueRange")
-    ] = None
+    ] = pydantic.Field(alias="valueRange", default=None)
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

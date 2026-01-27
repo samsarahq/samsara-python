@@ -14,13 +14,15 @@ class EngineImmobilizerStateResponseBody(UniversalBaseModel):
     An engine immobilizer state.
     """
 
-    happened_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="happenedAtTime")] = pydantic.Field()
+    happened_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="happenedAtTime")] = pydantic.Field(
+        alias="happenedAtTime"
+    )
     """
     A UTC time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
     """
 
     is_connected_to_vehicle: typing_extensions.Annotated[bool, FieldMetadata(alias="isConnectedToVehicle")] = (
-        pydantic.Field()
+        pydantic.Field(alias="isConnectedToVehicle")
     )
     """
     Whether the engine immobilizer is connected the vehicle.
@@ -28,12 +30,12 @@ class EngineImmobilizerStateResponseBody(UniversalBaseModel):
 
     relay_states: typing_extensions.Annotated[
         typing.List[EngineImmobilizerRelayStateResponseBody], FieldMetadata(alias="relayStates")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="relayStates")
     """
     A list of states for each relay
     """
 
-    vehicle_id: typing_extensions.Annotated[str, FieldMetadata(alias="vehicleId")] = pydantic.Field()
+    vehicle_id: typing_extensions.Annotated[str, FieldMetadata(alias="vehicleId")] = pydantic.Field(alias="vehicleId")
     """
     The ID of the vehicle that the engine immobilizer is connected to.
     """

@@ -10,21 +10,21 @@ from ..core.serialization import FieldMetadata
 
 class V1TrailerAssignmentResponse(UniversalBaseModel):
     driver_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="driverId")] = pydantic.Field(
-        default=None
+        alias="driverId", default=None
     )
     """
     The ID of the driver associated with this trailer.
     """
 
     end_ms: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="endMs")] = pydantic.Field(
-        default=None
+        alias="endMs", default=None
     )
     """
     The time at which the driver ended the assignment. If the assignment is current, this value will be omitted.
     """
 
     start_ms: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="startMs")] = pydantic.Field(
-        default=None
+        alias="startMs", default=None
     )
     """
     The time at which the driver started the assignment

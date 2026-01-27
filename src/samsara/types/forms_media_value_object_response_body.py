@@ -16,7 +16,7 @@ class FormsMediaValueObjectResponseBody(UniversalBaseModel):
 
     media_list: typing_extensions.Annotated[
         typing.List[FormsMediaRecordObjectResponseBody], FieldMetadata(alias="mediaList")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="mediaList")
     """
     List of forms media record objects.
     """

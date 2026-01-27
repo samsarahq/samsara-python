@@ -14,7 +14,7 @@ class PatchDriverVehicleAssignmentsV2RequestBodyMetadataRequestBody(UniversalBas
     """
 
     source_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="sourceName")] = pydantic.Field(
-        default=None
+        alias="sourceName", default=None
     )
     """
     Describes where the external assignment is coming from

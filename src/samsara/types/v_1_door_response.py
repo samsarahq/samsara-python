@@ -15,7 +15,7 @@ class V1DoorResponse(UniversalBaseModel):
     """
 
     group_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="groupId")] = pydantic.Field(
-        default=None
+        alias="groupId", default=None
     )
     """
     Deprecated.

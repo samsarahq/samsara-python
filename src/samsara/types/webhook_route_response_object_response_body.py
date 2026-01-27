@@ -14,21 +14,21 @@ from .routes_stop_response_object_response_body import RoutesStopResponseObjectR
 class WebhookRouteResponseObjectResponseBody(UniversalBaseModel):
     actual_route_end_time: typing_extensions.Annotated[
         typing.Optional[dt.datetime], FieldMetadata(alias="actualRouteEndTime")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="actualRouteEndTime", default=None)
     """
     Actual end time, if it exists, for the route in RFC 3339 format.
     """
 
     actual_route_start_time: typing_extensions.Annotated[
         typing.Optional[dt.datetime], FieldMetadata(alias="actualRouteStartTime")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="actualRouteStartTime", default=None)
     """
     Actual start time, if it exists, for the route in RFC 3339 format.
     """
 
     external_ids: typing_extensions.Annotated[
         typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="externalIds", default=None)
     """
     A map of external ids
     """
@@ -50,14 +50,14 @@ class WebhookRouteResponseObjectResponseBody(UniversalBaseModel):
 
     scheduled_route_end_time: typing_extensions.Annotated[
         typing.Optional[dt.datetime], FieldMetadata(alias="scheduledRouteEndTime")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="scheduledRouteEndTime", default=None)
     """
     Scheduled end time, if it exists, for the route in RFC 3339 format.
     """
 
     scheduled_route_start_time: typing_extensions.Annotated[
         typing.Optional[dt.datetime], FieldMetadata(alias="scheduledRouteStartTime")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="scheduledRouteStartTime", default=None)
     """
     Scheduled start time, if it exists, for the route in RFC 3339 format.
     """

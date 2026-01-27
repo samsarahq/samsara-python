@@ -15,7 +15,7 @@ class SuddenFuelLevelRiseTriggerDetailsObjectRequestBody(UniversalBaseModel):
 
     min_fuel_level_change_in_percents: typing_extensions.Annotated[
         int, FieldMetadata(alias="minFuelLevelChangeInPercents")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="minFuelLevelChangeInPercents")
     """
     The minimum fuel level change in percents to trigger on. Need to be between 5 to 100.
     """

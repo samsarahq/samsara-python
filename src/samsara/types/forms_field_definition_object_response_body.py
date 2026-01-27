@@ -24,7 +24,7 @@ class FormsFieldDefinitionObjectResponseBody(UniversalBaseModel):
     """
 
     allow_manual_entry: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="allowManualEntry")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="allowManualEntry", default=None)
     )
     """
     Indicates whether the field allows manual entry of a person. Only present for person fields.
@@ -33,7 +33,7 @@ class FormsFieldDefinitionObjectResponseBody(UniversalBaseModel):
     allowed_asset_types: typing_extensions.Annotated[
         typing.Optional[typing.List[FormsFieldDefinitionObjectResponseBodyAllowedAssetTypesItem]],
         FieldMetadata(alias="allowedAssetTypes"),
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="allowedAssetTypes", default=None)
     """
     List of allowed asset types that can be selected for this field. Only present for asset fields.
     """
@@ -41,13 +41,13 @@ class FormsFieldDefinitionObjectResponseBody(UniversalBaseModel):
     allowed_date_time_value_type: typing_extensions.Annotated[
         typing.Optional[FormsFieldDefinitionObjectResponseBodyAllowedDateTimeValueType],
         FieldMetadata(alias="allowedDateTimeValueType"),
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="allowedDateTimeValueType", default=None)
     """
     Type of date/time entry allowed for this question. Only present for datetime fields.  Valid values: `datetime`, `date`, `time`
     """
 
     autofill_from_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="autofillFromId")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="autofillFromId", default=None)
     )
     """
     Identifier of the field that will optionally autofill the current field. Only present for fields that have been configured to be autofilled by a source media field.
@@ -61,14 +61,14 @@ class FormsFieldDefinitionObjectResponseBody(UniversalBaseModel):
     conditional_actions: typing_extensions.Annotated[
         typing.Optional[typing.List[FormsConditionalActionObjectResponseBody]],
         FieldMetadata(alias="conditionalActions"),
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="conditionalActions", default=None)
     """
     List of conditional actions.
     """
 
     filter_by_role_ids: typing_extensions.Annotated[
         typing.Optional[typing.List[str]], FieldMetadata(alias="filterByRoleIds")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="filterByRoleIds", default=None)
     """
     List of role IDs to filter org users by, representing which roles are selectable people for this field. Only present for person fields.
     """
@@ -79,27 +79,29 @@ class FormsFieldDefinitionObjectResponseBody(UniversalBaseModel):
     """
 
     include_drivers: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="includeDrivers")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="includeDrivers", default=None)
     )
     """
     Indicates whether the field includes drivers as selectable people. Only present for person fields.
     """
 
     include_users: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="includeUsers")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="includeUsers", default=None)
     )
     """
     Indicates whether the field includes users as selectable people. Only present for person fields.
     """
 
     is_autofill_source: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="isAutofillSource")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="isAutofillSource", default=None)
     )
     """
     Indicates whether the current field is enabled to autofill other fields. Only present for media fields that have autofill enabled.
     """
 
-    is_required: typing_extensions.Annotated[bool, FieldMetadata(alias="isRequired")] = pydantic.Field()
+    is_required: typing_extensions.Annotated[bool, FieldMetadata(alias="isRequired")] = pydantic.Field(
+        alias="isRequired"
+    )
     """
     Indicates whether the form field is required to be filled out by the user.
     """
@@ -110,7 +112,7 @@ class FormsFieldDefinitionObjectResponseBody(UniversalBaseModel):
     """
 
     num_decimal_places: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="numDecimalPlaces")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="numDecimalPlaces", default=None)
     )
     """
     Number of decimal places allowed. Only present for number fields.
@@ -122,7 +124,7 @@ class FormsFieldDefinitionObjectResponseBody(UniversalBaseModel):
     """
 
     question_weight: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="questionWeight")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="questionWeight", default=None)
     )
     """
     The maximum possible score weight for this field. For multiple choice fields, this number is the highest option score weight of the given options. For check boxes fields, this number is the sum of the score weights for all scored options. Only present for multiple choice or check boxes fields that have scoring.

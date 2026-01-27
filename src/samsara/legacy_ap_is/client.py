@@ -12,6 +12,11 @@ from ..types.dvirs_list_response import DvirsListResponse
 from ..types.idling_reports_get_vehicle_idling_reports_response_body import (
     IdlingReportsGetVehicleIdlingReportsResponseBody,
 )
+from ..types.safety_events_get_safety_activity_event_feed_response_body import (
+    SafetyEventsGetSafetyActivityEventFeedResponseBody,
+)
+from ..types.safety_events_list_response import SafetyEventsListResponse
+from ..types.v_1_vehicle_harsh_event_response import V1VehicleHarshEventResponse
 from ..types.vehicles_driver_assignments_get_vehicles_driver_assignments_response_body import (
     VehiclesDriverAssignmentsGetVehiclesDriverAssignmentsResponseBody,
 )
@@ -334,6 +339,132 @@ class LegacyApIsClient:
         )
         return _response.data
 
+    def get_safety_events(
+        self,
+        *,
+        start_time: str,
+        end_time: str,
+        after: typing.Optional[str] = None,
+        tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        parent_tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        vehicle_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> SafetyEventsListResponse:
+        """
+        **Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getsafetyeventsv2stream) instead. The endpoint will continue to function as documented.**
+
+         Fetch safety events for the organization in a given time period.
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        start_time : str
+            A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        end_time : str
+            An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        after : typing.Optional[str]
+            If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+
+        parent_tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+
+        vehicle_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of vehicle IDs. Example: `vehicleIds=1234,5678`
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        SafetyEventsListResponse
+            List of safety events from given time period.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.legacy_ap_is.get_safety_events(
+            start_time="startTime",
+            end_time="endTime",
+        )
+        """
+        _response = self._raw_client.get_safety_events(
+            start_time=start_time,
+            end_time=end_time,
+            after=after,
+            tag_ids=tag_ids,
+            parent_tag_ids=parent_tag_ids,
+            vehicle_ids=vehicle_ids,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def get_safety_activity_event_feed(
+        self,
+        *,
+        after: typing.Optional[str] = None,
+        start_time: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> SafetyEventsGetSafetyActivityEventFeedResponseBody:
+        """
+        **Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getsafetyeventsv2stream) instead. The endpoint will continue to function as documented.**
+
+        Get continuous safety events. The safety activity event feed offers a change-log for safety events. Use this endpoint to subscribe to safety event changes. See documentation below for all supported change-log types.
+
+        | ActivityType      | Description |
+        | ----------- | ----------- |
+        | CreateSafetyEventActivityType | a new safety event is processed by Samsara      |
+        | BehaviorLabelActivityType     | a label is added or removed from a safety event |
+        | CoachingStateActivityType     | a safety event coaching state is updated        |
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        start_time : typing.Optional[str]
+             A start time in RFC 3339 format. Defaults to now if not provided. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        SafetyEventsGetSafetyActivityEventFeedResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.legacy_ap_is.get_safety_activity_event_feed()
+        """
+        _response = self._raw_client.get_safety_activity_event_feed(
+            after=after, start_time=start_time, request_options=request_options
+        )
+        return _response.data
+
     def get_vehicles_driver_assignments(
         self,
         *,
@@ -400,6 +531,56 @@ class LegacyApIsClient:
             parent_tag_ids=parent_tag_ids,
             after=after,
             request_options=request_options,
+        )
+        return _response.data
+
+    def v_1_get_vehicle_harsh_event(
+        self, vehicle_id: int, *, timestamp: int, request_options: typing.Optional[RequestOptions] = None
+    ) -> V1VehicleHarshEventResponse:
+        """
+        **Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getsafetyeventsv2stream) instead. The endpoint will continue to function as documented.** <n class="warning">
+        <nh>
+        <i class="fa fa-exclamation-circle"></i>
+        This endpoint is still on our legacy API.
+        </nh>
+        </n>
+
+        Fetch harsh event details for a vehicle.
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        vehicle_id : int
+            ID of the vehicle. Must contain only digits 0-9.
+
+        timestamp : int
+            Timestamp in milliseconds representing the timestamp of a harsh event.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        V1VehicleHarshEventResponse
+            Harsh event details.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.legacy_ap_is.v_1_get_vehicle_harsh_event(
+            vehicle_id=1000000,
+            timestamp=1000000,
+        )
+        """
+        _response = self._raw_client.v_1_get_vehicle_harsh_event(
+            vehicle_id, timestamp=timestamp, request_options=request_options
         )
         return _response.data
 
@@ -749,6 +930,148 @@ class AsyncLegacyApIsClient:
         )
         return _response.data
 
+    async def get_safety_events(
+        self,
+        *,
+        start_time: str,
+        end_time: str,
+        after: typing.Optional[str] = None,
+        tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        parent_tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        vehicle_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> SafetyEventsListResponse:
+        """
+        **Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getsafetyeventsv2stream) instead. The endpoint will continue to function as documented.**
+
+         Fetch safety events for the organization in a given time period.
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        start_time : str
+            A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        end_time : str
+            An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        after : typing.Optional[str]
+            If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+
+        parent_tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+
+        vehicle_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of vehicle IDs. Example: `vehicleIds=1234,5678`
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        SafetyEventsListResponse
+            List of safety events from given time period.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.legacy_ap_is.get_safety_events(
+                start_time="startTime",
+                end_time="endTime",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_safety_events(
+            start_time=start_time,
+            end_time=end_time,
+            after=after,
+            tag_ids=tag_ids,
+            parent_tag_ids=parent_tag_ids,
+            vehicle_ids=vehicle_ids,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def get_safety_activity_event_feed(
+        self,
+        *,
+        after: typing.Optional[str] = None,
+        start_time: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> SafetyEventsGetSafetyActivityEventFeedResponseBody:
+        """
+        **Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getsafetyeventsv2stream) instead. The endpoint will continue to function as documented.**
+
+        Get continuous safety events. The safety activity event feed offers a change-log for safety events. Use this endpoint to subscribe to safety event changes. See documentation below for all supported change-log types.
+
+        | ActivityType      | Description |
+        | ----------- | ----------- |
+        | CreateSafetyEventActivityType | a new safety event is processed by Samsara      |
+        | BehaviorLabelActivityType     | a label is added or removed from a safety event |
+        | CoachingStateActivityType     | a safety event coaching state is updated        |
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        start_time : typing.Optional[str]
+             A start time in RFC 3339 format. Defaults to now if not provided. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        SafetyEventsGetSafetyActivityEventFeedResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.legacy_ap_is.get_safety_activity_event_feed()
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_safety_activity_event_feed(
+            after=after, start_time=start_time, request_options=request_options
+        )
+        return _response.data
+
     async def get_vehicles_driver_assignments(
         self,
         *,
@@ -823,5 +1146,63 @@ class AsyncLegacyApIsClient:
             parent_tag_ids=parent_tag_ids,
             after=after,
             request_options=request_options,
+        )
+        return _response.data
+
+    async def v_1_get_vehicle_harsh_event(
+        self, vehicle_id: int, *, timestamp: int, request_options: typing.Optional[RequestOptions] = None
+    ) -> V1VehicleHarshEventResponse:
+        """
+        **Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getsafetyeventsv2stream) instead. The endpoint will continue to function as documented.** <n class="warning">
+        <nh>
+        <i class="fa fa-exclamation-circle"></i>
+        This endpoint is still on our legacy API.
+        </nh>
+        </n>
+
+        Fetch harsh event details for a vehicle.
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Parameters
+        ----------
+        vehicle_id : int
+            ID of the vehicle. Must contain only digits 0-9.
+
+        timestamp : int
+            Timestamp in milliseconds representing the timestamp of a harsh event.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        V1VehicleHarshEventResponse
+            Harsh event details.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.legacy_ap_is.v_1_get_vehicle_harsh_event(
+                vehicle_id=1000000,
+                timestamp=1000000,
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.v_1_get_vehicle_harsh_event(
+            vehicle_id, timestamp=timestamp, request_options=request_options
         )
         return _response.data

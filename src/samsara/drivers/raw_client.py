@@ -33,6 +33,7 @@ from ..types.driver_remote_signout_post_driver_remote_signout_response_body impo
 )
 from ..types.driver_response import DriverResponse
 from ..types.list_drivers_response import ListDriversResponse
+from ..types.update_driver_request_attributes import UpdateDriverRequestAttributes
 from ..types.update_driver_request_hos_setting import UpdateDriverRequestHosSetting
 from ..types.us_driver_ruleset_override import UsDriverRulesetOverride
 from .types.create_driver_request_locale import CreateDriverRequestLocale
@@ -590,7 +591,7 @@ class RawDriversClient:
         self,
         id: str,
         *,
-        attributes: typing.Optional[typing.Sequence[CreateDriverRequestAttributes]] = OMIT,
+        attributes: typing.Optional[typing.Sequence[UpdateDriverRequestAttributes]] = OMIT,
         carrier_settings: typing.Optional[DriverCarrierSettings] = OMIT,
         current_id_card_code: typing.Optional[str] = OMIT,
         deactivated_at_time: typing.Optional[str] = OMIT,
@@ -638,7 +639,7 @@ class RawDriversClient:
         id : str
             ID of the driver. This can either be the Samsara-specified ID, or an external ID. External IDs are customer specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `payrollId:ABFS18600`
 
-        attributes : typing.Optional[typing.Sequence[CreateDriverRequestAttributes]]
+        attributes : typing.Optional[typing.Sequence[UpdateDriverRequestAttributes]]
 
         carrier_settings : typing.Optional[DriverCarrierSettings]
 
@@ -745,7 +746,7 @@ class RawDriversClient:
             method="PATCH",
             json={
                 "attributes": convert_and_respect_annotation_metadata(
-                    object_=attributes, annotation=typing.Sequence[CreateDriverRequestAttributes], direction="write"
+                    object_=attributes, annotation=typing.Sequence[UpdateDriverRequestAttributes], direction="write"
                 ),
                 "carrierSettings": convert_and_respect_annotation_metadata(
                     object_=carrier_settings, annotation=DriverCarrierSettings, direction="write"
@@ -1362,7 +1363,7 @@ class AsyncRawDriversClient:
         self,
         id: str,
         *,
-        attributes: typing.Optional[typing.Sequence[CreateDriverRequestAttributes]] = OMIT,
+        attributes: typing.Optional[typing.Sequence[UpdateDriverRequestAttributes]] = OMIT,
         carrier_settings: typing.Optional[DriverCarrierSettings] = OMIT,
         current_id_card_code: typing.Optional[str] = OMIT,
         deactivated_at_time: typing.Optional[str] = OMIT,
@@ -1410,7 +1411,7 @@ class AsyncRawDriversClient:
         id : str
             ID of the driver. This can either be the Samsara-specified ID, or an external ID. External IDs are customer specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `payrollId:ABFS18600`
 
-        attributes : typing.Optional[typing.Sequence[CreateDriverRequestAttributes]]
+        attributes : typing.Optional[typing.Sequence[UpdateDriverRequestAttributes]]
 
         carrier_settings : typing.Optional[DriverCarrierSettings]
 
@@ -1517,7 +1518,7 @@ class AsyncRawDriversClient:
             method="PATCH",
             json={
                 "attributes": convert_and_respect_annotation_metadata(
-                    object_=attributes, annotation=typing.Sequence[CreateDriverRequestAttributes], direction="write"
+                    object_=attributes, annotation=typing.Sequence[UpdateDriverRequestAttributes], direction="write"
                 ),
                 "carrierSettings": convert_and_respect_annotation_metadata(
                     object_=carrier_settings, annotation=DriverCarrierSettings, direction="write"

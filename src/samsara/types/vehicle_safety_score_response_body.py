@@ -21,14 +21,14 @@ class VehicleSafetyScoreResponseBody(UniversalBaseModel):
     """
 
     drive_distance_meters: typing_extensions.Annotated[int, FieldMetadata(alias="driveDistanceMeters")] = (
-        pydantic.Field()
+        pydantic.Field(alias="driveDistanceMeters")
     )
     """
     Total sum of distance driven with the vehicle.
     """
 
     drive_time_milliseconds: typing_extensions.Annotated[int, FieldMetadata(alias="driveTimeMilliseconds")] = (
-        pydantic.Field()
+        pydantic.Field(alias="driveTimeMilliseconds")
     )
     """
     Total time spent driving with the vehicle.
@@ -39,12 +39,14 @@ class VehicleSafetyScoreResponseBody(UniversalBaseModel):
     Aggregated list of speeding events for the vehicle, one row for each unique type of speeding.
     """
 
-    vehicle_id: typing_extensions.Annotated[str, FieldMetadata(alias="vehicleId")] = pydantic.Field()
+    vehicle_id: typing_extensions.Annotated[str, FieldMetadata(alias="vehicleId")] = pydantic.Field(alias="vehicleId")
     """
     ID of the vehicle.
     """
 
-    vehicle_score: typing_extensions.Annotated[int, FieldMetadata(alias="vehicleScore")] = pydantic.Field()
+    vehicle_score: typing_extensions.Annotated[int, FieldMetadata(alias="vehicleScore")] = pydantic.Field(
+        alias="vehicleScore"
+    )
     """
     Safety score for the vehicle. The score is a rounded number between 0-100.
     """

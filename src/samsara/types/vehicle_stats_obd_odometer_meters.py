@@ -4,7 +4,7 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from .vehicle_stats_time import VehicleStatsTime
+from .time import Time
 
 
 class VehicleStatsObdOdometerMeters(UniversalBaseModel):
@@ -12,7 +12,7 @@ class VehicleStatsObdOdometerMeters(UniversalBaseModel):
     Vehicle OBD odometer reading.
     """
 
-    time: VehicleStatsTime
+    time: Time
     value: int = pydantic.Field()
     """
     Number of meters the vehicle has traveled according to the on-board diagnostics.

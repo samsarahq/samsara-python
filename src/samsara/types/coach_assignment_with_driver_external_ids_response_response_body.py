@@ -15,18 +15,22 @@ class CoachAssignmentWithDriverExternalIdsResponseResponseBody(UniversalBaseMode
     Driver coach assignment object.
     """
 
-    coach_id: typing_extensions.Annotated[str, FieldMetadata(alias="coachId")] = pydantic.Field()
+    coach_id: typing_extensions.Annotated[str, FieldMetadata(alias="coachId")] = pydantic.Field(alias="coachId")
     """
     Coach ID associated with coach assignment. Always returned.
     """
 
-    created_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAtTime")] = pydantic.Field()
+    created_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAtTime")] = pydantic.Field(
+        alias="createdAtTime"
+    )
     """
     Time coach assignment was created in UTC. Always returned.
     """
 
     driver: DriverWithExternalIdObjectResponseBody
-    updated_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAtTime")] = pydantic.Field()
+    updated_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAtTime")] = pydantic.Field(
+        alias="updatedAtTime"
+    )
     """
     Time coaching assignment was updated in UTC. Always returned.
     """

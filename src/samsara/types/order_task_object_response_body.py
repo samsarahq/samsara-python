@@ -6,6 +6,7 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .order_task_custom_property_object_response_body import OrderTaskCustomPropertyObjectResponseBody
 from .order_task_skill_object_response_body import OrderTaskSkillObjectResponseBody
 from .quantity_object_response_body import QuantityObjectResponseBody
 
@@ -13,6 +14,13 @@ from .quantity_object_response_body import QuantityObjectResponseBody
 class OrderTaskObjectResponseBody(UniversalBaseModel):
     """
     Order task object with detailed information
+    """
+
+    custom_properties: typing_extensions.Annotated[
+        typing.Optional[typing.List[OrderTaskCustomPropertyObjectResponseBody]], FieldMetadata(alias="customProperties")
+    ] = pydantic.Field(alias="customProperties", default=None)
+    """
+    List of custom properties for the order
     """
 
     id: str = pydantic.Field()
@@ -27,13 +35,13 @@ class OrderTaskObjectResponseBody(UniversalBaseModel):
 
     required_skills: typing_extensions.Annotated[
         typing.Optional[typing.List[OrderTaskSkillObjectResponseBody]], FieldMetadata(alias="requiredSkills")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="requiredSkills", default=None)
     """
     List of required skills for the order
     """
 
     service_window: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="serviceWindow")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="serviceWindow", default=None)
     )
     """
     The service window time range

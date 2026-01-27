@@ -14,13 +14,15 @@ class LiveSharingLinkResponseObjectResponseBody(UniversalBaseModel):
     """
 
     expires_at_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="expiresAtTime")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="expiresAtTime", default=None)
     )
     """
     Date that this link expires, in RFC 3339 format.
     """
 
-    live_sharing_url: typing_extensions.Annotated[str, FieldMetadata(alias="liveSharingUrl")] = pydantic.Field()
+    live_sharing_url: typing_extensions.Annotated[str, FieldMetadata(alias="liveSharingUrl")] = pydantic.Field(
+        alias="liveSharingUrl"
+    )
     """
     The shareable URL of the vehicle's location.
     """

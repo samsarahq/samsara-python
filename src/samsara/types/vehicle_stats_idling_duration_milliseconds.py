@@ -4,7 +4,7 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from .vehicle_stats_time import VehicleStatsTime
+from .time import Time
 
 
 class VehicleStatsIdlingDurationMilliseconds(UniversalBaseModel):
@@ -12,7 +12,7 @@ class VehicleStatsIdlingDurationMilliseconds(UniversalBaseModel):
     The cumulative idling duration in milliseconds. Cumulative values always increase. For filtering of idling duration please use <a href="https://developers.samsara.com/reference/getvehicleidlingreports" target="_blank">the Idling Events API</a>.
     """
 
-    time: VehicleStatsTime
+    time: Time
     value: int = pydantic.Field()
     """
     The cumulative idling duration in milliseconds. Cumulative values always increase. For filtering of idling duration please use <a href="https://developers.samsara.com/reference/getvehicleidlingreports" target="_blank">the Idling Events API</a>.

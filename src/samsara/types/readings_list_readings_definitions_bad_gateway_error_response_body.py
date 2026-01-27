@@ -18,7 +18,7 @@ class ReadingsListReadingsDefinitionsBadGatewayErrorResponseBody(UniversalBaseMo
     Message of error
     """
 
-    request_id: typing_extensions.Annotated[str, FieldMetadata(alias="requestId")] = pydantic.Field()
+    request_id: typing_extensions.Annotated[str, FieldMetadata(alias="requestId")] = pydantic.Field(alias="requestId")
     """
     The request ID; used when reaching out to support for issues with requests.
     """

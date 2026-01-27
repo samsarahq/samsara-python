@@ -6,11 +6,13 @@ IdlingEventAddressObjectResponseBodyAddressTypesItem = typing.Union[
     typing.Literal[
         "agricultureSource",
         "alertsOnly",
+        "authorizedZone",
         "avoidanceZone",
         "industrialSite",
         "knownGPSJammingZone",
         "riskZone",
         "shortHaul",
+        "unauthorizedZone",
         "undefined",
         "workforceSite",
         "yard",

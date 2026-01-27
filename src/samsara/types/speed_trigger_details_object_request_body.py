@@ -15,7 +15,7 @@ class SpeedTriggerDetailsObjectRequestBody(UniversalBaseModel):
     """
 
     min_duration_milliseconds: typing_extensions.Annotated[int, FieldMetadata(alias="minDurationMilliseconds")] = (
-        pydantic.Field()
+        pydantic.Field(alias="minDurationMilliseconds")
     )
     """
     The number of milliseconds the trigger needs to stay active before alerting.
@@ -27,7 +27,7 @@ class SpeedTriggerDetailsObjectRequestBody(UniversalBaseModel):
     """
 
     speed_kilometers_per_hour: typing_extensions.Annotated[int, FieldMetadata(alias="speedKilometersPerHour")] = (
-        pydantic.Field()
+        pydantic.Field(alias="speedKilometersPerHour")
     )
     """
     The speed threshold value.

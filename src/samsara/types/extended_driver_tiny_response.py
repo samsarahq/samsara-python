@@ -16,7 +16,7 @@ class ExtendedDriverTinyResponse(UniversalBaseModel):
 
     external_ids: typing_extensions.Annotated[
         typing.Optional[ExtendedDriverTinyResponseExternalIds], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="externalIds", default=None)
     """
     The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.
     """

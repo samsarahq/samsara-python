@@ -17,11 +17,11 @@ class V1VehicleMaintenanceJ1939(UniversalBaseModel):
 
     check_engine_light: typing_extensions.Annotated[
         typing.Optional[V1VehicleMaintenanceJ1939CheckEngineLight], FieldMetadata(alias="checkEngineLight")
-    ] = None
+    ] = pydantic.Field(alias="checkEngineLight", default=None)
     diagnostic_trouble_codes: typing_extensions.Annotated[
         typing.Optional[typing.List[V1VehicleMaintenanceJ1939DiagnosticTroubleCodes]],
         FieldMetadata(alias="diagnosticTroubleCodes"),
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="diagnosticTroubleCodes", default=None)
     """
     J1939 DTCs.
     """

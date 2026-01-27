@@ -9,9 +9,15 @@ from ..core.serialization import FieldMetadata
 
 
 class V1MachineHistoryResponseVibrations(UniversalBaseModel):
-    x: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="X")] = None
-    y: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="Y")] = None
-    z: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="Z")] = None
+    x: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="X")] = pydantic.Field(
+        alias="X", default=None
+    )
+    y: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="Y")] = pydantic.Field(
+        alias="Y", default=None
+    )
+    z: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="Z")] = pydantic.Field(
+        alias="Z", default=None
+    )
     time: typing.Optional[int] = None
 
     if IS_PYDANTIC_V2:

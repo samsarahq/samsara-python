@@ -18,7 +18,9 @@ class User(UniversalBaseModel):
     A user object.
     """
 
-    auth_type: typing_extensions.Annotated[UserAuthType, FieldMetadata(alias="authType")]
+    auth_type: typing_extensions.Annotated[UserAuthType, FieldMetadata(alias="authType")] = pydantic.Field(
+        alias="authType"
+    )
     email: UserEmail
     id: UserId
     name: UserName

@@ -16,7 +16,7 @@ class SettingsResponseBody(UniversalBaseModel):
 
     show_addresses: typing_extensions.Annotated[
         typing.Optional[typing.List[VertexResponseBody]], FieldMetadata(alias="showAddresses")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="showAddresses", default=None)
     """
     The geofence setting. If this setting set to true, then underlying geofence addresses will be shown in reports instead of a geofence's name.
     """

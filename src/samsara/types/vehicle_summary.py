@@ -24,38 +24,40 @@ from .vehicle_tiny_response import VehicleTinyResponse
 class VehicleSummary(UniversalBaseModel):
     anticipation_brake_event_count: typing_extensions.Annotated[
         typing.Optional[AnticipationBrakeEventCount], FieldMetadata(alias="anticipationBrakeEventCount")
-    ] = None
+    ] = pydantic.Field(alias="anticipationBrakeEventCount", default=None)
     coasting_duration_ms: typing_extensions.Annotated[
         typing.Optional[CoastingDurationMs], FieldMetadata(alias="coastingDurationMs")
-    ] = None
+    ] = pydantic.Field(alias="coastingDurationMs", default=None)
     cruise_control_duration_ms: typing_extensions.Annotated[
         typing.Optional[CruiseControlDurationMs], FieldMetadata(alias="cruiseControlDurationMs")
-    ] = None
+    ] = pydantic.Field(alias="cruiseControlDurationMs", default=None)
     distance_driven_meters: typing_extensions.Annotated[
         typing.Optional[DistanceDrivenMeters], FieldMetadata(alias="distanceDrivenMeters")
-    ] = None
+    ] = pydantic.Field(alias="distanceDrivenMeters", default=None)
     drive_time_duration_ms: typing_extensions.Annotated[
         typing.Optional[DriveTimeDurationMs], FieldMetadata(alias="driveTimeDurationMs")
-    ] = None
+    ] = pydantic.Field(alias="driveTimeDurationMs", default=None)
     fuel_consumed_ml: typing_extensions.Annotated[
         typing.Optional[FuelConsumedMl], FieldMetadata(alias="fuelConsumedMl")
-    ] = None
+    ] = pydantic.Field(alias="fuelConsumedMl", default=None)
     green_band_driving_duration_ms: typing_extensions.Annotated[
         typing.Optional[GreenBandDrivingDurationMs], FieldMetadata(alias="greenBandDrivingDurationMs")
-    ] = None
+    ] = pydantic.Field(alias="greenBandDrivingDurationMs", default=None)
     high_torque_ms: typing_extensions.Annotated[typing.Optional[HighTorqueMs], FieldMetadata(alias="highTorqueMs")] = (
-        None
+        pydantic.Field(alias="highTorqueMs", default=None)
     )
     idle_time_duration_ms: typing_extensions.Annotated[
         typing.Optional[IdleTimeDurationMs], FieldMetadata(alias="idleTimeDurationMs")
-    ] = None
-    over_speed_ms: typing_extensions.Annotated[typing.Optional[OverSpeedMs], FieldMetadata(alias="overSpeedMs")] = None
+    ] = pydantic.Field(alias="idleTimeDurationMs", default=None)
+    over_speed_ms: typing_extensions.Annotated[typing.Optional[OverSpeedMs], FieldMetadata(alias="overSpeedMs")] = (
+        pydantic.Field(alias="overSpeedMs", default=None)
+    )
     power_take_off_duration_ms: typing_extensions.Annotated[
         typing.Optional[PowerTakeOffDurationMs], FieldMetadata(alias="powerTakeOffDurationMs")
-    ] = None
+    ] = pydantic.Field(alias="powerTakeOffDurationMs", default=None)
     total_brake_event_count: typing_extensions.Annotated[
         typing.Optional[TotalBrakeEventCount], FieldMetadata(alias="totalBrakeEventCount")
-    ] = None
+    ] = pydantic.Field(alias="totalBrakeEventCount", default=None)
     vehicle: typing.Optional[VehicleTinyResponse] = None
 
     if IS_PYDANTIC_V2:

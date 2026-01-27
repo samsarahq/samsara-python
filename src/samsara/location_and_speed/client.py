@@ -36,6 +36,7 @@ class LocationAndSpeedClient:
         include_speed: typing.Optional[bool] = None,
         include_reverse_geo: typing.Optional[bool] = None,
         include_geofence_lookup: typing.Optional[bool] = None,
+        include_high_frequency_locations: typing.Optional[bool] = None,
         include_external_ids: typing.Optional[bool] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> LocationAndSpeedGetLocationAndSpeedResponseBody:
@@ -70,10 +71,13 @@ class LocationAndSpeedClient:
             Optional boolean indicating whether or not to return the 'speed' object
 
         include_reverse_geo : typing.Optional[bool]
-            Optional boolean indicating whether or not to return the 'address' object
+            Optional boolean indicating whether or not to return the 'address' object. Address information won't be returned for high-frequency locations.
 
         include_geofence_lookup : typing.Optional[bool]
             Optional boolean indicating whether or not to return the 'geofence' object
+
+        include_high_frequency_locations : typing.Optional[bool]
+            Optional boolean indicating whether or not to return high-frequency location data (up to 1Hz). Cannot be used with includeGeofenceLookup.
 
         include_external_ids : typing.Optional[bool]
             Optional boolean indicating whether to return external IDs on supported entities
@@ -104,6 +108,7 @@ class LocationAndSpeedClient:
             include_speed=include_speed,
             include_reverse_geo=include_reverse_geo,
             include_geofence_lookup=include_geofence_lookup,
+            include_high_frequency_locations=include_high_frequency_locations,
             include_external_ids=include_external_ids,
             request_options=request_options,
         )
@@ -136,6 +141,7 @@ class AsyncLocationAndSpeedClient:
         include_speed: typing.Optional[bool] = None,
         include_reverse_geo: typing.Optional[bool] = None,
         include_geofence_lookup: typing.Optional[bool] = None,
+        include_high_frequency_locations: typing.Optional[bool] = None,
         include_external_ids: typing.Optional[bool] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> LocationAndSpeedGetLocationAndSpeedResponseBody:
@@ -170,10 +176,13 @@ class AsyncLocationAndSpeedClient:
             Optional boolean indicating whether or not to return the 'speed' object
 
         include_reverse_geo : typing.Optional[bool]
-            Optional boolean indicating whether or not to return the 'address' object
+            Optional boolean indicating whether or not to return the 'address' object. Address information won't be returned for high-frequency locations.
 
         include_geofence_lookup : typing.Optional[bool]
             Optional boolean indicating whether or not to return the 'geofence' object
+
+        include_high_frequency_locations : typing.Optional[bool]
+            Optional boolean indicating whether or not to return high-frequency location data (up to 1Hz). Cannot be used with includeGeofenceLookup.
 
         include_external_ids : typing.Optional[bool]
             Optional boolean indicating whether to return external IDs on supported entities
@@ -212,6 +221,7 @@ class AsyncLocationAndSpeedClient:
             include_speed=include_speed,
             include_reverse_geo=include_reverse_geo,
             include_geofence_lookup=include_geofence_lookup,
+            include_high_frequency_locations=include_high_frequency_locations,
             include_external_ids=include_external_ids,
             request_options=request_options,
         )

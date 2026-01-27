@@ -14,14 +14,14 @@ class FormTemplateSectionObjectResponseBody(UniversalBaseModel):
     """
 
     field_index_first_inclusive: typing_extensions.Annotated[int, FieldMetadata(alias="fieldIndexFirstInclusive")] = (
-        pydantic.Field()
+        pydantic.Field(alias="fieldIndexFirstInclusive")
     )
     """
     The index of the first field from the fields array that is in this section. Index 0 represents the first field definition of the fields array.
     """
 
     field_index_last_inclusive: typing_extensions.Annotated[int, FieldMetadata(alias="fieldIndexLastInclusive")] = (
-        pydantic.Field()
+        pydantic.Field(alias="fieldIndexLastInclusive")
     )
     """
     The index of the last field from the fields array that is in this section.

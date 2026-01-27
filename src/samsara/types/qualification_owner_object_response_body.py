@@ -16,14 +16,14 @@ class QualificationOwnerObjectResponseBody(UniversalBaseModel):
 
     entity_type: typing_extensions.Annotated[
         QualificationOwnerObjectResponseBodyEntityType, FieldMetadata(alias="entityType")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="entityType")
     """
     Owner entity type  Valid values: `worker`, `asset`
     """
 
     external_ids: typing_extensions.Annotated[
         typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="externalIds", default=None)
     """
     A map of external ids
     """

@@ -16,7 +16,7 @@ class OutsideGeofenceTriggerDetailsObjectResponseBody(UniversalBaseModel):
 
     location: LocationObjectResponseBody
     min_duration_milliseconds: typing_extensions.Annotated[int, FieldMetadata(alias="minDurationMilliseconds")] = (
-        pydantic.Field()
+        pydantic.Field(alias="minDurationMilliseconds")
     )
     """
     The number of milliseconds the trigger needs to stay active before alerting.

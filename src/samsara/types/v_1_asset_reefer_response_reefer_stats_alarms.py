@@ -10,7 +10,7 @@ from ..core.serialization import FieldMetadata
 
 class V1AssetReeferResponseReeferStatsAlarms(UniversalBaseModel):
     alarm_code: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="alarmCode")] = pydantic.Field(
-        default=None
+        alias="alarmCode", default=None
     )
     """
     ID of the alarm
@@ -22,7 +22,7 @@ class V1AssetReeferResponseReeferStatsAlarms(UniversalBaseModel):
     """
 
     operator_action: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="operatorAction")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="operatorAction", default=None)
     )
     """
     Recommended operator action

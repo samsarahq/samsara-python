@@ -24,7 +24,7 @@ class GoaTagTinyResponseRequestBody(UniversalBaseModel):
     """
 
     parent_tag_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="parentTagId")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="parentTagId", default=None)
     )
     """
     If this tag is part a hierarchical tag tree, this is the ID of the parent tag, otherwise this will be omitted.

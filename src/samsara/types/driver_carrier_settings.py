@@ -16,14 +16,14 @@ class DriverCarrierSettings(UniversalBaseModel):
     """
 
     carrier_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="carrierName")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="carrierName", default=None)
     )
     """
     Carrier for a given driver.
     """
 
     dot_number: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="dotNumber")] = pydantic.Field(
-        default=None
+        alias="dotNumber", default=None
     )
     """
     Carrier US DOT Number. If this differs from the general organization's settings, the override value is used. Updating this value only updates the override setting for this driver.
@@ -31,12 +31,12 @@ class DriverCarrierSettings(UniversalBaseModel):
 
     home_terminal_address: typing_extensions.Annotated[
         typing.Optional[DriverHomeTerminalAddress], FieldMetadata(alias="homeTerminalAddress")
-    ] = None
+    ] = pydantic.Field(alias="homeTerminalAddress", default=None)
     home_terminal_name: typing_extensions.Annotated[
         typing.Optional[DriverHomeTerminalName], FieldMetadata(alias="homeTerminalName")
-    ] = None
+    ] = pydantic.Field(alias="homeTerminalName", default=None)
     main_office_address: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="mainOfficeAddress")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="mainOfficeAddress", default=None)
     )
     """
     Main office address for a given driver. If this differs from the general organization's settings, the override value is used. 

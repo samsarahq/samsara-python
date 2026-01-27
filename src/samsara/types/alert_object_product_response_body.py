@@ -14,7 +14,7 @@ class AlertObjectProductResponseBody(UniversalBaseModel):
     """
 
     short_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="shortName")] = pydantic.Field(
-        default=None
+        alias="shortName", default=None
     )
     """
     The short name associated with the product.

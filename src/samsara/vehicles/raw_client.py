@@ -94,7 +94,7 @@ class RawVehiclesClient:
             A filter on the data based on this comma-separated list of attribute value IDs. Only entities associated with ALL of the referenced values will be returned (i.e. the intersection of the sets of entities with each value). Example: `attributeValueIds=076efac2-83b5-47aa-ba36-18428436dcac,6707b3f0-23b9-4fe3-b7be-11be34aea544`
 
         attributes : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            A filter on the data to return entities having given attributes using either name-value pair, or range query (only for numeric attributes) separated by a comma. Only entities meeting all the conditions will be returned. Example: `attributes=ExampleAttributeName:some_value&attributes=SomeOtherAttr:123&attributes=Length:range(10,20)`
+            A filter on the data to return entities having given attributes using either name-value pair, or range query (only for numeric and date attributes) separated by a comma. Only entities meeting all the conditions will be returned. Example: `attributes=ExampleAttributeName:some_value&attributes=SomeOtherAttr:123&attributes=Length:range(10,20)&attributes=Date:range(2025-01-01,2025-01-31)`
 
         updated_after_time : typing.Optional[str]
              A filter on data to have an updated at time after or equal to this specified time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
@@ -540,7 +540,7 @@ class AsyncRawVehiclesClient:
             A filter on the data based on this comma-separated list of attribute value IDs. Only entities associated with ALL of the referenced values will be returned (i.e. the intersection of the sets of entities with each value). Example: `attributeValueIds=076efac2-83b5-47aa-ba36-18428436dcac,6707b3f0-23b9-4fe3-b7be-11be34aea544`
 
         attributes : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            A filter on the data to return entities having given attributes using either name-value pair, or range query (only for numeric attributes) separated by a comma. Only entities meeting all the conditions will be returned. Example: `attributes=ExampleAttributeName:some_value&attributes=SomeOtherAttr:123&attributes=Length:range(10,20)`
+            A filter on the data to return entities having given attributes using either name-value pair, or range query (only for numeric and date attributes) separated by a comma. Only entities meeting all the conditions will be returned. Example: `attributes=ExampleAttributeName:some_value&attributes=SomeOtherAttr:123&attributes=Length:range(10,20)&attributes=Date:range(2025-01-01,2025-01-31)`
 
         updated_after_time : typing.Optional[str]
              A filter on data to have an updated at time after or equal to this specified time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).

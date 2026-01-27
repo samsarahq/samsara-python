@@ -16,7 +16,7 @@ class AssetLocation(UniversalBaseModel):
     """
 
     formatted_address: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="formattedAddress")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="formattedAddress", default=None)
     )
     """
     Formatted address of the location

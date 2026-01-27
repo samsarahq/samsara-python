@@ -7,17 +7,13 @@ from importlib import import_module
 
 if typing.TYPE_CHECKING:
     from .stream_work_orders_request_work_order_statuses_item import StreamWorkOrdersRequestWorkOrderStatusesItem
-    from .work_orders_patch_work_orders_request_body_category import WorkOrdersPatchWorkOrdersRequestBodyCategory
     from .work_orders_patch_work_orders_request_body_priority import WorkOrdersPatchWorkOrdersRequestBodyPriority
     from .work_orders_patch_work_orders_request_body_status import WorkOrdersPatchWorkOrdersRequestBodyStatus
-    from .work_orders_post_work_orders_request_body_category import WorkOrdersPostWorkOrdersRequestBodyCategory
     from .work_orders_post_work_orders_request_body_priority import WorkOrdersPostWorkOrdersRequestBodyPriority
 _dynamic_imports: typing.Dict[str, str] = {
     "StreamWorkOrdersRequestWorkOrderStatusesItem": ".stream_work_orders_request_work_order_statuses_item",
-    "WorkOrdersPatchWorkOrdersRequestBodyCategory": ".work_orders_patch_work_orders_request_body_category",
     "WorkOrdersPatchWorkOrdersRequestBodyPriority": ".work_orders_patch_work_orders_request_body_priority",
     "WorkOrdersPatchWorkOrdersRequestBodyStatus": ".work_orders_patch_work_orders_request_body_status",
-    "WorkOrdersPostWorkOrdersRequestBodyCategory": ".work_orders_post_work_orders_request_body_category",
     "WorkOrdersPostWorkOrdersRequestBodyPriority": ".work_orders_post_work_orders_request_body_priority",
 }
 
@@ -45,9 +41,7 @@ def __dir__():
 
 __all__ = [
     "StreamWorkOrdersRequestWorkOrderStatusesItem",
-    "WorkOrdersPatchWorkOrdersRequestBodyCategory",
     "WorkOrdersPatchWorkOrdersRequestBodyPriority",
     "WorkOrdersPatchWorkOrdersRequestBodyStatus",
-    "WorkOrdersPostWorkOrdersRequestBodyCategory",
     "WorkOrdersPostWorkOrdersRequestBodyPriority",
 ]

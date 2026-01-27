@@ -17,18 +17,22 @@ class TrainingAssignmentPostResponseObjectResponseBody(UniversalBaseModel):
     """
 
     course: TrainingCourseObjectResponseBody
-    created_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAtTime")] = pydantic.Field()
+    created_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAtTime")] = pydantic.Field(
+        alias="createdAtTime"
+    )
     """
     Creation time of the training assignment. UTC timestamp in RFC 3339 format.
     """
 
-    created_by_id: typing_extensions.Annotated[str, FieldMetadata(alias="createdById")] = pydantic.Field()
+    created_by_id: typing_extensions.Annotated[str, FieldMetadata(alias="createdById")] = pydantic.Field(
+        alias="createdById"
+    )
     """
     ID of the user who created the training assignment.
     """
 
     due_at_time: typing_extensions.Annotated[typing.Optional[dt.datetime], FieldMetadata(alias="dueAtTime")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="dueAtTime", default=None)
     )
     """
     Time training assignment is due. UTC timestamp in RFC 3339 format. Returned when an assignment has a due date set by an admin.
@@ -40,7 +44,7 @@ class TrainingAssignmentPostResponseObjectResponseBody(UniversalBaseModel):
     """
 
     is_existing_assignment: typing_extensions.Annotated[bool, FieldMetadata(alias="isExistingAssignment")] = (
-        pydantic.Field()
+        pydantic.Field(alias="isExistingAssignment")
     )
     """
     Indicates whether the training assignment was already created.

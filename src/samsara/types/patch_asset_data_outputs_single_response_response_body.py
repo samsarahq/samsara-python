@@ -14,7 +14,7 @@ class PatchAssetDataOutputsSingleResponseResponseBody(UniversalBaseModel):
     """
 
     error_message: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="errorMessage")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="errorMessage", default=None)
     )
     """
     If the request failed, this displays the error message.
@@ -25,7 +25,9 @@ class PatchAssetDataOutputsSingleResponseResponseBody(UniversalBaseModel):
     The data output ID.
     """
 
-    status_code: typing_extensions.Annotated[int, FieldMetadata(alias="statusCode")] = pydantic.Field()
+    status_code: typing_extensions.Annotated[int, FieldMetadata(alias="statusCode")] = pydantic.Field(
+        alias="statusCode"
+    )
     """
     The status code of the request. 200 indicates the request succeeded for this data output. 500 indicates an internal server error.
     """

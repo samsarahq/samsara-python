@@ -14,18 +14,18 @@ class PatchDriverTrailerAssignmentsResponseBodyResponseBody(UniversalBaseModel):
     """
 
     created_at_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="createdAtTime")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="createdAtTime", default=None)
     )
     """
     Time when the driver trailer assignment was created, in RFC 3339 format
     """
 
-    driver_id: typing_extensions.Annotated[str, FieldMetadata(alias="driverId")] = pydantic.Field()
+    driver_id: typing_extensions.Annotated[str, FieldMetadata(alias="driverId")] = pydantic.Field(alias="driverId")
     """
     Samsara ID for the driver that this assignment is for.
     """
 
-    end_time: typing_extensions.Annotated[str, FieldMetadata(alias="endTime")] = pydantic.Field()
+    end_time: typing_extensions.Annotated[str, FieldMetadata(alias="endTime")] = pydantic.Field(alias="endTime")
     """
     Time when the driver trailer assignment ends, in RFC 3339 format
     """
@@ -35,18 +35,18 @@ class PatchDriverTrailerAssignmentsResponseBodyResponseBody(UniversalBaseModel):
     Samsara ID for the assignment.
     """
 
-    start_time: typing_extensions.Annotated[str, FieldMetadata(alias="startTime")] = pydantic.Field()
+    start_time: typing_extensions.Annotated[str, FieldMetadata(alias="startTime")] = pydantic.Field(alias="startTime")
     """
     Time when the driver trailer assignment starts, in RFC 3339 format
     """
 
-    trailer_id: typing_extensions.Annotated[str, FieldMetadata(alias="trailerId")] = pydantic.Field()
+    trailer_id: typing_extensions.Annotated[str, FieldMetadata(alias="trailerId")] = pydantic.Field(alias="trailerId")
     """
     Samsara ID of the trailer
     """
 
     updated_at_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="updatedAtTime")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="updatedAtTime", default=None)
     )
     """
     Time when the driver trailer assignment was last updated, in RFC 3339 format

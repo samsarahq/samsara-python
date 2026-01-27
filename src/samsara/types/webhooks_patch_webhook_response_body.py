@@ -14,14 +14,14 @@ from .webhooks_patch_webhook_response_body_version import WebhooksPatchWebhookRe
 class WebhooksPatchWebhookResponseBody(UniversalBaseModel):
     custom_headers: typing_extensions.Annotated[
         typing.Optional[typing.List[CustomHeadersObjectResponseBody]], FieldMetadata(alias="customHeaders")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="customHeaders", default=None)
     """
     The list of custom headers that users can include with their request
     """
 
     event_types: typing_extensions.Annotated[
         typing.Optional[typing.List[WebhooksPatchWebhookResponseBodyEventTypesItem]], FieldMetadata(alias="eventTypes")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="eventTypes", default=None)
     """
     The list of event types associated with a particular webhook.
     """
@@ -36,7 +36,7 @@ class WebhooksPatchWebhookResponseBody(UniversalBaseModel):
     The name of the webhook. This will appear in both Samsara’s cloud dashboard and the API. It can be set or updated through the Samsara Dashboard or through the API at any time.
     """
 
-    secret_key: typing_extensions.Annotated[str, FieldMetadata(alias="secretKey")] = pydantic.Field()
+    secret_key: typing_extensions.Annotated[str, FieldMetadata(alias="secretKey")] = pydantic.Field(alias="secretKey")
     """
     The secret key of the webhook. This will appear in both Samsara’s cloud dashboard and the API.
     """
