@@ -5,6 +5,7 @@ src/samsara/function.py
 .github/workflows/pr-opened.yml
 .github/workflows/publish.yml
 .github/workflows/release.yml
+.github/workflows/publish-layer.yml
 README.md
 
 # Webhook signature verification
