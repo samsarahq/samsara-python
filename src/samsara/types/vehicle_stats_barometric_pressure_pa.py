@@ -4,7 +4,7 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from .vehicle_stats_time import VehicleStatsTime
+from .time import Time
 
 
 class VehicleStatsBarometricPressurePa(UniversalBaseModel):
@@ -12,7 +12,7 @@ class VehicleStatsBarometricPressurePa(UniversalBaseModel):
     Vehicle barometric pressure reading.
     """
 
-    time: VehicleStatsTime
+    time: Time
     value: int = pydantic.Field()
     """
     The barometric pressure reading in pascals.

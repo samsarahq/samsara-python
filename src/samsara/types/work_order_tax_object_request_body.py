@@ -15,7 +15,7 @@ class WorkOrderTaxObjectRequestBody(UniversalBaseModel):
     """
 
     basis_points: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="basisPoints")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="basisPoints", default=None)
     )
     """
     The tax in basis points. 100 basis points = 1%.

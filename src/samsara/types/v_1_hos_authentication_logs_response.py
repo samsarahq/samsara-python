@@ -13,7 +13,7 @@ class V1HosAuthenticationLogsResponse(UniversalBaseModel):
     authentication_logs: typing_extensions.Annotated[
         typing.Optional[typing.List[V1HosAuthenticationLogsResponseAuthenticationLogs]],
         FieldMetadata(alias="authenticationLogs"),
-    ] = None
+    ] = pydantic.Field(alias="authenticationLogs", default=None)
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

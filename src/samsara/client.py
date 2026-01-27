@@ -15,6 +15,7 @@ if typing.TYPE_CHECKING:
     from .alerts.client import AlertsClient, AsyncAlertsClient
     from .assets.client import AssetsClient, AsyncAssetsClient
     from .attributes.client import AsyncAttributesClient, AttributesClient
+    from .auth_token_for_driver.client import AsyncAuthTokenForDriverClient, AuthTokenForDriverClient
     from .beta_ap_is.client import AsyncBetaApIsClient, BetaApIsClient
     from .carrier_proposed_assignments.client import (
         AsyncCarrierProposedAssignmentsClient,
@@ -24,6 +25,7 @@ if typing.TYPE_CHECKING:
     from .contacts.client import AsyncContactsClient, ContactsClient
     from .documents.client import AsyncDocumentsClient, DocumentsClient
     from .driver_qr_codes.client import AsyncDriverQrCodesClient, DriverQrCodesClient
+    from .driver_trailer_assignments.client import AsyncDriverTrailerAssignmentsClient, DriverTrailerAssignmentsClient
     from .driver_vehicle_assignments.client import AsyncDriverVehicleAssignmentsClient, DriverVehicleAssignmentsClient
     from .drivers.client import AsyncDriversClient, DriversClient
     from .equipment.client import AsyncEquipmentClient, EquipmentClient
@@ -144,18 +146,19 @@ class Samsara:
         self._contacts: typing.Optional[ContactsClient] = None
         self._maintenance: typing.Optional[MaintenanceClient] = None
         self._fuel_and_energy: typing.Optional[FuelAndEnergyClient] = None
+        self._driver_trailer_assignments: typing.Optional[DriverTrailerAssignmentsClient] = None
         self._driver_qr_codes: typing.Optional[DriverQrCodesClient] = None
         self._carrier_proposed_assignments: typing.Optional[CarrierProposedAssignmentsClient] = None
         self._legacy_ap_is: typing.Optional[LegacyApIsClient] = None
         self._documents: typing.Optional[DocumentsClient] = None
         self._driver_vehicle_assignments: typing.Optional[DriverVehicleAssignmentsClient] = None
         self._drivers: typing.Optional[DriversClient] = None
+        self._auth_token_for_driver: typing.Optional[AuthTokenForDriverClient] = None
         self._tachograph_eu_only: typing.Optional[TachographEuOnlyClient] = None
         self._equipment: typing.Optional[EquipmentClient] = None
         self._hours_of_service: typing.Optional[HoursOfServiceClient] = None
         self._ifta: typing.Optional[IftaClient] = None
         self._routes: typing.Optional[RoutesClient] = None
-        self._safety: typing.Optional[SafetyClient] = None
         self._settings: typing.Optional[SettingsClient] = None
         self._trailers: typing.Optional[TrailersClient] = None
         self._vehicles: typing.Optional[VehiclesClient] = None
@@ -173,13 +176,14 @@ class Samsara:
         self._organization_info: typing.Optional[OrganizationInfoClient] = None
         self._preview_ap_is: typing.Optional[PreviewApIsClient] = None
         self._route_events: typing.Optional[RouteEventsClient] = None
+        self._safety: typing.Optional[SafetyClient] = None
         self._speeding_intervals: typing.Optional[SpeedingIntervalsClient] = None
         self._tags: typing.Optional[TagsClient] = None
+        self._trips: typing.Optional[TripsClient] = None
         self._users: typing.Optional[UsersClient] = None
         self._legacy: typing.Optional[LegacyClient] = None
         self._messages: typing.Optional[MessagesClient] = None
         self._trailer_assignments: typing.Optional[TrailerAssignmentsClient] = None
-        self._trips: typing.Optional[TripsClient] = None
         self._sensors: typing.Optional[SensorsClient] = None
         self._webhooks: typing.Optional[WebhooksClient] = None
         self._fleet: typing.Optional[FleetClient] = None
@@ -273,6 +277,14 @@ class Samsara:
         return self._fuel_and_energy
 
     @property
+    def driver_trailer_assignments(self):
+        if self._driver_trailer_assignments is None:
+            from .driver_trailer_assignments.client import DriverTrailerAssignmentsClient  # noqa: E402
+
+            self._driver_trailer_assignments = DriverTrailerAssignmentsClient(client_wrapper=self._client_wrapper)
+        return self._driver_trailer_assignments
+
+    @property
     def driver_qr_codes(self):
         if self._driver_qr_codes is None:
             from .driver_qr_codes.client import DriverQrCodesClient  # noqa: E402
@@ -321,6 +333,14 @@ class Samsara:
         return self._drivers
 
     @property
+    def auth_token_for_driver(self):
+        if self._auth_token_for_driver is None:
+            from .auth_token_for_driver.client import AuthTokenForDriverClient  # noqa: E402
+
+            self._auth_token_for_driver = AuthTokenForDriverClient(client_wrapper=self._client_wrapper)
+        return self._auth_token_for_driver
+
+    @property
     def tachograph_eu_only(self):
         if self._tachograph_eu_only is None:
             from .tachograph_eu_only.client import TachographEuOnlyClient  # noqa: E402
@@ -359,14 +379,6 @@ class Samsara:
 
             self._routes = RoutesClient(client_wrapper=self._client_wrapper)
         return self._routes
-
-    @property
-    def safety(self):
-        if self._safety is None:
-            from .safety.client import SafetyClient  # noqa: E402
-
-            self._safety = SafetyClient(client_wrapper=self._client_wrapper)
-        return self._safety
 
     @property
     def settings(self):
@@ -505,6 +517,14 @@ class Samsara:
         return self._route_events
 
     @property
+    def safety(self):
+        if self._safety is None:
+            from .safety.client import SafetyClient  # noqa: E402
+
+            self._safety = SafetyClient(client_wrapper=self._client_wrapper)
+        return self._safety
+
+    @property
     def speeding_intervals(self):
         if self._speeding_intervals is None:
             from .speeding_intervals.client import SpeedingIntervalsClient  # noqa: E402
@@ -519,6 +539,14 @@ class Samsara:
 
             self._tags = TagsClient(client_wrapper=self._client_wrapper)
         return self._tags
+
+    @property
+    def trips(self):
+        if self._trips is None:
+            from .trips.client import TripsClient  # noqa: E402
+
+            self._trips = TripsClient(client_wrapper=self._client_wrapper)
+        return self._trips
 
     @property
     def users(self):
@@ -551,14 +579,6 @@ class Samsara:
 
             self._trailer_assignments = TrailerAssignmentsClient(client_wrapper=self._client_wrapper)
         return self._trailer_assignments
-
-    @property
-    def trips(self):
-        if self._trips is None:
-            from .trips.client import TripsClient  # noqa: E402
-
-            self._trips = TripsClient(client_wrapper=self._client_wrapper)
-        return self._trips
 
     @property
     def sensors(self):
@@ -663,18 +683,19 @@ class AsyncSamsara:
         self._contacts: typing.Optional[AsyncContactsClient] = None
         self._maintenance: typing.Optional[AsyncMaintenanceClient] = None
         self._fuel_and_energy: typing.Optional[AsyncFuelAndEnergyClient] = None
+        self._driver_trailer_assignments: typing.Optional[AsyncDriverTrailerAssignmentsClient] = None
         self._driver_qr_codes: typing.Optional[AsyncDriverQrCodesClient] = None
         self._carrier_proposed_assignments: typing.Optional[AsyncCarrierProposedAssignmentsClient] = None
         self._legacy_ap_is: typing.Optional[AsyncLegacyApIsClient] = None
         self._documents: typing.Optional[AsyncDocumentsClient] = None
         self._driver_vehicle_assignments: typing.Optional[AsyncDriverVehicleAssignmentsClient] = None
         self._drivers: typing.Optional[AsyncDriversClient] = None
+        self._auth_token_for_driver: typing.Optional[AsyncAuthTokenForDriverClient] = None
         self._tachograph_eu_only: typing.Optional[AsyncTachographEuOnlyClient] = None
         self._equipment: typing.Optional[AsyncEquipmentClient] = None
         self._hours_of_service: typing.Optional[AsyncHoursOfServiceClient] = None
         self._ifta: typing.Optional[AsyncIftaClient] = None
         self._routes: typing.Optional[AsyncRoutesClient] = None
-        self._safety: typing.Optional[AsyncSafetyClient] = None
         self._settings: typing.Optional[AsyncSettingsClient] = None
         self._trailers: typing.Optional[AsyncTrailersClient] = None
         self._vehicles: typing.Optional[AsyncVehiclesClient] = None
@@ -692,13 +713,14 @@ class AsyncSamsara:
         self._organization_info: typing.Optional[AsyncOrganizationInfoClient] = None
         self._preview_ap_is: typing.Optional[AsyncPreviewApIsClient] = None
         self._route_events: typing.Optional[AsyncRouteEventsClient] = None
+        self._safety: typing.Optional[AsyncSafetyClient] = None
         self._speeding_intervals: typing.Optional[AsyncSpeedingIntervalsClient] = None
         self._tags: typing.Optional[AsyncTagsClient] = None
+        self._trips: typing.Optional[AsyncTripsClient] = None
         self._users: typing.Optional[AsyncUsersClient] = None
         self._legacy: typing.Optional[AsyncLegacyClient] = None
         self._messages: typing.Optional[AsyncMessagesClient] = None
         self._trailer_assignments: typing.Optional[AsyncTrailerAssignmentsClient] = None
-        self._trips: typing.Optional[AsyncTripsClient] = None
         self._sensors: typing.Optional[AsyncSensorsClient] = None
         self._webhooks: typing.Optional[AsyncWebhooksClient] = None
         self._fleet: typing.Optional[AsyncFleetClient] = None
@@ -792,6 +814,14 @@ class AsyncSamsara:
         return self._fuel_and_energy
 
     @property
+    def driver_trailer_assignments(self):
+        if self._driver_trailer_assignments is None:
+            from .driver_trailer_assignments.client import AsyncDriverTrailerAssignmentsClient  # noqa: E402
+
+            self._driver_trailer_assignments = AsyncDriverTrailerAssignmentsClient(client_wrapper=self._client_wrapper)
+        return self._driver_trailer_assignments
+
+    @property
     def driver_qr_codes(self):
         if self._driver_qr_codes is None:
             from .driver_qr_codes.client import AsyncDriverQrCodesClient  # noqa: E402
@@ -842,6 +872,14 @@ class AsyncSamsara:
         return self._drivers
 
     @property
+    def auth_token_for_driver(self):
+        if self._auth_token_for_driver is None:
+            from .auth_token_for_driver.client import AsyncAuthTokenForDriverClient  # noqa: E402
+
+            self._auth_token_for_driver = AsyncAuthTokenForDriverClient(client_wrapper=self._client_wrapper)
+        return self._auth_token_for_driver
+
+    @property
     def tachograph_eu_only(self):
         if self._tachograph_eu_only is None:
             from .tachograph_eu_only.client import AsyncTachographEuOnlyClient  # noqa: E402
@@ -880,14 +918,6 @@ class AsyncSamsara:
 
             self._routes = AsyncRoutesClient(client_wrapper=self._client_wrapper)
         return self._routes
-
-    @property
-    def safety(self):
-        if self._safety is None:
-            from .safety.client import AsyncSafetyClient  # noqa: E402
-
-            self._safety = AsyncSafetyClient(client_wrapper=self._client_wrapper)
-        return self._safety
 
     @property
     def settings(self):
@@ -1026,6 +1056,14 @@ class AsyncSamsara:
         return self._route_events
 
     @property
+    def safety(self):
+        if self._safety is None:
+            from .safety.client import AsyncSafetyClient  # noqa: E402
+
+            self._safety = AsyncSafetyClient(client_wrapper=self._client_wrapper)
+        return self._safety
+
+    @property
     def speeding_intervals(self):
         if self._speeding_intervals is None:
             from .speeding_intervals.client import AsyncSpeedingIntervalsClient  # noqa: E402
@@ -1040,6 +1078,14 @@ class AsyncSamsara:
 
             self._tags = AsyncTagsClient(client_wrapper=self._client_wrapper)
         return self._tags
+
+    @property
+    def trips(self):
+        if self._trips is None:
+            from .trips.client import AsyncTripsClient  # noqa: E402
+
+            self._trips = AsyncTripsClient(client_wrapper=self._client_wrapper)
+        return self._trips
 
     @property
     def users(self):
@@ -1072,14 +1118,6 @@ class AsyncSamsara:
 
             self._trailer_assignments = AsyncTrailerAssignmentsClient(client_wrapper=self._client_wrapper)
         return self._trailer_assignments
-
-    @property
-    def trips(self):
-        if self._trips is None:
-            from .trips.client import AsyncTripsClient  # noqa: E402
-
-            self._trips = AsyncTripsClient(client_wrapper=self._client_wrapper)
-        return self._trips
 
     @property
     def sensors(self):

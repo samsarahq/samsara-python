@@ -6,12 +6,12 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .time import Time
 from .vehicle_stats_decorations import VehicleStatsDecorations
 from .vehicle_stats_fault_codes_can_bus_type import VehicleStatsFaultCodesCanBusType
 from .vehicle_stats_fault_codes_j_1939 import VehicleStatsFaultCodesJ1939
 from .vehicle_stats_fault_codes_obdii import VehicleStatsFaultCodesObdii
 from .vehicle_stats_fault_codes_oem import VehicleStatsFaultCodesOem
-from .vehicle_stats_time import VehicleStatsTime
 
 
 class VehicleStatsFaultCodesWithDecoration(UniversalBaseModel):
@@ -21,14 +21,14 @@ class VehicleStatsFaultCodesWithDecoration(UniversalBaseModel):
 
     can_bus_type: typing_extensions.Annotated[
         typing.Optional[VehicleStatsFaultCodesCanBusType], FieldMetadata(alias="canBusType")
-    ] = None
+    ] = pydantic.Field(alias="canBusType", default=None)
     decorations: typing.Optional[VehicleStatsDecorations] = None
     j_1939: typing_extensions.Annotated[typing.Optional[VehicleStatsFaultCodesJ1939], FieldMetadata(alias="j1939")] = (
-        None
+        pydantic.Field(alias="j1939", default=None)
     )
     obdii: typing.Optional[VehicleStatsFaultCodesObdii] = None
     oem: typing.Optional[VehicleStatsFaultCodesOem] = None
-    time: VehicleStatsTime
+    time: Time
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

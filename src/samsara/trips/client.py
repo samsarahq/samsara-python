@@ -4,8 +4,11 @@ import typing
 
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.request_options import RequestOptions
+from ..types.trips_get_trips_response_body import TripsGetTripsResponseBody
 from ..types.v_1_trip_response import V1TripResponse
 from .raw_client import AsyncRawTripsClient, RawTripsClient
+from .types.get_trips_request_completion_status import GetTripsRequestCompletionStatus
+from .types.get_trips_request_query_by import GetTripsRequestQueryBy
 
 
 class TripsClient:
@@ -22,6 +25,82 @@ class TripsClient:
         RawTripsClient
         """
         return self._raw_client
+
+    def get_trips(
+        self,
+        *,
+        start_time: str,
+        include_asset: typing.Optional[bool] = None,
+        completion_status: typing.Optional[GetTripsRequestCompletionStatus] = None,
+        end_time: typing.Optional[str] = None,
+        query_by: typing.Optional[GetTripsRequestQueryBy] = None,
+        after: typing.Optional[str] = None,
+        ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> TripsGetTripsResponseBody:
+        """
+        This endpoint will return trips that have been collected for your organization based on the time parameters passed in. Results are paginated.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Trips** under the Trips category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        start_time : str
+            RFC 3339 timestamp that indicates when to begin receiving data. Value is compared against `updatedAtTime` or `tripStartTime` depending on the queryBy parameter.
+
+        include_asset : typing.Optional[bool]
+            Indicates whether or not to return expanded “asset” data
+
+        completion_status : typing.Optional[GetTripsRequestCompletionStatus]
+            Filters trips based on a specific completion status  Valid values: `inProgress`, `completed`, `all`
+
+        end_time : typing.Optional[str]
+            RFC 3339 timestamp which is compared against `updatedAtTime` or `tripStartTime` depending on the queryBy parameter. If not provided then the endpoint behaves as an unending feed of changes.
+
+        query_by : typing.Optional[GetTripsRequestQueryBy]
+            Decide which timestamp the `startTime` and `endTime` are compared to.  Valid values: `updatedAtTime`, `tripStartTime`
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Comma-separated list of asset IDs. Include up to 50 asset IDs.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        TripsGetTripsResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.trips.get_trips(
+            start_time="startTime",
+        )
+        """
+        _response = self._raw_client.get_trips(
+            start_time=start_time,
+            include_asset=include_asset,
+            completion_status=completion_status,
+            end_time=end_time,
+            query_by=query_by,
+            after=after,
+            ids=ids,
+            request_options=request_options,
+        )
+        return _response.data
 
     def v_1_get_fleet_trips(
         self, *, vehicle_id: int, start_ms: int, end_ms: int, request_options: typing.Optional[RequestOptions] = None
@@ -92,6 +171,90 @@ class AsyncTripsClient:
         AsyncRawTripsClient
         """
         return self._raw_client
+
+    async def get_trips(
+        self,
+        *,
+        start_time: str,
+        include_asset: typing.Optional[bool] = None,
+        completion_status: typing.Optional[GetTripsRequestCompletionStatus] = None,
+        end_time: typing.Optional[str] = None,
+        query_by: typing.Optional[GetTripsRequestQueryBy] = None,
+        after: typing.Optional[str] = None,
+        ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> TripsGetTripsResponseBody:
+        """
+        This endpoint will return trips that have been collected for your organization based on the time parameters passed in. Results are paginated.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Trips** under the Trips category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        start_time : str
+            RFC 3339 timestamp that indicates when to begin receiving data. Value is compared against `updatedAtTime` or `tripStartTime` depending on the queryBy parameter.
+
+        include_asset : typing.Optional[bool]
+            Indicates whether or not to return expanded “asset” data
+
+        completion_status : typing.Optional[GetTripsRequestCompletionStatus]
+            Filters trips based on a specific completion status  Valid values: `inProgress`, `completed`, `all`
+
+        end_time : typing.Optional[str]
+            RFC 3339 timestamp which is compared against `updatedAtTime` or `tripStartTime` depending on the queryBy parameter. If not provided then the endpoint behaves as an unending feed of changes.
+
+        query_by : typing.Optional[GetTripsRequestQueryBy]
+            Decide which timestamp the `startTime` and `endTime` are compared to.  Valid values: `updatedAtTime`, `tripStartTime`
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Comma-separated list of asset IDs. Include up to 50 asset IDs.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        TripsGetTripsResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.trips.get_trips(
+                start_time="startTime",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_trips(
+            start_time=start_time,
+            include_asset=include_asset,
+            completion_status=completion_status,
+            end_time=end_time,
+            query_by=query_by,
+            after=after,
+            ids=ids,
+            request_options=request_options,
+        )
+        return _response.data
 
     async def v_1_get_fleet_trips(
         self, *, vehicle_id: int, start_ms: int, end_ms: int, request_options: typing.Optional[RequestOptions] = None

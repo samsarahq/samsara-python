@@ -17,8 +17,10 @@ class WorkflowAuthorSignatureObjectResponseBody(UniversalBaseModel):
 
     signatory_user: typing_extensions.Annotated[
         WorkflowSignatoryUserObjectResponseBody, FieldMetadata(alias="signatoryUser")
-    ]
-    signed_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="signedAtTime")] = pydantic.Field()
+    ] = pydantic.Field(alias="signatoryUser")
+    signed_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="signedAtTime")] = pydantic.Field(
+        alias="signedAtTime"
+    )
     """
     The time when the DVIR was signed. UTC timestamp in RFC 3339 format.
     """

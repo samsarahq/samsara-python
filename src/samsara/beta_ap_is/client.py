@@ -7,12 +7,13 @@ from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.request_options import RequestOptions
 from ..types.aemp_equipment_get_aemp_equipment_list_response_body import AempEquipmentGetAempEquipmentListResponseBody
 from ..types.assets_inputs_get_assets_inputs_response_body import AssetsInputsGetAssetsInputsResponseBody
+from ..types.create_report_config_object_request_body import CreateReportConfigObjectRequestBody
+from ..types.depreciation_get_depreciation_transactions_response_body import (
+    DepreciationGetDepreciationTransactionsResponseBody,
+)
 from ..types.detection_log_get_detections_response_body import DetectionLogGetDetectionsResponseBody
 from ..types.devices_get_devices_response_body import DevicesGetDevicesResponseBody
 from ..types.driver_efficiencies_response import DriverEfficienciesResponse
-from ..types.drivers_auth_token_create_driver_auth_token_response_body import (
-    DriversAuthTokenCreateDriverAuthTokenResponseBody,
-)
 from ..types.engine_immobilizer_get_engine_immobilizer_states_response_body import (
     EngineImmobilizerGetEngineImmobilizerStatesResponseBody,
 )
@@ -21,6 +22,9 @@ from ..types.functions_start_function_run_response_body import FunctionsStartFun
 from ..types.goa_attribute_tiny import GoaAttributeTiny
 from ..types.hos_daily_logs_update_shipping_docs_response_body import HosDailyLogsUpdateShippingDocsResponseBody
 from ..types.hos_eld_events_get_hos_eld_events_response_body import HosEldEventsGetHosEldEventsResponseBody
+from ..types.hub_custom_properties_list_hub_custom_properties_response_body import (
+    HubCustomPropertiesListHubCustomPropertiesResponseBody,
+)
 from ..types.jobs_create_job_response_body import JobsCreateJobResponseBody
 from ..types.jobs_delete_job_response_body import JobsDeleteJobResponseBody
 from ..types.jobs_get_jobs_response_body import JobsGetJobsResponseBody
@@ -51,10 +55,11 @@ from ..types.reading_datapoint_request_body import ReadingDatapointRequestBody
 from ..types.readings_get_readings_history_response_body import ReadingsGetReadingsHistoryResponseBody
 from ..types.readings_get_readings_snapshot_response_body import ReadingsGetReadingsSnapshotResponseBody
 from ..types.readings_list_readings_definitions_response_body import ReadingsListReadingsDefinitionsResponseBody
-from ..types.safety_events_v_2_get_safety_events_v_2_response_body import SafetyEventsV2GetSafetyEventsV2ResponseBody
-from ..types.safety_events_v_2_get_safety_events_v_2_stream_response_body import (
-    SafetyEventsV2GetSafetyEventsV2StreamResponseBody,
-)
+from ..types.reports_create_report_run_response_body import ReportsCreateReportRunResponseBody
+from ..types.reports_get_datasets_response_body import ReportsGetDatasetsResponseBody
+from ..types.reports_get_report_configs_response_body import ReportsGetReportConfigsResponseBody
+from ..types.reports_get_report_run_data_response_body import ReportsGetReportRunDataResponseBody
+from ..types.reports_get_report_runs_response_body import ReportsGetReportRunsResponseBody
 from ..types.safety_scores_get_driver_safety_score_trips_response_body import (
     SafetyScoresGetDriverSafetyScoreTripsResponseBody,
 )
@@ -67,15 +72,6 @@ from ..types.safety_scores_get_vehicle_safety_score_trips_response_body import (
     SafetyScoresGetVehicleSafetyScoreTripsResponseBody,
 )
 from ..types.safety_scores_get_vehicle_safety_scores_response_body import SafetyScoresGetVehicleSafetyScoresResponseBody
-from ..types.trailer_assignments_create_driver_trailer_assignment_response_body import (
-    TrailerAssignmentsCreateDriverTrailerAssignmentResponseBody,
-)
-from ..types.trailer_assignments_get_driver_trailer_assignments_response_body import (
-    TrailerAssignmentsGetDriverTrailerAssignmentsResponseBody,
-)
-from ..types.trailer_assignments_update_driver_trailer_assignment_response_body import (
-    TrailerAssignmentsUpdateDriverTrailerAssignmentResponseBody,
-)
 from ..types.trailer_stats_get_trailer_stats_feed_response_body import TrailerStatsGetTrailerStatsFeedResponseBody
 from ..types.trailer_stats_get_trailer_stats_history_response_body import TrailerStatsGetTrailerStatsHistoryResponseBody
 from ..types.trailer_stats_get_trailer_stats_snapshot_response_body import (
@@ -91,7 +87,6 @@ from ..types.training_assignments_post_training_assignments_response_body import
     TrainingAssignmentsPostTrainingAssignmentsResponseBody,
 )
 from ..types.training_courses_get_training_courses_response_body import TrainingCoursesGetTrainingCoursesResponseBody
-from ..types.trips_get_trips_response_body import TripsGetTripsResponseBody
 from ..types.update_engine_immobilizer_relay_state_request_body_request_body import (
     UpdateEngineImmobilizerRelayStateRequestBodyRequestBody,
 )
@@ -109,8 +104,6 @@ from .types.get_qualification_records_stream_request_entity_type import GetQuali
 from .types.get_qualification_types_request_entity_type import GetQualificationTypesRequestEntityType
 from .types.get_tag_group_safety_scores_request_score_type import GetTagGroupSafetyScoresRequestScoreType
 from .types.get_tag_safety_scores_request_score_type import GetTagSafetyScoresRequestScoreType
-from .types.get_trips_request_completion_status import GetTripsRequestCompletionStatus
-from .types.get_trips_request_query_by import GetTripsRequestQueryBy
 
 # this is used as the default value for optional parameters
 OMIT = typing.cast(typing.Any, ...)
@@ -130,6 +123,61 @@ class BetaApIsClient:
         RawBetaApIsClient
         """
         return self._raw_client
+
+    def get_depreciation_transactions(
+        self,
+        *,
+        start_time: typing.Optional[dt.datetime] = None,
+        end_time: typing.Optional[dt.datetime] = None,
+        asset_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        after: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> DepreciationGetDepreciationTransactionsResponseBody:
+        """
+        Returns depreciation and adjustment transactions for assets. Transactions are returned ordered by updatedAt in ascending order (oldest to newest). Use startTime parameter for incremental sync.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        start_time : typing.Optional[dt.datetime]
+            RFC 3339 timestamp. Returns transactions updated after this time. Compared against updatedAt. If not provided, returns all transactions. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        end_time : typing.Optional[dt.datetime]
+            RFC 3339 timestamp. Returns transactions updated before this time. Compared against updatedAt. If not provided, behaves as an unending feed of changes. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        asset_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Filter by asset IDs. Up to 50 ids.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        DepreciationGetDepreciationTransactionsResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.get_depreciation_transactions()
+        """
+        _response = self._raw_client.get_depreciation_transactions(
+            start_time=start_time, end_time=end_time, asset_ids=asset_ids, after=after, request_options=request_options
+        )
+        return _response.data
 
     def get_assets_inputs(
         self,
@@ -914,7 +962,7 @@ class BetaApIsClient:
             relay_states=[
                 UpdateEngineImmobilizerRelayStateRequestBodyRequestBody(
                     id="relay1",
-                    is_open=False,
+                    is_open=True,
                 )
             ],
         )
@@ -1173,10 +1221,10 @@ class BetaApIsClient:
             Optional string of comma separated asset IDs. If asset ID is present, events for the specified asset(s) will be returned. Max for this value is 2000 objects. (Example: 281474982859091,281471982957527)
 
         detection_behavior_labels : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated labels to filter behavior labels. Uses OR semantics for filtering. An empty list allows all values. Valid values: `acceleration`, `braking`, `crash`, `drowsy`, `eatingDrinking`, `edgeRailroadCrossingViolation`, `followingDistance`, `forwardCollisionWarning`, `genericDistraction`, `harshTurn`, `laneDeparture`, `maxSpeed`, `mobileUsage`, `noSeatbelt`, `obstructedCamera`, `passenger`, `policyViolationMask`, `rollingStop`, `rolloverProtection`, `smoking`, `speeding`, `unsafeParking`, `vulnerableRoadUserCollisionWarning`, `yawControl`. (Example: rollingStop,obstructedCamera,noSeatbelt)
+            Optional string of comma separated labels to filter behavior labels. Uses OR semantics for filtering. An empty list allows all values. Valid values: `acceleration`, `braking`, `crash`, `drowsy`, `eatingDrinking`, `edgeRailroadCrossingViolation`, `followingDistance`, `forwardCollisionWarning`, `genericDistraction`, `harshTurn`, `heavySpeeding`, `laneDeparture`, `lightSpeeding`, `maxSpeed`, `mobileUsage`, `moderateSpeeding`, `noSeatbelt`, `obstructedCamera`, `passenger`, `policyViolationMask`, `ranRedLight`, `rearCollisionWarning`, `rollingStop`, `rolloverProtection`, `severeSpeeding`, `smoking`, `speeding`, `unsafeParking`, `vehicleInBlindSpotWarning`, `vulnerableRoadUserCollisionWarning`, `yawControl`. (Example: rollingStop,obstructedCamera,noSeatbelt)
 
         inbox_filter_reason : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated reasons to filter detections. Uses OR semantics for filtering. An empty list allows all values. Valid values: `overDailyLimit`, `overHourlyLimit`, `overTripLimit`, `belowConfidenceThreshold`, `belowSeverityThreshold`, `overEventRateLimit`, `geofenceFilter`, `belowNudgeThreshold`, `belowSpeedThreshold`, `nighttimeFilter`, `speedingFilter`, `unknown`. (Example: overDailyLimit,overHourlyLimit,belowConfidenceThreshold)
+            Optional string of comma separated reasons to filter detections. Uses OR semantics for filtering. An empty list allows all values. Valid values: `overDailyLimit`, `overHourlyLimit`, `overTripLimit`, `belowConfidenceThreshold`, `belowSeverityThreshold`, `overEventRateLimit`, `geofenceFilter`, `belowNudgeThreshold`, `belowSpeedThreshold`, `nighttimeFilter`, `speedingFilter`, `inCabAlertOnly`, `unknown`. (Example: overDailyLimit,overHourlyLimit,belowConfidenceThreshold)
 
         inbox_event : typing.Optional[bool]
             Indicates whether or not to return detections with an associated Safety Inbox event. An empty entry allows all values. (Example: true)
@@ -1243,6 +1291,9 @@ class BetaApIsClient:
         include_health: typing.Optional[bool] = None,
         after: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
+        include_tags: typing.Optional[bool] = None,
+        tag_ids: typing.Optional[str] = None,
+        parent_tag_ids: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> DevicesGetDevicesResponseBody:
         """
@@ -1274,6 +1325,15 @@ class BetaApIsClient:
         limit : typing.Optional[int]
             The limit for how many objects will be in the response. Default and max for this value is 100 objects.
 
+        include_tags : typing.Optional[bool]
+            Optional boolean to control whether tags are returned in the response. Defaults to false.
+
+        tag_ids : typing.Optional[str]
+             A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+
+        parent_tag_ids : typing.Optional[str]
+             A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -1297,218 +1357,10 @@ class BetaApIsClient:
             include_health=include_health,
             after=after,
             limit=limit,
+            include_tags=include_tags,
+            tag_ids=tag_ids,
+            parent_tag_ids=parent_tag_ids,
             request_options=request_options,
-        )
-        return _response.data
-
-    def get_driver_trailer_assignments(
-        self,
-        *,
-        driver_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        after: typing.Optional[str] = None,
-        include_external_ids: typing.Optional[bool] = None,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> TrailerAssignmentsGetDriverTrailerAssignmentsResponseBody:
-        """
-        Get currently active driver-trailer assignments for driver.
-
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Read Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        driver_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-             A filter on the data based on this comma-separated list of driver IDs and externalIds. Example: `driverIds=1234,5678,payroll:4841`
-
-        after : typing.Optional[str]
-             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-
-        include_external_ids : typing.Optional[bool]
-            Optional boolean indicating whether to return external IDs on supported entities
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        TrailerAssignmentsGetDriverTrailerAssignmentsResponseBody
-            OK response.
-
-        Examples
-        --------
-        from samsara import Samsara
-
-        client = Samsara(
-            token="YOUR_TOKEN",
-        )
-        client.beta_ap_is.get_driver_trailer_assignments()
-        """
-        _response = self._raw_client.get_driver_trailer_assignments(
-            driver_ids=driver_ids,
-            after=after,
-            include_external_ids=include_external_ids,
-            request_options=request_options,
-        )
-        return _response.data
-
-    def create_driver_trailer_assignment(
-        self,
-        *,
-        driver_id: str,
-        trailer_id: str,
-        start_time: typing.Optional[str] = OMIT,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> TrailerAssignmentsCreateDriverTrailerAssignmentResponseBody:
-        """
-        Create a new driver-trailer assignment
-
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Write Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        driver_id : str
-            ID of the driver. This can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the driver.
-
-        trailer_id : str
-            ID of the trailer. This can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the trailer.
-
-        start_time : typing.Optional[str]
-            The start time in RFC 3339 format. The time needs to be current or within the past 7 days. Defaults to now if not provided
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        TrailerAssignmentsCreateDriverTrailerAssignmentResponseBody
-            OK response.
-
-        Examples
-        --------
-        from samsara import Samsara
-
-        client = Samsara(
-            token="YOUR_TOKEN",
-        )
-        client.beta_ap_is.create_driver_trailer_assignment(
-            driver_id="494123",
-            trailer_id="12345",
-        )
-        """
-        _response = self._raw_client.create_driver_trailer_assignment(
-            driver_id=driver_id, trailer_id=trailer_id, start_time=start_time, request_options=request_options
-        )
-        return _response.data
-
-    def update_driver_trailer_assignment(
-        self, *, id: str, end_time: str, request_options: typing.Optional[RequestOptions] = None
-    ) -> TrailerAssignmentsUpdateDriverTrailerAssignmentResponseBody:
-        """
-        Update an existing driver-trailer assignment.
-
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Write Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        id : str
-            Samsara ID for the assignment.
-
-        end_time : str
-            The end time in RFC 3339 format. The end time should not be in the future
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        TrailerAssignmentsUpdateDriverTrailerAssignmentResponseBody
-            OK response.
-
-        Examples
-        --------
-        from samsara import Samsara
-
-        client = Samsara(
-            token="YOUR_TOKEN",
-        )
-        client.beta_ap_is.update_driver_trailer_assignment(
-            id="id",
-            end_time="2019-06-13T19:08:25Z",
-        )
-        """
-        _response = self._raw_client.update_driver_trailer_assignment(
-            id=id, end_time=end_time, request_options=request_options
-        )
-        return _response.data
-
-    def create_driver_auth_token(
-        self,
-        *,
-        code: str,
-        external_id: typing.Optional[str] = OMIT,
-        id: typing.Optional[int] = OMIT,
-        username: typing.Optional[str] = OMIT,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> DriversAuthTokenCreateDriverAuthTokenResponseBody:
-        """
-        Creates a short-lived auth token for a driver.
-
-         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Write Driver Auth Token** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        code : str
-            Required. Random 12+ character string, used with the auth token to help secure the client from intercepted tokens.
-
-        external_id : typing.Optional[str]
-            Optional. External ID of the driver, in the format `key:value` (e.g., `payrollId:ABFS18600`). One of `id`, `externalId`, or `username` is required.
-
-        id : typing.Optional[int]
-            Optional. Samsara ID of the driver. One of `id`, `externalId`, or `username` is required.
-
-        username : typing.Optional[str]
-            Optional. Username of the driver. This is the login identifier configured when the driver is created. One of `id`, `externalId`, or `username` is required.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        DriversAuthTokenCreateDriverAuthTokenResponseBody
-            OK response.
-
-        Examples
-        --------
-        from samsara import Samsara
-
-        client = Samsara(
-            token="YOUR_TOKEN",
-        )
-        client.beta_ap_is.create_driver_auth_token(
-            code="dp[gZc1wAigz4uGa0Hh",
-        )
-        """
-        _response = self._raw_client.create_driver_auth_token(
-            code=code, external_id=external_id, id=id, username=username, request_options=request_options
         )
         return _response.data
 
@@ -1679,6 +1531,84 @@ class BetaApIsClient:
         """
         _response = self._raw_client.update_shipping_docs(
             hos_date=hos_date, driver_id=driver_id, shipping_docs=shipping_docs, request_options=request_options
+        )
+        return _response.data
+
+    def list_hub_custom_properties(
+        self,
+        *,
+        hub_id: str,
+        custom_property_ids: typing.Optional[str] = None,
+        custom_property_names: typing.Optional[str] = None,
+        start_time: typing.Optional[dt.datetime] = None,
+        end_time: typing.Optional[dt.datetime] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HubCustomPropertiesListHubCustomPropertiesResponseBody:
+        """
+        Retrieve custom properties for a specific hub.
+
+        **Beta:** This endpoint is in beta and is likely to change before being broadly available. Reach out to your Samsara Representative to have RoutePlanning APIs enabled for your organization.
+
+         <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        hub_id : str
+            The hub identifier
+
+        custom_property_ids : typing.Optional[str]
+            A comma-separated list of custom property IDs that can be used for filtering.
+
+        custom_property_names : typing.Optional[str]
+            A comma-separated list of custom property names that can be used for filtering.
+
+        start_time : typing.Optional[dt.datetime]
+            Time filter of when the custom property was updated, in RFC 3339 format
+
+        end_time : typing.Optional[dt.datetime]
+            Time filter of when the custom property was updated, in RFC 3339 format
+
+        after : typing.Optional[str]
+            If specified, should be the endCursor from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            Maximum number of objects to return. Default and maximum is 100
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HubCustomPropertiesListHubCustomPropertiesResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.list_hub_custom_properties(
+            hub_id="hubId",
+        )
+        """
+        _response = self._raw_client.list_hub_custom_properties(
+            hub_id=hub_id,
+            custom_property_ids=custom_property_ids,
+            custom_property_names=custom_property_names,
+            start_time=start_time,
+            end_time=end_time,
+            after=after,
+            limit=limit,
+            request_options=request_options,
         )
         return _response.data
 
@@ -2044,7 +1974,7 @@ class BetaApIsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> QualificationsGetQualificationRecordsStreamResponseBody:
         """
-        Returns all qualification records that have been created or modified for your organization based on the time parameters passed in. Results are paginated and sorted by last modified time. If you include an endTime, the endpoint will return data up until that point (exclusive). If you don’t include an endTime, you can continue to poll the API real-time with the pagination cursor that gets returned on every call.
+        Returns all qualification records that have been created or modified for your organization based on the time parameters passed in. Results are paginated and are sorted by last modified date. If you include an endTime, the endpoint will return data up until that point (exclusive). If you don't include an endTime, the API will continue to poll with the pagination cursor that gets returned on every call. The hasNextPage response value will be true if there is no endTime specified and endCursor is nonempty.
 
          <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -2270,10 +2200,6 @@ class BetaApIsClient:
     ) -> ReadingsListReadingsDefinitionsResponseBody:
         """
         An introspection endpoint for discovering the set of readings including their name, description, data type, unit, and other metadata.
-            Examples:
-            Diagnostic/Engine Readings: engineState, engineSpeed, fuelLevelPerc etc.
-            Level Monitoring Readings: defLevel, defLevelMilliPercent etc.
-            Smart Trailer Readings: reeferState  etc.
 
          <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -2331,20 +2257,6 @@ class BetaApIsClient:
     ) -> ReadingsGetReadingsHistoryResponseBody:
         """
         Get the values of a reading for a set of entities within the specified time range. Returns a paginated response with data for the specified resource IDs where startTime <= happenedAtTime < endTime. End time of null implies endTime is infinite and all known readings are returned.
-            Example:
-            engineRpm Readings for entityId 212014918105584 between time 2025-01-27T19:22:30Z and 2025-01-27T19:25:00Z
-            "data": [
-            {
-              "entityId": "212014918105584",
-              "value": 807,
-              "happenedAtTime": "2025-01-27T19:22:30Z"
-            },
-            {
-              "entityId": "212014918105584",
-              "value": 811,
-              "happenedAtTime": "2025-01-27T19:24:30Z"
-            }
-          ],
 
          <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -2368,7 +2280,7 @@ class BetaApIsClient:
             A filter on the data based on this comma-separated list of entity IDs or external IDs. If not set, all entities are returned.
 
         external_ids : typing.Optional[str]
-            A filter on the data based on this comma-separated list of external IDs.
+            A filter on the data based on this comma-separated list of external IDs. (Examples: samsara.serial:ZPXKLMN7VJ, samsara.serial:ABXKIMN4NM)
 
         start_time : typing.Optional[str]
             A filter on the data that returns the last known data points with timestamps greater than or equal to this value. Must be a string in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2020-01-27T07:06:25Z)
@@ -2430,16 +2342,6 @@ class BetaApIsClient:
     ) -> ReadingsGetReadingsSnapshotResponseBody:
         """
         An endpoint to get the last value of a reading for a set of entities at the specified time.
-            Example:
-            engineRpm Readings for entityId 212014918105584 at time 2025-04-16T20:49:19Z
-            "data": [
-            {
-              "readingId": "engineRpm",
-              "entityId": "212014918105584",
-              "value": 600,
-              "happenedAtTime": "2025-04-16T20:49:19Z"
-            }
-          ],
 
          <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -2463,7 +2365,7 @@ class BetaApIsClient:
             A filter on the data based on this comma-separated list of entity IDs or external IDs. If not set, all entities are returned.
 
         external_ids : typing.Optional[str]
-            A filter on the data based on this comma-separated list of external IDs.
+            A filter on the data based on this comma-separated list of external IDs. (Examples: samsara.serial:ZPXKLMN7VJ, samsara.serial:ABXKIMN4NM)
 
         as_of_time : typing.Optional[str]
             A filter on the data that returns the last known data points with timestamps less than or equal to this value. Defaults to now if not provided. Must be a string in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2020-01-27T07:06:25Z)
@@ -2503,45 +2405,41 @@ class BetaApIsClient:
         )
         return _response.data
 
-    def get_safety_events_v_2(
+    def get_report_configs(
         self,
         *,
-        safety_event_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        include_asset: typing.Optional[bool] = None,
-        include_driver: typing.Optional[bool] = None,
         after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SafetyEventsV2GetSafetyEventsV2ResponseBody:
+    ) -> ReportsGetReportConfigsResponseBody:
         """
-        This endpoint will return details for the specified safety events based on the parameters passed in. Results are paginated.
+        Get report configs created in the organization.
 
          <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-        To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read Custom Reports** under the Custom Reports category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
         Parameters
         ----------
-        safety_event_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Required string of comma separated Safety Event IDs. Unique Samsara IDs (uuid) of the safety event.
-
-        include_asset : typing.Optional[bool]
-            Indicates whether or not to return expanded “asset” data
-
-        include_driver : typing.Optional[bool]
-            Indicates whether or not to return expanded “driver” data
-
         after : typing.Optional[str]
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            Maximum number of configs to return
+
+        ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            The list of report config IDs to retrieve. Include up to 10 report config IDs. If not provided, all configs will be returned.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
         Returns
         -------
-        SafetyEventsV2GetSafetyEventsV2ResponseBody
+        ReportsGetReportConfigsResponseBody
             OK response.
 
         Examples
@@ -2551,84 +2449,48 @@ class BetaApIsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.beta_ap_is.get_safety_events_v_2()
+        client.beta_ap_is.get_report_configs()
         """
-        _response = self._raw_client.get_safety_events_v_2(
-            safety_event_ids=safety_event_ids,
-            include_asset=include_asset,
-            include_driver=include_driver,
-            after=after,
-            request_options=request_options,
+        _response = self._raw_client.get_report_configs(
+            after=after, limit=limit, ids=ids, request_options=request_options
         )
         return _response.data
 
-    def get_safety_events_v_2_stream(
+    def get_datasets(
         self,
         *,
-        start_time: str,
-        end_time: typing.Optional[str] = None,
-        asset_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        driver_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        assigned_coaches: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        behavior_labels: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        event_states: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        include_asset: typing.Optional[bool] = None,
-        include_driver: typing.Optional[bool] = None,
+        ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SafetyEventsV2GetSafetyEventsV2StreamResponseBody:
+    ) -> ReportsGetDatasetsResponseBody:
         """
-        This endpoint will return all safety events associated with your organization based on the parameters passed in. To get core endpoint data, select Read Safety Events & Scores under the Safety & Cameras category when creating or editing an API token. Read Camera Media permissions required to get Safety Event video media via this endpoint. If you include an endTime, the endpoint will return data up until that point. If you do not include an endTime, you can continue to poll the API real-time with the pagination cursor that gets returned on every call. Results are paginated.
+        Get datasets for custom reports.
 
          <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-        To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read Custom Reports** under the Custom Reports category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
         Parameters
         ----------
-        start_time : str
-            RFC 3339 timestamp that indicates when to begin receiving data. Value is compared against `updatedAtTime` of the events.
-
-        end_time : typing.Optional[str]
-            RFC 3339 timestamp which is compared against `updatedAtTime` of the events. If not provided then the endpoint behaves as an unending feed of changes.
-
-        asset_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated asset IDs. If asset ID is present, events for the specified asset(s) will be returned. Limit of 2000 asset IDs.
-
-        driver_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated driver IDs. If driver ID is present, events for the specified driver(s) will be returned. Limit of 2000 driver IDs.
-
-        tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated tag IDs. If tag ID is present, events for the specified tag(s) will be returned. Limit of 2000 tag IDs.
-
-        assigned_coaches : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated coach IDs to filter events assigned to a particular coach. Limit of 2000 coach IDs.
-
-        behavior_labels : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated labels to filter behavior labels.  Valid values: `Acceleration`, `AggressiveDriving`, `BluetoothHeadset`, `Braking`, `ContextConstructionOrWorkZone`, `ContextSnowyOrIcy`, `ContextVulnerableRoadUser`, `ContextWet`, `Crash`, `DefensiveDriving`, `DidNotYield`, `Drinking`, `Drowsy`, `Eating`, `EatingDrinking`, `EdgeDistractedDriving`, `EdgeRailroadCrossingViolation`, `FollowingDistance`, `FollowingDistanceModerate`, `FollowingDistanceSevere`, `ForwardCollisionWarning`, `GenericDistraction`, `GenericTailgating`, `HarshTurn`, `HeavySpeeding`, `HosViolation`, `Idling`, `Invalid`, `LaneDeparture`, `LateResponse`, `LeftTurn`, `LightSpeeding`, `MaxSpeed`, `MobileUsage`, `ModerateSpeeding`, `NearCollison`, `NearPedestrianCollision`, `NoSeatbelt`, `ObstructedCamera`, `OtherViolation`, `Passenger`, `PolicyViolationMask`, `ProtectiveEquipment`, `RanRedLight`, `Reversing`, `RollingStop`, `RolloverProtection`, `SevereSpeeding`, `Smoking`, `Speeding`, `UTurn`, `UnsafeManeuver`, `UnsafeParking`, `VulnerableRoadUserCollisionWarning`, `YawControl`
-
-        event_states : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated values to filter event states.  Valid values: `needsReview`, `reviewed`, `needsCoaching`, `coached`, `dismissed`, `needsRecognition`, `recognized`
-
-        include_asset : typing.Optional[bool]
-            Indicates whether or not to return expanded “asset” data
-
-        include_driver : typing.Optional[bool]
-            Indicates whether or not to return expanded “driver” data
+        ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            The list of dataset IDs to retrieve the datasets for. Include up to 10 dataset IDs. If not provided, all datasets will be returned.
 
         after : typing.Optional[str]
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            Maximum number of datasets to return.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
         Returns
         -------
-        SafetyEventsV2GetSafetyEventsV2StreamResponseBody
+        ReportsGetDatasetsResponseBody
             OK response.
 
         Examples
@@ -2638,23 +2500,158 @@ class BetaApIsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.beta_ap_is.get_safety_events_v_2_stream(
-            start_time="startTime",
+        client.beta_ap_is.get_datasets()
+        """
+        _response = self._raw_client.get_datasets(ids=ids, after=after, limit=limit, request_options=request_options)
+        return _response.data
+
+    def get_report_runs(
+        self,
+        *,
+        report_config_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> ReportsGetReportRunsResponseBody:
+        """
+        Get custom report runs created by the user.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Custom Reports** under the Custom Reports category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        report_config_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            The list of report config IDs to retrieve the report runs for. Include up to 10 report config IDs. If not provided, runs for all configs will be returned.
+
+        ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            The list of report run IDs to retrieve the report runs for. Include up to 10 report run IDs. If not provided, all report runs will be returned.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            Maximum number of runs to return.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        ReportsGetReportRunsResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.get_report_runs()
+        """
+        _response = self._raw_client.get_report_runs(
+            report_config_ids=report_config_ids, ids=ids, after=after, limit=limit, request_options=request_options
+        )
+        return _response.data
+
+    def create_report_run(
+        self,
+        *,
+        report_config: CreateReportConfigObjectRequestBody,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> ReportsCreateReportRunResponseBody:
+        """
+        Triggers a new custom report run based on the provided configuration.
+
+         <b>Rate limit:</b> 50 requests/hour (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Custom Reports** under the Custom Reports category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        report_config : CreateReportConfigObjectRequestBody
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        ReportsCreateReportRunResponseBody
+            Accepted response.
+
+        Examples
+        --------
+        from samsara import CreateReportConfigObjectRequestBody, Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.create_report_run(
+            report_config=CreateReportConfigObjectRequestBody(),
         )
         """
-        _response = self._raw_client.get_safety_events_v_2_stream(
-            start_time=start_time,
-            end_time=end_time,
-            asset_ids=asset_ids,
-            driver_ids=driver_ids,
-            tag_ids=tag_ids,
-            assigned_coaches=assigned_coaches,
-            behavior_labels=behavior_labels,
-            event_states=event_states,
-            include_asset=include_asset,
-            include_driver=include_driver,
-            after=after,
-            request_options=request_options,
+        _response = self._raw_client.create_report_run(report_config=report_config, request_options=request_options)
+        return _response.data
+
+    def get_report_run_data(
+        self,
+        *,
+        id: str,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> ReportsGetReportRunDataResponseBody:
+        """
+        Get data for the given custom report run.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Custom Reports** under the Custom Reports category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            ID of the report run.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            Maximum number of rows to return.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        ReportsGetReportRunDataResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.get_report_run_data(
+            id="id",
+        )
+        """
+        _response = self._raw_client.get_report_run_data(
+            id=id, after=after, limit=limit, request_options=request_options
         )
         return _response.data
 
@@ -3114,7 +3111,7 @@ class BetaApIsClient:
         Parameters
         ----------
         ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            String of comma separated assignments IDs. Max value for this value is 100 objects .Example: `ids=a4db8702-79d5-4396-a717-e301d52ecc11,c6490f6a-d84e-49b5-b0ad-b6baae304075`
+            String of comma separated assignments IDs. Max value for this value is 100 objects. Example: `ids=a4db8702-79d5-4396-a717-e301d52ecc11,c6490f6a-d84e-49b5-b0ad-b6baae304075`
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -3160,7 +3157,7 @@ class BetaApIsClient:
             Due date of the training assignment in RFC 3339 format. Millisecond precision and timezones are supported.
 
         ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            String of comma separated assignments IDs. Max value for this value is 100 objects .Example: `ids=a4db8702-79d5-4396-a717-e301d52ecc11,c6490f6a-d84e-49b5-b0ad-b6baae304075`
+            String of comma separated assignments IDs. Max value for this value is 100 objects. Example: `ids=a4db8702-79d5-4396-a717-e301d52ecc11,c6490f6a-d84e-49b5-b0ad-b6baae304075`
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -3195,12 +3192,12 @@ class BetaApIsClient:
         learner_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         course_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         status: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        is_overdue: typing.Optional[bool] = None,
+        category_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> TrainingAssignmentsGetTrainingAssignmentsStreamResponseBody:
         """
-        Returns all training assignments data that has been created or modified for your organization based on the time parameters passed in. Results are paginated and are sorted by last modified date. If you include an endTime, the endpoint will return data up until that point (exclusive). If you don't include an endTime, you can continue to poll the API real-time with the pagination cursor that gets returned on every call.
-
-        **Beta:** This endpoint is in beta and is likely to change before being broadly available. Reach out to your Samsara Representative to have Training APIs enabled for your organization.
+        Returns all training assignments data that has been created or modified for your organization based on the time parameters passed in. Results are paginated and are sorted by last modified date. If you include an endTime, the endpoint will return data up until that point (exclusive). If you don't include an endTime, the API will continue to poll with the pagination cursor that gets returned on every call. The hasNextPage response value will be true if there is no endTime specified and endCursor is nonempty.
 
          <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -3229,6 +3226,12 @@ class BetaApIsClient:
         status : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             Optional string of comma separated values. If status is present, training assignments for the specified status(s) will be returned. Valid values: "notStarted", "inProgress", "completed". Defaults to returning all courses.
 
+        is_overdue : typing.Optional[bool]
+            Optional boolean value. If present, training assignments for the specified overdue status will be returned. Valid values: true, false. Defaults to returning all assignments.
+
+        category_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Optional string of comma separated category IDs. If category ID is present, training assignments for the specified category ID(s) will be returned. Max value for this value is 100 objects. Example: `categoryIds=a4db8702-79d5-4396-a717-e301d52ecc11,c6490f6a-d84e-49b5-b0ad-b6baae304075`
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -3255,6 +3258,8 @@ class BetaApIsClient:
             learner_ids=learner_ids,
             course_ids=course_ids,
             status=status,
+            is_overdue=is_overdue,
+            category_ids=category_ids,
             request_options=request_options,
         )
         return _response.data
@@ -3319,82 +3324,6 @@ class BetaApIsClient:
         )
         return _response.data
 
-    def get_trips(
-        self,
-        *,
-        start_time: str,
-        include_asset: typing.Optional[bool] = None,
-        completion_status: typing.Optional[GetTripsRequestCompletionStatus] = None,
-        end_time: typing.Optional[str] = None,
-        query_by: typing.Optional[GetTripsRequestQueryBy] = None,
-        after: typing.Optional[str] = None,
-        ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> TripsGetTripsResponseBody:
-        """
-        This endpoint will return trips that have been collected for your organization based on the time parameters passed in. Results are paginated. Reach out to your Samsara Representative to have this API enabled for your organization.
-
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Read Trips** under the Trips category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        start_time : str
-            RFC 3339 timestamp that indicates when to begin receiving data. Value is compared against `updatedAtTime` or `tripStartTime` depending on the queryBy parameter.
-
-        include_asset : typing.Optional[bool]
-            Indicates whether or not to return expanded “asset” data
-
-        completion_status : typing.Optional[GetTripsRequestCompletionStatus]
-            Filters trips based on a specific completion status  Valid values: `inProgress`, `completed`, `all`
-
-        end_time : typing.Optional[str]
-            RFC 3339 timestamp which is compared against `updatedAtTime` or `tripStartTime` depending on the queryBy parameter. If not provided then the endpoint behaves as an unending feed of changes.
-
-        query_by : typing.Optional[GetTripsRequestQueryBy]
-            Decide which timestamp the `startTime` and `endTime` are compared to.  Valid values: `updatedAtTime`, `tripStartTime`
-
-        after : typing.Optional[str]
-             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-
-        ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Comma-separated list of asset IDs. Include up to 50 asset IDs.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        TripsGetTripsResponseBody
-            OK response.
-
-        Examples
-        --------
-        from samsara import Samsara
-
-        client = Samsara(
-            token="YOUR_TOKEN",
-        )
-        client.beta_ap_is.get_trips(
-            start_time="startTime",
-        )
-        """
-        _response = self._raw_client.get_trips(
-            start_time=start_time,
-            include_asset=include_asset,
-            completion_status=completion_status,
-            end_time=end_time,
-            query_by=query_by,
-            after=after,
-            ids=ids,
-            request_options=request_options,
-        )
-        return _response.data
-
 
 class AsyncBetaApIsClient:
     def __init__(self, *, client_wrapper: AsyncClientWrapper):
@@ -3410,6 +3339,69 @@ class AsyncBetaApIsClient:
         AsyncRawBetaApIsClient
         """
         return self._raw_client
+
+    async def get_depreciation_transactions(
+        self,
+        *,
+        start_time: typing.Optional[dt.datetime] = None,
+        end_time: typing.Optional[dt.datetime] = None,
+        asset_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        after: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> DepreciationGetDepreciationTransactionsResponseBody:
+        """
+        Returns depreciation and adjustment transactions for assets. Transactions are returned ordered by updatedAt in ascending order (oldest to newest). Use startTime parameter for incremental sync.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        start_time : typing.Optional[dt.datetime]
+            RFC 3339 timestamp. Returns transactions updated after this time. Compared against updatedAt. If not provided, returns all transactions. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        end_time : typing.Optional[dt.datetime]
+            RFC 3339 timestamp. Returns transactions updated before this time. Compared against updatedAt. If not provided, behaves as an unending feed of changes. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        asset_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Filter by asset IDs. Up to 50 ids.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        DepreciationGetDepreciationTransactionsResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.get_depreciation_transactions()
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_depreciation_transactions(
+            start_time=start_time, end_time=end_time, asset_ids=asset_ids, after=after, request_options=request_options
+        )
+        return _response.data
 
     async def get_assets_inputs(
         self,
@@ -4263,7 +4255,7 @@ class AsyncBetaApIsClient:
                 relay_states=[
                     UpdateEngineImmobilizerRelayStateRequestBodyRequestBody(
                         id="relay1",
-                        is_open=False,
+                        is_open=True,
                     )
                 ],
             )
@@ -4557,10 +4549,10 @@ class AsyncBetaApIsClient:
             Optional string of comma separated asset IDs. If asset ID is present, events for the specified asset(s) will be returned. Max for this value is 2000 objects. (Example: 281474982859091,281471982957527)
 
         detection_behavior_labels : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated labels to filter behavior labels. Uses OR semantics for filtering. An empty list allows all values. Valid values: `acceleration`, `braking`, `crash`, `drowsy`, `eatingDrinking`, `edgeRailroadCrossingViolation`, `followingDistance`, `forwardCollisionWarning`, `genericDistraction`, `harshTurn`, `laneDeparture`, `maxSpeed`, `mobileUsage`, `noSeatbelt`, `obstructedCamera`, `passenger`, `policyViolationMask`, `rollingStop`, `rolloverProtection`, `smoking`, `speeding`, `unsafeParking`, `vulnerableRoadUserCollisionWarning`, `yawControl`. (Example: rollingStop,obstructedCamera,noSeatbelt)
+            Optional string of comma separated labels to filter behavior labels. Uses OR semantics for filtering. An empty list allows all values. Valid values: `acceleration`, `braking`, `crash`, `drowsy`, `eatingDrinking`, `edgeRailroadCrossingViolation`, `followingDistance`, `forwardCollisionWarning`, `genericDistraction`, `harshTurn`, `heavySpeeding`, `laneDeparture`, `lightSpeeding`, `maxSpeed`, `mobileUsage`, `moderateSpeeding`, `noSeatbelt`, `obstructedCamera`, `passenger`, `policyViolationMask`, `ranRedLight`, `rearCollisionWarning`, `rollingStop`, `rolloverProtection`, `severeSpeeding`, `smoking`, `speeding`, `unsafeParking`, `vehicleInBlindSpotWarning`, `vulnerableRoadUserCollisionWarning`, `yawControl`. (Example: rollingStop,obstructedCamera,noSeatbelt)
 
         inbox_filter_reason : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated reasons to filter detections. Uses OR semantics for filtering. An empty list allows all values. Valid values: `overDailyLimit`, `overHourlyLimit`, `overTripLimit`, `belowConfidenceThreshold`, `belowSeverityThreshold`, `overEventRateLimit`, `geofenceFilter`, `belowNudgeThreshold`, `belowSpeedThreshold`, `nighttimeFilter`, `speedingFilter`, `unknown`. (Example: overDailyLimit,overHourlyLimit,belowConfidenceThreshold)
+            Optional string of comma separated reasons to filter detections. Uses OR semantics for filtering. An empty list allows all values. Valid values: `overDailyLimit`, `overHourlyLimit`, `overTripLimit`, `belowConfidenceThreshold`, `belowSeverityThreshold`, `overEventRateLimit`, `geofenceFilter`, `belowNudgeThreshold`, `belowSpeedThreshold`, `nighttimeFilter`, `speedingFilter`, `inCabAlertOnly`, `unknown`. (Example: overDailyLimit,overHourlyLimit,belowConfidenceThreshold)
 
         inbox_event : typing.Optional[bool]
             Indicates whether or not to return detections with an associated Safety Inbox event. An empty entry allows all values. (Example: true)
@@ -4635,6 +4627,9 @@ class AsyncBetaApIsClient:
         include_health: typing.Optional[bool] = None,
         after: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
+        include_tags: typing.Optional[bool] = None,
+        tag_ids: typing.Optional[str] = None,
+        parent_tag_ids: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> DevicesGetDevicesResponseBody:
         """
@@ -4665,6 +4660,15 @@ class AsyncBetaApIsClient:
 
         limit : typing.Optional[int]
             The limit for how many objects will be in the response. Default and max for this value is 100 objects.
+
+        include_tags : typing.Optional[bool]
+            Optional boolean to control whether tags are returned in the response. Defaults to false.
+
+        tag_ids : typing.Optional[str]
+             A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+
+        parent_tag_ids : typing.Optional[str]
+             A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -4697,250 +4701,10 @@ class AsyncBetaApIsClient:
             include_health=include_health,
             after=after,
             limit=limit,
+            include_tags=include_tags,
+            tag_ids=tag_ids,
+            parent_tag_ids=parent_tag_ids,
             request_options=request_options,
-        )
-        return _response.data
-
-    async def get_driver_trailer_assignments(
-        self,
-        *,
-        driver_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        after: typing.Optional[str] = None,
-        include_external_ids: typing.Optional[bool] = None,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> TrailerAssignmentsGetDriverTrailerAssignmentsResponseBody:
-        """
-        Get currently active driver-trailer assignments for driver.
-
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Read Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        driver_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-             A filter on the data based on this comma-separated list of driver IDs and externalIds. Example: `driverIds=1234,5678,payroll:4841`
-
-        after : typing.Optional[str]
-             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-
-        include_external_ids : typing.Optional[bool]
-            Optional boolean indicating whether to return external IDs on supported entities
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        TrailerAssignmentsGetDriverTrailerAssignmentsResponseBody
-            OK response.
-
-        Examples
-        --------
-        import asyncio
-
-        from samsara import AsyncSamsara
-
-        client = AsyncSamsara(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.beta_ap_is.get_driver_trailer_assignments()
-
-
-        asyncio.run(main())
-        """
-        _response = await self._raw_client.get_driver_trailer_assignments(
-            driver_ids=driver_ids,
-            after=after,
-            include_external_ids=include_external_ids,
-            request_options=request_options,
-        )
-        return _response.data
-
-    async def create_driver_trailer_assignment(
-        self,
-        *,
-        driver_id: str,
-        trailer_id: str,
-        start_time: typing.Optional[str] = OMIT,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> TrailerAssignmentsCreateDriverTrailerAssignmentResponseBody:
-        """
-        Create a new driver-trailer assignment
-
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Write Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        driver_id : str
-            ID of the driver. This can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the driver.
-
-        trailer_id : str
-            ID of the trailer. This can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the trailer.
-
-        start_time : typing.Optional[str]
-            The start time in RFC 3339 format. The time needs to be current or within the past 7 days. Defaults to now if not provided
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        TrailerAssignmentsCreateDriverTrailerAssignmentResponseBody
-            OK response.
-
-        Examples
-        --------
-        import asyncio
-
-        from samsara import AsyncSamsara
-
-        client = AsyncSamsara(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.beta_ap_is.create_driver_trailer_assignment(
-                driver_id="494123",
-                trailer_id="12345",
-            )
-
-
-        asyncio.run(main())
-        """
-        _response = await self._raw_client.create_driver_trailer_assignment(
-            driver_id=driver_id, trailer_id=trailer_id, start_time=start_time, request_options=request_options
-        )
-        return _response.data
-
-    async def update_driver_trailer_assignment(
-        self, *, id: str, end_time: str, request_options: typing.Optional[RequestOptions] = None
-    ) -> TrailerAssignmentsUpdateDriverTrailerAssignmentResponseBody:
-        """
-        Update an existing driver-trailer assignment.
-
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Write Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        id : str
-            Samsara ID for the assignment.
-
-        end_time : str
-            The end time in RFC 3339 format. The end time should not be in the future
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        TrailerAssignmentsUpdateDriverTrailerAssignmentResponseBody
-            OK response.
-
-        Examples
-        --------
-        import asyncio
-
-        from samsara import AsyncSamsara
-
-        client = AsyncSamsara(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.beta_ap_is.update_driver_trailer_assignment(
-                id="id",
-                end_time="2019-06-13T19:08:25Z",
-            )
-
-
-        asyncio.run(main())
-        """
-        _response = await self._raw_client.update_driver_trailer_assignment(
-            id=id, end_time=end_time, request_options=request_options
-        )
-        return _response.data
-
-    async def create_driver_auth_token(
-        self,
-        *,
-        code: str,
-        external_id: typing.Optional[str] = OMIT,
-        id: typing.Optional[int] = OMIT,
-        username: typing.Optional[str] = OMIT,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> DriversAuthTokenCreateDriverAuthTokenResponseBody:
-        """
-        Creates a short-lived auth token for a driver.
-
-         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Write Driver Auth Token** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        code : str
-            Required. Random 12+ character string, used with the auth token to help secure the client from intercepted tokens.
-
-        external_id : typing.Optional[str]
-            Optional. External ID of the driver, in the format `key:value` (e.g., `payrollId:ABFS18600`). One of `id`, `externalId`, or `username` is required.
-
-        id : typing.Optional[int]
-            Optional. Samsara ID of the driver. One of `id`, `externalId`, or `username` is required.
-
-        username : typing.Optional[str]
-            Optional. Username of the driver. This is the login identifier configured when the driver is created. One of `id`, `externalId`, or `username` is required.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        DriversAuthTokenCreateDriverAuthTokenResponseBody
-            OK response.
-
-        Examples
-        --------
-        import asyncio
-
-        from samsara import AsyncSamsara
-
-        client = AsyncSamsara(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.beta_ap_is.create_driver_auth_token(
-                code="dp[gZc1wAigz4uGa0Hh",
-            )
-
-
-        asyncio.run(main())
-        """
-        _response = await self._raw_client.create_driver_auth_token(
-            code=code, external_id=external_id, id=id, username=username, request_options=request_options
         )
         return _response.data
 
@@ -5135,6 +4899,92 @@ class AsyncBetaApIsClient:
         """
         _response = await self._raw_client.update_shipping_docs(
             hos_date=hos_date, driver_id=driver_id, shipping_docs=shipping_docs, request_options=request_options
+        )
+        return _response.data
+
+    async def list_hub_custom_properties(
+        self,
+        *,
+        hub_id: str,
+        custom_property_ids: typing.Optional[str] = None,
+        custom_property_names: typing.Optional[str] = None,
+        start_time: typing.Optional[dt.datetime] = None,
+        end_time: typing.Optional[dt.datetime] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HubCustomPropertiesListHubCustomPropertiesResponseBody:
+        """
+        Retrieve custom properties for a specific hub.
+
+        **Beta:** This endpoint is in beta and is likely to change before being broadly available. Reach out to your Samsara Representative to have RoutePlanning APIs enabled for your organization.
+
+         <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        hub_id : str
+            The hub identifier
+
+        custom_property_ids : typing.Optional[str]
+            A comma-separated list of custom property IDs that can be used for filtering.
+
+        custom_property_names : typing.Optional[str]
+            A comma-separated list of custom property names that can be used for filtering.
+
+        start_time : typing.Optional[dt.datetime]
+            Time filter of when the custom property was updated, in RFC 3339 format
+
+        end_time : typing.Optional[dt.datetime]
+            Time filter of when the custom property was updated, in RFC 3339 format
+
+        after : typing.Optional[str]
+            If specified, should be the endCursor from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            Maximum number of objects to return. Default and maximum is 100
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HubCustomPropertiesListHubCustomPropertiesResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.list_hub_custom_properties(
+                hub_id="hubId",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.list_hub_custom_properties(
+            hub_id=hub_id,
+            custom_property_ids=custom_property_ids,
+            custom_property_names=custom_property_names,
+            start_time=start_time,
+            end_time=end_time,
+            after=after,
+            limit=limit,
+            request_options=request_options,
         )
         return _response.data
 
@@ -5550,7 +5400,7 @@ class AsyncBetaApIsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> QualificationsGetQualificationRecordsStreamResponseBody:
         """
-        Returns all qualification records that have been created or modified for your organization based on the time parameters passed in. Results are paginated and sorted by last modified time. If you include an endTime, the endpoint will return data up until that point (exclusive). If you don’t include an endTime, you can continue to poll the API real-time with the pagination cursor that gets returned on every call.
+        Returns all qualification records that have been created or modified for your organization based on the time parameters passed in. Results are paginated and are sorted by last modified date. If you include an endTime, the endpoint will return data up until that point (exclusive). If you don't include an endTime, the API will continue to poll with the pagination cursor that gets returned on every call. The hasNextPage response value will be true if there is no endTime specified and endCursor is nonempty.
 
          <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -5807,10 +5657,6 @@ class AsyncBetaApIsClient:
     ) -> ReadingsListReadingsDefinitionsResponseBody:
         """
         An introspection endpoint for discovering the set of readings including their name, description, data type, unit, and other metadata.
-            Examples:
-            Diagnostic/Engine Readings: engineState, engineSpeed, fuelLevelPerc etc.
-            Level Monitoring Readings: defLevel, defLevelMilliPercent etc.
-            Smart Trailer Readings: reeferState  etc.
 
          <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -5876,20 +5722,6 @@ class AsyncBetaApIsClient:
     ) -> ReadingsGetReadingsHistoryResponseBody:
         """
         Get the values of a reading for a set of entities within the specified time range. Returns a paginated response with data for the specified resource IDs where startTime <= happenedAtTime < endTime. End time of null implies endTime is infinite and all known readings are returned.
-            Example:
-            engineRpm Readings for entityId 212014918105584 between time 2025-01-27T19:22:30Z and 2025-01-27T19:25:00Z
-            "data": [
-            {
-              "entityId": "212014918105584",
-              "value": 807,
-              "happenedAtTime": "2025-01-27T19:22:30Z"
-            },
-            {
-              "entityId": "212014918105584",
-              "value": 811,
-              "happenedAtTime": "2025-01-27T19:24:30Z"
-            }
-          ],
 
          <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -5913,7 +5745,7 @@ class AsyncBetaApIsClient:
             A filter on the data based on this comma-separated list of entity IDs or external IDs. If not set, all entities are returned.
 
         external_ids : typing.Optional[str]
-            A filter on the data based on this comma-separated list of external IDs.
+            A filter on the data based on this comma-separated list of external IDs. (Examples: samsara.serial:ZPXKLMN7VJ, samsara.serial:ABXKIMN4NM)
 
         start_time : typing.Optional[str]
             A filter on the data that returns the last known data points with timestamps greater than or equal to this value. Must be a string in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2020-01-27T07:06:25Z)
@@ -5983,16 +5815,6 @@ class AsyncBetaApIsClient:
     ) -> ReadingsGetReadingsSnapshotResponseBody:
         """
         An endpoint to get the last value of a reading for a set of entities at the specified time.
-            Example:
-            engineRpm Readings for entityId 212014918105584 at time 2025-04-16T20:49:19Z
-            "data": [
-            {
-              "readingId": "engineRpm",
-              "entityId": "212014918105584",
-              "value": 600,
-              "happenedAtTime": "2025-04-16T20:49:19Z"
-            }
-          ],
 
          <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -6016,7 +5838,7 @@ class AsyncBetaApIsClient:
             A filter on the data based on this comma-separated list of entity IDs or external IDs. If not set, all entities are returned.
 
         external_ids : typing.Optional[str]
-            A filter on the data based on this comma-separated list of external IDs.
+            A filter on the data based on this comma-separated list of external IDs. (Examples: samsara.serial:ZPXKLMN7VJ, samsara.serial:ABXKIMN4NM)
 
         as_of_time : typing.Optional[str]
             A filter on the data that returns the last known data points with timestamps less than or equal to this value. Defaults to now if not provided. Must be a string in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2020-01-27T07:06:25Z)
@@ -6064,45 +5886,41 @@ class AsyncBetaApIsClient:
         )
         return _response.data
 
-    async def get_safety_events_v_2(
+    async def get_report_configs(
         self,
         *,
-        safety_event_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        include_asset: typing.Optional[bool] = None,
-        include_driver: typing.Optional[bool] = None,
         after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SafetyEventsV2GetSafetyEventsV2ResponseBody:
+    ) -> ReportsGetReportConfigsResponseBody:
         """
-        This endpoint will return details for the specified safety events based on the parameters passed in. Results are paginated.
+        Get report configs created in the organization.
 
          <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-        To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read Custom Reports** under the Custom Reports category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
         Parameters
         ----------
-        safety_event_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Required string of comma separated Safety Event IDs. Unique Samsara IDs (uuid) of the safety event.
-
-        include_asset : typing.Optional[bool]
-            Indicates whether or not to return expanded “asset” data
-
-        include_driver : typing.Optional[bool]
-            Indicates whether or not to return expanded “driver” data
-
         after : typing.Optional[str]
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            Maximum number of configs to return
+
+        ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            The list of report config IDs to retrieve. Include up to 10 report config IDs. If not provided, all configs will be returned.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
         Returns
         -------
-        SafetyEventsV2GetSafetyEventsV2ResponseBody
+        ReportsGetReportConfigsResponseBody
             OK response.
 
         Examples
@@ -6117,87 +5935,51 @@ class AsyncBetaApIsClient:
 
 
         async def main() -> None:
-            await client.beta_ap_is.get_safety_events_v_2()
+            await client.beta_ap_is.get_report_configs()
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.get_safety_events_v_2(
-            safety_event_ids=safety_event_ids,
-            include_asset=include_asset,
-            include_driver=include_driver,
-            after=after,
-            request_options=request_options,
+        _response = await self._raw_client.get_report_configs(
+            after=after, limit=limit, ids=ids, request_options=request_options
         )
         return _response.data
 
-    async def get_safety_events_v_2_stream(
+    async def get_datasets(
         self,
         *,
-        start_time: str,
-        end_time: typing.Optional[str] = None,
-        asset_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        driver_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        assigned_coaches: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        behavior_labels: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        event_states: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        include_asset: typing.Optional[bool] = None,
-        include_driver: typing.Optional[bool] = None,
+        ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SafetyEventsV2GetSafetyEventsV2StreamResponseBody:
+    ) -> ReportsGetDatasetsResponseBody:
         """
-        This endpoint will return all safety events associated with your organization based on the parameters passed in. To get core endpoint data, select Read Safety Events & Scores under the Safety & Cameras category when creating or editing an API token. Read Camera Media permissions required to get Safety Event video media via this endpoint. If you include an endTime, the endpoint will return data up until that point. If you do not include an endTime, you can continue to poll the API real-time with the pagination cursor that gets returned on every call. Results are paginated.
+        Get datasets for custom reports.
 
          <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-        To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read Custom Reports** under the Custom Reports category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
         Parameters
         ----------
-        start_time : str
-            RFC 3339 timestamp that indicates when to begin receiving data. Value is compared against `updatedAtTime` of the events.
-
-        end_time : typing.Optional[str]
-            RFC 3339 timestamp which is compared against `updatedAtTime` of the events. If not provided then the endpoint behaves as an unending feed of changes.
-
-        asset_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated asset IDs. If asset ID is present, events for the specified asset(s) will be returned. Limit of 2000 asset IDs.
-
-        driver_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated driver IDs. If driver ID is present, events for the specified driver(s) will be returned. Limit of 2000 driver IDs.
-
-        tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated tag IDs. If tag ID is present, events for the specified tag(s) will be returned. Limit of 2000 tag IDs.
-
-        assigned_coaches : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated coach IDs to filter events assigned to a particular coach. Limit of 2000 coach IDs.
-
-        behavior_labels : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated labels to filter behavior labels.  Valid values: `Acceleration`, `AggressiveDriving`, `BluetoothHeadset`, `Braking`, `ContextConstructionOrWorkZone`, `ContextSnowyOrIcy`, `ContextVulnerableRoadUser`, `ContextWet`, `Crash`, `DefensiveDriving`, `DidNotYield`, `Drinking`, `Drowsy`, `Eating`, `EatingDrinking`, `EdgeDistractedDriving`, `EdgeRailroadCrossingViolation`, `FollowingDistance`, `FollowingDistanceModerate`, `FollowingDistanceSevere`, `ForwardCollisionWarning`, `GenericDistraction`, `GenericTailgating`, `HarshTurn`, `HeavySpeeding`, `HosViolation`, `Idling`, `Invalid`, `LaneDeparture`, `LateResponse`, `LeftTurn`, `LightSpeeding`, `MaxSpeed`, `MobileUsage`, `ModerateSpeeding`, `NearCollison`, `NearPedestrianCollision`, `NoSeatbelt`, `ObstructedCamera`, `OtherViolation`, `Passenger`, `PolicyViolationMask`, `ProtectiveEquipment`, `RanRedLight`, `Reversing`, `RollingStop`, `RolloverProtection`, `SevereSpeeding`, `Smoking`, `Speeding`, `UTurn`, `UnsafeManeuver`, `UnsafeParking`, `VulnerableRoadUserCollisionWarning`, `YawControl`
-
-        event_states : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated values to filter event states.  Valid values: `needsReview`, `reviewed`, `needsCoaching`, `coached`, `dismissed`, `needsRecognition`, `recognized`
-
-        include_asset : typing.Optional[bool]
-            Indicates whether or not to return expanded “asset” data
-
-        include_driver : typing.Optional[bool]
-            Indicates whether or not to return expanded “driver” data
+        ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            The list of dataset IDs to retrieve the datasets for. Include up to 10 dataset IDs. If not provided, all datasets will be returned.
 
         after : typing.Optional[str]
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            Maximum number of datasets to return.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
         Returns
         -------
-        SafetyEventsV2GetSafetyEventsV2StreamResponseBody
+        ReportsGetDatasetsResponseBody
             OK response.
 
         Examples
@@ -6212,26 +5994,189 @@ class AsyncBetaApIsClient:
 
 
         async def main() -> None:
-            await client.beta_ap_is.get_safety_events_v_2_stream(
-                start_time="startTime",
+            await client.beta_ap_is.get_datasets()
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_datasets(
+            ids=ids, after=after, limit=limit, request_options=request_options
+        )
+        return _response.data
+
+    async def get_report_runs(
+        self,
+        *,
+        report_config_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> ReportsGetReportRunsResponseBody:
+        """
+        Get custom report runs created by the user.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Custom Reports** under the Custom Reports category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        report_config_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            The list of report config IDs to retrieve the report runs for. Include up to 10 report config IDs. If not provided, runs for all configs will be returned.
+
+        ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            The list of report run IDs to retrieve the report runs for. Include up to 10 report run IDs. If not provided, all report runs will be returned.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            Maximum number of runs to return.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        ReportsGetReportRunsResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.get_report_runs()
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_report_runs(
+            report_config_ids=report_config_ids, ids=ids, after=after, limit=limit, request_options=request_options
+        )
+        return _response.data
+
+    async def create_report_run(
+        self,
+        *,
+        report_config: CreateReportConfigObjectRequestBody,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> ReportsCreateReportRunResponseBody:
+        """
+        Triggers a new custom report run based on the provided configuration.
+
+         <b>Rate limit:</b> 50 requests/hour (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Custom Reports** under the Custom Reports category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        report_config : CreateReportConfigObjectRequestBody
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        ReportsCreateReportRunResponseBody
+            Accepted response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara, CreateReportConfigObjectRequestBody
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.create_report_run(
+                report_config=CreateReportConfigObjectRequestBody(),
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.get_safety_events_v_2_stream(
-            start_time=start_time,
-            end_time=end_time,
-            asset_ids=asset_ids,
-            driver_ids=driver_ids,
-            tag_ids=tag_ids,
-            assigned_coaches=assigned_coaches,
-            behavior_labels=behavior_labels,
-            event_states=event_states,
-            include_asset=include_asset,
-            include_driver=include_driver,
-            after=after,
-            request_options=request_options,
+        _response = await self._raw_client.create_report_run(
+            report_config=report_config, request_options=request_options
+        )
+        return _response.data
+
+    async def get_report_run_data(
+        self,
+        *,
+        id: str,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> ReportsGetReportRunDataResponseBody:
+        """
+        Get data for the given custom report run.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Custom Reports** under the Custom Reports category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            ID of the report run.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            Maximum number of rows to return.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        ReportsGetReportRunDataResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.get_report_run_data(
+                id="id",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_report_run_data(
+            id=id, after=after, limit=limit, request_options=request_options
         )
         return _response.data
 
@@ -6747,7 +6692,7 @@ class AsyncBetaApIsClient:
         Parameters
         ----------
         ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            String of comma separated assignments IDs. Max value for this value is 100 objects .Example: `ids=a4db8702-79d5-4396-a717-e301d52ecc11,c6490f6a-d84e-49b5-b0ad-b6baae304075`
+            String of comma separated assignments IDs. Max value for this value is 100 objects. Example: `ids=a4db8702-79d5-4396-a717-e301d52ecc11,c6490f6a-d84e-49b5-b0ad-b6baae304075`
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -6801,7 +6746,7 @@ class AsyncBetaApIsClient:
             Due date of the training assignment in RFC 3339 format. Millisecond precision and timezones are supported.
 
         ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            String of comma separated assignments IDs. Max value for this value is 100 objects .Example: `ids=a4db8702-79d5-4396-a717-e301d52ecc11,c6490f6a-d84e-49b5-b0ad-b6baae304075`
+            String of comma separated assignments IDs. Max value for this value is 100 objects. Example: `ids=a4db8702-79d5-4396-a717-e301d52ecc11,c6490f6a-d84e-49b5-b0ad-b6baae304075`
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -6844,12 +6789,12 @@ class AsyncBetaApIsClient:
         learner_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         course_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         status: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        is_overdue: typing.Optional[bool] = None,
+        category_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> TrainingAssignmentsGetTrainingAssignmentsStreamResponseBody:
         """
-        Returns all training assignments data that has been created or modified for your organization based on the time parameters passed in. Results are paginated and are sorted by last modified date. If you include an endTime, the endpoint will return data up until that point (exclusive). If you don't include an endTime, you can continue to poll the API real-time with the pagination cursor that gets returned on every call.
-
-        **Beta:** This endpoint is in beta and is likely to change before being broadly available. Reach out to your Samsara Representative to have Training APIs enabled for your organization.
+        Returns all training assignments data that has been created or modified for your organization based on the time parameters passed in. Results are paginated and are sorted by last modified date. If you include an endTime, the endpoint will return data up until that point (exclusive). If you don't include an endTime, the API will continue to poll with the pagination cursor that gets returned on every call. The hasNextPage response value will be true if there is no endTime specified and endCursor is nonempty.
 
          <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -6877,6 +6822,12 @@ class AsyncBetaApIsClient:
 
         status : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             Optional string of comma separated values. If status is present, training assignments for the specified status(s) will be returned. Valid values: "notStarted", "inProgress", "completed". Defaults to returning all courses.
+
+        is_overdue : typing.Optional[bool]
+            Optional boolean value. If present, training assignments for the specified overdue status will be returned. Valid values: true, false. Defaults to returning all assignments.
+
+        category_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Optional string of comma separated category IDs. If category ID is present, training assignments for the specified category ID(s) will be returned. Max value for this value is 100 objects. Example: `categoryIds=a4db8702-79d5-4396-a717-e301d52ecc11,c6490f6a-d84e-49b5-b0ad-b6baae304075`
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -6912,6 +6863,8 @@ class AsyncBetaApIsClient:
             learner_ids=learner_ids,
             course_ids=course_ids,
             status=status,
+            is_overdue=is_overdue,
+            category_ids=category_ids,
             request_options=request_options,
         )
         return _response.data
@@ -6980,90 +6933,6 @@ class AsyncBetaApIsClient:
             course_ids=course_ids,
             category_ids=category_ids,
             status=status,
-            request_options=request_options,
-        )
-        return _response.data
-
-    async def get_trips(
-        self,
-        *,
-        start_time: str,
-        include_asset: typing.Optional[bool] = None,
-        completion_status: typing.Optional[GetTripsRequestCompletionStatus] = None,
-        end_time: typing.Optional[str] = None,
-        query_by: typing.Optional[GetTripsRequestQueryBy] = None,
-        after: typing.Optional[str] = None,
-        ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> TripsGetTripsResponseBody:
-        """
-        This endpoint will return trips that have been collected for your organization based on the time parameters passed in. Results are paginated. Reach out to your Samsara Representative to have this API enabled for your organization.
-
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Read Trips** under the Trips category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        start_time : str
-            RFC 3339 timestamp that indicates when to begin receiving data. Value is compared against `updatedAtTime` or `tripStartTime` depending on the queryBy parameter.
-
-        include_asset : typing.Optional[bool]
-            Indicates whether or not to return expanded “asset” data
-
-        completion_status : typing.Optional[GetTripsRequestCompletionStatus]
-            Filters trips based on a specific completion status  Valid values: `inProgress`, `completed`, `all`
-
-        end_time : typing.Optional[str]
-            RFC 3339 timestamp which is compared against `updatedAtTime` or `tripStartTime` depending on the queryBy parameter. If not provided then the endpoint behaves as an unending feed of changes.
-
-        query_by : typing.Optional[GetTripsRequestQueryBy]
-            Decide which timestamp the `startTime` and `endTime` are compared to.  Valid values: `updatedAtTime`, `tripStartTime`
-
-        after : typing.Optional[str]
-             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-
-        ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Comma-separated list of asset IDs. Include up to 50 asset IDs.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        TripsGetTripsResponseBody
-            OK response.
-
-        Examples
-        --------
-        import asyncio
-
-        from samsara import AsyncSamsara
-
-        client = AsyncSamsara(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.beta_ap_is.get_trips(
-                start_time="startTime",
-            )
-
-
-        asyncio.run(main())
-        """
-        _response = await self._raw_client.get_trips(
-            start_time=start_time,
-            include_asset=include_asset,
-            completion_status=completion_status,
-            end_time=end_time,
-            query_by=query_by,
-            after=after,
-            ids=ids,
             request_options=request_options,
         )
         return _response.data

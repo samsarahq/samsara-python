@@ -10,7 +10,9 @@ from ..core.serialization import FieldMetadata
 
 class V1VisionStepResultsItemBarcodeItem(UniversalBaseModel):
     contents: typing.Optional[str] = None
-    match_string: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="matchString")] = None
+    match_string: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="matchString")] = (
+        pydantic.Field(alias="matchString", default=None)
+    )
     type: typing.Optional[str] = None
 
     if IS_PYDANTIC_V2:

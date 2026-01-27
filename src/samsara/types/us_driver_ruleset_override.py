@@ -34,7 +34,7 @@ class UsDriverRulesetOverride(UniversalBaseModel):
 
     us_state_to_override: typing_extensions.Annotated[
         UsDriverRulesetOverrideUsStateToOverride, FieldMetadata(alias="usStateToOverride")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="usStateToOverride")
     """
     The jurisdiction of the ruleset applied to this driver. These are specified by either the ISO 3166-2 postal code for the supported US states, or empty string '' for US Federal Ruleset jurisdiction. Valid values: ``, `AK`, `CA`, `FL`, `NE`, `NC`, `OK`, `OR`, `SC`, `TX`, `WI`.
     """

@@ -14,7 +14,9 @@ class DefectTypesResponseDataResponseBody(UniversalBaseModel):
     Defect type data.
     """
 
-    created_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="createdAtTime")] = pydantic.Field()
+    created_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="createdAtTime")] = pydantic.Field(
+        alias="createdAtTime"
+    )
     """
     Time when defect type was created in RFC 3339 format.
     """
@@ -31,7 +33,7 @@ class DefectTypesResponseDataResponseBody(UniversalBaseModel):
 
     section_type: typing_extensions.Annotated[
         DefectTypesResponseDataResponseBodySectionType, FieldMetadata(alias="sectionType")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="sectionType")
     """
     Section for DVIR defect type.  Valid values: `exteriorFront`, `exteriorRear`, `exteriorSideUnderneath`, `interiorDriverCab`, `interiorPassengerArea`, `other`, `unknown`
     """

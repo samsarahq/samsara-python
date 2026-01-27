@@ -14,14 +14,14 @@ class GetDocumentTypeResponseObjectResponseBody(UniversalBaseModel):
     conditional_field_sections: typing_extensions.Annotated[
         typing.Optional[typing.List[ConditionalFieldSectionObjectResponseBody]],
         FieldMetadata(alias="conditionalFieldSections"),
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="conditionalFieldSections", default=None)
     """
     List of the document type conditional field sections.
     """
 
     field_types: typing_extensions.Annotated[
         typing.Optional[typing.List[FieldTypesObjectResponseBody]], FieldMetadata(alias="fieldTypes")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="fieldTypes", default=None)
     """
     The fields associated with this document type.
     """
@@ -37,7 +37,7 @@ class GetDocumentTypeResponseObjectResponseBody(UniversalBaseModel):
     """
 
     org_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="orgId")] = pydantic.Field(
-        default=None
+        alias="orgId", default=None
     )
     """
     ID for the organization this document type belongs to.

@@ -9,6 +9,7 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .device_asset_response_response_body import DeviceAssetResponseResponseBody
 from .device_response_response_body_model import DeviceResponseResponseBodyModel
+from .goa_tag_tiny_response_response_body import GoaTagTinyResponseResponseBody
 from .health_response_response_body import HealthResponseResponseBody
 from .last_known_location_response_response_body import LastKnownLocationResponseResponseBody
 
@@ -22,14 +23,14 @@ class DeviceResponseResponseBody(UniversalBaseModel):
     health: typing.Optional[HealthResponseResponseBody] = None
     last_connected_time: typing_extensions.Annotated[
         typing.Optional[dt.datetime], FieldMetadata(alias="lastConnectedTime")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="lastConnectedTime", default=None)
     """
     The last time the device was connected, in RFC 3339 format.
     """
 
     last_known_location: typing_extensions.Annotated[
         typing.Optional[LastKnownLocationResponseResponseBody], FieldMetadata(alias="lastKnownLocation")
-    ] = None
+    ] = pydantic.Field(alias="lastKnownLocation", default=None)
     model: DeviceResponseResponseBodyModel = pydantic.Field()
     """
     The product model name of the device.  Valid values: `AG24`, `AG24EU`, `AG26`, `AG26EU`, `AG45`, `AG45EU`, `AG46`, `AG46EU`, `AG46P`, `AG46PEU`, `AG51`, `AG51EU`, `AG52`, `AG52EU`, `AG53`, `AG53EU`, `AT11`, `AT11X`, `CM31`, `CM32`, `CM33`, `CM34`, `OEM`, `OEMP`, `OEMR`, `OEMV`, `VG34`, `VG34EU`, `VG34FN`, `VG34M`, `VG54EU`, `VG54NA`, `VG55EU`, `VG55NA`
@@ -38,6 +39,11 @@ class DeviceResponseResponseBody(UniversalBaseModel):
     serial: str = pydantic.Field()
     """
     The serial number of the device.
+    """
+
+    tags: typing.Optional[typing.List[GoaTagTinyResponseResponseBody]] = pydantic.Field(default=None)
+    """
+    The list of [tags](https://kb.samsara.com/hc/en-us/articles/360026674631-Using-Tags-and-Tag-Nesting) associated with the Device.
     """
 
     if IS_PYDANTIC_V2:

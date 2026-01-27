@@ -13,17 +13,21 @@ class FormsScoreObjectResponseBody(UniversalBaseModel):
     Forms score object.
     """
 
-    max_points: typing_extensions.Annotated[float, FieldMetadata(alias="maxPoints")] = pydantic.Field()
+    max_points: typing_extensions.Annotated[float, FieldMetadata(alias="maxPoints")] = pydantic.Field(alias="maxPoints")
     """
     Total possible points of the form submission.
     """
 
-    score_percent: typing_extensions.Annotated[float, FieldMetadata(alias="scorePercent")] = pydantic.Field()
+    score_percent: typing_extensions.Annotated[float, FieldMetadata(alias="scorePercent")] = pydantic.Field(
+        alias="scorePercent"
+    )
     """
     Percentage score of the form submission, calculated as scorePoints / maxPoints.
     """
 
-    score_points: typing_extensions.Annotated[float, FieldMetadata(alias="scorePoints")] = pydantic.Field()
+    score_points: typing_extensions.Annotated[float, FieldMetadata(alias="scorePoints")] = pydantic.Field(
+        alias="scorePoints"
+    )
     """
     Score, in points, of the form submission.
     """

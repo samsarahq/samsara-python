@@ -13,22 +13,28 @@ class VehicleStatsFaultCodesValueJ1939CheckEngineLights(UniversalBaseModel):
     Status of engine lights on J1939 vehicles.
     """
 
-    emissions_is_on: typing_extensions.Annotated[bool, FieldMetadata(alias="emissionsIsOn")] = pydantic.Field()
+    emissions_is_on: typing_extensions.Annotated[bool, FieldMetadata(alias="emissionsIsOn")] = pydantic.Field(
+        alias="emissionsIsOn"
+    )
     """
     True if the MIL status is nonzero.
     """
 
-    protect_is_on: typing_extensions.Annotated[bool, FieldMetadata(alias="protectIsOn")] = pydantic.Field()
+    protect_is_on: typing_extensions.Annotated[bool, FieldMetadata(alias="protectIsOn")] = pydantic.Field(
+        alias="protectIsOn"
+    )
     """
     True if the engine protect lamp status is nonzero.
     """
 
-    stop_is_on: typing_extensions.Annotated[bool, FieldMetadata(alias="stopIsOn")] = pydantic.Field()
+    stop_is_on: typing_extensions.Annotated[bool, FieldMetadata(alias="stopIsOn")] = pydantic.Field(alias="stopIsOn")
     """
     True if the red lamp status is nonzero.
     """
 
-    warning_is_on: typing_extensions.Annotated[bool, FieldMetadata(alias="warningIsOn")] = pydantic.Field()
+    warning_is_on: typing_extensions.Annotated[bool, FieldMetadata(alias="warningIsOn")] = pydantic.Field(
+        alias="warningIsOn"
+    )
     """
     True if the amber lamp status is nonzero.
     """

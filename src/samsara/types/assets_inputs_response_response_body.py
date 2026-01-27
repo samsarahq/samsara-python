@@ -19,8 +19,10 @@ class AssetsInputsResponseResponseBody(UniversalBaseModel):
     asset: AssetsInputsAssetResponseResponseBody
     aux_input: typing_extensions.Annotated[
         typing.Optional[AssetsInputsAuxInputResponseBody], FieldMetadata(alias="auxInput")
-    ] = None
-    happened_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="happenedAtTime")] = pydantic.Field()
+    ] = pydantic.Field(alias="auxInput", default=None)
+    happened_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="happenedAtTime")] = pydantic.Field(
+        alias="happenedAtTime"
+    )
     """
     UTC timestamp in RFC 3339 format of the event.
     """

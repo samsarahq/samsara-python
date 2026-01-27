@@ -17,14 +17,14 @@ from .routes_stop_response_object_response_body import RoutesStopResponseObjectR
 class BaseRouteResponseObjectResponseBody(UniversalBaseModel):
     actual_route_end_time: typing_extensions.Annotated[
         typing.Optional[dt.datetime], FieldMetadata(alias="actualRouteEndTime")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="actualRouteEndTime", default=None)
     """
     Actual end time, if it exists, for the route in RFC 3339 format.
     """
 
     actual_route_start_time: typing_extensions.Annotated[
         typing.Optional[dt.datetime], FieldMetadata(alias="actualRouteStartTime")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="actualRouteStartTime", default=None)
     """
     Actual start time, if it exists, for the route in RFC 3339 format.
     """
@@ -32,7 +32,7 @@ class BaseRouteResponseObjectResponseBody(UniversalBaseModel):
     driver: typing.Optional[GoaDriverTinyResponseResponseBody] = None
     external_ids: typing_extensions.Annotated[
         typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="externalIds", default=None)
     """
     A map of external ids
     """
@@ -53,7 +53,7 @@ class BaseRouteResponseObjectResponseBody(UniversalBaseModel):
     """
 
     org_local_timezone: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="orgLocalTimezone")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="orgLocalTimezone", default=None)
     )
     """
     The local timezone, as defined in Settings for your organization. Timezones use [IANA timezone database](https://www.iana.org/time-zones) keys (e.g. `America/Los_Angeles`, `America/New_York`, `Europe/London`, etc.). You can find a mapping of common timezone formats to IANA timezone keys [here](https://unicode.org/cldr/charts/latest/supplemental/zone_tzid.html).
@@ -62,21 +62,21 @@ class BaseRouteResponseObjectResponseBody(UniversalBaseModel):
     recurring_route_live_sharing_links: typing_extensions.Annotated[
         typing.Optional[typing.List[LiveSharingLinkResponseObjectResponseBody]],
         FieldMetadata(alias="recurringRouteLiveSharingLinks"),
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="recurringRouteLiveSharingLinks", default=None)
     """
     List of shareable, non-expired 'By recurring Route' Live Sharing Links.
     """
 
     scheduled_route_end_time: typing_extensions.Annotated[
         typing.Optional[dt.datetime], FieldMetadata(alias="scheduledRouteEndTime")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="scheduledRouteEndTime", default=None)
     """
     Scheduled end time, if it exists, for the route in RFC 3339 format.
     """
 
     scheduled_route_start_time: typing_extensions.Annotated[
         typing.Optional[dt.datetime], FieldMetadata(alias="scheduledRouteStartTime")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="scheduledRouteStartTime", default=None)
     """
     Scheduled start time, if it exists, for the route in RFC 3339 format.
     """
@@ -88,7 +88,7 @@ class BaseRouteResponseObjectResponseBody(UniversalBaseModel):
     """
 
     tag_ids: typing_extensions.Annotated[typing.Optional[typing.List[str]], FieldMetadata(alias="tagIds")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="tagIds", default=None)
     )
     """
     An array of IDs of tags to associate with this route.

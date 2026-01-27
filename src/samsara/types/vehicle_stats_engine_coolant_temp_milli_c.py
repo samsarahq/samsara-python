@@ -4,7 +4,7 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from .vehicle_stats_time import VehicleStatsTime
+from .time import Time
 
 
 class VehicleStatsEngineCoolantTempMilliC(UniversalBaseModel):
@@ -12,7 +12,7 @@ class VehicleStatsEngineCoolantTempMilliC(UniversalBaseModel):
     Vehicle engine coolant temperature reading.
     """
 
-    time: VehicleStatsTime
+    time: Time
     value: int = pydantic.Field()
     """
     The engine coolant temperature reading in millidegree Celsius.

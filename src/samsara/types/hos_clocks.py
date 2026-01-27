@@ -17,7 +17,9 @@ class HosClocks(UniversalBaseModel):
     Remaining durations and start times (where applicable) for various HOS rules. See [this page](https://www.samsara.com/fleet/eld-compliance/hours-of-service) for more information on HOS rules.
     """
 
-    break_: typing_extensions.Annotated[typing.Optional[HosBreak], FieldMetadata(alias="break")] = None
+    break_: typing_extensions.Annotated[typing.Optional[HosBreak], FieldMetadata(alias="break")] = pydantic.Field(
+        alias="break", default=None
+    )
     cycle: typing.Optional[HosCycle] = None
     drive: typing.Optional[HosDrive] = None
     shift: typing.Optional[HosShift] = None

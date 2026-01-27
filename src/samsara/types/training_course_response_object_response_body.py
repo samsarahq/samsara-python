@@ -24,7 +24,7 @@ class TrainingCourseResponseObjectResponseBody(UniversalBaseModel):
 
     estimated_time_to_complete_minutes: typing_extensions.Annotated[
         int, FieldMetadata(alias="estimatedTimeToCompleteMinutes")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="estimatedTimeToCompleteMinutes")
     """
     Estimated time it takes to complete the course.
     """
@@ -39,7 +39,9 @@ class TrainingCourseResponseObjectResponseBody(UniversalBaseModel):
     List of course labels.
     """
 
-    revision_id: typing_extensions.Annotated[str, FieldMetadata(alias="revisionId")] = pydantic.Field()
+    revision_id: typing_extensions.Annotated[str, FieldMetadata(alias="revisionId")] = pydantic.Field(
+        alias="revisionId"
+    )
     """
     ID of the course's specific version.
     """

@@ -14,7 +14,7 @@ class ContactTinyResponse(UniversalBaseModel):
     """
 
     first_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="firstName")] = pydantic.Field(
-        default=None
+        alias="firstName", default=None
     )
     """
     First name of the contact.
@@ -26,7 +26,7 @@ class ContactTinyResponse(UniversalBaseModel):
     """
 
     last_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="lastName")] = pydantic.Field(
-        default=None
+        alias="lastName", default=None
     )
     """
     Last name of the contact.

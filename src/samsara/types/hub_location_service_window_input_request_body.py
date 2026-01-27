@@ -13,17 +13,19 @@ class HubLocationServiceWindowInputRequestBody(UniversalBaseModel):
     Service window
     """
 
-    days_of_week: typing_extensions.Annotated[typing.List[str], FieldMetadata(alias="daysOfWeek")] = pydantic.Field()
+    days_of_week: typing_extensions.Annotated[typing.List[str], FieldMetadata(alias="daysOfWeek")] = pydantic.Field(
+        alias="daysOfWeek"
+    )
     """
     Days of the week when the service window applies
     """
 
-    end_time: typing_extensions.Annotated[str, FieldMetadata(alias="endTime")] = pydantic.Field()
+    end_time: typing_extensions.Annotated[str, FieldMetadata(alias="endTime")] = pydantic.Field(alias="endTime")
     """
     End time of the service window, in HH:MM:SS format
     """
 
-    start_time: typing_extensions.Annotated[str, FieldMetadata(alias="startTime")] = pydantic.Field()
+    start_time: typing_extensions.Annotated[str, FieldMetadata(alias="startTime")] = pydantic.Field(alias="startTime")
     """
     Start time of the service window, in HH:MM:SS format
     """

@@ -14,13 +14,13 @@ class SevereSpeedingStartedObjectResponseBody(UniversalBaseModel):
     The start of a severe speeding event
     """
 
-    start_time: typing_extensions.Annotated[str, FieldMetadata(alias="startTime")] = pydantic.Field()
+    start_time: typing_extensions.Annotated[str, FieldMetadata(alias="startTime")] = pydantic.Field(alias="startTime")
     """
     The speeding start time in RFC 3339 format (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
     """
 
     trip_start_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="tripStartTime")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="tripStartTime", default=None)
     )
     """
     The trip start time in RFC 3339 format (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).

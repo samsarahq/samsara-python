@@ -17,7 +17,7 @@ class LocationObjectResponseBody(UniversalBaseModel):
     """
 
     address_ids: typing_extensions.Annotated[typing.Optional[typing.List[str]], FieldMetadata(alias="addressIds")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="addressIds", default=None)
     )
     """
     All locations with selected address IDs will trigger.
@@ -25,7 +25,7 @@ class LocationObjectResponseBody(UniversalBaseModel):
 
     address_types: typing_extensions.Annotated[
         typing.Optional[typing.List[LocationObjectResponseBodyAddressTypesItem]], FieldMetadata(alias="addressTypes")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="addressTypes", default=None)
     """
     All locations with the selected address types will trigger.
     """
@@ -33,7 +33,7 @@ class LocationObjectResponseBody(UniversalBaseModel):
     circle: typing.Optional[CircleResponseBody] = None
     polygon: typing.Optional[PolygonResponseBody] = None
     tag_ids: typing_extensions.Annotated[typing.Optional[typing.List[str]], FieldMetadata(alias="tagIds")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="tagIds", default=None)
     )
     """
     All locations with selected tag will trigger.

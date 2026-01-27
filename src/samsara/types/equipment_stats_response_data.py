@@ -27,38 +27,38 @@ class EquipmentStatsResponseData(UniversalBaseModel):
     """
 
     engine_rpm: typing_extensions.Annotated[typing.Optional[EquipmentEngineRpm], FieldMetadata(alias="engineRpm")] = (
-        None
+        pydantic.Field(alias="engineRpm", default=None)
     )
     engine_seconds: typing_extensions.Annotated[
         typing.Optional[EquipmentEngineSeconds], FieldMetadata(alias="engineSeconds")
-    ] = None
+    ] = pydantic.Field(alias="engineSeconds", default=None)
     engine_state: typing_extensions.Annotated[
         typing.Optional[EquipmentEngineState], FieldMetadata(alias="engineState")
-    ] = None
+    ] = pydantic.Field(alias="engineState", default=None)
     engine_total_idle_time_minutes: typing_extensions.Annotated[
         typing.Optional[EquipmentEngineTotalIdleTimeMinutes], FieldMetadata(alias="engineTotalIdleTimeMinutes")
-    ] = None
+    ] = pydantic.Field(alias="engineTotalIdleTimeMinutes", default=None)
     fuel_percent: typing_extensions.Annotated[
         typing.Optional[EquipmentFuelPercent], FieldMetadata(alias="fuelPercent")
-    ] = None
+    ] = pydantic.Field(alias="fuelPercent", default=None)
     gateway_engine_seconds: typing_extensions.Annotated[
         typing.Optional[EquipmentGatewayEngineSeconds], FieldMetadata(alias="gatewayEngineSeconds")
-    ] = None
+    ] = pydantic.Field(alias="gatewayEngineSeconds", default=None)
     gateway_engine_state: typing_extensions.Annotated[
         typing.Optional[EquipmentGatewayEngineState], FieldMetadata(alias="gatewayEngineState")
-    ] = None
+    ] = pydantic.Field(alias="gatewayEngineState", default=None)
     gps: typing.Optional[EquipmentStatsGps] = None
     gps_odometer_meters: typing_extensions.Annotated[
         typing.Optional[EquipmentGpsOdometerMeters], FieldMetadata(alias="gpsOdometerMeters")
-    ] = None
+    ] = pydantic.Field(alias="gpsOdometerMeters", default=None)
     id: EquipmentId
     name: EquipmentName
     obd_engine_seconds: typing_extensions.Annotated[
         typing.Optional[EquipmentObdEngineSeconds], FieldMetadata(alias="obdEngineSeconds")
-    ] = None
+    ] = pydantic.Field(alias="obdEngineSeconds", default=None)
     obd_engine_state: typing_extensions.Annotated[
         typing.Optional[EquipmentObdEngineState], FieldMetadata(alias="obdEngineState")
-    ] = None
+    ] = pydantic.Field(alias="obdEngineState", default=None)
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

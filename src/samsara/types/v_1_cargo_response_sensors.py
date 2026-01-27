@@ -10,14 +10,14 @@ from ..core.serialization import FieldMetadata
 
 class V1CargoResponseSensors(UniversalBaseModel):
     cargo_empty: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="cargoEmpty")] = pydantic.Field(
-        default=None
+        alias="cargoEmpty", default=None
     )
     """
     Flag indicating whether the current cargo is empty or loaded.
     """
 
     cargo_status_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="cargoStatusTime")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="cargoStatusTime", default=None)
     )
     """
     The timestamp of reported cargo status, specified in RFC 3339 time.
@@ -34,21 +34,21 @@ class V1CargoResponseSensors(UniversalBaseModel):
     """
 
     red_eye_distance: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="redEyeDistance")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="redEyeDistance", default=None)
     )
     """
     The distance between red eye detector and the closest object in cm.
     """
 
     trailer_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="trailerId")] = pydantic.Field(
-        default=None
+        alias="trailerId", default=None
     )
     """
     ID of the trailer associated with the sensor for the data point. If no trailer is connected, this parameter will not be reported.
     """
 
     vehicle_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="vehicleId")] = pydantic.Field(
-        default=None
+        alias="vehicleId", default=None
     )
     """
     ID of the vehicle associated with the sensor for the data point. If no vehicle is connected, this parameter will not be reported.

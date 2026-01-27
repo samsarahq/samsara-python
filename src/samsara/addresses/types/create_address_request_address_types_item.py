@@ -13,6 +13,8 @@ CreateAddressRequestAddressTypesItem = typing.Union[
         "agricultureSource",
         "avoidanceZone",
         "knownGPSJammingZone",
+        "authorizedZone",
+        "unauthorizedZone",
     ],
     typing.Any,
 ]

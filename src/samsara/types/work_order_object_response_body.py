@@ -11,7 +11,6 @@ from .service_task_instance_object_response_body import ServiceTaskInstanceObjec
 from .work_order_attachment_object_response_body import WorkOrderAttachmentObjectResponseBody
 from .work_order_discount_object_response_body import WorkOrderDiscountObjectResponseBody
 from .work_order_item_object_response_body import WorkOrderItemObjectResponseBody
-from .work_order_object_response_body_category import WorkOrderObjectResponseBodyCategory
 from .work_order_object_response_body_priority import WorkOrderObjectResponseBodyPriority
 from .work_order_object_response_body_status import WorkOrderObjectResponseBodyStatus
 from .work_order_tax_object_response_body import WorkOrderTaxObjectResponseBody
@@ -24,18 +23,18 @@ class WorkOrderObjectResponseBody(UniversalBaseModel):
 
     archived_at_time: typing_extensions.Annotated[
         typing.Optional[dt.datetime], FieldMetadata(alias="archivedAtTime")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="archivedAtTime", default=None)
     """
     The time the work order was archived in RFC 3339 format.
     """
 
-    asset_id: typing_extensions.Annotated[str, FieldMetadata(alias="assetId")] = pydantic.Field()
+    asset_id: typing_extensions.Annotated[str, FieldMetadata(alias="assetId")] = pydantic.Field(alias="assetId")
     """
     The ID of the asset.
     """
 
     assigned_user_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="assignedUserId")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="assignedUserId", default=None)
     )
     """
     The ID of the assigned mechanic.
@@ -46,13 +45,13 @@ class WorkOrderObjectResponseBody(UniversalBaseModel):
     Files attached to the work order.
     """
 
-    category: typing.Optional[WorkOrderObjectResponseBodyCategory] = pydantic.Field(default=None)
+    category: typing.Optional[str] = pydantic.Field(default=None)
     """
-    The category of the work order  Valid values: `Annual`, `Corrective`, `Damage Repair`, `Preventive`, `Recall`, `Unspecified`
+    The category of the work order
     """
 
     closing_notes: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="closingNotes")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="closingNotes", default=None)
     )
     """
     Notes on the work order.
@@ -60,18 +59,20 @@ class WorkOrderObjectResponseBody(UniversalBaseModel):
 
     completed_at_time: typing_extensions.Annotated[
         typing.Optional[dt.datetime], FieldMetadata(alias="completedAtTime")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="completedAtTime", default=None)
     """
     The time the work order was completed in RFC 3339 format.
     """
 
-    created_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAtTime")] = pydantic.Field()
+    created_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAtTime")] = pydantic.Field(
+        alias="createdAtTime"
+    )
     """
     The time the work order was created in RFC 3339 format.
     """
 
     created_by_user_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="createdByUserId")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="createdByUserId", default=None)
     )
     """
     The ID of the creator of the work order.
@@ -84,14 +85,14 @@ class WorkOrderObjectResponseBody(UniversalBaseModel):
 
     discount: typing.Optional[WorkOrderDiscountObjectResponseBody] = None
     due_at_time: typing_extensions.Annotated[typing.Optional[dt.datetime], FieldMetadata(alias="dueAtTime")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="dueAtTime", default=None)
     )
     """
     The due date of the work order in RFC 3339 format.
     """
 
     engine_hours: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="engineHours")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="engineHours", default=None)
     )
     """
     The engine hours at the time of the work order.
@@ -103,7 +104,7 @@ class WorkOrderObjectResponseBody(UniversalBaseModel):
     """
 
     invoice_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="invoiceNumber")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="invoiceNumber", default=None)
     )
     """
     The invoice number for the work order.
@@ -115,14 +116,14 @@ class WorkOrderObjectResponseBody(UniversalBaseModel):
     """
 
     odometer_meters: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="odometerMeters")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="odometerMeters", default=None)
     )
     """
     The odometer reading at the time of the work order.
     """
 
     po_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="poNumber")] = pydantic.Field(
-        default=None
+        alias="poNumber", default=None
     )
     """
     The purchase order number for the work order.
@@ -135,7 +136,7 @@ class WorkOrderObjectResponseBody(UniversalBaseModel):
 
     service_task_instances: typing_extensions.Annotated[
         typing.Optional[typing.List[ServiceTaskInstanceObjectResponseBody]], FieldMetadata(alias="serviceTaskInstances")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="serviceTaskInstances", default=None)
     """
     Service Tasks for the work order.
     """
@@ -146,13 +147,15 @@ class WorkOrderObjectResponseBody(UniversalBaseModel):
     """
 
     tax: typing.Optional[WorkOrderTaxObjectResponseBody] = None
-    updated_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAtTime")] = pydantic.Field()
+    updated_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAtTime")] = pydantic.Field(
+        alias="updatedAtTime"
+    )
     """
     The time the work order was last updated in RFC 3339 format.
     """
 
     vendor_uuid: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="vendorUuid")] = pydantic.Field(
-        default=None
+        alias="vendorUuid", default=None
     )
     """
     The vendor UUID for the work order.

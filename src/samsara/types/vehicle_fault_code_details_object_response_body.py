@@ -16,13 +16,13 @@ class VehicleFaultCodeDetailsObjectResponseBody(UniversalBaseModel):
 
     has_any_amber_warning_lamp_codes: typing_extensions.Annotated[
         typing.Optional[bool], FieldMetadata(alias="hasAnyAmberWarningLampCodes")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="hasAnyAmberWarningLampCodes", default=None)
     """
     If true then alert on codes for less serious errors that do not warrant stopping. Defaults to false.
     """
 
     has_any_fault_codes: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="hasAnyFaultCodes")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="hasAnyFaultCodes", default=None)
     )
     """
     If true this means that any code is alertable. Defaults to false.
@@ -30,35 +30,35 @@ class VehicleFaultCodeDetailsObjectResponseBody(UniversalBaseModel):
 
     has_any_malfunction_indicator_lamp_codes: typing_extensions.Annotated[
         typing.Optional[bool], FieldMetadata(alias="hasAnyMalfunctionIndicatorLampCodes")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="hasAnyMalfunctionIndicatorLampCodes", default=None)
     """
     If true then alert on emission-related codes. Defaults to false.
     """
 
     has_any_protection_lamp_codes: typing_extensions.Annotated[
         typing.Optional[bool], FieldMetadata(alias="hasAnyProtectionLampCodes")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="hasAnyProtectionLampCodes", default=None)
     """
     If true then alert on codes for non-electric vehicle parts. Defaults to false.
     """
 
     has_any_red_stop_lamp_codes: typing_extensions.Annotated[
         typing.Optional[bool], FieldMetadata(alias="hasAnyRedStopLampCodes")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="hasAnyRedStopLampCodes", default=None)
     """
     If true then alert when the vehicle warrants stopping. Defaults to false.
     """
 
     has_any_trailer_abs_lamp_codes: typing_extensions.Annotated[
         typing.Optional[bool], FieldMetadata(alias="hasAnyTrailerAbsLampCodes")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="hasAnyTrailerAbsLampCodes", default=None)
     """
     If true then alert when the ABS light is on. Defaults to false.
     """
 
     min_duration_milliseconds: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="minDurationMilliseconds")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="minDurationMilliseconds", default=None)
     """
     The number of milliseconds the trigger needs to stay active before alerting.
     """
@@ -66,7 +66,7 @@ class VehicleFaultCodeDetailsObjectResponseBody(UniversalBaseModel):
     specific_fault_codes: typing_extensions.Annotated[
         typing.Optional[typing.List[SpecificVehicleFaultCodeObjectResponseBody]],
         FieldMetadata(alias="specificFaultCodes"),
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="specificFaultCodes", default=None)
     """
     The list of specific fault codes to be alerted on.
     """

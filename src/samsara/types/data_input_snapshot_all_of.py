@@ -16,18 +16,18 @@ from .string_data_point import StringDataPoint
 class DataInputSnapshotAllOf(UniversalBaseModel):
     fft_spectra_point: typing_extensions.Annotated[
         typing.Optional[FftSpectraDataPoint], FieldMetadata(alias="fftSpectraPoint")
-    ] = None
+    ] = pydantic.Field(alias="fftSpectraPoint", default=None)
     j_1939_d_1_status_point: typing_extensions.Annotated[
         typing.Optional[J1939D1StatusDataPoint], FieldMetadata(alias="j1939D1StatusPoint")
-    ] = None
+    ] = pydantic.Field(alias="j1939D1StatusPoint", default=None)
     location_point: typing_extensions.Annotated[
         typing.Optional[LocationDataPoint], FieldMetadata(alias="locationPoint")
-    ] = None
+    ] = pydantic.Field(alias="locationPoint", default=None)
     number_point: typing_extensions.Annotated[typing.Optional[NumberDataPoint], FieldMetadata(alias="numberPoint")] = (
-        None
+        pydantic.Field(alias="numberPoint", default=None)
     )
     string_point: typing_extensions.Annotated[typing.Optional[StringDataPoint], FieldMetadata(alias="stringPoint")] = (
-        None
+        pydantic.Field(alias="stringPoint", default=None)
     )
 
     if IS_PYDANTIC_V2:

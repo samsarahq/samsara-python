@@ -13,7 +13,7 @@ class PushNotificationOptionsObjectRequestBody(UniversalBaseModel):
     Options for push notifications
     """
 
-    is_enabled: typing_extensions.Annotated[bool, FieldMetadata(alias="isEnabled")] = pydantic.Field()
+    is_enabled: typing_extensions.Annotated[bool, FieldMetadata(alias="isEnabled")] = pydantic.Field(alias="isEnabled")
     """
     Whether push notifications are enabled.
     """

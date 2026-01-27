@@ -11,15 +11,17 @@ from .asset_data_input import AssetDataInput
 
 class AssetDataOutput(UniversalBaseModel):
     data_group: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="dataGroup")] = pydantic.Field(
-        default=None
+        alias="dataGroup", default=None
     )
     """
     Name of the data group that the data output is associated with
     """
 
-    data_input: typing_extensions.Annotated[typing.Optional[AssetDataInput], FieldMetadata(alias="dataInput")] = None
+    data_input: typing_extensions.Annotated[typing.Optional[AssetDataInput], FieldMetadata(alias="dataInput")] = (
+        pydantic.Field(alias="dataInput", default=None)
+    )
     device_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="deviceId")] = pydantic.Field(
-        default=None
+        alias="deviceId", default=None
     )
     """
     ID of the device that the data output is configured on

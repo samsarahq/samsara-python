@@ -15,61 +15,63 @@ class DriverEfficiencyPercentageDataObjectResponseBody(UniversalBaseModel):
 
     anticipation_percentage: typing_extensions.Annotated[
         typing.Optional[float], FieldMetadata(alias="anticipationPercentage")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="anticipationPercentage", default=None)
     """
     Percentage of time a driver is in quickly breaking events vs total breaking events.
     """
 
     coasting_percentage: typing_extensions.Annotated[
         typing.Optional[float], FieldMetadata(alias="coastingPercentage")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="coastingPercentage", default=None)
     """
     Percentage of time a driver is in coasting.
     """
 
     cruise_control_percentage: typing_extensions.Annotated[
         typing.Optional[float], FieldMetadata(alias="cruiseControlPercentage")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="cruiseControlPercentage", default=None)
     """
     Percentage of time a vehicle is in cruise control.
     """
 
     green_band_percentage: typing_extensions.Annotated[
         typing.Optional[float], FieldMetadata(alias="greenBandPercentage")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="greenBandPercentage", default=None)
     """
     Percentage of time a driver is driving within the green band.
     """
 
     high_grade_road_driving_percentage: typing_extensions.Annotated[
         typing.Optional[float], FieldMetadata(alias="highGradeRoadDrivingPercentage")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="highGradeRoadDrivingPercentage", default=None)
     """
     Percentage of time a driver is driving on high-grade road.
     """
 
     high_torque_percentage: typing_extensions.Annotated[
         typing.Optional[float], FieldMetadata(alias="highTorquePercentage")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="highTorquePercentage", default=None)
     """
     Percentage of time a driver is driving in high torque.
     """
 
-    idling_percentage: typing_extensions.Annotated[float, FieldMetadata(alias="idlingPercentage")] = pydantic.Field()
+    idling_percentage: typing_extensions.Annotated[float, FieldMetadata(alias="idlingPercentage")] = pydantic.Field(
+        alias="idlingPercentage"
+    )
     """
     Percentage of time a driver is idling.
     """
 
     over_speed_percentage: typing_extensions.Annotated[
         typing.Optional[float], FieldMetadata(alias="overSpeedPercentage")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="overSpeedPercentage", default=None)
     """
     Percentage of time a driver is in over-speeding.
     """
 
     wear_free_brake_percentage: typing_extensions.Annotated[
         typing.Optional[float], FieldMetadata(alias="wearFreeBrakePercentage")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="wearFreeBrakePercentage", default=None)
     """
     Percentage of time a driver is in wear-free breaking.
     """

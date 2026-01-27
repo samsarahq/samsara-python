@@ -31,7 +31,12 @@ class RawPlansClient:
         self._client_wrapper = client_wrapper
 
     def create_hub_plan(
-        self, *, hub_id: str, name: str, request_options: typing.Optional[RequestOptions] = None
+        self,
+        *,
+        hub_id: str,
+        name: str,
+        shift_start_time: typing.Optional[dt.datetime] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[HubPlansCreateHubPlanResponseBody]:
         """
         Create a new plan.
@@ -51,6 +56,9 @@ class RawPlansClient:
         name : str
             The name of the plan
 
+        shift_start_time : typing.Optional[dt.datetime]
+            The shift start time for the plan in RFC 3339 format. If not provided, defaults to 9:00 AM on the next business day in the hub's timezone.
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -65,6 +73,7 @@ class RawPlansClient:
             json={
                 "hubId": hub_id,
                 "name": name,
+                "shiftStartTime": shift_start_time,
             },
             headers={
                 "content-type": "application/json",
@@ -368,7 +377,12 @@ class AsyncRawPlansClient:
         self._client_wrapper = client_wrapper
 
     async def create_hub_plan(
-        self, *, hub_id: str, name: str, request_options: typing.Optional[RequestOptions] = None
+        self,
+        *,
+        hub_id: str,
+        name: str,
+        shift_start_time: typing.Optional[dt.datetime] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[HubPlansCreateHubPlanResponseBody]:
         """
         Create a new plan.
@@ -388,6 +402,9 @@ class AsyncRawPlansClient:
         name : str
             The name of the plan
 
+        shift_start_time : typing.Optional[dt.datetime]
+            The shift start time for the plan in RFC 3339 format. If not provided, defaults to 9:00 AM on the next business day in the hub's timezone.
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -402,6 +419,7 @@ class AsyncRawPlansClient:
             json={
                 "hubId": hub_id,
                 "name": name,
+                "shiftStartTime": shift_start_time,
             },
             headers={
                 "content-type": "application/json",

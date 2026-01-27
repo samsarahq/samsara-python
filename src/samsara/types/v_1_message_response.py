@@ -10,18 +10,18 @@ from .v_1_message_sender import V1MessageSender
 
 
 class V1MessageResponse(UniversalBaseModel):
-    driver_id: typing_extensions.Annotated[int, FieldMetadata(alias="driverId")] = pydantic.Field()
+    driver_id: typing_extensions.Annotated[int, FieldMetadata(alias="driverId")] = pydantic.Field(alias="driverId")
     """
     ID of the driver for whom the message is sent to or sent by.
     """
 
-    is_read: typing_extensions.Annotated[bool, FieldMetadata(alias="isRead")] = pydantic.Field()
+    is_read: typing_extensions.Annotated[bool, FieldMetadata(alias="isRead")] = pydantic.Field(alias="isRead")
     """
     True if the message was read by the recipient.
     """
 
     sender: V1MessageSender
-    sent_at_ms: typing_extensions.Annotated[int, FieldMetadata(alias="sentAtMs")] = pydantic.Field()
+    sent_at_ms: typing_extensions.Annotated[int, FieldMetadata(alias="sentAtMs")] = pydantic.Field(alias="sentAtMs")
     """
     The time in Unix epoch milliseconds that the message is sent to the recipient.
     """

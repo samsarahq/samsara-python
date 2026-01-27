@@ -16,17 +16,17 @@ class TimeRangeObjectRequestBody(UniversalBaseModel):
 
     days_of_week: typing_extensions.Annotated[
         typing.List[TimeRangeObjectRequestBodyDaysOfWeekItem], FieldMetadata(alias="daysOfWeek")
-    ] = pydantic.Field()
+    ] = pydantic.Field(alias="daysOfWeek")
     """
     Which days this timezone applies to.
     """
 
-    end_time: typing_extensions.Annotated[str, FieldMetadata(alias="endTime")] = pydantic.Field()
+    end_time: typing_extensions.Annotated[str, FieldMetadata(alias="endTime")] = pydantic.Field(alias="endTime")
     """
     The time of day at which the time range starts. In 24 hour kitchen clock format.
     """
 
-    start_time: typing_extensions.Annotated[str, FieldMetadata(alias="startTime")] = pydantic.Field()
+    start_time: typing_extensions.Annotated[str, FieldMetadata(alias="startTime")] = pydantic.Field(alias="startTime")
     """
     The time of day at which the time range starts. In 24 hour kitchen clock format.
     """

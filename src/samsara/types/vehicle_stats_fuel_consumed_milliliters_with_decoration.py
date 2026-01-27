@@ -4,8 +4,8 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
+from .time import Time
 from .vehicle_stats_decorations import VehicleStatsDecorations
-from .vehicle_stats_time import VehicleStatsTime
 
 
 class VehicleStatsFuelConsumedMillilitersWithDecoration(UniversalBaseModel):
@@ -14,7 +14,7 @@ class VehicleStatsFuelConsumedMillilitersWithDecoration(UniversalBaseModel):
     """
 
     decorations: typing.Optional[VehicleStatsDecorations] = None
-    time: VehicleStatsTime
+    time: Time
     value: int = pydantic.Field()
     """
     The cumulative fuel consumption in milliliters for vehicles. Cumulative values always increase. This includes all fuel consumption reported by vehicles without filtering of invalid data points. For filtered fuel consumption that matches the Fuel & Energy Report, please use <a href="https://developers.samsara.com/reference/getfuelenergyvehiclereports" target="_blank">the Fuel and Energy API</a>.

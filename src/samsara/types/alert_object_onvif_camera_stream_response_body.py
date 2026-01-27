@@ -17,7 +17,7 @@ class AlertObjectOnvifCameraStreamResponseBody(UniversalBaseModel):
 
     camera_device: typing_extensions.Annotated[
         typing.Optional[AlertObjectWorkforceCameraDeviceResponseBody], FieldMetadata(alias="cameraDevice")
-    ] = None
+    ] = pydantic.Field(alias="cameraDevice", default=None)
     id: str = pydantic.Field()
     """
     The ID of the camera stream associated with the alert.

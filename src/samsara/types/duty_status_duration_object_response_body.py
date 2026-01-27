@@ -14,14 +14,14 @@ class DutyStatusDurationObjectResponseBody(UniversalBaseModel):
     """
 
     active_duration_ms: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="activeDurationMs")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="activeDurationMs", default=None)
     )
     """
     Duration the driver was active for in the log period in milliseconds.
     """
 
     drive_duration_ms: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="driveDurationMs")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="driveDurationMs", default=None)
     )
     """
     Duration the driver was driving for in the log period in milliseconds.
@@ -29,13 +29,13 @@ class DutyStatusDurationObjectResponseBody(UniversalBaseModel):
 
     off_duty_duration_ms: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="offDutyDurationMs")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="offDutyDurationMs", default=None)
     """
     Duration the driver was off duty for in the log period in milliseconds.
     """
 
     on_duty_duration_ms: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="onDutyDurationMs")] = (
-        pydantic.Field(default=None)
+        pydantic.Field(alias="onDutyDurationMs", default=None)
     )
     """
     Duration the driver was on duty for in the log period in milliseconds.
@@ -43,28 +43,28 @@ class DutyStatusDurationObjectResponseBody(UniversalBaseModel):
 
     personal_conveyance_duration_ms: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="personalConveyanceDurationMs")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="personalConveyanceDurationMs", default=None)
     """
     Duration the driver was driving for personal conveyance for in the log period in milliseconds.
     """
 
     sleeper_berth_duration_ms: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="sleeperBerthDurationMs")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="sleeperBerthDurationMs", default=None)
     """
     Duration the driver was in their sleeper berth for in the log period in milliseconds.
     """
 
     waiting_time_duration_ms: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="waitingTimeDurationMs")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="waitingTimeDurationMs", default=None)
     """
     Duration the driver was waiting for in the log period in milliseconds.
     """
 
     yard_move_duration_ms: typing_extensions.Annotated[
         typing.Optional[int], FieldMetadata(alias="yardMoveDurationMs")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="yardMoveDurationMs", default=None)
     """
     Duration the driver was driving for yard moves for in the log period in milliseconds.
     """

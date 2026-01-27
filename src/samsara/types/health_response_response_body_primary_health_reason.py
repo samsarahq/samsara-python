@@ -6,6 +6,7 @@ HealthResponseResponseBodyPrimaryHealthReason = typing.Union[
     typing.Literal[
         "assetUnplugged",
         "cameraMisaligned",
+        "dataPending",
         "healthy",
         "inwardCameraObstruction",
         "irregularRecording",

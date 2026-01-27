@@ -14,12 +14,14 @@ class HubCapacityObjectResponseBody(UniversalBaseModel):
     Hub capacity object
     """
 
-    created_at: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAt")] = pydantic.Field()
+    created_at: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAt")] = pydantic.Field(
+        alias="createdAt"
+    )
     """
     Creation timestamp
     """
 
-    hub_id: typing_extensions.Annotated[str, FieldMetadata(alias="hubId")] = pydantic.Field()
+    hub_id: typing_extensions.Annotated[str, FieldMetadata(alias="hubId")] = pydantic.Field(alias="hubId")
     """
     Hub identifier
     """
@@ -39,7 +41,9 @@ class HubCapacityObjectResponseBody(UniversalBaseModel):
     Unit of measurement
     """
 
-    updated_at: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAt")] = pydantic.Field()
+    updated_at: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAt")] = pydantic.Field(
+        alias="updatedAt"
+    )
     """
     Last update timestamp
     """

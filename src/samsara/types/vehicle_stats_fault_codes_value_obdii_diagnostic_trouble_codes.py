@@ -21,7 +21,7 @@ class VehicleStatsFaultCodesValueObdiiDiagnosticTroubleCodes(UniversalBaseModel)
     confirmed_dtcs: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsFaultCodesValueObdiiConfirmedDtcs]],
         FieldMetadata(alias="confirmedDtcs"),
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="confirmedDtcs", default=None)
     """
     Confirmed DTC codes.
     """
@@ -29,13 +29,13 @@ class VehicleStatsFaultCodesValueObdiiDiagnosticTroubleCodes(UniversalBaseModel)
     ignition_type: typing_extensions.Annotated[
         typing.Optional[VehicleStatsFaultCodesValueObdiiDiagnosticTroubleCodesIgnitionType],
         FieldMetadata(alias="ignitionType"),
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="ignitionType", default=None)
     """
     The ignition type of this passenger vehicle. Valid values: `spark`, `compression`.
     """
 
     mil_status: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="milStatus")] = pydantic.Field(
-        default=None
+        alias="milStatus", default=None
     )
     """
     The MIL status, indicating a check engine light.
@@ -43,10 +43,10 @@ class VehicleStatsFaultCodesValueObdiiDiagnosticTroubleCodes(UniversalBaseModel)
 
     monitor_status: typing_extensions.Annotated[
         typing.Optional[VehicleStatsFaultCodesValueObdiiMonitorStatus], FieldMetadata(alias="monitorStatus")
-    ] = None
+    ] = pydantic.Field(alias="monitorStatus", default=None)
     pending_dtcs: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsFaultCodesValueObdiiConfirmedDtcs]], FieldMetadata(alias="pendingDtcs")
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="pendingDtcs", default=None)
     """
     Pending DTC codes.
     """
@@ -54,12 +54,12 @@ class VehicleStatsFaultCodesValueObdiiDiagnosticTroubleCodes(UniversalBaseModel)
     permanent_dtcs: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsFaultCodesValueObdiiConfirmedDtcs]],
         FieldMetadata(alias="permanentDtcs"),
-    ] = pydantic.Field(default=None)
+    ] = pydantic.Field(alias="permanentDtcs", default=None)
     """
     Permanent DTC codes.
     """
 
-    tx_id: typing_extensions.Annotated[int, FieldMetadata(alias="txId")] = pydantic.Field()
+    tx_id: typing_extensions.Annotated[int, FieldMetadata(alias="txId")] = pydantic.Field(alias="txId")
     """
     The TX identifier.
     """
