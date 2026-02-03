@@ -59,6 +59,8 @@ if typing.TYPE_CHECKING:
     from .tags.client import AsyncTagsClient, TagsClient
     from .trailer_assignments.client import AsyncTrailerAssignmentsClient, TrailerAssignmentsClient
     from .trailers.client import AsyncTrailersClient, TrailersClient
+    from .training_assignments.client import AsyncTrainingAssignmentsClient, TrainingAssignmentsClient
+    from .training_courses.client import AsyncTrainingCoursesClient, TrainingCoursesClient
     from .trips.client import AsyncTripsClient, TripsClient
     from .users.client import AsyncUsersClient, UsersClient
     from .vehicle_locations.client import AsyncVehicleLocationsClient, VehicleLocationsClient
@@ -179,6 +181,8 @@ class Samsara:
         self._safety: typing.Optional[SafetyClient] = None
         self._speeding_intervals: typing.Optional[SpeedingIntervalsClient] = None
         self._tags: typing.Optional[TagsClient] = None
+        self._training_assignments: typing.Optional[TrainingAssignmentsClient] = None
+        self._training_courses: typing.Optional[TrainingCoursesClient] = None
         self._trips: typing.Optional[TripsClient] = None
         self._users: typing.Optional[UsersClient] = None
         self._legacy: typing.Optional[LegacyClient] = None
@@ -541,6 +545,22 @@ class Samsara:
         return self._tags
 
     @property
+    def training_assignments(self):
+        if self._training_assignments is None:
+            from .training_assignments.client import TrainingAssignmentsClient  # noqa: E402
+
+            self._training_assignments = TrainingAssignmentsClient(client_wrapper=self._client_wrapper)
+        return self._training_assignments
+
+    @property
+    def training_courses(self):
+        if self._training_courses is None:
+            from .training_courses.client import TrainingCoursesClient  # noqa: E402
+
+            self._training_courses = TrainingCoursesClient(client_wrapper=self._client_wrapper)
+        return self._training_courses
+
+    @property
     def trips(self):
         if self._trips is None:
             from .trips.client import TripsClient  # noqa: E402
@@ -716,6 +736,8 @@ class AsyncSamsara:
         self._safety: typing.Optional[AsyncSafetyClient] = None
         self._speeding_intervals: typing.Optional[AsyncSpeedingIntervalsClient] = None
         self._tags: typing.Optional[AsyncTagsClient] = None
+        self._training_assignments: typing.Optional[AsyncTrainingAssignmentsClient] = None
+        self._training_courses: typing.Optional[AsyncTrainingCoursesClient] = None
         self._trips: typing.Optional[AsyncTripsClient] = None
         self._users: typing.Optional[AsyncUsersClient] = None
         self._legacy: typing.Optional[AsyncLegacyClient] = None
@@ -1078,6 +1100,22 @@ class AsyncSamsara:
 
             self._tags = AsyncTagsClient(client_wrapper=self._client_wrapper)
         return self._tags
+
+    @property
+    def training_assignments(self):
+        if self._training_assignments is None:
+            from .training_assignments.client import AsyncTrainingAssignmentsClient  # noqa: E402
+
+            self._training_assignments = AsyncTrainingAssignmentsClient(client_wrapper=self._client_wrapper)
+        return self._training_assignments
+
+    @property
+    def training_courses(self):
+        if self._training_courses is None:
+            from .training_courses.client import AsyncTrainingCoursesClient  # noqa: E402
+
+            self._training_courses = AsyncTrainingCoursesClient(client_wrapper=self._client_wrapper)
+        return self._training_courses
 
     @property
     def trips(self):

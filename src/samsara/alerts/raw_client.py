@@ -87,6 +87,8 @@ class RawAlertsClient:
         Geofence Exit
         Route Stop ETA Alert
         Driver Recorded
+        A safety event occurred with a driver assigned
+        A safety event occurred
         Sudden Fuel Level Rise
         Sudden Fuel Level Drop
         Scheduled Date And Time
@@ -996,6 +998,8 @@ class AsyncRawAlertsClient:
         Geofence Exit
         Route Stop ETA Alert
         Driver Recorded
+        A safety event occurred with a driver assigned
+        A safety event occurred
         Sudden Fuel Level Rise
         Sudden Fuel Level Drop
         Scheduled Date And Time
