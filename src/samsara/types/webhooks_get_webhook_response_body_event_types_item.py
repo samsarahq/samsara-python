@@ -21,6 +21,7 @@ WebhooksGetWebhookResponseBodyEventTypesItem = typing.Union[
         "GeofenceEntry",
         "GeofenceExit",
         "IssueCreated",
+        "MissingDvirPastDue",
         "PredictiveMaintenanceAlert",
         "RouteStopArrival",
         "RouteStopDeparture",

@@ -28,6 +28,7 @@ HarshEventTriggerDetailsObjectRequestBodyTypesItem = typing.Union[
         "haPolicyDetector",
         "haRearCollisionWarning",
         "haRedLightViolation",
+        "haReversing",
         "haRolledStopSign",
         "haRollover",
         "haRolloverProtectionBrakeControlActivated",
