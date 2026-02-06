@@ -44,6 +44,7 @@ SafetyEventV2BehaviorLabelsResponseBodyLabel = typing.Union[
         "NearPedestrianCollision",
         "NoSeatbelt",
         "ObstructedCamera",
+        "OperationalEvent",
         "OtherViolation",
         "Passenger",
         "PolicyViolationMask",

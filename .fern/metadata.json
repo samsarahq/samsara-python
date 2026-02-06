@@ -6,8 +6,7 @@
     "client_class_name": "Samsara",
     "improved_imports": true,
     "inline_request_params": true,
-    "skip_formatting": false,
-    "enable_wire_tests": true
+    "skip_formatting": false
   },
-  "sdkVersion": "5.4.2"
+  "sdkVersion": "5.5.0"
 }
