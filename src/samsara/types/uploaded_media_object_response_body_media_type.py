@@ -2,4 +2,6 @@
 
 import typing
 
-UploadedMediaObjectResponseBodyMediaType = typing.Union[typing.Literal["image", "video"], typing.Any]
+UploadedMediaObjectResponseBodyMediaType = typing.Union[
+    typing.Literal["image", "videoHighRes", "videoLowRes", "hyperlapse"], typing.Any
+]
