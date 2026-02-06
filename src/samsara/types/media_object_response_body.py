@@ -42,7 +42,7 @@ class MediaObjectResponseBody(UniversalBaseModel):
         pydantic.Field(alias="mediaType")
     )
     """
-    Type of media.  Valid values: `image`, `video`
+    Type of media.  Valid values: `image`, `videoHighRes`, `videoLowRes`, `hyperlapse`
     """
 
     start_time: typing_extensions.Annotated[str, FieldMetadata(alias="startTime")] = pydantic.Field(alias="startTime")

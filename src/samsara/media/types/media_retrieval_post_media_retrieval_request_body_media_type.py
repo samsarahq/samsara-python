@@ -3,5 +3,5 @@
 import typing
 
 MediaRetrievalPostMediaRetrievalRequestBodyMediaType = typing.Union[
-    typing.Literal["image", "videoHighRes", "videoLowRes"], typing.Any
+    typing.Literal["image", "videoHighRes", "videoLowRes", "hyperlapse"], typing.Any
 ]
