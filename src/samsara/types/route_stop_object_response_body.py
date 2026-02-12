@@ -16,13 +16,11 @@ class RouteStopObjectResponseBody(UniversalBaseModel):
     Route stop object
     """
 
-    hub_location_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="hubLocationId")] = (
-        pydantic.Field(alias="hubLocationId", default=None)
-    )
-    """
-    The hub location identifier from dispatch
-    """
-
+    hub_location_id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="hubLocationId"),
+        pydantic.Field(alias="hubLocationId", description="The hub location identifier from dispatch"),
+    ] = None
     id: str = pydantic.Field()
     """
     The Samsara-generated unique identifier (UUID) for the stop
@@ -43,23 +41,21 @@ class RouteStopObjectResponseBody(UniversalBaseModel):
     List of order tasks associated with this stop
     """
 
-    scheduled_arrival_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="scheduledArrivalTime")] = (
-        pydantic.Field(alias="scheduledArrivalTime")
-    )
-    """
-    The scheduled arrival time at the stop
-    """
-
+    scheduled_arrival_time: typing_extensions.Annotated[
+        dt.datetime,
+        FieldMetadata(alias="scheduledArrivalTime"),
+        pydantic.Field(alias="scheduledArrivalTime", description="The scheduled arrival time at the stop"),
+    ]
     scheduled_departure_time: typing_extensions.Annotated[
-        dt.datetime, FieldMetadata(alias="scheduledDepartureTime")
-    ] = pydantic.Field(alias="scheduledDepartureTime")
-    """
-    The scheduled departure time from the stop
-    """
-
+        dt.datetime,
+        FieldMetadata(alias="scheduledDepartureTime"),
+        pydantic.Field(alias="scheduledDepartureTime", description="The scheduled departure time from the stop"),
+    ]
     single_use_location: typing_extensions.Annotated[
-        typing.Optional[SingleUseLocationObjectResponseBody], FieldMetadata(alias="singleUseLocation")
-    ] = pydantic.Field(alias="singleUseLocation", default=None)
+        typing.Optional[SingleUseLocationObjectResponseBody],
+        FieldMetadata(alias="singleUseLocation"),
+        pydantic.Field(alias="singleUseLocation"),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

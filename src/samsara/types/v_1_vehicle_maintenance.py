@@ -20,9 +20,9 @@ class V1VehicleMaintenance(UniversalBaseModel):
     ID of the vehicle.
     """
 
-    j_1939: typing_extensions.Annotated[typing.Optional[V1VehicleMaintenanceJ1939], FieldMetadata(alias="j1939")] = (
-        pydantic.Field(alias="j1939", default=None)
-    )
+    j_1939: typing_extensions.Annotated[
+        typing.Optional[V1VehicleMaintenanceJ1939], FieldMetadata(alias="j1939"), pydantic.Field(alias="j1939")
+    ] = None
     passenger: typing.Optional[V1VehicleMaintenancePassenger] = None
 
     if IS_PYDANTIC_V2:

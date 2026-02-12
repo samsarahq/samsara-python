@@ -18,12 +18,14 @@ class FormTemplateRequestObjectRequestBody(UniversalBaseModel):
     ID of the form template.
     """
 
-    revision_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="revisionId")] = pydantic.Field(
-        alias="revisionId", default=None
-    )
-    """
-    ID of the form template revision. Defaults to the latest template revision if not provided
-    """
+    revision_id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="revisionId"),
+        pydantic.Field(
+            alias="revisionId",
+            description="ID of the form template revision. Defaults to the latest template revision if not provided",
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

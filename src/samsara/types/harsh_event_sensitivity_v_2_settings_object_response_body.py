@@ -17,14 +17,20 @@ class HarshEventSensitivityV2SettingsObjectResponseBody(UniversalBaseModel):
     """
 
     harsh_accel_sensitivity: typing_extensions.Annotated[
-        typing.Optional[HarshAccelSensitivityV2SettingsObjectResponseBody], FieldMetadata(alias="harshAccelSensitivity")
-    ] = pydantic.Field(alias="harshAccelSensitivity", default=None)
+        typing.Optional[HarshAccelSensitivityV2SettingsObjectResponseBody],
+        FieldMetadata(alias="harshAccelSensitivity"),
+        pydantic.Field(alias="harshAccelSensitivity"),
+    ] = None
     harsh_brake_sensitivity: typing_extensions.Annotated[
-        typing.Optional[HarshBrakeSensitivityV2SettingsObjectResponseBody], FieldMetadata(alias="harshBrakeSensitivity")
-    ] = pydantic.Field(alias="harshBrakeSensitivity", default=None)
+        typing.Optional[HarshBrakeSensitivityV2SettingsObjectResponseBody],
+        FieldMetadata(alias="harshBrakeSensitivity"),
+        pydantic.Field(alias="harshBrakeSensitivity"),
+    ] = None
     harsh_turn_sensitivity: typing_extensions.Annotated[
-        typing.Optional[HarshTurnSensitivityV2SettingsObjectResponseBody], FieldMetadata(alias="harshTurnSensitivity")
-    ] = pydantic.Field(alias="harshTurnSensitivity", default=None)
+        typing.Optional[HarshTurnSensitivityV2SettingsObjectResponseBody],
+        FieldMetadata(alias="harshTurnSensitivity"),
+        pydantic.Field(alias="harshTurnSensitivity"),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -23,12 +23,14 @@ class TagTinyResponse(UniversalBaseModel):
     Name of the tag.
     """
 
-    parent_tag_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="parentTagId")] = (
-        pydantic.Field(alias="parentTagId", default=None)
-    )
-    """
-    If this tag is part a hierarchical tag tree, this is the ID of the parent tag, otherwise this will be omitted.
-    """
+    parent_tag_id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="parentTagId"),
+        pydantic.Field(
+            alias="parentTagId",
+            description="If this tag is part a hierarchical tag tree, this is the ID of the parent tag, otherwise this will be omitted.",
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

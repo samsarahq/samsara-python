@@ -18,32 +18,42 @@ class VehicleStatsFaultCodesPassengerMonitorStatus(UniversalBaseModel):
     comprehensive: typing.Optional[VehicleStatsFaultCodesPassengerMonitorStatusValue] = None
     egr: typing.Optional[VehicleStatsFaultCodesPassengerMonitorStatusValue] = None
     evap_system: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsFaultCodesPassengerMonitorStatusValue], FieldMetadata(alias="evapSystem")
-    ] = pydantic.Field(alias="evapSystem", default=None)
+        typing.Optional[VehicleStatsFaultCodesPassengerMonitorStatusValue],
+        FieldMetadata(alias="evapSystem"),
+        pydantic.Field(alias="evapSystem"),
+    ] = None
     fuel: typing.Optional[VehicleStatsFaultCodesPassengerMonitorStatusValue] = None
     heated_catalyst: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsFaultCodesPassengerMonitorStatusValue], FieldMetadata(alias="heatedCatalyst")
-    ] = pydantic.Field(alias="heatedCatalyst", default=None)
+        typing.Optional[VehicleStatsFaultCodesPassengerMonitorStatusValue],
+        FieldMetadata(alias="heatedCatalyst"),
+        pydantic.Field(alias="heatedCatalyst"),
+    ] = None
     heated_o_2_sensor: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsFaultCodesPassengerMonitorStatusValue], FieldMetadata(alias="heatedO2Sensor")
-    ] = pydantic.Field(alias="heatedO2Sensor", default=None)
+        typing.Optional[VehicleStatsFaultCodesPassengerMonitorStatusValue],
+        FieldMetadata(alias="heatedO2Sensor"),
+        pydantic.Field(alias="heatedO2Sensor"),
+    ] = None
     iso_sae_reserved: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsFaultCodesPassengerMonitorStatusValue], FieldMetadata(alias="isoSaeReserved")
-    ] = pydantic.Field(alias="isoSaeReserved", default=None)
+        typing.Optional[VehicleStatsFaultCodesPassengerMonitorStatusValue],
+        FieldMetadata(alias="isoSaeReserved"),
+        pydantic.Field(alias="isoSaeReserved"),
+    ] = None
     misfire: typing.Optional[VehicleStatsFaultCodesPassengerMonitorStatusValue] = None
-    not_ready_count: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="notReadyCount")] = (
-        pydantic.Field(alias="notReadyCount", default=None)
-    )
-    """
-    Count of the number of sensors reporting N: Not Complete
-    """
-
+    not_ready_count: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="notReadyCount"),
+        pydantic.Field(alias="notReadyCount", description="Count of the number of sensors reporting N: Not Complete"),
+    ] = None
     o_2_sensor: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsFaultCodesPassengerMonitorStatusValue], FieldMetadata(alias="o2Sensor")
-    ] = pydantic.Field(alias="o2Sensor", default=None)
+        typing.Optional[VehicleStatsFaultCodesPassengerMonitorStatusValue],
+        FieldMetadata(alias="o2Sensor"),
+        pydantic.Field(alias="o2Sensor"),
+    ] = None
     secondary_air: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsFaultCodesPassengerMonitorStatusValue], FieldMetadata(alias="secondaryAir")
-    ] = pydantic.Field(alias="secondaryAir", default=None)
+        typing.Optional[VehicleStatsFaultCodesPassengerMonitorStatusValue],
+        FieldMetadata(alias="secondaryAir"),
+        pydantic.Field(alias="secondaryAir"),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

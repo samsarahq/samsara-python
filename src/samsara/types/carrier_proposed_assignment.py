@@ -23,22 +23,30 @@ class CarrierProposedAssignment(UniversalBaseModel):
     """
 
     accepted_time: typing_extensions.Annotated[
-        typing.Optional[CarrierProposedAssignmentAcceptedTime], FieldMetadata(alias="acceptedTime")
-    ] = pydantic.Field(alias="acceptedTime", default=None)
-    active_time: typing_extensions.Annotated[CarrierProposedAssignmentActiveTime, FieldMetadata(alias="activeTime")] = (
-        pydantic.Field(alias="activeTime")
-    )
+        typing.Optional[CarrierProposedAssignmentAcceptedTime],
+        FieldMetadata(alias="acceptedTime"),
+        pydantic.Field(alias="acceptedTime"),
+    ] = None
+    active_time: typing_extensions.Annotated[
+        CarrierProposedAssignmentActiveTime, FieldMetadata(alias="activeTime"), pydantic.Field(alias="activeTime")
+    ]
     driver: typing.Optional[CarrierProposedAssignmentDriver] = None
     first_seen_time: typing_extensions.Annotated[
-        typing.Optional[CarrierProposedAssignmentFirstSeenTime], FieldMetadata(alias="firstSeenTime")
-    ] = pydantic.Field(alias="firstSeenTime", default=None)
+        typing.Optional[CarrierProposedAssignmentFirstSeenTime],
+        FieldMetadata(alias="firstSeenTime"),
+        pydantic.Field(alias="firstSeenTime"),
+    ] = None
     id: CarrierProposedAssignmentId
     rejected_time: typing_extensions.Annotated[
-        typing.Optional[CarrierProposedAssignmentRejectedTime], FieldMetadata(alias="rejectedTime")
-    ] = pydantic.Field(alias="rejectedTime", default=None)
+        typing.Optional[CarrierProposedAssignmentRejectedTime],
+        FieldMetadata(alias="rejectedTime"),
+        pydantic.Field(alias="rejectedTime"),
+    ] = None
     shipping_docs: typing_extensions.Annotated[
-        typing.Optional[CarrierProposedAssignmentShippingDocs], FieldMetadata(alias="shippingDocs")
-    ] = pydantic.Field(alias="shippingDocs", default=None)
+        typing.Optional[CarrierProposedAssignmentShippingDocs],
+        FieldMetadata(alias="shippingDocs"),
+        pydantic.Field(alias="shippingDocs"),
+    ] = None
     trailers: typing.Optional[CarrierProposedAssignmentTrailers] = None
     vehicle: typing.Optional[CarrierProposedAssignmentVehicle] = None
 

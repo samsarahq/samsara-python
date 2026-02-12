@@ -13,10 +13,11 @@ class PostFuelPurchaseResponseBodyResponseBody(UniversalBaseModel):
     Response after successfully adding a Fuel Purchase transaction
     """
 
-    uuid_: typing_extensions.Annotated[str, FieldMetadata(alias="uuid")] = pydantic.Field(alias="uuid")
-    """
-    Universally unique identifier for the fuel purchase.
-    """
+    uuid_: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="uuid"),
+        pydantic.Field(alias="uuid", description="Universally unique identifier for the fuel purchase."),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

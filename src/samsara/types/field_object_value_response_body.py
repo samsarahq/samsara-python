@@ -20,53 +20,54 @@ class FieldObjectValueResponseBody(UniversalBaseModel):
     """
 
     barcode_value: typing_extensions.Annotated[
-        typing.Optional[typing.List[BarcodeValueObjectResponseBody]], FieldMetadata(alias="barcodeValue")
-    ] = pydantic.Field(alias="barcodeValue", default=None)
-    """
-    The value of a barcode scanning field. Only present for barcode scanning fields.
-    """
-
+        typing.Optional[typing.List[BarcodeValueObjectResponseBody]],
+        FieldMetadata(alias="barcodeValue"),
+        pydantic.Field(
+            alias="barcodeValue",
+            description="The value of a barcode scanning field. Only present for barcode scanning fields.",
+        ),
+    ] = None
     date_time_value: typing_extensions.Annotated[
-        typing.Optional[DateTimeValueObjectResponseBody], FieldMetadata(alias="dateTimeValue")
-    ] = pydantic.Field(alias="dateTimeValue", default=None)
+        typing.Optional[DateTimeValueObjectResponseBody],
+        FieldMetadata(alias="dateTimeValue"),
+        pydantic.Field(alias="dateTimeValue"),
+    ] = None
     multiple_choice_value: typing_extensions.Annotated[
-        typing.Optional[typing.List[MultipleChoiceValueObjectResponseBody]], FieldMetadata(alias="multipleChoiceValue")
-    ] = pydantic.Field(alias="multipleChoiceValue", default=None)
-    """
-    The value of a multiple choice field. Only present for multiple choice fields.
-    """
-
-    number_value: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="numberValue")] = (
-        pydantic.Field(alias="numberValue", default=None)
-    )
-    """
-    The value of a number field. Only present for number fields.
-    """
-
+        typing.Optional[typing.List[MultipleChoiceValueObjectResponseBody]],
+        FieldMetadata(alias="multipleChoiceValue"),
+        pydantic.Field(
+            alias="multipleChoiceValue",
+            description="The value of a multiple choice field. Only present for multiple choice fields.",
+        ),
+    ] = None
+    number_value: typing_extensions.Annotated[
+        typing.Optional[float],
+        FieldMetadata(alias="numberValue"),
+        pydantic.Field(alias="numberValue", description="The value of a number field. Only present for number fields."),
+    ] = None
     photo_value: typing_extensions.Annotated[
-        typing.Optional[typing.List[PhotoValueObjectResponseBody]], FieldMetadata(alias="photoValue")
-    ] = pydantic.Field(alias="photoValue", default=None)
-    """
-    The value of a photo field. Only present for photo fields.
-    """
-
+        typing.Optional[typing.List[PhotoValueObjectResponseBody]],
+        FieldMetadata(alias="photoValue"),
+        pydantic.Field(alias="photoValue", description="The value of a photo field. Only present for photo fields."),
+    ] = None
     scanned_document_value: typing_extensions.Annotated[
         typing.Optional[typing.List[ScannedDocumentValueObjectResponseBody]],
         FieldMetadata(alias="scannedDocumentValue"),
-    ] = pydantic.Field(alias="scannedDocumentValue", default=None)
-    """
-    The value of a scanned document field. Only present for scanned document fields.
-    """
-
+        pydantic.Field(
+            alias="scannedDocumentValue",
+            description="The value of a scanned document field. Only present for scanned document fields.",
+        ),
+    ] = None
     signature_value: typing_extensions.Annotated[
-        typing.Optional[SignatureValueObjectResponseBody], FieldMetadata(alias="signatureValue")
-    ] = pydantic.Field(alias="signatureValue", default=None)
-    string_value: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="stringValue")] = (
-        pydantic.Field(alias="stringValue", default=None)
-    )
-    """
-    The value of a string field. Only present for string fields.
-    """
+        typing.Optional[SignatureValueObjectResponseBody],
+        FieldMetadata(alias="signatureValue"),
+        pydantic.Field(alias="signatureValue"),
+    ] = None
+    string_value: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="stringValue"),
+        pydantic.Field(alias="stringValue", description="The value of a string field. Only present for string fields."),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

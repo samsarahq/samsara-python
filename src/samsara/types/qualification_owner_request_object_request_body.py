@@ -17,12 +17,10 @@ class QualificationOwnerRequestObjectRequestBody(UniversalBaseModel):
     """
 
     entity_type: typing_extensions.Annotated[
-        QualificationOwnerRequestObjectRequestBodyEntityType, FieldMetadata(alias="entityType")
-    ] = pydantic.Field(alias="entityType")
-    """
-    Owner entity type  Valid values: `worker`, `asset`
-    """
-
+        QualificationOwnerRequestObjectRequestBodyEntityType,
+        FieldMetadata(alias="entityType"),
+        pydantic.Field(alias="entityType", description="Owner entity type  Valid values: `worker`, `asset`"),
+    ]
     id: str = pydantic.Field()
     """
     ID of the owner (worker/asset)

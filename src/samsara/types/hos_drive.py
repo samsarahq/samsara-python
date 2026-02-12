@@ -14,11 +14,13 @@ class HosDrive(UniversalBaseModel):
     """
 
     drive_remaining_duration_ms: typing_extensions.Annotated[
-        typing.Optional[float], FieldMetadata(alias="driveRemainingDurationMs")
-    ] = pydantic.Field(alias="driveRemainingDurationMs", default=None)
-    """
-    Remaining driving time the driver has in the current shift in milliseconds. For property-carrying drivers, this is the amount of time the driver can drive before hitting the 11-hour limit.
-    """
+        typing.Optional[float],
+        FieldMetadata(alias="driveRemainingDurationMs"),
+        pydantic.Field(
+            alias="driveRemainingDurationMs",
+            description="Remaining driving time the driver has in the current shift in milliseconds. For property-carrying drivers, this is the amount of time the driver can drive before hitting the 11-hour limit.",
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

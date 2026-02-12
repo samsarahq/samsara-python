@@ -9,15 +9,15 @@ from ..core.serialization import FieldMetadata
 
 
 class V1VisionStepResultsItemFindShapes(UniversalBaseModel):
-    found_count: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="foundCount")] = pydantic.Field(
-        alias="foundCount", default=None
-    )
-    max_count: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="maxCount")] = pydantic.Field(
-        alias="maxCount", default=None
-    )
-    min_count: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="minCount")] = pydantic.Field(
-        alias="minCount", default=None
-    )
+    found_count: typing_extensions.Annotated[
+        typing.Optional[int], FieldMetadata(alias="foundCount"), pydantic.Field(alias="foundCount")
+    ] = None
+    max_count: typing_extensions.Annotated[
+        typing.Optional[int], FieldMetadata(alias="maxCount"), pydantic.Field(alias="maxCount")
+    ] = None
+    min_count: typing_extensions.Annotated[
+        typing.Optional[int], FieldMetadata(alias="minCount"), pydantic.Field(alias="minCount")
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

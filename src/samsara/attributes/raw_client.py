@@ -17,7 +17,7 @@ from ..types.standard_delete_response import StandardDeleteResponse
 from .types.create_attribute_request_attribute_type import CreateAttributeRequestAttributeType
 from .types.create_attribute_request_entity_type import CreateAttributeRequestEntityType
 from .types.create_attribute_request_unit import CreateAttributeRequestUnit
-from .types.delete_attribute_request_entity_type import DeleteAttributeRequestEntityType
+from .types.delete_attributes_request_entity_type import DeleteAttributesRequestEntityType
 from .types.get_attribute_request_entity_type import GetAttributeRequestEntityType
 from .types.get_attributes_by_entity_type_request_entity_type import GetAttributesByEntityTypeRequestEntityType
 from .types.update_attribute_request_attribute_type import UpdateAttributeRequestAttributeType
@@ -228,11 +228,11 @@ class RawAttributesClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    def delete_attribute(
+    def delete(
         self,
         id: str,
         *,
-        entity_type: DeleteAttributeRequestEntityType,
+        entity_type: DeleteAttributesRequestEntityType,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[StandardDeleteResponse]:
         """
@@ -247,7 +247,7 @@ class RawAttributesClient:
         id : str
             Samsara-provided UUID of the attribute.
 
-        entity_type : DeleteAttributeRequestEntityType
+        entity_type : DeleteAttributesRequestEntityType
             Denotes the type of entity, driver or asset.
 
         request_options : typing.Optional[RequestOptions]
@@ -567,11 +567,11 @@ class AsyncRawAttributesClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    async def delete_attribute(
+    async def delete(
         self,
         id: str,
         *,
-        entity_type: DeleteAttributeRequestEntityType,
+        entity_type: DeleteAttributesRequestEntityType,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[StandardDeleteResponse]:
         """
@@ -586,7 +586,7 @@ class AsyncRawAttributesClient:
         id : str
             Samsara-provided UUID of the attribute.
 
-        entity_type : DeleteAttributeRequestEntityType
+        entity_type : DeleteAttributesRequestEntityType
             Denotes the type of entity, driver or asset.
 
         request_options : typing.Optional[RequestOptions]

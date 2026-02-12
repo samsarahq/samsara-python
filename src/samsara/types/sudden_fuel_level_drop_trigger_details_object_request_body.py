@@ -14,11 +14,13 @@ class SuddenFuelLevelDropTriggerDetailsObjectRequestBody(UniversalBaseModel):
     """
 
     min_fuel_level_change_in_percents: typing_extensions.Annotated[
-        int, FieldMetadata(alias="minFuelLevelChangeInPercents")
-    ] = pydantic.Field(alias="minFuelLevelChangeInPercents")
-    """
-    The minimum fuel level change in percents to trigger on. Need to be between 5 to 100.
-    """
+        int,
+        FieldMetadata(alias="minFuelLevelChangeInPercents"),
+        pydantic.Field(
+            alias="minFuelLevelChangeInPercents",
+            description="The minimum fuel level change in percents to trigger on. Need to be between 5 to 100.",
+        ),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -9,19 +9,22 @@ from ..core.serialization import FieldMetadata
 
 
 class PostMediaRetrievalObjectResponseBody(UniversalBaseModel):
-    quota_status: typing_extensions.Annotated[str, FieldMetadata(alias="quotaStatus")] = pydantic.Field(
-        alias="quotaStatus"
-    )
-    """
-    Quota status for this media capture request. Examples: Current monthly usage is 80000.4 seconds of high-res video out of 900000.0 available.
-    """
-
-    retrieval_id: typing_extensions.Annotated[str, FieldMetadata(alias="retrievalId")] = pydantic.Field(
-        alias="retrievalId"
-    )
-    """
-    Retrieval ID associated with this media capture request. Examples: 2308cec4-82e0-46f1-8b3c-a3592e5cc21e
-    """
+    quota_status: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="quotaStatus"),
+        pydantic.Field(
+            alias="quotaStatus",
+            description="Quota status for this media capture request. Examples: Current monthly usage is 80000.4 seconds of high-res video out of 900000.0 available.",
+        ),
+    ]
+    retrieval_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="retrievalId"),
+        pydantic.Field(
+            alias="retrievalId",
+            description="Retrieval ID associated with this media capture request. Examples: 2308cec4-82e0-46f1-8b3c-a3592e5cc21e",
+        ),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

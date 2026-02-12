@@ -19,43 +19,45 @@ class GatewayDetailsResponseResponseBody(UniversalBaseModel):
     """
 
     cell_connectivity: typing_extensions.Annotated[
-        typing.Optional[CellConnectivityResponseResponseBody], FieldMetadata(alias="cellConnectivity")
-    ] = pydantic.Field(alias="cellConnectivity", default=None)
+        typing.Optional[CellConnectivityResponseResponseBody],
+        FieldMetadata(alias="cellConnectivity"),
+        pydantic.Field(alias="cellConnectivity"),
+    ] = None
     gateway_battery_state: typing_extensions.Annotated[
         typing.Optional[GatewayDetailsResponseResponseBodyGatewayBatteryState],
         FieldMetadata(alias="gatewayBatteryState"),
-    ] = pydantic.Field(alias="gatewayBatteryState", default=None)
-    """
-    The gateway's battery state.  Valid values: `critical`, `low`, `ok`, `unknown`
-    """
-
+        pydantic.Field(
+            alias="gatewayBatteryState",
+            description="The gateway's battery state.  Valid values: `critical`, `low`, `ok`, `unknown`",
+        ),
+    ] = None
     gateway_battery_temp: typing_extensions.Annotated[
-        typing.Optional[float], FieldMetadata(alias="gatewayBatteryTemp")
-    ] = pydantic.Field(alias="gatewayBatteryTemp", default=None)
-    """
-    The battery temperature of the gateway, in degrees Celsius.
-    """
-
+        typing.Optional[float],
+        FieldMetadata(alias="gatewayBatteryTemp"),
+        pydantic.Field(
+            alias="gatewayBatteryTemp", description="The battery temperature of the gateway, in degrees Celsius."
+        ),
+    ] = None
     gateway_battery_volts: typing_extensions.Annotated[
-        typing.Optional[float], FieldMetadata(alias="gatewayBatteryVolts")
-    ] = pydantic.Field(alias="gatewayBatteryVolts", default=None)
-    """
-    The battery voltage of the gateway, in volts.
-    """
-
+        typing.Optional[float],
+        FieldMetadata(alias="gatewayBatteryVolts"),
+        pydantic.Field(alias="gatewayBatteryVolts", description="The battery voltage of the gateway, in volts."),
+    ] = None
     last_check_in_time: typing_extensions.Annotated[
-        typing.Optional[dt.datetime], FieldMetadata(alias="lastCheckInTime")
-    ] = pydantic.Field(alias="lastCheckInTime", default=None)
-    """
-    The timestamp of the gateway's last check-in, in RFC 3339 format.
-    """
-
+        typing.Optional[dt.datetime],
+        FieldMetadata(alias="lastCheckInTime"),
+        pydantic.Field(
+            alias="lastCheckInTime", description="The timestamp of the gateway's last check-in, in RFC 3339 format."
+        ),
+    ] = None
     vehicle_battery_volts: typing_extensions.Annotated[
-        typing.Optional[float], FieldMetadata(alias="vehicleBatteryVolts")
-    ] = pydantic.Field(alias="vehicleBatteryVolts", default=None)
-    """
-    The battery voltage of the vehicle that gateway is connected to, in volts.
-    """
+        typing.Optional[float],
+        FieldMetadata(alias="vehicleBatteryVolts"),
+        pydantic.Field(
+            alias="vehicleBatteryVolts",
+            description="The battery voltage of the vehicle that gateway is connected to, in volts.",
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

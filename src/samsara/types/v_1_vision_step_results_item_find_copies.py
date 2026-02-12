@@ -9,34 +9,26 @@ from ..core.serialization import FieldMetadata
 
 
 class V1VisionStepResultsItemFindCopies(UniversalBaseModel):
-    angle_tolerance: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="angleTolerance")] = (
-        pydantic.Field(alias="angleTolerance", default=None)
-    )
-    """
-    The orientation angle tolerance (+/- °)
-    """
-
-    found_count: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="foundCount")] = pydantic.Field(
-        alias="foundCount", default=None
-    )
-    """
-    The number of copies found
-    """
-
-    max_count: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="maxCount")] = pydantic.Field(
-        alias="maxCount", default=None
-    )
-    """
-    The maximum number of copies allowed
-    """
-
-    min_count: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="minCount")] = pydantic.Field(
-        alias="minCount", default=None
-    )
-    """
-    The minimum number of copies allowed
-    """
-
+    angle_tolerance: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="angleTolerance"),
+        pydantic.Field(alias="angleTolerance", description="The orientation angle tolerance (+/- °)"),
+    ] = None
+    found_count: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="foundCount"),
+        pydantic.Field(alias="foundCount", description="The number of copies found"),
+    ] = None
+    max_count: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="maxCount"),
+        pydantic.Field(alias="maxCount", description="The maximum number of copies allowed"),
+    ] = None
+    min_count: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="minCount"),
+        pydantic.Field(alias="minCount", description="The minimum number of copies allowed"),
+    ] = None
     threshold: typing.Optional[int] = pydantic.Field(default=None)
     """
     The minimum required similarity (in %) of a found copy compared to the configured match region

@@ -16,9 +16,9 @@ class UserRoleAssignment(UniversalBaseModel):
     A role that applies to a user. If the role has a `tag`, then the role applies for that tag. If there is no `tag`, then the role applies at the organizational level. A user may have many tag-specific roles, but may only have one organizational level role. If the organizational level role has higher privileges than a tag-specific role, then the organizational role privileges will take precedence.
     """
 
-    expire_at: typing_extensions.Annotated[typing.Optional[UserExpireAt], FieldMetadata(alias="expireAt")] = (
-        pydantic.Field(alias="expireAt", default=None)
-    )
+    expire_at: typing_extensions.Annotated[
+        typing.Optional[UserExpireAt], FieldMetadata(alias="expireAt"), pydantic.Field(alias="expireAt")
+    ] = None
     role: typing.Optional[UserRole] = None
     tag: typing.Optional[TagTinyResponse] = None
 

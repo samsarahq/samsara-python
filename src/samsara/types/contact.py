@@ -19,13 +19,13 @@ class Contact(UniversalBaseModel):
     """
 
     email: ContactEmail
-    first_name: typing_extensions.Annotated[ContactFirstName, FieldMetadata(alias="firstName")] = pydantic.Field(
-        alias="firstName"
-    )
+    first_name: typing_extensions.Annotated[
+        ContactFirstName, FieldMetadata(alias="firstName"), pydantic.Field(alias="firstName")
+    ]
     id: ContactId
-    last_name: typing_extensions.Annotated[ContactLastName, FieldMetadata(alias="lastName")] = pydantic.Field(
-        alias="lastName"
-    )
+    last_name: typing_extensions.Annotated[
+        ContactLastName, FieldMetadata(alias="lastName"), pydantic.Field(alias="lastName")
+    ]
     phone: ContactPhone
 
     if IS_PYDANTIC_V2:

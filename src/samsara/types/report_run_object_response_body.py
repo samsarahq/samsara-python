@@ -15,13 +15,11 @@ class ReportRunObjectResponseBody(UniversalBaseModel):
     Base custom report run response object.
     """
 
-    created_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAtTime")] = pydantic.Field(
-        alias="createdAtTime"
-    )
-    """
-    Time when the report run was created in RFC3339 format.
-    """
-
+    created_at_time: typing_extensions.Annotated[
+        dt.datetime,
+        FieldMetadata(alias="createdAtTime"),
+        pydantic.Field(alias="createdAtTime", description="Time when the report run was created in RFC3339 format."),
+    ]
     id: str = pydantic.Field()
     """
     ID of report run.
@@ -32,12 +30,13 @@ class ReportRunObjectResponseBody(UniversalBaseModel):
     Status of the report run.  Valid values: `complete`, `pending`, `failed`, `canceled`, `unknown`
     """
 
-    updated_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAtTime")] = pydantic.Field(
-        alias="updatedAtTime"
-    )
-    """
-    Time when the report run was last updated in RFC3339 format.
-    """
+    updated_at_time: typing_extensions.Annotated[
+        dt.datetime,
+        FieldMetadata(alias="updatedAtTime"),
+        pydantic.Field(
+            alias="updatedAtTime", description="Time when the report run was last updated in RFC3339 format."
+        ),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

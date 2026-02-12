@@ -15,25 +15,24 @@ class CoachAssignmentWithDriverExternalIdsResponseResponseBody(UniversalBaseMode
     Driver coach assignment object.
     """
 
-    coach_id: typing_extensions.Annotated[str, FieldMetadata(alias="coachId")] = pydantic.Field(alias="coachId")
-    """
-    Coach ID associated with coach assignment. Always returned.
-    """
-
-    created_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAtTime")] = pydantic.Field(
-        alias="createdAtTime"
-    )
-    """
-    Time coach assignment was created in UTC. Always returned.
-    """
-
+    coach_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="coachId"),
+        pydantic.Field(alias="coachId", description="Coach ID associated with coach assignment. Always returned."),
+    ]
+    created_at_time: typing_extensions.Annotated[
+        dt.datetime,
+        FieldMetadata(alias="createdAtTime"),
+        pydantic.Field(alias="createdAtTime", description="Time coach assignment was created in UTC. Always returned."),
+    ]
     driver: DriverWithExternalIdObjectResponseBody
-    updated_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAtTime")] = pydantic.Field(
-        alias="updatedAtTime"
-    )
-    """
-    Time coaching assignment was updated in UTC. Always returned.
-    """
+    updated_at_time: typing_extensions.Annotated[
+        dt.datetime,
+        FieldMetadata(alias="updatedAtTime"),
+        pydantic.Field(
+            alias="updatedAtTime", description="Time coaching assignment was updated in UTC. Always returned."
+        ),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

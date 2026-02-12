@@ -14,13 +14,11 @@ class WorkOrderDiscountObjectRequestBody(UniversalBaseModel):
     How much a work order is discounted. Either money or basisPoints are specified.
     """
 
-    basis_points: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="basisPoints")] = (
-        pydantic.Field(alias="basisPoints", default=None)
-    )
-    """
-    The discount in basis points. 100 basis points = 1%.
-    """
-
+    basis_points: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="basisPoints"),
+        pydantic.Field(alias="basisPoints", description="The discount in basis points. 100 basis points = 1%."),
+    ] = None
     money: typing.Optional[WorkOrderMoneyObjectRequestBody] = None
 
     if IS_PYDANTIC_V2:

@@ -16,30 +16,29 @@ class VehicleSensorConfigurationArea(UniversalBaseModel):
     """
 
     cargo_sensors: typing_extensions.Annotated[
-        typing.Optional[typing.List[Sensor]], FieldMetadata(alias="cargoSensors")
-    ] = pydantic.Field(alias="cargoSensors", default=None)
-    """
-    Cargo sensors configured in this position of the vehicle
-    """
-
+        typing.Optional[typing.List[Sensor]],
+        FieldMetadata(alias="cargoSensors"),
+        pydantic.Field(alias="cargoSensors", description="Cargo sensors configured in this position of the vehicle"),
+    ] = None
     humidity_sensors: typing_extensions.Annotated[
-        typing.Optional[typing.List[Sensor]], FieldMetadata(alias="humiditySensors")
-    ] = pydantic.Field(alias="humiditySensors", default=None)
-    """
-    Humidity sensors configured in this position of the vehicle
-    """
-
+        typing.Optional[typing.List[Sensor]],
+        FieldMetadata(alias="humiditySensors"),
+        pydantic.Field(
+            alias="humiditySensors", description="Humidity sensors configured in this position of the vehicle"
+        ),
+    ] = None
     position: typing.Optional[VehicleSensorConfigurationAreaPosition] = pydantic.Field(default=None)
     """
     Position of the area on vehicle
     """
 
     temperature_sensors: typing_extensions.Annotated[
-        typing.Optional[typing.List[Sensor]], FieldMetadata(alias="temperatureSensors")
-    ] = pydantic.Field(alias="temperatureSensors", default=None)
-    """
-    Temperature sensors configured in this position of the vehicle
-    """
+        typing.Optional[typing.List[Sensor]],
+        FieldMetadata(alias="temperatureSensors"),
+        pydantic.Field(
+            alias="temperatureSensors", description="Temperature sensors configured in this position of the vehicle"
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

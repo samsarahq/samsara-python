@@ -13,10 +13,9 @@ class TinyWidgetObjectRequestBody(UniversalBaseModel):
     Widget to be tracked.
     """
 
-    widget_id: typing_extensions.Annotated[str, FieldMetadata(alias="widgetId")] = pydantic.Field(alias="widgetId")
-    """
-    ID of the widget.
-    """
+    widget_id: typing_extensions.Annotated[
+        str, FieldMetadata(alias="widgetId"), pydantic.Field(alias="widgetId", description="ID of the widget.")
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

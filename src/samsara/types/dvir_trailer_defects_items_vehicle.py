@@ -10,12 +10,13 @@ from ..core.serialization import FieldMetadata
 
 class DvirTrailerDefectsItemsVehicle(UniversalBaseModel):
     external_ids: typing_extensions.Annotated[
-        typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="ExternalIds")
-    ] = pydantic.Field(alias="ExternalIds", default=None)
-    """
-    The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.
-    """
-
+        typing.Optional[typing.Dict[str, str]],
+        FieldMetadata(alias="ExternalIds"),
+        pydantic.Field(
+            alias="ExternalIds",
+            description="The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.",
+        ),
+    ] = None
     id: typing.Optional[str] = pydantic.Field(default=None)
     """
     ID of the vehicle.

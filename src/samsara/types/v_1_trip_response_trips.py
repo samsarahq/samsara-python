@@ -13,101 +13,100 @@ from .v_1_trip_response_start_coordinates import V1TripResponseStartCoordinates
 
 
 class V1TripResponseTrips(UniversalBaseModel):
-    asset_ids: typing_extensions.Annotated[typing.Optional[typing.List[int]], FieldMetadata(alias="assetIds")] = (
-        pydantic.Field(alias="assetIds", default=None)
-    )
-    """
-    List of associated asset IDs
-    """
-
-    codriver_ids: typing_extensions.Annotated[typing.Optional[typing.List[int]], FieldMetadata(alias="codriverIds")] = (
-        pydantic.Field(alias="codriverIds", default=None)
-    )
-    """
-    List of codriver IDs
-    """
-
-    distance_meters: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="distanceMeters")] = (
-        pydantic.Field(alias="distanceMeters", default=None)
-    )
-    """
-    Length of the trip in meters. This value is calculated from the GPS data collected by the Samsara Vehicle Gateway.
-    """
-
-    driver_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="driverId")] = pydantic.Field(
-        alias="driverId", default=None
-    )
-    """
-    ID of the driver.
-    """
-
+    asset_ids: typing_extensions.Annotated[
+        typing.Optional[typing.List[int]],
+        FieldMetadata(alias="assetIds"),
+        pydantic.Field(alias="assetIds", description="List of associated asset IDs"),
+    ] = None
+    codriver_ids: typing_extensions.Annotated[
+        typing.Optional[typing.List[int]],
+        FieldMetadata(alias="codriverIds"),
+        pydantic.Field(alias="codriverIds", description="List of codriver IDs"),
+    ] = None
+    distance_meters: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="distanceMeters"),
+        pydantic.Field(
+            alias="distanceMeters",
+            description="Length of the trip in meters. This value is calculated from the GPS data collected by the Samsara Vehicle Gateway.",
+        ),
+    ] = None
+    driver_id: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="driverId"),
+        pydantic.Field(alias="driverId", description="ID of the driver."),
+    ] = None
     end_address: typing_extensions.Annotated[
-        typing.Optional[V1TripResponseEndAddress], FieldMetadata(alias="endAddress")
-    ] = pydantic.Field(alias="endAddress", default=None)
+        typing.Optional[V1TripResponseEndAddress], FieldMetadata(alias="endAddress"), pydantic.Field(alias="endAddress")
+    ] = None
     end_coordinates: typing_extensions.Annotated[
-        typing.Optional[V1TripResponseEndCoordinates], FieldMetadata(alias="endCoordinates")
-    ] = pydantic.Field(alias="endCoordinates", default=None)
-    end_location: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="endLocation")] = (
-        pydantic.Field(alias="endLocation", default=None)
-    )
-    """
-    Geocoded street address of start (latitude, longitude) coordinates.
-    """
-
-    end_ms: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="endMs")] = pydantic.Field(
-        alias="endMs", default=None
-    )
-    """
-    End of the trip in UNIX milliseconds. Ongoing trips are indicated by an endMs value of 9223372036854775807.
-    """
-
-    end_odometer: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="endOdometer")] = (
-        pydantic.Field(alias="endOdometer", default=None)
-    )
-    """
-    Odometer reading (in meters) at the end of the trip. This is read from the vehicle's on-board diagnostics. If Samsara cannot read the vehicle's odometer values from on-board diagnostics, this value will be 0.
-    """
-
-    fuel_consumed_ml: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="fuelConsumedMl")] = (
-        pydantic.Field(alias="fuelConsumedMl", default=None)
-    )
-    """
-    Amount in milliliters of fuel consumed on this trip.
-    """
-
+        typing.Optional[V1TripResponseEndCoordinates],
+        FieldMetadata(alias="endCoordinates"),
+        pydantic.Field(alias="endCoordinates"),
+    ] = None
+    end_location: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="endLocation"),
+        pydantic.Field(
+            alias="endLocation", description="Geocoded street address of start (latitude, longitude) coordinates."
+        ),
+    ] = None
+    end_ms: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="endMs"),
+        pydantic.Field(
+            alias="endMs",
+            description="End of the trip in UNIX milliseconds. Ongoing trips are indicated by an endMs value of 9223372036854775807.",
+        ),
+    ] = None
+    end_odometer: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="endOdometer"),
+        pydantic.Field(
+            alias="endOdometer",
+            description="Odometer reading (in meters) at the end of the trip. This is read from the vehicle's on-board diagnostics. If Samsara cannot read the vehicle's odometer values from on-board diagnostics, this value will be 0.",
+        ),
+    ] = None
+    fuel_consumed_ml: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="fuelConsumedMl"),
+        pydantic.Field(alias="fuelConsumedMl", description="Amount in milliliters of fuel consumed on this trip."),
+    ] = None
     start_address: typing_extensions.Annotated[
-        typing.Optional[V1TripResponseStartAddress], FieldMetadata(alias="startAddress")
-    ] = pydantic.Field(alias="startAddress", default=None)
+        typing.Optional[V1TripResponseStartAddress],
+        FieldMetadata(alias="startAddress"),
+        pydantic.Field(alias="startAddress"),
+    ] = None
     start_coordinates: typing_extensions.Annotated[
-        typing.Optional[V1TripResponseStartCoordinates], FieldMetadata(alias="startCoordinates")
-    ] = pydantic.Field(alias="startCoordinates", default=None)
-    start_location: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="startLocation")] = (
-        pydantic.Field(alias="startLocation", default=None)
-    )
-    """
-    Geocoded street address of start (latitude, longitude) coordinates.
-    """
-
-    start_ms: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="startMs")] = pydantic.Field(
-        alias="startMs", default=None
-    )
-    """
-    Beginning of the trip in UNIX milliseconds.
-    """
-
-    start_odometer: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="startOdometer")] = (
-        pydantic.Field(alias="startOdometer", default=None)
-    )
-    """
-    Odometer reading (in meters) at the beginning of the trip. This is read from the vehicle's on-board diagnostics. If Samsara cannot read the vehicle's odometer values from on-board diagnostics, this value will be 0.
-    """
-
-    toll_meters: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="tollMeters")] = pydantic.Field(
-        alias="tollMeters", default=None
-    )
-    """
-    Length in meters trip spent on toll roads.
-    """
+        typing.Optional[V1TripResponseStartCoordinates],
+        FieldMetadata(alias="startCoordinates"),
+        pydantic.Field(alias="startCoordinates"),
+    ] = None
+    start_location: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="startLocation"),
+        pydantic.Field(
+            alias="startLocation", description="Geocoded street address of start (latitude, longitude) coordinates."
+        ),
+    ] = None
+    start_ms: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="startMs"),
+        pydantic.Field(alias="startMs", description="Beginning of the trip in UNIX milliseconds."),
+    ] = None
+    start_odometer: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="startOdometer"),
+        pydantic.Field(
+            alias="startOdometer",
+            description="Odometer reading (in meters) at the beginning of the trip. This is read from the vehicle's on-board diagnostics. If Samsara cannot read the vehicle's odometer values from on-board diagnostics, this value will be 0.",
+        ),
+    ] = None
+    toll_meters: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="tollMeters"),
+        pydantic.Field(alias="tollMeters", description="Length in meters trip spent on toll roads."),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

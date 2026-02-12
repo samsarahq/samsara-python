@@ -13,13 +13,11 @@ class QuantityObjectResponseBody(UniversalBaseModel):
     Quantity object for route capacity information
     """
 
-    capacity_id: typing_extensions.Annotated[str, FieldMetadata(alias="capacityId")] = pydantic.Field(
-        alias="capacityId"
-    )
-    """
-    The capacity identifier
-    """
-
+    capacity_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="capacityId"),
+        pydantic.Field(alias="capacityId", description="The capacity identifier"),
+    ]
     quantity: float = pydantic.Field()
     """
     The quantity value

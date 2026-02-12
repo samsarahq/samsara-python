@@ -14,18 +14,15 @@ class GetDocumentTypeResponseObjectResponseBody(UniversalBaseModel):
     conditional_field_sections: typing_extensions.Annotated[
         typing.Optional[typing.List[ConditionalFieldSectionObjectResponseBody]],
         FieldMetadata(alias="conditionalFieldSections"),
-    ] = pydantic.Field(alias="conditionalFieldSections", default=None)
-    """
-    List of the document type conditional field sections.
-    """
-
+        pydantic.Field(
+            alias="conditionalFieldSections", description="List of the document type conditional field sections."
+        ),
+    ] = None
     field_types: typing_extensions.Annotated[
-        typing.Optional[typing.List[FieldTypesObjectResponseBody]], FieldMetadata(alias="fieldTypes")
-    ] = pydantic.Field(alias="fieldTypes", default=None)
-    """
-    The fields associated with this document type.
-    """
-
+        typing.Optional[typing.List[FieldTypesObjectResponseBody]],
+        FieldMetadata(alias="fieldTypes"),
+        pydantic.Field(alias="fieldTypes", description="The fields associated with this document type."),
+    ] = None
     id: typing.Optional[str] = pydantic.Field(default=None)
     """
     Universally unique identifier for the document type. This value can be passed in as the documentTypeId when creating a document.
@@ -36,12 +33,11 @@ class GetDocumentTypeResponseObjectResponseBody(UniversalBaseModel):
     Name of the document type.
     """
 
-    org_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="orgId")] = pydantic.Field(
-        alias="orgId", default=None
-    )
-    """
-    ID for the organization this document type belongs to.
-    """
+    org_id: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="orgId"),
+        pydantic.Field(alias="orgId", description="ID for the organization this document type belongs to."),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -22,12 +22,11 @@ class JobsGetJobsResponseBody(UniversalBaseModel):
     """
 
     pagination: GoaPaginationResponseResponseBody
-    uuid_: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="uuid")] = pydantic.Field(
-        alias="uuid", default=None
-    )
-    """
-    The uuid of the failed request
-    """
+    uuid_: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="uuid"),
+        pydantic.Field(alias="uuid", description="The uuid of the failed request"),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

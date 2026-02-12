@@ -10,19 +10,20 @@ from ..core.serialization import FieldMetadata
 
 class V1TemperatureResponseSensors(UniversalBaseModel):
     ambient_temperature: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="ambientTemperature")
-    ] = pydantic.Field(alias="ambientTemperature", default=None)
-    """
-    Currently reported ambient temperature in millidegrees celsius.
-    """
-
+        typing.Optional[int],
+        FieldMetadata(alias="ambientTemperature"),
+        pydantic.Field(
+            alias="ambientTemperature", description="Currently reported ambient temperature in millidegrees celsius."
+        ),
+    ] = None
     ambient_temperature_time: typing_extensions.Annotated[
-        typing.Optional[str], FieldMetadata(alias="ambientTemperatureTime")
-    ] = pydantic.Field(alias="ambientTemperatureTime", default=None)
-    """
-    The timestamp of reported ambient temperature, specified in RFC 3339 time.
-    """
-
+        typing.Optional[str],
+        FieldMetadata(alias="ambientTemperatureTime"),
+        pydantic.Field(
+            alias="ambientTemperatureTime",
+            description="The timestamp of reported ambient temperature, specified in RFC 3339 time.",
+        ),
+    ] = None
     id: typing.Optional[int] = pydantic.Field(default=None)
     """
     ID of the sensor.
@@ -33,33 +34,38 @@ class V1TemperatureResponseSensors(UniversalBaseModel):
     Name of the sensor.
     """
 
-    probe_temperature: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="probeTemperature")] = (
-        pydantic.Field(alias="probeTemperature", default=None)
-    )
-    """
-    Currently reported probe temperature in millidegrees celsius. If no probe is connected, this parameter will not be reported.
-    """
-
+    probe_temperature: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="probeTemperature"),
+        pydantic.Field(
+            alias="probeTemperature",
+            description="Currently reported probe temperature in millidegrees celsius. If no probe is connected, this parameter will not be reported.",
+        ),
+    ] = None
     probe_temperature_time: typing_extensions.Annotated[
-        typing.Optional[str], FieldMetadata(alias="probeTemperatureTime")
-    ] = pydantic.Field(alias="probeTemperatureTime", default=None)
-    """
-    The timestamp of reported probe temperature, specified in RFC 3339 time.
-    """
-
-    trailer_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="trailerId")] = pydantic.Field(
-        alias="trailerId", default=None
-    )
-    """
-    ID of the trailer associated with the sensor for the data point. If no trailer is connected, this parameter will not be reported.
-    """
-
-    vehicle_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="vehicleId")] = pydantic.Field(
-        alias="vehicleId", default=None
-    )
-    """
-    ID of the vehicle associated with the sensor for the data point. If no vehicle is connected, this parameter will not be reported.
-    """
+        typing.Optional[str],
+        FieldMetadata(alias="probeTemperatureTime"),
+        pydantic.Field(
+            alias="probeTemperatureTime",
+            description="The timestamp of reported probe temperature, specified in RFC 3339 time.",
+        ),
+    ] = None
+    trailer_id: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="trailerId"),
+        pydantic.Field(
+            alias="trailerId",
+            description="ID of the trailer associated with the sensor for the data point. If no trailer is connected, this parameter will not be reported.",
+        ),
+    ] = None
+    vehicle_id: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="vehicleId"),
+        pydantic.Field(
+            alias="vehicleId",
+            description="ID of the vehicle associated with the sensor for the data point. If no vehicle is connected, this parameter will not be reported.",
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

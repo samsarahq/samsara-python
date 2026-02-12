@@ -14,11 +14,11 @@ class SpecificVehicleFaultCodeObjectResponseBody(UniversalBaseModel):
     A specific vehicle fault code.
     """
 
-    fault_code: typing_extensions.Annotated[str, FieldMetadata(alias="faultCode")] = pydantic.Field(alias="faultCode")
-    """
-    The specific fault code name.
-    """
-
+    fault_code: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="faultCode"),
+        pydantic.Field(alias="faultCode", description="The specific fault code name."),
+    ]
     type: SpecificVehicleFaultCodeObjectResponseBodyType = pydantic.Field()
     """
     The specific fault code type.  Valid values: `INVALID_FAULT_CODE_TYPE`, `J1939_DTC`, `J1939_SPN`, `PASSENGER_DTC`

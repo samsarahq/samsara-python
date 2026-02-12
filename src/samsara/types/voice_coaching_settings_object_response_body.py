@@ -20,29 +20,26 @@ class VoiceCoachingSettingsObjectResponseBody(UniversalBaseModel):
     events_to_coach: typing_extensions.Annotated[
         typing.Optional[typing.List[VoiceCoachingSettingsObjectResponseBodyEventsToCoachItem]],
         FieldMetadata(alias="eventsToCoach"),
-    ] = pydantic.Field(alias="eventsToCoach", default=None)
-    """
-    Selected driving events will be enabled for voice coaching. Harsh driving events include harsh acceleration and harsh brake.
-    """
-
-    is_enabled: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="isEnabled")] = pydantic.Field(
-        alias="isEnabled", default=None
-    )
-    """
-    Indicates whether voice coaching is turned on.
-    """
-
+        pydantic.Field(
+            alias="eventsToCoach",
+            description="Selected driving events will be enabled for voice coaching. Harsh driving events include harsh acceleration and harsh brake.",
+        ),
+    ] = None
+    is_enabled: typing_extensions.Annotated[
+        typing.Optional[bool],
+        FieldMetadata(alias="isEnabled"),
+        pydantic.Field(alias="isEnabled", description="Indicates whether voice coaching is turned on."),
+    ] = None
     language: typing.Optional[VoiceCoachingSettingsObjectResponseBodyLanguage] = pydantic.Field(default=None)
     """
     The coaching language. The default language is English.  Valid values: `english`, `spanish`, `dutch`, `englishUk`, `italian`, `french`, `german`
     """
 
     speeding_threshold_mph: typing_extensions.Annotated[
-        typing.Optional[float], FieldMetadata(alias="speedingThresholdMph")
-    ] = pydantic.Field(alias="speedingThresholdMph", default=None)
-    """
-    Alert when speed is over this many miles per hour.
-    """
+        typing.Optional[float],
+        FieldMetadata(alias="speedingThresholdMph"),
+        pydantic.Field(alias="speedingThresholdMph", description="Alert when speed is over this many miles per hour."),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

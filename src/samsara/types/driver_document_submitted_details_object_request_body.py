@@ -13,12 +13,11 @@ class DriverDocumentSubmittedDetailsObjectRequestBody(UniversalBaseModel):
     Details specific to Driver Document Submitted
     """
 
-    template_ids: typing_extensions.Annotated[typing.List[str], FieldMetadata(alias="templateIds")] = pydantic.Field(
-        alias="templateIds"
-    )
-    """
-    Specific template IDs to be alerted on.
-    """
+    template_ids: typing_extensions.Annotated[
+        typing.List[str],
+        FieldMetadata(alias="templateIds"),
+        pydantic.Field(alias="templateIds", description="Specific template IDs to be alerted on."),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

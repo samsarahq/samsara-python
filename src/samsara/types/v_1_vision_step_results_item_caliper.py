@@ -15,61 +15,48 @@ from .v_1_vision_step_results_item_caliper_straightness_range import V1VisionSte
 
 class V1VisionStepResultsItemCaliper(UniversalBaseModel):
     angle_range: typing_extensions.Annotated[
-        typing.Optional[V1VisionStepResultsItemCaliperAngleRange], FieldMetadata(alias="angleRange")
-    ] = pydantic.Field(alias="angleRange", default=None)
-    """
-    The configured angle allowance range
-    """
-
+        typing.Optional[V1VisionStepResultsItemCaliperAngleRange],
+        FieldMetadata(alias="angleRange"),
+        pydantic.Field(alias="angleRange", description="The configured angle allowance range"),
+    ] = None
     contrast_range: typing_extensions.Annotated[
-        typing.Optional[V1VisionStepResultsItemCaliperContrastRange], FieldMetadata(alias="contrastRange")
-    ] = pydantic.Field(alias="contrastRange", default=None)
-    """
-    The configured contrast allowance range
-    """
-
-    distance_found: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="distanceFound")] = (
-        pydantic.Field(alias="distanceFound", default=None)
-    )
-    """
-    The distance found between the found edges
-    """
-
+        typing.Optional[V1VisionStepResultsItemCaliperContrastRange],
+        FieldMetadata(alias="contrastRange"),
+        pydantic.Field(alias="contrastRange", description="The configured contrast allowance range"),
+    ] = None
+    distance_found: typing_extensions.Annotated[
+        typing.Optional[float],
+        FieldMetadata(alias="distanceFound"),
+        pydantic.Field(alias="distanceFound", description="The distance found between the found edges"),
+    ] = None
     filter_polarity: typing_extensions.Annotated[
-        typing.Optional[V1VisionStepResultsItemCaliperFilterPolarity], FieldMetadata(alias="filterPolarity")
-    ] = pydantic.Field(alias="filterPolarity", default=None)
-    """
-    The configured polarity for finding edges. Valid values: `LIGHT TO DARK`, `DARK TO LIGHT`.
-    """
-
-    max_distance: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="maxDistance")] = (
-        pydantic.Field(alias="maxDistance", default=None)
-    )
-    """
-    The maximum allowed distance threshold
-    """
-
-    min_distance: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="minDistance")] = (
-        pydantic.Field(alias="minDistance", default=None)
-    )
-    """
-    The minumum allowed distance threshold
-    """
-
+        typing.Optional[V1VisionStepResultsItemCaliperFilterPolarity],
+        FieldMetadata(alias="filterPolarity"),
+        pydantic.Field(
+            alias="filterPolarity",
+            description="The configured polarity for finding edges. Valid values: `LIGHT TO DARK`, `DARK TO LIGHT`.",
+        ),
+    ] = None
+    max_distance: typing_extensions.Annotated[
+        typing.Optional[float],
+        FieldMetadata(alias="maxDistance"),
+        pydantic.Field(alias="maxDistance", description="The maximum allowed distance threshold"),
+    ] = None
+    min_distance: typing_extensions.Annotated[
+        typing.Optional[float],
+        FieldMetadata(alias="minDistance"),
+        pydantic.Field(alias="minDistance", description="The minumum allowed distance threshold"),
+    ] = None
     sharpness_range: typing_extensions.Annotated[
-        typing.Optional[V1VisionStepResultsItemCaliperSharpnessRange], FieldMetadata(alias="sharpnessRange")
-    ] = pydantic.Field(alias="sharpnessRange", default=None)
-    """
-    The configured sharpness allowance range
-    """
-
+        typing.Optional[V1VisionStepResultsItemCaliperSharpnessRange],
+        FieldMetadata(alias="sharpnessRange"),
+        pydantic.Field(alias="sharpnessRange", description="The configured sharpness allowance range"),
+    ] = None
     straightness_range: typing_extensions.Annotated[
-        typing.Optional[V1VisionStepResultsItemCaliperStraightnessRange], FieldMetadata(alias="straightnessRange")
-    ] = pydantic.Field(alias="straightnessRange", default=None)
-    """
-    The configured straightness allowance range
-    """
-
+        typing.Optional[V1VisionStepResultsItemCaliperStraightnessRange],
+        FieldMetadata(alias="straightnessRange"),
+        pydantic.Field(alias="straightnessRange", description="The configured straightness allowance range"),
+    ] = None
     unit: typing.Optional[str] = pydantic.Field(default=None)
     """
     The measurement unit of the distance found and the min and max distance threshold

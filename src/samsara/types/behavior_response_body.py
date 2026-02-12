@@ -17,42 +17,41 @@ class BehaviorResponseBody(UniversalBaseModel):
     """
 
     coachable_behavior_type: typing_extensions.Annotated[
-        BehaviorResponseBodyCoachableBehaviorType, FieldMetadata(alias="coachableBehaviorType")
-    ] = pydantic.Field(alias="coachableBehaviorType")
-    """
-    Coachable behavior type for the behavior in the coaching session.  Valid values: `acceleration`, `braking`, `cameraObstruction`, `crash`, `defensiveDriving`, `didNotYield`, `drinkPolicy`, `drowsy`, `eatingDrinking`, `event`, `falsePositive`, `foodPolicy`, `forwardCollisionWarning`, `genericDistraction`, `harshTurn`, `hosViolation`, `idling`, `laneDeparture`, `lateResponse`, `maskPolicy`, `maxSpeed`, `mobileUsage`, `nearCollison`, `noSeatbelt`, `obstructedCamera`, `outwardObstruction`, `passengerPolicy`, `ranRedLight`, `rollingRailroadCrossing`, `rollingStop`, `rollingStop`, `rollover`, `rolloverProtection`, `rolloverProtectionBrakeControlActivated`, `rolloverProtectionEngineControlActivated`, `severeSpeeding`, `smoking`, `speeding`, `tailgating`, `unknown`, `yawControl`, `yawControlBrakeControlActivated`, `yawControlEngineControlActivated`
-    """
-
+        BehaviorResponseBodyCoachableBehaviorType,
+        FieldMetadata(alias="coachableBehaviorType"),
+        pydantic.Field(
+            alias="coachableBehaviorType",
+            description="Coachable behavior type for the behavior in the coaching session.  Valid values: `acceleration`, `braking`, `cameraObstruction`, `crash`, `defensiveDriving`, `didNotYield`, `drinkPolicy`, `drowsy`, `eatingDrinking`, `event`, `falsePositive`, `foodPolicy`, `forwardCollisionWarning`, `genericDistraction`, `harshTurn`, `hosViolation`, `idling`, `laneDeparture`, `lateResponse`, `maskPolicy`, `maxSpeed`, `mobileUsage`, `nearCollison`, `noSeatbelt`, `obstructedCamera`, `outwardObstruction`, `passengerPolicy`, `ranRedLight`, `rollingRailroadCrossing`, `rollingStop`, `rollingStop`, `rollover`, `rolloverProtection`, `rolloverProtectionBrakeControlActivated`, `rolloverProtectionEngineControlActivated`, `severeSpeeding`, `smoking`, `speeding`, `tailgating`, `unknown`, `yawControl`, `yawControlBrakeControlActivated`, `yawControlEngineControlActivated`",
+        ),
+    ]
     coachable_events: typing_extensions.Annotated[
-        typing.Optional[typing.List[CoachableEventResponseBody]], FieldMetadata(alias="coachableEvents")
-    ] = pydantic.Field(alias="coachableEvents", default=None)
-    """
-    Object references for the coachableEvents within the behavior. Returned when includeCoachableEvents is 'true'. Capped at 100 coachable events per Coaching session. For sessions where coachable events exceed 100, please visit the Samsara dashboard to address this coaching session. Corresponds to the following unique identifiers: Non-Speeding Safety events - unique Samsara ID of the safety event as 'vehicleId - eventMS'. Speeding events - unique UUID of the event. Day of HOS Violations - unique Samsara ID of the day of violations as '{driverId},{date}'. Idling events - unique UUID of the event.
-    """
-
+        typing.Optional[typing.List[CoachableEventResponseBody]],
+        FieldMetadata(alias="coachableEvents"),
+        pydantic.Field(
+            alias="coachableEvents",
+            description="Object references for the coachableEvents within the behavior. Returned when includeCoachableEvents is 'true'. Capped at 100 coachable events per Coaching session. For sessions where coachable events exceed 100, please visit the Samsara dashboard to address this coaching session. Corresponds to the following unique identifiers: Non-Speeding Safety events - unique Samsara ID of the safety event as 'vehicleId - eventMS'. Speeding events - unique UUID of the event. Day of HOS Violations - unique Samsara ID of the day of violations as '{driverId},{date}'. Idling events - unique UUID of the event.",
+        ),
+    ] = None
     id: str = pydantic.Field()
     """
     Unique ID for the coaching behavior.
     """
 
-    last_coached_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="lastCoachedTime")] = (
-        pydantic.Field(alias="lastCoachedTime")
-    )
-    """
-    Time of last coached date for the same behavior label.
-    """
-
+    last_coached_time: typing_extensions.Annotated[
+        dt.datetime,
+        FieldMetadata(alias="lastCoachedTime"),
+        pydantic.Field(alias="lastCoachedTime", description="Time of last coached date for the same behavior label."),
+    ]
     note: typing.Optional[str] = pydantic.Field(default=None)
     """
     Associated note for the coaching behavior. Returned when present.
     """
 
-    updated_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAtTime")] = pydantic.Field(
-        alias="updatedAtTime"
-    )
-    """
-    Time of coaching behavior update in UTC.
-    """
+    updated_at_time: typing_extensions.Annotated[
+        dt.datetime,
+        FieldMetadata(alias="updatedAtTime"),
+        pydantic.Field(alias="updatedAtTime", description="Time of coaching behavior update in UTC."),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

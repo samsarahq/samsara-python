@@ -15,11 +15,13 @@ class CurrentDutyStatus(UniversalBaseModel):
     """
 
     hos_status_type: typing_extensions.Annotated[
-        typing.Optional[CurrentDutyStatusHosStatusType], FieldMetadata(alias="hosStatusType")
-    ] = pydantic.Field(alias="hosStatusType", default=None)
-    """
-    The Hours of Service status type.  If the driver app is disconnected, an empty string will be returned. To reconnect the app and return updated values, drivers should have the app open with good cell service. Valid values: `offDuty`, `sleeperBed`, `driving`, `onDuty`, `yardMove`, `personalConveyance`.
-    """
+        typing.Optional[CurrentDutyStatusHosStatusType],
+        FieldMetadata(alias="hosStatusType"),
+        pydantic.Field(
+            alias="hosStatusType",
+            description="The Hours of Service status type.  If the driver app is disconnected, an empty string will be returned. To reconnect the app and return updated values, drivers should have the app open with good cell service. Valid values: `offDuty`, `sleeperBed`, `driving`, `onDuty`, `yardMove`, `personalConveyance`.",
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

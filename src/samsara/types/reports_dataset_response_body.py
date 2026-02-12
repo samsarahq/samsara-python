@@ -14,36 +14,31 @@ class ReportsDatasetResponseBody(UniversalBaseModel):
     Information about a dataset.
     """
 
-    display_name: typing_extensions.Annotated[str, FieldMetadata(alias="displayName")] = pydantic.Field(
-        alias="displayName"
-    )
-    """
-    Display name of the dataset.
-    """
-
+    display_name: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="displayName"),
+        pydantic.Field(alias="displayName", description="Display name of the dataset."),
+    ]
     fields: typing.List[ReportsDatasetFieldResponseBody] = pydantic.Field()
     """
     Fields within the dataset.
     """
 
-    has_time_range_filter: typing_extensions.Annotated[bool, FieldMetadata(alias="hasTimeRangeFilter")] = (
-        pydantic.Field(alias="hasTimeRangeFilter")
-    )
-    """
-    Indicates if the dataset has a time range filter.
-    """
-
+    has_time_range_filter: typing_extensions.Annotated[
+        bool,
+        FieldMetadata(alias="hasTimeRangeFilter"),
+        pydantic.Field(alias="hasTimeRangeFilter", description="Indicates if the dataset has a time range filter."),
+    ]
     id: str = pydantic.Field()
     """
     Unique ID of the dataset.
     """
 
     time_range_limit_days: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="timeRangeLimitDays")
-    ] = pydantic.Field(alias="timeRangeLimitDays", default=None)
-    """
-    Time range limit for the dataset measured in days.
-    """
+        typing.Optional[int],
+        FieldMetadata(alias="timeRangeLimitDays"),
+        pydantic.Field(alias="timeRangeLimitDays", description="Time range limit for the dataset measured in days."),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

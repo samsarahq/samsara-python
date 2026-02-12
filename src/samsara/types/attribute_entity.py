@@ -11,38 +11,42 @@ from .attribute_value_tiny import AttributeValueTiny
 
 
 class AttributeEntity(UniversalBaseModel):
-    date_values: typing_extensions.Annotated[typing.Optional[typing.List[str]], FieldMetadata(alias="dateValues")] = (
-        pydantic.Field(alias="dateValues", default=None)
-    )
-    """
-    Date values that are associated with this attribute (RFC 3339 date format: YYYY-MM-DD).
-    """
-
-    entity_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="entityId")] = pydantic.Field(
-        alias="entityId", default=None
-    )
+    date_values: typing_extensions.Annotated[
+        typing.Optional[typing.List[str]],
+        FieldMetadata(alias="dateValues"),
+        pydantic.Field(
+            alias="dateValues",
+            description="Date values that are associated with this attribute (RFC 3339 date format: YYYY-MM-DD).",
+        ),
+    ] = None
+    entity_id: typing_extensions.Annotated[
+        typing.Optional[int], FieldMetadata(alias="entityId"), pydantic.Field(alias="entityId")
+    ] = None
     external_ids: typing_extensions.Annotated[
-        typing.Optional[AttributeEntityExternalIds], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(alias="externalIds", default=None)
-    """
-    The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.
-    """
-
+        typing.Optional[AttributeEntityExternalIds],
+        FieldMetadata(alias="externalIds"),
+        pydantic.Field(
+            alias="externalIds",
+            description="The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.",
+        ),
+    ] = None
     name: typing.Optional[str] = None
     number_values: typing_extensions.Annotated[
-        typing.Optional[typing.List[float]], FieldMetadata(alias="numberValues")
-    ] = pydantic.Field(alias="numberValues", default=None)
-    """
-    Number values that are associated with this attribute. Note: this field is `null` for `text` and `freeform-multi-select` attribute types.`
-    """
-
+        typing.Optional[typing.List[float]],
+        FieldMetadata(alias="numberValues"),
+        pydantic.Field(
+            alias="numberValues",
+            description="Number values that are associated with this attribute. Note: this field is `null` for `text` and `freeform-multi-select` attribute types.`",
+        ),
+    ] = None
     string_values: typing_extensions.Annotated[
-        typing.Optional[typing.List[str]], FieldMetadata(alias="stringValues")
-    ] = pydantic.Field(alias="stringValues", default=None)
-    """
-    String values that are associated with this attribute. Note: this field is `null` for `text` and `freeform-multi-select` attribute types.`
-    """
-
+        typing.Optional[typing.List[str]],
+        FieldMetadata(alias="stringValues"),
+        pydantic.Field(
+            alias="stringValues",
+            description="String values that are associated with this attribute. Note: this field is `null` for `text` and `freeform-multi-select` attribute types.`",
+        ),
+    ] = None
     values: typing.Optional[typing.List[AttributeValueTiny]] = pydantic.Field(default=None)
     """
     Representation of values that includes ids. Note: this field is `null` for `text` and `freeform-multi-select` attribute types.`

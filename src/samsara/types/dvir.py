@@ -27,61 +27,75 @@ class Dvir(UniversalBaseModel):
     """
 
     author_signature: typing_extensions.Annotated[
-        typing.Optional[DvirAuthorSignature], FieldMetadata(alias="authorSignature")
-    ] = pydantic.Field(alias="authorSignature", default=None)
-    end_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="endTime")] = pydantic.Field(
-        alias="endTime", default=None
-    )
-    """
-    Time when driver signed and completed this DVIR. UTC timestamp in RFC 3339 format. Example: `2020-01-27T07:06:25Z`.
-    """
-
+        typing.Optional[DvirAuthorSignature],
+        FieldMetadata(alias="authorSignature"),
+        pydantic.Field(alias="authorSignature"),
+    ] = None
+    end_time: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="endTime"),
+        pydantic.Field(
+            alias="endTime",
+            description="Time when driver signed and completed this DVIR. UTC timestamp in RFC 3339 format. Example: `2020-01-27T07:06:25Z`.",
+        ),
+    ] = None
     id: str = pydantic.Field()
     """
     Unique Samsara ID for the DVIR.
     """
 
     license_plate: typing_extensions.Annotated[
-        typing.Optional[DvirLicensePlate], FieldMetadata(alias="licensePlate")
-    ] = pydantic.Field(alias="licensePlate", default=None)
+        typing.Optional[DvirLicensePlate], FieldMetadata(alias="licensePlate"), pydantic.Field(alias="licensePlate")
+    ] = None
     location: typing.Optional[DvirLocation] = None
     mechanic_notes: typing_extensions.Annotated[
-        typing.Optional[DvirMechanicNotes], FieldMetadata(alias="mechanicNotes")
-    ] = pydantic.Field(alias="mechanicNotes", default=None)
+        typing.Optional[DvirMechanicNotes], FieldMetadata(alias="mechanicNotes"), pydantic.Field(alias="mechanicNotes")
+    ] = None
     odometer_meters: typing_extensions.Annotated[
-        typing.Optional[DvirOdometerMeters], FieldMetadata(alias="odometerMeters")
-    ] = pydantic.Field(alias="odometerMeters", default=None)
+        typing.Optional[DvirOdometerMeters],
+        FieldMetadata(alias="odometerMeters"),
+        pydantic.Field(alias="odometerMeters"),
+    ] = None
     safety_status: typing_extensions.Annotated[
-        typing.Optional[DvirSafetyStatus], FieldMetadata(alias="safetyStatus")
-    ] = pydantic.Field(alias="safetyStatus", default=None)
-    """
-    The condition of vehicle on which DVIR was done. Valid values: `safe`, `unsafe`, `resolved`.
-    """
-
+        typing.Optional[DvirSafetyStatus],
+        FieldMetadata(alias="safetyStatus"),
+        pydantic.Field(
+            alias="safetyStatus",
+            description="The condition of vehicle on which DVIR was done. Valid values: `safe`, `unsafe`, `resolved`.",
+        ),
+    ] = None
     second_signature: typing_extensions.Annotated[
-        typing.Optional[DvirSecondSignature], FieldMetadata(alias="secondSignature")
-    ] = pydantic.Field(alias="secondSignature", default=None)
-    start_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="startTime")] = pydantic.Field(
-        alias="startTime", default=None
-    )
-    """
-    Time when driver began filling out this DVIR. UTC timestamp in RFC 3339 format. Example: `2020-01-27T07:06:25Z`.
-    """
-
+        typing.Optional[DvirSecondSignature],
+        FieldMetadata(alias="secondSignature"),
+        pydantic.Field(alias="secondSignature"),
+    ] = None
+    start_time: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="startTime"),
+        pydantic.Field(
+            alias="startTime",
+            description="Time when driver began filling out this DVIR. UTC timestamp in RFC 3339 format. Example: `2020-01-27T07:06:25Z`.",
+        ),
+    ] = None
     third_signature: typing_extensions.Annotated[
-        typing.Optional[DvirThirdSignature], FieldMetadata(alias="thirdSignature")
-    ] = pydantic.Field(alias="thirdSignature", default=None)
+        typing.Optional[DvirThirdSignature],
+        FieldMetadata(alias="thirdSignature"),
+        pydantic.Field(alias="thirdSignature"),
+    ] = None
     trailer: typing.Optional[DvirTrailer] = None
     trailer_defects: typing_extensions.Annotated[
-        typing.Optional[DvirTrailerDefects], FieldMetadata(alias="trailerDefects")
-    ] = pydantic.Field(alias="trailerDefects", default=None)
-    trailer_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="trailerName")] = (
-        pydantic.Field(alias="trailerName", default=None)
-    )
-    """
-    The name of the trailer the DVIR was submitted for.  Only included for tractor+trailer DVIRs.
-    """
-
+        typing.Optional[DvirTrailerDefects],
+        FieldMetadata(alias="trailerDefects"),
+        pydantic.Field(alias="trailerDefects"),
+    ] = None
+    trailer_name: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="trailerName"),
+        pydantic.Field(
+            alias="trailerName",
+            description="The name of the trailer the DVIR was submitted for.  Only included for tractor+trailer DVIRs.",
+        ),
+    ] = None
     type: typing.Optional[DvirType] = pydantic.Field(default=None)
     """
     Inspection type of the DVIR. Valid values: `preTrip`, `postTrip`, `mechanic`, `unspecified`.
@@ -89,8 +103,10 @@ class Dvir(UniversalBaseModel):
 
     vehicle: typing.Optional[DvirVehicle] = None
     vehicle_defects: typing_extensions.Annotated[
-        typing.Optional[DvirVehicleDefects], FieldMetadata(alias="vehicleDefects")
-    ] = pydantic.Field(alias="vehicleDefects", default=None)
+        typing.Optional[DvirVehicleDefects],
+        FieldMetadata(alias="vehicleDefects"),
+        pydantic.Field(alias="vehicleDefects"),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

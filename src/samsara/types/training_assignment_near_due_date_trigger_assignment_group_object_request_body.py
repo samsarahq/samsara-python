@@ -19,17 +19,15 @@ class TrainingAssignmentNearDueDateTriggerAssignmentGroupObjectRequestBody(Unive
     assignment_group_type: typing_extensions.Annotated[
         TrainingAssignmentNearDueDateTriggerAssignmentGroupObjectRequestBodyAssignmentGroupType,
         FieldMetadata(alias="assignmentGroupType"),
-    ] = pydantic.Field(alias="assignmentGroupType")
-    """
-    Assignment group type.  Valid values: `CATEGORY`, `COURSE`
-    """
-
-    assignment_group_uuid: typing_extensions.Annotated[str, FieldMetadata(alias="assignmentGroupUuid")] = (
-        pydantic.Field(alias="assignmentGroupUuid")
-    )
-    """
-    The unique ID of the assignment group.
-    """
+        pydantic.Field(
+            alias="assignmentGroupType", description="Assignment group type.  Valid values: `CATEGORY`, `COURSE`"
+        ),
+    ]
+    assignment_group_uuid: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="assignmentGroupUuid"),
+        pydantic.Field(alias="assignmentGroupUuid", description="The unique ID of the assignment group."),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

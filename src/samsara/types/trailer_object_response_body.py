@@ -13,10 +13,11 @@ class TrailerObjectResponseBody(UniversalBaseModel):
     A trailer asset object associate with the assigment.
     """
 
-    trailer_id: typing_extensions.Annotated[str, FieldMetadata(alias="trailerId")] = pydantic.Field(alias="trailerId")
-    """
-    Samsara ID of the trailer.
-    """
+    trailer_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="trailerId"),
+        pydantic.Field(alias="trailerId", description="Samsara ID of the trailer."),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -13,33 +13,38 @@ class V1VisionRunsResponseReportMetadata(UniversalBaseModel):
     The response includes 4 additional fields that are now deprecated
     """
 
-    items_per_minute: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="itemsPerMinute")] = (
-        pydantic.Field(alias="itemsPerMinute", default=None)
-    )
-    """
-    Returns average scanned items per minute. Should be used instead of scanRate.
-    """
-
-    no_read_count: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="noReadCount")] = (
-        pydantic.Field(alias="noReadCount", default=None)
-    )
-    """
-    Returns no read count for the run. Should be used instead of noReadScansCount
-    """
-
-    reject_count: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="rejectCount")] = (
-        pydantic.Field(alias="rejectCount", default=None)
-    )
-    """
-    Returns reject count for the run. Should be used instead of failedScansCount
-    """
-
-    success_count: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="successCount")] = (
-        pydantic.Field(alias="successCount", default=None)
-    )
-    """
-    Returns success count for the run. Should be used instead of successfulScansCount
-    """
+    items_per_minute: typing_extensions.Annotated[
+        typing.Optional[float],
+        FieldMetadata(alias="itemsPerMinute"),
+        pydantic.Field(
+            alias="itemsPerMinute",
+            description="Returns average scanned items per minute. Should be used instead of scanRate.",
+        ),
+    ] = None
+    no_read_count: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="noReadCount"),
+        pydantic.Field(
+            alias="noReadCount",
+            description="Returns no read count for the run. Should be used instead of noReadScansCount",
+        ),
+    ] = None
+    reject_count: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="rejectCount"),
+        pydantic.Field(
+            alias="rejectCount",
+            description="Returns reject count for the run. Should be used instead of failedScansCount",
+        ),
+    ] = None
+    success_count: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="successCount"),
+        pydantic.Field(
+            alias="successCount",
+            description="Returns success count for the run. Should be used instead of successfulScansCount",
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -19,26 +19,30 @@ class Dvir2SubmissionResponseObjectResponseBody(UniversalBaseModel):
     """
 
     base_form_submission: typing_extensions.Annotated[
-        typing.Optional[Dvir2FormSubmissionObjectResponseBody], FieldMetadata(alias="baseFormSubmission")
-    ] = pydantic.Field(alias="baseFormSubmission", default=None)
+        typing.Optional[Dvir2FormSubmissionObjectResponseBody],
+        FieldMetadata(alias="baseFormSubmission"),
+        pydantic.Field(alias="baseFormSubmission"),
+    ] = None
     inspection_type: typing_extensions.Annotated[
-        Dvir2SubmissionResponseObjectResponseBodyInspectionType, FieldMetadata(alias="inspectionType")
-    ] = pydantic.Field(alias="inspectionType")
-    """
-    Inspection type of the DVIR.  Valid values: `preTrip`, `postTrip`, `mechanic`, `unset`
-    """
-
+        Dvir2SubmissionResponseObjectResponseBodyInspectionType,
+        FieldMetadata(alias="inspectionType"),
+        pydantic.Field(
+            alias="inspectionType",
+            description="Inspection type of the DVIR.  Valid values: `preTrip`, `postTrip`, `mechanic`, `unset`",
+        ),
+    ]
     related_devices: typing_extensions.Annotated[
-        typing.List[Dvir2RelatedDeviceObjectResponseBody], FieldMetadata(alias="relatedDevices")
-    ] = pydantic.Field(alias="relatedDevices")
-    """
-    List of devices (vehicles/trailers) associated with the DVIR.
-    """
-
-    uuid_: typing_extensions.Annotated[str, FieldMetadata(alias="uuid")] = pydantic.Field(alias="uuid")
-    """
-    The unique UUID of the DVIR2 submission
-    """
+        typing.List[Dvir2RelatedDeviceObjectResponseBody],
+        FieldMetadata(alias="relatedDevices"),
+        pydantic.Field(
+            alias="relatedDevices", description="List of devices (vehicles/trailers) associated with the DVIR."
+        ),
+    ]
+    uuid_: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="uuid"),
+        pydantic.Field(alias="uuid", description="The unique UUID of the DVIR2 submission"),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

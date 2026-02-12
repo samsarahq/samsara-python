@@ -71,199 +71,286 @@ class VehicleStatsResponseData(UniversalBaseModel):
     """
 
     ambient_air_temperature_milli_c: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsAmbientAirTempMilliC], FieldMetadata(alias="ambientAirTemperatureMilliC")
-    ] = pydantic.Field(alias="ambientAirTemperatureMilliC", default=None)
+        typing.Optional[VehicleStatsAmbientAirTempMilliC],
+        FieldMetadata(alias="ambientAirTemperatureMilliC"),
+        pydantic.Field(alias="ambientAirTemperatureMilliC"),
+    ] = None
     aux_input_1: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsAuxInput], FieldMetadata(alias="auxInput1")
-    ] = pydantic.Field(alias="auxInput1", default=None)
+        typing.Optional[VehicleStatsAuxInput], FieldMetadata(alias="auxInput1"), pydantic.Field(alias="auxInput1")
+    ] = None
     aux_input_10: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsAuxInput], FieldMetadata(alias="auxInput10")
-    ] = pydantic.Field(alias="auxInput10", default=None)
+        typing.Optional[VehicleStatsAuxInput], FieldMetadata(alias="auxInput10"), pydantic.Field(alias="auxInput10")
+    ] = None
     aux_input_11: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsAuxInput], FieldMetadata(alias="auxInput11")
-    ] = pydantic.Field(alias="auxInput11", default=None)
+        typing.Optional[VehicleStatsAuxInput], FieldMetadata(alias="auxInput11"), pydantic.Field(alias="auxInput11")
+    ] = None
     aux_input_12: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsAuxInput], FieldMetadata(alias="auxInput12")
-    ] = pydantic.Field(alias="auxInput12", default=None)
+        typing.Optional[VehicleStatsAuxInput], FieldMetadata(alias="auxInput12"), pydantic.Field(alias="auxInput12")
+    ] = None
     aux_input_13: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsAuxInput], FieldMetadata(alias="auxInput13")
-    ] = pydantic.Field(alias="auxInput13", default=None)
+        typing.Optional[VehicleStatsAuxInput], FieldMetadata(alias="auxInput13"), pydantic.Field(alias="auxInput13")
+    ] = None
     aux_input_2: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsAuxInput], FieldMetadata(alias="auxInput2")
-    ] = pydantic.Field(alias="auxInput2", default=None)
+        typing.Optional[VehicleStatsAuxInput], FieldMetadata(alias="auxInput2"), pydantic.Field(alias="auxInput2")
+    ] = None
     aux_input_3: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsAuxInput], FieldMetadata(alias="auxInput3")
-    ] = pydantic.Field(alias="auxInput3", default=None)
+        typing.Optional[VehicleStatsAuxInput], FieldMetadata(alias="auxInput3"), pydantic.Field(alias="auxInput3")
+    ] = None
     aux_input_4: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsAuxInput], FieldMetadata(alias="auxInput4")
-    ] = pydantic.Field(alias="auxInput4", default=None)
+        typing.Optional[VehicleStatsAuxInput], FieldMetadata(alias="auxInput4"), pydantic.Field(alias="auxInput4")
+    ] = None
     aux_input_5: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsAuxInput], FieldMetadata(alias="auxInput5")
-    ] = pydantic.Field(alias="auxInput5", default=None)
+        typing.Optional[VehicleStatsAuxInput], FieldMetadata(alias="auxInput5"), pydantic.Field(alias="auxInput5")
+    ] = None
     aux_input_6: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsAuxInput], FieldMetadata(alias="auxInput6")
-    ] = pydantic.Field(alias="auxInput6", default=None)
+        typing.Optional[VehicleStatsAuxInput], FieldMetadata(alias="auxInput6"), pydantic.Field(alias="auxInput6")
+    ] = None
     aux_input_7: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsAuxInput], FieldMetadata(alias="auxInput7")
-    ] = pydantic.Field(alias="auxInput7", default=None)
+        typing.Optional[VehicleStatsAuxInput], FieldMetadata(alias="auxInput7"), pydantic.Field(alias="auxInput7")
+    ] = None
     aux_input_8: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsAuxInput], FieldMetadata(alias="auxInput8")
-    ] = pydantic.Field(alias="auxInput8", default=None)
+        typing.Optional[VehicleStatsAuxInput], FieldMetadata(alias="auxInput8"), pydantic.Field(alias="auxInput8")
+    ] = None
     aux_input_9: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsAuxInput], FieldMetadata(alias="auxInput9")
-    ] = pydantic.Field(alias="auxInput9", default=None)
+        typing.Optional[VehicleStatsAuxInput], FieldMetadata(alias="auxInput9"), pydantic.Field(alias="auxInput9")
+    ] = None
     barometric_pressure_pa: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsBarometricPressurePa], FieldMetadata(alias="barometricPressurePa")
-    ] = pydantic.Field(alias="barometricPressurePa", default=None)
+        typing.Optional[VehicleStatsBarometricPressurePa],
+        FieldMetadata(alias="barometricPressurePa"),
+        pydantic.Field(alias="barometricPressurePa"),
+    ] = None
     battery_milli_volts: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsBatteryVoltage], FieldMetadata(alias="batteryMilliVolts")
-    ] = pydantic.Field(alias="batteryMilliVolts", default=None)
+        typing.Optional[VehicleStatsBatteryVoltage],
+        FieldMetadata(alias="batteryMilliVolts"),
+        pydantic.Field(alias="batteryMilliVolts"),
+    ] = None
     def_level_milli_percent: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsDefLevelMilliPercent], FieldMetadata(alias="defLevelMilliPercent")
-    ] = pydantic.Field(alias="defLevelMilliPercent", default=None)
+        typing.Optional[VehicleStatsDefLevelMilliPercent],
+        FieldMetadata(alias="defLevelMilliPercent"),
+        pydantic.Field(alias="defLevelMilliPercent"),
+    ] = None
     ecu_door_status: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsResponseEcuDoorStatus], FieldMetadata(alias="ecuDoorStatus")
-    ] = pydantic.Field(alias="ecuDoorStatus", default=None)
+        typing.Optional[VehicleStatsResponseEcuDoorStatus],
+        FieldMetadata(alias="ecuDoorStatus"),
+        pydantic.Field(alias="ecuDoorStatus"),
+    ] = None
     ecu_speed_mph: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsEcuSpeedMph], FieldMetadata(alias="ecuSpeedMph")
-    ] = pydantic.Field(alias="ecuSpeedMph", default=None)
+        typing.Optional[VehicleStatsEcuSpeedMph],
+        FieldMetadata(alias="ecuSpeedMph"),
+        pydantic.Field(alias="ecuSpeedMph"),
+    ] = None
     engine_coolant_temperature_milli_c: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsEngineCoolantTempMilliC], FieldMetadata(alias="engineCoolantTemperatureMilliC")
-    ] = pydantic.Field(alias="engineCoolantTemperatureMilliC", default=None)
+        typing.Optional[VehicleStatsEngineCoolantTempMilliC],
+        FieldMetadata(alias="engineCoolantTemperatureMilliC"),
+        pydantic.Field(alias="engineCoolantTemperatureMilliC"),
+    ] = None
     engine_immobilizer: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsEngineImmobilizer], FieldMetadata(alias="engineImmobilizer")
-    ] = pydantic.Field(alias="engineImmobilizer", default=None)
+        typing.Optional[VehicleStatsEngineImmobilizer],
+        FieldMetadata(alias="engineImmobilizer"),
+        pydantic.Field(alias="engineImmobilizer"),
+    ] = None
     engine_load_percent: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsEngineLoadPercent], FieldMetadata(alias="engineLoadPercent")
-    ] = pydantic.Field(alias="engineLoadPercent", default=None)
+        typing.Optional[VehicleStatsEngineLoadPercent],
+        FieldMetadata(alias="engineLoadPercent"),
+        pydantic.Field(alias="engineLoadPercent"),
+    ] = None
     engine_oil_pressure_k_pa: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsEngineOilPressureKPa], FieldMetadata(alias="engineOilPressureKPa")
-    ] = pydantic.Field(alias="engineOilPressureKPa", default=None)
+        typing.Optional[VehicleStatsEngineOilPressureKPa],
+        FieldMetadata(alias="engineOilPressureKPa"),
+        pydantic.Field(alias="engineOilPressureKPa"),
+    ] = None
     engine_rpm: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsEngineRpm], FieldMetadata(alias="engineRpm")
-    ] = pydantic.Field(alias="engineRpm", default=None)
+        typing.Optional[VehicleStatsEngineRpm], FieldMetadata(alias="engineRpm"), pydantic.Field(alias="engineRpm")
+    ] = None
     engine_state: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsEngineState], FieldMetadata(alias="engineState")
-    ] = pydantic.Field(alias="engineState", default=None)
+        typing.Optional[VehicleStatsEngineState],
+        FieldMetadata(alias="engineState"),
+        pydantic.Field(alias="engineState"),
+    ] = None
     ev_average_battery_temperature_milli_celsius: typing_extensions.Annotated[
         typing.Optional[VehicleStatsResponseEvAverageBatteryTemperatureMilliCelsius],
         FieldMetadata(alias="evAverageBatteryTemperatureMilliCelsius"),
-    ] = pydantic.Field(alias="evAverageBatteryTemperatureMilliCelsius", default=None)
+        pydantic.Field(alias="evAverageBatteryTemperatureMilliCelsius"),
+    ] = None
     ev_battery_current_milli_amp: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsResponseEvBatteryCurrentMilliAmp], FieldMetadata(alias="evBatteryCurrentMilliAmp")
-    ] = pydantic.Field(alias="evBatteryCurrentMilliAmp", default=None)
+        typing.Optional[VehicleStatsResponseEvBatteryCurrentMilliAmp],
+        FieldMetadata(alias="evBatteryCurrentMilliAmp"),
+        pydantic.Field(alias="evBatteryCurrentMilliAmp"),
+    ] = None
     ev_battery_state_of_health_milli_percent: typing_extensions.Annotated[
         typing.Optional[VehicleStatsResponseEvBatteryStateOfHealthMilliPercent],
         FieldMetadata(alias="evBatteryStateOfHealthMilliPercent"),
-    ] = pydantic.Field(alias="evBatteryStateOfHealthMilliPercent", default=None)
+        pydantic.Field(alias="evBatteryStateOfHealthMilliPercent"),
+    ] = None
     ev_battery_voltage_milli_volt: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsResponseEvBatteryVoltageMilliVolt], FieldMetadata(alias="evBatteryVoltageMilliVolt")
-    ] = pydantic.Field(alias="evBatteryVoltageMilliVolt", default=None)
+        typing.Optional[VehicleStatsResponseEvBatteryVoltageMilliVolt],
+        FieldMetadata(alias="evBatteryVoltageMilliVolt"),
+        pydantic.Field(alias="evBatteryVoltageMilliVolt"),
+    ] = None
     ev_charging_current_milli_amp: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsResponseEvChargingCurrentMilliAmp], FieldMetadata(alias="evChargingCurrentMilliAmp")
-    ] = pydantic.Field(alias="evChargingCurrentMilliAmp", default=None)
+        typing.Optional[VehicleStatsResponseEvChargingCurrentMilliAmp],
+        FieldMetadata(alias="evChargingCurrentMilliAmp"),
+        pydantic.Field(alias="evChargingCurrentMilliAmp"),
+    ] = None
     ev_charging_energy_micro_wh: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsResponseEvChargingEnergyMicroWh], FieldMetadata(alias="evChargingEnergyMicroWh")
-    ] = pydantic.Field(alias="evChargingEnergyMicroWh", default=None)
+        typing.Optional[VehicleStatsResponseEvChargingEnergyMicroWh],
+        FieldMetadata(alias="evChargingEnergyMicroWh"),
+        pydantic.Field(alias="evChargingEnergyMicroWh"),
+    ] = None
     ev_charging_status: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsResponseEvChargingStatus], FieldMetadata(alias="evChargingStatus")
-    ] = pydantic.Field(alias="evChargingStatus", default=None)
+        typing.Optional[VehicleStatsResponseEvChargingStatus],
+        FieldMetadata(alias="evChargingStatus"),
+        pydantic.Field(alias="evChargingStatus"),
+    ] = None
     ev_charging_voltage_milli_volt: typing_extensions.Annotated[
         typing.Optional[VehicleStatsResponseEvChargingVoltageMilliVolt],
         FieldMetadata(alias="evChargingVoltageMilliVolt"),
-    ] = pydantic.Field(alias="evChargingVoltageMilliVolt", default=None)
+        pydantic.Field(alias="evChargingVoltageMilliVolt"),
+    ] = None
     ev_consumed_energy_micro_wh: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsResponseEvConsumedEnergyMicroWh], FieldMetadata(alias="evConsumedEnergyMicroWh")
-    ] = pydantic.Field(alias="evConsumedEnergyMicroWh", default=None)
+        typing.Optional[VehicleStatsResponseEvConsumedEnergyMicroWh],
+        FieldMetadata(alias="evConsumedEnergyMicroWh"),
+        pydantic.Field(alias="evConsumedEnergyMicroWh"),
+    ] = None
     ev_distance_driven_meters: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsResponseEvDistanceDrivenMeters], FieldMetadata(alias="evDistanceDrivenMeters")
-    ] = pydantic.Field(alias="evDistanceDrivenMeters", default=None)
+        typing.Optional[VehicleStatsResponseEvDistanceDrivenMeters],
+        FieldMetadata(alias="evDistanceDrivenMeters"),
+        pydantic.Field(alias="evDistanceDrivenMeters"),
+    ] = None
     ev_regenerated_energy_micro_wh: typing_extensions.Annotated[
         typing.Optional[VehicleStatsResponseEvRegeneratedEnergyMicroWh],
         FieldMetadata(alias="evRegeneratedEnergyMicroWh"),
-    ] = pydantic.Field(alias="evRegeneratedEnergyMicroWh", default=None)
+        pydantic.Field(alias="evRegeneratedEnergyMicroWh"),
+    ] = None
     ev_state_of_charge_milli_percent: typing_extensions.Annotated[
         typing.Optional[VehicleStatsResponseEvStateOfChargeMilliPercent],
         FieldMetadata(alias="evStateOfChargeMilliPercent"),
-    ] = pydantic.Field(alias="evStateOfChargeMilliPercent", default=None)
+        pydantic.Field(alias="evStateOfChargeMilliPercent"),
+    ] = None
     external_ids: typing_extensions.Annotated[
-        typing.Optional[VehicleExternalIds], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(alias="externalIds", default=None)
+        typing.Optional[VehicleExternalIds], FieldMetadata(alias="externalIds"), pydantic.Field(alias="externalIds")
+    ] = None
     fault_codes: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsFaultCodes], FieldMetadata(alias="faultCodes")
-    ] = pydantic.Field(alias="faultCodes", default=None)
+        typing.Optional[VehicleStatsFaultCodes], FieldMetadata(alias="faultCodes"), pydantic.Field(alias="faultCodes")
+    ] = None
     fuel_consumed_milliliters: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsFuelConsumedMilliliters], FieldMetadata(alias="fuelConsumedMilliliters")
-    ] = pydantic.Field(alias="fuelConsumedMilliliters", default=None)
+        typing.Optional[VehicleStatsFuelConsumedMilliliters],
+        FieldMetadata(alias="fuelConsumedMilliliters"),
+        pydantic.Field(alias="fuelConsumedMilliliters"),
+    ] = None
     fuel_percent: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsFuelPercent], FieldMetadata(alias="fuelPercent")
-    ] = pydantic.Field(alias="fuelPercent", default=None)
+        typing.Optional[VehicleStatsFuelPercent],
+        FieldMetadata(alias="fuelPercent"),
+        pydantic.Field(alias="fuelPercent"),
+    ] = None
     gps: typing.Optional[VehicleStatsGps] = None
     gps_distance_meters: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsGpsDistanceMeters], FieldMetadata(alias="gpsDistanceMeters")
-    ] = pydantic.Field(alias="gpsDistanceMeters", default=None)
+        typing.Optional[VehicleStatsGpsDistanceMeters],
+        FieldMetadata(alias="gpsDistanceMeters"),
+        pydantic.Field(alias="gpsDistanceMeters"),
+    ] = None
     gps_odometer_meters: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsGpsOdometerMeters], FieldMetadata(alias="gpsOdometerMeters")
-    ] = pydantic.Field(alias="gpsOdometerMeters", default=None)
+        typing.Optional[VehicleStatsGpsOdometerMeters],
+        FieldMetadata(alias="gpsOdometerMeters"),
+        pydantic.Field(alias="gpsOdometerMeters"),
+    ] = None
     id: VehicleId
     idling_duration_milliseconds: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsIdlingDurationMilliseconds], FieldMetadata(alias="idlingDurationMilliseconds")
-    ] = pydantic.Field(alias="idlingDurationMilliseconds", default=None)
+        typing.Optional[VehicleStatsIdlingDurationMilliseconds],
+        FieldMetadata(alias="idlingDurationMilliseconds"),
+        pydantic.Field(alias="idlingDurationMilliseconds"),
+    ] = None
     intake_manifold_temperature_milli_c: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsIntakeManifoldTempMilliC], FieldMetadata(alias="intakeManifoldTemperatureMilliC")
-    ] = pydantic.Field(alias="intakeManifoldTemperatureMilliC", default=None)
+        typing.Optional[VehicleStatsIntakeManifoldTempMilliC],
+        FieldMetadata(alias="intakeManifoldTemperatureMilliC"),
+        pydantic.Field(alias="intakeManifoldTemperatureMilliC"),
+    ] = None
     name: VehicleName
     nfc_card_scan: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsNfcCardScan], FieldMetadata(alias="nfcCardScan")
-    ] = pydantic.Field(alias="nfcCardScan", default=None)
+        typing.Optional[VehicleStatsNfcCardScan],
+        FieldMetadata(alias="nfcCardScan"),
+        pydantic.Field(alias="nfcCardScan"),
+    ] = None
     obd_engine_seconds: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsObdEngineSeconds], FieldMetadata(alias="obdEngineSeconds")
-    ] = pydantic.Field(alias="obdEngineSeconds", default=None)
+        typing.Optional[VehicleStatsObdEngineSeconds],
+        FieldMetadata(alias="obdEngineSeconds"),
+        pydantic.Field(alias="obdEngineSeconds"),
+    ] = None
     obd_odometer_meters: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsObdOdometerMeters], FieldMetadata(alias="obdOdometerMeters")
-    ] = pydantic.Field(alias="obdOdometerMeters", default=None)
+        typing.Optional[VehicleStatsObdOdometerMeters],
+        FieldMetadata(alias="obdOdometerMeters"),
+        pydantic.Field(alias="obdOdometerMeters"),
+    ] = None
     seatbelt_driver: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsResponseSeatbeltDriver], FieldMetadata(alias="seatbeltDriver")
-    ] = pydantic.Field(alias="seatbeltDriver", default=None)
+        typing.Optional[VehicleStatsResponseSeatbeltDriver],
+        FieldMetadata(alias="seatbeltDriver"),
+        pydantic.Field(alias="seatbeltDriver"),
+    ] = None
     spreader_active: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsResponseSpreaderActive], FieldMetadata(alias="spreaderActive")
-    ] = pydantic.Field(alias="spreaderActive", default=None)
+        typing.Optional[VehicleStatsResponseSpreaderActive],
+        FieldMetadata(alias="spreaderActive"),
+        pydantic.Field(alias="spreaderActive"),
+    ] = None
     spreader_air_temp: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsResponseSpreaderAirTemp], FieldMetadata(alias="spreaderAirTemp")
-    ] = pydantic.Field(alias="spreaderAirTemp", default=None)
+        typing.Optional[VehicleStatsResponseSpreaderAirTemp],
+        FieldMetadata(alias="spreaderAirTemp"),
+        pydantic.Field(alias="spreaderAirTemp"),
+    ] = None
     spreader_blast_state: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsResponseSpreaderBlastState], FieldMetadata(alias="spreaderBlastState")
-    ] = pydantic.Field(alias="spreaderBlastState", default=None)
+        typing.Optional[VehicleStatsResponseSpreaderBlastState],
+        FieldMetadata(alias="spreaderBlastState"),
+        pydantic.Field(alias="spreaderBlastState"),
+    ] = None
     spreader_granular_name: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsResponseSpreaderGranularName], FieldMetadata(alias="spreaderGranularName")
-    ] = pydantic.Field(alias="spreaderGranularName", default=None)
+        typing.Optional[VehicleStatsResponseSpreaderGranularName],
+        FieldMetadata(alias="spreaderGranularName"),
+        pydantic.Field(alias="spreaderGranularName"),
+    ] = None
     spreader_granular_rate: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsResponseSpreaderGranularRate], FieldMetadata(alias="spreaderGranularRate")
-    ] = pydantic.Field(alias="spreaderGranularRate", default=None)
+        typing.Optional[VehicleStatsResponseSpreaderGranularRate],
+        FieldMetadata(alias="spreaderGranularRate"),
+        pydantic.Field(alias="spreaderGranularRate"),
+    ] = None
     spreader_liquid_name: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsResponseSpreaderLiquidName], FieldMetadata(alias="spreaderLiquidName")
-    ] = pydantic.Field(alias="spreaderLiquidName", default=None)
+        typing.Optional[VehicleStatsResponseSpreaderLiquidName],
+        FieldMetadata(alias="spreaderLiquidName"),
+        pydantic.Field(alias="spreaderLiquidName"),
+    ] = None
     spreader_liquid_rate: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsResponseSpreaderLiquidRate], FieldMetadata(alias="spreaderLiquidRate")
-    ] = pydantic.Field(alias="spreaderLiquidRate", default=None)
+        typing.Optional[VehicleStatsResponseSpreaderLiquidRate],
+        FieldMetadata(alias="spreaderLiquidRate"),
+        pydantic.Field(alias="spreaderLiquidRate"),
+    ] = None
     spreader_on_state: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsResponseSpreaderOnState], FieldMetadata(alias="spreaderOnState")
-    ] = pydantic.Field(alias="spreaderOnState", default=None)
+        typing.Optional[VehicleStatsResponseSpreaderOnState],
+        FieldMetadata(alias="spreaderOnState"),
+        pydantic.Field(alias="spreaderOnState"),
+    ] = None
     spreader_plow_status: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsResponseSpreaderPlowStatus], FieldMetadata(alias="spreaderPlowStatus")
-    ] = pydantic.Field(alias="spreaderPlowStatus", default=None)
+        typing.Optional[VehicleStatsResponseSpreaderPlowStatus],
+        FieldMetadata(alias="spreaderPlowStatus"),
+        pydantic.Field(alias="spreaderPlowStatus"),
+    ] = None
     spreader_prewet_name: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsResponseSpreaderPrewetName], FieldMetadata(alias="spreaderPrewetName")
-    ] = pydantic.Field(alias="spreaderPrewetName", default=None)
+        typing.Optional[VehicleStatsResponseSpreaderPrewetName],
+        FieldMetadata(alias="spreaderPrewetName"),
+        pydantic.Field(alias="spreaderPrewetName"),
+    ] = None
     spreader_prewet_rate: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsResponseSpreaderPrewetRate], FieldMetadata(alias="spreaderPrewetRate")
-    ] = pydantic.Field(alias="spreaderPrewetRate", default=None)
+        typing.Optional[VehicleStatsResponseSpreaderPrewetRate],
+        FieldMetadata(alias="spreaderPrewetRate"),
+        pydantic.Field(alias="spreaderPrewetRate"),
+    ] = None
     spreader_road_temp: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsResponseSpreaderRoadTemp], FieldMetadata(alias="spreaderRoadTemp")
-    ] = pydantic.Field(alias="spreaderRoadTemp", default=None)
+        typing.Optional[VehicleStatsResponseSpreaderRoadTemp],
+        FieldMetadata(alias="spreaderRoadTemp"),
+        pydantic.Field(alias="spreaderRoadTemp"),
+    ] = None
     synthetic_engine_seconds: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsSyntheticEngineSeconds], FieldMetadata(alias="syntheticEngineSeconds")
-    ] = pydantic.Field(alias="syntheticEngineSeconds", default=None)
+        typing.Optional[VehicleStatsSyntheticEngineSeconds],
+        FieldMetadata(alias="syntheticEngineSeconds"),
+        pydantic.Field(alias="syntheticEngineSeconds"),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

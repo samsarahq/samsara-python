@@ -13,10 +13,11 @@ class PushNotificationOptionsObjectResponseBody(UniversalBaseModel):
     Options for push notifications
     """
 
-    is_enabled: typing_extensions.Annotated[bool, FieldMetadata(alias="isEnabled")] = pydantic.Field(alias="isEnabled")
-    """
-    Whether push notifications are enabled.
-    """
+    is_enabled: typing_extensions.Annotated[
+        bool,
+        FieldMetadata(alias="isEnabled"),
+        pydantic.Field(alias="isEnabled", description="Whether push notifications are enabled."),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

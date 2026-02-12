@@ -10,21 +10,19 @@ from .asset_data_input_last_point import AssetDataInputLastPoint
 
 
 class AssetDataInput(UniversalBaseModel):
-    data_group: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="dataGroup")] = pydantic.Field(
-        alias="dataGroup", default=None
-    )
-    """
-    Name of the data group that the data input is associated with
-    """
-
+    data_group: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="dataGroup"),
+        pydantic.Field(alias="dataGroup", description="Name of the data group that the data input is associated with"),
+    ] = None
     id: typing.Optional[str] = pydantic.Field(default=None)
     """
     ID of the data input
     """
 
     last_point: typing_extensions.Annotated[
-        typing.Optional[AssetDataInputLastPoint], FieldMetadata(alias="lastPoint")
-    ] = pydantic.Field(alias="lastPoint", default=None)
+        typing.Optional[AssetDataInputLastPoint], FieldMetadata(alias="lastPoint"), pydantic.Field(alias="lastPoint")
+    ] = None
     name: typing.Optional[str] = pydantic.Field(default=None)
     """
     Name of the data input

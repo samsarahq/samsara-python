@@ -15,25 +15,29 @@ class CameraDetailsResponseResponseBody(UniversalBaseModel):
     """
 
     gateway_last_connected_time: typing_extensions.Annotated[
-        typing.Optional[dt.datetime], FieldMetadata(alias="gatewayLastConnectedTime")
-    ] = pydantic.Field(alias="gatewayLastConnectedTime", default=None)
-    """
-    The timestamp when the gateway was last connected to the vehicle, in RFC 3339 format.
-    """
-
+        typing.Optional[dt.datetime],
+        FieldMetadata(alias="gatewayLastConnectedTime"),
+        pydantic.Field(
+            alias="gatewayLastConnectedTime",
+            description="The timestamp when the gateway was last connected to the vehicle, in RFC 3339 format.",
+        ),
+    ] = None
     last_fifty_hours_uptime_percentage: typing_extensions.Annotated[
-        typing.Optional[float], FieldMetadata(alias="lastFiftyHoursUptimePercentage")
-    ] = pydantic.Field(alias="lastFiftyHoursUptimePercentage", default=None)
-    """
-    The percentage of successful recording time during the time when the vehicle is on an active trip over the past 50 hours, in percentage points.
-    """
-
+        typing.Optional[float],
+        FieldMetadata(alias="lastFiftyHoursUptimePercentage"),
+        pydantic.Field(
+            alias="lastFiftyHoursUptimePercentage",
+            description="The percentage of successful recording time during the time when the vehicle is on an active trip over the past 50 hours, in percentage points.",
+        ),
+    ] = None
     vehicle_gateway_serial: typing_extensions.Annotated[
-        typing.Optional[str], FieldMetadata(alias="vehicleGatewaySerial")
-    ] = pydantic.Field(alias="vehicleGatewaySerial", default=None)
-    """
-    The serial number of the vehicle gateway that the camera is connected to.
-    """
+        typing.Optional[str],
+        FieldMetadata(alias="vehicleGatewaySerial"),
+        pydantic.Field(
+            alias="vehicleGatewaySerial",
+            description="The serial number of the vehicle gateway that the camera is connected to.",
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

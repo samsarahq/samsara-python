@@ -14,12 +14,10 @@ class IdlingEventAssetObjectResponseBody(UniversalBaseModel):
     """
 
     external_ids: typing_extensions.Annotated[
-        typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(alias="externalIds", default=None)
-    """
-    A map of external ids for the asset.
-    """
-
+        typing.Optional[typing.Dict[str, str]],
+        FieldMetadata(alias="externalIds"),
+        pydantic.Field(alias="externalIds", description="A map of external ids for the asset."),
+    ] = None
     id: int = pydantic.Field()
     """
     Samsara ID of the asset assigned to the event. Returns vehicle ID at this time.

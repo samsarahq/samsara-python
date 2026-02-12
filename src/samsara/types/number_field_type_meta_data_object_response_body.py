@@ -14,11 +14,12 @@ class NumberFieldTypeMetaDataObjectResponseBody(UniversalBaseModel):
     """
 
     number_of_decimal_places: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="numberOfDecimalPlaces")
-    ] = pydantic.Field(alias="numberOfDecimalPlaces", default=None)
-    """
-    The number of decimal places allowed for the field.
-    """
+        typing.Optional[int],
+        FieldMetadata(alias="numberOfDecimalPlaces"),
+        pydantic.Field(
+            alias="numberOfDecimalPlaces", description="The number of decimal places allowed for the field."
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

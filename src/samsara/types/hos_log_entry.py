@@ -24,21 +24,24 @@ class HosLogEntry(UniversalBaseModel):
     """
 
     hos_status_type: typing_extensions.Annotated[
-        typing.Optional[HosLogEntryHosStatusType], FieldMetadata(alias="hosStatusType")
-    ] = pydantic.Field(alias="hosStatusType", default=None)
-    """
-    The Hours of Service status type. Valid values: `offDuty`, `sleeperBed`, `driving`, `onDuty`, `yardMove`, `personalConveyance`.
-    """
-
-    log_end_time: typing_extensions.Annotated[typing.Optional[Time], FieldMetadata(alias="logEndTime")] = (
-        pydantic.Field(alias="logEndTime", default=None)
-    )
+        typing.Optional[HosLogEntryHosStatusType],
+        FieldMetadata(alias="hosStatusType"),
+        pydantic.Field(
+            alias="hosStatusType",
+            description="The Hours of Service status type. Valid values: `offDuty`, `sleeperBed`, `driving`, `onDuty`, `yardMove`, `personalConveyance`.",
+        ),
+    ] = None
+    log_end_time: typing_extensions.Annotated[
+        typing.Optional[Time], FieldMetadata(alias="logEndTime"), pydantic.Field(alias="logEndTime")
+    ] = None
     log_recorded_location: typing_extensions.Annotated[
-        typing.Optional[HosLogLocation], FieldMetadata(alias="logRecordedLocation")
-    ] = pydantic.Field(alias="logRecordedLocation", default=None)
-    log_start_time: typing_extensions.Annotated[Time, FieldMetadata(alias="logStartTime")] = pydantic.Field(
-        alias="logStartTime"
-    )
+        typing.Optional[HosLogLocation],
+        FieldMetadata(alias="logRecordedLocation"),
+        pydantic.Field(alias="logRecordedLocation"),
+    ] = None
+    log_start_time: typing_extensions.Annotated[
+        Time, FieldMetadata(alias="logStartTime"), pydantic.Field(alias="logStartTime")
+    ]
     remark: typing.Optional[str] = pydantic.Field(default=None)
     """
     Remark associated with the log entry.

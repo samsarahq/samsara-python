@@ -16,11 +16,15 @@ class HealthDetailsResponseResponseBody(UniversalBaseModel):
     """
 
     camera_details: typing_extensions.Annotated[
-        typing.Optional[CameraDetailsResponseResponseBody], FieldMetadata(alias="cameraDetails")
-    ] = pydantic.Field(alias="cameraDetails", default=None)
+        typing.Optional[CameraDetailsResponseResponseBody],
+        FieldMetadata(alias="cameraDetails"),
+        pydantic.Field(alias="cameraDetails"),
+    ] = None
     gateway_details: typing_extensions.Annotated[
-        typing.Optional[GatewayDetailsResponseResponseBody], FieldMetadata(alias="gatewayDetails")
-    ] = pydantic.Field(alias="gatewayDetails", default=None)
+        typing.Optional[GatewayDetailsResponseResponseBody],
+        FieldMetadata(alias="gatewayDetails"),
+        pydantic.Field(alias="gatewayDetails"),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

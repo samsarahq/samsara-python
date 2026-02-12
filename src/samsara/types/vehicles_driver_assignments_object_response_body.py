@@ -11,19 +11,15 @@ from .driver_assignment_object_response_body import DriverAssignmentObjectRespon
 
 class VehiclesDriverAssignmentsObjectResponseBody(UniversalBaseModel):
     driver_assignments: typing_extensions.Annotated[
-        typing.List[DriverAssignmentObjectResponseBody], FieldMetadata(alias="driverAssignments")
-    ] = pydantic.Field(alias="driverAssignments")
-    """
-    List of driver assignment objects.
-    """
-
+        typing.List[DriverAssignmentObjectResponseBody],
+        FieldMetadata(alias="driverAssignments"),
+        pydantic.Field(alias="driverAssignments", description="List of driver assignment objects."),
+    ]
     external_ids: typing_extensions.Annotated[
-        typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(alias="externalIds", default=None)
-    """
-    A map of external ids
-    """
-
+        typing.Optional[typing.Dict[str, str]],
+        FieldMetadata(alias="externalIds"),
+        pydantic.Field(alias="externalIds", description="A map of external ids"),
+    ] = None
     id: str = pydantic.Field()
     """
     ID of the vehicle.

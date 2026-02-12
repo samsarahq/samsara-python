@@ -13,22 +13,21 @@ class ServiceWindowObjectResponseBody(UniversalBaseModel):
     Service window
     """
 
-    days_of_week: typing_extensions.Annotated[typing.List[str], FieldMetadata(alias="daysOfWeek")] = pydantic.Field(
-        alias="daysOfWeek"
-    )
-    """
-    Days of the week when the service window applies
-    """
-
-    end_time: typing_extensions.Annotated[str, FieldMetadata(alias="endTime")] = pydantic.Field(alias="endTime")
-    """
-    End time of the service window
-    """
-
-    start_time: typing_extensions.Annotated[str, FieldMetadata(alias="startTime")] = pydantic.Field(alias="startTime")
-    """
-    Start time of the service window
-    """
+    days_of_week: typing_extensions.Annotated[
+        typing.List[str],
+        FieldMetadata(alias="daysOfWeek"),
+        pydantic.Field(alias="daysOfWeek", description="Days of the week when the service window applies"),
+    ]
+    end_time: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="endTime"),
+        pydantic.Field(alias="endTime", description="End time of the service window"),
+    ]
+    start_time: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="startTime"),
+        pydantic.Field(alias="startTime", description="Start time of the service window"),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

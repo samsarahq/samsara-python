@@ -19,27 +19,27 @@ class RouteSettingsRequestBody(UniversalBaseModel):
     route_completion_condition: typing_extensions.Annotated[
         typing.Optional[RouteSettingsRequestBodyRouteCompletionCondition],
         FieldMetadata(alias="routeCompletionCondition"),
-    ] = pydantic.Field(alias="routeCompletionCondition", default=None)
-    """
-    Defaults to 'arriveLastStop' which ends the route upon arriving at the final stop. The condition 'departLastStop' 
-    ends the route upon departing the last stop. If 'arriveLastStop' is set, then the departure time of the final stop should not be set.  Valid values: `arriveLastStop`, `departLastStop`
-    """
-
+        pydantic.Field(
+            alias="routeCompletionCondition",
+            description="Defaults to 'arriveLastStop' which ends the route upon arriving at the final stop. The condition 'departLastStop' \nends the route upon departing the last stop. If 'arriveLastStop' is set, then the departure time of the final stop should not be set.  Valid values: `arriveLastStop`, `departLastStop`",
+        ),
+    ] = None
     route_starting_condition: typing_extensions.Annotated[
-        typing.Optional[RouteSettingsRequestBodyRouteStartingCondition], FieldMetadata(alias="routeStartingCondition")
-    ] = pydantic.Field(alias="routeStartingCondition", default=None)
-    """
-    Defaults to 'departFirstStop' which starts the route upon departing the first stop in the route.
-     The condition 'arriveFirstStop' starts the route upon arriving at the first stop in the route. If 'departFirstStop' is set,
-    the arrival time of the first stop should not be set.  Valid values: `departFirstStop`, `arriveFirstStop`
-    """
-
+        typing.Optional[RouteSettingsRequestBodyRouteStartingCondition],
+        FieldMetadata(alias="routeStartingCondition"),
+        pydantic.Field(
+            alias="routeStartingCondition",
+            description="Defaults to 'departFirstStop' which starts the route upon departing the first stop in the route.\n The condition 'arriveFirstStop' starts the route upon arriving at the first stop in the route. If 'departFirstStop' is set,\nthe arrival time of the first stop should not be set.  Valid values: `departFirstStop`, `arriveFirstStop`",
+        ),
+    ] = None
     sequencing_method: typing_extensions.Annotated[
-        typing.Optional[RouteSettingsRequestBodySequencingMethod], FieldMetadata(alias="sequencingMethod")
-    ] = pydantic.Field(alias="sequencingMethod", default=None)
-    """
-    Determines how stops are sequenced on the route. 'scheduledArrivalTime' sequences stops by their scheduled arrival times (default). 'manual' allows custom sequencing via stop.sequenceNumber. 'unknown' indicates the method is not specified.  Valid values: `unknown`, `scheduledArrivalTime`, `manual`
-    """
+        typing.Optional[RouteSettingsRequestBodySequencingMethod],
+        FieldMetadata(alias="sequencingMethod"),
+        pydantic.Field(
+            alias="sequencingMethod",
+            description="Determines how stops are sequenced on the route. 'scheduledArrivalTime' sequences stops by their scheduled arrival times (default). 'manual' allows custom sequencing via stop.sequenceNumber. 'unknown' indicates the method is not specified.  Valid values: `unknown`, `scheduledArrivalTime`, `manual`",
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

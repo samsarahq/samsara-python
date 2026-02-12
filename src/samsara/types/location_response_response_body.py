@@ -15,22 +15,23 @@ class LocationResponseResponseBody(UniversalBaseModel):
     Location object.
     """
 
-    accuracy_meters: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="accuracyMeters")] = (
-        pydantic.Field(alias="accuracyMeters", default=None)
-    )
-    """
-    Radial accuracy of gps location in meters. This will only return if strong GPS is not available.
-    """
-
+    accuracy_meters: typing_extensions.Annotated[
+        typing.Optional[float],
+        FieldMetadata(alias="accuracyMeters"),
+        pydantic.Field(
+            alias="accuracyMeters",
+            description="Radial accuracy of gps location in meters. This will only return if strong GPS is not available.",
+        ),
+    ] = None
     address: typing.Optional[AddressResponseResponseBody] = None
     geofence: typing.Optional[GeofenceResponseResponseBody] = None
-    heading_degrees: typing_extensions.Annotated[int, FieldMetadata(alias="headingDegrees")] = pydantic.Field(
-        alias="headingDegrees"
-    )
-    """
-    Heading of the asset in degrees. May be 0 if the asset is not moving.
-    """
-
+    heading_degrees: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="headingDegrees"),
+        pydantic.Field(
+            alias="headingDegrees", description="Heading of the asset in degrees. May be 0 if the asset is not moving."
+        ),
+    ]
     latitude: float = pydantic.Field()
     """
     Latitude of the location of the asset.

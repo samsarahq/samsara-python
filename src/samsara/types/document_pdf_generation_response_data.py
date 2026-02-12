@@ -9,13 +9,11 @@ from ..core.serialization import FieldMetadata
 
 
 class DocumentPdfGenerationResponseData(UniversalBaseModel):
-    document_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="documentId")] = pydantic.Field(
-        alias="documentId", default=None
-    )
-    """
-    ID of the document.
-    """
-
+    document_id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="documentId"),
+        pydantic.Field(alias="documentId", description="ID of the document."),
+    ] = None
     id: typing.Optional[str] = pydantic.Field(default=None)
     """
     ID of the PDF file generated or being generated for the document.

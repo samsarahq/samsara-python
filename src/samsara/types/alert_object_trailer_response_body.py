@@ -21,12 +21,10 @@ class AlertObjectTrailerResponseBody(UniversalBaseModel):
     """
 
     external_ids: typing_extensions.Annotated[
-        typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(alias="externalIds", default=None)
-    """
-    A map of external ids
-    """
-
+        typing.Optional[typing.Dict[str, str]],
+        FieldMetadata(alias="externalIds"),
+        pydantic.Field(alias="externalIds", description="A map of external ids"),
+    ] = None
     id: str = pydantic.Field()
     """
     The ID of the trailer. This is automatically generated when the trailer is created. It cannot be changed.
@@ -43,11 +41,10 @@ class AlertObjectTrailerResponseBody(UniversalBaseModel):
     """
 
     trailer_serial_number: typing_extensions.Annotated[
-        typing.Optional[str], FieldMetadata(alias="trailerSerialNumber")
-    ] = pydantic.Field(alias="trailerSerialNumber", default=None)
-    """
-    The serial number of the trailer.
-    """
+        typing.Optional[str],
+        FieldMetadata(alias="trailerSerialNumber"),
+        pydantic.Field(alias="trailerSerialNumber", description="The serial number of the trailer."),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

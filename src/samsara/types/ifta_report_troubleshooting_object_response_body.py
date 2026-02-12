@@ -13,33 +13,37 @@ class IftaReportTroubleshootingObjectResponseBody(UniversalBaseModel):
     IFTA report troubleshooting information.
     """
 
-    no_purchases_found: typing_extensions.Annotated[bool, FieldMetadata(alias="noPurchasesFound")] = pydantic.Field(
-        alias="noPurchasesFound"
-    )
-    """
-    Whether or not fuel purchases were found for this report.
-    """
-
+    no_purchases_found: typing_extensions.Annotated[
+        bool,
+        FieldMetadata(alias="noPurchasesFound"),
+        pydantic.Field(
+            alias="noPurchasesFound", description="Whether or not fuel purchases were found for this report."
+        ),
+    ]
     unassigned_fuel_type_purchases: typing_extensions.Annotated[
-        int, FieldMetadata(alias="unassignedFuelTypePurchases")
-    ] = pydantic.Field(alias="unassignedFuelTypePurchases")
-    """
-    The number of fuel purchases without a fuel type assigned. Fuel purchases are used to calculate tax paid gallons.
-    """
-
+        int,
+        FieldMetadata(alias="unassignedFuelTypePurchases"),
+        pydantic.Field(
+            alias="unassignedFuelTypePurchases",
+            description="The number of fuel purchases without a fuel type assigned. Fuel purchases are used to calculate tax paid gallons.",
+        ),
+    ]
     unassigned_fuel_type_vehicles: typing_extensions.Annotated[
-        int, FieldMetadata(alias="unassignedFuelTypeVehicles")
-    ] = pydantic.Field(alias="unassignedFuelTypeVehicles")
-    """
-    The number of vehicles without a fuel type assigned. Vehicles without an assigned fuel type may affect total mileage.
-    """
-
+        int,
+        FieldMetadata(alias="unassignedFuelTypeVehicles"),
+        pydantic.Field(
+            alias="unassignedFuelTypeVehicles",
+            description="The number of vehicles without a fuel type assigned. Vehicles without an assigned fuel type may affect total mileage.",
+        ),
+    ]
     unassigned_vehicle_purchases: typing_extensions.Annotated[
-        int, FieldMetadata(alias="unassignedVehiclePurchases")
-    ] = pydantic.Field(alias="unassignedVehiclePurchases")
-    """
-    Purchases without an assigned fuel type may affect tax-paid gallons and fleet mpg.
-    """
+        int,
+        FieldMetadata(alias="unassignedVehiclePurchases"),
+        pydantic.Field(
+            alias="unassignedVehiclePurchases",
+            description="Purchases without an assigned fuel type may affect tax-paid gallons and fleet mpg.",
+        ),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

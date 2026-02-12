@@ -14,20 +14,22 @@ class FormsActionObjectResponseBody(UniversalBaseModel):
     Action object.
     """
 
-    field_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="fieldId")] = pydantic.Field(
-        alias="fieldId", default=None
-    )
-    """
-    Identifier of the followup question that will be shown if the condition is met. Only returned when the action type is `askFollowupQuestion`.
-    """
-
-    section_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="sectionId")] = pydantic.Field(
-        alias="sectionId", default=None
-    )
-    """
-    Identifier of the conditional section that will be shown if the condition is met. Only returned when the action type is `showSection`.
-    """
-
+    field_id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="fieldId"),
+        pydantic.Field(
+            alias="fieldId",
+            description="Identifier of the followup question that will be shown if the condition is met. Only returned when the action type is `askFollowupQuestion`.",
+        ),
+    ] = None
+    section_id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="sectionId"),
+        pydantic.Field(
+            alias="sectionId",
+            description="Identifier of the conditional section that will be shown if the condition is met. Only returned when the action type is `showSection`.",
+        ),
+    ] = None
     type: FormsActionObjectResponseBodyType = pydantic.Field()
     """
     Type of action to take if corresponding condition is met.  Valid values: `askFollowupQuestion`, `showSection`, `requirePhoto`, `requireNote`, `createIssue`

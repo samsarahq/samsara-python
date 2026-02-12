@@ -16,15 +16,15 @@ class AuthorSignatureObjectResponseBody(UniversalBaseModel):
     """
 
     signatory_user: typing_extensions.Annotated[
-        SignatoryUserObjectResponseBody, FieldMetadata(alias="signatoryUser")
-    ] = pydantic.Field(alias="signatoryUser")
-    signed_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="signedAtTime")] = pydantic.Field(
-        alias="signedAtTime"
-    )
-    """
-    The time when the DVIR was signed. UTC timestamp in RFC 3339 format.
-    """
-
+        SignatoryUserObjectResponseBody, FieldMetadata(alias="signatoryUser"), pydantic.Field(alias="signatoryUser")
+    ]
+    signed_at_time: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="signedAtTime"),
+        pydantic.Field(
+            alias="signedAtTime", description="The time when the DVIR was signed. UTC timestamp in RFC 3339 format."
+        ),
+    ]
     type: AuthorSignatureObjectResponseBodyType = pydantic.Field()
     """
     Whether the DVIR was submitted by a driver or mechanic.  Valid values: `driver`, `mechanic`

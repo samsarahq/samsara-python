@@ -16,13 +16,11 @@ class TrailerStatGpsWithDecorationsTypeResponseBody(UniversalBaseModel):
     """
 
     decorations: typing.Optional[TrailerStatDecorationResponseBody] = None
-    heading_degrees: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="headingDegrees")] = (
-        pydantic.Field(alias="headingDegrees", default=None)
-    )
-    """
-    Heading of the trailer in degrees.
-    """
-
+    heading_degrees: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="headingDegrees"),
+        pydantic.Field(alias="headingDegrees", description="Heading of the trailer in degrees."),
+    ] = None
     latitude: float = pydantic.Field()
     """
     GPS latitude represented in degrees.
@@ -34,15 +32,15 @@ class TrailerStatGpsWithDecorationsTypeResponseBody(UniversalBaseModel):
     """
 
     reverse_geo: typing_extensions.Annotated[
-        typing.Optional[ReverseGeoObjectResponseBody], FieldMetadata(alias="reverseGeo")
-    ] = pydantic.Field(alias="reverseGeo", default=None)
+        typing.Optional[ReverseGeoObjectResponseBody],
+        FieldMetadata(alias="reverseGeo"),
+        pydantic.Field(alias="reverseGeo"),
+    ] = None
     speed_miles_per_hour: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="speedMilesPerHour")
-    ] = pydantic.Field(alias="speedMilesPerHour", default=None)
-    """
-    GPS speed of the trailer in miles per hour.
-    """
-
+        typing.Optional[int],
+        FieldMetadata(alias="speedMilesPerHour"),
+        pydantic.Field(alias="speedMilesPerHour", description="GPS speed of the trailer in miles per hour."),
+    ] = None
     time: str = pydantic.Field()
     """
     UTC timestamp in RFC 3339 format.

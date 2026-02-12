@@ -13,20 +13,16 @@ class LiveSharingLinkResponseObjectResponseBody(UniversalBaseModel):
     Live Sharing Link response object.
     """
 
-    expires_at_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="expiresAtTime")] = (
-        pydantic.Field(alias="expiresAtTime", default=None)
-    )
-    """
-    Date that this link expires, in RFC 3339 format.
-    """
-
-    live_sharing_url: typing_extensions.Annotated[str, FieldMetadata(alias="liveSharingUrl")] = pydantic.Field(
-        alias="liveSharingUrl"
-    )
-    """
-    The shareable URL of the vehicle's location.
-    """
-
+    expires_at_time: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="expiresAtTime"),
+        pydantic.Field(alias="expiresAtTime", description="Date that this link expires, in RFC 3339 format."),
+    ] = None
+    live_sharing_url: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="liveSharingUrl"),
+        pydantic.Field(alias="liveSharingUrl", description="The shareable URL of the vehicle's location."),
+    ]
     name: str = pydantic.Field()
     """
     Name of the Live Sharing Link.

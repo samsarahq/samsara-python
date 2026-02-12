@@ -17,13 +17,11 @@ class AssetsLocationLinkResponseConfigObjectResponseBody(UniversalBaseModel):
     Configuration details specific to the 'By Asset' Live Sharing Link.
     """
 
-    asset_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="assetId")] = pydantic.Field(
-        alias="assetId", default=None
-    )
-    """
-    Unique assets ID that Live Sharing Link will show.
-    """
-
+    asset_id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="assetId"),
+        pydantic.Field(alias="assetId", description="Unique assets ID that Live Sharing Link will show."),
+    ] = None
     location: typing.Optional[AssetsLocationLinkConfigAddressDetailsObjectResponseBody] = None
     tags: typing.Optional[typing.List[GoaTagTinyResponseResponseBody]] = pydantic.Field(default=None)
     """

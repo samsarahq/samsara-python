@@ -16,8 +16,8 @@ from .workflow_address_event_with_geofence_object_response_body import (
 class WorkflowGeofenceEventResponseObjectResponseBody(UniversalBaseModel):
     address: typing.Optional[WorkflowAddressEventWithGeofenceObjectResponseBody] = None
     fuel_volume: typing_extensions.Annotated[
-        typing.Optional[FuelVolumeResponseBody], FieldMetadata(alias="fuelVolume")
-    ] = pydantic.Field(alias="fuelVolume", default=None)
+        typing.Optional[FuelVolumeResponseBody], FieldMetadata(alias="fuelVolume"), pydantic.Field(alias="fuelVolume")
+    ] = None
     vehicle: typing.Optional[VehicleWithGatewayTinyResponseResponseBody] = None
 
     if IS_PYDANTIC_V2:

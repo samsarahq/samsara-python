@@ -22,9 +22,9 @@ class VehicleLocation(UniversalBaseModel):
     heading: typing.Optional[VehicleLocationHeading] = None
     latitude: VehicleLocationLatitude
     longitude: VehicleLocationLongitude
-    reverse_geo: typing_extensions.Annotated[typing.Optional[ReverseGeo], FieldMetadata(alias="reverseGeo")] = (
-        pydantic.Field(alias="reverseGeo", default=None)
-    )
+    reverse_geo: typing_extensions.Annotated[
+        typing.Optional[ReverseGeo], FieldMetadata(alias="reverseGeo"), pydantic.Field(alias="reverseGeo")
+    ] = None
     speed: typing.Optional[VehicleLocationSpeed] = None
     time: Time
 

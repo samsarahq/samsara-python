@@ -22,45 +22,43 @@ class PatchResponseWorkflowConfigurationObjectResponseBody(UniversalBaseModel):
     An array of actions.
     """
 
-    created_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="createdAtTime")] = pydantic.Field(
-        alias="createdAtTime"
-    )
-    """
-    The time the configuration was created in RFC 3339 format.
-    """
-
+    created_at_time: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="createdAtTime"),
+        pydantic.Field(alias="createdAtTime", description="The time the configuration was created in RFC 3339 format."),
+    ]
     external_ids: typing_extensions.Annotated[
-        typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(alias="externalIds", default=None)
-    """
-    A map of external ids
-    """
-
+        typing.Optional[typing.Dict[str, str]],
+        FieldMetadata(alias="externalIds"),
+        pydantic.Field(alias="externalIds", description="A map of external ids"),
+    ] = None
     id: str = pydantic.Field()
     """
     The unqiue Samsara id of the alert configuration.
     """
 
-    is_enabled: typing_extensions.Annotated[bool, FieldMetadata(alias="isEnabled")] = pydantic.Field(alias="isEnabled")
-    """
-    Whether the alert is enabled or not.
-    """
-
-    last_modified_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="lastModifiedAtTime")] = pydantic.Field(
-        alias="lastModifiedAtTime"
-    )
-    """
-    The time the configuration was last modified in RFC 3339 format.
-    """
-
+    is_enabled: typing_extensions.Annotated[
+        bool,
+        FieldMetadata(alias="isEnabled"),
+        pydantic.Field(alias="isEnabled", description="Whether the alert is enabled or not."),
+    ]
+    last_modified_at_time: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="lastModifiedAtTime"),
+        pydantic.Field(
+            alias="lastModifiedAtTime", description="The time the configuration was last modified in RFC 3339 format."
+        ),
+    ]
     name: str = pydantic.Field()
     """
     The custom name of the configuration.
     """
 
     operational_settings: typing_extensions.Annotated[
-        typing.Optional[OperationalSettingsObjectResponseBody], FieldMetadata(alias="operationalSettings")
-    ] = pydantic.Field(alias="operationalSettings", default=None)
+        typing.Optional[OperationalSettingsObjectResponseBody],
+        FieldMetadata(alias="operationalSettings"),
+        pydantic.Field(alias="operationalSettings"),
+    ] = None
     scope: ScopeObjectResponseBody
     triggers: typing.List[WorkflowTriggerObjectResponseBody] = pydantic.Field()
     """

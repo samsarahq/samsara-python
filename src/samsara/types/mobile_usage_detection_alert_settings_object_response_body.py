@@ -14,25 +14,25 @@ class MobileUsageDetectionAlertSettingsObjectResponseBody(UniversalBaseModel):
     """
 
     has_in_cab_audio_alerts_enabled: typing_extensions.Annotated[
-        typing.Optional[bool], FieldMetadata(alias="hasInCabAudioAlertsEnabled")
-    ] = pydantic.Field(alias="hasInCabAudioAlertsEnabled", default=None)
-    """
-    Indicates whether in-cab audio alerts for mobile usage are turned on.
-    """
-
-    is_enabled: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="isEnabled")] = pydantic.Field(
-        alias="isEnabled", default=None
-    )
-    """
-    Indicates whether AI event detection for mobile usage is turned on.
-    """
-
+        typing.Optional[bool],
+        FieldMetadata(alias="hasInCabAudioAlertsEnabled"),
+        pydantic.Field(
+            alias="hasInCabAudioAlertsEnabled",
+            description="Indicates whether in-cab audio alerts for mobile usage are turned on.",
+        ),
+    ] = None
+    is_enabled: typing_extensions.Annotated[
+        typing.Optional[bool],
+        FieldMetadata(alias="isEnabled"),
+        pydantic.Field(
+            alias="isEnabled", description="Indicates whether AI event detection for mobile usage is turned on."
+        ),
+    ] = None
     speeding_threshold_mph: typing_extensions.Annotated[
-        typing.Optional[float], FieldMetadata(alias="speedingThresholdMph")
-    ] = pydantic.Field(alias="speedingThresholdMph", default=None)
-    """
-    Alert when speed is over this many miles per hour.
-    """
+        typing.Optional[float],
+        FieldMetadata(alias="speedingThresholdMph"),
+        pydantic.Field(alias="speedingThresholdMph", description="Alert when speed is over this many miles per hour."),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

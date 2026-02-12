@@ -157,9 +157,7 @@ class ContactsClient:
         _response = self._raw_client.get_contact(id, request_options=request_options)
         return _response.data
 
-    def delete_contact(
-        self, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> StandardDeleteResponse:
+    def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> StandardDeleteResponse:
         """
         Delete the given contact.
 
@@ -187,11 +185,11 @@ class ContactsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.contacts.delete_contact(
+        client.contacts.delete(
             id="id",
         )
         """
-        _response = self._raw_client.delete_contact(id, request_options=request_options)
+        _response = self._raw_client.delete(id, request_options=request_options)
         return _response.data
 
     def update_contact(
@@ -421,7 +419,7 @@ class AsyncContactsClient:
         _response = await self._raw_client.get_contact(id, request_options=request_options)
         return _response.data
 
-    async def delete_contact(
+    async def delete(
         self, id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> StandardDeleteResponse:
         """
@@ -456,14 +454,14 @@ class AsyncContactsClient:
 
 
         async def main() -> None:
-            await client.contacts.delete_contact(
+            await client.contacts.delete(
                 id="id",
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.delete_contact(id, request_options=request_options)
+        _response = await self._raw_client.delete(id, request_options=request_options)
         return _response.data
 
     async def update_contact(

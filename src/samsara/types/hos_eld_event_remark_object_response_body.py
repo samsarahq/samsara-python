@@ -14,13 +14,11 @@ class HosEldEventRemarkObjectResponseBody(UniversalBaseModel):
     The content of the remark.
     """
 
-    location_description: typing_extensions.Annotated[str, FieldMetadata(alias="locationDescription")] = pydantic.Field(
-        alias="locationDescription"
-    )
-    """
-    The location description entered by the user
-    """
-
+    location_description: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="locationDescription"),
+        pydantic.Field(alias="locationDescription", description="The location description entered by the user"),
+    ]
     time: str = pydantic.Field()
     """
     The time in RFC 3339 format at which the remark was created.

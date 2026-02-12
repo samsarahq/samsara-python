@@ -13,24 +13,21 @@ class ContactTinyResponse(UniversalBaseModel):
     A minified contact object
     """
 
-    first_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="firstName")] = pydantic.Field(
-        alias="firstName", default=None
-    )
-    """
-    First name of the contact.
-    """
-
+    first_name: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="firstName"),
+        pydantic.Field(alias="firstName", description="First name of the contact."),
+    ] = None
     id: typing.Optional[str] = pydantic.Field(default=None)
     """
     ID of the contact.
     """
 
-    last_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="lastName")] = pydantic.Field(
-        alias="lastName", default=None
-    )
-    """
-    Last name of the contact.
-    """
+    last_name: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="lastName"),
+        pydantic.Field(alias="lastName", description="Last name of the contact."),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

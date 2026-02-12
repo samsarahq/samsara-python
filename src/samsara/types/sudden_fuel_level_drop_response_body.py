@@ -17,35 +17,35 @@ class SuddenFuelLevelDropResponseBody(UniversalBaseModel):
     Details specific to Sudden Fuel Level Drop.
     """
 
-    change_end_time: typing_extensions.Annotated[typing.Optional[dt.datetime], FieldMetadata(alias="changeEndTime")] = (
-        pydantic.Field(alias="changeEndTime", default=None)
-    )
-    """
-    The end time of the fuel level change in RFC 3339 format.
-    """
-
+    change_end_time: typing_extensions.Annotated[
+        typing.Optional[dt.datetime],
+        FieldMetadata(alias="changeEndTime"),
+        pydantic.Field(alias="changeEndTime", description="The end time of the fuel level change in RFC 3339 format."),
+    ] = None
     change_start_time: typing_extensions.Annotated[
-        typing.Optional[dt.datetime], FieldMetadata(alias="changeStartTime")
-    ] = pydantic.Field(alias="changeStartTime", default=None)
-    """
-    The start time of the fuel level change in RFC 3339 format.
-    """
-
+        typing.Optional[dt.datetime],
+        FieldMetadata(alias="changeStartTime"),
+        pydantic.Field(
+            alias="changeStartTime", description="The start time of the fuel level change in RFC 3339 format."
+        ),
+    ] = None
     driver: typing.Optional[AlertObjectDriverResponseBody] = None
     fuel_level_after_millipercent: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="fuelLevelAfterMillipercent")
-    ] = pydantic.Field(alias="fuelLevelAfterMillipercent", default=None)
-    """
-    The fuel level after the sudden fuel level drop in millipercents.
-    """
-
+        typing.Optional[int],
+        FieldMetadata(alias="fuelLevelAfterMillipercent"),
+        pydantic.Field(
+            alias="fuelLevelAfterMillipercent",
+            description="The fuel level after the sudden fuel level drop in millipercents.",
+        ),
+    ] = None
     fuel_level_before_millipercent: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="fuelLevelBeforeMillipercent")
-    ] = pydantic.Field(alias="fuelLevelBeforeMillipercent", default=None)
-    """
-    The fuel level before the sudden fuel level drop in millipercents.
-    """
-
+        typing.Optional[int],
+        FieldMetadata(alias="fuelLevelBeforeMillipercent"),
+        pydantic.Field(
+            alias="fuelLevelBeforeMillipercent",
+            description="The fuel level before the sudden fuel level drop in millipercents.",
+        ),
+    ] = None
     location: typing.Optional[EventLocationResponseBody] = None
     vehicle: typing.Optional[AlertObjectVehicleResponseBody] = None
 

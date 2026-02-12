@@ -18,63 +18,71 @@ class FormSubmissionPdfExportResponseObjectResponseBody(UniversalBaseModel):
     """
 
     completed_at_time: typing_extensions.Annotated[
-        typing.Optional[dt.datetime], FieldMetadata(alias="completedAtTime")
-    ] = pydantic.Field(alias="completedAtTime", default=None)
-    """
-    Time when the PDF export job was completed. Included if 'jobStatus' is 'done'. UTC timestamp in RFC 3339 format.
-    """
-
-    error_message: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="errorMessage")] = (
-        pydantic.Field(alias="errorMessage", default=None)
-    )
-    """
-    An error message for failed PDF export jobs. Included if 'jobStatus' is 'failed'.
-    """
-
-    expires_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="expiresAtTime")] = pydantic.Field(
-        alias="expiresAtTime"
-    )
-    """
-    Time when the PDF export job expires. After expiration, GET requests for this job will fail and clients must create a new one with another POST request. UTC timestamp in RFC 3339 format.
-    """
-
+        typing.Optional[dt.datetime],
+        FieldMetadata(alias="completedAtTime"),
+        pydantic.Field(
+            alias="completedAtTime",
+            description="Time when the PDF export job was completed. Included if 'jobStatus' is 'done'. UTC timestamp in RFC 3339 format.",
+        ),
+    ] = None
+    error_message: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="errorMessage"),
+        pydantic.Field(
+            alias="errorMessage",
+            description="An error message for failed PDF export jobs. Included if 'jobStatus' is 'failed'.",
+        ),
+    ] = None
+    expires_at_time: typing_extensions.Annotated[
+        dt.datetime,
+        FieldMetadata(alias="expiresAtTime"),
+        pydantic.Field(
+            alias="expiresAtTime",
+            description="Time when the PDF export job expires. After expiration, GET requests for this job will fail and clients must create a new one with another POST request. UTC timestamp in RFC 3339 format.",
+        ),
+    ]
     id: str = pydantic.Field()
     """
     ID of the form submission being exported.
     """
 
     job_status: typing_extensions.Annotated[
-        FormSubmissionPdfExportResponseObjectResponseBodyJobStatus, FieldMetadata(alias="jobStatus")
-    ] = pydantic.Field(alias="jobStatus")
-    """
-    Status of the PDF export job.  Valid values: `unknown`, `pending`, `done`, `failed`
-    """
-
-    pdf_id: typing_extensions.Annotated[str, FieldMetadata(alias="pdfId")] = pydantic.Field(alias="pdfId")
-    """
-    Unique ID for the PDF export that is created.
-    """
-
-    pdf_url: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="pdfUrl")] = pydantic.Field(
-        alias="pdfUrl", default=None
-    )
-    """
-    URL to download the PDF file. Expires at time specified in 'pdfUrlExpiresAtTime'. Included if 'jobStatus' is 'done'.
-    """
-
+        FormSubmissionPdfExportResponseObjectResponseBodyJobStatus,
+        FieldMetadata(alias="jobStatus"),
+        pydantic.Field(
+            alias="jobStatus",
+            description="Status of the PDF export job.  Valid values: `unknown`, `pending`, `done`, `failed`",
+        ),
+    ]
+    pdf_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="pdfId"),
+        pydantic.Field(alias="pdfId", description="Unique ID for the PDF export that is created."),
+    ]
+    pdf_url: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="pdfUrl"),
+        pydantic.Field(
+            alias="pdfUrl",
+            description="URL to download the PDF file. Expires at time specified in 'pdfUrlExpiresAtTime'. Included if 'jobStatus' is 'done'.",
+        ),
+    ] = None
     pdf_url_expires_at_time: typing_extensions.Annotated[
-        typing.Optional[dt.datetime], FieldMetadata(alias="pdfUrlExpiresAtTime")
-    ] = pydantic.Field(alias="pdfUrlExpiresAtTime", default=None)
-    """
-    Time when the PDF export's 'pdfUrl' expires. After expiration, clients can retrieve a fresh url with another GET request. UTC timestamp in RFC 3339 format.
-    """
-
-    requested_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="requestedAtTime")] = (
-        pydantic.Field(alias="requestedAtTime")
-    )
-    """
-    Time when the PDF export POST request was made. UTC timestamp in RFC 3339 format.
-    """
+        typing.Optional[dt.datetime],
+        FieldMetadata(alias="pdfUrlExpiresAtTime"),
+        pydantic.Field(
+            alias="pdfUrlExpiresAtTime",
+            description="Time when the PDF export's 'pdfUrl' expires. After expiration, clients can retrieve a fresh url with another GET request. UTC timestamp in RFC 3339 format.",
+        ),
+    ] = None
+    requested_at_time: typing_extensions.Annotated[
+        dt.datetime,
+        FieldMetadata(alias="requestedAtTime"),
+        pydantic.Field(
+            alias="requestedAtTime",
+            description="Time when the PDF export POST request was made. UTC timestamp in RFC 3339 format.",
+        ),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

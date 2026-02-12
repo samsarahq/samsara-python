@@ -24,24 +24,24 @@ class HosViolationObjectResponseBody(UniversalBaseModel):
     """
 
     driver: GoaDriverTinyResponseResponseBody
-    duration_ms: typing_extensions.Annotated[int, FieldMetadata(alias="durationMs")] = pydantic.Field(
-        alias="durationMs"
-    )
-    """
-    Duration the driver was in violation in milliseconds. This is the time between the time the driver starts being in violation until the end of the time window for violations that have one (e.g. `shiftDrivingHours`) or until the end of the day. The duration of some violations may cover the whole day (e.g. `unsubmittedLogs`).
-    """
-
+    duration_ms: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="durationMs"),
+        pydantic.Field(
+            alias="durationMs",
+            description="Duration the driver was in violation in milliseconds. This is the time between the time the driver starts being in violation until the end of the time window for violations that have one (e.g. `shiftDrivingHours`) or until the end of the day. The duration of some violations may cover the whole day (e.g. `unsubmittedLogs`).",
+        ),
+    ]
     type: HosViolationObjectResponseBodyType = pydantic.Field()
     """
     The string value of the violation type.  Valid values: `NONE`, `californiaMealbreakMissed`, `cycleHoursOn`, `cycleOffHoursAfterOnDutyHours`, `dailyDrivingHours`, `dailyOffDutyDeferralAddToDay2Consecutive`, `dailyOffDutyDeferralNotPartMandatory`, `dailyOffDutyDeferralTwoDayDrivingLimit`, `dailyOffDutyDeferralTwoDayOffDuty`, `dailyOffDutyNonResetHours`, `dailyOffDutyTotalHours`, `dailyOnDutyHours`, `mandatory24HoursOffDuty`, `restbreakMissed`, `shiftDrivingHours`, `shiftHours`, `shiftOnDutyHours`, `unsubmittedLogs`
     """
 
-    violation_start_time: typing_extensions.Annotated[str, FieldMetadata(alias="violationStartTime")] = pydantic.Field(
-        alias="violationStartTime"
-    )
-    """
-    The start time of the violation in RFC 3339 format.
-    """
+    violation_start_time: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="violationStartTime"),
+        pydantic.Field(alias="violationStartTime", description="The start time of the violation in RFC 3339 format."),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

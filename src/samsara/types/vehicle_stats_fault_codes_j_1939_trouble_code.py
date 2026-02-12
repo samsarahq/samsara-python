@@ -15,55 +15,45 @@ class VehicleStatsFaultCodesJ1939TroubleCode(UniversalBaseModel):
     Diagnostic trouble code for J1939 vehicles.
     """
 
-    fmi_description: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="fmiDescription")] = (
-        pydantic.Field(alias="fmiDescription", default=None)
-    )
-    """
-    A short description of the FMI identifier, if available.
-    """
-
-    fmi_id: typing_extensions.Annotated[int, FieldMetadata(alias="fmiId")] = pydantic.Field(alias="fmiId")
-    """
-    The FMI identifier.
-    """
-
-    mil_status: typing_extensions.Annotated[int, FieldMetadata(alias="milStatus")] = pydantic.Field(alias="milStatus")
-    """
-    The MIL status, indicating a check engine light.
-    """
-
-    occurrence_count: typing_extensions.Annotated[int, FieldMetadata(alias="occurrenceCount")] = pydantic.Field(
-        alias="occurrenceCount"
-    )
-    """
-    The number of times this fault has triggered.
-    """
-
-    source_address_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="sourceAddressName")] = (
-        pydantic.Field(alias="sourceAddressName", default=None)
-    )
-    """
-    The source address name corresponding to the txId
-    """
-
-    spn_description: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="spnDescription")] = (
-        pydantic.Field(alias="spnDescription", default=None)
-    )
-    """
-    A short description of the SPN identifier, if available.
-    """
-
-    spn_id: typing_extensions.Annotated[int, FieldMetadata(alias="spnId")] = pydantic.Field(alias="spnId")
-    """
-    The SPN identifier.
-    """
-
-    tx_id: typing_extensions.Annotated[VehicleStatsFaultCodesTxId, FieldMetadata(alias="txId")] = pydantic.Field(
-        alias="txId"
-    )
+    fmi_description: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="fmiDescription"),
+        pydantic.Field(alias="fmiDescription", description="A short description of the FMI identifier, if available."),
+    ] = None
+    fmi_id: typing_extensions.Annotated[
+        int, FieldMetadata(alias="fmiId"), pydantic.Field(alias="fmiId", description="The FMI identifier.")
+    ]
+    mil_status: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="milStatus"),
+        pydantic.Field(alias="milStatus", description="The MIL status, indicating a check engine light."),
+    ]
+    occurrence_count: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="occurrenceCount"),
+        pydantic.Field(alias="occurrenceCount", description="The number of times this fault has triggered."),
+    ]
+    source_address_name: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="sourceAddressName"),
+        pydantic.Field(alias="sourceAddressName", description="The source address name corresponding to the txId"),
+    ] = None
+    spn_description: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="spnDescription"),
+        pydantic.Field(alias="spnDescription", description="A short description of the SPN identifier, if available."),
+    ] = None
+    spn_id: typing_extensions.Annotated[
+        int, FieldMetadata(alias="spnId"), pydantic.Field(alias="spnId", description="The SPN identifier.")
+    ]
+    tx_id: typing_extensions.Annotated[
+        VehicleStatsFaultCodesTxId, FieldMetadata(alias="txId"), pydantic.Field(alias="txId")
+    ]
     vendor_specific_fields: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsFaultCodesVendorSpecificFields], FieldMetadata(alias="vendorSpecificFields")
-    ] = pydantic.Field(alias="vendorSpecificFields", default=None)
+        typing.Optional[VehicleStatsFaultCodesVendorSpecificFields],
+        FieldMetadata(alias="vendorSpecificFields"),
+        pydantic.Field(alias="vendorSpecificFields"),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

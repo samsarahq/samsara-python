@@ -13,12 +13,14 @@ class EngineIdleTriggerDetailsObjectResponseBody(UniversalBaseModel):
     Details specific to Engine Idle
     """
 
-    min_duration_milliseconds: typing_extensions.Annotated[int, FieldMetadata(alias="minDurationMilliseconds")] = (
-        pydantic.Field(alias="minDurationMilliseconds")
-    )
-    """
-    The number of milliseconds the trigger needs to stay active before alerting.
-    """
+    min_duration_milliseconds: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="minDurationMilliseconds"),
+        pydantic.Field(
+            alias="minDurationMilliseconds",
+            description="The number of milliseconds the trigger needs to stay active before alerting.",
+        ),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -14,19 +14,21 @@ from .attribute_value_tiny import AttributeValueTiny
 
 class Attribute(UniversalBaseModel):
     attribute_type: typing_extensions.Annotated[
-        typing.Optional[AttributeAttributeType], FieldMetadata(alias="attributeType")
-    ] = pydantic.Field(alias="attributeType", default=None)
-    """
-    Denotes the data type of the attribute's values. Valid values: `single-select`, `multi-select`, `text`, `freeform-multi-select`, `number`, `date`.
-    """
-
+        typing.Optional[AttributeAttributeType],
+        FieldMetadata(alias="attributeType"),
+        pydantic.Field(
+            alias="attributeType",
+            description="Denotes the data type of the attribute's values. Valid values: `single-select`, `multi-select`, `text`, `freeform-multi-select`, `number`, `date`.",
+        ),
+    ] = None
     entity_type: typing_extensions.Annotated[
-        typing.Optional[AttributeEntityType], FieldMetadata(alias="entityType")
-    ] = pydantic.Field(alias="entityType", default=None)
-    """
-    Denotes the type of entity, driver or asset. Valid values: `driver`, `asset`.
-    """
-
+        typing.Optional[AttributeEntityType],
+        FieldMetadata(alias="entityType"),
+        pydantic.Field(
+            alias="entityType",
+            description="Denotes the type of entity, driver or asset. Valid values: `driver`, `asset`.",
+        ),
+    ] = None
     id: typing.Optional[str] = pydantic.Field(default=None)
     """
     The samsara id of the attribute object.
@@ -38,19 +40,21 @@ class Attribute(UniversalBaseModel):
     """
 
     number_values: typing_extensions.Annotated[
-        typing.Optional[typing.List[float]], FieldMetadata(alias="numberValues")
-    ] = pydantic.Field(alias="numberValues", default=None)
-    """
-    Number values that can be associated with this attribute. Note: this field is `null` for `text` and `freeform-multi-select` attribute types.`
-    """
-
+        typing.Optional[typing.List[float]],
+        FieldMetadata(alias="numberValues"),
+        pydantic.Field(
+            alias="numberValues",
+            description="Number values that can be associated with this attribute. Note: this field is `null` for `text` and `freeform-multi-select` attribute types.`",
+        ),
+    ] = None
     string_values: typing_extensions.Annotated[
-        typing.Optional[typing.List[str]], FieldMetadata(alias="stringValues")
-    ] = pydantic.Field(alias="stringValues", default=None)
-    """
-    String values that can be associated with this attribute. Note: this field is `null` for `text` and `freeform-multi-select` attribute types.`
-    """
-
+        typing.Optional[typing.List[str]],
+        FieldMetadata(alias="stringValues"),
+        pydantic.Field(
+            alias="stringValues",
+            description="String values that can be associated with this attribute. Note: this field is `null` for `text` and `freeform-multi-select` attribute types.`",
+        ),
+    ] = None
     unit: typing.Optional[AttributeUnit] = pydantic.Field(default=None)
     """
     Unit of the attribute (only for Number attributes).

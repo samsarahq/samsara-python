@@ -13,47 +13,42 @@ class EquipmentHeaderWithAdditionalFieldsResponseBody(UniversalBaseModel):
     Equipment header fields.
     """
 
-    equipment_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="EquipmentID")] = (
-        pydantic.Field(alias="EquipmentID", default=None)
-    )
-    """
-    The unique Samsara ID of the equipment. This is automatically generated when the Equipment object is created. It cannot be changed.
-    """
-
-    model: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="Model")] = pydantic.Field(
-        alias="Model", default=None
-    )
-    """
-    The model of the equipment.
-    """
-
-    oem_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="OEMName")] = pydantic.Field(
-        alias="OEMName", default=None
-    )
-    """
-    The make of the equipment.
-    """
-
-    pin: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="PIN")] = pydantic.Field(
-        alias="PIN", default=None
-    )
-    """
-    The PIN number of the equipment.
-    """
-
-    serial_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="SerialNumber")] = (
-        pydantic.Field(alias="SerialNumber", default=None)
-    )
-    """
-    The serial number of the equipment.
-    """
-
+    equipment_id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="EquipmentID"),
+        pydantic.Field(
+            alias="EquipmentID",
+            description="The unique Samsara ID of the equipment. This is automatically generated when the Equipment object is created. It cannot be changed.",
+        ),
+    ] = None
+    model: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="Model"),
+        pydantic.Field(alias="Model", description="The model of the equipment."),
+    ] = None
+    oem_name: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="OEMName"),
+        pydantic.Field(alias="OEMName", description="The make of the equipment."),
+    ] = None
+    pin: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="PIN"),
+        pydantic.Field(alias="PIN", description="The PIN number of the equipment."),
+    ] = None
+    serial_number: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="SerialNumber"),
+        pydantic.Field(alias="SerialNumber", description="The serial number of the equipment."),
+    ] = None
     unit_install_date_time: typing_extensions.Annotated[
-        typing.Optional[str], FieldMetadata(alias="UnitInstallDateTime")
-    ] = pydantic.Field(alias="UnitInstallDateTime", default=None)
-    """
-    Telematics unit install date in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-    """
+        typing.Optional[str],
+        FieldMetadata(alias="UnitInstallDateTime"),
+        pydantic.Field(
+            alias="UnitInstallDateTime",
+            description="Telematics unit install date in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).",
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

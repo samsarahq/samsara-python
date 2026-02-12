@@ -9,37 +9,33 @@ from ..core.serialization import FieldMetadata
 
 
 class V1HosAuthenticationLogsResponseAuthenticationLogs(UniversalBaseModel):
-    action_type: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="actionType")] = pydantic.Field(
-        alias="actionType", default=None
-    )
-    """
-    The log type - one of 'signin' or 'signout'
-    """
-
+    action_type: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="actionType"),
+        pydantic.Field(alias="actionType", description="The log type - one of 'signin' or 'signout'"),
+    ] = None
     address: typing.Optional[str] = pydantic.Field(default=None)
     """
     DEPRECATED: THIS FIELD MAY NOT BE POPULATED
     """
 
-    address_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="addressName")] = (
-        pydantic.Field(alias="addressName", default=None)
-    )
-    """
-    DEPRECATED: THIS FIELD MAY NOT BE POPULATED
-    """
-
+    address_name: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="addressName"),
+        pydantic.Field(alias="addressName", description="DEPRECATED: THIS FIELD MAY NOT BE POPULATED"),
+    ] = None
     city: typing.Optional[str] = pydantic.Field(default=None)
     """
     DEPRECATED: THIS FIELD MAY NOT BE POPULATED
     """
 
-    happened_at_ms: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="happenedAtMs")] = (
-        pydantic.Field(alias="happenedAtMs", default=None)
-    )
-    """
-    The time at which the event was recorded in UNIX milliseconds.
-    """
-
+    happened_at_ms: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="happenedAtMs"),
+        pydantic.Field(
+            alias="happenedAtMs", description="The time at which the event was recorded in UNIX milliseconds."
+        ),
+    ] = None
     state: typing.Optional[str] = pydantic.Field(default=None)
     """
     DEPRECATED: THIS FIELD MAY NOT BE POPULATED

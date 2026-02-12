@@ -37,51 +37,71 @@ class SafetySettingsObjectResponseBody(UniversalBaseModel):
     """
 
     default_vehicle_type: typing_extensions.Annotated[
-        SafetySettingsObjectResponseBodyDefaultVehicleType, FieldMetadata(alias="defaultVehicleType")
-    ] = pydantic.Field(alias="defaultVehicleType")
-    """
-    Default vehicle type (for newly added or activated vehicles).  Valid values: `off`, `automatic`, `passengerCar`, `lightTruck`, `heavyDuty`
-    """
-
+        SafetySettingsObjectResponseBodyDefaultVehicleType,
+        FieldMetadata(alias="defaultVehicleType"),
+        pydantic.Field(
+            alias="defaultVehicleType",
+            description="Default vehicle type (for newly added or activated vehicles).  Valid values: `off`, `automatic`, `passengerCar`, `lightTruck`, `heavyDuty`",
+        ),
+    ]
     distracted_driving_detection_alerts: typing_extensions.Annotated[
         DistractedDrivingDetectionAlertSettingsObjectResponseBody,
         FieldMetadata(alias="distractedDrivingDetectionAlerts"),
-    ] = pydantic.Field(alias="distractedDrivingDetectionAlerts")
+        pydantic.Field(alias="distractedDrivingDetectionAlerts"),
+    ]
     following_distance_detection_alerts: typing_extensions.Annotated[
         FollowingDistanceDetectionAlertSettingsObjectResponseBody,
         FieldMetadata(alias="followingDistanceDetectionAlerts"),
-    ] = pydantic.Field(alias="followingDistanceDetectionAlerts")
+        pydantic.Field(alias="followingDistanceDetectionAlerts"),
+    ]
     forward_collision_detection_alerts: typing_extensions.Annotated[
-        ForwardCollisionDetectionAlertSettingsObjectResponseBody, FieldMetadata(alias="forwardCollisionDetectionAlerts")
-    ] = pydantic.Field(alias="forwardCollisionDetectionAlerts")
+        ForwardCollisionDetectionAlertSettingsObjectResponseBody,
+        FieldMetadata(alias="forwardCollisionDetectionAlerts"),
+        pydantic.Field(alias="forwardCollisionDetectionAlerts"),
+    ]
     harsh_event_sensitivity: typing_extensions.Annotated[
-        HarshEventSensitivitySettingsObjectResponseBody, FieldMetadata(alias="harshEventSensitivity")
-    ] = pydantic.Field(alias="harshEventSensitivity")
+        HarshEventSensitivitySettingsObjectResponseBody,
+        FieldMetadata(alias="harshEventSensitivity"),
+        pydantic.Field(alias="harshEventSensitivity"),
+    ]
     harsh_event_sensitivity_v_2: typing_extensions.Annotated[
-        HarshEventSensitivityV2SettingsObjectResponseBody, FieldMetadata(alias="harshEventSensitivityV2")
-    ] = pydantic.Field(alias="harshEventSensitivityV2")
+        HarshEventSensitivityV2SettingsObjectResponseBody,
+        FieldMetadata(alias="harshEventSensitivityV2"),
+        pydantic.Field(alias="harshEventSensitivityV2"),
+    ]
     policy_violations_detection_alerts: typing_extensions.Annotated[
-        PolicyViolationsDetectionAlertSettingsObjectResponseBody, FieldMetadata(alias="policyViolationsDetectionAlerts")
-    ] = pydantic.Field(alias="policyViolationsDetectionAlerts")
+        PolicyViolationsDetectionAlertSettingsObjectResponseBody,
+        FieldMetadata(alias="policyViolationsDetectionAlerts"),
+        pydantic.Field(alias="policyViolationsDetectionAlerts"),
+    ]
     rolling_stop_detection_alerts: typing_extensions.Annotated[
-        RollingStopDetectionAlertSettingsObjectResponseBody, FieldMetadata(alias="rollingStopDetectionAlerts")
-    ] = pydantic.Field(alias="rollingStopDetectionAlerts")
+        RollingStopDetectionAlertSettingsObjectResponseBody,
+        FieldMetadata(alias="rollingStopDetectionAlerts"),
+        pydantic.Field(alias="rollingStopDetectionAlerts"),
+    ]
     safety_score_configuration: typing_extensions.Annotated[
-        SafetyScoreConfigurationSettingsObjectResponseBody, FieldMetadata(alias="safetyScoreConfiguration")
-    ] = pydantic.Field(alias="safetyScoreConfiguration")
-    safety_score_target: typing_extensions.Annotated[int, FieldMetadata(alias="safetyScoreTarget")] = pydantic.Field(
-        alias="safetyScoreTarget"
-    )
-    """
-    The fleet-wide target safety score that is shown on safety score graphs. A safety score goal of 0 means that score benchmarking is disabled.
-    """
-
+        SafetyScoreConfigurationSettingsObjectResponseBody,
+        FieldMetadata(alias="safetyScoreConfiguration"),
+        pydantic.Field(alias="safetyScoreConfiguration"),
+    ]
+    safety_score_target: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="safetyScoreTarget"),
+        pydantic.Field(
+            alias="safetyScoreTarget",
+            description="The fleet-wide target safety score that is shown on safety score graphs. A safety score goal of 0 means that score benchmarking is disabled.",
+        ),
+    ]
     speeding_settings: typing_extensions.Annotated[
-        SpeedingSettingsObjectResponseBody, FieldMetadata(alias="speedingSettings")
-    ] = pydantic.Field(alias="speedingSettings")
+        SpeedingSettingsObjectResponseBody,
+        FieldMetadata(alias="speedingSettings"),
+        pydantic.Field(alias="speedingSettings"),
+    ]
     voice_coaching: typing_extensions.Annotated[
-        VoiceCoachingSettingsObjectResponseBody, FieldMetadata(alias="voiceCoaching")
-    ] = pydantic.Field(alias="voiceCoaching")
+        VoiceCoachingSettingsObjectResponseBody,
+        FieldMetadata(alias="voiceCoaching"),
+        pydantic.Field(alias="voiceCoaching"),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

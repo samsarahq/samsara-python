@@ -23,39 +23,45 @@ class AssetResponse(UniversalBaseModel):
     """
 
     custom_metadata: typing_extensions.Annotated[
-        typing.Optional[CustomMetadata], FieldMetadata(alias="customMetadata")
-    ] = pydantic.Field(alias="customMetadata", default=None)
+        typing.Optional[CustomMetadata], FieldMetadata(alias="customMetadata"), pydantic.Field(alias="customMetadata")
+    ] = None
     data_outputs: typing_extensions.Annotated[
-        typing.Optional[typing.List[AssetDataOutput]], FieldMetadata(alias="dataOutputs")
-    ] = pydantic.Field(alias="dataOutputs", default=None)
-    """
-    The list of data outputs configured on the asset.
-    """
-
+        typing.Optional[typing.List[AssetDataOutput]],
+        FieldMetadata(alias="dataOutputs"),
+        pydantic.Field(alias="dataOutputs", description="The list of data outputs configured on the asset."),
+    ] = None
     id: str = pydantic.Field()
     """
     The id of the asset
     """
 
-    is_running: typing_extensions.Annotated[bool, FieldMetadata(alias="isRunning")] = pydantic.Field(alias="isRunning")
-    """
-    The running status of the asset. Returns True for On, and False for Off.
-    """
-
+    is_running: typing_extensions.Annotated[
+        bool,
+        FieldMetadata(alias="isRunning"),
+        pydantic.Field(
+            alias="isRunning", description="The running status of the asset. Returns True for On, and False for Off."
+        ),
+    ]
     location: typing.Optional[AssetLocation] = None
     location_data_input: typing_extensions.Annotated[
-        typing.Optional[AssetResponseLocationDataInput], FieldMetadata(alias="locationDataInput")
-    ] = pydantic.Field(alias="locationDataInput", default=None)
-    location_type: typing_extensions.Annotated[typing.Optional[LocationType], FieldMetadata(alias="locationType")] = (
-        pydantic.Field(alias="locationType", default=None)
-    )
+        typing.Optional[AssetResponseLocationDataInput],
+        FieldMetadata(alias="locationDataInput"),
+        pydantic.Field(alias="locationDataInput"),
+    ] = None
+    location_type: typing_extensions.Annotated[
+        typing.Optional[LocationType], FieldMetadata(alias="locationType"), pydantic.Field(alias="locationType")
+    ] = None
     name: AssetName
     parent_asset: typing_extensions.Annotated[
-        typing.Optional[AssetResponseParentAsset], FieldMetadata(alias="parentAsset")
-    ] = pydantic.Field(alias="parentAsset", default=None)
+        typing.Optional[AssetResponseParentAsset],
+        FieldMetadata(alias="parentAsset"),
+        pydantic.Field(alias="parentAsset"),
+    ] = None
     running_status_data_input: typing_extensions.Annotated[
-        typing.Optional[AssetResponseRunningStatusDataInput], FieldMetadata(alias="runningStatusDataInput")
-    ] = pydantic.Field(alias="runningStatusDataInput", default=None)
+        typing.Optional[AssetResponseRunningStatusDataInput],
+        FieldMetadata(alias="runningStatusDataInput"),
+        pydantic.Field(alias="runningStatusDataInput"),
+    ] = None
     tags: typing.Optional[typing.List[TagTinyResponse]] = pydantic.Field(default=None)
     """
     The list of [tags](https://kb.samsara.com/hc/en-us/articles/360026674631-Using-Tags-and-Tag-Nesting) associated with the Industrial Asset. **By default**: empty. Can be set or updated through the Samsara Dashboard or the API at any time.

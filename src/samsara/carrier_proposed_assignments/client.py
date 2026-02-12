@@ -6,7 +6,6 @@ from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.request_options import RequestOptions
 from ..types.carrier_proposed_assignment_response import CarrierProposedAssignmentResponse
 from ..types.list_carrier_proposed_assignment_response import ListCarrierProposedAssignmentResponse
-from ..types.standard_delete_response import StandardDeleteResponse
 from .raw_client import AsyncRawCarrierProposedAssignmentsClient, RawCarrierProposedAssignmentsClient
 
 # this is used as the default value for optional parameters
@@ -147,43 +146,6 @@ class CarrierProposedAssignmentsClient:
             trailer_names=trailer_names,
             request_options=request_options,
         )
-        return _response.data
-
-    def delete_carrier_proposed_assignment(
-        self, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> StandardDeleteResponse:
-        """
-        Permanently delete an assignment. You can only delete assignments that are not yet active. To override a currently active assignment, create a new empty one, instead.
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        To use this endpoint, select **Write Carrier-Proposed Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-        Parameters
-        ----------
-        id : str
-            ID of the assignment.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        StandardDeleteResponse
-            A successful DELETE response is a 204 with no content.
-
-        Examples
-        --------
-        from samsara import Samsara
-
-        client = Samsara(
-            token="YOUR_TOKEN",
-        )
-        client.carrier_proposed_assignments.delete_carrier_proposed_assignment(
-            id="id",
-        )
-        """
-        _response = self._raw_client.delete_carrier_proposed_assignment(id, request_options=request_options)
         return _response.data
 
 
@@ -337,49 +299,4 @@ class AsyncCarrierProposedAssignmentsClient:
             trailer_names=trailer_names,
             request_options=request_options,
         )
-        return _response.data
-
-    async def delete_carrier_proposed_assignment(
-        self, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> StandardDeleteResponse:
-        """
-        Permanently delete an assignment. You can only delete assignments that are not yet active. To override a currently active assignment, create a new empty one, instead.
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        To use this endpoint, select **Write Carrier-Proposed Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-        Parameters
-        ----------
-        id : str
-            ID of the assignment.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        StandardDeleteResponse
-            A successful DELETE response is a 204 with no content.
-
-        Examples
-        --------
-        import asyncio
-
-        from samsara import AsyncSamsara
-
-        client = AsyncSamsara(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.carrier_proposed_assignments.delete_carrier_proposed_assignment(
-                id="id",
-            )
-
-
-        asyncio.run(main())
-        """
-        _response = await self._raw_client.delete_carrier_proposed_assignment(id, request_options=request_options)
         return _response.data

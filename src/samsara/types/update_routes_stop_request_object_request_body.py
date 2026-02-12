@@ -11,20 +11,19 @@ from .routes_single_use_address_object_request_body import RoutesSingleUseAddres
 
 
 class UpdateRoutesStopRequestObjectRequestBody(UniversalBaseModel):
-    address_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="addressId")] = pydantic.Field(
-        alias="addressId", default=None
-    )
-    """
-    ID of the address. An address [externalId](https://developers.samsara.com/docs/external-ids#using-external-ids) can also be used interchangeably here.
-    """
-
+    address_id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="addressId"),
+        pydantic.Field(
+            alias="addressId",
+            description="ID of the address. An address [externalId](https://developers.samsara.com/docs/external-ids#using-external-ids) can also be used interchangeably here.",
+        ),
+    ] = None
     external_ids: typing_extensions.Annotated[
-        typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(alias="externalIds", default=None)
-    """
-    A map of external ids
-    """
-
+        typing.Optional[typing.Dict[str, str]],
+        FieldMetadata(alias="externalIds"),
+        pydantic.Field(alias="externalIds", description="A map of external ids"),
+    ] = None
     id: typing.Optional[str] = pydantic.Field(default=None)
     """
     ID of the stop
@@ -41,43 +40,50 @@ class UpdateRoutesStopRequestObjectRequestBody(UniversalBaseModel):
     """
 
     ontime_window_after_arrival_ms: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="ontimeWindowAfterArrivalMs")
-    ] = pydantic.Field(alias="ontimeWindowAfterArrivalMs", default=None)
-    """
-    Specifies the time window (in milliseconds) after a stop's scheduled arrival time during which the stop is considered 'on-time'.
-    """
-
+        typing.Optional[int],
+        FieldMetadata(alias="ontimeWindowAfterArrivalMs"),
+        pydantic.Field(
+            alias="ontimeWindowAfterArrivalMs",
+            description="Specifies the time window (in milliseconds) after a stop's scheduled arrival time during which the stop is considered 'on-time'.",
+        ),
+    ] = None
     ontime_window_before_arrival_ms: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="ontimeWindowBeforeArrivalMs")
-    ] = pydantic.Field(alias="ontimeWindowBeforeArrivalMs", default=None)
-    """
-    Specifies the time window (in milliseconds) before a stop's scheduled arrival time during which the stop is considered 'on-time'.
-    """
-
+        typing.Optional[int],
+        FieldMetadata(alias="ontimeWindowBeforeArrivalMs"),
+        pydantic.Field(
+            alias="ontimeWindowBeforeArrivalMs",
+            description="Specifies the time window (in milliseconds) before a stop's scheduled arrival time during which the stop is considered 'on-time'.",
+        ),
+    ] = None
     scheduled_arrival_time: typing_extensions.Annotated[
-        typing.Optional[dt.datetime], FieldMetadata(alias="scheduledArrivalTime")
-    ] = pydantic.Field(alias="scheduledArrivalTime", default=None)
-    """
-    This is a required field for all stops EXCEPT the start and end, based on route start and stop settings selected.
-    """
-
+        typing.Optional[dt.datetime],
+        FieldMetadata(alias="scheduledArrivalTime"),
+        pydantic.Field(
+            alias="scheduledArrivalTime",
+            description="This is a required field for all stops EXCEPT the start and end, based on route start and stop settings selected.",
+        ),
+    ] = None
     scheduled_departure_time: typing_extensions.Annotated[
-        typing.Optional[dt.datetime], FieldMetadata(alias="scheduledDepartureTime")
-    ] = pydantic.Field(alias="scheduledDepartureTime", default=None)
-    """
-    This is a required field for all stops EXCEPT the start and end, based on route start and stop settings selected.
-    """
-
-    sequence_number: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="sequenceNumber")] = (
-        pydantic.Field(alias="sequenceNumber", default=None)
-    )
-    """
-    Manual sequence position for this stop. Only meaningful when route.settings.sequencingMethod=manual. Must be unique and positive when specified.
-    """
-
+        typing.Optional[dt.datetime],
+        FieldMetadata(alias="scheduledDepartureTime"),
+        pydantic.Field(
+            alias="scheduledDepartureTime",
+            description="This is a required field for all stops EXCEPT the start and end, based on route start and stop settings selected.",
+        ),
+    ] = None
+    sequence_number: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="sequenceNumber"),
+        pydantic.Field(
+            alias="sequenceNumber",
+            description="Manual sequence position for this stop. Only meaningful when route.settings.sequencingMethod=manual. Must be unique and positive when specified.",
+        ),
+    ] = None
     single_use_location: typing_extensions.Annotated[
-        typing.Optional[RoutesSingleUseAddressObjectRequestBody], FieldMetadata(alias="singleUseLocation")
-    ] = pydantic.Field(alias="singleUseLocation", default=None)
+        typing.Optional[RoutesSingleUseAddressObjectRequestBody],
+        FieldMetadata(alias="singleUseLocation"),
+        pydantic.Field(alias="singleUseLocation"),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

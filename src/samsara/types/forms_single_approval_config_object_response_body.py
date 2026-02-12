@@ -15,12 +15,13 @@ class FormsSingleApprovalConfigObjectResponseBody(UniversalBaseModel):
     """
 
     allow_manual_approver_selection: typing_extensions.Annotated[
-        bool, FieldMetadata(alias="allowManualApproverSelection")
-    ] = pydantic.Field(alias="allowManualApproverSelection")
-    """
-    Indicates whether approver can be manually selected. True by default.
-    """
-
+        bool,
+        FieldMetadata(alias="allowManualApproverSelection"),
+        pydantic.Field(
+            alias="allowManualApproverSelection",
+            description="Indicates whether approver can be manually selected. True by default.",
+        ),
+    ]
     requirements: SingleApprovalRequirementsObjectResponseBody
 
     if IS_PYDANTIC_V2:

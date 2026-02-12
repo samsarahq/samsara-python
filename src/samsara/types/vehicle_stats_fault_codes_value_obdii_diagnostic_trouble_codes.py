@@ -21,48 +21,39 @@ class VehicleStatsFaultCodesValueObdiiDiagnosticTroubleCodes(UniversalBaseModel)
     confirmed_dtcs: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsFaultCodesValueObdiiConfirmedDtcs]],
         FieldMetadata(alias="confirmedDtcs"),
-    ] = pydantic.Field(alias="confirmedDtcs", default=None)
-    """
-    Confirmed DTC codes.
-    """
-
+        pydantic.Field(alias="confirmedDtcs", description="Confirmed DTC codes."),
+    ] = None
     ignition_type: typing_extensions.Annotated[
         typing.Optional[VehicleStatsFaultCodesValueObdiiDiagnosticTroubleCodesIgnitionType],
         FieldMetadata(alias="ignitionType"),
-    ] = pydantic.Field(alias="ignitionType", default=None)
-    """
-    The ignition type of this passenger vehicle. Valid values: `spark`, `compression`.
-    """
-
-    mil_status: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="milStatus")] = pydantic.Field(
-        alias="milStatus", default=None
-    )
-    """
-    The MIL status, indicating a check engine light.
-    """
-
+        pydantic.Field(
+            alias="ignitionType",
+            description="The ignition type of this passenger vehicle. Valid values: `spark`, `compression`.",
+        ),
+    ] = None
+    mil_status: typing_extensions.Annotated[
+        typing.Optional[bool],
+        FieldMetadata(alias="milStatus"),
+        pydantic.Field(alias="milStatus", description="The MIL status, indicating a check engine light."),
+    ] = None
     monitor_status: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsFaultCodesValueObdiiMonitorStatus], FieldMetadata(alias="monitorStatus")
-    ] = pydantic.Field(alias="monitorStatus", default=None)
+        typing.Optional[VehicleStatsFaultCodesValueObdiiMonitorStatus],
+        FieldMetadata(alias="monitorStatus"),
+        pydantic.Field(alias="monitorStatus"),
+    ] = None
     pending_dtcs: typing_extensions.Annotated[
-        typing.Optional[typing.List[VehicleStatsFaultCodesValueObdiiConfirmedDtcs]], FieldMetadata(alias="pendingDtcs")
-    ] = pydantic.Field(alias="pendingDtcs", default=None)
-    """
-    Pending DTC codes.
-    """
-
+        typing.Optional[typing.List[VehicleStatsFaultCodesValueObdiiConfirmedDtcs]],
+        FieldMetadata(alias="pendingDtcs"),
+        pydantic.Field(alias="pendingDtcs", description="Pending DTC codes."),
+    ] = None
     permanent_dtcs: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsFaultCodesValueObdiiConfirmedDtcs]],
         FieldMetadata(alias="permanentDtcs"),
-    ] = pydantic.Field(alias="permanentDtcs", default=None)
-    """
-    Permanent DTC codes.
-    """
-
-    tx_id: typing_extensions.Annotated[int, FieldMetadata(alias="txId")] = pydantic.Field(alias="txId")
-    """
-    The TX identifier.
-    """
+        pydantic.Field(alias="permanentDtcs", description="Permanent DTC codes."),
+    ] = None
+    tx_id: typing_extensions.Annotated[
+        int, FieldMetadata(alias="txId"), pydantic.Field(alias="txId", description="The TX identifier.")
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

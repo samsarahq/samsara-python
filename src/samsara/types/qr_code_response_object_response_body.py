@@ -13,17 +13,19 @@ class QrCodeResponseObjectResponseBody(UniversalBaseModel):
     A single document.
     """
 
-    driver_id: typing_extensions.Annotated[int, FieldMetadata(alias="driverId")] = pydantic.Field(alias="driverId")
-    """
-    ID for the driver the QR code belongs to.
-    """
-
-    qr_code_link: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="qrCodeLink")] = pydantic.Field(
-        alias="qrCodeLink", default=None
-    )
-    """
-    URL link to the driver assignment QR code. Included if a QR code has been created for the driver.
-    """
+    driver_id: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="driverId"),
+        pydantic.Field(alias="driverId", description="ID for the driver the QR code belongs to."),
+    ]
+    qr_code_link: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="qrCodeLink"),
+        pydantic.Field(
+            alias="qrCodeLink",
+            description="URL link to the driver assignment QR code. Included if a QR code has been created for the driver.",
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

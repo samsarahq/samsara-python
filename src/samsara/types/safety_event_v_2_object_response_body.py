@@ -23,124 +23,133 @@ class SafetyEventV2ObjectResponseBody(UniversalBaseModel):
     """
 
     asset: SafetyEventV2AssetObjectResponseBody
-    assigned_coach: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="assignedCoach")] = (
-        pydantic.Field(alias="assignedCoach", default=None)
-    )
-    """
-    Unique user ID for the assigned coach.
-    """
-
+    assigned_coach: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="assignedCoach"),
+        pydantic.Field(alias="assignedCoach", description="Unique user ID for the assigned coach."),
+    ] = None
     behavior_labels: typing_extensions.Annotated[
-        typing.List[SafetyEventV2BehaviorLabelsResponseBody], FieldMetadata(alias="behaviorLabels")
-    ] = pydantic.Field(alias="behaviorLabels")
-    """
-    The most up-to-date behavior labels associated with the safety event. These labels can be updated by Safety Admins.
-    """
-
+        typing.List[SafetyEventV2BehaviorLabelsResponseBody],
+        FieldMetadata(alias="behaviorLabels"),
+        pydantic.Field(
+            alias="behaviorLabels",
+            description="The most up-to-date behavior labels associated with the safety event. These labels can be updated by Safety Admins.",
+        ),
+    ]
     context_labels: typing_extensions.Annotated[
-        typing.List[SafetyEventV2ContextLabelsResponseBody], FieldMetadata(alias="contextLabels")
-    ] = pydantic.Field(alias="contextLabels")
-    """
-    The most up-to-date context labels associated with the safety event. AI generated labels can be updated by Safety Admins.
-    """
-
-    created_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="createdAtTime")] = pydantic.Field(
-        alias="createdAtTime"
-    )
-    """
-    UTC time the Safety Event was created in Samsara in RFC 3339 format.
-    """
-
+        typing.List[SafetyEventV2ContextLabelsResponseBody],
+        FieldMetadata(alias="contextLabels"),
+        pydantic.Field(
+            alias="contextLabels",
+            description="The most up-to-date context labels associated with the safety event. AI generated labels can be updated by Safety Admins.",
+        ),
+    ]
+    created_at_time: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="createdAtTime"),
+        pydantic.Field(
+            alias="createdAtTime", description="UTC time the Safety Event was created in Samsara in RFC 3339 format."
+        ),
+    ]
     detected_streams: typing_extensions.Annotated[
-        typing.Optional[typing.List[SafetyEventV2MediaResponseBody]], FieldMetadata(alias="detectedStreams")
-    ] = pydantic.Field(alias="detectedStreams", default=None)
-    """
-    Camera streams that detected the safety event.
-    """
-
+        typing.Optional[typing.List[SafetyEventV2MediaResponseBody]],
+        FieldMetadata(alias="detectedStreams"),
+        pydantic.Field(alias="detectedStreams", description="Camera streams that detected the safety event."),
+    ] = None
     dismissal_reason: typing_extensions.Annotated[
-        typing.Optional[SafetyEventDismissalReasonResponseBody], FieldMetadata(alias="dismissalReason")
-    ] = pydantic.Field(alias="dismissalReason", default=None)
+        typing.Optional[SafetyEventDismissalReasonResponseBody],
+        FieldMetadata(alias="dismissalReason"),
+        pydantic.Field(alias="dismissalReason"),
+    ] = None
     driver: SafetyEventV2DriverObjectResponseBody
-    end_ms: typing_extensions.Annotated[str, FieldMetadata(alias="endMs")] = pydantic.Field(alias="endMs")
-    """
-    UTC time the Safety Event ended in RFC 3339 format.
-    """
-
+    end_ms: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="endMs"),
+        pydantic.Field(alias="endMs", description="UTC time the Safety Event ended in RFC 3339 format."),
+    ]
     event_state: typing_extensions.Annotated[
-        SafetyEventV2ObjectResponseBodyEventState, FieldMetadata(alias="eventState")
-    ] = pydantic.Field(alias="eventState")
-    """
-    The current state of the Safety Event.  Valid values: `unknown`, `needsReview`, `reviewed`, `needsCoaching`, `coached`, `dismissed`, `needsRecognition`, `recognized`
-    """
-
+        SafetyEventV2ObjectResponseBodyEventState,
+        FieldMetadata(alias="eventState"),
+        pydantic.Field(
+            alias="eventState",
+            description="The current state of the Safety Event.  Valid values: `unknown`, `needsReview`, `reviewed`, `needsCoaching`, `coached`, `dismissed`, `needsRecognition`, `recognized`",
+        ),
+    ]
     id: str = pydantic.Field()
     """
     The unique Samsara ID (uuid) of the safety event.
     """
 
-    inbox_event_url: typing_extensions.Annotated[str, FieldMetadata(alias="inboxEventUrl")] = pydantic.Field(
-        alias="inboxEventUrl"
-    )
-    """
-    A link to the Safety Event review page for the associated event.
-    """
-
-    incident_report_url: typing_extensions.Annotated[str, FieldMetadata(alias="incidentReportUrl")] = pydantic.Field(
-        alias="incidentReportUrl"
-    )
-    """
-    If a harsh event, returns the URL of the associated incident report page. If a speeding event, returns the URL of the associated speeding report page.
-    """
-
+    inbox_event_url: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="inboxEventUrl"),
+        pydantic.Field(
+            alias="inboxEventUrl", description="A link to the Safety Event review page for the associated event."
+        ),
+    ]
+    incident_report_url: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="incidentReportUrl"),
+        pydantic.Field(
+            alias="incidentReportUrl",
+            description="If a harsh event, returns the URL of the associated incident report page. If a speeding event, returns the URL of the associated speeding report page.",
+        ),
+    ]
     location: LocationResponseResponseBody
-    max_acceleration_g_force: typing_extensions.Annotated[float, FieldMetadata(alias="maxAccelerationGForce")] = (
-        pydantic.Field(alias="maxAccelerationGForce")
-    )
-    """
-    The maximum acceleration value as a multiplier on the force of gravity (g).
-    """
-
+    max_acceleration_g_force: typing_extensions.Annotated[
+        float,
+        FieldMetadata(alias="maxAccelerationGForce"),
+        pydantic.Field(
+            alias="maxAccelerationGForce",
+            description="The maximum acceleration value as a multiplier on the force of gravity (g).",
+        ),
+    ]
     media: typing.Optional[typing.List[SafetyEventV2MediaResponseBody]] = pydantic.Field(default=None)
     """
     Media assets available for the safety event.
     """
 
     speeding_metadata: typing_extensions.Annotated[
-        typing.Optional[SafetyEventSpeedingMetadataResponseBody], FieldMetadata(alias="speedingMetadata")
-    ] = pydantic.Field(alias="speedingMetadata", default=None)
-    start_ms: typing_extensions.Annotated[str, FieldMetadata(alias="startMs")] = pydantic.Field(alias="startMs")
-    """
-    UTC time the Safety Event started in RFC 3339 format.
-    """
-
-    trip_end_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="tripEndTime")] = (
-        pydantic.Field(alias="tripEndTime", default=None)
-    )
-    """
-    UTC time the trip ended in RFC 3339 format. Null when Safety Event occurs off-trip or the trip is ongoing.
-    """
-
-    trip_start_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="tripStartTime")] = (
-        pydantic.Field(alias="tripStartTime", default=None)
-    )
-    """
-    UTC time the trip started in RFC 3339 format. Null when Safety Event occurs off-trip.
-    """
-
-    updated_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="updatedAtTime")] = pydantic.Field(
-        alias="updatedAtTime"
-    )
-    """
-    UTC time the Safety Event was updated in Samsara in RFC 3339 format.
-    """
-
-    updated_by_user_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="updatedByUserId")] = (
-        pydantic.Field(alias="updatedByUserId", default=None)
-    )
-    """
-    The user ID associated with the user who made the event state change. Only returned if the event state changes.
-    """
+        typing.Optional[SafetyEventSpeedingMetadataResponseBody],
+        FieldMetadata(alias="speedingMetadata"),
+        pydantic.Field(alias="speedingMetadata"),
+    ] = None
+    start_ms: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="startMs"),
+        pydantic.Field(alias="startMs", description="UTC time the Safety Event started in RFC 3339 format."),
+    ]
+    trip_end_time: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="tripEndTime"),
+        pydantic.Field(
+            alias="tripEndTime",
+            description="UTC time the trip ended in RFC 3339 format. Null when Safety Event occurs off-trip or the trip is ongoing.",
+        ),
+    ] = None
+    trip_start_time: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="tripStartTime"),
+        pydantic.Field(
+            alias="tripStartTime",
+            description="UTC time the trip started in RFC 3339 format. Null when Safety Event occurs off-trip.",
+        ),
+    ] = None
+    updated_at_time: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="updatedAtTime"),
+        pydantic.Field(
+            alias="updatedAtTime", description="UTC time the Safety Event was updated in Samsara in RFC 3339 format."
+        ),
+    ]
+    updated_by_user_id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="updatedByUserId"),
+        pydantic.Field(
+            alias="updatedByUserId",
+            description="The user ID associated with the user who made the event state change. Only returned if the event state changes.",
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

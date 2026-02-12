@@ -15,18 +15,18 @@ class WebhookParamsObjectRequestBody(UniversalBaseModel):
     """
 
     payload_type: typing_extensions.Annotated[
-        typing.Optional[WebhookParamsObjectRequestBodyPayloadType], FieldMetadata(alias="payloadType")
-    ] = pydantic.Field(alias="payloadType", default=None)
-    """
-    This determines the alert webhook payload type to use. Learn more: https://developers.samsara.com/docs/webhook-reference.  Valid values: `legacy`, `enriched`
-    """
-
-    webhook_ids: typing_extensions.Annotated[typing.List[str], FieldMetadata(alias="webhookIds")] = pydantic.Field(
-        alias="webhookIds"
-    )
-    """
-    The webhook IDs.
-    """
+        typing.Optional[WebhookParamsObjectRequestBodyPayloadType],
+        FieldMetadata(alias="payloadType"),
+        pydantic.Field(
+            alias="payloadType",
+            description="This determines the alert webhook payload type to use. Learn more: https://developers.samsara.com/docs/webhook-reference.  Valid values: `legacy`, `enriched`",
+        ),
+    ] = None
+    webhook_ids: typing_extensions.Annotated[
+        typing.List[str],
+        FieldMetadata(alias="webhookIds"),
+        pydantic.Field(alias="webhookIds", description="The webhook IDs."),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

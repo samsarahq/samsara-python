@@ -14,18 +14,21 @@ class SafetyEventSpeedingMetadataResponseBody(UniversalBaseModel):
     """
 
     max_speed_kilometers_per_hour: typing_extensions.Annotated[
-        int, FieldMetadata(alias="maxSpeedKilometersPerHour")
-    ] = pydantic.Field(alias="maxSpeedKilometersPerHour")
-    """
-    The max speed exceeded during the event, provided in kilometers per hour.
-    """
-
+        int,
+        FieldMetadata(alias="maxSpeedKilometersPerHour"),
+        pydantic.Field(
+            alias="maxSpeedKilometersPerHour",
+            description="The max speed exceeded during the event, provided in kilometers per hour.",
+        ),
+    ]
     posted_speed_limit_kilometers_per_hour: typing_extensions.Annotated[
-        int, FieldMetadata(alias="postedSpeedLimitKilometersPerHour")
-    ] = pydantic.Field(alias="postedSpeedLimitKilometersPerHour")
-    """
-    The posted speed limit associated with the event, provided in kilometers per hour.
-    """
+        int,
+        FieldMetadata(alias="postedSpeedLimitKilometersPerHour"),
+        pydantic.Field(
+            alias="postedSpeedLimitKilometersPerHour",
+            description="The posted speed limit associated with the event, provided in kilometers per hour.",
+        ),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

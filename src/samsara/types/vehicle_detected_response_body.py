@@ -15,8 +15,10 @@ class VehicleDetectedResponseBody(UniversalBaseModel):
     """
 
     camera_stream: typing_extensions.Annotated[
-        typing.Optional[AlertObjectOnvifCameraStreamResponseBody], FieldMetadata(alias="cameraStream")
-    ] = pydantic.Field(alias="cameraStream", default=None)
+        typing.Optional[AlertObjectOnvifCameraStreamResponseBody],
+        FieldMetadata(alias="cameraStream"),
+        pydantic.Field(alias="cameraStream"),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

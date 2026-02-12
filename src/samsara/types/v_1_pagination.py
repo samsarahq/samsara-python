@@ -9,31 +9,34 @@ from ..core.serialization import FieldMetadata
 
 
 class V1Pagination(UniversalBaseModel):
-    end_cursor: typing_extensions.Annotated[str, FieldMetadata(alias="endCursor")] = pydantic.Field(alias="endCursor")
-    """
-    Cursor identifier representing the last element in the response. This value should be used in conjunction with a subsequent request's 'startingAfter' query parameter.
-    """
-
-    has_next_page: typing_extensions.Annotated[bool, FieldMetadata(alias="hasNextPage")] = pydantic.Field(
-        alias="hasNextPage"
-    )
-    """
-    True if there are more pages of results after this response.
-    """
-
-    has_prev_page: typing_extensions.Annotated[bool, FieldMetadata(alias="hasPrevPage")] = pydantic.Field(
-        alias="hasPrevPage"
-    )
-    """
-    True if there are more pages of results before this response.
-    """
-
-    start_cursor: typing_extensions.Annotated[str, FieldMetadata(alias="startCursor")] = pydantic.Field(
-        alias="startCursor"
-    )
-    """
-    Cursor identifier representing the first element in the response. This value should be used in conjunction with a subsequent request's 'ending_before' query parameter.
-    """
+    end_cursor: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="endCursor"),
+        pydantic.Field(
+            alias="endCursor",
+            description="Cursor identifier representing the last element in the response. This value should be used in conjunction with a subsequent request's 'startingAfter' query parameter.",
+        ),
+    ]
+    has_next_page: typing_extensions.Annotated[
+        bool,
+        FieldMetadata(alias="hasNextPage"),
+        pydantic.Field(alias="hasNextPage", description="True if there are more pages of results after this response."),
+    ]
+    has_prev_page: typing_extensions.Annotated[
+        bool,
+        FieldMetadata(alias="hasPrevPage"),
+        pydantic.Field(
+            alias="hasPrevPage", description="True if there are more pages of results before this response."
+        ),
+    ]
+    start_cursor: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="startCursor"),
+        pydantic.Field(
+            alias="startCursor",
+            description="Cursor identifier representing the first element in the response. This value should be used in conjunction with a subsequent request's 'ending_before' query parameter.",
+        ),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

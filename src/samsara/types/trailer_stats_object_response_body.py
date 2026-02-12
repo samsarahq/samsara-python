@@ -83,11 +83,8 @@ class TrailerStatsObjectResponseBody(UniversalBaseModel):
     carrier_reefer_state: typing_extensions.Annotated[
         typing.Optional[typing.List[TrailerStatReeferStateWithDecorationsTypeResponseBody]],
         FieldMetadata(alias="carrierReeferState"),
-    ] = pydantic.Field(alias="carrierReeferState", default=None)
-    """
-    A list of engine state points.
-    """
-
+        pydantic.Field(alias="carrierReeferState", description="A list of engine state points."),
+    ] = None
     gps: typing.Optional[typing.List[TrailerStatGpsWithDecorationsTypeResponseBody]] = pydantic.Field(default=None)
     """
     A list of GPS points.
@@ -96,11 +93,8 @@ class TrailerStatsObjectResponseBody(UniversalBaseModel):
     gps_odometer_meters: typing_extensions.Annotated[
         typing.Optional[typing.List[TrailerStatGpsOdometerMetersWithDecorationsTypeResponseBody]],
         FieldMetadata(alias="gpsOdometerMeters"),
-    ] = pydantic.Field(alias="gpsOdometerMeters", default=None)
-    """
-    A list of odometer points.
-    """
-
+        pydantic.Field(alias="gpsOdometerMeters", description="A list of odometer points."),
+    ] = None
     id: str = pydantic.Field()
     """
     ID of the trailer.
@@ -114,162 +108,123 @@ class TrailerStatsObjectResponseBody(UniversalBaseModel):
     reefer_alarms: typing_extensions.Annotated[
         typing.Optional[typing.List[TrailerStatReeferAlarmWithDecorationsTypeResponseBody]],
         FieldMetadata(alias="reeferAlarms"),
-    ] = pydantic.Field(alias="reeferAlarms", default=None)
-    """
-    A list of reefer alarm points.
-    """
-
+        pydantic.Field(alias="reeferAlarms", description="A list of reefer alarm points."),
+    ] = None
     reefer_ambient_air_temperature_milli_c: typing_extensions.Annotated[
         typing.Optional[typing.List[TrailerStatReeferAmbientAirTemperatureWithDecorationsTypeResponseBody]],
         FieldMetadata(alias="reeferAmbientAirTemperatureMilliC"),
-    ] = pydantic.Field(alias="reeferAmbientAirTemperatureMilliC", default=None)
-    """
-    A list of ambient air temperature points.
-    """
-
+        pydantic.Field(
+            alias="reeferAmbientAirTemperatureMilliC", description="A list of ambient air temperature points."
+        ),
+    ] = None
     reefer_door_state_zone_1: typing_extensions.Annotated[
         typing.Optional[typing.List[TrailerStatReeferDoorStateZone1WithDecorationsTypeResponseBody]],
         FieldMetadata(alias="reeferDoorStateZone1"),
-    ] = pydantic.Field(alias="reeferDoorStateZone1", default=None)
-    """
-    A list of door state points.
-    """
-
+        pydantic.Field(alias="reeferDoorStateZone1", description="A list of door state points."),
+    ] = None
     reefer_door_state_zone_2: typing_extensions.Annotated[
         typing.Optional[typing.List[TrailerStatReeferDoorStateZone2WithDecorationsTypeResponseBody]],
         FieldMetadata(alias="reeferDoorStateZone2"),
-    ] = pydantic.Field(alias="reeferDoorStateZone2", default=None)
-    """
-    A list of door state points.
-    """
-
+        pydantic.Field(alias="reeferDoorStateZone2", description="A list of door state points."),
+    ] = None
     reefer_door_state_zone_3: typing_extensions.Annotated[
         typing.Optional[typing.List[TrailerStatReeferDoorStateZone3WithDecorationsTypeResponseBody]],
         FieldMetadata(alias="reeferDoorStateZone3"),
-    ] = pydantic.Field(alias="reeferDoorStateZone3", default=None)
-    """
-    A list of door state points.
-    """
-
+        pydantic.Field(alias="reeferDoorStateZone3", description="A list of door state points."),
+    ] = None
     reefer_fuel_percent: typing_extensions.Annotated[
         typing.Optional[typing.List[TrailerStatReeferFuelPercentWithDecorationsTypeResponseBody]],
         FieldMetadata(alias="reeferFuelPercent"),
-    ] = pydantic.Field(alias="reeferFuelPercent", default=None)
-    """
-    A list of fuel percent points.
-    """
-
+        pydantic.Field(alias="reeferFuelPercent", description="A list of fuel percent points."),
+    ] = None
     reefer_obd_engine_seconds: typing_extensions.Annotated[
         typing.Optional[typing.List[TrailerStatReeferObdEngineSecondsWithDecorationsTypeResponseBody]],
         FieldMetadata(alias="reeferObdEngineSeconds"),
-    ] = pydantic.Field(alias="reeferObdEngineSeconds", default=None)
-    """
-    A list of engine second points
-    """
-
+        pydantic.Field(alias="reeferObdEngineSeconds", description="A list of engine second points"),
+    ] = None
     reefer_return_air_temperature_milli_c_zone_1: typing_extensions.Annotated[
         typing.Optional[typing.List[TrailerStatReeferReturnAirTemperatureMilliCZone1WithDecorationsTypeResponseBody]],
         FieldMetadata(alias="reeferReturnAirTemperatureMilliCZone1"),
-    ] = pydantic.Field(alias="reeferReturnAirTemperatureMilliCZone1", default=None)
-    """
-    A list of return air temperature points.
-    """
-
+        pydantic.Field(
+            alias="reeferReturnAirTemperatureMilliCZone1", description="A list of return air temperature points."
+        ),
+    ] = None
     reefer_return_air_temperature_milli_c_zone_2: typing_extensions.Annotated[
         typing.Optional[typing.List[TrailerStatReeferReturnAirTemperatureMilliCZone2WithDecorationsTypeResponseBody]],
         FieldMetadata(alias="reeferReturnAirTemperatureMilliCZone2"),
-    ] = pydantic.Field(alias="reeferReturnAirTemperatureMilliCZone2", default=None)
-    """
-    A list of return air temperature points.
-    """
-
+        pydantic.Field(
+            alias="reeferReturnAirTemperatureMilliCZone2", description="A list of return air temperature points."
+        ),
+    ] = None
     reefer_return_air_temperature_milli_c_zone_3: typing_extensions.Annotated[
         typing.Optional[typing.List[TrailerStatReeferReturnAirTemperatureMilliCZone3WithDecorationsTypeResponseBody]],
         FieldMetadata(alias="reeferReturnAirTemperatureMilliCZone3"),
-    ] = pydantic.Field(alias="reeferReturnAirTemperatureMilliCZone3", default=None)
-    """
-    A list of return air temperature points.
-    """
-
+        pydantic.Field(
+            alias="reeferReturnAirTemperatureMilliCZone3", description="A list of return air temperature points."
+        ),
+    ] = None
     reefer_run_mode: typing_extensions.Annotated[
         typing.Optional[typing.List[TrailerStatReeferRunModeWithDecorationsTypeResponseBody]],
         FieldMetadata(alias="reeferRunMode"),
-    ] = pydantic.Field(alias="reeferRunMode", default=None)
-    """
-    A list of run mode points
-    """
-
+        pydantic.Field(alias="reeferRunMode", description="A list of run mode points"),
+    ] = None
     reefer_set_point_temperature_milli_c_zone_1: typing_extensions.Annotated[
         typing.Optional[typing.List[TrailerStatReeferSetPointTemperatureMilliCZone1WithDecorationsTypeResponseBody]],
         FieldMetadata(alias="reeferSetPointTemperatureMilliCZone1"),
-    ] = pydantic.Field(alias="reeferSetPointTemperatureMilliCZone1", default=None)
-    """
-    A list of set point temperature points.
-    """
-
+        pydantic.Field(
+            alias="reeferSetPointTemperatureMilliCZone1", description="A list of set point temperature points."
+        ),
+    ] = None
     reefer_set_point_temperature_milli_c_zone_2: typing_extensions.Annotated[
         typing.Optional[typing.List[TrailerStatReeferSetPointTemperatureMilliCZone2WithDecorationsTypeResponseBody]],
         FieldMetadata(alias="reeferSetPointTemperatureMilliCZone2"),
-    ] = pydantic.Field(alias="reeferSetPointTemperatureMilliCZone2", default=None)
-    """
-    A list of set point temperature points.
-    """
-
+        pydantic.Field(
+            alias="reeferSetPointTemperatureMilliCZone2", description="A list of set point temperature points."
+        ),
+    ] = None
     reefer_set_point_temperature_milli_c_zone_3: typing_extensions.Annotated[
         typing.Optional[typing.List[TrailerStatReeferSetPointTemperatureMilliCZone3WithDecorationsTypeResponseBody]],
         FieldMetadata(alias="reeferSetPointTemperatureMilliCZone3"),
-    ] = pydantic.Field(alias="reeferSetPointTemperatureMilliCZone3", default=None)
-    """
-    A list of set point temperature points.
-    """
-
+        pydantic.Field(
+            alias="reeferSetPointTemperatureMilliCZone3", description="A list of set point temperature points."
+        ),
+    ] = None
     reefer_state_zone_1: typing_extensions.Annotated[
         typing.Optional[typing.List[TrailerStatReeferStateZone1WithDecorationsTypeResponseBody]],
         FieldMetadata(alias="reeferStateZone1"),
-    ] = pydantic.Field(alias="reeferStateZone1", default=None)
-    """
-    A list of engine state points.
-    """
-
+        pydantic.Field(alias="reeferStateZone1", description="A list of engine state points."),
+    ] = None
     reefer_state_zone_2: typing_extensions.Annotated[
         typing.Optional[typing.List[TrailerStatReeferStateZone2WithDecorationsTypeResponseBody]],
         FieldMetadata(alias="reeferStateZone2"),
-    ] = pydantic.Field(alias="reeferStateZone2", default=None)
-    """
-    A list of engine state points.
-    """
-
+        pydantic.Field(alias="reeferStateZone2", description="A list of engine state points."),
+    ] = None
     reefer_state_zone_3: typing_extensions.Annotated[
         typing.Optional[typing.List[TrailerStatReeferStateZone3WithDecorationsTypeResponseBody]],
         FieldMetadata(alias="reeferStateZone3"),
-    ] = pydantic.Field(alias="reeferStateZone3", default=None)
-    """
-    A list of engine state points.
-    """
-
+        pydantic.Field(alias="reeferStateZone3", description="A list of engine state points."),
+    ] = None
     reefer_supply_air_temperature_milli_c_zone_1: typing_extensions.Annotated[
         typing.Optional[typing.List[TrailerStatReeferSupplyAirTemperatureMilliCZone1WithDecorationsTypeResponseBody]],
         FieldMetadata(alias="reeferSupplyAirTemperatureMilliCZone1"),
-    ] = pydantic.Field(alias="reeferSupplyAirTemperatureMilliCZone1", default=None)
-    """
-    A list of supply air temperature points.
-    """
-
+        pydantic.Field(
+            alias="reeferSupplyAirTemperatureMilliCZone1", description="A list of supply air temperature points."
+        ),
+    ] = None
     reefer_supply_air_temperature_milli_c_zone_2: typing_extensions.Annotated[
         typing.Optional[typing.List[TrailerStatReeferSupplyAirTemperatureMilliCZone2WithDecorationsTypeResponseBody]],
         FieldMetadata(alias="reeferSupplyAirTemperatureMilliCZone2"),
-    ] = pydantic.Field(alias="reeferSupplyAirTemperatureMilliCZone2", default=None)
-    """
-    A list of supply air temperature points.
-    """
-
+        pydantic.Field(
+            alias="reeferSupplyAirTemperatureMilliCZone2", description="A list of supply air temperature points."
+        ),
+    ] = None
     reefer_supply_air_temperature_milli_c_zone_3: typing_extensions.Annotated[
         typing.Optional[typing.List[TrailerStatReeferSupplyAirTemperatureMilliCZone3WithDecorationsTypeResponseBody]],
         FieldMetadata(alias="reeferSupplyAirTemperatureMilliCZone3"),
-    ] = pydantic.Field(alias="reeferSupplyAirTemperatureMilliCZone3", default=None)
-    """
-    A list of supply air temperature points.
-    """
+        pydantic.Field(
+            alias="reeferSupplyAirTemperatureMilliCZone3", description="A list of supply air temperature points."
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

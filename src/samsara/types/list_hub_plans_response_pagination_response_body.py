@@ -13,19 +13,16 @@ class ListHubPlansResponsePaginationResponseBody(UniversalBaseModel):
     Pagination information
     """
 
-    end_cursor: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="endCursor")] = pydantic.Field(
-        alias="endCursor", default=None
-    )
-    """
-    Cursor for the last item in the page
-    """
-
-    has_next_page: typing_extensions.Annotated[bool, FieldMetadata(alias="hasNextPage")] = pydantic.Field(
-        alias="hasNextPage"
-    )
-    """
-    Whether there are more pages available
-    """
+    end_cursor: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="endCursor"),
+        pydantic.Field(alias="endCursor", description="Cursor for the last item in the page"),
+    ] = None
+    has_next_page: typing_extensions.Annotated[
+        bool,
+        FieldMetadata(alias="hasNextPage"),
+        pydantic.Field(alias="hasNextPage", description="Whether there are more pages available"),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

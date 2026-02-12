@@ -17,39 +17,39 @@ class TrainingAssignmentPostResponseObjectResponseBody(UniversalBaseModel):
     """
 
     course: TrainingCourseObjectResponseBody
-    created_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAtTime")] = pydantic.Field(
-        alias="createdAtTime"
-    )
-    """
-    Creation time of the training assignment. UTC timestamp in RFC 3339 format.
-    """
-
-    created_by_id: typing_extensions.Annotated[str, FieldMetadata(alias="createdById")] = pydantic.Field(
-        alias="createdById"
-    )
-    """
-    ID of the user who created the training assignment.
-    """
-
-    due_at_time: typing_extensions.Annotated[typing.Optional[dt.datetime], FieldMetadata(alias="dueAtTime")] = (
-        pydantic.Field(alias="dueAtTime", default=None)
-    )
-    """
-    Time training assignment is due. UTC timestamp in RFC 3339 format. Returned when an assignment has a due date set by an admin.
-    """
-
+    created_at_time: typing_extensions.Annotated[
+        dt.datetime,
+        FieldMetadata(alias="createdAtTime"),
+        pydantic.Field(
+            alias="createdAtTime",
+            description="Creation time of the training assignment. UTC timestamp in RFC 3339 format.",
+        ),
+    ]
+    created_by_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="createdById"),
+        pydantic.Field(alias="createdById", description="ID of the user who created the training assignment."),
+    ]
+    due_at_time: typing_extensions.Annotated[
+        typing.Optional[dt.datetime],
+        FieldMetadata(alias="dueAtTime"),
+        pydantic.Field(
+            alias="dueAtTime",
+            description="Time training assignment is due. UTC timestamp in RFC 3339 format. Returned when an assignment has a due date set by an admin.",
+        ),
+    ] = None
     id: str = pydantic.Field()
     """
     ID of the training assignment.
     """
 
-    is_existing_assignment: typing_extensions.Annotated[bool, FieldMetadata(alias="isExistingAssignment")] = (
-        pydantic.Field(alias="isExistingAssignment")
-    )
-    """
-    Indicates whether the training assignment was already created.
-    """
-
+    is_existing_assignment: typing_extensions.Annotated[
+        bool,
+        FieldMetadata(alias="isExistingAssignment"),
+        pydantic.Field(
+            alias="isExistingAssignment", description="Indicates whether the training assignment was already created."
+        ),
+    ]
     learner: TrainingLearnerObjectResponseBody
 
     if IS_PYDANTIC_V2:

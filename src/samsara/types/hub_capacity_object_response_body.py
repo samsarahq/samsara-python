@@ -14,18 +14,14 @@ class HubCapacityObjectResponseBody(UniversalBaseModel):
     Hub capacity object
     """
 
-    created_at: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAt")] = pydantic.Field(
-        alias="createdAt"
-    )
-    """
-    Creation timestamp
-    """
-
-    hub_id: typing_extensions.Annotated[str, FieldMetadata(alias="hubId")] = pydantic.Field(alias="hubId")
-    """
-    Hub identifier
-    """
-
+    created_at: typing_extensions.Annotated[
+        dt.datetime,
+        FieldMetadata(alias="createdAt"),
+        pydantic.Field(alias="createdAt", description="Creation timestamp"),
+    ]
+    hub_id: typing_extensions.Annotated[
+        str, FieldMetadata(alias="hubId"), pydantic.Field(alias="hubId", description="Hub identifier")
+    ]
     id: str = pydantic.Field()
     """
     Capacity identifier
@@ -41,12 +37,11 @@ class HubCapacityObjectResponseBody(UniversalBaseModel):
     Unit of measurement
     """
 
-    updated_at: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAt")] = pydantic.Field(
-        alias="updatedAt"
-    )
-    """
-    Last update timestamp
-    """
+    updated_at: typing_extensions.Annotated[
+        dt.datetime,
+        FieldMetadata(alias="updatedAt"),
+        pydantic.Field(alias="updatedAt", description="Last update timestamp"),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

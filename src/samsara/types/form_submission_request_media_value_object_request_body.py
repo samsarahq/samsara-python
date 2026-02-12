@@ -15,11 +15,10 @@ class FormSubmissionRequestMediaValueObjectRequestBody(UniversalBaseModel):
     """
 
     media_list: typing_extensions.Annotated[
-        typing.List[FormSubmissionRequestMediaItemObjectRequestBody], FieldMetadata(alias="mediaList")
-    ] = pydantic.Field(alias="mediaList")
-    """
-    List of media items.
-    """
+        typing.List[FormSubmissionRequestMediaItemObjectRequestBody],
+        FieldMetadata(alias="mediaList"),
+        pydantic.Field(alias="mediaList", description="List of media items."),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

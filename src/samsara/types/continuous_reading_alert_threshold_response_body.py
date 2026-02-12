@@ -32,12 +32,13 @@ class ContinuousReadingAlertThresholdResponseBody(UniversalBaseModel):
     The unit of the threshold defined by reading type.  Valid values: `ampere`, `bar`, `cad`, `celsius`, `chf`, `day`, `decimaldegrees`, `eur`, `fahrenheit`, `foot`, `gallon`, `gallonperkilogram`, `gallonsperhour`, `galpermi`, `gbp`, `gforce`, `gperliter`, `gperm`, `hertz`, `hour`, `imperialgallonperkilogram`, `impgallon`, `impgallonsperhour`, `impgalpermi`, `inch`, `kelvin`, `kgper100kmgaseousfuel`, `kgpergallon`, `kgperkm`, `kgperliter`, `kgpermi`, `kilogram`, `kilogramgaseousfuel`, `kilometer`, `kilopascal`, `kilowatthour`, `kmperhr`, `kmperl`, `kmperlgaseousfuel`, `lbpermi`, `liter`, `litergaseousfuel`, `literperkilogram`, `literpertonne`, `litersperhour`, `lper100km`, `lper100kmgaseousfuel`, `lperkm`, `lperm`, `meter`, `meterspersec`, `mile`, `milliknot`, `millisecond`, `millivolt`, `minute`, `mipergal`, `miperhr`, `miperimpgal`, `month`, `mpgusgalgaseousfuel`, `mpkggaseousfuel`, `mxn`, `percent`, `pound`, `poundsPerSquareInch`, `poundspergallon`, `poundsperliter`, `rpm`, `second`, `usd`, `usgallongaseousfuel`, `volt`, `voltAmpere`, `voltAmpereReactive`, `watt`, `watthour`, `week`
     """
 
-    upper_threshold: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="upperThreshold")] = (
-        pydantic.Field(alias="upperThreshold", default=None)
-    )
-    """
-    The upper threshold of criticality. Required for RANGE operations.
-    """
+    upper_threshold: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="upperThreshold"),
+        pydantic.Field(
+            alias="upperThreshold", description="The upper threshold of criticality. Required for RANGE operations."
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -27,12 +27,10 @@ class IftaVehicleReportDataObjectResponseBody(UniversalBaseModel):
 
     troubleshooting: typing.Optional[IftaReportTroubleshootingObjectResponseBody] = None
     vehicle_reports: typing_extensions.Annotated[
-        typing.List[IftaVehicleReportObjectResponseBody], FieldMetadata(alias="vehicleReports")
-    ] = pydantic.Field(alias="vehicleReports")
-    """
-    List of summarized vehicle reports.
-    """
-
+        typing.List[IftaVehicleReportObjectResponseBody],
+        FieldMetadata(alias="vehicleReports"),
+        pydantic.Field(alias="vehicleReports", description="List of summarized vehicle reports."),
+    ]
     year: int = pydantic.Field()
     """
     The specified year for this IFTA report.

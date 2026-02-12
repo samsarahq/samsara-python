@@ -18,32 +18,29 @@ class VehicleWithGatewayTinyResponseResponseBody(UniversalBaseModel):
     """
 
     asset_type: typing_extensions.Annotated[
-        typing.Optional[VehicleWithGatewayTinyResponseResponseBodyAssetType], FieldMetadata(alias="assetType")
-    ] = pydantic.Field(alias="assetType", default=None)
-    """
-    The type of the asset.  Valid values: `uncategorized`, `trailer`, `equipment`, `unpowered`, `vehicle`
-    """
-
+        typing.Optional[VehicleWithGatewayTinyResponseResponseBodyAssetType],
+        FieldMetadata(alias="assetType"),
+        pydantic.Field(
+            alias="assetType",
+            description="The type of the asset.  Valid values: `uncategorized`, `trailer`, `equipment`, `unpowered`, `vehicle`",
+        ),
+    ] = None
     external_ids: typing_extensions.Annotated[
-        typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(alias="externalIds", default=None)
-    """
-    A map of external ids
-    """
-
+        typing.Optional[typing.Dict[str, str]],
+        FieldMetadata(alias="externalIds"),
+        pydantic.Field(alias="externalIds", description="A map of external ids"),
+    ] = None
     gateway: typing.Optional[GoaGatewayTinyResponseResponseBody] = None
     id: typing.Optional[str] = pydantic.Field(default=None)
     """
     ID of the vehicle
     """
 
-    license_plate: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="licensePlate")] = (
-        pydantic.Field(alias="licensePlate", default=None)
-    )
-    """
-    The license plate of the vehicle.
-    """
-
+    license_plate: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="licensePlate"),
+        pydantic.Field(alias="licensePlate", description="The license plate of the vehicle."),
+    ] = None
     name: typing.Optional[str] = pydantic.Field(default=None)
     """
     Name of the vehicle

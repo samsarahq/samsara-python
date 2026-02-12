@@ -18,59 +18,63 @@ class FormsTableFieldDefinitionObjectResponseBody(UniversalBaseModel):
     Forms table field definition object.
     """
 
-    allow_manual_entry: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="allowManualEntry")] = (
-        pydantic.Field(alias="allowManualEntry", default=None)
-    )
-    """
-    Indicates whether the field allows manual entry of a person. Only present for person fields.
-    """
-
+    allow_manual_entry: typing_extensions.Annotated[
+        typing.Optional[bool],
+        FieldMetadata(alias="allowManualEntry"),
+        pydantic.Field(
+            alias="allowManualEntry",
+            description="Indicates whether the field allows manual entry of a person. Only present for person fields.",
+        ),
+    ] = None
     allowed_date_time_value_type: typing_extensions.Annotated[
         typing.Optional[FormsTableFieldDefinitionObjectResponseBodyAllowedDateTimeValueType],
         FieldMetadata(alias="allowedDateTimeValueType"),
-    ] = pydantic.Field(alias="allowedDateTimeValueType", default=None)
-    """
-    Type of date/time entry allowed for this question. Only present for datetime fields.  Valid values: `datetime`, `date`, `time`
-    """
-
+        pydantic.Field(
+            alias="allowedDateTimeValueType",
+            description="Type of date/time entry allowed for this question. Only present for datetime fields.  Valid values: `datetime`, `date`, `time`",
+        ),
+    ] = None
     filter_by_role_ids: typing_extensions.Annotated[
-        typing.Optional[typing.List[str]], FieldMetadata(alias="filterByRoleIds")
-    ] = pydantic.Field(alias="filterByRoleIds", default=None)
-    """
-    List of role IDs to filter org users by, representing which roles are selectable people for this field. Only present for person fields.
-    """
-
+        typing.Optional[typing.List[str]],
+        FieldMetadata(alias="filterByRoleIds"),
+        pydantic.Field(
+            alias="filterByRoleIds",
+            description="List of role IDs to filter org users by, representing which roles are selectable people for this field. Only present for person fields.",
+        ),
+    ] = None
     id: str = pydantic.Field()
     """
     Identifier of the field.
     """
 
-    include_drivers: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="includeDrivers")] = (
-        pydantic.Field(alias="includeDrivers", default=None)
-    )
-    """
-    Indicates whether the field includes drivers as selectable people. Only present for person fields.
-    """
-
-    include_users: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="includeUsers")] = (
-        pydantic.Field(alias="includeUsers", default=None)
-    )
-    """
-    Indicates whether the field includes users as selectable people. Only present for person fields.
-    """
-
+    include_drivers: typing_extensions.Annotated[
+        typing.Optional[bool],
+        FieldMetadata(alias="includeDrivers"),
+        pydantic.Field(
+            alias="includeDrivers",
+            description="Indicates whether the field includes drivers as selectable people. Only present for person fields.",
+        ),
+    ] = None
+    include_users: typing_extensions.Annotated[
+        typing.Optional[bool],
+        FieldMetadata(alias="includeUsers"),
+        pydantic.Field(
+            alias="includeUsers",
+            description="Indicates whether the field includes users as selectable people. Only present for person fields.",
+        ),
+    ] = None
     label: str = pydantic.Field()
     """
     Label of the field.
     """
 
-    num_decimal_places: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="numDecimalPlaces")] = (
-        pydantic.Field(alias="numDecimalPlaces", default=None)
-    )
-    """
-    Number of decimal places allowed. Only present for number fields.
-    """
-
+    num_decimal_places: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="numDecimalPlaces"),
+        pydantic.Field(
+            alias="numDecimalPlaces", description="Number of decimal places allowed. Only present for number fields."
+        ),
+    ] = None
     options: typing.Optional[typing.List[FormsSelectOptionObjectResponseBody]] = pydantic.Field(default=None)
     """
     List of select options for check boxes or multiple choice fields.

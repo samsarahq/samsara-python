@@ -21,12 +21,13 @@ class DetectionLogDriverObjectResponseBody(UniversalBaseModel):
     """
 
     external_ids: typing_extensions.Annotated[
-        typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(alias="externalIds", default=None)
-    """
-    A map of external ids for the driver assigned to the safety event. Only returned when includeDriver is set to true
-    """
-
+        typing.Optional[typing.Dict[str, str]],
+        FieldMetadata(alias="externalIds"),
+        pydantic.Field(
+            alias="externalIds",
+            description="A map of external ids for the driver assigned to the safety event. Only returned when includeDriver is set to true",
+        ),
+    ] = None
     id: str = pydantic.Field()
     """
     Unique ID for the driver object that is assigned to the safety event. Always returned when a driver is assigned.

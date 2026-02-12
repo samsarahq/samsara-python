@@ -13,68 +13,78 @@ class DriverEfficiencyDataObjectResponseBody(UniversalBaseModel):
     Driver Efficiency score data. This object is returned by default or when the “score” format is specified in “dataFormats”.
     """
 
-    anticipation_score: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="anticipationScore")] = (
-        pydantic.Field(alias="anticipationScore", default=None)
-    )
-    """
-    Represents the anticipation score for the driver. The score will be in either number or letter format depending on the organisation config.
-    """
-
-    coasting_score: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="coastingScore")] = (
-        pydantic.Field(alias="coastingScore", default=None)
-    )
-    """
-    Represents the coasting score for the driver. The score will be in either number or letter format depending on the organisation config.
-    """
-
+    anticipation_score: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="anticipationScore"),
+        pydantic.Field(
+            alias="anticipationScore",
+            description="Represents the anticipation score for the driver. The score will be in either number or letter format depending on the organisation config.",
+        ),
+    ] = None
+    coasting_score: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="coastingScore"),
+        pydantic.Field(
+            alias="coastingScore",
+            description="Represents the coasting score for the driver. The score will be in either number or letter format depending on the organisation config.",
+        ),
+    ] = None
     cruise_control_score: typing_extensions.Annotated[
-        typing.Optional[str], FieldMetadata(alias="cruiseControlScore")
-    ] = pydantic.Field(alias="cruiseControlScore", default=None)
-    """
-    Represents the cruise control score for the driver. The score will be in either number or letter format depending on the organisation config.
-    """
-
-    green_band_score: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="greenBandScore")] = (
-        pydantic.Field(alias="greenBandScore", default=None)
-    )
-    """
-    Represents the green band score for the driver. The score will be in either number or letter format depending on the organisation config.
-    """
-
-    high_torque_score: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="highTorqueScore")] = (
-        pydantic.Field(alias="highTorqueScore", default=None)
-    )
-    """
-    Represents the high torque score for the driver. The score will be in either number or letter format depending on the organisation config.
-    """
-
-    idling_score: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="idlingScore")] = (
-        pydantic.Field(alias="idlingScore", default=None)
-    )
-    """
-    Represents the idling score for the driver.The score will be in either number or letter format depending on the organisation config.
-    """
-
-    over_speed_score: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="overSpeedScore")] = (
-        pydantic.Field(alias="overSpeedScore", default=None)
-    )
-    """
-    Represents the over speed score for the driver. The score will be in either number or letter format depending on the organisation config.
-    """
-
-    overall_score: typing_extensions.Annotated[str, FieldMetadata(alias="overallScore")] = pydantic.Field(
-        alias="overallScore"
-    )
-    """
-    Represents the overall score for the driver. The score will be in either number (0-100) as a string or letter format (A-G) depending on the organisation config.
-    """
-
+        typing.Optional[str],
+        FieldMetadata(alias="cruiseControlScore"),
+        pydantic.Field(
+            alias="cruiseControlScore",
+            description="Represents the cruise control score for the driver. The score will be in either number or letter format depending on the organisation config.",
+        ),
+    ] = None
+    green_band_score: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="greenBandScore"),
+        pydantic.Field(
+            alias="greenBandScore",
+            description="Represents the green band score for the driver. The score will be in either number or letter format depending on the organisation config.",
+        ),
+    ] = None
+    high_torque_score: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="highTorqueScore"),
+        pydantic.Field(
+            alias="highTorqueScore",
+            description="Represents the high torque score for the driver. The score will be in either number or letter format depending on the organisation config.",
+        ),
+    ] = None
+    idling_score: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="idlingScore"),
+        pydantic.Field(
+            alias="idlingScore",
+            description="Represents the idling score for the driver.The score will be in either number or letter format depending on the organisation config.",
+        ),
+    ] = None
+    over_speed_score: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="overSpeedScore"),
+        pydantic.Field(
+            alias="overSpeedScore",
+            description="Represents the over speed score for the driver. The score will be in either number or letter format depending on the organisation config.",
+        ),
+    ] = None
+    overall_score: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="overallScore"),
+        pydantic.Field(
+            alias="overallScore",
+            description="Represents the overall score for the driver. The score will be in either number (0-100) as a string or letter format (A-G) depending on the organisation config.",
+        ),
+    ]
     wear_free_brake_score: typing_extensions.Annotated[
-        typing.Optional[str], FieldMetadata(alias="wearFreeBrakeScore")
-    ] = pydantic.Field(alias="wearFreeBrakeScore", default=None)
-    """
-    Represents the ware-free breaking score for the driver. The score will be in either number or letter format depending on the organisation config.
-    """
+        typing.Optional[str],
+        FieldMetadata(alias="wearFreeBrakeScore"),
+        pydantic.Field(
+            alias="wearFreeBrakeScore",
+            description="Represents the ware-free breaking score for the driver. The score will be in either number or letter format depending on the organisation config.",
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

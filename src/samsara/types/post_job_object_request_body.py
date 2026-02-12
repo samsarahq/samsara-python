@@ -15,37 +15,40 @@ class PostJobObjectRequestBody(UniversalBaseModel):
     """
 
     address: typing.Optional[PostJobObjectjobLocationRequestObjectRequestBody] = None
-    customer_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="customerName")] = (
-        pydantic.Field(alias="customerName", default=None)
-    )
-    """
-    Customer name for job
-    """
-
-    end_date: typing_extensions.Annotated[str, FieldMetadata(alias="endDate")] = pydantic.Field(alias="endDate")
-    """
-    End date of job in RFC 3339 format. Must be greater than or equal to the start date
-    """
-
+    customer_name: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="customerName"),
+        pydantic.Field(alias="customerName", description="Customer name for job"),
+    ] = None
+    end_date: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="endDate"),
+        pydantic.Field(
+            alias="endDate",
+            description="End date of job in RFC 3339 format. Must be greater than or equal to the start date",
+        ),
+    ]
     fleet_device_ids: typing_extensions.Annotated[
-        typing.Optional[typing.List[int]], FieldMetadata(alias="fleetDeviceIds")
-    ] = pydantic.Field(alias="fleetDeviceIds", default=None)
-    """
-    Fleet devices to be added to this job (cannot have both industrial assets and fleet devices in the same job)
-    """
-
+        typing.Optional[typing.List[int]],
+        FieldMetadata(alias="fleetDeviceIds"),
+        pydantic.Field(
+            alias="fleetDeviceIds",
+            description="Fleet devices to be added to this job (cannot have both industrial assets and fleet devices in the same job)",
+        ),
+    ] = None
     id: str = pydantic.Field()
     """
     Job Id
     """
 
     industrial_asset_ids: typing_extensions.Annotated[
-        typing.Optional[typing.List[str]], FieldMetadata(alias="industrialAssetIds")
-    ] = pydantic.Field(alias="industrialAssetIds", default=None)
-    """
-    IndustrialAssets to be added to this job (cannot have both industrial assets and fleet devices in the same job)
-    """
-
+        typing.Optional[typing.List[str]],
+        FieldMetadata(alias="industrialAssetIds"),
+        pydantic.Field(
+            alias="industrialAssetIds",
+            description="IndustrialAssets to be added to this job (cannot have both industrial assets and fleet devices in the same job)",
+        ),
+    ] = None
     name: str = pydantic.Field()
     """
     Job name
@@ -57,23 +60,26 @@ class PostJobObjectRequestBody(UniversalBaseModel):
     """
 
     ontime_window_after_arrival_ms: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="ontimeWindowAfterArrivalMs")
-    ] = pydantic.Field(alias="ontimeWindowAfterArrivalMs", default=None)
-    """
-    Specifies the time window (in milliseconds) after a stop's scheduled arrival time during which the stop is considered 'on-time'.
-    """
-
+        typing.Optional[int],
+        FieldMetadata(alias="ontimeWindowAfterArrivalMs"),
+        pydantic.Field(
+            alias="ontimeWindowAfterArrivalMs",
+            description="Specifies the time window (in milliseconds) after a stop's scheduled arrival time during which the stop is considered 'on-time'.",
+        ),
+    ] = None
     ontime_window_before_arrival_ms: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="ontimeWindowBeforeArrivalMs")
-    ] = pydantic.Field(alias="ontimeWindowBeforeArrivalMs", default=None)
-    """
-    Specifies the time window (in milliseconds) before a stop's scheduled arrival time during which the stop is considered 'on-time'.
-    """
-
-    start_date: typing_extensions.Annotated[str, FieldMetadata(alias="startDate")] = pydantic.Field(alias="startDate")
-    """
-    Start date of job in RFC 3339 format.
-    """
+        typing.Optional[int],
+        FieldMetadata(alias="ontimeWindowBeforeArrivalMs"),
+        pydantic.Field(
+            alias="ontimeWindowBeforeArrivalMs",
+            description="Specifies the time window (in milliseconds) before a stop's scheduled arrival time during which the stop is considered 'on-time'.",
+        ),
+    ] = None
+    start_date: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="startDate"),
+        pydantic.Field(alias="startDate", description="Start date of job in RFC 3339 format."),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

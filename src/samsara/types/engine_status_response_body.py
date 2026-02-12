@@ -13,13 +13,11 @@ class EngineStatusResponseBody(UniversalBaseModel):
     Equipment engine status.
     """
 
-    running: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="Running")] = pydantic.Field(
-        alias="Running", default=None
-    )
-    """
-    Boolean value for whether engine is running or not.
-    """
-
+    running: typing_extensions.Annotated[
+        typing.Optional[bool],
+        FieldMetadata(alias="Running"),
+        pydantic.Field(alias="Running", description="Boolean value for whether engine is running or not."),
+    ] = None
     datetime: typing.Optional[str] = pydantic.Field(default=None)
     """
     Date time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).

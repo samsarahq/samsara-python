@@ -13,26 +13,23 @@ class V1SafetyReportHarshEvent(UniversalBaseModel):
     List of harsh events
     """
 
-    harsh_event_type: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="harshEventType")] = (
-        pydantic.Field(alias="harshEventType", default=None)
-    )
-    """
-    Sensor generated harsh event type.
-    """
-
-    timestamp_ms: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="timestampMs")] = (
-        pydantic.Field(alias="timestampMs", default=None)
-    )
-    """
-    Timestamp that the harsh event occurred in Unix milliseconds since epoch
-    """
-
-    vehicle_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="vehicleId")] = pydantic.Field(
-        alias="vehicleId", default=None
-    )
-    """
-    Vehicle associated with the harsh event
-    """
+    harsh_event_type: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="harshEventType"),
+        pydantic.Field(alias="harshEventType", description="Sensor generated harsh event type."),
+    ] = None
+    timestamp_ms: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="timestampMs"),
+        pydantic.Field(
+            alias="timestampMs", description="Timestamp that the harsh event occurred in Unix milliseconds since epoch"
+        ),
+    ] = None
+    vehicle_id: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="vehicleId"),
+        pydantic.Field(alias="vehicleId", description="Vehicle associated with the harsh event"),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

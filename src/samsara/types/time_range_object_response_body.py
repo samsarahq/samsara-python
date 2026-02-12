@@ -15,22 +15,26 @@ class TimeRangeObjectResponseBody(UniversalBaseModel):
     """
 
     days_of_week: typing_extensions.Annotated[
-        typing.List[TimeRangeObjectResponseBodyDaysOfWeekItem], FieldMetadata(alias="daysOfWeek")
-    ] = pydantic.Field(alias="daysOfWeek")
-    """
-    Which days this timezone applies to.
-    """
-
-    end_time: typing_extensions.Annotated[str, FieldMetadata(alias="endTime")] = pydantic.Field(alias="endTime")
-    """
-    The time of day at which the time range starts. In 24 hour kitchen clock format.
-    """
-
-    start_time: typing_extensions.Annotated[str, FieldMetadata(alias="startTime")] = pydantic.Field(alias="startTime")
-    """
-    The time of day at which the time range starts. In 24 hour kitchen clock format.
-    """
-
+        typing.List[TimeRangeObjectResponseBodyDaysOfWeekItem],
+        FieldMetadata(alias="daysOfWeek"),
+        pydantic.Field(alias="daysOfWeek", description="Which days this timezone applies to."),
+    ]
+    end_time: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="endTime"),
+        pydantic.Field(
+            alias="endTime",
+            description="The time of day at which the time range starts. In 24 hour kitchen clock format.",
+        ),
+    ]
+    start_time: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="startTime"),
+        pydantic.Field(
+            alias="startTime",
+            description="The time of day at which the time range starts. In 24 hour kitchen clock format.",
+        ),
+    ]
     timezone: str = pydantic.Field()
     """
     The timezone of the time range uses [IANA timezone database](https://www.iana.org/time-zones) keys (e.g. `America/Los_Angeles`, `America/New_York`, `Europe/London`, etc.). You can find a mapping of common timezone formats to IANA timezone keys [here](https://unicode.org/cldr/charts/latest/supplemental/zone_tzid.html).

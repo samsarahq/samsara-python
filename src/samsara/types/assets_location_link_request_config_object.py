@@ -14,20 +14,17 @@ class AssetsLocationLinkRequestConfigObject(UniversalBaseModel):
     Configuration details specific to the 'By Asset' Live Sharing Link.
     """
 
-    asset_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="assetId")] = pydantic.Field(
-        alias="assetId", default=None
-    )
-    """
-    Unique assets ID that Live Sharing Link will show.
-    """
-
+    asset_id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="assetId"),
+        pydantic.Field(alias="assetId", description="Unique assets ID that Live Sharing Link will show."),
+    ] = None
     location: typing.Optional[AssetsLocationLinkConfigAddressDetailsObject] = None
-    tag_ids: typing_extensions.Annotated[typing.Optional[typing.List[str]], FieldMetadata(alias="tagIds")] = (
-        pydantic.Field(alias="tagIds", default=None)
-    )
-    """
-    Array of tag IDs to filter data by.
-    """
+    tag_ids: typing_extensions.Annotated[
+        typing.Optional[typing.List[str]],
+        FieldMetadata(alias="tagIds"),
+        pydantic.Field(alias="tagIds", description="Array of tag IDs to filter data by."),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

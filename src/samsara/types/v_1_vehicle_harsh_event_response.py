@@ -15,47 +15,42 @@ class V1VehicleHarshEventResponse(UniversalBaseModel):
     """
 
     download_forward_video_url: typing_extensions.Annotated[
-        typing.Optional[str], FieldMetadata(alias="downloadForwardVideoUrl")
-    ] = pydantic.Field(alias="downloadForwardVideoUrl", default=None)
-    """
-    URL for downloading the forward facing video
-    """
-
+        typing.Optional[str],
+        FieldMetadata(alias="downloadForwardVideoUrl"),
+        pydantic.Field(alias="downloadForwardVideoUrl", description="URL for downloading the forward facing video"),
+    ] = None
     download_inward_video_url: typing_extensions.Annotated[
-        typing.Optional[str], FieldMetadata(alias="downloadInwardVideoUrl")
-    ] = pydantic.Field(alias="downloadInwardVideoUrl", default=None)
-    """
-    URL for downloading the inward facing video
-    """
-
+        typing.Optional[str],
+        FieldMetadata(alias="downloadInwardVideoUrl"),
+        pydantic.Field(alias="downloadInwardVideoUrl", description="URL for downloading the inward facing video"),
+    ] = None
     download_tracked_inward_video_url: typing_extensions.Annotated[
-        typing.Optional[str], FieldMetadata(alias="downloadTrackedInwardVideoUrl")
-    ] = pydantic.Field(alias="downloadTrackedInwardVideoUrl", default=None)
-    """
-    URL for downloading the tracked inward facing video
-    """
-
-    harsh_event_type: typing_extensions.Annotated[str, FieldMetadata(alias="harshEventType")] = pydantic.Field(
-        alias="harshEventType"
-    )
-    """
-    Type of the harsh event. One of: [Crash, Harsh Acceleration, Harsh Braking, Harsh Turn, ROP Engine, ROP Brake, YC Engine, YC Brake, Harsh Event]
-    """
-
-    incident_report_url: typing_extensions.Annotated[str, FieldMetadata(alias="incidentReportUrl")] = pydantic.Field(
-        alias="incidentReportUrl"
-    )
-    """
-    URL of the associated incident report page
-    """
-
-    is_distracted: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="isDistracted")] = (
-        pydantic.Field(alias="isDistracted", default=None)
-    )
-    """
-    Whether the driver was deemed distracted during this harsh event
-    """
-
+        typing.Optional[str],
+        FieldMetadata(alias="downloadTrackedInwardVideoUrl"),
+        pydantic.Field(
+            alias="downloadTrackedInwardVideoUrl", description="URL for downloading the tracked inward facing video"
+        ),
+    ] = None
+    harsh_event_type: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="harshEventType"),
+        pydantic.Field(
+            alias="harshEventType",
+            description="Type of the harsh event. One of: [Crash, Harsh Acceleration, Harsh Braking, Harsh Turn, ROP Engine, ROP Brake, YC Engine, YC Brake, Harsh Event]",
+        ),
+    ]
+    incident_report_url: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="incidentReportUrl"),
+        pydantic.Field(alias="incidentReportUrl", description="URL of the associated incident report page"),
+    ]
+    is_distracted: typing_extensions.Annotated[
+        typing.Optional[bool],
+        FieldMetadata(alias="isDistracted"),
+        pydantic.Field(
+            alias="isDistracted", description="Whether the driver was deemed distracted during this harsh event"
+        ),
+    ] = None
     location: typing.Optional[V1VehicleHarshEventResponseLocation] = None
 
     if IS_PYDANTIC_V2:

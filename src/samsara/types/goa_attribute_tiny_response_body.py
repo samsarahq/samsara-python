@@ -13,13 +13,14 @@ class GoaAttributeTinyResponseBody(UniversalBaseModel):
     Attribute properties.
     """
 
-    date_values: typing_extensions.Annotated[typing.Optional[typing.List[str]], FieldMetadata(alias="dateValues")] = (
-        pydantic.Field(alias="dateValues", default=None)
-    )
-    """
-    List of date values associated with the attribute (RFC 3339 full-date format: YYYY-MM-DD).
-    """
-
+    date_values: typing_extensions.Annotated[
+        typing.Optional[typing.List[str]],
+        FieldMetadata(alias="dateValues"),
+        pydantic.Field(
+            alias="dateValues",
+            description="List of date values associated with the attribute (RFC 3339 full-date format: YYYY-MM-DD).",
+        ),
+    ] = None
     id: typing.Optional[str] = pydantic.Field(default=None)
     """
     Id of the attribute
@@ -31,18 +32,15 @@ class GoaAttributeTinyResponseBody(UniversalBaseModel):
     """
 
     number_values: typing_extensions.Annotated[
-        typing.Optional[typing.List[float]], FieldMetadata(alias="numberValues")
-    ] = pydantic.Field(alias="numberValues", default=None)
-    """
-    List of number values associated with the attribute
-    """
-
+        typing.Optional[typing.List[float]],
+        FieldMetadata(alias="numberValues"),
+        pydantic.Field(alias="numberValues", description="List of number values associated with the attribute"),
+    ] = None
     string_values: typing_extensions.Annotated[
-        typing.Optional[typing.List[str]], FieldMetadata(alias="stringValues")
-    ] = pydantic.Field(alias="stringValues", default=None)
-    """
-    List of string values associated with the attribute.
-    """
+        typing.Optional[typing.List[str]],
+        FieldMetadata(alias="stringValues"),
+        pydantic.Field(alias="stringValues", description="List of string values associated with the attribute."),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

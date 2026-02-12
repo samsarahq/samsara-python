@@ -15,20 +15,24 @@ from .string_data_point import StringDataPoint
 
 class DataInputSnapshotAllOf(UniversalBaseModel):
     fft_spectra_point: typing_extensions.Annotated[
-        typing.Optional[FftSpectraDataPoint], FieldMetadata(alias="fftSpectraPoint")
-    ] = pydantic.Field(alias="fftSpectraPoint", default=None)
+        typing.Optional[FftSpectraDataPoint],
+        FieldMetadata(alias="fftSpectraPoint"),
+        pydantic.Field(alias="fftSpectraPoint"),
+    ] = None
     j_1939_d_1_status_point: typing_extensions.Annotated[
-        typing.Optional[J1939D1StatusDataPoint], FieldMetadata(alias="j1939D1StatusPoint")
-    ] = pydantic.Field(alias="j1939D1StatusPoint", default=None)
+        typing.Optional[J1939D1StatusDataPoint],
+        FieldMetadata(alias="j1939D1StatusPoint"),
+        pydantic.Field(alias="j1939D1StatusPoint"),
+    ] = None
     location_point: typing_extensions.Annotated[
-        typing.Optional[LocationDataPoint], FieldMetadata(alias="locationPoint")
-    ] = pydantic.Field(alias="locationPoint", default=None)
-    number_point: typing_extensions.Annotated[typing.Optional[NumberDataPoint], FieldMetadata(alias="numberPoint")] = (
-        pydantic.Field(alias="numberPoint", default=None)
-    )
-    string_point: typing_extensions.Annotated[typing.Optional[StringDataPoint], FieldMetadata(alias="stringPoint")] = (
-        pydantic.Field(alias="stringPoint", default=None)
-    )
+        typing.Optional[LocationDataPoint], FieldMetadata(alias="locationPoint"), pydantic.Field(alias="locationPoint")
+    ] = None
+    number_point: typing_extensions.Annotated[
+        typing.Optional[NumberDataPoint], FieldMetadata(alias="numberPoint"), pydantic.Field(alias="numberPoint")
+    ] = None
+    string_point: typing_extensions.Annotated[
+        typing.Optional[StringDataPoint], FieldMetadata(alias="stringPoint"), pydantic.Field(alias="stringPoint")
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

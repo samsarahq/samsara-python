@@ -15,26 +15,29 @@ class RouteStopEstimatedArrivalDetailsObjectResponseBody(UniversalBaseModel):
     """
 
     alert_before_arrival_milliseconds: typing_extensions.Annotated[
-        int, FieldMetadata(alias="alertBeforeArrivalMilliseconds")
-    ] = pydantic.Field(alias="alertBeforeArrivalMilliseconds")
-    """
-    Time threshold for when to send an alert. Sends an alert when the ETA is less than the threshold.
-    """
-
-    has_live_share_link: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="hasLiveShareLink")] = (
-        pydantic.Field(alias="hasLiveShareLink", default=None)
-    )
-    """
-    If true, will include a live sharing link in the alert. Defaults to false.
-    """
-
+        int,
+        FieldMetadata(alias="alertBeforeArrivalMilliseconds"),
+        pydantic.Field(
+            alias="alertBeforeArrivalMilliseconds",
+            description="Time threshold for when to send an alert. Sends an alert when the ETA is less than the threshold.",
+        ),
+    ]
+    has_live_share_link: typing_extensions.Annotated[
+        typing.Optional[bool],
+        FieldMetadata(alias="hasLiveShareLink"),
+        pydantic.Field(
+            alias="hasLiveShareLink",
+            description="If true, will include a live sharing link in the alert. Defaults to false.",
+        ),
+    ] = None
     is_alert_on_route_stop_only: typing_extensions.Annotated[
-        typing.Optional[bool], FieldMetadata(alias="isAlertOnRouteStopOnly")
-    ] = pydantic.Field(alias="isAlertOnRouteStopOnly", default=None)
-    """
-    If true, will only alert if the vehicle is en-route to the stop. Defaults to false.
-    """
-
+        typing.Optional[bool],
+        FieldMetadata(alias="isAlertOnRouteStopOnly"),
+        pydantic.Field(
+            alias="isAlertOnRouteStopOnly",
+            description="If true, will only alert if the vehicle is en-route to the stop. Defaults to false.",
+        ),
+    ] = None
     location: LocationObjectResponseBody
 
     if IS_PYDANTIC_V2:

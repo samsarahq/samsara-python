@@ -15,19 +15,18 @@ class WorkflowAddressEventWithGeofenceObjectResponseBody(UniversalBaseModel):
     """
 
     external_ids: typing_extensions.Annotated[
-        typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(alias="externalIds", default=None)
-    """
-    A map of external ids
-    """
-
-    formatted_address: typing_extensions.Annotated[str, FieldMetadata(alias="formattedAddress")] = pydantic.Field(
-        alias="formattedAddress"
-    )
-    """
-    The full street address for this address/geofence, as it might be recognized by Google Maps.
-    """
-
+        typing.Optional[typing.Dict[str, str]],
+        FieldMetadata(alias="externalIds"),
+        pydantic.Field(alias="externalIds", description="A map of external ids"),
+    ] = None
+    formatted_address: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="formattedAddress"),
+        pydantic.Field(
+            alias="formattedAddress",
+            description="The full street address for this address/geofence, as it might be recognized by Google Maps.",
+        ),
+    ]
     geofence: typing.Optional[WorkflowGeofenceResponseBody] = None
     id: str = pydantic.Field()
     """

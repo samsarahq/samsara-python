@@ -9,18 +9,18 @@ from ..core.serialization import FieldMetadata
 
 
 class V1VisionRunByCameraResponseRunSummary(UniversalBaseModel):
-    items_per_minute: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="itemsPerMinute")] = (
-        pydantic.Field(alias="itemsPerMinute", default=None)
-    )
-    no_read_count: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="noReadCount")] = (
-        pydantic.Field(alias="noReadCount", default=None)
-    )
-    reject_count: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="rejectCount")] = (
-        pydantic.Field(alias="rejectCount", default=None)
-    )
-    success_count: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="successCount")] = (
-        pydantic.Field(alias="successCount", default=None)
-    )
+    items_per_minute: typing_extensions.Annotated[
+        typing.Optional[float], FieldMetadata(alias="itemsPerMinute"), pydantic.Field(alias="itemsPerMinute")
+    ] = None
+    no_read_count: typing_extensions.Annotated[
+        typing.Optional[int], FieldMetadata(alias="noReadCount"), pydantic.Field(alias="noReadCount")
+    ] = None
+    reject_count: typing_extensions.Annotated[
+        typing.Optional[int], FieldMetadata(alias="rejectCount"), pydantic.Field(alias="rejectCount")
+    ] = None
+    success_count: typing_extensions.Annotated[
+        typing.Optional[int], FieldMetadata(alias="successCount"), pydantic.Field(alias="successCount")
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

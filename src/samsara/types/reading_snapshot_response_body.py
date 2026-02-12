@@ -13,30 +13,28 @@ class ReadingSnapshotResponseBody(UniversalBaseModel):
     A snapshot of a reading value at a point in time.
     """
 
-    entity_id: typing_extensions.Annotated[str, FieldMetadata(alias="entityId")] = pydantic.Field(alias="entityId")
-    """
-    The ID of the entity this readings is for.
-    """
-
+    entity_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="entityId"),
+        pydantic.Field(alias="entityId", description="The ID of the entity this readings is for."),
+    ]
     external_ids: typing_extensions.Annotated[
-        typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(alias="externalIds", default=None)
-    """
-    A map of external ids
-    """
-
-    happened_at_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="happenedAtTime")] = (
-        pydantic.Field(alias="happenedAtTime", default=None)
-    )
-    """
-    The time in RFC 3339 format when the reading was measured.
-    """
-
-    reading_id: typing_extensions.Annotated[str, FieldMetadata(alias="readingId")] = pydantic.Field(alias="readingId")
-    """
-    The ID of the reading for which the data is being returned.
-    """
-
+        typing.Optional[typing.Dict[str, str]],
+        FieldMetadata(alias="externalIds"),
+        pydantic.Field(alias="externalIds", description="A map of external ids"),
+    ] = None
+    happened_at_time: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="happenedAtTime"),
+        pydantic.Field(
+            alias="happenedAtTime", description="The time in RFC 3339 format when the reading was measured."
+        ),
+    ] = None
+    reading_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="readingId"),
+        pydantic.Field(alias="readingId", description="The ID of the reading for which the data is being returned."),
+    ]
     value: typing.Optional[typing.Dict[str, typing.Any]] = pydantic.Field(default=None)
     """
     The value of the reading.

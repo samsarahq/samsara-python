@@ -15,38 +15,43 @@ class GetDriverTrailerAssignmentsResponseBodyResponseBody(UniversalBaseModel):
     Object with driver assignment information and associated driver and trailer information.
     """
 
-    created_at_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="createdAtTime")] = (
-        pydantic.Field(alias="createdAtTime", default=None)
-    )
-    """
-    Time when the driver trailer assignment was created, in RFC 3339 format.
-    """
-
+    created_at_time: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="createdAtTime"),
+        pydantic.Field(
+            alias="createdAtTime",
+            description="Time when the driver trailer assignment was created, in RFC 3339 format.",
+        ),
+    ] = None
     driver: DriverWithExternalIdObjectResponseBody
-    end_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="endTime")] = pydantic.Field(
-        alias="endTime", default=None
-    )
-    """
-    Time when the driver trailer assignment will end, in RFC 3339 format.
-    """
-
+    end_time: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="endTime"),
+        pydantic.Field(
+            alias="endTime", description="Time when the driver trailer assignment will end, in RFC 3339 format."
+        ),
+    ] = None
     id: str = pydantic.Field()
     """
     Samsara ID of the driver trailer assignment.
     """
 
-    start_time: typing_extensions.Annotated[str, FieldMetadata(alias="startTime")] = pydantic.Field(alias="startTime")
-    """
-    Time when the driver trailer assignment starts, in RFC 3339 format.
-    """
-
+    start_time: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="startTime"),
+        pydantic.Field(
+            alias="startTime", description="Time when the driver trailer assignment starts, in RFC 3339 format."
+        ),
+    ]
     trailer: TrailerObjectResponseBody
-    updated_at_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="updatedAtTime")] = (
-        pydantic.Field(alias="updatedAtTime", default=None)
-    )
-    """
-    Time when the driver trailer assignment was last updated, in RFC 3339 format.
-    """
+    updated_at_time: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="updatedAtTime"),
+        pydantic.Field(
+            alias="updatedAtTime",
+            description="Time when the driver trailer assignment was last updated, in RFC 3339 format.",
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -15,60 +15,18 @@ class WorkflowTriggerObjectResponseBody(UniversalBaseModel):
     """
 
     trigger_params: typing_extensions.Annotated[
-        typing.Optional[TriggerParamsObjectResponseBody], FieldMetadata(alias="triggerParams")
-    ] = pydantic.Field(alias="triggerParams", default=None)
-    trigger_type_id: typing_extensions.Annotated[int, FieldMetadata(alias="triggerTypeId")] = pydantic.Field(
-        alias="triggerTypeId"
-    )
-    """
-    The id of the trigger type. Reference the following list for the ids:
-    
-    Ambient Temperature = 1003
-    Asset Reading = 1062
-    DVIR Submitted for Asset = 5005
-    Driver Recorded = 5027
-    Sudden Fuel Level Rise = 5034
-    Sudden Fuel Level Drop = 5035
-    Training Assignment Due Soon = 8003
-    Training Assignment Past Due = 8004
-    Vehicle Speed = 1000
-    Fuel Level (Percentage) = 1005
-    Vehicle DEF Level (Percentage) = 1006
-    Vehicle Battery = 1007
-    Gateway Unplugged = 1009
-    Dashcam Disconnected = 1012
-    Camera Connector Disconnected = 1046
-    Asset starts moving = 1013
-    Inside Geofence = 1014
-    Outside Geofence = 1020
-    Unassigned Driving = 1016
-    Driver HOS Violation = 1018
-    Vehicle Engine Idle = 1019
-    Asset Engine On = 1021
-    Asset Engine Off = 1022
-    Harsh Event = 1023
-    Scheduled Maintenance = 1024
-    Scheduled Maintenance by Odometer = 1025
-    Scheduled Maintenance by Engine Hours = 1026
-    Out of Route = 1027
-    GPS Signal Loss = 1032
-    Cell Signal Loss = 1033
-    Fault Code = 1029
-    Tire Faults = 1043
-    Gateway Disconnected = 1030
-    Panic Button = 1034
-    Tampering Detected = 1045
-    If vehicle is severely speeding (as defined by your organization) = 5022
-    Driver Document Submitted = 5009
-    Driver App Sign In = 5012
-    Driver App Sign Out = 5013
-    Geofence Entry = 5016
-    Geofence Exit = 5017
-    Route Stop ETA Alert = 5018
-    A safety event occurred with a driver assigned = 5033
-    A safety event occurred = 5039
-    Scheduled Date And Time = 8001
-    """
+        typing.Optional[TriggerParamsObjectResponseBody],
+        FieldMetadata(alias="triggerParams"),
+        pydantic.Field(alias="triggerParams"),
+    ] = None
+    trigger_type_id: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="triggerTypeId"),
+        pydantic.Field(
+            alias="triggerTypeId",
+            description="The id of the trigger type. Reference the following list for the ids:\n\nAmbient Temperature = 1003\nAsset Reading = 1062\nDVIR Submitted for Asset = 5005\nDriver Recorded = 5027\nSudden Fuel Level Rise = 5034\nSudden Fuel Level Drop = 5035\nTraining Assignment Due Soon = 8003\nTraining Assignment Past Due = 8004\nVehicle Speed = 1000\nFuel Level (Percentage) = 1005\nVehicle DEF Level (Percentage) = 1006\nVehicle Battery = 1007\nGateway Unplugged = 1009\nDashcam Disconnected = 1012\nCamera Connector Disconnected = 1046\nAsset starts moving = 1013\nInside Geofence = 1014\nOutside Geofence = 1020\nUnassigned Driving = 1016\nDriver HOS Violation = 1018\nVehicle Engine Idle = 1019\nAsset Engine On = 1021\nAsset Engine Off = 1022\nScheduled Maintenance = 1024\nScheduled Maintenance by Odometer = 1025\nScheduled Maintenance by Engine Hours = 1026\nOut of Route = 1027\nGPS Signal Loss = 1032\nCell Signal Loss = 1033\nFault Code = 1029\nTire Faults = 1043\nGateway Disconnected = 1030\nPanic Button = 1034\nTampering Detected = 1045\nIf vehicle is severely speeding (as defined by your organization) = 5022\nDriver Document Submitted = 5009\nDriver App Sign In = 5012\nDriver App Sign Out = 5013\nGeofence Entry = 5016\nGeofence Exit = 5017\nRoute Stop ETA Alert = 5018\nA safety event occurred with a driver assigned = 5033\nA safety event occurred = 5039\nScheduled Date And Time = 8001\n\nThe following trigger types are Deprecated:\nHarsh Event = 1023",
+        ),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

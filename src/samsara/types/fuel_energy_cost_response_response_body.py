@@ -18,12 +18,11 @@ class FuelEnergyCostResponseResponseBody(UniversalBaseModel):
     Amount of the currency.
     """
 
-    currency_code: typing_extensions.Annotated[str, FieldMetadata(alias="currencyCode")] = pydantic.Field(
-        alias="currencyCode"
-    )
-    """
-    Type of the currency.
-    """
+    currency_code: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="currencyCode"),
+        pydantic.Field(alias="currencyCode", description="Type of the currency."),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

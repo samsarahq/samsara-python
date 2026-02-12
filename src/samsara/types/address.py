@@ -20,38 +20,41 @@ class Address(UniversalBaseModel):
     """
 
     address_types: typing_extensions.Annotated[
-        typing.Optional[typing.List[AddressAddressTypesItem]], FieldMetadata(alias="addressTypes")
-    ] = pydantic.Field(alias="addressTypes", default=None)
-    """
-    Reporting location type associated with the address (used for ELD reporting purposes). Valid values: `yard`, `shortHaul`, `workforceSite`, `riskZone`, `industrialSite`, `alertsOnly`, `agricultureSource`, `avoidanceZone`, `knownGPSJammingZone`, `authorizedZone`, `unauthorizedZone`.
-    """
-
+        typing.Optional[typing.List[AddressAddressTypesItem]],
+        FieldMetadata(alias="addressTypes"),
+        pydantic.Field(
+            alias="addressTypes",
+            description="Reporting location type associated with the address (used for ELD reporting purposes). Valid values: `yard`, `shortHaul`, `workforceSite`, `riskZone`, `industrialSite`, `alertsOnly`, `agricultureSource`, `avoidanceZone`, `knownGPSJammingZone`, `authorizedZone`, `unauthorizedZone`.",
+        ),
+    ] = None
     contacts: typing.Optional[typing.List[ContactTinyResponse]] = pydantic.Field(default=None)
     """
     An array Contact mini-objects that are associated the Address.
     """
 
-    created_at_time: typing_extensions.Annotated[typing.Optional[dt.datetime], FieldMetadata(alias="createdAtTime")] = (
-        pydantic.Field(alias="createdAtTime", default=None)
-    )
-    """
-    The date and time this address was created in RFC 3339 format.
-    """
-
+    created_at_time: typing_extensions.Annotated[
+        typing.Optional[dt.datetime],
+        FieldMetadata(alias="createdAtTime"),
+        pydantic.Field(
+            alias="createdAtTime", description="The date and time this address was created in RFC 3339 format."
+        ),
+    ] = None
     external_ids: typing_extensions.Annotated[
-        typing.Optional[AddressExternalIds], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(alias="externalIds", default=None)
-    """
-    The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.
-    """
-
-    formatted_address: typing_extensions.Annotated[str, FieldMetadata(alias="formattedAddress")] = pydantic.Field(
-        alias="formattedAddress"
-    )
-    """
-    The full street address for this address/geofence, as it might be recognized by Google Maps.
-    """
-
+        typing.Optional[AddressExternalIds],
+        FieldMetadata(alias="externalIds"),
+        pydantic.Field(
+            alias="externalIds",
+            description="The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.",
+        ),
+    ] = None
+    formatted_address: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="formattedAddress"),
+        pydantic.Field(
+            alias="formattedAddress",
+            description="The full street address for this address/geofence, as it might be recognized by Google Maps.",
+        ),
+    ]
     geofence: AddressGeofence
     id: str = pydantic.Field()
     """

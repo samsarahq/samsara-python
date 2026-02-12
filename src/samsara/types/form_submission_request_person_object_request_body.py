@@ -13,12 +13,11 @@ class FormSubmissionRequestPersonObjectRequestBody(UniversalBaseModel):
     Person object.
     """
 
-    polymorphic_user_id: typing_extensions.Annotated[str, FieldMetadata(alias="polymorphicUserId")] = pydantic.Field(
-        alias="polymorphicUserId"
-    )
-    """
-    Samsara polymorphicUserID of the person.
-    """
+    polymorphic_user_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="polymorphicUserId"),
+        pydantic.Field(alias="polymorphicUserId", description="Samsara polymorphicUserID of the person."),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -9,23 +9,19 @@ from ..core.serialization import FieldMetadata
 
 
 class TrailerStatReeferAlarmResponseBody(UniversalBaseModel):
-    alarm_code: typing_extensions.Annotated[str, FieldMetadata(alias="alarmCode")] = pydantic.Field(alias="alarmCode")
-    """
-    The ID of the alarm.
-    """
-
+    alarm_code: typing_extensions.Annotated[
+        str, FieldMetadata(alias="alarmCode"), pydantic.Field(alias="alarmCode", description="The ID of the alarm.")
+    ]
     description: str = pydantic.Field()
     """
     The description of the alarm.
     """
 
-    operator_action: typing_extensions.Annotated[str, FieldMetadata(alias="operatorAction")] = pydantic.Field(
-        alias="operatorAction"
-    )
-    """
-    The recommended operator action.
-    """
-
+    operator_action: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="operatorAction"),
+        pydantic.Field(alias="operatorAction", description="The recommended operator action."),
+    ]
     severity: int = pydantic.Field()
     """
     The severity of the alarm. `1`: Ok to run, `2`: Check as specified, `3`: Take immediate action.

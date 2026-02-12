@@ -9,20 +9,18 @@ from ..core.serialization import FieldMetadata
 
 
 class V1DoorResponseSensors(UniversalBaseModel):
-    door_closed: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="doorClosed")] = pydantic.Field(
-        alias="doorClosed", default=None
-    )
-    """
-    Flag indicating whether the current door is closed or open.
-    """
-
-    door_status_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="doorStatusTime")] = (
-        pydantic.Field(alias="doorStatusTime", default=None)
-    )
-    """
-    The timestamp of reported door status, specified in RFC 3339 time.
-    """
-
+    door_closed: typing_extensions.Annotated[
+        typing.Optional[bool],
+        FieldMetadata(alias="doorClosed"),
+        pydantic.Field(alias="doorClosed", description="Flag indicating whether the current door is closed or open."),
+    ] = None
+    door_status_time: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="doorStatusTime"),
+        pydantic.Field(
+            alias="doorStatusTime", description="The timestamp of reported door status, specified in RFC 3339 time."
+        ),
+    ] = None
     id: typing.Optional[int] = pydantic.Field(default=None)
     """
     ID of the sensor.
@@ -33,19 +31,22 @@ class V1DoorResponseSensors(UniversalBaseModel):
     Name of the sensor.
     """
 
-    trailer_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="trailerId")] = pydantic.Field(
-        alias="trailerId", default=None
-    )
-    """
-    ID of the trailer associated with the sensor for the data point. If no trailer is connected, this parameter will not be reported.
-    """
-
-    vehicle_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="vehicleId")] = pydantic.Field(
-        alias="vehicleId", default=None
-    )
-    """
-    ID of the vehicle associated with the sensor for the data point. If no vehicle is connected, this parameter will not be reported.
-    """
+    trailer_id: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="trailerId"),
+        pydantic.Field(
+            alias="trailerId",
+            description="ID of the trailer associated with the sensor for the data point. If no trailer is connected, this parameter will not be reported.",
+        ),
+    ] = None
+    vehicle_id: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="vehicleId"),
+        pydantic.Field(
+            alias="vehicleId",
+            description="ID of the vehicle associated with the sensor for the data point. If no vehicle is connected, this parameter will not be reported.",
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

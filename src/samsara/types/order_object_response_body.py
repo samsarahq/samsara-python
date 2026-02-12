@@ -17,44 +17,38 @@ class OrderObjectResponseBody(UniversalBaseModel):
     Order object
     """
 
-    created_at: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAt")] = pydantic.Field(
-        alias="createdAt"
-    )
-    """
-    The timestamp (in UTC) when the order was created
-    """
-
+    created_at: typing_extensions.Annotated[
+        dt.datetime,
+        FieldMetadata(alias="createdAt"),
+        pydantic.Field(alias="createdAt", description="The timestamp (in UTC) when the order was created"),
+    ]
     custom_properties: typing_extensions.Annotated[
-        typing.List[OrderCustomPropertyResponseBody], FieldMetadata(alias="customProperties")
-    ] = pydantic.Field(alias="customProperties")
-    """
-    An array of custom property values for the order
-    """
-
-    customer_order_id: typing_extensions.Annotated[str, FieldMetadata(alias="customerOrderId")] = pydantic.Field(
-        alias="customerOrderId"
-    )
-    """
-    The customer-provided identifier for the order
-    """
-
+        typing.List[OrderCustomPropertyResponseBody],
+        FieldMetadata(alias="customProperties"),
+        pydantic.Field(alias="customProperties", description="An array of custom property values for the order"),
+    ]
+    customer_order_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="customerOrderId"),
+        pydantic.Field(alias="customerOrderId", description="The customer-provided identifier for the order"),
+    ]
     delivery: typing.Optional[OrderTaskResponseBody] = None
-    hub_id: typing_extensions.Annotated[str, FieldMetadata(alias="hubId")] = pydantic.Field(alias="hubId")
-    """
-    The ID of the hub the order belongs to
-    """
-
+    hub_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="hubId"),
+        pydantic.Field(alias="hubId", description="The ID of the hub the order belongs to"),
+    ]
     id: str = pydantic.Field()
     """
     The Samsara-generated unique identifier (UUID) for the order
     """
 
     pickup: typing.Optional[OrderTaskResponseBody] = None
-    plan_id: typing_extensions.Annotated[str, FieldMetadata(alias="planId")] = pydantic.Field(alias="planId")
-    """
-    The ID of the plan the order belongs to
-    """
-
+    plan_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="planId"),
+        pydantic.Field(alias="planId", description="The ID of the plan the order belongs to"),
+    ]
     priority: int = pydantic.Field()
     """
     Priority of the order (e.g., 1 for high, 5 for low)
@@ -65,19 +59,16 @@ class OrderObjectResponseBody(UniversalBaseModel):
     An array of quantities for the order
     """
 
-    skills_required: typing_extensions.Annotated[typing.List[str], FieldMetadata(alias="skillsRequired")] = (
-        pydantic.Field(alias="skillsRequired")
-    )
-    """
-    An array of skill IDs required to fulfill the order
-    """
-
-    updated_at: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAt")] = pydantic.Field(
-        alias="updatedAt"
-    )
-    """
-    The timestamp (in UTC) when the order was last updated
-    """
+    skills_required: typing_extensions.Annotated[
+        typing.List[str],
+        FieldMetadata(alias="skillsRequired"),
+        pydantic.Field(alias="skillsRequired", description="An array of skill IDs required to fulfill the order"),
+    ]
+    updated_at: typing_extensions.Annotated[
+        dt.datetime,
+        FieldMetadata(alias="updatedAt"),
+        pydantic.Field(alias="updatedAt", description="The timestamp (in UTC) when the order was last updated"),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -22,18 +22,21 @@ class DistractedDrivingDetectionAlertSettingsObjectResponseBody(UniversalBaseMod
     inattentive_driving_detection_alerts: typing_extensions.Annotated[
         typing.Optional[InattentiveDrivingDetectionAlertSettingsObjectResponseBody],
         FieldMetadata(alias="inattentiveDrivingDetectionAlerts"),
-    ] = pydantic.Field(alias="inattentiveDrivingDetectionAlerts", default=None)
-    is_enabled: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="isEnabled")] = pydantic.Field(
-        alias="isEnabled", default=None
-    )
-    """
-    Indicates whether AI event detection for distracted driving behaviors is turned on.
-    """
-
+        pydantic.Field(alias="inattentiveDrivingDetectionAlerts"),
+    ] = None
+    is_enabled: typing_extensions.Annotated[
+        typing.Optional[bool],
+        FieldMetadata(alias="isEnabled"),
+        pydantic.Field(
+            alias="isEnabled",
+            description="Indicates whether AI event detection for distracted driving behaviors is turned on.",
+        ),
+    ] = None
     mobile_usage_detection_alerts: typing_extensions.Annotated[
         typing.Optional[MobileUsageDetectionAlertSettingsObjectResponseBody],
         FieldMetadata(alias="mobileUsageDetectionAlerts"),
-    ] = pydantic.Field(alias="mobileUsageDetectionAlerts", default=None)
+        pydantic.Field(alias="mobileUsageDetectionAlerts"),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

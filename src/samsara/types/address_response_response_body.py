@@ -28,20 +28,16 @@ class AddressResponseResponseBody(UniversalBaseModel):
     The name of the neighborhood if one exists
     """
 
-    point_of_interest: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="pointOfInterest")] = (
-        pydantic.Field(alias="pointOfInterest", default=None)
-    )
-    """
-    Point that may be of interest to the user
-    """
-
-    postal_code: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="postalCode")] = pydantic.Field(
-        alias="postalCode", default=None
-    )
-    """
-    The zip code
-    """
-
+    point_of_interest: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="pointOfInterest"),
+        pydantic.Field(alias="pointOfInterest", description="Point that may be of interest to the user"),
+    ] = None
+    postal_code: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="postalCode"),
+        pydantic.Field(alias="postalCode", description="The zip code"),
+    ] = None
     state: typing.Optional[str] = pydantic.Field(default=None)
     """
     The name of the state
@@ -52,12 +48,11 @@ class AddressResponseResponseBody(UniversalBaseModel):
     The street name
     """
 
-    street_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="streetNumber")] = (
-        pydantic.Field(alias="streetNumber", default=None)
-    )
-    """
-    Street number of the address
-    """
+    street_number: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="streetNumber"),
+        pydantic.Field(alias="streetNumber", description="Street number of the address"),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

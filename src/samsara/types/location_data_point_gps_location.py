@@ -14,27 +14,21 @@ class LocationDataPointGpsLocation(UniversalBaseModel):
     GPS location information of the data input's datapoint.
     """
 
-    formatted_address: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="formattedAddress")] = (
-        pydantic.Field(alias="formattedAddress", default=None)
-    )
-    """
-    Formatted address of the location
-    """
-
+    formatted_address: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="formattedAddress"),
+        pydantic.Field(alias="formattedAddress", description="Formatted address of the location"),
+    ] = None
     gps_meters_per_second: typing_extensions.Annotated[
-        typing.Optional[float], FieldMetadata(alias="gpsMetersPerSecond")
-    ] = pydantic.Field(alias="gpsMetersPerSecond", default=None)
-    """
-    Speed of GPS (meters per second)
-    """
-
-    heading_degrees: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="headingDegrees")] = (
-        pydantic.Field(alias="headingDegrees", default=None)
-    )
-    """
-    Heading degrees
-    """
-
+        typing.Optional[float],
+        FieldMetadata(alias="gpsMetersPerSecond"),
+        pydantic.Field(alias="gpsMetersPerSecond", description="Speed of GPS (meters per second)"),
+    ] = None
+    heading_degrees: typing_extensions.Annotated[
+        typing.Optional[float],
+        FieldMetadata(alias="headingDegrees"),
+        pydantic.Field(alias="headingDegrees", description="Heading degrees"),
+    ] = None
     latitude: typing.Optional[float] = pydantic.Field(default=None)
     """
     Latitude of the location

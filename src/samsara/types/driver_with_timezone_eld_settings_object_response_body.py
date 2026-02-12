@@ -15,15 +15,15 @@ class DriverWithTimezoneEldSettingsObjectResponseBody(UniversalBaseModel):
     """
 
     eld_settings: typing_extensions.Annotated[
-        typing.Optional[EldSettingsObjectResponseBody], FieldMetadata(alias="eldSettings")
-    ] = pydantic.Field(alias="eldSettings", default=None)
+        typing.Optional[EldSettingsObjectResponseBody],
+        FieldMetadata(alias="eldSettings"),
+        pydantic.Field(alias="eldSettings"),
+    ] = None
     external_ids: typing_extensions.Annotated[
-        typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(alias="externalIds", default=None)
-    """
-    A map of external ids
-    """
-
+        typing.Optional[typing.Dict[str, str]],
+        FieldMetadata(alias="externalIds"),
+        pydantic.Field(alias="externalIds", description="A map of external ids"),
+    ] = None
     id: str = pydantic.Field()
     """
     ID of the driver

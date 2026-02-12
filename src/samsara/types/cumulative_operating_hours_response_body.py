@@ -13,13 +13,11 @@ class CumulativeOperatingHoursResponseBody(UniversalBaseModel):
     Equipment operating hours.
     """
 
-    hour: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="Hour")] = pydantic.Field(
-        alias="Hour", default=None
-    )
-    """
-    Total number of equipment operating hours.
-    """
-
+    hour: typing_extensions.Annotated[
+        typing.Optional[float],
+        FieldMetadata(alias="Hour"),
+        pydantic.Field(alias="Hour", description="Total number of equipment operating hours."),
+    ] = None
     datetime: typing.Optional[str] = pydantic.Field(default=None)
     """
     Date time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).

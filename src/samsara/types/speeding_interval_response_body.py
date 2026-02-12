@@ -15,44 +15,45 @@ class SpeedingIntervalResponseBody(UniversalBaseModel):
     Speeding Interval Object
     """
 
-    end_time: typing_extensions.Annotated[str, FieldMetadata(alias="endTime")] = pydantic.Field(alias="endTime")
-    """
-    UTC time the interval ended in RFC 3339 format.
-    """
-
-    is_dismissed: typing_extensions.Annotated[bool, FieldMetadata(alias="isDismissed")] = pydantic.Field(
-        alias="isDismissed"
-    )
-    """
-    Whether the interval is dismissed.
-    """
-
+    end_time: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="endTime"),
+        pydantic.Field(alias="endTime", description="UTC time the interval ended in RFC 3339 format."),
+    ]
+    is_dismissed: typing_extensions.Annotated[
+        bool,
+        FieldMetadata(alias="isDismissed"),
+        pydantic.Field(alias="isDismissed", description="Whether the interval is dismissed."),
+    ]
     location: SpeedingIntervalLocationResponseResponseBody
     max_speed_kilometers_per_hour: typing_extensions.Annotated[
-        float, FieldMetadata(alias="maxSpeedKilometersPerHour")
-    ] = pydantic.Field(alias="maxSpeedKilometersPerHour")
-    """
-    The max speed exceeded for the speeding interval.
-    """
-
+        float,
+        FieldMetadata(alias="maxSpeedKilometersPerHour"),
+        pydantic.Field(
+            alias="maxSpeedKilometersPerHour", description="The max speed exceeded for the speeding interval."
+        ),
+    ]
     posted_speed_limit_kilometers_per_hour: typing_extensions.Annotated[
-        float, FieldMetadata(alias="postedSpeedLimitKilometersPerHour")
-    ] = pydantic.Field(alias="postedSpeedLimitKilometersPerHour")
-    """
-    The posted speed limit associated with the speeding interval.
-    """
-
+        float,
+        FieldMetadata(alias="postedSpeedLimitKilometersPerHour"),
+        pydantic.Field(
+            alias="postedSpeedLimitKilometersPerHour",
+            description="The posted speed limit associated with the speeding interval.",
+        ),
+    ]
     severity_level: typing_extensions.Annotated[
-        SpeedingIntervalResponseBodySeverityLevel, FieldMetadata(alias="severityLevel")
-    ] = pydantic.Field(alias="severityLevel")
-    """
-    Specifies the severity level of the speeding interval.  Valid values: `light`, `moderate`, `heavy`, `severe`
-    """
-
-    start_time: typing_extensions.Annotated[str, FieldMetadata(alias="startTime")] = pydantic.Field(alias="startTime")
-    """
-    UTC time the interval started in RFC 3339 format.
-    """
+        SpeedingIntervalResponseBodySeverityLevel,
+        FieldMetadata(alias="severityLevel"),
+        pydantic.Field(
+            alias="severityLevel",
+            description="Specifies the severity level of the speeding interval.  Valid values: `light`, `moderate`, `heavy`, `severe`",
+        ),
+    ]
+    start_time: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="startTime"),
+        pydantic.Field(alias="startTime", description="UTC time the interval started in RFC 3339 format."),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

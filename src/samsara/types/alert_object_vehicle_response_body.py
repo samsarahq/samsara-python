@@ -22,12 +22,10 @@ class AlertObjectVehicleResponseBody(UniversalBaseModel):
     """
 
     external_ids: typing_extensions.Annotated[
-        typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(alias="externalIds", default=None)
-    """
-    A map of external ids
-    """
-
+        typing.Optional[typing.Dict[str, str]],
+        FieldMetadata(alias="externalIds"),
+        pydantic.Field(alias="externalIds", description="A map of external ids"),
+    ] = None
     id: str = pydantic.Field()
     """
     The ID of the vehicle.
@@ -44,8 +42,10 @@ class AlertObjectVehicleResponseBody(UniversalBaseModel):
     """
 
     static_assigned_driver: typing_extensions.Annotated[
-        typing.Optional[DriverObjectResponseBody], FieldMetadata(alias="staticAssignedDriver")
-    ] = pydantic.Field(alias="staticAssignedDriver", default=None)
+        typing.Optional[DriverObjectResponseBody],
+        FieldMetadata(alias="staticAssignedDriver"),
+        pydantic.Field(alias="staticAssignedDriver"),
+    ] = None
     tags: typing.Optional[typing.List[GoaTagTinyResponseResponseBody]] = pydantic.Field(default=None)
     """
     The list of [tags](https://kb.samsara.com/hc/en-us/articles/360026674631-Using-Tags-and-Tag-Nesting) associated with the vehicle.

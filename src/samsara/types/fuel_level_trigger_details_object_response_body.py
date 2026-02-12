@@ -16,20 +16,19 @@ class FuelLevelTriggerDetailsObjectResponseBody(UniversalBaseModel):
     Details specific to Fuel Level Percentage
     """
 
-    fuel_level_percent: typing_extensions.Annotated[int, FieldMetadata(alias="fuelLevelPercent")] = pydantic.Field(
-        alias="fuelLevelPercent"
-    )
-    """
-    The fuel level percentage threshold value.
-    """
-
-    min_duration_milliseconds: typing_extensions.Annotated[int, FieldMetadata(alias="minDurationMilliseconds")] = (
-        pydantic.Field(alias="minDurationMilliseconds")
-    )
-    """
-    The number of milliseconds the trigger needs to stay active before alerting.
-    """
-
+    fuel_level_percent: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="fuelLevelPercent"),
+        pydantic.Field(alias="fuelLevelPercent", description="The fuel level percentage threshold value."),
+    ]
+    min_duration_milliseconds: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="minDurationMilliseconds"),
+        pydantic.Field(
+            alias="minDurationMilliseconds",
+            description="The number of milliseconds the trigger needs to stay active before alerting.",
+        ),
+    ]
     operation: FuelLevelTriggerDetailsObjectResponseBodyOperation = pydantic.Field()
     """
     How to evaluate the threshold.  Valid values: `LESS`

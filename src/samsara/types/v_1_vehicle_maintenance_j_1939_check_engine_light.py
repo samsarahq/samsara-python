@@ -13,18 +13,18 @@ class V1VehicleMaintenanceJ1939CheckEngineLight(UniversalBaseModel):
     J1939 check engine lights.
     """
 
-    emissions_is_on: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="emissionsIsOn")] = (
-        pydantic.Field(alias="emissionsIsOn", default=None)
-    )
-    protect_is_on: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="protectIsOn")] = (
-        pydantic.Field(alias="protectIsOn", default=None)
-    )
-    stop_is_on: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="stopIsOn")] = pydantic.Field(
-        alias="stopIsOn", default=None
-    )
-    warning_is_on: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="warningIsOn")] = (
-        pydantic.Field(alias="warningIsOn", default=None)
-    )
+    emissions_is_on: typing_extensions.Annotated[
+        typing.Optional[bool], FieldMetadata(alias="emissionsIsOn"), pydantic.Field(alias="emissionsIsOn")
+    ] = None
+    protect_is_on: typing_extensions.Annotated[
+        typing.Optional[bool], FieldMetadata(alias="protectIsOn"), pydantic.Field(alias="protectIsOn")
+    ] = None
+    stop_is_on: typing_extensions.Annotated[
+        typing.Optional[bool], FieldMetadata(alias="stopIsOn"), pydantic.Field(alias="stopIsOn")
+    ] = None
+    warning_is_on: typing_extensions.Annotated[
+        typing.Optional[bool], FieldMetadata(alias="warningIsOn"), pydantic.Field(alias="warningIsOn")
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

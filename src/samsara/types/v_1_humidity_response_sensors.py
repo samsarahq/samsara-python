@@ -14,13 +14,13 @@ class V1HumidityResponseSensors(UniversalBaseModel):
     Currently reported relative humidity in percent, from 0-100.
     """
 
-    humidity_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="humidityTime")] = (
-        pydantic.Field(alias="humidityTime", default=None)
-    )
-    """
-    The timestamp of reported relative humidity, specified in RFC 3339 time.
-    """
-
+    humidity_time: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="humidityTime"),
+        pydantic.Field(
+            alias="humidityTime", description="The timestamp of reported relative humidity, specified in RFC 3339 time."
+        ),
+    ] = None
     id: typing.Optional[int] = pydantic.Field(default=None)
     """
     ID of the sensor.
@@ -31,19 +31,22 @@ class V1HumidityResponseSensors(UniversalBaseModel):
     Name of the sensor.
     """
 
-    trailer_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="trailerId")] = pydantic.Field(
-        alias="trailerId", default=None
-    )
-    """
-    ID of the trailer associated with the sensor for the data point. If no trailer is connected, this parameter will not be reported.
-    """
-
-    vehicle_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="vehicleId")] = pydantic.Field(
-        alias="vehicleId", default=None
-    )
-    """
-    ID of the vehicle associated with the sensor for the data point. If no vehicle is connected, this parameter will not be reported.
-    """
+    trailer_id: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="trailerId"),
+        pydantic.Field(
+            alias="trailerId",
+            description="ID of the trailer associated with the sensor for the data point. If no trailer is connected, this parameter will not be reported.",
+        ),
+    ] = None
+    vehicle_id: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="vehicleId"),
+        pydantic.Field(
+            alias="vehicleId",
+            description="ID of the vehicle associated with the sensor for the data point. If no vehicle is connected, this parameter will not be reported.",
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

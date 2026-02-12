@@ -15,13 +15,11 @@ class TrailerStatReeferStateZone3WithDecorationsTypeResponseBody(UniversalBaseMo
     """
 
     decorations: typing.Optional[TrailerStatDecorationResponseBody] = None
-    substate_value: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="substateValue")] = (
-        pydantic.Field(alias="substateValue", default=None)
-    )
-    """
-    The substate zone 3 of the reefer, if available.
-    """
-
+    substate_value: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="substateValue"),
+        pydantic.Field(alias="substateValue", description="The substate zone 3 of the reefer, if available."),
+    ] = None
     time: str = pydantic.Field()
     """
     UTC timestamp in RFC 3339 format.

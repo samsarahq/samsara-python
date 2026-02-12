@@ -13,13 +13,13 @@ class TrailerStatReeferStateTypeResponseBody(UniversalBaseModel):
     Reefer state event.
     """
 
-    substate_value: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="substateValue")] = (
-        pydantic.Field(alias="substateValue", default=None)
-    )
-    """
-    The substate of the multizone carrier reefer, if available.
-    """
-
+    substate_value: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="substateValue"),
+        pydantic.Field(
+            alias="substateValue", description="The substate of the multizone carrier reefer, if available."
+        ),
+    ] = None
     time: str = pydantic.Field()
     """
     UTC timestamp in RFC 3339 format.

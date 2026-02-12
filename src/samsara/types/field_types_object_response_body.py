@@ -13,13 +13,14 @@ from .signature_field_type_meta_data_object_response_body import SignatureFieldT
 
 
 class FieldTypesObjectResponseBody(UniversalBaseModel):
-    field_type: typing_extensions.Annotated[FieldTypesObjectResponseBodyFieldType, FieldMetadata(alias="fieldType")] = (
-        pydantic.Field(alias="fieldType")
-    )
-    """
-    The type of value this field can have.  Valid values: `photo`, `string`, `number`, `multipleChoice`, `signature`, `dateTime`, `scannedDocument`, `barcode`
-    """
-
+    field_type: typing_extensions.Annotated[
+        FieldTypesObjectResponseBodyFieldType,
+        FieldMetadata(alias="fieldType"),
+        pydantic.Field(
+            alias="fieldType",
+            description="The type of value this field can have.  Valid values: `photo`, `string`, `number`, `multipleChoice`, `signature`, `dateTime`, `scannedDocument`, `barcode`",
+        ),
+    ]
     label: str = pydantic.Field()
     """
     The name of the field type.
@@ -28,24 +29,25 @@ class FieldTypesObjectResponseBody(UniversalBaseModel):
     multiple_choice_field_type_meta_data: typing_extensions.Annotated[
         typing.Optional[typing.List[MultipleChoiceFieldTypeMetaDataObjectResponseBody]],
         FieldMetadata(alias="multipleChoiceFieldTypeMetaData"),
-    ] = pydantic.Field(alias="multipleChoiceFieldTypeMetaData", default=None)
-    """
-    A list of the multiple choice field option labels.
-    """
-
+        pydantic.Field(
+            alias="multipleChoiceFieldTypeMetaData", description="A list of the multiple choice field option labels."
+        ),
+    ] = None
     number_field_type_meta_data: typing_extensions.Annotated[
-        typing.Optional[NumberFieldTypeMetaDataObjectResponseBody], FieldMetadata(alias="numberFieldTypeMetaData")
-    ] = pydantic.Field(alias="numberFieldTypeMetaData", default=None)
-    required_field: typing_extensions.Annotated[bool, FieldMetadata(alias="requiredField")] = pydantic.Field(
-        alias="requiredField"
-    )
-    """
-    The indicator that states if the field is required.
-    """
-
+        typing.Optional[NumberFieldTypeMetaDataObjectResponseBody],
+        FieldMetadata(alias="numberFieldTypeMetaData"),
+        pydantic.Field(alias="numberFieldTypeMetaData"),
+    ] = None
+    required_field: typing_extensions.Annotated[
+        bool,
+        FieldMetadata(alias="requiredField"),
+        pydantic.Field(alias="requiredField", description="The indicator that states if the field is required."),
+    ]
     signature_field_type_meta_data: typing_extensions.Annotated[
-        typing.Optional[SignatureFieldTypeMetaDataObjectResponseBody], FieldMetadata(alias="signatureFieldTypeMetaData")
-    ] = pydantic.Field(alias="signatureFieldTypeMetaData", default=None)
+        typing.Optional[SignatureFieldTypeMetaDataObjectResponseBody],
+        FieldMetadata(alias="signatureFieldTypeMetaData"),
+        pydantic.Field(alias="signatureFieldTypeMetaData"),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

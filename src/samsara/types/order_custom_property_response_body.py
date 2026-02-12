@@ -13,13 +13,11 @@ class OrderCustomPropertyResponseBody(UniversalBaseModel):
     Custom property for an order
     """
 
-    custom_property_id: typing_extensions.Annotated[str, FieldMetadata(alias="customPropertyId")] = pydantic.Field(
-        alias="customPropertyId"
-    )
-    """
-    The ID of the custom property definition
-    """
-
+    custom_property_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="customPropertyId"),
+        pydantic.Field(alias="customPropertyId", description="The ID of the custom property definition"),
+    ]
     name: str = pydantic.Field()
     """
     The name of the custom property

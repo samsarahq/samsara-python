@@ -18,51 +18,50 @@ from .routes_stop_response_object_response_body_state import RoutesStopResponseO
 
 class RoutesStopResponseObjectResponseBody(UniversalBaseModel):
     actual_arrival_time: typing_extensions.Annotated[
-        typing.Optional[dt.datetime], FieldMetadata(alias="actualArrivalTime")
-    ] = pydantic.Field(alias="actualArrivalTime", default=None)
-    """
-    Actual arrival time, if it exists, for the route stop in RFC 3339 format.
-    """
-
+        typing.Optional[dt.datetime],
+        FieldMetadata(alias="actualArrivalTime"),
+        pydantic.Field(
+            alias="actualArrivalTime",
+            description="Actual arrival time, if it exists, for the route stop in RFC 3339 format.",
+        ),
+    ] = None
     actual_departure_time: typing_extensions.Annotated[
-        typing.Optional[dt.datetime], FieldMetadata(alias="actualDepartureTime")
-    ] = pydantic.Field(alias="actualDepartureTime", default=None)
-    """
-    Actual departure time, if it exists, for the route stop in RFC 3339 format.
-    """
-
+        typing.Optional[dt.datetime],
+        FieldMetadata(alias="actualDepartureTime"),
+        pydantic.Field(
+            alias="actualDepartureTime",
+            description="Actual departure time, if it exists, for the route stop in RFC 3339 format.",
+        ),
+    ] = None
     actual_distance_meters: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="actualDistanceMeters")
-    ] = pydantic.Field(alias="actualDistanceMeters", default=None)
-    """
-    Actual GPS-measured distance traveled from the previous stop's departure to this stop's arrival, in meters. Null for the first stop, skipped stops, or if GPS data is unavailable.
-    """
-
+        typing.Optional[int],
+        FieldMetadata(alias="actualDistanceMeters"),
+        pydantic.Field(
+            alias="actualDistanceMeters",
+            description="Actual GPS-measured distance traveled from the previous stop's departure to this stop's arrival, in meters. Null for the first stop, skipped stops, or if GPS data is unavailable.",
+        ),
+    ] = None
     address: typing.Optional[GoaAddressTinyResponseResponseBody] = None
     documents: typing.Optional[typing.List[GoaDocumentTinyResponseResponseBody]] = pydantic.Field(default=None)
     """
     List of documents associated with the stop.
     """
 
-    en_route_time: typing_extensions.Annotated[typing.Optional[dt.datetime], FieldMetadata(alias="enRouteTime")] = (
-        pydantic.Field(alias="enRouteTime", default=None)
-    )
-    """
-    The time the stop became en-route, in RFC 3339 format.
-    """
-
+    en_route_time: typing_extensions.Annotated[
+        typing.Optional[dt.datetime],
+        FieldMetadata(alias="enRouteTime"),
+        pydantic.Field(alias="enRouteTime", description="The time the stop became en-route, in RFC 3339 format."),
+    ] = None
     eta: typing.Optional[dt.datetime] = pydantic.Field(default=None)
     """
     Estimated time of arrival, if this stop is currently en-route, in RFC 3339 format.
     """
 
     external_ids: typing_extensions.Annotated[
-        typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(alias="externalIds", default=None)
-    """
-    A map of external ids
-    """
-
+        typing.Optional[typing.Dict[str, str]],
+        FieldMetadata(alias="externalIds"),
+        pydantic.Field(alias="externalIds", description="A map of external ids"),
+    ] = None
     forms: typing.Optional[typing.List[GoaFormTinyResponseResponseBody]] = pydantic.Field(default=None)
     """
     List of forms associated with the stop.
@@ -78,21 +77,19 @@ class RoutesStopResponseObjectResponseBody(UniversalBaseModel):
     List of issues associated with the stop.
     """
 
-    live_sharing_url: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="liveSharingUrl")] = (
-        pydantic.Field(alias="liveSharingUrl", default=None)
-    )
-    """
-    The shareable url of the stop's current status.
-    """
-
+    live_sharing_url: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="liveSharingUrl"),
+        pydantic.Field(alias="liveSharingUrl", description="The shareable url of the stop's current status."),
+    ] = None
     location_live_sharing_links: typing_extensions.Annotated[
         typing.Optional[typing.List[LiveSharingLinkResponseObjectResponseBody]],
         FieldMetadata(alias="locationLiveSharingLinks"),
-    ] = pydantic.Field(alias="locationLiveSharingLinks", default=None)
-    """
-    List of shareable, non-expired 'By Location' Live Sharing Links.
-    """
-
+        pydantic.Field(
+            alias="locationLiveSharingLinks",
+            description="List of shareable, non-expired 'By Location' Live Sharing Links.",
+        ),
+    ] = None
     name: str = pydantic.Field()
     """
     Name of the stop
@@ -104,57 +101,65 @@ class RoutesStopResponseObjectResponseBody(UniversalBaseModel):
     """
 
     ontime_window_after_arrival_ms: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="ontimeWindowAfterArrivalMs")
-    ] = pydantic.Field(alias="ontimeWindowAfterArrivalMs", default=None)
-    """
-    Specifies the time window (in milliseconds) after a stop's scheduled arrival time during which the stop is considered 'on-time'.
-    """
-
+        typing.Optional[int],
+        FieldMetadata(alias="ontimeWindowAfterArrivalMs"),
+        pydantic.Field(
+            alias="ontimeWindowAfterArrivalMs",
+            description="Specifies the time window (in milliseconds) after a stop's scheduled arrival time during which the stop is considered 'on-time'.",
+        ),
+    ] = None
     ontime_window_before_arrival_ms: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="ontimeWindowBeforeArrivalMs")
-    ] = pydantic.Field(alias="ontimeWindowBeforeArrivalMs", default=None)
-    """
-    Specifies the time window (in milliseconds) before a stop's scheduled arrival time during which the stop is considered 'on-time'.
-    """
-
+        typing.Optional[int],
+        FieldMetadata(alias="ontimeWindowBeforeArrivalMs"),
+        pydantic.Field(
+            alias="ontimeWindowBeforeArrivalMs",
+            description="Specifies the time window (in milliseconds) before a stop's scheduled arrival time during which the stop is considered 'on-time'.",
+        ),
+    ] = None
     planned_distance_meters: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="plannedDistanceMeters")
-    ] = pydantic.Field(alias="plannedDistanceMeters", default=None)
-    """
-    Planned driving distance from the previous stop in meters. Based on routing calculations at route creation time. Null for the first stop or if routing data is unavailable.
-    """
-
+        typing.Optional[int],
+        FieldMetadata(alias="plannedDistanceMeters"),
+        pydantic.Field(
+            alias="plannedDistanceMeters",
+            description="Planned driving distance from the previous stop in meters. Based on routing calculations at route creation time. Null for the first stop or if routing data is unavailable.",
+        ),
+    ] = None
     scheduled_arrival_time: typing_extensions.Annotated[
-        typing.Optional[dt.datetime], FieldMetadata(alias="scheduledArrivalTime")
-    ] = pydantic.Field(alias="scheduledArrivalTime", default=None)
-    """
-    Scheduled arrival time, if it exists, for the stop in RFC 3339 format.
-    """
-
+        typing.Optional[dt.datetime],
+        FieldMetadata(alias="scheduledArrivalTime"),
+        pydantic.Field(
+            alias="scheduledArrivalTime",
+            description="Scheduled arrival time, if it exists, for the stop in RFC 3339 format.",
+        ),
+    ] = None
     scheduled_departure_time: typing_extensions.Annotated[
-        typing.Optional[dt.datetime], FieldMetadata(alias="scheduledDepartureTime")
-    ] = pydantic.Field(alias="scheduledDepartureTime", default=None)
-    """
-    Scheduled departure time, if it exists, for the stop in RFC 3339 format.
-    """
-
-    sequence_number: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="sequenceNumber")] = (
-        pydantic.Field(alias="sequenceNumber", default=None)
-    )
-    """
-    Manual sequence position of this stop. Only used when route.settings.sequencingMethod=manual.
-    """
-
+        typing.Optional[dt.datetime],
+        FieldMetadata(alias="scheduledDepartureTime"),
+        pydantic.Field(
+            alias="scheduledDepartureTime",
+            description="Scheduled departure time, if it exists, for the stop in RFC 3339 format.",
+        ),
+    ] = None
+    sequence_number: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="sequenceNumber"),
+        pydantic.Field(
+            alias="sequenceNumber",
+            description="Manual sequence position of this stop. Only used when route.settings.sequencingMethod=manual.",
+        ),
+    ] = None
     single_use_location: typing_extensions.Annotated[
-        typing.Optional[RoutesSingleUseAddressObjectResponseBody], FieldMetadata(alias="singleUseLocation")
-    ] = pydantic.Field(alias="singleUseLocation", default=None)
-    skipped_time: typing_extensions.Annotated[typing.Optional[dt.datetime], FieldMetadata(alias="skippedTime")] = (
-        pydantic.Field(alias="skippedTime", default=None)
-    )
-    """
-    Skipped time, if it exists, for the route stop in RFC 3339 format.
-    """
-
+        typing.Optional[RoutesSingleUseAddressObjectResponseBody],
+        FieldMetadata(alias="singleUseLocation"),
+        pydantic.Field(alias="singleUseLocation"),
+    ] = None
+    skipped_time: typing_extensions.Annotated[
+        typing.Optional[dt.datetime],
+        FieldMetadata(alias="skippedTime"),
+        pydantic.Field(
+            alias="skippedTime", description="Skipped time, if it exists, for the route stop in RFC 3339 format."
+        ),
+    ] = None
     state: RoutesStopResponseObjectResponseBodyState = pydantic.Field()
     """
     The current state of the route stop.  Valid values: `unassigned`, `scheduled`, `en route`, `skipped`, `arrived`, `departed`

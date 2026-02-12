@@ -13,19 +13,18 @@ class VehicleStatsFaultCodesValueJ1939VendorSpecificFields(UniversalBaseModel):
     Vendor specific data for J1939 vehicles.
     """
 
-    dtc_description: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="dtcDescription")] = (
-        pydantic.Field(alias="dtcDescription", default=None)
-    )
-    """
-    The DTC description, if available.
-    """
-
+    dtc_description: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="dtcDescription"),
+        pydantic.Field(alias="dtcDescription", description="The DTC description, if available."),
+    ] = None
     repair_instructions_url: typing_extensions.Annotated[
-        typing.Optional[str], FieldMetadata(alias="repairInstructionsUrl")
-    ] = pydantic.Field(alias="repairInstructionsUrl", default=None)
-    """
-    A link to vendor repair instructions, if available.
-    """
+        typing.Optional[str],
+        FieldMetadata(alias="repairInstructionsUrl"),
+        pydantic.Field(
+            alias="repairInstructionsUrl", description="A link to vendor repair instructions, if available."
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -15,39 +15,30 @@ from .string_data_point import StringDataPoint
 
 class DataInputResponseAllOf(UniversalBaseModel):
     fft_spectra_points: typing_extensions.Annotated[
-        typing.Optional[typing.List[FftSpectraDataPoint]], FieldMetadata(alias="fftSpectraPoints")
-    ] = pydantic.Field(alias="fftSpectraPoints", default=None)
-    """
-    List of FFT spectra data points from the data input.
-    """
-
+        typing.Optional[typing.List[FftSpectraDataPoint]],
+        FieldMetadata(alias="fftSpectraPoints"),
+        pydantic.Field(alias="fftSpectraPoints", description="List of FFT spectra data points from the data input."),
+    ] = None
     j_1939_d_1_status_points: typing_extensions.Annotated[
-        typing.Optional[typing.List[J1939D1StatusDataPoint]], FieldMetadata(alias="j1939D1StatusPoints")
-    ] = pydantic.Field(alias="j1939D1StatusPoints", default=None)
-    """
-    List of active J1939D1 statuses.
-    """
-
+        typing.Optional[typing.List[J1939D1StatusDataPoint]],
+        FieldMetadata(alias="j1939D1StatusPoints"),
+        pydantic.Field(alias="j1939D1StatusPoints", description="List of active J1939D1 statuses."),
+    ] = None
     location_points: typing_extensions.Annotated[
-        typing.Optional[typing.List[LocationDataPoint]], FieldMetadata(alias="locationPoints")
-    ] = pydantic.Field(alias="locationPoints", default=None)
-    """
-    List of location data points from the data input.
-    """
-
+        typing.Optional[typing.List[LocationDataPoint]],
+        FieldMetadata(alias="locationPoints"),
+        pydantic.Field(alias="locationPoints", description="List of location data points from the data input."),
+    ] = None
     number_points: typing_extensions.Annotated[
-        typing.Optional[typing.List[NumberDataPoint]], FieldMetadata(alias="numberPoints")
-    ] = pydantic.Field(alias="numberPoints", default=None)
-    """
-    List of numeric data points from the data input.
-    """
-
+        typing.Optional[typing.List[NumberDataPoint]],
+        FieldMetadata(alias="numberPoints"),
+        pydantic.Field(alias="numberPoints", description="List of numeric data points from the data input."),
+    ] = None
     string_points: typing_extensions.Annotated[
-        typing.Optional[typing.List[StringDataPoint]], FieldMetadata(alias="stringPoints")
-    ] = pydantic.Field(alias="stringPoints", default=None)
-    """
-    List of string data points from the data input.
-    """
+        typing.Optional[typing.List[StringDataPoint]],
+        FieldMetadata(alias="stringPoints"),
+        pydantic.Field(alias="stringPoints", description="List of string data points from the data input."),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

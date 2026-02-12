@@ -18,26 +18,25 @@ class IftaJurisdictionSummaryObjectResponseBody(UniversalBaseModel):
     Jurisdiction code.
     """
 
-    tax_paid_liters: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="taxPaidLiters")] = (
-        pydantic.Field(alias="taxPaidLiters", default=None)
-    )
-    """
-    Liters purchased for all qualified vehicles.
-    """
-
-    taxable_meters: typing_extensions.Annotated[float, FieldMetadata(alias="taxableMeters")] = pydantic.Field(
-        alias="taxableMeters"
-    )
-    """
-    Distance in meters traveled on public roads in an IFTA jurisdiction.
-    """
-
-    total_meters: typing_extensions.Annotated[float, FieldMetadata(alias="totalMeters")] = pydantic.Field(
-        alias="totalMeters"
-    )
-    """
-    Total meters driven in this jurisdiction, taxable and non-taxable.
-    """
+    tax_paid_liters: typing_extensions.Annotated[
+        typing.Optional[float],
+        FieldMetadata(alias="taxPaidLiters"),
+        pydantic.Field(alias="taxPaidLiters", description="Liters purchased for all qualified vehicles."),
+    ] = None
+    taxable_meters: typing_extensions.Annotated[
+        float,
+        FieldMetadata(alias="taxableMeters"),
+        pydantic.Field(
+            alias="taxableMeters", description="Distance in meters traveled on public roads in an IFTA jurisdiction."
+        ),
+    ]
+    total_meters: typing_extensions.Annotated[
+        float,
+        FieldMetadata(alias="totalMeters"),
+        pydantic.Field(
+            alias="totalMeters", description="Total meters driven in this jurisdiction, taxable and non-taxable."
+        ),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

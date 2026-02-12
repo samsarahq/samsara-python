@@ -16,12 +16,10 @@ class SpeedingSettingsObjectResponseBody(UniversalBaseModel):
     """
 
     severity_levels: typing_extensions.Annotated[
-        typing.Optional[typing.List[SpeedingSeverityLevelResponseBody]], FieldMetadata(alias="severityLevels")
-    ] = pydantic.Field(alias="severityLevels", default=None)
-    """
-    The speeding severity levels for an organization.
-    """
-
+        typing.Optional[typing.List[SpeedingSeverityLevelResponseBody]],
+        FieldMetadata(alias="severityLevels"),
+        pydantic.Field(alias="severityLevels", description="The speeding severity levels for an organization."),
+    ] = None
     unit: typing.Optional[SpeedingSettingsObjectResponseBodyUnit] = pydantic.Field(default=None)
     """
     The unit of measurement for speeding  Valid values: `milesPerHour`, `kilometersPerHour`, `percentage`

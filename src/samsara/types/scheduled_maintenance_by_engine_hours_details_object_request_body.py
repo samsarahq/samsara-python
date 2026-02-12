@@ -13,19 +13,18 @@ class ScheduledMaintenanceByEngineHoursDetailsObjectRequestBody(UniversalBaseMod
     Details specific to Scheduled Maintenance By Engine Hours
     """
 
-    due_in_hours: typing_extensions.Annotated[int, FieldMetadata(alias="dueInHours")] = pydantic.Field(
-        alias="dueInHours"
-    )
-    """
-    Alert when maintenance is due in the specified number of hours.
-    """
-
-    schedule_id: typing_extensions.Annotated[str, FieldMetadata(alias="scheduleId")] = pydantic.Field(
-        alias="scheduleId"
-    )
-    """
-    The id of the maintenance schedule.
-    """
+    due_in_hours: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="dueInHours"),
+        pydantic.Field(
+            alias="dueInHours", description="Alert when maintenance is due in the specified number of hours."
+        ),
+    ]
+    schedule_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="scheduleId"),
+        pydantic.Field(alias="scheduleId", description="The id of the maintenance schedule."),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

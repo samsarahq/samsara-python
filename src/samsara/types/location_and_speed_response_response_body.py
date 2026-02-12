@@ -17,13 +17,11 @@ class LocationAndSpeedResponseResponseBody(UniversalBaseModel):
     """
 
     asset: AssetResponseResponseBody
-    happened_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="happenedAtTime")] = pydantic.Field(
-        alias="happenedAtTime"
-    )
-    """
-    UTC timestamp in RFC 3339 format of the event.
-    """
-
+    happened_at_time: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="happenedAtTime"),
+        pydantic.Field(alias="happenedAtTime", description="UTC timestamp in RFC 3339 format of the event."),
+    ]
     location: LocationResponseResponseBody
     speed: typing.Optional[SpeedResponseResponseBody] = None
 

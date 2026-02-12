@@ -17,25 +17,28 @@ class Dvir2FormSubmissionObjectResponseBody(UniversalBaseModel):
     assigned_to_polymorphic_user: typing_extensions.Annotated[
         typing.Optional[Dvir2AssignedToPolymorphicUserObjectResponseBody],
         FieldMetadata(alias="assignedToPolymorphicUser"),
-    ] = pydantic.Field(alias="assignedToPolymorphicUser", default=None)
-    due_date: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="dueDate")] = pydantic.Field(
-        alias="dueDate", default=None
-    )
-    """
-    Time of when the form submission is due. UTC timestamp in RFC 3339 format.
-    """
-
-    server_updated_at: typing_extensions.Annotated[str, FieldMetadata(alias="serverUpdatedAt")] = pydantic.Field(
-        alias="serverUpdatedAt"
-    )
-    """
-    Time when the form submission was last updated on the server. UTC timestamp in RFC 3339 format.
-    """
-
-    uuid_: typing_extensions.Annotated[str, FieldMetadata(alias="uuid")] = pydantic.Field(alias="uuid")
-    """
-    The unique UUID of the form submission
-    """
+        pydantic.Field(alias="assignedToPolymorphicUser"),
+    ] = None
+    due_date: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="dueDate"),
+        pydantic.Field(
+            alias="dueDate", description="Time of when the form submission is due. UTC timestamp in RFC 3339 format."
+        ),
+    ] = None
+    server_updated_at: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="serverUpdatedAt"),
+        pydantic.Field(
+            alias="serverUpdatedAt",
+            description="Time when the form submission was last updated on the server. UTC timestamp in RFC 3339 format.",
+        ),
+    ]
+    uuid_: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="uuid"),
+        pydantic.Field(alias="uuid", description="The unique UUID of the form submission"),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

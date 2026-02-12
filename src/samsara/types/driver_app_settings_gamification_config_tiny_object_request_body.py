@@ -14,11 +14,13 @@ class DriverAppSettingsGamificationConfigTinyObjectRequestBody(UniversalBaseMode
     """
 
     anonymize_driver_names: typing_extensions.Annotated[
-        typing.Optional[bool], FieldMetadata(alias="anonymizeDriverNames")
-    ] = pydantic.Field(alias="anonymizeDriverNames", default=None)
-    """
-    Hide the names of other drivers when viewing the driver leaderboard in the mobile app.
-    """
+        typing.Optional[bool],
+        FieldMetadata(alias="anonymizeDriverNames"),
+        pydantic.Field(
+            alias="anonymizeDriverNames",
+            description="Hide the names of other drivers when viewing the driver leaderboard in the mobile app.",
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -19,23 +19,26 @@ class FormsSelectOptionObjectResponseBody(UniversalBaseModel):
     """
 
     ignore_question_from_score_if_selected: typing_extensions.Annotated[
-        typing.Optional[bool], FieldMetadata(alias="ignoreQuestionFromScoreIfSelected")
-    ] = pydantic.Field(alias="ignoreQuestionFromScoreIfSelected", default=None)
-    """
-    Indicates whether the question should be ignored from the total score if this option is selected. Returns true if a score weight was not given to this option. Only present when the select form field has scoring.
-    """
-
+        typing.Optional[bool],
+        FieldMetadata(alias="ignoreQuestionFromScoreIfSelected"),
+        pydantic.Field(
+            alias="ignoreQuestionFromScoreIfSelected",
+            description="Indicates whether the question should be ignored from the total score if this option is selected. Returns true if a score weight was not given to this option. Only present when the select form field has scoring.",
+        ),
+    ] = None
     label: str = pydantic.Field()
     """
     Label of the option.
     """
 
-    option_score_weight: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="optionScoreWeight")] = (
-        pydantic.Field(alias="optionScoreWeight", default=None)
-    )
-    """
-    Score weight of the option, indicates number of score points received if this option is selected. Only present if the select form field has scoring.
-    """
+    option_score_weight: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="optionScoreWeight"),
+        pydantic.Field(
+            alias="optionScoreWeight",
+            description="Score weight of the option, indicates number of score points received if this option is selected. Only present if the select form field has scoring.",
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -13,17 +13,18 @@ class StopEtaUpdatedEventDetailsResponseBody(UniversalBaseModel):
     Details for stop ETA updated events.
     """
 
-    eta_ms: typing_extensions.Annotated[str, FieldMetadata(alias="etaMs")] = pydantic.Field(alias="etaMs")
-    """
-    Estimated arrival time in milliseconds since epoch.
-    """
-
-    eta_updated_at_ms: typing_extensions.Annotated[str, FieldMetadata(alias="etaUpdatedAtMs")] = pydantic.Field(
-        alias="etaUpdatedAtMs"
-    )
-    """
-    Time when the ETA was updated in milliseconds since epoch.
-    """
+    eta_ms: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="etaMs"),
+        pydantic.Field(alias="etaMs", description="Estimated arrival time in milliseconds since epoch."),
+    ]
+    eta_updated_at_ms: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="etaUpdatedAtMs"),
+        pydantic.Field(
+            alias="etaUpdatedAtMs", description="Time when the ETA was updated in milliseconds since epoch."
+        ),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

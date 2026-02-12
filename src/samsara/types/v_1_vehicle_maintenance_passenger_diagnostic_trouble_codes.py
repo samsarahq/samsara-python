@@ -9,13 +9,13 @@ from ..core.serialization import FieldMetadata
 
 
 class V1VehicleMaintenancePassengerDiagnosticTroubleCodes(UniversalBaseModel):
-    dtc_description: typing_extensions.Annotated[str, FieldMetadata(alias="dtcDescription")] = pydantic.Field(
-        alias="dtcDescription"
-    )
-    dtc_id: typing_extensions.Annotated[int, FieldMetadata(alias="dtcId")] = pydantic.Field(alias="dtcId")
-    dtc_short_code: typing_extensions.Annotated[str, FieldMetadata(alias="dtcShortCode")] = pydantic.Field(
-        alias="dtcShortCode"
-    )
+    dtc_description: typing_extensions.Annotated[
+        str, FieldMetadata(alias="dtcDescription"), pydantic.Field(alias="dtcDescription")
+    ]
+    dtc_id: typing_extensions.Annotated[int, FieldMetadata(alias="dtcId"), pydantic.Field(alias="dtcId")]
+    dtc_short_code: typing_extensions.Annotated[
+        str, FieldMetadata(alias="dtcShortCode"), pydantic.Field(alias="dtcShortCode")
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

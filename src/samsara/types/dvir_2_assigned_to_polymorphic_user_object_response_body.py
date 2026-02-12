@@ -18,12 +18,13 @@ class Dvir2AssignedToPolymorphicUserObjectResponseBody(UniversalBaseModel):
     The name of the user or driver assigned to the DVIR.
     """
 
-    polymorphic_user_id: typing_extensions.Annotated[str, FieldMetadata(alias="polymorphicUserId")] = pydantic.Field(
-        alias="polymorphicUserId"
-    )
-    """
-    The polymorphic user ID that identifies the user or driver.
-    """
+    polymorphic_user_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="polymorphicUserId"),
+        pydantic.Field(
+            alias="polymorphicUserId", description="The polymorphic user ID that identifies the user or driver."
+        ),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

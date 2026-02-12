@@ -28,17 +28,25 @@ class FormsFieldInputObjectResponseBody(UniversalBaseModel):
     """
 
     asset_value: typing_extensions.Annotated[
-        typing.Optional[FormsAssetValueObjectResponseBody], FieldMetadata(alias="assetValue")
-    ] = pydantic.Field(alias="assetValue", default=None)
+        typing.Optional[FormsAssetValueObjectResponseBody],
+        FieldMetadata(alias="assetValue"),
+        pydantic.Field(alias="assetValue"),
+    ] = None
     check_boxes_value: typing_extensions.Annotated[
-        typing.Optional[FormsCheckBoxesValueObjectResponseBody], FieldMetadata(alias="checkBoxesValue")
-    ] = pydantic.Field(alias="checkBoxesValue", default=None)
+        typing.Optional[FormsCheckBoxesValueObjectResponseBody],
+        FieldMetadata(alias="checkBoxesValue"),
+        pydantic.Field(alias="checkBoxesValue"),
+    ] = None
     date_time_value: typing_extensions.Annotated[
-        typing.Optional[FormsDateTimeValueObjectResponseBody], FieldMetadata(alias="dateTimeValue")
-    ] = pydantic.Field(alias="dateTimeValue", default=None)
+        typing.Optional[FormsDateTimeValueObjectResponseBody],
+        FieldMetadata(alias="dateTimeValue"),
+        pydantic.Field(alias="dateTimeValue"),
+    ] = None
     geofence_value: typing_extensions.Annotated[
-        typing.Optional[FormsGeofenceValueObjectResponseBody], FieldMetadata(alias="geofenceValue")
-    ] = pydantic.Field(alias="geofenceValue", default=None)
+        typing.Optional[FormsGeofenceValueObjectResponseBody],
+        FieldMetadata(alias="geofenceValue"),
+        pydantic.Field(alias="geofenceValue"),
+    ] = None
     id: str = pydantic.Field()
     """
     ID of the forms input field object.
@@ -51,38 +59,50 @@ class FormsFieldInputObjectResponseBody(UniversalBaseModel):
     """
 
     media_list: typing_extensions.Annotated[
-        typing.Optional[typing.List[FormsMediaRecordObjectResponseBody]], FieldMetadata(alias="mediaList")
-    ] = pydantic.Field(alias="mediaList", default=None)
-    """
-    List of forms media record objects.
-    """
-
+        typing.Optional[typing.List[FormsMediaRecordObjectResponseBody]],
+        FieldMetadata(alias="mediaList"),
+        pydantic.Field(alias="mediaList", description="List of forms media record objects."),
+    ] = None
     media_value: typing_extensions.Annotated[
-        typing.Optional[FormsMediaValueObjectResponseBody], FieldMetadata(alias="mediaValue")
-    ] = pydantic.Field(alias="mediaValue", default=None)
+        typing.Optional[FormsMediaValueObjectResponseBody],
+        FieldMetadata(alias="mediaValue"),
+        pydantic.Field(alias="mediaValue"),
+    ] = None
     multiple_choice_value: typing_extensions.Annotated[
-        typing.Optional[FormsMultipleChoiceValueObjectResponseBody], FieldMetadata(alias="multipleChoiceValue")
-    ] = pydantic.Field(alias="multipleChoiceValue", default=None)
+        typing.Optional[FormsMultipleChoiceValueObjectResponseBody],
+        FieldMetadata(alias="multipleChoiceValue"),
+        pydantic.Field(alias="multipleChoiceValue"),
+    ] = None
     note: typing.Optional[str] = pydantic.Field(default=None)
     """
     A note attached to the field input.
     """
 
     number_value: typing_extensions.Annotated[
-        typing.Optional[FormsNumberValueObjectResponseBody], FieldMetadata(alias="numberValue")
-    ] = pydantic.Field(alias="numberValue", default=None)
+        typing.Optional[FormsNumberValueObjectResponseBody],
+        FieldMetadata(alias="numberValue"),
+        pydantic.Field(alias="numberValue"),
+    ] = None
     person_value: typing_extensions.Annotated[
-        typing.Optional[FormsPersonValueObjectResponseBody], FieldMetadata(alias="personValue")
-    ] = pydantic.Field(alias="personValue", default=None)
+        typing.Optional[FormsPersonValueObjectResponseBody],
+        FieldMetadata(alias="personValue"),
+        pydantic.Field(alias="personValue"),
+    ] = None
     signature_value: typing_extensions.Annotated[
-        typing.Optional[FormsSignatureValueObjectResponseBody], FieldMetadata(alias="signatureValue")
-    ] = pydantic.Field(alias="signatureValue", default=None)
+        typing.Optional[FormsSignatureValueObjectResponseBody],
+        FieldMetadata(alias="signatureValue"),
+        pydantic.Field(alias="signatureValue"),
+    ] = None
     table_value: typing_extensions.Annotated[
-        typing.Optional[FormsTableValueObjectResponseBody], FieldMetadata(alias="tableValue")
-    ] = pydantic.Field(alias="tableValue", default=None)
+        typing.Optional[FormsTableValueObjectResponseBody],
+        FieldMetadata(alias="tableValue"),
+        pydantic.Field(alias="tableValue"),
+    ] = None
     text_value: typing_extensions.Annotated[
-        typing.Optional[FormsTextValueObjectResponseBody], FieldMetadata(alias="textValue")
-    ] = pydantic.Field(alias="textValue", default=None)
+        typing.Optional[FormsTextValueObjectResponseBody],
+        FieldMetadata(alias="textValue"),
+        pydantic.Field(alias="textValue"),
+    ] = None
     type: FormsFieldInputObjectResponseBodyType = pydantic.Field()
     """
     Type of the field.  Valid values: `number`, `text`, `multiple_choice`, `check_boxes`, `datetime`, `signature`, `media`, `asset`, `table`, `person`, `geofence`

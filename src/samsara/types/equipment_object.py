@@ -18,20 +18,22 @@ class EquipmentObject(UniversalBaseModel):
     An equipment object.
     """
 
-    asset_serial: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="assetSerial")] = (
-        pydantic.Field(alias="assetSerial", default=None)
-    )
-    """
-    An equipment identification number.
-    """
-
+    asset_serial: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="assetSerial"),
+        pydantic.Field(alias="assetSerial", description="An equipment identification number."),
+    ] = None
     external_ids: typing_extensions.Annotated[
-        typing.Optional[CarrierProposedAssignmentDriverAllOf2ExternalIds], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(alias="externalIds", default=None)
+        typing.Optional[CarrierProposedAssignmentDriverAllOf2ExternalIds],
+        FieldMetadata(alias="externalIds"),
+        pydantic.Field(alias="externalIds"),
+    ] = None
     id: EquipmentId
     installed_gateway: typing_extensions.Annotated[
-        typing.Optional[EquipmentInstalledGateway], FieldMetadata(alias="installedGateway")
-    ] = pydantic.Field(alias="installedGateway", default=None)
+        typing.Optional[EquipmentInstalledGateway],
+        FieldMetadata(alias="installedGateway"),
+        pydantic.Field(alias="installedGateway"),
+    ] = None
     name: typing.Optional[EquipmentName] = None
     notes: typing.Optional[str] = pydantic.Field(default=None)
     """

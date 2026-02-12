@@ -22,30 +22,30 @@ class ServiceTaskInstanceObjectResponseBody(UniversalBaseModel):
     """
 
     labor_hourly_cost: typing_extensions.Annotated[
-        typing.Optional[WorkOrderMoneyObjectResponseBody], FieldMetadata(alias="laborHourlyCost")
-    ] = pydantic.Field(alias="laborHourlyCost", default=None)
-    labor_time_minutes: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="laborTimeMinutes")] = (
-        pydantic.Field(alias="laborTimeMinutes", default=None)
-    )
-    """
-    The time of labor needed
-    """
-
+        typing.Optional[WorkOrderMoneyObjectResponseBody],
+        FieldMetadata(alias="laborHourlyCost"),
+        pydantic.Field(alias="laborHourlyCost"),
+    ] = None
+    labor_time_minutes: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="laborTimeMinutes"),
+        pydantic.Field(alias="laborTimeMinutes", description="The time of labor needed"),
+    ] = None
     parts: typing.Optional[typing.List[PartInstanceObjectResponseBody]] = pydantic.Field(default=None)
     """
     Parts for the service task.
     """
 
     parts_cost: typing_extensions.Annotated[
-        typing.Optional[WorkOrderMoneyObjectResponseBody], FieldMetadata(alias="partsCost")
-    ] = pydantic.Field(alias="partsCost", default=None)
-    service_task_id: typing_extensions.Annotated[str, FieldMetadata(alias="serviceTaskId")] = pydantic.Field(
-        alias="serviceTaskId"
-    )
-    """
-    ID of the service task.
-    """
-
+        typing.Optional[WorkOrderMoneyObjectResponseBody],
+        FieldMetadata(alias="partsCost"),
+        pydantic.Field(alias="partsCost"),
+    ] = None
+    service_task_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="serviceTaskId"),
+        pydantic.Field(alias="serviceTaskId", description="ID of the service task."),
+    ]
     status: ServiceTaskInstanceObjectResponseBodyStatus = pydantic.Field()
     """
     The status of the service task.  Valid values: `Unknown`, `Open`, `In Progress`, `On Hold`, `Completed`

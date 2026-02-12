@@ -14,13 +14,14 @@ class HosEldEventLocationObjectResponseBody(UniversalBaseModel):
     The best effort city for the latitude and longitude.
     """
 
-    eld_location: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="eldLocation")] = (
-        pydantic.Field(alias="eldLocation", default=None)
-    )
-    """
-    Relative location to the city, village, or town with population of 5,000 or greater.
-    """
-
+    eld_location: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="eldLocation"),
+        pydantic.Field(
+            alias="eldLocation",
+            description="Relative location to the city, village, or town with population of 5,000 or greater.",
+        ),
+    ] = None
     latitude: typing.Optional[float] = pydantic.Field(default=None)
     """
     The latitude of the location.

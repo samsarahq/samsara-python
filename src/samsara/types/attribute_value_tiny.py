@@ -18,12 +18,11 @@ class AttributeValueTiny(UniversalBaseModel):
     The samsara id of this value object.
     """
 
-    string_value: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="stringValue")] = (
-        pydantic.Field(alias="stringValue", default=None)
-    )
-    """
-    The human-readable string for this value.
-    """
+    string_value: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="stringValue"),
+        pydantic.Field(alias="stringValue", description="The human-readable string for this value."),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

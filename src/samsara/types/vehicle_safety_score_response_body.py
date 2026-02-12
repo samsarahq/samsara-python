@@ -20,36 +20,32 @@ class VehicleSafetyScoreResponseBody(UniversalBaseModel):
     Aggregated list of behaviors for the vehicle, one row for each unique type of behavior.
     """
 
-    drive_distance_meters: typing_extensions.Annotated[int, FieldMetadata(alias="driveDistanceMeters")] = (
-        pydantic.Field(alias="driveDistanceMeters")
-    )
-    """
-    Total sum of distance driven with the vehicle.
-    """
-
-    drive_time_milliseconds: typing_extensions.Annotated[int, FieldMetadata(alias="driveTimeMilliseconds")] = (
-        pydantic.Field(alias="driveTimeMilliseconds")
-    )
-    """
-    Total time spent driving with the vehicle.
-    """
-
+    drive_distance_meters: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="driveDistanceMeters"),
+        pydantic.Field(alias="driveDistanceMeters", description="Total sum of distance driven with the vehicle."),
+    ]
+    drive_time_milliseconds: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="driveTimeMilliseconds"),
+        pydantic.Field(alias="driveTimeMilliseconds", description="Total time spent driving with the vehicle."),
+    ]
     speeding: typing.List[SafetyScoreSpeedingObjectResponseBody] = pydantic.Field()
     """
     Aggregated list of speeding events for the vehicle, one row for each unique type of speeding.
     """
 
-    vehicle_id: typing_extensions.Annotated[str, FieldMetadata(alias="vehicleId")] = pydantic.Field(alias="vehicleId")
-    """
-    ID of the vehicle.
-    """
-
-    vehicle_score: typing_extensions.Annotated[int, FieldMetadata(alias="vehicleScore")] = pydantic.Field(
-        alias="vehicleScore"
-    )
-    """
-    Safety score for the vehicle. The score is a rounded number between 0-100.
-    """
+    vehicle_id: typing_extensions.Annotated[
+        str, FieldMetadata(alias="vehicleId"), pydantic.Field(alias="vehicleId", description="ID of the vehicle.")
+    ]
+    vehicle_score: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="vehicleScore"),
+        pydantic.Field(
+            alias="vehicleScore",
+            description="Safety score for the vehicle. The score is a rounded number between 0-100.",
+        ),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -23,12 +23,13 @@ class QualificationTypeReferenceObjectResponseBody(UniversalBaseModel):
     Name of the qualification type
     """
 
-    revision_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="revisionId")] = pydantic.Field(
-        alias="revisionId", default=None
-    )
-    """
-    ID of the qualification type revision (template revision UUID)
-    """
+    revision_id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="revisionId"),
+        pydantic.Field(
+            alias="revisionId", description="ID of the qualification type revision (template revision UUID)"
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

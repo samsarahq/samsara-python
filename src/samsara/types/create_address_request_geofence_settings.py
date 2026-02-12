@@ -13,12 +13,14 @@ class CreateAddressRequestGeofenceSettings(UniversalBaseModel):
     Information about a geofence's settings.
     """
 
-    show_addresses: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="showAddresses")] = (
-        pydantic.Field(alias="showAddresses", default=None)
-    )
-    """
-    If this property is set to true, then underlying geofence addresses will be shown in reports instead of a geofence's name.
-    """
+    show_addresses: typing_extensions.Annotated[
+        typing.Optional[bool],
+        FieldMetadata(alias="showAddresses"),
+        pydantic.Field(
+            alias="showAddresses",
+            description="If this property is set to true, then underlying geofence addresses will be shown in reports instead of a geofence's name.",
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

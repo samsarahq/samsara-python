@@ -19,13 +19,11 @@ class DriverAppSettingsResponseObjectResponseBody(UniversalBaseModel):
     The configuration settings for the Samsara Driver App. Can be set or updated through the Samsara Settings page or the API at any time.
     """
 
-    driver_fleet_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="driverFleetId")] = (
-        pydantic.Field(alias="driverFleetId", default=None)
-    )
-    """
-    Login user name for the fleet driver app
-    """
-
+    driver_fleet_id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="driverFleetId"),
+        pydantic.Field(alias="driverFleetId", description="Login user name for the fleet driver app"),
+    ] = None
     gamification: typing.Optional[bool] = pydantic.Field(default=None)
     """
     Driver gamification feature. Enabling this will turn on the feature for all drivers using the mobile app. Drivers can be configured into peer groups within the Drivers Page. Unconfigured drivers will be grouped on an organization level.
@@ -34,25 +32,28 @@ class DriverAppSettingsResponseObjectResponseBody(UniversalBaseModel):
     gamification_config: typing_extensions.Annotated[
         typing.Optional[DriverAppSettingsGamificationConfigTinyObjectResponseBody],
         FieldMetadata(alias="gamificationConfig"),
-    ] = pydantic.Field(alias="gamificationConfig", default=None)
-    org_vehicle_search: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="orgVehicleSearch")] = (
-        pydantic.Field(alias="orgVehicleSearch", default=None)
-    )
-    """
-    Allow drivers to search for vehicles outside of their selection tag when connected to the internet.
-    """
-
-    trailer_selection: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="trailerSelection")] = (
-        pydantic.Field(alias="trailerSelection", default=None)
-    )
-    """
-    Allow drivers to see and select trailers in the Samsara Driver app. 
-    """
-
+        pydantic.Field(alias="gamificationConfig"),
+    ] = None
+    org_vehicle_search: typing_extensions.Annotated[
+        typing.Optional[bool],
+        FieldMetadata(alias="orgVehicleSearch"),
+        pydantic.Field(
+            alias="orgVehicleSearch",
+            description="Allow drivers to search for vehicles outside of their selection tag when connected to the internet.",
+        ),
+    ] = None
+    trailer_selection: typing_extensions.Annotated[
+        typing.Optional[bool],
+        FieldMetadata(alias="trailerSelection"),
+        pydantic.Field(
+            alias="trailerSelection", description="Allow drivers to see and select trailers in the Samsara Driver app. "
+        ),
+    ] = None
     trailer_selection_config: typing_extensions.Annotated[
         typing.Optional[DriverAppSettingsTrailerSelectionConfigTinyObjectResponseBody],
         FieldMetadata(alias="trailerSelectionConfig"),
-    ] = pydantic.Field(alias="trailerSelectionConfig", default=None)
+        pydantic.Field(alias="trailerSelectionConfig"),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

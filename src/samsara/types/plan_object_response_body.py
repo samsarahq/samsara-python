@@ -14,18 +14,16 @@ class PlanObjectResponseBody(UniversalBaseModel):
     Plan object
     """
 
-    created_at: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAt")] = pydantic.Field(
-        alias="createdAt"
-    )
-    """
-    The timestamp (in UTC) when the plan was created
-    """
-
-    hub_id: typing_extensions.Annotated[str, FieldMetadata(alias="hubId")] = pydantic.Field(alias="hubId")
-    """
-    The ID of the hub this plan belongs to
-    """
-
+    created_at: typing_extensions.Annotated[
+        dt.datetime,
+        FieldMetadata(alias="createdAt"),
+        pydantic.Field(alias="createdAt", description="The timestamp (in UTC) when the plan was created"),
+    ]
+    hub_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="hubId"),
+        pydantic.Field(alias="hubId", description="The ID of the hub this plan belongs to"),
+    ]
     id: str = pydantic.Field()
     """
     The Samsara-generated unique identifier (UUID) for the plan
@@ -36,19 +34,16 @@ class PlanObjectResponseBody(UniversalBaseModel):
     The name of the plan
     """
 
-    shift_start_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="shiftStartTime")] = pydantic.Field(
-        alias="shiftStartTime"
-    )
-    """
-    The shift start time for the plan in RFC 3339 format
-    """
-
-    updated_at: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAt")] = pydantic.Field(
-        alias="updatedAt"
-    )
-    """
-    The timestamp (in UTC) when the plan was last updated
-    """
+    shift_start_time: typing_extensions.Annotated[
+        dt.datetime,
+        FieldMetadata(alias="shiftStartTime"),
+        pydantic.Field(alias="shiftStartTime", description="The shift start time for the plan in RFC 3339 format"),
+    ]
+    updated_at: typing_extensions.Annotated[
+        dt.datetime,
+        FieldMetadata(alias="updatedAt"),
+        pydantic.Field(alias="updatedAt", description="The timestamp (in UTC) when the plan was last updated"),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

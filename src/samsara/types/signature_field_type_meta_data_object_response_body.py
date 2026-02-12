@@ -13,12 +13,11 @@ class SignatureFieldTypeMetaDataObjectResponseBody(UniversalBaseModel):
     The signature field metadata.
     """
 
-    legal_text: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="legalText")] = pydantic.Field(
-        alias="legalText", default=None
-    )
-    """
-    The signature field legal text.
-    """
+    legal_text: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="legalText"),
+        pydantic.Field(alias="legalText", description="The signature field legal text."),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

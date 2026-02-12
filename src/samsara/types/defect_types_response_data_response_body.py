@@ -14,13 +14,11 @@ class DefectTypesResponseDataResponseBody(UniversalBaseModel):
     Defect type data.
     """
 
-    created_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="createdAtTime")] = pydantic.Field(
-        alias="createdAtTime"
-    )
-    """
-    Time when defect type was created in RFC 3339 format.
-    """
-
+    created_at_time: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="createdAtTime"),
+        pydantic.Field(alias="createdAtTime", description="Time when defect type was created in RFC 3339 format."),
+    ]
     id: str = pydantic.Field()
     """
     The unique ID of the DVIR defect type.
@@ -32,11 +30,13 @@ class DefectTypesResponseDataResponseBody(UniversalBaseModel):
     """
 
     section_type: typing_extensions.Annotated[
-        DefectTypesResponseDataResponseBodySectionType, FieldMetadata(alias="sectionType")
-    ] = pydantic.Field(alias="sectionType")
-    """
-    Section for DVIR defect type.  Valid values: `exteriorFront`, `exteriorRear`, `exteriorSideUnderneath`, `interiorDriverCab`, `interiorPassengerArea`, `other`, `unknown`
-    """
+        DefectTypesResponseDataResponseBodySectionType,
+        FieldMetadata(alias="sectionType"),
+        pydantic.Field(
+            alias="sectionType",
+            description="Section for DVIR defect type.  Valid values: `exteriorFront`, `exteriorRear`, `exteriorSideUnderneath`, `interiorDriverCab`, `interiorPassengerArea`, `other`, `unknown`",
+        ),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
