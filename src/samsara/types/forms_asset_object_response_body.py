@@ -14,20 +14,18 @@ class FormsAssetObjectResponseBody(UniversalBaseModel):
     Tracked or untracked (i.e. manually entered) asset object.
     """
 
-    entry_type: typing_extensions.Annotated[FormsAssetObjectResponseBodyEntryType, FieldMetadata(alias="entryType")] = (
-        pydantic.Field(alias="entryType")
-    )
-    """
-    The type of entry for the asset.  Valid values: `tracked`, `untracked`
-    """
-
+    entry_type: typing_extensions.Annotated[
+        FormsAssetObjectResponseBodyEntryType,
+        FieldMetadata(alias="entryType"),
+        pydantic.Field(
+            alias="entryType", description="The type of entry for the asset.  Valid values: `tracked`, `untracked`"
+        ),
+    ]
     external_ids: typing_extensions.Annotated[
-        typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(alias="externalIds", default=None)
-    """
-    A map of external ids
-    """
-
+        typing.Optional[typing.Dict[str, str]],
+        FieldMetadata(alias="externalIds"),
+        pydantic.Field(alias="externalIds", description="A map of external ids"),
+    ] = None
     id: typing.Optional[str] = pydantic.Field(default=None)
     """
     ID of a tracked asset. Included if 'entryType' is `tracked`.

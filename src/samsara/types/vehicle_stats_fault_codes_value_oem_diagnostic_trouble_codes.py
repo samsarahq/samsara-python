@@ -13,33 +13,26 @@ class VehicleStatsFaultCodesValueOemDiagnosticTroubleCodes(UniversalBaseModel):
     Proprietary diagnostic trouble code for some OEM vehicles.
     """
 
-    code_description: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="codeDescription")] = (
-        pydantic.Field(alias="codeDescription", default=None)
-    )
-    """
-    The OEM code description.
-    """
-
-    code_identifier: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="codeIdentifier")] = (
-        pydantic.Field(alias="codeIdentifier", default=None)
-    )
-    """
-    The OEM code identifier.
-    """
-
-    code_severity: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="codeSeverity")] = (
-        pydantic.Field(alias="codeSeverity", default=None)
-    )
-    """
-    The OEM code severity.
-    """
-
-    code_source: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="codeSource")] = pydantic.Field(
-        alias="codeSource", default=None
-    )
-    """
-    The OEM code source.
-    """
+    code_description: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="codeDescription"),
+        pydantic.Field(alias="codeDescription", description="The OEM code description."),
+    ] = None
+    code_identifier: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="codeIdentifier"),
+        pydantic.Field(alias="codeIdentifier", description="The OEM code identifier."),
+    ] = None
+    code_severity: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="codeSeverity"),
+        pydantic.Field(alias="codeSeverity", description="The OEM code severity."),
+    ] = None
+    code_source: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="codeSource"),
+        pydantic.Field(alias="codeSource", description="The OEM code source."),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

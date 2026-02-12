@@ -22,69 +22,60 @@ class DefectsResponseDataResponseBody(UniversalBaseModel):
     Comment on the defect.
     """
 
-    created_at_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="createdAtTime")] = (
-        pydantic.Field(alias="createdAtTime", default=None)
-    )
-    """
-    Time when defect was created in RFC 3339 format.
-    """
-
+    created_at_time: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="createdAtTime"),
+        pydantic.Field(alias="createdAtTime", description="Time when defect was created in RFC 3339 format."),
+    ] = None
     defect_photos: typing_extensions.Annotated[
-        typing.Optional[typing.List[DefectPhotoResponseResponseBody]], FieldMetadata(alias="defectPhotos")
-    ] = pydantic.Field(alias="defectPhotos", default=None)
-    """
-    List of DVIR defect's photos
-    """
-
-    defect_type_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="defectTypeId")] = (
-        pydantic.Field(alias="defectTypeId", default=None)
-    )
-    """
-    The unique ID of the defect type.
-    """
-
-    dvir_id: typing_extensions.Annotated[str, FieldMetadata(alias="dvirId")] = pydantic.Field(alias="dvirId")
-    """
-    The unique ID of the defect's DVIR.
-    """
-
+        typing.Optional[typing.List[DefectPhotoResponseResponseBody]],
+        FieldMetadata(alias="defectPhotos"),
+        pydantic.Field(alias="defectPhotos", description="List of DVIR defect's photos"),
+    ] = None
+    defect_type_id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="defectTypeId"),
+        pydantic.Field(alias="defectTypeId", description="The unique ID of the defect type."),
+    ] = None
+    dvir_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="dvirId"),
+        pydantic.Field(alias="dvirId", description="The unique ID of the defect's DVIR."),
+    ]
     id: str = pydantic.Field()
     """
     The unique ID of the DVIR defect.
     """
 
-    is_resolved: typing_extensions.Annotated[bool, FieldMetadata(alias="isResolved")] = pydantic.Field(
-        alias="isResolved"
-    )
-    """
-    Signifies if this defect is resolved.
-    """
-
-    mechanic_notes: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="mechanicNotes")] = (
-        pydantic.Field(alias="mechanicNotes", default=None)
-    )
-    """
-    The mechanics notes on the defect.
-    """
-
-    resolved_at_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="resolvedAtTime")] = (
-        pydantic.Field(alias="resolvedAtTime", default=None)
-    )
-    """
-    Time when this defect was resolved in RFC 3339 format. Will not be returned if the defect is unresolved.
-    """
-
+    is_resolved: typing_extensions.Annotated[
+        bool,
+        FieldMetadata(alias="isResolved"),
+        pydantic.Field(alias="isResolved", description="Signifies if this defect is resolved."),
+    ]
+    mechanic_notes: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="mechanicNotes"),
+        pydantic.Field(alias="mechanicNotes", description="The mechanics notes on the defect."),
+    ] = None
+    resolved_at_time: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="resolvedAtTime"),
+        pydantic.Field(
+            alias="resolvedAtTime",
+            description="Time when this defect was resolved in RFC 3339 format. Will not be returned if the defect is unresolved.",
+        ),
+    ] = None
     resolved_by: typing_extensions.Annotated[
-        typing.Optional[DvirResolvedByObjectResponseBody], FieldMetadata(alias="resolvedBy")
-    ] = pydantic.Field(alias="resolvedBy", default=None)
+        typing.Optional[DvirResolvedByObjectResponseBody],
+        FieldMetadata(alias="resolvedBy"),
+        pydantic.Field(alias="resolvedBy"),
+    ] = None
     trailer: typing.Optional[DefectTrailerResponseResponseBody] = None
-    updated_at_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="updatedAtTime")] = (
-        pydantic.Field(alias="updatedAtTime", default=None)
-    )
-    """
-    Time when defect was last updated in RFC 3339 format.
-    """
-
+    updated_at_time: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="updatedAtTime"),
+        pydantic.Field(alias="updatedAtTime", description="Time when defect was last updated in RFC 3339 format."),
+    ] = None
     vehicle: typing.Optional[DefectVehicleResponseResponseBody] = None
 
     if IS_PYDANTIC_V2:

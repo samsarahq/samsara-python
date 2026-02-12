@@ -9,33 +9,26 @@ from ..core.serialization import FieldMetadata
 
 
 class V1VisionStepResultsItemContour(UniversalBaseModel):
-    angle_degrees: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="angleDegrees")] = (
-        pydantic.Field(alias="angleDegrees", default=None)
-    )
-    """
-    The rotation angle found
-    """
-
-    angle_tolerance: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="angleTolerance")] = (
-        pydantic.Field(alias="angleTolerance", default=None)
-    )
-    """
-    The rotation angle allowance
-    """
-
-    match_percentage: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="matchPercentage")] = (
-        pydantic.Field(alias="matchPercentage", default=None)
-    )
-    """
-    The contour match percentage with the configured contour
-    """
-
-    match_threshold: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="matchThreshold")] = (
-        pydantic.Field(alias="matchThreshold", default=None)
-    )
-    """
-    The configured match threshold for contours
-    """
+    angle_degrees: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="angleDegrees"),
+        pydantic.Field(alias="angleDegrees", description="The rotation angle found"),
+    ] = None
+    angle_tolerance: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="angleTolerance"),
+        pydantic.Field(alias="angleTolerance", description="The rotation angle allowance"),
+    ] = None
+    match_percentage: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="matchPercentage"),
+        pydantic.Field(alias="matchPercentage", description="The contour match percentage with the configured contour"),
+    ] = None
+    match_threshold: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="matchThreshold"),
+        pydantic.Field(alias="matchThreshold", description="The configured match threshold for contours"),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

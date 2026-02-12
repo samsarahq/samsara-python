@@ -21,31 +21,45 @@ from .v_1_vision_step_results_item_presence_absence_value_range import V1VisionS
 
 class V1VisionStepResultsItemPresenceAbsence(UniversalBaseModel):
     blue_range: typing_extensions.Annotated[
-        typing.Optional[V1VisionStepResultsItemPresenceAbsenceBlueRange], FieldMetadata(alias="blueRange")
-    ] = pydantic.Field(alias="blueRange", default=None)
-    check_for_absence: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="checkForAbsence")] = (
-        pydantic.Field(alias="checkForAbsence", default=None)
-    )
+        typing.Optional[V1VisionStepResultsItemPresenceAbsenceBlueRange],
+        FieldMetadata(alias="blueRange"),
+        pydantic.Field(alias="blueRange"),
+    ] = None
+    check_for_absence: typing_extensions.Annotated[
+        typing.Optional[bool], FieldMetadata(alias="checkForAbsence"), pydantic.Field(alias="checkForAbsence")
+    ] = None
     grayscale_range: typing_extensions.Annotated[
-        typing.Optional[V1VisionStepResultsItemPresenceAbsenceGrayscaleRange], FieldMetadata(alias="grayscaleRange")
-    ] = pydantic.Field(alias="grayscaleRange", default=None)
+        typing.Optional[V1VisionStepResultsItemPresenceAbsenceGrayscaleRange],
+        FieldMetadata(alias="grayscaleRange"),
+        pydantic.Field(alias="grayscaleRange"),
+    ] = None
     green_range: typing_extensions.Annotated[
-        typing.Optional[V1VisionStepResultsItemPresenceAbsenceGreenRange], FieldMetadata(alias="greenRange")
-    ] = pydantic.Field(alias="greenRange", default=None)
+        typing.Optional[V1VisionStepResultsItemPresenceAbsenceGreenRange],
+        FieldMetadata(alias="greenRange"),
+        pydantic.Field(alias="greenRange"),
+    ] = None
     hue_range: typing_extensions.Annotated[
-        typing.Optional[V1VisionStepResultsItemPresenceAbsenceHueRange], FieldMetadata(alias="hueRange")
-    ] = pydantic.Field(alias="hueRange", default=None)
+        typing.Optional[V1VisionStepResultsItemPresenceAbsenceHueRange],
+        FieldMetadata(alias="hueRange"),
+        pydantic.Field(alias="hueRange"),
+    ] = None
     red_range: typing_extensions.Annotated[
-        typing.Optional[V1VisionStepResultsItemPresenceAbsenceRedRange], FieldMetadata(alias="redRange")
-    ] = pydantic.Field(alias="redRange", default=None)
+        typing.Optional[V1VisionStepResultsItemPresenceAbsenceRedRange],
+        FieldMetadata(alias="redRange"),
+        pydantic.Field(alias="redRange"),
+    ] = None
     saturation_range: typing_extensions.Annotated[
-        typing.Optional[V1VisionStepResultsItemPresenceAbsenceSaturationRange], FieldMetadata(alias="saturationRange")
-    ] = pydantic.Field(alias="saturationRange", default=None)
+        typing.Optional[V1VisionStepResultsItemPresenceAbsenceSaturationRange],
+        FieldMetadata(alias="saturationRange"),
+        pydantic.Field(alias="saturationRange"),
+    ] = None
     score: typing.Optional[int] = None
     threshold: typing.Optional[int] = None
     value_range: typing_extensions.Annotated[
-        typing.Optional[V1VisionStepResultsItemPresenceAbsenceValueRange], FieldMetadata(alias="valueRange")
-    ] = pydantic.Field(alias="valueRange", default=None)
+        typing.Optional[V1VisionStepResultsItemPresenceAbsenceValueRange],
+        FieldMetadata(alias="valueRange"),
+        pydantic.Field(alias="valueRange"),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -13,13 +13,14 @@ class UpdateDriverRequestAttributes(UniversalBaseModel):
     A minified attribute.
     """
 
-    date_values: typing_extensions.Annotated[typing.Optional[typing.List[str]], FieldMetadata(alias="dateValues")] = (
-        pydantic.Field(alias="dateValues", default=None)
-    )
-    """
-    Date values that are associated with this attribute (RFC 3339 date format: YYYY-MM-DD).
-    """
-
+    date_values: typing_extensions.Annotated[
+        typing.Optional[typing.List[str]],
+        FieldMetadata(alias="dateValues"),
+        pydantic.Field(
+            alias="dateValues",
+            description="Date values that are associated with this attribute (RFC 3339 date format: YYYY-MM-DD).",
+        ),
+    ] = None
     id: typing.Optional[str] = pydantic.Field(default=None)
     """
     The samsara id of the attribute object.
@@ -31,18 +32,15 @@ class UpdateDriverRequestAttributes(UniversalBaseModel):
     """
 
     number_values: typing_extensions.Annotated[
-        typing.Optional[typing.List[float]], FieldMetadata(alias="numberValues")
-    ] = pydantic.Field(alias="numberValues", default=None)
-    """
-    Number values that are associated with this attribute.
-    """
-
+        typing.Optional[typing.List[float]],
+        FieldMetadata(alias="numberValues"),
+        pydantic.Field(alias="numberValues", description="Number values that are associated with this attribute."),
+    ] = None
     string_values: typing_extensions.Annotated[
-        typing.Optional[typing.List[str]], FieldMetadata(alias="stringValues")
-    ] = pydantic.Field(alias="stringValues", default=None)
-    """
-    String values that are associated with this attribute.
-    """
+        typing.Optional[typing.List[str]],
+        FieldMetadata(alias="stringValues"),
+        pydantic.Field(alias="stringValues", description="String values that are associated with this attribute."),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -9,12 +9,12 @@ from ..core.serialization import FieldMetadata
 
 
 class V1VisionStepResultsItemTextMatch(UniversalBaseModel):
-    found_text: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="foundText")] = pydantic.Field(
-        alias="foundText", default=None
-    )
-    match_string: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="matchString")] = (
-        pydantic.Field(alias="matchString", default=None)
-    )
+    found_text: typing_extensions.Annotated[
+        typing.Optional[str], FieldMetadata(alias="foundText"), pydantic.Field(alias="foundText")
+    ] = None
+    match_string: typing_extensions.Annotated[
+        typing.Optional[str], FieldMetadata(alias="matchString"), pydantic.Field(alias="matchString")
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

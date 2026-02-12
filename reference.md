@@ -591,7 +591,6 @@ Driver HOS Violation
 Vehicle Engine Idle
 Asset Engine On
 Asset Engine Off
-Harsh Event
 Scheduled Maintenance
 Scheduled Maintenance by Odometer
 Scheduled Maintenance by Engine Hours
@@ -7540,7 +7539,7 @@ client.attributes.get_attribute(
 </dl>
 </details>
 
-<details><summary><code>client.attributes.<a href="src/samsara/attributes/client.py">delete_attribute</a>(...) -&gt; AsyncHttpResponse[StandardDeleteResponse]</code></summary>
+<details><summary><code>client.attributes.<a href="src/samsara/attributes/client.py">delete</a>(...) -&gt; AsyncHttpResponse[StandardDeleteResponse]</code></summary>
 <dl>
 <dd>
 
@@ -7576,7 +7575,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.attributes.delete_attribute(
+client.attributes.delete(
     id="id",
     entity_type="driver",
 )
@@ -7603,7 +7602,7 @@ client.attributes.delete_attribute(
 <dl>
 <dd>
 
-**entity_type:** `DeleteAttributeRequestEntityType` — Denotes the type of entity, driver or asset.
+**entity_type:** `DeleteAttributesRequestEntityType` — Denotes the type of entity, driver or asset.
     
 </dd>
 </dl>
@@ -8660,7 +8659,7 @@ client.contacts.get_contact(
 </dl>
 </details>
 
-<details><summary><code>client.contacts.<a href="src/samsara/contacts/client.py">delete_contact</a>(...) -&gt; AsyncHttpResponse[StandardDeleteResponse]</code></summary>
+<details><summary><code>client.contacts.<a href="src/samsara/contacts/client.py">delete</a>(...) -&gt; AsyncHttpResponse[StandardDeleteResponse]</code></summary>
 <dl>
 <dd>
 
@@ -8696,7 +8695,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.contacts.delete_contact(
+client.contacts.delete(
     id="id",
 )
 
@@ -11137,80 +11136,6 @@ client.carrier_proposed_assignments.create_carrier_proposed_assignment(
 <dd>
 
 **trailer_names:** `typing.Optional[typing.Sequence[str]]` — Names of trailers to propose. (forbidden if trailerIds is set)
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.carrier_proposed_assignments.<a href="src/samsara/carrier_proposed_assignments/client.py">delete_carrier_proposed_assignment</a>(...) -&gt; AsyncHttpResponse[StandardDeleteResponse]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Permanently delete an assignment. You can only delete assignments that are not yet active. To override a currently active assignment, create a new empty one, instead. 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-To use this endpoint, select **Write Carrier-Proposed Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.carrier_proposed_assignments.delete_carrier_proposed_assignment(
-    id="id",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**id:** `str` — ID of the assignment.
     
 </dd>
 </dl>
@@ -22516,80 +22441,6 @@ client.industrial.create_industrial_asset(
 </dl>
 </details>
 
-<details><summary><code>client.industrial.<a href="src/samsara/industrial/client.py">delete_industrial_asset</a>(...) -&gt; AsyncHttpResponse[StandardDeleteResponse]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Delete asset. 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-To use this endpoint, select **Write Equipment** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.industrial.delete_industrial_asset(
-    id="id",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**id:** `str` — Id of the asset to be deleted.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
 <details><summary><code>client.industrial.<a href="src/samsara/industrial/client.py">patch_industrial_asset</a>(...) -&gt; AsyncHttpResponse[InlineResponse200]</code></summary>
 <dl>
 <dd>
@@ -27050,7 +26901,7 @@ client.tags.replace_tag(
 </dl>
 </details>
 
-<details><summary><code>client.tags.<a href="src/samsara/tags/client.py">delete_tag</a>(...) -&gt; AsyncHttpResponse[StandardDeleteResponse]</code></summary>
+<details><summary><code>client.tags.<a href="src/samsara/tags/client.py">delete</a>(...) -&gt; AsyncHttpResponse[StandardDeleteResponse]</code></summary>
 <dl>
 <dd>
 
@@ -27086,7 +26937,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.tags.delete_tag(
+client.tags.delete(
     id="id",
 )
 
@@ -28336,7 +28187,7 @@ client.users.get_user(
 </dl>
 </details>
 
-<details><summary><code>client.users.<a href="src/samsara/users/client.py">delete_user</a>(...) -&gt; AsyncHttpResponse[StandardDeleteResponse]</code></summary>
+<details><summary><code>client.users.<a href="src/samsara/users/client.py">delete</a>(...) -&gt; AsyncHttpResponse[StandardDeleteResponse]</code></summary>
 <dl>
 <dd>
 
@@ -28372,7 +28223,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.users.delete_user(
+client.users.delete(
     id="id",
 )
 
@@ -29962,6 +29813,81 @@ client.webhooks.patch_webhook(
 </dl>
 </details>
 
+## Fleet CarrierProposedAssignments
+<details><summary><code>client.fleet.carrier_proposed_assignments.<a href="src/samsara/fleet/carrier_proposed_assignments/client.py">delete</a>(...) -&gt; AsyncHttpResponse[StandardDeleteResponse]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Permanently delete an assignment. You can only delete assignments that are not yet active. To override a currently active assignment, create a new empty one, instead. 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+To use this endpoint, select **Write Carrier-Proposed Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.fleet.carrier_proposed_assignments.delete(
+    id="id",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` — ID of the assignment.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 ## Fleet Attributes
 <details><summary><code>client.fleet.attributes.<a href="src/samsara/fleet/attributes/client.py">update</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
 <dl>
@@ -30000,6 +29926,81 @@ client.fleet.attributes.update(
 <dd>
 
 **id:** `str` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## Industrial Assets
+<details><summary><code>client.industrial.assets.<a href="src/samsara/industrial/assets/client.py">delete</a>(...) -&gt; AsyncHttpResponse[StandardDeleteResponse]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Delete asset. 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+To use this endpoint, select **Write Equipment** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.industrial.assets.delete(
+    id="id",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` — Id of the asset to be deleted.
     
 </dd>
 </dl>

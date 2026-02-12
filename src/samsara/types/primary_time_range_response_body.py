@@ -14,17 +14,16 @@ class PrimaryTimeRangeResponseBody(UniversalBaseModel):
     Primary time range of the report that not all datasets and report configs support.
     """
 
-    end_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="endTime")] = pydantic.Field(alias="endTime")
-    """
-    End time of the time range filter in RFC3339 format.
-    """
-
-    start_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="startTime")] = pydantic.Field(
-        alias="startTime"
-    )
-    """
-    Start time of the time range filter in RFC3339 format.
-    """
+    end_time: typing_extensions.Annotated[
+        dt.datetime,
+        FieldMetadata(alias="endTime"),
+        pydantic.Field(alias="endTime", description="End time of the time range filter in RFC3339 format."),
+    ]
+    start_time: typing_extensions.Annotated[
+        dt.datetime,
+        FieldMetadata(alias="startTime"),
+        pydantic.Field(alias="startTime", description="Start time of the time range filter in RFC3339 format."),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

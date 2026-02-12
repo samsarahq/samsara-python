@@ -9,20 +9,18 @@ from ..core.serialization import FieldMetadata
 
 
 class V1CargoResponseSensors(UniversalBaseModel):
-    cargo_empty: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="cargoEmpty")] = pydantic.Field(
-        alias="cargoEmpty", default=None
-    )
-    """
-    Flag indicating whether the current cargo is empty or loaded.
-    """
-
-    cargo_status_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="cargoStatusTime")] = (
-        pydantic.Field(alias="cargoStatusTime", default=None)
-    )
-    """
-    The timestamp of reported cargo status, specified in RFC 3339 time.
-    """
-
+    cargo_empty: typing_extensions.Annotated[
+        typing.Optional[bool],
+        FieldMetadata(alias="cargoEmpty"),
+        pydantic.Field(alias="cargoEmpty", description="Flag indicating whether the current cargo is empty or loaded."),
+    ] = None
+    cargo_status_time: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="cargoStatusTime"),
+        pydantic.Field(
+            alias="cargoStatusTime", description="The timestamp of reported cargo status, specified in RFC 3339 time."
+        ),
+    ] = None
     id: typing.Optional[int] = pydantic.Field(default=None)
     """
     ID of the sensor.
@@ -33,26 +31,29 @@ class V1CargoResponseSensors(UniversalBaseModel):
     Name of the sensor.
     """
 
-    red_eye_distance: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="redEyeDistance")] = (
-        pydantic.Field(alias="redEyeDistance", default=None)
-    )
-    """
-    The distance between red eye detector and the closest object in cm.
-    """
-
-    trailer_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="trailerId")] = pydantic.Field(
-        alias="trailerId", default=None
-    )
-    """
-    ID of the trailer associated with the sensor for the data point. If no trailer is connected, this parameter will not be reported.
-    """
-
-    vehicle_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="vehicleId")] = pydantic.Field(
-        alias="vehicleId", default=None
-    )
-    """
-    ID of the vehicle associated with the sensor for the data point. If no vehicle is connected, this parameter will not be reported.
-    """
+    red_eye_distance: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="redEyeDistance"),
+        pydantic.Field(
+            alias="redEyeDistance", description="The distance between red eye detector and the closest object in cm."
+        ),
+    ] = None
+    trailer_id: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="trailerId"),
+        pydantic.Field(
+            alias="trailerId",
+            description="ID of the trailer associated with the sensor for the data point. If no trailer is connected, this parameter will not be reported.",
+        ),
+    ] = None
+    vehicle_id: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="vehicleId"),
+        pydantic.Field(
+            alias="vehicleId",
+            description="ID of the vehicle associated with the sensor for the data point. If no vehicle is connected, this parameter will not be reported.",
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

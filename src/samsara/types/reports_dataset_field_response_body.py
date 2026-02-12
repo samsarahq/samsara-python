@@ -15,20 +15,19 @@ class ReportsDatasetFieldResponseBody(UniversalBaseModel):
     Information about a dataset field.
     """
 
-    data_type: typing_extensions.Annotated[ReportsDatasetFieldResponseBodyDataType, FieldMetadata(alias="dataType")] = (
-        pydantic.Field(alias="dataType")
-    )
-    """
-    Data type of the field.  Valid values: `string`, `integer`, `float`, `timestamp`, `unknown`
-    """
-
-    display_name: typing_extensions.Annotated[str, FieldMetadata(alias="displayName")] = pydantic.Field(
-        alias="displayName"
-    )
-    """
-    Display name of the field.
-    """
-
+    data_type: typing_extensions.Annotated[
+        ReportsDatasetFieldResponseBodyDataType,
+        FieldMetadata(alias="dataType"),
+        pydantic.Field(
+            alias="dataType",
+            description="Data type of the field.  Valid values: `string`, `integer`, `float`, `timestamp`, `unknown`",
+        ),
+    ]
+    display_name: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="displayName"),
+        pydantic.Field(alias="displayName", description="Display name of the field."),
+    ]
     name: str = pydantic.Field()
     """
     Name of the field.

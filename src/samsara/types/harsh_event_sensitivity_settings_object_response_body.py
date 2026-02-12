@@ -25,15 +25,18 @@ class HarshEventSensitivitySettingsObjectResponseBody(UniversalBaseModel):
     harsh_accel_sensitivity_g_force: typing_extensions.Annotated[
         typing.Optional[HarshAccelSensitivityGForceSettingsObjectResponseBody],
         FieldMetadata(alias="harshAccelSensitivityGForce"),
-    ] = pydantic.Field(alias="harshAccelSensitivityGForce", default=None)
+        pydantic.Field(alias="harshAccelSensitivityGForce"),
+    ] = None
     harsh_brake_sensitivity_g_force: typing_extensions.Annotated[
         typing.Optional[HarshBrakeSensitivityGForceSettingsObjectResponseBody],
         FieldMetadata(alias="harshBrakeSensitivityGForce"),
-    ] = pydantic.Field(alias="harshBrakeSensitivityGForce", default=None)
+        pydantic.Field(alias="harshBrakeSensitivityGForce"),
+    ] = None
     harsh_turn_sensitivity_g_force: typing_extensions.Annotated[
         typing.Optional[HarshTurnSensitivityGForceSettingsObjectResponseBody],
         FieldMetadata(alias="harshTurnSensitivityGForce"),
-    ] = pydantic.Field(alias="harshTurnSensitivityGForce", default=None)
+        pydantic.Field(alias="harshTurnSensitivityGForce"),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

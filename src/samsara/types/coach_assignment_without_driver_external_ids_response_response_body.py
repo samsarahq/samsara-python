@@ -14,31 +14,31 @@ class CoachAssignmentWithoutDriverExternalIdsResponseResponseBody(UniversalBaseM
     Driver coach assignment object.
     """
 
-    coach_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="coachId")] = pydantic.Field(
-        alias="coachId", default=None
-    )
-    """
-    Coach ID associated with coach assignment. Optional. Will be empty if no driver coach is assigned
-    """
-
-    created_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAtTime")] = pydantic.Field(
-        alias="createdAtTime"
-    )
-    """
-    Time coach assignment was created in UTC. Always returned.
-    """
-
-    driver_id: typing_extensions.Annotated[str, FieldMetadata(alias="driverId")] = pydantic.Field(alias="driverId")
-    """
-    Unique user ID for the driver of the driver coach assignment
-    """
-
-    updated_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAtTime")] = pydantic.Field(
-        alias="updatedAtTime"
-    )
-    """
-    Time coaching assignment was updated in UTC. Always returned.
-    """
+    coach_id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="coachId"),
+        pydantic.Field(
+            alias="coachId",
+            description="Coach ID associated with coach assignment. Optional. Will be empty if no driver coach is assigned",
+        ),
+    ] = None
+    created_at_time: typing_extensions.Annotated[
+        dt.datetime,
+        FieldMetadata(alias="createdAtTime"),
+        pydantic.Field(alias="createdAtTime", description="Time coach assignment was created in UTC. Always returned."),
+    ]
+    driver_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="driverId"),
+        pydantic.Field(alias="driverId", description="Unique user ID for the driver of the driver coach assignment"),
+    ]
+    updated_at_time: typing_extensions.Annotated[
+        dt.datetime,
+        FieldMetadata(alias="updatedAtTime"),
+        pydantic.Field(
+            alias="updatedAtTime", description="Time coaching assignment was updated in UTC. Always returned."
+        ),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

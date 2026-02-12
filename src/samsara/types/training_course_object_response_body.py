@@ -18,12 +18,11 @@ class TrainingCourseObjectResponseBody(UniversalBaseModel):
     ID of the course.
     """
 
-    revision_id: typing_extensions.Annotated[str, FieldMetadata(alias="revisionId")] = pydantic.Field(
-        alias="revisionId"
-    )
-    """
-    ID of the course's specific version.
-    """
+    revision_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="revisionId"),
+        pydantic.Field(alias="revisionId", description="ID of the course's specific version."),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

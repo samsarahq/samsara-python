@@ -19,69 +19,76 @@ class WorkflowDvirObjectResponseBody(UniversalBaseModel):
     """
 
     author_signature: typing_extensions.Annotated[
-        WorkflowAuthorSignatureObjectResponseBody, FieldMetadata(alias="authorSignature")
-    ] = pydantic.Field(alias="authorSignature")
+        WorkflowAuthorSignatureObjectResponseBody,
+        FieldMetadata(alias="authorSignature"),
+        pydantic.Field(alias="authorSignature"),
+    ]
     defects: typing.Optional[typing.List[DvirDefectsObjectV20220913ResponseBody]] = pydantic.Field(default=None)
     """
     Defects registered for the DVIR.
     """
 
-    end_time: typing_extensions.Annotated[str, FieldMetadata(alias="endTime")] = pydantic.Field(alias="endTime")
-    """
-    Time when the driver signed and completed this DVIR. UTC timestamp in RFC 3339 format.
-    """
-
-    formatted_location: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="formattedLocation")] = (
-        pydantic.Field(alias="formattedLocation", default=None)
-    )
-    """
-    Optional string if your jurisdiction requires a location of the DVIR.
-    """
-
+    end_time: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="endTime"),
+        pydantic.Field(
+            alias="endTime",
+            description="Time when the driver signed and completed this DVIR. UTC timestamp in RFC 3339 format.",
+        ),
+    ]
+    formatted_location: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="formattedLocation"),
+        pydantic.Field(
+            alias="formattedLocation",
+            description="Optional string if your jurisdiction requires a location of the DVIR.",
+        ),
+    ] = None
     id: str = pydantic.Field()
     """
     The unique id of the DVIR
     """
 
-    mechanic_notes: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="mechanicNotes")] = (
-        pydantic.Field(alias="mechanicNotes", default=None)
-    )
-    """
-    The mechanics notes on the DVIR.
-    """
-
-    needs_correction: typing_extensions.Annotated[bool, FieldMetadata(alias="needsCorrection")] = pydantic.Field(
-        alias="needsCorrection"
-    )
-    """
-    Indicates if a defect needs correction.
-    """
-
-    odometer_meters: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="odometerMeters")] = (
-        pydantic.Field(alias="odometerMeters", default=None)
-    )
-    """
-    The odometer reading in meters.
-    """
-
+    mechanic_notes: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="mechanicNotes"),
+        pydantic.Field(alias="mechanicNotes", description="The mechanics notes on the DVIR."),
+    ] = None
+    needs_correction: typing_extensions.Annotated[
+        bool,
+        FieldMetadata(alias="needsCorrection"),
+        pydantic.Field(alias="needsCorrection", description="Indicates if a defect needs correction."),
+    ]
+    odometer_meters: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="odometerMeters"),
+        pydantic.Field(alias="odometerMeters", description="The odometer reading in meters."),
+    ] = None
     safety_status: typing_extensions.Annotated[
-        WorkflowDvirObjectResponseBodySafetyStatus, FieldMetadata(alias="safetyStatus")
-    ] = pydantic.Field(alias="safetyStatus")
-    """
-    The condition of vehicle on which DVIR was done.  Valid values: `safe`, `unsafe`, `resolved`
-    """
-
+        WorkflowDvirObjectResponseBodySafetyStatus,
+        FieldMetadata(alias="safetyStatus"),
+        pydantic.Field(
+            alias="safetyStatus",
+            description="The condition of vehicle on which DVIR was done.  Valid values: `safe`, `unsafe`, `resolved`",
+        ),
+    ]
     second_signature: typing_extensions.Annotated[
-        typing.Optional[WorkflowAuthorSignatureObjectResponseBody], FieldMetadata(alias="secondSignature")
-    ] = pydantic.Field(alias="secondSignature", default=None)
-    start_time: typing_extensions.Annotated[str, FieldMetadata(alias="startTime")] = pydantic.Field(alias="startTime")
-    """
-    Time when driver began filling out this DVIR in RFC 3339 format.
-    """
-
+        typing.Optional[WorkflowAuthorSignatureObjectResponseBody],
+        FieldMetadata(alias="secondSignature"),
+        pydantic.Field(alias="secondSignature"),
+    ] = None
+    start_time: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="startTime"),
+        pydantic.Field(
+            alias="startTime", description="Time when driver began filling out this DVIR in RFC 3339 format."
+        ),
+    ]
     third_signature: typing_extensions.Annotated[
-        typing.Optional[WorkflowAuthorSignatureObjectResponseBody], FieldMetadata(alias="thirdSignature")
-    ] = pydantic.Field(alias="thirdSignature", default=None)
+        typing.Optional[WorkflowAuthorSignatureObjectResponseBody],
+        FieldMetadata(alias="thirdSignature"),
+        pydantic.Field(alias="thirdSignature"),
+    ] = None
     trailer: typing.Optional[GoaTrailerTinyResponseResponseBody] = None
     type: WorkflowDvirObjectResponseBodyType = pydantic.Field()
     """

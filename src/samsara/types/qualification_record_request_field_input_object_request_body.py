@@ -33,35 +33,50 @@ class QualificationRecordRequestFieldInputObjectRequestBody(UniversalBaseModel):
     """
 
     check_boxes_value: typing_extensions.Annotated[
-        typing.Optional[FormSubmissionRequestCheckBoxesValueObjectRequestBody], FieldMetadata(alias="checkBoxesValue")
-    ] = pydantic.Field(alias="checkBoxesValue", default=None)
+        typing.Optional[FormSubmissionRequestCheckBoxesValueObjectRequestBody],
+        FieldMetadata(alias="checkBoxesValue"),
+        pydantic.Field(alias="checkBoxesValue"),
+    ] = None
     date_time_value: typing_extensions.Annotated[
-        typing.Optional[FormSubmissionRequestDateTimeValueObjectRequestBody], FieldMetadata(alias="dateTimeValue")
-    ] = pydantic.Field(alias="dateTimeValue", default=None)
+        typing.Optional[FormSubmissionRequestDateTimeValueObjectRequestBody],
+        FieldMetadata(alias="dateTimeValue"),
+        pydantic.Field(alias="dateTimeValue"),
+    ] = None
     id: str = pydantic.Field()
     """
     ID of the qualification input field object.
     """
 
     media_value: typing_extensions.Annotated[
-        typing.Optional[FormSubmissionRequestMediaValueObjectRequestBody], FieldMetadata(alias="mediaValue")
-    ] = pydantic.Field(alias="mediaValue", default=None)
+        typing.Optional[FormSubmissionRequestMediaValueObjectRequestBody],
+        FieldMetadata(alias="mediaValue"),
+        pydantic.Field(alias="mediaValue"),
+    ] = None
     multiple_choice_value: typing_extensions.Annotated[
         typing.Optional[FormSubmissionRequestMultipleChoiceValueObjectRequestBody],
         FieldMetadata(alias="multipleChoiceValue"),
-    ] = pydantic.Field(alias="multipleChoiceValue", default=None)
+        pydantic.Field(alias="multipleChoiceValue"),
+    ] = None
     number_value: typing_extensions.Annotated[
-        typing.Optional[FormSubmissionRequestNumberValueObjectRequestBody], FieldMetadata(alias="numberValue")
-    ] = pydantic.Field(alias="numberValue", default=None)
+        typing.Optional[FormSubmissionRequestNumberValueObjectRequestBody],
+        FieldMetadata(alias="numberValue"),
+        pydantic.Field(alias="numberValue"),
+    ] = None
     signature_value: typing_extensions.Annotated[
-        typing.Optional[FormSubmissionRequestSignatureValueObjectRequestBody], FieldMetadata(alias="signatureValue")
-    ] = pydantic.Field(alias="signatureValue", default=None)
+        typing.Optional[FormSubmissionRequestSignatureValueObjectRequestBody],
+        FieldMetadata(alias="signatureValue"),
+        pydantic.Field(alias="signatureValue"),
+    ] = None
     table_value: typing_extensions.Annotated[
-        typing.Optional[FormSubmissionRequestTableValueObjectRequestBody], FieldMetadata(alias="tableValue")
-    ] = pydantic.Field(alias="tableValue", default=None)
+        typing.Optional[FormSubmissionRequestTableValueObjectRequestBody],
+        FieldMetadata(alias="tableValue"),
+        pydantic.Field(alias="tableValue"),
+    ] = None
     text_value: typing_extensions.Annotated[
-        typing.Optional[FormSubmissionRequestTextValueObjectRequestBody], FieldMetadata(alias="textValue")
-    ] = pydantic.Field(alias="textValue", default=None)
+        typing.Optional[FormSubmissionRequestTextValueObjectRequestBody],
+        FieldMetadata(alias="textValue"),
+        pydantic.Field(alias="textValue"),
+    ] = None
     type: QualificationRecordRequestFieldInputObjectRequestBodyType = pydantic.Field()
     """
     Type of the qualification field.  Valid values: `number`, `text`, `multiple_choice`, `check_boxes`, `datetime`, `table`, `media`, `signature`

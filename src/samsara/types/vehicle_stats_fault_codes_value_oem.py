@@ -19,10 +19,10 @@ class VehicleStatsFaultCodesValueOem(UniversalBaseModel):
     diagnostic_trouble_codes: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsFaultCodesValueOemDiagnosticTroubleCodes]],
         FieldMetadata(alias="diagnosticTroubleCodes"),
-    ] = pydantic.Field(alias="diagnosticTroubleCodes", default=None)
-    """
-    Proprietary diagnostic trouble codes for OEM vehicles.
-    """
+        pydantic.Field(
+            alias="diagnosticTroubleCodes", description="Proprietary diagnostic trouble codes for OEM vehicles."
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -13,13 +13,11 @@ class FuelRemainingResponseBody(UniversalBaseModel):
     Fuel remaining in equipment.
     """
 
-    percent: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="Percent")] = pydantic.Field(
-        alias="Percent", default=None
-    )
-    """
-    Percent of fuel remaining in tank.
-    """
-
+    percent: typing_extensions.Annotated[
+        typing.Optional[float],
+        FieldMetadata(alias="Percent"),
+        pydantic.Field(alias="Percent", description="Percent of fuel remaining in tank."),
+    ] = None
     datetime: typing.Optional[str] = pydantic.Field(default=None)
     """
     Date time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).

@@ -15,21 +15,24 @@ class HosCycle(UniversalBaseModel):
     """
 
     cycle_remaining_duration_ms: typing_extensions.Annotated[
-        typing.Optional[float], FieldMetadata(alias="cycleRemainingDurationMs")
-    ] = pydantic.Field(alias="cycleRemainingDurationMs", default=None)
-    """
-    Remaining on duty or driving time the driver has in the current cycle in milliseconds. For property-carrying drivers, this is the amount of time the driver can be on duty or driving before hitting the 60/70-hour limit in 7/8 days.
-    """
-
+        typing.Optional[float],
+        FieldMetadata(alias="cycleRemainingDurationMs"),
+        pydantic.Field(
+            alias="cycleRemainingDurationMs",
+            description="Remaining on duty or driving time the driver has in the current cycle in milliseconds. For property-carrying drivers, this is the amount of time the driver can be on duty or driving before hitting the 60/70-hour limit in 7/8 days.",
+        ),
+    ] = None
     cycle_started_at_time: typing_extensions.Annotated[
-        typing.Optional[Time], FieldMetadata(alias="cycleStartedAtTime")
-    ] = pydantic.Field(alias="cycleStartedAtTime", default=None)
+        typing.Optional[Time], FieldMetadata(alias="cycleStartedAtTime"), pydantic.Field(alias="cycleStartedAtTime")
+    ] = None
     cycle_tomorrow_duration_ms: typing_extensions.Annotated[
-        typing.Optional[float], FieldMetadata(alias="cycleTomorrowDurationMs")
-    ] = pydantic.Field(alias="cycleTomorrowDurationMs", default=None)
-    """
-    Remaining on duty or driving time the driver has available tomorrow in milliseconds. For property-carrying drivers this is calculated based on the 60/70-hour limit in 7/8 days rule.
-    """
+        typing.Optional[float],
+        FieldMetadata(alias="cycleTomorrowDurationMs"),
+        pydantic.Field(
+            alias="cycleTomorrowDurationMs",
+            description="Remaining on duty or driving time the driver has available tomorrow in milliseconds. For property-carrying drivers this is calculated based on the 60/70-hour limit in 7/8 days rule.",
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

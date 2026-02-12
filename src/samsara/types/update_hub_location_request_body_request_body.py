@@ -20,26 +20,20 @@ class UpdateHubLocationRequestBodyRequestBody(UniversalBaseModel):
     """
 
     customer_location_id: typing_extensions.Annotated[
-        typing.Optional[str], FieldMetadata(alias="customerLocationId")
-    ] = pydantic.Field(alias="customerLocationId", default=None)
-    """
-    The customer-provided identifier for the location
-    """
-
+        typing.Optional[str],
+        FieldMetadata(alias="customerLocationId"),
+        pydantic.Field(alias="customerLocationId", description="The customer-provided identifier for the location"),
+    ] = None
     driver_instructions: typing_extensions.Annotated[
-        typing.Optional[str], FieldMetadata(alias="driverInstructions")
-    ] = pydantic.Field(alias="driverInstructions", default=None)
-    """
-    Instructions for the driver
-    """
-
-    is_depot: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="isDepot")] = pydantic.Field(
-        alias="isDepot", default=None
-    )
-    """
-    Indicates if the location is a depot
-    """
-
+        typing.Optional[str],
+        FieldMetadata(alias="driverInstructions"),
+        pydantic.Field(alias="driverInstructions", description="Instructions for the driver"),
+    ] = None
+    is_depot: typing_extensions.Annotated[
+        typing.Optional[bool],
+        FieldMetadata(alias="isDepot"),
+        pydantic.Field(alias="isDepot", description="Indicates if the location is a depot"),
+    ] = None
     latitude: typing.Optional[float] = pydantic.Field(default=None)
     """
     Latitude coordinate of the location
@@ -55,33 +49,31 @@ class UpdateHubLocationRequestBodyRequestBody(UniversalBaseModel):
     The name of the location
     """
 
-    planner_notes: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="plannerNotes")] = (
-        pydantic.Field(alias="plannerNotes", default=None)
-    )
-    """
-    Notes for the planner
-    """
-
+    planner_notes: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="plannerNotes"),
+        pydantic.Field(alias="plannerNotes", description="Notes for the planner"),
+    ] = None
     service_time_seconds: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="serviceTimeSeconds")
-    ] = pydantic.Field(alias="serviceTimeSeconds", default=None)
-    """
-    Estimated service time at this location in seconds
-    """
-
+        typing.Optional[int],
+        FieldMetadata(alias="serviceTimeSeconds"),
+        pydantic.Field(alias="serviceTimeSeconds", description="Estimated service time at this location in seconds"),
+    ] = None
     service_windows: typing_extensions.Annotated[
-        typing.Optional[typing.List[HubLocationServiceWindowInputRequestBody]], FieldMetadata(alias="serviceWindows")
-    ] = pydantic.Field(alias="serviceWindows", default=None)
-    """
-    An array of time windows during which service can be performed at this location
-    """
-
+        typing.Optional[typing.List[HubLocationServiceWindowInputRequestBody]],
+        FieldMetadata(alias="serviceWindows"),
+        pydantic.Field(
+            alias="serviceWindows",
+            description="An array of time windows during which service can be performed at this location",
+        ),
+    ] = None
     skills_required: typing_extensions.Annotated[
-        typing.Optional[typing.List[str]], FieldMetadata(alias="skillsRequired")
-    ] = pydantic.Field(alias="skillsRequired", default=None)
-    """
-    An array of skill IDs required for service at this location
-    """
+        typing.Optional[typing.List[str]],
+        FieldMetadata(alias="skillsRequired"),
+        pydantic.Field(
+            alias="skillsRequired", description="An array of skill IDs required for service at this location"
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

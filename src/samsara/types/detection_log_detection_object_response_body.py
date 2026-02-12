@@ -20,46 +20,50 @@ class DetectionLogDetectionObjectResponseBody(UniversalBaseModel):
     """
 
     asset: DetectionLogAssetObjectResponseBody
-    created_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="createdAtTime")] = pydantic.Field(
-        alias="createdAtTime"
-    )
-    """
-    Time the detection was detected or in-cab alert played in UTC. RFC 3339 format. Always returned.
-    """
-
+    created_at_time: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="createdAtTime"),
+        pydantic.Field(
+            alias="createdAtTime",
+            description="Time the detection was detected or in-cab alert played in UTC. RFC 3339 format. Always returned.",
+        ),
+    ]
     driver: typing.Optional[DetectionLogDriverObjectResponseBody] = None
     id: str = pydantic.Field()
     """
     Unique Samsara ID (uuid) of the detection.
     """
 
-    in_cab_alert_played: typing_extensions.Annotated[bool, FieldMetadata(alias="inCabAlertPlayed")] = pydantic.Field(
-        alias="inCabAlertPlayed"
-    )
-    """
-    Whether an in cab alert played aloud in the cab. Always returned.
-    """
-
+    in_cab_alert_played: typing_extensions.Annotated[
+        bool,
+        FieldMetadata(alias="inCabAlertPlayed"),
+        pydantic.Field(
+            alias="inCabAlertPlayed", description="Whether an in cab alert played aloud in the cab. Always returned."
+        ),
+    ]
     safety_event: typing_extensions.Annotated[
-        typing.List[DetectionLogSafetyEventObjectResponseBody], FieldMetadata(alias="safetyEvent")
-    ] = pydantic.Field(alias="safetyEvent")
-    """
-    Details on the associated safety event generated. Always returned.
-    """
-
+        typing.List[DetectionLogSafetyEventObjectResponseBody],
+        FieldMetadata(alias="safetyEvent"),
+        pydantic.Field(
+            alias="safetyEvent", description="Details on the associated safety event generated. Always returned."
+        ),
+    ]
     trigger_detection_label: typing_extensions.Annotated[
-        DetectionLogDetectionObjectResponseBodyTriggerDetectionLabel, FieldMetadata(alias="triggerDetectionLabel")
-    ] = pydantic.Field(alias="triggerDetectionLabel")
-    """
-    The label associated with the detection. Always returned.  Valid values: `acceleration`, `braking`, `crash`, `drowsy`, `eatingDrinking`, `edgeRailroadCrossingViolation`, `followingDistance`, `forwardCollisionWarning`, `genericDistraction`, `harshTurn`, `heavySpeeding`, `laneDeparture`, `lightSpeeding`, `maxSpeed`, `mobileUsage`, `moderateSpeeding`, `noSeatbelt`, `obstructedCamera`, `passenger`, `policyViolationMask`, `ranRedLight`, `rearCollisionWarning`, `rollingStop`, `rolloverProtection`, `severeSpeeding`, `smoking`, `speeding`, `unsafeParking`, `vehicleInBlindSpotWarning`, `vulnerableRoadUserCollisionWarning`, `yawControl`
-    """
-
-    updated_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="updatedAtTime")] = pydantic.Field(
-        alias="updatedAtTime"
-    )
-    """
-    Time the detection was updated in Samsara in UTC. RFC 3339 format. Always returned.
-    """
+        DetectionLogDetectionObjectResponseBodyTriggerDetectionLabel,
+        FieldMetadata(alias="triggerDetectionLabel"),
+        pydantic.Field(
+            alias="triggerDetectionLabel",
+            description="The label associated with the detection. Always returned.  Valid values: `acceleration`, `braking`, `crash`, `drowsy`, `eatingDrinking`, `edgeRailroadCrossingViolation`, `followingDistance`, `forwardCollisionWarning`, `genericDistraction`, `harshTurn`, `heavySpeeding`, `laneDeparture`, `lightSpeeding`, `maxSpeed`, `mobileUsage`, `moderateSpeeding`, `noSeatbelt`, `obstructedCamera`, `passenger`, `policyViolationMask`, `ranRedLight`, `rearCollisionWarning`, `rollingStop`, `rolloverProtection`, `severeSpeeding`, `smoking`, `speeding`, `unsafeParking`, `vehicleInBlindSpotWarning`, `vulnerableRoadUserCollisionWarning`, `yawControl`",
+        ),
+    ]
+    updated_at_time: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="updatedAtTime"),
+        pydantic.Field(
+            alias="updatedAtTime",
+            description="Time the detection was updated in Samsara in UTC. RFC 3339 format. Always returned.",
+        ),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -22,24 +22,18 @@ class WorkOrderObjectResponseBody(UniversalBaseModel):
     """
 
     archived_at_time: typing_extensions.Annotated[
-        typing.Optional[dt.datetime], FieldMetadata(alias="archivedAtTime")
-    ] = pydantic.Field(alias="archivedAtTime", default=None)
-    """
-    The time the work order was archived in RFC 3339 format.
-    """
-
-    asset_id: typing_extensions.Annotated[str, FieldMetadata(alias="assetId")] = pydantic.Field(alias="assetId")
-    """
-    The ID of the asset.
-    """
-
-    assigned_user_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="assignedUserId")] = (
-        pydantic.Field(alias="assignedUserId", default=None)
-    )
-    """
-    The ID of the assigned mechanic.
-    """
-
+        typing.Optional[dt.datetime],
+        FieldMetadata(alias="archivedAtTime"),
+        pydantic.Field(alias="archivedAtTime", description="The time the work order was archived in RFC 3339 format."),
+    ] = None
+    asset_id: typing_extensions.Annotated[
+        str, FieldMetadata(alias="assetId"), pydantic.Field(alias="assetId", description="The ID of the asset.")
+    ]
+    assigned_user_id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="assignedUserId"),
+        pydantic.Field(alias="assignedUserId", description="The ID of the assigned mechanic."),
+    ] = None
     attachments: typing.Optional[typing.List[WorkOrderAttachmentObjectResponseBody]] = pydantic.Field(default=None)
     """
     Files attached to the work order.
@@ -50,116 +44,97 @@ class WorkOrderObjectResponseBody(UniversalBaseModel):
     The category of the work order
     """
 
-    closing_notes: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="closingNotes")] = (
-        pydantic.Field(alias="closingNotes", default=None)
-    )
-    """
-    Notes on the work order.
-    """
-
+    closing_notes: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="closingNotes"),
+        pydantic.Field(alias="closingNotes", description="Notes on the work order."),
+    ] = None
     completed_at_time: typing_extensions.Annotated[
-        typing.Optional[dt.datetime], FieldMetadata(alias="completedAtTime")
-    ] = pydantic.Field(alias="completedAtTime", default=None)
-    """
-    The time the work order was completed in RFC 3339 format.
-    """
-
-    created_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAtTime")] = pydantic.Field(
-        alias="createdAtTime"
-    )
-    """
-    The time the work order was created in RFC 3339 format.
-    """
-
-    created_by_user_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="createdByUserId")] = (
-        pydantic.Field(alias="createdByUserId", default=None)
-    )
-    """
-    The ID of the creator of the work order.
-    """
-
+        typing.Optional[dt.datetime],
+        FieldMetadata(alias="completedAtTime"),
+        pydantic.Field(
+            alias="completedAtTime", description="The time the work order was completed in RFC 3339 format."
+        ),
+    ] = None
+    created_at_time: typing_extensions.Annotated[
+        dt.datetime,
+        FieldMetadata(alias="createdAtTime"),
+        pydantic.Field(alias="createdAtTime", description="The time the work order was created in RFC 3339 format."),
+    ]
+    created_by_user_id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="createdByUserId"),
+        pydantic.Field(alias="createdByUserId", description="The ID of the creator of the work order."),
+    ] = None
     description: typing.Optional[str] = pydantic.Field(default=None)
     """
     A description of what needs to be fixed.
     """
 
     discount: typing.Optional[WorkOrderDiscountObjectResponseBody] = None
-    due_at_time: typing_extensions.Annotated[typing.Optional[dt.datetime], FieldMetadata(alias="dueAtTime")] = (
-        pydantic.Field(alias="dueAtTime", default=None)
-    )
-    """
-    The due date of the work order in RFC 3339 format.
-    """
-
-    engine_hours: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="engineHours")] = (
-        pydantic.Field(alias="engineHours", default=None)
-    )
-    """
-    The engine hours at the time of the work order.
-    """
-
+    due_at_time: typing_extensions.Annotated[
+        typing.Optional[dt.datetime],
+        FieldMetadata(alias="dueAtTime"),
+        pydantic.Field(alias="dueAtTime", description="The due date of the work order in RFC 3339 format."),
+    ] = None
+    engine_hours: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="engineHours"),
+        pydantic.Field(alias="engineHours", description="The engine hours at the time of the work order."),
+    ] = None
     id: str = pydantic.Field()
     """
     The unique id of the work order.
     """
 
-    invoice_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="invoiceNumber")] = (
-        pydantic.Field(alias="invoiceNumber", default=None)
-    )
-    """
-    The invoice number for the work order.
-    """
-
+    invoice_number: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="invoiceNumber"),
+        pydantic.Field(alias="invoiceNumber", description="The invoice number for the work order."),
+    ] = None
     items: typing.Optional[typing.List[WorkOrderItemObjectResponseBody]] = pydantic.Field(default=None)
     """
     Items related to the work order.
     """
 
-    odometer_meters: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="odometerMeters")] = (
-        pydantic.Field(alias="odometerMeters", default=None)
-    )
-    """
-    The odometer reading at the time of the work order.
-    """
-
-    po_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="poNumber")] = pydantic.Field(
-        alias="poNumber", default=None
-    )
-    """
-    The purchase order number for the work order.
-    """
-
+    odometer_meters: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="odometerMeters"),
+        pydantic.Field(alias="odometerMeters", description="The odometer reading at the time of the work order."),
+    ] = None
+    po_number: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="poNumber"),
+        pydantic.Field(alias="poNumber", description="The purchase order number for the work order."),
+    ] = None
     priority: typing.Optional[WorkOrderObjectResponseBodyPriority] = pydantic.Field(default=None)
     """
     The priority of the work order  Valid values: `High`, `Low`, `Medium`, `Urgent`
     """
 
     service_task_instances: typing_extensions.Annotated[
-        typing.Optional[typing.List[ServiceTaskInstanceObjectResponseBody]], FieldMetadata(alias="serviceTaskInstances")
-    ] = pydantic.Field(alias="serviceTaskInstances", default=None)
-    """
-    Service Tasks for the work order.
-    """
-
+        typing.Optional[typing.List[ServiceTaskInstanceObjectResponseBody]],
+        FieldMetadata(alias="serviceTaskInstances"),
+        pydantic.Field(alias="serviceTaskInstances", description="Service Tasks for the work order."),
+    ] = None
     status: WorkOrderObjectResponseBodyStatus = pydantic.Field()
     """
     The status of the work order  Valid values: `Assigned`, `Cancelled`, `Closed`, `Completed`, `In Progress`, `On Hold`, `Open`, `Pending Approval`, `Pending Parts`
     """
 
     tax: typing.Optional[WorkOrderTaxObjectResponseBody] = None
-    updated_at_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAtTime")] = pydantic.Field(
-        alias="updatedAtTime"
-    )
-    """
-    The time the work order was last updated in RFC 3339 format.
-    """
-
-    vendor_uuid: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="vendorUuid")] = pydantic.Field(
-        alias="vendorUuid", default=None
-    )
-    """
-    The vendor UUID for the work order.
-    """
+    updated_at_time: typing_extensions.Annotated[
+        dt.datetime,
+        FieldMetadata(alias="updatedAtTime"),
+        pydantic.Field(
+            alias="updatedAtTime", description="The time the work order was last updated in RFC 3339 format."
+        ),
+    ]
+    vendor_uuid: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="vendorUuid"),
+        pydantic.Field(alias="vendorUuid", description="The vendor UUID for the work order."),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

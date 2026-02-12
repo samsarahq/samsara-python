@@ -14,26 +14,23 @@ from .hos_eld_event_object_response_body import HosEldEventObjectResponseBody
 
 class HosDriversEldEventObjectResponseBody(UniversalBaseModel):
     driver_activation_status: typing_extensions.Annotated[
-        HosDriversEldEventObjectResponseBodyDriverActivationStatus, FieldMetadata(alias="driverActivationStatus")
-    ] = pydantic.Field(alias="driverActivationStatus")
-    """
-    A value indicating whether the driver is active or deactivated.  Valid values: `active`, `deactivated`
-    """
-
+        HosDriversEldEventObjectResponseBodyDriverActivationStatus,
+        FieldMetadata(alias="driverActivationStatus"),
+        pydantic.Field(
+            alias="driverActivationStatus",
+            description="A value indicating whether the driver is active or deactivated.  Valid values: `active`, `deactivated`",
+        ),
+    ]
     eld_events: typing_extensions.Annotated[
-        typing.List[HosEldEventObjectResponseBody], FieldMetadata(alias="eldEvents")
-    ] = pydantic.Field(alias="eldEvents")
-    """
-    List of ELD event objects.
-    """
-
+        typing.List[HosEldEventObjectResponseBody],
+        FieldMetadata(alias="eldEvents"),
+        pydantic.Field(alias="eldEvents", description="List of ELD event objects."),
+    ]
     external_ids: typing_extensions.Annotated[
-        typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(alias="externalIds", default=None)
-    """
-    A map of external ids
-    """
-
+        typing.Optional[typing.Dict[str, str]],
+        FieldMetadata(alias="externalIds"),
+        pydantic.Field(alias="externalIds", description="A map of external ids"),
+    ] = None
     id: str = pydantic.Field()
     """
     ID of the driver.

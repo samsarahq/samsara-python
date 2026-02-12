@@ -16,28 +16,23 @@ class LocationObjectRequestBody(UniversalBaseModel):
     A location. Polygon and Circle is deprecated, but may be set for old Alerts. At least one location must be selected.
     """
 
-    address_ids: typing_extensions.Annotated[typing.Optional[typing.List[str]], FieldMetadata(alias="addressIds")] = (
-        pydantic.Field(alias="addressIds", default=None)
-    )
-    """
-    All locations with selected address IDs will trigger.
-    """
-
+    address_ids: typing_extensions.Annotated[
+        typing.Optional[typing.List[str]],
+        FieldMetadata(alias="addressIds"),
+        pydantic.Field(alias="addressIds", description="All locations with selected address IDs will trigger."),
+    ] = None
     address_types: typing_extensions.Annotated[
-        typing.Optional[typing.List[LocationObjectRequestBodyAddressTypesItem]], FieldMetadata(alias="addressTypes")
-    ] = pydantic.Field(alias="addressTypes", default=None)
-    """
-    All locations with the selected address types will trigger.
-    """
-
+        typing.Optional[typing.List[LocationObjectRequestBodyAddressTypesItem]],
+        FieldMetadata(alias="addressTypes"),
+        pydantic.Field(alias="addressTypes", description="All locations with the selected address types will trigger."),
+    ] = None
     circle: typing.Optional[CircleRequestBody] = None
     polygon: typing.Optional[PolygonRequestBody] = None
-    tag_ids: typing_extensions.Annotated[typing.Optional[typing.List[str]], FieldMetadata(alias="tagIds")] = (
-        pydantic.Field(alias="tagIds", default=None)
-    )
-    """
-    All locations with selected tag will trigger.
-    """
+    tag_ids: typing_extensions.Annotated[
+        typing.Optional[typing.List[str]],
+        FieldMetadata(alias="tagIds"),
+        pydantic.Field(alias="tagIds", description="All locations with selected tag will trigger."),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

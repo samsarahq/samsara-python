@@ -18,13 +18,11 @@ class V1Sensor(UniversalBaseModel):
     ID of the sensor.
     """
 
-    mac_address: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="macAddress")] = pydantic.Field(
-        alias="macAddress", default=None
-    )
-    """
-    MAC address of the sensor.
-    """
-
+    mac_address: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="macAddress"),
+        pydantic.Field(alias="macAddress", description="MAC address of the sensor."),
+    ] = None
     name: typing.Optional[str] = pydantic.Field(default=None)
     """
     Name of the sensor.

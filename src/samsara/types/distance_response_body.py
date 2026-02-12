@@ -13,20 +13,16 @@ class DistanceResponseBody(UniversalBaseModel):
     Equipment odometer distance.
     """
 
-    odometer: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="Odometer")] = pydantic.Field(
-        alias="Odometer", default=None
-    )
-    """
-    Odometer value reported by equipment.
-    """
-
-    odometer_units: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="OdometerUnits")] = (
-        pydantic.Field(alias="OdometerUnits", default=None)
-    )
-    """
-    Unit of measurement for distance.
-    """
-
+    odometer: typing_extensions.Annotated[
+        typing.Optional[float],
+        FieldMetadata(alias="Odometer"),
+        pydantic.Field(alias="Odometer", description="Odometer value reported by equipment."),
+    ] = None
+    odometer_units: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="OdometerUnits"),
+        pydantic.Field(alias="OdometerUnits", description="Unit of measurement for distance."),
+    ] = None
     datetime: typing.Optional[str] = pydantic.Field(default=None)
     """
     Date time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).

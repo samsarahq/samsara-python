@@ -13,20 +13,16 @@ class LocationResponseBody(UniversalBaseModel):
     Equipment location.
     """
 
-    latitude: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="Latitude")] = pydantic.Field(
-        alias="Latitude", default=None
-    )
-    """
-    Location latitude.
-    """
-
-    longitude: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="Longitude")] = pydantic.Field(
-        alias="Longitude", default=None
-    )
-    """
-    Location longitude.
-    """
-
+    latitude: typing_extensions.Annotated[
+        typing.Optional[float],
+        FieldMetadata(alias="Latitude"),
+        pydantic.Field(alias="Latitude", description="Location latitude."),
+    ] = None
+    longitude: typing_extensions.Annotated[
+        typing.Optional[float],
+        FieldMetadata(alias="Longitude"),
+        pydantic.Field(alias="Longitude", description="Location longitude."),
+    ] = None
     datetime: typing.Optional[str] = pydantic.Field(default=None)
     """
     Date time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).

@@ -34,17 +34,25 @@ class FormSubmissionRequestFieldInputObjectRequestBody(UniversalBaseModel):
     """
 
     asset_value: typing_extensions.Annotated[
-        typing.Optional[FormSubmissionRequestAssetValueObjectRequestBody], FieldMetadata(alias="assetValue")
-    ] = pydantic.Field(alias="assetValue", default=None)
+        typing.Optional[FormSubmissionRequestAssetValueObjectRequestBody],
+        FieldMetadata(alias="assetValue"),
+        pydantic.Field(alias="assetValue"),
+    ] = None
     check_boxes_value: typing_extensions.Annotated[
-        typing.Optional[FormSubmissionRequestCheckBoxesValueObjectRequestBody], FieldMetadata(alias="checkBoxesValue")
-    ] = pydantic.Field(alias="checkBoxesValue", default=None)
+        typing.Optional[FormSubmissionRequestCheckBoxesValueObjectRequestBody],
+        FieldMetadata(alias="checkBoxesValue"),
+        pydantic.Field(alias="checkBoxesValue"),
+    ] = None
     date_time_value: typing_extensions.Annotated[
-        typing.Optional[FormSubmissionRequestDateTimeValueObjectRequestBody], FieldMetadata(alias="dateTimeValue")
-    ] = pydantic.Field(alias="dateTimeValue", default=None)
+        typing.Optional[FormSubmissionRequestDateTimeValueObjectRequestBody],
+        FieldMetadata(alias="dateTimeValue"),
+        pydantic.Field(alias="dateTimeValue"),
+    ] = None
     geofence_value: typing_extensions.Annotated[
-        typing.Optional[FormSubmissionRequestGeofenceValueObjectRequestBody], FieldMetadata(alias="geofenceValue")
-    ] = pydantic.Field(alias="geofenceValue", default=None)
+        typing.Optional[FormSubmissionRequestGeofenceValueObjectRequestBody],
+        FieldMetadata(alias="geofenceValue"),
+        pydantic.Field(alias="geofenceValue"),
+    ] = None
     id: str = pydantic.Field()
     """
     ID of the forms input field object.
@@ -53,19 +61,28 @@ class FormSubmissionRequestFieldInputObjectRequestBody(UniversalBaseModel):
     multiple_choice_value: typing_extensions.Annotated[
         typing.Optional[FormSubmissionRequestMultipleChoiceValueObjectRequestBody],
         FieldMetadata(alias="multipleChoiceValue"),
-    ] = pydantic.Field(alias="multipleChoiceValue", default=None)
+        pydantic.Field(alias="multipleChoiceValue"),
+    ] = None
     number_value: typing_extensions.Annotated[
-        typing.Optional[FormSubmissionRequestNumberValueObjectRequestBody], FieldMetadata(alias="numberValue")
-    ] = pydantic.Field(alias="numberValue", default=None)
+        typing.Optional[FormSubmissionRequestNumberValueObjectRequestBody],
+        FieldMetadata(alias="numberValue"),
+        pydantic.Field(alias="numberValue"),
+    ] = None
     person_value: typing_extensions.Annotated[
-        typing.Optional[FormSubmissionRequestPersonValueObjectRequestBody], FieldMetadata(alias="personValue")
-    ] = pydantic.Field(alias="personValue", default=None)
+        typing.Optional[FormSubmissionRequestPersonValueObjectRequestBody],
+        FieldMetadata(alias="personValue"),
+        pydantic.Field(alias="personValue"),
+    ] = None
     table_value: typing_extensions.Annotated[
-        typing.Optional[FormSubmissionRequestTableValueObjectRequestBody], FieldMetadata(alias="tableValue")
-    ] = pydantic.Field(alias="tableValue", default=None)
+        typing.Optional[FormSubmissionRequestTableValueObjectRequestBody],
+        FieldMetadata(alias="tableValue"),
+        pydantic.Field(alias="tableValue"),
+    ] = None
     text_value: typing_extensions.Annotated[
-        typing.Optional[FormSubmissionRequestTextValueObjectRequestBody], FieldMetadata(alias="textValue")
-    ] = pydantic.Field(alias="textValue", default=None)
+        typing.Optional[FormSubmissionRequestTextValueObjectRequestBody],
+        FieldMetadata(alias="textValue"),
+        pydantic.Field(alias="textValue"),
+    ] = None
     type: FormSubmissionRequestFieldInputObjectRequestBodyType = pydantic.Field()
     """
     Type of the field.  Valid values: `number`, `text`, `multiple_choice`, `check_boxes`, `datetime`, `asset`, `person`, `table`, `geofence`

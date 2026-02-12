@@ -15,8 +15,10 @@ class DriverHosSetting(UniversalBaseModel):
     """
 
     heavy_haul_exemption_toggle_enabled: typing_extensions.Annotated[
-        typing.Optional[DriverHeavyHaulExemptionToggleEnabled], FieldMetadata(alias="heavyHaulExemptionToggleEnabled")
-    ] = pydantic.Field(alias="heavyHaulExemptionToggleEnabled", default=None)
+        typing.Optional[DriverHeavyHaulExemptionToggleEnabled],
+        FieldMetadata(alias="heavyHaulExemptionToggleEnabled"),
+        pydantic.Field(alias="heavyHaulExemptionToggleEnabled"),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

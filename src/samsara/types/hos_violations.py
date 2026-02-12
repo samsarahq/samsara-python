@@ -14,18 +14,21 @@ class HosViolations(UniversalBaseModel):
     """
 
     cycle_violation_duration_ms: typing_extensions.Annotated[
-        typing.Optional[float], FieldMetadata(alias="cycleViolationDurationMs")
-    ] = pydantic.Field(alias="cycleViolationDurationMs", default=None)
-    """
-    Time since the driver has surpassed the driving cycle duration limit in milliseconds. For property-carrying drivers, this is the amount of time the driver has been on duty or driving past the 60/70-hour limit in 7/8 days.
-    """
-
+        typing.Optional[float],
+        FieldMetadata(alias="cycleViolationDurationMs"),
+        pydantic.Field(
+            alias="cycleViolationDurationMs",
+            description="Time since the driver has surpassed the driving cycle duration limit in milliseconds. For property-carrying drivers, this is the amount of time the driver has been on duty or driving past the 60/70-hour limit in 7/8 days.",
+        ),
+    ] = None
     shift_driving_violation_duration_ms: typing_extensions.Annotated[
-        typing.Optional[float], FieldMetadata(alias="shiftDrivingViolationDurationMs")
-    ] = pydantic.Field(alias="shiftDrivingViolationDurationMs", default=None)
-    """
-    Time since the driver has surpassed the driving shift duration limit in milliseconds. For property-carrying drivers, this is the amount of time the driver has been driving past the 11-hour limit.
-    """
+        typing.Optional[float],
+        FieldMetadata(alias="shiftDrivingViolationDurationMs"),
+        pydantic.Field(
+            alias="shiftDrivingViolationDurationMs",
+            description="Time since the driver has surpassed the driving shift duration limit in milliseconds. For property-carrying drivers, this is the amount of time the driver has been driving past the 11-hour limit.",
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

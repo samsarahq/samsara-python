@@ -14,13 +14,9 @@ class V1CargoResponse(UniversalBaseModel):
     Contains the current cargo status of a sensor.
     """
 
-    group_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="groupId")] = pydantic.Field(
-        alias="groupId", default=None
-    )
-    """
-    Deprecated.
-    """
-
+    group_id: typing_extensions.Annotated[
+        typing.Optional[int], FieldMetadata(alias="groupId"), pydantic.Field(alias="groupId", description="Deprecated.")
+    ] = None
     sensors: typing.Optional[typing.List[V1CargoResponseSensors]] = None
 
     if IS_PYDANTIC_V2:

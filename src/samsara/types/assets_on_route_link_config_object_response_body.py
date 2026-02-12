@@ -13,12 +13,11 @@ class AssetsOnRouteLinkConfigObjectResponseBody(UniversalBaseModel):
     Configuration details specific to the 'By Recurring Route' Live Sharing Link.
     """
 
-    recurring_route_id: typing_extensions.Annotated[str, FieldMetadata(alias="recurringRouteId")] = pydantic.Field(
-        alias="recurringRouteId"
-    )
-    """
-    Samsara ID of the recurring route.
-    """
+    recurring_route_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="recurringRouteId"),
+        pydantic.Field(alias="recurringRouteId", description="Samsara ID of the recurring route."),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -16,11 +16,11 @@ class ReportConfigObjectResponseBody(UniversalBaseModel):
     Columns included in the report configuration.
     """
 
-    dataset_id: typing_extensions.Annotated[str, FieldMetadata(alias="datasetId")] = pydantic.Field(alias="datasetId")
-    """
-    ID of dataset for report configuration.
-    """
-
+    dataset_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="datasetId"),
+        pydantic.Field(alias="datasetId", description="ID of dataset for report configuration."),
+    ]
     filters: typing.Optional[FiltersResponseBody] = None
     id: str = pydantic.Field()
     """

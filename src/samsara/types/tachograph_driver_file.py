@@ -13,20 +13,19 @@ class TachographDriverFile(UniversalBaseModel):
     Tachograph driver file
     """
 
-    card_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="cardNumber")] = pydantic.Field(
-        alias="cardNumber", default=None
-    )
-    """
-    Tachograph card number associated with the file.
-    """
-
-    created_at_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="createdAtTime")] = (
-        pydantic.Field(alias="createdAtTime", default=None)
-    )
-    """
-    Creation time of files in RFC 3339 format. This is either the download time from the tachograph itself (for files downloaded via Samsara VG) or upload time (for files manually uploaded via Samsara UI).
-    """
-
+    card_number: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="cardNumber"),
+        pydantic.Field(alias="cardNumber", description="Tachograph card number associated with the file."),
+    ] = None
+    created_at_time: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="createdAtTime"),
+        pydantic.Field(
+            alias="createdAtTime",
+            description="Creation time of files in RFC 3339 format. This is either the download time from the tachograph itself (for files downloaded via Samsara VG) or upload time (for files manually uploaded via Samsara UI).",
+        ),
+    ] = None
     id: typing.Optional[str] = pydantic.Field(default=None)
     """
     ID of the file.

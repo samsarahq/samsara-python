@@ -13,24 +13,19 @@ class VehicleStatsFaultCodesPassengerDtc(UniversalBaseModel):
     Passenger vehicle DTC information
     """
 
-    dtc_description: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="dtcDescription")] = (
-        pydantic.Field(alias="dtcDescription", default=None)
-    )
-    """
-    The DTC description, if available.
-    """
-
-    dtc_id: typing_extensions.Annotated[int, FieldMetadata(alias="dtcId")] = pydantic.Field(alias="dtcId")
-    """
-    The DTC identifier.
-    """
-
-    dtc_short_code: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="dtcShortCode")] = (
-        pydantic.Field(alias="dtcShortCode", default=None)
-    )
-    """
-    The DTC short code, if available.
-    """
+    dtc_description: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="dtcDescription"),
+        pydantic.Field(alias="dtcDescription", description="The DTC description, if available."),
+    ] = None
+    dtc_id: typing_extensions.Annotated[
+        int, FieldMetadata(alias="dtcId"), pydantic.Field(alias="dtcId", description="The DTC identifier.")
+    ]
+    dtc_short_code: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="dtcShortCode"),
+        pydantic.Field(alias="dtcShortCode", description="The DTC short code, if available."),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

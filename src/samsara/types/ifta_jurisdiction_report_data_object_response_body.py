@@ -16,12 +16,10 @@ class IftaJurisdictionReportDataObjectResponseBody(UniversalBaseModel):
     """
 
     jurisdiction_reports: typing_extensions.Annotated[
-        typing.List[IftaJurisdictionSummaryObjectResponseBody], FieldMetadata(alias="jurisdictionReports")
-    ] = pydantic.Field(alias="jurisdictionReports")
-    """
-    List of summarized jurisdiction reports.
-    """
-
+        typing.List[IftaJurisdictionSummaryObjectResponseBody],
+        FieldMetadata(alias="jurisdictionReports"),
+        pydantic.Field(alias="jurisdictionReports", description="List of summarized jurisdiction reports."),
+    ]
     month: typing.Optional[str] = pydantic.Field(default=None)
     """
     The specified month duration for this IFTA report.

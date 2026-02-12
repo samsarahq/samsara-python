@@ -20,8 +20,10 @@ class EquipmentStatsGps(UniversalBaseModel):
 
     address: typing.Optional[AddressTinyResponse] = None
     heading_degrees: typing_extensions.Annotated[
-        typing.Optional[AssetLocationHeading], FieldMetadata(alias="headingDegrees")
-    ] = pydantic.Field(alias="headingDegrees", default=None)
+        typing.Optional[AssetLocationHeading],
+        FieldMetadata(alias="headingDegrees"),
+        pydantic.Field(alias="headingDegrees"),
+    ] = None
     latitude: float = pydantic.Field()
     """
     GPS latitude represented in degrees
@@ -32,12 +34,14 @@ class EquipmentStatsGps(UniversalBaseModel):
     GPS longitude represented in degrees
     """
 
-    reverse_geo: typing_extensions.Annotated[typing.Optional[ReverseGeo], FieldMetadata(alias="reverseGeo")] = (
-        pydantic.Field(alias="reverseGeo", default=None)
-    )
+    reverse_geo: typing_extensions.Annotated[
+        typing.Optional[ReverseGeo], FieldMetadata(alias="reverseGeo"), pydantic.Field(alias="reverseGeo")
+    ] = None
     speed_miles_per_hour: typing_extensions.Annotated[
-        typing.Optional[AssetLocationSpeed], FieldMetadata(alias="speedMilesPerHour")
-    ] = pydantic.Field(alias="speedMilesPerHour", default=None)
+        typing.Optional[AssetLocationSpeed],
+        FieldMetadata(alias="speedMilesPerHour"),
+        pydantic.Field(alias="speedMilesPerHour"),
+    ] = None
     time: Time
 
     if IS_PYDANTIC_V2:

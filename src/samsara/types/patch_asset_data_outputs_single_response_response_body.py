@@ -13,24 +13,24 @@ class PatchAssetDataOutputsSingleResponseResponseBody(UniversalBaseModel):
     A response that corresponds to an element in the original request body.
     """
 
-    error_message: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="errorMessage")] = (
-        pydantic.Field(alias="errorMessage", default=None)
-    )
-    """
-    If the request failed, this displays the error message.
-    """
-
+    error_message: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="errorMessage"),
+        pydantic.Field(alias="errorMessage", description="If the request failed, this displays the error message."),
+    ] = None
     id: str = pydantic.Field()
     """
     The data output ID.
     """
 
-    status_code: typing_extensions.Annotated[int, FieldMetadata(alias="statusCode")] = pydantic.Field(
-        alias="statusCode"
-    )
-    """
-    The status code of the request. 200 indicates the request succeeded for this data output. 500 indicates an internal server error.
-    """
+    status_code: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="statusCode"),
+        pydantic.Field(
+            alias="statusCode",
+            description="The status code of the request. 200 indicates the request succeeded for this data output. 500 indicates an internal server error.",
+        ),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

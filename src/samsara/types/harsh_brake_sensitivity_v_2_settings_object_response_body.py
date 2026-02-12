@@ -23,19 +23,21 @@ class HarshBrakeSensitivityV2SettingsObjectResponseBody(UniversalBaseModel):
     """
 
     heavy_duty: typing_extensions.Annotated[
-        typing.Optional[HarshBrakeSensitivityV2SettingsObjectResponseBodyHeavyDuty], FieldMetadata(alias="heavyDuty")
-    ] = pydantic.Field(alias="heavyDuty", default=None)
-    """
-    Harsh brake sensitivity settings for heavy duty vehicle.  Valid values: `unknown`, `invalid`, `off`, `veryLow`, `low`, `normal`, `high`
-    """
-
+        typing.Optional[HarshBrakeSensitivityV2SettingsObjectResponseBodyHeavyDuty],
+        FieldMetadata(alias="heavyDuty"),
+        pydantic.Field(
+            alias="heavyDuty",
+            description="Harsh brake sensitivity settings for heavy duty vehicle.  Valid values: `unknown`, `invalid`, `off`, `veryLow`, `low`, `normal`, `high`",
+        ),
+    ] = None
     light_duty: typing_extensions.Annotated[
-        typing.Optional[HarshBrakeSensitivityV2SettingsObjectResponseBodyLightDuty], FieldMetadata(alias="lightDuty")
-    ] = pydantic.Field(alias="lightDuty", default=None)
-    """
-    Harsh brake sensitivity settings for light duty vehicle.  Valid values: `unknown`, `invalid`, `off`, `veryLow`, `low`, `normal`, `high`
-    """
-
+        typing.Optional[HarshBrakeSensitivityV2SettingsObjectResponseBodyLightDuty],
+        FieldMetadata(alias="lightDuty"),
+        pydantic.Field(
+            alias="lightDuty",
+            description="Harsh brake sensitivity settings for light duty vehicle.  Valid values: `unknown`, `invalid`, `off`, `veryLow`, `low`, `normal`, `high`",
+        ),
+    ] = None
     passenger: typing.Optional[HarshBrakeSensitivityV2SettingsObjectResponseBodyPassenger] = pydantic.Field(
         default=None
     )

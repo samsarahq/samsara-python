@@ -16,29 +16,33 @@ class ReadingTriggerDetailsObjectRequestBody(UniversalBaseModel):
     """
 
     continuous_threshold: typing_extensions.Annotated[
-        typing.Optional[ReadingTriggerContinuousValueObjectRequestBody], FieldMetadata(alias="continuousThreshold")
-    ] = pydantic.Field(alias="continuousThreshold", default=None)
-    entity_type: typing_extensions.Annotated[str, FieldMetadata(alias="entityType")] = pydantic.Field(
-        alias="entityType"
-    )
-    """
-    The type of the entity associated with the reading.
-    """
-
+        typing.Optional[ReadingTriggerContinuousValueObjectRequestBody],
+        FieldMetadata(alias="continuousThreshold"),
+        pydantic.Field(alias="continuousThreshold"),
+    ] = None
+    entity_type: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="entityType"),
+        pydantic.Field(alias="entityType", description="The type of the entity associated with the reading."),
+    ]
     enum_threshold: typing_extensions.Annotated[
-        typing.Optional[ReadingTriggerEnumValueObjectRequestBody], FieldMetadata(alias="enumThreshold")
-    ] = pydantic.Field(alias="enumThreshold", default=None)
+        typing.Optional[ReadingTriggerEnumValueObjectRequestBody],
+        FieldMetadata(alias="enumThreshold"),
+        pydantic.Field(alias="enumThreshold"),
+    ] = None
     id: str = pydantic.Field()
     """
     The ID of the reading.
     """
 
-    min_duration_milliseconds: typing_extensions.Annotated[int, FieldMetadata(alias="minDurationMilliseconds")] = (
-        pydantic.Field(alias="minDurationMilliseconds")
-    )
-    """
-    The number of milliseconds the trigger needs to stay active before alerting.
-    """
+    min_duration_milliseconds: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="minDurationMilliseconds"),
+        pydantic.Field(
+            alias="minDurationMilliseconds",
+            description="The number of milliseconds the trigger needs to stay active before alerting.",
+        ),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

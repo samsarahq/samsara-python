@@ -19,42 +19,45 @@ class DriverVehicleAssignmentV2ObjectResponseBody(UniversalBaseModel):
     Object with driver assignment info and associated driver and vehicle info.
     """
 
-    assigned_at_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="assignedAtTime")] = (
-        pydantic.Field(alias="assignedAtTime", default=None)
-    )
-    """
-     An assigned at time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-    """
-
+    assigned_at_time: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="assignedAtTime"),
+        pydantic.Field(
+            alias="assignedAtTime",
+            description=" An assigned at time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).",
+        ),
+    ] = None
     assignment_type: typing_extensions.Annotated[
         typing.Optional[DriverVehicleAssignmentV2ObjectResponseBodyAssignmentType],
         FieldMetadata(alias="assignmentType"),
-    ] = pydantic.Field(alias="assignmentType", default=None)
-    """
-    Name of the assigning source for the driver assignment record.  Valid values: `invalid`, `unknown`, `HOS`, `idCard`, `static`, `faceId`, `tachograph`, `safetyManual`, `RFID`, `trailer`, `external`, `qrCode`
-    """
-
+        pydantic.Field(
+            alias="assignmentType",
+            description="Name of the assigning source for the driver assignment record.  Valid values: `invalid`, `unknown`, `HOS`, `idCard`, `static`, `faceId`, `tachograph`, `safetyManual`, `RFID`, `trailer`, `external`, `qrCode`",
+        ),
+    ] = None
     driver: GoaDriverTinyResponseResponseBody
-    end_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="endTime")] = pydantic.Field(
-        alias="endTime", default=None
-    )
-    """
-     An end time in RFC 3339 format. Omitted if not applicable. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-    """
-
-    is_passenger: typing_extensions.Annotated[bool, FieldMetadata(alias="isPassenger")] = pydantic.Field(
-        alias="isPassenger"
-    )
-    """
-    Boolean indicating whether the driver is a passenger.
-    """
-
+    end_time: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="endTime"),
+        pydantic.Field(
+            alias="endTime",
+            description=" An end time in RFC 3339 format. Omitted if not applicable. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).",
+        ),
+    ] = None
+    is_passenger: typing_extensions.Annotated[
+        bool,
+        FieldMetadata(alias="isPassenger"),
+        pydantic.Field(alias="isPassenger", description="Boolean indicating whether the driver is a passenger."),
+    ]
     metadata: typing.Optional[DriverAssignmentMetadataTinyObjectResponseBody] = None
-    start_time: typing_extensions.Annotated[str, FieldMetadata(alias="startTime")] = pydantic.Field(alias="startTime")
-    """
-     A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-    """
-
+    start_time: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="startTime"),
+        pydantic.Field(
+            alias="startTime",
+            description=" A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).",
+        ),
+    ]
     vehicle: GoaVehicleTinyResponseResponseBody
 
     if IS_PYDANTIC_V2:

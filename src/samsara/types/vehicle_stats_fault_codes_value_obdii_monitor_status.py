@@ -69,15 +69,12 @@ class VehicleStatsFaultCodesValueObdiiMonitorStatus(UniversalBaseModel):
     """
 
     evap_system: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsFaultCodesValueObdiiMonitorStatusEvapSystem], FieldMetadata(alias="evapSystem")
-    ] = pydantic.Field(alias="evapSystem", default=None)
-    """
-    Enum of monitor status:
-    -U: Unsupported
-    -N: Not Complete
-    -R: Complete
-    """
-
+        typing.Optional[VehicleStatsFaultCodesValueObdiiMonitorStatusEvapSystem],
+        FieldMetadata(alias="evapSystem"),
+        pydantic.Field(
+            alias="evapSystem", description="Enum of monitor status:\n-U: Unsupported\n-N: Not Complete\n-R: Complete"
+        ),
+    ] = None
     fuel: typing.Optional[VehicleStatsFaultCodesValueObdiiMonitorStatusFuel] = pydantic.Field(default=None)
     """
     Enum of monitor status:
@@ -89,36 +86,27 @@ class VehicleStatsFaultCodesValueObdiiMonitorStatus(UniversalBaseModel):
     heated_catalyst: typing_extensions.Annotated[
         typing.Optional[VehicleStatsFaultCodesValueObdiiMonitorStatusHeatedCatalyst],
         FieldMetadata(alias="heatedCatalyst"),
-    ] = pydantic.Field(alias="heatedCatalyst", default=None)
-    """
-    Enum of monitor status:
-    -U: Unsupported
-    -N: Not Complete
-    -R: Complete
-    """
-
+        pydantic.Field(
+            alias="heatedCatalyst",
+            description="Enum of monitor status:\n-U: Unsupported\n-N: Not Complete\n-R: Complete",
+        ),
+    ] = None
     heated_o_2_sensor: typing_extensions.Annotated[
         typing.Optional[VehicleStatsFaultCodesValueObdiiMonitorStatusHeatedO2Sensor],
         FieldMetadata(alias="heatedO2Sensor"),
-    ] = pydantic.Field(alias="heatedO2Sensor", default=None)
-    """
-    Enum of monitor status:
-    -U: Unsupported
-    -N: Not Complete
-    -R: Complete
-    """
-
+        pydantic.Field(
+            alias="heatedO2Sensor",
+            description="Enum of monitor status:\n-U: Unsupported\n-N: Not Complete\n-R: Complete",
+        ),
+    ] = None
     iso_sae_reserved: typing_extensions.Annotated[
         typing.Optional[VehicleStatsFaultCodesValueObdiiMonitorStatusIsoSaeReserved],
         FieldMetadata(alias="isoSaeReserved"),
-    ] = pydantic.Field(alias="isoSaeReserved", default=None)
-    """
-    Enum of monitor status:
-    -U: Unsupported
-    -N: Not Complete
-    -R: Complete
-    """
-
+        pydantic.Field(
+            alias="isoSaeReserved",
+            description="Enum of monitor status:\n-U: Unsupported\n-N: Not Complete\n-R: Complete",
+        ),
+    ] = None
     misfire: typing.Optional[VehicleStatsFaultCodesValueObdiiMonitorStatusMisfire] = pydantic.Field(default=None)
     """
     Enum of monitor status:
@@ -127,32 +115,25 @@ class VehicleStatsFaultCodesValueObdiiMonitorStatus(UniversalBaseModel):
     -R: Complete
     """
 
-    not_ready_count: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="notReadyCount")] = (
-        pydantic.Field(alias="notReadyCount", default=None)
-    )
-    """
-    Count of the number of sensors reporting N: Not Complete
-    """
-
+    not_ready_count: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="notReadyCount"),
+        pydantic.Field(alias="notReadyCount", description="Count of the number of sensors reporting N: Not Complete"),
+    ] = None
     o_2_sensor: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsFaultCodesValueObdiiMonitorStatusO2Sensor], FieldMetadata(alias="o2Sensor")
-    ] = pydantic.Field(alias="o2Sensor", default=None)
-    """
-    Enum of monitor status:
-    -U: Unsupported
-    -N: Not Complete
-    -R: Complete
-    """
-
+        typing.Optional[VehicleStatsFaultCodesValueObdiiMonitorStatusO2Sensor],
+        FieldMetadata(alias="o2Sensor"),
+        pydantic.Field(
+            alias="o2Sensor", description="Enum of monitor status:\n-U: Unsupported\n-N: Not Complete\n-R: Complete"
+        ),
+    ] = None
     secondary_air: typing_extensions.Annotated[
-        typing.Optional[VehicleStatsFaultCodesValueObdiiMonitorStatusSecondaryAir], FieldMetadata(alias="secondaryAir")
-    ] = pydantic.Field(alias="secondaryAir", default=None)
-    """
-    Enum of monitor status:
-    -U: Unsupported
-    -N: Not Complete
-    -R: Complete
-    """
+        typing.Optional[VehicleStatsFaultCodesValueObdiiMonitorStatusSecondaryAir],
+        FieldMetadata(alias="secondaryAir"),
+        pydantic.Field(
+            alias="secondaryAir", description="Enum of monitor status:\n-U: Unsupported\n-N: Not Complete\n-R: Complete"
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

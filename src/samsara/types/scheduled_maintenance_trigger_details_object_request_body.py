@@ -13,17 +13,16 @@ class ScheduledMaintenanceTriggerDetailsObjectRequestBody(UniversalBaseModel):
     Details specific to Scheduled Maintenance by Date
     """
 
-    due_in_days: typing_extensions.Annotated[int, FieldMetadata(alias="dueInDays")] = pydantic.Field(alias="dueInDays")
-    """
-    Alert when maintenance is due in the specified number of days.
-    """
-
-    schedule_id: typing_extensions.Annotated[str, FieldMetadata(alias="scheduleId")] = pydantic.Field(
-        alias="scheduleId"
-    )
-    """
-    The id of the maintenance schedule.
-    """
+    due_in_days: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="dueInDays"),
+        pydantic.Field(alias="dueInDays", description="Alert when maintenance is due in the specified number of days."),
+    ]
+    schedule_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="scheduleId"),
+        pydantic.Field(alias="scheduleId", description="The id of the maintenance schedule."),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

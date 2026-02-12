@@ -14,12 +14,13 @@ from .driver_ruleset_object_response_body_shift import DriverRulesetObjectRespon
 
 class DriverRulesetObjectResponseBody(UniversalBaseModel):
     break_: typing_extensions.Annotated[
-        typing.Optional[DriverRulesetObjectResponseBodyBreak], FieldMetadata(alias="break")
-    ] = pydantic.Field(alias="break", default=None)
-    """
-    The rest break required setting of the ELD ruleset applied to this driver.  Valid values: `Property (off-duty/sleeper)`, `Explosives/HazMat (on-duty)`
-    """
-
+        typing.Optional[DriverRulesetObjectResponseBodyBreak],
+        FieldMetadata(alias="break"),
+        pydantic.Field(
+            alias="break",
+            description="The rest break required setting of the ELD ruleset applied to this driver.  Valid values: `Property (off-duty/sleeper)`, `Explosives/HazMat (on-duty)`",
+        ),
+    ] = None
     cycle: typing.Optional[DriverRulesetObjectResponseBodyCycle] = pydantic.Field(default=None)
     """
     The cycle of the ELD ruleset applied to this driver.  Valid values: `USA 60 hour / 7 day`, `USA 70 hour / 8 day`, `AK 80 hour / 8 day`, `AK 70 hour / 7 day`, `CA 80 hour / 8 day`, `CA 112 hour / 8 day`, `FL 80 hour / 8 day`, `FL 70 hour / 7 day`, `NE 80 hour / 8 day`, `NE 70 hour / 7 day`, `NC 80 hour / 8 day`, `NC 70 hour / 7 day`, `OK 70 hour / 8 day`, `OK 60 hour / 7 day`, `OR 80 hour / 8 day`, `OR 70 hour / 7 day`, `SC 80 hour / 8 day`, `SC 70 hour / 7 day`, `TX 70 hour / 7 day`, `WI 80 hour / 8 day`, `WI 70 hour / 7 day`, `Canada South Cycle 1 (70 hour / 7 day)`, `Canada South Cycle 2 (120 hour / 14 day)`, `Canada North Cycle 1 (80 hour / 7 day)`, `Canada North Cycle 2 (120 hour / 14 day)`

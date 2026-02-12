@@ -20,34 +20,35 @@ class TagSafetyScoreResponseBody(UniversalBaseModel):
     Aggregated list of behaviors, one row for each unique type of behavior.
     """
 
-    drive_distance_meters: typing_extensions.Annotated[int, FieldMetadata(alias="driveDistanceMeters")] = (
-        pydantic.Field(alias="driveDistanceMeters")
-    )
-    """
-    Total sum of distance driven by drivers / vehicles in the tag.
-    """
-
-    drive_time_milliseconds: typing_extensions.Annotated[int, FieldMetadata(alias="driveTimeMilliseconds")] = (
-        pydantic.Field(alias="driveTimeMilliseconds")
-    )
-    """
-    Total time spent driving by drivers / vehicles in the tag.
-    """
-
+    drive_distance_meters: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="driveDistanceMeters"),
+        pydantic.Field(
+            alias="driveDistanceMeters", description="Total sum of distance driven by drivers / vehicles in the tag."
+        ),
+    ]
+    drive_time_milliseconds: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="driveTimeMilliseconds"),
+        pydantic.Field(
+            alias="driveTimeMilliseconds", description="Total time spent driving by drivers / vehicles in the tag."
+        ),
+    ]
     speeding: typing.List[SafetyScoreSpeedingObjectResponseBody] = pydantic.Field()
     """
     Aggregated list of speeding events, one row for each unique type of speeding.
     """
 
-    tag_id: typing_extensions.Annotated[str, FieldMetadata(alias="tagId")] = pydantic.Field(alias="tagId")
-    """
-    ID of the tag.
-    """
-
-    tag_score: typing_extensions.Annotated[int, FieldMetadata(alias="tagScore")] = pydantic.Field(alias="tagScore")
-    """
-    Safety score for the tag. The score is a rounded number between 0-100.
-    """
+    tag_id: typing_extensions.Annotated[
+        str, FieldMetadata(alias="tagId"), pydantic.Field(alias="tagId", description="ID of the tag.")
+    ]
+    tag_score: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="tagScore"),
+        pydantic.Field(
+            alias="tagScore", description="Safety score for the tag. The score is a rounded number between 0-100."
+        ),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

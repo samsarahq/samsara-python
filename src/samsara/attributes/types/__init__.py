@@ -9,7 +9,7 @@ if typing.TYPE_CHECKING:
     from .create_attribute_request_attribute_type import CreateAttributeRequestAttributeType
     from .create_attribute_request_entity_type import CreateAttributeRequestEntityType
     from .create_attribute_request_unit import CreateAttributeRequestUnit
-    from .delete_attribute_request_entity_type import DeleteAttributeRequestEntityType
+    from .delete_attributes_request_entity_type import DeleteAttributesRequestEntityType
     from .get_attribute_request_entity_type import GetAttributeRequestEntityType
     from .get_attributes_by_entity_type_request_entity_type import GetAttributesByEntityTypeRequestEntityType
     from .update_attribute_request_attribute_type import UpdateAttributeRequestAttributeType
@@ -18,7 +18,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "CreateAttributeRequestAttributeType": ".create_attribute_request_attribute_type",
     "CreateAttributeRequestEntityType": ".create_attribute_request_entity_type",
     "CreateAttributeRequestUnit": ".create_attribute_request_unit",
-    "DeleteAttributeRequestEntityType": ".delete_attribute_request_entity_type",
+    "DeleteAttributesRequestEntityType": ".delete_attributes_request_entity_type",
     "GetAttributeRequestEntityType": ".get_attribute_request_entity_type",
     "GetAttributesByEntityTypeRequestEntityType": ".get_attributes_by_entity_type_request_entity_type",
     "UpdateAttributeRequestAttributeType": ".update_attribute_request_attribute_type",
@@ -51,7 +51,7 @@ __all__ = [
     "CreateAttributeRequestAttributeType",
     "CreateAttributeRequestEntityType",
     "CreateAttributeRequestUnit",
-    "DeleteAttributeRequestEntityType",
+    "DeleteAttributesRequestEntityType",
     "GetAttributeRequestEntityType",
     "GetAttributesByEntityTypeRequestEntityType",
     "UpdateAttributeRequestAttributeType",

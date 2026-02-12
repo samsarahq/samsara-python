@@ -21,20 +21,22 @@ class DetectionLogSafetyEventObjectResponseBody(UniversalBaseModel):
     Unique Samsara ID (uuid) of the safety event. Only returned when safetyEvent.inboxEvent is true.
     """
 
-    inbox_event: typing_extensions.Annotated[bool, FieldMetadata(alias="inboxEvent")] = pydantic.Field(
-        alias="inboxEvent"
-    )
-    """
-    Whether a corresponding safety event was published to the Safety Inbox. Always returned.
-    """
-
+    inbox_event: typing_extensions.Annotated[
+        bool,
+        FieldMetadata(alias="inboxEvent"),
+        pydantic.Field(
+            alias="inboxEvent",
+            description="Whether a corresponding safety event was published to the Safety Inbox. Always returned.",
+        ),
+    ]
     inbox_filter_reason: typing_extensions.Annotated[
         typing.Optional[DetectionLogSafetyEventObjectResponseBodyInboxFilterReason],
         FieldMetadata(alias="inboxFilterReason"),
-    ] = pydantic.Field(alias="inboxFilterReason", default=None)
-    """
-    The reason the detection was filtered out of the inbox. Only returned when safetyEvent.inboxEvent is false  Valid values: `overDailyLimit`, `overHourlyLimit`, `overTripLimit`, `belowConfidenceThreshold`, `belowSeverityThreshold`, `overEventRateLimit`, `geofenceFilter`, `belowNudgeThreshold`, `belowSpeedThreshold`, `nighttimeFilter`, `speedingFilter`, `inCabAlertOnly`, `unknown`
-    """
+        pydantic.Field(
+            alias="inboxFilterReason",
+            description="The reason the detection was filtered out of the inbox. Only returned when safetyEvent.inboxEvent is false  Valid values: `overDailyLimit`, `overHourlyLimit`, `overTripLimit`, `belowConfidenceThreshold`, `belowSeverityThreshold`, `overEventRateLimit`, `geofenceFilter`, `belowNudgeThreshold`, `belowSpeedThreshold`, `nighttimeFilter`, `speedingFilter`, `inCabAlertOnly`, `unknown`",
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

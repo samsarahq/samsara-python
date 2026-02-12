@@ -16,8 +16,10 @@ class FftSpectraDataPoint(UniversalBaseModel):
     """
 
     fft_spectra: typing_extensions.Annotated[
-        typing.Optional[FftSpectraDataPointFftSpectra], FieldMetadata(alias="fftSpectra")
-    ] = pydantic.Field(alias="fftSpectra", default=None)
+        typing.Optional[FftSpectraDataPointFftSpectra],
+        FieldMetadata(alias="fftSpectra"),
+        pydantic.Field(alias="fftSpectra"),
+    ] = None
     time: typing.Optional[Time] = None
 
     if IS_PYDANTIC_V2:

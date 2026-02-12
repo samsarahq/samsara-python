@@ -23,19 +23,21 @@ class HarshTurnSensitivityV2SettingsObjectResponseBody(UniversalBaseModel):
     """
 
     heavy_duty: typing_extensions.Annotated[
-        typing.Optional[HarshTurnSensitivityV2SettingsObjectResponseBodyHeavyDuty], FieldMetadata(alias="heavyDuty")
-    ] = pydantic.Field(alias="heavyDuty", default=None)
-    """
-    Harsh turn sensitivity settings for heavy duty vehicle.  Valid values: `unknown`, `invalid`, `off`, `veryLow`, `low`, `normal`, `high`
-    """
-
+        typing.Optional[HarshTurnSensitivityV2SettingsObjectResponseBodyHeavyDuty],
+        FieldMetadata(alias="heavyDuty"),
+        pydantic.Field(
+            alias="heavyDuty",
+            description="Harsh turn sensitivity settings for heavy duty vehicle.  Valid values: `unknown`, `invalid`, `off`, `veryLow`, `low`, `normal`, `high`",
+        ),
+    ] = None
     light_duty: typing_extensions.Annotated[
-        typing.Optional[HarshTurnSensitivityV2SettingsObjectResponseBodyLightDuty], FieldMetadata(alias="lightDuty")
-    ] = pydantic.Field(alias="lightDuty", default=None)
-    """
-    Harsh turn sensitivity settings for light duty vehicle.  Valid values: `unknown`, `invalid`, `off`, `veryLow`, `low`, `normal`, `high`
-    """
-
+        typing.Optional[HarshTurnSensitivityV2SettingsObjectResponseBodyLightDuty],
+        FieldMetadata(alias="lightDuty"),
+        pydantic.Field(
+            alias="lightDuty",
+            description="Harsh turn sensitivity settings for light duty vehicle.  Valid values: `unknown`, `invalid`, `off`, `veryLow`, `low`, `normal`, `high`",
+        ),
+    ] = None
     passenger: typing.Optional[HarshTurnSensitivityV2SettingsObjectResponseBodyPassenger] = pydantic.Field(default=None)
     """
     Harsh turn sensitivity settings for passenger car.  Valid values: `unknown`, `invalid`, `off`, `veryLow`, `low`, `normal`, `high`

@@ -17,19 +17,20 @@ class ForwardCollisionDetectionAlertSettingsObjectResponseBody(UniversalBaseMode
     """
 
     has_in_cab_audio_alerts_enabled: typing_extensions.Annotated[
-        typing.Optional[bool], FieldMetadata(alias="hasInCabAudioAlertsEnabled")
-    ] = pydantic.Field(alias="hasInCabAudioAlertsEnabled", default=None)
-    """
-    Indicates whether in-cab audio alerts for forward collision are turned on.
-    """
-
-    is_enabled: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="isEnabled")] = pydantic.Field(
-        alias="isEnabled", default=None
-    )
-    """
-    Indicates whether AI event detection for forward collision is turned on.
-    """
-
+        typing.Optional[bool],
+        FieldMetadata(alias="hasInCabAudioAlertsEnabled"),
+        pydantic.Field(
+            alias="hasInCabAudioAlertsEnabled",
+            description="Indicates whether in-cab audio alerts for forward collision are turned on.",
+        ),
+    ] = None
+    is_enabled: typing_extensions.Annotated[
+        typing.Optional[bool],
+        FieldMetadata(alias="isEnabled"),
+        pydantic.Field(
+            alias="isEnabled", description="Indicates whether AI event detection for forward collision is turned on."
+        ),
+    ] = None
     sensitivity: typing.Optional[ForwardCollisionDetectionAlertSettingsObjectResponseBodySensitivity] = pydantic.Field(
         default=None
     )

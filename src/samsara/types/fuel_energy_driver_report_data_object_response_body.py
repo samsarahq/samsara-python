@@ -15,11 +15,10 @@ class FuelEnergyDriverReportDataObjectResponseBody(UniversalBaseModel):
     """
 
     driver_reports: typing_extensions.Annotated[
-        typing.List[FuelEnergyDriverReportObjectResponseBody], FieldMetadata(alias="driverReports")
-    ] = pydantic.Field(alias="driverReports")
-    """
-    List of summarized driver reports.
-    """
+        typing.List[FuelEnergyDriverReportObjectResponseBody],
+        FieldMetadata(alias="driverReports"),
+        pydantic.Field(alias="driverReports", description="List of summarized driver reports."),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -16,18 +16,20 @@ class HealthReasonResponseResponseBody(UniversalBaseModel):
     """
 
     health_reason_code: typing_extensions.Annotated[
-        typing.Optional[HealthReasonResponseResponseBodyHealthReasonCode], FieldMetadata(alias="healthReasonCode")
-    ] = pydantic.Field(alias="healthReasonCode", default=None)
-    """
-    The type of health reason detected.  Valid values: `assetUnplugged`, `cameraMisaligned`, `dataPending`, `healthy`, `inwardCameraObstruction`, `irregularRecording`, `lowDeviceBattery`, `missingEldDiagnostics`, `missingVin`, `needsReplacement`, `newlyInstalledDevice`, `noGpsSignal`, `notDetected`, `outwardCameraObstruction`, `recordingTimeRequired`, `unknown`, `vgUnplugged`
-    """
-
-    start_time: typing_extensions.Annotated[typing.Optional[dt.datetime], FieldMetadata(alias="startTime")] = (
-        pydantic.Field(alias="startTime", default=None)
-    )
-    """
-    The timestamp when this health reason began, in RFC3339 format.
-    """
+        typing.Optional[HealthReasonResponseResponseBodyHealthReasonCode],
+        FieldMetadata(alias="healthReasonCode"),
+        pydantic.Field(
+            alias="healthReasonCode",
+            description="The type of health reason detected.  Valid values: `assetUnplugged`, `cameraMisaligned`, `dataPending`, `healthy`, `inwardCameraObstruction`, `irregularRecording`, `lowDeviceBattery`, `missingEldDiagnostics`, `missingVin`, `needsReplacement`, `newlyInstalledDevice`, `noGpsSignal`, `notDetected`, `outwardCameraObstruction`, `recordingTimeRequired`, `unknown`, `vgUnplugged`",
+        ),
+    ] = None
+    start_time: typing_extensions.Annotated[
+        typing.Optional[dt.datetime],
+        FieldMetadata(alias="startTime"),
+        pydantic.Field(
+            alias="startTime", description="The timestamp when this health reason began, in RFC3339 format."
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

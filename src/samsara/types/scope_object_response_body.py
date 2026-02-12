@@ -17,11 +17,11 @@ class ScopeObjectResponseBody(UniversalBaseModel):
     What the triggers are scoped to. These are the objects this alert applies to.
     """
 
-    all_: typing_extensions.Annotated[bool, FieldMetadata(alias="all")] = pydantic.Field(alias="all")
-    """
-    Whether it applies to all applicable objects.
-    """
-
+    all_: typing_extensions.Annotated[
+        bool,
+        FieldMetadata(alias="all"),
+        pydantic.Field(alias="all", description="Whether it applies to all applicable objects."),
+    ]
     assets: typing.Optional[typing.List[TinyAssetObjectResponseBody]] = pydantic.Field(default=None)
     """
     The assets these triggers are scoped to.

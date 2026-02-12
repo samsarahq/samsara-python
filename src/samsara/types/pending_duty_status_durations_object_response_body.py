@@ -13,61 +13,70 @@ class PendingDutyStatusDurationsObjectResponseBody(UniversalBaseModel):
     What the duty status durations on the driver’s log would be if all pending carrier edits are accepted by the driver.
     """
 
-    active_duration_ms: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="activeDurationMs")] = (
-        pydantic.Field(alias="activeDurationMs", default=None)
-    )
-    """
-    Duration the driver was active for in the log period in milliseconds.
-    """
-
-    drive_duration_ms: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="driveDurationMs")] = (
-        pydantic.Field(alias="driveDurationMs", default=None)
-    )
-    """
-    Duration the driver was driving for in the log period in milliseconds.
-    """
-
+    active_duration_ms: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="activeDurationMs"),
+        pydantic.Field(
+            alias="activeDurationMs",
+            description="Duration the driver was active for in the log period in milliseconds.",
+        ),
+    ] = None
+    drive_duration_ms: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="driveDurationMs"),
+        pydantic.Field(
+            alias="driveDurationMs",
+            description="Duration the driver was driving for in the log period in milliseconds.",
+        ),
+    ] = None
     off_duty_duration_ms: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="offDutyDurationMs")
-    ] = pydantic.Field(alias="offDutyDurationMs", default=None)
-    """
-    Duration the driver was off duty for in the log period in milliseconds.
-    """
-
-    on_duty_duration_ms: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="onDutyDurationMs")] = (
-        pydantic.Field(alias="onDutyDurationMs", default=None)
-    )
-    """
-    Duration the driver was on duty for in the log period in milliseconds.
-    """
-
+        typing.Optional[int],
+        FieldMetadata(alias="offDutyDurationMs"),
+        pydantic.Field(
+            alias="offDutyDurationMs",
+            description="Duration the driver was off duty for in the log period in milliseconds.",
+        ),
+    ] = None
+    on_duty_duration_ms: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="onDutyDurationMs"),
+        pydantic.Field(
+            alias="onDutyDurationMs",
+            description="Duration the driver was on duty for in the log period in milliseconds.",
+        ),
+    ] = None
     personal_conveyance_duration_ms: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="personalConveyanceDurationMs")
-    ] = pydantic.Field(alias="personalConveyanceDurationMs", default=None)
-    """
-    Duration the driver was driving for personal conveyance for in the log period in milliseconds.
-    """
-
+        typing.Optional[int],
+        FieldMetadata(alias="personalConveyanceDurationMs"),
+        pydantic.Field(
+            alias="personalConveyanceDurationMs",
+            description="Duration the driver was driving for personal conveyance for in the log period in milliseconds.",
+        ),
+    ] = None
     sleeper_berth_duration_ms: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="sleeperBerthDurationMs")
-    ] = pydantic.Field(alias="sleeperBerthDurationMs", default=None)
-    """
-    Duration the driver was in their sleeper berth for in the log period in milliseconds.
-    """
-
+        typing.Optional[int],
+        FieldMetadata(alias="sleeperBerthDurationMs"),
+        pydantic.Field(
+            alias="sleeperBerthDurationMs",
+            description="Duration the driver was in their sleeper berth for in the log period in milliseconds.",
+        ),
+    ] = None
     waiting_time_duration_ms: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="waitingTimeDurationMs")
-    ] = pydantic.Field(alias="waitingTimeDurationMs", default=None)
-    """
-    Duration the driver was waiting for in the log period in milliseconds.
-    """
-
+        typing.Optional[int],
+        FieldMetadata(alias="waitingTimeDurationMs"),
+        pydantic.Field(
+            alias="waitingTimeDurationMs",
+            description="Duration the driver was waiting for in the log period in milliseconds.",
+        ),
+    ] = None
     yard_move_duration_ms: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="yardMoveDurationMs")
-    ] = pydantic.Field(alias="yardMoveDurationMs", default=None)
-    """
-    Duration the driver was driving for yard moves for in the log period in milliseconds.
-    """
+        typing.Optional[int],
+        FieldMetadata(alias="yardMoveDurationMs"),
+        pydantic.Field(
+            alias="yardMoveDurationMs",
+            description="Duration the driver was driving for yard moves for in the log period in milliseconds.",
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

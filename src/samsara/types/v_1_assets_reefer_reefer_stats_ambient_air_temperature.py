@@ -9,19 +9,16 @@ from ..core.serialization import FieldMetadata
 
 
 class V1AssetsReeferReeferStatsAmbientAirTemperature(UniversalBaseModel):
-    changed_at_ms: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="changedAtMs")] = (
-        pydantic.Field(alias="changedAtMs", default=None)
-    )
-    """
-    Timestamp in Unix milliseconds since epoch.
-    """
-
-    temp_in_milli_c: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="tempInMilliC")] = (
-        pydantic.Field(alias="tempInMilliC", default=None)
-    )
-    """
-    Ambient temperature in millidegree Celsius.
-    """
+    changed_at_ms: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="changedAtMs"),
+        pydantic.Field(alias="changedAtMs", description="Timestamp in Unix milliseconds since epoch."),
+    ] = None
+    temp_in_milli_c: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="tempInMilliC"),
+        pydantic.Field(alias="tempInMilliC", description="Ambient temperature in millidegree Celsius."),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

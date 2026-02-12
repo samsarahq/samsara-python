@@ -10,13 +10,11 @@ from .v_1_assets_reefer_reefer_stats_power_status_status import V1AssetsReeferRe
 
 
 class V1AssetsReeferReeferStatsPowerStatus(UniversalBaseModel):
-    changed_at_ms: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="changedAtMs")] = (
-        pydantic.Field(alias="changedAtMs", default=None)
-    )
-    """
-    Timestamp in Unix milliseconds since epoch.
-    """
-
+    changed_at_ms: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="changedAtMs"),
+        pydantic.Field(alias="changedAtMs", description="Timestamp in Unix milliseconds since epoch."),
+    ] = None
     status: typing.Optional[V1AssetsReeferReeferStatsPowerStatusStatus] = pydantic.Field(default=None)
     """
     Power status of the reefer. Valid values: `Off`, `Active`, `Active (Start/Stop)`, `Active (Continuous)`.

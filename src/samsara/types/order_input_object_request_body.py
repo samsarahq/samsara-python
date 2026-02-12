@@ -17,31 +17,27 @@ class OrderInputObjectRequestBody(UniversalBaseModel):
     """
 
     custom_properties: typing_extensions.Annotated[
-        typing.Optional[typing.List[OrderCustomPropertyInputRequestBody]], FieldMetadata(alias="customProperties")
-    ] = pydantic.Field(alias="customProperties", default=None)
-    """
-    An array of custom property values for the order
-    """
-
-    customer_order_id: typing_extensions.Annotated[str, FieldMetadata(alias="customerOrderId")] = pydantic.Field(
-        alias="customerOrderId"
-    )
-    """
-    The customer-provided identifier for the order
-    """
-
+        typing.Optional[typing.List[OrderCustomPropertyInputRequestBody]],
+        FieldMetadata(alias="customProperties"),
+        pydantic.Field(alias="customProperties", description="An array of custom property values for the order"),
+    ] = None
+    customer_order_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="customerOrderId"),
+        pydantic.Field(alias="customerOrderId", description="The customer-provided identifier for the order"),
+    ]
     delivery: typing.Optional[OrderTaskRequestBody] = None
-    hub_id: typing_extensions.Annotated[str, FieldMetadata(alias="hubId")] = pydantic.Field(alias="hubId")
-    """
-    The ID of the hub the order belongs to
-    """
-
+    hub_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="hubId"),
+        pydantic.Field(alias="hubId", description="The ID of the hub the order belongs to"),
+    ]
     pickup: typing.Optional[OrderTaskRequestBody] = None
-    plan_id: typing_extensions.Annotated[str, FieldMetadata(alias="planId")] = pydantic.Field(alias="planId")
-    """
-    The ID of the plan the order belongs to
-    """
-
+    plan_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="planId"),
+        pydantic.Field(alias="planId", description="The ID of the plan the order belongs to"),
+    ]
     priority: typing.Optional[int] = pydantic.Field(default=None)
     """
     Priority of the order (e.g., 1 for high, 5 for low)
@@ -53,11 +49,10 @@ class OrderInputObjectRequestBody(UniversalBaseModel):
     """
 
     skills_required: typing_extensions.Annotated[
-        typing.Optional[typing.List[str]], FieldMetadata(alias="skillsRequired")
-    ] = pydantic.Field(alias="skillsRequired", default=None)
-    """
-    An array of skill IDs required to fulfill the order
-    """
+        typing.Optional[typing.List[str]],
+        FieldMetadata(alias="skillsRequired"),
+        pydantic.Field(alias="skillsRequired", description="An array of skill IDs required to fulfill the order"),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

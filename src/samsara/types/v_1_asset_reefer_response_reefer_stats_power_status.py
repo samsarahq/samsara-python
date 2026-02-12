@@ -9,13 +9,11 @@ from ..core.serialization import FieldMetadata
 
 
 class V1AssetReeferResponseReeferStatsPowerStatus(UniversalBaseModel):
-    changed_at_ms: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="changedAtMs")] = (
-        pydantic.Field(alias="changedAtMs", default=None)
-    )
-    """
-    Timestamp in Unix milliseconds since epoch.
-    """
-
+    changed_at_ms: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="changedAtMs"),
+        pydantic.Field(alias="changedAtMs", description="Timestamp in Unix milliseconds since epoch."),
+    ] = None
     status: typing.Optional[str] = pydantic.Field(default=None)
     """
     Power status of the reefer. Valid values: `Off`, `Active`, `Active (Start/Stop)`, `Active (Continuous)`.

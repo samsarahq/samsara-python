@@ -57,83 +57,116 @@ class TrailerStatDecorationResponseBody(UniversalBaseModel):
     """
 
     carrier_reefer_state: typing_extensions.Annotated[
-        typing.Optional[TrailerStatReeferStateTypeResponseBody], FieldMetadata(alias="carrierReeferState")
-    ] = pydantic.Field(alias="carrierReeferState", default=None)
+        typing.Optional[TrailerStatReeferStateTypeResponseBody],
+        FieldMetadata(alias="carrierReeferState"),
+        pydantic.Field(alias="carrierReeferState"),
+    ] = None
     gps: typing.Optional[TrailerStatGpsTypeResponseBody] = None
     gps_odometer_meters: typing_extensions.Annotated[
-        typing.Optional[TrailerStatGpsOdometerMetersTypeResponseBody], FieldMetadata(alias="gpsOdometerMeters")
-    ] = pydantic.Field(alias="gpsOdometerMeters", default=None)
+        typing.Optional[TrailerStatGpsOdometerMetersTypeResponseBody],
+        FieldMetadata(alias="gpsOdometerMeters"),
+        pydantic.Field(alias="gpsOdometerMeters"),
+    ] = None
     reefer_alarms: typing_extensions.Annotated[
-        typing.Optional[TrailerStatReeferAlarmTypeResponseBody], FieldMetadata(alias="reeferAlarms")
-    ] = pydantic.Field(alias="reeferAlarms", default=None)
+        typing.Optional[TrailerStatReeferAlarmTypeResponseBody],
+        FieldMetadata(alias="reeferAlarms"),
+        pydantic.Field(alias="reeferAlarms"),
+    ] = None
     reefer_ambient_air_temperature_milli_c: typing_extensions.Annotated[
         typing.Optional[TrailerStatReeferAmbientAirTemperatureMilliCTypeResponseBody],
         FieldMetadata(alias="reeferAmbientAirTemperatureMilliC"),
-    ] = pydantic.Field(alias="reeferAmbientAirTemperatureMilliC", default=None)
+        pydantic.Field(alias="reeferAmbientAirTemperatureMilliC"),
+    ] = None
     reefer_door_state_zone_1: typing_extensions.Annotated[
-        typing.Optional[TrailerStatReeferDoorStateZone1TypeResponseBody], FieldMetadata(alias="reeferDoorStateZone1")
-    ] = pydantic.Field(alias="reeferDoorStateZone1", default=None)
+        typing.Optional[TrailerStatReeferDoorStateZone1TypeResponseBody],
+        FieldMetadata(alias="reeferDoorStateZone1"),
+        pydantic.Field(alias="reeferDoorStateZone1"),
+    ] = None
     reefer_door_state_zone_2: typing_extensions.Annotated[
-        typing.Optional[TrailerStatReeferDoorStateZone2TypeResponseBody], FieldMetadata(alias="reeferDoorStateZone2")
-    ] = pydantic.Field(alias="reeferDoorStateZone2", default=None)
+        typing.Optional[TrailerStatReeferDoorStateZone2TypeResponseBody],
+        FieldMetadata(alias="reeferDoorStateZone2"),
+        pydantic.Field(alias="reeferDoorStateZone2"),
+    ] = None
     reefer_door_state_zone_3: typing_extensions.Annotated[
-        typing.Optional[TrailerStatReeferDoorStateZone3TypeResponseBody], FieldMetadata(alias="reeferDoorStateZone3")
-    ] = pydantic.Field(alias="reeferDoorStateZone3", default=None)
+        typing.Optional[TrailerStatReeferDoorStateZone3TypeResponseBody],
+        FieldMetadata(alias="reeferDoorStateZone3"),
+        pydantic.Field(alias="reeferDoorStateZone3"),
+    ] = None
     reefer_fuel_percent: typing_extensions.Annotated[
-        typing.Optional[TrailerStatReeferFuelPercentTypeResponseBody], FieldMetadata(alias="reeferFuelPercent")
-    ] = pydantic.Field(alias="reeferFuelPercent", default=None)
+        typing.Optional[TrailerStatReeferFuelPercentTypeResponseBody],
+        FieldMetadata(alias="reeferFuelPercent"),
+        pydantic.Field(alias="reeferFuelPercent"),
+    ] = None
     reefer_obd_engine_seconds: typing_extensions.Annotated[
         typing.Optional[TrailerStatReeferObdEngineSecondsTypeResponseBody],
         FieldMetadata(alias="reeferObdEngineSeconds"),
-    ] = pydantic.Field(alias="reeferObdEngineSeconds", default=None)
+        pydantic.Field(alias="reeferObdEngineSeconds"),
+    ] = None
     reefer_return_air_temperature_milli_c_zone_1: typing_extensions.Annotated[
         typing.Optional[TrailerStatReeferReturnAirTemperatureMilliCZone1TypeResponseBody],
         FieldMetadata(alias="reeferReturnAirTemperatureMilliCZone1"),
-    ] = pydantic.Field(alias="reeferReturnAirTemperatureMilliCZone1", default=None)
+        pydantic.Field(alias="reeferReturnAirTemperatureMilliCZone1"),
+    ] = None
     reefer_return_air_temperature_milli_c_zone_2: typing_extensions.Annotated[
         typing.Optional[TrailerStatReeferReturnAirTemperatureMilliCZone2TypeResponseBody],
         FieldMetadata(alias="reeferReturnAirTemperatureMilliCZone2"),
-    ] = pydantic.Field(alias="reeferReturnAirTemperatureMilliCZone2", default=None)
+        pydantic.Field(alias="reeferReturnAirTemperatureMilliCZone2"),
+    ] = None
     reefer_return_air_temperature_milli_c_zone_3: typing_extensions.Annotated[
         typing.Optional[TrailerStatReeferReturnAirTemperatureMilliCZone3TypeResponseBody],
         FieldMetadata(alias="reeferReturnAirTemperatureMilliCZone3"),
-    ] = pydantic.Field(alias="reeferReturnAirTemperatureMilliCZone3", default=None)
+        pydantic.Field(alias="reeferReturnAirTemperatureMilliCZone3"),
+    ] = None
     reefer_run_mode: typing_extensions.Annotated[
-        typing.Optional[TrailerStatReeferRunModeTypeResponseBody], FieldMetadata(alias="reeferRunMode")
-    ] = pydantic.Field(alias="reeferRunMode", default=None)
+        typing.Optional[TrailerStatReeferRunModeTypeResponseBody],
+        FieldMetadata(alias="reeferRunMode"),
+        pydantic.Field(alias="reeferRunMode"),
+    ] = None
     reefer_set_point_temperature_milli_c_zone_1: typing_extensions.Annotated[
         typing.Optional[TrailerStatReeferSetPointTemperatureMilliCZone1TypeResponseBody],
         FieldMetadata(alias="reeferSetPointTemperatureMilliCZone1"),
-    ] = pydantic.Field(alias="reeferSetPointTemperatureMilliCZone1", default=None)
+        pydantic.Field(alias="reeferSetPointTemperatureMilliCZone1"),
+    ] = None
     reefer_set_point_temperature_milli_c_zone_2: typing_extensions.Annotated[
         typing.Optional[TrailerStatReeferSetPointTemperatureMilliCZone2TypeResponseBody],
         FieldMetadata(alias="reeferSetPointTemperatureMilliCZone2"),
-    ] = pydantic.Field(alias="reeferSetPointTemperatureMilliCZone2", default=None)
+        pydantic.Field(alias="reeferSetPointTemperatureMilliCZone2"),
+    ] = None
     reefer_set_point_temperature_milli_c_zone_3: typing_extensions.Annotated[
         typing.Optional[TrailerStatReeferSetPointTemperatureMilliCZone3TypeResponseBody],
         FieldMetadata(alias="reeferSetPointTemperatureMilliCZone3"),
-    ] = pydantic.Field(alias="reeferSetPointTemperatureMilliCZone3", default=None)
+        pydantic.Field(alias="reeferSetPointTemperatureMilliCZone3"),
+    ] = None
     reefer_state_zone_1: typing_extensions.Annotated[
-        typing.Optional[TrailerStatReeferStateZone1TypeResponseBody], FieldMetadata(alias="reeferStateZone1")
-    ] = pydantic.Field(alias="reeferStateZone1", default=None)
+        typing.Optional[TrailerStatReeferStateZone1TypeResponseBody],
+        FieldMetadata(alias="reeferStateZone1"),
+        pydantic.Field(alias="reeferStateZone1"),
+    ] = None
     reefer_state_zone_2: typing_extensions.Annotated[
-        typing.Optional[TrailerStatReeferStateZone2TypeResponseBody], FieldMetadata(alias="reeferStateZone2")
-    ] = pydantic.Field(alias="reeferStateZone2", default=None)
+        typing.Optional[TrailerStatReeferStateZone2TypeResponseBody],
+        FieldMetadata(alias="reeferStateZone2"),
+        pydantic.Field(alias="reeferStateZone2"),
+    ] = None
     reefer_state_zone_3: typing_extensions.Annotated[
-        typing.Optional[TrailerStatReeferStateZone3TypeResponseBody], FieldMetadata(alias="reeferStateZone3")
-    ] = pydantic.Field(alias="reeferStateZone3", default=None)
+        typing.Optional[TrailerStatReeferStateZone3TypeResponseBody],
+        FieldMetadata(alias="reeferStateZone3"),
+        pydantic.Field(alias="reeferStateZone3"),
+    ] = None
     reefer_supply_air_temperature_milli_c_zone_1: typing_extensions.Annotated[
         typing.Optional[TrailerStatReeferSupplyAirTemperatureMilliCZone1TypeResponseBody],
         FieldMetadata(alias="reeferSupplyAirTemperatureMilliCZone1"),
-    ] = pydantic.Field(alias="reeferSupplyAirTemperatureMilliCZone1", default=None)
+        pydantic.Field(alias="reeferSupplyAirTemperatureMilliCZone1"),
+    ] = None
     reefer_supply_air_temperature_milli_c_zone_2: typing_extensions.Annotated[
         typing.Optional[TrailerStatReeferSupplyAirTemperatureMilliCZone2TypeResponseBody],
         FieldMetadata(alias="reeferSupplyAirTemperatureMilliCZone2"),
-    ] = pydantic.Field(alias="reeferSupplyAirTemperatureMilliCZone2", default=None)
+        pydantic.Field(alias="reeferSupplyAirTemperatureMilliCZone2"),
+    ] = None
     reefer_supply_air_temperature_milli_c_zone_3: typing_extensions.Annotated[
         typing.Optional[TrailerStatReeferSupplyAirTemperatureMilliCZone3TypeResponseBody],
         FieldMetadata(alias="reeferSupplyAirTemperatureMilliCZone3"),
-    ] = pydantic.Field(alias="reeferSupplyAirTemperatureMilliCZone3", default=None)
+        pydantic.Field(alias="reeferSupplyAirTemperatureMilliCZone3"),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

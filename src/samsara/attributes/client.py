@@ -12,7 +12,7 @@ from .raw_client import AsyncRawAttributesClient, RawAttributesClient
 from .types.create_attribute_request_attribute_type import CreateAttributeRequestAttributeType
 from .types.create_attribute_request_entity_type import CreateAttributeRequestEntityType
 from .types.create_attribute_request_unit import CreateAttributeRequestUnit
-from .types.delete_attribute_request_entity_type import DeleteAttributeRequestEntityType
+from .types.delete_attributes_request_entity_type import DeleteAttributesRequestEntityType
 from .types.get_attribute_request_entity_type import GetAttributeRequestEntityType
 from .types.get_attributes_by_entity_type_request_entity_type import GetAttributesByEntityTypeRequestEntityType
 from .types.update_attribute_request_attribute_type import UpdateAttributeRequestAttributeType
@@ -207,11 +207,11 @@ class AttributesClient:
         _response = self._raw_client.get_attribute(id, entity_type=entity_type, request_options=request_options)
         return _response.data
 
-    def delete_attribute(
+    def delete(
         self,
         id: str,
         *,
-        entity_type: DeleteAttributeRequestEntityType,
+        entity_type: DeleteAttributesRequestEntityType,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> StandardDeleteResponse:
         """
@@ -226,7 +226,7 @@ class AttributesClient:
         id : str
             Samsara-provided UUID of the attribute.
 
-        entity_type : DeleteAttributeRequestEntityType
+        entity_type : DeleteAttributesRequestEntityType
             Denotes the type of entity, driver or asset.
 
         request_options : typing.Optional[RequestOptions]
@@ -244,12 +244,12 @@ class AttributesClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.attributes.delete_attribute(
+        client.attributes.delete(
             id="id",
             entity_type="driver",
         )
         """
-        _response = self._raw_client.delete_attribute(id, entity_type=entity_type, request_options=request_options)
+        _response = self._raw_client.delete(id, entity_type=entity_type, request_options=request_options)
         return _response.data
 
     def update_attribute(
@@ -536,11 +536,11 @@ class AsyncAttributesClient:
         _response = await self._raw_client.get_attribute(id, entity_type=entity_type, request_options=request_options)
         return _response.data
 
-    async def delete_attribute(
+    async def delete(
         self,
         id: str,
         *,
-        entity_type: DeleteAttributeRequestEntityType,
+        entity_type: DeleteAttributesRequestEntityType,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> StandardDeleteResponse:
         """
@@ -555,7 +555,7 @@ class AsyncAttributesClient:
         id : str
             Samsara-provided UUID of the attribute.
 
-        entity_type : DeleteAttributeRequestEntityType
+        entity_type : DeleteAttributesRequestEntityType
             Denotes the type of entity, driver or asset.
 
         request_options : typing.Optional[RequestOptions]
@@ -578,7 +578,7 @@ class AsyncAttributesClient:
 
 
         async def main() -> None:
-            await client.attributes.delete_attribute(
+            await client.attributes.delete(
                 id="id",
                 entity_type="driver",
             )
@@ -586,9 +586,7 @@ class AsyncAttributesClient:
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.delete_attribute(
-            id, entity_type=entity_type, request_options=request_options
-        )
+        _response = await self._raw_client.delete(id, entity_type=entity_type, request_options=request_options)
         return _response.data
 
     async def update_attribute(

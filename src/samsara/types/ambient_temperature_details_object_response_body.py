@@ -16,38 +16,34 @@ class AmbientTemperatureDetailsObjectResponseBody(UniversalBaseModel):
     Details specific to Ambient Temperature.
     """
 
-    cargo_is_full: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="cargoIsFull")] = (
-        pydantic.Field(alias="cargoIsFull", default=None)
-    )
-    """
-    Whether the cargo is full.
-    """
-
-    doors_are_closed: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="doorsAreClosed")] = (
-        pydantic.Field(alias="doorsAreClosed", default=None)
-    )
-    """
-    Whether the doors are closed.
-    """
-
-    min_duration_milliseconds: typing_extensions.Annotated[int, FieldMetadata(alias="minDurationMilliseconds")] = (
-        pydantic.Field(alias="minDurationMilliseconds")
-    )
-    """
-    The number of milliseconds the trigger needs to stay active before alerting.
-    """
-
+    cargo_is_full: typing_extensions.Annotated[
+        typing.Optional[bool],
+        FieldMetadata(alias="cargoIsFull"),
+        pydantic.Field(alias="cargoIsFull", description="Whether the cargo is full."),
+    ] = None
+    doors_are_closed: typing_extensions.Annotated[
+        typing.Optional[bool],
+        FieldMetadata(alias="doorsAreClosed"),
+        pydantic.Field(alias="doorsAreClosed", description="Whether the doors are closed."),
+    ] = None
+    min_duration_milliseconds: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="minDurationMilliseconds"),
+        pydantic.Field(
+            alias="minDurationMilliseconds",
+            description="The number of milliseconds the trigger needs to stay active before alerting.",
+        ),
+    ]
     operation: AmbientTemperatureDetailsObjectResponseBodyOperation = pydantic.Field()
     """
     How to evaluate the threshold.  Valid values: `GREATER`, `INSIDE_RANGE`, `LESS`, `OUTSIDE_RANGE`
     """
 
-    temperature_celcius: typing_extensions.Annotated[int, FieldMetadata(alias="temperatureCelcius")] = pydantic.Field(
-        alias="temperatureCelcius"
-    )
-    """
-    The temperature in Celcius threshold value.
-    """
+    temperature_celcius: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="temperatureCelcius"),
+        pydantic.Field(alias="temperatureCelcius", description="The temperature in Celcius threshold value."),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

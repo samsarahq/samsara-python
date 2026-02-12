@@ -16,57 +16,53 @@ class MinimalRouteStopResponseBody(UniversalBaseModel):
     """
 
     actual_arrival_time: typing_extensions.Annotated[
-        typing.Optional[dt.datetime], FieldMetadata(alias="actualArrivalTime")
-    ] = pydantic.Field(alias="actualArrivalTime", default=None)
-    """
-    Actual arrival time, if it exists, for the route stop in RFC 3339 format.
-    """
-
+        typing.Optional[dt.datetime],
+        FieldMetadata(alias="actualArrivalTime"),
+        pydantic.Field(
+            alias="actualArrivalTime",
+            description="Actual arrival time, if it exists, for the route stop in RFC 3339 format.",
+        ),
+    ] = None
     actual_departure_time: typing_extensions.Annotated[
-        typing.Optional[dt.datetime], FieldMetadata(alias="actualDepartureTime")
-    ] = pydantic.Field(alias="actualDepartureTime", default=None)
-    """
-    Actual departure time, if it exists, for the route stop in RFC 3339 format.
-    """
-
-    en_route_time: typing_extensions.Annotated[typing.Optional[dt.datetime], FieldMetadata(alias="enRouteTime")] = (
-        pydantic.Field(alias="enRouteTime", default=None)
-    )
-    """
-    The time the stop became en-route, in RFC 3339 format.
-    """
-
+        typing.Optional[dt.datetime],
+        FieldMetadata(alias="actualDepartureTime"),
+        pydantic.Field(
+            alias="actualDepartureTime",
+            description="Actual departure time, if it exists, for the route stop in RFC 3339 format.",
+        ),
+    ] = None
+    en_route_time: typing_extensions.Annotated[
+        typing.Optional[dt.datetime],
+        FieldMetadata(alias="enRouteTime"),
+        pydantic.Field(alias="enRouteTime", description="The time the stop became en-route, in RFC 3339 format."),
+    ] = None
     eta: typing.Optional[dt.datetime] = pydantic.Field(default=None)
     """
     Estimated time of arrival, if this stop is currently en-route, in RFC 3339 format.
     """
 
     external_ids: typing_extensions.Annotated[
-        typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(alias="externalIds", default=None)
-    """
-    A map of external ids
-    """
-
+        typing.Optional[typing.Dict[str, str]],
+        FieldMetadata(alias="externalIds"),
+        pydantic.Field(alias="externalIds", description="A map of external ids"),
+    ] = None
     id: str = pydantic.Field()
     """
     Unique identifier for the route stop.
     """
 
-    live_sharing_url: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="liveSharingUrl")] = (
-        pydantic.Field(alias="liveSharingUrl", default=None)
-    )
-    """
-    The shareable url of the stop's current status.
-    """
-
-    skipped_time: typing_extensions.Annotated[typing.Optional[dt.datetime], FieldMetadata(alias="skippedTime")] = (
-        pydantic.Field(alias="skippedTime", default=None)
-    )
-    """
-    Skipped time, if it exists, for the route stop in RFC 3339 format.
-    """
-
+    live_sharing_url: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="liveSharingUrl"),
+        pydantic.Field(alias="liveSharingUrl", description="The shareable url of the stop's current status."),
+    ] = None
+    skipped_time: typing_extensions.Annotated[
+        typing.Optional[dt.datetime],
+        FieldMetadata(alias="skippedTime"),
+        pydantic.Field(
+            alias="skippedTime", description="Skipped time, if it exists, for the route stop in RFC 3339 format."
+        ),
+    ] = None
     state: MinimalRouteStopResponseBodyState = pydantic.Field()
     """
     The current state of the route stop.  Valid values: `unassigned`, `scheduled`, `en route`, `skipped`, `arrived`, `departed`

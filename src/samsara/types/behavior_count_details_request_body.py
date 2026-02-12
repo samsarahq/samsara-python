@@ -19,17 +19,16 @@ class BehaviorCountDetailsRequestBody(UniversalBaseModel):
     The comparison to use when comparing the value to the threshold.  Valid values: `EQUAL_TO`, `GREATER_THAN`, `GREATER_THAN_OR_EQUAL_TO`, `LESS_THAN`, `LESS_THAN_OR_EQUAL_TO`
     """
 
-    num_behaviors: typing_extensions.Annotated[int, FieldMetadata(alias="numBehaviors")] = pydantic.Field(
-        alias="numBehaviors"
-    )
-    """
-    The number of behaviors to compare to.
-    """
-
-    num_days: typing_extensions.Annotated[int, FieldMetadata(alias="numDays")] = pydantic.Field(alias="numDays")
-    """
-    The number of days to compare to.
-    """
+    num_behaviors: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="numBehaviors"),
+        pydantic.Field(alias="numBehaviors", description="The number of behaviors to compare to."),
+    ]
+    num_days: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="numDays"),
+        pydantic.Field(alias="numDays", description="The number of days to compare to."),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

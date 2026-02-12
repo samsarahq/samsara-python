@@ -13,13 +13,11 @@ class OrderQuantityInputRequestBody(UniversalBaseModel):
     Quantity requirement
     """
 
-    capacity_id: typing_extensions.Annotated[str, FieldMetadata(alias="capacityId")] = pydantic.Field(
-        alias="capacityId"
-    )
-    """
-    The ID of the required capacity type
-    """
-
+    capacity_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="capacityId"),
+        pydantic.Field(alias="capacityId", description="The ID of the required capacity type"),
+    ]
     quantity: float = pydantic.Field()
     """
     The quantity of the required capacity

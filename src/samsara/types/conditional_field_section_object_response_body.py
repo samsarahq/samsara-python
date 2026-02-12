@@ -10,32 +10,37 @@ from ..core.serialization import FieldMetadata
 
 class ConditionalFieldSectionObjectResponseBody(UniversalBaseModel):
     conditional_field_first_index: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="conditionalFieldFirstIndex")
-    ] = pydantic.Field(alias="conditionalFieldFirstIndex", default=None)
-    """
-    The index of the first conditional field associated with the triggeringFieldValue in the fieldTypes list.
-    """
-
+        typing.Optional[int],
+        FieldMetadata(alias="conditionalFieldFirstIndex"),
+        pydantic.Field(
+            alias="conditionalFieldFirstIndex",
+            description="The index of the first conditional field associated with the triggeringFieldValue in the fieldTypes list.",
+        ),
+    ] = None
     conditional_field_last_index: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="conditionalFieldLastIndex")
-    ] = pydantic.Field(alias="conditionalFieldLastIndex", default=None)
-    """
-    The index of the last conditional field associated with the triggeringFieldValue in the fieldTypes list.
-    """
-
+        typing.Optional[int],
+        FieldMetadata(alias="conditionalFieldLastIndex"),
+        pydantic.Field(
+            alias="conditionalFieldLastIndex",
+            description="The index of the last conditional field associated with the triggeringFieldValue in the fieldTypes list.",
+        ),
+    ] = None
     triggering_field_index: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="triggeringFieldIndex")
-    ] = pydantic.Field(alias="triggeringFieldIndex", default=None)
-    """
-    The index of the multiple choice field in the fieldTypes list that triggers one or more conditional fields.
-    """
-
+        typing.Optional[int],
+        FieldMetadata(alias="triggeringFieldIndex"),
+        pydantic.Field(
+            alias="triggeringFieldIndex",
+            description="The index of the multiple choice field in the fieldTypes list that triggers one or more conditional fields.",
+        ),
+    ] = None
     triggering_field_value: typing_extensions.Annotated[
-        typing.Optional[str], FieldMetadata(alias="triggeringFieldValue")
-    ] = pydantic.Field(alias="triggeringFieldValue", default=None)
-    """
-    The multiple choice option value that triggers the conditional fields.
-    """
+        typing.Optional[str],
+        FieldMetadata(alias="triggeringFieldValue"),
+        pydantic.Field(
+            alias="triggeringFieldValue",
+            description="The multiple choice option value that triggers the conditional fields.",
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

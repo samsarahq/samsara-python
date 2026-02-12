@@ -14,17 +14,16 @@ class StopTaskCompletedEventDetailsResponseBody(UniversalBaseModel):
     Details for stop task completed events.
     """
 
-    task_id: typing_extensions.Annotated[str, FieldMetadata(alias="taskId")] = pydantic.Field(alias="taskId")
-    """
-    ID of the completed stop task.
-    """
-
+    task_id: typing_extensions.Annotated[
+        str, FieldMetadata(alias="taskId"), pydantic.Field(alias="taskId", description="ID of the completed stop task.")
+    ]
     task_type: typing_extensions.Annotated[
-        StopTaskCompletedEventDetailsResponseBodyTaskType, FieldMetadata(alias="taskType")
-    ] = pydantic.Field(alias="taskType")
-    """
-    Type of the completed stop task.  Valid values: `form`, `document`
-    """
+        StopTaskCompletedEventDetailsResponseBodyTaskType,
+        FieldMetadata(alias="taskType"),
+        pydantic.Field(
+            alias="taskType", description="Type of the completed stop task.  Valid values: `form`, `document`"
+        ),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

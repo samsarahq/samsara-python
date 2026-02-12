@@ -14,25 +14,26 @@ class DriverAppSettingsTrailerSelectionConfigTinyObjectResponseBody(UniversalBas
     """
 
     driver_trailer_creation_enabled: typing_extensions.Annotated[
-        typing.Optional[bool], FieldMetadata(alias="driverTrailerCreationEnabled")
-    ] = pydantic.Field(alias="driverTrailerCreationEnabled", default=None)
-    """
-    Allow drivers to create new trailers in the Samsara Driver app.
-    """
-
+        typing.Optional[bool],
+        FieldMetadata(alias="driverTrailerCreationEnabled"),
+        pydantic.Field(
+            alias="driverTrailerCreationEnabled",
+            description="Allow drivers to create new trailers in the Samsara Driver app.",
+        ),
+    ] = None
     max_num_of_trailers_selected: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="maxNumOfTrailersSelected")
-    ] = pydantic.Field(alias="maxNumOfTrailersSelected", default=None)
-    """
-    Trailer selection limit.
-    """
-
-    org_trailer_search: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="orgTrailerSearch")] = (
-        pydantic.Field(alias="orgTrailerSearch", default=None)
-    )
-    """
-    Allow drivers to search for trailers outside of their selection tag when connected to the internet
-    """
+        typing.Optional[int],
+        FieldMetadata(alias="maxNumOfTrailersSelected"),
+        pydantic.Field(alias="maxNumOfTrailersSelected", description="Trailer selection limit."),
+    ] = None
+    org_trailer_search: typing_extensions.Annotated[
+        typing.Optional[bool],
+        FieldMetadata(alias="orgTrailerSearch"),
+        pydantic.Field(
+            alias="orgTrailerSearch",
+            description="Allow drivers to search for trailers outside of their selection tag when connected to the internet",
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -16,17 +16,14 @@ class Dvir2RelatedDeviceObjectResponseBody(UniversalBaseModel):
     """
 
     asset_type: typing_extensions.Annotated[
-        Dvir2RelatedDeviceObjectResponseBodyAssetType, FieldMetadata(alias="assetType")
-    ] = pydantic.Field(alias="assetType")
-    """
-    The type of asset.  Valid values: `Vehicle`, `Trailer`
-    """
-
+        Dvir2RelatedDeviceObjectResponseBodyAssetType,
+        FieldMetadata(alias="assetType"),
+        pydantic.Field(alias="assetType", description="The type of asset.  Valid values: `Vehicle`, `Trailer`"),
+    ]
     device: typing.Optional[Dvir2DeviceObjectResponseBody] = None
-    device_id: typing_extensions.Annotated[int, FieldMetadata(alias="deviceId")] = pydantic.Field(alias="deviceId")
-    """
-    The ID of the device.
-    """
+    device_id: typing_extensions.Annotated[
+        int, FieldMetadata(alias="deviceId"), pydantic.Field(alias="deviceId", description="The ID of the device.")
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

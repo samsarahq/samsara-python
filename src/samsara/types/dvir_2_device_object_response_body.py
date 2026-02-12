@@ -14,30 +14,25 @@ class Dvir2DeviceObjectResponseBody(UniversalBaseModel):
     """
 
     external_ids: typing_extensions.Annotated[
-        typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(alias="externalIds", default=None)
-    """
-    A map of external ids
-    """
-
-    license_plate: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="licensePlate")] = (
-        pydantic.Field(alias="licensePlate", default=None)
-    )
-    """
-    The license plate of the vehicle.
-    """
-
+        typing.Optional[typing.Dict[str, str]],
+        FieldMetadata(alias="externalIds"),
+        pydantic.Field(alias="externalIds", description="A map of external ids"),
+    ] = None
+    license_plate: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="licensePlate"),
+        pydantic.Field(alias="licensePlate", description="The license plate of the vehicle."),
+    ] = None
     name: typing.Optional[str] = pydantic.Field(default=None)
     """
     The name of the device.
     """
 
-    vehicle_vin: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="vehicleVin")] = pydantic.Field(
-        alias="vehicleVin", default=None
-    )
-    """
-    The VIN of the vehicle.
-    """
+    vehicle_vin: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="vehicleVin"),
+        pydantic.Field(alias="vehicleVin", description="The VIN of the vehicle."),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

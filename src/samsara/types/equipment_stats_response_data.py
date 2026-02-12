@@ -26,39 +26,53 @@ class EquipmentStatsResponseData(UniversalBaseModel):
     A unit of equipment and its most recent stat.
     """
 
-    engine_rpm: typing_extensions.Annotated[typing.Optional[EquipmentEngineRpm], FieldMetadata(alias="engineRpm")] = (
-        pydantic.Field(alias="engineRpm", default=None)
-    )
+    engine_rpm: typing_extensions.Annotated[
+        typing.Optional[EquipmentEngineRpm], FieldMetadata(alias="engineRpm"), pydantic.Field(alias="engineRpm")
+    ] = None
     engine_seconds: typing_extensions.Annotated[
-        typing.Optional[EquipmentEngineSeconds], FieldMetadata(alias="engineSeconds")
-    ] = pydantic.Field(alias="engineSeconds", default=None)
+        typing.Optional[EquipmentEngineSeconds],
+        FieldMetadata(alias="engineSeconds"),
+        pydantic.Field(alias="engineSeconds"),
+    ] = None
     engine_state: typing_extensions.Annotated[
-        typing.Optional[EquipmentEngineState], FieldMetadata(alias="engineState")
-    ] = pydantic.Field(alias="engineState", default=None)
+        typing.Optional[EquipmentEngineState], FieldMetadata(alias="engineState"), pydantic.Field(alias="engineState")
+    ] = None
     engine_total_idle_time_minutes: typing_extensions.Annotated[
-        typing.Optional[EquipmentEngineTotalIdleTimeMinutes], FieldMetadata(alias="engineTotalIdleTimeMinutes")
-    ] = pydantic.Field(alias="engineTotalIdleTimeMinutes", default=None)
+        typing.Optional[EquipmentEngineTotalIdleTimeMinutes],
+        FieldMetadata(alias="engineTotalIdleTimeMinutes"),
+        pydantic.Field(alias="engineTotalIdleTimeMinutes"),
+    ] = None
     fuel_percent: typing_extensions.Annotated[
-        typing.Optional[EquipmentFuelPercent], FieldMetadata(alias="fuelPercent")
-    ] = pydantic.Field(alias="fuelPercent", default=None)
+        typing.Optional[EquipmentFuelPercent], FieldMetadata(alias="fuelPercent"), pydantic.Field(alias="fuelPercent")
+    ] = None
     gateway_engine_seconds: typing_extensions.Annotated[
-        typing.Optional[EquipmentGatewayEngineSeconds], FieldMetadata(alias="gatewayEngineSeconds")
-    ] = pydantic.Field(alias="gatewayEngineSeconds", default=None)
+        typing.Optional[EquipmentGatewayEngineSeconds],
+        FieldMetadata(alias="gatewayEngineSeconds"),
+        pydantic.Field(alias="gatewayEngineSeconds"),
+    ] = None
     gateway_engine_state: typing_extensions.Annotated[
-        typing.Optional[EquipmentGatewayEngineState], FieldMetadata(alias="gatewayEngineState")
-    ] = pydantic.Field(alias="gatewayEngineState", default=None)
+        typing.Optional[EquipmentGatewayEngineState],
+        FieldMetadata(alias="gatewayEngineState"),
+        pydantic.Field(alias="gatewayEngineState"),
+    ] = None
     gps: typing.Optional[EquipmentStatsGps] = None
     gps_odometer_meters: typing_extensions.Annotated[
-        typing.Optional[EquipmentGpsOdometerMeters], FieldMetadata(alias="gpsOdometerMeters")
-    ] = pydantic.Field(alias="gpsOdometerMeters", default=None)
+        typing.Optional[EquipmentGpsOdometerMeters],
+        FieldMetadata(alias="gpsOdometerMeters"),
+        pydantic.Field(alias="gpsOdometerMeters"),
+    ] = None
     id: EquipmentId
     name: EquipmentName
     obd_engine_seconds: typing_extensions.Annotated[
-        typing.Optional[EquipmentObdEngineSeconds], FieldMetadata(alias="obdEngineSeconds")
-    ] = pydantic.Field(alias="obdEngineSeconds", default=None)
+        typing.Optional[EquipmentObdEngineSeconds],
+        FieldMetadata(alias="obdEngineSeconds"),
+        pydantic.Field(alias="obdEngineSeconds"),
+    ] = None
     obd_engine_state: typing_extensions.Annotated[
-        typing.Optional[EquipmentObdEngineState], FieldMetadata(alias="obdEngineState")
-    ] = pydantic.Field(alias="obdEngineState", default=None)
+        typing.Optional[EquipmentObdEngineState],
+        FieldMetadata(alias="obdEngineState"),
+        pydantic.Field(alias="obdEngineState"),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

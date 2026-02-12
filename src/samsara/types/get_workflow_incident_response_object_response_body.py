@@ -15,47 +15,42 @@ class GetWorkflowIncidentResponseObjectResponseBody(UniversalBaseModel):
     An array of conditions associated with the incident.
     """
 
-    configuration_id: typing_extensions.Annotated[str, FieldMetadata(alias="configurationId")] = pydantic.Field(
-        alias="configurationId"
-    )
-    """
-    Unique ID of the alert configuration.
-    """
-
-    happened_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="happenedAtTime")] = pydantic.Field(
-        alias="happenedAtTime"
-    )
-    """
-    Time and date that the alert incident occurred in RFC 3339 format.
-    """
-
-    incident_url: typing_extensions.Annotated[str, FieldMetadata(alias="incidentUrl")] = pydantic.Field(
-        alias="incidentUrl"
-    )
-    """
-    Url of alert incident in the cloud dashboard.
-    """
-
-    is_resolved: typing_extensions.Annotated[bool, FieldMetadata(alias="isResolved")] = pydantic.Field(
-        alias="isResolved"
-    )
-    """
-    Indicates whether the incident is resolved or not.
-    """
-
-    resolved_at_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="resolvedAtTime")] = (
-        pydantic.Field(alias="resolvedAtTime", default=None)
-    )
-    """
-    Time and date that the alert incident was resolved in RFC 3339 format.
-    """
-
-    updated_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="updatedAtTime")] = pydantic.Field(
-        alias="updatedAtTime"
-    )
-    """
-    Time and date that the alert incident updated in RFC 3339 format.
-    """
+    configuration_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="configurationId"),
+        pydantic.Field(alias="configurationId", description="Unique ID of the alert configuration."),
+    ]
+    happened_at_time: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="happenedAtTime"),
+        pydantic.Field(
+            alias="happenedAtTime", description="Time and date that the alert incident occurred in RFC 3339 format."
+        ),
+    ]
+    incident_url: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="incidentUrl"),
+        pydantic.Field(alias="incidentUrl", description="Url of alert incident in the cloud dashboard."),
+    ]
+    is_resolved: typing_extensions.Annotated[
+        bool,
+        FieldMetadata(alias="isResolved"),
+        pydantic.Field(alias="isResolved", description="Indicates whether the incident is resolved or not."),
+    ]
+    resolved_at_time: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="resolvedAtTime"),
+        pydantic.Field(
+            alias="resolvedAtTime", description="Time and date that the alert incident was resolved in RFC 3339 format."
+        ),
+    ] = None
+    updated_at_time: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="updatedAtTime"),
+        pydantic.Field(
+            alias="updatedAtTime", description="Time and date that the alert incident updated in RFC 3339 format."
+        ),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

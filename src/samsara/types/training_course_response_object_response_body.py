@@ -23,12 +23,12 @@ class TrainingCourseResponseObjectResponseBody(UniversalBaseModel):
     """
 
     estimated_time_to_complete_minutes: typing_extensions.Annotated[
-        int, FieldMetadata(alias="estimatedTimeToCompleteMinutes")
-    ] = pydantic.Field(alias="estimatedTimeToCompleteMinutes")
-    """
-    Estimated time it takes to complete the course.
-    """
-
+        int,
+        FieldMetadata(alias="estimatedTimeToCompleteMinutes"),
+        pydantic.Field(
+            alias="estimatedTimeToCompleteMinutes", description="Estimated time it takes to complete the course."
+        ),
+    ]
     id: str = pydantic.Field()
     """
     ID of the training course.
@@ -39,13 +39,11 @@ class TrainingCourseResponseObjectResponseBody(UniversalBaseModel):
     List of course labels.
     """
 
-    revision_id: typing_extensions.Annotated[str, FieldMetadata(alias="revisionId")] = pydantic.Field(
-        alias="revisionId"
-    )
-    """
-    ID of the course's specific version.
-    """
-
+    revision_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="revisionId"),
+        pydantic.Field(alias="revisionId", description="ID of the course's specific version."),
+    ]
     status: TrainingCourseResponseObjectResponseBodyStatus = pydantic.Field()
     """
     Status of the training course. Always returned.

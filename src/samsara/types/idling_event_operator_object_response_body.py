@@ -14,12 +14,10 @@ class IdlingEventOperatorObjectResponseBody(UniversalBaseModel):
     """
 
     external_ids: typing_extensions.Annotated[
-        typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(alias="externalIds", default=None)
-    """
-    A map of external ids for the operator.
-    """
-
+        typing.Optional[typing.Dict[str, str]],
+        FieldMetadata(alias="externalIds"),
+        pydantic.Field(alias="externalIds", description="A map of external ids for the operator."),
+    ] = None
     id: int = pydantic.Field()
     """
     Samsara ID of the operator assigned to the event. Returns driver ID at this time.

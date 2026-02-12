@@ -13,17 +13,14 @@ class FormSubmissionRequestMediaItemObjectRequestBody(UniversalBaseModel):
     A media item in a form submission request.
     """
 
-    base_64_payload: typing_extensions.Annotated[str, FieldMetadata(alias="base64Payload")] = pydantic.Field(
-        alias="base64Payload"
-    )
-    """
-    Base64-encoded binary content of the media.
-    """
-
-    media_type: typing_extensions.Annotated[str, FieldMetadata(alias="mediaType")] = pydantic.Field(alias="mediaType")
-    """
-    MIME type of the media.
-    """
+    base_64_payload: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="base64Payload"),
+        pydantic.Field(alias="base64Payload", description="Base64-encoded binary content of the media."),
+    ]
+    media_type: typing_extensions.Annotated[
+        str, FieldMetadata(alias="mediaType"), pydantic.Field(alias="mediaType", description="MIME type of the media.")
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -20,13 +20,14 @@ class CreateReportConfigObjectRequestBody(UniversalBaseModel):
     Columns to include in the report. Only one of ID or datasetId and columns must be provided.
     """
 
-    dataset_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="datasetId")] = pydantic.Field(
-        alias="datasetId", default=None
-    )
-    """
-    ID of the dataset that is going to be used for the report. Only one of ID or datasetId and columns must be provided.
-    """
-
+    dataset_id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="datasetId"),
+        pydantic.Field(
+            alias="datasetId",
+            description="ID of the dataset that is going to be used for the report. Only one of ID or datasetId and columns must be provided.",
+        ),
+    ] = None
     filters: typing.Optional[FiltersRequestBody] = None
     id: typing.Optional[str] = pydantic.Field(default=None)
     """

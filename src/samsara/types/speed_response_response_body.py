@@ -14,18 +14,15 @@ class SpeedResponseResponseBody(UniversalBaseModel):
     """
 
     ecu_speed_meters_per_second: typing_extensions.Annotated[
-        typing.Optional[float], FieldMetadata(alias="ecuSpeedMetersPerSecond")
-    ] = pydantic.Field(alias="ecuSpeedMetersPerSecond", default=None)
-    """
-    Speed of asset based on ECU data.
-    """
-
+        typing.Optional[float],
+        FieldMetadata(alias="ecuSpeedMetersPerSecond"),
+        pydantic.Field(alias="ecuSpeedMetersPerSecond", description="Speed of asset based on ECU data."),
+    ] = None
     gps_speed_meters_per_second: typing_extensions.Annotated[
-        typing.Optional[float], FieldMetadata(alias="gpsSpeedMetersPerSecond")
-    ] = pydantic.Field(alias="gpsSpeedMetersPerSecond", default=None)
-    """
-    Speed of asset based on GPS data.
-    """
+        typing.Optional[float],
+        FieldMetadata(alias="gpsSpeedMetersPerSecond"),
+        pydantic.Field(alias="gpsSpeedMetersPerSecond", description="Speed of asset based on GPS data."),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

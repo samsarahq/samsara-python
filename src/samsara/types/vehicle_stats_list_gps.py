@@ -25,19 +25,25 @@ class VehicleStatsListGps(UniversalBaseModel):
     address: typing.Optional[VehicleLocationAddress] = None
     decorations: typing.Optional[VehicleStatsDecorations] = None
     heading_degrees: typing_extensions.Annotated[
-        typing.Optional[VehicleLocationHeading], FieldMetadata(alias="headingDegrees")
-    ] = pydantic.Field(alias="headingDegrees", default=None)
+        typing.Optional[VehicleLocationHeading],
+        FieldMetadata(alias="headingDegrees"),
+        pydantic.Field(alias="headingDegrees"),
+    ] = None
     is_ecu_speed: typing_extensions.Annotated[
-        typing.Optional[VehicleLocationIsEcuSpeed], FieldMetadata(alias="isEcuSpeed")
-    ] = pydantic.Field(alias="isEcuSpeed", default=None)
+        typing.Optional[VehicleLocationIsEcuSpeed],
+        FieldMetadata(alias="isEcuSpeed"),
+        pydantic.Field(alias="isEcuSpeed"),
+    ] = None
     latitude: VehicleLocationLatitude
     longitude: VehicleLocationLongitude
-    reverse_geo: typing_extensions.Annotated[typing.Optional[ReverseGeo], FieldMetadata(alias="reverseGeo")] = (
-        pydantic.Field(alias="reverseGeo", default=None)
-    )
+    reverse_geo: typing_extensions.Annotated[
+        typing.Optional[ReverseGeo], FieldMetadata(alias="reverseGeo"), pydantic.Field(alias="reverseGeo")
+    ] = None
     speed_miles_per_hour: typing_extensions.Annotated[
-        typing.Optional[VehicleLocationSpeed], FieldMetadata(alias="speedMilesPerHour")
-    ] = pydantic.Field(alias="speedMilesPerHour", default=None)
+        typing.Optional[VehicleLocationSpeed],
+        FieldMetadata(alias="speedMilesPerHour"),
+        pydantic.Field(alias="speedMilesPerHour"),
+    ] = None
     time: Time
 
     if IS_PYDANTIC_V2:

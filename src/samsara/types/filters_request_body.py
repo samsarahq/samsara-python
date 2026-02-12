@@ -15,8 +15,10 @@ class FiltersRequestBody(UniversalBaseModel):
     """
 
     primary_time_range: typing_extensions.Annotated[
-        typing.Optional[PrimaryTimeRangeRequestBody], FieldMetadata(alias="primaryTimeRange")
-    ] = pydantic.Field(alias="primaryTimeRange", default=None)
+        typing.Optional[PrimaryTimeRangeRequestBody],
+        FieldMetadata(alias="primaryTimeRange"),
+        pydantic.Field(alias="primaryTimeRange"),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

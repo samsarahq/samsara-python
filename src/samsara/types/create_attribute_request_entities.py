@@ -11,39 +11,36 @@ from ..core.serialization import FieldMetadata
 
 class CreateAttributeRequestEntities(UniversalBaseModel):
     date_values: typing_extensions.Annotated[
-        typing.Optional[typing.List[dt.date]], FieldMetadata(alias="dateValues")
-    ] = pydantic.Field(alias="dateValues", default=None)
-    """
-    Date values that can be associated with this attribute in RFC 3339 full-date format (YYYY-MM-DD)
-    """
-
-    entity_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="entityId")] = pydantic.Field(
-        alias="entityId", default=None
-    )
-    """
-    Entity id, based on the entity type.
-    """
-
+        typing.Optional[typing.List[dt.date]],
+        FieldMetadata(alias="dateValues"),
+        pydantic.Field(
+            alias="dateValues",
+            description="Date values that can be associated with this attribute in RFC 3339 full-date format (YYYY-MM-DD)",
+        ),
+    ] = None
+    entity_id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="entityId"),
+        pydantic.Field(alias="entityId", description="Entity id, based on the entity type."),
+    ] = None
     external_ids: typing_extensions.Annotated[
-        typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(alias="externalIds", default=None)
-    """
-    The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.
-    """
-
+        typing.Optional[typing.Dict[str, str]],
+        FieldMetadata(alias="externalIds"),
+        pydantic.Field(
+            alias="externalIds",
+            description="The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.",
+        ),
+    ] = None
     number_values: typing_extensions.Annotated[
-        typing.Optional[typing.List[float]], FieldMetadata(alias="numberValues")
-    ] = pydantic.Field(alias="numberValues", default=None)
-    """
-    Number values that can be associated with this attribute
-    """
-
+        typing.Optional[typing.List[float]],
+        FieldMetadata(alias="numberValues"),
+        pydantic.Field(alias="numberValues", description="Number values that can be associated with this attribute"),
+    ] = None
     string_values: typing_extensions.Annotated[
-        typing.Optional[typing.List[str]], FieldMetadata(alias="stringValues")
-    ] = pydantic.Field(alias="stringValues", default=None)
-    """
-    String values that can be associated with this attribute
-    """
+        typing.Optional[typing.List[str]],
+        FieldMetadata(alias="stringValues"),
+        pydantic.Field(alias="stringValues", description="String values that can be associated with this attribute"),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

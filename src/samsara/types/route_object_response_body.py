@@ -21,90 +21,83 @@ class RouteObjectResponseBody(UniversalBaseModel):
     The cost of the route
     """
 
-    created_at: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAt")] = pydantic.Field(
-        alias="createdAt"
-    )
-    """
-    The timestamp (in UTC) when the route was created
-    """
-
-    dispatch_route_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="dispatchRouteId")] = (
-        pydantic.Field(alias="dispatchRouteId", default=None)
-    )
-    """
-    The dispatch route identifier
-    """
-
-    distance_meters: typing_extensions.Annotated[int, FieldMetadata(alias="distanceMeters")] = pydantic.Field(
-        alias="distanceMeters"
-    )
-    """
-    The total distance of the route in meters
-    """
-
-    duration_seconds: typing_extensions.Annotated[int, FieldMetadata(alias="durationSeconds")] = pydantic.Field(
-        alias="durationSeconds"
-    )
-    """
-    The total duration of the route in seconds
-    """
-
-    hub_id: typing_extensions.Annotated[str, FieldMetadata(alias="hubId")] = pydantic.Field(alias="hubId")
-    """
-    The ID of the hub this route belongs to
-    """
-
+    created_at: typing_extensions.Annotated[
+        dt.datetime,
+        FieldMetadata(alias="createdAt"),
+        pydantic.Field(alias="createdAt", description="The timestamp (in UTC) when the route was created"),
+    ]
+    dispatch_route_id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="dispatchRouteId"),
+        pydantic.Field(alias="dispatchRouteId", description="The dispatch route identifier"),
+    ] = None
+    distance_meters: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="distanceMeters"),
+        pydantic.Field(alias="distanceMeters", description="The total distance of the route in meters"),
+    ]
+    duration_seconds: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="durationSeconds"),
+        pydantic.Field(alias="durationSeconds", description="The total duration of the route in seconds"),
+    ]
+    hub_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="hubId"),
+        pydantic.Field(alias="hubId", description="The ID of the hub this route belongs to"),
+    ]
     id: str = pydantic.Field()
     """
     The Samsara-generated unique identifier (UUID) for the route
     """
 
-    is_edited: typing_extensions.Annotated[bool, FieldMetadata(alias="isEdited")] = pydantic.Field(alias="isEdited")
-    """
-    Whether the route has been edited
-    """
-
-    is_pinned: typing_extensions.Annotated[bool, FieldMetadata(alias="isPinned")] = pydantic.Field(alias="isPinned")
-    """
-    Whether the route is pinned
-    """
-
+    is_edited: typing_extensions.Annotated[
+        bool,
+        FieldMetadata(alias="isEdited"),
+        pydantic.Field(alias="isEdited", description="Whether the route has been edited"),
+    ]
+    is_pinned: typing_extensions.Annotated[
+        bool,
+        FieldMetadata(alias="isPinned"),
+        pydantic.Field(alias="isPinned", description="Whether the route is pinned"),
+    ]
     name: str = pydantic.Field()
     """
     The name of the route
     """
 
-    org_location_timezone: typing_extensions.Annotated[str, FieldMetadata(alias="orgLocationTimezone")] = (
-        pydantic.Field(alias="orgLocationTimezone")
-    )
-    """
-    The organization location timezone calculated from hub
-    """
-
-    plan_id: typing_extensions.Annotated[str, FieldMetadata(alias="planId")] = pydantic.Field(alias="planId")
-    """
-    The ID of the plan this route belongs to
-    """
-
+    org_location_timezone: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="orgLocationTimezone"),
+        pydantic.Field(
+            alias="orgLocationTimezone", description="The organization location timezone calculated from hub"
+        ),
+    ]
+    plan_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="planId"),
+        pydantic.Field(alias="planId", description="The ID of the plan this route belongs to"),
+    ]
     quantities: typing.Optional[typing.List[QuantityObjectResponseBody]] = pydantic.Field(default=None)
     """
     List of quantity information for the route
     """
 
-    scheduled_route_end_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="scheduledRouteEndTime")] = (
-        pydantic.Field(alias="scheduledRouteEndTime")
-    )
-    """
-    The scheduled end time of the route calculated from last stop
-    """
-
+    scheduled_route_end_time: typing_extensions.Annotated[
+        dt.datetime,
+        FieldMetadata(alias="scheduledRouteEndTime"),
+        pydantic.Field(
+            alias="scheduledRouteEndTime", description="The scheduled end time of the route calculated from last stop"
+        ),
+    ]
     scheduled_route_start_time: typing_extensions.Annotated[
-        dt.datetime, FieldMetadata(alias="scheduledRouteStartTime")
-    ] = pydantic.Field(alias="scheduledRouteStartTime")
-    """
-    The scheduled start time of the route calculated from first stop
-    """
-
+        dt.datetime,
+        FieldMetadata(alias="scheduledRouteStartTime"),
+        pydantic.Field(
+            alias="scheduledRouteStartTime",
+            description="The scheduled start time of the route calculated from first stop",
+        ),
+    ]
     stops: typing.List[RouteStopObjectResponseBody] = pydantic.Field()
     """
     List of stops on the route
@@ -115,12 +108,11 @@ class RouteObjectResponseBody(UniversalBaseModel):
     The type of route
     """
 
-    updated_at: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAt")] = pydantic.Field(
-        alias="updatedAt"
-    )
-    """
-    The timestamp (in UTC) when the route was last updated
-    """
+    updated_at: typing_extensions.Annotated[
+        dt.datetime,
+        FieldMetadata(alias="updatedAt"),
+        pydantic.Field(alias="updatedAt", description="The timestamp (in UTC) when the route was last updated"),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

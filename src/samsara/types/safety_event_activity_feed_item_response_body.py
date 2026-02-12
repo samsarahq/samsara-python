@@ -20,9 +20,9 @@ class SafetyEventActivityFeedItemResponseBody(UniversalBaseModel):
     The ID of the activity event feed line item.
     """
 
-    safety_event: typing_extensions.Annotated[SafetyEventObjectResponseBody, FieldMetadata(alias="safetyEvent")] = (
-        pydantic.Field(alias="safetyEvent")
-    )
+    safety_event: typing_extensions.Annotated[
+        SafetyEventObjectResponseBody, FieldMetadata(alias="safetyEvent"), pydantic.Field(alias="safetyEvent")
+    ]
     time: str = pydantic.Field()
     """
     The time the activity occurred in the corresponding safety event in RFC 3339 milliseconds format.

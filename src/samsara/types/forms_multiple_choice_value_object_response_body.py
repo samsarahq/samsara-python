@@ -18,10 +18,9 @@ class FormsMultipleChoiceValueObjectResponseBody(UniversalBaseModel):
     Selected option.
     """
 
-    value_id: typing_extensions.Annotated[str, FieldMetadata(alias="valueId")] = pydantic.Field(alias="valueId")
-    """
-    ID of the selected option.
-    """
+    value_id: typing_extensions.Annotated[
+        str, FieldMetadata(alias="valueId"), pydantic.Field(alias="valueId", description="ID of the selected option.")
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

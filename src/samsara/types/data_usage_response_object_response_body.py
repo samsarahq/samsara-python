@@ -14,18 +14,15 @@ class DataUsageResponseObjectResponseBody(UniversalBaseModel):
     """
 
     cellular_data_usage_bytes: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="cellularDataUsageBytes")
-    ] = pydantic.Field(alias="cellularDataUsageBytes", default=None)
-    """
-    Celluar data usage in bytes.
-    """
-
-    hotspot_usage_bytes: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="hotspotUsageBytes")] = (
-        pydantic.Field(alias="hotspotUsageBytes", default=None)
-    )
-    """
-    Wifi hotspot data usage in bytes.
-    """
+        typing.Optional[int],
+        FieldMetadata(alias="cellularDataUsageBytes"),
+        pydantic.Field(alias="cellularDataUsageBytes", description="Celluar data usage in bytes."),
+    ] = None
+    hotspot_usage_bytes: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="hotspotUsageBytes"),
+        pydantic.Field(alias="hotspotUsageBytes", description="Wifi hotspot data usage in bytes."),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

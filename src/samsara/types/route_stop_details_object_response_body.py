@@ -24,8 +24,8 @@ class RouteStopDetailsObjectResponseBody(UniversalBaseModel):
 
     route: WebhookRouteResponseObjectResponseBody
     route_stop_details: typing_extensions.Annotated[
-        MinimalRouteStopResponseBody, FieldMetadata(alias="routeStopDetails")
-    ] = pydantic.Field(alias="routeStopDetails")
+        MinimalRouteStopResponseBody, FieldMetadata(alias="routeStopDetails"), pydantic.Field(alias="routeStopDetails")
+    ]
     time: dt.datetime = pydantic.Field()
     """
     The timestamp of the route in RFC 3339 format.

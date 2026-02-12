@@ -9,69 +9,66 @@ from ..core.serialization import FieldMetadata
 
 
 class V1VisionStepResultsItemDistance(UniversalBaseModel):
-    distance_found: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="distanceFound")] = (
-        pydantic.Field(alias="distanceFound", default=None)
-    )
-    """
-    The distance found between the start and end references
-    """
-
-    end_step_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="endStepName")] = (
-        pydantic.Field(alias="endStepName", default=None)
-    )
-    """
-    The name of the second reference step that we're checking the distances between
-    """
-
+    distance_found: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="distanceFound"),
+        pydantic.Field(alias="distanceFound", description="The distance found between the start and end references"),
+    ] = None
+    end_step_name: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="endStepName"),
+        pydantic.Field(
+            alias="endStepName",
+            description="The name of the second reference step that we're checking the distances between",
+        ),
+    ] = None
     enforce_offset_angle_range: typing_extensions.Annotated[
-        typing.Optional[bool], FieldMetadata(alias="enforceOffsetAngleRange")
-    ] = pydantic.Field(alias="enforceOffsetAngleRange", default=None)
-    """
-    Whether an offset angle range is enforced
-    """
-
-    max_distance: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="maxDistance")] = (
-        pydantic.Field(alias="maxDistance", default=None)
-    )
-    """
-    The maximum allowed distance threshold
-    """
-
-    max_offset_angle: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="maxOffsetAngle")] = (
-        pydantic.Field(alias="maxOffsetAngle", default=None)
-    )
-    """
-    The maximum angle allowance (in degrees) if enforceOffsetAngleRange is true
-    """
-
-    min_distance: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="minDistance")] = (
-        pydantic.Field(alias="minDistance", default=None)
-    )
-    """
-    The minumum allowed distance threshold
-    """
-
-    min_offset_angle: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="minOffsetAngle")] = (
-        pydantic.Field(alias="minOffsetAngle", default=None)
-    )
-    """
-    The minimum angle allowance (in degrees) if enforceOffsetAngleRange is true
-    """
-
-    offset_angle_found: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="offsetAngleFound")] = (
-        pydantic.Field(alias="offsetAngleFound", default=None)
-    )
-    """
-    The counter-clockwise angle (in degrees) found between the horizontal axis of the start reference step and the last
-    """
-
-    start_step_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="startStepName")] = (
-        pydantic.Field(alias="startStepName", default=None)
-    )
-    """
-    The name of the first reference step that we're checking the distances between
-    """
-
+        typing.Optional[bool],
+        FieldMetadata(alias="enforceOffsetAngleRange"),
+        pydantic.Field(alias="enforceOffsetAngleRange", description="Whether an offset angle range is enforced"),
+    ] = None
+    max_distance: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="maxDistance"),
+        pydantic.Field(alias="maxDistance", description="The maximum allowed distance threshold"),
+    ] = None
+    max_offset_angle: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="maxOffsetAngle"),
+        pydantic.Field(
+            alias="maxOffsetAngle",
+            description="The maximum angle allowance (in degrees) if enforceOffsetAngleRange is true",
+        ),
+    ] = None
+    min_distance: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="minDistance"),
+        pydantic.Field(alias="minDistance", description="The minumum allowed distance threshold"),
+    ] = None
+    min_offset_angle: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="minOffsetAngle"),
+        pydantic.Field(
+            alias="minOffsetAngle",
+            description="The minimum angle allowance (in degrees) if enforceOffsetAngleRange is true",
+        ),
+    ] = None
+    offset_angle_found: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="offsetAngleFound"),
+        pydantic.Field(
+            alias="offsetAngleFound",
+            description="The counter-clockwise angle (in degrees) found between the horizontal axis of the start reference step and the last",
+        ),
+    ] = None
+    start_step_name: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="startStepName"),
+        pydantic.Field(
+            alias="startStepName",
+            description="The name of the first reference step that we're checking the distances between",
+        ),
+    ] = None
     unit: typing.Optional[str] = pydantic.Field(default=None)
     """
     The measurement unit of the distance found and the min and max distance threshold

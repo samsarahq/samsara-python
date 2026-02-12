@@ -9,19 +9,16 @@ from ..core.serialization import FieldMetadata
 
 
 class BarcodeValueObjectResponseBody(UniversalBaseModel):
-    barcode_type: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="barcodeType")] = (
-        pydantic.Field(alias="barcodeType", default=None)
-    )
-    """
-    The barcode type that was scanned.
-    """
-
-    barcode_value: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="barcodeValue")] = (
-        pydantic.Field(alias="barcodeValue", default=None)
-    )
-    """
-    The captured barcode value.
-    """
+    barcode_type: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="barcodeType"),
+        pydantic.Field(alias="barcodeType", description="The barcode type that was scanned."),
+    ] = None
+    barcode_value: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="barcodeValue"),
+        pydantic.Field(alias="barcodeValue", description="The captured barcode value."),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

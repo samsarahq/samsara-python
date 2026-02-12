@@ -21,42 +21,36 @@ class HubLocationUpdatedObjectResponseBody(UniversalBaseModel):
     The physical address of the location
     """
 
-    created_at: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAt")] = pydantic.Field(
-        alias="createdAt"
-    )
-    """
-    The timestamp (in UTC) when the location was created
-    """
-
-    customer_location_id: typing_extensions.Annotated[str, FieldMetadata(alias="customerLocationId")] = pydantic.Field(
-        alias="customerLocationId"
-    )
-    """
-    The customer-provided identifier for the location
-    """
-
-    driver_instructions: typing_extensions.Annotated[str, FieldMetadata(alias="driverInstructions")] = pydantic.Field(
-        alias="driverInstructions"
-    )
-    """
-    Instructions for the driver
-    """
-
-    hub_id: typing_extensions.Annotated[str, FieldMetadata(alias="hubId")] = pydantic.Field(alias="hubId")
-    """
-    The ID of the hub this location belongs to
-    """
-
+    created_at: typing_extensions.Annotated[
+        dt.datetime,
+        FieldMetadata(alias="createdAt"),
+        pydantic.Field(alias="createdAt", description="The timestamp (in UTC) when the location was created"),
+    ]
+    customer_location_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="customerLocationId"),
+        pydantic.Field(alias="customerLocationId", description="The customer-provided identifier for the location"),
+    ]
+    driver_instructions: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="driverInstructions"),
+        pydantic.Field(alias="driverInstructions", description="Instructions for the driver"),
+    ]
+    hub_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="hubId"),
+        pydantic.Field(alias="hubId", description="The ID of the hub this location belongs to"),
+    ]
     id: str = pydantic.Field()
     """
     The Samsara-generated unique identifier (UUID) for the location
     """
 
-    is_depot: typing_extensions.Annotated[bool, FieldMetadata(alias="isDepot")] = pydantic.Field(alias="isDepot")
-    """
-    Indicates if the location is a depot
-    """
-
+    is_depot: typing_extensions.Annotated[
+        bool,
+        FieldMetadata(alias="isDepot"),
+        pydantic.Field(alias="isDepot", description="Indicates if the location is a depot"),
+    ]
     latitude: float = pydantic.Field()
     """
     Latitude coordinate of the location
@@ -72,40 +66,34 @@ class HubLocationUpdatedObjectResponseBody(UniversalBaseModel):
     The name of the location
     """
 
-    planner_notes: typing_extensions.Annotated[str, FieldMetadata(alias="plannerNotes")] = pydantic.Field(
-        alias="plannerNotes"
-    )
-    """
-    Notes for the planner
-    """
-
-    service_time_seconds: typing_extensions.Annotated[int, FieldMetadata(alias="serviceTimeSeconds")] = pydantic.Field(
-        alias="serviceTimeSeconds"
-    )
-    """
-    Estimated service time at this location in seconds
-    """
-
+    planner_notes: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="plannerNotes"),
+        pydantic.Field(alias="plannerNotes", description="Notes for the planner"),
+    ]
+    service_time_seconds: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="serviceTimeSeconds"),
+        pydantic.Field(alias="serviceTimeSeconds", description="Estimated service time at this location in seconds"),
+    ]
     service_windows: typing_extensions.Annotated[
-        typing.List[ServiceWindowObjectResponseBody], FieldMetadata(alias="serviceWindows")
-    ] = pydantic.Field(alias="serviceWindows")
-    """
-    An array of time windows during which service can be performed at this location
-    """
-
+        typing.List[ServiceWindowObjectResponseBody],
+        FieldMetadata(alias="serviceWindows"),
+        pydantic.Field(
+            alias="serviceWindows",
+            description="An array of time windows during which service can be performed at this location",
+        ),
+    ]
     skills_required: typing_extensions.Annotated[
-        typing.List[SkillObjectResponseBody], FieldMetadata(alias="skillsRequired")
-    ] = pydantic.Field(alias="skillsRequired")
-    """
-    An array of skills required for service at this location
-    """
-
-    updated_at: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAt")] = pydantic.Field(
-        alias="updatedAt"
-    )
-    """
-    The timestamp (in UTC) when the location was last updated
-    """
+        typing.List[SkillObjectResponseBody],
+        FieldMetadata(alias="skillsRequired"),
+        pydantic.Field(alias="skillsRequired", description="An array of skills required for service at this location"),
+    ]
+    updated_at: typing_extensions.Annotated[
+        dt.datetime,
+        FieldMetadata(alias="updatedAt"),
+        pydantic.Field(alias="updatedAt", description="The timestamp (in UTC) when the location was last updated"),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

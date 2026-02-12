@@ -29,11 +29,15 @@ class FormSubmissionRequestTableCellObjectRequestBody(UniversalBaseModel):
     """
 
     check_boxes_value: typing_extensions.Annotated[
-        typing.Optional[FormSubmissionRequestCheckBoxesValueObjectRequestBody], FieldMetadata(alias="checkBoxesValue")
-    ] = pydantic.Field(alias="checkBoxesValue", default=None)
+        typing.Optional[FormSubmissionRequestCheckBoxesValueObjectRequestBody],
+        FieldMetadata(alias="checkBoxesValue"),
+        pydantic.Field(alias="checkBoxesValue"),
+    ] = None
     date_time_value: typing_extensions.Annotated[
-        typing.Optional[FormSubmissionRequestDateTimeValueObjectRequestBody], FieldMetadata(alias="dateTimeValue")
-    ] = pydantic.Field(alias="dateTimeValue", default=None)
+        typing.Optional[FormSubmissionRequestDateTimeValueObjectRequestBody],
+        FieldMetadata(alias="dateTimeValue"),
+        pydantic.Field(alias="dateTimeValue"),
+    ] = None
     id: str = pydantic.Field()
     """
     Unique identifier for the cell.
@@ -42,16 +46,23 @@ class FormSubmissionRequestTableCellObjectRequestBody(UniversalBaseModel):
     multiple_choice_value: typing_extensions.Annotated[
         typing.Optional[FormSubmissionRequestMultipleChoiceValueObjectRequestBody],
         FieldMetadata(alias="multipleChoiceValue"),
-    ] = pydantic.Field(alias="multipleChoiceValue", default=None)
+        pydantic.Field(alias="multipleChoiceValue"),
+    ] = None
     number_value: typing_extensions.Annotated[
-        typing.Optional[FormSubmissionRequestNumberValueObjectRequestBody], FieldMetadata(alias="numberValue")
-    ] = pydantic.Field(alias="numberValue", default=None)
+        typing.Optional[FormSubmissionRequestNumberValueObjectRequestBody],
+        FieldMetadata(alias="numberValue"),
+        pydantic.Field(alias="numberValue"),
+    ] = None
     person_value: typing_extensions.Annotated[
-        typing.Optional[FormSubmissionRequestPersonValueObjectRequestBody], FieldMetadata(alias="personValue")
-    ] = pydantic.Field(alias="personValue", default=None)
+        typing.Optional[FormSubmissionRequestPersonValueObjectRequestBody],
+        FieldMetadata(alias="personValue"),
+        pydantic.Field(alias="personValue"),
+    ] = None
     text_value: typing_extensions.Annotated[
-        typing.Optional[FormSubmissionRequestTextValueObjectRequestBody], FieldMetadata(alias="textValue")
-    ] = pydantic.Field(alias="textValue", default=None)
+        typing.Optional[FormSubmissionRequestTextValueObjectRequestBody],
+        FieldMetadata(alias="textValue"),
+        pydantic.Field(alias="textValue"),
+    ] = None
     type: FormSubmissionRequestTableCellObjectRequestBodyType = pydantic.Field()
     """
     Type of the cell field.  Valid values: `number`, `text`, `multiple_choice`, `check_boxes`, `datetime`, `person`

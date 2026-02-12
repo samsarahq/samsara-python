@@ -16,32 +16,26 @@ class AssetResponseBody(UniversalBaseModel):
     Representation of a vehicle trailer or other equipment to be tracked.
     """
 
-    created_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="createdAtTime")] = pydantic.Field(
-        alias="createdAtTime"
-    )
-    """
-    The time the asset was created in RFC 3339 format.
-    """
-
+    created_at_time: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="createdAtTime"),
+        pydantic.Field(alias="createdAtTime", description="The time the asset was created in RFC 3339 format."),
+    ]
     external_ids: typing_extensions.Annotated[
-        typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(alias="externalIds", default=None)
-    """
-    A map of external ids
-    """
-
+        typing.Optional[typing.Dict[str, str]],
+        FieldMetadata(alias="externalIds"),
+        pydantic.Field(alias="externalIds", description="A map of external ids"),
+    ] = None
     id: str = pydantic.Field()
     """
     The unique ID of the asset.
     """
 
-    license_plate: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="licensePlate")] = (
-        pydantic.Field(alias="licensePlate", default=None)
-    )
-    """
-    The license plate of the asset.
-    """
-
+    license_plate: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="licensePlate"),
+        pydantic.Field(alias="licensePlate", description="The license plate of the asset."),
+    ] = None
     make: typing.Optional[str] = pydantic.Field(default=None)
     """
     The OEM/manufacturer of the asset. Updates to this field are restricted.
@@ -63,26 +57,29 @@ class AssetResponseBody(UniversalBaseModel):
     """
 
     readings_ingestion_enabled: typing_extensions.Annotated[
-        typing.Optional[bool], FieldMetadata(alias="readingsIngestionEnabled")
-    ] = pydantic.Field(alias="readingsIngestionEnabled", default=None)
-    """
-    Indicates whether the asset is expected to have data ingested using the Readings API.
-    """
-
+        typing.Optional[bool],
+        FieldMetadata(alias="readingsIngestionEnabled"),
+        pydantic.Field(
+            alias="readingsIngestionEnabled",
+            description="Indicates whether the asset is expected to have data ingested using the Readings API.",
+        ),
+    ] = None
     regulation_mode: typing_extensions.Annotated[
-        typing.Optional[AssetResponseBodyRegulationMode], FieldMetadata(alias="regulationMode")
-    ] = pydantic.Field(alias="regulationMode", default=None)
-    """
-    Whether or not the asset is regulated, unregulated (non-CMV), or a mixed use unregulated asset. Primarily used with vehicles.  Valid values: `mixed`, `regulated`, `unregulated`
-    """
-
-    serial_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="serialNumber")] = (
-        pydantic.Field(alias="serialNumber", default=None)
-    )
-    """
-    The serial number of the asset. This can be an internal serial number or used to hold legacy VIN/PIN numbers such as ones of shorter lengths.
-    """
-
+        typing.Optional[AssetResponseBodyRegulationMode],
+        FieldMetadata(alias="regulationMode"),
+        pydantic.Field(
+            alias="regulationMode",
+            description="Whether or not the asset is regulated, unregulated (non-CMV), or a mixed use unregulated asset. Primarily used with vehicles.  Valid values: `mixed`, `regulated`, `unregulated`",
+        ),
+    ] = None
+    serial_number: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="serialNumber"),
+        pydantic.Field(
+            alias="serialNumber",
+            description="The serial number of the asset. This can be an internal serial number or used to hold legacy VIN/PIN numbers such as ones of shorter lengths.",
+        ),
+    ] = None
     tags: typing.Optional[typing.List[GoaTagTinyResponseResponseBody]] = pydantic.Field(default=None)
     """
     The list of [tags](https://kb.samsara.com/hc/en-us/articles/360026674631-Using-Tags-and-Tag-Nesting) associated with the Asset.
@@ -93,13 +90,11 @@ class AssetResponseBody(UniversalBaseModel):
     The operational context in which the asset interacts with the Samsara system. Examples: Vehicle (eg: truck, bus...), Trailer (eg: dry van, reefer, flatbed...), Powered Equipment (eg: dozer, crane...), Unpowered Equipment (eg: container, dumpster...), or Uncategorized.  Valid values: `uncategorized`, `trailer`, `equipment`, `unpowered`, `vehicle`
     """
 
-    updated_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="updatedAtTime")] = pydantic.Field(
-        alias="updatedAtTime"
-    )
-    """
-    The time the asset was last updated in RFC 3339 format.
-    """
-
+    updated_at_time: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="updatedAtTime"),
+        pydantic.Field(alias="updatedAtTime", description="The time the asset was last updated in RFC 3339 format."),
+    ]
     vin: typing.Optional[str] = pydantic.Field(default=None)
     """
     The unique 17-digit VIN (Vehicle Identification Number) or PIN (Product Identification Number) of the asset.

@@ -17,12 +17,13 @@ class HosViolationTriggerDetailsObjectResponseBody(UniversalBaseModel):
     """
 
     max_until_violation_milliseconds: typing_extensions.Annotated[
-        int, FieldMetadata(alias="maxUntilViolationMilliseconds")
-    ] = pydantic.Field(alias="maxUntilViolationMilliseconds")
-    """
-    Alert if driver has this specified time until driving causes an HOS violation.
-    """
-
+        int,
+        FieldMetadata(alias="maxUntilViolationMilliseconds"),
+        pydantic.Field(
+            alias="maxUntilViolationMilliseconds",
+            description="Alert if driver has this specified time until driving causes an HOS violation.",
+        ),
+    ]
     violation: HosViolationTriggerDetailsObjectResponseBodyViolation = pydantic.Field()
     """
     The type of HOS violation.  Valid values: `CaliforniaMealbreakMissed`, `CycleHoursOn`, `DailyDrivingHours`, `DailyOnDutyHours`, `Invalid`, `RestbreakMissed`, `ShiftDrivingHours`, `ShiftHours`, `ShiftOnDutyHours`, `UnsubmittedLogs`

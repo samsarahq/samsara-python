@@ -20,11 +20,15 @@ class HosClocksForDriver(UniversalBaseModel):
 
     clocks: typing.Optional[HosClocks] = None
     current_duty_status: typing_extensions.Annotated[
-        typing.Optional[CurrentDutyStatus], FieldMetadata(alias="currentDutyStatus")
-    ] = pydantic.Field(alias="currentDutyStatus", default=None)
+        typing.Optional[CurrentDutyStatus],
+        FieldMetadata(alias="currentDutyStatus"),
+        pydantic.Field(alias="currentDutyStatus"),
+    ] = None
     current_vehicle: typing_extensions.Annotated[
-        typing.Optional[VehicleTinyResponse], FieldMetadata(alias="currentVehicle")
-    ] = pydantic.Field(alias="currentVehicle", default=None)
+        typing.Optional[VehicleTinyResponse],
+        FieldMetadata(alias="currentVehicle"),
+        pydantic.Field(alias="currentVehicle"),
+    ] = None
     driver: typing.Optional[DriverTinyResponse] = None
     violations: typing.Optional[HosViolations] = None
 

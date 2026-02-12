@@ -11,12 +11,13 @@ from .v_1_asset_reefer_response_reefer_stats_alarms import V1AssetReeferResponse
 
 class V1AssetReeferResponseReeferStatsAlarms1(UniversalBaseModel):
     alarms: typing.Optional[typing.List[V1AssetReeferResponseReeferStatsAlarms]] = None
-    changed_at_ms: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="changedAtMs")] = (
-        pydantic.Field(alias="changedAtMs", default=None)
-    )
-    """
-    Timestamp when the alarms were reported, in Unix milliseconds since epoch
-    """
+    changed_at_ms: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="changedAtMs"),
+        pydantic.Field(
+            alias="changedAtMs", description="Timestamp when the alarms were reported, in Unix milliseconds since epoch"
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

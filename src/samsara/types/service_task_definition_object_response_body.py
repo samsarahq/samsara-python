@@ -25,15 +25,17 @@ class ServiceTaskDefinitionObjectResponseBody(UniversalBaseModel):
     """
 
     estimated_labor_time_minutes: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="estimatedLaborTimeMinutes")
-    ] = pydantic.Field(alias="estimatedLaborTimeMinutes", default=None)
-    """
-    Estimated time in minutes to complete the task.
-    """
-
+        typing.Optional[int],
+        FieldMetadata(alias="estimatedLaborTimeMinutes"),
+        pydantic.Field(
+            alias="estimatedLaborTimeMinutes", description="Estimated time in minutes to complete the task."
+        ),
+    ] = None
     estimated_parts_cost: typing_extensions.Annotated[
-        typing.Optional[WorkOrderMoneyObjectResponseBody], FieldMetadata(alias="estimatedPartsCost")
-    ] = pydantic.Field(alias="estimatedPartsCost", default=None)
+        typing.Optional[WorkOrderMoneyObjectResponseBody],
+        FieldMetadata(alias="estimatedPartsCost"),
+        pydantic.Field(alias="estimatedPartsCost"),
+    ] = None
     id: str = pydantic.Field()
     """
     The unique id of the service task definition.

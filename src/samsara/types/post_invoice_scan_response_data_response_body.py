@@ -13,12 +13,13 @@ class PostInvoiceScanResponseDataResponseBody(UniversalBaseModel):
     Invoice scan response data
     """
 
-    work_order_id: typing_extensions.Annotated[str, FieldMetadata(alias="workOrderId")] = pydantic.Field(
-        alias="workOrderId"
-    )
-    """
-    The work order ID that the invoice was attached to or created.
-    """
+    work_order_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="workOrderId"),
+        pydantic.Field(
+            alias="workOrderId", description="The work order ID that the invoice was attached to or created."
+        ),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

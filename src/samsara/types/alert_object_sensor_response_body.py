@@ -25,13 +25,11 @@ class AlertObjectSensorResponseBody(UniversalBaseModel):
     The name of the sensor.
     """
 
-    pinned_device_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="pinnedDeviceId")] = (
-        pydantic.Field(alias="pinnedDeviceId", default=None)
-    )
-    """
-    The Pinned Device ID associated with the alert
-    """
-
+    pinned_device_id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="pinnedDeviceId"),
+        pydantic.Field(alias="pinnedDeviceId", description="The Pinned Device ID associated with the alert"),
+    ] = None
     product: typing.Optional[AlertObjectProductResponseBody] = None
     tags: typing.Optional[typing.List[GoaTagTinyResponseResponseBody]] = pydantic.Field(default=None)
     """

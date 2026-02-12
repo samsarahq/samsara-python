@@ -15,89 +15,87 @@ class LogMetaDataObjectResponseBody(UniversalBaseModel):
     """
 
     adverse_driving_claimed: typing_extensions.Annotated[
-        typing.Optional[bool], FieldMetadata(alias="adverseDrivingClaimed")
-    ] = pydantic.Field(alias="adverseDrivingClaimed", default=None)
-    """
-    Whether the driver has claimed the [Adverse Driving Exemption](https://kb.samsara.com/hc/en-us/articles/360047336792-Adverse-Driving-Exemption) for this HOS day chart.
-    """
-
-    big_day_claimed: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="bigDayClaimed")] = (
-        pydantic.Field(alias="bigDayClaimed", default=None)
-    )
-    """
-    Whether the driver has claimed the [Big Day Exemption](https://kb.samsara.com/hc/en-us/articles/360057113891-16-Hour-Short-Haul-Exemption-Big-Day-) for this HOS day chart.
-    """
-
+        typing.Optional[bool],
+        FieldMetadata(alias="adverseDrivingClaimed"),
+        pydantic.Field(
+            alias="adverseDrivingClaimed",
+            description="Whether the driver has claimed the [Adverse Driving Exemption](https://kb.samsara.com/hc/en-us/articles/360047336792-Adverse-Driving-Exemption) for this HOS day chart.",
+        ),
+    ] = None
+    big_day_claimed: typing_extensions.Annotated[
+        typing.Optional[bool],
+        FieldMetadata(alias="bigDayClaimed"),
+        pydantic.Field(
+            alias="bigDayClaimed",
+            description="Whether the driver has claimed the [Big Day Exemption](https://kb.samsara.com/hc/en-us/articles/360057113891-16-Hour-Short-Haul-Exemption-Big-Day-) for this HOS day chart.",
+        ),
+    ] = None
     carrier_formatted_address: typing_extensions.Annotated[
-        typing.Optional[str], FieldMetadata(alias="carrierFormattedAddress")
-    ] = pydantic.Field(alias="carrierFormattedAddress", default=None)
-    """
-    The address of the carrier used for this HOS chart.
-    """
-
-    carrier_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="carrierName")] = (
-        pydantic.Field(alias="carrierName", default=None)
-    )
-    """
-    The name of the carrier used for this HOS chart.
-    """
-
+        typing.Optional[str],
+        FieldMetadata(alias="carrierFormattedAddress"),
+        pydantic.Field(
+            alias="carrierFormattedAddress", description="The address of the carrier used for this HOS chart."
+        ),
+    ] = None
+    carrier_name: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="carrierName"),
+        pydantic.Field(alias="carrierName", description="The name of the carrier used for this HOS chart."),
+    ] = None
     carrier_us_dot_number: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="carrierUsDotNumber")
-    ] = pydantic.Field(alias="carrierUsDotNumber", default=None)
-    """
-    The US DOT number of the carrier used for this HOS chart.
-    """
-
-    certified_at_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="certifiedAtTime")] = (
-        pydantic.Field(alias="certifiedAtTime", default=None)
-    )
-    """
-    The time this log was certified in RFC 3339 format.
-    """
-
+        typing.Optional[int],
+        FieldMetadata(alias="carrierUsDotNumber"),
+        pydantic.Field(
+            alias="carrierUsDotNumber", description="The US DOT number of the carrier used for this HOS chart."
+        ),
+    ] = None
+    certified_at_time: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="certifiedAtTime"),
+        pydantic.Field(alias="certifiedAtTime", description="The time this log was certified in RFC 3339 format."),
+    ] = None
     home_terminal_formatted_address: typing_extensions.Annotated[
-        typing.Optional[str], FieldMetadata(alias="homeTerminalFormattedAddress")
-    ] = pydantic.Field(alias="homeTerminalFormattedAddress", default=None)
-    """
-    The address of the Home Terminal used for this HOS chart.
-    """
-
-    home_terminal_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="homeTerminalName")] = (
-        pydantic.Field(alias="homeTerminalName", default=None)
-    )
-    """
-    The name of the Home Terminal used for this HOS chart.
-    """
-
-    is_certified: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="isCertified")] = (
-        pydantic.Field(alias="isCertified", default=None)
-    )
-    """
-    Whether this HOS day chart was certified by the driver.
-    """
-
+        typing.Optional[str],
+        FieldMetadata(alias="homeTerminalFormattedAddress"),
+        pydantic.Field(
+            alias="homeTerminalFormattedAddress",
+            description="The address of the Home Terminal used for this HOS chart.",
+        ),
+    ] = None
+    home_terminal_name: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="homeTerminalName"),
+        pydantic.Field(alias="homeTerminalName", description="The name of the Home Terminal used for this HOS chart."),
+    ] = None
+    is_certified: typing_extensions.Annotated[
+        typing.Optional[bool],
+        FieldMetadata(alias="isCertified"),
+        pydantic.Field(alias="isCertified", description="Whether this HOS day chart was certified by the driver."),
+    ] = None
     is_us_short_haul_active: typing_extensions.Annotated[
-        typing.Optional[bool], FieldMetadata(alias="isUsShortHaulActive")
-    ] = pydantic.Field(alias="isUsShortHaulActive", default=None)
-    """
-    Whether the driver has the 150 air-mile Short Haul Exemption active for this HOS day chart.
-    """
-
-    shipping_docs: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="shippingDocs")] = (
-        pydantic.Field(alias="shippingDocs", default=None)
-    )
-    """
-    List of shipping document names associated with the driver for the day. This field maps to Shipping ID in the dashboard.
-    """
-
+        typing.Optional[bool],
+        FieldMetadata(alias="isUsShortHaulActive"),
+        pydantic.Field(
+            alias="isUsShortHaulActive",
+            description="Whether the driver has the 150 air-mile Short Haul Exemption active for this HOS day chart.",
+        ),
+    ] = None
+    shipping_docs: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="shippingDocs"),
+        pydantic.Field(
+            alias="shippingDocs",
+            description="List of shipping document names associated with the driver for the day. This field maps to Shipping ID in the dashboard.",
+        ),
+    ] = None
     trailer_names: typing_extensions.Annotated[
-        typing.Optional[typing.List[str]], FieldMetadata(alias="trailerNames")
-    ] = pydantic.Field(alias="trailerNames", default=None)
-    """
-    List of trailer names associated with the driver for the day. If a trailer was associated with a log through the driver app the trailer name will be the trailer ID.
-    """
-
+        typing.Optional[typing.List[str]],
+        FieldMetadata(alias="trailerNames"),
+        pydantic.Field(
+            alias="trailerNames",
+            description="List of trailer names associated with the driver for the day. If a trailer was associated with a log through the driver app the trailer name will be the trailer ID.",
+        ),
+    ] = None
     vehicles: typing.Optional[typing.List[VehicleResponseResponseBody]] = pydantic.Field(default=None)
     """
     List of vehicles associated with the driver for the day.

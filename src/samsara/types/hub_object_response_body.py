@@ -14,13 +14,11 @@ class HubObjectResponseBody(UniversalBaseModel):
     Hub object
     """
 
-    created_at: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAt")] = pydantic.Field(
-        alias="createdAt"
-    )
-    """
-    Creation timestamp
-    """
-
+    created_at: typing_extensions.Annotated[
+        dt.datetime,
+        FieldMetadata(alias="createdAt"),
+        pydantic.Field(alias="createdAt", description="Creation timestamp"),
+    ]
     id: str = pydantic.Field()
     """
     Hub identifier
@@ -31,17 +29,14 @@ class HubObjectResponseBody(UniversalBaseModel):
     Hub name
     """
 
-    time_zone: typing_extensions.Annotated[str, FieldMetadata(alias="timeZone")] = pydantic.Field(alias="timeZone")
-    """
-    Hub timezone
-    """
-
-    updated_at: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAt")] = pydantic.Field(
-        alias="updatedAt"
-    )
-    """
-    Last update timestamp
-    """
+    time_zone: typing_extensions.Annotated[
+        str, FieldMetadata(alias="timeZone"), pydantic.Field(alias="timeZone", description="Hub timezone")
+    ]
+    updated_at: typing_extensions.Annotated[
+        dt.datetime,
+        FieldMetadata(alias="updatedAt"),
+        pydantic.Field(alias="updatedAt", description="Last update timestamp"),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

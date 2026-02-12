@@ -16,20 +16,22 @@ class FormsPersonObjectResponseBody(UniversalBaseModel):
     """
 
     entry_type: typing_extensions.Annotated[
-        FormsPersonObjectResponseBodyEntryType, FieldMetadata(alias="entryType")
-    ] = pydantic.Field(alias="entryType")
-    """
-    The type of entry for the person.  Valid values: `tracked`, `untracked`
-    """
-
+        FormsPersonObjectResponseBodyEntryType,
+        FieldMetadata(alias="entryType"),
+        pydantic.Field(
+            alias="entryType", description="The type of entry for the person.  Valid values: `tracked`, `untracked`"
+        ),
+    ]
     name: typing.Optional[str] = pydantic.Field(default=None)
     """
     Name of an untracked (i.e. manually entered) person.
     """
 
     polymorphic_user_id: typing_extensions.Annotated[
-        typing.Optional[FormsPolymorphicUserObjectResponseBody], FieldMetadata(alias="polymorphicUserId")
-    ] = pydantic.Field(alias="polymorphicUserId", default=None)
+        typing.Optional[FormsPolymorphicUserObjectResponseBody],
+        FieldMetadata(alias="polymorphicUserId"),
+        pydantic.Field(alias="polymorphicUserId"),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

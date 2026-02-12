@@ -14,11 +14,13 @@ class HosShift(UniversalBaseModel):
     """
 
     shift_remaining_duration_ms: typing_extensions.Annotated[
-        typing.Optional[float], FieldMetadata(alias="shiftRemainingDurationMs")
-    ] = pydantic.Field(alias="shiftRemainingDurationMs", default=None)
-    """
-    Remaining on duty or driving time the driver in the current shift in milliseconds. For property-carrying drivers, this is the amount of time the driver can be on duty or driving before hitting the 14-hour limit.
-    """
+        typing.Optional[float],
+        FieldMetadata(alias="shiftRemainingDurationMs"),
+        pydantic.Field(
+            alias="shiftRemainingDurationMs",
+            description="Remaining on duty or driving time the driver in the current shift in milliseconds. For property-carrying drivers, this is the amount of time the driver can be on duty or driving before hitting the 14-hour limit.",
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -16,26 +16,23 @@ class AempFleetListResponseBody(UniversalBaseModel):
     """
 
     equipment: typing_extensions.Annotated[
-        typing.List[AempEquipmentWithAdditionalFieldsResponseBody], FieldMetadata(alias="Equipment")
-    ] = pydantic.Field(alias="Equipment")
-    """
-    The list of Equipment objects.
-    """
-
-    links: typing_extensions.Annotated[typing.List[AempLinkResponseBody], FieldMetadata(alias="Links")] = (
-        pydantic.Field(alias="Links")
-    )
-    """
-    The list of links associated with the current API request.
-    """
-
-    snapshot_time: typing_extensions.Annotated[str, FieldMetadata(alias="snapshotTime")] = pydantic.Field(
-        alias="snapshotTime"
-    )
-    """
-    Date and time at which the snapshot of the fleet was created in RFC 3339 format.
-    """
-
+        typing.List[AempEquipmentWithAdditionalFieldsResponseBody],
+        FieldMetadata(alias="Equipment"),
+        pydantic.Field(alias="Equipment", description="The list of Equipment objects."),
+    ]
+    links: typing_extensions.Annotated[
+        typing.List[AempLinkResponseBody],
+        FieldMetadata(alias="Links"),
+        pydantic.Field(alias="Links", description="The list of links associated with the current API request."),
+    ]
+    snapshot_time: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="snapshotTime"),
+        pydantic.Field(
+            alias="snapshotTime",
+            description="Date and time at which the snapshot of the fleet was created in RFC 3339 format.",
+        ),
+    ]
     version: str = pydantic.Field()
     """
     The version of the ISO/TS 15143-3 standard

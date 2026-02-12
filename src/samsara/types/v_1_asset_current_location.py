@@ -29,18 +29,20 @@ class V1AssetCurrentLocation(UniversalBaseModel):
     """
 
     speed_miles_per_hour: typing_extensions.Annotated[
-        typing.Optional[float], FieldMetadata(alias="speedMilesPerHour")
-    ] = pydantic.Field(alias="speedMilesPerHour", default=None)
-    """
-    The speed calculated from GPS that the asset was traveling at in miles per hour.
-    """
-
-    time_ms: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="timeMs")] = pydantic.Field(
-        alias="timeMs", default=None
-    )
-    """
-    Time in Unix milliseconds since epoch when the asset was at the location.
-    """
+        typing.Optional[float],
+        FieldMetadata(alias="speedMilesPerHour"),
+        pydantic.Field(
+            alias="speedMilesPerHour",
+            description="The speed calculated from GPS that the asset was traveling at in miles per hour.",
+        ),
+    ] = None
+    time_ms: typing_extensions.Annotated[
+        typing.Optional[float],
+        FieldMetadata(alias="timeMs"),
+        pydantic.Field(
+            alias="timeMs", description="Time in Unix milliseconds since epoch when the asset was at the location."
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

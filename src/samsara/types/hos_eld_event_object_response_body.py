@@ -20,76 +20,80 @@ class HosEldEventObjectResponseBody(UniversalBaseModel):
     """
 
     accumulated_vehicle_meters: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="accumulatedVehicleMeters")
-    ] = pydantic.Field(alias="accumulatedVehicleMeters", default=None)
-    """
-    The accumulated meters in the given ignition power on cycle.
-    """
-
+        typing.Optional[int],
+        FieldMetadata(alias="accumulatedVehicleMeters"),
+        pydantic.Field(
+            alias="accumulatedVehicleMeters", description="The accumulated meters in the given ignition power on cycle."
+        ),
+    ] = None
     elapsed_engine_hours: typing_extensions.Annotated[
-        typing.Optional[float], FieldMetadata(alias="elapsedEngineHours")
-    ] = pydantic.Field(alias="elapsedEngineHours", default=None)
-    """
-    The elapsed time in the engine's operation in the given ignition power on cycle.
-    """
-
-    eld_event_code: typing_extensions.Annotated[int, FieldMetadata(alias="eldEventCode")] = pydantic.Field(
-        alias="eldEventCode"
-    )
-    """
-    A dependent attribute on `eldEventType` that specifies the nature of the event, as defined in the ELD Mandate [section 7.20](https://www.ecfr.gov/cgi-bin/retrieveECFR?gp=1&ty=HTML&h=L&mc=true&=PART&n=pt49.5.395#ap49.5.395_138.a).  Valid values: `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`
-    """
-
+        typing.Optional[float],
+        FieldMetadata(alias="elapsedEngineHours"),
+        pydantic.Field(
+            alias="elapsedEngineHours",
+            description="The elapsed time in the engine's operation in the given ignition power on cycle.",
+        ),
+    ] = None
+    eld_event_code: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="eldEventCode"),
+        pydantic.Field(
+            alias="eldEventCode",
+            description="A dependent attribute on `eldEventType` that specifies the nature of the event, as defined in the ELD Mandate [section 7.20](https://www.ecfr.gov/cgi-bin/retrieveECFR?gp=1&ty=HTML&h=L&mc=true&=PART&n=pt49.5.395#ap49.5.395_138.a).  Valid values: `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`",
+        ),
+    ]
     eld_event_record_origin: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="eldEventRecordOrigin")
-    ] = pydantic.Field(alias="eldEventRecordOrigin", default=None)
-    """
-    An attribute for the event record indicating whether it is automatically recorded, or edited, entered or accepted by the driver, requested by another authenticated user, or assumed from unidentified driver profile, as defined in the ELD Mandate [section 7.22](https://www.ecfr.gov/cgi-bin/retrieveECFR?gp=1&ty=HTML&h=L&mc=true&=PART&n=pt49.5.395#ap49.5.395_138.a).  Valid values: `1`, `2`, `3`, `4`
-    """
-
+        typing.Optional[int],
+        FieldMetadata(alias="eldEventRecordOrigin"),
+        pydantic.Field(
+            alias="eldEventRecordOrigin",
+            description="An attribute for the event record indicating whether it is automatically recorded, or edited, entered or accepted by the driver, requested by another authenticated user, or assumed from unidentified driver profile, as defined in the ELD Mandate [section 7.22](https://www.ecfr.gov/cgi-bin/retrieveECFR?gp=1&ty=HTML&h=L&mc=true&=PART&n=pt49.5.395#ap49.5.395_138.a).  Valid values: `1`, `2`, `3`, `4`",
+        ),
+    ] = None
     eld_event_record_status: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="eldEventRecordStatus")
-    ] = pydantic.Field(alias="eldEventRecordStatus", default=None)
-    """
-    An attribute for the event record indicating whether an event is active or inactive and further, if inactive, whether it is due to a change or lack of confirmation by the driver or due to a driver's rejection of change request, as defined in the ELD Mandate [section 7.23](https://www.ecfr.gov/cgi-bin/retrieveECFR?gp=1&ty=HTML&h=L&mc=true&=PART&n=pt49.5.395#ap49.5.395_138.a).  Valid values: `1`, `2`, `3`, `4`
-    """
-
-    eld_event_type: typing_extensions.Annotated[int, FieldMetadata(alias="eldEventType")] = pydantic.Field(
-        alias="eldEventType"
-    )
-    """
-    An attribute specifying the type of ELD event, as defined in the ELD Mandate [section 7.25](https://www.ecfr.gov/cgi-bin/retrieveECFR?gp=1&ty=HTML&h=L&mc=true&=PART&n=pt49.5.395#ap49.5.395_138.a).  Valid values: `1`, `2`, `3`, `4`, `5`, `6`, `7`
-    """
-
+        typing.Optional[int],
+        FieldMetadata(alias="eldEventRecordStatus"),
+        pydantic.Field(
+            alias="eldEventRecordStatus",
+            description="An attribute for the event record indicating whether an event is active or inactive and further, if inactive, whether it is due to a change or lack of confirmation by the driver or due to a driver's rejection of change request, as defined in the ELD Mandate [section 7.23](https://www.ecfr.gov/cgi-bin/retrieveECFR?gp=1&ty=HTML&h=L&mc=true&=PART&n=pt49.5.395#ap49.5.395_138.a).  Valid values: `1`, `2`, `3`, `4`",
+        ),
+    ] = None
+    eld_event_type: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="eldEventType"),
+        pydantic.Field(
+            alias="eldEventType",
+            description="An attribute specifying the type of ELD event, as defined in the ELD Mandate [section 7.25](https://www.ecfr.gov/cgi-bin/retrieveECFR?gp=1&ty=HTML&h=L&mc=true&=PART&n=pt49.5.395#ap49.5.395_138.a).  Valid values: `1`, `2`, `3`, `4`, `5`, `6`, `7`",
+        ),
+    ]
     location: typing.Optional[HosEldEventLocationObjectResponseBody] = None
     malfunction_diagnostic_code: typing_extensions.Annotated[
         typing.Optional[HosEldEventObjectResponseBodyMalfunctionDiagnosticCode],
         FieldMetadata(alias="malfunctionDiagnosticCode"),
-    ] = pydantic.Field(alias="malfunctionDiagnosticCode", default=None)
-    """
-    A code that further specifies the underlying malfunction or data diagnostic event, as defined in the ELD Mandate [section 7.34](https://www.ecfr.gov/cgi-bin/retrieveECFR?gp=1&ty=HTML&h=L&mc=true&=PART&n=pt49.5.395#ap49.5.395_138.a).  Valid values: `P`, `E`, `T`, `L`, `R`, `S`, `O`, `1`, `2`, `3`, `4`, `5`, `6`
-    """
-
+        pydantic.Field(
+            alias="malfunctionDiagnosticCode",
+            description="A code that further specifies the underlying malfunction or data diagnostic event, as defined in the ELD Mandate [section 7.34](https://www.ecfr.gov/cgi-bin/retrieveECFR?gp=1&ty=HTML&h=L&mc=true&=PART&n=pt49.5.395#ap49.5.395_138.a).  Valid values: `P`, `E`, `T`, `L`, `R`, `S`, `O`, `1`, `2`, `3`, `4`, `5`, `6`",
+        ),
+    ] = None
     remark: typing.Optional[HosEldEventRemarkObjectResponseBody] = None
     time: str = pydantic.Field()
     """
     A time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
     """
 
-    total_engine_hours: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="totalEngineHours")] = (
-        pydantic.Field(alias="totalEngineHours", default=None)
-    )
-    """
-    The aggregated time of a vehicle's engine's operation since its inception.
-    """
-
+    total_engine_hours: typing_extensions.Annotated[
+        typing.Optional[float],
+        FieldMetadata(alias="totalEngineHours"),
+        pydantic.Field(
+            alias="totalEngineHours",
+            description="The aggregated time of a vehicle's engine's operation since its inception.",
+        ),
+    ] = None
     total_vehicle_meters: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="totalVehicleMeters")
-    ] = pydantic.Field(alias="totalVehicleMeters", default=None)
-    """
-    The total meters recorded for the vehicle.
-    """
-
+        typing.Optional[int],
+        FieldMetadata(alias="totalVehicleMeters"),
+        pydantic.Field(alias="totalVehicleMeters", description="The total meters recorded for the vehicle."),
+    ] = None
     vehicle: typing.Optional[GoaVehicleTinyResponseResponseBody] = None
 
     if IS_PYDANTIC_V2:

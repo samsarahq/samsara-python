@@ -221,9 +221,7 @@ class UsersClient:
         _response = self._raw_client.get_user(id, request_options=request_options)
         return _response.data
 
-    def delete_user(
-        self, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> StandardDeleteResponse:
+    def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> StandardDeleteResponse:
         """
         Delete the given user.
 
@@ -251,11 +249,11 @@ class UsersClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.users.delete_user(
+        client.users.delete(
             id="id",
         )
         """
-        _response = self._raw_client.delete_user(id, request_options=request_options)
+        _response = self._raw_client.delete(id, request_options=request_options)
         return _response.data
 
     def update_user(
@@ -553,7 +551,7 @@ class AsyncUsersClient:
         _response = await self._raw_client.get_user(id, request_options=request_options)
         return _response.data
 
-    async def delete_user(
+    async def delete(
         self, id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> StandardDeleteResponse:
         """
@@ -588,14 +586,14 @@ class AsyncUsersClient:
 
 
         async def main() -> None:
-            await client.users.delete_user(
+            await client.users.delete(
                 id="id",
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.delete_user(id, request_options=request_options)
+        _response = await self._raw_client.delete(id, request_options=request_options)
         return _response.data
 
     async def update_user(

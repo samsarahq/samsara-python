@@ -24,37 +24,35 @@ class ReadingDefinitionResponseBody(UniversalBaseModel):
     The human readable description for this reading. Translated to English.
     """
 
-    entity_type: typing_extensions.Annotated[str, FieldMetadata(alias="entityType")] = pydantic.Field(
-        alias="entityType"
-    )
-    """
-    Entity type of this reading.
-    """
-
+    entity_type: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="entityType"),
+        pydantic.Field(alias="entityType", description="Entity type of this reading."),
+    ]
     enum_values: typing_extensions.Annotated[
-        typing.Optional[typing.List[EnumValueResponseBody]], FieldMetadata(alias="enumValues")
-    ] = pydantic.Field(alias="enumValues", default=None)
-    """
-    Array of enumeration values
-    """
-
-    ingestion_enabled: typing_extensions.Annotated[bool, FieldMetadata(alias="ingestionEnabled")] = pydantic.Field(
-        alias="ingestionEnabled"
-    )
-    """
-    Indicates whether this reading can be ingested using the API.
-    """
-
+        typing.Optional[typing.List[EnumValueResponseBody]],
+        FieldMetadata(alias="enumValues"),
+        pydantic.Field(alias="enumValues", description="Array of enumeration values"),
+    ] = None
+    ingestion_enabled: typing_extensions.Annotated[
+        bool,
+        FieldMetadata(alias="ingestionEnabled"),
+        pydantic.Field(
+            alias="ingestionEnabled", description="Indicates whether this reading can be ingested using the API."
+        ),
+    ]
     label: str = pydantic.Field()
     """
     The label for this reading that is suitable to show to a user. Translated to English.
     """
 
-    reading_id: typing_extensions.Annotated[str, FieldMetadata(alias="readingId")] = pydantic.Field(alias="readingId")
-    """
-    The ID of the reading used to fetch time series data in other endpoints.
-    """
-
+    reading_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="readingId"),
+        pydantic.Field(
+            alias="readingId", description="The ID of the reading used to fetch time series data in other endpoints."
+        ),
+    ]
     type: typing.Dict[str, typing.Any] = pydantic.Field()
     """
     The type information for the reading. Contains the complete type structure including dataType, unit, enumValues, fields, etc.

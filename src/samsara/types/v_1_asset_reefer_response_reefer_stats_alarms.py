@@ -9,25 +9,21 @@ from ..core.serialization import FieldMetadata
 
 
 class V1AssetReeferResponseReeferStatsAlarms(UniversalBaseModel):
-    alarm_code: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="alarmCode")] = pydantic.Field(
-        alias="alarmCode", default=None
-    )
-    """
-    ID of the alarm
-    """
-
+    alarm_code: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="alarmCode"),
+        pydantic.Field(alias="alarmCode", description="ID of the alarm"),
+    ] = None
     description: typing.Optional[str] = pydantic.Field(default=None)
     """
     Description of the alarm
     """
 
-    operator_action: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="operatorAction")] = (
-        pydantic.Field(alias="operatorAction", default=None)
-    )
-    """
-    Recommended operator action
-    """
-
+    operator_action: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="operatorAction"),
+        pydantic.Field(alias="operatorAction", description="Recommended operator action"),
+    ] = None
     severity: typing.Optional[int] = pydantic.Field(default=None)
     """
     Severity of the alarm: 1: OK to run, 2: Check as specified, 3: Take immediate action

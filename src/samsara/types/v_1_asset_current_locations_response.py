@@ -15,21 +15,17 @@ class V1AssetCurrentLocationsResponse(UniversalBaseModel):
     Basic information of an asset
     """
 
-    asset_serial_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="assetSerialNumber")] = (
-        pydantic.Field(alias="assetSerialNumber", default=None)
-    )
-    """
-    Asset serial number
-    """
-
+    asset_serial_number: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="assetSerialNumber"),
+        pydantic.Field(alias="assetSerialNumber", description="Asset serial number"),
+    ] = None
     cable: typing.Optional[V1AssetCable] = None
-    engine_hours: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="engineHours")] = (
-        pydantic.Field(alias="engineHours", default=None)
-    )
-    """
-    Engine hours
-    """
-
+    engine_hours: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="engineHours"),
+        pydantic.Field(alias="engineHours", description="Engine hours"),
+    ] = None
     id: int = pydantic.Field()
     """
     Asset ID

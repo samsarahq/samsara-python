@@ -13,19 +13,17 @@ from .webhooks_patch_webhook_response_body_version import WebhooksPatchWebhookRe
 
 class WebhooksPatchWebhookResponseBody(UniversalBaseModel):
     custom_headers: typing_extensions.Annotated[
-        typing.Optional[typing.List[CustomHeadersObjectResponseBody]], FieldMetadata(alias="customHeaders")
-    ] = pydantic.Field(alias="customHeaders", default=None)
-    """
-    The list of custom headers that users can include with their request
-    """
-
+        typing.Optional[typing.List[CustomHeadersObjectResponseBody]],
+        FieldMetadata(alias="customHeaders"),
+        pydantic.Field(
+            alias="customHeaders", description="The list of custom headers that users can include with their request"
+        ),
+    ] = None
     event_types: typing_extensions.Annotated[
-        typing.Optional[typing.List[WebhooksPatchWebhookResponseBodyEventTypesItem]], FieldMetadata(alias="eventTypes")
-    ] = pydantic.Field(alias="eventTypes", default=None)
-    """
-    The list of event types associated with a particular webhook.
-    """
-
+        typing.Optional[typing.List[WebhooksPatchWebhookResponseBodyEventTypesItem]],
+        FieldMetadata(alias="eventTypes"),
+        pydantic.Field(alias="eventTypes", description="The list of event types associated with a particular webhook."),
+    ] = None
     id: str = pydantic.Field()
     """
     The ID of the webhook. This will appear in both Samsara’s cloud dashboard and the API. This is the id of the webhook. This is system generated.
@@ -36,11 +34,14 @@ class WebhooksPatchWebhookResponseBody(UniversalBaseModel):
     The name of the webhook. This will appear in both Samsara’s cloud dashboard and the API. It can be set or updated through the Samsara Dashboard or through the API at any time.
     """
 
-    secret_key: typing_extensions.Annotated[str, FieldMetadata(alias="secretKey")] = pydantic.Field(alias="secretKey")
-    """
-    The secret key of the webhook. This will appear in both Samsara’s cloud dashboard and the API.
-    """
-
+    secret_key: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="secretKey"),
+        pydantic.Field(
+            alias="secretKey",
+            description="The secret key of the webhook. This will appear in both Samsara’s cloud dashboard and the API.",
+        ),
+    ]
     url: str = pydantic.Field()
     """
     The url of the webhook. This will appear in both Samsara’s cloud dashboard and the API. It can be set or updated through the Samsara Dashboard or through the API at any time.

@@ -10,45 +10,43 @@ from .document_pdf_query_response_data_job_status import DocumentPdfQueryRespons
 
 
 class DocumentPdfQueryResponseData(UniversalBaseModel):
-    completed_at_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="completedAtTime")] = (
-        pydantic.Field(alias="completedAtTime", default=None)
-    )
-    """
-    Time that PDF generation was completed, in RFC 3339 format.
-    """
-
-    document_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="documentId")] = pydantic.Field(
-        alias="documentId", default=None
-    )
-    """
-    ID of the document.
-    """
-
+    completed_at_time: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="completedAtTime"),
+        pydantic.Field(
+            alias="completedAtTime", description="Time that PDF generation was completed, in RFC 3339 format."
+        ),
+    ] = None
+    document_id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="documentId"),
+        pydantic.Field(alias="documentId", description="ID of the document."),
+    ] = None
     download_document_pdf_url: typing_extensions.Annotated[
-        typing.Optional[str], FieldMetadata(alias="downloadDocumentPdfUrl")
-    ] = pydantic.Field(alias="downloadDocumentPdfUrl", default=None)
-    """
-    S3 pre-signed URL to download PDF file.
-    """
-
+        typing.Optional[str],
+        FieldMetadata(alias="downloadDocumentPdfUrl"),
+        pydantic.Field(alias="downloadDocumentPdfUrl", description="S3 pre-signed URL to download PDF file."),
+    ] = None
     id: typing.Optional[str] = pydantic.Field(default=None)
     """
     ID of the PDF file generated or being generated for the document
     """
 
     job_status: typing_extensions.Annotated[
-        typing.Optional[DocumentPdfQueryResponseDataJobStatus], FieldMetadata(alias="jobStatus")
-    ] = pydantic.Field(alias="jobStatus", default=None)
-    """
-    Describes status of the PDF generation job. Valid values: `requested`, `processing`, `completed`. 
-    """
-
-    requested_at_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="requestedAtTime")] = (
-        pydantic.Field(alias="requestedAtTime", default=None)
-    )
-    """
-    Time that PDF generation was requested, in RFC 3339 format.
-    """
+        typing.Optional[DocumentPdfQueryResponseDataJobStatus],
+        FieldMetadata(alias="jobStatus"),
+        pydantic.Field(
+            alias="jobStatus",
+            description="Describes status of the PDF generation job. Valid values: `requested`, `processing`, `completed`. ",
+        ),
+    ] = None
+    requested_at_time: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="requestedAtTime"),
+        pydantic.Field(
+            alias="requestedAtTime", description="Time that PDF generation was requested, in RFC 3339 format."
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

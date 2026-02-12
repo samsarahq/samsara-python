@@ -13,9 +13,9 @@ class V1VehicleMaintenancePassengerCheckEngineLight(UniversalBaseModel):
     Passenger vehicle check engine light.
     """
 
-    is_on: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="isOn")] = pydantic.Field(
-        alias="isOn", default=None
-    )
+    is_on: typing_extensions.Annotated[
+        typing.Optional[bool], FieldMetadata(alias="isOn"), pydantic.Field(alias="isOn")
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

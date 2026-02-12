@@ -9,10 +9,11 @@ from ..core.serialization import FieldMetadata
 
 
 class CreateReportConfigColumnRequestBody(UniversalBaseModel):
-    field_name: typing_extensions.Annotated[str, FieldMetadata(alias="fieldName")] = pydantic.Field(alias="fieldName")
-    """
-    Name of the field from the dataset.
-    """
+    field_name: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="fieldName"),
+        pydantic.Field(alias="fieldName", description="Name of the field from the dataset."),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

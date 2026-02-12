@@ -14,20 +14,19 @@ class DefLevelTriggerDetailsObjectRequestBody(UniversalBaseModel):
     Details specific to DEF Level
     """
 
-    def_level_percent: typing_extensions.Annotated[int, FieldMetadata(alias="defLevelPercent")] = pydantic.Field(
-        alias="defLevelPercent"
-    )
-    """
-    The DEF percentage threshold value.
-    """
-
-    min_duration_milliseconds: typing_extensions.Annotated[int, FieldMetadata(alias="minDurationMilliseconds")] = (
-        pydantic.Field(alias="minDurationMilliseconds")
-    )
-    """
-    The number of milliseconds the trigger needs to stay active before alerting.
-    """
-
+    def_level_percent: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="defLevelPercent"),
+        pydantic.Field(alias="defLevelPercent", description="The DEF percentage threshold value."),
+    ]
+    min_duration_milliseconds: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="minDurationMilliseconds"),
+        pydantic.Field(
+            alias="minDurationMilliseconds",
+            description="The number of milliseconds the trigger needs to stay active before alerting.",
+        ),
+    ]
     operation: DefLevelTriggerDetailsObjectRequestBodyOperation = pydantic.Field()
     """
     How to evaluate the threshold.  Valid values: `GREATER`, `LESS`

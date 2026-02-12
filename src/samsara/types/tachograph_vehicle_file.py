@@ -13,13 +13,14 @@ class TachographVehicleFile(UniversalBaseModel):
     Tachograph vehicle file
     """
 
-    created_at_time: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="createdAtTime")] = (
-        pydantic.Field(alias="createdAtTime", default=None)
-    )
-    """
-    Creation time of files in RFC 3339 format. This is either the download time from the tachograph itself (for files downloaded via Samsara VG) or upload time (for files manually uploaded via Samsara UI).
-    """
-
+    created_at_time: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="createdAtTime"),
+        pydantic.Field(
+            alias="createdAtTime",
+            description="Creation time of files in RFC 3339 format. This is either the download time from the tachograph itself (for files downloaded via Samsara VG) or upload time (for files manually uploaded via Samsara UI).",
+        ),
+    ] = None
     id: typing.Optional[str] = pydantic.Field(default=None)
     """
     ID of the file.
@@ -31,11 +32,10 @@ class TachographVehicleFile(UniversalBaseModel):
     """
 
     vehicle_identification_number: typing_extensions.Annotated[
-        typing.Optional[str], FieldMetadata(alias="vehicleIdentificationNumber")
-    ] = pydantic.Field(alias="vehicleIdentificationNumber", default=None)
-    """
-    VIN associated with the vehicle file.
-    """
+        typing.Optional[str],
+        FieldMetadata(alias="vehicleIdentificationNumber"),
+        pydantic.Field(alias="vehicleIdentificationNumber", description="VIN associated with the vehicle file."),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

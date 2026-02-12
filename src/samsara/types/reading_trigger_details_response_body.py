@@ -18,11 +18,15 @@ class ReadingTriggerDetailsResponseBody(UniversalBaseModel):
 
     asset: typing.Optional[AlertObjectAssetResponseBody] = None
     continuous_threshold: typing_extensions.Annotated[
-        typing.Optional[ContinuousReadingAlertThresholdResponseBody], FieldMetadata(alias="continuousThreshold")
-    ] = pydantic.Field(alias="continuousThreshold", default=None)
+        typing.Optional[ContinuousReadingAlertThresholdResponseBody],
+        FieldMetadata(alias="continuousThreshold"),
+        pydantic.Field(alias="continuousThreshold"),
+    ] = None
     enum_threshold: typing_extensions.Annotated[
-        typing.Optional[EnumReadingAlertThresholdResponseBody], FieldMetadata(alias="enumThreshold")
-    ] = pydantic.Field(alias="enumThreshold", default=None)
+        typing.Optional[EnumReadingAlertThresholdResponseBody],
+        FieldMetadata(alias="enumThreshold"),
+        pydantic.Field(alias="enumThreshold"),
+    ] = None
     id: str = pydantic.Field()
     """
     The ID of the reading.

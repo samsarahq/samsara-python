@@ -13,10 +13,9 @@ class TinyDriverObjectResponseBody(UniversalBaseModel):
     The driver of a vehicle.
     """
 
-    driver_id: typing_extensions.Annotated[str, FieldMetadata(alias="driverId")] = pydantic.Field(alias="driverId")
-    """
-    ID of the driver.
-    """
+    driver_id: typing_extensions.Annotated[
+        str, FieldMetadata(alias="driverId"), pydantic.Field(alias="driverId", description="ID of the driver.")
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -14,21 +14,17 @@ class V1Asset(UniversalBaseModel):
     Basic information of an asset
     """
 
-    asset_serial_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="assetSerialNumber")] = (
-        pydantic.Field(alias="assetSerialNumber", default=None)
-    )
-    """
-    Serial number of the host asset
-    """
-
+    asset_serial_number: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="assetSerialNumber"),
+        pydantic.Field(alias="assetSerialNumber", description="Serial number of the host asset"),
+    ] = None
     cable: typing.Optional[V1AssetCable] = None
-    engine_hours: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="engineHours")] = (
-        pydantic.Field(alias="engineHours", default=None)
-    )
-    """
-    Engine hours
-    """
-
+    engine_hours: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="engineHours"),
+        pydantic.Field(alias="engineHours", description="Engine hours"),
+    ] = None
     id: int = pydantic.Field()
     """
     Asset ID
@@ -39,12 +35,11 @@ class V1Asset(UniversalBaseModel):
     Asset name
     """
 
-    vehicle_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="vehicleId")] = pydantic.Field(
-        alias="vehicleId", default=None
-    )
-    """
-    The ID of the Vehicle associated to the Asset (if present)
-    """
+    vehicle_id: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="vehicleId"),
+        pydantic.Field(alias="vehicleId", description="The ID of the Vehicle associated to the Asset (if present)"),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

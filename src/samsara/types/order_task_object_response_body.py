@@ -17,12 +17,10 @@ class OrderTaskObjectResponseBody(UniversalBaseModel):
     """
 
     custom_properties: typing_extensions.Annotated[
-        typing.Optional[typing.List[OrderTaskCustomPropertyObjectResponseBody]], FieldMetadata(alias="customProperties")
-    ] = pydantic.Field(alias="customProperties", default=None)
-    """
-    List of custom properties for the order
-    """
-
+        typing.Optional[typing.List[OrderTaskCustomPropertyObjectResponseBody]],
+        FieldMetadata(alias="customProperties"),
+        pydantic.Field(alias="customProperties", description="List of custom properties for the order"),
+    ] = None
     id: str = pydantic.Field()
     """
     The order identifier
@@ -34,19 +32,15 @@ class OrderTaskObjectResponseBody(UniversalBaseModel):
     """
 
     required_skills: typing_extensions.Annotated[
-        typing.Optional[typing.List[OrderTaskSkillObjectResponseBody]], FieldMetadata(alias="requiredSkills")
-    ] = pydantic.Field(alias="requiredSkills", default=None)
-    """
-    List of required skills for the order
-    """
-
-    service_window: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="serviceWindow")] = (
-        pydantic.Field(alias="serviceWindow", default=None)
-    )
-    """
-    The service window time range
-    """
-
+        typing.Optional[typing.List[OrderTaskSkillObjectResponseBody]],
+        FieldMetadata(alias="requiredSkills"),
+        pydantic.Field(alias="requiredSkills", description="List of required skills for the order"),
+    ] = None
+    service_window: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="serviceWindow"),
+        pydantic.Field(alias="serviceWindow", description="The service window time range"),
+    ] = None
     type: str = pydantic.Field()
     """
     The task type (pickup or delivery)

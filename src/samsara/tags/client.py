@@ -272,7 +272,7 @@ class TagsClient:
         )
         return _response.data
 
-    def delete_tag(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> StandardDeleteResponse:
+    def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> StandardDeleteResponse:
         """
         Permanently deletes a tag.
 
@@ -300,11 +300,11 @@ class TagsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.tags.delete_tag(
+        client.tags.delete(
             id="id",
         )
         """
-        _response = self._raw_client.delete_tag(id, request_options=request_options)
+        _response = self._raw_client.delete(id, request_options=request_options)
         return _response.data
 
     def patch_tag(
@@ -690,7 +690,7 @@ class AsyncTagsClient:
         )
         return _response.data
 
-    async def delete_tag(
+    async def delete(
         self, id: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> StandardDeleteResponse:
         """
@@ -725,14 +725,14 @@ class AsyncTagsClient:
 
 
         async def main() -> None:
-            await client.tags.delete_tag(
+            await client.tags.delete(
                 id="id",
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.delete_tag(id, request_options=request_options)
+        _response = await self._raw_client.delete(id, request_options=request_options)
         return _response.data
 
     async def patch_tag(

@@ -15,32 +15,37 @@ class DriverCarrierSettings(UniversalBaseModel):
     Carrier for a given driver. If the driver's carrier differs from the general organization's carrier settings, the override value is used. Updating this value only updates the override setting for this driver.
     """
 
-    carrier_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="carrierName")] = (
-        pydantic.Field(alias="carrierName", default=None)
-    )
-    """
-    Carrier for a given driver.
-    """
-
-    dot_number: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="dotNumber")] = pydantic.Field(
-        alias="dotNumber", default=None
-    )
-    """
-    Carrier US DOT Number. If this differs from the general organization's settings, the override value is used. Updating this value only updates the override setting for this driver.
-    """
-
+    carrier_name: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="carrierName"),
+        pydantic.Field(alias="carrierName", description="Carrier for a given driver."),
+    ] = None
+    dot_number: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="dotNumber"),
+        pydantic.Field(
+            alias="dotNumber",
+            description="Carrier US DOT Number. If this differs from the general organization's settings, the override value is used. Updating this value only updates the override setting for this driver.",
+        ),
+    ] = None
     home_terminal_address: typing_extensions.Annotated[
-        typing.Optional[DriverHomeTerminalAddress], FieldMetadata(alias="homeTerminalAddress")
-    ] = pydantic.Field(alias="homeTerminalAddress", default=None)
+        typing.Optional[DriverHomeTerminalAddress],
+        FieldMetadata(alias="homeTerminalAddress"),
+        pydantic.Field(alias="homeTerminalAddress"),
+    ] = None
     home_terminal_name: typing_extensions.Annotated[
-        typing.Optional[DriverHomeTerminalName], FieldMetadata(alias="homeTerminalName")
-    ] = pydantic.Field(alias="homeTerminalName", default=None)
-    main_office_address: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="mainOfficeAddress")] = (
-        pydantic.Field(alias="mainOfficeAddress", default=None)
-    )
-    """
-    Main office address for a given driver. If this differs from the general organization's settings, the override value is used. 
-    """
+        typing.Optional[DriverHomeTerminalName],
+        FieldMetadata(alias="homeTerminalName"),
+        pydantic.Field(alias="homeTerminalName"),
+    ] = None
+    main_office_address: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="mainOfficeAddress"),
+        pydantic.Field(
+            alias="mainOfficeAddress",
+            description="Main office address for a given driver. If this differs from the general organization's settings, the override value is used. ",
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

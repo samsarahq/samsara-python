@@ -20,27 +20,28 @@ class TagGroupSafetyScoreResponseBody(UniversalBaseModel):
     Aggregated list of behaviors, one row for each unique type of behavior.
     """
 
-    combined_score: typing_extensions.Annotated[int, FieldMetadata(alias="combinedScore")] = pydantic.Field(
-        alias="combinedScore"
-    )
-    """
-    Safety score for the tag group. The score is a rounded number between 0-100.
-    """
-
-    drive_distance_meters: typing_extensions.Annotated[int, FieldMetadata(alias="driveDistanceMeters")] = (
-        pydantic.Field(alias="driveDistanceMeters")
-    )
-    """
-    Total sum of distance driven in all trips across the group.
-    """
-
-    drive_time_milliseconds: typing_extensions.Annotated[int, FieldMetadata(alias="driveTimeMilliseconds")] = (
-        pydantic.Field(alias="driveTimeMilliseconds")
-    )
-    """
-    Total time spent driving in all trips across the group.
-    """
-
+    combined_score: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="combinedScore"),
+        pydantic.Field(
+            alias="combinedScore",
+            description="Safety score for the tag group. The score is a rounded number between 0-100.",
+        ),
+    ]
+    drive_distance_meters: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="driveDistanceMeters"),
+        pydantic.Field(
+            alias="driveDistanceMeters", description="Total sum of distance driven in all trips across the group."
+        ),
+    ]
+    drive_time_milliseconds: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="driveTimeMilliseconds"),
+        pydantic.Field(
+            alias="driveTimeMilliseconds", description="Total time spent driving in all trips across the group."
+        ),
+    ]
     speeding: typing.List[SafetyScoreSpeedingObjectResponseBody] = pydantic.Field()
     """
     Aggregated list of speeding events, one row for each unique type of speeding.

@@ -13,23 +13,22 @@ class PartInstanceInputObjectRequestBody(UniversalBaseModel):
     Work Order Part Instance object.
     """
 
-    cost_cents_override: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="costCentsOverride")] = (
-        pydantic.Field(alias="costCentsOverride", default=None)
-    )
-    """
-    The cost of one unit of the part in cents. If not provided, the part defined cost will be used.
-    """
-
+    cost_cents_override: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="costCentsOverride"),
+        pydantic.Field(
+            alias="costCentsOverride",
+            description="The cost of one unit of the part in cents. If not provided, the part defined cost will be used.",
+        ),
+    ] = None
     id: typing.Optional[str] = pydantic.Field(default=None)
     """
     ID of the part instance. Only set if updating an existing part instance.
     """
 
-    part_id: typing_extensions.Annotated[str, FieldMetadata(alias="partId")] = pydantic.Field(alias="partId")
-    """
-    ID of the part definition.
-    """
-
+    part_id: typing_extensions.Annotated[
+        str, FieldMetadata(alias="partId"), pydantic.Field(alias="partId", description="ID of the part definition.")
+    ]
     quantity: float = pydantic.Field()
     """
     The quantity of the part in the parts pre defined unit of measure.

@@ -20,19 +20,21 @@ class WorkerSafetySosDataResponseBody(UniversalBaseModel):
     driver: typing.Optional[AlertObjectDriverResponseBody] = None
     location: typing.Optional[EventLocationResponseBody] = None
     source_type: typing_extensions.Annotated[
-        WorkerSafetySosDataResponseBodySourceType, FieldMetadata(alias="sourceType")
-    ] = pydantic.Field(alias="sourceType")
-    """
-    The source of the SOS signal.  Valid values: `appSos`, `noResponseCheckIn`, `wearableSos`, `fallDetected`
-    """
-
+        WorkerSafetySosDataResponseBodySourceType,
+        FieldMetadata(alias="sourceType"),
+        pydantic.Field(
+            alias="sourceType",
+            description="The source of the SOS signal.  Valid values: `appSos`, `noResponseCheckIn`, `wearableSos`, `fallDetected`",
+        ),
+    ]
     vehicle: typing.Optional[AlertObjectVehicleResponseBody] = None
-    worker_safety_incident_url: typing_extensions.Annotated[str, FieldMetadata(alias="workerSafetyIncidentUrl")] = (
-        pydantic.Field(alias="workerSafetyIncidentUrl")
-    )
-    """
-    URL of the Worker Safety incident in the cloud dashboard.
-    """
+    worker_safety_incident_url: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="workerSafetyIncidentUrl"),
+        pydantic.Field(
+            alias="workerSafetyIncidentUrl", description="URL of the Worker Safety incident in the cloud dashboard."
+        ),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

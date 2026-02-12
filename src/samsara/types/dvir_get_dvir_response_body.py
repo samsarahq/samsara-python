@@ -16,84 +16,86 @@ from .walkaround_photo_object_response_body import WalkaroundPhotoObjectResponse
 
 class DvirGetDvirResponseBody(UniversalBaseModel):
     author_signature: typing_extensions.Annotated[
-        AuthorSignatureObjectResponseBody, FieldMetadata(alias="authorSignature")
-    ] = pydantic.Field(alias="authorSignature")
-    defect_ids: typing_extensions.Annotated[typing.Optional[typing.List[str]], FieldMetadata(alias="defectIds")] = (
-        pydantic.Field(alias="defectIds", default=None)
-    )
-    """
-    IDs of defects registered for the DVIR.
-    """
-
-    dvir_submission_begin_time: typing_extensions.Annotated[str, FieldMetadata(alias="dvirSubmissionBeginTime")] = (
-        pydantic.Field(alias="dvirSubmissionBeginTime")
-    )
-    """
-    Time when driver created DVIR. UTC timestamp in RFC 3339 format.
-    """
-
-    dvir_submission_time: typing_extensions.Annotated[str, FieldMetadata(alias="dvirSubmissionTime")] = pydantic.Field(
-        alias="dvirSubmissionTime"
-    )
-    """
-    Time when driver submitted the DVIR. UTC timestamp in RFC 3339 format.
-    """
-
-    formatted_address: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="formattedAddress")] = (
-        pydantic.Field(alias="formattedAddress", default=None)
-    )
+        AuthorSignatureObjectResponseBody,
+        FieldMetadata(alias="authorSignature"),
+        pydantic.Field(alias="authorSignature"),
+    ]
+    defect_ids: typing_extensions.Annotated[
+        typing.Optional[typing.List[str]],
+        FieldMetadata(alias="defectIds"),
+        pydantic.Field(alias="defectIds", description="IDs of defects registered for the DVIR."),
+    ] = None
+    dvir_submission_begin_time: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="dvirSubmissionBeginTime"),
+        pydantic.Field(
+            alias="dvirSubmissionBeginTime",
+            description="Time when driver created DVIR. UTC timestamp in RFC 3339 format.",
+        ),
+    ]
+    dvir_submission_time: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="dvirSubmissionTime"),
+        pydantic.Field(
+            alias="dvirSubmissionTime",
+            description="Time when driver submitted the DVIR. UTC timestamp in RFC 3339 format.",
+        ),
+    ]
+    formatted_address: typing_extensions.Annotated[
+        typing.Optional[str], FieldMetadata(alias="formattedAddress"), pydantic.Field(alias="formattedAddress")
+    ] = None
     id: str = pydantic.Field()
     """
     The unique id of the DVIR
     """
 
-    mechanic_notes: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="mechanicNotes")] = (
-        pydantic.Field(alias="mechanicNotes", default=None)
-    )
-    """
-    The mechanics notes on the DVIR.
-    """
-
-    odometer_meters: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="odometerMeters")] = (
-        pydantic.Field(alias="odometerMeters", default=None)
-    )
-    """
-    The odometer reading in meters.
-    """
-
+    mechanic_notes: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="mechanicNotes"),
+        pydantic.Field(alias="mechanicNotes", description="The mechanics notes on the DVIR."),
+    ] = None
+    odometer_meters: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="odometerMeters"),
+        pydantic.Field(alias="odometerMeters", description="The odometer reading in meters."),
+    ] = None
     safety_status: typing_extensions.Annotated[
-        typing.Optional[DvirGetDvirResponseBodySafetyStatus], FieldMetadata(alias="safetyStatus")
-    ] = pydantic.Field(alias="safetyStatus", default=None)
-    """
-    The condition of vehicle on which DVIR was done.  Valid values: `unknown`, `safe`, `unsafe`, `resolved`
-    """
-
+        typing.Optional[DvirGetDvirResponseBodySafetyStatus],
+        FieldMetadata(alias="safetyStatus"),
+        pydantic.Field(
+            alias="safetyStatus",
+            description="The condition of vehicle on which DVIR was done.  Valid values: `unknown`, `safe`, `unsafe`, `resolved`",
+        ),
+    ] = None
     second_signature: typing_extensions.Annotated[
-        typing.Optional[AuthorSignatureObjectResponseBody], FieldMetadata(alias="secondSignature")
-    ] = pydantic.Field(alias="secondSignature", default=None)
+        typing.Optional[AuthorSignatureObjectResponseBody],
+        FieldMetadata(alias="secondSignature"),
+        pydantic.Field(alias="secondSignature"),
+    ] = None
     third_signature: typing_extensions.Annotated[
-        typing.Optional[AuthorSignatureObjectResponseBody], FieldMetadata(alias="thirdSignature")
-    ] = pydantic.Field(alias="thirdSignature", default=None)
+        typing.Optional[AuthorSignatureObjectResponseBody],
+        FieldMetadata(alias="thirdSignature"),
+        pydantic.Field(alias="thirdSignature"),
+    ] = None
     trailer: typing.Optional[TrailerDvirObjectResponseBody] = None
     type: DvirGetDvirResponseBodyType = pydantic.Field()
     """
     Inspection type of the DVIR.  Valid values: `preTrip`, `postTrip`, `mechanic`, `unspecified`
     """
 
-    updated_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="updatedAtTime")] = pydantic.Field(
-        alias="updatedAtTime"
-    )
-    """
-    Time of any DVIR updates. UTC timestamp in RFC 3339 format.
-    """
-
+    updated_at_time: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="updatedAtTime"),
+        pydantic.Field(
+            alias="updatedAtTime", description="Time of any DVIR updates. UTC timestamp in RFC 3339 format."
+        ),
+    ]
     vehicle: typing.Optional[VehicleDvirObjectResponseBody] = None
     walkaround_photos: typing_extensions.Annotated[
-        typing.Optional[typing.List[WalkaroundPhotoObjectResponseBody]], FieldMetadata(alias="walkaroundPhotos")
-    ] = pydantic.Field(alias="walkaroundPhotos", default=None)
-    """
-    List of walkaround photos
-    """
+        typing.Optional[typing.List[WalkaroundPhotoObjectResponseBody]],
+        FieldMetadata(alias="walkaroundPhotos"),
+        pydantic.Field(alias="walkaroundPhotos", description="List of walkaround photos"),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

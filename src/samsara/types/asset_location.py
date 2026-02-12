@@ -15,13 +15,11 @@ class AssetLocation(UniversalBaseModel):
     For locationType "point", latitude and longitude are required. For "address", formattedAddress must be provided, and lat/long can be optionally included for displaying a dot on the assets map. For "dataInput", this object should not be passed in.
     """
 
-    formatted_address: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="formattedAddress")] = (
-        pydantic.Field(alias="formattedAddress", default=None)
-    )
-    """
-    Formatted address of the location
-    """
-
+    formatted_address: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="formattedAddress"),
+        pydantic.Field(alias="formattedAddress", description="Formatted address of the location"),
+    ] = None
     latitude: typing.Optional[Latitude] = None
     longitude: typing.Optional[Longitude] = None
 

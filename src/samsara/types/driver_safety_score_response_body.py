@@ -20,32 +20,26 @@ class DriverSafetyScoreResponseBody(UniversalBaseModel):
     Aggregated list of behaviors for the driver, one row for each unique type of behavior.
     """
 
-    drive_distance_meters: typing_extensions.Annotated[int, FieldMetadata(alias="driveDistanceMeters")] = (
-        pydantic.Field(alias="driveDistanceMeters")
-    )
-    """
-    Total sum of distance driven by the driver.
-    """
-
-    drive_time_milliseconds: typing_extensions.Annotated[int, FieldMetadata(alias="driveTimeMilliseconds")] = (
-        pydantic.Field(alias="driveTimeMilliseconds")
-    )
-    """
-    Total time spent driving by the driver.
-    """
-
-    driver_id: typing_extensions.Annotated[str, FieldMetadata(alias="driverId")] = pydantic.Field(alias="driverId")
-    """
-    ID of the driver.
-    """
-
-    driver_score: typing_extensions.Annotated[int, FieldMetadata(alias="driverScore")] = pydantic.Field(
-        alias="driverScore"
-    )
-    """
-    Safety score for the driver. The score is a rounded number between 0-100.
-    """
-
+    drive_distance_meters: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="driveDistanceMeters"),
+        pydantic.Field(alias="driveDistanceMeters", description="Total sum of distance driven by the driver."),
+    ]
+    drive_time_milliseconds: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="driveTimeMilliseconds"),
+        pydantic.Field(alias="driveTimeMilliseconds", description="Total time spent driving by the driver."),
+    ]
+    driver_id: typing_extensions.Annotated[
+        str, FieldMetadata(alias="driverId"), pydantic.Field(alias="driverId", description="ID of the driver.")
+    ]
+    driver_score: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="driverScore"),
+        pydantic.Field(
+            alias="driverScore", description="Safety score for the driver. The score is a rounded number between 0-100."
+        ),
+    ]
     speeding: typing.List[SafetyScoreSpeedingObjectResponseBody] = pydantic.Field()
     """
     Aggregated list of speeding events for the driver, one row for each unique type of speeding.

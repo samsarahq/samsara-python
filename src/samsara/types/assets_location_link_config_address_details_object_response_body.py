@@ -13,13 +13,11 @@ class AssetsLocationLinkConfigAddressDetailsObjectResponseBody(UniversalBaseMode
     Location object that indicates what address information (destination point and/or ETA) will be shown by Live Sharing Link.
     """
 
-    formatted_address: typing_extensions.Annotated[str, FieldMetadata(alias="formattedAddress")] = pydantic.Field(
-        alias="formattedAddress"
-    )
-    """
-    Formatted address of a location
-    """
-
+    formatted_address: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="formattedAddress"),
+        pydantic.Field(alias="formattedAddress", description="Formatted address of a location"),
+    ]
     latitude: float = pydantic.Field()
     """
     Latitude of a location

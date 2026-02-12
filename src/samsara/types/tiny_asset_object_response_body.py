@@ -14,17 +14,17 @@ class TinyAssetObjectResponseBody(UniversalBaseModel):
     Vehicle, trailer or other equipment to be tracked.
     """
 
-    asset_id: typing_extensions.Annotated[str, FieldMetadata(alias="assetId")] = pydantic.Field(alias="assetId")
-    """
-    ID of the asset.
-    """
-
-    asset_type: typing_extensions.Annotated[TinyAssetObjectResponseBodyAssetType, FieldMetadata(alias="assetType")] = (
-        pydantic.Field(alias="assetType")
-    )
-    """
-    The operational context in which the asset interacts with the Samsara system. Examples: Vehicle (eg: truck, bus...), Trailer (eg: dry van, reefer, flatbed...), Powered Equipment (eg: dozer, crane...), Unpowered Equipment (eg: container, dumpster...), or Uncategorized.  Valid values: `uncategorized`, `trailer`, `equipment`, `unpowered`, `vehicle`
-    """
+    asset_id: typing_extensions.Annotated[
+        str, FieldMetadata(alias="assetId"), pydantic.Field(alias="assetId", description="ID of the asset.")
+    ]
+    asset_type: typing_extensions.Annotated[
+        TinyAssetObjectResponseBodyAssetType,
+        FieldMetadata(alias="assetType"),
+        pydantic.Field(
+            alias="assetType",
+            description="The operational context in which the asset interacts with the Samsara system. Examples: Vehicle (eg: truck, bus...), Trailer (eg: dry van, reefer, flatbed...), Powered Equipment (eg: dozer, crane...), Unpowered Equipment (eg: container, dumpster...), or Uncategorized.  Valid values: `uncategorized`, `trailer`, `equipment`, `unpowered`, `vehicle`",
+        ),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

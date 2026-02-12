@@ -75,304 +75,272 @@ class VehicleStatsListResponseData(UniversalBaseModel):
     ambient_air_temperature_milli_c: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsAmbientAirTempMilliCWithDecoration]],
         FieldMetadata(alias="ambientAirTemperatureMilliC"),
-    ] = pydantic.Field(alias="ambientAirTemperatureMilliC", default=None)
-    """
-    A list of ambient air temperature readings in millidegree Celsius for the given vehicle.
-    """
-
+        pydantic.Field(
+            alias="ambientAirTemperatureMilliC",
+            description="A list of ambient air temperature readings in millidegree Celsius for the given vehicle.",
+        ),
+    ] = None
     aux_input_1: typing_extensions.Annotated[
-        typing.Optional[typing.List[VehicleStatsAuxInputWithDecoration]], FieldMetadata(alias="auxInput1")
-    ] = pydantic.Field(alias="auxInput1", default=None)
-    """
-    A list of auxiliary equipment states.
-    """
-
+        typing.Optional[typing.List[VehicleStatsAuxInputWithDecoration]],
+        FieldMetadata(alias="auxInput1"),
+        pydantic.Field(alias="auxInput1", description="A list of auxiliary equipment states."),
+    ] = None
     aux_input_10: typing_extensions.Annotated[
-        typing.Optional[typing.List[VehicleStatsAuxInputWithDecoration]], FieldMetadata(alias="auxInput10")
-    ] = pydantic.Field(alias="auxInput10", default=None)
-    """
-    A list of auxiliary equipment states.
-    """
-
+        typing.Optional[typing.List[VehicleStatsAuxInputWithDecoration]],
+        FieldMetadata(alias="auxInput10"),
+        pydantic.Field(alias="auxInput10", description="A list of auxiliary equipment states."),
+    ] = None
     aux_input_11: typing_extensions.Annotated[
-        typing.Optional[typing.List[VehicleStatsAuxInputWithDecoration]], FieldMetadata(alias="auxInput11")
-    ] = pydantic.Field(alias="auxInput11", default=None)
-    """
-    A list of auxiliary equipment states.
-    """
-
+        typing.Optional[typing.List[VehicleStatsAuxInputWithDecoration]],
+        FieldMetadata(alias="auxInput11"),
+        pydantic.Field(alias="auxInput11", description="A list of auxiliary equipment states."),
+    ] = None
     aux_input_12: typing_extensions.Annotated[
-        typing.Optional[typing.List[VehicleStatsAuxInputWithDecoration]], FieldMetadata(alias="auxInput12")
-    ] = pydantic.Field(alias="auxInput12", default=None)
-    """
-    A list of auxiliary equipment states.
-    """
-
+        typing.Optional[typing.List[VehicleStatsAuxInputWithDecoration]],
+        FieldMetadata(alias="auxInput12"),
+        pydantic.Field(alias="auxInput12", description="A list of auxiliary equipment states."),
+    ] = None
     aux_input_13: typing_extensions.Annotated[
-        typing.Optional[typing.List[VehicleStatsAuxInputWithDecoration]], FieldMetadata(alias="auxInput13")
-    ] = pydantic.Field(alias="auxInput13", default=None)
-    """
-    A list of auxiliary equipment states.
-    """
-
+        typing.Optional[typing.List[VehicleStatsAuxInputWithDecoration]],
+        FieldMetadata(alias="auxInput13"),
+        pydantic.Field(alias="auxInput13", description="A list of auxiliary equipment states."),
+    ] = None
     aux_input_2: typing_extensions.Annotated[
-        typing.Optional[typing.List[VehicleStatsAuxInputWithDecoration]], FieldMetadata(alias="auxInput2")
-    ] = pydantic.Field(alias="auxInput2", default=None)
-    """
-    A list of auxiliary equipment states.
-    """
-
+        typing.Optional[typing.List[VehicleStatsAuxInputWithDecoration]],
+        FieldMetadata(alias="auxInput2"),
+        pydantic.Field(alias="auxInput2", description="A list of auxiliary equipment states."),
+    ] = None
     aux_input_3: typing_extensions.Annotated[
-        typing.Optional[typing.List[VehicleStatsAuxInputWithDecoration]], FieldMetadata(alias="auxInput3")
-    ] = pydantic.Field(alias="auxInput3", default=None)
-    """
-    A list of auxiliary equipment states.
-    """
-
+        typing.Optional[typing.List[VehicleStatsAuxInputWithDecoration]],
+        FieldMetadata(alias="auxInput3"),
+        pydantic.Field(alias="auxInput3", description="A list of auxiliary equipment states."),
+    ] = None
     aux_input_4: typing_extensions.Annotated[
-        typing.Optional[typing.List[VehicleStatsAuxInputWithDecoration]], FieldMetadata(alias="auxInput4")
-    ] = pydantic.Field(alias="auxInput4", default=None)
-    """
-    A list of auxiliary equipment states.
-    """
-
+        typing.Optional[typing.List[VehicleStatsAuxInputWithDecoration]],
+        FieldMetadata(alias="auxInput4"),
+        pydantic.Field(alias="auxInput4", description="A list of auxiliary equipment states."),
+    ] = None
     aux_input_5: typing_extensions.Annotated[
-        typing.Optional[typing.List[VehicleStatsAuxInputWithDecoration]], FieldMetadata(alias="auxInput5")
-    ] = pydantic.Field(alias="auxInput5", default=None)
-    """
-    A list of auxiliary equipment states.
-    """
-
+        typing.Optional[typing.List[VehicleStatsAuxInputWithDecoration]],
+        FieldMetadata(alias="auxInput5"),
+        pydantic.Field(alias="auxInput5", description="A list of auxiliary equipment states."),
+    ] = None
     aux_input_6: typing_extensions.Annotated[
-        typing.Optional[typing.List[VehicleStatsAuxInputWithDecoration]], FieldMetadata(alias="auxInput6")
-    ] = pydantic.Field(alias="auxInput6", default=None)
-    """
-    A list of auxiliary equipment states.
-    """
-
+        typing.Optional[typing.List[VehicleStatsAuxInputWithDecoration]],
+        FieldMetadata(alias="auxInput6"),
+        pydantic.Field(alias="auxInput6", description="A list of auxiliary equipment states."),
+    ] = None
     aux_input_7: typing_extensions.Annotated[
-        typing.Optional[typing.List[VehicleStatsAuxInputWithDecoration]], FieldMetadata(alias="auxInput7")
-    ] = pydantic.Field(alias="auxInput7", default=None)
-    """
-    A list of auxiliary equipment states.
-    """
-
+        typing.Optional[typing.List[VehicleStatsAuxInputWithDecoration]],
+        FieldMetadata(alias="auxInput7"),
+        pydantic.Field(alias="auxInput7", description="A list of auxiliary equipment states."),
+    ] = None
     aux_input_8: typing_extensions.Annotated[
-        typing.Optional[typing.List[VehicleStatsAuxInputWithDecoration]], FieldMetadata(alias="auxInput8")
-    ] = pydantic.Field(alias="auxInput8", default=None)
-    """
-    A list of auxiliary equipment states.
-    """
-
+        typing.Optional[typing.List[VehicleStatsAuxInputWithDecoration]],
+        FieldMetadata(alias="auxInput8"),
+        pydantic.Field(alias="auxInput8", description="A list of auxiliary equipment states."),
+    ] = None
     aux_input_9: typing_extensions.Annotated[
-        typing.Optional[typing.List[VehicleStatsAuxInputWithDecoration]], FieldMetadata(alias="auxInput9")
-    ] = pydantic.Field(alias="auxInput9", default=None)
-    """
-    A list of auxiliary equipment states.
-    """
-
+        typing.Optional[typing.List[VehicleStatsAuxInputWithDecoration]],
+        FieldMetadata(alias="auxInput9"),
+        pydantic.Field(alias="auxInput9", description="A list of auxiliary equipment states."),
+    ] = None
     barometric_pressure_pa: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsBarometricPressurePaWithDecoration]],
         FieldMetadata(alias="barometricPressurePa"),
-    ] = pydantic.Field(alias="barometricPressurePa", default=None)
-    """
-    A list of barometric pressure readings in pascals for the given vehicle.
-    """
-
+        pydantic.Field(
+            alias="barometricPressurePa",
+            description="A list of barometric pressure readings in pascals for the given vehicle.",
+        ),
+    ] = None
     battery_milli_volts: typing_extensions.Annotated[
-        typing.Optional[typing.List[VehicleStatsBatteryVoltageWithDecoration]], FieldMetadata(alias="batteryMilliVolts")
-    ] = pydantic.Field(alias="batteryMilliVolts", default=None)
-    """
-    A list of battery levels in milliVolts for the given vehicle.
-    """
-
+        typing.Optional[typing.List[VehicleStatsBatteryVoltageWithDecoration]],
+        FieldMetadata(alias="batteryMilliVolts"),
+        pydantic.Field(
+            alias="batteryMilliVolts", description="A list of battery levels in milliVolts for the given vehicle."
+        ),
+    ] = None
     def_level_milli_percent: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsDefLevelMilliPercentWithDecoration]],
         FieldMetadata(alias="defLevelMilliPercent"),
-    ] = pydantic.Field(alias="defLevelMilliPercent", default=None)
-    """
-    A list of DEF level milli percentage readings for the given vehicle.
-    """
-
+        pydantic.Field(
+            alias="defLevelMilliPercent",
+            description="A list of DEF level milli percentage readings for the given vehicle.",
+        ),
+    ] = None
     ecu_door_status: typing_extensions.Annotated[
-        typing.Optional[typing.List[VehicleStatsEcuDoorStatus]], FieldMetadata(alias="ecuDoorStatus")
-    ] = pydantic.Field(alias="ecuDoorStatus", default=None)
-    """
-    Door status as read from the vehicle (either from ECU or AUX as a fallback).
-    """
-
+        typing.Optional[typing.List[VehicleStatsEcuDoorStatus]],
+        FieldMetadata(alias="ecuDoorStatus"),
+        pydantic.Field(
+            alias="ecuDoorStatus",
+            description="Door status as read from the vehicle (either from ECU or AUX as a fallback).",
+        ),
+    ] = None
     ecu_speed_mph: typing_extensions.Annotated[
-        typing.Optional[typing.List[VehicleStatsEcuSpeedMphWithDecoration]], FieldMetadata(alias="ecuSpeedMph")
-    ] = pydantic.Field(alias="ecuSpeedMph", default=None)
-    """
-    A list of the speeds of the vehicle in miles per hour, as reported by the ECU.
-    """
-
+        typing.Optional[typing.List[VehicleStatsEcuSpeedMphWithDecoration]],
+        FieldMetadata(alias="ecuSpeedMph"),
+        pydantic.Field(
+            alias="ecuSpeedMph",
+            description="A list of the speeds of the vehicle in miles per hour, as reported by the ECU.",
+        ),
+    ] = None
     engine_coolant_temperature_milli_c: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsEngineCoolantTempMilliCWithDecoration]],
         FieldMetadata(alias="engineCoolantTemperatureMilliC"),
-    ] = pydantic.Field(alias="engineCoolantTemperatureMilliC", default=None)
-    """
-    A list of engine coolant temperature readings in millidegree Celsius for the given vehicle.
-    """
-
+        pydantic.Field(
+            alias="engineCoolantTemperatureMilliC",
+            description="A list of engine coolant temperature readings in millidegree Celsius for the given vehicle.",
+        ),
+    ] = None
     engine_immobilizer: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsEngineImmobilizerWithDecoration]],
         FieldMetadata(alias="engineImmobilizer"),
-    ] = pydantic.Field(alias="engineImmobilizer", default=None)
-    """
-    A list of engine immobilizer data for the given vehicle.
-    """
-
+        pydantic.Field(
+            alias="engineImmobilizer", description="A list of engine immobilizer data for the given vehicle."
+        ),
+    ] = None
     engine_load_percent: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsEngineLoadPercentWithDecoration]],
         FieldMetadata(alias="engineLoadPercent"),
-    ] = pydantic.Field(alias="engineLoadPercent", default=None)
-    """
-    A list of engine load percentage readings for the given vehicle.
-    """
-
+        pydantic.Field(
+            alias="engineLoadPercent", description="A list of engine load percentage readings for the given vehicle."
+        ),
+    ] = None
     engine_oil_pressure_k_pa: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsEngineOilPressureKPaWithDecoration]],
         FieldMetadata(alias="engineOilPressureKPa"),
-    ] = pydantic.Field(alias="engineOilPressureKPa", default=None)
-    """
-    A list of engine oil pressure readings in kilopascals for the given vehicle.
-    """
-
+        pydantic.Field(
+            alias="engineOilPressureKPa",
+            description="A list of engine oil pressure readings in kilopascals for the given vehicle.",
+        ),
+    ] = None
     engine_rpm: typing_extensions.Annotated[
-        typing.Optional[typing.List[VehicleStatsEngineRpmWithDecoration]], FieldMetadata(alias="engineRpm")
-    ] = pydantic.Field(alias="engineRpm", default=None)
-    """
-    A list engine RPM values for the given vehicle.
-    """
-
+        typing.Optional[typing.List[VehicleStatsEngineRpmWithDecoration]],
+        FieldMetadata(alias="engineRpm"),
+        pydantic.Field(alias="engineRpm", description="A list engine RPM values for the given vehicle."),
+    ] = None
     engine_states: typing_extensions.Annotated[
-        typing.Optional[typing.List[VehicleStatsEngineStateWithDecoration]], FieldMetadata(alias="engineStates")
-    ] = pydantic.Field(alias="engineStates", default=None)
-    """
-    A list of engine state events for the given vehicle.
-    """
-
+        typing.Optional[typing.List[VehicleStatsEngineStateWithDecoration]],
+        FieldMetadata(alias="engineStates"),
+        pydantic.Field(alias="engineStates", description="A list of engine state events for the given vehicle."),
+    ] = None
     ev_average_battery_temperature_milli_celsius: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsEvAverageBatteryTemperatureMilliCelsius]],
         FieldMetadata(alias="evAverageBatteryTemperatureMilliCelsius"),
-    ] = pydantic.Field(alias="evAverageBatteryTemperatureMilliCelsius", default=None)
-    """
-    Battery temperature for electric and hybrid vehicles in milli celsius. Not all EV and HEVs may report this field.
-    """
-
+        pydantic.Field(
+            alias="evAverageBatteryTemperatureMilliCelsius",
+            description="Battery temperature for electric and hybrid vehicles in milli celsius. Not all EV and HEVs may report this field.",
+        ),
+    ] = None
     ev_battery_current_milli_amp: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsEvBatteryCurrentMilliAmp]],
         FieldMetadata(alias="evBatteryCurrentMilliAmp"),
-    ] = pydantic.Field(alias="evBatteryCurrentMilliAmp", default=None)
-    """
-    Battery current for electric and hybrid vehicles in milli amps. Not all EV and HEVs may report this field.
-    """
-
+        pydantic.Field(
+            alias="evBatteryCurrentMilliAmp",
+            description="Battery current for electric and hybrid vehicles in milli amps. Not all EV and HEVs may report this field.",
+        ),
+    ] = None
     ev_battery_state_of_health_milli_percent: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsEvBatteryStateOfHealthMilliPercent]],
         FieldMetadata(alias="evBatteryStateOfHealthMilliPercent"),
-    ] = pydantic.Field(alias="evBatteryStateOfHealthMilliPercent", default=None)
-    """
-    Milli percent battery state of health for electric and hybrid vehicles. Not all EV and HEVs may report this field.
-    """
-
+        pydantic.Field(
+            alias="evBatteryStateOfHealthMilliPercent",
+            description="Milli percent battery state of health for electric and hybrid vehicles. Not all EV and HEVs may report this field.",
+        ),
+    ] = None
     ev_battery_voltage_milli_volt: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsEvBatteryVoltageMilliVolt]],
         FieldMetadata(alias="evBatteryVoltageMilliVolt"),
-    ] = pydantic.Field(alias="evBatteryVoltageMilliVolt", default=None)
-    """
-    Battery voltage for electric and hybrid vehicles in milli volts. Not all EV and HEVs may report this field.
-    """
-
+        pydantic.Field(
+            alias="evBatteryVoltageMilliVolt",
+            description="Battery voltage for electric and hybrid vehicles in milli volts. Not all EV and HEVs may report this field.",
+        ),
+    ] = None
     ev_charging_current_milli_amp: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsEvChargingCurrentMilliAmp]],
         FieldMetadata(alias="evChargingCurrentMilliAmp"),
-    ] = pydantic.Field(alias="evChargingCurrentMilliAmp", default=None)
-    """
-    Charging current for electric and hybrid vehicles in milli amps. Not all EV and HEVs may report this field.
-    """
-
+        pydantic.Field(
+            alias="evChargingCurrentMilliAmp",
+            description="Charging current for electric and hybrid vehicles in milli amps. Not all EV and HEVs may report this field.",
+        ),
+    ] = None
     ev_charging_energy_micro_wh: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsEvChargingEnergyMicroWh]],
         FieldMetadata(alias="evChargingEnergyMicroWh"),
-    ] = pydantic.Field(alias="evChargingEnergyMicroWh", default=None)
-    """
-    Charging energy for electric and hybrid vehicles in microwatt hours. Not all EV and HEVs may report this field.
-    """
-
+        pydantic.Field(
+            alias="evChargingEnergyMicroWh",
+            description="Charging energy for electric and hybrid vehicles in microwatt hours. Not all EV and HEVs may report this field.",
+        ),
+    ] = None
     ev_charging_status: typing_extensions.Annotated[
-        typing.Optional[typing.List[VehicleStatsEvChargingStatus]], FieldMetadata(alias="evChargingStatus")
-    ] = pydantic.Field(alias="evChargingStatus", default=None)
-    """
-    Charging status for electric and hybrid vehicles. Not all EV and HEVs may report this field.
-    """
-
+        typing.Optional[typing.List[VehicleStatsEvChargingStatus]],
+        FieldMetadata(alias="evChargingStatus"),
+        pydantic.Field(
+            alias="evChargingStatus",
+            description="Charging status for electric and hybrid vehicles. Not all EV and HEVs may report this field.",
+        ),
+    ] = None
     ev_charging_voltage_milli_volt: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsEvChargingVoltageMilliVolt]],
         FieldMetadata(alias="evChargingVoltageMilliVolt"),
-    ] = pydantic.Field(alias="evChargingVoltageMilliVolt", default=None)
-    """
-    Charging voltage for electric and hybrid vehicles in milli  volts. Not all EV and HEVs may report this field.
-    """
-
+        pydantic.Field(
+            alias="evChargingVoltageMilliVolt",
+            description="Charging voltage for electric and hybrid vehicles in milli  volts. Not all EV and HEVs may report this field.",
+        ),
+    ] = None
     ev_consumed_energy_micro_wh: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsEvConsumedEnergyMicroWh]],
         FieldMetadata(alias="evConsumedEnergyMicroWh"),
-    ] = pydantic.Field(alias="evConsumedEnergyMicroWh", default=None)
-    """
-    Consumed energy (including regenerated) for electric and hybrid vehicles in microwatt hours. Not all EV and HEVs may report this field.
-    """
-
+        pydantic.Field(
+            alias="evConsumedEnergyMicroWh",
+            description="Consumed energy (including regenerated) for electric and hybrid vehicles in microwatt hours. Not all EV and HEVs may report this field.",
+        ),
+    ] = None
     ev_distance_driven_meters: typing_extensions.Annotated[
-        typing.Optional[typing.List[VehicleStatsEvDistanceDrivenMeters]], FieldMetadata(alias="evDistanceDrivenMeters")
-    ] = pydantic.Field(alias="evDistanceDrivenMeters", default=None)
-    """
-    Electric distance driven for electric and hybrid vehicles in meters. Not all EV and HEVs may report this field.
-    """
-
+        typing.Optional[typing.List[VehicleStatsEvDistanceDrivenMeters]],
+        FieldMetadata(alias="evDistanceDrivenMeters"),
+        pydantic.Field(
+            alias="evDistanceDrivenMeters",
+            description="Electric distance driven for electric and hybrid vehicles in meters. Not all EV and HEVs may report this field.",
+        ),
+    ] = None
     ev_regenerated_energy_micro_wh: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsEvRegeneratedEnergyMicroWh]],
         FieldMetadata(alias="evRegeneratedEnergyMicroWh"),
-    ] = pydantic.Field(alias="evRegeneratedEnergyMicroWh", default=None)
-    """
-    Regenerated energy for electric and hybrid vehicles in microwatt hours. Not all EV and HEVs may report this field.
-    """
-
+        pydantic.Field(
+            alias="evRegeneratedEnergyMicroWh",
+            description="Regenerated energy for electric and hybrid vehicles in microwatt hours. Not all EV and HEVs may report this field.",
+        ),
+    ] = None
     ev_state_of_charge_milli_percent: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsEvStateOfChargeMilliPercent]],
         FieldMetadata(alias="evStateOfChargeMilliPercent"),
-    ] = pydantic.Field(alias="evStateOfChargeMilliPercent", default=None)
-    """
-    State of Charge for electric and hybrid vehicles. Not all EV and HEVs may report this field.
-    """
-
+        pydantic.Field(
+            alias="evStateOfChargeMilliPercent",
+            description="State of Charge for electric and hybrid vehicles. Not all EV and HEVs may report this field.",
+        ),
+    ] = None
     external_ids: typing_extensions.Annotated[
-        typing.Optional[VehicleExternalIds], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(alias="externalIds", default=None)
+        typing.Optional[VehicleExternalIds], FieldMetadata(alias="externalIds"), pydantic.Field(alias="externalIds")
+    ] = None
     fault_codes: typing_extensions.Annotated[
-        typing.Optional[typing.List[VehicleStatsFaultCodesWithDecoration]], FieldMetadata(alias="faultCodes")
-    ] = pydantic.Field(alias="faultCodes", default=None)
-    """
-    A list of engine fault codes.
-    """
-
+        typing.Optional[typing.List[VehicleStatsFaultCodesWithDecoration]],
+        FieldMetadata(alias="faultCodes"),
+        pydantic.Field(alias="faultCodes", description="A list of engine fault codes."),
+    ] = None
     fuel_consumed_milliliters: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsFuelConsumedMillilitersWithDecoration]],
         FieldMetadata(alias="fuelConsumedMilliliters"),
-    ] = pydantic.Field(alias="fuelConsumedMilliliters", default=None)
-    """
-    A list of cumulative fuel consumption readings in milliliters for the given vehicle. Cumulative values always increase. This includes all fuel consumption reported by vehicles without filtering of invalid data points. For filtered fuel consumption that matches the Fuel & Energy Report, please use <a href="https://developers.samsara.com/reference/getfuelenergyvehiclereports" target="_blank">the Fuel and Energy API</a>.
-    """
-
+        pydantic.Field(
+            alias="fuelConsumedMilliliters",
+            description='A list of cumulative fuel consumption readings in milliliters for the given vehicle. Cumulative values always increase. This includes all fuel consumption reported by vehicles without filtering of invalid data points. For filtered fuel consumption that matches the Fuel & Energy Report, please use <a href="https://developers.samsara.com/reference/getfuelenergyvehiclereports" target="_blank">the Fuel and Energy API</a>.',
+        ),
+    ] = None
     fuel_percents: typing_extensions.Annotated[
-        typing.Optional[typing.List[VehicleStatsFuelPercentWithDecoration]], FieldMetadata(alias="fuelPercents")
-    ] = pydantic.Field(alias="fuelPercents", default=None)
-    """
-    A list of fuel percentage readings for the given vehicle.
-    """
-
+        typing.Optional[typing.List[VehicleStatsFuelPercentWithDecoration]],
+        FieldMetadata(alias="fuelPercents"),
+        pydantic.Field(alias="fuelPercents", description="A list of fuel percentage readings for the given vehicle."),
+    ] = None
     gps: typing.Optional[typing.List[VehicleStatsListGps]] = pydantic.Field(default=None)
     """
     A list of GPS location events for the given vehicles.
@@ -381,158 +349,151 @@ class VehicleStatsListResponseData(UniversalBaseModel):
     gps_distance_meters: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsGpsDistanceMetersWithDecoration]],
         FieldMetadata(alias="gpsDistanceMeters"),
-    ] = pydantic.Field(alias="gpsDistanceMeters", default=None)
-    """
-    A list of GPS distance events for the given vehicle.
-    """
-
+        pydantic.Field(alias="gpsDistanceMeters", description="A list of GPS distance events for the given vehicle."),
+    ] = None
     gps_odometer_meters: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsGpsOdometerMetersWithDecoration]],
         FieldMetadata(alias="gpsOdometerMeters"),
-    ] = pydantic.Field(alias="gpsOdometerMeters", default=None)
-    """
-    A list of GPS odometer events for the given vehicle.
-    """
-
+        pydantic.Field(alias="gpsOdometerMeters", description="A list of GPS odometer events for the given vehicle."),
+    ] = None
     id: typing.Optional[VehicleId] = None
     idling_duration_milliseconds: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsIdlingDurationMillisecondsWithDecoration]],
         FieldMetadata(alias="idlingDurationMilliseconds"),
-    ] = pydantic.Field(alias="idlingDurationMilliseconds", default=None)
-    """
-    A list of cumulative idling duration readings in milliseconds for the given vehicle. Cumulative values always increase. For filtering of idling duration please use <a href="https://developers.samsara.com/reference/getvehicleidlingreports" target="_blank">the Idling Events API</a>.
-    """
-
+        pydantic.Field(
+            alias="idlingDurationMilliseconds",
+            description='A list of cumulative idling duration readings in milliseconds for the given vehicle. Cumulative values always increase. For filtering of idling duration please use <a href="https://developers.samsara.com/reference/getvehicleidlingreports" target="_blank">the Idling Events API</a>.',
+        ),
+    ] = None
     intake_manifold_temperature_milli_c: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsIntakeManifoldTempMilliCWithDecoration]],
         FieldMetadata(alias="intakeManifoldTemperatureMilliC"),
-    ] = pydantic.Field(alias="intakeManifoldTemperatureMilliC", default=None)
-    """
-    A list of intake manifold temperature readings in millidegree Celsius for the given vehicle.
-    """
-
+        pydantic.Field(
+            alias="intakeManifoldTemperatureMilliC",
+            description="A list of intake manifold temperature readings in millidegree Celsius for the given vehicle.",
+        ),
+    ] = None
     name: typing.Optional[VehicleName] = None
     nfc_card_scans: typing_extensions.Annotated[
-        typing.Optional[typing.List[VehicleStatsNfcCardScanWithDecoration]], FieldMetadata(alias="nfcCardScans")
-    ] = pydantic.Field(alias="nfcCardScans", default=None)
-    """
-    A list of NFC cards that were scanned for the given vehicles.
-    """
-
+        typing.Optional[typing.List[VehicleStatsNfcCardScanWithDecoration]],
+        FieldMetadata(alias="nfcCardScans"),
+        pydantic.Field(
+            alias="nfcCardScans", description="A list of NFC cards that were scanned for the given vehicles."
+        ),
+    ] = None
     obd_engine_seconds: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsObdEngineSecondsWithDecoration]],
         FieldMetadata(alias="obdEngineSeconds"),
-    ] = pydantic.Field(alias="obdEngineSeconds", default=None)
-    """
-    A list of OBD engine seconds readings for the given vehicle.
-    """
-
+        pydantic.Field(
+            alias="obdEngineSeconds", description="A list of OBD engine seconds readings for the given vehicle."
+        ),
+    ] = None
     obd_odometer_meters: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsObdOdometerMetersWithDecoration]],
         FieldMetadata(alias="obdOdometerMeters"),
-    ] = pydantic.Field(alias="obdOdometerMeters", default=None)
-    """
-    A list of OBD odometer readings for the given vehicle.
-    """
-
+        pydantic.Field(alias="obdOdometerMeters", description="A list of OBD odometer readings for the given vehicle."),
+    ] = None
     seatbelt_driver: typing_extensions.Annotated[
-        typing.Optional[typing.List[VehicleStatsSeatbeltDriver]], FieldMetadata(alias="seatbeltDriver")
-    ] = pydantic.Field(alias="seatbeltDriver", default=None)
-    """
-    Seatbelt Driver Status as read from the vehicle. `Buckled` or `Unbuckled`.
-    """
-
+        typing.Optional[typing.List[VehicleStatsSeatbeltDriver]],
+        FieldMetadata(alias="seatbeltDriver"),
+        pydantic.Field(
+            alias="seatbeltDriver",
+            description="Seatbelt Driver Status as read from the vehicle. `Buckled` or `Unbuckled`.",
+        ),
+    ] = None
     spreader_active: typing_extensions.Annotated[
-        typing.Optional[typing.List[VehicleStatsSpreaderActive]], FieldMetadata(alias="spreaderActive")
-    ] = pydantic.Field(alias="spreaderActive", default=None)
-    """
-    Whether vehicle is actively spreading any material.
-    """
-
+        typing.Optional[typing.List[VehicleStatsSpreaderActive]],
+        FieldMetadata(alias="spreaderActive"),
+        pydantic.Field(alias="spreaderActive", description="Whether vehicle is actively spreading any material."),
+    ] = None
     spreader_air_temp: typing_extensions.Annotated[
-        typing.Optional[typing.List[VehicleStatsSpreaderAirTemp]], FieldMetadata(alias="spreaderAirTemp")
-    ] = pydantic.Field(alias="spreaderAirTemp", default=None)
-    """
-    Air (ambient) temperature in milli celsius reading from material spreader.
-    """
-
+        typing.Optional[typing.List[VehicleStatsSpreaderAirTemp]],
+        FieldMetadata(alias="spreaderAirTemp"),
+        pydantic.Field(
+            alias="spreaderAirTemp",
+            description="Air (ambient) temperature in milli celsius reading from material spreader.",
+        ),
+    ] = None
     spreader_blast_state: typing_extensions.Annotated[
-        typing.Optional[typing.List[VehicleStatsSpreaderBlastState]], FieldMetadata(alias="spreaderBlastState")
-    ] = pydantic.Field(alias="spreaderBlastState", default=None)
-    """
-    Whether vehicle is actively spreading material in ‘blast mode’.
-    """
-
+        typing.Optional[typing.List[VehicleStatsSpreaderBlastState]],
+        FieldMetadata(alias="spreaderBlastState"),
+        pydantic.Field(
+            alias="spreaderBlastState", description="Whether vehicle is actively spreading material in ‘blast mode’."
+        ),
+    ] = None
     spreader_granular_name: typing_extensions.Annotated[
-        typing.Optional[typing.List[VehicleStatsSpreaderGranularName]], FieldMetadata(alias="spreaderGranularName")
-    ] = pydantic.Field(alias="spreaderGranularName", default=None)
-    """
-    Name of most recent type of granular material spread, read from the material spreader.
-    """
-
+        typing.Optional[typing.List[VehicleStatsSpreaderGranularName]],
+        FieldMetadata(alias="spreaderGranularName"),
+        pydantic.Field(
+            alias="spreaderGranularName",
+            description="Name of most recent type of granular material spread, read from the material spreader.",
+        ),
+    ] = None
     spreader_granular_rate: typing_extensions.Annotated[
-        typing.Optional[typing.List[VehicleStatsSpreaderGranularRate]], FieldMetadata(alias="spreaderGranularRate")
-    ] = pydantic.Field(alias="spreaderGranularRate", default=None)
-    """
-    Granular spread rate reading in milliliters per meter, read from the material spreader. Unfiltered live stats are supplied as-read from the Material Spreader unit. Readings do not consider total spread rate(s) over time or distance.
-    """
-
+        typing.Optional[typing.List[VehicleStatsSpreaderGranularRate]],
+        FieldMetadata(alias="spreaderGranularRate"),
+        pydantic.Field(
+            alias="spreaderGranularRate",
+            description="Granular spread rate reading in milliliters per meter, read from the material spreader. Unfiltered live stats are supplied as-read from the Material Spreader unit. Readings do not consider total spread rate(s) over time or distance.",
+        ),
+    ] = None
     spreader_liquid_name: typing_extensions.Annotated[
-        typing.Optional[typing.List[VehicleStatsSpreaderLiquidName]], FieldMetadata(alias="spreaderLiquidName")
-    ] = pydantic.Field(alias="spreaderLiquidName", default=None)
-    """
-    Name of most recent type of liquid material spread, read from the material spreader.
-    """
-
+        typing.Optional[typing.List[VehicleStatsSpreaderLiquidName]],
+        FieldMetadata(alias="spreaderLiquidName"),
+        pydantic.Field(
+            alias="spreaderLiquidName",
+            description="Name of most recent type of liquid material spread, read from the material spreader.",
+        ),
+    ] = None
     spreader_liquid_rate: typing_extensions.Annotated[
-        typing.Optional[typing.List[VehicleStatsSpreaderLiquidRate]], FieldMetadata(alias="spreaderLiquidRate")
-    ] = pydantic.Field(alias="spreaderLiquidRate", default=None)
-    """
-    Liquid spread rate reading in milliliters per meter, read from the material spreader. Unfiltered live stats are supplied as-read from the Material Spreader unit. Readings do not consider total spread rate(s) over time or distance.
-    """
-
+        typing.Optional[typing.List[VehicleStatsSpreaderLiquidRate]],
+        FieldMetadata(alias="spreaderLiquidRate"),
+        pydantic.Field(
+            alias="spreaderLiquidRate",
+            description="Liquid spread rate reading in milliliters per meter, read from the material spreader. Unfiltered live stats are supplied as-read from the Material Spreader unit. Readings do not consider total spread rate(s) over time or distance.",
+        ),
+    ] = None
     spreader_on_state: typing_extensions.Annotated[
-        typing.Optional[typing.List[VehicleStatsSpreaderOnState]], FieldMetadata(alias="spreaderOnState")
-    ] = pydantic.Field(alias="spreaderOnState", default=None)
-    """
-    Whether vehicle spreader is enabled.
-    """
-
+        typing.Optional[typing.List[VehicleStatsSpreaderOnState]],
+        FieldMetadata(alias="spreaderOnState"),
+        pydantic.Field(alias="spreaderOnState", description="Whether vehicle spreader is enabled."),
+    ] = None
     spreader_plow_status: typing_extensions.Annotated[
-        typing.Optional[typing.List[VehicleStatsSpreaderPlowStatus]], FieldMetadata(alias="spreaderPlowStatus")
-    ] = pydantic.Field(alias="spreaderPlowStatus", default=None)
-    """
-    Snow plow status (`Up` or `Down`), as read from the material spreader. Note: this is separate from plow status defined via auxInput.
-    """
-
+        typing.Optional[typing.List[VehicleStatsSpreaderPlowStatus]],
+        FieldMetadata(alias="spreaderPlowStatus"),
+        pydantic.Field(
+            alias="spreaderPlowStatus",
+            description="Snow plow status (`Up` or `Down`), as read from the material spreader. Note: this is separate from plow status defined via auxInput.",
+        ),
+    ] = None
     spreader_prewet_name: typing_extensions.Annotated[
-        typing.Optional[typing.List[VehicleStatsSpreaderPrewetName]], FieldMetadata(alias="spreaderPrewetName")
-    ] = pydantic.Field(alias="spreaderPrewetName", default=None)
-    """
-    Name of most recent type of prewet material spread, read from the material spreader.
-    """
-
+        typing.Optional[typing.List[VehicleStatsSpreaderPrewetName]],
+        FieldMetadata(alias="spreaderPrewetName"),
+        pydantic.Field(
+            alias="spreaderPrewetName",
+            description="Name of most recent type of prewet material spread, read from the material spreader.",
+        ),
+    ] = None
     spreader_prewet_rate: typing_extensions.Annotated[
-        typing.Optional[typing.List[VehicleStatsSpreaderPrewetRate]], FieldMetadata(alias="spreaderPrewetRate")
-    ] = pydantic.Field(alias="spreaderPrewetRate", default=None)
-    """
-    Prewet spread rate reading in milliliters per meter, read from the material spreader. Unfiltered live stats are supplied as-read from the Material Spreader unit. Readings do not consider total spread rate(s) over time or distance.
-    """
-
+        typing.Optional[typing.List[VehicleStatsSpreaderPrewetRate]],
+        FieldMetadata(alias="spreaderPrewetRate"),
+        pydantic.Field(
+            alias="spreaderPrewetRate",
+            description="Prewet spread rate reading in milliliters per meter, read from the material spreader. Unfiltered live stats are supplied as-read from the Material Spreader unit. Readings do not consider total spread rate(s) over time or distance.",
+        ),
+    ] = None
     spreader_road_temp: typing_extensions.Annotated[
-        typing.Optional[typing.List[VehicleStatsSpreaderRoadTemp]], FieldMetadata(alias="spreaderRoadTemp")
-    ] = pydantic.Field(alias="spreaderRoadTemp", default=None)
-    """
-    Road temperature reading in milli celsius from material spreader.
-    """
-
+        typing.Optional[typing.List[VehicleStatsSpreaderRoadTemp]],
+        FieldMetadata(alias="spreaderRoadTemp"),
+        pydantic.Field(
+            alias="spreaderRoadTemp", description="Road temperature reading in milli celsius from material spreader."
+        ),
+    ] = None
     synthetic_engine_seconds: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsListSyntheticEngineSeconds]],
         FieldMetadata(alias="syntheticEngineSeconds"),
-    ] = pydantic.Field(alias="syntheticEngineSeconds", default=None)
-    """
-    A list of synthetic engine seconds values.
-    """
+        pydantic.Field(alias="syntheticEngineSeconds", description="A list of synthetic engine seconds values."),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -18,9 +18,9 @@ class DriverEldRuleset(UniversalBaseModel):
     An ELD ruleset for a driver.
     """
 
-    break_: typing_extensions.Annotated[typing.Optional[DriverEldRulesetRestBreak], FieldMetadata(alias="break")] = (
-        pydantic.Field(alias="break", default=None)
-    )
+    break_: typing_extensions.Annotated[
+        typing.Optional[DriverEldRulesetRestBreak], FieldMetadata(alias="break"), pydantic.Field(alias="break")
+    ] = None
     cycle: typing.Optional[DriverEldRulesetCycle] = None
     jurisdiction: typing.Optional[DriverEldRulesetJurisdiction] = None
     restart: typing.Optional[DriverEldRulesetRestart] = None

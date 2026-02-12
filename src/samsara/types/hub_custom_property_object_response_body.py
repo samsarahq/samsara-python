@@ -14,25 +14,21 @@ class HubCustomPropertyObjectResponseBody(UniversalBaseModel):
     Hub custom property object
     """
 
-    created_at: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAt")] = pydantic.Field(
-        alias="createdAt"
-    )
-    """
-    Creation timestamp
-    """
-
-    csv_columns: typing_extensions.Annotated[str, FieldMetadata(alias="csvColumns")] = pydantic.Field(
-        alias="csvColumns"
-    )
-    """
-    CSV column names that map to this custom property, comma-separated
-    """
-
-    hub_id: typing_extensions.Annotated[str, FieldMetadata(alias="hubId")] = pydantic.Field(alias="hubId")
-    """
-    Hub identifier
-    """
-
+    created_at: typing_extensions.Annotated[
+        dt.datetime,
+        FieldMetadata(alias="createdAt"),
+        pydantic.Field(alias="createdAt", description="Creation timestamp"),
+    ]
+    csv_columns: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="csvColumns"),
+        pydantic.Field(
+            alias="csvColumns", description="CSV column names that map to this custom property, comma-separated"
+        ),
+    ]
+    hub_id: typing_extensions.Annotated[
+        str, FieldMetadata(alias="hubId"), pydantic.Field(alias="hubId", description="Hub identifier")
+    ]
     id: str = pydantic.Field()
     """
     Custom property identifier
@@ -43,12 +39,11 @@ class HubCustomPropertyObjectResponseBody(UniversalBaseModel):
     Custom property name
     """
 
-    updated_at: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAt")] = pydantic.Field(
-        alias="updatedAt"
-    )
-    """
-    Last update timestamp
-    """
+    updated_at: typing_extensions.Annotated[
+        dt.datetime,
+        FieldMetadata(alias="updatedAt"),
+        pydantic.Field(alias="updatedAt", description="Last update timestamp"),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

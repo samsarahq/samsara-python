@@ -9,19 +9,16 @@ from ..core.serialization import FieldMetadata
 
 
 class V1AssetReeferResponseReeferStatsFuelPercentage(UniversalBaseModel):
-    changed_at_ms: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="changedAtMs")] = (
-        pydantic.Field(alias="changedAtMs", default=None)
-    )
-    """
-    Timestamp in Unix milliseconds since epoch.
-    """
-
-    fuel_percentage: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="fuelPercentage")] = (
-        pydantic.Field(alias="fuelPercentage", default=None)
-    )
-    """
-    Fuel percentage of the reefer.
-    """
+    changed_at_ms: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="changedAtMs"),
+        pydantic.Field(alias="changedAtMs", description="Timestamp in Unix milliseconds since epoch."),
+    ] = None
+    fuel_percentage: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="fuelPercentage"),
+        pydantic.Field(alias="fuelPercentage", description="Fuel percentage of the reefer."),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

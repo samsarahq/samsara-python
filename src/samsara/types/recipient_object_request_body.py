@@ -15,39 +15,31 @@ class RecipientObjectRequestBody(UniversalBaseModel):
     Recipient of an Action. One of userId contactId or roleId needs to be set.
     """
 
-    contact_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="contactId")] = pydantic.Field(
-        alias="contactId", default=None
-    )
-    """
-    The ID of the contact.
-    """
-
+    contact_id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="contactId"),
+        pydantic.Field(alias="contactId", description="The ID of the contact."),
+    ] = None
     notification_types: typing_extensions.Annotated[
         typing.Optional[typing.List[RecipientObjectRequestBodyNotificationTypesItem]],
         FieldMetadata(alias="notificationTypes"),
-    ] = pydantic.Field(alias="notificationTypes", default=None)
-    """
-    How the user/contact/role should be notified.
-    """
-
-    role_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="roleId")] = pydantic.Field(
-        alias="roleId", default=None
-    )
-    """
-    The ID of the role.
-    """
-
+        pydantic.Field(alias="notificationTypes", description="How the user/contact/role should be notified."),
+    ] = None
+    role_id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="roleId"),
+        pydantic.Field(alias="roleId", description="The ID of the role."),
+    ] = None
     type: RecipientObjectRequestBodyType = pydantic.Field()
     """
     The type of recipients  Valid values: `user`, `contact`, `role`
     """
 
-    user_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="userId")] = pydantic.Field(
-        alias="userId", default=None
-    )
-    """
-    The ID of the user.
-    """
+    user_id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="userId"),
+        pydantic.Field(alias="userId", description="The ID of the user."),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

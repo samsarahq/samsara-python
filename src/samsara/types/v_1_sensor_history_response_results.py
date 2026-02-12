@@ -14,12 +14,11 @@ class V1SensorHistoryResponseResults(UniversalBaseModel):
     List of datapoints, one for each requested (sensor, field) pair.
     """
 
-    time_ms: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="timeMs")] = pydantic.Field(
-        alias="timeMs", default=None
-    )
-    """
-    Timestamp in UNIX milliseconds.
-    """
+    time_ms: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="timeMs"),
+        pydantic.Field(alias="timeMs", description="Timestamp in UNIX milliseconds."),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

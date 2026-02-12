@@ -19,32 +19,37 @@ class DepreciationTransactionObjectResponseBody(UniversalBaseModel):
     """
 
     amount: DepreciationTransactionMoneyObjectResponseBody
-    asset_id: typing_extensions.Annotated[str, FieldMetadata(alias="assetId")] = pydantic.Field(alias="assetId")
-    """
-    Samsara asset ID. Can be used with /fleet/assets/{id} to retrieve asset details.
-    """
-
-    cost_center_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="costCenterId")] = (
-        pydantic.Field(alias="costCenterId", default=None)
-    )
-    """
-    The UUID of the cost center assigned to the asset. To retrieve cost center names: (1) Call GET /attributes?entityType=asset to find the "Asset Cost Center" attribute and its UUID, (2) Call GET /attributes/{that-uuid}?entityType=asset to get the list of cost center values with their UUIDs and names. Match the costCenterId from this response to the uuid field in the attributeValues array to get the cost center name.
-    """
-
-    created_at: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAt")] = pydantic.Field(
-        alias="createdAt"
-    )
-    """
-    When the transaction record was created in the system. RFC 3339 format.
-    """
-
-    event_time: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="eventTime")] = pydantic.Field(
-        alias="eventTime"
-    )
-    """
-    When the depreciation or adjustment occurred from a financial/accounting perspective (e.g., end of depreciation period, or date of revaluation). This may differ from createdAt if the transaction is recorded after the fact. RFC 3339 format.
-    """
-
+    asset_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="assetId"),
+        pydantic.Field(
+            alias="assetId",
+            description="Samsara asset ID. Can be used with /fleet/assets/{id} to retrieve asset details.",
+        ),
+    ]
+    cost_center_id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="costCenterId"),
+        pydantic.Field(
+            alias="costCenterId",
+            description='The UUID of the cost center assigned to the asset. To retrieve cost center names: (1) Call GET /attributes?entityType=asset to find the "Asset Cost Center" attribute and its UUID, (2) Call GET /attributes/{that-uuid}?entityType=asset to get the list of cost center values with their UUIDs and names. Match the costCenterId from this response to the uuid field in the attributeValues array to get the cost center name.',
+        ),
+    ] = None
+    created_at: typing_extensions.Annotated[
+        dt.datetime,
+        FieldMetadata(alias="createdAt"),
+        pydantic.Field(
+            alias="createdAt", description="When the transaction record was created in the system. RFC 3339 format."
+        ),
+    ]
+    event_time: typing_extensions.Annotated[
+        dt.datetime,
+        FieldMetadata(alias="eventTime"),
+        pydantic.Field(
+            alias="eventTime",
+            description="When the depreciation or adjustment occurred from a financial/accounting perspective (e.g., end of depreciation period, or date of revaluation). This may differ from createdAt if the transaction is recorded after the fact. RFC 3339 format.",
+        ),
+    ]
     id: str = pydantic.Field()
     """
     The unique UUID of the transaction.
@@ -56,18 +61,21 @@ class DepreciationTransactionObjectResponseBody(UniversalBaseModel):
     """
 
     transaction_type: typing_extensions.Annotated[
-        DepreciationTransactionObjectResponseBodyTransactionType, FieldMetadata(alias="transactionType")
-    ] = pydantic.Field(alias="transactionType")
-    """
-    Transaction type: depreciation, adjustment, or unknown. Unknown transaction types should be handled gracefully for forward compatibility.  Valid values: `depreciation`, `adjustment`, `unknown`
-    """
-
-    updated_at: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAt")] = pydantic.Field(
-        alias="updatedAt"
-    )
-    """
-    When the transaction record was last modified in the system (use for incremental sync). RFC 3339 format.
-    """
+        DepreciationTransactionObjectResponseBodyTransactionType,
+        FieldMetadata(alias="transactionType"),
+        pydantic.Field(
+            alias="transactionType",
+            description="Transaction type: depreciation, adjustment, or unknown. Unknown transaction types should be handled gracefully for forward compatibility.  Valid values: `depreciation`, `adjustment`, `unknown`",
+        ),
+    ]
+    updated_at: typing_extensions.Annotated[
+        dt.datetime,
+        FieldMetadata(alias="updatedAt"),
+        pydantic.Field(
+            alias="updatedAt",
+            description="When the transaction record was last modified in the system (use for incremental sync). RFC 3339 format.",
+        ),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

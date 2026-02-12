@@ -24,13 +24,11 @@ class SignatureValueObjectRequestBody(UniversalBaseModel):
     Name of the signee for a signature field.
     """
 
-    signed_at_time: typing_extensions.Annotated[typing.Optional[dt.datetime], FieldMetadata(alias="signedAtTime")] = (
-        pydantic.Field(alias="signedAtTime", default=None)
-    )
-    """
-    Time the signature was captured in RFC 3339 format.
-    """
-
+    signed_at_time: typing_extensions.Annotated[
+        typing.Optional[dt.datetime],
+        FieldMetadata(alias="signedAtTime"),
+        pydantic.Field(alias="signedAtTime", description="Time the signature was captured in RFC 3339 format."),
+    ] = None
     url: typing.Optional[str] = pydantic.Field(default=None)
     """
     Url of a signature field's PNG signature image.

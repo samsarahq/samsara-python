@@ -13,20 +13,16 @@ class DataInputTinyResponse(UniversalBaseModel):
     A minified data input object
     """
 
-    asset_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="assetId")] = pydantic.Field(
-        alias="assetId", default=None
-    )
-    """
-    Unique identifier for the data input's asset.
-    """
-
-    data_group: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="dataGroup")] = pydantic.Field(
-        alias="dataGroup", default=None
-    )
-    """
-    Data group for this data input.
-    """
-
+    asset_id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="assetId"),
+        pydantic.Field(alias="assetId", description="Unique identifier for the data input's asset."),
+    ] = None
+    data_group: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="dataGroup"),
+        pydantic.Field(alias="dataGroup", description="Data group for this data input."),
+    ] = None
     id: typing.Optional[str] = pydantic.Field(default=None)
     """
     Unique identifier for the data input.

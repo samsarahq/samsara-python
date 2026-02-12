@@ -13,19 +13,16 @@ class DriverOrTagIdsDetailsResponseBody(UniversalBaseModel):
     Trigger when driver or tag IDs meet the specified condition.
     """
 
-    driver_ids: typing_extensions.Annotated[typing.Optional[typing.List[str]], FieldMetadata(alias="driverIds")] = (
-        pydantic.Field(alias="driverIds", default=None)
-    )
-    """
-    On which driver IDs to trigger on.
-    """
-
-    tag_ids: typing_extensions.Annotated[typing.Optional[typing.List[str]], FieldMetadata(alias="tagIds")] = (
-        pydantic.Field(alias="tagIds", default=None)
-    )
-    """
-    On which tag IDs to trigger on.
-    """
+    driver_ids: typing_extensions.Annotated[
+        typing.Optional[typing.List[str]],
+        FieldMetadata(alias="driverIds"),
+        pydantic.Field(alias="driverIds", description="On which driver IDs to trigger on."),
+    ] = None
+    tag_ids: typing_extensions.Annotated[
+        typing.Optional[typing.List[str]],
+        FieldMetadata(alias="tagIds"),
+        pydantic.Field(alias="tagIds", description="On which tag IDs to trigger on."),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

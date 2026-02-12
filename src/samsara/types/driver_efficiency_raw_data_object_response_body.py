@@ -14,102 +14,90 @@ class DriverEfficiencyRawDataObjectResponseBody(UniversalBaseModel):
     """
 
     anticipation_brake_event_count: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="anticipationBrakeEventCount")
-    ] = pydantic.Field(alias="anticipationBrakeEventCount", default=None)
-    """
-    Total number of quick braking events (less than one second after accelerating).
-    """
-
+        typing.Optional[int],
+        FieldMetadata(alias="anticipationBrakeEventCount"),
+        pydantic.Field(
+            alias="anticipationBrakeEventCount",
+            description="Total number of quick braking events (less than one second after accelerating).",
+        ),
+    ] = None
     average_vehicle_weight_kg: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="averageVehicleWeightKg")
-    ] = pydantic.Field(alias="averageVehicleWeightKg", default=None)
-    """
-    Average vehicle weight in kilograms.
-    """
-
+        typing.Optional[int],
+        FieldMetadata(alias="averageVehicleWeightKg"),
+        pydantic.Field(alias="averageVehicleWeightKg", description="Average vehicle weight in kilograms."),
+    ] = None
     coasting_duration_ms: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="coastingDurationMs")
-    ] = pydantic.Field(alias="coastingDurationMs", default=None)
-    """
-    Time spent without engaging the accelerator or brake in milliseconds.
-    """
-
+        typing.Optional[int],
+        FieldMetadata(alias="coastingDurationMs"),
+        pydantic.Field(
+            alias="coastingDurationMs",
+            description="Time spent without engaging the accelerator or brake in milliseconds.",
+        ),
+    ] = None
     cruise_control_duration_ms: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="cruiseControlDurationMs")
-    ] = pydantic.Field(alias="cruiseControlDurationMs", default=None)
-    """
-    Time spent in cruise control in milliseconds.
-    """
-
-    drive_time_duration_ms: typing_extensions.Annotated[int, FieldMetadata(alias="driveTimeDurationMs")] = (
-        pydantic.Field(alias="driveTimeDurationMs")
-    )
-    """
-    Total driving time in milliseconds.
-    """
-
-    engine_on_duration_ms: typing_extensions.Annotated[int, FieldMetadata(alias="engineOnDurationMs")] = pydantic.Field(
-        alias="engineOnDurationMs"
-    )
-    """
-    Total engine-on time in milliseconds.
-    """
-
+        typing.Optional[int],
+        FieldMetadata(alias="cruiseControlDurationMs"),
+        pydantic.Field(alias="cruiseControlDurationMs", description="Time spent in cruise control in milliseconds."),
+    ] = None
+    drive_time_duration_ms: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="driveTimeDurationMs"),
+        pydantic.Field(alias="driveTimeDurationMs", description="Total driving time in milliseconds."),
+    ]
+    engine_on_duration_ms: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="engineOnDurationMs"),
+        pydantic.Field(alias="engineOnDurationMs", description="Total engine-on time in milliseconds."),
+    ]
     green_band_duration_ms: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="greenBandDurationMs")
-    ] = pydantic.Field(alias="greenBandDurationMs", default=None)
-    """
-    Time spent driving within the configurable green band in milliseconds.
-    """
-
+        typing.Optional[int],
+        FieldMetadata(alias="greenBandDurationMs"),
+        pydantic.Field(
+            alias="greenBandDurationMs",
+            description="Time spent driving within the configurable green band in milliseconds.",
+        ),
+    ] = None
     high_grade_road_driving_duration_ms: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="highGradeRoadDrivingDurationMs")
-    ] = pydantic.Field(alias="highGradeRoadDrivingDurationMs", default=None)
-    """
-    Time spent driving on high-grade roads in milliseconds.
-    """
-
+        typing.Optional[int],
+        FieldMetadata(alias="highGradeRoadDrivingDurationMs"),
+        pydantic.Field(
+            alias="highGradeRoadDrivingDurationMs",
+            description="Time spent driving on high-grade roads in milliseconds.",
+        ),
+    ] = None
     high_torque_duration_ms: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="highTorqueDurationMs")
-    ] = pydantic.Field(alias="highTorqueDurationMs", default=None)
-    """
-    Time the vehicle engine torque is greater than 90% in milliseconds. 
-    """
-
-    idling_duration_ms: typing_extensions.Annotated[int, FieldMetadata(alias="idlingDurationMs")] = pydantic.Field(
-        alias="idlingDurationMs"
-    )
-    """
-    Time spent idling in milliseconds.
-    """
-
+        typing.Optional[int],
+        FieldMetadata(alias="highTorqueDurationMs"),
+        pydantic.Field(
+            alias="highTorqueDurationMs",
+            description="Time the vehicle engine torque is greater than 90% in milliseconds. ",
+        ),
+    ] = None
+    idling_duration_ms: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="idlingDurationMs"),
+        pydantic.Field(alias="idlingDurationMs", description="Time spent idling in milliseconds."),
+    ]
     over_speed_duration_ms: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="overSpeedDurationMs")
-    ] = pydantic.Field(alias="overSpeedDurationMs", default=None)
-    """
-    Time spent over-speeding in milliseconds.
-    """
-
-    total_brake_duration_ms: typing_extensions.Annotated[int, FieldMetadata(alias="totalBrakeDurationMs")] = (
-        pydantic.Field(alias="totalBrakeDurationMs")
-    )
-    """
-    Total breaking time in milliseconds.
-    """
-
+        typing.Optional[int],
+        FieldMetadata(alias="overSpeedDurationMs"),
+        pydantic.Field(alias="overSpeedDurationMs", description="Time spent over-speeding in milliseconds."),
+    ] = None
+    total_brake_duration_ms: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="totalBrakeDurationMs"),
+        pydantic.Field(alias="totalBrakeDurationMs", description="Total breaking time in milliseconds."),
+    ]
     total_brake_event_count: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="totalBrakeEventCount")
-    ] = pydantic.Field(alias="totalBrakeEventCount", default=None)
-    """
-    Total number of brake events.
-    """
-
+        typing.Optional[int],
+        FieldMetadata(alias="totalBrakeEventCount"),
+        pydantic.Field(alias="totalBrakeEventCount", description="Total number of brake events."),
+    ] = None
     wear_free_brake_duration_ms: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="wearFreeBrakeDurationMs")
-    ] = pydantic.Field(alias="wearFreeBrakeDurationMs", default=None)
-    """
-    Time spent ware-free breaking in milliseconds.
-    """
+        typing.Optional[int],
+        FieldMetadata(alias="wearFreeBrakeDurationMs"),
+        pydantic.Field(alias="wearFreeBrakeDurationMs", description="Time spent ware-free breaking in milliseconds."),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -15,20 +15,19 @@ class SafetyEventV2MediaResponseBody(UniversalBaseModel):
     Media asset available for the safety event.
     """
 
-    auxcam_serial: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="auxcamSerial")] = (
-        pydantic.Field(alias="auxcamSerial", default=None)
-    )
-    """
-    The serial number of the auxiliary camera device.
-    """
-
+    auxcam_serial: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="auxcamSerial"),
+        pydantic.Field(alias="auxcamSerial", description="The serial number of the auxiliary camera device."),
+    ] = None
     camera_role: typing_extensions.Annotated[
-        typing.Optional[SafetyEventV2MediaResponseBodyCameraRole], FieldMetadata(alias="cameraRole")
-    ] = pydantic.Field(alias="cameraRole", default=None)
-    """
-    The currently assigned role name of the camera. May change if camera role settings are updated.  Valid values: `leftMirrorMount`, `leftSide`, `rightMirrorMount`, `rightSide`, `rearHigh`, `rearBumper`, `inCab`, `front`, `hopper`, `other1`, `other2`, `other3`, `other4`, `leftBev`, `rightBev`, `rearBev`, `frontBev`, `otherBev`, `bevNotUsed`
-    """
-
+        typing.Optional[SafetyEventV2MediaResponseBodyCameraRole],
+        FieldMetadata(alias="cameraRole"),
+        pydantic.Field(
+            alias="cameraRole",
+            description="The currently assigned role name of the camera. May change if camera role settings are updated.  Valid values: `leftMirrorMount`, `leftSide`, `rightMirrorMount`, `rightSide`, `rearHigh`, `rearBumper`, `inCab`, `front`, `hopper`, `other1`, `other2`, `other3`, `other4`, `leftBev`, `rightBev`, `rearBev`, `frontBev`, `otherBev`, `bevNotUsed`",
+        ),
+    ] = None
     input: SafetyEventV2MediaResponseBodyInput = pydantic.Field()
     """
     The media input type of the camera.  Valid values: `dashcamRoadFacing`, `dashcamDriverFacing`, `analog1`, `analog2`, `analog3`, `analog4`

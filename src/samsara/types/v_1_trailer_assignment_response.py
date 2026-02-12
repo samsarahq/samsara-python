@@ -9,26 +9,24 @@ from ..core.serialization import FieldMetadata
 
 
 class V1TrailerAssignmentResponse(UniversalBaseModel):
-    driver_id: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="driverId")] = pydantic.Field(
-        alias="driverId", default=None
-    )
-    """
-    The ID of the driver associated with this trailer.
-    """
-
-    end_ms: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="endMs")] = pydantic.Field(
-        alias="endMs", default=None
-    )
-    """
-    The time at which the driver ended the assignment. If the assignment is current, this value will be omitted.
-    """
-
-    start_ms: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="startMs")] = pydantic.Field(
-        alias="startMs", default=None
-    )
-    """
-    The time at which the driver started the assignment
-    """
+    driver_id: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="driverId"),
+        pydantic.Field(alias="driverId", description="The ID of the driver associated with this trailer."),
+    ] = None
+    end_ms: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="endMs"),
+        pydantic.Field(
+            alias="endMs",
+            description="The time at which the driver ended the assignment. If the assignment is current, this value will be omitted.",
+        ),
+    ] = None
+    start_ms: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="startMs"),
+        pydantic.Field(alias="startMs", description="The time at which the driver started the assignment"),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

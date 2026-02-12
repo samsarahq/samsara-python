@@ -15,23 +15,26 @@ class SafetyScoreBehaviorObjectResponseBody(UniversalBaseModel):
     """
 
     behavior_type: typing_extensions.Annotated[
-        SafetyScoreBehaviorObjectResponseBodyBehaviorType, FieldMetadata(alias="behaviorType")
-    ] = pydantic.Field(alias="behaviorType")
-    """
-    Type of the behavior.  Valid values: `acceleration`, `braking`, `crash`, `defensiveDriving`, `didNotYield`, `distractedDrivingAutomatic`, `distractedDrivingManual`, `drowsy`, `eatingDrinking`, `followingDistance`, `followingDistanceModerate`, `followingDistanceSevere`, `forwardCollisionWarning`, `harshTurn`, `laneDeparture`, `lateResponse`, `mobileUsage`, `nearCollision`, `noSeatbelt`, `obstructedCamera`, `ranRedLight`, `rollingStop`, `smoking`, `speedingManual`, `unknown`
-    """
-
+        SafetyScoreBehaviorObjectResponseBodyBehaviorType,
+        FieldMetadata(alias="behaviorType"),
+        pydantic.Field(
+            alias="behaviorType",
+            description="Type of the behavior.  Valid values: `acceleration`, `braking`, `crash`, `defensiveDriving`, `didNotYield`, `distractedDrivingAutomatic`, `distractedDrivingManual`, `drowsy`, `eatingDrinking`, `followingDistance`, `followingDistanceModerate`, `followingDistanceSevere`, `forwardCollisionWarning`, `harshTurn`, `laneDeparture`, `lateResponse`, `mobileUsage`, `nearCollision`, `noSeatbelt`, `obstructedCamera`, `ranRedLight`, `rollingStop`, `smoking`, `speedingManual`, `unknown`",
+        ),
+    ]
     count: int = pydantic.Field()
     """
     Count of occurrences of the behavior.
     """
 
-    score_impact: typing_extensions.Annotated[float, FieldMetadata(alias="scoreImpact")] = pydantic.Field(
-        alias="scoreImpact"
-    )
-    """
-    Total points increased or deducted from the score due to the total count of behaviors of this type. Weights for this calculation are defined in organisation settings. Negative numbers indicate points deducted and positive indicates points increased (e.g. defensive driving).
-    """
+    score_impact: typing_extensions.Annotated[
+        float,
+        FieldMetadata(alias="scoreImpact"),
+        pydantic.Field(
+            alias="scoreImpact",
+            description="Total points increased or deducted from the score due to the total count of behaviors of this type. Weights for this calculation are defined in organisation settings. Negative numbers indicate points deducted and positive indicates points increased (e.g. defensive driving).",
+        ),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

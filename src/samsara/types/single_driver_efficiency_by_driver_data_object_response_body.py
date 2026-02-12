@@ -20,22 +20,28 @@ class SingleDriverEfficiencyByDriverDataObjectResponseBody(UniversalBaseModel):
     """
 
     difficulty_score: typing_extensions.Annotated[
-        typing.Optional[DriverEfficiencyDifficultyScoreDataObjectResponseBody], FieldMetadata(alias="difficultyScore")
-    ] = pydantic.Field(alias="difficultyScore", default=None)
-    driver_id: typing_extensions.Annotated[str, FieldMetadata(alias="driverId")] = pydantic.Field(alias="driverId")
-    """
-    ID of the driver.
-    """
-
+        typing.Optional[DriverEfficiencyDifficultyScoreDataObjectResponseBody],
+        FieldMetadata(alias="difficultyScore"),
+        pydantic.Field(alias="difficultyScore"),
+    ] = None
+    driver_id: typing_extensions.Annotated[
+        str, FieldMetadata(alias="driverId"), pydantic.Field(alias="driverId", description="ID of the driver.")
+    ]
     percentage_data: typing_extensions.Annotated[
-        typing.Optional[DriverEfficiencyPercentageDataObjectResponseBody], FieldMetadata(alias="percentageData")
-    ] = pydantic.Field(alias="percentageData", default=None)
+        typing.Optional[DriverEfficiencyPercentageDataObjectResponseBody],
+        FieldMetadata(alias="percentageData"),
+        pydantic.Field(alias="percentageData"),
+    ] = None
     raw_data: typing_extensions.Annotated[
-        typing.Optional[DriverEfficiencyRawDataObjectResponseBody], FieldMetadata(alias="rawData")
-    ] = pydantic.Field(alias="rawData", default=None)
+        typing.Optional[DriverEfficiencyRawDataObjectResponseBody],
+        FieldMetadata(alias="rawData"),
+        pydantic.Field(alias="rawData"),
+    ] = None
     score_data: typing_extensions.Annotated[
-        typing.Optional[DriverEfficiencyDataObjectResponseBody], FieldMetadata(alias="scoreData")
-    ] = pydantic.Field(alias="scoreData", default=None)
+        typing.Optional[DriverEfficiencyDataObjectResponseBody],
+        FieldMetadata(alias="scoreData"),
+        pydantic.Field(alias="scoreData"),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

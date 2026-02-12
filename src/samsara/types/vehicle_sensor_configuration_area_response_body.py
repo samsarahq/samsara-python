@@ -16,19 +16,25 @@ class VehicleSensorConfigurationAreaResponseBody(UniversalBaseModel):
     """
 
     cargo_sensors: typing_extensions.Annotated[
-        typing.Optional[typing.List[SensorResponseBody]], FieldMetadata(alias="cargoSensors")
-    ] = pydantic.Field(alias="cargoSensors", default=None)
+        typing.Optional[typing.List[SensorResponseBody]],
+        FieldMetadata(alias="cargoSensors"),
+        pydantic.Field(alias="cargoSensors"),
+    ] = None
     humidity_sensors: typing_extensions.Annotated[
-        typing.Optional[typing.List[SensorResponseBody]], FieldMetadata(alias="humiditySensors")
-    ] = pydantic.Field(alias="humiditySensors", default=None)
+        typing.Optional[typing.List[SensorResponseBody]],
+        FieldMetadata(alias="humiditySensors"),
+        pydantic.Field(alias="humiditySensors"),
+    ] = None
     position: VehicleSensorConfigurationAreaResponseBodyPosition = pydantic.Field()
     """
     Position of the area on vehicle  Valid values: `back`, `front`, `middle`
     """
 
     temperature_sensors: typing_extensions.Annotated[
-        typing.Optional[typing.List[SensorResponseBody]], FieldMetadata(alias="temperatureSensors")
-    ] = pydantic.Field(alias="temperatureSensors", default=None)
+        typing.Optional[typing.List[SensorResponseBody]],
+        FieldMetadata(alias="temperatureSensors"),
+        pydantic.Field(alias="temperatureSensors"),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

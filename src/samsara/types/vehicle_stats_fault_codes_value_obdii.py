@@ -17,19 +17,18 @@ class VehicleStatsFaultCodesValueObdii(UniversalBaseModel):
     """
 
     check_engine_light_is_on: typing_extensions.Annotated[
-        typing.Optional[bool], FieldMetadata(alias="checkEngineLightIsOn")
-    ] = pydantic.Field(alias="checkEngineLightIsOn", default=None)
-    """
-    True if the check engine light is illuminated (MIL status field is nonzero for any faults).
-    """
-
+        typing.Optional[bool],
+        FieldMetadata(alias="checkEngineLightIsOn"),
+        pydantic.Field(
+            alias="checkEngineLightIsOn",
+            description="True if the check engine light is illuminated (MIL status field is nonzero for any faults).",
+        ),
+    ] = None
     diagnostic_trouble_codes: typing_extensions.Annotated[
         typing.Optional[typing.List[VehicleStatsFaultCodesValueObdiiDiagnosticTroubleCodes]],
         FieldMetadata(alias="diagnosticTroubleCodes"),
-    ] = pydantic.Field(alias="diagnosticTroubleCodes", default=None)
-    """
-    Diagnostic trouble codes for passenger vehicles.
-    """
+        pydantic.Field(alias="diagnosticTroubleCodes", description="Diagnostic trouble codes for passenger vehicles."),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

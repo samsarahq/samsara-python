@@ -9,15 +9,15 @@ from ..core.serialization import FieldMetadata
 
 
 class V1VisionStepResultsItemExpirationDate(UniversalBaseModel):
-    date_offset: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="dateOffset")] = pydantic.Field(
-        alias="dateOffset", default=None
-    )
-    found_date: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="foundDate")] = pydantic.Field(
-        alias="foundDate", default=None
-    )
-    match_date: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="matchDate")] = pydantic.Field(
-        alias="matchDate", default=None
-    )
+    date_offset: typing_extensions.Annotated[
+        typing.Optional[int], FieldMetadata(alias="dateOffset"), pydantic.Field(alias="dateOffset")
+    ] = None
+    found_date: typing_extensions.Annotated[
+        typing.Optional[str], FieldMetadata(alias="foundDate"), pydantic.Field(alias="foundDate")
+    ] = None
+    match_date: typing_extensions.Annotated[
+        typing.Optional[str], FieldMetadata(alias="matchDate"), pydantic.Field(alias="matchDate")
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

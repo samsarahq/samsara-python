@@ -13,26 +13,29 @@ class DriverEfficiencyDifficultyScoreDataObjectResponseBody(UniversalBaseModel):
     Difficulty score won't be available if there is no data to compute it against.
     """
 
-    overall_score: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="overallScore")] = (
-        pydantic.Field(alias="overallScore", default=None)
-    )
-    """
-    Represents the overall difficulty score. It has scores from 1 to 5.
-    """
-
-    topography_score: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="topographyScore")] = (
-        pydantic.Field(alias="topographyScore", default=None)
-    )
-    """
-    Represents the topography difficulty score. It has scores from 1 to 5.
-    """
-
+    overall_score: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="overallScore"),
+        pydantic.Field(
+            alias="overallScore", description="Represents the overall difficulty score. It has scores from 1 to 5."
+        ),
+    ] = None
+    topography_score: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="topographyScore"),
+        pydantic.Field(
+            alias="topographyScore",
+            description="Represents the topography difficulty score. It has scores from 1 to 5.",
+        ),
+    ] = None
     vehicle_weight_score: typing_extensions.Annotated[
-        typing.Optional[str], FieldMetadata(alias="vehicleWeightScore")
-    ] = pydantic.Field(alias="vehicleWeightScore", default=None)
-    """
-     Represents the average vehicle weight score. It has scores from 1 to 5.
-    """
+        typing.Optional[str],
+        FieldMetadata(alias="vehicleWeightScore"),
+        pydantic.Field(
+            alias="vehicleWeightScore",
+            description=" Represents the average vehicle weight score. It has scores from 1 to 5.",
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

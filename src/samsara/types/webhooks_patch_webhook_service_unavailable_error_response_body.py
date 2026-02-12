@@ -18,10 +18,13 @@ class WebhooksPatchWebhookServiceUnavailableErrorResponseBody(UniversalBaseModel
     Message of error
     """
 
-    request_id: typing_extensions.Annotated[str, FieldMetadata(alias="requestId")] = pydantic.Field(alias="requestId")
-    """
-    The request ID; used when reaching out to support for issues with requests.
-    """
+    request_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="requestId"),
+        pydantic.Field(
+            alias="requestId", description="The request ID; used when reaching out to support for issues with requests."
+        ),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

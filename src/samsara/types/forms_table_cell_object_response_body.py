@@ -23,34 +23,50 @@ class FormsTableCellObjectResponseBody(UniversalBaseModel):
     """
 
     check_boxes_value: typing_extensions.Annotated[
-        typing.Optional[FormsCheckBoxesValueObjectResponseBody], FieldMetadata(alias="checkBoxesValue")
-    ] = pydantic.Field(alias="checkBoxesValue", default=None)
+        typing.Optional[FormsCheckBoxesValueObjectResponseBody],
+        FieldMetadata(alias="checkBoxesValue"),
+        pydantic.Field(alias="checkBoxesValue"),
+    ] = None
     date_time_value: typing_extensions.Annotated[
-        typing.Optional[FormsDateTimeValueObjectResponseBody], FieldMetadata(alias="dateTimeValue")
-    ] = pydantic.Field(alias="dateTimeValue", default=None)
+        typing.Optional[FormsDateTimeValueObjectResponseBody],
+        FieldMetadata(alias="dateTimeValue"),
+        pydantic.Field(alias="dateTimeValue"),
+    ] = None
     id: str = pydantic.Field()
     """
     Unique identifier for the cell.
     """
 
     media_value: typing_extensions.Annotated[
-        typing.Optional[FormsMediaValueObjectResponseBody], FieldMetadata(alias="mediaValue")
-    ] = pydantic.Field(alias="mediaValue", default=None)
+        typing.Optional[FormsMediaValueObjectResponseBody],
+        FieldMetadata(alias="mediaValue"),
+        pydantic.Field(alias="mediaValue"),
+    ] = None
     multiple_choice_value: typing_extensions.Annotated[
-        typing.Optional[FormsMultipleChoiceValueObjectResponseBody], FieldMetadata(alias="multipleChoiceValue")
-    ] = pydantic.Field(alias="multipleChoiceValue", default=None)
+        typing.Optional[FormsMultipleChoiceValueObjectResponseBody],
+        FieldMetadata(alias="multipleChoiceValue"),
+        pydantic.Field(alias="multipleChoiceValue"),
+    ] = None
     number_value: typing_extensions.Annotated[
-        typing.Optional[FormsNumberValueObjectResponseBody], FieldMetadata(alias="numberValue")
-    ] = pydantic.Field(alias="numberValue", default=None)
+        typing.Optional[FormsNumberValueObjectResponseBody],
+        FieldMetadata(alias="numberValue"),
+        pydantic.Field(alias="numberValue"),
+    ] = None
     person_value: typing_extensions.Annotated[
-        typing.Optional[FormsPersonValueObjectResponseBody], FieldMetadata(alias="personValue")
-    ] = pydantic.Field(alias="personValue", default=None)
+        typing.Optional[FormsPersonValueObjectResponseBody],
+        FieldMetadata(alias="personValue"),
+        pydantic.Field(alias="personValue"),
+    ] = None
     signature_value: typing_extensions.Annotated[
-        typing.Optional[FormsSignatureValueObjectResponseBody], FieldMetadata(alias="signatureValue")
-    ] = pydantic.Field(alias="signatureValue", default=None)
+        typing.Optional[FormsSignatureValueObjectResponseBody],
+        FieldMetadata(alias="signatureValue"),
+        pydantic.Field(alias="signatureValue"),
+    ] = None
     text_value: typing_extensions.Annotated[
-        typing.Optional[FormsTextValueObjectResponseBody], FieldMetadata(alias="textValue")
-    ] = pydantic.Field(alias="textValue", default=None)
+        typing.Optional[FormsTextValueObjectResponseBody],
+        FieldMetadata(alias="textValue"),
+        pydantic.Field(alias="textValue"),
+    ] = None
     type: FormsTableCellObjectResponseBodyType = pydantic.Field()
     """
     Type of the cell field.  Valid values: `number`, `text`, `multiple_choice`, `check_boxes`, `datetime`, `signature`, `media`, `person`

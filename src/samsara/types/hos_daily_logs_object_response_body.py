@@ -15,27 +15,42 @@ from .pending_duty_status_durations_object_response_body import PendingDutyStatu
 
 class HosDailyLogsObjectResponseBody(UniversalBaseModel):
     distance_traveled: typing_extensions.Annotated[
-        typing.Optional[DistanceTraveledObjectResponseBody], FieldMetadata(alias="distanceTraveled")
-    ] = pydantic.Field(alias="distanceTraveled", default=None)
+        typing.Optional[DistanceTraveledObjectResponseBody],
+        FieldMetadata(alias="distanceTraveled"),
+        pydantic.Field(alias="distanceTraveled"),
+    ] = None
     driver: DriverWithTimezoneEldSettingsObjectResponseBody
     duty_status_durations: typing_extensions.Annotated[
-        typing.Optional[DutyStatusDurationObjectResponseBody], FieldMetadata(alias="dutyStatusDurations")
-    ] = pydantic.Field(alias="dutyStatusDurations", default=None)
-    end_time: typing_extensions.Annotated[str, FieldMetadata(alias="endTime")] = pydantic.Field(alias="endTime")
-    """
-    The end time of the daily log in RFC 3339 format. This will be calculated using timezone of the driver.
-    """
-
+        typing.Optional[DutyStatusDurationObjectResponseBody],
+        FieldMetadata(alias="dutyStatusDurations"),
+        pydantic.Field(alias="dutyStatusDurations"),
+    ] = None
+    end_time: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="endTime"),
+        pydantic.Field(
+            alias="endTime",
+            description="The end time of the daily log in RFC 3339 format. This will be calculated using timezone of the driver.",
+        ),
+    ]
     log_meta_data: typing_extensions.Annotated[
-        typing.Optional[LogMetaDataObjectResponseBody], FieldMetadata(alias="logMetaData")
-    ] = pydantic.Field(alias="logMetaData", default=None)
+        typing.Optional[LogMetaDataObjectResponseBody],
+        FieldMetadata(alias="logMetaData"),
+        pydantic.Field(alias="logMetaData"),
+    ] = None
     pending_duty_status_durations: typing_extensions.Annotated[
-        typing.Optional[PendingDutyStatusDurationsObjectResponseBody], FieldMetadata(alias="pendingDutyStatusDurations")
-    ] = pydantic.Field(alias="pendingDutyStatusDurations", default=None)
-    start_time: typing_extensions.Annotated[str, FieldMetadata(alias="startTime")] = pydantic.Field(alias="startTime")
-    """
-    The start time of the daily log in RFC 3339 format. This will be calculated using timezone of the driver.
-    """
+        typing.Optional[PendingDutyStatusDurationsObjectResponseBody],
+        FieldMetadata(alias="pendingDutyStatusDurations"),
+        pydantic.Field(alias="pendingDutyStatusDurations"),
+    ] = None
+    start_time: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="startTime"),
+        pydantic.Field(
+            alias="startTime",
+            description="The start time of the daily log in RFC 3339 format. This will be calculated using timezone of the driver.",
+        ),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -23,23 +23,26 @@ class WorkOrderAttachmentObjectResponseBody(UniversalBaseModel):
     """
 
     processing_status: typing_extensions.Annotated[
-        WorkOrderAttachmentObjectResponseBodyProcessingStatus, FieldMetadata(alias="processingStatus")
-    ] = pydantic.Field(alias="processingStatus")
-    """
-    Status of the media record.  Valid values: `unknown`, `processing`, `finished`
-    """
-
+        WorkOrderAttachmentObjectResponseBodyProcessingStatus,
+        FieldMetadata(alias="processingStatus"),
+        pydantic.Field(
+            alias="processingStatus",
+            description="Status of the media record.  Valid values: `unknown`, `processing`, `finished`",
+        ),
+    ]
     url: typing.Optional[str] = pydantic.Field(default=None)
     """
     URL containing a link to associated media content. Included if 'processingStatus' is 'finished'.
     """
 
-    url_expires_at: typing_extensions.Annotated[typing.Optional[dt.datetime], FieldMetadata(alias="urlExpiresAt")] = (
-        pydantic.Field(alias="urlExpiresAt", default=None)
-    )
-    """
-    Expiration time of the media record 'url'. UTC timestamp in RFC 3339 format.
-    """
+    url_expires_at: typing_extensions.Annotated[
+        typing.Optional[dt.datetime],
+        FieldMetadata(alias="urlExpiresAt"),
+        pydantic.Field(
+            alias="urlExpiresAt",
+            description="Expiration time of the media record 'url'. UTC timestamp in RFC 3339 format.",
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

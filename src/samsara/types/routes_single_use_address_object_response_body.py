@@ -28,12 +28,14 @@ class RoutesSingleUseAddressObjectResponseBody(UniversalBaseModel):
     The longitude of the location
     """
 
-    radius_meters: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="radiusMeters")] = (
-        pydantic.Field(alias="radiusMeters", default=None)
-    )
-    """
-    The radius in meters for the geofence around this location. Must be a positive value.
-    """
+    radius_meters: typing_extensions.Annotated[
+        typing.Optional[float],
+        FieldMetadata(alias="radiusMeters"),
+        pydantic.Field(
+            alias="radiusMeters",
+            description="The radius in meters for the geofence around this location. Must be a positive value.",
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

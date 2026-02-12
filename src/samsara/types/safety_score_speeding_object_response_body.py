@@ -14,26 +14,27 @@ class SafetyScoreSpeedingObjectResponseBody(UniversalBaseModel):
     Safety score speeding object.
     """
 
-    duration_milliseconds: typing_extensions.Annotated[int, FieldMetadata(alias="durationMilliseconds")] = (
-        pydantic.Field(alias="durationMilliseconds")
-    )
-    """
-    Total time spent speeding for the speeding type.
-    """
-
-    score_impact: typing_extensions.Annotated[float, FieldMetadata(alias="scoreImpact")] = pydantic.Field(
-        alias="scoreImpact"
-    )
-    """
-    Total points increased or deducted from the score due to the total time spent speeding of this type. Weights for this calculation are defined in organisation settings. Negative numbers indicate points deducted.
-    """
-
+    duration_milliseconds: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="durationMilliseconds"),
+        pydantic.Field(alias="durationMilliseconds", description="Total time spent speeding for the speeding type."),
+    ]
+    score_impact: typing_extensions.Annotated[
+        float,
+        FieldMetadata(alias="scoreImpact"),
+        pydantic.Field(
+            alias="scoreImpact",
+            description="Total points increased or deducted from the score due to the total time spent speeding of this type. Weights for this calculation are defined in organisation settings. Negative numbers indicate points deducted.",
+        ),
+    ]
     speeding_type: typing_extensions.Annotated[
-        SafetyScoreSpeedingObjectResponseBodySpeedingType, FieldMetadata(alias="speedingType")
-    ] = pydantic.Field(alias="speedingType")
-    """
-    Type of speeding.  Valid values: `light`, `moderate`, `heavy`, `severe`, `maxSpeed`, `unknown`
-    """
+        SafetyScoreSpeedingObjectResponseBodySpeedingType,
+        FieldMetadata(alias="speedingType"),
+        pydantic.Field(
+            alias="speedingType",
+            description="Type of speeding.  Valid values: `light`, `moderate`, `heavy`, `severe`, `maxSpeed`, `unknown`",
+        ),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

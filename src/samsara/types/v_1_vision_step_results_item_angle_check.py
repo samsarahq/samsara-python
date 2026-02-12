@@ -11,32 +11,32 @@ from .v_1_vision_step_results_item_angle_check_angle_configured import V1VisionS
 
 class V1VisionStepResultsItemAngleCheck(UniversalBaseModel):
     angle_configured: typing_extensions.Annotated[
-        typing.Optional[V1VisionStepResultsItemAngleCheckAngleConfigured], FieldMetadata(alias="angleConfigured")
-    ] = pydantic.Field(alias="angleConfigured", default=None)
-    """
-    The configured angle allowance range (in degrees)
-    """
-
-    angle_found: typing_extensions.Annotated[typing.Optional[int], FieldMetadata(alias="angleFound")] = pydantic.Field(
-        alias="angleFound", default=None
-    )
-    """
-    The counter-clockwise angle detected from the first edge to the second edge
-    """
-
-    end_step_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="endStepName")] = (
-        pydantic.Field(alias="endStepName", default=None)
-    )
-    """
-    The name of the second reference step used to check the angle
-    """
-
-    start_step_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="startStepName")] = (
-        pydantic.Field(alias="startStepName", default=None)
-    )
-    """
-    The name of the first reference step used to check the angle
-    """
+        typing.Optional[V1VisionStepResultsItemAngleCheckAngleConfigured],
+        FieldMetadata(alias="angleConfigured"),
+        pydantic.Field(alias="angleConfigured", description="The configured angle allowance range (in degrees)"),
+    ] = None
+    angle_found: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="angleFound"),
+        pydantic.Field(
+            alias="angleFound",
+            description="The counter-clockwise angle detected from the first edge to the second edge",
+        ),
+    ] = None
+    end_step_name: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="endStepName"),
+        pydantic.Field(
+            alias="endStepName", description="The name of the second reference step used to check the angle"
+        ),
+    ] = None
+    start_step_name: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="startStepName"),
+        pydantic.Field(
+            alias="startStepName", description="The name of the first reference step used to check the angle"
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -29,12 +29,13 @@ class V1AssetLocationResponseItem(UniversalBaseModel):
     """
 
     speed_miles_per_hour: typing_extensions.Annotated[
-        typing.Optional[float], FieldMetadata(alias="speedMilesPerHour")
-    ] = pydantic.Field(alias="speedMilesPerHour", default=None)
-    """
-    The speed calculated from GPS that the asset was traveling at in miles per hour.
-    """
-
+        typing.Optional[float],
+        FieldMetadata(alias="speedMilesPerHour"),
+        pydantic.Field(
+            alias="speedMilesPerHour",
+            description="The speed calculated from GPS that the asset was traveling at in miles per hour.",
+        ),
+    ] = None
     time: typing.Optional[float] = pydantic.Field(default=None)
     """
     Time in Unix milliseconds since epoch when the asset was at the location.

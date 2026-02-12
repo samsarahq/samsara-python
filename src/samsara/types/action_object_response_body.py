@@ -15,21 +15,18 @@ class ActionObjectResponseBody(UniversalBaseModel):
     """
 
     action_params: typing_extensions.Annotated[
-        typing.Optional[ActionParamsObjectResponseBody], FieldMetadata(alias="actionParams")
-    ] = pydantic.Field(alias="actionParams", default=None)
-    action_type_id: typing_extensions.Annotated[int, FieldMetadata(alias="actionTypeId")] = pydantic.Field(
-        alias="actionTypeId"
-    )
-    """
-    The id of the of the action type. Reference the following list for the ids:
-    The following action types are in Beta:
-    Driver App Push = 5
-    The following action types are Stable:
-    Notification (Email, Text, Samsara Fleet Push) = 1
-    Dashboard Notification = 3
-    Webhook = 4
-    Slack = 6
-    """
+        typing.Optional[ActionParamsObjectResponseBody],
+        FieldMetadata(alias="actionParams"),
+        pydantic.Field(alias="actionParams"),
+    ] = None
+    action_type_id: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="actionTypeId"),
+        pydantic.Field(
+            alias="actionTypeId",
+            description="The id of the of the action type. Reference the following list for the ids:\nThe following action types are in Beta:\nDriver App Push = 5\nThe following action types are Stable:\nNotification (Email, Text, Samsara Fleet Push) = 1\nDashboard Notification = 3\nWebhook = 4\nSlack = 6",
+        ),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -14,12 +14,11 @@ class DateTimeValueObjectRequestBody(UniversalBaseModel):
     The value of a date time field. Only present for date time fields.
     """
 
-    date_time: typing_extensions.Annotated[typing.Optional[dt.datetime], FieldMetadata(alias="dateTime")] = (
-        pydantic.Field(alias="dateTime", default=None)
-    )
-    """
-    Date time value inin RFC 3339 format.
-    """
+    date_time: typing_extensions.Annotated[
+        typing.Optional[dt.datetime],
+        FieldMetadata(alias="dateTime"),
+        pydantic.Field(alias="dateTime", description="Date time value inin RFC 3339 format."),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

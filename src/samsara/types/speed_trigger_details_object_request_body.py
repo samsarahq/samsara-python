@@ -14,24 +14,24 @@ class SpeedTriggerDetailsObjectRequestBody(UniversalBaseModel):
     Details specific to Speed
     """
 
-    min_duration_milliseconds: typing_extensions.Annotated[int, FieldMetadata(alias="minDurationMilliseconds")] = (
-        pydantic.Field(alias="minDurationMilliseconds")
-    )
-    """
-    The number of milliseconds the trigger needs to stay active before alerting.
-    """
-
+    min_duration_milliseconds: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="minDurationMilliseconds"),
+        pydantic.Field(
+            alias="minDurationMilliseconds",
+            description="The number of milliseconds the trigger needs to stay active before alerting.",
+        ),
+    ]
     operation: SpeedTriggerDetailsObjectRequestBodyOperation = pydantic.Field()
     """
     How to evaluate the threshold.  Valid values: `GREATER`, `LESS`
     """
 
-    speed_kilometers_per_hour: typing_extensions.Annotated[int, FieldMetadata(alias="speedKilometersPerHour")] = (
-        pydantic.Field(alias="speedKilometersPerHour")
-    )
-    """
-    The speed threshold value.
-    """
+    speed_kilometers_per_hour: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="speedKilometersPerHour"),
+        pydantic.Field(alias="speedKilometersPerHour", description="The speed threshold value."),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

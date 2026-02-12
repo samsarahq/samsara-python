@@ -13,19 +13,19 @@ class InvoiceScanFileRequestBody(UniversalBaseModel):
     Invoice file object
     """
 
-    base_64_content: typing_extensions.Annotated[str, FieldMetadata(alias="base64Content")] = pydantic.Field(
-        alias="base64Content"
-    )
-    """
-    Base64 encoded file content. Maximum decoded size: 10MB.
-    """
-
-    content_type: typing_extensions.Annotated[str, FieldMetadata(alias="contentType")] = pydantic.Field(
-        alias="contentType"
-    )
-    """
-    MIME type of the file. Supported types: application/pdf, image/jpeg, image/png.
-    """
+    base_64_content: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="base64Content"),
+        pydantic.Field(alias="base64Content", description="Base64 encoded file content. Maximum decoded size: 10MB."),
+    ]
+    content_type: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="contentType"),
+        pydantic.Field(
+            alias="contentType",
+            description="MIME type of the file. Supported types: application/pdf, image/jpeg, image/png.",
+        ),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

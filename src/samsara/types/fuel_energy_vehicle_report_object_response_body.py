@@ -15,58 +15,64 @@ class FuelEnergyVehicleReportObjectResponseBody(UniversalBaseModel):
     A summary of this vehicle's fuel and energy data.
     """
 
-    distance_traveled_meters: typing_extensions.Annotated[float, FieldMetadata(alias="distanceTraveledMeters")] = (
-        pydantic.Field(alias="distanceTraveledMeters")
-    )
-    """
-    Meters traveled over the given time range.
-    """
-
-    efficiency_mpge: typing_extensions.Annotated[float, FieldMetadata(alias="efficiencyMpge")] = pydantic.Field(
-        alias="efficiencyMpge"
-    )
-    """
-    Efficiency in MPG or MPGE over the given time range. For fuel vehicles this will be provided in MPG, for hybrid and electric vehicles this will be provided in MPGE. MPG/MPGE values are provided based on US gallons.
-    """
-
-    energy_used_kwh: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="energyUsedKwh")] = (
-        pydantic.Field(alias="energyUsedKwh", default=None)
-    )
-    """
-    Kilowatt-hours of energy used over the given time range. Only provided for hybrid and electric vehicles.
-    """
-
+    distance_traveled_meters: typing_extensions.Annotated[
+        float,
+        FieldMetadata(alias="distanceTraveledMeters"),
+        pydantic.Field(alias="distanceTraveledMeters", description="Meters traveled over the given time range."),
+    ]
+    efficiency_mpge: typing_extensions.Annotated[
+        float,
+        FieldMetadata(alias="efficiencyMpge"),
+        pydantic.Field(
+            alias="efficiencyMpge",
+            description="Efficiency in MPG or MPGE over the given time range. For fuel vehicles this will be provided in MPG, for hybrid and electric vehicles this will be provided in MPGE. MPG/MPGE values are provided based on US gallons.",
+        ),
+    ]
+    energy_used_kwh: typing_extensions.Annotated[
+        typing.Optional[float],
+        FieldMetadata(alias="energyUsedKwh"),
+        pydantic.Field(
+            alias="energyUsedKwh",
+            description="Kilowatt-hours of energy used over the given time range. Only provided for hybrid and electric vehicles.",
+        ),
+    ] = None
     engine_idle_time_duration_ms: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="engineIdleTimeDurationMs")
-    ] = pydantic.Field(alias="engineIdleTimeDurationMs", default=None)
-    """
-    Milliseconds of engine idle time over the given time range. Only provided for fuel and hybrid vehicles.
-    """
-
+        typing.Optional[int],
+        FieldMetadata(alias="engineIdleTimeDurationMs"),
+        pydantic.Field(
+            alias="engineIdleTimeDurationMs",
+            description="Milliseconds of engine idle time over the given time range. Only provided for fuel and hybrid vehicles.",
+        ),
+    ] = None
     engine_run_time_duration_ms: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="engineRunTimeDurationMs")
-    ] = pydantic.Field(alias="engineRunTimeDurationMs", default=None)
-    """
-    Milliseconds of engine run time over the given time range. Only provided for fuel and hybrid vehicles.
-    """
-
+        typing.Optional[int],
+        FieldMetadata(alias="engineRunTimeDurationMs"),
+        pydantic.Field(
+            alias="engineRunTimeDurationMs",
+            description="Milliseconds of engine run time over the given time range. Only provided for fuel and hybrid vehicles.",
+        ),
+    ] = None
     est_carbon_emissions_kg: typing_extensions.Annotated[
-        typing.Optional[float], FieldMetadata(alias="estCarbonEmissionsKg")
-    ] = pydantic.Field(alias="estCarbonEmissionsKg", default=None)
-    """
-    Estimated kilograms of carbon emissions over the given time range. Only provided for fuel and hybrid vehicles.
-    """
-
+        typing.Optional[float],
+        FieldMetadata(alias="estCarbonEmissionsKg"),
+        pydantic.Field(
+            alias="estCarbonEmissionsKg",
+            description="Estimated kilograms of carbon emissions over the given time range. Only provided for fuel and hybrid vehicles.",
+        ),
+    ] = None
     est_fuel_energy_cost: typing_extensions.Annotated[
-        FuelEnergyCostResponseResponseBody, FieldMetadata(alias="estFuelEnergyCost")
-    ] = pydantic.Field(alias="estFuelEnergyCost")
-    fuel_consumed_ml: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="fuelConsumedMl")] = (
-        pydantic.Field(alias="fuelConsumedMl", default=None)
-    )
-    """
-    Milliliters of fuel consumed over the given time range. Only provided for fuel and hybrid vehicles.
-    """
-
+        FuelEnergyCostResponseResponseBody,
+        FieldMetadata(alias="estFuelEnergyCost"),
+        pydantic.Field(alias="estFuelEnergyCost"),
+    ]
+    fuel_consumed_ml: typing_extensions.Annotated[
+        typing.Optional[float],
+        FieldMetadata(alias="fuelConsumedMl"),
+        pydantic.Field(
+            alias="fuelConsumedMl",
+            description="Milliliters of fuel consumed over the given time range. Only provided for fuel and hybrid vehicles.",
+        ),
+    ] = None
     vehicle: FuelEnergyVehicleObjectResponseBody
 
     if IS_PYDANTIC_V2:

@@ -13,19 +13,18 @@ class RollingStopDetectionAlertSettingsObjectResponseBody(UniversalBaseModel):
     AI event detection settings for the rolling stop behavior. Detection is available in vehicles with compatible dash cams.
     """
 
-    is_enabled: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="isEnabled")] = pydantic.Field(
-        alias="isEnabled", default=None
-    )
-    """
-    Indicates whether AI event detection for rolling stops is turned on.
-    """
-
+    is_enabled: typing_extensions.Annotated[
+        typing.Optional[bool],
+        FieldMetadata(alias="isEnabled"),
+        pydantic.Field(
+            alias="isEnabled", description="Indicates whether AI event detection for rolling stops is turned on."
+        ),
+    ] = None
     speeding_threshold_mph: typing_extensions.Annotated[
-        typing.Optional[float], FieldMetadata(alias="speedingThresholdMph")
-    ] = pydantic.Field(alias="speedingThresholdMph", default=None)
-    """
-    Alert when speed is over this many miles per hour.
-    """
+        typing.Optional[float],
+        FieldMetadata(alias="speedingThresholdMph"),
+        pydantic.Field(alias="speedingThresholdMph", description="Alert when speed is over this many miles per hour."),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

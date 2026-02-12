@@ -19,18 +19,16 @@ class IdlingEventAddressObjectResponseBody(UniversalBaseModel):
     address_types: typing_extensions.Annotated[
         typing.Optional[typing.List[IdlingEventAddressObjectResponseBodyAddressTypesItem]],
         FieldMetadata(alias="addressTypes"),
-    ] = pydantic.Field(alias="addressTypes", default=None)
-    """
-    The types of the geofence address of the idling location. An address can have multiple types.
-    """
-
+        pydantic.Field(
+            alias="addressTypes",
+            description="The types of the geofence address of the idling location. An address can have multiple types.",
+        ),
+    ] = None
     external_ids: typing_extensions.Annotated[
-        typing.Optional[typing.Dict[str, str]], FieldMetadata(alias="externalIds")
-    ] = pydantic.Field(alias="externalIds", default=None)
-    """
-    A map of external ids for the address.
-    """
-
+        typing.Optional[typing.Dict[str, str]],
+        FieldMetadata(alias="externalIds"),
+        pydantic.Field(alias="externalIds", description="A map of external ids for the address."),
+    ] = None
     id: str = pydantic.Field()
     """
     The ID of the geofence address of the idling location. It will be the address at the time of idling.

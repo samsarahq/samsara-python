@@ -18,13 +18,11 @@ class LocationDataPointGpsLocationPlace(UniversalBaseModel):
     City
     """
 
-    house_number: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="houseNumber")] = (
-        pydantic.Field(alias="houseNumber", default=None)
-    )
-    """
-    House number
-    """
-
+    house_number: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="houseNumber"),
+        pydantic.Field(alias="houseNumber", description="House number"),
+    ] = None
     neighborhood: typing.Optional[str] = pydantic.Field(default=None)
     """
     Neighborhood

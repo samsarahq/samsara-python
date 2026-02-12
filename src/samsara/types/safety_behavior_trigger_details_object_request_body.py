@@ -26,8 +26,10 @@ class SafetyBehaviorTriggerDetailsObjectRequestBody(UniversalBaseModel):
     """
 
     behavior_count: typing_extensions.Annotated[
-        typing.Optional[BehaviorCountDetailsRequestBody], FieldMetadata(alias="behaviorCount")
-    ] = pydantic.Field(alias="behaviorCount", default=None)
+        typing.Optional[BehaviorCountDetailsRequestBody],
+        FieldMetadata(alias="behaviorCount"),
+        pydantic.Field(alias="behaviorCount"),
+    ] = None
     behaviors: typing.List[SafetyBehaviorTriggerDetailsObjectRequestBodyBehaviorsItem] = pydantic.Field()
     """
     On which safety behaviors to trigger on.
@@ -35,8 +37,10 @@ class SafetyBehaviorTriggerDetailsObjectRequestBody(UniversalBaseModel):
 
     drivers: typing.Optional[DriverOrTagIdsDetailsRequestBody] = None
     safety_score: typing_extensions.Annotated[
-        typing.Optional[SafetyScoreDetailsRequestBody], FieldMetadata(alias="safetyScore")
-    ] = pydantic.Field(alias="safetyScore", default=None)
+        typing.Optional[SafetyScoreDetailsRequestBody],
+        FieldMetadata(alias="safetyScore"),
+        pydantic.Field(alias="safetyScore"),
+    ] = None
     severities: typing.Optional[typing.List[SafetyBehaviorTriggerDetailsObjectRequestBodySeveritiesItem]] = (
         pydantic.Field(default=None)
     )

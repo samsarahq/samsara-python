@@ -14,30 +14,35 @@ class ReadingDatapointRequestBody(UniversalBaseModel):
     A single reading data point to be created.
     """
 
-    entity_id: typing_extensions.Annotated[str, FieldMetadata(alias="entityId")] = pydantic.Field(alias="entityId")
-    """
-    Samsara entity ID. In case of an asset, it’s the assetId. If the asset is not yet present in the system, it is required to create a new one via the /assets endpoint.
-    """
-
+    entity_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="entityId"),
+        pydantic.Field(
+            alias="entityId",
+            description="Samsara entity ID. In case of an asset, it’s the assetId. If the asset is not yet present in the system, it is required to create a new one via the /assets endpoint.",
+        ),
+    ]
     entity_type: typing_extensions.Annotated[
-        ReadingDatapointRequestBodyEntityType, FieldMetadata(alias="entityType")
-    ] = pydantic.Field(alias="entityType")
-    """
-    The type of the entity (e.g., asset).  Valid values: `asset`
-    """
-
-    happened_at_time: typing_extensions.Annotated[str, FieldMetadata(alias="happenedAtTime")] = pydantic.Field(
-        alias="happenedAtTime"
-    )
-    """
-    The timestamp of when the reading happened in RFC 3339 format. happenedAtTime must not be older than the last known reading for the same series.
-    """
-
-    reading_id: typing_extensions.Annotated[str, FieldMetadata(alias="readingId")] = pydantic.Field(alias="readingId")
-    """
-    The ID of the reading, you can get it from the /readings/definitions endpoint.
-    """
-
+        ReadingDatapointRequestBodyEntityType,
+        FieldMetadata(alias="entityType"),
+        pydantic.Field(alias="entityType", description="The type of the entity (e.g., asset).  Valid values: `asset`"),
+    ]
+    happened_at_time: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="happenedAtTime"),
+        pydantic.Field(
+            alias="happenedAtTime",
+            description="The timestamp of when the reading happened in RFC 3339 format. happenedAtTime must not be older than the last known reading for the same series.",
+        ),
+    ]
+    reading_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="readingId"),
+        pydantic.Field(
+            alias="readingId",
+            description="The ID of the reading, you can get it from the /readings/definitions endpoint.",
+        ),
+    ]
     value: typing.Dict[str, typing.Any] = pydantic.Field()
     """
     The value of the reading. Can be any object. See the /readings/definitions endpoint for the value type for each reading.

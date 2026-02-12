@@ -18,12 +18,14 @@ class UrlInfoObjectResponseBody(UniversalBaseModel):
     Signed URL for this piece of media. The URL expires in 8 hours (after which you must make another GET request). Examples: https://sample.s3.url.com/image.jpeg
     """
 
-    url_expiry_time: typing_extensions.Annotated[str, FieldMetadata(alias="urlExpiryTime")] = pydantic.Field(
-        alias="urlExpiryTime"
-    )
-    """
-    Timestamp, in RFC 3339 format, at which the URL expires. Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00
-    """
+    url_expiry_time: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="urlExpiryTime"),
+        pydantic.Field(
+            alias="urlExpiryTime",
+            description="Timestamp, in RFC 3339 format, at which the URL expires. Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00",
+        ),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

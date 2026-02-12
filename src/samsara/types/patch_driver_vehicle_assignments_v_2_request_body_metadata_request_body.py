@@ -13,12 +13,11 @@ class PatchDriverVehicleAssignmentsV2RequestBodyMetadataRequestBody(UniversalBas
     Metadata about this driver assignment
     """
 
-    source_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="sourceName")] = pydantic.Field(
-        alias="sourceName", default=None
-    )
-    """
-    Describes where the external assignment is coming from
-    """
+    source_name: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="sourceName"),
+        pydantic.Field(alias="sourceName", description="Describes where the external assignment is coming from"),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
