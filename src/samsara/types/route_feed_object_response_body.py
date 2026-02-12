@@ -9,7 +9,6 @@ from .base_route_response_object_response_body import BaseRouteResponseObjectRes
 from .route_changes_response_body import RouteChangesResponseBody
 from .route_feed_object_response_body_operation import RouteFeedObjectResponseBodyOperation
 from .route_feed_object_response_body_source import RouteFeedObjectResponseBodySource
-from .route_feed_object_response_body_type import RouteFeedObjectResponseBodyType
 
 
 class RouteFeedObjectResponseBody(UniversalBaseModel):
@@ -34,7 +33,7 @@ class RouteFeedObjectResponseBody(UniversalBaseModel):
     The timestamp of the route in RFC 3339 format.
     """
 
-    type: RouteFeedObjectResponseBodyType = pydantic.Field()
+    type: typing.Literal["route tracking"] = pydantic.Field(default="route tracking")
     """
     The type of route update. The route tracking updates occur as a route is completed and stops transition from one state to another. Currently only Route Tracking updates are supported, but this will change in the future when additional types are added.  Valid values: `route tracking`
     """

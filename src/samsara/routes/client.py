@@ -15,7 +15,6 @@ from ..types.routes_get_routes_feed_response_body import RoutesGetRoutesFeedResp
 from ..types.routes_patch_route_response_body import RoutesPatchRouteResponseBody
 from ..types.update_routes_stop_request_object_request_body import UpdateRoutesStopRequestObjectRequestBody
 from .raw_client import AsyncRawRoutesClient, RawRoutesClient
-from .types.get_routes_feed_request_expand import GetRoutesFeedRequestExpand
 
 # this is used as the default value for optional parameters
 OMIT = typing.cast(typing.Any, ...)
@@ -193,7 +192,7 @@ class RoutesClient:
         self,
         *,
         after: typing.Optional[str] = None,
-        expand: typing.Optional[GetRoutesFeedRequestExpand] = None,
+        expand: typing.Optional[typing.Literal["route"]] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> RoutesGetRoutesFeedResponseBody:
         """
@@ -213,7 +212,7 @@ class RoutesClient:
         after : typing.Optional[str]
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
 
-        expand : typing.Optional[GetRoutesFeedRequestExpand]
+        expand : typing.Optional[typing.Literal["route"]]
             Expands the specified value(s) in the response object. Expansion populates additional fields in an object, if supported. Unsupported fields are ignored. To expand multiple fields, input a comma-separated list.
 
             Valid value: `route`  Valid values: `route`
@@ -728,7 +727,7 @@ class AsyncRoutesClient:
         self,
         *,
         after: typing.Optional[str] = None,
-        expand: typing.Optional[GetRoutesFeedRequestExpand] = None,
+        expand: typing.Optional[typing.Literal["route"]] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> RoutesGetRoutesFeedResponseBody:
         """
@@ -748,7 +747,7 @@ class AsyncRoutesClient:
         after : typing.Optional[str]
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
 
-        expand : typing.Optional[GetRoutesFeedRequestExpand]
+        expand : typing.Optional[typing.Literal["route"]]
             Expands the specified value(s) in the response object. Expansion populates additional fields in an object, if supported. Unsupported fields are ignored. To expand multiple fields, input a comma-separated list.
 
             Valid value: `route`  Valid values: `route`

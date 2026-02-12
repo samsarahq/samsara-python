@@ -30,9 +30,6 @@ from .raw_client import AsyncRawFormsClient, RawFormsClient
 from .types.form_submissions_patch_form_submission_request_body_status import (
     FormSubmissionsPatchFormSubmissionRequestBodyStatus,
 )
-from .types.form_submissions_post_form_submission_request_body_status import (
-    FormSubmissionsPostFormSubmissionRequestBodyStatus,
-)
 
 # this is used as the default value for optional parameters
 OMIT = typing.cast(typing.Any, ...)
@@ -102,7 +99,6 @@ class FormsClient:
         self,
         *,
         form_template: FormTemplateRequestObjectRequestBody,
-        status: FormSubmissionsPostFormSubmissionRequestBodyStatus,
         assigned_to: typing.Optional[FormSubmissionRequestAssignedToRequestBody] = OMIT,
         due_at_time: typing.Optional[dt.datetime] = OMIT,
         fields: typing.Optional[typing.Sequence[FormSubmissionRequestFieldInputObjectRequestBody]] = OMIT,
@@ -124,9 +120,6 @@ class FormsClient:
         Parameters
         ----------
         form_template : FormTemplateRequestObjectRequestBody
-
-        status : FormSubmissionsPostFormSubmissionRequestBodyStatus
-            Status of the form submission.  Valid values: `notStarted`
 
         assigned_to : typing.Optional[FormSubmissionRequestAssignedToRequestBody]
 
@@ -165,12 +158,10 @@ class FormsClient:
                 id="9814a1fa-f0c6-408b-bf85-51dc3bc71ac7",
                 revision_id="1214a1fa-f0c6-408b-bf85-51dc3bc71ac7",
             ),
-            status="notStarted",
         )
         """
         _response = self._raw_client.post_form_submission(
             form_template=form_template,
-            status=status,
             assigned_to=assigned_to,
             due_at_time=due_at_time,
             fields=fields,
@@ -542,7 +533,6 @@ class AsyncFormsClient:
         self,
         *,
         form_template: FormTemplateRequestObjectRequestBody,
-        status: FormSubmissionsPostFormSubmissionRequestBodyStatus,
         assigned_to: typing.Optional[FormSubmissionRequestAssignedToRequestBody] = OMIT,
         due_at_time: typing.Optional[dt.datetime] = OMIT,
         fields: typing.Optional[typing.Sequence[FormSubmissionRequestFieldInputObjectRequestBody]] = OMIT,
@@ -564,9 +554,6 @@ class AsyncFormsClient:
         Parameters
         ----------
         form_template : FormTemplateRequestObjectRequestBody
-
-        status : FormSubmissionsPostFormSubmissionRequestBodyStatus
-            Status of the form submission.  Valid values: `notStarted`
 
         assigned_to : typing.Optional[FormSubmissionRequestAssignedToRequestBody]
 
@@ -610,7 +597,6 @@ class AsyncFormsClient:
                     id="9814a1fa-f0c6-408b-bf85-51dc3bc71ac7",
                     revision_id="1214a1fa-f0c6-408b-bf85-51dc3bc71ac7",
                 ),
-                status="notStarted",
             )
 
 
@@ -618,7 +604,6 @@ class AsyncFormsClient:
         """
         _response = await self._raw_client.post_form_submission(
             form_template=form_template,
-            status=status,
             assigned_to=assigned_to,
             due_at_time=due_at_time,
             fields=fields,

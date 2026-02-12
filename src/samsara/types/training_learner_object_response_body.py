@@ -4,7 +4,6 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from .training_learner_object_response_body_type import TrainingLearnerObjectResponseBodyType
 
 
 class TrainingLearnerObjectResponseBody(UniversalBaseModel):
@@ -17,7 +16,7 @@ class TrainingLearnerObjectResponseBody(UniversalBaseModel):
     ID of the polymorphic user.
     """
 
-    type: TrainingLearnerObjectResponseBodyType = pydantic.Field()
+    type: typing.Literal["driver"] = pydantic.Field(default="driver")
     """
     The type of the polymorphic user.  Valid values: `driver`
     """

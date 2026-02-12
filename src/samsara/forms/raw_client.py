@@ -43,9 +43,6 @@ from ..types.form_templates_get_form_templates_response_body import FormTemplate
 from .types.form_submissions_patch_form_submission_request_body_status import (
     FormSubmissionsPatchFormSubmissionRequestBodyStatus,
 )
-from .types.form_submissions_post_form_submission_request_body_status import (
-    FormSubmissionsPostFormSubmissionRequestBodyStatus,
-)
 
 # this is used as the default value for optional parameters
 OMIT = typing.cast(typing.Any, ...)
@@ -215,7 +212,6 @@ class RawFormsClient:
         self,
         *,
         form_template: FormTemplateRequestObjectRequestBody,
-        status: FormSubmissionsPostFormSubmissionRequestBodyStatus,
         assigned_to: typing.Optional[FormSubmissionRequestAssignedToRequestBody] = OMIT,
         due_at_time: typing.Optional[dt.datetime] = OMIT,
         fields: typing.Optional[typing.Sequence[FormSubmissionRequestFieldInputObjectRequestBody]] = OMIT,
@@ -237,9 +233,6 @@ class RawFormsClient:
         Parameters
         ----------
         form_template : FormTemplateRequestObjectRequestBody
-
-        status : FormSubmissionsPostFormSubmissionRequestBodyStatus
-            Status of the form submission.  Valid values: `notStarted`
 
         assigned_to : typing.Optional[FormSubmissionRequestAssignedToRequestBody]
 
@@ -284,8 +277,8 @@ class RawFormsClient:
                 ),
                 "isRequired": is_required,
                 "routeStopId": route_stop_id,
-                "status": status,
                 "title": title,
+                "status": "notStarted",
             },
             headers={
                 "content-type": "application/json",
@@ -1404,7 +1397,6 @@ class AsyncRawFormsClient:
         self,
         *,
         form_template: FormTemplateRequestObjectRequestBody,
-        status: FormSubmissionsPostFormSubmissionRequestBodyStatus,
         assigned_to: typing.Optional[FormSubmissionRequestAssignedToRequestBody] = OMIT,
         due_at_time: typing.Optional[dt.datetime] = OMIT,
         fields: typing.Optional[typing.Sequence[FormSubmissionRequestFieldInputObjectRequestBody]] = OMIT,
@@ -1426,9 +1418,6 @@ class AsyncRawFormsClient:
         Parameters
         ----------
         form_template : FormTemplateRequestObjectRequestBody
-
-        status : FormSubmissionsPostFormSubmissionRequestBodyStatus
-            Status of the form submission.  Valid values: `notStarted`
 
         assigned_to : typing.Optional[FormSubmissionRequestAssignedToRequestBody]
 
@@ -1473,8 +1462,8 @@ class AsyncRawFormsClient:
                 ),
                 "isRequired": is_required,
                 "routeStopId": route_stop_id,
-                "status": status,
                 "title": title,
+                "status": "notStarted",
             },
             headers={
                 "content-type": "application/json",

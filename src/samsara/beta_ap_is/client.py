@@ -2169,7 +2169,6 @@ class BetaApIsClient:
             data=[
                 ReadingDatapointRequestBody(
                     entity_id="123451234512345",
-                    entity_type="asset",
                     happened_at_time="2023-10-27T10:00:00Z",
                     reading_id="airInletPressure",
                     value={"key": "value"},
@@ -5333,7 +5332,6 @@ class AsyncBetaApIsClient:
                 data=[
                     ReadingDatapointRequestBody(
                         entity_id="123451234512345",
-                        entity_type="asset",
                         happened_at_time="2023-10-27T10:00:00Z",
                         reading_id="airInletPressure",
                         value={"key": "value"},
