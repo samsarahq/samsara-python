@@ -7,18 +7,17 @@ import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .goa_vehicle_tiny_response_response_body import GoaVehicleTinyResponseResponseBody
-from .vehicle_assignment_object_response_body_assignment_type import VehicleAssignmentObjectResponseBodyAssignmentType
 
 
 class VehicleAssignmentObjectResponseBody(UniversalBaseModel):
     assignment_type: typing_extensions.Annotated[
-        VehicleAssignmentObjectResponseBodyAssignmentType,
+        typing.Literal["driverApp"],
         FieldMetadata(alias="assignmentType"),
         pydantic.Field(
             alias="assignmentType",
             description="Assignment type of the driver-vehicle assignment, indicating the provenance of the assignment. The only type of assignment supported right now is `driverApp` assignments. This list could change, so it is recommended that clients gracefully handle any types not enumerated in this list.  Valid values: `driverApp`",
         ),
-    ]
+    ] = "driverApp"
     end_time: typing_extensions.Annotated[
         typing.Optional[str],
         FieldMetadata(alias="endTime"),

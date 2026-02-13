@@ -53,7 +53,7 @@ def test_maintenance_create_dvir() -> None:
     """Test createDvir endpoint with WireMock"""
     test_id = "maintenance.create_dvir.0"
     client = get_client(test_id)
-    client.maintenance.create_dvir(author_id="11", safety_status="safe", type="mechanic")
+    client.maintenance.create_dvir(author_id="11", safety_status="safe")
     verify_request_count(test_id, "POST", "/fleet/dvirs", None, 1)
 
 
