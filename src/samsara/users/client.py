@@ -7,7 +7,6 @@ from ..core.request_options import RequestOptions
 from ..types.create_user_request_roles import CreateUserRequestRoles
 from ..types.list_user_roles_response import ListUserRolesResponse
 from ..types.list_users_response import ListUsersResponse
-from ..types.standard_delete_response import StandardDeleteResponse
 from ..types.user_response import UserResponse
 from .raw_client import AsyncRawUsersClient, RawUsersClient
 from .types.create_user_request_auth_type import CreateUserRequestAuthType
@@ -221,7 +220,7 @@ class UsersClient:
         _response = self._raw_client.get_user(id, request_options=request_options)
         return _response.data
 
-    def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> StandardDeleteResponse:
+    def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
         """
         Delete the given user.
 
@@ -239,8 +238,7 @@ class UsersClient:
 
         Returns
         -------
-        StandardDeleteResponse
-            A successful DELETE response is a 204 with no content.
+        None
 
         Examples
         --------
@@ -551,9 +549,7 @@ class AsyncUsersClient:
         _response = await self._raw_client.get_user(id, request_options=request_options)
         return _response.data
 
-    async def delete(
-        self, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> StandardDeleteResponse:
+    async def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
         """
         Delete the given user.
 
@@ -571,8 +567,7 @@ class AsyncUsersClient:
 
         Returns
         -------
-        StandardDeleteResponse
-            A successful DELETE response is a 204 with no content.
+        None
 
         Examples
         --------

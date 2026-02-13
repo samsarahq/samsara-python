@@ -4773,7 +4773,6 @@ if typing.TYPE_CHECKING:
     from .speeding_settings_object_response_body_unit import SpeedingSettingsObjectResponseBodyUnit
     from .speeding_severity_level_response_body import SpeedingSeverityLevelResponseBody
     from .speeding_severity_level_response_body_severity_level import SpeedingSeverityLevelResponseBodySeverityLevel
-    from .standard_delete_response import StandardDeleteResponse
     from .start_function_run_response_body_response_body import StartFunctionRunResponseBodyResponseBody
     from .stop_eta_updated_event_details_response_body import StopEtaUpdatedEventDetailsResponseBody
     from .stop_task_completed_event_details_response_body import StopTaskCompletedEventDetailsResponseBody
@@ -8827,7 +8826,6 @@ _dynamic_imports: typing.Dict[str, str] = {
     "SpeedingSettingsObjectResponseBodyUnit": ".speeding_settings_object_response_body_unit",
     "SpeedingSeverityLevelResponseBody": ".speeding_severity_level_response_body",
     "SpeedingSeverityLevelResponseBodySeverityLevel": ".speeding_severity_level_response_body_severity_level",
-    "StandardDeleteResponse": ".standard_delete_response",
     "StartFunctionRunResponseBodyResponseBody": ".start_function_run_response_body_response_body",
     "StopEtaUpdatedEventDetailsResponseBody": ".stop_eta_updated_event_details_response_body",
     "StopTaskCompletedEventDetailsResponseBody": ".stop_task_completed_event_details_response_body",
@@ -12129,7 +12127,6 @@ __all__ = [
     "SpeedingSettingsObjectResponseBodyUnit",
     "SpeedingSeverityLevelResponseBody",
     "SpeedingSeverityLevelResponseBodySeverityLevel",
-    "StandardDeleteResponse",
     "StartFunctionRunResponseBodyResponseBody",
     "StopEtaUpdatedEventDetailsResponseBody",
     "StopTaskCompletedEventDetailsResponseBody",
