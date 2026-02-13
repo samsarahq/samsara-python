@@ -7,7 +7,6 @@ from ..core.request_options import RequestOptions
 from ..types.attribute_expanded_response import AttributeExpandedResponse
 from ..types.create_attribute_request_entities import CreateAttributeRequestEntities
 from ..types.get_attributes_by_entity_type_response import GetAttributesByEntityTypeResponse
-from ..types.standard_delete_response import StandardDeleteResponse
 from .raw_client import AsyncRawAttributesClient, RawAttributesClient
 from .types.create_attribute_request_attribute_type import CreateAttributeRequestAttributeType
 from .types.create_attribute_request_entity_type import CreateAttributeRequestEntityType
@@ -213,7 +212,7 @@ class AttributesClient:
         *,
         entity_type: DeleteAttributesRequestEntityType,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> StandardDeleteResponse:
+    ) -> None:
         """
         Delete an attribute by id, including all of its applications.
 
@@ -234,8 +233,7 @@ class AttributesClient:
 
         Returns
         -------
-        StandardDeleteResponse
-            A successful DELETE response is a 204 with no content.
+        None
 
         Examples
         --------
@@ -542,7 +540,7 @@ class AsyncAttributesClient:
         *,
         entity_type: DeleteAttributesRequestEntityType,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> StandardDeleteResponse:
+    ) -> None:
         """
         Delete an attribute by id, including all of its applications.
 
@@ -563,8 +561,7 @@ class AsyncAttributesClient:
 
         Returns
         -------
-        StandardDeleteResponse
-            A successful DELETE response is a 204 with no content.
+        None
 
         Examples
         --------

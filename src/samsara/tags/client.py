@@ -5,7 +5,6 @@ import typing
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.request_options import RequestOptions
 from ..types.list_tags_response import ListTagsResponse
-from ..types.standard_delete_response import StandardDeleteResponse
 from ..types.tag_response import TagResponse
 from ..types.tagged_object_id import TaggedObjectId
 from .raw_client import AsyncRawTagsClient, RawTagsClient
@@ -272,7 +271,7 @@ class TagsClient:
         )
         return _response.data
 
-    def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> StandardDeleteResponse:
+    def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
         """
         Permanently deletes a tag.
 
@@ -290,8 +289,7 @@ class TagsClient:
 
         Returns
         -------
-        StandardDeleteResponse
-            A successful DELETE response is a 204 with no content.
+        None
 
         Examples
         --------
@@ -690,9 +688,7 @@ class AsyncTagsClient:
         )
         return _response.data
 
-    async def delete(
-        self, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> StandardDeleteResponse:
+    async def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
         """
         Permanently deletes a tag.
 
@@ -710,8 +706,7 @@ class AsyncTagsClient:
 
         Returns
         -------
-        StandardDeleteResponse
-            A successful DELETE response is a 204 with no content.
+        None
 
         Examples
         --------

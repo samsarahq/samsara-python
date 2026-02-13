@@ -10,7 +10,6 @@ from ..core.jsonable_encoder import jsonable_encoder
 from ..core.pydantic_utilities import parse_obj_as
 from ..core.request_options import RequestOptions
 from ..types.list_tags_response import ListTagsResponse
-from ..types.standard_delete_response import StandardDeleteResponse
 from ..types.tag_response import TagResponse
 from ..types.tagged_object_id import TaggedObjectId
 
@@ -302,9 +301,7 @@ class RawTagsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    def delete(
-        self, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> HttpResponse[StandardDeleteResponse]:
+    def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> HttpResponse[None]:
         """
         Permanently deletes a tag.
 
@@ -322,8 +319,7 @@ class RawTagsClient:
 
         Returns
         -------
-        HttpResponse[StandardDeleteResponse]
-            A successful DELETE response is a 204 with no content.
+        HttpResponse[None]
         """
         _response = self._client_wrapper.httpx_client.request(
             f"tags/{jsonable_encoder(id)}",
@@ -332,14 +328,7 @@ class RawTagsClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    StandardDeleteResponse,
-                    parse_obj_as(
-                        type_=StandardDeleteResponse,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
-                return HttpResponse(response=_response, data=_data)
+                return HttpResponse(response=_response, data=None)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -735,7 +724,7 @@ class AsyncRawTagsClient:
 
     async def delete(
         self, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> AsyncHttpResponse[StandardDeleteResponse]:
+    ) -> AsyncHttpResponse[None]:
         """
         Permanently deletes a tag.
 
@@ -753,8 +742,7 @@ class AsyncRawTagsClient:
 
         Returns
         -------
-        AsyncHttpResponse[StandardDeleteResponse]
-            A successful DELETE response is a 204 with no content.
+        AsyncHttpResponse[None]
         """
         _response = await self._client_wrapper.httpx_client.request(
             f"tags/{jsonable_encoder(id)}",
@@ -763,14 +751,7 @@ class AsyncRawTagsClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    StandardDeleteResponse,
-                    parse_obj_as(
-                        type_=StandardDeleteResponse,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
-                return AsyncHttpResponse(response=_response, data=_data)
+                return AsyncHttpResponse(response=_response, data=None)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)

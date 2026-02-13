@@ -7,18 +7,14 @@ from ...core.api_error import ApiError
 from ...core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ...core.http_response import AsyncHttpResponse, HttpResponse
 from ...core.jsonable_encoder import jsonable_encoder
-from ...core.pydantic_utilities import parse_obj_as
 from ...core.request_options import RequestOptions
-from ...types.standard_delete_response import StandardDeleteResponse
 
 
 class RawCarrierProposedAssignmentsClient:
     def __init__(self, *, client_wrapper: SyncClientWrapper):
         self._client_wrapper = client_wrapper
 
-    def delete(
-        self, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> HttpResponse[StandardDeleteResponse]:
+    def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> HttpResponse[None]:
         """
         Permanently delete an assignment. You can only delete assignments that are not yet active. To override a currently active assignment, create a new empty one, instead.
 
@@ -36,8 +32,7 @@ class RawCarrierProposedAssignmentsClient:
 
         Returns
         -------
-        HttpResponse[StandardDeleteResponse]
-            A successful DELETE response is a 204 with no content.
+        HttpResponse[None]
         """
         _response = self._client_wrapper.httpx_client.request(
             f"fleet/carrier-proposed-assignments/{jsonable_encoder(id)}",
@@ -46,14 +41,7 @@ class RawCarrierProposedAssignmentsClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    StandardDeleteResponse,
-                    parse_obj_as(
-                        type_=StandardDeleteResponse,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
-                return HttpResponse(response=_response, data=_data)
+                return HttpResponse(response=_response, data=None)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -66,7 +54,7 @@ class AsyncRawCarrierProposedAssignmentsClient:
 
     async def delete(
         self, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> AsyncHttpResponse[StandardDeleteResponse]:
+    ) -> AsyncHttpResponse[None]:
         """
         Permanently delete an assignment. You can only delete assignments that are not yet active. To override a currently active assignment, create a new empty one, instead.
 
@@ -84,8 +72,7 @@ class AsyncRawCarrierProposedAssignmentsClient:
 
         Returns
         -------
-        AsyncHttpResponse[StandardDeleteResponse]
-            A successful DELETE response is a 204 with no content.
+        AsyncHttpResponse[None]
         """
         _response = await self._client_wrapper.httpx_client.request(
             f"fleet/carrier-proposed-assignments/{jsonable_encoder(id)}",
@@ -94,14 +81,7 @@ class AsyncRawCarrierProposedAssignmentsClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    StandardDeleteResponse,
-                    parse_obj_as(
-                        type_=StandardDeleteResponse,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
-                return AsyncHttpResponse(response=_response, data=_data)
+                return AsyncHttpResponse(response=_response, data=None)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)

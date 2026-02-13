@@ -13,7 +13,6 @@ from ..core.serialization import convert_and_respect_annotation_metadata
 from ..types.create_user_request_roles import CreateUserRequestRoles
 from ..types.list_user_roles_response import ListUserRolesResponse
 from ..types.list_users_response import ListUsersResponse
-from ..types.standard_delete_response import StandardDeleteResponse
 from ..types.user_response import UserResponse
 from .types.create_user_request_auth_type import CreateUserRequestAuthType
 from .types.update_user_request_auth_type import UpdateUserRequestAuthType
@@ -252,9 +251,7 @@ class RawUsersClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    def delete(
-        self, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> HttpResponse[StandardDeleteResponse]:
+    def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> HttpResponse[None]:
         """
         Delete the given user.
 
@@ -272,8 +269,7 @@ class RawUsersClient:
 
         Returns
         -------
-        HttpResponse[StandardDeleteResponse]
-            A successful DELETE response is a 204 with no content.
+        HttpResponse[None]
         """
         _response = self._client_wrapper.httpx_client.request(
             f"users/{jsonable_encoder(id)}",
@@ -282,14 +278,7 @@ class RawUsersClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    StandardDeleteResponse,
-                    parse_obj_as(
-                        type_=StandardDeleteResponse,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
-                return HttpResponse(response=_response, data=_data)
+                return HttpResponse(response=_response, data=None)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -602,7 +591,7 @@ class AsyncRawUsersClient:
 
     async def delete(
         self, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> AsyncHttpResponse[StandardDeleteResponse]:
+    ) -> AsyncHttpResponse[None]:
         """
         Delete the given user.
 
@@ -620,8 +609,7 @@ class AsyncRawUsersClient:
 
         Returns
         -------
-        AsyncHttpResponse[StandardDeleteResponse]
-            A successful DELETE response is a 204 with no content.
+        AsyncHttpResponse[None]
         """
         _response = await self._client_wrapper.httpx_client.request(
             f"users/{jsonable_encoder(id)}",
@@ -630,14 +618,7 @@ class AsyncRawUsersClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    StandardDeleteResponse,
-                    parse_obj_as(
-                        type_=StandardDeleteResponse,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
-                return AsyncHttpResponse(response=_response, data=_data)
+                return AsyncHttpResponse(response=_response, data=None)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)

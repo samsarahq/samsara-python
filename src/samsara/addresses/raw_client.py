@@ -15,7 +15,6 @@ from ..types.address import Address
 from ..types.address_response import AddressResponse
 from ..types.create_address_request_geofence import CreateAddressRequestGeofence
 from ..types.list_addresses_response import ListAddressesResponse
-from ..types.standard_delete_response import StandardDeleteResponse
 from ..types.update_address_request_geofence import UpdateAddressRequestGeofence
 from .types.create_address_request_address_types_item import CreateAddressRequestAddressTypesItem
 from .types.update_address_request_address_types_item import UpdateAddressRequestAddressTypesItem
@@ -251,9 +250,7 @@ class RawAddressesClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    def delete(
-        self, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> HttpResponse[StandardDeleteResponse]:
+    def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> HttpResponse[None]:
         """
         Delete a specific address.
 
@@ -271,8 +268,7 @@ class RawAddressesClient:
 
         Returns
         -------
-        HttpResponse[StandardDeleteResponse]
-            A successful DELETE response is a 204 with no content.
+        HttpResponse[None]
         """
         _response = self._client_wrapper.httpx_client.request(
             f"addresses/{jsonable_encoder(id)}",
@@ -281,14 +277,7 @@ class RawAddressesClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    StandardDeleteResponse,
-                    parse_obj_as(
-                        type_=StandardDeleteResponse,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
-                return HttpResponse(response=_response, data=_data)
+                return HttpResponse(response=_response, data=None)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -632,7 +621,7 @@ class AsyncRawAddressesClient:
 
     async def delete(
         self, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> AsyncHttpResponse[StandardDeleteResponse]:
+    ) -> AsyncHttpResponse[None]:
         """
         Delete a specific address.
 
@@ -650,8 +639,7 @@ class AsyncRawAddressesClient:
 
         Returns
         -------
-        AsyncHttpResponse[StandardDeleteResponse]
-            A successful DELETE response is a 204 with no content.
+        AsyncHttpResponse[None]
         """
         _response = await self._client_wrapper.httpx_client.request(
             f"addresses/{jsonable_encoder(id)}",
@@ -660,14 +648,7 @@ class AsyncRawAddressesClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    StandardDeleteResponse,
-                    parse_obj_as(
-                        type_=StandardDeleteResponse,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
-                return AsyncHttpResponse(response=_response, data=_data)
+                return AsyncHttpResponse(response=_response, data=None)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)

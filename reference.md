@@ -331,7 +331,7 @@ client.addresses.get(
 </dl>
 </details>
 
-<details><summary><code>client.addresses.<a href="src/samsara/addresses/client.py">delete</a>(...) -&gt; AsyncHttpResponse[StandardDeleteResponse]</code></summary>
+<details><summary><code>client.addresses.<a href="src/samsara/addresses/client.py">delete</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -7539,7 +7539,7 @@ client.attributes.get_attribute(
 </dl>
 </details>
 
-<details><summary><code>client.attributes.<a href="src/samsara/attributes/client.py">delete</a>(...) -&gt; AsyncHttpResponse[StandardDeleteResponse]</code></summary>
+<details><summary><code>client.attributes.<a href="src/samsara/attributes/client.py">delete</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -8659,7 +8659,7 @@ client.contacts.get_contact(
 </dl>
 </details>
 
-<details><summary><code>client.contacts.<a href="src/samsara/contacts/client.py">delete</a>(...) -&gt; AsyncHttpResponse[StandardDeleteResponse]</code></summary>
+<details><summary><code>client.contacts.<a href="src/samsara/contacts/client.py">delete</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -26901,7 +26901,7 @@ client.tags.replace_tag(
 </dl>
 </details>
 
-<details><summary><code>client.tags.<a href="src/samsara/tags/client.py">delete</a>(...) -&gt; AsyncHttpResponse[StandardDeleteResponse]</code></summary>
+<details><summary><code>client.tags.<a href="src/samsara/tags/client.py">delete</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -28187,7 +28187,7 @@ client.users.get_user(
 </dl>
 </details>
 
-<details><summary><code>client.users.<a href="src/samsara/users/client.py">delete</a>(...) -&gt; AsyncHttpResponse[StandardDeleteResponse]</code></summary>
+<details><summary><code>client.users.<a href="src/samsara/users/client.py">delete</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -29814,7 +29814,7 @@ client.webhooks.patch_webhook(
 </details>
 
 ## Fleet CarrierProposedAssignments
-<details><summary><code>client.fleet.carrier_proposed_assignments.<a href="src/samsara/fleet/carrier_proposed_assignments/client.py">delete</a>(...) -&gt; AsyncHttpResponse[StandardDeleteResponse]</code></summary>
+<details><summary><code>client.fleet.carrier_proposed_assignments.<a href="src/samsara/fleet/carrier_proposed_assignments/client.py">delete</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -29946,7 +29946,7 @@ client.fleet.attributes.update(
 </details>
 
 ## Industrial Assets
-<details><summary><code>client.industrial.assets.<a href="src/samsara/industrial/assets/client.py">delete</a>(...) -&gt; AsyncHttpResponse[StandardDeleteResponse]</code></summary>
+<details><summary><code>client.industrial.assets.<a href="src/samsara/industrial/assets/client.py">delete</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 

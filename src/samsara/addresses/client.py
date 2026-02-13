@@ -9,7 +9,6 @@ from ..types.address import Address
 from ..types.address_response import AddressResponse
 from ..types.create_address_request_geofence import CreateAddressRequestGeofence
 from ..types.list_addresses_response import ListAddressesResponse
-from ..types.standard_delete_response import StandardDeleteResponse
 from ..types.update_address_request_geofence import UpdateAddressRequestGeofence
 from .raw_client import AsyncRawAddressesClient, RawAddressesClient
 from .types.create_address_request_address_types_item import CreateAddressRequestAddressTypesItem
@@ -223,7 +222,7 @@ class AddressesClient:
         _response = self._raw_client.get(id, request_options=request_options)
         return _response.data
 
-    def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> StandardDeleteResponse:
+    def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
         """
         Delete a specific address.
 
@@ -241,8 +240,7 @@ class AddressesClient:
 
         Returns
         -------
-        StandardDeleteResponse
-            A successful DELETE response is a 204 with no content.
+        None
 
         Examples
         --------
@@ -580,9 +578,7 @@ class AsyncAddressesClient:
         _response = await self._raw_client.get(id, request_options=request_options)
         return _response.data
 
-    async def delete(
-        self, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> StandardDeleteResponse:
+    async def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
         """
         Delete a specific address.
 
@@ -600,8 +596,7 @@ class AsyncAddressesClient:
 
         Returns
         -------
-        StandardDeleteResponse
-            A successful DELETE response is a 204 with no content.
+        None
 
         Examples
         --------
