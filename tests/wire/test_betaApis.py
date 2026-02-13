@@ -3,77 +3,77 @@ from datetime import datetime
 from .conftest import get_client, verify_request_count
 
 
-def test_betaApIs_get_depreciation_transactions() -> None:
+def test_betaApis_get_depreciation_transactions() -> None:
     """Test getDepreciationTransactions endpoint with WireMock"""
-    test_id = "beta_ap_is.get_depreciation_transactions.0"
+    test_id = "beta_apis.get_depreciation_transactions.0"
     client = get_client(test_id)
-    client.beta_ap_is.get_depreciation_transactions()
+    client.beta_apis.get_depreciation_transactions()
     verify_request_count(test_id, "GET", "/assets/depreciation", None, 1)
 
 
-def test_betaApIs_get_assets_inputs() -> None:
+def test_betaApis_get_assets_inputs() -> None:
     """Test getAssetsInputs endpoint with WireMock"""
-    test_id = "beta_ap_is.get_assets_inputs.0"
+    test_id = "beta_apis.get_assets_inputs.0"
     client = get_client(test_id)
-    client.beta_ap_is.get_assets_inputs(type="auxInput1", start_time="startTime")
+    client.beta_apis.get_assets_inputs(type="auxInput1", start_time="startTime")
     verify_request_count(test_id, "GET", "/assets/inputs/stream", {"type": "auxInput1", "startTime": "startTime"}, 1)
 
 
-def test_betaApIs_get_aemp_equipment_list() -> None:
+def test_betaApis_get_aemp_equipment_list() -> None:
     """Test getAempEquipmentList endpoint with WireMock"""
-    test_id = "beta_ap_is.get_aemp_equipment_list.0"
+    test_id = "beta_apis.get_aemp_equipment_list.0"
     client = get_client(test_id)
-    client.beta_ap_is.get_aemp_equipment_list(page_number="pageNumber")
+    client.beta_apis.get_aemp_equipment_list(page_number="pageNumber")
     verify_request_count(test_id, "GET", "/beta/aemp/Fleet/pageNumber", None, 1)
 
 
-def test_betaApIs_get_driver_efficiency() -> None:
+def test_betaApis_get_driver_efficiency() -> None:
     """Test getDriverEfficiency endpoint with WireMock"""
-    test_id = "beta_ap_is.get_driver_efficiency.0"
+    test_id = "beta_apis.get_driver_efficiency.0"
     client = get_client(test_id)
-    client.beta_ap_is.get_driver_efficiency()
+    client.beta_apis.get_driver_efficiency()
     verify_request_count(test_id, "GET", "/beta/fleet/drivers/efficiency", None, 1)
 
 
-def test_betaApIs_patch_equipment() -> None:
+def test_betaApis_patch_equipment() -> None:
     """Test patchEquipment endpoint with WireMock"""
-    test_id = "beta_ap_is.patch_equipment.0"
+    test_id = "beta_apis.patch_equipment.0"
     client = get_client(test_id)
-    client.beta_ap_is.patch_equipment(id="id")
+    client.beta_apis.patch_equipment(id="id")
     verify_request_count(test_id, "PATCH", "/beta/fleet/equipment/id", None, 1)
 
 
-def test_betaApIs_get_hos_eld_events() -> None:
+def test_betaApis_get_hos_eld_events() -> None:
     """Test getHosEldEvents endpoint with WireMock"""
-    test_id = "beta_ap_is.get_hos_eld_events.0"
+    test_id = "beta_apis.get_hos_eld_events.0"
     client = get_client(test_id)
-    client.beta_ap_is.get_hos_eld_events(start_time="startTime", end_time="endTime")
+    client.beta_apis.get_hos_eld_events(start_time="startTime", end_time="endTime")
     verify_request_count(
         test_id, "GET", "/beta/fleet/hos/drivers/eld-events", {"startTime": "startTime", "endTime": "endTime"}, 1
     )
 
 
-def test_betaApIs_get_trailer_stats_snapshot() -> None:
+def test_betaApis_get_trailer_stats_snapshot() -> None:
     """Test getTrailerStatsSnapshot endpoint with WireMock"""
-    test_id = "beta_ap_is.get_trailer_stats_snapshot.0"
+    test_id = "beta_apis.get_trailer_stats_snapshot.0"
     client = get_client(test_id)
-    client.beta_ap_is.get_trailer_stats_snapshot(types="types")
+    client.beta_apis.get_trailer_stats_snapshot(types="types")
     verify_request_count(test_id, "GET", "/beta/fleet/trailers/stats", {"types": "types"}, 1)
 
 
-def test_betaApIs_get_trailer_stats_feed() -> None:
+def test_betaApis_get_trailer_stats_feed() -> None:
     """Test getTrailerStatsFeed endpoint with WireMock"""
-    test_id = "beta_ap_is.get_trailer_stats_feed.0"
+    test_id = "beta_apis.get_trailer_stats_feed.0"
     client = get_client(test_id)
-    client.beta_ap_is.get_trailer_stats_feed(types="types")
+    client.beta_apis.get_trailer_stats_feed(types="types")
     verify_request_count(test_id, "GET", "/beta/fleet/trailers/stats/feed", {"types": "types"}, 1)
 
 
-def test_betaApIs_get_trailer_stats_history() -> None:
+def test_betaApis_get_trailer_stats_history() -> None:
     """Test getTrailerStatsHistory endpoint with WireMock"""
-    test_id = "beta_ap_is.get_trailer_stats_history.0"
+    test_id = "beta_apis.get_trailer_stats_history.0"
     client = get_client(test_id)
-    client.beta_ap_is.get_trailer_stats_history(start_time="startTime", end_time="endTime", types="types")
+    client.beta_apis.get_trailer_stats_history(start_time="startTime", end_time="endTime", types="types")
     verify_request_count(
         test_id,
         "GET",
@@ -83,27 +83,27 @@ def test_betaApIs_get_trailer_stats_history() -> None:
     )
 
 
-def test_betaApIs_update_engine_immobilizer_state() -> None:
+def test_betaApis_update_engine_immobilizer_state() -> None:
     """Test updateEngineImmobilizerState endpoint with WireMock"""
-    test_id = "beta_ap_is.update_engine_immobilizer_state.0"
+    test_id = "beta_apis.update_engine_immobilizer_state.0"
     client = get_client(test_id)
-    client.beta_ap_is.update_engine_immobilizer_state(id=1000000, relay_states=[{"id": "relay1", "is_open": True}])
+    client.beta_apis.update_engine_immobilizer_state(id=1000000, relay_states=[{"id": "relay1", "is_open": True}])
     verify_request_count(test_id, "PATCH", "/beta/fleet/vehicles/1000000/immobilizer", None, 1)
 
 
-def test_betaApIs_get_jobs() -> None:
+def test_betaApis_get_jobs() -> None:
     """Test getJobs endpoint with WireMock"""
-    test_id = "beta_ap_is.get_jobs.0"
+    test_id = "beta_apis.get_jobs.0"
     client = get_client(test_id)
-    client.beta_ap_is.get_jobs()
+    client.beta_apis.get_jobs()
     verify_request_count(test_id, "GET", "/beta/industrial/jobs", None, 1)
 
 
-def test_betaApIs_create_job() -> None:
+def test_betaApis_create_job() -> None:
     """Test createJob endpoint with WireMock"""
-    test_id = "beta_ap_is.create_job.0"
+    test_id = "beta_apis.create_job.0"
     client = get_client(test_id)
-    client.beta_ap_is.create_job(
+    client.beta_apis.create_job(
         job={
             "end_date": "2019-06-13T19:08:25Z",
             "id": "8d218e6c-7a16-4f9f-90f7-cc1d93b9e596",
@@ -114,61 +114,61 @@ def test_betaApIs_create_job() -> None:
     verify_request_count(test_id, "POST", "/beta/industrial/jobs", None, 1)
 
 
-def test_betaApIs_delete_job() -> None:
+def test_betaApis_delete_job() -> None:
     """Test deleteJob endpoint with WireMock"""
-    test_id = "beta_ap_is.delete_job.0"
+    test_id = "beta_apis.delete_job.0"
     client = get_client(test_id)
-    client.beta_ap_is.delete_job(id="id")
+    client.beta_apis.delete_job(id="id")
     verify_request_count(test_id, "DELETE", "/beta/industrial/jobs", {"id": "id"}, 1)
 
 
-def test_betaApIs_patch_job() -> None:
+def test_betaApis_patch_job() -> None:
     """Test patchJob endpoint with WireMock"""
-    test_id = "beta_ap_is.patch_job.0"
+    test_id = "beta_apis.patch_job.0"
     client = get_client(test_id)
-    client.beta_ap_is.patch_job(id="id", job={})
+    client.beta_apis.patch_job(id="id", job={})
     verify_request_count(test_id, "PATCH", "/beta/industrial/jobs", {"id": "id"}, 1)
 
 
-def test_betaApIs_get_detections() -> None:
+def test_betaApis_get_detections() -> None:
     """Test getDetections endpoint with WireMock"""
-    test_id = "beta_ap_is.get_detections.0"
+    test_id = "beta_apis.get_detections.0"
     client = get_client(test_id)
-    client.beta_ap_is.get_detections(start_time="startTime")
+    client.beta_apis.get_detections(start_time="startTime")
     verify_request_count(test_id, "GET", "/detections/stream", {"startTime": "startTime"}, 1)
 
 
-def test_betaApIs_get_devices() -> None:
+def test_betaApis_get_devices() -> None:
     """Test getDevices endpoint with WireMock"""
-    test_id = "beta_ap_is.get_devices.0"
+    test_id = "beta_apis.get_devices.0"
     client = get_client(test_id)
-    client.beta_ap_is.get_devices()
+    client.beta_apis.get_devices()
     verify_request_count(test_id, "GET", "/devices", None, 1)
 
 
-def test_betaApIs_get_engine_immobilizer_states() -> None:
+def test_betaApis_get_engine_immobilizer_states() -> None:
     """Test getEngineImmobilizerStates endpoint with WireMock"""
-    test_id = "beta_ap_is.get_engine_immobilizer_states.0"
+    test_id = "beta_apis.get_engine_immobilizer_states.0"
     client = get_client(test_id)
-    client.beta_ap_is.get_engine_immobilizer_states(vehicle_ids="vehicleIds", start_time="startTime")
+    client.beta_apis.get_engine_immobilizer_states(vehicle_ids="vehicleIds", start_time="startTime")
     verify_request_count(
         test_id, "GET", "/fleet/vehicles/immobilizer/stream", {"vehicleIds": "vehicleIds", "startTime": "startTime"}, 1
     )
 
 
-def test_betaApIs_start_function_run() -> None:
+def test_betaApis_start_function_run() -> None:
     """Test startFunctionRun endpoint with WireMock"""
-    test_id = "beta_ap_is.start_function_run.0"
+    test_id = "beta_apis.start_function_run.0"
     client = get_client(test_id)
-    client.beta_ap_is.start_function_run(name="name", params_override={})
+    client.beta_apis.start_function_run(name="name", params_override={})
     verify_request_count(test_id, "POST", "/functions/name/runs", None, 1)
 
 
-def test_betaApIs_update_shipping_docs() -> None:
+def test_betaApis_update_shipping_docs() -> None:
     """Test updateShippingDocs endpoint with WireMock"""
-    test_id = "beta_ap_is.update_shipping_docs.0"
+    test_id = "beta_apis.update_shipping_docs.0"
     client = get_client(test_id)
-    client.beta_ap_is.update_shipping_docs(
+    client.beta_apis.update_shipping_docs(
         hos_date="hosDate", driver_id="driverID", shipping_docs="ShippingID1, ShippingID2"
     )
     verify_request_count(
@@ -176,19 +176,19 @@ def test_betaApIs_update_shipping_docs() -> None:
     )
 
 
-def test_betaApIs_list_hub_custom_properties() -> None:
+def test_betaApis_list_hub_custom_properties() -> None:
     """Test listHubCustomProperties endpoint with WireMock"""
-    test_id = "beta_ap_is.list_hub_custom_properties.0"
+    test_id = "beta_apis.list_hub_custom_properties.0"
     client = get_client(test_id)
-    client.beta_ap_is.list_hub_custom_properties(hub_id="hubId")
+    client.beta_apis.list_hub_custom_properties(hub_id="hubId")
     verify_request_count(test_id, "GET", "/hub/customProperties", {"hubId": "hubId"}, 1)
 
 
-def test_betaApIs_create_plan_orders() -> None:
+def test_betaApis_create_plan_orders() -> None:
     """Test createPlanOrders endpoint with WireMock"""
-    test_id = "beta_ap_is.create_plan_orders.0"
+    test_id = "beta_apis.create_plan_orders.0"
     client = get_client(test_id)
-    client.beta_ap_is.create_plan_orders(
+    client.beta_apis.create_plan_orders(
         data=[
             {
                 "customer_order_id": "ORDER-2024-001",
@@ -200,19 +200,19 @@ def test_betaApIs_create_plan_orders() -> None:
     verify_request_count(test_id, "POST", "/hub/plan/orders", None, 1)
 
 
-def test_betaApIs_get_qualification_records() -> None:
+def test_betaApis_get_qualification_records() -> None:
     """Test getQualificationRecords endpoint with WireMock"""
-    test_id = "beta_ap_is.get_qualification_records.0"
+    test_id = "beta_apis.get_qualification_records.0"
     client = get_client(test_id)
-    client.beta_ap_is.get_qualification_records()
+    client.beta_apis.get_qualification_records()
     verify_request_count(test_id, "GET", "/qualification-records", None, 1)
 
 
-def test_betaApIs_post_qualification_record() -> None:
+def test_betaApis_post_qualification_record() -> None:
     """Test postQualificationRecord endpoint with WireMock"""
-    test_id = "beta_ap_is.post_qualification_record.0"
+    test_id = "beta_apis.post_qualification_record.0"
     client = get_client(test_id)
-    client.beta_ap_is.post_qualification_record(
+    client.beta_apis.post_qualification_record(
         fields=[{"id": "9814a1fa-f0c6-408b-bf85-51dc3bc71ac7", "type": "number"}],
         issue_date=datetime.fromisoformat("2025-08-27T10:20:30+00:00"),
         owner={"entity_type": "worker", "id": "281474"},
@@ -221,19 +221,19 @@ def test_betaApIs_post_qualification_record() -> None:
     verify_request_count(test_id, "POST", "/qualification-records", None, 1)
 
 
-def test_betaApIs_delete_qualification_record() -> None:
+def test_betaApis_delete_qualification_record() -> None:
     """Test deleteQualificationRecord endpoint with WireMock"""
-    test_id = "beta_ap_is.delete_qualification_record.0"
+    test_id = "beta_apis.delete_qualification_record.0"
     client = get_client(test_id)
-    client.beta_ap_is.delete_qualification_record(id="9814a1fa-f0c6-408b-bf85-51dc3bc71ac7")
+    client.beta_apis.delete_qualification_record(id="9814a1fa-f0c6-408b-bf85-51dc3bc71ac7")
     verify_request_count(test_id, "DELETE", "/qualification-records", None, 1)
 
 
-def test_betaApIs_patch_qualification_record() -> None:
+def test_betaApis_patch_qualification_record() -> None:
     """Test patchQualificationRecord endpoint with WireMock"""
-    test_id = "beta_ap_is.patch_qualification_record.0"
+    test_id = "beta_apis.patch_qualification_record.0"
     client = get_client(test_id)
-    client.beta_ap_is.patch_qualification_record(
+    client.beta_apis.patch_qualification_record(
         id="9814a1fa-f0c6-408b-bf85-51dc3bc71ac7",
         issue_date=datetime.fromisoformat("2025-08-27T10:20:30+00:00"),
         owner={"entity_type": "worker", "id": "281474"},
@@ -241,19 +241,19 @@ def test_betaApIs_patch_qualification_record() -> None:
     verify_request_count(test_id, "PATCH", "/qualification-records", None, 1)
 
 
-def test_betaApIs_archive_qualification_record() -> None:
+def test_betaApis_archive_qualification_record() -> None:
     """Test archiveQualificationRecord endpoint with WireMock"""
-    test_id = "beta_ap_is.archive_qualification_record.0"
+    test_id = "beta_apis.archive_qualification_record.0"
     client = get_client(test_id)
-    client.beta_ap_is.archive_qualification_record(id="9814a1fa-f0c6-408b-bf85-51dc3bc71ac7")
+    client.beta_apis.archive_qualification_record(id="9814a1fa-f0c6-408b-bf85-51dc3bc71ac7")
     verify_request_count(test_id, "POST", "/qualification-records/archive", None, 1)
 
 
-def test_betaApIs_get_qualification_records_stream() -> None:
+def test_betaApis_get_qualification_records_stream() -> None:
     """Test getQualificationRecordsStream endpoint with WireMock"""
-    test_id = "beta_ap_is.get_qualification_records_stream.0"
+    test_id = "beta_apis.get_qualification_records_stream.0"
     client = get_client(test_id)
-    client.beta_ap_is.get_qualification_records_stream(
+    client.beta_apis.get_qualification_records_stream(
         entity_type="worker", start_time=datetime.fromisoformat("2024-01-15T09:30:00+00:00")
     )
     verify_request_count(
@@ -265,27 +265,27 @@ def test_betaApIs_get_qualification_records_stream() -> None:
     )
 
 
-def test_betaApIs_unarchive_qualification_record() -> None:
+def test_betaApis_unarchive_qualification_record() -> None:
     """Test unarchiveQualificationRecord endpoint with WireMock"""
-    test_id = "beta_ap_is.unarchive_qualification_record.0"
+    test_id = "beta_apis.unarchive_qualification_record.0"
     client = get_client(test_id)
-    client.beta_ap_is.unarchive_qualification_record(id="9814a1fa-f0c6-408b-bf85-51dc3bc71ac7")
+    client.beta_apis.unarchive_qualification_record(id="9814a1fa-f0c6-408b-bf85-51dc3bc71ac7")
     verify_request_count(test_id, "POST", "/qualification-records/unarchive", None, 1)
 
 
-def test_betaApIs_get_qualification_types() -> None:
+def test_betaApis_get_qualification_types() -> None:
     """Test getQualificationTypes endpoint with WireMock"""
-    test_id = "beta_ap_is.get_qualification_types.0"
+    test_id = "beta_apis.get_qualification_types.0"
     client = get_client(test_id)
-    client.beta_ap_is.get_qualification_types(entity_type="worker")
+    client.beta_apis.get_qualification_types(entity_type="worker")
     verify_request_count(test_id, "GET", "/qualification-types", {"entityType": "worker"}, 1)
 
 
-def test_betaApIs_post_readings() -> None:
+def test_betaApis_post_readings() -> None:
     """Test postReadings endpoint with WireMock"""
-    test_id = "beta_ap_is.post_readings.0"
+    test_id = "beta_apis.post_readings.0"
     client = get_client(test_id)
-    client.beta_ap_is.post_readings(
+    client.beta_apis.post_readings(
         data=[
             {
                 "entity_id": "123451234512345",
@@ -299,95 +299,95 @@ def test_betaApIs_post_readings() -> None:
     verify_request_count(test_id, "POST", "/readings", None, 1)
 
 
-def test_betaApIs_list_readings_definitions() -> None:
+def test_betaApis_list_readings_definitions() -> None:
     """Test listReadingsDefinitions endpoint with WireMock"""
-    test_id = "beta_ap_is.list_readings_definitions.0"
+    test_id = "beta_apis.list_readings_definitions.0"
     client = get_client(test_id)
-    client.beta_ap_is.list_readings_definitions()
+    client.beta_apis.list_readings_definitions()
     verify_request_count(test_id, "GET", "/readings/definitions", None, 1)
 
 
-def test_betaApIs_get_readings_history() -> None:
+def test_betaApis_get_readings_history() -> None:
     """Test getReadingsHistory endpoint with WireMock"""
-    test_id = "beta_ap_is.get_readings_history.0"
+    test_id = "beta_apis.get_readings_history.0"
     client = get_client(test_id)
-    client.beta_ap_is.get_readings_history(reading_id="readingId", entity_type="entityType")
+    client.beta_apis.get_readings_history(reading_id="readingId", entity_type="entityType")
     verify_request_count(test_id, "GET", "/readings/history", {"readingId": "readingId", "entityType": "entityType"}, 1)
 
 
-def test_betaApIs_get_readings_snapshot() -> None:
+def test_betaApis_get_readings_snapshot() -> None:
     """Test getReadingsSnapshot endpoint with WireMock"""
-    test_id = "beta_ap_is.get_readings_snapshot.0"
+    test_id = "beta_apis.get_readings_snapshot.0"
     client = get_client(test_id)
-    client.beta_ap_is.get_readings_snapshot(reading_ids="readingIds", entity_type="entityType")
+    client.beta_apis.get_readings_snapshot(reading_ids="readingIds", entity_type="entityType")
     verify_request_count(
         test_id, "GET", "/readings/latest", {"readingIds": "readingIds", "entityType": "entityType"}, 1
     )
 
 
-def test_betaApIs_get_report_configs() -> None:
+def test_betaApis_get_report_configs() -> None:
     """Test getReportConfigs endpoint with WireMock"""
-    test_id = "beta_ap_is.get_report_configs.0"
+    test_id = "beta_apis.get_report_configs.0"
     client = get_client(test_id)
-    client.beta_ap_is.get_report_configs()
+    client.beta_apis.get_report_configs()
     verify_request_count(test_id, "GET", "/reports/configs", None, 1)
 
 
-def test_betaApIs_get_datasets() -> None:
+def test_betaApis_get_datasets() -> None:
     """Test getDatasets endpoint with WireMock"""
-    test_id = "beta_ap_is.get_datasets.0"
+    test_id = "beta_apis.get_datasets.0"
     client = get_client(test_id)
-    client.beta_ap_is.get_datasets()
+    client.beta_apis.get_datasets()
     verify_request_count(test_id, "GET", "/reports/datasets", None, 1)
 
 
-def test_betaApIs_get_report_runs() -> None:
+def test_betaApis_get_report_runs() -> None:
     """Test getReportRuns endpoint with WireMock"""
-    test_id = "beta_ap_is.get_report_runs.0"
+    test_id = "beta_apis.get_report_runs.0"
     client = get_client(test_id)
-    client.beta_ap_is.get_report_runs()
+    client.beta_apis.get_report_runs()
     verify_request_count(test_id, "GET", "/reports/runs", None, 1)
 
 
-def test_betaApIs_create_report_run() -> None:
+def test_betaApis_create_report_run() -> None:
     """Test createReportRun endpoint with WireMock"""
-    test_id = "beta_ap_is.create_report_run.0"
+    test_id = "beta_apis.create_report_run.0"
     client = get_client(test_id)
-    client.beta_ap_is.create_report_run(report_config={})
+    client.beta_apis.create_report_run(report_config={})
     verify_request_count(test_id, "POST", "/reports/runs", None, 1)
 
 
-def test_betaApIs_get_report_run_data() -> None:
+def test_betaApis_get_report_run_data() -> None:
     """Test getReportRunData endpoint with WireMock"""
-    test_id = "beta_ap_is.get_report_run_data.0"
+    test_id = "beta_apis.get_report_run_data.0"
     client = get_client(test_id)
-    client.beta_ap_is.get_report_run_data(id="id")
+    client.beta_apis.get_report_run_data(id="id")
     verify_request_count(test_id, "GET", "/reports/runs/data", {"id": "id"}, 1)
 
 
-def test_betaApIs_get_driver_safety_scores() -> None:
+def test_betaApis_get_driver_safety_scores() -> None:
     """Test getDriverSafetyScores endpoint with WireMock"""
-    test_id = "beta_ap_is.get_driver_safety_scores.0"
+    test_id = "beta_apis.get_driver_safety_scores.0"
     client = get_client(test_id)
-    client.beta_ap_is.get_driver_safety_scores(end_time="endTime", start_time="startTime")
+    client.beta_apis.get_driver_safety_scores(end_time="endTime", start_time="startTime")
     verify_request_count(test_id, "GET", "/safety-scores/drivers", {"endTime": "endTime", "startTime": "startTime"}, 1)
 
 
-def test_betaApIs_get_driver_safety_score_trips() -> None:
+def test_betaApis_get_driver_safety_score_trips() -> None:
     """Test getDriverSafetyScoreTrips endpoint with WireMock"""
-    test_id = "beta_ap_is.get_driver_safety_score_trips.0"
+    test_id = "beta_apis.get_driver_safety_score_trips.0"
     client = get_client(test_id)
-    client.beta_ap_is.get_driver_safety_score_trips(end_time="endTime", start_time="startTime")
+    client.beta_apis.get_driver_safety_score_trips(end_time="endTime", start_time="startTime")
     verify_request_count(
         test_id, "GET", "/safety-scores/drivers/trips", {"endTime": "endTime", "startTime": "startTime"}, 1
     )
 
 
-def test_betaApIs_get_tag_group_safety_scores() -> None:
+def test_betaApis_get_tag_group_safety_scores() -> None:
     """Test getTagGroupSafetyScores endpoint with WireMock"""
-    test_id = "beta_ap_is.get_tag_group_safety_scores.0"
+    test_id = "beta_apis.get_tag_group_safety_scores.0"
     client = get_client(test_id)
-    client.beta_ap_is.get_tag_group_safety_scores(end_time="endTime", start_time="startTime", score_type="driver")
+    client.beta_apis.get_tag_group_safety_scores(end_time="endTime", start_time="startTime", score_type="driver")
     verify_request_count(
         test_id,
         "GET",
@@ -397,11 +397,11 @@ def test_betaApIs_get_tag_group_safety_scores() -> None:
     )
 
 
-def test_betaApIs_get_tag_safety_scores() -> None:
+def test_betaApis_get_tag_safety_scores() -> None:
     """Test getTagSafetyScores endpoint with WireMock"""
-    test_id = "beta_ap_is.get_tag_safety_scores.0"
+    test_id = "beta_apis.get_tag_safety_scores.0"
     client = get_client(test_id)
-    client.beta_ap_is.get_tag_safety_scores(end_time="endTime", start_time="startTime", score_type="driver")
+    client.beta_apis.get_tag_safety_scores(end_time="endTime", start_time="startTime", score_type="driver")
     verify_request_count(
         test_id,
         "GET",
@@ -411,19 +411,19 @@ def test_betaApIs_get_tag_safety_scores() -> None:
     )
 
 
-def test_betaApIs_get_vehicle_safety_scores() -> None:
+def test_betaApis_get_vehicle_safety_scores() -> None:
     """Test getVehicleSafetyScores endpoint with WireMock"""
-    test_id = "beta_ap_is.get_vehicle_safety_scores.0"
+    test_id = "beta_apis.get_vehicle_safety_scores.0"
     client = get_client(test_id)
-    client.beta_ap_is.get_vehicle_safety_scores(end_time="endTime", start_time="startTime")
+    client.beta_apis.get_vehicle_safety_scores(end_time="endTime", start_time="startTime")
     verify_request_count(test_id, "GET", "/safety-scores/vehicles", {"endTime": "endTime", "startTime": "startTime"}, 1)
 
 
-def test_betaApIs_get_vehicle_safety_score_trips() -> None:
+def test_betaApis_get_vehicle_safety_score_trips() -> None:
     """Test getVehicleSafetyScoreTrips endpoint with WireMock"""
-    test_id = "beta_ap_is.get_vehicle_safety_score_trips.0"
+    test_id = "beta_apis.get_vehicle_safety_score_trips.0"
     client = get_client(test_id)
-    client.beta_ap_is.get_vehicle_safety_score_trips(end_time="endTime", start_time="startTime")
+    client.beta_apis.get_vehicle_safety_score_trips(end_time="endTime", start_time="startTime")
     verify_request_count(
         test_id, "GET", "/safety-scores/vehicles/trips", {"endTime": "endTime", "startTime": "startTime"}, 1
     )

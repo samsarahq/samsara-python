@@ -30,10 +30,7 @@ class TagAllOf(UniversalBaseModel):
     external_ids: typing_extensions.Annotated[
         typing.Optional[TagAllOfExternalIds],
         FieldMetadata(alias="externalIds"),
-        pydantic.Field(
-            alias="externalIds",
-            description="The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.",
-        ),
+        pydantic.Field(alias="externalIds", description="The [external IDs](/docs/external-ids) for the given object."),
     ] = None
     machines: typing.Optional[typing.List[TaggedObject]] = pydantic.Field(default=None)
     """
