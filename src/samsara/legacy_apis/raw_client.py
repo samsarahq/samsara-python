@@ -26,6 +26,7 @@ from ..types.dvirs_list_response import DvirsListResponse
 from ..types.idling_reports_get_vehicle_idling_reports_response_body import (
     IdlingReportsGetVehicleIdlingReportsResponseBody,
 )
+from ..types.inline_response_2001 import InlineResponse2001
 from ..types.safety_events_get_safety_activity_event_feed_response_body import (
     SafetyEventsGetSafetyActivityEventFeedResponseBody,
 )
@@ -39,7 +40,7 @@ from .types.get_drivers_vehicle_assignments_request_driver_activation_status imp
 )
 
 
-class RawLegacyApIsClient:
+class RawLegacyApisClient:
     def __init__(self, *, client_wrapper: SyncClientWrapper):
         self._client_wrapper = client_wrapper
 
@@ -54,13 +55,13 @@ class RawLegacyApIsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[DefectsResponse]:
         """
-        **Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/streamdefects) instead. The endpoint will continue to function as documented.**
+        **Note: This is a legacy endpoint, consider using [Stream DVIR defects](/api-reference/maintenance/maintenance/stream-defects) instead. The endpoint will continue to function as documented.**
 
         Returns a list of DVIR defects in an organization, filtered by creation time. The maximum time period you can query for is 30 days.
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Read Defects** under the Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read Defects** under the Maintenance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
         Parameters
         ----------
@@ -127,11 +128,11 @@ class RawLegacyApIsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[DriversVehicleAssignmentsGetDriversVehicleAssignmentsResponseBody]:
         """
-        **Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getdrivervehicleassignments) instead. The endpoint will continue to function as documented.** Get all vehicle assignments for the requested drivers in the requested time range. The only type of assignment supported right now are assignments created through the driver app.
+        **Note: This is a legacy endpoint, consider using [Get all driver-vehicle assignments](/api-reference/drivers/driver-vehicle-assignments/get-driver-vehicle-assignments) instead. The endpoint will continue to function as documented.** Get all vehicle assignments for the requested drivers in the requested time range. The only type of assignment supported right now are assignments created through the driver app.
 
-         <b>Rate limit:</b> 25 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+         <b>Rate limit:</b> 25 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
 
-        To use this endpoint, select **Read Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read Assignments** under the Assignments category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -307,13 +308,13 @@ class RawLegacyApIsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[DvirsListResponse]:
         """
-        **Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getdvirs) instead. The endpoint will continue to function as documented.**
+        **Note: This is a legacy endpoint, consider using [Stream DVIRs](/api-reference/maintenance/maintenance/get-dvirs) instead. The endpoint will continue to function as documented.**
 
          Returns a list of all DVIRs in an organization.
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Read DVIRs** under the Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read DVIRs** under the Maintenance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
         Parameters
         ----------
@@ -386,11 +387,11 @@ class RawLegacyApIsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[IdlingReportsGetVehicleIdlingReportsResponseBody]:
         """
-        **Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getidlingevents) instead. The endpoint will continue to function as documented.** Get all vehicle idling reports for the requested time duration.
+        **Note: This is a legacy endpoint, consider using [Get idling events](/api-reference/fuel-and-efficiency/idling/get-idling-events) instead. The endpoint will continue to function as documented.** Get all vehicle idling reports for the requested time duration.
 
-         <b>Rate limit:</b> 25 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+         <b>Rate limit:</b> 25 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
 
-        To use this endpoint, select **Read Fuel & Energy** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read Fuel & Energy** under the Fuel & Energy category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -574,13 +575,13 @@ class RawLegacyApIsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[SafetyEventsListResponse]:
         """
-        **Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getsafetyeventsv2stream) instead. The endpoint will continue to function as documented.**
+        **Note: This is a legacy endpoint, consider using [Get Safety Events Stream](/api-reference/safety/safety/get-safety-events-v-2-stream) instead. The endpoint will continue to function as documented.**
 
          Fetch safety events for the organization in a given time period.
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
         Parameters
         ----------
@@ -646,7 +647,7 @@ class RawLegacyApIsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[SafetyEventsGetSafetyActivityEventFeedResponseBody]:
         """
-        **Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getsafetyeventsv2stream) instead. The endpoint will continue to function as documented.**
+        **Note: This is a legacy endpoint, consider using [Get Safety Events Stream](/api-reference/safety/safety/get-safety-events-v-2-stream) instead. The endpoint will continue to function as documented.**
 
         Get continuous safety events. The safety activity event feed offers a change-log for safety events. Use this endpoint to subscribe to safety event changes. See documentation below for all supported change-log types.
 
@@ -656,9 +657,9 @@ class RawLegacyApIsClient:
         | BehaviorLabelActivityType     | a label is added or removed from a safety event |
         | CoachingStateActivityType     | a safety event coaching state is updated        |
 
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
 
-        To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -814,11 +815,11 @@ class RawLegacyApIsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[VehiclesDriverAssignmentsGetVehiclesDriverAssignmentsResponseBody]:
         """
-        **Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getdrivervehicleassignments) instead. The endpoint will continue to function as documented.** Get all driver assignments for the requested vehicles in the requested time range. The only type of assignment supported right now are assignments created through the driver app.
+        **Note: This is a legacy endpoint, consider using [Get all driver-vehicle assignments](/api-reference/drivers/driver-vehicle-assignments/get-driver-vehicle-assignments) instead. The endpoint will continue to function as documented.** Get all driver assignments for the requested vehicles in the requested time range. The only type of assignment supported right now are assignments created through the driver app.
 
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
 
-        To use this endpoint, select **Read Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read Assignments** under the Assignments category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -978,11 +979,53 @@ class RawLegacyApIsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
+    def v_1_get_all_assets(
+        self, *, request_options: typing.Optional[RequestOptions] = None
+    ) -> HttpResponse[InlineResponse2001]:
+        """
+        **Note: This is a legacy endpoint, consider using [List all assets](/api-reference/assets-vehicles-trailers-equipment/assets/list) instead. The endpoint will continue to function as documented.**
+
+         Fetch all powered and unpowered equipment.
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Equipment** under the Equipment category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+
+        Parameters
+        ----------
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[InlineResponse2001]
+            List of assets.
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "v1/fleet/assets",
+            method="GET",
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    InlineResponse2001,
+                    parse_obj_as(
+                        type_=InlineResponse2001,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
     def v_1_get_vehicle_harsh_event(
         self, vehicle_id: int, *, timestamp: int, request_options: typing.Optional[RequestOptions] = None
     ) -> HttpResponse[V1VehicleHarshEventResponse]:
         """
-        **Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getsafetyeventsv2stream) instead. The endpoint will continue to function as documented.** <n class="warning">
+        **Note: This is a legacy endpoint, consider using [Get Safety Events](/api-reference/safety/safety/get-safety-events-v-2) instead. The endpoint will continue to function as documented.** <n class="warning">
         <nh>
         <i class="fa fa-exclamation-circle"></i>
         This endpoint is still on our legacy API.
@@ -993,7 +1036,7 @@ class RawLegacyApIsClient:
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
         Parameters
         ----------
@@ -1035,7 +1078,7 @@ class RawLegacyApIsClient:
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
 
-class AsyncRawLegacyApIsClient:
+class AsyncRawLegacyApisClient:
     def __init__(self, *, client_wrapper: AsyncClientWrapper):
         self._client_wrapper = client_wrapper
 
@@ -1050,13 +1093,13 @@ class AsyncRawLegacyApIsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[DefectsResponse]:
         """
-        **Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/streamdefects) instead. The endpoint will continue to function as documented.**
+        **Note: This is a legacy endpoint, consider using [Stream DVIR defects](/api-reference/maintenance/maintenance/stream-defects) instead. The endpoint will continue to function as documented.**
 
         Returns a list of DVIR defects in an organization, filtered by creation time. The maximum time period you can query for is 30 days.
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Read Defects** under the Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read Defects** under the Maintenance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
         Parameters
         ----------
@@ -1123,11 +1166,11 @@ class AsyncRawLegacyApIsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[DriversVehicleAssignmentsGetDriversVehicleAssignmentsResponseBody]:
         """
-        **Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getdrivervehicleassignments) instead. The endpoint will continue to function as documented.** Get all vehicle assignments for the requested drivers in the requested time range. The only type of assignment supported right now are assignments created through the driver app.
+        **Note: This is a legacy endpoint, consider using [Get all driver-vehicle assignments](/api-reference/drivers/driver-vehicle-assignments/get-driver-vehicle-assignments) instead. The endpoint will continue to function as documented.** Get all vehicle assignments for the requested drivers in the requested time range. The only type of assignment supported right now are assignments created through the driver app.
 
-         <b>Rate limit:</b> 25 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+         <b>Rate limit:</b> 25 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
 
-        To use this endpoint, select **Read Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read Assignments** under the Assignments category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -1303,13 +1346,13 @@ class AsyncRawLegacyApIsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[DvirsListResponse]:
         """
-        **Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getdvirs) instead. The endpoint will continue to function as documented.**
+        **Note: This is a legacy endpoint, consider using [Stream DVIRs](/api-reference/maintenance/maintenance/get-dvirs) instead. The endpoint will continue to function as documented.**
 
          Returns a list of all DVIRs in an organization.
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Read DVIRs** under the Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read DVIRs** under the Maintenance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
         Parameters
         ----------
@@ -1382,11 +1425,11 @@ class AsyncRawLegacyApIsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[IdlingReportsGetVehicleIdlingReportsResponseBody]:
         """
-        **Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getidlingevents) instead. The endpoint will continue to function as documented.** Get all vehicle idling reports for the requested time duration.
+        **Note: This is a legacy endpoint, consider using [Get idling events](/api-reference/fuel-and-efficiency/idling/get-idling-events) instead. The endpoint will continue to function as documented.** Get all vehicle idling reports for the requested time duration.
 
-         <b>Rate limit:</b> 25 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+         <b>Rate limit:</b> 25 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
 
-        To use this endpoint, select **Read Fuel & Energy** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read Fuel & Energy** under the Fuel & Energy category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -1570,13 +1613,13 @@ class AsyncRawLegacyApIsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[SafetyEventsListResponse]:
         """
-        **Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getsafetyeventsv2stream) instead. The endpoint will continue to function as documented.**
+        **Note: This is a legacy endpoint, consider using [Get Safety Events Stream](/api-reference/safety/safety/get-safety-events-v-2-stream) instead. The endpoint will continue to function as documented.**
 
          Fetch safety events for the organization in a given time period.
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
         Parameters
         ----------
@@ -1642,7 +1685,7 @@ class AsyncRawLegacyApIsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[SafetyEventsGetSafetyActivityEventFeedResponseBody]:
         """
-        **Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getsafetyeventsv2stream) instead. The endpoint will continue to function as documented.**
+        **Note: This is a legacy endpoint, consider using [Get Safety Events Stream](/api-reference/safety/safety/get-safety-events-v-2-stream) instead. The endpoint will continue to function as documented.**
 
         Get continuous safety events. The safety activity event feed offers a change-log for safety events. Use this endpoint to subscribe to safety event changes. See documentation below for all supported change-log types.
 
@@ -1652,9 +1695,9 @@ class AsyncRawLegacyApIsClient:
         | BehaviorLabelActivityType     | a label is added or removed from a safety event |
         | CoachingStateActivityType     | a safety event coaching state is updated        |
 
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
 
-        To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -1810,11 +1853,11 @@ class AsyncRawLegacyApIsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[VehiclesDriverAssignmentsGetVehiclesDriverAssignmentsResponseBody]:
         """
-        **Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getdrivervehicleassignments) instead. The endpoint will continue to function as documented.** Get all driver assignments for the requested vehicles in the requested time range. The only type of assignment supported right now are assignments created through the driver app.
+        **Note: This is a legacy endpoint, consider using [Get all driver-vehicle assignments](/api-reference/drivers/driver-vehicle-assignments/get-driver-vehicle-assignments) instead. The endpoint will continue to function as documented.** Get all driver assignments for the requested vehicles in the requested time range. The only type of assignment supported right now are assignments created through the driver app.
 
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
 
-        To use this endpoint, select **Read Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read Assignments** under the Assignments category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -1974,11 +2017,53 @@ class AsyncRawLegacyApIsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
+    async def v_1_get_all_assets(
+        self, *, request_options: typing.Optional[RequestOptions] = None
+    ) -> AsyncHttpResponse[InlineResponse2001]:
+        """
+        **Note: This is a legacy endpoint, consider using [List all assets](/api-reference/assets-vehicles-trailers-equipment/assets/list) instead. The endpoint will continue to function as documented.**
+
+         Fetch all powered and unpowered equipment.
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        To use this endpoint, select **Read Equipment** under the Equipment category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+
+        Parameters
+        ----------
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[InlineResponse2001]
+            List of assets.
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "v1/fleet/assets",
+            method="GET",
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    InlineResponse2001,
+                    parse_obj_as(
+                        type_=InlineResponse2001,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
     async def v_1_get_vehicle_harsh_event(
         self, vehicle_id: int, *, timestamp: int, request_options: typing.Optional[RequestOptions] = None
     ) -> AsyncHttpResponse[V1VehicleHarshEventResponse]:
         """
-        **Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getsafetyeventsv2stream) instead. The endpoint will continue to function as documented.** <n class="warning">
+        **Note: This is a legacy endpoint, consider using [Get Safety Events](/api-reference/safety/safety/get-safety-events-v-2) instead. The endpoint will continue to function as documented.** <n class="warning">
         <nh>
         <i class="fa fa-exclamation-circle"></i>
         This endpoint is still on our legacy API.
@@ -1989,7 +2074,7 @@ class AsyncRawLegacyApIsClient:
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
         Parameters
         ----------
