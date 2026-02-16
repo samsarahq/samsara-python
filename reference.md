@@ -331,7 +331,7 @@ client.addresses.get(
 </dl>
 </details>
 
-<details><summary><code>client.addresses.<a href="src/samsara/addresses/client.py">delete</a>(...) -&gt; AsyncHttpResponse[StandardDeleteResponse]</code></summary>
+<details><summary><code>client.addresses.<a href="src/samsara/addresses/client.py">delete</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -5619,6 +5619,7 @@ client.beta_ap_is.post_readings(
     data=[
         ReadingDatapointRequestBody(
             entity_id="123451234512345",
+            entity_type="asset",
             happened_at_time="2023-10-27T10:00:00Z",
             reading_id="airInletPressure",
             value={"key": "value"},
@@ -7538,7 +7539,7 @@ client.attributes.get_attribute(
 </dl>
 </details>
 
-<details><summary><code>client.attributes.<a href="src/samsara/attributes/client.py">delete</a>(...) -&gt; AsyncHttpResponse[StandardDeleteResponse]</code></summary>
+<details><summary><code>client.attributes.<a href="src/samsara/attributes/client.py">delete</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -8658,7 +8659,7 @@ client.contacts.get_contact(
 </dl>
 </details>
 
-<details><summary><code>client.contacts.<a href="src/samsara/contacts/client.py">delete</a>(...) -&gt; AsyncHttpResponse[StandardDeleteResponse]</code></summary>
+<details><summary><code>client.contacts.<a href="src/samsara/contacts/client.py">delete</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -9479,6 +9480,7 @@ client = Samsara(
 client.maintenance.create_dvir(
     author_id="11",
     safety_status="safe",
+    type="mechanic",
 )
 
 ```
@@ -9504,6 +9506,14 @@ client.maintenance.create_dvir(
 <dd>
 
 **safety_status:** `CreateDvirRequestSafetyStatus` — Whether or not this vehicle or trailer is safe to drive.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**type:** `CreateDvirRequestType` — Only type 'mechanic' is currently accepted.
     
 </dd>
 </dl>
@@ -15768,7 +15778,7 @@ client.hours_of_service.get_hos_daily_logs()
 <dl>
 <dd>
 
-**expand:** `typing.Optional[typing.Literal["vehicle"]]` 
+**expand:** `typing.Optional[GetHosDailyLogsRequestExpand]` 
 
 Expands the specified value(s) in the response object. Expansion populates additional fields in an object, if supported. Unsupported fields are ignored. To expand multiple fields, input a comma-separated list.
 
@@ -17046,7 +17056,7 @@ client.routes.get_routes_feed()
 <dl>
 <dd>
 
-**expand:** `typing.Optional[typing.Literal["route"]]` 
+**expand:** `typing.Optional[GetRoutesFeedRequestExpand]` 
 
 Expands the specified value(s) in the response object. Expansion populates additional fields in an object, if supported. Unsupported fields are ignored. To expand multiple fields, input a comma-separated list.
 
@@ -20249,6 +20259,7 @@ client.forms.post_form_submission(
         id="9814a1fa-f0c6-408b-bf85-51dc3bc71ac7",
         revision_id="1214a1fa-f0c6-408b-bf85-51dc3bc71ac7",
     ),
+    status="notStarted",
 )
 
 ```
@@ -20266,6 +20277,14 @@ client.forms.post_form_submission(
 <dd>
 
 **form_template:** `FormTemplateRequestObjectRequestBody` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**status:** `FormSubmissionsPostFormSubmissionRequestBodyStatus` — Status of the form submission.  Valid values: `notStarted`
     
 </dd>
 </dl>
@@ -26882,7 +26901,7 @@ client.tags.replace_tag(
 </dl>
 </details>
 
-<details><summary><code>client.tags.<a href="src/samsara/tags/client.py">delete</a>(...) -&gt; AsyncHttpResponse[StandardDeleteResponse]</code></summary>
+<details><summary><code>client.tags.<a href="src/samsara/tags/client.py">delete</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -28168,7 +28187,7 @@ client.users.get_user(
 </dl>
 </details>
 
-<details><summary><code>client.users.<a href="src/samsara/users/client.py">delete</a>(...) -&gt; AsyncHttpResponse[StandardDeleteResponse]</code></summary>
+<details><summary><code>client.users.<a href="src/samsara/users/client.py">delete</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -29795,7 +29814,7 @@ client.webhooks.patch_webhook(
 </details>
 
 ## Fleet CarrierProposedAssignments
-<details><summary><code>client.fleet.carrier_proposed_assignments.<a href="src/samsara/fleet/carrier_proposed_assignments/client.py">delete</a>(...) -&gt; AsyncHttpResponse[StandardDeleteResponse]</code></summary>
+<details><summary><code>client.fleet.carrier_proposed_assignments.<a href="src/samsara/fleet/carrier_proposed_assignments/client.py">delete</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -29927,7 +29946,7 @@ client.fleet.attributes.update(
 </details>
 
 ## Industrial Assets
-<details><summary><code>client.industrial.assets.<a href="src/samsara/industrial/assets/client.py">delete</a>(...) -&gt; AsyncHttpResponse[StandardDeleteResponse]</code></summary>
+<details><summary><code>client.industrial.assets.<a href="src/samsara/industrial/assets/client.py">delete</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 

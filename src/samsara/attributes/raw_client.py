@@ -13,7 +13,6 @@ from ..core.serialization import convert_and_respect_annotation_metadata
 from ..types.attribute_expanded_response import AttributeExpandedResponse
 from ..types.create_attribute_request_entities import CreateAttributeRequestEntities
 from ..types.get_attributes_by_entity_type_response import GetAttributesByEntityTypeResponse
-from ..types.standard_delete_response import StandardDeleteResponse
 from .types.create_attribute_request_attribute_type import CreateAttributeRequestAttributeType
 from .types.create_attribute_request_entity_type import CreateAttributeRequestEntityType
 from .types.create_attribute_request_unit import CreateAttributeRequestUnit
@@ -234,7 +233,7 @@ class RawAttributesClient:
         *,
         entity_type: DeleteAttributesRequestEntityType,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[StandardDeleteResponse]:
+    ) -> HttpResponse[None]:
         """
         Delete an attribute by id, including all of its applications.
 
@@ -255,8 +254,7 @@ class RawAttributesClient:
 
         Returns
         -------
-        HttpResponse[StandardDeleteResponse]
-            A successful DELETE response is a 204 with no content.
+        HttpResponse[None]
         """
         _response = self._client_wrapper.httpx_client.request(
             f"attributes/{jsonable_encoder(id)}",
@@ -268,14 +266,7 @@ class RawAttributesClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    StandardDeleteResponse,
-                    parse_obj_as(
-                        type_=StandardDeleteResponse,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
-                return HttpResponse(response=_response, data=_data)
+                return HttpResponse(response=_response, data=None)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -573,7 +564,7 @@ class AsyncRawAttributesClient:
         *,
         entity_type: DeleteAttributesRequestEntityType,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[StandardDeleteResponse]:
+    ) -> AsyncHttpResponse[None]:
         """
         Delete an attribute by id, including all of its applications.
 
@@ -594,8 +585,7 @@ class AsyncRawAttributesClient:
 
         Returns
         -------
-        AsyncHttpResponse[StandardDeleteResponse]
-            A successful DELETE response is a 204 with no content.
+        AsyncHttpResponse[None]
         """
         _response = await self._client_wrapper.httpx_client.request(
             f"attributes/{jsonable_encoder(id)}",
@@ -607,14 +597,7 @@ class AsyncRawAttributesClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    StandardDeleteResponse,
-                    parse_obj_as(
-                        type_=StandardDeleteResponse,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
-                return AsyncHttpResponse(response=_response, data=_data)
+                return AsyncHttpResponse(response=_response, data=None)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)

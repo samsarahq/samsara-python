@@ -11,7 +11,6 @@ from ..core.pydantic_utilities import parse_obj_as
 from ..core.request_options import RequestOptions
 from ..types.contact_response import ContactResponse
 from ..types.list_contacts_response import ListContactsResponse
-from ..types.standard_delete_response import StandardDeleteResponse
 
 # this is used as the default value for optional parameters
 OMIT = typing.cast(typing.Any, ...)
@@ -186,9 +185,7 @@ class RawContactsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
-    def delete(
-        self, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> HttpResponse[StandardDeleteResponse]:
+    def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> HttpResponse[None]:
         """
         Delete the given contact.
 
@@ -206,8 +203,7 @@ class RawContactsClient:
 
         Returns
         -------
-        HttpResponse[StandardDeleteResponse]
-            A successful DELETE response is a 204 with no content.
+        HttpResponse[None]
         """
         _response = self._client_wrapper.httpx_client.request(
             f"contacts/{jsonable_encoder(id)}",
@@ -216,14 +212,7 @@ class RawContactsClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    StandardDeleteResponse,
-                    parse_obj_as(
-                        type_=StandardDeleteResponse,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
-                return HttpResponse(response=_response, data=_data)
+                return HttpResponse(response=_response, data=None)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
@@ -473,7 +462,7 @@ class AsyncRawContactsClient:
 
     async def delete(
         self, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> AsyncHttpResponse[StandardDeleteResponse]:
+    ) -> AsyncHttpResponse[None]:
         """
         Delete the given contact.
 
@@ -491,8 +480,7 @@ class AsyncRawContactsClient:
 
         Returns
         -------
-        AsyncHttpResponse[StandardDeleteResponse]
-            A successful DELETE response is a 204 with no content.
+        AsyncHttpResponse[None]
         """
         _response = await self._client_wrapper.httpx_client.request(
             f"contacts/{jsonable_encoder(id)}",
@@ -501,14 +489,7 @@ class AsyncRawContactsClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    StandardDeleteResponse,
-                    parse_obj_as(
-                        type_=StandardDeleteResponse,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
-                return AsyncHttpResponse(response=_response, data=_data)
+                return AsyncHttpResponse(response=_response, data=None)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)

@@ -29,6 +29,7 @@ from ..types.dvir_response import DvirResponse
 from ..types.inline_response_2004 import InlineResponse2004
 from ..types.resolved_by import ResolvedBy
 from .types.create_dvir_request_safety_status import CreateDvirRequestSafetyStatus
+from .types.create_dvir_request_type import CreateDvirRequestType
 
 # this is used as the default value for optional parameters
 OMIT = typing.cast(typing.Any, ...)
@@ -939,6 +940,7 @@ class RawMaintenanceClient:
         *,
         author_id: str,
         safety_status: CreateDvirRequestSafetyStatus,
+        type: CreateDvirRequestType,
         license_plate: typing.Optional[str] = OMIT,
         location: typing.Optional[str] = OMIT,
         mechanic_notes: typing.Optional[str] = OMIT,
@@ -962,6 +964,9 @@ class RawMaintenanceClient:
 
         safety_status : CreateDvirRequestSafetyStatus
             Whether or not this vehicle or trailer is safe to drive.
+
+        type : CreateDvirRequestType
+            Only type 'mechanic' is currently accepted.
 
         license_plate : typing.Optional[str]
             The license plate of this vehicle.
@@ -1004,8 +1009,8 @@ class RawMaintenanceClient:
                 "resolvedDefectIds": resolved_defect_ids,
                 "safetyStatus": safety_status,
                 "trailerId": trailer_id,
+                "type": type,
                 "vehicleId": vehicle_id,
-                "type": "mechanic",
             },
             headers={
                 "content-type": "application/json",
@@ -2053,6 +2058,7 @@ class AsyncRawMaintenanceClient:
         *,
         author_id: str,
         safety_status: CreateDvirRequestSafetyStatus,
+        type: CreateDvirRequestType,
         license_plate: typing.Optional[str] = OMIT,
         location: typing.Optional[str] = OMIT,
         mechanic_notes: typing.Optional[str] = OMIT,
@@ -2076,6 +2082,9 @@ class AsyncRawMaintenanceClient:
 
         safety_status : CreateDvirRequestSafetyStatus
             Whether or not this vehicle or trailer is safe to drive.
+
+        type : CreateDvirRequestType
+            Only type 'mechanic' is currently accepted.
 
         license_plate : typing.Optional[str]
             The license plate of this vehicle.
@@ -2118,8 +2127,8 @@ class AsyncRawMaintenanceClient:
                 "resolvedDefectIds": resolved_defect_ids,
                 "safetyStatus": safety_status,
                 "trailerId": trailer_id,
+                "type": type,
                 "vehicleId": vehicle_id,
-                "type": "mechanic",
             },
             headers={
                 "content-type": "application/json",
