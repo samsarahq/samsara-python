@@ -15,6 +15,7 @@ from ..types.inline_response_2004 import InlineResponse2004
 from ..types.resolved_by import ResolvedBy
 from .raw_client import AsyncRawMaintenanceClient, RawMaintenanceClient
 from .types.create_dvir_request_safety_status import CreateDvirRequestSafetyStatus
+from .types.create_dvir_request_type import CreateDvirRequestType
 
 # this is used as the default value for optional parameters
 OMIT = typing.cast(typing.Any, ...)
@@ -393,6 +394,7 @@ class MaintenanceClient:
         *,
         author_id: str,
         safety_status: CreateDvirRequestSafetyStatus,
+        type: CreateDvirRequestType,
         license_plate: typing.Optional[str] = OMIT,
         location: typing.Optional[str] = OMIT,
         mechanic_notes: typing.Optional[str] = OMIT,
@@ -416,6 +418,9 @@ class MaintenanceClient:
 
         safety_status : CreateDvirRequestSafetyStatus
             Whether or not this vehicle or trailer is safe to drive.
+
+        type : CreateDvirRequestType
+            Only type 'mechanic' is currently accepted.
 
         license_plate : typing.Optional[str]
             The license plate of this vehicle.
@@ -456,11 +461,13 @@ class MaintenanceClient:
         client.maintenance.create_dvir(
             author_id="11",
             safety_status="safe",
+            type="mechanic",
         )
         """
         _response = self._raw_client.create_dvir(
             author_id=author_id,
             safety_status=safety_status,
+            type=type,
             license_plate=license_plate,
             location=location,
             mechanic_notes=mechanic_notes,
@@ -998,6 +1005,7 @@ class AsyncMaintenanceClient:
         *,
         author_id: str,
         safety_status: CreateDvirRequestSafetyStatus,
+        type: CreateDvirRequestType,
         license_plate: typing.Optional[str] = OMIT,
         location: typing.Optional[str] = OMIT,
         mechanic_notes: typing.Optional[str] = OMIT,
@@ -1021,6 +1029,9 @@ class AsyncMaintenanceClient:
 
         safety_status : CreateDvirRequestSafetyStatus
             Whether or not this vehicle or trailer is safe to drive.
+
+        type : CreateDvirRequestType
+            Only type 'mechanic' is currently accepted.
 
         license_plate : typing.Optional[str]
             The license plate of this vehicle.
@@ -1066,6 +1077,7 @@ class AsyncMaintenanceClient:
             await client.maintenance.create_dvir(
                 author_id="11",
                 safety_status="safe",
+                type="mechanic",
             )
 
 
@@ -1074,6 +1086,7 @@ class AsyncMaintenanceClient:
         _response = await self._raw_client.create_dvir(
             author_id=author_id,
             safety_status=safety_status,
+            type=type,
             license_plate=license_plate,
             location=location,
             mechanic_notes=mechanic_notes,

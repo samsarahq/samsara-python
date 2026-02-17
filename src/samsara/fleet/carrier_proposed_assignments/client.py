@@ -4,7 +4,6 @@ import typing
 
 from ...core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ...core.request_options import RequestOptions
-from ...types.standard_delete_response import StandardDeleteResponse
 from .raw_client import AsyncRawCarrierProposedAssignmentsClient, RawCarrierProposedAssignmentsClient
 
 
@@ -23,7 +22,7 @@ class CarrierProposedAssignmentsClient:
         """
         return self._raw_client
 
-    def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> StandardDeleteResponse:
+    def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
         """
         Permanently delete an assignment. You can only delete assignments that are not yet active. To override a currently active assignment, create a new empty one, instead.
 
@@ -41,8 +40,7 @@ class CarrierProposedAssignmentsClient:
 
         Returns
         -------
-        StandardDeleteResponse
-            A successful DELETE response is a 204 with no content.
+        None
 
         Examples
         --------
@@ -74,9 +72,7 @@ class AsyncCarrierProposedAssignmentsClient:
         """
         return self._raw_client
 
-    async def delete(
-        self, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> StandardDeleteResponse:
+    async def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
         """
         Permanently delete an assignment. You can only delete assignments that are not yet active. To override a currently active assignment, create a new empty one, instead.
 
@@ -94,8 +90,7 @@ class AsyncCarrierProposedAssignmentsClient:
 
         Returns
         -------
-        StandardDeleteResponse
-            A successful DELETE response is a 204 with no content.
+        None
 
         Examples
         --------

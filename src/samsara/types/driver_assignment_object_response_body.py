@@ -6,12 +6,13 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .driver_assignment_object_response_body_assignment_type import DriverAssignmentObjectResponseBodyAssignmentType
 from .goa_driver_tiny_response_response_body import GoaDriverTinyResponseResponseBody
 
 
 class DriverAssignmentObjectResponseBody(UniversalBaseModel):
     assignment_type: typing_extensions.Annotated[
-        typing.Optional[typing.Literal["driverApp"]],
+        typing.Optional[DriverAssignmentObjectResponseBodyAssignmentType],
         FieldMetadata(alias="assignmentType"),
         pydantic.Field(
             alias="assignmentType",
