@@ -365,6 +365,46 @@ def test_betaApIs_get_report_run_data() -> None:
     verify_request_count(test_id, "GET", "/reports/runs/data", {"id": "id"}, 1)
 
 
+def test_betaApIs_list_ridership_accounts() -> None:
+    """Test listRidershipAccounts endpoint with WireMock"""
+    test_id = "beta_ap_is.list_ridership_accounts.0"
+    client = get_client(test_id)
+    client.beta_ap_is.list_ridership_accounts()
+    verify_request_count(test_id, "GET", "/ridership/accounts", None, 1)
+
+
+def test_betaApIs_create_ridership_account() -> None:
+    """Test createRidershipAccount endpoint with WireMock"""
+    test_id = "beta_ap_is.create_ridership_account.0"
+    client = get_client(test_id)
+    client.beta_ap_is.create_ridership_account(name="Springfield Public Schools")
+    verify_request_count(test_id, "POST", "/ridership/accounts", None, 1)
+
+
+def test_betaApIs_update_ridership_account() -> None:
+    """Test updateRidershipAccount endpoint with WireMock"""
+    test_id = "beta_ap_is.update_ridership_account.0"
+    client = get_client(test_id)
+    client.beta_ap_is.update_ridership_account(id="id", name="Springfield Public Schools")
+    verify_request_count(test_id, "PUT", "/ridership/accounts", {"id": "id"}, 1)
+
+
+def test_betaApIs_delete_ridership_account() -> None:
+    """Test deleteRidershipAccount endpoint with WireMock"""
+    test_id = "beta_ap_is.delete_ridership_account.0"
+    client = get_client(test_id)
+    client.beta_ap_is.delete_ridership_account(id="id")
+    verify_request_count(test_id, "DELETE", "/ridership/accounts", {"id": "id"}, 1)
+
+
+def test_betaApIs_get_ridership_account() -> None:
+    """Test getRidershipAccount endpoint with WireMock"""
+    test_id = "beta_ap_is.get_ridership_account.0"
+    client = get_client(test_id)
+    client.beta_ap_is.get_ridership_account(id="id")
+    verify_request_count(test_id, "GET", "/ridership/accounts/id", None, 1)
+
+
 def test_betaApIs_get_driver_safety_scores() -> None:
     """Test getDriverSafetyScores endpoint with WireMock"""
     test_id = "beta_ap_is.get_driver_safety_scores.0"
