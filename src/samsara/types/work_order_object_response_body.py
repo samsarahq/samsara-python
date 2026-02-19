@@ -14,6 +14,7 @@ from .work_order_item_object_response_body import WorkOrderItemObjectResponseBod
 from .work_order_object_response_body_priority import WorkOrderObjectResponseBodyPriority
 from .work_order_object_response_body_status import WorkOrderObjectResponseBodyStatus
 from .work_order_tax_object_response_body import WorkOrderTaxObjectResponseBody
+from .work_order_unallocated_labor_object_response_body import WorkOrderUnallocatedLaborObjectResponseBody
 
 
 class WorkOrderObjectResponseBody(UniversalBaseModel):
@@ -123,6 +124,11 @@ class WorkOrderObjectResponseBody(UniversalBaseModel):
     """
 
     tax: typing.Optional[WorkOrderTaxObjectResponseBody] = None
+    unallocated_labor: typing_extensions.Annotated[
+        typing.Optional[WorkOrderUnallocatedLaborObjectResponseBody],
+        FieldMetadata(alias="unallocatedLabor"),
+        pydantic.Field(alias="unallocatedLabor"),
+    ] = None
     updated_at_time: typing_extensions.Annotated[
         dt.datetime,
         FieldMetadata(alias="updatedAtTime"),
