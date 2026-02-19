@@ -9,12 +9,8 @@ if typing.TYPE_CHECKING:
     from .form_submissions_patch_form_submission_request_body_status import (
         FormSubmissionsPatchFormSubmissionRequestBodyStatus,
     )
-    from .form_submissions_post_form_submission_request_body_status import (
-        FormSubmissionsPostFormSubmissionRequestBodyStatus,
-    )
 _dynamic_imports: typing.Dict[str, str] = {
-    "FormSubmissionsPatchFormSubmissionRequestBodyStatus": ".form_submissions_patch_form_submission_request_body_status",
-    "FormSubmissionsPostFormSubmissionRequestBodyStatus": ".form_submissions_post_form_submission_request_body_status",
+    "FormSubmissionsPatchFormSubmissionRequestBodyStatus": ".form_submissions_patch_form_submission_request_body_status"
 }
 
 
@@ -39,4 +35,4 @@ def __dir__():
     return sorted(lazy_attrs)
 
 
-__all__ = ["FormSubmissionsPatchFormSubmissionRequestBodyStatus", "FormSubmissionsPostFormSubmissionRequestBodyStatus"]
+__all__ = ["FormSubmissionsPatchFormSubmissionRequestBodyStatus"]

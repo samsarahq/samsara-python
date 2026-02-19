@@ -16,7 +16,7 @@ if typing.TYPE_CHECKING:
     from .assets.client import AssetsClient, AsyncAssetsClient
     from .attributes.client import AsyncAttributesClient, AttributesClient
     from .auth_token_for_driver.client import AsyncAuthTokenForDriverClient, AuthTokenForDriverClient
-    from .beta_ap_is.client import AsyncBetaApIsClient, BetaApIsClient
+    from .beta_apis.client import AsyncBetaApisClient, BetaApisClient
     from .carrier_proposed_assignments.client import (
         AsyncCarrierProposedAssignmentsClient,
         CarrierProposedAssignmentsClient,
@@ -39,8 +39,7 @@ if typing.TYPE_CHECKING:
     from .ifta.client import AsyncIftaClient, IftaClient
     from .industrial.client import AsyncIndustrialClient, IndustrialClient
     from .issues.client import AsyncIssuesClient, IssuesClient
-    from .legacy.client import AsyncLegacyClient, LegacyClient
-    from .legacy_ap_is.client import AsyncLegacyApIsClient, LegacyApIsClient
+    from .legacy_apis.client import AsyncLegacyApisClient, LegacyApisClient
     from .live_sharing_links.client import AsyncLiveSharingLinksClient, LiveSharingLinksClient
     from .location_and_speed.client import AsyncLocationAndSpeedClient, LocationAndSpeedClient
     from .maintenance.client import AsyncMaintenanceClient, MaintenanceClient
@@ -48,7 +47,7 @@ if typing.TYPE_CHECKING:
     from .messages.client import AsyncMessagesClient, MessagesClient
     from .organization_info.client import AsyncOrganizationInfoClient, OrganizationInfoClient
     from .plans.client import AsyncPlansClient, PlansClient
-    from .preview_ap_is.client import AsyncPreviewApIsClient, PreviewApIsClient
+    from .preview_apis.client import AsyncPreviewApisClient, PreviewApisClient
     from .route_events.client import AsyncRouteEventsClient, RouteEventsClient
     from .routes.client import AsyncRoutesClient, RoutesClient
     from .safety.client import AsyncSafetyClient, SafetyClient
@@ -140,7 +139,7 @@ class Samsara:
         self._addresses: typing.Optional[AddressesClient] = None
         self._alerts: typing.Optional[AlertsClient] = None
         self._assets: typing.Optional[AssetsClient] = None
-        self._beta_ap_is: typing.Optional[BetaApIsClient] = None
+        self._beta_apis: typing.Optional[BetaApisClient] = None
         self._location_and_speed: typing.Optional[LocationAndSpeedClient] = None
         self._attributes: typing.Optional[AttributesClient] = None
         self._media: typing.Optional[MediaClient] = None
@@ -151,7 +150,7 @@ class Samsara:
         self._driver_trailer_assignments: typing.Optional[DriverTrailerAssignmentsClient] = None
         self._driver_qr_codes: typing.Optional[DriverQrCodesClient] = None
         self._carrier_proposed_assignments: typing.Optional[CarrierProposedAssignmentsClient] = None
-        self._legacy_ap_is: typing.Optional[LegacyApIsClient] = None
+        self._legacy_apis: typing.Optional[LegacyApisClient] = None
         self._documents: typing.Optional[DocumentsClient] = None
         self._driver_vehicle_assignments: typing.Optional[DriverVehicleAssignmentsClient] = None
         self._drivers: typing.Optional[DriversClient] = None
@@ -176,7 +175,7 @@ class Samsara:
         self._live_sharing_links: typing.Optional[LiveSharingLinksClient] = None
         self._work_orders: typing.Optional[WorkOrdersClient] = None
         self._organization_info: typing.Optional[OrganizationInfoClient] = None
-        self._preview_ap_is: typing.Optional[PreviewApIsClient] = None
+        self._preview_apis: typing.Optional[PreviewApisClient] = None
         self._route_events: typing.Optional[RouteEventsClient] = None
         self._safety: typing.Optional[SafetyClient] = None
         self._speeding_intervals: typing.Optional[SpeedingIntervalsClient] = None
@@ -185,7 +184,6 @@ class Samsara:
         self._training_courses: typing.Optional[TrainingCoursesClient] = None
         self._trips: typing.Optional[TripsClient] = None
         self._users: typing.Optional[UsersClient] = None
-        self._legacy: typing.Optional[LegacyClient] = None
         self._messages: typing.Optional[MessagesClient] = None
         self._trailer_assignments: typing.Optional[TrailerAssignmentsClient] = None
         self._sensors: typing.Optional[SensorsClient] = None
@@ -217,12 +215,12 @@ class Samsara:
         return self._assets
 
     @property
-    def beta_ap_is(self):
-        if self._beta_ap_is is None:
-            from .beta_ap_is.client import BetaApIsClient  # noqa: E402
+    def beta_apis(self):
+        if self._beta_apis is None:
+            from .beta_apis.client import BetaApisClient  # noqa: E402
 
-            self._beta_ap_is = BetaApIsClient(client_wrapper=self._client_wrapper)
-        return self._beta_ap_is
+            self._beta_apis = BetaApisClient(client_wrapper=self._client_wrapper)
+        return self._beta_apis
 
     @property
     def location_and_speed(self):
@@ -305,12 +303,12 @@ class Samsara:
         return self._carrier_proposed_assignments
 
     @property
-    def legacy_ap_is(self):
-        if self._legacy_ap_is is None:
-            from .legacy_ap_is.client import LegacyApIsClient  # noqa: E402
+    def legacy_apis(self):
+        if self._legacy_apis is None:
+            from .legacy_apis.client import LegacyApisClient  # noqa: E402
 
-            self._legacy_ap_is = LegacyApIsClient(client_wrapper=self._client_wrapper)
-        return self._legacy_ap_is
+            self._legacy_apis = LegacyApisClient(client_wrapper=self._client_wrapper)
+        return self._legacy_apis
 
     @property
     def documents(self):
@@ -505,12 +503,12 @@ class Samsara:
         return self._organization_info
 
     @property
-    def preview_ap_is(self):
-        if self._preview_ap_is is None:
-            from .preview_ap_is.client import PreviewApIsClient  # noqa: E402
+    def preview_apis(self):
+        if self._preview_apis is None:
+            from .preview_apis.client import PreviewApisClient  # noqa: E402
 
-            self._preview_ap_is = PreviewApIsClient(client_wrapper=self._client_wrapper)
-        return self._preview_ap_is
+            self._preview_apis = PreviewApisClient(client_wrapper=self._client_wrapper)
+        return self._preview_apis
 
     @property
     def route_events(self):
@@ -575,14 +573,6 @@ class Samsara:
 
             self._users = UsersClient(client_wrapper=self._client_wrapper)
         return self._users
-
-    @property
-    def legacy(self):
-        if self._legacy is None:
-            from .legacy.client import LegacyClient  # noqa: E402
-
-            self._legacy = LegacyClient(client_wrapper=self._client_wrapper)
-        return self._legacy
 
     @property
     def messages(self):
@@ -695,7 +685,7 @@ class AsyncSamsara:
         self._addresses: typing.Optional[AsyncAddressesClient] = None
         self._alerts: typing.Optional[AsyncAlertsClient] = None
         self._assets: typing.Optional[AsyncAssetsClient] = None
-        self._beta_ap_is: typing.Optional[AsyncBetaApIsClient] = None
+        self._beta_apis: typing.Optional[AsyncBetaApisClient] = None
         self._location_and_speed: typing.Optional[AsyncLocationAndSpeedClient] = None
         self._attributes: typing.Optional[AsyncAttributesClient] = None
         self._media: typing.Optional[AsyncMediaClient] = None
@@ -706,7 +696,7 @@ class AsyncSamsara:
         self._driver_trailer_assignments: typing.Optional[AsyncDriverTrailerAssignmentsClient] = None
         self._driver_qr_codes: typing.Optional[AsyncDriverQrCodesClient] = None
         self._carrier_proposed_assignments: typing.Optional[AsyncCarrierProposedAssignmentsClient] = None
-        self._legacy_ap_is: typing.Optional[AsyncLegacyApIsClient] = None
+        self._legacy_apis: typing.Optional[AsyncLegacyApisClient] = None
         self._documents: typing.Optional[AsyncDocumentsClient] = None
         self._driver_vehicle_assignments: typing.Optional[AsyncDriverVehicleAssignmentsClient] = None
         self._drivers: typing.Optional[AsyncDriversClient] = None
@@ -731,7 +721,7 @@ class AsyncSamsara:
         self._live_sharing_links: typing.Optional[AsyncLiveSharingLinksClient] = None
         self._work_orders: typing.Optional[AsyncWorkOrdersClient] = None
         self._organization_info: typing.Optional[AsyncOrganizationInfoClient] = None
-        self._preview_ap_is: typing.Optional[AsyncPreviewApIsClient] = None
+        self._preview_apis: typing.Optional[AsyncPreviewApisClient] = None
         self._route_events: typing.Optional[AsyncRouteEventsClient] = None
         self._safety: typing.Optional[AsyncSafetyClient] = None
         self._speeding_intervals: typing.Optional[AsyncSpeedingIntervalsClient] = None
@@ -740,7 +730,6 @@ class AsyncSamsara:
         self._training_courses: typing.Optional[AsyncTrainingCoursesClient] = None
         self._trips: typing.Optional[AsyncTripsClient] = None
         self._users: typing.Optional[AsyncUsersClient] = None
-        self._legacy: typing.Optional[AsyncLegacyClient] = None
         self._messages: typing.Optional[AsyncMessagesClient] = None
         self._trailer_assignments: typing.Optional[AsyncTrailerAssignmentsClient] = None
         self._sensors: typing.Optional[AsyncSensorsClient] = None
@@ -772,12 +761,12 @@ class AsyncSamsara:
         return self._assets
 
     @property
-    def beta_ap_is(self):
-        if self._beta_ap_is is None:
-            from .beta_ap_is.client import AsyncBetaApIsClient  # noqa: E402
+    def beta_apis(self):
+        if self._beta_apis is None:
+            from .beta_apis.client import AsyncBetaApisClient  # noqa: E402
 
-            self._beta_ap_is = AsyncBetaApIsClient(client_wrapper=self._client_wrapper)
-        return self._beta_ap_is
+            self._beta_apis = AsyncBetaApisClient(client_wrapper=self._client_wrapper)
+        return self._beta_apis
 
     @property
     def location_and_speed(self):
@@ -862,12 +851,12 @@ class AsyncSamsara:
         return self._carrier_proposed_assignments
 
     @property
-    def legacy_ap_is(self):
-        if self._legacy_ap_is is None:
-            from .legacy_ap_is.client import AsyncLegacyApIsClient  # noqa: E402
+    def legacy_apis(self):
+        if self._legacy_apis is None:
+            from .legacy_apis.client import AsyncLegacyApisClient  # noqa: E402
 
-            self._legacy_ap_is = AsyncLegacyApIsClient(client_wrapper=self._client_wrapper)
-        return self._legacy_ap_is
+            self._legacy_apis = AsyncLegacyApisClient(client_wrapper=self._client_wrapper)
+        return self._legacy_apis
 
     @property
     def documents(self):
@@ -1062,12 +1051,12 @@ class AsyncSamsara:
         return self._organization_info
 
     @property
-    def preview_ap_is(self):
-        if self._preview_ap_is is None:
-            from .preview_ap_is.client import AsyncPreviewApIsClient  # noqa: E402
+    def preview_apis(self):
+        if self._preview_apis is None:
+            from .preview_apis.client import AsyncPreviewApisClient  # noqa: E402
 
-            self._preview_ap_is = AsyncPreviewApIsClient(client_wrapper=self._client_wrapper)
-        return self._preview_ap_is
+            self._preview_apis = AsyncPreviewApisClient(client_wrapper=self._client_wrapper)
+        return self._preview_apis
 
     @property
     def route_events(self):
@@ -1132,14 +1121,6 @@ class AsyncSamsara:
 
             self._users = AsyncUsersClient(client_wrapper=self._client_wrapper)
         return self._users
-
-    @property
-    def legacy(self):
-        if self._legacy is None:
-            from .legacy.client import AsyncLegacyClient  # noqa: E402
-
-            self._legacy = AsyncLegacyClient(client_wrapper=self._client_wrapper)
-        return self._legacy
 
     @property
     def messages(self):

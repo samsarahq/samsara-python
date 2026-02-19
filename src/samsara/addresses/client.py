@@ -9,6 +9,7 @@ from ..types.address import Address
 from ..types.address_response import AddressResponse
 from ..types.create_address_request_geofence import CreateAddressRequestGeofence
 from ..types.list_addresses_response import ListAddressesResponse
+from ..types.standard_delete_response import StandardDeleteResponse
 from ..types.update_address_request_geofence import UpdateAddressRequestGeofence
 from .raw_client import AsyncRawAddressesClient, RawAddressesClient
 from .types.create_address_request_address_types_item import CreateAddressRequestAddressTypesItem
@@ -48,7 +49,7 @@ class AddressesClient:
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Read Addresses** under the Addresses category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read Addresses** under the Addresses category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
         Parameters
         ----------
@@ -118,7 +119,7 @@ class AddressesClient:
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Write Addresses** under the Addresses category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Write Addresses** under the Addresses category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
         Parameters
         ----------
@@ -137,7 +138,7 @@ class AddressesClient:
             An array of Contact IDs associated with this Address.
 
         external_ids : typing.Optional[typing.Dict[str, str]]
-            The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.
+            The [external IDs](/docs/external-ids) for the given object.
 
         latitude : typing.Optional[float]
             Latitude of the address. Will be geocoded from `formattedAddress` if not provided.
@@ -193,7 +194,7 @@ class AddressesClient:
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Read Addresses** under the Addresses category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read Addresses** under the Addresses category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
         Parameters
         ----------
@@ -222,13 +223,13 @@ class AddressesClient:
         _response = self._raw_client.get(id, request_options=request_options)
         return _response.data
 
-    def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
+    def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> StandardDeleteResponse:
         """
         Delete a specific address.
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Write Addresses** under the Addresses category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Write Addresses** under the Addresses category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
         Parameters
         ----------
@@ -240,7 +241,8 @@ class AddressesClient:
 
         Returns
         -------
-        None
+        StandardDeleteResponse
+            A successful DELETE response is a 204 with no content.
 
         Examples
         --------
@@ -277,7 +279,7 @@ class AddressesClient:
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Write Addresses** under the Addresses category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Write Addresses** under the Addresses category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
         Parameters
         ----------
@@ -291,7 +293,7 @@ class AddressesClient:
             An array of Contact IDs associated with this Address.
 
         external_ids : typing.Optional[typing.Dict[str, str]]
-            The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.
+            The [external IDs](/docs/external-ids) for the given object.
 
         formatted_address : typing.Optional[str]
             The full street address for this address/geofence, as it might be recognized by Google Maps.
@@ -379,7 +381,7 @@ class AsyncAddressesClient:
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Read Addresses** under the Addresses category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read Addresses** under the Addresses category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
         Parameters
         ----------
@@ -458,7 +460,7 @@ class AsyncAddressesClient:
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Write Addresses** under the Addresses category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Write Addresses** under the Addresses category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
         Parameters
         ----------
@@ -477,7 +479,7 @@ class AsyncAddressesClient:
             An array of Contact IDs associated with this Address.
 
         external_ids : typing.Optional[typing.Dict[str, str]]
-            The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.
+            The [external IDs](/docs/external-ids) for the given object.
 
         latitude : typing.Optional[float]
             Latitude of the address. Will be geocoded from `formattedAddress` if not provided.
@@ -541,7 +543,7 @@ class AsyncAddressesClient:
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Read Addresses** under the Addresses category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read Addresses** under the Addresses category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
         Parameters
         ----------
@@ -578,13 +580,15 @@ class AsyncAddressesClient:
         _response = await self._raw_client.get(id, request_options=request_options)
         return _response.data
 
-    async def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
+    async def delete(
+        self, id: str, *, request_options: typing.Optional[RequestOptions] = None
+    ) -> StandardDeleteResponse:
         """
         Delete a specific address.
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Write Addresses** under the Addresses category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Write Addresses** under the Addresses category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
         Parameters
         ----------
@@ -596,7 +600,8 @@ class AsyncAddressesClient:
 
         Returns
         -------
-        None
+        StandardDeleteResponse
+            A successful DELETE response is a 204 with no content.
 
         Examples
         --------
@@ -641,7 +646,7 @@ class AsyncAddressesClient:
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Write Addresses** under the Addresses category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Write Addresses** under the Addresses category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
         Parameters
         ----------
@@ -655,7 +660,7 @@ class AsyncAddressesClient:
             An array of Contact IDs associated with this Address.
 
         external_ids : typing.Optional[typing.Dict[str, str]]
-            The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.
+            The [external IDs](/docs/external-ids) for the given object.
 
         formatted_address : typing.Optional[str]
             The full street address for this address/geofence, as it might be recognized by Google Maps.

@@ -6,8 +6,8 @@ import typing
 from importlib import import_module
 
 if typing.TYPE_CHECKING:
-    from .types import CreateDvirRequestSafetyStatus, CreateDvirRequestType
-_dynamic_imports: typing.Dict[str, str] = {"CreateDvirRequestSafetyStatus": ".types", "CreateDvirRequestType": ".types"}
+    from .types import CreateDvirRequestSafetyStatus
+_dynamic_imports: typing.Dict[str, str] = {"CreateDvirRequestSafetyStatus": ".types"}
 
 
 def __getattr__(attr_name: str) -> typing.Any:
@@ -31,4 +31,4 @@ def __dir__():
     return sorted(lazy_attrs)
 
 
-__all__ = ["CreateDvirRequestSafetyStatus", "CreateDvirRequestType"]
+__all__ = ["CreateDvirRequestSafetyStatus"]

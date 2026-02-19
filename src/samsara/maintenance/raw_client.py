@@ -29,7 +29,6 @@ from ..types.dvir_response import DvirResponse
 from ..types.inline_response_2004 import InlineResponse2004
 from ..types.resolved_by import ResolvedBy
 from .types.create_dvir_request_safety_status import CreateDvirRequestSafetyStatus
-from .types.create_dvir_request_type import CreateDvirRequestType
 
 # this is used as the default value for optional parameters
 OMIT = typing.cast(typing.Any, ...)
@@ -50,9 +49,9 @@ class RawMaintenanceClient:
         """
         Get DVIR defect types.
 
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
 
-        To use this endpoint, select **Read Defect Types** under the Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read Defect Types** under the Maintenance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -214,9 +213,9 @@ class RawMaintenanceClient:
         """
         Stream DVIR defects.
 
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
 
-        To use this endpoint, select **Read Defects** under the Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read Defects** under the Maintenance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -386,9 +385,9 @@ class RawMaintenanceClient:
         """
         Get a single DVIR defect by ID.
 
-         <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+         <b>Rate limit:</b> 10 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
 
-        To use this endpoint, select **Read Defects** under the Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read Defects** under the Maintenance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -545,9 +544,9 @@ class RawMaintenanceClient:
         """
         Returns a history/feed of changed DVIRs by updatedAtTime between startTime and endTime parameters. In case of missing `endTime` parameter it will return a never ending stream of data.
 
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
 
-        To use this endpoint, select **Read DVIRs** under the Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read DVIRs** under the Maintenance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -717,9 +716,9 @@ class RawMaintenanceClient:
         """
         Get a single DVIR by ID.
 
-         <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+         <b>Rate limit:</b> 10 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
 
-        To use this endpoint, select **Read DVIRs** under the Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read DVIRs** under the Maintenance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -877,7 +876,7 @@ class RawMaintenanceClient:
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Write Defects** under the Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Write Defects** under the Maintenance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
         Parameters
         ----------
@@ -940,7 +939,6 @@ class RawMaintenanceClient:
         *,
         author_id: str,
         safety_status: CreateDvirRequestSafetyStatus,
-        type: CreateDvirRequestType,
         license_plate: typing.Optional[str] = OMIT,
         location: typing.Optional[str] = OMIT,
         mechanic_notes: typing.Optional[str] = OMIT,
@@ -955,7 +953,7 @@ class RawMaintenanceClient:
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Write DVIRs** under the Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Write DVIRs** under the Maintenance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
         Parameters
         ----------
@@ -964,9 +962,6 @@ class RawMaintenanceClient:
 
         safety_status : CreateDvirRequestSafetyStatus
             Whether or not this vehicle or trailer is safe to drive.
-
-        type : CreateDvirRequestType
-            Only type 'mechanic' is currently accepted.
 
         license_plate : typing.Optional[str]
             The license plate of this vehicle.
@@ -1009,8 +1004,8 @@ class RawMaintenanceClient:
                 "resolvedDefectIds": resolved_defect_ids,
                 "safetyStatus": safety_status,
                 "trailerId": trailer_id,
-                "type": type,
                 "vehicleId": vehicle_id,
+                "type": "mechanic",
             },
             headers={
                 "content-type": "application/json",
@@ -1048,7 +1043,7 @@ class RawMaintenanceClient:
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Write DVIRs** under the Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Write DVIRs** under the Maintenance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
         Parameters
         ----------
@@ -1120,7 +1115,7 @@ class RawMaintenanceClient:
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Read DVIRs** under the Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read DVIRs** under the Maintenance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
         Parameters
         ----------
@@ -1168,9 +1163,9 @@ class AsyncRawMaintenanceClient:
         """
         Get DVIR defect types.
 
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
 
-        To use this endpoint, select **Read Defect Types** under the Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read Defect Types** under the Maintenance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -1332,9 +1327,9 @@ class AsyncRawMaintenanceClient:
         """
         Stream DVIR defects.
 
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
 
-        To use this endpoint, select **Read Defects** under the Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read Defects** under the Maintenance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -1504,9 +1499,9 @@ class AsyncRawMaintenanceClient:
         """
         Get a single DVIR defect by ID.
 
-         <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+         <b>Rate limit:</b> 10 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
 
-        To use this endpoint, select **Read Defects** under the Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read Defects** under the Maintenance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -1663,9 +1658,9 @@ class AsyncRawMaintenanceClient:
         """
         Returns a history/feed of changed DVIRs by updatedAtTime between startTime and endTime parameters. In case of missing `endTime` parameter it will return a never ending stream of data.
 
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
 
-        To use this endpoint, select **Read DVIRs** under the Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read DVIRs** under the Maintenance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -1835,9 +1830,9 @@ class AsyncRawMaintenanceClient:
         """
         Get a single DVIR by ID.
 
-         <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+         <b>Rate limit:</b> 10 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
 
-        To use this endpoint, select **Read DVIRs** under the Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read DVIRs** under the Maintenance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -1995,7 +1990,7 @@ class AsyncRawMaintenanceClient:
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Write Defects** under the Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Write Defects** under the Maintenance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
         Parameters
         ----------
@@ -2058,7 +2053,6 @@ class AsyncRawMaintenanceClient:
         *,
         author_id: str,
         safety_status: CreateDvirRequestSafetyStatus,
-        type: CreateDvirRequestType,
         license_plate: typing.Optional[str] = OMIT,
         location: typing.Optional[str] = OMIT,
         mechanic_notes: typing.Optional[str] = OMIT,
@@ -2073,7 +2067,7 @@ class AsyncRawMaintenanceClient:
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Write DVIRs** under the Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Write DVIRs** under the Maintenance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
         Parameters
         ----------
@@ -2082,9 +2076,6 @@ class AsyncRawMaintenanceClient:
 
         safety_status : CreateDvirRequestSafetyStatus
             Whether or not this vehicle or trailer is safe to drive.
-
-        type : CreateDvirRequestType
-            Only type 'mechanic' is currently accepted.
 
         license_plate : typing.Optional[str]
             The license plate of this vehicle.
@@ -2127,8 +2118,8 @@ class AsyncRawMaintenanceClient:
                 "resolvedDefectIds": resolved_defect_ids,
                 "safetyStatus": safety_status,
                 "trailerId": trailer_id,
-                "type": type,
                 "vehicleId": vehicle_id,
+                "type": "mechanic",
             },
             headers={
                 "content-type": "application/json",
@@ -2166,7 +2157,7 @@ class AsyncRawMaintenanceClient:
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Write DVIRs** under the Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Write DVIRs** under the Maintenance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
         Parameters
         ----------
@@ -2238,7 +2229,7 @@ class AsyncRawMaintenanceClient:
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Read DVIRs** under the Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read DVIRs** under the Maintenance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
         Parameters
         ----------

@@ -6,6 +6,7 @@ from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.request_options import RequestOptions
 from ..types.contact_response import ContactResponse
 from ..types.list_contacts_response import ListContactsResponse
+from ..types.standard_delete_response import StandardDeleteResponse
 from .raw_client import AsyncRawContactsClient, RawContactsClient
 
 # this is used as the default value for optional parameters
@@ -39,7 +40,7 @@ class ContactsClient:
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Read Alert Contacts** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read Alert Contacts** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
         Parameters
         ----------
@@ -83,7 +84,7 @@ class ContactsClient:
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Write Alert Contacts** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Write Alert Contacts** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
         Parameters
         ----------
@@ -127,7 +128,7 @@ class ContactsClient:
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Read Alert Contacts** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read Alert Contacts** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
         Parameters
         ----------
@@ -156,13 +157,13 @@ class ContactsClient:
         _response = self._raw_client.get_contact(id, request_options=request_options)
         return _response.data
 
-    def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
+    def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> StandardDeleteResponse:
         """
         Delete the given contact.
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Write Alert Contacts** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Write Alert Contacts** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
         Parameters
         ----------
@@ -174,7 +175,8 @@ class ContactsClient:
 
         Returns
         -------
-        None
+        StandardDeleteResponse
+            A successful DELETE response is a 204 with no content.
 
         Examples
         --------
@@ -205,7 +207,7 @@ class ContactsClient:
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Write Alert Contacts** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Write Alert Contacts** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
         Parameters
         ----------
@@ -276,7 +278,7 @@ class AsyncContactsClient:
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Read Alert Contacts** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read Alert Contacts** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
         Parameters
         ----------
@@ -328,7 +330,7 @@ class AsyncContactsClient:
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Write Alert Contacts** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Write Alert Contacts** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
         Parameters
         ----------
@@ -380,7 +382,7 @@ class AsyncContactsClient:
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Read Alert Contacts** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Read Alert Contacts** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
         Parameters
         ----------
@@ -417,13 +419,15 @@ class AsyncContactsClient:
         _response = await self._raw_client.get_contact(id, request_options=request_options)
         return _response.data
 
-    async def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
+    async def delete(
+        self, id: str, *, request_options: typing.Optional[RequestOptions] = None
+    ) -> StandardDeleteResponse:
         """
         Delete the given contact.
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Write Alert Contacts** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Write Alert Contacts** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
         Parameters
         ----------
@@ -435,7 +439,8 @@ class AsyncContactsClient:
 
         Returns
         -------
-        None
+        StandardDeleteResponse
+            A successful DELETE response is a 204 with no content.
 
         Examples
         --------
@@ -474,7 +479,7 @@ class AsyncContactsClient:
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Write Alert Contacts** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Write Alert Contacts** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
 
         Parameters
         ----------
