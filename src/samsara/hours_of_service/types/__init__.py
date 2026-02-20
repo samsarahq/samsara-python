@@ -7,10 +7,8 @@ from importlib import import_module
 
 if typing.TYPE_CHECKING:
     from .get_hos_daily_logs_request_driver_activation_status import GetHosDailyLogsRequestDriverActivationStatus
-    from .get_hos_daily_logs_request_expand import GetHosDailyLogsRequestExpand
 _dynamic_imports: typing.Dict[str, str] = {
-    "GetHosDailyLogsRequestDriverActivationStatus": ".get_hos_daily_logs_request_driver_activation_status",
-    "GetHosDailyLogsRequestExpand": ".get_hos_daily_logs_request_expand",
+    "GetHosDailyLogsRequestDriverActivationStatus": ".get_hos_daily_logs_request_driver_activation_status"
 }
 
 
@@ -35,4 +33,4 @@ def __dir__():
     return sorted(lazy_attrs)
 
 
-__all__ = ["GetHosDailyLogsRequestDriverActivationStatus", "GetHosDailyLogsRequestExpand"]
+__all__ = ["GetHosDailyLogsRequestDriverActivationStatus"]

@@ -8,7 +8,7 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 
 class AddressExternalIds(UniversalBaseModel):
     """
-    The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.
+    The [external IDs](/docs/external-ids) for the given object.
     """
 
     if IS_PYDANTIC_V2:

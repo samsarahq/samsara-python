@@ -4,7 +4,6 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from .work_order_money_object_request_body_currency import WorkOrderMoneyObjectRequestBodyCurrency
 
 
 class WorkOrderMoneyObjectRequestBody(UniversalBaseModel):
@@ -17,7 +16,7 @@ class WorkOrderMoneyObjectRequestBody(UniversalBaseModel):
     Amount of the currency.
     """
 
-    currency: WorkOrderMoneyObjectRequestBodyCurrency = pydantic.Field()
+    currency: typing.Literal["usd"] = pydantic.Field(default="usd")
     """
     Type of the currency. We currently only support usd.  Valid values: `usd`
     """

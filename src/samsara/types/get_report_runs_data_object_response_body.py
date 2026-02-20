@@ -16,7 +16,7 @@ class GetReportRunsDataObjectResponseBody(UniversalBaseModel):
 
     rows: typing.List[typing.List[typing.Dict[str, typing.Any]]] = pydantic.Field()
     """
-    Array where each inner array represents a row of data, and each element in the inner array is a value for the column. Inner array items are nullable, data types: double, string, timestamp as string in RFC3339 format. The number of columns defined in the report run is to the number of inner array items.
+    Array where each inner array represents a row of data, and each element in the inner array is a value for the column. Inner array items are nullable, data types: float64, string, timestamp as string in RFC3339 format. The number of columns defined in the report run is to the number of inner array items.
     """
 
     status: GetReportRunsDataObjectResponseBodyStatus = pydantic.Field()

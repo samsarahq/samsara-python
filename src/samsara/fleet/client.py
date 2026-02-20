@@ -5,7 +5,6 @@ from __future__ import annotations
 import typing
 
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
-from .raw_client import AsyncRawFleetClient, RawFleetClient
 
 if typing.TYPE_CHECKING:
     from .attributes.client import AsyncAttributesClient, AttributesClient
@@ -17,21 +16,9 @@ if typing.TYPE_CHECKING:
 
 class FleetClient:
     def __init__(self, *, client_wrapper: SyncClientWrapper):
-        self._raw_client = RawFleetClient(client_wrapper=client_wrapper)
         self._client_wrapper = client_wrapper
         self._carrier_proposed_assignments: typing.Optional[CarrierProposedAssignmentsClient] = None
         self._attributes: typing.Optional[AttributesClient] = None
-
-    @property
-    def with_raw_response(self) -> RawFleetClient:
-        """
-        Retrieves a raw implementation of this client that returns raw responses.
-
-        Returns
-        -------
-        RawFleetClient
-        """
-        return self._raw_client
 
     @property
     def carrier_proposed_assignments(self):
@@ -52,21 +39,9 @@ class FleetClient:
 
 class AsyncFleetClient:
     def __init__(self, *, client_wrapper: AsyncClientWrapper):
-        self._raw_client = AsyncRawFleetClient(client_wrapper=client_wrapper)
         self._client_wrapper = client_wrapper
         self._carrier_proposed_assignments: typing.Optional[AsyncCarrierProposedAssignmentsClient] = None
         self._attributes: typing.Optional[AsyncAttributesClient] = None
-
-    @property
-    def with_raw_response(self) -> AsyncRawFleetClient:
-        """
-        Retrieves a raw implementation of this client that returns raw responses.
-
-        Returns
-        -------
-        AsyncRawFleetClient
-        """
-        return self._raw_client
 
     @property
     def carrier_proposed_assignments(self):
