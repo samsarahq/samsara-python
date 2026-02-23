@@ -16,6 +16,8 @@ if typing.TYPE_CHECKING:
         GetQualificationTypesRequestEntityType,
         GetTagGroupSafetyScoresRequestScoreType,
         GetTagSafetyScoresRequestScoreType,
+        RidershipPassengersCreateRidershipPassengerRequestBodyClassification,
+        RidershipPassengersUpdateRidershipPassengerRequestBodyClassification,
     )
 _dynamic_imports: typing.Dict[str, str] = {
     "FunctionsStartFunctionRunRequestBodyParamsOverride": ".types",
@@ -27,6 +29,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "GetQualificationTypesRequestEntityType": ".types",
     "GetTagGroupSafetyScoresRequestScoreType": ".types",
     "GetTagSafetyScoresRequestScoreType": ".types",
+    "RidershipPassengersCreateRidershipPassengerRequestBodyClassification": ".types",
+    "RidershipPassengersUpdateRidershipPassengerRequestBodyClassification": ".types",
 }
 
 
@@ -61,4 +65,6 @@ __all__ = [
     "GetQualificationTypesRequestEntityType",
     "GetTagGroupSafetyScoresRequestScoreType",
     "GetTagSafetyScoresRequestScoreType",
+    "RidershipPassengersCreateRidershipPassengerRequestBodyClassification",
+    "RidershipPassengersUpdateRidershipPassengerRequestBodyClassification",
 ]

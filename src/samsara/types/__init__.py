@@ -4156,6 +4156,292 @@ if typing.TYPE_CHECKING:
     from .ridership_accounts_update_ridership_account_unauthorized_error_response_body import (
         RidershipAccountsUpdateRidershipAccountUnauthorizedErrorResponseBody,
     )
+    from .ridership_passenger_identifier_input_request_body import RidershipPassengerIdentifierInputRequestBody
+    from .ridership_passenger_identifier_input_request_body_status import (
+        RidershipPassengerIdentifierInputRequestBodyStatus,
+    )
+    from .ridership_passenger_identifier_input_request_body_type import RidershipPassengerIdentifierInputRequestBodyType
+    from .ridership_passenger_identifier_object_response_body import RidershipPassengerIdentifierObjectResponseBody
+    from .ridership_passenger_identifier_object_response_body_status import (
+        RidershipPassengerIdentifierObjectResponseBodyStatus,
+    )
+    from .ridership_passenger_identifier_object_response_body_type import (
+        RidershipPassengerIdentifierObjectResponseBodyType,
+    )
+    from .ridership_passenger_object_response_body import RidershipPassengerObjectResponseBody
+    from .ridership_passenger_special_instructions_input_request_body import (
+        RidershipPassengerSpecialInstructionsInputRequestBody,
+    )
+    from .ridership_passenger_special_instructions_object_response_body import (
+        RidershipPassengerSpecialInstructionsObjectResponseBody,
+    )
+    from .ridership_passengers_create_ridership_passenger_bad_gateway_error_response_body import (
+        RidershipPassengersCreateRidershipPassengerBadGatewayErrorResponseBody,
+    )
+    from .ridership_passengers_create_ridership_passenger_gateway_timeout_error_response_body import (
+        RidershipPassengersCreateRidershipPassengerGatewayTimeoutErrorResponseBody,
+    )
+    from .ridership_passengers_create_ridership_passenger_internal_server_error_response_body import (
+        RidershipPassengersCreateRidershipPassengerInternalServerErrorResponseBody,
+    )
+    from .ridership_passengers_create_ridership_passenger_method_not_allowed_error_response_body import (
+        RidershipPassengersCreateRidershipPassengerMethodNotAllowedErrorResponseBody,
+    )
+    from .ridership_passengers_create_ridership_passenger_not_found_error_response_body import (
+        RidershipPassengersCreateRidershipPassengerNotFoundErrorResponseBody,
+    )
+    from .ridership_passengers_create_ridership_passenger_not_implemented_error_response_body import (
+        RidershipPassengersCreateRidershipPassengerNotImplementedErrorResponseBody,
+    )
+    from .ridership_passengers_create_ridership_passenger_response_body import (
+        RidershipPassengersCreateRidershipPassengerResponseBody,
+    )
+    from .ridership_passengers_create_ridership_passenger_service_unavailable_error_response_body import (
+        RidershipPassengersCreateRidershipPassengerServiceUnavailableErrorResponseBody,
+    )
+    from .ridership_passengers_create_ridership_passenger_too_many_requests_error_response_body import (
+        RidershipPassengersCreateRidershipPassengerTooManyRequestsErrorResponseBody,
+    )
+    from .ridership_passengers_create_ridership_passenger_unauthorized_error_response_body import (
+        RidershipPassengersCreateRidershipPassengerUnauthorizedErrorResponseBody,
+    )
+    from .ridership_passengers_delete_ridership_passenger_bad_gateway_error_response_body import (
+        RidershipPassengersDeleteRidershipPassengerBadGatewayErrorResponseBody,
+    )
+    from .ridership_passengers_delete_ridership_passenger_gateway_timeout_error_response_body import (
+        RidershipPassengersDeleteRidershipPassengerGatewayTimeoutErrorResponseBody,
+    )
+    from .ridership_passengers_delete_ridership_passenger_internal_server_error_response_body import (
+        RidershipPassengersDeleteRidershipPassengerInternalServerErrorResponseBody,
+    )
+    from .ridership_passengers_delete_ridership_passenger_method_not_allowed_error_response_body import (
+        RidershipPassengersDeleteRidershipPassengerMethodNotAllowedErrorResponseBody,
+    )
+    from .ridership_passengers_delete_ridership_passenger_not_found_error_response_body import (
+        RidershipPassengersDeleteRidershipPassengerNotFoundErrorResponseBody,
+    )
+    from .ridership_passengers_delete_ridership_passenger_not_implemented_error_response_body import (
+        RidershipPassengersDeleteRidershipPassengerNotImplementedErrorResponseBody,
+    )
+    from .ridership_passengers_delete_ridership_passenger_service_unavailable_error_response_body import (
+        RidershipPassengersDeleteRidershipPassengerServiceUnavailableErrorResponseBody,
+    )
+    from .ridership_passengers_delete_ridership_passenger_too_many_requests_error_response_body import (
+        RidershipPassengersDeleteRidershipPassengerTooManyRequestsErrorResponseBody,
+    )
+    from .ridership_passengers_delete_ridership_passenger_unauthorized_error_response_body import (
+        RidershipPassengersDeleteRidershipPassengerUnauthorizedErrorResponseBody,
+    )
+    from .ridership_passengers_get_ridership_passenger_bad_gateway_error_response_body import (
+        RidershipPassengersGetRidershipPassengerBadGatewayErrorResponseBody,
+    )
+    from .ridership_passengers_get_ridership_passenger_gateway_timeout_error_response_body import (
+        RidershipPassengersGetRidershipPassengerGatewayTimeoutErrorResponseBody,
+    )
+    from .ridership_passengers_get_ridership_passenger_internal_server_error_response_body import (
+        RidershipPassengersGetRidershipPassengerInternalServerErrorResponseBody,
+    )
+    from .ridership_passengers_get_ridership_passenger_method_not_allowed_error_response_body import (
+        RidershipPassengersGetRidershipPassengerMethodNotAllowedErrorResponseBody,
+    )
+    from .ridership_passengers_get_ridership_passenger_not_found_error_response_body import (
+        RidershipPassengersGetRidershipPassengerNotFoundErrorResponseBody,
+    )
+    from .ridership_passengers_get_ridership_passenger_not_implemented_error_response_body import (
+        RidershipPassengersGetRidershipPassengerNotImplementedErrorResponseBody,
+    )
+    from .ridership_passengers_get_ridership_passenger_response_body import (
+        RidershipPassengersGetRidershipPassengerResponseBody,
+    )
+    from .ridership_passengers_get_ridership_passenger_service_unavailable_error_response_body import (
+        RidershipPassengersGetRidershipPassengerServiceUnavailableErrorResponseBody,
+    )
+    from .ridership_passengers_get_ridership_passenger_too_many_requests_error_response_body import (
+        RidershipPassengersGetRidershipPassengerTooManyRequestsErrorResponseBody,
+    )
+    from .ridership_passengers_get_ridership_passenger_unauthorized_error_response_body import (
+        RidershipPassengersGetRidershipPassengerUnauthorizedErrorResponseBody,
+    )
+    from .ridership_passengers_list_ridership_passengers_bad_gateway_error_response_body import (
+        RidershipPassengersListRidershipPassengersBadGatewayErrorResponseBody,
+    )
+    from .ridership_passengers_list_ridership_passengers_gateway_timeout_error_response_body import (
+        RidershipPassengersListRidershipPassengersGatewayTimeoutErrorResponseBody,
+    )
+    from .ridership_passengers_list_ridership_passengers_internal_server_error_response_body import (
+        RidershipPassengersListRidershipPassengersInternalServerErrorResponseBody,
+    )
+    from .ridership_passengers_list_ridership_passengers_method_not_allowed_error_response_body import (
+        RidershipPassengersListRidershipPassengersMethodNotAllowedErrorResponseBody,
+    )
+    from .ridership_passengers_list_ridership_passengers_not_found_error_response_body import (
+        RidershipPassengersListRidershipPassengersNotFoundErrorResponseBody,
+    )
+    from .ridership_passengers_list_ridership_passengers_not_implemented_error_response_body import (
+        RidershipPassengersListRidershipPassengersNotImplementedErrorResponseBody,
+    )
+    from .ridership_passengers_list_ridership_passengers_response_body import (
+        RidershipPassengersListRidershipPassengersResponseBody,
+    )
+    from .ridership_passengers_list_ridership_passengers_service_unavailable_error_response_body import (
+        RidershipPassengersListRidershipPassengersServiceUnavailableErrorResponseBody,
+    )
+    from .ridership_passengers_list_ridership_passengers_too_many_requests_error_response_body import (
+        RidershipPassengersListRidershipPassengersTooManyRequestsErrorResponseBody,
+    )
+    from .ridership_passengers_list_ridership_passengers_unauthorized_error_response_body import (
+        RidershipPassengersListRidershipPassengersUnauthorizedErrorResponseBody,
+    )
+    from .ridership_passengers_update_ridership_passenger_bad_gateway_error_response_body import (
+        RidershipPassengersUpdateRidershipPassengerBadGatewayErrorResponseBody,
+    )
+    from .ridership_passengers_update_ridership_passenger_gateway_timeout_error_response_body import (
+        RidershipPassengersUpdateRidershipPassengerGatewayTimeoutErrorResponseBody,
+    )
+    from .ridership_passengers_update_ridership_passenger_internal_server_error_response_body import (
+        RidershipPassengersUpdateRidershipPassengerInternalServerErrorResponseBody,
+    )
+    from .ridership_passengers_update_ridership_passenger_method_not_allowed_error_response_body import (
+        RidershipPassengersUpdateRidershipPassengerMethodNotAllowedErrorResponseBody,
+    )
+    from .ridership_passengers_update_ridership_passenger_not_found_error_response_body import (
+        RidershipPassengersUpdateRidershipPassengerNotFoundErrorResponseBody,
+    )
+    from .ridership_passengers_update_ridership_passenger_not_implemented_error_response_body import (
+        RidershipPassengersUpdateRidershipPassengerNotImplementedErrorResponseBody,
+    )
+    from .ridership_passengers_update_ridership_passenger_response_body import (
+        RidershipPassengersUpdateRidershipPassengerResponseBody,
+    )
+    from .ridership_passengers_update_ridership_passenger_service_unavailable_error_response_body import (
+        RidershipPassengersUpdateRidershipPassengerServiceUnavailableErrorResponseBody,
+    )
+    from .ridership_passengers_update_ridership_passenger_too_many_requests_error_response_body import (
+        RidershipPassengersUpdateRidershipPassengerTooManyRequestsErrorResponseBody,
+    )
+    from .ridership_passengers_update_ridership_passenger_unauthorized_error_response_body import (
+        RidershipPassengersUpdateRidershipPassengerUnauthorizedErrorResponseBody,
+    )
+    from .ridership_route_setup_object_response_body import RidershipRouteSetupObjectResponseBody
+    from .ridership_route_setup_passenger_input_request_body import RidershipRouteSetupPassengerInputRequestBody
+    from .ridership_route_setup_passenger_object_response_body import RidershipRouteSetupPassengerObjectResponseBody
+    from .ridership_route_setups_create_ridership_route_setup_bad_gateway_error_response_body import (
+        RidershipRouteSetupsCreateRidershipRouteSetupBadGatewayErrorResponseBody,
+    )
+    from .ridership_route_setups_create_ridership_route_setup_gateway_timeout_error_response_body import (
+        RidershipRouteSetupsCreateRidershipRouteSetupGatewayTimeoutErrorResponseBody,
+    )
+    from .ridership_route_setups_create_ridership_route_setup_internal_server_error_response_body import (
+        RidershipRouteSetupsCreateRidershipRouteSetupInternalServerErrorResponseBody,
+    )
+    from .ridership_route_setups_create_ridership_route_setup_method_not_allowed_error_response_body import (
+        RidershipRouteSetupsCreateRidershipRouteSetupMethodNotAllowedErrorResponseBody,
+    )
+    from .ridership_route_setups_create_ridership_route_setup_not_found_error_response_body import (
+        RidershipRouteSetupsCreateRidershipRouteSetupNotFoundErrorResponseBody,
+    )
+    from .ridership_route_setups_create_ridership_route_setup_not_implemented_error_response_body import (
+        RidershipRouteSetupsCreateRidershipRouteSetupNotImplementedErrorResponseBody,
+    )
+    from .ridership_route_setups_create_ridership_route_setup_response_body import (
+        RidershipRouteSetupsCreateRidershipRouteSetupResponseBody,
+    )
+    from .ridership_route_setups_create_ridership_route_setup_service_unavailable_error_response_body import (
+        RidershipRouteSetupsCreateRidershipRouteSetupServiceUnavailableErrorResponseBody,
+    )
+    from .ridership_route_setups_create_ridership_route_setup_too_many_requests_error_response_body import (
+        RidershipRouteSetupsCreateRidershipRouteSetupTooManyRequestsErrorResponseBody,
+    )
+    from .ridership_route_setups_create_ridership_route_setup_unauthorized_error_response_body import (
+        RidershipRouteSetupsCreateRidershipRouteSetupUnauthorizedErrorResponseBody,
+    )
+    from .ridership_route_setups_delete_ridership_route_setup_bad_gateway_error_response_body import (
+        RidershipRouteSetupsDeleteRidershipRouteSetupBadGatewayErrorResponseBody,
+    )
+    from .ridership_route_setups_delete_ridership_route_setup_gateway_timeout_error_response_body import (
+        RidershipRouteSetupsDeleteRidershipRouteSetupGatewayTimeoutErrorResponseBody,
+    )
+    from .ridership_route_setups_delete_ridership_route_setup_internal_server_error_response_body import (
+        RidershipRouteSetupsDeleteRidershipRouteSetupInternalServerErrorResponseBody,
+    )
+    from .ridership_route_setups_delete_ridership_route_setup_method_not_allowed_error_response_body import (
+        RidershipRouteSetupsDeleteRidershipRouteSetupMethodNotAllowedErrorResponseBody,
+    )
+    from .ridership_route_setups_delete_ridership_route_setup_not_found_error_response_body import (
+        RidershipRouteSetupsDeleteRidershipRouteSetupNotFoundErrorResponseBody,
+    )
+    from .ridership_route_setups_delete_ridership_route_setup_not_implemented_error_response_body import (
+        RidershipRouteSetupsDeleteRidershipRouteSetupNotImplementedErrorResponseBody,
+    )
+    from .ridership_route_setups_delete_ridership_route_setup_service_unavailable_error_response_body import (
+        RidershipRouteSetupsDeleteRidershipRouteSetupServiceUnavailableErrorResponseBody,
+    )
+    from .ridership_route_setups_delete_ridership_route_setup_too_many_requests_error_response_body import (
+        RidershipRouteSetupsDeleteRidershipRouteSetupTooManyRequestsErrorResponseBody,
+    )
+    from .ridership_route_setups_delete_ridership_route_setup_unauthorized_error_response_body import (
+        RidershipRouteSetupsDeleteRidershipRouteSetupUnauthorizedErrorResponseBody,
+    )
+    from .ridership_route_setups_get_ridership_route_setup_bad_gateway_error_response_body import (
+        RidershipRouteSetupsGetRidershipRouteSetupBadGatewayErrorResponseBody,
+    )
+    from .ridership_route_setups_get_ridership_route_setup_gateway_timeout_error_response_body import (
+        RidershipRouteSetupsGetRidershipRouteSetupGatewayTimeoutErrorResponseBody,
+    )
+    from .ridership_route_setups_get_ridership_route_setup_internal_server_error_response_body import (
+        RidershipRouteSetupsGetRidershipRouteSetupInternalServerErrorResponseBody,
+    )
+    from .ridership_route_setups_get_ridership_route_setup_method_not_allowed_error_response_body import (
+        RidershipRouteSetupsGetRidershipRouteSetupMethodNotAllowedErrorResponseBody,
+    )
+    from .ridership_route_setups_get_ridership_route_setup_not_found_error_response_body import (
+        RidershipRouteSetupsGetRidershipRouteSetupNotFoundErrorResponseBody,
+    )
+    from .ridership_route_setups_get_ridership_route_setup_not_implemented_error_response_body import (
+        RidershipRouteSetupsGetRidershipRouteSetupNotImplementedErrorResponseBody,
+    )
+    from .ridership_route_setups_get_ridership_route_setup_response_body import (
+        RidershipRouteSetupsGetRidershipRouteSetupResponseBody,
+    )
+    from .ridership_route_setups_get_ridership_route_setup_service_unavailable_error_response_body import (
+        RidershipRouteSetupsGetRidershipRouteSetupServiceUnavailableErrorResponseBody,
+    )
+    from .ridership_route_setups_get_ridership_route_setup_too_many_requests_error_response_body import (
+        RidershipRouteSetupsGetRidershipRouteSetupTooManyRequestsErrorResponseBody,
+    )
+    from .ridership_route_setups_get_ridership_route_setup_unauthorized_error_response_body import (
+        RidershipRouteSetupsGetRidershipRouteSetupUnauthorizedErrorResponseBody,
+    )
+    from .ridership_route_setups_update_ridership_route_setup_bad_gateway_error_response_body import (
+        RidershipRouteSetupsUpdateRidershipRouteSetupBadGatewayErrorResponseBody,
+    )
+    from .ridership_route_setups_update_ridership_route_setup_gateway_timeout_error_response_body import (
+        RidershipRouteSetupsUpdateRidershipRouteSetupGatewayTimeoutErrorResponseBody,
+    )
+    from .ridership_route_setups_update_ridership_route_setup_internal_server_error_response_body import (
+        RidershipRouteSetupsUpdateRidershipRouteSetupInternalServerErrorResponseBody,
+    )
+    from .ridership_route_setups_update_ridership_route_setup_method_not_allowed_error_response_body import (
+        RidershipRouteSetupsUpdateRidershipRouteSetupMethodNotAllowedErrorResponseBody,
+    )
+    from .ridership_route_setups_update_ridership_route_setup_not_found_error_response_body import (
+        RidershipRouteSetupsUpdateRidershipRouteSetupNotFoundErrorResponseBody,
+    )
+    from .ridership_route_setups_update_ridership_route_setup_not_implemented_error_response_body import (
+        RidershipRouteSetupsUpdateRidershipRouteSetupNotImplementedErrorResponseBody,
+    )
+    from .ridership_route_setups_update_ridership_route_setup_response_body import (
+        RidershipRouteSetupsUpdateRidershipRouteSetupResponseBody,
+    )
+    from .ridership_route_setups_update_ridership_route_setup_service_unavailable_error_response_body import (
+        RidershipRouteSetupsUpdateRidershipRouteSetupServiceUnavailableErrorResponseBody,
+    )
+    from .ridership_route_setups_update_ridership_route_setup_too_many_requests_error_response_body import (
+        RidershipRouteSetupsUpdateRidershipRouteSetupTooManyRequestsErrorResponseBody,
+    )
+    from .ridership_route_setups_update_ridership_route_setup_unauthorized_error_response_body import (
+        RidershipRouteSetupsUpdateRidershipRouteSetupUnauthorizedErrorResponseBody,
+    )
     from .rolling_stop_detection_alert_settings_object_response_body import (
         RollingStopDetectionAlertSettingsObjectResponseBody,
     )
@@ -8664,6 +8950,106 @@ _dynamic_imports: typing.Dict[str, str] = {
     "RidershipAccountsUpdateRidershipAccountServiceUnavailableErrorResponseBody": ".ridership_accounts_update_ridership_account_service_unavailable_error_response_body",
     "RidershipAccountsUpdateRidershipAccountTooManyRequestsErrorResponseBody": ".ridership_accounts_update_ridership_account_too_many_requests_error_response_body",
     "RidershipAccountsUpdateRidershipAccountUnauthorizedErrorResponseBody": ".ridership_accounts_update_ridership_account_unauthorized_error_response_body",
+    "RidershipPassengerIdentifierInputRequestBody": ".ridership_passenger_identifier_input_request_body",
+    "RidershipPassengerIdentifierInputRequestBodyStatus": ".ridership_passenger_identifier_input_request_body_status",
+    "RidershipPassengerIdentifierInputRequestBodyType": ".ridership_passenger_identifier_input_request_body_type",
+    "RidershipPassengerIdentifierObjectResponseBody": ".ridership_passenger_identifier_object_response_body",
+    "RidershipPassengerIdentifierObjectResponseBodyStatus": ".ridership_passenger_identifier_object_response_body_status",
+    "RidershipPassengerIdentifierObjectResponseBodyType": ".ridership_passenger_identifier_object_response_body_type",
+    "RidershipPassengerObjectResponseBody": ".ridership_passenger_object_response_body",
+    "RidershipPassengerSpecialInstructionsInputRequestBody": ".ridership_passenger_special_instructions_input_request_body",
+    "RidershipPassengerSpecialInstructionsObjectResponseBody": ".ridership_passenger_special_instructions_object_response_body",
+    "RidershipPassengersCreateRidershipPassengerBadGatewayErrorResponseBody": ".ridership_passengers_create_ridership_passenger_bad_gateway_error_response_body",
+    "RidershipPassengersCreateRidershipPassengerGatewayTimeoutErrorResponseBody": ".ridership_passengers_create_ridership_passenger_gateway_timeout_error_response_body",
+    "RidershipPassengersCreateRidershipPassengerInternalServerErrorResponseBody": ".ridership_passengers_create_ridership_passenger_internal_server_error_response_body",
+    "RidershipPassengersCreateRidershipPassengerMethodNotAllowedErrorResponseBody": ".ridership_passengers_create_ridership_passenger_method_not_allowed_error_response_body",
+    "RidershipPassengersCreateRidershipPassengerNotFoundErrorResponseBody": ".ridership_passengers_create_ridership_passenger_not_found_error_response_body",
+    "RidershipPassengersCreateRidershipPassengerNotImplementedErrorResponseBody": ".ridership_passengers_create_ridership_passenger_not_implemented_error_response_body",
+    "RidershipPassengersCreateRidershipPassengerResponseBody": ".ridership_passengers_create_ridership_passenger_response_body",
+    "RidershipPassengersCreateRidershipPassengerServiceUnavailableErrorResponseBody": ".ridership_passengers_create_ridership_passenger_service_unavailable_error_response_body",
+    "RidershipPassengersCreateRidershipPassengerTooManyRequestsErrorResponseBody": ".ridership_passengers_create_ridership_passenger_too_many_requests_error_response_body",
+    "RidershipPassengersCreateRidershipPassengerUnauthorizedErrorResponseBody": ".ridership_passengers_create_ridership_passenger_unauthorized_error_response_body",
+    "RidershipPassengersDeleteRidershipPassengerBadGatewayErrorResponseBody": ".ridership_passengers_delete_ridership_passenger_bad_gateway_error_response_body",
+    "RidershipPassengersDeleteRidershipPassengerGatewayTimeoutErrorResponseBody": ".ridership_passengers_delete_ridership_passenger_gateway_timeout_error_response_body",
+    "RidershipPassengersDeleteRidershipPassengerInternalServerErrorResponseBody": ".ridership_passengers_delete_ridership_passenger_internal_server_error_response_body",
+    "RidershipPassengersDeleteRidershipPassengerMethodNotAllowedErrorResponseBody": ".ridership_passengers_delete_ridership_passenger_method_not_allowed_error_response_body",
+    "RidershipPassengersDeleteRidershipPassengerNotFoundErrorResponseBody": ".ridership_passengers_delete_ridership_passenger_not_found_error_response_body",
+    "RidershipPassengersDeleteRidershipPassengerNotImplementedErrorResponseBody": ".ridership_passengers_delete_ridership_passenger_not_implemented_error_response_body",
+    "RidershipPassengersDeleteRidershipPassengerServiceUnavailableErrorResponseBody": ".ridership_passengers_delete_ridership_passenger_service_unavailable_error_response_body",
+    "RidershipPassengersDeleteRidershipPassengerTooManyRequestsErrorResponseBody": ".ridership_passengers_delete_ridership_passenger_too_many_requests_error_response_body",
+    "RidershipPassengersDeleteRidershipPassengerUnauthorizedErrorResponseBody": ".ridership_passengers_delete_ridership_passenger_unauthorized_error_response_body",
+    "RidershipPassengersGetRidershipPassengerBadGatewayErrorResponseBody": ".ridership_passengers_get_ridership_passenger_bad_gateway_error_response_body",
+    "RidershipPassengersGetRidershipPassengerGatewayTimeoutErrorResponseBody": ".ridership_passengers_get_ridership_passenger_gateway_timeout_error_response_body",
+    "RidershipPassengersGetRidershipPassengerInternalServerErrorResponseBody": ".ridership_passengers_get_ridership_passenger_internal_server_error_response_body",
+    "RidershipPassengersGetRidershipPassengerMethodNotAllowedErrorResponseBody": ".ridership_passengers_get_ridership_passenger_method_not_allowed_error_response_body",
+    "RidershipPassengersGetRidershipPassengerNotFoundErrorResponseBody": ".ridership_passengers_get_ridership_passenger_not_found_error_response_body",
+    "RidershipPassengersGetRidershipPassengerNotImplementedErrorResponseBody": ".ridership_passengers_get_ridership_passenger_not_implemented_error_response_body",
+    "RidershipPassengersGetRidershipPassengerResponseBody": ".ridership_passengers_get_ridership_passenger_response_body",
+    "RidershipPassengersGetRidershipPassengerServiceUnavailableErrorResponseBody": ".ridership_passengers_get_ridership_passenger_service_unavailable_error_response_body",
+    "RidershipPassengersGetRidershipPassengerTooManyRequestsErrorResponseBody": ".ridership_passengers_get_ridership_passenger_too_many_requests_error_response_body",
+    "RidershipPassengersGetRidershipPassengerUnauthorizedErrorResponseBody": ".ridership_passengers_get_ridership_passenger_unauthorized_error_response_body",
+    "RidershipPassengersListRidershipPassengersBadGatewayErrorResponseBody": ".ridership_passengers_list_ridership_passengers_bad_gateway_error_response_body",
+    "RidershipPassengersListRidershipPassengersGatewayTimeoutErrorResponseBody": ".ridership_passengers_list_ridership_passengers_gateway_timeout_error_response_body",
+    "RidershipPassengersListRidershipPassengersInternalServerErrorResponseBody": ".ridership_passengers_list_ridership_passengers_internal_server_error_response_body",
+    "RidershipPassengersListRidershipPassengersMethodNotAllowedErrorResponseBody": ".ridership_passengers_list_ridership_passengers_method_not_allowed_error_response_body",
+    "RidershipPassengersListRidershipPassengersNotFoundErrorResponseBody": ".ridership_passengers_list_ridership_passengers_not_found_error_response_body",
+    "RidershipPassengersListRidershipPassengersNotImplementedErrorResponseBody": ".ridership_passengers_list_ridership_passengers_not_implemented_error_response_body",
+    "RidershipPassengersListRidershipPassengersResponseBody": ".ridership_passengers_list_ridership_passengers_response_body",
+    "RidershipPassengersListRidershipPassengersServiceUnavailableErrorResponseBody": ".ridership_passengers_list_ridership_passengers_service_unavailable_error_response_body",
+    "RidershipPassengersListRidershipPassengersTooManyRequestsErrorResponseBody": ".ridership_passengers_list_ridership_passengers_too_many_requests_error_response_body",
+    "RidershipPassengersListRidershipPassengersUnauthorizedErrorResponseBody": ".ridership_passengers_list_ridership_passengers_unauthorized_error_response_body",
+    "RidershipPassengersUpdateRidershipPassengerBadGatewayErrorResponseBody": ".ridership_passengers_update_ridership_passenger_bad_gateway_error_response_body",
+    "RidershipPassengersUpdateRidershipPassengerGatewayTimeoutErrorResponseBody": ".ridership_passengers_update_ridership_passenger_gateway_timeout_error_response_body",
+    "RidershipPassengersUpdateRidershipPassengerInternalServerErrorResponseBody": ".ridership_passengers_update_ridership_passenger_internal_server_error_response_body",
+    "RidershipPassengersUpdateRidershipPassengerMethodNotAllowedErrorResponseBody": ".ridership_passengers_update_ridership_passenger_method_not_allowed_error_response_body",
+    "RidershipPassengersUpdateRidershipPassengerNotFoundErrorResponseBody": ".ridership_passengers_update_ridership_passenger_not_found_error_response_body",
+    "RidershipPassengersUpdateRidershipPassengerNotImplementedErrorResponseBody": ".ridership_passengers_update_ridership_passenger_not_implemented_error_response_body",
+    "RidershipPassengersUpdateRidershipPassengerResponseBody": ".ridership_passengers_update_ridership_passenger_response_body",
+    "RidershipPassengersUpdateRidershipPassengerServiceUnavailableErrorResponseBody": ".ridership_passengers_update_ridership_passenger_service_unavailable_error_response_body",
+    "RidershipPassengersUpdateRidershipPassengerTooManyRequestsErrorResponseBody": ".ridership_passengers_update_ridership_passenger_too_many_requests_error_response_body",
+    "RidershipPassengersUpdateRidershipPassengerUnauthorizedErrorResponseBody": ".ridership_passengers_update_ridership_passenger_unauthorized_error_response_body",
+    "RidershipRouteSetupObjectResponseBody": ".ridership_route_setup_object_response_body",
+    "RidershipRouteSetupPassengerInputRequestBody": ".ridership_route_setup_passenger_input_request_body",
+    "RidershipRouteSetupPassengerObjectResponseBody": ".ridership_route_setup_passenger_object_response_body",
+    "RidershipRouteSetupsCreateRidershipRouteSetupBadGatewayErrorResponseBody": ".ridership_route_setups_create_ridership_route_setup_bad_gateway_error_response_body",
+    "RidershipRouteSetupsCreateRidershipRouteSetupGatewayTimeoutErrorResponseBody": ".ridership_route_setups_create_ridership_route_setup_gateway_timeout_error_response_body",
+    "RidershipRouteSetupsCreateRidershipRouteSetupInternalServerErrorResponseBody": ".ridership_route_setups_create_ridership_route_setup_internal_server_error_response_body",
+    "RidershipRouteSetupsCreateRidershipRouteSetupMethodNotAllowedErrorResponseBody": ".ridership_route_setups_create_ridership_route_setup_method_not_allowed_error_response_body",
+    "RidershipRouteSetupsCreateRidershipRouteSetupNotFoundErrorResponseBody": ".ridership_route_setups_create_ridership_route_setup_not_found_error_response_body",
+    "RidershipRouteSetupsCreateRidershipRouteSetupNotImplementedErrorResponseBody": ".ridership_route_setups_create_ridership_route_setup_not_implemented_error_response_body",
+    "RidershipRouteSetupsCreateRidershipRouteSetupResponseBody": ".ridership_route_setups_create_ridership_route_setup_response_body",
+    "RidershipRouteSetupsCreateRidershipRouteSetupServiceUnavailableErrorResponseBody": ".ridership_route_setups_create_ridership_route_setup_service_unavailable_error_response_body",
+    "RidershipRouteSetupsCreateRidershipRouteSetupTooManyRequestsErrorResponseBody": ".ridership_route_setups_create_ridership_route_setup_too_many_requests_error_response_body",
+    "RidershipRouteSetupsCreateRidershipRouteSetupUnauthorizedErrorResponseBody": ".ridership_route_setups_create_ridership_route_setup_unauthorized_error_response_body",
+    "RidershipRouteSetupsDeleteRidershipRouteSetupBadGatewayErrorResponseBody": ".ridership_route_setups_delete_ridership_route_setup_bad_gateway_error_response_body",
+    "RidershipRouteSetupsDeleteRidershipRouteSetupGatewayTimeoutErrorResponseBody": ".ridership_route_setups_delete_ridership_route_setup_gateway_timeout_error_response_body",
+    "RidershipRouteSetupsDeleteRidershipRouteSetupInternalServerErrorResponseBody": ".ridership_route_setups_delete_ridership_route_setup_internal_server_error_response_body",
+    "RidershipRouteSetupsDeleteRidershipRouteSetupMethodNotAllowedErrorResponseBody": ".ridership_route_setups_delete_ridership_route_setup_method_not_allowed_error_response_body",
+    "RidershipRouteSetupsDeleteRidershipRouteSetupNotFoundErrorResponseBody": ".ridership_route_setups_delete_ridership_route_setup_not_found_error_response_body",
+    "RidershipRouteSetupsDeleteRidershipRouteSetupNotImplementedErrorResponseBody": ".ridership_route_setups_delete_ridership_route_setup_not_implemented_error_response_body",
+    "RidershipRouteSetupsDeleteRidershipRouteSetupServiceUnavailableErrorResponseBody": ".ridership_route_setups_delete_ridership_route_setup_service_unavailable_error_response_body",
+    "RidershipRouteSetupsDeleteRidershipRouteSetupTooManyRequestsErrorResponseBody": ".ridership_route_setups_delete_ridership_route_setup_too_many_requests_error_response_body",
+    "RidershipRouteSetupsDeleteRidershipRouteSetupUnauthorizedErrorResponseBody": ".ridership_route_setups_delete_ridership_route_setup_unauthorized_error_response_body",
+    "RidershipRouteSetupsGetRidershipRouteSetupBadGatewayErrorResponseBody": ".ridership_route_setups_get_ridership_route_setup_bad_gateway_error_response_body",
+    "RidershipRouteSetupsGetRidershipRouteSetupGatewayTimeoutErrorResponseBody": ".ridership_route_setups_get_ridership_route_setup_gateway_timeout_error_response_body",
+    "RidershipRouteSetupsGetRidershipRouteSetupInternalServerErrorResponseBody": ".ridership_route_setups_get_ridership_route_setup_internal_server_error_response_body",
+    "RidershipRouteSetupsGetRidershipRouteSetupMethodNotAllowedErrorResponseBody": ".ridership_route_setups_get_ridership_route_setup_method_not_allowed_error_response_body",
+    "RidershipRouteSetupsGetRidershipRouteSetupNotFoundErrorResponseBody": ".ridership_route_setups_get_ridership_route_setup_not_found_error_response_body",
+    "RidershipRouteSetupsGetRidershipRouteSetupNotImplementedErrorResponseBody": ".ridership_route_setups_get_ridership_route_setup_not_implemented_error_response_body",
+    "RidershipRouteSetupsGetRidershipRouteSetupResponseBody": ".ridership_route_setups_get_ridership_route_setup_response_body",
+    "RidershipRouteSetupsGetRidershipRouteSetupServiceUnavailableErrorResponseBody": ".ridership_route_setups_get_ridership_route_setup_service_unavailable_error_response_body",
+    "RidershipRouteSetupsGetRidershipRouteSetupTooManyRequestsErrorResponseBody": ".ridership_route_setups_get_ridership_route_setup_too_many_requests_error_response_body",
+    "RidershipRouteSetupsGetRidershipRouteSetupUnauthorizedErrorResponseBody": ".ridership_route_setups_get_ridership_route_setup_unauthorized_error_response_body",
+    "RidershipRouteSetupsUpdateRidershipRouteSetupBadGatewayErrorResponseBody": ".ridership_route_setups_update_ridership_route_setup_bad_gateway_error_response_body",
+    "RidershipRouteSetupsUpdateRidershipRouteSetupGatewayTimeoutErrorResponseBody": ".ridership_route_setups_update_ridership_route_setup_gateway_timeout_error_response_body",
+    "RidershipRouteSetupsUpdateRidershipRouteSetupInternalServerErrorResponseBody": ".ridership_route_setups_update_ridership_route_setup_internal_server_error_response_body",
+    "RidershipRouteSetupsUpdateRidershipRouteSetupMethodNotAllowedErrorResponseBody": ".ridership_route_setups_update_ridership_route_setup_method_not_allowed_error_response_body",
+    "RidershipRouteSetupsUpdateRidershipRouteSetupNotFoundErrorResponseBody": ".ridership_route_setups_update_ridership_route_setup_not_found_error_response_body",
+    "RidershipRouteSetupsUpdateRidershipRouteSetupNotImplementedErrorResponseBody": ".ridership_route_setups_update_ridership_route_setup_not_implemented_error_response_body",
+    "RidershipRouteSetupsUpdateRidershipRouteSetupResponseBody": ".ridership_route_setups_update_ridership_route_setup_response_body",
+    "RidershipRouteSetupsUpdateRidershipRouteSetupServiceUnavailableErrorResponseBody": ".ridership_route_setups_update_ridership_route_setup_service_unavailable_error_response_body",
+    "RidershipRouteSetupsUpdateRidershipRouteSetupTooManyRequestsErrorResponseBody": ".ridership_route_setups_update_ridership_route_setup_too_many_requests_error_response_body",
+    "RidershipRouteSetupsUpdateRidershipRouteSetupUnauthorizedErrorResponseBody": ".ridership_route_setups_update_ridership_route_setup_unauthorized_error_response_body",
     "RollingStopDetectionAlertSettingsObjectResponseBody": ".rolling_stop_detection_alert_settings_object_response_body",
     "RouteChangesResponseBody": ".route_changes_response_body",
     "RouteEventDetailsResponseBody": ".route_event_details_response_body",
@@ -12016,6 +12402,106 @@ __all__ = [
     "RidershipAccountsUpdateRidershipAccountServiceUnavailableErrorResponseBody",
     "RidershipAccountsUpdateRidershipAccountTooManyRequestsErrorResponseBody",
     "RidershipAccountsUpdateRidershipAccountUnauthorizedErrorResponseBody",
+    "RidershipPassengerIdentifierInputRequestBody",
+    "RidershipPassengerIdentifierInputRequestBodyStatus",
+    "RidershipPassengerIdentifierInputRequestBodyType",
+    "RidershipPassengerIdentifierObjectResponseBody",
+    "RidershipPassengerIdentifierObjectResponseBodyStatus",
+    "RidershipPassengerIdentifierObjectResponseBodyType",
+    "RidershipPassengerObjectResponseBody",
+    "RidershipPassengerSpecialInstructionsInputRequestBody",
+    "RidershipPassengerSpecialInstructionsObjectResponseBody",
+    "RidershipPassengersCreateRidershipPassengerBadGatewayErrorResponseBody",
+    "RidershipPassengersCreateRidershipPassengerGatewayTimeoutErrorResponseBody",
+    "RidershipPassengersCreateRidershipPassengerInternalServerErrorResponseBody",
+    "RidershipPassengersCreateRidershipPassengerMethodNotAllowedErrorResponseBody",
+    "RidershipPassengersCreateRidershipPassengerNotFoundErrorResponseBody",
+    "RidershipPassengersCreateRidershipPassengerNotImplementedErrorResponseBody",
+    "RidershipPassengersCreateRidershipPassengerResponseBody",
+    "RidershipPassengersCreateRidershipPassengerServiceUnavailableErrorResponseBody",
+    "RidershipPassengersCreateRidershipPassengerTooManyRequestsErrorResponseBody",
+    "RidershipPassengersCreateRidershipPassengerUnauthorizedErrorResponseBody",
+    "RidershipPassengersDeleteRidershipPassengerBadGatewayErrorResponseBody",
+    "RidershipPassengersDeleteRidershipPassengerGatewayTimeoutErrorResponseBody",
+    "RidershipPassengersDeleteRidershipPassengerInternalServerErrorResponseBody",
+    "RidershipPassengersDeleteRidershipPassengerMethodNotAllowedErrorResponseBody",
+    "RidershipPassengersDeleteRidershipPassengerNotFoundErrorResponseBody",
+    "RidershipPassengersDeleteRidershipPassengerNotImplementedErrorResponseBody",
+    "RidershipPassengersDeleteRidershipPassengerServiceUnavailableErrorResponseBody",
+    "RidershipPassengersDeleteRidershipPassengerTooManyRequestsErrorResponseBody",
+    "RidershipPassengersDeleteRidershipPassengerUnauthorizedErrorResponseBody",
+    "RidershipPassengersGetRidershipPassengerBadGatewayErrorResponseBody",
+    "RidershipPassengersGetRidershipPassengerGatewayTimeoutErrorResponseBody",
+    "RidershipPassengersGetRidershipPassengerInternalServerErrorResponseBody",
+    "RidershipPassengersGetRidershipPassengerMethodNotAllowedErrorResponseBody",
+    "RidershipPassengersGetRidershipPassengerNotFoundErrorResponseBody",
+    "RidershipPassengersGetRidershipPassengerNotImplementedErrorResponseBody",
+    "RidershipPassengersGetRidershipPassengerResponseBody",
+    "RidershipPassengersGetRidershipPassengerServiceUnavailableErrorResponseBody",
+    "RidershipPassengersGetRidershipPassengerTooManyRequestsErrorResponseBody",
+    "RidershipPassengersGetRidershipPassengerUnauthorizedErrorResponseBody",
+    "RidershipPassengersListRidershipPassengersBadGatewayErrorResponseBody",
+    "RidershipPassengersListRidershipPassengersGatewayTimeoutErrorResponseBody",
+    "RidershipPassengersListRidershipPassengersInternalServerErrorResponseBody",
+    "RidershipPassengersListRidershipPassengersMethodNotAllowedErrorResponseBody",
+    "RidershipPassengersListRidershipPassengersNotFoundErrorResponseBody",
+    "RidershipPassengersListRidershipPassengersNotImplementedErrorResponseBody",
+    "RidershipPassengersListRidershipPassengersResponseBody",
+    "RidershipPassengersListRidershipPassengersServiceUnavailableErrorResponseBody",
+    "RidershipPassengersListRidershipPassengersTooManyRequestsErrorResponseBody",
+    "RidershipPassengersListRidershipPassengersUnauthorizedErrorResponseBody",
+    "RidershipPassengersUpdateRidershipPassengerBadGatewayErrorResponseBody",
+    "RidershipPassengersUpdateRidershipPassengerGatewayTimeoutErrorResponseBody",
+    "RidershipPassengersUpdateRidershipPassengerInternalServerErrorResponseBody",
+    "RidershipPassengersUpdateRidershipPassengerMethodNotAllowedErrorResponseBody",
+    "RidershipPassengersUpdateRidershipPassengerNotFoundErrorResponseBody",
+    "RidershipPassengersUpdateRidershipPassengerNotImplementedErrorResponseBody",
+    "RidershipPassengersUpdateRidershipPassengerResponseBody",
+    "RidershipPassengersUpdateRidershipPassengerServiceUnavailableErrorResponseBody",
+    "RidershipPassengersUpdateRidershipPassengerTooManyRequestsErrorResponseBody",
+    "RidershipPassengersUpdateRidershipPassengerUnauthorizedErrorResponseBody",
+    "RidershipRouteSetupObjectResponseBody",
+    "RidershipRouteSetupPassengerInputRequestBody",
+    "RidershipRouteSetupPassengerObjectResponseBody",
+    "RidershipRouteSetupsCreateRidershipRouteSetupBadGatewayErrorResponseBody",
+    "RidershipRouteSetupsCreateRidershipRouteSetupGatewayTimeoutErrorResponseBody",
+    "RidershipRouteSetupsCreateRidershipRouteSetupInternalServerErrorResponseBody",
+    "RidershipRouteSetupsCreateRidershipRouteSetupMethodNotAllowedErrorResponseBody",
+    "RidershipRouteSetupsCreateRidershipRouteSetupNotFoundErrorResponseBody",
+    "RidershipRouteSetupsCreateRidershipRouteSetupNotImplementedErrorResponseBody",
+    "RidershipRouteSetupsCreateRidershipRouteSetupResponseBody",
+    "RidershipRouteSetupsCreateRidershipRouteSetupServiceUnavailableErrorResponseBody",
+    "RidershipRouteSetupsCreateRidershipRouteSetupTooManyRequestsErrorResponseBody",
+    "RidershipRouteSetupsCreateRidershipRouteSetupUnauthorizedErrorResponseBody",
+    "RidershipRouteSetupsDeleteRidershipRouteSetupBadGatewayErrorResponseBody",
+    "RidershipRouteSetupsDeleteRidershipRouteSetupGatewayTimeoutErrorResponseBody",
+    "RidershipRouteSetupsDeleteRidershipRouteSetupInternalServerErrorResponseBody",
+    "RidershipRouteSetupsDeleteRidershipRouteSetupMethodNotAllowedErrorResponseBody",
+    "RidershipRouteSetupsDeleteRidershipRouteSetupNotFoundErrorResponseBody",
+    "RidershipRouteSetupsDeleteRidershipRouteSetupNotImplementedErrorResponseBody",
+    "RidershipRouteSetupsDeleteRidershipRouteSetupServiceUnavailableErrorResponseBody",
+    "RidershipRouteSetupsDeleteRidershipRouteSetupTooManyRequestsErrorResponseBody",
+    "RidershipRouteSetupsDeleteRidershipRouteSetupUnauthorizedErrorResponseBody",
+    "RidershipRouteSetupsGetRidershipRouteSetupBadGatewayErrorResponseBody",
+    "RidershipRouteSetupsGetRidershipRouteSetupGatewayTimeoutErrorResponseBody",
+    "RidershipRouteSetupsGetRidershipRouteSetupInternalServerErrorResponseBody",
+    "RidershipRouteSetupsGetRidershipRouteSetupMethodNotAllowedErrorResponseBody",
+    "RidershipRouteSetupsGetRidershipRouteSetupNotFoundErrorResponseBody",
+    "RidershipRouteSetupsGetRidershipRouteSetupNotImplementedErrorResponseBody",
+    "RidershipRouteSetupsGetRidershipRouteSetupResponseBody",
+    "RidershipRouteSetupsGetRidershipRouteSetupServiceUnavailableErrorResponseBody",
+    "RidershipRouteSetupsGetRidershipRouteSetupTooManyRequestsErrorResponseBody",
+    "RidershipRouteSetupsGetRidershipRouteSetupUnauthorizedErrorResponseBody",
+    "RidershipRouteSetupsUpdateRidershipRouteSetupBadGatewayErrorResponseBody",
+    "RidershipRouteSetupsUpdateRidershipRouteSetupGatewayTimeoutErrorResponseBody",
+    "RidershipRouteSetupsUpdateRidershipRouteSetupInternalServerErrorResponseBody",
+    "RidershipRouteSetupsUpdateRidershipRouteSetupMethodNotAllowedErrorResponseBody",
+    "RidershipRouteSetupsUpdateRidershipRouteSetupNotFoundErrorResponseBody",
+    "RidershipRouteSetupsUpdateRidershipRouteSetupNotImplementedErrorResponseBody",
+    "RidershipRouteSetupsUpdateRidershipRouteSetupResponseBody",
+    "RidershipRouteSetupsUpdateRidershipRouteSetupServiceUnavailableErrorResponseBody",
+    "RidershipRouteSetupsUpdateRidershipRouteSetupTooManyRequestsErrorResponseBody",
+    "RidershipRouteSetupsUpdateRidershipRouteSetupUnauthorizedErrorResponseBody",
     "RollingStopDetectionAlertSettingsObjectResponseBody",
     "RouteChangesResponseBody",
     "RouteEventDetailsResponseBody",
