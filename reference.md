@@ -16,7 +16,7 @@ Returns a list of all addresses in an organization.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Addresses** under the Addresses category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Addresses** under the Addresses category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -125,7 +125,7 @@ Creates a new address in the organization.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write Addresses** under the Addresses category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Addresses** under the Addresses category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -205,7 +205,7 @@ client.addresses.create(
 <dl>
 <dd>
 
-**external_ids:** `typing.Optional[typing.Dict[str, str]]` — The [external IDs](/docs/external-ids) for the given object.
+**external_ids:** `typing.Optional[typing.Dict[str, str]]` — The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.
     
 </dd>
 </dl>
@@ -273,7 +273,7 @@ Returns a specific address.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Addresses** under the Addresses category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Addresses** under the Addresses category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -331,7 +331,7 @@ client.addresses.get(
 </dl>
 </details>
 
-<details><summary><code>client.addresses.<a href="src/samsara/addresses/client.py">delete</a>(...) -&gt; AsyncHttpResponse[StandardDeleteResponse]</code></summary>
+<details><summary><code>client.addresses.<a href="src/samsara/addresses/client.py">delete</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -347,7 +347,7 @@ Delete a specific address.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write Addresses** under the Addresses category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Addresses** under the Addresses category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -421,7 +421,7 @@ Update a specific address.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write Addresses** under the Addresses category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Addresses** under the Addresses category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -483,7 +483,7 @@ client.addresses.update(
 <dl>
 <dd>
 
-**external_ids:** `typing.Optional[typing.Dict[str, str]]` — The [external IDs](/docs/external-ids) for the given object.
+**external_ids:** `typing.Optional[typing.Dict[str, str]]` — The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.
     
 </dd>
 </dl>
@@ -620,9 +620,9 @@ Scheduled Date And Time
 Training Assignment Due Soon
 Training Assignment Past Due
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Alerts** under the Alerts category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Alerts** under the Alerts category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -719,9 +719,9 @@ client.alerts.get_configurations()
 
 Creates an alert configuration.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Alerts** under the Alerts category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Alerts** under the Alerts category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -863,9 +863,9 @@ client.alerts.post_configurations(
 
 Delete an alert configuration.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Alerts** under the Alerts category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Alerts** under the Alerts category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -940,9 +940,9 @@ client.alerts.delete_configurations(
 
 Updates an alert configuration.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Alerts** under the Alerts category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Alerts** under the Alerts category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -1073,9 +1073,9 @@ client.alerts.patch_configurations(
 
 Get Alert Incidents for specific Alert Configurations over a specified period of time.
 
- <b>Rate limit:</b> 10 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Alerts** under the Alerts category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Alerts** under the Alerts category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -1175,9 +1175,9 @@ client.alerts.get_incidents(
 
 List all assets. Up to 300 assets will be returned per page.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Assets** under the Assets category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -1327,9 +1327,9 @@ for page in response.iter_pages():
 
 Create a new asset.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Assets** under the Assets category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -1490,9 +1490,9 @@ client.assets.create_asset()
 
 Delete an existing asset.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Assets** under the Assets category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -1567,9 +1567,9 @@ client.assets.delete_asset(
 
 Update an existing asset.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Assets** under the Assets category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -1749,7 +1749,7 @@ Fetch current locations of all assets.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -1844,7 +1844,7 @@ Fetches all reefers and reefer-specific stats.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Trailers** under the Trailers category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Trailers** under the Trailers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -1958,7 +1958,7 @@ List historical locations for a given asset.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -2057,7 +2057,7 @@ Fetch the reefer-specific stats of an asset.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Trailers** under the Trailers category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Trailers** under the Trailers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -2245,8 +2245,8 @@ client.assets.update(
 </dl>
 </details>
 
-## beta-apis
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">get_depreciation_transactions</a>(...) -&gt; AsyncHttpResponse[DepreciationGetDepreciationTransactionsResponseBody]</code></summary>
+## Beta APIs
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_depreciation_transactions</a>(...) -&gt; AsyncHttpResponse[DepreciationGetDepreciationTransactionsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -2260,9 +2260,9 @@ client.assets.update(
 
 Returns depreciation and adjustment transactions for assets. Transactions are returned ordered by updatedAt in ascending order (oldest to newest). Use startTime parameter for incremental sync.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Assets** under the Assets category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -2285,7 +2285,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.get_depreciation_transactions()
+client.beta_ap_is.get_depreciation_transactions()
 
 ```
 </dd>
@@ -2345,7 +2345,7 @@ client.beta_apis.get_depreciation_transactions()
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">get_assets_inputs</a>(...) -&gt; AsyncHttpResponse[AssetsInputsGetAssetsInputsResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_assets_inputs</a>(...) -&gt; AsyncHttpResponse[AssetsInputsGetAssetsInputsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -2359,9 +2359,9 @@ client.beta_apis.get_depreciation_transactions()
 
 This endpoint will return data collected from the inputs of your organization's assets based on the time parameters passed in. Results are paginated. If you include an endTime, the endpoint will return data up until that point. If you don’t include an endTime, you can continue to poll the API real-time with the pagination cursor that gets returned on every call. The endpoint will only return data up until the endTime that has been processed by the server at the time of the original request. You will need to request the same [startTime, endTime) range again to receive data for assets processed after the original request time. This endpoint sorts data by time ascending.
 
- <b>Rate limit:</b> 10 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Assets** under the Assets category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -2384,7 +2384,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.get_assets_inputs(
+client.beta_ap_is.get_assets_inputs(
     type="auxInput1",
     start_time="startTime",
 )
@@ -2479,7 +2479,7 @@ client.beta_apis.get_assets_inputs(
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">get_aemp_equipment_list</a>(...) -&gt; AsyncHttpResponse[AempEquipmentGetAempEquipmentListResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_aemp_equipment_list</a>(...) -&gt; AsyncHttpResponse[AempEquipmentGetAempEquipmentListResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -2493,9 +2493,9 @@ client.beta_apis.get_assets_inputs(
 
 Get a list of equipment following the AEMP ISO 15143-3 standard.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read AEMP** under the Equipment category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read AEMP** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -2518,7 +2518,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.get_aemp_equipment_list(
+client.beta_ap_is.get_aemp_equipment_list(
     page_number="pageNumber",
 )
 
@@ -2556,7 +2556,7 @@ client.beta_apis.get_aemp_equipment_list(
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">get_driver_efficiency</a>(...) -&gt; AsyncHttpResponse[DriverEfficienciesResponse]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_driver_efficiency</a>(...) -&gt; AsyncHttpResponse[DriverEfficienciesResponse]</code></summary>
 <dl>
 <dd>
 
@@ -2570,13 +2570,13 @@ client.beta_apis.get_aemp_equipment_list(
 
 Get all driver and associated vehicle efficiency data. 
 
- This is a legacy endpoint, consider using this endpoint [/driver-efficiency/drivers](/api-reference/fuel-and-efficiency/fuel-and-energy/get-driver-efficiency-by-drivers) instead. The endpoint will continue to function as documented. 
+ This is a legacy endpoint, consider using this endpoint [/driver-efficiency/drivers](https://developers.samsara.com/reference/getdriverefficiencybydrivers) instead. The endpoint will continue to function as documented. 
 
- <b>Rate limit:</b> 50 requests/sec (learn more about rate limits [here](/docs/rate-limits)). 
+ <b>Rate limit:</b> 50 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>). 
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Fuel & Energy** under the Fuel & Energy category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Fuel & Energy** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -2596,7 +2596,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.get_driver_efficiency()
+client.beta_ap_is.get_driver_efficiency()
 
 ```
 </dd>
@@ -2688,7 +2688,7 @@ Note that the most recent 72 hours of data may still be processing and is subjec
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">patch_equipment</a>(...) -&gt; AsyncHttpResponse[EquipmentPatchEquipmentResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">patch_equipment</a>(...) -&gt; AsyncHttpResponse[EquipmentPatchEquipmentResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -2704,9 +2704,9 @@ Update an equipment.  **Note** this implementation of patch uses [the JSON merge
  This means that any fields included in the patch request will _overwrite_ fields which exist on the target resource.
  For arrays, this means any array included in the request will _replace_ the array that exists at the specified path, it will not _add_ to the existing array
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Equipment** under the Equipment category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Equipment** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -2729,7 +2729,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.patch_equipment(
+client.beta_ap_is.patch_equipment(
     id="id",
 )
 
@@ -2831,7 +2831,7 @@ client.beta_apis.patch_equipment(
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">get_hos_eld_events</a>(...) -&gt; AsyncHttpResponse[HosEldEventsGetHosEldEventsResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_hos_eld_events</a>(...) -&gt; AsyncHttpResponse[HosEldEventsGetHosEldEventsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -2845,9 +2845,9 @@ client.beta_apis.patch_equipment(
 
 Get all HOS ELD events in a time range, grouped by driver. Attributes will be populated depending on which ELD Event Type is being returned.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read ELD Compliance Settings (US)** under the Compliance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read ELD Compliance Settings (US)** under the Compliance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -2870,7 +2870,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.get_hos_eld_events(
+client.beta_ap_is.get_hos_eld_events(
     start_time="startTime",
     end_time="endTime",
 )
@@ -2965,7 +2965,7 @@ client.beta_apis.get_hos_eld_events(
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">get_trailer_stats_snapshot</a>(...) -&gt; AsyncHttpResponse[TrailerStatsGetTrailerStatsSnapshotResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_trailer_stats_snapshot</a>(...) -&gt; AsyncHttpResponse[TrailerStatsGetTrailerStatsSnapshotResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -2979,9 +2979,9 @@ client.beta_apis.get_hos_eld_events(
 
 Returns the last known stats of all trailers at the given `time`. If no `time` is specified, the current time is used.
 
- <b>Rate limit:</b> 25 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 25 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Trailer Statistics** under the Trailers category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Trailer Statistics** under the Trailers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -3004,7 +3004,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.get_trailer_stats_snapshot(
+client.beta_ap_is.get_trailer_stats_snapshot(
     types="types",
 )
 
@@ -3110,7 +3110,7 @@ You may list **up to 3** types using comma-separated format. For example: `types
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">get_trailer_stats_feed</a>(...) -&gt; AsyncHttpResponse[TrailerStatsGetTrailerStatsFeedResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_trailer_stats_feed</a>(...) -&gt; AsyncHttpResponse[TrailerStatsGetTrailerStatsFeedResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -3130,9 +3130,9 @@ Providing the `endCursor` value to the `after` query parameter will fetch all up
 
 If `hasNextPage` is false, no new data is immediately available. Please wait a minimum of 5 seconds before making a subsequent request.
 
- <b>Rate limit:</b> 25 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 25 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Trailer Statistics** under the Trailers category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Trailer Statistics** under the Trailers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -3155,7 +3155,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.get_trailer_stats_feed(
+client.beta_ap_is.get_trailer_stats_feed(
     types="types",
 )
 
@@ -3291,7 +3291,7 @@ Note that decorations may significantly increase the response payload size.
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">get_trailer_stats_history</a>(...) -&gt; AsyncHttpResponse[TrailerStatsGetTrailerStatsHistoryResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_trailer_stats_history</a>(...) -&gt; AsyncHttpResponse[TrailerStatsGetTrailerStatsHistoryResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -3305,9 +3305,9 @@ Note that decorations may significantly increase the response payload size.
 
 Returns trailer stats during the given time range for all trailers. This can be optionally filtered by tags or specific trailer IDs.
 
- <b>Rate limit:</b> 10 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Trailer Statistics** under the Trailers category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Trailer Statistics** under the Trailers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -3330,7 +3330,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.get_trailer_stats_history(
+client.beta_ap_is.get_trailer_stats_history(
     start_time="startTime",
     end_time="endTime",
     types="types",
@@ -3484,7 +3484,7 @@ Note that decorations may significantly increase the response payload size.
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">update_engine_immobilizer_state</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">update_engine_immobilizer_state</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -3498,9 +3498,9 @@ Note that decorations may significantly increase the response payload size.
 
 Update the engine immobilizer state of a vehicle. This requires an engine immobilizer to be installed on the vehicle gateway.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Vehicle Immobilization** under the Vehicles category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Vehicle Immobilization** under the Vehicles category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -3526,7 +3526,7 @@ from samsara import (
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.update_engine_immobilizer_state(
+client.beta_ap_is.update_engine_immobilizer_state(
     id=1000000,
     relay_states=[
         UpdateEngineImmobilizerRelayStateRequestBodyRequestBody(
@@ -3578,7 +3578,7 @@ client.beta_apis.update_engine_immobilizer_state(
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">get_jobs</a>(...) -&gt; AsyncHttpResponse[JobsGetJobsResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_jobs</a>(...) -&gt; AsyncHttpResponse[JobsGetJobsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -3592,7 +3592,7 @@ client.beta_apis.update_engine_immobilizer_state(
 
 Fetches jobs based on id/uuid or provided filters.
 
-To use this endpoint, select **Read Jobs** under the Equipment category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Jobs** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -3615,7 +3615,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.get_jobs()
+client.beta_ap_is.get_jobs()
 
 ```
 </dd>
@@ -3707,7 +3707,7 @@ client.beta_apis.get_jobs()
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">create_job</a>(...) -&gt; AsyncHttpResponse[JobsCreateJobResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">create_job</a>(...) -&gt; AsyncHttpResponse[JobsCreateJobResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -3721,7 +3721,7 @@ client.beta_apis.get_jobs()
 
 Creates a new job and returns it.
 
-To use this endpoint, select **Write Jobs** under the Equipment category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Jobs** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -3744,7 +3744,7 @@ from samsara import PostJobObjectRequestBody, Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.create_job(
+client.beta_ap_is.create_job(
     job=PostJobObjectRequestBody(
         end_date="2019-06-13T19:08:25Z",
         id="8d218e6c-7a16-4f9f-90f7-cc1d93b9e596",
@@ -3787,7 +3787,7 @@ client.beta_apis.create_job(
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">delete_job</a>(...) -&gt; AsyncHttpResponse[JobsDeleteJobResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">delete_job</a>(...) -&gt; AsyncHttpResponse[JobsDeleteJobResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -3801,7 +3801,7 @@ client.beta_apis.create_job(
 
 Deletes an existing job.
 
-To use this endpoint, select **Write Jobs** under the Equipment category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Jobs** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -3824,7 +3824,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.delete_job(
+client.beta_ap_is.delete_job(
     id="id",
 )
 
@@ -3862,7 +3862,7 @@ client.beta_apis.delete_job(
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">patch_job</a>(...) -&gt; AsyncHttpResponse[JobsPatchJobResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">patch_job</a>(...) -&gt; AsyncHttpResponse[JobsPatchJobResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -3876,7 +3876,7 @@ client.beta_apis.delete_job(
 
 Patches an existing job and returns it.
 
-To use this endpoint, select **Write Jobs** under the Equipment category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Jobs** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -3899,7 +3899,7 @@ from samsara import PatchJobObjectRequestBody, Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.patch_job(
+client.beta_ap_is.patch_job(
     id="id",
     job=PatchJobObjectRequestBody(),
 )
@@ -3954,7 +3954,7 @@ client.beta_apis.patch_job(
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">get_detections</a>(...) -&gt; AsyncHttpResponse[DetectionLogGetDetectionsResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_detections</a>(...) -&gt; AsyncHttpResponse[DetectionLogGetDetectionsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -3970,9 +3970,9 @@ This endpoint will return all detections detected by in-vehicle assets and assoc
 
 If you include an endTime, the endpoint will return data up until that point. If you don’t include an endTime, you can continue to poll the API real-time with the pagination cursor that gets returned on every call. Results are paginated.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Detection Log** under the Safety & Cameras category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Detection Log** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -3995,7 +3995,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.get_detections(
+client.beta_ap_is.get_detections(
     start_time="startTime",
 )
 
@@ -4121,7 +4121,7 @@ client.beta_apis.get_detections(
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">get_devices</a>(...) -&gt; AsyncHttpResponse[DevicesGetDevicesResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_devices</a>(...) -&gt; AsyncHttpResponse[DevicesGetDevicesResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -4137,9 +4137,9 @@ Returns all installed cameras (CM3x), vehicle gateways (VGs), and asset gateways
 
 **Beta:** This endpoint is in beta and is likely to change before being broadly available. Reach out to your Samsara Representative to have Devices API enabled for your organization.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Devices** under the Devices category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Devices** under the Devices category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -4162,7 +4162,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.get_devices()
+client.beta_ap_is.get_devices()
 
 ```
 </dd>
@@ -4254,7 +4254,7 @@ client.beta_apis.get_devices()
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">get_engine_immobilizer_states</a>(...) -&gt; AsyncHttpResponse[EngineImmobilizerGetEngineImmobilizerStatesResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_engine_immobilizer_states</a>(...) -&gt; AsyncHttpResponse[EngineImmobilizerGetEngineImmobilizerStatesResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -4268,9 +4268,9 @@ client.beta_apis.get_devices()
 
 Get the engine immobilizer states of the queried vehicles. If a vehicle has never had an engine immobilizer connected, there won't be any state returned for that vehicle.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Vehicle Immobilization** under the Vehicles category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Vehicle Immobilization** under the Vehicles category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -4293,7 +4293,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.get_engine_immobilizer_states(
+client.beta_ap_is.get_engine_immobilizer_states(
     vehicle_ids="vehicleIds",
     start_time="startTime",
 )
@@ -4356,7 +4356,7 @@ client.beta_apis.get_engine_immobilizer_states(
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">start_function_run</a>(...) -&gt; AsyncHttpResponse[FunctionsStartFunctionRunResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">start_function_run</a>(...) -&gt; AsyncHttpResponse[FunctionsStartFunctionRunResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -4370,9 +4370,9 @@ client.beta_apis.get_engine_immobilizer_states(
 
 Start an asynchronous run for the specified Function. This endpoint allows you to override parameters available at runtime.
 
- <b>Rate limit:</b> 2 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 2 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Functions** under the Closed Beta category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Functions** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -4391,12 +4391,14 @@ To use this endpoint, select **Write Functions** under the Closed Beta category 
 
 ```python
 from samsara import Samsara
-from samsara.beta_apis import FunctionsStartFunctionRunRequestBodyParamsOverride
+from samsara.beta_ap_is import (
+    FunctionsStartFunctionRunRequestBodyParamsOverride,
+)
 
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.start_function_run(
+client.beta_ap_is.start_function_run(
     name="name",
     params_override=FunctionsStartFunctionRunRequestBodyParamsOverride(),
 )
@@ -4443,7 +4445,7 @@ client.beta_apis.start_function_run(
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">update_shipping_docs</a>(...) -&gt; AsyncHttpResponse[HosDailyLogsUpdateShippingDocsResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">update_shipping_docs</a>(...) -&gt; AsyncHttpResponse[HosDailyLogsUpdateShippingDocsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -4457,9 +4459,9 @@ client.beta_apis.start_function_run(
 
 Update the shippingDocs field of an existing assignment.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write ELD Hours of Service (US)** under the Compliance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write ELD Hours of Service (US)** under the Compliance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -4482,7 +4484,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.update_shipping_docs(
+client.beta_ap_is.update_shipping_docs(
     hos_date="hosDate",
     driver_id="driverID",
     shipping_docs="ShippingID1, ShippingID2",
@@ -4538,7 +4540,7 @@ client.beta_apis.update_shipping_docs(
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">list_hub_custom_properties</a>(...) -&gt; AsyncHttpResponse[HubCustomPropertiesListHubCustomPropertiesResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_hub_custom_properties</a>(...) -&gt; AsyncHttpResponse[HubCustomPropertiesListHubCustomPropertiesResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -4554,9 +4556,9 @@ Retrieve custom properties for a specific hub.
 
 **Beta:** This endpoint is in beta and is likely to change before being broadly available. Reach out to your Samsara Representative to have RoutePlanning APIs enabled for your organization.
 
- <b>Rate limit:</b> 10 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -4579,7 +4581,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.list_hub_custom_properties(
+client.beta_ap_is.list_hub_custom_properties(
     hub_id="hubId",
 )
 
@@ -4665,7 +4667,7 @@ client.beta_apis.list_hub_custom_properties(
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">create_plan_orders</a>(...) -&gt; AsyncHttpResponse[PlanOrdersCreatePlanOrdersResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">create_plan_orders</a>(...) -&gt; AsyncHttpResponse[PlanOrdersCreatePlanOrdersResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -4681,9 +4683,9 @@ Create one or more orders (bulk upsert). Pass an array of order objects; any obj
 
 **Beta:** This endpoint is in beta and is likely to change before being broadly available. Reach out to your Samsara Representative to have RoutePlanning APIs enabled for your organization.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Routes** under the Driver Workflow category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -4706,7 +4708,7 @@ from samsara import OrderInputObjectRequestBody, Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.create_plan_orders(
+client.beta_ap_is.create_plan_orders(
     data=[
         OrderInputObjectRequestBody(
             customer_order_id="ORDER-2024-001",
@@ -4758,7 +4760,7 @@ client.beta_apis.create_plan_orders(
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">get_qualification_records</a>(...) -&gt; AsyncHttpResponse[QualificationsGetQualificationRecordsResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_qualification_records</a>(...) -&gt; AsyncHttpResponse[QualificationsGetQualificationRecordsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -4772,9 +4774,9 @@ client.beta_apis.create_plan_orders(
 
 Returns qualification records for the specified list of IDs.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Qualification Records** under the Qualification Records category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Qualification Records** under the Qualification Records category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -4797,7 +4799,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.get_qualification_records()
+client.beta_ap_is.get_qualification_records()
 
 ```
 </dd>
@@ -4841,7 +4843,7 @@ client.beta_apis.get_qualification_records()
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">post_qualification_record</a>(...) -&gt; AsyncHttpResponse[QualificationsPostQualificationRecordResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">post_qualification_record</a>(...) -&gt; AsyncHttpResponse[QualificationsPostQualificationRecordResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -4855,9 +4857,9 @@ client.beta_apis.get_qualification_records()
 
 Creates a new qualification record.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Qualification Records** under the Qualification Records category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Qualification Records** under the Qualification Records category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -4887,7 +4889,7 @@ from samsara import (
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.post_qualification_record(
+client.beta_ap_is.post_qualification_record(
     fields=[
         QualificationRecordRequestFieldInputObjectRequestBody(
             id="9814a1fa-f0c6-408b-bf85-51dc3bc71ac7",
@@ -4982,7 +4984,7 @@ client.beta_apis.post_qualification_record(
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">delete_qualification_record</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">delete_qualification_record</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -4996,9 +4998,9 @@ client.beta_apis.post_qualification_record(
 
 Deletes an existing qualification record.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Qualification Records** under the Qualification Records category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Qualification Records** under the Qualification Records category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -5021,7 +5023,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.delete_qualification_record(
+client.beta_ap_is.delete_qualification_record(
     id="9814a1fa-f0c6-408b-bf85-51dc3bc71ac7",
 )
 
@@ -5059,7 +5061,7 @@ client.beta_apis.delete_qualification_record(
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">patch_qualification_record</a>(...) -&gt; AsyncHttpResponse[QualificationsPatchQualificationRecordResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">patch_qualification_record</a>(...) -&gt; AsyncHttpResponse[QualificationsPatchQualificationRecordResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -5073,9 +5075,9 @@ client.beta_apis.delete_qualification_record(
 
 Updates an existing qualification record.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Qualification Records** under the Qualification Records category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Qualification Records** under the Qualification Records category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -5100,7 +5102,7 @@ from samsara import QualificationOwnerRequestObjectRequestBody, Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.patch_qualification_record(
+client.beta_ap_is.patch_qualification_record(
     id="9814a1fa-f0c6-408b-bf85-51dc3bc71ac7",
     issue_date=datetime.datetime.fromisoformat(
         "2025-08-27 10:20:30+00:00",
@@ -5187,7 +5189,7 @@ client.beta_apis.patch_qualification_record(
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">archive_qualification_record</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">archive_qualification_record</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -5201,9 +5203,9 @@ client.beta_apis.patch_qualification_record(
 
 Archives an existing qualification record.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Qualification Records** under the Qualification Records category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Qualification Records** under the Qualification Records category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -5226,7 +5228,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.archive_qualification_record(
+client.beta_ap_is.archive_qualification_record(
     id="9814a1fa-f0c6-408b-bf85-51dc3bc71ac7",
 )
 
@@ -5264,7 +5266,7 @@ client.beta_apis.archive_qualification_record(
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">get_qualification_records_stream</a>(...) -&gt; AsyncHttpResponse[QualificationsGetQualificationRecordsStreamResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_qualification_records_stream</a>(...) -&gt; AsyncHttpResponse[QualificationsGetQualificationRecordsStreamResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -5278,9 +5280,9 @@ client.beta_apis.archive_qualification_record(
 
 Returns all qualification records that have been created or modified for your organization based on the time parameters passed in. Results are paginated and are sorted by last modified date. If you include an endTime, the endpoint will return data up until that point (exclusive). If you don't include an endTime, the API will continue to poll with the pagination cursor that gets returned on every call. The hasNextPage response value will be true if there is no endTime specified and endCursor is nonempty.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Qualification Records** under the Qualification Records category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Qualification Records** under the Qualification Records category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -5305,7 +5307,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.get_qualification_records_stream(
+client.beta_ap_is.get_qualification_records_stream(
     entity_type="worker",
     start_time=datetime.datetime.fromisoformat(
         "2024-01-15 09:30:00+00:00",
@@ -5402,7 +5404,7 @@ client.beta_apis.get_qualification_records_stream(
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">unarchive_qualification_record</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">unarchive_qualification_record</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -5416,9 +5418,9 @@ client.beta_apis.get_qualification_records_stream(
 
 Unarchives an existing qualification record.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Qualification Records** under the Qualification Records category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Qualification Records** under the Qualification Records category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -5441,7 +5443,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.unarchive_qualification_record(
+client.beta_ap_is.unarchive_qualification_record(
     id="9814a1fa-f0c6-408b-bf85-51dc3bc71ac7",
 )
 
@@ -5479,7 +5481,7 @@ client.beta_apis.unarchive_qualification_record(
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">get_qualification_types</a>(...) -&gt; AsyncHttpResponse[QualificationsGetQualificationTypesResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_qualification_types</a>(...) -&gt; AsyncHttpResponse[QualificationsGetQualificationTypesResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -5493,9 +5495,9 @@ client.beta_apis.unarchive_qualification_record(
 
 Returns a list of qualification types for the specified list of IDs. If no IDs are provided, all qualification types will be returned.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Qualification Records** under the Qualification Records category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Qualification Records** under the Qualification Records category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -5518,7 +5520,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.get_qualification_types(
+client.beta_ap_is.get_qualification_types(
     entity_type="worker",
 )
 
@@ -5572,7 +5574,7 @@ client.beta_apis.get_qualification_types(
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">post_readings</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">post_readings</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -5588,9 +5590,9 @@ Ingest new readings. This endpoint allows the ingestion of batches of readings.
 
 Ingesting readings is only supported for assets created using the POST /assets API endpoint with readingsIngestionEnabled set to true. To see a full list of readings available for ingestion use the GET readings definitions API. When ingesting location data, the readingID 'location' must be used and the value object must contain at least the following fields: 'speed', 'latitude', 'longitude'.
 
- <b>Rate limit:</b> 10 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Readings** under the Closed Beta category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Readings** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -5613,10 +5615,11 @@ from samsara import ReadingDatapointRequestBody, Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.post_readings(
+client.beta_ap_is.post_readings(
     data=[
         ReadingDatapointRequestBody(
             entity_id="123451234512345",
+            entity_type="asset",
             happened_at_time="2023-10-27T10:00:00Z",
             reading_id="airInletPressure",
             value={"key": "value"},
@@ -5658,7 +5661,7 @@ client.beta_apis.post_readings(
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">list_readings_definitions</a>(...) -&gt; AsyncHttpResponse[ReadingsListReadingsDefinitionsResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_readings_definitions</a>(...) -&gt; AsyncHttpResponse[ReadingsListReadingsDefinitionsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -5672,9 +5675,9 @@ client.beta_apis.post_readings(
 
 An introspection endpoint for discovering the set of readings including their name, description, data type, unit, and other metadata.
 
- <b>Rate limit:</b> 10 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Readings** under the Closed Beta category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Readings** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -5697,7 +5700,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.list_readings_definitions()
+client.beta_ap_is.list_readings_definitions()
 
 ```
 </dd>
@@ -5749,7 +5752,7 @@ client.beta_apis.list_readings_definitions()
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">get_readings_history</a>(...) -&gt; AsyncHttpResponse[ReadingsGetReadingsHistoryResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_readings_history</a>(...) -&gt; AsyncHttpResponse[ReadingsGetReadingsHistoryResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -5763,9 +5766,9 @@ client.beta_apis.list_readings_definitions()
 
 Get the values of a reading for a set of entities within the specified time range. Returns a paginated response with data for the specified resource IDs where startTime <= happenedAtTime < endTime. End time of null implies endTime is infinite and all known readings are returned.
 
- <b>Rate limit:</b> 10 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Readings** under the Closed Beta category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Readings** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -5788,7 +5791,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.get_readings_history(
+client.beta_ap_is.get_readings_history(
     reading_id="readingId",
     entity_type="entityType",
 )
@@ -5807,7 +5810,210 @@ client.beta_apis.get_readings_history(
 <dl>
 <dd>
 
-**reading_id:** `str` — The reading ID to retrieve data for. Use /readings/definitions endpoint to get a list of valid reading IDs. (Examples: engineRpm,fuelLevel)
+**reading_id:** `str` 
+
+The reading ID to retrieve data for. Use /readings/definitions endpoint to get a list of valid reading IDs. (Examples: engineRpm,fuelLevel)
+
+Available reading IDs (by category):
+
+
+**diagnostic**
+
+* `airInletPressure` (Air Inlet Pressure): Air inlet pressure. (kilopascal)
+* `airTemp` (Air Inlet (Ambient Air) Temp): Air inlet (ambient air) temperature. (celsius)
+* `altitude` (Altitude): The altitude of the asset (meter)
+* `altitudeAccuracy` (Altitude Uncertainty): The uncertainty of the asset's GPS-based altitude. (meter)
+* `assetStatus` (Status): Combined movement and equipment status derived from location & Digio events. (values: movementStart | movementEnd | stopped | none | equipmentOn | equipmentOff)
+* `averageACCurrent` (Average AC Current): Average AC current in amperes. (ampere)
+* `averageACFrequency` (Average AC Frequency): Average AC frequency in Hertz. (hertz)
+* `averageLineToLineACRMSVoltage` (Average Line-to-Line Voltage): Average RMS voltage between AC lines in volts. (volt)
+* `averageLineToNeutralACRMSVoltage` (Average Line-to-Neutral Voltage): Average RMS voltage from AC line to neutral in volts. (volt)
+* `barometerPressure` (Barometric Pressure): Atmospheric pressure as measured by the barometer. (kilopascal)
+* `batteryPotentialSwitched` (Battery Potential (Switched)): Switched battery potential in volts. (volt)
+* `batteryVoltage` (Battery Voltage): Voltage of the asset's battery. (volt)
+* `boostPressureEngineTurbocharger1` (Engine Turbocharger 1 Boost Pressure): Represents the boost pressure for engine turbocharger 1. (kilopascal)
+* `boostPressurePa` (Boost Pressure): Represents the boost pressure. (kilopascal)
+* `boostPressureTurbocharger2` (Boost Pressure (Turbocharger 2)): Boost pressure from the second turbocharger in kPa. (kilopascal)
+* `canBusType` (CAN Bus Status): Indicates whether the CAN Bus system is active or provides an invalid reading. (values: invalid | active)
+* `checkEngineLightJ1939Emissions` (Check Engine Light (J1939) - Emissions): Indicates whether the J1939 check engine light emissions indicator is active or inactive. (values: off | on)
+* `checkEngineLightJ1939Protect` (Check Engine Light (J1939) - Protect): Indicates whether the J1939 check engine light protect indicator is active or inactive. (values: off | on)
+* `checkEngineLightJ1939Stop` (Check Engine Light (J1939) - Stop): Indicates whether the J1939 check engine light stop indicator is active or inactive. (values: off | on)
+* `checkEngineLightJ1939Warning` (Check Engine Light (J1939) - Warning): Indicates whether the J1939 check engine light warning indicator is active or inactive. (values: off | on)
+* `checkEngineLightPassenger` (Check Engine Light (Passenger)): Indicates whether the passenger check engine light indicator is active or inactive. (values: off | on)
+* `coolantTemp` (Engine Coolant Temp): Represents the engine coolant temperature. (celsius)
+* `defLevel` (DEF Level): Represents the DEF (Diesel Exhaust Fluid) level percentage. (percent)
+* `derivedFuelConsumed` (Lifetime Fuel Consumed (Samsara)): Samsara-maintained fuel consumption since the device was firstinstalled. (liter)
+* `deviceOrientation` (Device Orientation): Indicates orientation of the device. (values: invalid | unknown | topDown | bottomDown | leftDown | rightDown | backDown | frontDown)
+* `digioInput1` (Digital IO #1): Represents the state of digital IO #1. (values: off | on)
+* `dpfLampStatus` (DPF Lamp Status): Status of the Diesel Particulate Filter warning lamp. (values: off | on | blinking)
+* `dpfSootLoadPercent` (DPF Soot Load): Diesel Particulate Filter soot load percentage. (percent)
+* `ecuHistoryTotalRunTime` (ECU Total Run Time): Total engine run time from ECU in seconds. (second)
+* `engineHours` (Engine Hours (ECU)): Represents the total engine runtime in hours as reported by the ECU. (second)
+* `engineHoursDigioBased` (Engine Hours (Synthetic - Aux input)): Represents the synthetic total engine runtime in hours based on auxiliary input. (millisecond)
+* `engineHoursEngineStateBased` (Engine Hours (Synthetic)): Represents the synthetic total engine runtime in hours based on engine state. (millisecond)
+* `engineIntakeAirTemp` (Engine Intake Air Temperature): Represents the engine intake air temperature. (celsius)
+* `engineLoadPercent` (Engine Load): Engine load percentage. (percent)
+* `engineState` (Engine State): Indicates the current state of the engine, such as running, stopped. (values: off | running | idling)
+* `ev24VoltDcDcInverterCurrent` (EV 24V DC/DC Inverter Current): Current from the 24V DC-DC inverter in amperes. (ampere)
+* `evAverageCellTemperature` (EV Average Cell Temperature): Average temperature of EV battery cells in degrees Celsius. (celsius)
+* `evChargingErrorStatus` (EV Charging Error Status): Indicates if the EV charging system has an error. (values: noError | batteryTooHotOrCold | vehicleNotInPark | connectorLockFault | chargingSystemFault | chargingCurrentDifferential | chargingVoltageOutOfRange | chargingSystemNotCompatible | noDataUndeterminedStatus | notAvailable | unknownError)
+* `evHighCapacityBatteryCurrent` (EV High Capacity Battery Current): Current from the high capacity EV battery in amperes. (ampere)
+* `evHighCapacityBatteryVoltage` (High Capacity EV Battery Voltage): Represents the voltage of the high capacity EV battery. (volt)
+* `evMaxAllowedStateOfChargePercent` (EV Max Allowed State of Charge): Maximum allowed state of charge percentage. (percent)
+* `evMaxCellTemperature` (EV Max Cell Temperature): Maximum temperature of EV battery cells in degrees Celsius. (celsius)
+* `evMinAllowedStateOfChargePercent` (EV Min Allowed State of Charge): Minimum allowed state of charge percentage. (percent)
+* `evMinCellTemperature` (EV Min Cell Temperature): Minimum temperature of EV battery cells in degrees Celsius. (celsius)
+* `exhaustGasPressure` (Exhaust Gas Pressure): Represents the exhaust gas pressure. (kilopascal)
+* `fuelConsumptionRate` (Fuel Consumption Rate): The rate at which an asset uses fuel (litersperhour)
+* `fuelLevelPerc` (Fuel Level): Percentage of fuel remaining in the tank. (percent)
+* `fuelSource` (Fuel Source): Type of fuel used by the asset. (values: gasoline | diesel)
+* `geoCoordinates` (Geo Coordinates): GPS coordinates (latitude and longitude) of the asset's location.
+* `gpsSpeed` (GPS Speed): Asset speed measured by the gateway's GPS receiver. (meterspersec)
+* `ignitionStatus` (Ignitions Status): Indicates the current ignition status as a voltage (values: off | on)
+* `latitude` (Latitude): Latitude coordinate of the asset's location. (decimaldegrees)
+* `lifetimeFuelConsumed` (Lifetime Fuel Consumed): Represents the vehicle maintained lifetime fuel consumption as reported by the vehicle. (liter)
+* `location` (Location): Represents the current address of the asset.
+* `longitude` (Longitude): Longitude coordinate of the asset's location. (decimaldegrees)
+* `mnfldTemp` (Intake Manifold Temp): Represents the intake manifold temperature. (celsius)
+* `ngFuelPressure` (NG Fuel Pressure): Represents the natural gas fuel pressure. (kilopascal)
+* `odometerEcu` (Odometer (ECU)): Represents the total distance traveled as recorded by the ECU. (meter)
+* `odometerGps` (Odometer (GPS)): Represents the total distance traveled as determined by GPS. (meter)
+* `oilPressure` (Engine Oil Pressure): Represents the oil pressure in the engine. (kilopascal)
+* `phaseAACFrequency` (Phase A AC Frequency): AC frequency for Phase A in Hertz. (hertz)
+* `phaseAAmpsRms` (Phase A Current (RMS)): RMS current for Phase A in amperes. (ampere)
+* `phaseALLVolts` (Phase A Line-to-Line Voltage): Line-to-line voltage for Phase A in volts. (volt)
+* `phaseALNVolts` (Phase A Line-to-Neutral Voltage): Line-to-neutral voltage for Phase A in volts. (volt)
+* `phaseBAmpsRms` (Phase B Current (RMS)): RMS current for Phase B in amperes. (ampere)
+* `phaseBLLVolts` (Phase B Line-to-Line Voltage): Line-to-line voltage for Phase B in volts. (volt)
+* `phaseBLNVolts` (Phase B Line-to-Neutral Voltage): Line-to-neutral voltage for Phase B in volts. (volt)
+* `phaseCAmpsRms` (Phase C Current (RMS)): RMS current for Phase C in amperes. (ampere)
+* `phaseCLLVolts` (Phase C Line-to-Line Voltage): Line-to-line voltage for Phase C in volts. (volt)
+* `phaseCLNVolts` (Phase C Line-to-Neutral Voltage): Line-to-neutral voltage for Phase C in volts. (volt)
+* `powerFactorRatio` (Power Factor Ratio): Represents the power factor ratio. (percent)
+* `samsaraEngineHours` (Samsara Engine Hours): Samsara's intelligent engine hours calculation that combines ECU data, synthetic calculations, and manual overrides with automatic fallbacks for optimal accuracy across all asset types. (millisecond)
+* `samsaraEngineHoursWithSource` (Samsara Engine Hours with Source): Samsara's intelligent engine hours calculation including detailed source metadata to indicate the origin of the data (ECU, synthetic, or manual override). Useful for debugging and understanding data provenance.
+* `samsaraOdometer` (Samsara Odometer): Samsara automatically pulls odometer readings from a vehicle's engine control unit (ECU). If the reading isn't available and the vehicle is unregulated, you can manually enter the odometer value for maintenance tracking—this value will then update based on GPS trip data. (kilometer)
+* `samsaraSpeed` (Samsara Speed): Samsara's best estimate of the asset speed, combining multiple data sources such as ECU and GPS. (meterspersec)
+* `samsaraSpeedLimit` (Samsara Speed Limit): Speed limit at the location of the asset. (meterspersec)
+* `seatbeltDriver` (Seatbelt (Driver)): Indicates whether the driver's seatbelt is buckled or unbuckled. (values: unbuckled | buckled)
+* `seatbeltPassenger` (Seatbelt (Passenger)): Indicates whether the passenger's seatbelt is buckled or unbuckled. (values: unbuckled | buckled)
+* `supportFindNearby` (Support Find Nearby): Indicates if the asset can support find nearby. (values: noData | notCompatible | pendingUpgrade | Ready)
+* `tirePressuresBackLeft` (Tire pressure, back left): Represents the tire pressure for the back-left tire. (kilopascal)
+* `tirePressuresBackRight` (Tire pressure, back right): Represents the tire pressure for the back-right tire. (kilopascal)
+* `tirePressuresFrontLeft` (Tire pressure, front left): Represents the tire pressure for the front-left tire. (kilopascal)
+* `tirePressuresFrontRight` (Tire pressure, front right): Represents the tire pressure for the front-right tire. (kilopascal)
+* `torquePercent` (Torque): Engine torque as a percentage. (percent)
+* `totalApparentPower` (Total Apparent Power): Total apparent power in volt-amperes. (voltAmpere)
+* `totalEnergyExported` (Total Energy Exported): Represents the total energy exported in kilowatt-hours (kWh). (kilowatthour)
+* `totalReactivePower` (Total Reactive Power): Total reactive power in volt-amperes reactive. (voltAmpereReactive)
+* `totalRealPower` (Total Real Power): Total real power in watts. (watt)
+
+**levelMonitoring**
+
+* `fillCriticality` (Fill Level Criticality): Indicates if the state of the fill level is critical. (values: normal | criticallyHigh | criticallyLow)
+* `fillMass` (Fill Mass): Mass of material in the vessel. (kilogram)
+* `fillMassAvailableCapacity` (Fill Mass Available Capacity): Available mass to be filled in the vessel. (kilogram)
+* `fillPercent` (Fill Level Percent): Fill level of the vessel as a percentage full. (percent)
+* `fillVolume` (Fill Volume): Volume of material in the vessel. (liter)
+* `fillVolumeAvailableCapacity` (Fill Volume Available Capacity): Available volume to be filled in the vessel. (liter)
+* `fluidLevelStatus` (Battery Water Level): The status of the battery's water level. Will be OK or LOW. (values: noData | ok | low)
+
+**obd**
+
+* `accDistanceAlertSignal` (ACC Distance Alert): Distance Alert Signal from the Adaptive Cruise Control system. (values: notActive | active)
+* `adaptiveCruiseControlMode` (ACC Mode): Current mode of the Adaptive Cruise Control System. (values: off | speedControlActive | distanceControlActive | overtakeMode | holdMode | finishMode | disabledOrError)
+* `aebsDriverActivationDemand` (AEBS Activation): Whether Advanced Emergency Braking is enabled or disabled by the driver. (values: deactivated | activated)
+* `cruiseControlFinalSetSpeed` (Cruise Control Final Set Speed): Includes driver set point and overrides from the ACC system. (kmperhr)
+* `cruiseControlSetSpeed` (Cruise Control Set Speed): Driver's set speed for the cruise control system. (kmperhr)
+* `cruiseControlSwitch` (Cruise Control Switch): The state of the cruise control switch. (values: off | on | error)
+* `driverAlertnessWarning` (Driver Alertness Warning): Driver Alertness Warning. (values: noConditionDetected | level1MildDistraction | level2Degradation | level3Warning)
+* `driverAlertnessWarningSystemState` (Driver Alertness Warning State): State of the Driver Alertness Warning system. (values: installedButDisabled | initializing | temporarilyNotAvailable | available | monitoringDriverBehavior)
+* `ecuSpeed` (ECU Speed): Speed read from the asset's OBD port. (kmperhr)
+* `emergencyBrakingActive` (Emergency Braking State): State of the Emergency Braking System. (values: inactive | active)
+* `emergencyBrakingAebsState` (AEBS State (Collision)): State of the Emergency Braking System for Forward Collision. (values: notReady | temporarilyNotAvailable | deactivatedByDriver | readyAndActivated | driverOverrides | forwardCollisionWarningActive | forwardCollisionWarningWithBraking | forwardCollisionEmergencyBrakingActive | performanceLimited | error)
+* `externalBrakeRequestReason` (Self-Braking Reason/Mode): Brake reason/mode for the emergency self-braking system. (values: collisionAvoidance | stabilityControl | cruiseControlRoadSpeed | adaptiveCruiseControlDistanceControl | driverWarningHapticIndicator)
+* `forwardCollisionWarningLevel` (AEBS FCW Level): Severity level of the AEBS Forward Collision Warning. (values: noWarning | level1 | level2 | level3 | level4 | level5 | level6 | level7)
+* `forwardCollisionWarningStatus` (ACC FCW Status): Status of the Adaptive Cruise Control Forward Collision Warning system. (values: noWarning | collisionImminent | error)
+* `forwardLaneImagerStatus` (Forward Lane Imager State): State of the Forward Lane Imager. (values: fullyOperational | warmingUp | partiallyBlocked | fullyBlocked | misaligned | viewDegraded | error)
+* `imminentLeftLaneDeparture` (Imminent Left Lane Departure): State of the Imminent Left Lane Departure detection. (values: notImminent | imminent)
+* `imminentRightLaneDeparture` (Imminent Right Lane Departure): State of the Imminent Right Lane Departure detection. (values: notImminent | imminent)
+* `laneCenteringSystemState` (Lane Centering State): State of the Lane Centering System. (values: notReady | temporarilyNotAvailable | deactivatedByDriver | ready | suppressedByOperator | actuating | error)
+* `laneDepartureIndicationStatus` (LDW Indication): State of the Lane Departure Indication system. (values: disabled | enabled)
+* `laneDepartureWarningSystemState` (LDW System State): State of the Lane Departure Warning system. (values: notReady | temporarilyNotAvailable | deactivatedByDriver | ready | warningSuppressed | warningLaneDeparture | error)
+* `laneKeepingAssistSystemState` (LKAS State): State of the Lane Keep Assist System. (values: notReady | temporarilyNotAvailable | deactivatedByDriver | ready | suppressedByOperator | actuating | error)
+* `leftLaneDeparture` (Left Lane Departure): State of the Left Lane Departure detection. (values: notDeparting | departing)
+* `rightLaneDeparture` (Right Lane Departure): State of the Right Lane Departure detection. (values: notDeparting | departing)
+* `roadDepartureAebsState` (AEBS State (Lane Departure)): State of the AEBS system for Lane Departure. (values: notReady | temporarilyNotAvailable | deactivatedByDriver | readyAndActivated | driverOverrides | roadDepartureWarningActive | roadDepartureWarningWithBraking | roadDepartureEmergencyBrakingActive | performanceLimited | error)
+* `ropBrakeControlActive` (ROP Brake Control Active): Indicates whether Roll Over Prevention (ROP) has activated brake control. (values: passive | active)
+* `ropEngineControlActive` (ROP Engine Control Active): Indicates whether Roll Over Prevention (ROP) has commanded engine control to be active. (values: passive | active)
+* `tractionControlOverrideSwitch` (Traction Control Override Switch): When the switch is on, the automatic traction control function is disabled by the driver. (values: off | on | error)
+* `turnSignal` (Turn Signal): State of the turn signal switch (blinker). (values: off | left | right)
+* `vdcFullyOperational` (VDC Fully Operational): Indicates whether the Vehicle Dynamic Stability Control (VDC) system is fully operational. (values: notFullyOperational | fullyOperational)
+* `vehicleGear` (Vehicle Gear): The gear of the vehicle that is currently selected. (values: unknown | park | neutral | reverse | drive)
+* `xbrActiveControlMode` (Emergency Self-Braking System Mode): Current mode of the emergency self-braking system. (values: noBrakeDemand | driverBrakeDemand | additionMode | maximumMode | brakeHold)
+* `xbrSystemState` (Emergency Self-Braking System Operational State): State of the emergency self-braking system. (values: fullyOperational | highestPriorityOnly | noRequestsAccepted)
+* `ycBrakeControlActive` (YC Brake Control Active): Indicates whether Yaw Control (YC) has activated brake control. (values: passive | active)
+* `ycEngineControlActive` (YC Engine Control Active): Indicates whether Yaw Control (YC) has commanded engine control to be active. (values: passive | active)
+
+**pressureVesselHealth**
+
+* `pressureVesselBatteryLevelPercentage` (Pressure Vessel Battery Level Percentage): Battery level percentage of the pressure vessel. (percent)
+* `pressureVesselPressure` (Pressure Vessel Pressure): Pressure of the pressure vessel. (kilopascal)
+* `pressureVesselTemperature` (Pressure Vessel Temperature): Temperature of the pressure vessel. (celsius)
+
+**reefer**
+
+* `reeferAlarm` (Reefer Alarms): Array of active alarm codes for the refrigeration unit with metadata
+* `reeferAlarmSeverity` (Reefer Alarm Severity): Highest severity level across active reefer alarms (green, yellow, red, orange) (values: none | green | yellow | red | orange)
+* `reeferAmbientAir` (Reefer Ambient Air Temperature): External environment temperature for the reefer (celsius)
+* `reeferBatteryVoltage` (Reefer Battery Voltage): The voltage of the Refrigeration Unit's battery. (volt)
+* `reeferDoorOpenZone1` (Reefer Door Open (Zone 1)): Status indicating whether the reefer's door (zone 1) is closed or open (values: closed | open)
+* `reeferDoorOpenZone2` (Reefer Door Open (Zone 2)): Status indicating whether the reefer's door (zone 2) is closed or open (values: closed | open)
+* `reeferDoorOpenZone3` (Reefer Door Open (Zone 3)): Status indicating whether the reefer's door (zone 3) is closed or open (values: closed | open)
+* `reeferEngineHours` (Reefer Engine Hours): The total accumulated hours that the Refrigeration Unit has been running on its engine. (hour)
+* `reeferFuelLevel` (Reefer Fuel Level): Refrigeration Unit Fuel Level (%) (percent)
+* `reeferPowerSource` (Reefer Power Source): The power source of the refrigeration unit (Diesel, Electric or Cryo) (values: engine | electric | cryo)
+* `reeferReturnAirZone1` (Reefer Return Air Temperature (Zone 1)): Return air temperature for the reefer's zone 1 (celsius)
+* `reeferReturnAirZone2` (Reefer Return Air Temperature (Zone 2)): Return air temperature for the reefer's zone 2 (celsius)
+* `reeferReturnAirZone3` (Reefer Return Air Temperature (Zone 3)): Return air temperature for the reefer's zone 3 (celsius)
+* `reeferRunMode` (Reefer Run Mode): The run mode of the refrigeration unit (Continuous or Start/Stop) (values: continuous | startStop)
+* `reeferSetPointZone1` (Reefer Set Point (Zone 1)): Current set point for the reefer's zone 1 (celsius)
+* `reeferSetPointZone2` (Reefer Set Point (Zone 2)): Current set point for the reefer's zone 2 (celsius)
+* `reeferSetPointZone3` (Reefer Set Point (Zone 3)): Current set point for the reefer's zone 3 (celsius)
+* `reeferState` (Reefer State): The on/off state of the refrigeration unit (values: off | active | error | inactive)
+* `reeferStateZone1` (Reefer State (Zone 1)): The on/off state of the refrigeration unit (Zone 1) (values: off | active | error | inactive)
+* `reeferStateZone2` (Reefer State (Zone 2)): The on/off state of the refrigeration unit (Zone 2) (values: off | active | error | inactive)
+* `reeferStateZone3` (Reefer State (Zone 3)): The on/off state of the refrigeration unit (Zone 3) (values: off | active | error | inactive)
+* `reeferSupplyAirZone1` (Reefer Supply Air Temperature (Zone 1)): Supply air temperature for the reefer's zone 1 (celsius)
+* `reeferSupplyAirZone2` (Reefer Supply Air Temperature (Zone 2)): Supply air temperature for the reefer's zone 2 (celsius)
+* `reeferSupplyAirZone3` (Reefer Supply Air Temperature (Zone 3)): Supply air temperature for the reefer's zone 3 (celsius)
+* `reeferTemperatureRecorder1` (Reefer Temperature Recorder (Zone 1)): Temperature recorder reading for reefer zone 1 (celsius)
+* `reeferTemperatureRecorder2` (Reefer Temperature Recorder (Zone 2)): Temperature recorder reading for reefer zone 2 (celsius)
+* `reeferTemperatureRecorder3` (Reefer Temperature Recorder (Zone 3)): Temperature recorder reading for reefer zone 3 (celsius)
+* `reeferTemperatureRecorder4` (Reefer Temperature Recorder (Zone 4)): Temperature recorder reading for reefer zone 4 (celsius)
+* `reeferTemperatureRecorder5` (Reefer Temperature Recorder (Zone 5)): Temperature recorder reading for reefer zone 5 (celsius)
+* `reeferTemperatureRecorder6` (Reefer Temperature Recorder (Zone 6)): Temperature recorder reading for reefer zone 6 (celsius)
+
+**smartTrailer**
+
+* `addressEntry` (Address Entry): Address data from the address entry event
+* `addressExit` (Address Exit): Address data from the address exit event
+* `ag51BatteryStatus` (AG51 Battery Status): Battery status of the AG51 gateway based on temperature-compensated voltage threshold. The threshold varies from 3672mV at -40°C to 4579mV at 60°C. (values: ok | low)
+* `ag51BatteryTemperature` (AG51 Battery Temperature): Internal temperature of the AG51 gateway battery in degrees Celsius (celsius)
+* `ag51BatteryVoltage` (AG51 Battery Voltage): Total battery voltage of the AG51 gateway (sum of all 3 cells) in volts (volt)
+* `atisLamp` (Atis Lamp status): Atis lamp on/off status (values: off | on)
+* `derivedCargoState` (Cargo Status): Indicates if the overall cargo status of the asset is Empty, Partially Empty, Full, or Unknown. (values: unknown | empty | partiallyEmpty | full)
+* `doorClosedStatus` (Door Closed Status): Status indicating whether a door is closed or open (values: open | closed)
+* `doorClosedStatusAdvanced` (Door Closed Status (Advanced)): Status indicating whether a door is closed or open (values: open | closed)
+* `environmentMonitorAmbientTemperature` (Ambient Temperature): Air temperature at the environmental monitor device (built-in sensor). (celsius)
+* `environmentMonitorThermistorTemperature` (Thermistor Temperature): Temperature from an external thermistor probe (e.g. cable probe in cargo or reefer). (celsius)
+* `trailerMovingWithoutPower` (Trailer Moving Without Power): Trailer moving without power status (values: off | on)
+* `validBrakeScore` (Braking Performance Value): Percent score representing trailer braking effectiveness using regression analysis over the past 90 days, guaranteed to have under 3% margin of error. (percent)
+* `widgetBatteryVoltage` (Widget Battery Voltage): Battery voltage level of the widget sensor in millivolts (volt)
+* `widgetBatteryVoltageLow` (Widget Battery Voltage Low): Indicates if widget battery voltage is below 1500mV threshold (values: normal | low)
+* `widgetDisconnect` (Widget Disconnection Status): Connection status between widget and device (values: connected | disconnected)
+
+**Note:** This is not an exhaustive list. Your organization may have access to additional readings based on enabled features or custom configurations. Use the `/readings/definitions` endpoint to retrieve all available reading IDs for your organization.
     
 </dd>
 </dl>
@@ -5891,7 +6097,7 @@ client.beta_apis.get_readings_history(
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">get_readings_snapshot</a>(...) -&gt; AsyncHttpResponse[ReadingsGetReadingsSnapshotResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_readings_snapshot</a>(...) -&gt; AsyncHttpResponse[ReadingsGetReadingsSnapshotResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -5905,9 +6111,9 @@ client.beta_apis.get_readings_history(
 
 An endpoint to get the last value of a reading for a set of entities at the specified time.
 
- <b>Rate limit:</b> 10 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Readings** under the Closed Beta category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Readings** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -5930,7 +6136,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.get_readings_snapshot(
+client.beta_ap_is.get_readings_snapshot(
     reading_ids="readingIds",
     entity_type="entityType",
 )
@@ -5949,7 +6155,210 @@ client.beta_apis.get_readings_snapshot(
 <dl>
 <dd>
 
-**reading_ids:** `str` — A collection of comma separated reading IDs. Include up to 3 readings IDs. Use /readings/definitions endpoint to get a list of valid reading IDs. (Examples: engineRpm,fuelLevel)
+**reading_ids:** `str` 
+
+A collection of comma separated reading IDs. Include up to 3 readings IDs. Use /readings/definitions endpoint to get a list of valid reading IDs. (Examples: engineRpm,fuelLevel)
+
+Available reading IDs (by category):
+
+
+**diagnostic**
+
+* `airInletPressure` (Air Inlet Pressure): Air inlet pressure. (kilopascal)
+* `airTemp` (Air Inlet (Ambient Air) Temp): Air inlet (ambient air) temperature. (celsius)
+* `altitude` (Altitude): The altitude of the asset (meter)
+* `altitudeAccuracy` (Altitude Uncertainty): The uncertainty of the asset's GPS-based altitude. (meter)
+* `assetStatus` (Status): Combined movement and equipment status derived from location & Digio events. (values: movementStart | movementEnd | stopped | none | equipmentOn | equipmentOff)
+* `averageACCurrent` (Average AC Current): Average AC current in amperes. (ampere)
+* `averageACFrequency` (Average AC Frequency): Average AC frequency in Hertz. (hertz)
+* `averageLineToLineACRMSVoltage` (Average Line-to-Line Voltage): Average RMS voltage between AC lines in volts. (volt)
+* `averageLineToNeutralACRMSVoltage` (Average Line-to-Neutral Voltage): Average RMS voltage from AC line to neutral in volts. (volt)
+* `barometerPressure` (Barometric Pressure): Atmospheric pressure as measured by the barometer. (kilopascal)
+* `batteryPotentialSwitched` (Battery Potential (Switched)): Switched battery potential in volts. (volt)
+* `batteryVoltage` (Battery Voltage): Voltage of the asset's battery. (volt)
+* `boostPressureEngineTurbocharger1` (Engine Turbocharger 1 Boost Pressure): Represents the boost pressure for engine turbocharger 1. (kilopascal)
+* `boostPressurePa` (Boost Pressure): Represents the boost pressure. (kilopascal)
+* `boostPressureTurbocharger2` (Boost Pressure (Turbocharger 2)): Boost pressure from the second turbocharger in kPa. (kilopascal)
+* `canBusType` (CAN Bus Status): Indicates whether the CAN Bus system is active or provides an invalid reading. (values: invalid | active)
+* `checkEngineLightJ1939Emissions` (Check Engine Light (J1939) - Emissions): Indicates whether the J1939 check engine light emissions indicator is active or inactive. (values: off | on)
+* `checkEngineLightJ1939Protect` (Check Engine Light (J1939) - Protect): Indicates whether the J1939 check engine light protect indicator is active or inactive. (values: off | on)
+* `checkEngineLightJ1939Stop` (Check Engine Light (J1939) - Stop): Indicates whether the J1939 check engine light stop indicator is active or inactive. (values: off | on)
+* `checkEngineLightJ1939Warning` (Check Engine Light (J1939) - Warning): Indicates whether the J1939 check engine light warning indicator is active or inactive. (values: off | on)
+* `checkEngineLightPassenger` (Check Engine Light (Passenger)): Indicates whether the passenger check engine light indicator is active or inactive. (values: off | on)
+* `coolantTemp` (Engine Coolant Temp): Represents the engine coolant temperature. (celsius)
+* `defLevel` (DEF Level): Represents the DEF (Diesel Exhaust Fluid) level percentage. (percent)
+* `derivedFuelConsumed` (Lifetime Fuel Consumed (Samsara)): Samsara-maintained fuel consumption since the device was firstinstalled. (liter)
+* `deviceOrientation` (Device Orientation): Indicates orientation of the device. (values: invalid | unknown | topDown | bottomDown | leftDown | rightDown | backDown | frontDown)
+* `digioInput1` (Digital IO #1): Represents the state of digital IO #1. (values: off | on)
+* `dpfLampStatus` (DPF Lamp Status): Status of the Diesel Particulate Filter warning lamp. (values: off | on | blinking)
+* `dpfSootLoadPercent` (DPF Soot Load): Diesel Particulate Filter soot load percentage. (percent)
+* `ecuHistoryTotalRunTime` (ECU Total Run Time): Total engine run time from ECU in seconds. (second)
+* `engineHours` (Engine Hours (ECU)): Represents the total engine runtime in hours as reported by the ECU. (second)
+* `engineHoursDigioBased` (Engine Hours (Synthetic - Aux input)): Represents the synthetic total engine runtime in hours based on auxiliary input. (millisecond)
+* `engineHoursEngineStateBased` (Engine Hours (Synthetic)): Represents the synthetic total engine runtime in hours based on engine state. (millisecond)
+* `engineIntakeAirTemp` (Engine Intake Air Temperature): Represents the engine intake air temperature. (celsius)
+* `engineLoadPercent` (Engine Load): Engine load percentage. (percent)
+* `engineState` (Engine State): Indicates the current state of the engine, such as running, stopped. (values: off | running | idling)
+* `ev24VoltDcDcInverterCurrent` (EV 24V DC/DC Inverter Current): Current from the 24V DC-DC inverter in amperes. (ampere)
+* `evAverageCellTemperature` (EV Average Cell Temperature): Average temperature of EV battery cells in degrees Celsius. (celsius)
+* `evChargingErrorStatus` (EV Charging Error Status): Indicates if the EV charging system has an error. (values: noError | batteryTooHotOrCold | vehicleNotInPark | connectorLockFault | chargingSystemFault | chargingCurrentDifferential | chargingVoltageOutOfRange | chargingSystemNotCompatible | noDataUndeterminedStatus | notAvailable | unknownError)
+* `evHighCapacityBatteryCurrent` (EV High Capacity Battery Current): Current from the high capacity EV battery in amperes. (ampere)
+* `evHighCapacityBatteryVoltage` (High Capacity EV Battery Voltage): Represents the voltage of the high capacity EV battery. (volt)
+* `evMaxAllowedStateOfChargePercent` (EV Max Allowed State of Charge): Maximum allowed state of charge percentage. (percent)
+* `evMaxCellTemperature` (EV Max Cell Temperature): Maximum temperature of EV battery cells in degrees Celsius. (celsius)
+* `evMinAllowedStateOfChargePercent` (EV Min Allowed State of Charge): Minimum allowed state of charge percentage. (percent)
+* `evMinCellTemperature` (EV Min Cell Temperature): Minimum temperature of EV battery cells in degrees Celsius. (celsius)
+* `exhaustGasPressure` (Exhaust Gas Pressure): Represents the exhaust gas pressure. (kilopascal)
+* `fuelConsumptionRate` (Fuel Consumption Rate): The rate at which an asset uses fuel (litersperhour)
+* `fuelLevelPerc` (Fuel Level): Percentage of fuel remaining in the tank. (percent)
+* `fuelSource` (Fuel Source): Type of fuel used by the asset. (values: gasoline | diesel)
+* `geoCoordinates` (Geo Coordinates): GPS coordinates (latitude and longitude) of the asset's location.
+* `gpsSpeed` (GPS Speed): Asset speed measured by the gateway's GPS receiver. (meterspersec)
+* `ignitionStatus` (Ignitions Status): Indicates the current ignition status as a voltage (values: off | on)
+* `latitude` (Latitude): Latitude coordinate of the asset's location. (decimaldegrees)
+* `lifetimeFuelConsumed` (Lifetime Fuel Consumed): Represents the vehicle maintained lifetime fuel consumption as reported by the vehicle. (liter)
+* `location` (Location): Represents the current address of the asset.
+* `longitude` (Longitude): Longitude coordinate of the asset's location. (decimaldegrees)
+* `mnfldTemp` (Intake Manifold Temp): Represents the intake manifold temperature. (celsius)
+* `ngFuelPressure` (NG Fuel Pressure): Represents the natural gas fuel pressure. (kilopascal)
+* `odometerEcu` (Odometer (ECU)): Represents the total distance traveled as recorded by the ECU. (meter)
+* `odometerGps` (Odometer (GPS)): Represents the total distance traveled as determined by GPS. (meter)
+* `oilPressure` (Engine Oil Pressure): Represents the oil pressure in the engine. (kilopascal)
+* `phaseAACFrequency` (Phase A AC Frequency): AC frequency for Phase A in Hertz. (hertz)
+* `phaseAAmpsRms` (Phase A Current (RMS)): RMS current for Phase A in amperes. (ampere)
+* `phaseALLVolts` (Phase A Line-to-Line Voltage): Line-to-line voltage for Phase A in volts. (volt)
+* `phaseALNVolts` (Phase A Line-to-Neutral Voltage): Line-to-neutral voltage for Phase A in volts. (volt)
+* `phaseBAmpsRms` (Phase B Current (RMS)): RMS current for Phase B in amperes. (ampere)
+* `phaseBLLVolts` (Phase B Line-to-Line Voltage): Line-to-line voltage for Phase B in volts. (volt)
+* `phaseBLNVolts` (Phase B Line-to-Neutral Voltage): Line-to-neutral voltage for Phase B in volts. (volt)
+* `phaseCAmpsRms` (Phase C Current (RMS)): RMS current for Phase C in amperes. (ampere)
+* `phaseCLLVolts` (Phase C Line-to-Line Voltage): Line-to-line voltage for Phase C in volts. (volt)
+* `phaseCLNVolts` (Phase C Line-to-Neutral Voltage): Line-to-neutral voltage for Phase C in volts. (volt)
+* `powerFactorRatio` (Power Factor Ratio): Represents the power factor ratio. (percent)
+* `samsaraEngineHours` (Samsara Engine Hours): Samsara's intelligent engine hours calculation that combines ECU data, synthetic calculations, and manual overrides with automatic fallbacks for optimal accuracy across all asset types. (millisecond)
+* `samsaraEngineHoursWithSource` (Samsara Engine Hours with Source): Samsara's intelligent engine hours calculation including detailed source metadata to indicate the origin of the data (ECU, synthetic, or manual override). Useful for debugging and understanding data provenance.
+* `samsaraOdometer` (Samsara Odometer): Samsara automatically pulls odometer readings from a vehicle's engine control unit (ECU). If the reading isn't available and the vehicle is unregulated, you can manually enter the odometer value for maintenance tracking—this value will then update based on GPS trip data. (kilometer)
+* `samsaraSpeed` (Samsara Speed): Samsara's best estimate of the asset speed, combining multiple data sources such as ECU and GPS. (meterspersec)
+* `samsaraSpeedLimit` (Samsara Speed Limit): Speed limit at the location of the asset. (meterspersec)
+* `seatbeltDriver` (Seatbelt (Driver)): Indicates whether the driver's seatbelt is buckled or unbuckled. (values: unbuckled | buckled)
+* `seatbeltPassenger` (Seatbelt (Passenger)): Indicates whether the passenger's seatbelt is buckled or unbuckled. (values: unbuckled | buckled)
+* `supportFindNearby` (Support Find Nearby): Indicates if the asset can support find nearby. (values: noData | notCompatible | pendingUpgrade | Ready)
+* `tirePressuresBackLeft` (Tire pressure, back left): Represents the tire pressure for the back-left tire. (kilopascal)
+* `tirePressuresBackRight` (Tire pressure, back right): Represents the tire pressure for the back-right tire. (kilopascal)
+* `tirePressuresFrontLeft` (Tire pressure, front left): Represents the tire pressure for the front-left tire. (kilopascal)
+* `tirePressuresFrontRight` (Tire pressure, front right): Represents the tire pressure for the front-right tire. (kilopascal)
+* `torquePercent` (Torque): Engine torque as a percentage. (percent)
+* `totalApparentPower` (Total Apparent Power): Total apparent power in volt-amperes. (voltAmpere)
+* `totalEnergyExported` (Total Energy Exported): Represents the total energy exported in kilowatt-hours (kWh). (kilowatthour)
+* `totalReactivePower` (Total Reactive Power): Total reactive power in volt-amperes reactive. (voltAmpereReactive)
+* `totalRealPower` (Total Real Power): Total real power in watts. (watt)
+
+**levelMonitoring**
+
+* `fillCriticality` (Fill Level Criticality): Indicates if the state of the fill level is critical. (values: normal | criticallyHigh | criticallyLow)
+* `fillMass` (Fill Mass): Mass of material in the vessel. (kilogram)
+* `fillMassAvailableCapacity` (Fill Mass Available Capacity): Available mass to be filled in the vessel. (kilogram)
+* `fillPercent` (Fill Level Percent): Fill level of the vessel as a percentage full. (percent)
+* `fillVolume` (Fill Volume): Volume of material in the vessel. (liter)
+* `fillVolumeAvailableCapacity` (Fill Volume Available Capacity): Available volume to be filled in the vessel. (liter)
+* `fluidLevelStatus` (Battery Water Level): The status of the battery's water level. Will be OK or LOW. (values: noData | ok | low)
+
+**obd**
+
+* `accDistanceAlertSignal` (ACC Distance Alert): Distance Alert Signal from the Adaptive Cruise Control system. (values: notActive | active)
+* `adaptiveCruiseControlMode` (ACC Mode): Current mode of the Adaptive Cruise Control System. (values: off | speedControlActive | distanceControlActive | overtakeMode | holdMode | finishMode | disabledOrError)
+* `aebsDriverActivationDemand` (AEBS Activation): Whether Advanced Emergency Braking is enabled or disabled by the driver. (values: deactivated | activated)
+* `cruiseControlFinalSetSpeed` (Cruise Control Final Set Speed): Includes driver set point and overrides from the ACC system. (kmperhr)
+* `cruiseControlSetSpeed` (Cruise Control Set Speed): Driver's set speed for the cruise control system. (kmperhr)
+* `cruiseControlSwitch` (Cruise Control Switch): The state of the cruise control switch. (values: off | on | error)
+* `driverAlertnessWarning` (Driver Alertness Warning): Driver Alertness Warning. (values: noConditionDetected | level1MildDistraction | level2Degradation | level3Warning)
+* `driverAlertnessWarningSystemState` (Driver Alertness Warning State): State of the Driver Alertness Warning system. (values: installedButDisabled | initializing | temporarilyNotAvailable | available | monitoringDriverBehavior)
+* `ecuSpeed` (ECU Speed): Speed read from the asset's OBD port. (kmperhr)
+* `emergencyBrakingActive` (Emergency Braking State): State of the Emergency Braking System. (values: inactive | active)
+* `emergencyBrakingAebsState` (AEBS State (Collision)): State of the Emergency Braking System for Forward Collision. (values: notReady | temporarilyNotAvailable | deactivatedByDriver | readyAndActivated | driverOverrides | forwardCollisionWarningActive | forwardCollisionWarningWithBraking | forwardCollisionEmergencyBrakingActive | performanceLimited | error)
+* `externalBrakeRequestReason` (Self-Braking Reason/Mode): Brake reason/mode for the emergency self-braking system. (values: collisionAvoidance | stabilityControl | cruiseControlRoadSpeed | adaptiveCruiseControlDistanceControl | driverWarningHapticIndicator)
+* `forwardCollisionWarningLevel` (AEBS FCW Level): Severity level of the AEBS Forward Collision Warning. (values: noWarning | level1 | level2 | level3 | level4 | level5 | level6 | level7)
+* `forwardCollisionWarningStatus` (ACC FCW Status): Status of the Adaptive Cruise Control Forward Collision Warning system. (values: noWarning | collisionImminent | error)
+* `forwardLaneImagerStatus` (Forward Lane Imager State): State of the Forward Lane Imager. (values: fullyOperational | warmingUp | partiallyBlocked | fullyBlocked | misaligned | viewDegraded | error)
+* `imminentLeftLaneDeparture` (Imminent Left Lane Departure): State of the Imminent Left Lane Departure detection. (values: notImminent | imminent)
+* `imminentRightLaneDeparture` (Imminent Right Lane Departure): State of the Imminent Right Lane Departure detection. (values: notImminent | imminent)
+* `laneCenteringSystemState` (Lane Centering State): State of the Lane Centering System. (values: notReady | temporarilyNotAvailable | deactivatedByDriver | ready | suppressedByOperator | actuating | error)
+* `laneDepartureIndicationStatus` (LDW Indication): State of the Lane Departure Indication system. (values: disabled | enabled)
+* `laneDepartureWarningSystemState` (LDW System State): State of the Lane Departure Warning system. (values: notReady | temporarilyNotAvailable | deactivatedByDriver | ready | warningSuppressed | warningLaneDeparture | error)
+* `laneKeepingAssistSystemState` (LKAS State): State of the Lane Keep Assist System. (values: notReady | temporarilyNotAvailable | deactivatedByDriver | ready | suppressedByOperator | actuating | error)
+* `leftLaneDeparture` (Left Lane Departure): State of the Left Lane Departure detection. (values: notDeparting | departing)
+* `rightLaneDeparture` (Right Lane Departure): State of the Right Lane Departure detection. (values: notDeparting | departing)
+* `roadDepartureAebsState` (AEBS State (Lane Departure)): State of the AEBS system for Lane Departure. (values: notReady | temporarilyNotAvailable | deactivatedByDriver | readyAndActivated | driverOverrides | roadDepartureWarningActive | roadDepartureWarningWithBraking | roadDepartureEmergencyBrakingActive | performanceLimited | error)
+* `ropBrakeControlActive` (ROP Brake Control Active): Indicates whether Roll Over Prevention (ROP) has activated brake control. (values: passive | active)
+* `ropEngineControlActive` (ROP Engine Control Active): Indicates whether Roll Over Prevention (ROP) has commanded engine control to be active. (values: passive | active)
+* `tractionControlOverrideSwitch` (Traction Control Override Switch): When the switch is on, the automatic traction control function is disabled by the driver. (values: off | on | error)
+* `turnSignal` (Turn Signal): State of the turn signal switch (blinker). (values: off | left | right)
+* `vdcFullyOperational` (VDC Fully Operational): Indicates whether the Vehicle Dynamic Stability Control (VDC) system is fully operational. (values: notFullyOperational | fullyOperational)
+* `vehicleGear` (Vehicle Gear): The gear of the vehicle that is currently selected. (values: unknown | park | neutral | reverse | drive)
+* `xbrActiveControlMode` (Emergency Self-Braking System Mode): Current mode of the emergency self-braking system. (values: noBrakeDemand | driverBrakeDemand | additionMode | maximumMode | brakeHold)
+* `xbrSystemState` (Emergency Self-Braking System Operational State): State of the emergency self-braking system. (values: fullyOperational | highestPriorityOnly | noRequestsAccepted)
+* `ycBrakeControlActive` (YC Brake Control Active): Indicates whether Yaw Control (YC) has activated brake control. (values: passive | active)
+* `ycEngineControlActive` (YC Engine Control Active): Indicates whether Yaw Control (YC) has commanded engine control to be active. (values: passive | active)
+
+**pressureVesselHealth**
+
+* `pressureVesselBatteryLevelPercentage` (Pressure Vessel Battery Level Percentage): Battery level percentage of the pressure vessel. (percent)
+* `pressureVesselPressure` (Pressure Vessel Pressure): Pressure of the pressure vessel. (kilopascal)
+* `pressureVesselTemperature` (Pressure Vessel Temperature): Temperature of the pressure vessel. (celsius)
+
+**reefer**
+
+* `reeferAlarm` (Reefer Alarms): Array of active alarm codes for the refrigeration unit with metadata
+* `reeferAlarmSeverity` (Reefer Alarm Severity): Highest severity level across active reefer alarms (green, yellow, red, orange) (values: none | green | yellow | red | orange)
+* `reeferAmbientAir` (Reefer Ambient Air Temperature): External environment temperature for the reefer (celsius)
+* `reeferBatteryVoltage` (Reefer Battery Voltage): The voltage of the Refrigeration Unit's battery. (volt)
+* `reeferDoorOpenZone1` (Reefer Door Open (Zone 1)): Status indicating whether the reefer's door (zone 1) is closed or open (values: closed | open)
+* `reeferDoorOpenZone2` (Reefer Door Open (Zone 2)): Status indicating whether the reefer's door (zone 2) is closed or open (values: closed | open)
+* `reeferDoorOpenZone3` (Reefer Door Open (Zone 3)): Status indicating whether the reefer's door (zone 3) is closed or open (values: closed | open)
+* `reeferEngineHours` (Reefer Engine Hours): The total accumulated hours that the Refrigeration Unit has been running on its engine. (hour)
+* `reeferFuelLevel` (Reefer Fuel Level): Refrigeration Unit Fuel Level (%) (percent)
+* `reeferPowerSource` (Reefer Power Source): The power source of the refrigeration unit (Diesel, Electric or Cryo) (values: engine | electric | cryo)
+* `reeferReturnAirZone1` (Reefer Return Air Temperature (Zone 1)): Return air temperature for the reefer's zone 1 (celsius)
+* `reeferReturnAirZone2` (Reefer Return Air Temperature (Zone 2)): Return air temperature for the reefer's zone 2 (celsius)
+* `reeferReturnAirZone3` (Reefer Return Air Temperature (Zone 3)): Return air temperature for the reefer's zone 3 (celsius)
+* `reeferRunMode` (Reefer Run Mode): The run mode of the refrigeration unit (Continuous or Start/Stop) (values: continuous | startStop)
+* `reeferSetPointZone1` (Reefer Set Point (Zone 1)): Current set point for the reefer's zone 1 (celsius)
+* `reeferSetPointZone2` (Reefer Set Point (Zone 2)): Current set point for the reefer's zone 2 (celsius)
+* `reeferSetPointZone3` (Reefer Set Point (Zone 3)): Current set point for the reefer's zone 3 (celsius)
+* `reeferState` (Reefer State): The on/off state of the refrigeration unit (values: off | active | error | inactive)
+* `reeferStateZone1` (Reefer State (Zone 1)): The on/off state of the refrigeration unit (Zone 1) (values: off | active | error | inactive)
+* `reeferStateZone2` (Reefer State (Zone 2)): The on/off state of the refrigeration unit (Zone 2) (values: off | active | error | inactive)
+* `reeferStateZone3` (Reefer State (Zone 3)): The on/off state of the refrigeration unit (Zone 3) (values: off | active | error | inactive)
+* `reeferSupplyAirZone1` (Reefer Supply Air Temperature (Zone 1)): Supply air temperature for the reefer's zone 1 (celsius)
+* `reeferSupplyAirZone2` (Reefer Supply Air Temperature (Zone 2)): Supply air temperature for the reefer's zone 2 (celsius)
+* `reeferSupplyAirZone3` (Reefer Supply Air Temperature (Zone 3)): Supply air temperature for the reefer's zone 3 (celsius)
+* `reeferTemperatureRecorder1` (Reefer Temperature Recorder (Zone 1)): Temperature recorder reading for reefer zone 1 (celsius)
+* `reeferTemperatureRecorder2` (Reefer Temperature Recorder (Zone 2)): Temperature recorder reading for reefer zone 2 (celsius)
+* `reeferTemperatureRecorder3` (Reefer Temperature Recorder (Zone 3)): Temperature recorder reading for reefer zone 3 (celsius)
+* `reeferTemperatureRecorder4` (Reefer Temperature Recorder (Zone 4)): Temperature recorder reading for reefer zone 4 (celsius)
+* `reeferTemperatureRecorder5` (Reefer Temperature Recorder (Zone 5)): Temperature recorder reading for reefer zone 5 (celsius)
+* `reeferTemperatureRecorder6` (Reefer Temperature Recorder (Zone 6)): Temperature recorder reading for reefer zone 6 (celsius)
+
+**smartTrailer**
+
+* `addressEntry` (Address Entry): Address data from the address entry event
+* `addressExit` (Address Exit): Address data from the address exit event
+* `ag51BatteryStatus` (AG51 Battery Status): Battery status of the AG51 gateway based on temperature-compensated voltage threshold. The threshold varies from 3672mV at -40°C to 4579mV at 60°C. (values: ok | low)
+* `ag51BatteryTemperature` (AG51 Battery Temperature): Internal temperature of the AG51 gateway battery in degrees Celsius (celsius)
+* `ag51BatteryVoltage` (AG51 Battery Voltage): Total battery voltage of the AG51 gateway (sum of all 3 cells) in volts (volt)
+* `atisLamp` (Atis Lamp status): Atis lamp on/off status (values: off | on)
+* `derivedCargoState` (Cargo Status): Indicates if the overall cargo status of the asset is Empty, Partially Empty, Full, or Unknown. (values: unknown | empty | partiallyEmpty | full)
+* `doorClosedStatus` (Door Closed Status): Status indicating whether a door is closed or open (values: open | closed)
+* `doorClosedStatusAdvanced` (Door Closed Status (Advanced)): Status indicating whether a door is closed or open (values: open | closed)
+* `environmentMonitorAmbientTemperature` (Ambient Temperature): Air temperature at the environmental monitor device (built-in sensor). (celsius)
+* `environmentMonitorThermistorTemperature` (Thermistor Temperature): Temperature from an external thermistor probe (e.g. cable probe in cargo or reefer). (celsius)
+* `trailerMovingWithoutPower` (Trailer Moving Without Power): Trailer moving without power status (values: off | on)
+* `validBrakeScore` (Braking Performance Value): Percent score representing trailer braking effectiveness using regression analysis over the past 90 days, guaranteed to have under 3% margin of error. (percent)
+* `widgetBatteryVoltage` (Widget Battery Voltage): Battery voltage level of the widget sensor in millivolts (volt)
+* `widgetBatteryVoltageLow` (Widget Battery Voltage Low): Indicates if widget battery voltage is below 1500mV threshold (values: normal | low)
+* `widgetDisconnect` (Widget Disconnection Status): Connection status between widget and device (values: connected | disconnected)
+
+**Note:** This is not an exhaustive list. Your organization may have access to additional readings based on enabled features or custom configurations. Use the `/readings/definitions` endpoint to retrieve all available reading IDs for your organization.
     
 </dd>
 </dl>
@@ -6017,7 +6426,7 @@ client.beta_apis.get_readings_snapshot(
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">get_report_configs</a>(...) -&gt; AsyncHttpResponse[ReportsGetReportConfigsResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_report_configs</a>(...) -&gt; AsyncHttpResponse[ReportsGetReportConfigsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -6031,9 +6440,9 @@ client.beta_apis.get_readings_snapshot(
 
 Get report configs created in the organization.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Custom Reports** under the Custom Reports category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Custom Reports** under the Custom Reports category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -6056,7 +6465,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.get_report_configs()
+client.beta_ap_is.get_report_configs()
 
 ```
 </dd>
@@ -6108,7 +6517,7 @@ client.beta_apis.get_report_configs()
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">get_datasets</a>(...) -&gt; AsyncHttpResponse[ReportsGetDatasetsResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_datasets</a>(...) -&gt; AsyncHttpResponse[ReportsGetDatasetsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -6122,9 +6531,9 @@ client.beta_apis.get_report_configs()
 
 Get datasets for custom reports.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Custom Reports** under the Custom Reports category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Custom Reports** under the Custom Reports category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -6147,7 +6556,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.get_datasets()
+client.beta_ap_is.get_datasets()
 
 ```
 </dd>
@@ -6199,7 +6608,7 @@ client.beta_apis.get_datasets()
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">get_report_runs</a>(...) -&gt; AsyncHttpResponse[ReportsGetReportRunsResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_report_runs</a>(...) -&gt; AsyncHttpResponse[ReportsGetReportRunsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -6213,9 +6622,9 @@ client.beta_apis.get_datasets()
 
 Get custom report runs created by the user.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Custom Reports** under the Custom Reports category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Custom Reports** under the Custom Reports category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -6238,7 +6647,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.get_report_runs()
+client.beta_ap_is.get_report_runs()
 
 ```
 </dd>
@@ -6298,7 +6707,7 @@ client.beta_apis.get_report_runs()
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">create_report_run</a>(...) -&gt; AsyncHttpResponse[ReportsCreateReportRunResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">create_report_run</a>(...) -&gt; AsyncHttpResponse[ReportsCreateReportRunResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -6312,9 +6721,9 @@ client.beta_apis.get_report_runs()
 
 Triggers a new custom report run based on the provided configuration.
 
- <b>Rate limit:</b> 50 requests/hour (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 50 requests/hour (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Custom Reports** under the Custom Reports category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Custom Reports** under the Custom Reports category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -6337,7 +6746,7 @@ from samsara import CreateReportConfigObjectRequestBody, Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.create_report_run(
+client.beta_ap_is.create_report_run(
     report_config=CreateReportConfigObjectRequestBody(),
 )
 
@@ -6375,7 +6784,7 @@ client.beta_apis.create_report_run(
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">get_report_run_data</a>(...) -&gt; AsyncHttpResponse[ReportsGetReportRunDataResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_report_run_data</a>(...) -&gt; AsyncHttpResponse[ReportsGetReportRunDataResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -6389,9 +6798,9 @@ client.beta_apis.create_report_run(
 
 Get data for the given custom report run.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Custom Reports** under the Custom Reports category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Custom Reports** under the Custom Reports category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -6414,7 +6823,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.get_report_run_data(
+client.beta_ap_is.get_report_run_data(
     id="id",
 )
 
@@ -6468,7 +6877,7 @@ client.beta_apis.get_report_run_data(
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">get_driver_safety_scores</a>(...) -&gt; AsyncHttpResponse[SafetyScoresGetDriverSafetyScoresResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_ridership_accounts</a>(...) -&gt; AsyncHttpResponse[RidershipAccountsListRidershipAccountsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -6480,11 +6889,11 @@ client.beta_apis.get_report_run_data(
 <dl>
 <dd>
 
-Get safety scores and overall risk factors for drivers.
+List all ridership accounts for the organization.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Ridership** under the Ridership category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -6507,7 +6916,439 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.get_driver_safety_scores(
+client.beta_ap_is.list_ridership_accounts()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default and max for this value is 512 objects.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_external_ids:** `typing.Optional[bool]` — Optional boolean indicating whether to return external IDs on supported entities
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">create_ridership_account</a>(...) -&gt; AsyncHttpResponse[RidershipAccountsCreateRidershipAccountResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a new ridership account.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Ridership** under the Ridership category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.create_ridership_account(
+    name="Springfield Public Schools",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**name:** `str` — Name of the ridership account.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**external_ids:** `typing.Optional[typing.Dict[str, str]]` — A map of external ids
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">update_ridership_account</a>(...) -&gt; AsyncHttpResponse[RidershipAccountsUpdateRidershipAccountResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Update a ridership account by Samsara ID. All provided fields will overwrite existing values (PUT semantics).
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Ridership** under the Ridership category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.update_ridership_account(
+    id="id",
+    name="Springfield Public Schools",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` — The Samsara UUID of the ridership account.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `str` — Name of the ridership account.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**external_ids:** `typing.Optional[typing.Dict[str, str]]` — A map of external ids
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">delete_ridership_account</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Delete a ridership account by Samsara ID.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Ridership** under the Ridership category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.delete_ridership_account(
+    id="id",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` — The Samsara UUID of the ridership account.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_ridership_account</a>(...) -&gt; AsyncHttpResponse[RidershipAccountsGetRidershipAccountResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get a single ridership account by ID. The ID can be a Samsara UUID or an external ID in `key:value` format.
+
+ <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Ridership** under the Ridership category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.get_ridership_account(
+    id="id",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` — ID of the ridership account. This can either be the Samsara-specified UUID, or an external ID. External IDs are customer-specified key-value pairs. To specify an external ID, use the following format: `key:value`. For example, `district:SPR-001`.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_external_ids:** `typing.Optional[bool]` — Optional boolean indicating whether to return external IDs on supported entities
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_driver_safety_scores</a>(...) -&gt; AsyncHttpResponse[SafetyScoresGetDriverSafetyScoresResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get safety scores and overall risk factors for drivers.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.get_driver_safety_scores(
     end_time="endTime",
     start_time="startTime",
 )
@@ -6570,7 +7411,7 @@ client.beta_apis.get_driver_safety_scores(
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">get_driver_safety_score_trips</a>(...) -&gt; AsyncHttpResponse[SafetyScoresGetDriverSafetyScoreTripsResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_driver_safety_score_trips</a>(...) -&gt; AsyncHttpResponse[SafetyScoresGetDriverSafetyScoreTripsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -6584,9 +7425,9 @@ client.beta_apis.get_driver_safety_scores(
 
 Get trips contributing to a driver's safety score, and risk factors in each trip.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -6609,7 +7450,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.get_driver_safety_score_trips(
+client.beta_ap_is.get_driver_safety_score_trips(
     end_time="endTime",
     start_time="startTime",
 )
@@ -6672,7 +7513,7 @@ client.beta_apis.get_driver_safety_score_trips(
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">get_tag_group_safety_scores</a>(...) -&gt; AsyncHttpResponse[SafetyScoresGetTagGroupSafetyScoresResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_tag_group_safety_scores</a>(...) -&gt; AsyncHttpResponse[SafetyScoresGetTagGroupSafetyScoresResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -6686,9 +7527,9 @@ client.beta_apis.get_driver_safety_score_trips(
 
 Get a combined safety score and risk factors for a set of tags.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -6711,7 +7552,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.get_tag_group_safety_scores(
+client.beta_ap_is.get_tag_group_safety_scores(
     end_time="endTime",
     start_time="startTime",
     score_type="driver",
@@ -6775,7 +7616,7 @@ client.beta_apis.get_tag_group_safety_scores(
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">get_tag_safety_scores</a>(...) -&gt; AsyncHttpResponse[SafetyScoresGetTagSafetyScoresResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_tag_safety_scores</a>(...) -&gt; AsyncHttpResponse[SafetyScoresGetTagSafetyScoresResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -6789,9 +7630,9 @@ client.beta_apis.get_tag_group_safety_scores(
 
 Get safety scores and overall risk factors for tags.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -6814,7 +7655,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.get_tag_safety_scores(
+client.beta_ap_is.get_tag_safety_scores(
     end_time="endTime",
     start_time="startTime",
     score_type="driver",
@@ -6886,7 +7727,7 @@ client.beta_apis.get_tag_safety_scores(
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">get_vehicle_safety_scores</a>(...) -&gt; AsyncHttpResponse[SafetyScoresGetVehicleSafetyScoresResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_vehicle_safety_scores</a>(...) -&gt; AsyncHttpResponse[SafetyScoresGetVehicleSafetyScoresResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -6900,9 +7741,9 @@ client.beta_apis.get_tag_safety_scores(
 
 Get safety scores and overall risk factors for vehicles.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -6925,7 +7766,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.get_vehicle_safety_scores(
+client.beta_ap_is.get_vehicle_safety_scores(
     end_time="endTime",
     start_time="startTime",
 )
@@ -6988,7 +7829,7 @@ client.beta_apis.get_vehicle_safety_scores(
 </dl>
 </details>
 
-<details><summary><code>client.beta_apis.<a href="src/samsara/beta_apis/client.py">get_vehicle_safety_score_trips</a>(...) -&gt; AsyncHttpResponse[SafetyScoresGetVehicleSafetyScoreTripsResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_vehicle_safety_score_trips</a>(...) -&gt; AsyncHttpResponse[SafetyScoresGetVehicleSafetyScoreTripsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -7002,9 +7843,9 @@ client.beta_apis.get_vehicle_safety_scores(
 
 Get trips contributing to a vehicle's safety score, and risk factors in each trip.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -7027,7 +7868,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_apis.get_vehicle_safety_score_trips(
+client.beta_ap_is.get_vehicle_safety_score_trips(
     end_time="endTime",
     start_time="startTime",
 )
@@ -7105,9 +7946,9 @@ client.beta_apis.get_vehicle_safety_score_trips(
 
 This endpoint will return asset locations and speed data that has been collected for your organization based on the time parameters passed in. Results are paginated. If you include an endTime, the endpoint will return data up until that point. If you don’t include an endTime, you can continue to poll the API real-time with the pagination cursor that gets returned on every call. The endpoint will only return data up until the endTime that has been processed by the server at the time of the original request. You will need to request the same [startTime, endTime) range again to receive data for assets processed after the original request time. This endpoint sorts the time-series data by device.
 
- <b>Rate limit:</b> 10 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Vehicles** under the Vehicles category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Vehicles** under the Vehicles category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -7255,7 +8096,7 @@ Fetch all attributes in an organization associated with either drivers or assets
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Attributes** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Attributes** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -7345,7 +8186,7 @@ Creates a new attribute in the organization.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write Attributes** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Attributes** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -7469,7 +8310,7 @@ Fetch an attribute by id, including all of its applications.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Attributes** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Attributes** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -7536,7 +8377,7 @@ client.attributes.get_attribute(
 </dl>
 </details>
 
-<details><summary><code>client.attributes.<a href="src/samsara/attributes/client.py">delete</a>(...) -&gt; AsyncHttpResponse[StandardDeleteResponse]</code></summary>
+<details><summary><code>client.attributes.<a href="src/samsara/attributes/client.py">delete</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -7552,7 +8393,7 @@ Delete an attribute by id, including all of its applications.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write Attributes** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Attributes** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -7635,7 +8476,7 @@ Updates an attribute in the organization.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write Attributes** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Attributes** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -7755,11 +8596,11 @@ client.attributes.update_attribute(
 <dl>
 <dd>
 
-This endpoint returns a list of all uploaded media (video and still images) matching query parameters, with a maximum query range of one day. Additional media can be retrieved with the [Create a media retrieval request](/api-reference/safety/media/post-media-retrieval) endpoint, and they will be included in the list after they are uploaded. Urls provided by this endpoint expire in 8 hours.
+This endpoint returns a list of all uploaded media (video and still images) matching query parameters, with a maximum query range of one day. Additional media can be retrieved with the [Create a media retrieval request](https://developers.samsara.com/reference/postmediaretrieval) endpoint, and they will be included in the list after they are uploaded. Urls provided by this endpoint expire in 8 hours.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Media Retrieval** under the Safety & Cameras category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Media Retrieval** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -7905,11 +8746,11 @@ client.media.list_uploaded_media(
 <dl>
 <dd>
 
-This endpoint returns media information corresponding to a retrieval ID. Retrieval IDs are associated to prior [media retrieval requests](/api-reference/safety/media/post-media-retrieval). Urls provided by this endpoint expire in 8 hours.
+This endpoint returns media information corresponding to a retrieval ID. Retrieval IDs are associated to prior [media retrieval requests](https://developers.samsara.com/reference/postmediaretrieval). Urls provided by this endpoint expire in 8 hours.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Media Retrieval** under the Safety & Cameras category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Media Retrieval** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -7984,9 +8825,9 @@ client.media.get_media_retrieval(
 
 This endpoint creates an asynchronous request to upload certain media from a device. The closest available media to the requested timestamp is returned. Images, videos(both high resolution and low resolution) and hyperlapses are supported.Currently, only unblurred media is supported. If a device is offline, the requested media will be uploaded once it comes back online. Quota limits are enforced for media retrievals made through the API. The Create a media retrieval request response includes information about the media retrieval quota remaining for the organization. The media retrieval quota for the organization is reset at the beginning of each month.The quota is expressed using seconds of High Resolution video. 10 still images are equivalent to a 1 second of High Resolution footage.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Media Retrieval** under the Safety & Cameras category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Media Retrieval** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -8098,9 +8939,9 @@ client.media.post_media_retrieval(
 
 This endpoint will return coach assignments for your organization based on the parameters passed in. Results are paginated.
 
- <b>Rate limit:</b> 10 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Coaching** under the Coaching category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Coaching** under the Coaching category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -8197,9 +9038,9 @@ client.coaching.get_driver_coach_assignment()
 
 This endpoint will update an existing or create a new coach-to-driver assignment for your organization based on the parameters passed in. This endpoint should only be used for existing Coach to Driver assignments. In order to remove a driver-coach-assignment for a given driver, set coachId to null
 
- <b>Rate limit:</b> 10 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Coaching** under the Coaching category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Coaching** under the Coaching category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -8282,9 +9123,9 @@ client.coaching.put_driver_coach_assignment(
 
 This endpoint will return coaching sessions for your organization based on the time parameters passed in. Results are paginated by sessions. If you include an endTime, the endpoint will return data up until that point. If you don’t include an endTime, you can continue to poll the API real-time with the pagination cursor that gets returned on every call.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Coaching** under the Coaching category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Coaching** under the Coaching category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -8422,7 +9263,7 @@ Returns a list of all contacts in an organization.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Alert Contacts** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Alert Contacts** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -8502,7 +9343,7 @@ Add a contact to the organization.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write Alert Contacts** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Alert Contacts** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -8598,7 +9439,7 @@ Get a specific contact's information.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Alert Contacts** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Alert Contacts** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -8656,7 +9497,7 @@ client.contacts.get_contact(
 </dl>
 </details>
 
-<details><summary><code>client.contacts.<a href="src/samsara/contacts/client.py">delete</a>(...) -&gt; AsyncHttpResponse[StandardDeleteResponse]</code></summary>
+<details><summary><code>client.contacts.<a href="src/samsara/contacts/client.py">delete</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -8672,7 +9513,7 @@ Delete the given contact.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write Alert Contacts** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Alert Contacts** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -8746,7 +9587,7 @@ Update a specific contact's information.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write Alert Contacts** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Alert Contacts** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -8851,9 +9692,9 @@ client.contacts.update_contact(
 
 Get DVIR defect types.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Defect Types** under the Maintenance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Defect Types** under the Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -8942,9 +9783,9 @@ client.maintenance.get_defect_types()
 
 Stream DVIR defects.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Defects** under the Maintenance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Defects** under the Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -9059,9 +9900,9 @@ client.maintenance.stream_defects(
 
 Get a single DVIR defect by ID.
 
- <b>Rate limit:</b> 10 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Defects** under the Maintenance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Defects** under the Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -9144,9 +9985,9 @@ client.maintenance.get_defect(
 
 Returns a history/feed of changed DVIRs by updatedAtTime between startTime and endTime parameters. In case of missing `endTime` parameter it will return a never ending stream of data.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read DVIRs** under the Maintenance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read DVIRs** under the Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -9261,9 +10102,9 @@ client.maintenance.get_dvirs(
 
 Get a single DVIR by ID.
 
- <b>Rate limit:</b> 10 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read DVIRs** under the Maintenance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read DVIRs** under the Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -9348,7 +10189,7 @@ Updates a given defect. Can be used to resolve a defect by marking its `isResolv
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write Defects** under the Maintenance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Defects** under the Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -9454,7 +10295,7 @@ Creates a new mechanic DVIR in the organization.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write DVIRs** under the Maintenance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write DVIRs** under the Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -9477,6 +10318,7 @@ client = Samsara(
 client.maintenance.create_dvir(
     author_id="11",
     safety_status="safe",
+    type="mechanic",
 )
 
 ```
@@ -9502,6 +10344,14 @@ client.maintenance.create_dvir(
 <dd>
 
 **safety_status:** `CreateDvirRequestSafetyStatus` — Whether or not this vehicle or trailer is safe to drive.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**type:** `CreateDvirRequestType` — Only type 'mechanic' is currently accepted.
     
 </dd>
 </dl>
@@ -9593,7 +10443,7 @@ Resolves a given DVIR by marking its `isResolved` field to `true`.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write DVIRs** under the Maintenance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write DVIRs** under the Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -9708,7 +10558,7 @@ Get list of the vehicles with any engine faults or check light data.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read DVIRs** under the Maintenance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read DVIRs** under the Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -9771,11 +10621,11 @@ client.maintenance.v_1_get_fleet_maintenance_list()
 
 This endpoint will return driver efficiency data that has been collected for your organization and grouped by drivers based on the time parameters passed in. Results are paginated. 
 
-**Note:** The data from this endpoint comes from the Driver Efficiency (Eco-Driving) Report. The existing [/fleet/drivers/efficiency](/api-reference/future/beta-apis/get-driver-efficiency) endpoint has now been moved to Legacy.
+**Note:** The data from this endpoint comes from the Driver Efficiency (Eco-Driving) Report. The existing [/fleet/drivers/efficiency](https://developers.samsara.com/reference/getdriverefficiency) endpoint has now been moved to Legacy.
 
- <b>Rate limit:</b> 10 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Driver Efficiency** under the Fuel & Energy category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Driver Efficiency** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -9899,11 +10749,11 @@ client.fuel_and_energy.get_driver_efficiency_by_drivers(
 
 This endpoint will return driver efficiency data that has been collected for your organization and grouped by vehicle drivers used based on the time parameters passed in. Results are paginated. 
 
-**Note:** The data from this endpoint comes from the Driver Efficiency (Eco-Driving) Report. The existing [/fleet/drivers/efficiency](/api-reference/future/beta-apis/get-driver-efficiency) endpoint has now been moved to Legacy.
+**Note:** The data from this endpoint comes from the Driver Efficiency (Eco-Driving) Report. The existing [/fleet/drivers/efficiency](https://developers.samsara.com/reference/getdriverefficiency) endpoint has now been moved to Legacy.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Driver Efficiency** under the Fuel & Energy category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Driver Efficiency** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -10027,9 +10877,9 @@ client.fuel_and_energy.get_driver_efficiency_by_vehicles(
 
 Get fuel and energy efficiency driver reports for the requested time range.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Fuel & Energy** under the Fuel & Energy category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Fuel & Energy** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -10145,9 +10995,9 @@ client.fuel_and_energy.get_fuel_energy_driver_reports(
 
 Get fuel and energy efficiency vehicle reports for the requested time range.
 
- <b>Rate limit:</b> 25 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 25 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Fuel & Energy** under the Fuel & Energy category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Fuel & Energy** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -10271,9 +11121,9 @@ client.fuel_and_energy.get_fuel_energy_vehicle_reports(
 
 Create a fuel purchase transaction.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Fuel Purchase** under the Fuel & Energy category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Fuel Purchase** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -10444,9 +11294,9 @@ client.fuel_and_energy.post_fuel_purchase(
 
 Get currently active driver-trailer assignments for driver.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Assignments** under the Assignments category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -10535,9 +11385,9 @@ client.driver_trailer_assignments.get_driver_trailer_assignments()
 
 Create a new driver-trailer assignment
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Assignments** under the Assignments category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -10579,7 +11429,7 @@ client.driver_trailer_assignments.create_driver_trailer_assignment(
 <dl>
 <dd>
 
-**driver_id:** `str` — ID of the driver. This can be either a unique Samsara ID or an [external ID](/docs/external-ids) for the driver.
+**driver_id:** `str` — ID of the driver. This can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the driver.
     
 </dd>
 </dl>
@@ -10587,7 +11437,7 @@ client.driver_trailer_assignments.create_driver_trailer_assignment(
 <dl>
 <dd>
 
-**trailer_id:** `str` — ID of the trailer. This can be either a unique Samsara ID or an [external ID](/docs/external-ids) for the trailer.
+**trailer_id:** `str` — ID of the trailer. This can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the trailer.
     
 </dd>
 </dl>
@@ -10629,9 +11479,9 @@ client.driver_trailer_assignments.create_driver_trailer_assignment(
 
 Update an existing driver-trailer assignment.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Assignments** under the Assignments category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -10716,9 +11566,9 @@ client.driver_trailer_assignments.update_driver_trailer_assignment(
 
 Get details for requested driver(s) QR code, used for driver trip assignment.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Drivers** under the Drivers category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Drivers** under the Drivers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -10791,9 +11641,9 @@ client.driver_qr_codes.get_drivers_qr_codes()
 
 Assign a new QR code for the requested driver. Return error if an active QR code already exists.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Drivers** under the Drivers category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Drivers** under the Drivers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -10868,9 +11718,9 @@ client.driver_qr_codes.create_driver_qr_code(
 
 Revoke requested driver's currently active QR code.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Drivers** under the Drivers category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Drivers** under the Drivers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -10948,7 +11798,7 @@ Show the assignments created by the POST fleet/carrier-proposed-assignments. Thi
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Carrier-Proposed Assignments** under the Assignments category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Carrier-Proposed Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -11044,7 +11894,7 @@ Creates a new assignment that a driver can later use. Each driver can only have 
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write Carrier-Proposed Assignments** under the Assignments category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Carrier-Proposed Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -11143,8 +11993,8 @@ client.carrier_proposed_assignments.create_carrier_proposed_assignment(
 </dl>
 </details>
 
-## legacy-apis
-<details><summary><code>client.legacy_apis.<a href="src/samsara/legacy_apis/client.py">get_dvir_defects</a>(...) -&gt; AsyncHttpResponse[DefectsResponse]</code></summary>
+## Legacy APIs
+<details><summary><code>client.legacy_ap_is.<a href="src/samsara/legacy_ap_is/client.py">get_dvir_defects</a>(...) -&gt; AsyncHttpResponse[DefectsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -11156,13 +12006,13 @@ client.carrier_proposed_assignments.create_carrier_proposed_assignment(
 <dl>
 <dd>
 
-**Note: This is a legacy endpoint, consider using [Stream DVIR defects](/api-reference/maintenance/maintenance/stream-defects) instead. The endpoint will continue to function as documented.** 
+**Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/streamdefects) instead. The endpoint will continue to function as documented.** 
 
 Returns a list of DVIR defects in an organization, filtered by creation time. The maximum time period you can query for is 30 days. 
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Defects** under the Maintenance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Defects** under the Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -11182,7 +12032,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.legacy_apis.get_dvir_defects(
+client.legacy_ap_is.get_dvir_defects(
     start_time="startTime",
     end_time="endTime",
 )
@@ -11253,7 +12103,7 @@ client.legacy_apis.get_dvir_defects(
 </dl>
 </details>
 
-<details><summary><code>client.legacy_apis.<a href="src/samsara/legacy_apis/client.py">get_drivers_vehicle_assignments</a>(...) -&gt; AsyncHttpResponse[
+<details><summary><code>client.legacy_ap_is.<a href="src/samsara/legacy_ap_is/client.py">get_drivers_vehicle_assignments</a>(...) -&gt; AsyncHttpResponse[
     DriversVehicleAssignmentsGetDriversVehicleAssignmentsResponseBody
 ]</code></summary>
 <dl>
@@ -11267,11 +12117,11 @@ client.legacy_apis.get_dvir_defects(
 <dl>
 <dd>
 
-**Note: This is a legacy endpoint, consider using [Get all driver-vehicle assignments](/api-reference/drivers/driver-vehicle-assignments/get-driver-vehicle-assignments) instead. The endpoint will continue to function as documented.** Get all vehicle assignments for the requested drivers in the requested time range. The only type of assignment supported right now are assignments created through the driver app.
+**Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getdrivervehicleassignments) instead. The endpoint will continue to function as documented.** Get all vehicle assignments for the requested drivers in the requested time range. The only type of assignment supported right now are assignments created through the driver app.
 
- <b>Rate limit:</b> 25 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 25 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Assignments** under the Assignments category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -11294,7 +12144,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.legacy_apis.get_drivers_vehicle_assignments()
+client.legacy_ap_is.get_drivers_vehicle_assignments()
 
 ```
 </dd>
@@ -11378,7 +12228,7 @@ client.legacy_apis.get_drivers_vehicle_assignments()
 </dl>
 </details>
 
-<details><summary><code>client.legacy_apis.<a href="src/samsara/legacy_apis/client.py">get_dvir_history</a>(...) -&gt; AsyncHttpResponse[DvirsListResponse]</code></summary>
+<details><summary><code>client.legacy_ap_is.<a href="src/samsara/legacy_ap_is/client.py">get_dvir_history</a>(...) -&gt; AsyncHttpResponse[DvirsListResponse]</code></summary>
 <dl>
 <dd>
 
@@ -11390,13 +12240,13 @@ client.legacy_apis.get_drivers_vehicle_assignments()
 <dl>
 <dd>
 
-**Note: This is a legacy endpoint, consider using [Stream DVIRs](/api-reference/maintenance/maintenance/get-dvirs) instead. The endpoint will continue to function as documented.** 
+**Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getdvirs) instead. The endpoint will continue to function as documented.** 
 
  Returns a list of all DVIRs in an organization. 
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read DVIRs** under the Maintenance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read DVIRs** under the Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -11416,7 +12266,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.legacy_apis.get_dvir_history(
+client.legacy_ap_is.get_dvir_history(
     start_time="startTime",
     end_time="endTime",
 )
@@ -11495,7 +12345,7 @@ client.legacy_apis.get_dvir_history(
 </dl>
 </details>
 
-<details><summary><code>client.legacy_apis.<a href="src/samsara/legacy_apis/client.py">get_vehicle_idling_reports</a>(...) -&gt; AsyncHttpResponse[IdlingReportsGetVehicleIdlingReportsResponseBody]</code></summary>
+<details><summary><code>client.legacy_ap_is.<a href="src/samsara/legacy_ap_is/client.py">get_vehicle_idling_reports</a>(...) -&gt; AsyncHttpResponse[IdlingReportsGetVehicleIdlingReportsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -11507,11 +12357,11 @@ client.legacy_apis.get_dvir_history(
 <dl>
 <dd>
 
-**Note: This is a legacy endpoint, consider using [Get idling events](/api-reference/fuel-and-efficiency/idling/get-idling-events) instead. The endpoint will continue to function as documented.** Get all vehicle idling reports for the requested time duration.
+**Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getidlingevents) instead. The endpoint will continue to function as documented.** Get all vehicle idling reports for the requested time duration.
 
- <b>Rate limit:</b> 25 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 25 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Fuel & Energy** under the Fuel & Energy category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Fuel & Energy** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -11534,7 +12384,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.legacy_apis.get_vehicle_idling_reports(
+client.legacy_ap_is.get_vehicle_idling_reports(
     start_time="startTime",
     end_time="endTime",
 )
@@ -11637,7 +12487,7 @@ client.legacy_apis.get_vehicle_idling_reports(
 </dl>
 </details>
 
-<details><summary><code>client.legacy_apis.<a href="src/samsara/legacy_apis/client.py">get_safety_events</a>(...) -&gt; AsyncHttpResponse[SafetyEventsListResponse]</code></summary>
+<details><summary><code>client.legacy_ap_is.<a href="src/samsara/legacy_ap_is/client.py">get_safety_events</a>(...) -&gt; AsyncHttpResponse[SafetyEventsListResponse]</code></summary>
 <dl>
 <dd>
 
@@ -11649,13 +12499,13 @@ client.legacy_apis.get_vehicle_idling_reports(
 <dl>
 <dd>
 
-**Note: This is a legacy endpoint, consider using [Get Safety Events Stream](/api-reference/safety/safety/get-safety-events-v-2-stream) instead. The endpoint will continue to function as documented.** 
+**Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getsafetyeventsv2stream) instead. The endpoint will continue to function as documented.** 
 
  Fetch safety events for the organization in a given time period. 
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -11675,7 +12525,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.legacy_apis.get_safety_events(
+client.legacy_ap_is.get_safety_events(
     start_time="startTime",
     end_time="endTime",
 )
@@ -11754,7 +12604,7 @@ client.legacy_apis.get_safety_events(
 </dl>
 </details>
 
-<details><summary><code>client.legacy_apis.<a href="src/samsara/legacy_apis/client.py">get_safety_activity_event_feed</a>(...) -&gt; AsyncHttpResponse[SafetyEventsGetSafetyActivityEventFeedResponseBody]</code></summary>
+<details><summary><code>client.legacy_ap_is.<a href="src/samsara/legacy_ap_is/client.py">get_safety_activity_event_feed</a>(...) -&gt; AsyncHttpResponse[SafetyEventsGetSafetyActivityEventFeedResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -11766,7 +12616,7 @@ client.legacy_apis.get_safety_events(
 <dl>
 <dd>
 
-**Note: This is a legacy endpoint, consider using [Get Safety Events Stream](/api-reference/safety/safety/get-safety-events-v-2-stream) instead. The endpoint will continue to function as documented.**
+**Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getsafetyeventsv2stream) instead. The endpoint will continue to function as documented.**
 
 Get continuous safety events. The safety activity event feed offers a change-log for safety events. Use this endpoint to subscribe to safety event changes. See documentation below for all supported change-log types.
 
@@ -11776,9 +12626,9 @@ Get continuous safety events. The safety activity event feed offers a change-log
 | BehaviorLabelActivityType     | a label is added or removed from a safety event |
 | CoachingStateActivityType     | a safety event coaching state is updated        |
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -11801,7 +12651,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.legacy_apis.get_safety_activity_event_feed()
+client.legacy_ap_is.get_safety_activity_event_feed()
 
 ```
 </dd>
@@ -11845,7 +12695,7 @@ client.legacy_apis.get_safety_activity_event_feed()
 </dl>
 </details>
 
-<details><summary><code>client.legacy_apis.<a href="src/samsara/legacy_apis/client.py">get_vehicles_driver_assignments</a>(...) -&gt; AsyncHttpResponse[
+<details><summary><code>client.legacy_ap_is.<a href="src/samsara/legacy_ap_is/client.py">get_vehicles_driver_assignments</a>(...) -&gt; AsyncHttpResponse[
     VehiclesDriverAssignmentsGetVehiclesDriverAssignmentsResponseBody
 ]</code></summary>
 <dl>
@@ -11859,11 +12709,11 @@ client.legacy_apis.get_safety_activity_event_feed()
 <dl>
 <dd>
 
-**Note: This is a legacy endpoint, consider using [Get all driver-vehicle assignments](/api-reference/drivers/driver-vehicle-assignments/get-driver-vehicle-assignments) instead. The endpoint will continue to function as documented.** Get all driver assignments for the requested vehicles in the requested time range. The only type of assignment supported right now are assignments created through the driver app.
+**Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getdrivervehicleassignments) instead. The endpoint will continue to function as documented.** Get all driver assignments for the requested vehicles in the requested time range. The only type of assignment supported right now are assignments created through the driver app.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Assignments** under the Assignments category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -11886,7 +12736,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.legacy_apis.get_vehicles_driver_assignments()
+client.legacy_ap_is.get_vehicles_driver_assignments()
 
 ```
 </dd>
@@ -11962,7 +12812,7 @@ client.legacy_apis.get_vehicles_driver_assignments()
 </dl>
 </details>
 
-<details><summary><code>client.legacy_apis.<a href="src/samsara/legacy_apis/client.py">v_1_get_all_assets</a>() -&gt; AsyncHttpResponse[InlineResponse2001]</code></summary>
+<details><summary><code>client.legacy_ap_is.<a href="src/samsara/legacy_ap_is/client.py">v_1_get_vehicle_harsh_event</a>(...) -&gt; AsyncHttpResponse[V1VehicleHarshEventResponse]</code></summary>
 <dl>
 <dd>
 
@@ -11974,73 +12824,7 @@ client.legacy_apis.get_vehicles_driver_assignments()
 <dl>
 <dd>
 
-**Note: This is a legacy endpoint, consider using [List all assets](/api-reference/assets-vehicles-trailers-equipment/assets/list) instead. The endpoint will continue to function as documented.** 
-
- Fetch all powered and unpowered equipment. 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-To use this endpoint, select **Read Equipment** under the Equipment category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.legacy_apis.v_1_get_all_assets()
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.legacy_apis.<a href="src/samsara/legacy_apis/client.py">v_1_get_vehicle_harsh_event</a>(...) -&gt; AsyncHttpResponse[V1VehicleHarshEventResponse]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**Note: This is a legacy endpoint, consider using [Get Safety Events](/api-reference/safety/safety/get-safety-events-v-2) instead. The endpoint will continue to function as documented.** <n class="warning">
+**Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getsafetyeventsv2stream) instead. The endpoint will continue to function as documented.** <n class="warning">
 <nh>
 <i class="fa fa-exclamation-circle"></i>
 This endpoint is still on our legacy API.
@@ -12051,7 +12835,7 @@ Fetch harsh event details for a vehicle.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -12071,7 +12855,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.legacy_apis.v_1_get_vehicle_harsh_event(
+client.legacy_ap_is.v_1_get_vehicle_harsh_event(
     vehicle_id=1000000,
     timestamp=1000000,
 )
@@ -12133,9 +12917,9 @@ client.legacy_apis.v_1_get_vehicle_harsh_event(
 
 Returns a list of the organization document types. The legacy version of this endpoint can be found at [samsara.com/api-legacy](https://www.samsara.com/api-legacy#operation/getDriverDocumentTypesByOrgId).
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Documents** under the Driver Workflow category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Documents** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -12208,9 +12992,9 @@ client.documents.get_document_types()
 
 Get all documents for the given time range. The legacy version of this endpoint can be found at [samsara.com/api-legacy](https://www.samsara.com/api-legacy#operation/getDriverDocumentsByOrgId).
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Documents** under the Driver Workflow category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Documents** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -12318,9 +13102,9 @@ client.documents.get_documents(
 
 Creates a single document. The legacy version of this endpoint can be found at [samsara.com/api-legacy](https://www.samsara.com/api-legacy#operation/createDriverDocument).
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Documents** under the Driver Workflow category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Documents** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -12370,7 +13154,7 @@ client.documents.post_document(
 <dl>
 <dd>
 
-**driver_id:** `str` — ID of the driver. Can be either unique Samsara ID or an [external ID](/docs/external-ids) for the driver.
+**driver_id:** `str` — ID of the driver. Can be either unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the driver.
     
 </dd>
 </dl>
@@ -12402,7 +13186,7 @@ client.documents.post_document(
 <dl>
 <dd>
 
-**route_stop_id:** `typing.Optional[str]` — ID of the route stop. Can be either unique Samsara ID or an [external ID](/docs/external-ids) for the route stop.
+**route_stop_id:** `typing.Optional[str]` — ID of the route stop. Can be either unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the route stop.
     
 </dd>
 </dl>
@@ -12418,7 +13202,7 @@ client.documents.post_document(
 <dl>
 <dd>
 
-**vehicle_id:** `typing.Optional[str]` — ID of the vehicle. Can be either unique Samsara ID or an [external ID](/docs/external-ids) for the vehicle.
+**vehicle_id:** `typing.Optional[str]` — ID of the vehicle. Can be either unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the vehicle.
     
 </dd>
 </dl>
@@ -12454,7 +13238,7 @@ Request creation of a document PDF.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write Documents** under the Driver Workflow category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Documents** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -12528,7 +13312,7 @@ Returns generation job status and download URL for a PDF.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Documents** under the Driver Workflow category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Documents** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -12600,9 +13384,9 @@ client.documents.get_document_pdf(
 
 Returns a single document. The legacy version of this endpoint can be found at [samsara.com/api-legacy](https://www.samsara.com/api-legacy#operation/getDriverDocumentByIdAndDriverId).
 
- <b>Rate limit:</b> 25 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 25 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Documents** under the Driver Workflow category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Documents** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -12677,9 +13461,9 @@ client.documents.get_document(
 
 Deletes a single document. The legacy version of this endpoint can be found at [samsara.com/api-legacy](https://www.samsara.com/api-legacy#operation/deleteDriverDocumentByIdAndDriverId).
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Documents** under the Driver Workflow category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Documents** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -12755,11 +13539,11 @@ client.documents.delete_document(
 <dl>
 <dd>
 
-Get all driver-vehicle assignments for the requested drivers or vehicles in the requested time range. To fetch driver-vehicle assignments out of the vehicle trips' time ranges, assignmentType needs to be specified. Note: this endpoint replaces past endpoints to fetch assignments by driver or by vehicle. Visit [this migration guide](/docs/migrating-from-driver-vehicle-assignment-or-vehicle-driver-assignment-endpoints) for more information.
+Get all driver-vehicle assignments for the requested drivers or vehicles in the requested time range. To fetch driver-vehicle assignments out of the vehicle trips' time ranges, assignmentType needs to be specified. Note: this endpoint replaces past endpoints to fetch assignments by driver or by vehicle. Visit [this migration guide](https://developers.samsara.com/docs/migrating-from-driver-vehicle-assignment-or-vehicle-driver-assignment-endpoints) for more information.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Assignments** under the Assignments category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -12864,7 +13648,7 @@ client.driver_vehicle_assignments.get_driver_vehicle_assignments(
 <dl>
 <dd>
 
-**assignment_type:** `typing.Optional[GetDriverVehicleAssignmentsRequestAssignmentType]` — Specifies which assignment type to filter by.  Valid values: `HOS`, `idCard`, `static`, `faceId`, `tachograph`, `safetyManual`, `RFID`, `trailer`, `external`, `qrCode`
+**assignment_type:** `typing.Optional[GetDriverVehicleAssignmentsRequestAssignmentType]` — Specifies which assignment type to filter by.  Valid values: `HOS`, `idCard`, `static`, `faceId`, `tachograph`, `safetyManual`, `RFID`, `trailer`, `external`, `qrCode`, `driverApp`
     
 </dd>
 </dl>
@@ -12898,11 +13682,11 @@ client.driver_vehicle_assignments.get_driver_vehicle_assignments(
 <dl>
 <dd>
 
-Assign vehicle drive-time to a driver via API. For a step-by-step instruction on how to leverage this endpoint, see [this guide](/docs/creating-driver-vehicle-assignments)
+Assign vehicle drive-time to a driver via API. For a step-by-step instruction on how to leverage this endpoint, see [this guide](https://developers.samsara.com/docs/creating-driver-vehicle-assignments)
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Assignments** under the Assignments category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -12944,7 +13728,7 @@ client.driver_vehicle_assignments.create_driver_vehicle_assignment(
 <dl>
 <dd>
 
-**driver_id:** `str` — ID of the driver. This can be either a unique Samsara ID or an [external ID](/docs/external-ids) for the driver.
+**driver_id:** `str` — ID of the driver. This can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the driver.
     
 </dd>
 </dl>
@@ -12952,7 +13736,7 @@ client.driver_vehicle_assignments.create_driver_vehicle_assignment(
 <dl>
 <dd>
 
-**vehicle_id:** `str` — ID of the vehicle. This can be either a unique Samsara ID or an [external ID](/docs/external-ids) for the vehicle.
+**vehicle_id:** `str` — ID of the vehicle. This can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the vehicle.
     
 </dd>
 </dl>
@@ -13026,9 +13810,9 @@ client.driver_vehicle_assignments.create_driver_vehicle_assignment(
 
 Delete driver assignments that were created using the `POST fleet/driver-vehicle-assignments` endpoint for the requested vehicle in the requested time range.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Assignments** under the Assignments category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -13069,7 +13853,7 @@ client.driver_vehicle_assignments.delete_driver_vehicle_assignments(
 <dl>
 <dd>
 
-**vehicle_id:** `str` — ID of the vehicle. This can be either a unique Samsara ID or an [external ID](/docs/external-ids) for the vehicle.
+**vehicle_id:** `str` — ID of the vehicle. This can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the vehicle.
     
 </dd>
 </dl>
@@ -13137,9 +13921,9 @@ client.driver_vehicle_assignments.delete_driver_vehicle_assignments(
 
 Update driver assignments that were created using the `POST fleet/driver-vehicle-assignments`. Vehicle Id, Driver Id, and Start Time must match an existing assignment.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Assignments** under the Assignments category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -13182,7 +13966,7 @@ client.driver_vehicle_assignments.update_driver_vehicle_assignment(
 <dl>
 <dd>
 
-**driver_id:** `str` — ID of the driver. This can be either a unique Samsara ID or an [external ID](/docs/external-ids) for the driver.
+**driver_id:** `str` — ID of the driver. This can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the driver.
     
 </dd>
 </dl>
@@ -13198,7 +13982,7 @@ client.driver_vehicle_assignments.update_driver_vehicle_assignment(
 <dl>
 <dd>
 
-**vehicle_id:** `str` — ID of the vehicle. This can be either a unique Samsara ID or an [external ID](/docs/external-ids) for the vehicle.
+**vehicle_id:** `str` — ID of the vehicle. This can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the vehicle.
     
 </dd>
 </dl>
@@ -13267,7 +14051,7 @@ Get all drivers in organization.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Drivers** under the Drivers category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Drivers** under the Drivers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -13408,7 +14192,7 @@ Add a driver to the organization.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write Drivers** under the Drivers category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Drivers** under the Drivers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -13552,7 +14336,7 @@ client.drivers.create(
 <dl>
 <dd>
 
-**external_ids:** `typing.Optional[typing.Dict[str, str]]` — The [external IDs](/docs/external-ids) for the given object.
+**external_ids:** `typing.Optional[typing.Dict[str, str]]` — The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.
     
 </dd>
 </dl>
@@ -13734,9 +14518,9 @@ To access this endpoint, your organization must have the Samsara Platform Premie
 
 Note: Sign out requests made while a logged-in driver does not have internet connection will not log the driver out. A success response will still be provided and the driver will be logged out once they have internet connection.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Driver Remote Signout** under the Drivers category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Driver Remote Signout** under the Drivers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -13813,7 +14597,7 @@ Get information about a driver.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Drivers** under the Drivers category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Drivers** under the Drivers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -13943,7 +14727,7 @@ Update a specific driver's information. This can also be used to activate or de-
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write Drivers** under the Drivers category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Drivers** under the Drivers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -14085,7 +14869,7 @@ client.drivers.update(
 <dl>
 <dd>
 
-**external_ids:** `typing.Optional[typing.Dict[str, str]]` — The [external IDs](/docs/external-ids) for the given object.
+**external_ids:** `typing.Optional[typing.Dict[str, str]]` — The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.
     
 </dd>
 </dl>
@@ -14288,9 +15072,9 @@ client.drivers.update(
 
 Creates a short-lived auth token a driver can use to login.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Driver Auth Token** under the Drivers category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Driver Auth Token** under the Drivers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -14392,7 +15176,7 @@ Returns all known tachograph activity for all specified drivers in the time rang
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Tachograph (EU)** under the Compliance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Tachograph (EU)** under the Compliance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -14505,11 +15289,11 @@ client.tachograph_eu_only.get_driver_tachograph_activity(
 
 Returns all known tachograph files for all specified drivers in the time range. 
 
- <b>Rate limit:</b> 50 requests/sec (learn more about rate limits [here](/docs/rate-limits)). 
+ <b>Rate limit:</b> 50 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>). 
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Tachograph (EU)** under the Compliance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Tachograph (EU)** under the Compliance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -14622,11 +15406,11 @@ client.tachograph_eu_only.get_driver_tachograph_files(
 
 Returns all known tachograph files for all specified vehicles in the time range. 
 
- <b>Rate limit:</b> 150 requests/sec (learn more about rate limits [here](/docs/rate-limits)). 
+ <b>Rate limit:</b> 150 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>). 
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Tachograph (EU)** under the Compliance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Tachograph (EU)** under the Compliance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -14834,7 +15618,7 @@ Returns last known locations for all equipment. This can be optionally filtered 
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -14936,7 +15720,7 @@ If `hasNextPage` is `false`, no updates are readily available yet. We'd suggest 
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -15032,7 +15816,7 @@ Returns historical equipment locations during the given time range. This can be 
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -15145,11 +15929,11 @@ client.equipment.get_equipment_locations_history(
 
 Returns the last known stats for all equipment. This can be optionally filtered by tags or specific equipment IDs. 
 
- <b>Rate limit:</b> 150 requests/sec (learn more about rate limits [here](/docs/rate-limits)). 
+ <b>Rate limit:</b> 150 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>). 
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -15277,11 +16061,11 @@ You can provide the `endCursor` to subsequent calls via the `after` parameter. T
 
 If `hasNextPage` is `false`, no updates are readily available yet. Each stat type has a different refresh rate, but in general we'd suggest waiting a minimum of 5 seconds before requesting updates. 
 
- <b>Rate limit:</b> 150 requests/sec (learn more about rate limits [here](/docs/rate-limits)). 
+ <b>Rate limit:</b> 150 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>). 
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -15403,11 +16187,11 @@ The types of equipment stats you want to query. Currently, you may submit up to 
 
 Returns historical equipment status during the given time range. This can be optionally filtered by tags or specific equipment IDs. 
 
- <b>Rate limit:</b> 150 requests/sec (learn more about rate limits [here](/docs/rate-limits)). 
+ <b>Rate limit:</b> 150 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>). 
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -15550,7 +16334,7 @@ Retrieves the unit of equipment with the given Samsara ID.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Equipment** under the Equipment category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Equipment** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -15625,7 +16409,7 @@ Get the current HOS status for all drivers. Note that this includes inactive as 
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read ELD Compliance Settings (US)** under the Compliance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read ELD Compliance Settings (US)** under the Compliance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -15735,9 +16519,9 @@ The `startDate` and `endDate` parameters indicate the date range you'd like to r
 
 If you are using the legacy version of this endpoint and looking for its documentation, you can find it [here](https://www.samsara.com/api-legacy#operation/getFleetDriversHosDailyLogs).
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read ELD Compliance Settings (US)** under the Compliance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read ELD Compliance Settings (US)** under the Compliance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -15832,7 +16616,7 @@ client.hours_of_service.get_hos_daily_logs()
 <dl>
 <dd>
 
-**expand:** `typing.Optional[typing.Literal["vehicle"]]` 
+**expand:** `typing.Optional[GetHosDailyLogsRequestExpand]` 
 
 Expands the specified value(s) in the response object. Expansion populates additional fields in an object, if supported. Unsupported fields are ignored. To expand multiple fields, input a comma-separated list.
 
@@ -15872,11 +16656,11 @@ Returns HOS logs between a given `startTime` and `endTime`. The logs can be furt
 
 **Note:** If data is still being uploaded from the Samsara Driver App, it may not be completely reflected in the response from this endpoint. The best practice is to wait a couple of days before querying this endpoint to make sure that all data from the Samsara Driver App has been uploaded. 
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)). 
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>). 
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read ELD Compliance Settings (US)** under the Compliance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read ELD Compliance Settings (US)** under the Compliance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -15992,9 +16776,9 @@ The `startTime` and `endTime` parameters indicate the datetime range you'd like 
 
 **Note:** The following are all the violation types with a short explanation about what each of them means: `californiaMealbreakMissed` (Missed California Meal Break), `cycleHoursOn` (Cycle Limit), `cycleOffHoursAfterOnDutyHours` (Cycle 2 Limit), `dailyDrivingHours` (Daily Driving Limit), `dailyOffDutyDeferralAddToDay2Consecutive` (Daily Off-Duty Deferral: Add To Day2 Consecutive), `dailyOffDutyDeferralNotPartMandatory` (Daily Off-Duty Deferral: Not Part Of Mandatory), `dailyOffDutyDeferralTwoDayDrivingLimit` (Daily Off-Duty Deferral: 2 Day Driving Limit), `dailyOffDutyDeferralTwoDayOffDuty` (Daily Off-Duty Deferral: 2 Day Off Duty), `dailyOffDutyNonResetHours` (Daily Off-Duty Time: Non-Reset), `dailyOffDutyTotalHours` (Daily Off-Duty Time), `dailyOnDutyHours` (Daily On-Duty Limit), `mandatory24HoursOffDuty` (24 Hours of Off Duty required), `restbreakMissed` (Missed Rest Break), `shiftDrivingHours` (Shift Driving Limit), `shiftHours` (Shift Duty Limit), `shiftOnDutyHours` (Shift On-Duty Limit), `unsubmittedLogs` (Missing Driver Certification)
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read ELD Compliance Settings (US)** under the Compliance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read ELD Compliance Settings (US)** under the Compliance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -16126,7 +16910,7 @@ Set an individual driver’s current duty status to 'On Duty' or 'Off Duty'.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write ELD Hours of Service (US)** under the Compliance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write ELD Hours of Service (US)** under the Compliance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -16250,7 +17034,7 @@ Get the HOS (hours of service) signin and signout logs for the specified driver.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read ELD Hours of Service (US)** under the Compliance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read ELD Hours of Service (US)** under the Compliance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -16343,9 +17127,9 @@ Get all jurisdiction IFTA reports for the requested time duration. Data is retur
 
 **Note:** The most recent 72 hours of data may still be processing and is subject to change and latency, so it is not recommended to request data for the most recent 72 hours.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read IFTA (US)** under the Compliance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read IFTA (US)** under the Compliance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -16478,9 +17262,9 @@ Get all vehicle IFTA reports for the requested time duration. Data is returned i
 
 **Note:** The most recent 72 hours of data may still be processing and is subject to change and latency, so it is not recommended to request data for the most recent 72 hours.
 
- <b>Rate limit:</b> 25 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 25 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read IFTA (US)** under the Compliance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read IFTA (US)** under the Compliance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -16619,9 +17403,9 @@ client.ifta.get_ifta_vehicle_reports(
 
 Create a job to generate csv files of IFTA mileage segments.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write IFTA (US)** under the Compliance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write IFTA (US)** under the Compliance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -16729,9 +17513,9 @@ client.ifta.create_ifta_detail_job(
 
 Get information about an existing IFTA detail job.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read IFTA (US)** under the Compliance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read IFTA (US)** under the Compliance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -16807,9 +17591,9 @@ client.ifta.get_ifta_detail_job(
 
 Returns multiple routes. The legacy version of this endpoint can be found at [samsara.com/api-legacy](https://www.samsara.com/api-legacy#operation/fetchAllDispatchRoutes).
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -16917,9 +17701,9 @@ client.routes.fetch_routes(
 
 Create a route. The legacy version of this endpoint can be found at [samsara.com/api-legacy](https://www.samsara.com/api-legacy#operation/createDispatchRoute).
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Routes** under the Driver Workflow category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -16977,7 +17761,7 @@ client.routes.create_route(
 <dl>
 <dd>
 
-**driver_id:** `typing.Optional[str]` — ID of the driver. Can be either a unique Samsara ID or an [external ID](/docs/external-ids) for the driver.
+**driver_id:** `typing.Optional[str]` — ID of the driver. Can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the driver.
     
 </dd>
 </dl>
@@ -17025,7 +17809,7 @@ client.routes.create_route(
 <dl>
 <dd>
 
-**vehicle_id:** `typing.Optional[str]` — ID of the vehicle. Can be either a unique Samsara ID or an [external ID](/docs/external-ids) for the vehicle.
+**vehicle_id:** `typing.Optional[str]` — ID of the vehicle. Can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the vehicle.
     
 </dd>
 </dl>
@@ -17061,9 +17845,9 @@ Subscribes to a feed of immutable, append-only updates for routes. The initial r
 
 The legacy version of this endpoint can be found at [samsara.com/api-legacy](https://www.samsara.com/api-legacy#operation/fetchAllRouteJobUpdates).
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -17110,7 +17894,7 @@ client.routes.get_routes_feed()
 <dl>
 <dd>
 
-**expand:** `typing.Optional[typing.Literal["route"]]` 
+**expand:** `typing.Optional[GetRoutesFeedRequestExpand]` 
 
 Expands the specified value(s) in the response object. Expansion populates additional fields in an object, if supported. Unsupported fields are ignored. To expand multiple fields, input a comma-separated list.
 
@@ -17148,9 +17932,9 @@ Valid value: `route`  Valid values: `route`
 
 Returns a single route. The legacy version of this endpoint can be found at [samsara.com/api-legacy](https://www.samsara.com/api-legacy#operation/getDispatchRouteById).
 
- <b>Rate limit:</b> 25 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 25 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -17233,9 +18017,9 @@ client.routes.fetch_route(
 
 Delete a dispatch route and its associated stops.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Routes** under the Driver Workflow category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -17314,9 +18098,9 @@ Update a route.  **Note** this implementation of patch uses [the JSON merge patc
 
 The legacy version of this endpoint (which uses PUT instead of PATCH) can be found at [samsara.com/api-legacy](https://www.samsara.com/api-legacy#operation/updateDispatchRouteById).
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Routes** under the Driver Workflow category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -17365,7 +18149,7 @@ client.routes.patch_route(
 <dl>
 <dd>
 
-**driver_id:** `typing.Optional[str]` — ID of the driver. Can be either a unique Samsara ID or an [external ID](/docs/external-ids) for the driver.
+**driver_id:** `typing.Optional[str]` — ID of the driver. Can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the driver.
     
 </dd>
 </dl>
@@ -17429,7 +18213,7 @@ client.routes.patch_route(
 <dl>
 <dd>
 
-**vehicle_id:** `typing.Optional[str]` — ID of the vehicle. Can be either a unique Samsara ID or an [external ID](/docs/external-ids) for the vehicle.
+**vehicle_id:** `typing.Optional[str]` — ID of the vehicle. Can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the vehicle.
     
 </dd>
 </dl>
@@ -17463,9 +18247,9 @@ client.routes.patch_route(
 
 Retrieve routes for a specific plan.
 
- <b>Rate limit:</b> 10 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -17589,7 +18373,7 @@ Delete a dispatch route and its associated jobs.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write Routes** under the Driver Workflow category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -17670,9 +18454,9 @@ client.routes.v_1_delete_dispatch_route_by_id(
 
 Get organization's compliance settings, including carrier name, office address, and DOT number
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read ELD Compliance Settings (US)** under the Compliance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read ELD Compliance Settings (US)** under the Compliance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -17737,9 +18521,9 @@ client.settings.get_compliance_settings()
 
 Update organization's compliance settings, including carrier name, office address, and DOT number
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write ELD Compliance Settings (US)** under the Compliance category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write ELD Compliance Settings (US)** under the Compliance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -17884,9 +18668,9 @@ client.settings.patch_compliance_settings()
 
 Get driver app settings.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Driver App Settings** under the Drivers category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Driver App Settings** under the Drivers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -17951,9 +18735,9 @@ client.settings.get_driver_app_settings()
 
 Update driver app settings.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Driver App Settings** under the Drivers category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Driver App Settings** under the Drivers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -18066,9 +18850,9 @@ client.settings.patch_driver_app_settings()
 
 Get safety settings
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -18134,9 +18918,9 @@ client.settings.get_safety_settings()
 
 List all trailers.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Trailers** under the Trailers category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Trailers** under the Trailers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -18233,9 +19017,9 @@ client.trailers.list_trailers()
 
 Creates a new trailer asset.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Trailers** under the Trailers category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Trailers** under the Trailers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -18366,9 +19150,9 @@ client.trailers.create_trailer(
 
 Retrieve a trailer with given ID.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Trailers** under the Trailers category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Trailers** under the Trailers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -18443,9 +19227,9 @@ client.trailers.get_trailer(
 
 Delete a trailer with the given ID.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Trailers** under the Trailers category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Trailers** under the Trailers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -18522,9 +19306,9 @@ Update a trailer.  **Note** this implementation of patch uses [the JSON merge pa
  This means that any fields included in the patch request will _overwrite_ fields which exist on the target resource.
  For arrays, this means any array included in the request will _replace_ the array that exists at the specified path, it will not _add_ to the existing array
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Trailers** under the Trailers category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Trailers** under the Trailers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -18565,7 +19349,7 @@ client.trailers.update_trailer(
 <dl>
 <dd>
 
-**id:** `str` — ID of the trailer. Can be either unique Samsara ID or an [external ID](/docs/external-ids) for the trailer.
+**id:** `str` — ID of the trailer. Can be either unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the trailer.
     
 </dd>
 </dl>
@@ -18672,9 +19456,9 @@ client.trailers.update_trailer(
 
 Returns a list of all vehicles.
 
- <b>Rate limit:</b> 25 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 25 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Vehicles** under the Vehicles category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Vehicles** under the Vehicles category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -18810,7 +19594,7 @@ Get information about a specific vehicle.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Vehicles** under the Vehicles category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Vehicles** under the Vehicles category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -18890,7 +19674,7 @@ You are able to *update* many of the fields of a Vehicle.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write Vehicles** under the Vehicles category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Vehicles** under the Vehicles category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -19189,11 +19973,11 @@ client.vehicles.update(
 
 Returns the last known location of all vehicles at the given `time`. If no `time` is specified, the current time is used. This can be optionally filtered by tags or specific vehicle IDs.
 
-Related guide: [Vehicle Locations](/docs/vehicle-locations-1). 
+Related guide: <a href="/docs/vehicle-locations-1" target="_blank">Vehicle Locations</a>. 
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Vehicle Statistics** under the Vehicles category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Vehicle Statistics** under the Vehicles category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -19303,11 +20087,11 @@ You can provide the `endCursor` to the `after` parameter of this endpoint to get
 
 If `hasNextPage` is `false`, no updates are readily available yet. We'd suggest waiting a minimum of 5 seconds before requesting updates.
 
-Related guide: [Vehicle Locations](/docs/vehicle-locations-1). 
+Related guide: <a href="/docs/vehicle-locations-1" target="_blank">Vehicle Locations</a>. 
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Vehicle Statistics** under the Vehicle category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Vehicle Statistics** under the Vehicle category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -19403,11 +20187,11 @@ client.vehicle_locations.get_vehicle_locations_feed()
 
 Returns all known vehicle locations during the given time range. This can be optionally filtered by tags or specific vehicle IDs.
 
-Related guide: [Vehicle Locations](/docs/vehicle-locations-1). 
+Related guide: <a href="/docs/vehicle-locations-1" target="_blank">Vehicle Locations</a>. 
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Vehicle Statistics** under the Vehicle category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Vehicle Statistics** under the Vehicle category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -19521,11 +20305,11 @@ client.vehicle_locations.get_vehicle_locations_history(
 
 Returns the last known stats of all vehicles at the given `time`. If no `time` is specified, the current time is used.
 
-Related guide: [Telematics](/docs/telematics). 
+Related guide: <a href="/docs/telematics" target="_blank">Telematics</a>. 
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Vehicle Statistics** under the Vehicles category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Vehicle Statistics** under the Vehicles category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -19621,18 +20405,18 @@ You may list ***up to 3*** types using comma-separated format. For example: `typ
 - `defLevelMilliPercent`: The Diesel Exhaust Fluid (DEF) level in milli percentage points (e.g. `99001`, `49999`, etc).
 - `ecuSpeedMph`: The speed of the engine in miles per hour according to the ECU.
 - `engineCoolantTemperatureMilliC`: The engine coolant temperature reading in millidegree Celsius.
-- `engineImmobilizer`: The state of the engine immobilizer - Valid values: `ignition_disabled`, `ignition_enabled`. This stat type will only return states of our first Engine Immobilizer Hardware (ACC-EI). Please use <a href="/api-reference/future/beta-apis/get-engine-immobilizer-states" target="_blank">Get engine immobilizer states</a> to get states for both Engine Immobilizer Hardware versions (incl. HW-EI21).
+- `engineImmobilizer`: The state of the engine immobilizer - Valid values: `ignition_disabled`, `ignition_enabled`. This stat type will only return states of our first Engine Immobilizer Hardware (ACC-EI). Please use <a href="https://developers.samsara.com/reference/getengineimmobilizerstates" target="_blank">Get engine immobilizer states</a> to get states for both Engine Immobilizer Hardware versions (incl. HW-EI21).
 - `engineLoadPercent`: The engine load in percentage points (e.g. `99`, `50`, etc).
 - `engineOilPressureKPa`: The engine oil pressure reading in kilopascals.
 - `engineRpm`: The revolutions per minute of the engine.
 - `engineStates`: The state of the engine (`Off`, `On`, `Idle`).
 - `faultCodes`: The diagnostic fault codes for the vehicle.
 - `fuelPercents`: The engine fuel level in percentage points (e.g. `99`, `50`, etc).
-- `fuelConsumedMilliliters`: The cumulative fuel consumption in milliliters for vehicles. Cumulative values always increase. This includes all fuel consumption reported by vehicles without filtering of invalid data points. For filtered fuel consumption that matches the Fuel & Energy Report, please use <a href="/api-reference/fuel-and-efficiency/fuel-and-energy/get-fuel-and-energy-vehicle-reports" target="_blank">the Fuel and Energy API</a>.
+- `fuelConsumedMilliliters`: The cumulative fuel consumption in milliliters for vehicles. Cumulative values always increase. This includes all fuel consumption reported by vehicles without filtering of invalid data points. For filtered fuel consumption that matches the Fuel & Energy Report, please use <a href="https://developers.samsara.com/reference/getfuelenergyvehiclereports" target="_blank">the Fuel and Energy API</a>.
 - `gps`: GPS data including lat/long, heading, speed, address book entry (if exists), and a reverse geocoded address.
 - `gpsDistanceMeters`: The distance the vehicle has traveled since the gateway was installed based on GPS calculations.
 - `gpsOdometerMeters`: Odometer reading provided by GPS calculations when OBD odometer cannot be pulled automatically. You must provide a manual odometer reading before this value is updated. Manual odometer readings can be provided via the [PATCH /fleet/vehicles/{id}](ref:updatevehicle) endpoint or through the <a href="https://kb.samsara.com/hc/en-us/articles/115005273667-Editing-Odometer-Reading" target="_blank">cloud dasbhoard</a>. Odometer readings that are manually set will update as GPS trip data is gathered. Try combining with `obdOdometerMeters`.
-- `idlingDurationMilliseconds`: The cumulative idling duration in milliseconds. Cumulative values always increase. For filtering of idling duration please use [the Idling Events API](/api-reference/fuel-and-efficiency/idling/get-idling-events).
+- `idlingDurationMilliseconds`: The cumulative idling duration in milliseconds. Cumulative values always increase. For filtering of idling duration please use [the Idling Events API](https://developers.samsara.com/reference/getvehicleidlingreports).
 - `intakeManifoldTemperatureMilliC`: The intake manifold temperature reading in millidegree Celsius.
 - `nfcCardScans`: ID card scans.
 - `obdEngineSeconds`: The cumulative number of seconds the engine has run according to onboard diagnostics. When onboard diagnostic data is unavailable, ignition-based engine data (for ELD vehicles) will be used as a proxy to accumulate engine hours.
@@ -19704,11 +20488,11 @@ You can the provide the `endCursor` value to the `after` query parameter to get 
 
 If `hasNextPage` is `false`, no new data is immediately available. You should wait a minimum of 5 seconds making a subsequent request.
 
-Related guide: [Telematics](/docs/telematics). 
+Related guide: <a href="/docs/telematics" target="_blank">Telematics</a>. 
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Vehicle Statistics** under the Vehicles category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Vehicle Statistics** under the Vehicles category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -19796,18 +20580,18 @@ You may list ***up to 3*** types using comma-separated format. For example: `typ
 - `defLevelMilliPercent`: The Diesel Exhaust Fluid (DEF) level in milli percentage points (e.g. `99001`, `49999`, etc).
 - `ecuSpeedMph`: The speed of the engine in miles per hour according to the ECU.
 - `engineCoolantTemperatureMilliC`: The engine coolant temperature reading in millidegree Celsius.
-- `engineImmobilizer`: The state of the engine immobilizer - Valid values: `ignition_disabled`, `ignition_enabled`. This stat type will only return states of our first Engine Immobilizer Hardware (ACC-EI). Please use <a href="/api-reference/future/beta-apis/get-engine-immobilizer-states" target="_blank">Get engine immobilizer states</a> to get states for both Engine Immobilizer Hardware versions (incl. HW-EI21).
+- `engineImmobilizer`: The state of the engine immobilizer - Valid values: `ignition_disabled`, `ignition_enabled`. This stat type will only return states of our first Engine Immobilizer Hardware (ACC-EI). Please use <a href="https://developers.samsara.com/reference/getengineimmobilizerstates" target="_blank">Get engine immobilizer states</a> to get states for both Engine Immobilizer Hardware versions (incl. HW-EI21).
 - `engineLoadPercent`: The engine load in percentage points (e.g. `99`, `50`, etc).
 - `engineOilPressureKPa`: The engine oil pressure reading in kilopascals.
 - `engineRpm`: The revolutions per minute of the engine.
 - `engineStates`: The state of the engine (`Off`, `On`, `Idle`).
 - `faultCodes`: The diagnostic fault codes for the vehicle.
 - `fuelPercents`: The engine fuel level in percentage points (e.g. `99`, `50`, etc).
-- `fuelConsumedMilliliters`: The cumulative fuel consumption in milliliters for vehicles. Cumulative values always increase. This includes all fuel consumption reported by vehicles without filtering of invalid data points. For filtered fuel consumption that matches the Fuel & Energy Report, please use <a href="/api-reference/fuel-and-efficiency/fuel-and-energy/get-fuel-and-energy-vehicle-reports" target="_blank">the Fuel and Energy API</a>.
+- `fuelConsumedMilliliters`: The cumulative fuel consumption in milliliters for vehicles. Cumulative values always increase. This includes all fuel consumption reported by vehicles without filtering of invalid data points. For filtered fuel consumption that matches the Fuel & Energy Report, please use <a href="https://developers.samsara.com/reference/getfuelenergyvehiclereports" target="_blank">the Fuel and Energy API</a>.
 - `gps`: GPS data including lat/long, heading, speed, address book entry (if exists), and a reverse geocoded address.
 - `gpsDistanceMeters`: The distance the vehicle has traveled since the gateway was installed based on GPS calculations.
 - `gpsOdometerMeters`: Odometer reading provided by GPS calculations when OBD odometer cannot be pulled automatically. You must provide a manual odometer reading before this value is updated. Manual odometer readings can be provided via the [PATCH /fleet/vehicles/{id}](ref:updatevehicle) endpoint or through the <a href="https://kb.samsara.com/hc/en-us/articles/115005273667-Editing-Odometer-Reading" target="_blank">cloud dasbhoard</a>. Odometer readings that are manually set will update as GPS trip data is gathered. Try combining with `obdOdometerMeters`.
-- `idlingDurationMilliseconds`: The cumulative idling duration in milliseconds. Cumulative values always increase. For filtering of idling duration please use [the Idling Events API](/api-reference/fuel-and-efficiency/idling/get-idling-events).
+- `idlingDurationMilliseconds`: The cumulative idling duration in milliseconds. Cumulative values always increase. For filtering of idling duration please use [the Idling Events API](https://developers.samsara.com/reference/getvehicleidlingreports).
 - `intakeManifoldTemperatureMilliC`: The intake manifold temperature reading in millidegree Celsius.
 - `nfcCardScans`: ID card scans.
 - `obdEngineSeconds`: The cumulative number of seconds the engine has run according to onboard diagnostics. When onboard diagnostic data is unavailable, ignition-based engine data (for ELD vehicles) will be used as a proxy to accumulate engine hours.
@@ -19866,17 +20650,17 @@ Note that decorations may significantly increase the response payload size.
 - `barometricPressurePa`: The barometric pressure reading in pascals.
 - `ecuSpeedMph`: The speed of the engine in miles per hour according to the ECU.
 - `engineCoolantTemperatureMilliC`: The engine coolant temperature reading in millidegree Celsius.
-- `engineImmobilizer`: The state of the engine immobilizer - Valid values: `ignition_disabled`, `ignition_enabled`. This stat type will only return states of our first Engine Immobilizer Hardware (ACC-EI). Please use <a href="/api-reference/future/beta-apis/get-engine-immobilizer-states" target="_blank">Get engine immobilizer states</a> to get states for both Engine Immobilizer Hardware versions (incl. HW-EI21).
+- `engineImmobilizer`: The state of the engine immobilizer - Valid values: `ignition_disabled`, `ignition_enabled`. This stat type will only return states of our first Engine Immobilizer Hardware (ACC-EI). Please use <a href="https://developers.samsara.com/reference/getengineimmobilizerstates" target="_blank">Get engine immobilizer states</a> to get states for both Engine Immobilizer Hardware versions (incl. HW-EI21).
 - `engineOilPressureKPa`: The engine oil pressure reading in kilopascals.
 - `engineLoadPercent`: The engine load in percentage points (e.g. `99`, `50`, etc).
 - `engineRpm`: The revolutions per minute of the engine.
 - `engineStates`: The state of the engine (`Off`, `On`, `Idle`).
 - `faultCodes`: The diagnostic fault codes for the vehicle.
 - `fuelPercents`: The engine fuel level in percentage points (e.g. `99`, `50`, etc).
-- `fuelConsumedMilliliters`: The cumulative fuel consumption in milliliters for vehicles. Cumulative values always increase. This includes all fuel consumption reported by vehicles without filtering of invalid data points. For filtered fuel consumption that matches the Fuel & Energy Report, please use <a href="/api-reference/fuel-and-efficiency/fuel-and-energy/get-fuel-and-energy-vehicle-reports" target="_blank">the Fuel and Energy API</a>.
+- `fuelConsumedMilliliters`: The cumulative fuel consumption in milliliters for vehicles. Cumulative values always increase. This includes all fuel consumption reported by vehicles without filtering of invalid data points. For filtered fuel consumption that matches the Fuel & Energy Report, please use <a href="https://developers.samsara.com/reference/getfuelenergyvehiclereports" target="_blank">the Fuel and Energy API</a>.
 - `gps`: GPS data including lat/long, heading, speed, address book entry (if exists), and a reverse geocoded address.
 - `gpsDistanceMeters`: The distance the vehicle has traveled since the gateway was installed based on GPS calculations.
-- `idlingDurationMilliseconds`: The cumulative idling duration in milliseconds. Cumulative values always increase. For filtering of idling duration please use <a href="/api-reference/fuel-and-efficiency/idling/get-idling-events" target="_blank">the Idling Events API</a>.
+- `idlingDurationMilliseconds`: The cumulative idling duration in milliseconds. Cumulative values always increase. For filtering of idling duration please use <a href="https://developers.samsara.com/reference/getvehicleidlingreports" target="_blank">the Idling Events API</a>.
 - `intakeManifoldTemperatureMilliC`: The intake manifold temperature reading in millidegree Celsius.
 - `nfcCardScans`: ID card scans.
 - `obdEngineSeconds`: The cumulative number of seconds the engine has run according to onboard diagnostics. When onboard diagnostic data is unavailable, ignition-based engine data (for ELD vehicles) will be used as a proxy to accumulate engine hours.
@@ -19942,11 +20726,11 @@ Note that decorations may significantly increase the response payload size.
 
 Returns vehicle stats during the given time range for all vehicles. This can be optionally filtered by tags or specific vehicle IDs.
 
-Related guide: [Telematics](/docs/telematics). 
+Related guide: <a href="/docs/telematics" target="_blank">Telematics</a>. 
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Vehicle Statistics** under the Vehicles category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Vehicle Statistics** under the Vehicles category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -20053,18 +20837,18 @@ You may list ***up to 3*** types using comma-separated format. For example: `typ
 - `defLevelMilliPercent`: The Diesel Exhaust Fluid (DEF) level in milli percentage points (e.g. `99001`, `49999`, etc).
 - `ecuSpeedMph`: The speed of the engine in miles per hour according to the ECU.
 - `engineCoolantTemperatureMilliC`: The engine coolant temperature reading in millidegree Celsius.
-- `engineImmobilizer`: The state of the engine immobilizer - Valid values: `ignition_disabled`, `ignition_enabled`. This stat type will only return states of our first Engine Immobilizer Hardware (ACC-EI). Please use <a href="/api-reference/future/beta-apis/get-engine-immobilizer-states" target="_blank">Get engine immobilizer states</a> to get states for both Engine Immobilizer Hardware versions (incl. HW-EI21).
+- `engineImmobilizer`: The state of the engine immobilizer - Valid values: `ignition_disabled`, `ignition_enabled`. This stat type will only return states of our first Engine Immobilizer Hardware (ACC-EI). Please use <a href="https://developers.samsara.com/reference/getengineimmobilizerstates" target="_blank">Get engine immobilizer states</a> to get states for both Engine Immobilizer Hardware versions (incl. HW-EI21).
 - `engineLoadPercent`: The engine load in percentage points (e.g. `99`, `50`, etc).
 - `engineOilPressureKPa`: The engine oil pressure reading in kilopascals.
 - `engineRpm`: The revolutions per minute of the engine.
 - `engineStates`: The state of the engine (`Off`, `On`, `Idle`).
 - `faultCodes`: The diagnostic fault codes for the vehicle.
 - `fuelPercents`: The engine fuel level in percentage points (e.g. `99`, `50`, etc).
-- `fuelConsumedMilliliters`: The cumulative fuel consumption in milliliters for vehicles. Cumulative values always increase. This includes all fuel consumption reported by vehicles without filtering of invalid data points. For filtered fuel consumption that matches the Fuel & Energy Report, please use <a href="/api-reference/fuel-and-efficiency/fuel-and-energy/get-fuel-and-energy-vehicle-reports" target="_blank">the Fuel and Energy API</a>.
+- `fuelConsumedMilliliters`: The cumulative fuel consumption in milliliters for vehicles. Cumulative values always increase. This includes all fuel consumption reported by vehicles without filtering of invalid data points. For filtered fuel consumption that matches the Fuel & Energy Report, please use <a href="https://developers.samsara.com/reference/getfuelenergyvehiclereports" target="_blank">the Fuel and Energy API</a>.
 - `gps`: GPS data including lat/long, heading, speed, address book entry (if exists), and a reverse geocoded address.
 - `gpsDistanceMeters`: The distance the vehicle has traveled since the gateway was installed based on GPS calculations.
 - `gpsOdometerMeters`: Odometer reading provided by GPS calculations when OBD odometer cannot be pulled automatically. You must provide a manual odometer reading before this value is updated. Manual odometer readings can be provided via the [PATCH /fleet/vehicles/{id}](ref:updatevehicle) endpoint or through the <a href="https://kb.samsara.com/hc/en-us/articles/115005273667-Editing-Odometer-Reading" target="_blank">cloud dasbhoard</a>. Odometer readings that are manually set will update as GPS trip data is gathered. Try combining with `obdOdometerMeters`.
-- `idlingDurationMilliseconds`: The cumulative idling duration in milliseconds. Cumulative values always increase. For filtering of idling duration please use [the Idling Events API](/api-reference/fuel-and-efficiency/idling/get-idling-events).
+- `idlingDurationMilliseconds`: The cumulative idling duration in milliseconds. Cumulative values always increase. For filtering of idling duration please use [the Idling Events API](https://developers.samsara.com/reference/getvehicleidlingreports).
 - `intakeManifoldTemperatureMilliC`: The intake manifold temperature reading in millidegree Celsius.
 - `nfcCardScans`: ID card scans.
 - `obdEngineSeconds`: The cumulative number of seconds the engine has run according to onboard diagnostics. When onboard diagnostic data is unavailable, ignition-based engine data (for ELD vehicles) will be used as a proxy to accumulate engine hours.
@@ -20123,17 +20907,17 @@ Note that decorations may significantly increase the response payload size.
 - `barometricPressurePa`: The barometric pressure reading in pascals.
 - `ecuSpeedMph`: The speed of the engine in miles per hour according to the ECU.
 - `engineCoolantTemperatureMilliC`: The engine coolant temperature reading in millidegree Celsius.
-- `engineImmobilizer`: The state of the engine immobilizer - Valid values: `ignition_disabled`, `ignition_enabled`. This stat type will only return states of our first Engine Immobilizer Hardware (ACC-EI). Please use <a href="/api-reference/future/beta-apis/get-engine-immobilizer-states" target="_blank">Get engine immobilizer states</a> to get states for both Engine Immobilizer Hardware versions (incl. HW-EI21).
+- `engineImmobilizer`: The state of the engine immobilizer - Valid values: `ignition_disabled`, `ignition_enabled`. This stat type will only return states of our first Engine Immobilizer Hardware (ACC-EI). Please use <a href="https://developers.samsara.com/reference/getengineimmobilizerstates" target="_blank">Get engine immobilizer states</a> to get states for both Engine Immobilizer Hardware versions (incl. HW-EI21).
 - `engineOilPressureKPa`: The engine oil pressure reading in kilopascals.
 - `engineLoadPercent`: The engine load in percentage points (e.g. `99`, `50`, etc).
 - `engineRpm`: The revolutions per minute of the engine.
 - `engineStates`: The state of the engine (`Off`, `On`, `Idle`).
 - `faultCodes`: The diagnostic fault codes for the vehicle.
 - `fuelPercents`: The engine fuel level in percentage points (e.g. `99`, `50`, etc).
-- `fuelConsumedMilliliters`: The cumulative fuel consumption in milliliters for vehicles. Cumulative values always increase. This includes all fuel consumption reported by vehicles without filtering of invalid data points. For filtered fuel consumption that matches the Fuel & Energy Report, please use <a href="/api-reference/fuel-and-efficiency/fuel-and-energy/get-fuel-and-energy-vehicle-reports" target="_blank">the Fuel and Energy API</a>.
+- `fuelConsumedMilliliters`: The cumulative fuel consumption in milliliters for vehicles. Cumulative values always increase. This includes all fuel consumption reported by vehicles without filtering of invalid data points. For filtered fuel consumption that matches the Fuel & Energy Report, please use <a href="https://developers.samsara.com/reference/getfuelenergyvehiclereports" target="_blank">the Fuel and Energy API</a>.
 - `gps`: GPS data including lat/long, heading, speed, address book entry (if exists), and a reverse geocoded address.
 - `gpsDistanceMeters`: The distance the vehicle has traveled since the gateway was installed based on GPS calculations.
-- `idlingDurationMilliseconds`: The cumulative idling duration in milliseconds. Cumulative values always increase. For filtering of idling duration please use <a href="/api-reference/fuel-and-efficiency/idling/get-idling-events" target="_blank">the Idling Events API</a>.
+- `idlingDurationMilliseconds`: The cumulative idling duration in milliseconds. Cumulative values always increase. For filtering of idling duration please use <a href="https://developers.samsara.com/reference/getvehicleidlingreports" target="_blank">the Idling Events API</a>.
 - `intakeManifoldTemperatureMilliC`: The intake manifold temperature reading in millidegree Celsius.
 - `nfcCardScans`: ID card scans.
 - `obdEngineSeconds`: The cumulative number of seconds the engine has run according to onboard diagnostics. When onboard diagnostic data is unavailable, ignition-based engine data (for ELD vehicles) will be used as a proxy to accumulate engine hours.
@@ -20200,9 +20984,9 @@ Note that decorations may significantly increase the response payload size.
 
 Returns all form submissions data for the specified list of IDs.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Form Submissions** under the Forms category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Form Submissions** under the Forms category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -20241,7 +21025,7 @@ client.forms.get_form_submissions()
 <dl>
 <dd>
 
-**ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — A comma-separated list containing up to 100 form submission IDs to filter on. Can be either a unique Samsara ID or an [external ID](/docs/external-ids) for the form submission.
+**ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — A comma-separated list containing up to 100 form submission IDs to filter on. Can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the form submission.
     
 </dd>
 </dl>
@@ -20283,9 +21067,9 @@ client.forms.get_form_submissions()
 
 Creates a form submission and assigns it to an individual worker. This endpoint can be used to create an empty or partially complete form submission and assign it to a worker.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Form Submissions** under the Forms category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Form Submissions** under the Forms category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -20313,6 +21097,7 @@ client.forms.post_form_submission(
         id="9814a1fa-f0c6-408b-bf85-51dc3bc71ac7",
         revision_id="1214a1fa-f0c6-408b-bf85-51dc3bc71ac7",
     ),
+    status="notStarted",
 )
 
 ```
@@ -20330,6 +21115,14 @@ client.forms.post_form_submission(
 <dd>
 
 **form_template:** `FormTemplateRequestObjectRequestBody` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**status:** `FormSubmissionsPostFormSubmissionRequestBodyStatus` — Status of the form submission.  Valid values: `notStarted`
     
 </dd>
 </dl>
@@ -20413,9 +21206,9 @@ client.forms.post_form_submission(
 
 Updates an instance of a form submission.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Form Submissions** under the Forms category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Form Submissions** under the Forms category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -20547,9 +21340,9 @@ client.forms.patch_form_submission(
 
 Returns a PDF export that has already been generated for a form submission.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Form Submissions** under the Forms category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Form Submissions** under the Forms category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -20624,9 +21417,9 @@ client.forms.get_form_submissions_pdf_exports(
 
 Creates a PDF export for an existing form submission.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Form Submissions** under the Forms category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Form Submissions** under the Forms category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -20701,9 +21494,9 @@ client.forms.post_form_submissions_pdf_exports(
 
 Returns all form submissions data that has been created or modified for your organization based on the time parameters passed in. Results are paginated and are sorted by last modified date. If you include an endTime, the endpoint will return data up until that point (exclusive). If you don’t include an endTime, you can continue to poll the API real-time with the pagination cursor that gets returned on every call.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Form Submissions** under the Forms category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Form Submissions** under the Forms category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -20834,9 +21627,9 @@ client.forms.get_form_submissions_stream(
 
 Returns a list of the organization's form templates for the specified list of IDs. If no IDs are provided, all form templates for the organization will be returned.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Form Submissions** under the Forms category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Form Submissions** under the Forms category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -20918,9 +21711,9 @@ client.forms.get_form_templates()
 
 List all gateways
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Gateways** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Gateways** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -21001,9 +21794,9 @@ client.gateways.get_gateways()
 
 Activate a new gateway. To activate a device and associate it with your organization, enter its serial number. Each device's serial number can also be found on its label or packaging, or from your order confirmation email. A Not Found error could mean that the serial was not found or it has already been activated
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Gateways** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Gateways** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -21078,9 +21871,9 @@ client.gateways.post_gateway(
 
 Deactivate a gateway
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Gateways** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Gateways** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -21156,9 +21949,9 @@ client.gateways.delete_gateway(
 
 Retrieve capacity types for a specific hub.
 
- <b>Rate limit:</b> 10 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -21281,9 +22074,9 @@ client.hubs.list_hub_capacities(
 
 Update existing location by ID.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Routes** under the Driver Workflow category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -21395,9 +22188,9 @@ client.hubs.update_hub_location(
 
 Retrieve locations for a specific hub.
 
- <b>Rate limit:</b> 10 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -21520,9 +22313,9 @@ client.hubs.list_hub_locations(
 
 Create new locations.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Routes** under the Driver Workflow category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -21628,9 +22421,9 @@ client.hubs.create_hub_locations(
 
 Retrieve skills for a specific hub.
 
- <b>Rate limit:</b> 10 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -21753,9 +22546,9 @@ client.hubs.list_hub_skills(
 
 Retrieve all hubs (planners) in the organization. This endpoint supports pagination and filtering based on hub IDs and update times.
 
- <b>Rate limit:</b> 10 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -21861,9 +22654,9 @@ client.hubs.list_hubs()
 
 Create a new plan.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Routes** under the Driver Workflow category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -21955,9 +22748,9 @@ client.plans.create_hub_plan(
 
 Retrieve all plans for a specific hub.
 
- <b>Rate limit:</b> 10 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -22073,11 +22866,11 @@ client.plans.list_hub_plans(
 
 Get idling events for the requested time duration.
 
-**Note:** The data from this endpoint comes from the new Advanced Idling Report, which provides additional data fields for each idling event such as air temperature, geofence, PTO state and minimum idle time. This endpoint includes data from January 1, 2024. If you require additional historical data, you can access it via the [vehicle idling reports API](/api-reference/legacy/legacy-apis/get-vehicle-idling-reports).
+**Note:** The data from this endpoint comes from the new Advanced Idling Report, which provides additional data fields for each idling event such as air temperature, geofence, PTO state and minimum idle time. This endpoint includes data from January 1, 2024. If you require additional historical data, you can access it via the [vehicle idling reports API](https://developers.samsara.com/reference/getvehicleidlingreports).
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Idling** under the Fuel & Energy category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Idling** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -22268,7 +23061,7 @@ List all assets in the organization.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Equipment** under the Equipment category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Equipment** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -22372,7 +23165,7 @@ Create an asset with optional configuration parameters.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write Equipment** under the Equipment category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Equipment** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -22502,7 +23295,7 @@ Update an existing asset. Only the provided fields will be updated.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write Equipment** under the Equipment category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Equipment** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -22638,9 +23431,9 @@ client.industrial.patch_industrial_asset(
 
 Writes values to multiple data outputs on an asset simultaneously. Only the provided data outputs will be updated.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Equipment Statistics** under the Equipment category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -22726,7 +23519,7 @@ Returns all data inputs, optionally filtered by tags or asset ids.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -22830,7 +23623,7 @@ Returns last known data points for all data inputs. This can be filtered by opti
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -22940,7 +23733,7 @@ If `hasNextPage` is `false`, no updates are readily available yet. We suggest wa
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -23044,7 +23837,7 @@ Returns all known data points during the given time range for all data inputs. T
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -23174,7 +23967,7 @@ Fetch all cameras.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Industrial** under the Industrial category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Industrial** under the Industrial category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -23245,7 +24038,7 @@ Fetch configured programs on the camera.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Industrial** under the Industrial category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Industrial** under the Industrial category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -23319,7 +24112,7 @@ Fetch the latest run for a camera or program by default. If startedAtMs is suppl
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Industrial** under the Industrial category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Industrial** under the Industrial category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -23432,7 +24225,7 @@ Fetch runs.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Industrial** under the Industrial category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Industrial** under the Industrial category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -23521,7 +24314,7 @@ Fetch runs by camera.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Industrial** under the Industrial category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Industrial** under the Industrial category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -23619,7 +24412,7 @@ Fetch runs by camera and program.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Industrial** under the Industrial category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Industrial** under the Industrial category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -23726,7 +24519,7 @@ Get historical data for machine objects. This method returns a set of historical
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write Industrial** under the Industrial category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Industrial** under the Industrial category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -23816,7 +24609,7 @@ Get machine objects. This method returns a list of the machine objects in the Sa
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write Industrial** under the Industrial category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Industrial** under the Industrial category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -23879,9 +24672,9 @@ client.industrial.v_1_get_machines()
 
 Returns all issues data for the specified IDs.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Issues** under the Forms category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Issues** under the Forms category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -23920,7 +24713,7 @@ client.issues.get_issues()
 <dl>
 <dd>
 
-**ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — A comma-separated list containing up to 100 issue IDs to filter on. Can be either a unique Samsara ID or an [external ID](/docs/external-ids) for the issue.
+**ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — A comma-separated list containing up to 100 issue IDs to filter on. Can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the issue.
     
 </dd>
 </dl>
@@ -23962,9 +24755,9 @@ client.issues.get_issues()
 
 Updates an instance of an issue.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Issues** under the Forms category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Issues** under the Forms category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -24005,7 +24798,7 @@ client.issues.patch_issue(
 <dl>
 <dd>
 
-**id:** `str` — ID of the issue. Can be either a unique Samsara ID or an [external ID](/docs/external-ids) for the issue.
+**id:** `str` — ID of the issue. Can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the issue.
     
 </dd>
 </dl>
@@ -24071,9 +24864,9 @@ client.issues.patch_issue(
 
 Returns all issues data that has been created or modified for your organization based on the time parameters passed in. Results are paginated and are sorted by last modified date. If you include an endTime, the endpoint will return data up until that point (exclusive). If you don’t include an endTime, you can continue to poll the API real-time with the pagination cursor that gets returned on every call.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Issues** under the Forms category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Issues** under the Forms category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -24197,9 +24990,9 @@ client.issues.get_issues_stream(
 
 Returns all non-expired Live Sharing Links.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Live Sharing Links** under the Driver Workflow category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Live Sharing Links** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -24296,9 +25089,9 @@ client.live_sharing_links.get_live_sharing_links()
 
 Create Live Sharing Link.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Live Sharing Links** under the Driver Workflow category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Live Sharing Links** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -24422,9 +25215,9 @@ client.live_sharing_links.create_live_sharing_link(
 
 Delete Live Sharing Link.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Live Sharing Links** under the Driver Workflow category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Live Sharing Links** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -24499,9 +25292,9 @@ client.live_sharing_links.delete_live_sharing_link(
 
 Update Live Sharing Link.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Live Sharing Links** under the Driver Workflow category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Live Sharing Links** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -24602,9 +25395,9 @@ client.live_sharing_links.update_live_sharing_link(
 
 Process an invoice scan to create or update a work order with AI-extracted data. Accepts base64 encoded invoice files (PDF, JPEG, PNG) up to 10MB.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Work Orders** under the Work Orders category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Work Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -24698,9 +25491,9 @@ client.work_orders.post_invoice_scan(
 
 Gets service tasks.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Work Orders** under the Work Orders category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Work Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -24789,9 +25582,9 @@ client.work_orders.get_service_tasks()
 
 Gets work orders.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Work Orders** under the Work Orders category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Work Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -24872,9 +25665,9 @@ client.work_orders.get_work_orders()
 
 Creates a work order.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Work Orders** under the Work Orders category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Work Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -25061,9 +25854,9 @@ client.work_orders.post_work_orders(
 
 Deletes a work order.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Work Orders** under the Work Orders category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Work Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -25138,9 +25931,9 @@ client.work_orders.delete_work_orders(
 
 Updates a work order.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Work Orders** under the Work Orders category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Work Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -25351,9 +26144,9 @@ client.work_orders.patch_work_orders(
 
 Stream work orders.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Work Orders** under the Work Orders category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Work Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -25476,7 +26269,7 @@ Get information about your organization.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Org Information** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Org Information** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -25524,8 +26317,8 @@ client.organization_info.get_organization_info()
 </dl>
 </details>
 
-## preview-apis
-<details><summary><code>client.preview_apis.<a href="src/samsara/preview_apis/client.py">create_driver_auth_token</a>(...) -&gt; AsyncHttpResponse[DriversAuthTokenCreateDriverAuthTokenResponseBody]</code></summary>
+## Preview APIs
+<details><summary><code>client.preview_ap_is.<a href="src/samsara/preview_ap_is/client.py">create_driver_auth_token</a>(...) -&gt; AsyncHttpResponse[DriversAuthTokenCreateDriverAuthTokenResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -25539,15 +26332,15 @@ client.organization_info.get_organization_info()
 
 Creates a short-lived auth token for a driver.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Driver Auth Token** under the Drivers category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Driver Auth Token** under the Drivers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
 Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
 
 - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
 
-- When an endpoint becomes generally available, it will be announced in the API [changelog](/docs/subscribe-to-api-updates).
+- When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -25570,7 +26363,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.preview_apis.create_driver_auth_token(
+client.preview_ap_is.create_driver_auth_token(
     code="dp[gZc1wAigz4uGa0Hh",
 )
 
@@ -25632,7 +26425,7 @@ client.preview_apis.create_driver_auth_token(
 </dl>
 </details>
 
-<details><summary><code>client.preview_apis.<a href="src/samsara/preview_apis/client.py">lock_vehicle</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
+<details><summary><code>client.preview_ap_is.<a href="src/samsara/preview_ap_is/client.py">lock_vehicle</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -25646,15 +26439,15 @@ client.preview_apis.create_driver_auth_token(
 
 Lock a vehicle. This requires a vehicle gateway with locking capabilities.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Vehicle Lock/Unlock** under the Vehicles category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Vehicle Lock/Unlock** under the Vehicles category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
 Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
 
 - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
 
-- When an endpoint becomes generally available, it will be announced in the API [changelog](/docs/subscribe-to-api-updates).
+- When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -25677,7 +26470,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.preview_apis.lock_vehicle(
+client.preview_ap_is.lock_vehicle(
     id="id",
 )
 
@@ -25715,7 +26508,7 @@ client.preview_apis.lock_vehicle(
 </dl>
 </details>
 
-<details><summary><code>client.preview_apis.<a href="src/samsara/preview_apis/client.py">unlock_vehicle</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
+<details><summary><code>client.preview_ap_is.<a href="src/samsara/preview_ap_is/client.py">unlock_vehicle</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -25729,15 +26522,15 @@ client.preview_apis.lock_vehicle(
 
 Unlock a vehicle.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Vehicle Lock/Unlock** under the Vehicles category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Vehicle Lock/Unlock** under the Vehicles category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
 Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
 
 - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
 
-- When an endpoint becomes generally available, it will be announced in the API [changelog](/docs/subscribe-to-api-updates).
+- When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -25760,7 +26553,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.preview_apis.unlock_vehicle(
+client.preview_ap_is.unlock_vehicle(
     id="id",
 )
 
@@ -25813,9 +26606,9 @@ client.preview_apis.unlock_vehicle(
 
 Subscribes to a feed of immutable, append-only updates for routes. The initial request to this feed endpoint returns a cursor, which can be used in subsequent requests to fetch events on all routes that occurred after the last retrieved event. An initial request (with empty after and startTime parameters) will return events from the past 24 hours.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -25913,9 +26706,9 @@ client.route_events.get_route_events_stream()
 
 This endpoint will return details for the specified safety events based on the parameters passed in. Results are paginated.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -26020,9 +26813,9 @@ client.safety.get_safety_events_v_2()
 
 This endpoint will return all safety events associated with your organization based on the parameters passed in. To get core endpoint data, select Read Safety Events & Scores under the Safety & Cameras category when creating or editing an API token. Read Camera Media permissions required to get Safety Event video media via this endpoint. If you include an endTime, the endpoint will return data up until that point. If you do not include an endTime, you can continue to poll the API real-time with the pagination cursor that gets returned on every call. Results are paginated.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -26200,11 +26993,11 @@ This endpoint is still on our legacy API.
 
 Fetch the safety score for the driver.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)). 
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>). 
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -26301,11 +27094,11 @@ This endpoint is still on our legacy API.
 
 Fetch the safety score for the vehicle. 
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)). 
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>). 
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -26396,9 +27189,9 @@ client.safety.v_1_get_vehicle_safety_score(
 
 This endpoint will return all speeding intervals associated with all trips that have been collected for your organization based on the time parameters passed in. Only completed trips are included. Trips with no speeding intervals detected will be returned with an empty list of intervals. Results are paginated.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Speeding Intervals** under the Speeding Intervals category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Speeding Intervals** under the Speeding Intervals category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -26532,7 +27325,7 @@ Return all of the tags for an organization.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Tags** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Tags** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -26612,7 +27405,7 @@ Create a new tag for the organization. This may include up to 20,000 tagged enti
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write Tags** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Tags** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -26682,7 +27475,7 @@ client.tags.create_tag(
 <dl>
 <dd>
 
-**external_ids:** `typing.Optional[typing.Dict[str, str]]` — The [external IDs](/docs/external-ids) for the given object.
+**external_ids:** `typing.Optional[typing.Dict[str, str]]` — The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.
     
 </dd>
 </dl>
@@ -26750,7 +27543,7 @@ Fetch a tag by id.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Tags** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Tags** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -26824,7 +27617,7 @@ Update a tag with a new name and new members. This API call would replace all ol
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write Tags** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Tags** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -26946,7 +27739,7 @@ client.tags.replace_tag(
 </dl>
 </details>
 
-<details><summary><code>client.tags.<a href="src/samsara/tags/client.py">delete</a>(...) -&gt; AsyncHttpResponse[StandardDeleteResponse]</code></summary>
+<details><summary><code>client.tags.<a href="src/samsara/tags/client.py">delete</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -26962,7 +27755,7 @@ Permanently deletes a tag.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write Tags** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Tags** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -27040,7 +27833,7 @@ Update an existing tag. **Note** this implementation of patch uses [the JSON mer
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write Tags** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Tags** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -27110,7 +27903,7 @@ client.tags.patch_tag(
 <dl>
 <dd>
 
-**external_ids:** `typing.Optional[typing.Dict[str, str]]` — The [external IDs](/docs/external-ids) for the given object.
+**external_ids:** `typing.Optional[typing.Dict[str, str]]` — The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.
     
 </dd>
 </dl>
@@ -27185,9 +27978,9 @@ client.tags.patch_tag(
 
 Create training assignments. Existing assignments will remain unchanged.
 
- <b>Rate limit:</b> 10 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Training Assignments** under the Training Assignments category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Training Assignments** under the Training Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -27279,9 +28072,9 @@ client.training_assignments.post_training_assignments(
 
 This endpoint supports batch deletion operations. The response does not indicate which specific deletions, if any, have failed. On a successful deletion or partial failure, a ‘204 No Content’ status is returned.
 
- <b>Rate limit:</b> 10 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Training Assignments** under the Training Assignments category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Training Assignments** under the Training Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -27354,9 +28147,9 @@ client.training_assignments.delete_training_assignments()
 
 Update training assignments.
 
- <b>Rate limit:</b> 10 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Training Assignments** under the Training Assignments category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Training Assignments** under the Training Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -27439,9 +28232,9 @@ client.training_assignments.patch_training_assignments(
 
 Returns all training assignments data that has been created or modified for your organization based on the time parameters passed in. Results are paginated and are sorted by last modified date. If you include an endTime, the endpoint will return data up until that point (exclusive). If you don't include an endTime, the API will continue to poll with the pagination cursor that gets returned on every call. The hasNextPage response value will be true if there is no endTime specified and endCursor is nonempty.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Training Assignments** under the Training Assignments category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Training Assignments** under the Training Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -27574,9 +28367,9 @@ client.training_assignments.get_training_assignments_stream(
 Returns all training courses data. Results are paginated. 
  Courses in the ‘draft’ status are excluded from the data returned by this endpoint.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Training Courses** under the Training Courses category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Training Courses** under the Training Courses category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -27674,9 +28467,9 @@ client.training_courses.get_training_courses()
 
 This endpoint will return trips that have been collected for your organization based on the time parameters passed in. Results are paginated.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Trips** under the Trips category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Trips** under the Trips category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -27808,7 +28601,7 @@ Get historical trips data for specified vehicle. This method returns a set of hi
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Vehicle Trips** under the Vehicles category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Vehicle Trips** under the Vehicles category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -27901,7 +28694,7 @@ Returns a list of all user roles in an organization.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Users** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Users** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -27981,7 +28774,7 @@ Returns a list of all users in an organization. Users that have expired access w
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Users** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Users** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -28061,7 +28854,7 @@ Add a user to the organization.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write Users** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Users** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -28174,7 +28967,7 @@ Get a specific user's information. Users that have expired access will not be re
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Users** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Users** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -28232,7 +29025,7 @@ client.users.get_user(
 </dl>
 </details>
 
-<details><summary><code>client.users.<a href="src/samsara/users/client.py">delete</a>(...) -&gt; AsyncHttpResponse[StandardDeleteResponse]</code></summary>
+<details><summary><code>client.users.<a href="src/samsara/users/client.py">delete</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -28248,7 +29041,7 @@ Delete the given user.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write Users** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Users** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -28322,7 +29115,7 @@ Update a specific user's information.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write Users** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Users** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -28412,6 +29205,73 @@ client.users.update_user(
 </dl>
 </details>
 
+## Legacy
+<details><summary><code>client.legacy.<a href="src/samsara/legacy/client.py">v_1_get_all_assets</a>() -&gt; AsyncHttpResponse[InlineResponse2001]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/listassets) instead. The endpoint will continue to function as documented.** 
+
+ Fetch all powered and unpowered equipment. 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+To use this endpoint, select **Read Equipment** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.legacy.v_1_get_all_assets()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 ## Messages
 <details><summary><code>client.messages.<a href="src/samsara/messages/client.py">v_1_get_messages</a>(...) -&gt; AsyncHttpResponse[InlineResponse2005]</code></summary>
 <dl>
@@ -28434,11 +29294,11 @@ This endpoint is still on our legacy API.
 
 Get all messages. 
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)). 
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>). 
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Messages** under the Driver Workflow category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Messages** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -28525,7 +29385,7 @@ Send a message to a list of driver ids.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write Messages** under the Driver Workflow category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Messages** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -28614,11 +29474,11 @@ This endpoint is still on our legacy API.
 
 Fetch trailer assignment data for all trailers in your organization. 
 
- <b>Rate limit:</b> 25 requests/sec (learn more about rate limits [here](/docs/rate-limits)). 
+ <b>Rate limit:</b> 25 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>). 
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Assignments** under the Assignments category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -28727,11 +29587,11 @@ This endpoint is still on our legacy API.
 
 Fetch trailer assignment data for a single trailer. 
 
- <b>Rate limit:</b> 25 requests/sec (learn more about rate limits [here](/docs/rate-limits)). 
+ <b>Rate limit:</b> 25 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>). 
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Read Assignments** under the Assignments category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -28829,7 +29689,7 @@ Get cargo monitor status (empty / full) for requested sensors.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write Sensors** under the Equipment category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Sensors** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -28910,7 +29770,7 @@ Get door monitor status (closed / open) for requested sensors.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write Sensors** under the Equipment category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Sensors** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -28989,11 +29849,11 @@ This endpoint is still on our legacy API.
 
 Get historical data for specified sensors. This method returns a set of historical data for the specified sensors in the specified time range and at the specified time resolution. 
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)). 
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>). 
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write Sensors** under the Equipment category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Sensors** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -29114,7 +29974,7 @@ Get humidity for requested sensors. This method returns the current relative hum
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write Sensors** under the Equipment category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Sensors** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -29195,7 +30055,7 @@ Get sensor objects. This method returns a list of the sensor objects in the Sams
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write Sensors** under the Equipment category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Sensors** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -29266,7 +30126,7 @@ Get temperature for requested sensors. This method returns the current ambient t
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write Sensors** under the Equipment category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Sensors** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -29339,9 +30199,9 @@ client.sensors.v_1_get_sensors_temperature(
 
 List all webhooks belonging to a specific org.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Webhooks** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Webhooks** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -29430,9 +30290,9 @@ client.webhooks.list_webhooks()
 
 Create a webhook
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Webhooks** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Webhooks** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -29540,9 +30400,9 @@ client.webhooks.post_webhooks(
 
 Retrieve a webhook with given ID.
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Webhooks** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Read Webhooks** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -29617,9 +30477,9 @@ client.webhooks.get_webhook(
 
 Delete a webhook with the given ID.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Webhooks** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Webhooks** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -29696,9 +30556,9 @@ Update a specific webhook's information.  **Note** this implementation of patch 
  This means that any fields included in the patch request will _overwrite_ fields which exist on the target resource.
  For arrays, this means any array included in the request will _replace_ the array that exists at the specified path, it will not _add_ to the existing array
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Webhooks** under the Setup & Administration category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Webhooks** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -29792,7 +30652,7 @@ client.webhooks.patch_webhook(
 </details>
 
 ## Fleet CarrierProposedAssignments
-<details><summary><code>client.fleet.carrier_proposed_assignments.<a href="src/samsara/fleet/carrier_proposed_assignments/client.py">delete</a>(...) -&gt; AsyncHttpResponse[StandardDeleteResponse]</code></summary>
+<details><summary><code>client.fleet.carrier_proposed_assignments.<a href="src/samsara/fleet/carrier_proposed_assignments/client.py">delete</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -29808,7 +30668,7 @@ Permanently delete an assignment. You can only delete assignments that are not y
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write Carrier-Proposed Assignments** under the Assignments category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Carrier-Proposed Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -29924,7 +30784,7 @@ client.fleet.attributes.update(
 </details>
 
 ## Industrial Assets
-<details><summary><code>client.industrial.assets.<a href="src/samsara/industrial/assets/client.py">delete</a>(...) -&gt; AsyncHttpResponse[StandardDeleteResponse]</code></summary>
+<details><summary><code>client.industrial.assets.<a href="src/samsara/industrial/assets/client.py">delete</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
 
@@ -29940,7 +30800,7 @@ Delete asset.
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-To use this endpoint, select **Write Equipment** under the Equipment category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+To use this endpoint, select **Write Equipment** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>

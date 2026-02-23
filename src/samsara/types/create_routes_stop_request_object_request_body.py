@@ -16,7 +16,7 @@ class CreateRoutesStopRequestObjectRequestBody(UniversalBaseModel):
         FieldMetadata(alias="addressId"),
         pydantic.Field(
             alias="addressId",
-            description="ID of the address. An address [externalId](/docs/external-ids#using-external-ids) can also be used interchangeably here.",
+            description="ID of the address. An address [externalId](https://developers.samsara.com/docs/external-ids#using-external-ids) can also be used interchangeably here.",
         ),
     ] = None
     external_ids: typing_extensions.Annotated[

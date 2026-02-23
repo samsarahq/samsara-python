@@ -32,7 +32,7 @@ class DriverVehicleAssignmentV2ObjectResponseBody(UniversalBaseModel):
         FieldMetadata(alias="assignmentType"),
         pydantic.Field(
             alias="assignmentType",
-            description="Name of the assigning source for the driver assignment record.  Valid values: `invalid`, `unknown`, `HOS`, `idCard`, `static`, `faceId`, `tachograph`, `safetyManual`, `RFID`, `trailer`, `external`, `qrCode`",
+            description="Name of the assigning source for the driver assignment record.  Valid values: `invalid`, `unknown`, `HOS`, `idCard`, `static`, `faceId`, `tachograph`, `safetyManual`, `RFID`, `trailer`, `external`, `qrCode`, `driverApp`",
         ),
     ] = None
     driver: GoaDriverTinyResponseResponseBody

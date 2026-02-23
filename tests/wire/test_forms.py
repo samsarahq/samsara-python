@@ -17,7 +17,8 @@ def test_forms_post_form_submission() -> None:
         form_template={
             "id": "9814a1fa-f0c6-408b-bf85-51dc3bc71ac7",
             "revision_id": "1214a1fa-f0c6-408b-bf85-51dc3bc71ac7",
-        }
+        },
+        status="notStarted",
     )
     verify_request_count(test_id, "POST", "/form-submissions", None, 1)
 

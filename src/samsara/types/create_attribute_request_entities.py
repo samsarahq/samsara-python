@@ -26,7 +26,10 @@ class CreateAttributeRequestEntities(UniversalBaseModel):
     external_ids: typing_extensions.Annotated[
         typing.Optional[typing.Dict[str, str]],
         FieldMetadata(alias="externalIds"),
-        pydantic.Field(alias="externalIds", description="The [external IDs](/docs/external-ids) for the given object."),
+        pydantic.Field(
+            alias="externalIds",
+            description="The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.",
+        ),
     ] = None
     number_values: typing_extensions.Annotated[
         typing.Optional[typing.List[float]],

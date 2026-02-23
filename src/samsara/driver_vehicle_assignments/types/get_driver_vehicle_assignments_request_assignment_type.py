@@ -4,7 +4,17 @@ import typing
 
 GetDriverVehicleAssignmentsRequestAssignmentType = typing.Union[
     typing.Literal[
-        "HOS", "idCard", "static", "faceId", "tachograph", "safetyManual", "RFID", "trailer", "external", "qrCode"
+        "HOS",
+        "idCard",
+        "static",
+        "faceId",
+        "tachograph",
+        "safetyManual",
+        "RFID",
+        "trailer",
+        "external",
+        "qrCode",
+        "driverApp",
     ],
     typing.Any,
 ]

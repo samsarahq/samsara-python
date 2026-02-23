@@ -37,11 +37,11 @@ class RawVehicleStatsClient:
         """
         Returns the last known stats of all vehicles at the given `time`. If no `time` is specified, the current time is used.
 
-        Related guide: [Telematics](/docs/telematics).
+        Related guide: <a href="/docs/telematics" target="_blank">Telematics</a>.
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Read Vehicle Statistics** under the Vehicles category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+        To use this endpoint, select **Read Vehicle Statistics** under the Vehicles category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
         Parameters
         ----------
@@ -74,18 +74,18 @@ class RawVehicleStatsClient:
             - `defLevelMilliPercent`: The Diesel Exhaust Fluid (DEF) level in milli percentage points (e.g. `99001`, `49999`, etc).
             - `ecuSpeedMph`: The speed of the engine in miles per hour according to the ECU.
             - `engineCoolantTemperatureMilliC`: The engine coolant temperature reading in millidegree Celsius.
-            - `engineImmobilizer`: The state of the engine immobilizer - Valid values: `ignition_disabled`, `ignition_enabled`. This stat type will only return states of our first Engine Immobilizer Hardware (ACC-EI). Please use <a href="/api-reference/future/beta-apis/get-engine-immobilizer-states" target="_blank">Get engine immobilizer states</a> to get states for both Engine Immobilizer Hardware versions (incl. HW-EI21).
+            - `engineImmobilizer`: The state of the engine immobilizer - Valid values: `ignition_disabled`, `ignition_enabled`. This stat type will only return states of our first Engine Immobilizer Hardware (ACC-EI). Please use <a href="https://developers.samsara.com/reference/getengineimmobilizerstates" target="_blank">Get engine immobilizer states</a> to get states for both Engine Immobilizer Hardware versions (incl. HW-EI21).
             - `engineLoadPercent`: The engine load in percentage points (e.g. `99`, `50`, etc).
             - `engineOilPressureKPa`: The engine oil pressure reading in kilopascals.
             - `engineRpm`: The revolutions per minute of the engine.
             - `engineStates`: The state of the engine (`Off`, `On`, `Idle`).
             - `faultCodes`: The diagnostic fault codes for the vehicle.
             - `fuelPercents`: The engine fuel level in percentage points (e.g. `99`, `50`, etc).
-            - `fuelConsumedMilliliters`: The cumulative fuel consumption in milliliters for vehicles. Cumulative values always increase. This includes all fuel consumption reported by vehicles without filtering of invalid data points. For filtered fuel consumption that matches the Fuel & Energy Report, please use <a href="/api-reference/fuel-and-efficiency/fuel-and-energy/get-fuel-and-energy-vehicle-reports" target="_blank">the Fuel and Energy API</a>.
+            - `fuelConsumedMilliliters`: The cumulative fuel consumption in milliliters for vehicles. Cumulative values always increase. This includes all fuel consumption reported by vehicles without filtering of invalid data points. For filtered fuel consumption that matches the Fuel & Energy Report, please use <a href="https://developers.samsara.com/reference/getfuelenergyvehiclereports" target="_blank">the Fuel and Energy API</a>.
             - `gps`: GPS data including lat/long, heading, speed, address book entry (if exists), and a reverse geocoded address.
             - `gpsDistanceMeters`: The distance the vehicle has traveled since the gateway was installed based on GPS calculations.
             - `gpsOdometerMeters`: Odometer reading provided by GPS calculations when OBD odometer cannot be pulled automatically. You must provide a manual odometer reading before this value is updated. Manual odometer readings can be provided via the [PATCH /fleet/vehicles/{id}](ref:updatevehicle) endpoint or through the <a href="https://kb.samsara.com/hc/en-us/articles/115005273667-Editing-Odometer-Reading" target="_blank">cloud dasbhoard</a>. Odometer readings that are manually set will update as GPS trip data is gathered. Try combining with `obdOdometerMeters`.
-            - `idlingDurationMilliseconds`: The cumulative idling duration in milliseconds. Cumulative values always increase. For filtering of idling duration please use [the Idling Events API](/api-reference/fuel-and-efficiency/idling/get-idling-events).
+            - `idlingDurationMilliseconds`: The cumulative idling duration in milliseconds. Cumulative values always increase. For filtering of idling duration please use [the Idling Events API](https://developers.samsara.com/reference/getvehicleidlingreports).
             - `intakeManifoldTemperatureMilliC`: The intake manifold temperature reading in millidegree Celsius.
             - `nfcCardScans`: ID card scans.
             - `obdEngineSeconds`: The cumulative number of seconds the engine has run according to onboard diagnostics. When onboard diagnostic data is unavailable, ignition-based engine data (for ELD vehicles) will be used as a proxy to accumulate engine hours.
@@ -181,11 +181,11 @@ class RawVehicleStatsClient:
 
         If `hasNextPage` is `false`, no new data is immediately available. You should wait a minimum of 5 seconds making a subsequent request.
 
-        Related guide: [Telematics](/docs/telematics).
+        Related guide: <a href="/docs/telematics" target="_blank">Telematics</a>.
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Read Vehicle Statistics** under the Vehicles category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+        To use this endpoint, select **Read Vehicle Statistics** under the Vehicles category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
         Parameters
         ----------
@@ -215,18 +215,18 @@ class RawVehicleStatsClient:
             - `defLevelMilliPercent`: The Diesel Exhaust Fluid (DEF) level in milli percentage points (e.g. `99001`, `49999`, etc).
             - `ecuSpeedMph`: The speed of the engine in miles per hour according to the ECU.
             - `engineCoolantTemperatureMilliC`: The engine coolant temperature reading in millidegree Celsius.
-            - `engineImmobilizer`: The state of the engine immobilizer - Valid values: `ignition_disabled`, `ignition_enabled`. This stat type will only return states of our first Engine Immobilizer Hardware (ACC-EI). Please use <a href="/api-reference/future/beta-apis/get-engine-immobilizer-states" target="_blank">Get engine immobilizer states</a> to get states for both Engine Immobilizer Hardware versions (incl. HW-EI21).
+            - `engineImmobilizer`: The state of the engine immobilizer - Valid values: `ignition_disabled`, `ignition_enabled`. This stat type will only return states of our first Engine Immobilizer Hardware (ACC-EI). Please use <a href="https://developers.samsara.com/reference/getengineimmobilizerstates" target="_blank">Get engine immobilizer states</a> to get states for both Engine Immobilizer Hardware versions (incl. HW-EI21).
             - `engineLoadPercent`: The engine load in percentage points (e.g. `99`, `50`, etc).
             - `engineOilPressureKPa`: The engine oil pressure reading in kilopascals.
             - `engineRpm`: The revolutions per minute of the engine.
             - `engineStates`: The state of the engine (`Off`, `On`, `Idle`).
             - `faultCodes`: The diagnostic fault codes for the vehicle.
             - `fuelPercents`: The engine fuel level in percentage points (e.g. `99`, `50`, etc).
-            - `fuelConsumedMilliliters`: The cumulative fuel consumption in milliliters for vehicles. Cumulative values always increase. This includes all fuel consumption reported by vehicles without filtering of invalid data points. For filtered fuel consumption that matches the Fuel & Energy Report, please use <a href="/api-reference/fuel-and-efficiency/fuel-and-energy/get-fuel-and-energy-vehicle-reports" target="_blank">the Fuel and Energy API</a>.
+            - `fuelConsumedMilliliters`: The cumulative fuel consumption in milliliters for vehicles. Cumulative values always increase. This includes all fuel consumption reported by vehicles without filtering of invalid data points. For filtered fuel consumption that matches the Fuel & Energy Report, please use <a href="https://developers.samsara.com/reference/getfuelenergyvehiclereports" target="_blank">the Fuel and Energy API</a>.
             - `gps`: GPS data including lat/long, heading, speed, address book entry (if exists), and a reverse geocoded address.
             - `gpsDistanceMeters`: The distance the vehicle has traveled since the gateway was installed based on GPS calculations.
             - `gpsOdometerMeters`: Odometer reading provided by GPS calculations when OBD odometer cannot be pulled automatically. You must provide a manual odometer reading before this value is updated. Manual odometer readings can be provided via the [PATCH /fleet/vehicles/{id}](ref:updatevehicle) endpoint or through the <a href="https://kb.samsara.com/hc/en-us/articles/115005273667-Editing-Odometer-Reading" target="_blank">cloud dasbhoard</a>. Odometer readings that are manually set will update as GPS trip data is gathered. Try combining with `obdOdometerMeters`.
-            - `idlingDurationMilliseconds`: The cumulative idling duration in milliseconds. Cumulative values always increase. For filtering of idling duration please use [the Idling Events API](/api-reference/fuel-and-efficiency/idling/get-idling-events).
+            - `idlingDurationMilliseconds`: The cumulative idling duration in milliseconds. Cumulative values always increase. For filtering of idling duration please use [the Idling Events API](https://developers.samsara.com/reference/getvehicleidlingreports).
             - `intakeManifoldTemperatureMilliC`: The intake manifold temperature reading in millidegree Celsius.
             - `nfcCardScans`: ID card scans.
             - `obdEngineSeconds`: The cumulative number of seconds the engine has run according to onboard diagnostics. When onboard diagnostic data is unavailable, ignition-based engine data (for ELD vehicles) will be used as a proxy to accumulate engine hours.
@@ -273,17 +273,17 @@ class RawVehicleStatsClient:
             - `barometricPressurePa`: The barometric pressure reading in pascals.
             - `ecuSpeedMph`: The speed of the engine in miles per hour according to the ECU.
             - `engineCoolantTemperatureMilliC`: The engine coolant temperature reading in millidegree Celsius.
-            - `engineImmobilizer`: The state of the engine immobilizer - Valid values: `ignition_disabled`, `ignition_enabled`. This stat type will only return states of our first Engine Immobilizer Hardware (ACC-EI). Please use <a href="/api-reference/future/beta-apis/get-engine-immobilizer-states" target="_blank">Get engine immobilizer states</a> to get states for both Engine Immobilizer Hardware versions (incl. HW-EI21).
+            - `engineImmobilizer`: The state of the engine immobilizer - Valid values: `ignition_disabled`, `ignition_enabled`. This stat type will only return states of our first Engine Immobilizer Hardware (ACC-EI). Please use <a href="https://developers.samsara.com/reference/getengineimmobilizerstates" target="_blank">Get engine immobilizer states</a> to get states for both Engine Immobilizer Hardware versions (incl. HW-EI21).
             - `engineOilPressureKPa`: The engine oil pressure reading in kilopascals.
             - `engineLoadPercent`: The engine load in percentage points (e.g. `99`, `50`, etc).
             - `engineRpm`: The revolutions per minute of the engine.
             - `engineStates`: The state of the engine (`Off`, `On`, `Idle`).
             - `faultCodes`: The diagnostic fault codes for the vehicle.
             - `fuelPercents`: The engine fuel level in percentage points (e.g. `99`, `50`, etc).
-            - `fuelConsumedMilliliters`: The cumulative fuel consumption in milliliters for vehicles. Cumulative values always increase. This includes all fuel consumption reported by vehicles without filtering of invalid data points. For filtered fuel consumption that matches the Fuel & Energy Report, please use <a href="/api-reference/fuel-and-efficiency/fuel-and-energy/get-fuel-and-energy-vehicle-reports" target="_blank">the Fuel and Energy API</a>.
+            - `fuelConsumedMilliliters`: The cumulative fuel consumption in milliliters for vehicles. Cumulative values always increase. This includes all fuel consumption reported by vehicles without filtering of invalid data points. For filtered fuel consumption that matches the Fuel & Energy Report, please use <a href="https://developers.samsara.com/reference/getfuelenergyvehiclereports" target="_blank">the Fuel and Energy API</a>.
             - `gps`: GPS data including lat/long, heading, speed, address book entry (if exists), and a reverse geocoded address.
             - `gpsDistanceMeters`: The distance the vehicle has traveled since the gateway was installed based on GPS calculations.
-            - `idlingDurationMilliseconds`: The cumulative idling duration in milliseconds. Cumulative values always increase. For filtering of idling duration please use <a href="/api-reference/fuel-and-efficiency/idling/get-idling-events" target="_blank">the Idling Events API</a>.
+            - `idlingDurationMilliseconds`: The cumulative idling duration in milliseconds. Cumulative values always increase. For filtering of idling duration please use <a href="https://developers.samsara.com/reference/getvehicleidlingreports" target="_blank">the Idling Events API</a>.
             - `intakeManifoldTemperatureMilliC`: The intake manifold temperature reading in millidegree Celsius.
             - `nfcCardScans`: ID card scans.
             - `obdEngineSeconds`: The cumulative number of seconds the engine has run according to onboard diagnostics. When onboard diagnostic data is unavailable, ignition-based engine data (for ELD vehicles) will be used as a proxy to accumulate engine hours.
@@ -378,11 +378,11 @@ class RawVehicleStatsClient:
         """
         Returns vehicle stats during the given time range for all vehicles. This can be optionally filtered by tags or specific vehicle IDs.
 
-        Related guide: [Telematics](/docs/telematics).
+        Related guide: <a href="/docs/telematics" target="_blank">Telematics</a>.
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Read Vehicle Statistics** under the Vehicles category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+        To use this endpoint, select **Read Vehicle Statistics** under the Vehicles category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
         Parameters
         ----------
@@ -418,18 +418,18 @@ class RawVehicleStatsClient:
             - `defLevelMilliPercent`: The Diesel Exhaust Fluid (DEF) level in milli percentage points (e.g. `99001`, `49999`, etc).
             - `ecuSpeedMph`: The speed of the engine in miles per hour according to the ECU.
             - `engineCoolantTemperatureMilliC`: The engine coolant temperature reading in millidegree Celsius.
-            - `engineImmobilizer`: The state of the engine immobilizer - Valid values: `ignition_disabled`, `ignition_enabled`. This stat type will only return states of our first Engine Immobilizer Hardware (ACC-EI). Please use <a href="/api-reference/future/beta-apis/get-engine-immobilizer-states" target="_blank">Get engine immobilizer states</a> to get states for both Engine Immobilizer Hardware versions (incl. HW-EI21).
+            - `engineImmobilizer`: The state of the engine immobilizer - Valid values: `ignition_disabled`, `ignition_enabled`. This stat type will only return states of our first Engine Immobilizer Hardware (ACC-EI). Please use <a href="https://developers.samsara.com/reference/getengineimmobilizerstates" target="_blank">Get engine immobilizer states</a> to get states for both Engine Immobilizer Hardware versions (incl. HW-EI21).
             - `engineLoadPercent`: The engine load in percentage points (e.g. `99`, `50`, etc).
             - `engineOilPressureKPa`: The engine oil pressure reading in kilopascals.
             - `engineRpm`: The revolutions per minute of the engine.
             - `engineStates`: The state of the engine (`Off`, `On`, `Idle`).
             - `faultCodes`: The diagnostic fault codes for the vehicle.
             - `fuelPercents`: The engine fuel level in percentage points (e.g. `99`, `50`, etc).
-            - `fuelConsumedMilliliters`: The cumulative fuel consumption in milliliters for vehicles. Cumulative values always increase. This includes all fuel consumption reported by vehicles without filtering of invalid data points. For filtered fuel consumption that matches the Fuel & Energy Report, please use <a href="/api-reference/fuel-and-efficiency/fuel-and-energy/get-fuel-and-energy-vehicle-reports" target="_blank">the Fuel and Energy API</a>.
+            - `fuelConsumedMilliliters`: The cumulative fuel consumption in milliliters for vehicles. Cumulative values always increase. This includes all fuel consumption reported by vehicles without filtering of invalid data points. For filtered fuel consumption that matches the Fuel & Energy Report, please use <a href="https://developers.samsara.com/reference/getfuelenergyvehiclereports" target="_blank">the Fuel and Energy API</a>.
             - `gps`: GPS data including lat/long, heading, speed, address book entry (if exists), and a reverse geocoded address.
             - `gpsDistanceMeters`: The distance the vehicle has traveled since the gateway was installed based on GPS calculations.
             - `gpsOdometerMeters`: Odometer reading provided by GPS calculations when OBD odometer cannot be pulled automatically. You must provide a manual odometer reading before this value is updated. Manual odometer readings can be provided via the [PATCH /fleet/vehicles/{id}](ref:updatevehicle) endpoint or through the <a href="https://kb.samsara.com/hc/en-us/articles/115005273667-Editing-Odometer-Reading" target="_blank">cloud dasbhoard</a>. Odometer readings that are manually set will update as GPS trip data is gathered. Try combining with `obdOdometerMeters`.
-            - `idlingDurationMilliseconds`: The cumulative idling duration in milliseconds. Cumulative values always increase. For filtering of idling duration please use [the Idling Events API](/api-reference/fuel-and-efficiency/idling/get-idling-events).
+            - `idlingDurationMilliseconds`: The cumulative idling duration in milliseconds. Cumulative values always increase. For filtering of idling duration please use [the Idling Events API](https://developers.samsara.com/reference/getvehicleidlingreports).
             - `intakeManifoldTemperatureMilliC`: The intake manifold temperature reading in millidegree Celsius.
             - `nfcCardScans`: ID card scans.
             - `obdEngineSeconds`: The cumulative number of seconds the engine has run according to onboard diagnostics. When onboard diagnostic data is unavailable, ignition-based engine data (for ELD vehicles) will be used as a proxy to accumulate engine hours.
@@ -476,17 +476,17 @@ class RawVehicleStatsClient:
             - `barometricPressurePa`: The barometric pressure reading in pascals.
             - `ecuSpeedMph`: The speed of the engine in miles per hour according to the ECU.
             - `engineCoolantTemperatureMilliC`: The engine coolant temperature reading in millidegree Celsius.
-            - `engineImmobilizer`: The state of the engine immobilizer - Valid values: `ignition_disabled`, `ignition_enabled`. This stat type will only return states of our first Engine Immobilizer Hardware (ACC-EI). Please use <a href="/api-reference/future/beta-apis/get-engine-immobilizer-states" target="_blank">Get engine immobilizer states</a> to get states for both Engine Immobilizer Hardware versions (incl. HW-EI21).
+            - `engineImmobilizer`: The state of the engine immobilizer - Valid values: `ignition_disabled`, `ignition_enabled`. This stat type will only return states of our first Engine Immobilizer Hardware (ACC-EI). Please use <a href="https://developers.samsara.com/reference/getengineimmobilizerstates" target="_blank">Get engine immobilizer states</a> to get states for both Engine Immobilizer Hardware versions (incl. HW-EI21).
             - `engineOilPressureKPa`: The engine oil pressure reading in kilopascals.
             - `engineLoadPercent`: The engine load in percentage points (e.g. `99`, `50`, etc).
             - `engineRpm`: The revolutions per minute of the engine.
             - `engineStates`: The state of the engine (`Off`, `On`, `Idle`).
             - `faultCodes`: The diagnostic fault codes for the vehicle.
             - `fuelPercents`: The engine fuel level in percentage points (e.g. `99`, `50`, etc).
-            - `fuelConsumedMilliliters`: The cumulative fuel consumption in milliliters for vehicles. Cumulative values always increase. This includes all fuel consumption reported by vehicles without filtering of invalid data points. For filtered fuel consumption that matches the Fuel & Energy Report, please use <a href="/api-reference/fuel-and-efficiency/fuel-and-energy/get-fuel-and-energy-vehicle-reports" target="_blank">the Fuel and Energy API</a>.
+            - `fuelConsumedMilliliters`: The cumulative fuel consumption in milliliters for vehicles. Cumulative values always increase. This includes all fuel consumption reported by vehicles without filtering of invalid data points. For filtered fuel consumption that matches the Fuel & Energy Report, please use <a href="https://developers.samsara.com/reference/getfuelenergyvehiclereports" target="_blank">the Fuel and Energy API</a>.
             - `gps`: GPS data including lat/long, heading, speed, address book entry (if exists), and a reverse geocoded address.
             - `gpsDistanceMeters`: The distance the vehicle has traveled since the gateway was installed based on GPS calculations.
-            - `idlingDurationMilliseconds`: The cumulative idling duration in milliseconds. Cumulative values always increase. For filtering of idling duration please use <a href="/api-reference/fuel-and-efficiency/idling/get-idling-events" target="_blank">the Idling Events API</a>.
+            - `idlingDurationMilliseconds`: The cumulative idling duration in milliseconds. Cumulative values always increase. For filtering of idling duration please use <a href="https://developers.samsara.com/reference/getvehicleidlingreports" target="_blank">the Idling Events API</a>.
             - `intakeManifoldTemperatureMilliC`: The intake manifold temperature reading in millidegree Celsius.
             - `nfcCardScans`: ID card scans.
             - `obdEngineSeconds`: The cumulative number of seconds the engine has run according to onboard diagnostics. When onboard diagnostic data is unavailable, ignition-based engine data (for ELD vehicles) will be used as a proxy to accumulate engine hours.
@@ -579,11 +579,11 @@ class AsyncRawVehicleStatsClient:
         """
         Returns the last known stats of all vehicles at the given `time`. If no `time` is specified, the current time is used.
 
-        Related guide: [Telematics](/docs/telematics).
+        Related guide: <a href="/docs/telematics" target="_blank">Telematics</a>.
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Read Vehicle Statistics** under the Vehicles category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+        To use this endpoint, select **Read Vehicle Statistics** under the Vehicles category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
         Parameters
         ----------
@@ -616,18 +616,18 @@ class AsyncRawVehicleStatsClient:
             - `defLevelMilliPercent`: The Diesel Exhaust Fluid (DEF) level in milli percentage points (e.g. `99001`, `49999`, etc).
             - `ecuSpeedMph`: The speed of the engine in miles per hour according to the ECU.
             - `engineCoolantTemperatureMilliC`: The engine coolant temperature reading in millidegree Celsius.
-            - `engineImmobilizer`: The state of the engine immobilizer - Valid values: `ignition_disabled`, `ignition_enabled`. This stat type will only return states of our first Engine Immobilizer Hardware (ACC-EI). Please use <a href="/api-reference/future/beta-apis/get-engine-immobilizer-states" target="_blank">Get engine immobilizer states</a> to get states for both Engine Immobilizer Hardware versions (incl. HW-EI21).
+            - `engineImmobilizer`: The state of the engine immobilizer - Valid values: `ignition_disabled`, `ignition_enabled`. This stat type will only return states of our first Engine Immobilizer Hardware (ACC-EI). Please use <a href="https://developers.samsara.com/reference/getengineimmobilizerstates" target="_blank">Get engine immobilizer states</a> to get states for both Engine Immobilizer Hardware versions (incl. HW-EI21).
             - `engineLoadPercent`: The engine load in percentage points (e.g. `99`, `50`, etc).
             - `engineOilPressureKPa`: The engine oil pressure reading in kilopascals.
             - `engineRpm`: The revolutions per minute of the engine.
             - `engineStates`: The state of the engine (`Off`, `On`, `Idle`).
             - `faultCodes`: The diagnostic fault codes for the vehicle.
             - `fuelPercents`: The engine fuel level in percentage points (e.g. `99`, `50`, etc).
-            - `fuelConsumedMilliliters`: The cumulative fuel consumption in milliliters for vehicles. Cumulative values always increase. This includes all fuel consumption reported by vehicles without filtering of invalid data points. For filtered fuel consumption that matches the Fuel & Energy Report, please use <a href="/api-reference/fuel-and-efficiency/fuel-and-energy/get-fuel-and-energy-vehicle-reports" target="_blank">the Fuel and Energy API</a>.
+            - `fuelConsumedMilliliters`: The cumulative fuel consumption in milliliters for vehicles. Cumulative values always increase. This includes all fuel consumption reported by vehicles without filtering of invalid data points. For filtered fuel consumption that matches the Fuel & Energy Report, please use <a href="https://developers.samsara.com/reference/getfuelenergyvehiclereports" target="_blank">the Fuel and Energy API</a>.
             - `gps`: GPS data including lat/long, heading, speed, address book entry (if exists), and a reverse geocoded address.
             - `gpsDistanceMeters`: The distance the vehicle has traveled since the gateway was installed based on GPS calculations.
             - `gpsOdometerMeters`: Odometer reading provided by GPS calculations when OBD odometer cannot be pulled automatically. You must provide a manual odometer reading before this value is updated. Manual odometer readings can be provided via the [PATCH /fleet/vehicles/{id}](ref:updatevehicle) endpoint or through the <a href="https://kb.samsara.com/hc/en-us/articles/115005273667-Editing-Odometer-Reading" target="_blank">cloud dasbhoard</a>. Odometer readings that are manually set will update as GPS trip data is gathered. Try combining with `obdOdometerMeters`.
-            - `idlingDurationMilliseconds`: The cumulative idling duration in milliseconds. Cumulative values always increase. For filtering of idling duration please use [the Idling Events API](/api-reference/fuel-and-efficiency/idling/get-idling-events).
+            - `idlingDurationMilliseconds`: The cumulative idling duration in milliseconds. Cumulative values always increase. For filtering of idling duration please use [the Idling Events API](https://developers.samsara.com/reference/getvehicleidlingreports).
             - `intakeManifoldTemperatureMilliC`: The intake manifold temperature reading in millidegree Celsius.
             - `nfcCardScans`: ID card scans.
             - `obdEngineSeconds`: The cumulative number of seconds the engine has run according to onboard diagnostics. When onboard diagnostic data is unavailable, ignition-based engine data (for ELD vehicles) will be used as a proxy to accumulate engine hours.
@@ -723,11 +723,11 @@ class AsyncRawVehicleStatsClient:
 
         If `hasNextPage` is `false`, no new data is immediately available. You should wait a minimum of 5 seconds making a subsequent request.
 
-        Related guide: [Telematics](/docs/telematics).
+        Related guide: <a href="/docs/telematics" target="_blank">Telematics</a>.
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Read Vehicle Statistics** under the Vehicles category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+        To use this endpoint, select **Read Vehicle Statistics** under the Vehicles category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
         Parameters
         ----------
@@ -757,18 +757,18 @@ class AsyncRawVehicleStatsClient:
             - `defLevelMilliPercent`: The Diesel Exhaust Fluid (DEF) level in milli percentage points (e.g. `99001`, `49999`, etc).
             - `ecuSpeedMph`: The speed of the engine in miles per hour according to the ECU.
             - `engineCoolantTemperatureMilliC`: The engine coolant temperature reading in millidegree Celsius.
-            - `engineImmobilizer`: The state of the engine immobilizer - Valid values: `ignition_disabled`, `ignition_enabled`. This stat type will only return states of our first Engine Immobilizer Hardware (ACC-EI). Please use <a href="/api-reference/future/beta-apis/get-engine-immobilizer-states" target="_blank">Get engine immobilizer states</a> to get states for both Engine Immobilizer Hardware versions (incl. HW-EI21).
+            - `engineImmobilizer`: The state of the engine immobilizer - Valid values: `ignition_disabled`, `ignition_enabled`. This stat type will only return states of our first Engine Immobilizer Hardware (ACC-EI). Please use <a href="https://developers.samsara.com/reference/getengineimmobilizerstates" target="_blank">Get engine immobilizer states</a> to get states for both Engine Immobilizer Hardware versions (incl. HW-EI21).
             - `engineLoadPercent`: The engine load in percentage points (e.g. `99`, `50`, etc).
             - `engineOilPressureKPa`: The engine oil pressure reading in kilopascals.
             - `engineRpm`: The revolutions per minute of the engine.
             - `engineStates`: The state of the engine (`Off`, `On`, `Idle`).
             - `faultCodes`: The diagnostic fault codes for the vehicle.
             - `fuelPercents`: The engine fuel level in percentage points (e.g. `99`, `50`, etc).
-            - `fuelConsumedMilliliters`: The cumulative fuel consumption in milliliters for vehicles. Cumulative values always increase. This includes all fuel consumption reported by vehicles without filtering of invalid data points. For filtered fuel consumption that matches the Fuel & Energy Report, please use <a href="/api-reference/fuel-and-efficiency/fuel-and-energy/get-fuel-and-energy-vehicle-reports" target="_blank">the Fuel and Energy API</a>.
+            - `fuelConsumedMilliliters`: The cumulative fuel consumption in milliliters for vehicles. Cumulative values always increase. This includes all fuel consumption reported by vehicles without filtering of invalid data points. For filtered fuel consumption that matches the Fuel & Energy Report, please use <a href="https://developers.samsara.com/reference/getfuelenergyvehiclereports" target="_blank">the Fuel and Energy API</a>.
             - `gps`: GPS data including lat/long, heading, speed, address book entry (if exists), and a reverse geocoded address.
             - `gpsDistanceMeters`: The distance the vehicle has traveled since the gateway was installed based on GPS calculations.
             - `gpsOdometerMeters`: Odometer reading provided by GPS calculations when OBD odometer cannot be pulled automatically. You must provide a manual odometer reading before this value is updated. Manual odometer readings can be provided via the [PATCH /fleet/vehicles/{id}](ref:updatevehicle) endpoint or through the <a href="https://kb.samsara.com/hc/en-us/articles/115005273667-Editing-Odometer-Reading" target="_blank">cloud dasbhoard</a>. Odometer readings that are manually set will update as GPS trip data is gathered. Try combining with `obdOdometerMeters`.
-            - `idlingDurationMilliseconds`: The cumulative idling duration in milliseconds. Cumulative values always increase. For filtering of idling duration please use [the Idling Events API](/api-reference/fuel-and-efficiency/idling/get-idling-events).
+            - `idlingDurationMilliseconds`: The cumulative idling duration in milliseconds. Cumulative values always increase. For filtering of idling duration please use [the Idling Events API](https://developers.samsara.com/reference/getvehicleidlingreports).
             - `intakeManifoldTemperatureMilliC`: The intake manifold temperature reading in millidegree Celsius.
             - `nfcCardScans`: ID card scans.
             - `obdEngineSeconds`: The cumulative number of seconds the engine has run according to onboard diagnostics. When onboard diagnostic data is unavailable, ignition-based engine data (for ELD vehicles) will be used as a proxy to accumulate engine hours.
@@ -815,17 +815,17 @@ class AsyncRawVehicleStatsClient:
             - `barometricPressurePa`: The barometric pressure reading in pascals.
             - `ecuSpeedMph`: The speed of the engine in miles per hour according to the ECU.
             - `engineCoolantTemperatureMilliC`: The engine coolant temperature reading in millidegree Celsius.
-            - `engineImmobilizer`: The state of the engine immobilizer - Valid values: `ignition_disabled`, `ignition_enabled`. This stat type will only return states of our first Engine Immobilizer Hardware (ACC-EI). Please use <a href="/api-reference/future/beta-apis/get-engine-immobilizer-states" target="_blank">Get engine immobilizer states</a> to get states for both Engine Immobilizer Hardware versions (incl. HW-EI21).
+            - `engineImmobilizer`: The state of the engine immobilizer - Valid values: `ignition_disabled`, `ignition_enabled`. This stat type will only return states of our first Engine Immobilizer Hardware (ACC-EI). Please use <a href="https://developers.samsara.com/reference/getengineimmobilizerstates" target="_blank">Get engine immobilizer states</a> to get states for both Engine Immobilizer Hardware versions (incl. HW-EI21).
             - `engineOilPressureKPa`: The engine oil pressure reading in kilopascals.
             - `engineLoadPercent`: The engine load in percentage points (e.g. `99`, `50`, etc).
             - `engineRpm`: The revolutions per minute of the engine.
             - `engineStates`: The state of the engine (`Off`, `On`, `Idle`).
             - `faultCodes`: The diagnostic fault codes for the vehicle.
             - `fuelPercents`: The engine fuel level in percentage points (e.g. `99`, `50`, etc).
-            - `fuelConsumedMilliliters`: The cumulative fuel consumption in milliliters for vehicles. Cumulative values always increase. This includes all fuel consumption reported by vehicles without filtering of invalid data points. For filtered fuel consumption that matches the Fuel & Energy Report, please use <a href="/api-reference/fuel-and-efficiency/fuel-and-energy/get-fuel-and-energy-vehicle-reports" target="_blank">the Fuel and Energy API</a>.
+            - `fuelConsumedMilliliters`: The cumulative fuel consumption in milliliters for vehicles. Cumulative values always increase. This includes all fuel consumption reported by vehicles without filtering of invalid data points. For filtered fuel consumption that matches the Fuel & Energy Report, please use <a href="https://developers.samsara.com/reference/getfuelenergyvehiclereports" target="_blank">the Fuel and Energy API</a>.
             - `gps`: GPS data including lat/long, heading, speed, address book entry (if exists), and a reverse geocoded address.
             - `gpsDistanceMeters`: The distance the vehicle has traveled since the gateway was installed based on GPS calculations.
-            - `idlingDurationMilliseconds`: The cumulative idling duration in milliseconds. Cumulative values always increase. For filtering of idling duration please use <a href="/api-reference/fuel-and-efficiency/idling/get-idling-events" target="_blank">the Idling Events API</a>.
+            - `idlingDurationMilliseconds`: The cumulative idling duration in milliseconds. Cumulative values always increase. For filtering of idling duration please use <a href="https://developers.samsara.com/reference/getvehicleidlingreports" target="_blank">the Idling Events API</a>.
             - `intakeManifoldTemperatureMilliC`: The intake manifold temperature reading in millidegree Celsius.
             - `nfcCardScans`: ID card scans.
             - `obdEngineSeconds`: The cumulative number of seconds the engine has run according to onboard diagnostics. When onboard diagnostic data is unavailable, ignition-based engine data (for ELD vehicles) will be used as a proxy to accumulate engine hours.
@@ -920,11 +920,11 @@ class AsyncRawVehicleStatsClient:
         """
         Returns vehicle stats during the given time range for all vehicles. This can be optionally filtered by tags or specific vehicle IDs.
 
-        Related guide: [Telematics](/docs/telematics).
+        Related guide: <a href="/docs/telematics" target="_blank">Telematics</a>.
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Read Vehicle Statistics** under the Vehicles category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+        To use this endpoint, select **Read Vehicle Statistics** under the Vehicles category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
         Parameters
         ----------
@@ -960,18 +960,18 @@ class AsyncRawVehicleStatsClient:
             - `defLevelMilliPercent`: The Diesel Exhaust Fluid (DEF) level in milli percentage points (e.g. `99001`, `49999`, etc).
             - `ecuSpeedMph`: The speed of the engine in miles per hour according to the ECU.
             - `engineCoolantTemperatureMilliC`: The engine coolant temperature reading in millidegree Celsius.
-            - `engineImmobilizer`: The state of the engine immobilizer - Valid values: `ignition_disabled`, `ignition_enabled`. This stat type will only return states of our first Engine Immobilizer Hardware (ACC-EI). Please use <a href="/api-reference/future/beta-apis/get-engine-immobilizer-states" target="_blank">Get engine immobilizer states</a> to get states for both Engine Immobilizer Hardware versions (incl. HW-EI21).
+            - `engineImmobilizer`: The state of the engine immobilizer - Valid values: `ignition_disabled`, `ignition_enabled`. This stat type will only return states of our first Engine Immobilizer Hardware (ACC-EI). Please use <a href="https://developers.samsara.com/reference/getengineimmobilizerstates" target="_blank">Get engine immobilizer states</a> to get states for both Engine Immobilizer Hardware versions (incl. HW-EI21).
             - `engineLoadPercent`: The engine load in percentage points (e.g. `99`, `50`, etc).
             - `engineOilPressureKPa`: The engine oil pressure reading in kilopascals.
             - `engineRpm`: The revolutions per minute of the engine.
             - `engineStates`: The state of the engine (`Off`, `On`, `Idle`).
             - `faultCodes`: The diagnostic fault codes for the vehicle.
             - `fuelPercents`: The engine fuel level in percentage points (e.g. `99`, `50`, etc).
-            - `fuelConsumedMilliliters`: The cumulative fuel consumption in milliliters for vehicles. Cumulative values always increase. This includes all fuel consumption reported by vehicles without filtering of invalid data points. For filtered fuel consumption that matches the Fuel & Energy Report, please use <a href="/api-reference/fuel-and-efficiency/fuel-and-energy/get-fuel-and-energy-vehicle-reports" target="_blank">the Fuel and Energy API</a>.
+            - `fuelConsumedMilliliters`: The cumulative fuel consumption in milliliters for vehicles. Cumulative values always increase. This includes all fuel consumption reported by vehicles without filtering of invalid data points. For filtered fuel consumption that matches the Fuel & Energy Report, please use <a href="https://developers.samsara.com/reference/getfuelenergyvehiclereports" target="_blank">the Fuel and Energy API</a>.
             - `gps`: GPS data including lat/long, heading, speed, address book entry (if exists), and a reverse geocoded address.
             - `gpsDistanceMeters`: The distance the vehicle has traveled since the gateway was installed based on GPS calculations.
             - `gpsOdometerMeters`: Odometer reading provided by GPS calculations when OBD odometer cannot be pulled automatically. You must provide a manual odometer reading before this value is updated. Manual odometer readings can be provided via the [PATCH /fleet/vehicles/{id}](ref:updatevehicle) endpoint or through the <a href="https://kb.samsara.com/hc/en-us/articles/115005273667-Editing-Odometer-Reading" target="_blank">cloud dasbhoard</a>. Odometer readings that are manually set will update as GPS trip data is gathered. Try combining with `obdOdometerMeters`.
-            - `idlingDurationMilliseconds`: The cumulative idling duration in milliseconds. Cumulative values always increase. For filtering of idling duration please use [the Idling Events API](/api-reference/fuel-and-efficiency/idling/get-idling-events).
+            - `idlingDurationMilliseconds`: The cumulative idling duration in milliseconds. Cumulative values always increase. For filtering of idling duration please use [the Idling Events API](https://developers.samsara.com/reference/getvehicleidlingreports).
             - `intakeManifoldTemperatureMilliC`: The intake manifold temperature reading in millidegree Celsius.
             - `nfcCardScans`: ID card scans.
             - `obdEngineSeconds`: The cumulative number of seconds the engine has run according to onboard diagnostics. When onboard diagnostic data is unavailable, ignition-based engine data (for ELD vehicles) will be used as a proxy to accumulate engine hours.
@@ -1018,17 +1018,17 @@ class AsyncRawVehicleStatsClient:
             - `barometricPressurePa`: The barometric pressure reading in pascals.
             - `ecuSpeedMph`: The speed of the engine in miles per hour according to the ECU.
             - `engineCoolantTemperatureMilliC`: The engine coolant temperature reading in millidegree Celsius.
-            - `engineImmobilizer`: The state of the engine immobilizer - Valid values: `ignition_disabled`, `ignition_enabled`. This stat type will only return states of our first Engine Immobilizer Hardware (ACC-EI). Please use <a href="/api-reference/future/beta-apis/get-engine-immobilizer-states" target="_blank">Get engine immobilizer states</a> to get states for both Engine Immobilizer Hardware versions (incl. HW-EI21).
+            - `engineImmobilizer`: The state of the engine immobilizer - Valid values: `ignition_disabled`, `ignition_enabled`. This stat type will only return states of our first Engine Immobilizer Hardware (ACC-EI). Please use <a href="https://developers.samsara.com/reference/getengineimmobilizerstates" target="_blank">Get engine immobilizer states</a> to get states for both Engine Immobilizer Hardware versions (incl. HW-EI21).
             - `engineOilPressureKPa`: The engine oil pressure reading in kilopascals.
             - `engineLoadPercent`: The engine load in percentage points (e.g. `99`, `50`, etc).
             - `engineRpm`: The revolutions per minute of the engine.
             - `engineStates`: The state of the engine (`Off`, `On`, `Idle`).
             - `faultCodes`: The diagnostic fault codes for the vehicle.
             - `fuelPercents`: The engine fuel level in percentage points (e.g. `99`, `50`, etc).
-            - `fuelConsumedMilliliters`: The cumulative fuel consumption in milliliters for vehicles. Cumulative values always increase. This includes all fuel consumption reported by vehicles without filtering of invalid data points. For filtered fuel consumption that matches the Fuel & Energy Report, please use <a href="/api-reference/fuel-and-efficiency/fuel-and-energy/get-fuel-and-energy-vehicle-reports" target="_blank">the Fuel and Energy API</a>.
+            - `fuelConsumedMilliliters`: The cumulative fuel consumption in milliliters for vehicles. Cumulative values always increase. This includes all fuel consumption reported by vehicles without filtering of invalid data points. For filtered fuel consumption that matches the Fuel & Energy Report, please use <a href="https://developers.samsara.com/reference/getfuelenergyvehiclereports" target="_blank">the Fuel and Energy API</a>.
             - `gps`: GPS data including lat/long, heading, speed, address book entry (if exists), and a reverse geocoded address.
             - `gpsDistanceMeters`: The distance the vehicle has traveled since the gateway was installed based on GPS calculations.
-            - `idlingDurationMilliseconds`: The cumulative idling duration in milliseconds. Cumulative values always increase. For filtering of idling duration please use <a href="/api-reference/fuel-and-efficiency/idling/get-idling-events" target="_blank">the Idling Events API</a>.
+            - `idlingDurationMilliseconds`: The cumulative idling duration in milliseconds. Cumulative values always increase. For filtering of idling duration please use <a href="https://developers.samsara.com/reference/getvehicleidlingreports" target="_blank">the Idling Events API</a>.
             - `intakeManifoldTemperatureMilliC`: The intake manifold temperature reading in millidegree Celsius.
             - `nfcCardScans`: ID card scans.
             - `obdEngineSeconds`: The cumulative number of seconds the engine has run according to onboard diagnostics. When onboard diagnostic data is unavailable, ignition-based engine data (for ELD vehicles) will be used as a proxy to accumulate engine hours.
