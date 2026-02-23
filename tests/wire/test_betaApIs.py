@@ -405,6 +405,90 @@ def test_betaApIs_get_ridership_account() -> None:
     verify_request_count(test_id, "GET", "/ridership/accounts/id", None, 1)
 
 
+def test_betaApIs_list_ridership_passengers() -> None:
+    """Test listRidershipPassengers endpoint with WireMock"""
+    test_id = "beta_ap_is.list_ridership_passengers.0"
+    client = get_client(test_id)
+    client.beta_ap_is.list_ridership_passengers(account_id="accountId")
+    verify_request_count(test_id, "GET", "/ridership/passengers", {"accountId": "accountId"}, 1)
+
+
+def test_betaApIs_create_ridership_passenger() -> None:
+    """Test createRidershipPassenger endpoint with WireMock"""
+    test_id = "beta_ap_is.create_ridership_passenger.0"
+    client = get_client(test_id)
+    client.beta_ap_is.create_ridership_passenger(
+        account_id="e4b2c3a5-7d6f-4e8b-9a0c-1b2d3e4f5a6b", first_name="John", last_name="Doe"
+    )
+    verify_request_count(test_id, "POST", "/ridership/passengers", None, 1)
+
+
+def test_betaApIs_update_ridership_passenger() -> None:
+    """Test updateRidershipPassenger endpoint with WireMock"""
+    test_id = "beta_ap_is.update_ridership_passenger.0"
+    client = get_client(test_id)
+    client.beta_ap_is.update_ridership_passenger(
+        id="id", account_id="e4b2c3a5-7d6f-4e8b-9a0c-1b2d3e4f5a6b", first_name="John", last_name="Doe"
+    )
+    verify_request_count(test_id, "PUT", "/ridership/passengers", {"id": "id"}, 1)
+
+
+def test_betaApIs_delete_ridership_passenger() -> None:
+    """Test deleteRidershipPassenger endpoint with WireMock"""
+    test_id = "beta_ap_is.delete_ridership_passenger.0"
+    client = get_client(test_id)
+    client.beta_ap_is.delete_ridership_passenger(id="id")
+    verify_request_count(test_id, "DELETE", "/ridership/passengers", {"id": "id"}, 1)
+
+
+def test_betaApIs_get_ridership_passenger() -> None:
+    """Test getRidershipPassenger endpoint with WireMock"""
+    test_id = "beta_ap_is.get_ridership_passenger.0"
+    client = get_client(test_id)
+    client.beta_ap_is.get_ridership_passenger(id="id")
+    verify_request_count(test_id, "GET", "/ridership/passengers/id", None, 1)
+
+
+def test_betaApIs_create_ridership_route_setup() -> None:
+    """Test createRidershipRouteSetup endpoint with WireMock"""
+    test_id = "beta_ap_is.create_ridership_route_setup.0"
+    client = get_client(test_id)
+    client.beta_ap_is.create_ridership_route_setup(
+        account_id="e4b2c3a5-7d6f-4e8b-9a0c-1b2d3e4f5a6b",
+        passengers=[{"passenger_id": "a1b2c3d4-5e6f-7a8b-9c0d-1e2f3a4b5c6d"}],
+        route_id="123456",
+    )
+    verify_request_count(test_id, "POST", "/ridership/route-setups", None, 1)
+
+
+def test_betaApIs_update_ridership_route_setup() -> None:
+    """Test updateRidershipRouteSetup endpoint with WireMock"""
+    test_id = "beta_ap_is.update_ridership_route_setup.0"
+    client = get_client(test_id)
+    client.beta_ap_is.update_ridership_route_setup(
+        route_id="routeId",
+        account_id="e4b2c3a5-7d6f-4e8b-9a0c-1b2d3e4f5a6b",
+        passengers=[{"passenger_id": "a1b2c3d4-5e6f-7a8b-9c0d-1e2f3a4b5c6d"}],
+    )
+    verify_request_count(test_id, "PUT", "/ridership/route-setups", {"routeId": "routeId"}, 1)
+
+
+def test_betaApIs_delete_ridership_route_setup() -> None:
+    """Test deleteRidershipRouteSetup endpoint with WireMock"""
+    test_id = "beta_ap_is.delete_ridership_route_setup.0"
+    client = get_client(test_id)
+    client.beta_ap_is.delete_ridership_route_setup(route_id="routeId")
+    verify_request_count(test_id, "DELETE", "/ridership/route-setups", {"routeId": "routeId"}, 1)
+
+
+def test_betaApIs_get_ridership_route_setup() -> None:
+    """Test getRidershipRouteSetup endpoint with WireMock"""
+    test_id = "beta_ap_is.get_ridership_route_setup.0"
+    client = get_client(test_id)
+    client.beta_ap_is.get_ridership_route_setup(route_id="routeId")
+    verify_request_count(test_id, "GET", "/ridership/route-setups/routeId", None, 1)
+
+
 def test_betaApIs_get_driver_safety_scores() -> None:
     """Test getDriverSafetyScores endpoint with WireMock"""
     test_id = "beta_ap_is.get_driver_safety_scores.0"

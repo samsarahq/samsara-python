@@ -72,6 +72,32 @@ from ..types.ridership_accounts_list_ridership_accounts_response_body import (
 from ..types.ridership_accounts_update_ridership_account_response_body import (
     RidershipAccountsUpdateRidershipAccountResponseBody,
 )
+from ..types.ridership_passenger_identifier_input_request_body import RidershipPassengerIdentifierInputRequestBody
+from ..types.ridership_passenger_special_instructions_input_request_body import (
+    RidershipPassengerSpecialInstructionsInputRequestBody,
+)
+from ..types.ridership_passengers_create_ridership_passenger_response_body import (
+    RidershipPassengersCreateRidershipPassengerResponseBody,
+)
+from ..types.ridership_passengers_get_ridership_passenger_response_body import (
+    RidershipPassengersGetRidershipPassengerResponseBody,
+)
+from ..types.ridership_passengers_list_ridership_passengers_response_body import (
+    RidershipPassengersListRidershipPassengersResponseBody,
+)
+from ..types.ridership_passengers_update_ridership_passenger_response_body import (
+    RidershipPassengersUpdateRidershipPassengerResponseBody,
+)
+from ..types.ridership_route_setup_passenger_input_request_body import RidershipRouteSetupPassengerInputRequestBody
+from ..types.ridership_route_setups_create_ridership_route_setup_response_body import (
+    RidershipRouteSetupsCreateRidershipRouteSetupResponseBody,
+)
+from ..types.ridership_route_setups_get_ridership_route_setup_response_body import (
+    RidershipRouteSetupsGetRidershipRouteSetupResponseBody,
+)
+from ..types.ridership_route_setups_update_ridership_route_setup_response_body import (
+    RidershipRouteSetupsUpdateRidershipRouteSetupResponseBody,
+)
 from ..types.safety_scores_get_driver_safety_score_trips_response_body import (
     SafetyScoresGetDriverSafetyScoreTripsResponseBody,
 )
@@ -106,6 +132,12 @@ from .types.get_qualification_records_stream_request_entity_type import GetQuali
 from .types.get_qualification_types_request_entity_type import GetQualificationTypesRequestEntityType
 from .types.get_tag_group_safety_scores_request_score_type import GetTagGroupSafetyScoresRequestScoreType
 from .types.get_tag_safety_scores_request_score_type import GetTagSafetyScoresRequestScoreType
+from .types.ridership_passengers_create_ridership_passenger_request_body_classification import (
+    RidershipPassengersCreateRidershipPassengerRequestBodyClassification,
+)
+from .types.ridership_passengers_update_ridership_passenger_request_body_classification import (
+    RidershipPassengersUpdateRidershipPassengerRequestBodyClassification,
+)
 
 # this is used as the default value for optional parameters
 OMIT = typing.cast(typing.Any, ...)
@@ -3297,6 +3329,510 @@ class BetaApIsClient:
         _response = self._raw_client.get_ridership_account(
             id, include_external_ids=include_external_ids, request_options=request_options
         )
+        return _response.data
+
+    def list_ridership_passengers(
+        self,
+        *,
+        account_id: str,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        include_external_ids: typing.Optional[bool] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> RidershipPassengersListRidershipPassengersResponseBody:
+        """
+        List ridership passengers for an account.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Ridership** under the Ridership category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        account_id : str
+            The Samsara UUID of the ridership account to filter passengers by.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 512 objects.
+
+        include_external_ids : typing.Optional[bool]
+            Optional boolean indicating whether to return external IDs on supported entities
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        RidershipPassengersListRidershipPassengersResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.list_ridership_passengers(
+            account_id="accountId",
+        )
+        """
+        _response = self._raw_client.list_ridership_passengers(
+            account_id=account_id,
+            after=after,
+            limit=limit,
+            include_external_ids=include_external_ids,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def create_ridership_passenger(
+        self,
+        *,
+        account_id: str,
+        first_name: str,
+        last_name: str,
+        classification: typing.Optional[RidershipPassengersCreateRidershipPassengerRequestBodyClassification] = OMIT,
+        external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
+        identifiers: typing.Optional[typing.Sequence[RidershipPassengerIdentifierInputRequestBody]] = OMIT,
+        special_instructions: typing.Optional[RidershipPassengerSpecialInstructionsInputRequestBody] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> RidershipPassengersCreateRidershipPassengerResponseBody:
+        """
+        Create a new ridership passenger.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Ridership** under the Ridership category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        account_id : str
+            The Samsara UUID of the ridership account this passenger belongs to.
+
+        first_name : str
+            First name of the passenger.
+
+        last_name : str
+            Last name of the passenger.
+
+        classification : typing.Optional[RidershipPassengersCreateRidershipPassengerRequestBodyClassification]
+            Classification or grade level of the passenger.  Valid values: `unknown`, `pk1`, `pk2`, `pk3`, `pk4`, `k`, `grade1`, `grade2`, `grade3`, `grade4`, `grade5`, `grade6`, `grade7`, `grade8`, `grade9`, `grade10`, `grade11`, `grade12`
+
+        external_ids : typing.Optional[typing.Dict[str, str]]
+            A map of external ids
+
+        identifiers : typing.Optional[typing.Sequence[RidershipPassengerIdentifierInputRequestBody]]
+            List of identifiers associated with the passenger.
+
+        special_instructions : typing.Optional[RidershipPassengerSpecialInstructionsInputRequestBody]
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        RidershipPassengersCreateRidershipPassengerResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.create_ridership_passenger(
+            account_id="e4b2c3a5-7d6f-4e8b-9a0c-1b2d3e4f5a6b",
+            first_name="John",
+            last_name="Doe",
+        )
+        """
+        _response = self._raw_client.create_ridership_passenger(
+            account_id=account_id,
+            first_name=first_name,
+            last_name=last_name,
+            classification=classification,
+            external_ids=external_ids,
+            identifiers=identifiers,
+            special_instructions=special_instructions,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def update_ridership_passenger(
+        self,
+        *,
+        id: str,
+        account_id: str,
+        first_name: str,
+        last_name: str,
+        classification: typing.Optional[RidershipPassengersUpdateRidershipPassengerRequestBodyClassification] = OMIT,
+        external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
+        identifiers: typing.Optional[typing.Sequence[RidershipPassengerIdentifierInputRequestBody]] = OMIT,
+        special_instructions: typing.Optional[RidershipPassengerSpecialInstructionsInputRequestBody] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> RidershipPassengersUpdateRidershipPassengerResponseBody:
+        """
+        Update a ridership passenger by Samsara ID. All provided fields will overwrite existing values (PUT semantics).
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Ridership** under the Ridership category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            The Samsara UUID of the ridership passenger.
+
+        account_id : str
+            The Samsara UUID of the ridership account this passenger belongs to.
+
+        first_name : str
+            First name of the passenger.
+
+        last_name : str
+            Last name of the passenger.
+
+        classification : typing.Optional[RidershipPassengersUpdateRidershipPassengerRequestBodyClassification]
+            Classification or grade level of the passenger.  Valid values: `unknown`, `pk1`, `pk2`, `pk3`, `pk4`, `k`, `grade1`, `grade2`, `grade3`, `grade4`, `grade5`, `grade6`, `grade7`, `grade8`, `grade9`, `grade10`, `grade11`, `grade12`
+
+        external_ids : typing.Optional[typing.Dict[str, str]]
+            A map of external ids
+
+        identifiers : typing.Optional[typing.Sequence[RidershipPassengerIdentifierInputRequestBody]]
+            List of identifiers associated with the passenger.
+
+        special_instructions : typing.Optional[RidershipPassengerSpecialInstructionsInputRequestBody]
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        RidershipPassengersUpdateRidershipPassengerResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.update_ridership_passenger(
+            id="id",
+            account_id="e4b2c3a5-7d6f-4e8b-9a0c-1b2d3e4f5a6b",
+            first_name="John",
+            last_name="Doe",
+        )
+        """
+        _response = self._raw_client.update_ridership_passenger(
+            id=id,
+            account_id=account_id,
+            first_name=first_name,
+            last_name=last_name,
+            classification=classification,
+            external_ids=external_ids,
+            identifiers=identifiers,
+            special_instructions=special_instructions,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def delete_ridership_passenger(self, *, id: str, request_options: typing.Optional[RequestOptions] = None) -> None:
+        """
+        Delete a ridership passenger by Samsara ID.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Ridership** under the Ridership category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            The Samsara UUID of the ridership passenger.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.delete_ridership_passenger(
+            id="id",
+        )
+        """
+        _response = self._raw_client.delete_ridership_passenger(id=id, request_options=request_options)
+        return _response.data
+
+    def get_ridership_passenger(
+        self,
+        id: str,
+        *,
+        include_external_ids: typing.Optional[bool] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> RidershipPassengersGetRidershipPassengerResponseBody:
+        """
+        Get a single ridership passenger by ID. The ID can be a Samsara UUID or an external ID in `key:value` format.
+
+         <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Ridership** under the Ridership category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            ID of the ridership passenger. This can either be the Samsara-specified UUID, or an external ID. External IDs are customer-specified key-value pairs. To specify an external ID, use the following format: `key:value`. For example, `student:STU-001`.
+
+        include_external_ids : typing.Optional[bool]
+            Optional boolean indicating whether to return external IDs on supported entities
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        RidershipPassengersGetRidershipPassengerResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.get_ridership_passenger(
+            id="id",
+        )
+        """
+        _response = self._raw_client.get_ridership_passenger(
+            id, include_external_ids=include_external_ids, request_options=request_options
+        )
+        return _response.data
+
+    def create_ridership_route_setup(
+        self,
+        *,
+        account_id: str,
+        passengers: typing.Sequence[RidershipRouteSetupPassengerInputRequestBody],
+        route_id: str,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> RidershipRouteSetupsCreateRidershipRouteSetupResponseBody:
+        """
+        Create or replace the passenger assignment setup for a route.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Ridership** under the Ridership category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        account_id : str
+            The Samsara UUID of the ridership account.
+
+        passengers : typing.Sequence[RidershipRouteSetupPassengerInputRequestBody]
+            List of passenger assignments for the route.
+
+        route_id : str
+            The route ID. This is the Samsara route ID returned by the Routing API.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        RidershipRouteSetupsCreateRidershipRouteSetupResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import RidershipRouteSetupPassengerInputRequestBody, Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.create_ridership_route_setup(
+            account_id="e4b2c3a5-7d6f-4e8b-9a0c-1b2d3e4f5a6b",
+            passengers=[
+                RidershipRouteSetupPassengerInputRequestBody(
+                    passenger_id="a1b2c3d4-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+                )
+            ],
+            route_id="123456",
+        )
+        """
+        _response = self._raw_client.create_ridership_route_setup(
+            account_id=account_id, passengers=passengers, route_id=route_id, request_options=request_options
+        )
+        return _response.data
+
+    def update_ridership_route_setup(
+        self,
+        *,
+        route_id: str,
+        account_id: str,
+        passengers: typing.Sequence[RidershipRouteSetupPassengerInputRequestBody],
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> RidershipRouteSetupsUpdateRidershipRouteSetupResponseBody:
+        """
+        Update (replace) the passenger assignment setup for a route. All existing assignments will be replaced with the provided assignments.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Ridership** under the Ridership category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        route_id : str
+            The route ID. This is the Samsara route ID returned by the Routing API.
+
+        account_id : str
+            The Samsara UUID of the ridership account.
+
+        passengers : typing.Sequence[RidershipRouteSetupPassengerInputRequestBody]
+            List of passenger assignments for the route.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        RidershipRouteSetupsUpdateRidershipRouteSetupResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import RidershipRouteSetupPassengerInputRequestBody, Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.update_ridership_route_setup(
+            route_id="routeId",
+            account_id="e4b2c3a5-7d6f-4e8b-9a0c-1b2d3e4f5a6b",
+            passengers=[
+                RidershipRouteSetupPassengerInputRequestBody(
+                    passenger_id="a1b2c3d4-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+                )
+            ],
+        )
+        """
+        _response = self._raw_client.update_ridership_route_setup(
+            route_id=route_id, account_id=account_id, passengers=passengers, request_options=request_options
+        )
+        return _response.data
+
+    def delete_ridership_route_setup(
+        self, *, route_id: str, request_options: typing.Optional[RequestOptions] = None
+    ) -> None:
+        """
+        Delete the passenger assignment setup for a route.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Ridership** under the Ridership category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        route_id : str
+            The route ID. This is the Samsara route ID returned by the Routing API.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.delete_ridership_route_setup(
+            route_id="routeId",
+        )
+        """
+        _response = self._raw_client.delete_ridership_route_setup(route_id=route_id, request_options=request_options)
+        return _response.data
+
+    def get_ridership_route_setup(
+        self, route_id: str, *, request_options: typing.Optional[RequestOptions] = None
+    ) -> RidershipRouteSetupsGetRidershipRouteSetupResponseBody:
+        """
+        Get the passenger assignment setup for a route by route ID.
+
+         <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Ridership** under the Ridership category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        route_id : str
+            The route ID. This is the Samsara route ID returned by the Routing API.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        RidershipRouteSetupsGetRidershipRouteSetupResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.get_ridership_route_setup(
+            route_id="routeId",
+        )
+        """
+        _response = self._raw_client.get_ridership_route_setup(route_id, request_options=request_options)
         return _response.data
 
     def get_driver_safety_scores(
@@ -7216,6 +7752,586 @@ class AsyncBetaApIsClient:
         _response = await self._raw_client.get_ridership_account(
             id, include_external_ids=include_external_ids, request_options=request_options
         )
+        return _response.data
+
+    async def list_ridership_passengers(
+        self,
+        *,
+        account_id: str,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        include_external_ids: typing.Optional[bool] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> RidershipPassengersListRidershipPassengersResponseBody:
+        """
+        List ridership passengers for an account.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Ridership** under the Ridership category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        account_id : str
+            The Samsara UUID of the ridership account to filter passengers by.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 512 objects.
+
+        include_external_ids : typing.Optional[bool]
+            Optional boolean indicating whether to return external IDs on supported entities
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        RidershipPassengersListRidershipPassengersResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.list_ridership_passengers(
+                account_id="accountId",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.list_ridership_passengers(
+            account_id=account_id,
+            after=after,
+            limit=limit,
+            include_external_ids=include_external_ids,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def create_ridership_passenger(
+        self,
+        *,
+        account_id: str,
+        first_name: str,
+        last_name: str,
+        classification: typing.Optional[RidershipPassengersCreateRidershipPassengerRequestBodyClassification] = OMIT,
+        external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
+        identifiers: typing.Optional[typing.Sequence[RidershipPassengerIdentifierInputRequestBody]] = OMIT,
+        special_instructions: typing.Optional[RidershipPassengerSpecialInstructionsInputRequestBody] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> RidershipPassengersCreateRidershipPassengerResponseBody:
+        """
+        Create a new ridership passenger.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Ridership** under the Ridership category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        account_id : str
+            The Samsara UUID of the ridership account this passenger belongs to.
+
+        first_name : str
+            First name of the passenger.
+
+        last_name : str
+            Last name of the passenger.
+
+        classification : typing.Optional[RidershipPassengersCreateRidershipPassengerRequestBodyClassification]
+            Classification or grade level of the passenger.  Valid values: `unknown`, `pk1`, `pk2`, `pk3`, `pk4`, `k`, `grade1`, `grade2`, `grade3`, `grade4`, `grade5`, `grade6`, `grade7`, `grade8`, `grade9`, `grade10`, `grade11`, `grade12`
+
+        external_ids : typing.Optional[typing.Dict[str, str]]
+            A map of external ids
+
+        identifiers : typing.Optional[typing.Sequence[RidershipPassengerIdentifierInputRequestBody]]
+            List of identifiers associated with the passenger.
+
+        special_instructions : typing.Optional[RidershipPassengerSpecialInstructionsInputRequestBody]
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        RidershipPassengersCreateRidershipPassengerResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.create_ridership_passenger(
+                account_id="e4b2c3a5-7d6f-4e8b-9a0c-1b2d3e4f5a6b",
+                first_name="John",
+                last_name="Doe",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.create_ridership_passenger(
+            account_id=account_id,
+            first_name=first_name,
+            last_name=last_name,
+            classification=classification,
+            external_ids=external_ids,
+            identifiers=identifiers,
+            special_instructions=special_instructions,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def update_ridership_passenger(
+        self,
+        *,
+        id: str,
+        account_id: str,
+        first_name: str,
+        last_name: str,
+        classification: typing.Optional[RidershipPassengersUpdateRidershipPassengerRequestBodyClassification] = OMIT,
+        external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
+        identifiers: typing.Optional[typing.Sequence[RidershipPassengerIdentifierInputRequestBody]] = OMIT,
+        special_instructions: typing.Optional[RidershipPassengerSpecialInstructionsInputRequestBody] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> RidershipPassengersUpdateRidershipPassengerResponseBody:
+        """
+        Update a ridership passenger by Samsara ID. All provided fields will overwrite existing values (PUT semantics).
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Ridership** under the Ridership category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            The Samsara UUID of the ridership passenger.
+
+        account_id : str
+            The Samsara UUID of the ridership account this passenger belongs to.
+
+        first_name : str
+            First name of the passenger.
+
+        last_name : str
+            Last name of the passenger.
+
+        classification : typing.Optional[RidershipPassengersUpdateRidershipPassengerRequestBodyClassification]
+            Classification or grade level of the passenger.  Valid values: `unknown`, `pk1`, `pk2`, `pk3`, `pk4`, `k`, `grade1`, `grade2`, `grade3`, `grade4`, `grade5`, `grade6`, `grade7`, `grade8`, `grade9`, `grade10`, `grade11`, `grade12`
+
+        external_ids : typing.Optional[typing.Dict[str, str]]
+            A map of external ids
+
+        identifiers : typing.Optional[typing.Sequence[RidershipPassengerIdentifierInputRequestBody]]
+            List of identifiers associated with the passenger.
+
+        special_instructions : typing.Optional[RidershipPassengerSpecialInstructionsInputRequestBody]
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        RidershipPassengersUpdateRidershipPassengerResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.update_ridership_passenger(
+                id="id",
+                account_id="e4b2c3a5-7d6f-4e8b-9a0c-1b2d3e4f5a6b",
+                first_name="John",
+                last_name="Doe",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.update_ridership_passenger(
+            id=id,
+            account_id=account_id,
+            first_name=first_name,
+            last_name=last_name,
+            classification=classification,
+            external_ids=external_ids,
+            identifiers=identifiers,
+            special_instructions=special_instructions,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def delete_ridership_passenger(
+        self, *, id: str, request_options: typing.Optional[RequestOptions] = None
+    ) -> None:
+        """
+        Delete a ridership passenger by Samsara ID.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Ridership** under the Ridership category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            The Samsara UUID of the ridership passenger.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.delete_ridership_passenger(
+                id="id",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.delete_ridership_passenger(id=id, request_options=request_options)
+        return _response.data
+
+    async def get_ridership_passenger(
+        self,
+        id: str,
+        *,
+        include_external_ids: typing.Optional[bool] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> RidershipPassengersGetRidershipPassengerResponseBody:
+        """
+        Get a single ridership passenger by ID. The ID can be a Samsara UUID or an external ID in `key:value` format.
+
+         <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Ridership** under the Ridership category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            ID of the ridership passenger. This can either be the Samsara-specified UUID, or an external ID. External IDs are customer-specified key-value pairs. To specify an external ID, use the following format: `key:value`. For example, `student:STU-001`.
+
+        include_external_ids : typing.Optional[bool]
+            Optional boolean indicating whether to return external IDs on supported entities
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        RidershipPassengersGetRidershipPassengerResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.get_ridership_passenger(
+                id="id",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_ridership_passenger(
+            id, include_external_ids=include_external_ids, request_options=request_options
+        )
+        return _response.data
+
+    async def create_ridership_route_setup(
+        self,
+        *,
+        account_id: str,
+        passengers: typing.Sequence[RidershipRouteSetupPassengerInputRequestBody],
+        route_id: str,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> RidershipRouteSetupsCreateRidershipRouteSetupResponseBody:
+        """
+        Create or replace the passenger assignment setup for a route.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Ridership** under the Ridership category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        account_id : str
+            The Samsara UUID of the ridership account.
+
+        passengers : typing.Sequence[RidershipRouteSetupPassengerInputRequestBody]
+            List of passenger assignments for the route.
+
+        route_id : str
+            The route ID. This is the Samsara route ID returned by the Routing API.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        RidershipRouteSetupsCreateRidershipRouteSetupResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara, RidershipRouteSetupPassengerInputRequestBody
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.create_ridership_route_setup(
+                account_id="e4b2c3a5-7d6f-4e8b-9a0c-1b2d3e4f5a6b",
+                passengers=[
+                    RidershipRouteSetupPassengerInputRequestBody(
+                        passenger_id="a1b2c3d4-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+                    )
+                ],
+                route_id="123456",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.create_ridership_route_setup(
+            account_id=account_id, passengers=passengers, route_id=route_id, request_options=request_options
+        )
+        return _response.data
+
+    async def update_ridership_route_setup(
+        self,
+        *,
+        route_id: str,
+        account_id: str,
+        passengers: typing.Sequence[RidershipRouteSetupPassengerInputRequestBody],
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> RidershipRouteSetupsUpdateRidershipRouteSetupResponseBody:
+        """
+        Update (replace) the passenger assignment setup for a route. All existing assignments will be replaced with the provided assignments.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Ridership** under the Ridership category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        route_id : str
+            The route ID. This is the Samsara route ID returned by the Routing API.
+
+        account_id : str
+            The Samsara UUID of the ridership account.
+
+        passengers : typing.Sequence[RidershipRouteSetupPassengerInputRequestBody]
+            List of passenger assignments for the route.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        RidershipRouteSetupsUpdateRidershipRouteSetupResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara, RidershipRouteSetupPassengerInputRequestBody
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.update_ridership_route_setup(
+                route_id="routeId",
+                account_id="e4b2c3a5-7d6f-4e8b-9a0c-1b2d3e4f5a6b",
+                passengers=[
+                    RidershipRouteSetupPassengerInputRequestBody(
+                        passenger_id="a1b2c3d4-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+                    )
+                ],
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.update_ridership_route_setup(
+            route_id=route_id, account_id=account_id, passengers=passengers, request_options=request_options
+        )
+        return _response.data
+
+    async def delete_ridership_route_setup(
+        self, *, route_id: str, request_options: typing.Optional[RequestOptions] = None
+    ) -> None:
+        """
+        Delete the passenger assignment setup for a route.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Ridership** under the Ridership category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        route_id : str
+            The route ID. This is the Samsara route ID returned by the Routing API.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.delete_ridership_route_setup(
+                route_id="routeId",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.delete_ridership_route_setup(
+            route_id=route_id, request_options=request_options
+        )
+        return _response.data
+
+    async def get_ridership_route_setup(
+        self, route_id: str, *, request_options: typing.Optional[RequestOptions] = None
+    ) -> RidershipRouteSetupsGetRidershipRouteSetupResponseBody:
+        """
+        Get the passenger assignment setup for a route by route ID.
+
+         <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Ridership** under the Ridership category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        route_id : str
+            The route ID. This is the Samsara route ID returned by the Routing API.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        RidershipRouteSetupsGetRidershipRouteSetupResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.get_ridership_route_setup(
+                route_id="routeId",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_ridership_route_setup(route_id, request_options=request_options)
         return _response.data
 
     async def get_driver_safety_scores(
