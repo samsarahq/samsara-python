@@ -4,7 +4,6 @@ import typing
 
 from ...core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ...core.request_options import RequestOptions
-from ...types.standard_delete_response import StandardDeleteResponse
 from .raw_client import AsyncRawAssetsClient, RawAssetsClient
 
 
@@ -23,13 +22,13 @@ class AssetsClient:
         """
         return self._raw_client
 
-    def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> StandardDeleteResponse:
+    def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
         """
         Delete asset.
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Write Equipment** under the Equipment category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+        To use this endpoint, select **Write Equipment** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
         Parameters
         ----------
@@ -41,8 +40,7 @@ class AssetsClient:
 
         Returns
         -------
-        StandardDeleteResponse
-            A successful DELETE response is a 204 with no content.
+        None
 
         Examples
         --------
@@ -74,15 +72,13 @@ class AsyncAssetsClient:
         """
         return self._raw_client
 
-    async def delete(
-        self, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> StandardDeleteResponse:
+    async def delete(self, id: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
         """
         Delete asset.
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
-        To use this endpoint, select **Write Equipment** under the Equipment category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+        To use this endpoint, select **Write Equipment** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
         Parameters
         ----------
@@ -94,8 +90,7 @@ class AsyncAssetsClient:
 
         Returns
         -------
-        StandardDeleteResponse
-            A successful DELETE response is a 204 with no content.
+        None
 
         Examples
         --------

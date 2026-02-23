@@ -16,6 +16,7 @@ DriverVehicleAssignmentV2ObjectResponseBodyAssignmentType = typing.Union[
         "trailer",
         "external",
         "qrCode",
+        "driverApp",
     ],
     typing.Any,
 ]

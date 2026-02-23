@@ -6,6 +6,7 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .reading_datapoint_request_body_entity_type import ReadingDatapointRequestBodyEntityType
 
 
 class ReadingDatapointRequestBody(UniversalBaseModel):
@@ -22,10 +23,10 @@ class ReadingDatapointRequestBody(UniversalBaseModel):
         ),
     ]
     entity_type: typing_extensions.Annotated[
-        typing.Literal["asset"],
+        ReadingDatapointRequestBodyEntityType,
         FieldMetadata(alias="entityType"),
         pydantic.Field(alias="entityType", description="The type of the entity (e.g., asset).  Valid values: `asset`"),
-    ] = "asset"
+    ]
     happened_at_time: typing_extensions.Annotated[
         str,
         FieldMetadata(alias="happenedAtTime"),

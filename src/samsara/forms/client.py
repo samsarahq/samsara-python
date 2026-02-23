@@ -30,6 +30,9 @@ from .raw_client import AsyncRawFormsClient, RawFormsClient
 from .types.form_submissions_patch_form_submission_request_body_status import (
     FormSubmissionsPatchFormSubmissionRequestBodyStatus,
 )
+from .types.form_submissions_post_form_submission_request_body_status import (
+    FormSubmissionsPostFormSubmissionRequestBodyStatus,
+)
 
 # this is used as the default value for optional parameters
 OMIT = typing.cast(typing.Any, ...)
@@ -60,9 +63,9 @@ class FormsClient:
         """
         Returns all form submissions data for the specified list of IDs.
 
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-        To use this endpoint, select **Read Form Submissions** under the Forms category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+        To use this endpoint, select **Read Form Submissions** under the Forms category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -70,7 +73,7 @@ class FormsClient:
         Parameters
         ----------
         ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            A comma-separated list containing up to 100 form submission IDs to filter on. Can be either a unique Samsara ID or an [external ID](/docs/external-ids) for the form submission.
+            A comma-separated list containing up to 100 form submission IDs to filter on. Can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the form submission.
 
         include : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             A comma-separated list of strings indicating whether to return additional information. Valid values: `externalIds`
@@ -99,6 +102,7 @@ class FormsClient:
         self,
         *,
         form_template: FormTemplateRequestObjectRequestBody,
+        status: FormSubmissionsPostFormSubmissionRequestBodyStatus,
         assigned_to: typing.Optional[FormSubmissionRequestAssignedToRequestBody] = OMIT,
         due_at_time: typing.Optional[dt.datetime] = OMIT,
         fields: typing.Optional[typing.Sequence[FormSubmissionRequestFieldInputObjectRequestBody]] = OMIT,
@@ -110,9 +114,9 @@ class FormsClient:
         """
         Creates a form submission and assigns it to an individual worker. This endpoint can be used to create an empty or partially complete form submission and assign it to a worker.
 
-         <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-        To use this endpoint, select **Write Form Submissions** under the Forms category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+        To use this endpoint, select **Write Form Submissions** under the Forms category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -120,6 +124,9 @@ class FormsClient:
         Parameters
         ----------
         form_template : FormTemplateRequestObjectRequestBody
+
+        status : FormSubmissionsPostFormSubmissionRequestBodyStatus
+            Status of the form submission.  Valid values: `notStarted`
 
         assigned_to : typing.Optional[FormSubmissionRequestAssignedToRequestBody]
 
@@ -158,10 +165,12 @@ class FormsClient:
                 id="9814a1fa-f0c6-408b-bf85-51dc3bc71ac7",
                 revision_id="1214a1fa-f0c6-408b-bf85-51dc3bc71ac7",
             ),
+            status="notStarted",
         )
         """
         _response = self._raw_client.post_form_submission(
             form_template=form_template,
+            status=status,
             assigned_to=assigned_to,
             due_at_time=due_at_time,
             fields=fields,
@@ -188,9 +197,9 @@ class FormsClient:
         """
         Updates an instance of a form submission.
 
-         <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-        To use this endpoint, select **Write Form Submissions** under the Forms category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+        To use this endpoint, select **Write Form Submissions** under the Forms category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -258,9 +267,9 @@ class FormsClient:
         """
         Returns a PDF export that has already been generated for a form submission.
 
-         <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-        To use this endpoint, select **Read Form Submissions** under the Forms category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+        To use this endpoint, select **Read Form Submissions** under the Forms category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -298,9 +307,9 @@ class FormsClient:
         """
         Creates a PDF export for an existing form submission.
 
-         <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-        To use this endpoint, select **Write Form Submissions** under the Forms category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+        To use this endpoint, select **Write Form Submissions** under the Forms category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -348,9 +357,9 @@ class FormsClient:
         """
         Returns all form submissions data that has been created or modified for your organization based on the time parameters passed in. Results are paginated and are sorted by last modified date. If you include an endTime, the endpoint will return data up until that point (exclusive). If you don’t include an endTime, you can continue to poll the API real-time with the pagination cursor that gets returned on every call.
 
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-        To use this endpoint, select **Read Form Submissions** under the Forms category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+        To use this endpoint, select **Read Form Submissions** under the Forms category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -423,9 +432,9 @@ class FormsClient:
         """
         Returns a list of the organization's form templates for the specified list of IDs. If no IDs are provided, all form templates for the organization will be returned.
 
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-        To use this endpoint, select **Read Form Submissions** under the Forms category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+        To use this endpoint, select **Read Form Submissions** under the Forms category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -484,9 +493,9 @@ class AsyncFormsClient:
         """
         Returns all form submissions data for the specified list of IDs.
 
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-        To use this endpoint, select **Read Form Submissions** under the Forms category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+        To use this endpoint, select **Read Form Submissions** under the Forms category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -494,7 +503,7 @@ class AsyncFormsClient:
         Parameters
         ----------
         ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            A comma-separated list containing up to 100 form submission IDs to filter on. Can be either a unique Samsara ID or an [external ID](/docs/external-ids) for the form submission.
+            A comma-separated list containing up to 100 form submission IDs to filter on. Can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the form submission.
 
         include : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             A comma-separated list of strings indicating whether to return additional information. Valid values: `externalIds`
@@ -533,6 +542,7 @@ class AsyncFormsClient:
         self,
         *,
         form_template: FormTemplateRequestObjectRequestBody,
+        status: FormSubmissionsPostFormSubmissionRequestBodyStatus,
         assigned_to: typing.Optional[FormSubmissionRequestAssignedToRequestBody] = OMIT,
         due_at_time: typing.Optional[dt.datetime] = OMIT,
         fields: typing.Optional[typing.Sequence[FormSubmissionRequestFieldInputObjectRequestBody]] = OMIT,
@@ -544,9 +554,9 @@ class AsyncFormsClient:
         """
         Creates a form submission and assigns it to an individual worker. This endpoint can be used to create an empty or partially complete form submission and assign it to a worker.
 
-         <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-        To use this endpoint, select **Write Form Submissions** under the Forms category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+        To use this endpoint, select **Write Form Submissions** under the Forms category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -554,6 +564,9 @@ class AsyncFormsClient:
         Parameters
         ----------
         form_template : FormTemplateRequestObjectRequestBody
+
+        status : FormSubmissionsPostFormSubmissionRequestBodyStatus
+            Status of the form submission.  Valid values: `notStarted`
 
         assigned_to : typing.Optional[FormSubmissionRequestAssignedToRequestBody]
 
@@ -597,6 +610,7 @@ class AsyncFormsClient:
                     id="9814a1fa-f0c6-408b-bf85-51dc3bc71ac7",
                     revision_id="1214a1fa-f0c6-408b-bf85-51dc3bc71ac7",
                 ),
+                status="notStarted",
             )
 
 
@@ -604,6 +618,7 @@ class AsyncFormsClient:
         """
         _response = await self._raw_client.post_form_submission(
             form_template=form_template,
+            status=status,
             assigned_to=assigned_to,
             due_at_time=due_at_time,
             fields=fields,
@@ -630,9 +645,9 @@ class AsyncFormsClient:
         """
         Updates an instance of a form submission.
 
-         <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-        To use this endpoint, select **Write Form Submissions** under the Forms category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+        To use this endpoint, select **Write Form Submissions** under the Forms category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -708,9 +723,9 @@ class AsyncFormsClient:
         """
         Returns a PDF export that has already been generated for a form submission.
 
-         <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-        To use this endpoint, select **Read Form Submissions** under the Forms category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+        To use this endpoint, select **Read Form Submissions** under the Forms category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -758,9 +773,9 @@ class AsyncFormsClient:
         """
         Creates a PDF export for an existing form submission.
 
-         <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-        To use this endpoint, select **Write Form Submissions** under the Forms category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+        To use this endpoint, select **Write Form Submissions** under the Forms category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -816,9 +831,9 @@ class AsyncFormsClient:
         """
         Returns all form submissions data that has been created or modified for your organization based on the time parameters passed in. Results are paginated and are sorted by last modified date. If you include an endTime, the endpoint will return data up until that point (exclusive). If you don’t include an endTime, you can continue to poll the API real-time with the pagination cursor that gets returned on every call.
 
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-        To use this endpoint, select **Read Form Submissions** under the Forms category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+        To use this endpoint, select **Read Form Submissions** under the Forms category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -899,9 +914,9 @@ class AsyncFormsClient:
         """
         Returns a list of the organization's form templates for the specified list of IDs. If no IDs are provided, all form templates for the organization will be returned.
 
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-        To use this endpoint, select **Read Form Submissions** under the Forms category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+        To use this endpoint, select **Read Form Submissions** under the Forms category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.

@@ -19,7 +19,7 @@ class WebhookParamsObjectResponseBody(UniversalBaseModel):
         FieldMetadata(alias="payloadType"),
         pydantic.Field(
             alias="payloadType",
-            description="This determines the alert webhook payload type to use. Learn more: /docs/webhook-reference.  Valid values: `legacy`, `enriched`",
+            description="This determines the alert webhook payload type to use. Learn more: https://developers.samsara.com/docs/webhook-reference.  Valid values: `legacy`, `enriched`",
         ),
     ] = None
     webhook_ids: typing_extensions.Annotated[

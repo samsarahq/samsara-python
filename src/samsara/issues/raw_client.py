@@ -43,9 +43,9 @@ class RawIssuesClient:
         """
         Returns all issues data for the specified IDs.
 
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-        To use this endpoint, select **Read Issues** under the Forms category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+        To use this endpoint, select **Read Issues** under the Forms category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -53,7 +53,7 @@ class RawIssuesClient:
         Parameters
         ----------
         ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            A comma-separated list containing up to 100 issue IDs to filter on. Can be either a unique Samsara ID or an [external ID](/docs/external-ids) for the issue.
+            A comma-separated list containing up to 100 issue IDs to filter on. Can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the issue.
 
         include : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             A comma separated list of additional fields to include on requested objects. Valid values: `externalIds`
@@ -202,9 +202,9 @@ class RawIssuesClient:
         """
         Updates an instance of an issue.
 
-         <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-        To use this endpoint, select **Write Issues** under the Forms category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+        To use this endpoint, select **Write Issues** under the Forms category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -212,7 +212,7 @@ class RawIssuesClient:
         Parameters
         ----------
         id : str
-            ID of the issue. Can be either a unique Samsara ID or an [external ID](/docs/external-ids) for the issue.
+            ID of the issue. Can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the issue.
 
         assigned_to : typing.Optional[PatchIssueRequestBodyAssignedToRequestBody]
 
@@ -380,9 +380,9 @@ class RawIssuesClient:
         """
         Returns all issues data that has been created or modified for your organization based on the time parameters passed in. Results are paginated and are sorted by last modified date. If you include an endTime, the endpoint will return data up until that point (exclusive). If you don’t include an endTime, you can continue to poll the API real-time with the pagination cursor that gets returned on every call.
 
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-        To use this endpoint, select **Read Issues** under the Forms category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+        To use this endpoint, select **Read Issues** under the Forms category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -561,9 +561,9 @@ class AsyncRawIssuesClient:
         """
         Returns all issues data for the specified IDs.
 
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-        To use this endpoint, select **Read Issues** under the Forms category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+        To use this endpoint, select **Read Issues** under the Forms category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -571,7 +571,7 @@ class AsyncRawIssuesClient:
         Parameters
         ----------
         ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            A comma-separated list containing up to 100 issue IDs to filter on. Can be either a unique Samsara ID or an [external ID](/docs/external-ids) for the issue.
+            A comma-separated list containing up to 100 issue IDs to filter on. Can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the issue.
 
         include : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             A comma separated list of additional fields to include on requested objects. Valid values: `externalIds`
@@ -720,9 +720,9 @@ class AsyncRawIssuesClient:
         """
         Updates an instance of an issue.
 
-         <b>Rate limit:</b> 100 requests/min (learn more about rate limits [here](/docs/rate-limits)).
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-        To use this endpoint, select **Write Issues** under the Forms category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+        To use this endpoint, select **Write Issues** under the Forms category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -730,7 +730,7 @@ class AsyncRawIssuesClient:
         Parameters
         ----------
         id : str
-            ID of the issue. Can be either a unique Samsara ID or an [external ID](/docs/external-ids) for the issue.
+            ID of the issue. Can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the issue.
 
         assigned_to : typing.Optional[PatchIssueRequestBodyAssignedToRequestBody]
 
@@ -898,9 +898,9 @@ class AsyncRawIssuesClient:
         """
         Returns all issues data that has been created or modified for your organization based on the time parameters passed in. Results are paginated and are sorted by last modified date. If you include an endTime, the endpoint will return data up until that point (exclusive). If you don’t include an endTime, you can continue to poll the API real-time with the pagination cursor that gets returned on every call.
 
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits [here](/docs/rate-limits)).
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-        To use this endpoint, select **Read Issues** under the Forms category when creating or editing an API token. [Learn More.](/docs/authentication#scopes-for-api-tokens)
+        To use this endpoint, select **Read Issues** under the Forms category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.

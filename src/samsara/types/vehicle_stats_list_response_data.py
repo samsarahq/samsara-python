@@ -333,7 +333,7 @@ class VehicleStatsListResponseData(UniversalBaseModel):
         FieldMetadata(alias="fuelConsumedMilliliters"),
         pydantic.Field(
             alias="fuelConsumedMilliliters",
-            description='A list of cumulative fuel consumption readings in milliliters for the given vehicle. Cumulative values always increase. This includes all fuel consumption reported by vehicles without filtering of invalid data points. For filtered fuel consumption that matches the Fuel & Energy Report, please use <a href="/api-reference/fuel-and-efficiency/fuel-and-energy/get-fuel-and-energy-vehicle-reports" target="_blank">the Fuel and Energy API</a>.',
+            description='A list of cumulative fuel consumption readings in milliliters for the given vehicle. Cumulative values always increase. This includes all fuel consumption reported by vehicles without filtering of invalid data points. For filtered fuel consumption that matches the Fuel & Energy Report, please use <a href="https://developers.samsara.com/reference/getfuelenergyvehiclereports" target="_blank">the Fuel and Energy API</a>.',
         ),
     ] = None
     fuel_percents: typing_extensions.Annotated[
@@ -362,7 +362,7 @@ class VehicleStatsListResponseData(UniversalBaseModel):
         FieldMetadata(alias="idlingDurationMilliseconds"),
         pydantic.Field(
             alias="idlingDurationMilliseconds",
-            description='A list of cumulative idling duration readings in milliseconds for the given vehicle. Cumulative values always increase. For filtering of idling duration please use <a href="/api-reference/fuel-and-efficiency/idling/get-idling-events" target="_blank">the Idling Events API</a>.',
+            description='A list of cumulative idling duration readings in milliseconds for the given vehicle. Cumulative values always increase. For filtering of idling duration please use <a href="https://developers.samsara.com/reference/getvehicleidlingreports" target="_blank">the Idling Events API</a>.',
         ),
     ] = None
     intake_manifold_temperature_milli_c: typing_extensions.Annotated[
