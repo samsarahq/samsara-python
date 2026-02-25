@@ -24,7 +24,7 @@ class Address(UniversalBaseModel):
         FieldMetadata(alias="addressTypes"),
         pydantic.Field(
             alias="addressTypes",
-            description="Reporting location type associated with the address (used for ELD reporting purposes). Valid values: `yard`, `shortHaul`, `workforceSite`, `riskZone`, `industrialSite`, `alertsOnly`, `agricultureSource`, `avoidanceZone`, `knownGPSJammingZone`, `authorizedZone`, `unauthorizedZone`.",
+            description="Reporting location type associated with the address (used for ELD reporting purposes). Valid values: `yard`, `shortHaul`, `workforceSite`, `riskZone`, `industrialSite`, `alertsOnly`, `agricultureSource`, `avoidanceZone`, `knownGPSJammingZone`, `authorizedZone`, `unauthorizedZone`, `vendor`, `inventory`.",
         ),
     ] = None
     contacts: typing.Optional[typing.List[ContactTinyResponse]] = pydantic.Field(default=None)

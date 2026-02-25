@@ -15,6 +15,8 @@ UpdateAddressRequestAddressTypesItem = typing.Union[
         "knownGPSJammingZone",
         "authorizedZone",
         "unauthorizedZone",
+        "vendor",
+        "inventory",
     ],
     typing.Any,
 ]
