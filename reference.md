@@ -189,7 +189,7 @@ client.addresses.create(
 <dl>
 <dd>
 
-**address_types:** `typing.Optional[typing.Sequence[CreateAddressRequestAddressTypesItem]]` — Reporting location type associated with the address (used for ELD reporting purposes). Valid values: `yard`, `shortHaul`, `workforceSite`, `riskZone`, `industrialSite`, `alertsOnly`, `agricultureSource`, `avoidanceZone`, `knownGPSJammingZone`, `authorizedZone`, `unauthorizedZone`.
+**address_types:** `typing.Optional[typing.Sequence[CreateAddressRequestAddressTypesItem]]` — Reporting location type associated with the address (used for ELD reporting purposes). Valid values: `yard`, `shortHaul`, `workforceSite`, `riskZone`, `industrialSite`, `alertsOnly`, `agricultureSource`, `avoidanceZone`, `knownGPSJammingZone`, `authorizedZone`, `unauthorizedZone`, `vendor`, `inventory`.
     
 </dd>
 </dl>
@@ -467,7 +467,7 @@ client.addresses.update(
 <dl>
 <dd>
 
-**address_types:** `typing.Optional[typing.Sequence[UpdateAddressRequestAddressTypesItem]]` — Reporting location type associated with the address (used for ELD reporting purposes). Valid values: `yard`, `shortHaul`, `workforceSite`, `riskZone`, `industrialSite`, `alertsOnly`, `agricultureSource`, `avoidanceZone`, `knownGPSJammingZone`, `authorizedZone`, `unauthorizedZone`.
+**address_types:** `typing.Optional[typing.Sequence[UpdateAddressRequestAddressTypesItem]]` — Reporting location type associated with the address (used for ELD reporting purposes). Valid values: `yard`, `shortHaul`, `workforceSite`, `riskZone`, `industrialSite`, `alertsOnly`, `agricultureSource`, `avoidanceZone`, `knownGPSJammingZone`, `authorizedZone`, `unauthorizedZone`, `vendor`, `inventory`.
     
 </dd>
 </dl>
