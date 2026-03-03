@@ -4,10 +4,27 @@ import typing
 
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.request_options import RequestOptions
+from ..types.device_recovery_get_asset_recovery_state_response_body import (
+    DeviceRecoveryGetAssetRecoveryStateResponseBody,
+)
+from ..types.device_recovery_list_device_recovery_assets_response_body import (
+    DeviceRecoveryListDeviceRecoveryAssetsResponseBody,
+)
+from ..types.device_recovery_mark_asset_missing_response_body import DeviceRecoveryMarkAssetMissingResponseBody
+from ..types.device_recovery_recover_asset_response_body import DeviceRecoveryRecoverAssetResponseBody
 from ..types.drivers_auth_token_create_driver_auth_token_response_body import (
     DriversAuthTokenCreateDriverAuthTokenResponseBody,
 )
+from ..types.notification_recipient_request_body import NotificationRecipientRequestBody
 from .raw_client import AsyncRawPreviewApIsClient, RawPreviewApIsClient
+from .types.device_recovery_recover_asset_request_body_missing_reason import (
+    DeviceRecoveryRecoverAssetRequestBodyMissingReason,
+)
+from .types.device_recovery_recover_asset_request_body_recovery_status import (
+    DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus,
+)
+from .types.device_recovery_recover_asset_request_body_status import DeviceRecoveryRecoverAssetRequestBodyStatus
+from .types.list_device_recovery_assets_request_statuses_item import ListDeviceRecoveryAssetsRequestStatusesItem
 
 # this is used as the default value for optional parameters
 OMIT = typing.cast(typing.Any, ...)
@@ -27,6 +44,244 @@ class PreviewApIsClient:
         RawPreviewApIsClient
         """
         return self._raw_client
+
+    def list_device_recovery_assets(
+        self,
+        *,
+        statuses: typing.Optional[
+            typing.Union[
+                ListDeviceRecoveryAssetsRequestStatusesItem,
+                typing.Sequence[ListDeviceRecoveryAssetsRequestStatusesItem],
+            ]
+        ] = None,
+        after: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> DeviceRecoveryListDeviceRecoveryAssetsResponseBody:
+        """
+        List all assets that have a device recovery state for the organization. Optionally filter by one or more statuses (UNKNOWN, MISSING, LOCATED, RECOVERED).
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        statuses : typing.Optional[typing.Union[ListDeviceRecoveryAssetsRequestStatusesItem, typing.Sequence[ListDeviceRecoveryAssetsRequestStatusesItem]]]
+            Filter by one or more recovery statuses. Only assets matching the specified statuses will be returned. Returns all statuses if not specified.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        DeviceRecoveryListDeviceRecoveryAssetsResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.preview_ap_is.list_device_recovery_assets()
+        """
+        _response = self._raw_client.list_device_recovery_assets(
+            statuses=statuses, after=after, request_options=request_options
+        )
+        return _response.data
+
+    def mark_asset_missing(
+        self,
+        id: str,
+        *,
+        note: typing.Optional[str] = OMIT,
+        notification_recipients: typing.Optional[typing.Sequence[NotificationRecipientRequestBody]] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> DeviceRecoveryMarkAssetMissingResponseBody:
+        """
+        Mark an asset as missing. Optionally specify a note and notification recipients who will receive email updates.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            The ID of the asset. This can be a Samsara internal ID or an external ID in the format `key:value`.
+
+        note : typing.Optional[str]
+            Optional note when marking asset as missing.
+
+        notification_recipients : typing.Optional[typing.Sequence[NotificationRecipientRequestBody]]
+            List of users to notify when asset is marked as missing.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        DeviceRecoveryMarkAssetMissingResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.preview_ap_is.mark_asset_missing(
+            id="id",
+        )
+        """
+        _response = self._raw_client.mark_asset_missing(
+            id, note=note, notification_recipients=notification_recipients, request_options=request_options
+        )
+        return _response.data
+
+    def recover_asset(
+        self,
+        id: str,
+        *,
+        missing_reason: DeviceRecoveryRecoverAssetRequestBodyMissingReason,
+        recovery_status: DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus,
+        status: DeviceRecoveryRecoverAssetRequestBodyStatus,
+        additional_details: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> DeviceRecoveryRecoverAssetResponseBody:
+        """
+        Mark a missing asset as recovered. Provide the recovery status, reason for being missing, and optional additional details.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            The ID of the asset. This can be a Samsara internal ID or an external ID in the format `key:value`.
+
+        missing_reason : DeviceRecoveryRecoverAssetRequestBodyMissingReason
+            The reason the asset was marked as missing.  Valid values: `MISPLACED`, `STOLEN`, `NOT_SURE`
+
+        recovery_status : DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus
+            Whether the asset has been physically recovered.  Valid values: `YES`, `NO`, `NOT_SURE`
+
+        status : DeviceRecoveryRecoverAssetRequestBodyStatus
+            The recovery status to set for the asset.  Valid values: `RECOVERED`
+
+        additional_details : typing.Optional[str]
+            Optional additional details about the recovery.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        DeviceRecoveryRecoverAssetResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.preview_ap_is.recover_asset(
+            id="id",
+            missing_reason="MISPLACED",
+            recovery_status="YES",
+            status="RECOVERED",
+        )
+        """
+        _response = self._raw_client.recover_asset(
+            id,
+            missing_reason=missing_reason,
+            recovery_status=recovery_status,
+            status=status,
+            additional_details=additional_details,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def get_asset_recovery_state(
+        self, id: str, *, request_options: typing.Optional[RequestOptions] = None
+    ) -> DeviceRecoveryGetAssetRecoveryStateResponseBody:
+        """
+        Get the current recovery state for a specific asset, including recovery photos and notification recipients.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            The ID of the asset. This can be a Samsara internal ID or an external ID in the format `key:value`.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        DeviceRecoveryGetAssetRecoveryStateResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.preview_ap_is.get_asset_recovery_state(
+            id="id",
+        )
+        """
+        _response = self._raw_client.get_asset_recovery_state(id, request_options=request_options)
+        return _response.data
 
     def create_driver_auth_token(
         self,
@@ -192,6 +447,276 @@ class AsyncPreviewApIsClient:
         AsyncRawPreviewApIsClient
         """
         return self._raw_client
+
+    async def list_device_recovery_assets(
+        self,
+        *,
+        statuses: typing.Optional[
+            typing.Union[
+                ListDeviceRecoveryAssetsRequestStatusesItem,
+                typing.Sequence[ListDeviceRecoveryAssetsRequestStatusesItem],
+            ]
+        ] = None,
+        after: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> DeviceRecoveryListDeviceRecoveryAssetsResponseBody:
+        """
+        List all assets that have a device recovery state for the organization. Optionally filter by one or more statuses (UNKNOWN, MISSING, LOCATED, RECOVERED).
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        statuses : typing.Optional[typing.Union[ListDeviceRecoveryAssetsRequestStatusesItem, typing.Sequence[ListDeviceRecoveryAssetsRequestStatusesItem]]]
+            Filter by one or more recovery statuses. Only assets matching the specified statuses will be returned. Returns all statuses if not specified.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        DeviceRecoveryListDeviceRecoveryAssetsResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.preview_ap_is.list_device_recovery_assets()
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.list_device_recovery_assets(
+            statuses=statuses, after=after, request_options=request_options
+        )
+        return _response.data
+
+    async def mark_asset_missing(
+        self,
+        id: str,
+        *,
+        note: typing.Optional[str] = OMIT,
+        notification_recipients: typing.Optional[typing.Sequence[NotificationRecipientRequestBody]] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> DeviceRecoveryMarkAssetMissingResponseBody:
+        """
+        Mark an asset as missing. Optionally specify a note and notification recipients who will receive email updates.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            The ID of the asset. This can be a Samsara internal ID or an external ID in the format `key:value`.
+
+        note : typing.Optional[str]
+            Optional note when marking asset as missing.
+
+        notification_recipients : typing.Optional[typing.Sequence[NotificationRecipientRequestBody]]
+            List of users to notify when asset is marked as missing.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        DeviceRecoveryMarkAssetMissingResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.preview_ap_is.mark_asset_missing(
+                id="id",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.mark_asset_missing(
+            id, note=note, notification_recipients=notification_recipients, request_options=request_options
+        )
+        return _response.data
+
+    async def recover_asset(
+        self,
+        id: str,
+        *,
+        missing_reason: DeviceRecoveryRecoverAssetRequestBodyMissingReason,
+        recovery_status: DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus,
+        status: DeviceRecoveryRecoverAssetRequestBodyStatus,
+        additional_details: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> DeviceRecoveryRecoverAssetResponseBody:
+        """
+        Mark a missing asset as recovered. Provide the recovery status, reason for being missing, and optional additional details.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            The ID of the asset. This can be a Samsara internal ID or an external ID in the format `key:value`.
+
+        missing_reason : DeviceRecoveryRecoverAssetRequestBodyMissingReason
+            The reason the asset was marked as missing.  Valid values: `MISPLACED`, `STOLEN`, `NOT_SURE`
+
+        recovery_status : DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus
+            Whether the asset has been physically recovered.  Valid values: `YES`, `NO`, `NOT_SURE`
+
+        status : DeviceRecoveryRecoverAssetRequestBodyStatus
+            The recovery status to set for the asset.  Valid values: `RECOVERED`
+
+        additional_details : typing.Optional[str]
+            Optional additional details about the recovery.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        DeviceRecoveryRecoverAssetResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.preview_ap_is.recover_asset(
+                id="id",
+                missing_reason="MISPLACED",
+                recovery_status="YES",
+                status="RECOVERED",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.recover_asset(
+            id,
+            missing_reason=missing_reason,
+            recovery_status=recovery_status,
+            status=status,
+            additional_details=additional_details,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def get_asset_recovery_state(
+        self, id: str, *, request_options: typing.Optional[RequestOptions] = None
+    ) -> DeviceRecoveryGetAssetRecoveryStateResponseBody:
+        """
+        Get the current recovery state for a specific asset, including recovery photos and notification recipients.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            The ID of the asset. This can be a Samsara internal ID or an external ID in the format `key:value`.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        DeviceRecoveryGetAssetRecoveryStateResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.preview_ap_is.get_asset_recovery_state(
+                id="id",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_asset_recovery_state(id, request_options=request_options)
+        return _response.data
 
     async def create_driver_auth_token(
         self,
