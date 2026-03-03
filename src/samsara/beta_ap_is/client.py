@@ -7,6 +7,8 @@ from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.request_options import RequestOptions
 from ..types.aemp_equipment_get_aemp_equipment_list_response_body import AempEquipmentGetAempEquipmentListResponseBody
 from ..types.assets_inputs_get_assets_inputs_response_body import AssetsInputsGetAssetsInputsResponseBody
+from ..types.carb_ctc_list_carb_ctc_vehicle_history_response_body import CarbCtcListCarbCtcVehicleHistoryResponseBody
+from ..types.carb_ctc_list_carb_ctc_vehicles_response_body import CarbCtcListCarbCtcVehiclesResponseBody
 from ..types.create_report_config_object_request_body import CreateReportConfigObjectRequestBody
 from ..types.depreciation_get_depreciation_transactions_response_body import (
     DepreciationGetDepreciationTransactionsResponseBody,
@@ -132,6 +134,7 @@ from .types.get_qualification_records_stream_request_entity_type import GetQuali
 from .types.get_qualification_types_request_entity_type import GetQualificationTypesRequestEntityType
 from .types.get_tag_group_safety_scores_request_score_type import GetTagGroupSafetyScoresRequestScoreType
 from .types.get_tag_safety_scores_request_score_type import GetTagSafetyScoresRequestScoreType
+from .types.list_carb_ctc_vehicles_request_test_status_item import ListCarbCtcVehiclesRequestTestStatusItem
 from .types.ridership_passengers_create_ridership_passenger_request_body_classification import (
     RidershipPassengersCreateRidershipPassengerRequestBodyClassification,
 )
@@ -1394,6 +1397,130 @@ class BetaApIsClient:
             include_tags=include_tags,
             tag_ids=tag_ids,
             parent_tag_ids=parent_tag_ids,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def list_carb_ctc_vehicles(
+        self,
+        *,
+        tag_ids: typing.Optional[str] = None,
+        parent_tag_ids: typing.Optional[str] = None,
+        test_status: typing.Optional[
+            typing.Union[
+                ListCarbCtcVehiclesRequestTestStatusItem, typing.Sequence[ListCarbCtcVehiclesRequestTestStatusItem]
+            ]
+        ] = None,
+        after: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> CarbCtcListCarbCtcVehiclesResponseBody:
+        """
+        Returns a paginated list of vehicles enrolled in the CARB CTC program with their latest compliance status. Results can be filtered by tag IDs and test status.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read CARB CTC Integration** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        tag_ids : typing.Optional[str]
+             A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+
+        parent_tag_ids : typing.Optional[str]
+             A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+
+        test_status : typing.Optional[typing.Union[ListCarbCtcVehiclesRequestTestStatusItem, typing.Sequence[ListCarbCtcVehiclesRequestTestStatusItem]]]
+            Optional filter based on the test status. This parameter can be passed multiple times to filter by multiple statuses.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        CarbCtcListCarbCtcVehiclesResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.list_carb_ctc_vehicles()
+        """
+        _response = self._raw_client.list_carb_ctc_vehicles(
+            tag_ids=tag_ids,
+            parent_tag_ids=parent_tag_ids,
+            test_status=test_status,
+            after=after,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def list_carb_ctc_vehicle_history(
+        self,
+        *,
+        vehicle_ids: str,
+        start_time: typing.Optional[str] = None,
+        end_time: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> CarbCtcListCarbCtcVehicleHistoryResponseBody:
+        """
+        Returns paginated collection history for a batch of vehicles enrolled in the CARB CTC program. Use vehicle IDs from the list enrolled vehicles endpoint. Optionally filter by time range. Results are ordered by happenedAtTime descending, with vehicle ID as a tiebreaker.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read CARB CTC Integration** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        vehicle_ids : str
+            A comma-separated list of vehicle IDs to fetch history for. Up to 100 IDs can be provided. Example: `vehicleIds=1234,5678`
+
+        start_time : typing.Optional[str]
+             A start time in RFC 3339 format. Defaults to now if not provided. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        end_time : typing.Optional[str]
+             An end time in RFC 3339 format. Defaults to now if not provided. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        CarbCtcListCarbCtcVehicleHistoryResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.list_carb_ctc_vehicle_history(
+            vehicle_ids="vehicleIds",
+        )
+        """
+        _response = self._raw_client.list_carb_ctc_vehicle_history(
+            vehicle_ids=vehicle_ids,
+            start_time=start_time,
+            end_time=end_time,
+            after=after,
             request_options=request_options,
         )
         return _response.data
@@ -5636,6 +5763,146 @@ class AsyncBetaApIsClient:
             include_tags=include_tags,
             tag_ids=tag_ids,
             parent_tag_ids=parent_tag_ids,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def list_carb_ctc_vehicles(
+        self,
+        *,
+        tag_ids: typing.Optional[str] = None,
+        parent_tag_ids: typing.Optional[str] = None,
+        test_status: typing.Optional[
+            typing.Union[
+                ListCarbCtcVehiclesRequestTestStatusItem, typing.Sequence[ListCarbCtcVehiclesRequestTestStatusItem]
+            ]
+        ] = None,
+        after: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> CarbCtcListCarbCtcVehiclesResponseBody:
+        """
+        Returns a paginated list of vehicles enrolled in the CARB CTC program with their latest compliance status. Results can be filtered by tag IDs and test status.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read CARB CTC Integration** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        tag_ids : typing.Optional[str]
+             A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+
+        parent_tag_ids : typing.Optional[str]
+             A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+
+        test_status : typing.Optional[typing.Union[ListCarbCtcVehiclesRequestTestStatusItem, typing.Sequence[ListCarbCtcVehiclesRequestTestStatusItem]]]
+            Optional filter based on the test status. This parameter can be passed multiple times to filter by multiple statuses.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        CarbCtcListCarbCtcVehiclesResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.list_carb_ctc_vehicles()
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.list_carb_ctc_vehicles(
+            tag_ids=tag_ids,
+            parent_tag_ids=parent_tag_ids,
+            test_status=test_status,
+            after=after,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def list_carb_ctc_vehicle_history(
+        self,
+        *,
+        vehicle_ids: str,
+        start_time: typing.Optional[str] = None,
+        end_time: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> CarbCtcListCarbCtcVehicleHistoryResponseBody:
+        """
+        Returns paginated collection history for a batch of vehicles enrolled in the CARB CTC program. Use vehicle IDs from the list enrolled vehicles endpoint. Optionally filter by time range. Results are ordered by happenedAtTime descending, with vehicle ID as a tiebreaker.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read CARB CTC Integration** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        vehicle_ids : str
+            A comma-separated list of vehicle IDs to fetch history for. Up to 100 IDs can be provided. Example: `vehicleIds=1234,5678`
+
+        start_time : typing.Optional[str]
+             A start time in RFC 3339 format. Defaults to now if not provided. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        end_time : typing.Optional[str]
+             An end time in RFC 3339 format. Defaults to now if not provided. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        CarbCtcListCarbCtcVehicleHistoryResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.list_carb_ctc_vehicle_history(
+                vehicle_ids="vehicleIds",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.list_carb_ctc_vehicle_history(
+            vehicle_ids=vehicle_ids,
+            start_time=start_time,
+            end_time=end_time,
+            after=after,
             request_options=request_options,
         )
         return _response.data

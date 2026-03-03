@@ -1,6 +1,38 @@
 from .conftest import get_client, verify_request_count
 
 
+def test_previewApIs_list_device_recovery_assets() -> None:
+    """Test listDeviceRecoveryAssets endpoint with WireMock"""
+    test_id = "preview_ap_is.list_device_recovery_assets.0"
+    client = get_client(test_id)
+    client.preview_ap_is.list_device_recovery_assets()
+    verify_request_count(test_id, "GET", "/preview/fleet/assets/device-recovery", None, 1)
+
+
+def test_previewApIs_mark_asset_missing() -> None:
+    """Test markAssetMissing endpoint with WireMock"""
+    test_id = "preview_ap_is.mark_asset_missing.0"
+    client = get_client(test_id)
+    client.preview_ap_is.mark_asset_missing(id="id")
+    verify_request_count(test_id, "POST", "/preview/fleet/assets/device-recovery/id/missing", None, 1)
+
+
+def test_previewApIs_recover_asset() -> None:
+    """Test recoverAsset endpoint with WireMock"""
+    test_id = "preview_ap_is.recover_asset.0"
+    client = get_client(test_id)
+    client.preview_ap_is.recover_asset(id="id", missing_reason="MISPLACED", recovery_status="YES", status="RECOVERED")
+    verify_request_count(test_id, "POST", "/preview/fleet/assets/device-recovery/id/recovered", None, 1)
+
+
+def test_previewApIs_get_asset_recovery_state() -> None:
+    """Test getAssetRecoveryState endpoint with WireMock"""
+    test_id = "preview_ap_is.get_asset_recovery_state.0"
+    client = get_client(test_id)
+    client.preview_ap_is.get_asset_recovery_state(id="id")
+    verify_request_count(test_id, "GET", "/preview/fleet/assets/device-recovery/id/recovery-state", None, 1)
+
+
 def test_previewApIs_create_driver_auth_token() -> None:
     """Test createDriverAuthToken endpoint with WireMock"""
     test_id = "preview_ap_is.create_driver_auth_token.0"
