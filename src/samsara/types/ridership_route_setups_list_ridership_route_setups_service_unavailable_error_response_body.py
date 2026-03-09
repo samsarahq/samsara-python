@@ -8,9 +8,9 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 
 
-class DeviceRecoveryListDeviceRecoveryAssetsNotFoundErrorResponseBody(UniversalBaseModel):
+class RidershipRouteSetupsListRidershipRouteSetupsServiceUnavailableErrorResponseBody(UniversalBaseModel):
     """
-    Resource not found
+    Service unavailable
     """
 
     message: str = pydantic.Field()

@@ -19,11 +19,8 @@ from ..errors.not_implemented_error import NotImplementedError
 from ..errors.service_unavailable_error import ServiceUnavailableError
 from ..errors.too_many_requests_error import TooManyRequestsError
 from ..errors.unauthorized_error import UnauthorizedError
-from ..types.device_recovery_get_asset_recovery_state_response_body import (
-    DeviceRecoveryGetAssetRecoveryStateResponseBody,
-)
-from ..types.device_recovery_list_device_recovery_assets_response_body import (
-    DeviceRecoveryListDeviceRecoveryAssetsResponseBody,
+from ..types.device_recovery_list_device_recovery_missing_assets_response_body import (
+    DeviceRecoveryListDeviceRecoveryMissingAssetsResponseBody,
 )
 from ..types.device_recovery_mark_asset_missing_response_body import DeviceRecoveryMarkAssetMissingResponseBody
 from ..types.device_recovery_recover_asset_response_body import DeviceRecoveryRecoverAssetResponseBody
@@ -38,7 +35,6 @@ from .types.device_recovery_recover_asset_request_body_recovery_status import (
     DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus,
 )
 from .types.device_recovery_recover_asset_request_body_status import DeviceRecoveryRecoverAssetRequestBodyStatus
-from .types.list_device_recovery_assets_request_statuses_item import ListDeviceRecoveryAssetsRequestStatusesItem
 
 # this is used as the default value for optional parameters
 OMIT = typing.cast(typing.Any, ...)
@@ -48,20 +44,11 @@ class RawPreviewApIsClient:
     def __init__(self, *, client_wrapper: SyncClientWrapper):
         self._client_wrapper = client_wrapper
 
-    def list_device_recovery_assets(
-        self,
-        *,
-        statuses: typing.Optional[
-            typing.Union[
-                ListDeviceRecoveryAssetsRequestStatusesItem,
-                typing.Sequence[ListDeviceRecoveryAssetsRequestStatusesItem],
-            ]
-        ] = None,
-        after: typing.Optional[str] = None,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[DeviceRecoveryListDeviceRecoveryAssetsResponseBody]:
+    def list_device_recovery_missing_assets(
+        self, *, after: typing.Optional[str] = None, request_options: typing.Optional[RequestOptions] = None
+    ) -> HttpResponse[DeviceRecoveryListDeviceRecoveryMissingAssetsResponseBody]:
         """
-        List all assets that have a device recovery state for the organization. Optionally filter by one or more statuses (UNKNOWN, MISSING, LOCATED, RECOVERED).
+        List all assets that are currently marked as missing for the organization.
 
          <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -78,9 +65,6 @@ class RawPreviewApIsClient:
 
         Parameters
         ----------
-        statuses : typing.Optional[typing.Union[ListDeviceRecoveryAssetsRequestStatusesItem, typing.Sequence[ListDeviceRecoveryAssetsRequestStatusesItem]]]
-            Filter by one or more recovery statuses. Only assets matching the specified statuses will be returned. Returns all statuses if not specified.
-
         after : typing.Optional[str]
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
 
@@ -89,14 +73,13 @@ class RawPreviewApIsClient:
 
         Returns
         -------
-        HttpResponse[DeviceRecoveryListDeviceRecoveryAssetsResponseBody]
+        HttpResponse[DeviceRecoveryListDeviceRecoveryMissingAssetsResponseBody]
             OK response.
         """
         _response = self._client_wrapper.httpx_client.request(
-            "preview/fleet/assets/device-recovery",
+            "preview/fleet/assets/device-recovery-missing",
             method="GET",
             params={
-                "statuses": statuses,
                 "after": after,
             },
             request_options=request_options,
@@ -104,9 +87,9 @@ class RawPreviewApIsClient:
         try:
             if 200 <= _response.status_code < 300:
                 _data = typing.cast(
-                    DeviceRecoveryListDeviceRecoveryAssetsResponseBody,
+                    DeviceRecoveryListDeviceRecoveryMissingAssetsResponseBody,
                     parse_obj_as(
-                        type_=DeviceRecoveryListDeviceRecoveryAssetsResponseBody,  # type: ignore
+                        type_=DeviceRecoveryListDeviceRecoveryMissingAssetsResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -461,157 +444,6 @@ class RawPreviewApIsClient:
                     DeviceRecoveryRecoverAssetResponseBody,
                     parse_obj_as(
                         type_=DeviceRecoveryRecoverAssetResponseBody,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
-                return HttpResponse(response=_response, data=_data)
-            if _response.status_code == 401:
-                raise UnauthorizedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 404:
-                raise NotFoundError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 405:
-                raise MethodNotAllowedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 429:
-                raise TooManyRequestsError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 500:
-                raise InternalServerError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 501:
-                raise NotImplementedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 502:
-                raise BadGatewayError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 503:
-                raise ServiceUnavailableError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 504:
-                raise GatewayTimeoutError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            _response_json = _response.json()
-        except JSONDecodeError:
-            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
-        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
-
-    def get_asset_recovery_state(
-        self, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> HttpResponse[DeviceRecoveryGetAssetRecoveryStateResponseBody]:
-        """
-        Get the current recovery state for a specific asset, including recovery photos and notification recipients.
-
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Read Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
-
-        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
-
-        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        id : str
-            The ID of the asset. This can be a Samsara internal ID or an external ID in the format `key:value`.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        HttpResponse[DeviceRecoveryGetAssetRecoveryStateResponseBody]
-            OK response.
-        """
-        _response = self._client_wrapper.httpx_client.request(
-            f"preview/fleet/assets/device-recovery/{jsonable_encoder(id)}/recovery-state",
-            method="GET",
-            request_options=request_options,
-        )
-        try:
-            if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    DeviceRecoveryGetAssetRecoveryStateResponseBody,
-                    parse_obj_as(
-                        type_=DeviceRecoveryGetAssetRecoveryStateResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -1183,20 +1015,11 @@ class AsyncRawPreviewApIsClient:
     def __init__(self, *, client_wrapper: AsyncClientWrapper):
         self._client_wrapper = client_wrapper
 
-    async def list_device_recovery_assets(
-        self,
-        *,
-        statuses: typing.Optional[
-            typing.Union[
-                ListDeviceRecoveryAssetsRequestStatusesItem,
-                typing.Sequence[ListDeviceRecoveryAssetsRequestStatusesItem],
-            ]
-        ] = None,
-        after: typing.Optional[str] = None,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[DeviceRecoveryListDeviceRecoveryAssetsResponseBody]:
+    async def list_device_recovery_missing_assets(
+        self, *, after: typing.Optional[str] = None, request_options: typing.Optional[RequestOptions] = None
+    ) -> AsyncHttpResponse[DeviceRecoveryListDeviceRecoveryMissingAssetsResponseBody]:
         """
-        List all assets that have a device recovery state for the organization. Optionally filter by one or more statuses (UNKNOWN, MISSING, LOCATED, RECOVERED).
+        List all assets that are currently marked as missing for the organization.
 
          <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -1213,9 +1036,6 @@ class AsyncRawPreviewApIsClient:
 
         Parameters
         ----------
-        statuses : typing.Optional[typing.Union[ListDeviceRecoveryAssetsRequestStatusesItem, typing.Sequence[ListDeviceRecoveryAssetsRequestStatusesItem]]]
-            Filter by one or more recovery statuses. Only assets matching the specified statuses will be returned. Returns all statuses if not specified.
-
         after : typing.Optional[str]
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
 
@@ -1224,14 +1044,13 @@ class AsyncRawPreviewApIsClient:
 
         Returns
         -------
-        AsyncHttpResponse[DeviceRecoveryListDeviceRecoveryAssetsResponseBody]
+        AsyncHttpResponse[DeviceRecoveryListDeviceRecoveryMissingAssetsResponseBody]
             OK response.
         """
         _response = await self._client_wrapper.httpx_client.request(
-            "preview/fleet/assets/device-recovery",
+            "preview/fleet/assets/device-recovery-missing",
             method="GET",
             params={
-                "statuses": statuses,
                 "after": after,
             },
             request_options=request_options,
@@ -1239,9 +1058,9 @@ class AsyncRawPreviewApIsClient:
         try:
             if 200 <= _response.status_code < 300:
                 _data = typing.cast(
-                    DeviceRecoveryListDeviceRecoveryAssetsResponseBody,
+                    DeviceRecoveryListDeviceRecoveryMissingAssetsResponseBody,
                     parse_obj_as(
-                        type_=DeviceRecoveryListDeviceRecoveryAssetsResponseBody,  # type: ignore
+                        type_=DeviceRecoveryListDeviceRecoveryMissingAssetsResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -1596,157 +1415,6 @@ class AsyncRawPreviewApIsClient:
                     DeviceRecoveryRecoverAssetResponseBody,
                     parse_obj_as(
                         type_=DeviceRecoveryRecoverAssetResponseBody,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
-                return AsyncHttpResponse(response=_response, data=_data)
-            if _response.status_code == 401:
-                raise UnauthorizedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 404:
-                raise NotFoundError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 405:
-                raise MethodNotAllowedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 429:
-                raise TooManyRequestsError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 500:
-                raise InternalServerError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 501:
-                raise NotImplementedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 502:
-                raise BadGatewayError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 503:
-                raise ServiceUnavailableError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 504:
-                raise GatewayTimeoutError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            _response_json = _response.json()
-        except JSONDecodeError:
-            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
-        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
-
-    async def get_asset_recovery_state(
-        self, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> AsyncHttpResponse[DeviceRecoveryGetAssetRecoveryStateResponseBody]:
-        """
-        Get the current recovery state for a specific asset, including recovery photos and notification recipients.
-
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Read Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
-
-        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
-
-        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        id : str
-            The ID of the asset. This can be a Samsara internal ID or an external ID in the format `key:value`.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        AsyncHttpResponse[DeviceRecoveryGetAssetRecoveryStateResponseBody]
-            OK response.
-        """
-        _response = await self._client_wrapper.httpx_client.request(
-            f"preview/fleet/assets/device-recovery/{jsonable_encoder(id)}/recovery-state",
-            method="GET",
-            request_options=request_options,
-        )
-        try:
-            if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    DeviceRecoveryGetAssetRecoveryStateResponseBody,
-                    parse_obj_as(
-                        type_=DeviceRecoveryGetAssetRecoveryStateResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )

@@ -8,9 +8,9 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 
 
-class DeviceRecoveryGetAssetRecoveryStateInternalServerErrorResponseBody(UniversalBaseModel):
+class RidershipRouteSetupsListRidershipRouteSetupsNotFoundErrorResponseBody(UniversalBaseModel):
     """
-    An internal server error occurred
+    Resource not found
     """
 
     message: str = pydantic.Field()

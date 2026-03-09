@@ -8,9 +8,9 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 
 
-class DeviceRecoveryListDeviceRecoveryAssetsUnauthorizedErrorResponseBody(UniversalBaseModel):
+class DeviceRecoveryListDeviceRecoveryMissingAssetsTooManyRequestsErrorResponseBody(UniversalBaseModel):
     """
-    Unauthorized
+    Too many requests
     """
 
     message: str = pydantic.Field()

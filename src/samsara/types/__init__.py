@@ -736,63 +736,35 @@ if typing.TYPE_CHECKING:
     from .device_movement_stopped_data_response_body import DeviceMovementStoppedDataResponseBody
     from .device_movement_trigger_details_object_request_body import DeviceMovementTriggerDetailsObjectRequestBody
     from .device_movement_trigger_details_object_response_body import DeviceMovementTriggerDetailsObjectResponseBody
-    from .device_recovery_get_asset_recovery_state_bad_gateway_error_response_body import (
-        DeviceRecoveryGetAssetRecoveryStateBadGatewayErrorResponseBody,
+    from .device_recovery_list_device_recovery_missing_assets_bad_gateway_error_response_body import (
+        DeviceRecoveryListDeviceRecoveryMissingAssetsBadGatewayErrorResponseBody,
     )
-    from .device_recovery_get_asset_recovery_state_gateway_timeout_error_response_body import (
-        DeviceRecoveryGetAssetRecoveryStateGatewayTimeoutErrorResponseBody,
+    from .device_recovery_list_device_recovery_missing_assets_gateway_timeout_error_response_body import (
+        DeviceRecoveryListDeviceRecoveryMissingAssetsGatewayTimeoutErrorResponseBody,
     )
-    from .device_recovery_get_asset_recovery_state_internal_server_error_response_body import (
-        DeviceRecoveryGetAssetRecoveryStateInternalServerErrorResponseBody,
+    from .device_recovery_list_device_recovery_missing_assets_internal_server_error_response_body import (
+        DeviceRecoveryListDeviceRecoveryMissingAssetsInternalServerErrorResponseBody,
     )
-    from .device_recovery_get_asset_recovery_state_method_not_allowed_error_response_body import (
-        DeviceRecoveryGetAssetRecoveryStateMethodNotAllowedErrorResponseBody,
+    from .device_recovery_list_device_recovery_missing_assets_method_not_allowed_error_response_body import (
+        DeviceRecoveryListDeviceRecoveryMissingAssetsMethodNotAllowedErrorResponseBody,
     )
-    from .device_recovery_get_asset_recovery_state_not_found_error_response_body import (
-        DeviceRecoveryGetAssetRecoveryStateNotFoundErrorResponseBody,
+    from .device_recovery_list_device_recovery_missing_assets_not_found_error_response_body import (
+        DeviceRecoveryListDeviceRecoveryMissingAssetsNotFoundErrorResponseBody,
     )
-    from .device_recovery_get_asset_recovery_state_not_implemented_error_response_body import (
-        DeviceRecoveryGetAssetRecoveryStateNotImplementedErrorResponseBody,
+    from .device_recovery_list_device_recovery_missing_assets_not_implemented_error_response_body import (
+        DeviceRecoveryListDeviceRecoveryMissingAssetsNotImplementedErrorResponseBody,
     )
-    from .device_recovery_get_asset_recovery_state_response_body import DeviceRecoveryGetAssetRecoveryStateResponseBody
-    from .device_recovery_get_asset_recovery_state_service_unavailable_error_response_body import (
-        DeviceRecoveryGetAssetRecoveryStateServiceUnavailableErrorResponseBody,
+    from .device_recovery_list_device_recovery_missing_assets_response_body import (
+        DeviceRecoveryListDeviceRecoveryMissingAssetsResponseBody,
     )
-    from .device_recovery_get_asset_recovery_state_too_many_requests_error_response_body import (
-        DeviceRecoveryGetAssetRecoveryStateTooManyRequestsErrorResponseBody,
+    from .device_recovery_list_device_recovery_missing_assets_service_unavailable_error_response_body import (
+        DeviceRecoveryListDeviceRecoveryMissingAssetsServiceUnavailableErrorResponseBody,
     )
-    from .device_recovery_get_asset_recovery_state_unauthorized_error_response_body import (
-        DeviceRecoveryGetAssetRecoveryStateUnauthorizedErrorResponseBody,
+    from .device_recovery_list_device_recovery_missing_assets_too_many_requests_error_response_body import (
+        DeviceRecoveryListDeviceRecoveryMissingAssetsTooManyRequestsErrorResponseBody,
     )
-    from .device_recovery_list_device_recovery_assets_bad_gateway_error_response_body import (
-        DeviceRecoveryListDeviceRecoveryAssetsBadGatewayErrorResponseBody,
-    )
-    from .device_recovery_list_device_recovery_assets_gateway_timeout_error_response_body import (
-        DeviceRecoveryListDeviceRecoveryAssetsGatewayTimeoutErrorResponseBody,
-    )
-    from .device_recovery_list_device_recovery_assets_internal_server_error_response_body import (
-        DeviceRecoveryListDeviceRecoveryAssetsInternalServerErrorResponseBody,
-    )
-    from .device_recovery_list_device_recovery_assets_method_not_allowed_error_response_body import (
-        DeviceRecoveryListDeviceRecoveryAssetsMethodNotAllowedErrorResponseBody,
-    )
-    from .device_recovery_list_device_recovery_assets_not_found_error_response_body import (
-        DeviceRecoveryListDeviceRecoveryAssetsNotFoundErrorResponseBody,
-    )
-    from .device_recovery_list_device_recovery_assets_not_implemented_error_response_body import (
-        DeviceRecoveryListDeviceRecoveryAssetsNotImplementedErrorResponseBody,
-    )
-    from .device_recovery_list_device_recovery_assets_response_body import (
-        DeviceRecoveryListDeviceRecoveryAssetsResponseBody,
-    )
-    from .device_recovery_list_device_recovery_assets_service_unavailable_error_response_body import (
-        DeviceRecoveryListDeviceRecoveryAssetsServiceUnavailableErrorResponseBody,
-    )
-    from .device_recovery_list_device_recovery_assets_too_many_requests_error_response_body import (
-        DeviceRecoveryListDeviceRecoveryAssetsTooManyRequestsErrorResponseBody,
-    )
-    from .device_recovery_list_device_recovery_assets_unauthorized_error_response_body import (
-        DeviceRecoveryListDeviceRecoveryAssetsUnauthorizedErrorResponseBody,
+    from .device_recovery_list_device_recovery_missing_assets_unauthorized_error_response_body import (
+        DeviceRecoveryListDeviceRecoveryMissingAssetsUnauthorizedErrorResponseBody,
     )
     from .device_recovery_mark_asset_missing_bad_gateway_error_response_body import (
         DeviceRecoveryMarkAssetMissingBadGatewayErrorResponseBody,
@@ -850,8 +822,6 @@ if typing.TYPE_CHECKING:
     from .device_recovery_recover_asset_unauthorized_error_response_body import (
         DeviceRecoveryRecoverAssetUnauthorizedErrorResponseBody,
     )
-    from .device_recovery_state_response_body import DeviceRecoveryStateResponseBody
-    from .device_recovery_state_response_body_status import DeviceRecoveryStateResponseBodyStatus
     from .device_response_response_body import DeviceResponseResponseBody
     from .device_response_response_body_model import DeviceResponseResponseBodyModel
     from .devices_get_devices_bad_gateway_error_response_body import DevicesGetDevicesBadGatewayErrorResponseBody
@@ -3505,6 +3475,7 @@ if typing.TYPE_CHECKING:
     from .minimal_route_stop_response_body import MinimalRouteStopResponseBody
     from .minimal_route_stop_response_body_state import MinimalRouteStopResponseBodyState
     from .missing_dvir_past_due_response_body import MissingDvirPastDueResponseBody
+    from .missing_state_response_body import MissingStateResponseBody
     from .mobile_usage_detection_alert_settings_object_response_body import (
         MobileUsageDetectionAlertSettingsObjectResponseBody,
     )
@@ -4055,6 +4026,7 @@ if typing.TYPE_CHECKING:
     from .recipient_object_response_body_type import RecipientObjectResponseBodyType
     from .recovery_photo_response_body import RecoveryPhotoResponseBody
     from .recovery_photo_response_body_status import RecoveryPhotoResponseBodyStatus
+    from .recovery_state_response_body import RecoveryStateResponseBody
     from .reefer_temperature_response_body import ReeferTemperatureResponseBody
     from .report_columns_object_response_body import ReportColumnsObjectResponseBody
     from .report_columns_object_response_body_data_type import ReportColumnsObjectResponseBodyDataType
@@ -4599,6 +4571,36 @@ if typing.TYPE_CHECKING:
     )
     from .ridership_route_setups_get_ridership_route_setup_unauthorized_error_response_body import (
         RidershipRouteSetupsGetRidershipRouteSetupUnauthorizedErrorResponseBody,
+    )
+    from .ridership_route_setups_list_ridership_route_setups_bad_gateway_error_response_body import (
+        RidershipRouteSetupsListRidershipRouteSetupsBadGatewayErrorResponseBody,
+    )
+    from .ridership_route_setups_list_ridership_route_setups_gateway_timeout_error_response_body import (
+        RidershipRouteSetupsListRidershipRouteSetupsGatewayTimeoutErrorResponseBody,
+    )
+    from .ridership_route_setups_list_ridership_route_setups_internal_server_error_response_body import (
+        RidershipRouteSetupsListRidershipRouteSetupsInternalServerErrorResponseBody,
+    )
+    from .ridership_route_setups_list_ridership_route_setups_method_not_allowed_error_response_body import (
+        RidershipRouteSetupsListRidershipRouteSetupsMethodNotAllowedErrorResponseBody,
+    )
+    from .ridership_route_setups_list_ridership_route_setups_not_found_error_response_body import (
+        RidershipRouteSetupsListRidershipRouteSetupsNotFoundErrorResponseBody,
+    )
+    from .ridership_route_setups_list_ridership_route_setups_not_implemented_error_response_body import (
+        RidershipRouteSetupsListRidershipRouteSetupsNotImplementedErrorResponseBody,
+    )
+    from .ridership_route_setups_list_ridership_route_setups_response_body import (
+        RidershipRouteSetupsListRidershipRouteSetupsResponseBody,
+    )
+    from .ridership_route_setups_list_ridership_route_setups_service_unavailable_error_response_body import (
+        RidershipRouteSetupsListRidershipRouteSetupsServiceUnavailableErrorResponseBody,
+    )
+    from .ridership_route_setups_list_ridership_route_setups_too_many_requests_error_response_body import (
+        RidershipRouteSetupsListRidershipRouteSetupsTooManyRequestsErrorResponseBody,
+    )
+    from .ridership_route_setups_list_ridership_route_setups_unauthorized_error_response_body import (
+        RidershipRouteSetupsListRidershipRouteSetupsUnauthorizedErrorResponseBody,
     )
     from .ridership_route_setups_update_ridership_route_setup_bad_gateway_error_response_body import (
         RidershipRouteSetupsUpdateRidershipRouteSetupBadGatewayErrorResponseBody,
@@ -7512,26 +7514,16 @@ _dynamic_imports: typing.Dict[str, str] = {
     "DeviceMovementStoppedDataResponseBody": ".device_movement_stopped_data_response_body",
     "DeviceMovementTriggerDetailsObjectRequestBody": ".device_movement_trigger_details_object_request_body",
     "DeviceMovementTriggerDetailsObjectResponseBody": ".device_movement_trigger_details_object_response_body",
-    "DeviceRecoveryGetAssetRecoveryStateBadGatewayErrorResponseBody": ".device_recovery_get_asset_recovery_state_bad_gateway_error_response_body",
-    "DeviceRecoveryGetAssetRecoveryStateGatewayTimeoutErrorResponseBody": ".device_recovery_get_asset_recovery_state_gateway_timeout_error_response_body",
-    "DeviceRecoveryGetAssetRecoveryStateInternalServerErrorResponseBody": ".device_recovery_get_asset_recovery_state_internal_server_error_response_body",
-    "DeviceRecoveryGetAssetRecoveryStateMethodNotAllowedErrorResponseBody": ".device_recovery_get_asset_recovery_state_method_not_allowed_error_response_body",
-    "DeviceRecoveryGetAssetRecoveryStateNotFoundErrorResponseBody": ".device_recovery_get_asset_recovery_state_not_found_error_response_body",
-    "DeviceRecoveryGetAssetRecoveryStateNotImplementedErrorResponseBody": ".device_recovery_get_asset_recovery_state_not_implemented_error_response_body",
-    "DeviceRecoveryGetAssetRecoveryStateResponseBody": ".device_recovery_get_asset_recovery_state_response_body",
-    "DeviceRecoveryGetAssetRecoveryStateServiceUnavailableErrorResponseBody": ".device_recovery_get_asset_recovery_state_service_unavailable_error_response_body",
-    "DeviceRecoveryGetAssetRecoveryStateTooManyRequestsErrorResponseBody": ".device_recovery_get_asset_recovery_state_too_many_requests_error_response_body",
-    "DeviceRecoveryGetAssetRecoveryStateUnauthorizedErrorResponseBody": ".device_recovery_get_asset_recovery_state_unauthorized_error_response_body",
-    "DeviceRecoveryListDeviceRecoveryAssetsBadGatewayErrorResponseBody": ".device_recovery_list_device_recovery_assets_bad_gateway_error_response_body",
-    "DeviceRecoveryListDeviceRecoveryAssetsGatewayTimeoutErrorResponseBody": ".device_recovery_list_device_recovery_assets_gateway_timeout_error_response_body",
-    "DeviceRecoveryListDeviceRecoveryAssetsInternalServerErrorResponseBody": ".device_recovery_list_device_recovery_assets_internal_server_error_response_body",
-    "DeviceRecoveryListDeviceRecoveryAssetsMethodNotAllowedErrorResponseBody": ".device_recovery_list_device_recovery_assets_method_not_allowed_error_response_body",
-    "DeviceRecoveryListDeviceRecoveryAssetsNotFoundErrorResponseBody": ".device_recovery_list_device_recovery_assets_not_found_error_response_body",
-    "DeviceRecoveryListDeviceRecoveryAssetsNotImplementedErrorResponseBody": ".device_recovery_list_device_recovery_assets_not_implemented_error_response_body",
-    "DeviceRecoveryListDeviceRecoveryAssetsResponseBody": ".device_recovery_list_device_recovery_assets_response_body",
-    "DeviceRecoveryListDeviceRecoveryAssetsServiceUnavailableErrorResponseBody": ".device_recovery_list_device_recovery_assets_service_unavailable_error_response_body",
-    "DeviceRecoveryListDeviceRecoveryAssetsTooManyRequestsErrorResponseBody": ".device_recovery_list_device_recovery_assets_too_many_requests_error_response_body",
-    "DeviceRecoveryListDeviceRecoveryAssetsUnauthorizedErrorResponseBody": ".device_recovery_list_device_recovery_assets_unauthorized_error_response_body",
+    "DeviceRecoveryListDeviceRecoveryMissingAssetsBadGatewayErrorResponseBody": ".device_recovery_list_device_recovery_missing_assets_bad_gateway_error_response_body",
+    "DeviceRecoveryListDeviceRecoveryMissingAssetsGatewayTimeoutErrorResponseBody": ".device_recovery_list_device_recovery_missing_assets_gateway_timeout_error_response_body",
+    "DeviceRecoveryListDeviceRecoveryMissingAssetsInternalServerErrorResponseBody": ".device_recovery_list_device_recovery_missing_assets_internal_server_error_response_body",
+    "DeviceRecoveryListDeviceRecoveryMissingAssetsMethodNotAllowedErrorResponseBody": ".device_recovery_list_device_recovery_missing_assets_method_not_allowed_error_response_body",
+    "DeviceRecoveryListDeviceRecoveryMissingAssetsNotFoundErrorResponseBody": ".device_recovery_list_device_recovery_missing_assets_not_found_error_response_body",
+    "DeviceRecoveryListDeviceRecoveryMissingAssetsNotImplementedErrorResponseBody": ".device_recovery_list_device_recovery_missing_assets_not_implemented_error_response_body",
+    "DeviceRecoveryListDeviceRecoveryMissingAssetsResponseBody": ".device_recovery_list_device_recovery_missing_assets_response_body",
+    "DeviceRecoveryListDeviceRecoveryMissingAssetsServiceUnavailableErrorResponseBody": ".device_recovery_list_device_recovery_missing_assets_service_unavailable_error_response_body",
+    "DeviceRecoveryListDeviceRecoveryMissingAssetsTooManyRequestsErrorResponseBody": ".device_recovery_list_device_recovery_missing_assets_too_many_requests_error_response_body",
+    "DeviceRecoveryListDeviceRecoveryMissingAssetsUnauthorizedErrorResponseBody": ".device_recovery_list_device_recovery_missing_assets_unauthorized_error_response_body",
     "DeviceRecoveryMarkAssetMissingBadGatewayErrorResponseBody": ".device_recovery_mark_asset_missing_bad_gateway_error_response_body",
     "DeviceRecoveryMarkAssetMissingGatewayTimeoutErrorResponseBody": ".device_recovery_mark_asset_missing_gateway_timeout_error_response_body",
     "DeviceRecoveryMarkAssetMissingInternalServerErrorResponseBody": ".device_recovery_mark_asset_missing_internal_server_error_response_body",
@@ -7552,8 +7544,6 @@ _dynamic_imports: typing.Dict[str, str] = {
     "DeviceRecoveryRecoverAssetServiceUnavailableErrorResponseBody": ".device_recovery_recover_asset_service_unavailable_error_response_body",
     "DeviceRecoveryRecoverAssetTooManyRequestsErrorResponseBody": ".device_recovery_recover_asset_too_many_requests_error_response_body",
     "DeviceRecoveryRecoverAssetUnauthorizedErrorResponseBody": ".device_recovery_recover_asset_unauthorized_error_response_body",
-    "DeviceRecoveryStateResponseBody": ".device_recovery_state_response_body",
-    "DeviceRecoveryStateResponseBodyStatus": ".device_recovery_state_response_body_status",
     "DeviceResponseResponseBody": ".device_response_response_body",
     "DeviceResponseResponseBodyModel": ".device_response_response_body_model",
     "DevicesGetDevicesBadGatewayErrorResponseBody": ".devices_get_devices_bad_gateway_error_response_body",
@@ -8843,6 +8833,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "MinimalRouteStopResponseBody": ".minimal_route_stop_response_body",
     "MinimalRouteStopResponseBodyState": ".minimal_route_stop_response_body_state",
     "MissingDvirPastDueResponseBody": ".missing_dvir_past_due_response_body",
+    "MissingStateResponseBody": ".missing_state_response_body",
     "MobileUsageDetectionAlertSettingsObjectResponseBody": ".mobile_usage_detection_alert_settings_object_response_body",
     "MotionDetectedResponseBody": ".motion_detected_response_body",
     "MultipleChoiceFieldTypeMetaDataObjectResponseBody": ".multiple_choice_field_type_meta_data_object_response_body",
@@ -9095,6 +9086,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "RecipientObjectResponseBodyType": ".recipient_object_response_body_type",
     "RecoveryPhotoResponseBody": ".recovery_photo_response_body",
     "RecoveryPhotoResponseBodyStatus": ".recovery_photo_response_body_status",
+    "RecoveryStateResponseBody": ".recovery_state_response_body",
     "ReeferTemperatureResponseBody": ".reefer_temperature_response_body",
     "ReportColumnsObjectResponseBody": ".report_columns_object_response_body",
     "ReportColumnsObjectResponseBodyDataType": ".report_columns_object_response_body_data_type",
@@ -9300,6 +9292,16 @@ _dynamic_imports: typing.Dict[str, str] = {
     "RidershipRouteSetupsGetRidershipRouteSetupServiceUnavailableErrorResponseBody": ".ridership_route_setups_get_ridership_route_setup_service_unavailable_error_response_body",
     "RidershipRouteSetupsGetRidershipRouteSetupTooManyRequestsErrorResponseBody": ".ridership_route_setups_get_ridership_route_setup_too_many_requests_error_response_body",
     "RidershipRouteSetupsGetRidershipRouteSetupUnauthorizedErrorResponseBody": ".ridership_route_setups_get_ridership_route_setup_unauthorized_error_response_body",
+    "RidershipRouteSetupsListRidershipRouteSetupsBadGatewayErrorResponseBody": ".ridership_route_setups_list_ridership_route_setups_bad_gateway_error_response_body",
+    "RidershipRouteSetupsListRidershipRouteSetupsGatewayTimeoutErrorResponseBody": ".ridership_route_setups_list_ridership_route_setups_gateway_timeout_error_response_body",
+    "RidershipRouteSetupsListRidershipRouteSetupsInternalServerErrorResponseBody": ".ridership_route_setups_list_ridership_route_setups_internal_server_error_response_body",
+    "RidershipRouteSetupsListRidershipRouteSetupsMethodNotAllowedErrorResponseBody": ".ridership_route_setups_list_ridership_route_setups_method_not_allowed_error_response_body",
+    "RidershipRouteSetupsListRidershipRouteSetupsNotFoundErrorResponseBody": ".ridership_route_setups_list_ridership_route_setups_not_found_error_response_body",
+    "RidershipRouteSetupsListRidershipRouteSetupsNotImplementedErrorResponseBody": ".ridership_route_setups_list_ridership_route_setups_not_implemented_error_response_body",
+    "RidershipRouteSetupsListRidershipRouteSetupsResponseBody": ".ridership_route_setups_list_ridership_route_setups_response_body",
+    "RidershipRouteSetupsListRidershipRouteSetupsServiceUnavailableErrorResponseBody": ".ridership_route_setups_list_ridership_route_setups_service_unavailable_error_response_body",
+    "RidershipRouteSetupsListRidershipRouteSetupsTooManyRequestsErrorResponseBody": ".ridership_route_setups_list_ridership_route_setups_too_many_requests_error_response_body",
+    "RidershipRouteSetupsListRidershipRouteSetupsUnauthorizedErrorResponseBody": ".ridership_route_setups_list_ridership_route_setups_unauthorized_error_response_body",
     "RidershipRouteSetupsUpdateRidershipRouteSetupBadGatewayErrorResponseBody": ".ridership_route_setups_update_ridership_route_setup_bad_gateway_error_response_body",
     "RidershipRouteSetupsUpdateRidershipRouteSetupGatewayTimeoutErrorResponseBody": ".ridership_route_setups_update_ridership_route_setup_gateway_timeout_error_response_body",
     "RidershipRouteSetupsUpdateRidershipRouteSetupInternalServerErrorResponseBody": ".ridership_route_setups_update_ridership_route_setup_internal_server_error_response_body",
@@ -11036,26 +11038,16 @@ __all__ = [
     "DeviceMovementStoppedDataResponseBody",
     "DeviceMovementTriggerDetailsObjectRequestBody",
     "DeviceMovementTriggerDetailsObjectResponseBody",
-    "DeviceRecoveryGetAssetRecoveryStateBadGatewayErrorResponseBody",
-    "DeviceRecoveryGetAssetRecoveryStateGatewayTimeoutErrorResponseBody",
-    "DeviceRecoveryGetAssetRecoveryStateInternalServerErrorResponseBody",
-    "DeviceRecoveryGetAssetRecoveryStateMethodNotAllowedErrorResponseBody",
-    "DeviceRecoveryGetAssetRecoveryStateNotFoundErrorResponseBody",
-    "DeviceRecoveryGetAssetRecoveryStateNotImplementedErrorResponseBody",
-    "DeviceRecoveryGetAssetRecoveryStateResponseBody",
-    "DeviceRecoveryGetAssetRecoveryStateServiceUnavailableErrorResponseBody",
-    "DeviceRecoveryGetAssetRecoveryStateTooManyRequestsErrorResponseBody",
-    "DeviceRecoveryGetAssetRecoveryStateUnauthorizedErrorResponseBody",
-    "DeviceRecoveryListDeviceRecoveryAssetsBadGatewayErrorResponseBody",
-    "DeviceRecoveryListDeviceRecoveryAssetsGatewayTimeoutErrorResponseBody",
-    "DeviceRecoveryListDeviceRecoveryAssetsInternalServerErrorResponseBody",
-    "DeviceRecoveryListDeviceRecoveryAssetsMethodNotAllowedErrorResponseBody",
-    "DeviceRecoveryListDeviceRecoveryAssetsNotFoundErrorResponseBody",
-    "DeviceRecoveryListDeviceRecoveryAssetsNotImplementedErrorResponseBody",
-    "DeviceRecoveryListDeviceRecoveryAssetsResponseBody",
-    "DeviceRecoveryListDeviceRecoveryAssetsServiceUnavailableErrorResponseBody",
-    "DeviceRecoveryListDeviceRecoveryAssetsTooManyRequestsErrorResponseBody",
-    "DeviceRecoveryListDeviceRecoveryAssetsUnauthorizedErrorResponseBody",
+    "DeviceRecoveryListDeviceRecoveryMissingAssetsBadGatewayErrorResponseBody",
+    "DeviceRecoveryListDeviceRecoveryMissingAssetsGatewayTimeoutErrorResponseBody",
+    "DeviceRecoveryListDeviceRecoveryMissingAssetsInternalServerErrorResponseBody",
+    "DeviceRecoveryListDeviceRecoveryMissingAssetsMethodNotAllowedErrorResponseBody",
+    "DeviceRecoveryListDeviceRecoveryMissingAssetsNotFoundErrorResponseBody",
+    "DeviceRecoveryListDeviceRecoveryMissingAssetsNotImplementedErrorResponseBody",
+    "DeviceRecoveryListDeviceRecoveryMissingAssetsResponseBody",
+    "DeviceRecoveryListDeviceRecoveryMissingAssetsServiceUnavailableErrorResponseBody",
+    "DeviceRecoveryListDeviceRecoveryMissingAssetsTooManyRequestsErrorResponseBody",
+    "DeviceRecoveryListDeviceRecoveryMissingAssetsUnauthorizedErrorResponseBody",
     "DeviceRecoveryMarkAssetMissingBadGatewayErrorResponseBody",
     "DeviceRecoveryMarkAssetMissingGatewayTimeoutErrorResponseBody",
     "DeviceRecoveryMarkAssetMissingInternalServerErrorResponseBody",
@@ -11076,8 +11068,6 @@ __all__ = [
     "DeviceRecoveryRecoverAssetServiceUnavailableErrorResponseBody",
     "DeviceRecoveryRecoverAssetTooManyRequestsErrorResponseBody",
     "DeviceRecoveryRecoverAssetUnauthorizedErrorResponseBody",
-    "DeviceRecoveryStateResponseBody",
-    "DeviceRecoveryStateResponseBodyStatus",
     "DeviceResponseResponseBody",
     "DeviceResponseResponseBodyModel",
     "DevicesGetDevicesBadGatewayErrorResponseBody",
@@ -12367,6 +12357,7 @@ __all__ = [
     "MinimalRouteStopResponseBody",
     "MinimalRouteStopResponseBodyState",
     "MissingDvirPastDueResponseBody",
+    "MissingStateResponseBody",
     "MobileUsageDetectionAlertSettingsObjectResponseBody",
     "MotionDetectedResponseBody",
     "MultipleChoiceFieldTypeMetaDataObjectResponseBody",
@@ -12619,6 +12610,7 @@ __all__ = [
     "RecipientObjectResponseBodyType",
     "RecoveryPhotoResponseBody",
     "RecoveryPhotoResponseBodyStatus",
+    "RecoveryStateResponseBody",
     "ReeferTemperatureResponseBody",
     "ReportColumnsObjectResponseBody",
     "ReportColumnsObjectResponseBodyDataType",
@@ -12824,6 +12816,16 @@ __all__ = [
     "RidershipRouteSetupsGetRidershipRouteSetupServiceUnavailableErrorResponseBody",
     "RidershipRouteSetupsGetRidershipRouteSetupTooManyRequestsErrorResponseBody",
     "RidershipRouteSetupsGetRidershipRouteSetupUnauthorizedErrorResponseBody",
+    "RidershipRouteSetupsListRidershipRouteSetupsBadGatewayErrorResponseBody",
+    "RidershipRouteSetupsListRidershipRouteSetupsGatewayTimeoutErrorResponseBody",
+    "RidershipRouteSetupsListRidershipRouteSetupsInternalServerErrorResponseBody",
+    "RidershipRouteSetupsListRidershipRouteSetupsMethodNotAllowedErrorResponseBody",
+    "RidershipRouteSetupsListRidershipRouteSetupsNotFoundErrorResponseBody",
+    "RidershipRouteSetupsListRidershipRouteSetupsNotImplementedErrorResponseBody",
+    "RidershipRouteSetupsListRidershipRouteSetupsResponseBody",
+    "RidershipRouteSetupsListRidershipRouteSetupsServiceUnavailableErrorResponseBody",
+    "RidershipRouteSetupsListRidershipRouteSetupsTooManyRequestsErrorResponseBody",
+    "RidershipRouteSetupsListRidershipRouteSetupsUnauthorizedErrorResponseBody",
     "RidershipRouteSetupsUpdateRidershipRouteSetupBadGatewayErrorResponseBody",
     "RidershipRouteSetupsUpdateRidershipRouteSetupGatewayTimeoutErrorResponseBody",
     "RidershipRouteSetupsUpdateRidershipRouteSetupInternalServerErrorResponseBody",

@@ -8,9 +8,9 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 
 
-class DeviceRecoveryGetAssetRecoveryStateGatewayTimeoutErrorResponseBody(UniversalBaseModel):
+class DeviceRecoveryListDeviceRecoveryMissingAssetsMethodNotAllowedErrorResponseBody(UniversalBaseModel):
     """
-    Gateway timeout
+    Method not allowed
     """
 
     message: str = pydantic.Field()

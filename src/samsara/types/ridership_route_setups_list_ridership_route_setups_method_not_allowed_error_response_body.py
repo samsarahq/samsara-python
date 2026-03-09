@@ -8,9 +8,9 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 
 
-class DeviceRecoveryListDeviceRecoveryAssetsNotImplementedErrorResponseBody(UniversalBaseModel):
+class RidershipRouteSetupsListRidershipRouteSetupsMethodNotAllowedErrorResponseBody(UniversalBaseModel):
     """
-    Requested endpoint is not yet implemented
+    Method not allowed
     """
 
     message: str = pydantic.Field()

@@ -8,9 +8,9 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 
 
-class DeviceRecoveryListDeviceRecoveryAssetsBadGatewayErrorResponseBody(UniversalBaseModel):
+class DeviceRecoveryListDeviceRecoveryMissingAssetsNotImplementedErrorResponseBody(UniversalBaseModel):
     """
-    Bad Gateway
+    Requested endpoint is not yet implemented
     """
 
     message: str = pydantic.Field()

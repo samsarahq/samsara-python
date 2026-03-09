@@ -4,11 +4,17 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from .device_recovery_state_response_body import DeviceRecoveryStateResponseBody
+from .goa_pagination_response_response_body import GoaPaginationResponseResponseBody
+from .missing_state_response_body import MissingStateResponseBody
 
 
-class DeviceRecoveryGetAssetRecoveryStateResponseBody(UniversalBaseModel):
-    data: DeviceRecoveryStateResponseBody
+class DeviceRecoveryListDeviceRecoveryMissingAssetsResponseBody(UniversalBaseModel):
+    data: typing.List[MissingStateResponseBody] = pydantic.Field()
+    """
+    List of assets currently marked as missing.
+    """
+
+    pagination: GoaPaginationResponseResponseBody
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

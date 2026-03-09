@@ -26,6 +26,7 @@ DetectionLogDetectionObjectResponseBodyTriggerDetectionLabel = typing.Union[
         "policyViolationMask",
         "ranRedLight",
         "rearCollisionWarning",
+        "reversing",
         "rollingStop",
         "rolloverProtection",
         "severeSpeeding",

@@ -15,6 +15,7 @@ GetDriverVehicleAssignmentsRequestAssignmentType = typing.Union[
         "external",
         "qrCode",
         "driverApp",
+        "voiceSignIn",
     ],
     typing.Any,
 ]

@@ -8,9 +8,9 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 
 
-class DeviceRecoveryListDeviceRecoveryAssetsMethodNotAllowedErrorResponseBody(UniversalBaseModel):
+class DeviceRecoveryListDeviceRecoveryMissingAssetsInternalServerErrorResponseBody(UniversalBaseModel):
     """
-    Method not allowed
+    An internal server error occurred
     """
 
     message: str = pydantic.Field()

@@ -8,9 +8,9 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 
 
-class DeviceRecoveryListDeviceRecoveryAssetsServiceUnavailableErrorResponseBody(UniversalBaseModel):
+class RidershipRouteSetupsListRidershipRouteSetupsBadGatewayErrorResponseBody(UniversalBaseModel):
     """
-    Service unavailable
+    Bad Gateway
     """
 
     message: str = pydantic.Field()

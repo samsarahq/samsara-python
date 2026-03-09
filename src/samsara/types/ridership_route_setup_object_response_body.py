@@ -19,6 +19,11 @@ class RidershipRouteSetupObjectResponseBody(UniversalBaseModel):
         FieldMetadata(alias="accountId"),
         pydantic.Field(alias="accountId", description="The Samsara UUID of the ridership account."),
     ]
+    created_at_time: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="createdAtTime"),
+        pydantic.Field(alias="createdAtTime", description="The time the route setup was created in RFC 3339 format."),
+    ]
     passengers: typing.List[RidershipRouteSetupPassengerObjectResponseBody] = pydantic.Field()
     """
     List of passenger assignments.
@@ -26,6 +31,13 @@ class RidershipRouteSetupObjectResponseBody(UniversalBaseModel):
 
     route_id: typing_extensions.Annotated[
         str, FieldMetadata(alias="routeId"), pydantic.Field(alias="routeId", description="The route ID.")
+    ]
+    updated_at_time: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="updatedAtTime"),
+        pydantic.Field(
+            alias="updatedAtTime", description="The time the route setup was last updated in RFC 3339 format."
+        ),
     ]
 
     if IS_PYDANTIC_V2:

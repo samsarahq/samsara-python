@@ -4,14 +4,14 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from .device_recovery_state_response_body import DeviceRecoveryStateResponseBody
 from .goa_pagination_response_response_body import GoaPaginationResponseResponseBody
+from .ridership_route_setup_object_response_body import RidershipRouteSetupObjectResponseBody
 
 
-class DeviceRecoveryListDeviceRecoveryAssetsResponseBody(UniversalBaseModel):
-    data: typing.List[DeviceRecoveryStateResponseBody] = pydantic.Field()
+class RidershipRouteSetupsListRidershipRouteSetupsResponseBody(UniversalBaseModel):
+    data: typing.List[RidershipRouteSetupObjectResponseBody] = pydantic.Field()
     """
-    List of assets with a device recovery state.
+    List of ridership route setups
     """
 
     pagination: GoaPaginationResponseResponseBody

@@ -4,11 +4,11 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from .device_recovery_state_response_body import DeviceRecoveryStateResponseBody
+from .missing_state_response_body import MissingStateResponseBody
 
 
 class DeviceRecoveryMarkAssetMissingResponseBody(UniversalBaseModel):
-    data: DeviceRecoveryStateResponseBody
+    data: MissingStateResponseBody
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

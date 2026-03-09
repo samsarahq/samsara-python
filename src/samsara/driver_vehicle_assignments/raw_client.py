@@ -97,7 +97,7 @@ class RawDriverVehicleAssignmentsClient:
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
 
         assignment_type : typing.Optional[GetDriverVehicleAssignmentsRequestAssignmentType]
-            Specifies which assignment type to filter by.  Valid values: `HOS`, `idCard`, `static`, `faceId`, `tachograph`, `safetyManual`, `RFID`, `trailer`, `external`, `qrCode`, `driverApp`
+            Specifies which assignment type to filter by.  Valid values: `HOS`, `idCard`, `static`, `faceId`, `tachograph`, `safetyManual`, `RFID`, `trailer`, `external`, `qrCode`, `driverApp`, `voiceSignIn`
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -836,7 +836,7 @@ class AsyncRawDriverVehicleAssignmentsClient:
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
 
         assignment_type : typing.Optional[GetDriverVehicleAssignmentsRequestAssignmentType]
-            Specifies which assignment type to filter by.  Valid values: `HOS`, `idCard`, `static`, `faceId`, `tachograph`, `safetyManual`, `RFID`, `trailer`, `external`, `qrCode`, `driverApp`
+            Specifies which assignment type to filter by.  Valid values: `HOS`, `idCard`, `static`, `faceId`, `tachograph`, `safetyManual`, `RFID`, `trailer`, `external`, `qrCode`, `driverApp`, `voiceSignIn`
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
