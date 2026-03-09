@@ -8,7 +8,7 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 
 
-class DeviceRecoveryGetAssetRecoveryStateBadGatewayErrorResponseBody(UniversalBaseModel):
+class DeviceRecoveryListDeviceRecoveryMissingAssetsBadGatewayErrorResponseBody(UniversalBaseModel):
     """
     Bad Gateway
     """

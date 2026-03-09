@@ -113,6 +113,9 @@ from ..types.ridership_route_setups_create_ridership_route_setup_response_body i
 from ..types.ridership_route_setups_get_ridership_route_setup_response_body import (
     RidershipRouteSetupsGetRidershipRouteSetupResponseBody,
 )
+from ..types.ridership_route_setups_list_ridership_route_setups_response_body import (
+    RidershipRouteSetupsListRidershipRouteSetupsResponseBody,
+)
 from ..types.ridership_route_setups_update_ridership_route_setup_response_body import (
     RidershipRouteSetupsUpdateRidershipRouteSetupResponseBody,
 )
@@ -2654,7 +2657,7 @@ class RawBetaApIsClient:
             Optional string of comma separated asset IDs. If asset ID is present, events for the specified asset(s) will be returned. Max for this value is 2000 objects. (Example: 281474982859091,281471982957527)
 
         detection_behavior_labels : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated labels to filter behavior labels. Uses OR semantics for filtering. An empty list allows all values. Valid values: `acceleration`, `braking`, `crash`, `drowsy`, `eatingDrinking`, `edgeRailroadCrossingViolation`, `followingDistance`, `forwardCollisionWarning`, `genericDistraction`, `harshTurn`, `heavySpeeding`, `laneDeparture`, `lightSpeeding`, `maxSpeed`, `mobileUsage`, `moderateSpeeding`, `noSeatbelt`, `obstructedCamera`, `passenger`, `policyViolationMask`, `ranRedLight`, `rearCollisionWarning`, `rollingStop`, `rolloverProtection`, `severeSpeeding`, `smoking`, `speeding`, `unsafeParking`, `vehicleInBlindSpotWarning`, `vulnerableRoadUserCollisionWarning`, `yawControl`. (Example: rollingStop,obstructedCamera,noSeatbelt)
+            Optional string of comma separated labels to filter behavior labels. Uses OR semantics for filtering. An empty list allows all values. Valid values: `acceleration`, `braking`, `crash`, `drowsy`, `eatingDrinking`, `edgeRailroadCrossingViolation`, `followingDistance`, `forwardCollisionWarning`, `genericDistraction`, `harshTurn`, `heavySpeeding`, `laneDeparture`, `lightSpeeding`, `maxSpeed`, `mobileUsage`, `moderateSpeeding`, `noSeatbelt`, `obstructedCamera`, `passenger`, `policyViolationMask`, `ranRedLight`, `rearCollisionWarning`, `reversing`, `rollingStop`, `rolloverProtection`, `severeSpeeding`, `smoking`, `speeding`, `unsafeParking`, `vehicleInBlindSpotWarning`, `vulnerableRoadUserCollisionWarning`, `yawControl`. (Example: rollingStop,obstructedCamera,noSeatbelt)
 
         inbox_filter_reason : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             Optional string of comma separated reasons to filter detections. Uses OR semantics for filtering. An empty list allows all values. Valid values: `overDailyLimit`, `overHourlyLimit`, `overTripLimit`, `belowConfidenceThreshold`, `belowSeverityThreshold`, `overEventRateLimit`, `geofenceFilter`, `belowNudgeThreshold`, `belowSpeedThreshold`, `nighttimeFilter`, `speedingFilter`, `inCabAlertOnly`, `unknown`. (Example: overDailyLimit,overHourlyLimit,belowConfidenceThreshold)
@@ -5863,6 +5866,7 @@ class RawBetaApIsClient:
             * `checkEngineLightJ1939Warning` (Check Engine Light (J1939) - Warning): Indicates whether the J1939 check engine light warning indicator is active or inactive. (values: off | on)
             * `checkEngineLightPassenger` (Check Engine Light (Passenger)): Indicates whether the passenger check engine light indicator is active or inactive. (values: off | on)
             * `coolantTemp` (Engine Coolant Temp): Represents the engine coolant temperature. (celsius)
+            * `crankcasePressure` (Crankcase Pressure): The pressure inside the engine's crankcase (kilopascal)
             * `defLevel` (DEF Level): Represents the DEF (Diesel Exhaust Fluid) level percentage. (percent)
             * `derivedFuelConsumed` (Lifetime Fuel Consumed (Samsara)): Samsara-maintained fuel consumption since the device was firstinstalled. (liter)
             * `deviceOrientation` (Device Orientation): Indicates orientation of the device. (values: invalid | unknown | topDown | bottomDown | leftDown | rightDown | backDown | frontDown)
@@ -5870,27 +5874,41 @@ class RawBetaApIsClient:
             * `dpfLampStatus` (DPF Lamp Status): Status of the Diesel Particulate Filter warning lamp. (values: off | on | blinking)
             * `dpfSootLoadPercent` (DPF Soot Load): Diesel Particulate Filter soot load percentage. (percent)
             * `ecuHistoryTotalRunTime` (ECU Total Run Time): Total engine run time from ECU in seconds. (second)
+            * `engineExhaustTemperature` (Engine Exhaust Temperature): Temperature of the engine exhaust (celsius)
             * `engineHours` (Engine Hours (ECU)): Represents the total engine runtime in hours as reported by the ECU. (second)
             * `engineHoursDigioBased` (Engine Hours (Synthetic - Aux input)): Represents the synthetic total engine runtime in hours based on auxiliary input. (millisecond)
             * `engineHoursEngineStateBased` (Engine Hours (Synthetic)): Represents the synthetic total engine runtime in hours based on engine state. (millisecond)
+            * `engineImmobilizer` (Engine Immobilizer): The state of the engine immobilizer. Valid values: ignition_disabled, ignition_enabled.
             * `engineIntakeAirTemp` (Engine Intake Air Temperature): Represents the engine intake air temperature. (celsius)
             * `engineLoadPercent` (Engine Load): Engine load percentage. (percent)
+            * `engineOilTemperature` (Engine Oil Temperature): Temperature of the engine oil (celsius)
             * `engineState` (Engine State): Indicates the current state of the engine, such as running, stopped. (values: off | running | idling)
+            * `engineTotalIdleTime` (Engine Total Idle Time): Total idle time for the vehicle. (minute)
             * `ev24VoltDcDcInverterCurrent` (EV 24V DC/DC Inverter Current): Current from the 24V DC-DC inverter in amperes. (ampere)
             * `evAverageCellTemperature` (EV Average Cell Temperature): Average temperature of EV battery cells in degrees Celsius. (celsius)
+            * `evChargingCurrent` (EV Charging Current): Charging current for electric and hybrid vehicles. (ampere)
+            * `evChargingEnergy` (EV Charging Energy): Charging energy for electric and hybrid vehicles. (watthour)
             * `evChargingErrorStatus` (EV Charging Error Status): Indicates if the EV charging system has an error. (values: noError | batteryTooHotOrCold | vehicleNotInPark | connectorLockFault | chargingSystemFault | chargingCurrentDifferential | chargingVoltageOutOfRange | chargingSystemNotCompatible | noDataUndeterminedStatus | notAvailable | unknownError)
+            * `evChargingStatus` (EV Charging Status): Charging status for electric and hybrid vehicles. (values: unknown | notCharging | charging)
+            * `evChargingVoltage` (EV Charging Voltage): Charging voltage for electric and hybrid vehicles. (volt)
+            * `evConsumedEnergy` (EV Consumed Energy): Consumed energy (including regenerated) for electric and hybrid vehicles. (watthour)
+            * `evDistanceDriven` (EV Distance Driven): Electric distance driven for electric and hybrid vehicles. (meter)
             * `evHighCapacityBatteryCurrent` (EV High Capacity Battery Current): Current from the high capacity EV battery in amperes. (ampere)
             * `evHighCapacityBatteryVoltage` (High Capacity EV Battery Voltage): Represents the voltage of the high capacity EV battery. (volt)
             * `evMaxAllowedStateOfChargePercent` (EV Max Allowed State of Charge): Maximum allowed state of charge percentage. (percent)
             * `evMaxCellTemperature` (EV Max Cell Temperature): Maximum temperature of EV battery cells in degrees Celsius. (celsius)
             * `evMinAllowedStateOfChargePercent` (EV Min Allowed State of Charge): Minimum allowed state of charge percentage. (percent)
             * `evMinCellTemperature` (EV Min Cell Temperature): Minimum temperature of EV battery cells in degrees Celsius. (celsius)
+            * `evRegeneratedEnergy` (EV Regenerated Energy): Regenerated energy for electric and hybrid vehicles. (watthour)
             * `exhaustGasPressure` (Exhaust Gas Pressure): Represents the exhaust gas pressure. (kilopascal)
+            * `faultCodes` (Fault Codes): Engine fault codes for the asset
             * `fuelConsumptionRate` (Fuel Consumption Rate): The rate at which an asset uses fuel (litersperhour)
             * `fuelLevelPerc` (Fuel Level): Percentage of fuel remaining in the tank. (percent)
             * `fuelSource` (Fuel Source): Type of fuel used by the asset. (values: gasoline | diesel)
             * `geoCoordinates` (Geo Coordinates): GPS coordinates (latitude and longitude) of the asset's location.
+            * `gpsDistance` (GPS Distance): The distance the vehicle has traveled since the gateway was installed based on GPS calculations. (meter)
             * `gpsSpeed` (GPS Speed): Asset speed measured by the gateway's GPS receiver. (meterspersec)
+            * `idlingDuration` (Cumulative Idling Duration): The cumulative idling duration. Cumulative values always increase. (millisecond)
             * `ignitionStatus` (Ignitions Status): Indicates the current ignition status as a voltage (values: off | on)
             * `latitude` (Latitude): Latitude coordinate of the asset's location. (decimaldegrees)
             * `lifetimeFuelConsumed` (Lifetime Fuel Consumed): Represents the vehicle maintained lifetime fuel consumption as reported by the vehicle. (liter)
@@ -5921,6 +5939,7 @@ class RawBetaApIsClient:
             * `seatbeltDriver` (Seatbelt (Driver)): Indicates whether the driver's seatbelt is buckled or unbuckled. (values: unbuckled | buckled)
             * `seatbeltPassenger` (Seatbelt (Passenger)): Indicates whether the passenger's seatbelt is buckled or unbuckled. (values: unbuckled | buckled)
             * `supportFindNearby` (Support Find Nearby): Indicates if the asset can support find nearby. (values: noData | notCompatible | pendingUpgrade | Ready)
+            * `tellTales` (Tell Tale Status): Tell tales status as read from the vehicle.
             * `tirePressuresBackLeft` (Tire pressure, back left): Represents the tire pressure for the back-left tire. (kilopascal)
             * `tirePressuresBackRight` (Tire pressure, back right): Represents the tire pressure for the back-right tire. (kilopascal)
             * `tirePressuresFrontLeft` (Tire pressure, front left): Represents the tire pressure for the front-left tire. (kilopascal)
@@ -6274,6 +6293,7 @@ class RawBetaApIsClient:
             * `checkEngineLightJ1939Warning` (Check Engine Light (J1939) - Warning): Indicates whether the J1939 check engine light warning indicator is active or inactive. (values: off | on)
             * `checkEngineLightPassenger` (Check Engine Light (Passenger)): Indicates whether the passenger check engine light indicator is active or inactive. (values: off | on)
             * `coolantTemp` (Engine Coolant Temp): Represents the engine coolant temperature. (celsius)
+            * `crankcasePressure` (Crankcase Pressure): The pressure inside the engine's crankcase (kilopascal)
             * `defLevel` (DEF Level): Represents the DEF (Diesel Exhaust Fluid) level percentage. (percent)
             * `derivedFuelConsumed` (Lifetime Fuel Consumed (Samsara)): Samsara-maintained fuel consumption since the device was firstinstalled. (liter)
             * `deviceOrientation` (Device Orientation): Indicates orientation of the device. (values: invalid | unknown | topDown | bottomDown | leftDown | rightDown | backDown | frontDown)
@@ -6281,27 +6301,41 @@ class RawBetaApIsClient:
             * `dpfLampStatus` (DPF Lamp Status): Status of the Diesel Particulate Filter warning lamp. (values: off | on | blinking)
             * `dpfSootLoadPercent` (DPF Soot Load): Diesel Particulate Filter soot load percentage. (percent)
             * `ecuHistoryTotalRunTime` (ECU Total Run Time): Total engine run time from ECU in seconds. (second)
+            * `engineExhaustTemperature` (Engine Exhaust Temperature): Temperature of the engine exhaust (celsius)
             * `engineHours` (Engine Hours (ECU)): Represents the total engine runtime in hours as reported by the ECU. (second)
             * `engineHoursDigioBased` (Engine Hours (Synthetic - Aux input)): Represents the synthetic total engine runtime in hours based on auxiliary input. (millisecond)
             * `engineHoursEngineStateBased` (Engine Hours (Synthetic)): Represents the synthetic total engine runtime in hours based on engine state. (millisecond)
+            * `engineImmobilizer` (Engine Immobilizer): The state of the engine immobilizer. Valid values: ignition_disabled, ignition_enabled.
             * `engineIntakeAirTemp` (Engine Intake Air Temperature): Represents the engine intake air temperature. (celsius)
             * `engineLoadPercent` (Engine Load): Engine load percentage. (percent)
+            * `engineOilTemperature` (Engine Oil Temperature): Temperature of the engine oil (celsius)
             * `engineState` (Engine State): Indicates the current state of the engine, such as running, stopped. (values: off | running | idling)
+            * `engineTotalIdleTime` (Engine Total Idle Time): Total idle time for the vehicle. (minute)
             * `ev24VoltDcDcInverterCurrent` (EV 24V DC/DC Inverter Current): Current from the 24V DC-DC inverter in amperes. (ampere)
             * `evAverageCellTemperature` (EV Average Cell Temperature): Average temperature of EV battery cells in degrees Celsius. (celsius)
+            * `evChargingCurrent` (EV Charging Current): Charging current for electric and hybrid vehicles. (ampere)
+            * `evChargingEnergy` (EV Charging Energy): Charging energy for electric and hybrid vehicles. (watthour)
             * `evChargingErrorStatus` (EV Charging Error Status): Indicates if the EV charging system has an error. (values: noError | batteryTooHotOrCold | vehicleNotInPark | connectorLockFault | chargingSystemFault | chargingCurrentDifferential | chargingVoltageOutOfRange | chargingSystemNotCompatible | noDataUndeterminedStatus | notAvailable | unknownError)
+            * `evChargingStatus` (EV Charging Status): Charging status for electric and hybrid vehicles. (values: unknown | notCharging | charging)
+            * `evChargingVoltage` (EV Charging Voltage): Charging voltage for electric and hybrid vehicles. (volt)
+            * `evConsumedEnergy` (EV Consumed Energy): Consumed energy (including regenerated) for electric and hybrid vehicles. (watthour)
+            * `evDistanceDriven` (EV Distance Driven): Electric distance driven for electric and hybrid vehicles. (meter)
             * `evHighCapacityBatteryCurrent` (EV High Capacity Battery Current): Current from the high capacity EV battery in amperes. (ampere)
             * `evHighCapacityBatteryVoltage` (High Capacity EV Battery Voltage): Represents the voltage of the high capacity EV battery. (volt)
             * `evMaxAllowedStateOfChargePercent` (EV Max Allowed State of Charge): Maximum allowed state of charge percentage. (percent)
             * `evMaxCellTemperature` (EV Max Cell Temperature): Maximum temperature of EV battery cells in degrees Celsius. (celsius)
             * `evMinAllowedStateOfChargePercent` (EV Min Allowed State of Charge): Minimum allowed state of charge percentage. (percent)
             * `evMinCellTemperature` (EV Min Cell Temperature): Minimum temperature of EV battery cells in degrees Celsius. (celsius)
+            * `evRegeneratedEnergy` (EV Regenerated Energy): Regenerated energy for electric and hybrid vehicles. (watthour)
             * `exhaustGasPressure` (Exhaust Gas Pressure): Represents the exhaust gas pressure. (kilopascal)
+            * `faultCodes` (Fault Codes): Engine fault codes for the asset
             * `fuelConsumptionRate` (Fuel Consumption Rate): The rate at which an asset uses fuel (litersperhour)
             * `fuelLevelPerc` (Fuel Level): Percentage of fuel remaining in the tank. (percent)
             * `fuelSource` (Fuel Source): Type of fuel used by the asset. (values: gasoline | diesel)
             * `geoCoordinates` (Geo Coordinates): GPS coordinates (latitude and longitude) of the asset's location.
+            * `gpsDistance` (GPS Distance): The distance the vehicle has traveled since the gateway was installed based on GPS calculations. (meter)
             * `gpsSpeed` (GPS Speed): Asset speed measured by the gateway's GPS receiver. (meterspersec)
+            * `idlingDuration` (Cumulative Idling Duration): The cumulative idling duration. Cumulative values always increase. (millisecond)
             * `ignitionStatus` (Ignitions Status): Indicates the current ignition status as a voltage (values: off | on)
             * `latitude` (Latitude): Latitude coordinate of the asset's location. (decimaldegrees)
             * `lifetimeFuelConsumed` (Lifetime Fuel Consumed): Represents the vehicle maintained lifetime fuel consumption as reported by the vehicle. (liter)
@@ -6332,6 +6366,7 @@ class RawBetaApIsClient:
             * `seatbeltDriver` (Seatbelt (Driver)): Indicates whether the driver's seatbelt is buckled or unbuckled. (values: unbuckled | buckled)
             * `seatbeltPassenger` (Seatbelt (Passenger)): Indicates whether the passenger's seatbelt is buckled or unbuckled. (values: unbuckled | buckled)
             * `supportFindNearby` (Support Find Nearby): Indicates if the asset can support find nearby. (values: noData | notCompatible | pendingUpgrade | Ready)
+            * `tellTales` (Tell Tale Status): Tell tales status as read from the vehicle.
             * `tirePressuresBackLeft` (Tire pressure, back left): Represents the tire pressure for the back-left tire. (kilopascal)
             * `tirePressuresBackRight` (Tire pressure, back right): Represents the tire pressure for the back-right tire. (kilopascal)
             * `tirePressuresFrontLeft` (Tire pressure, front left): Represents the tire pressure for the front-left tire. (kilopascal)
@@ -9062,6 +9097,167 @@ class RawBetaApIsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
+    def list_ridership_route_setups(
+        self,
+        *,
+        account_id: str,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[RidershipRouteSetupsListRidershipRouteSetupsResponseBody]:
+        """
+        List all route setups for a ridership account.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Ridership** under the Ridership category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        account_id : str
+            The Samsara UUID of the ridership account to list route setups for.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 512 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[RidershipRouteSetupsListRidershipRouteSetupsResponseBody]
+            OK response.
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "ridership/route-setups",
+            method="GET",
+            params={
+                "accountId": account_id,
+                "after": after,
+                "limit": limit,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    RidershipRouteSetupsListRidershipRouteSetupsResponseBody,
+                    parse_obj_as(
+                        type_=RidershipRouteSetupsListRidershipRouteSetupsResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
     def create_ridership_route_setup(
         self,
         *,
@@ -9071,7 +9267,7 @@ class RawBetaApIsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[RidershipRouteSetupsCreateRidershipRouteSetupResponseBody]:
         """
-        Create or replace the passenger assignment setup for a route.
+        Create the passenger assignment setup for a route.
 
          <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -13182,7 +13378,7 @@ class AsyncRawBetaApIsClient:
             Optional string of comma separated asset IDs. If asset ID is present, events for the specified asset(s) will be returned. Max for this value is 2000 objects. (Example: 281474982859091,281471982957527)
 
         detection_behavior_labels : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated labels to filter behavior labels. Uses OR semantics for filtering. An empty list allows all values. Valid values: `acceleration`, `braking`, `crash`, `drowsy`, `eatingDrinking`, `edgeRailroadCrossingViolation`, `followingDistance`, `forwardCollisionWarning`, `genericDistraction`, `harshTurn`, `heavySpeeding`, `laneDeparture`, `lightSpeeding`, `maxSpeed`, `mobileUsage`, `moderateSpeeding`, `noSeatbelt`, `obstructedCamera`, `passenger`, `policyViolationMask`, `ranRedLight`, `rearCollisionWarning`, `rollingStop`, `rolloverProtection`, `severeSpeeding`, `smoking`, `speeding`, `unsafeParking`, `vehicleInBlindSpotWarning`, `vulnerableRoadUserCollisionWarning`, `yawControl`. (Example: rollingStop,obstructedCamera,noSeatbelt)
+            Optional string of comma separated labels to filter behavior labels. Uses OR semantics for filtering. An empty list allows all values. Valid values: `acceleration`, `braking`, `crash`, `drowsy`, `eatingDrinking`, `edgeRailroadCrossingViolation`, `followingDistance`, `forwardCollisionWarning`, `genericDistraction`, `harshTurn`, `heavySpeeding`, `laneDeparture`, `lightSpeeding`, `maxSpeed`, `mobileUsage`, `moderateSpeeding`, `noSeatbelt`, `obstructedCamera`, `passenger`, `policyViolationMask`, `ranRedLight`, `rearCollisionWarning`, `reversing`, `rollingStop`, `rolloverProtection`, `severeSpeeding`, `smoking`, `speeding`, `unsafeParking`, `vehicleInBlindSpotWarning`, `vulnerableRoadUserCollisionWarning`, `yawControl`. (Example: rollingStop,obstructedCamera,noSeatbelt)
 
         inbox_filter_reason : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             Optional string of comma separated reasons to filter detections. Uses OR semantics for filtering. An empty list allows all values. Valid values: `overDailyLimit`, `overHourlyLimit`, `overTripLimit`, `belowConfidenceThreshold`, `belowSeverityThreshold`, `overEventRateLimit`, `geofenceFilter`, `belowNudgeThreshold`, `belowSpeedThreshold`, `nighttimeFilter`, `speedingFilter`, `inCabAlertOnly`, `unknown`. (Example: overDailyLimit,overHourlyLimit,belowConfidenceThreshold)
@@ -16391,6 +16587,7 @@ class AsyncRawBetaApIsClient:
             * `checkEngineLightJ1939Warning` (Check Engine Light (J1939) - Warning): Indicates whether the J1939 check engine light warning indicator is active or inactive. (values: off | on)
             * `checkEngineLightPassenger` (Check Engine Light (Passenger)): Indicates whether the passenger check engine light indicator is active or inactive. (values: off | on)
             * `coolantTemp` (Engine Coolant Temp): Represents the engine coolant temperature. (celsius)
+            * `crankcasePressure` (Crankcase Pressure): The pressure inside the engine's crankcase (kilopascal)
             * `defLevel` (DEF Level): Represents the DEF (Diesel Exhaust Fluid) level percentage. (percent)
             * `derivedFuelConsumed` (Lifetime Fuel Consumed (Samsara)): Samsara-maintained fuel consumption since the device was firstinstalled. (liter)
             * `deviceOrientation` (Device Orientation): Indicates orientation of the device. (values: invalid | unknown | topDown | bottomDown | leftDown | rightDown | backDown | frontDown)
@@ -16398,27 +16595,41 @@ class AsyncRawBetaApIsClient:
             * `dpfLampStatus` (DPF Lamp Status): Status of the Diesel Particulate Filter warning lamp. (values: off | on | blinking)
             * `dpfSootLoadPercent` (DPF Soot Load): Diesel Particulate Filter soot load percentage. (percent)
             * `ecuHistoryTotalRunTime` (ECU Total Run Time): Total engine run time from ECU in seconds. (second)
+            * `engineExhaustTemperature` (Engine Exhaust Temperature): Temperature of the engine exhaust (celsius)
             * `engineHours` (Engine Hours (ECU)): Represents the total engine runtime in hours as reported by the ECU. (second)
             * `engineHoursDigioBased` (Engine Hours (Synthetic - Aux input)): Represents the synthetic total engine runtime in hours based on auxiliary input. (millisecond)
             * `engineHoursEngineStateBased` (Engine Hours (Synthetic)): Represents the synthetic total engine runtime in hours based on engine state. (millisecond)
+            * `engineImmobilizer` (Engine Immobilizer): The state of the engine immobilizer. Valid values: ignition_disabled, ignition_enabled.
             * `engineIntakeAirTemp` (Engine Intake Air Temperature): Represents the engine intake air temperature. (celsius)
             * `engineLoadPercent` (Engine Load): Engine load percentage. (percent)
+            * `engineOilTemperature` (Engine Oil Temperature): Temperature of the engine oil (celsius)
             * `engineState` (Engine State): Indicates the current state of the engine, such as running, stopped. (values: off | running | idling)
+            * `engineTotalIdleTime` (Engine Total Idle Time): Total idle time for the vehicle. (minute)
             * `ev24VoltDcDcInverterCurrent` (EV 24V DC/DC Inverter Current): Current from the 24V DC-DC inverter in amperes. (ampere)
             * `evAverageCellTemperature` (EV Average Cell Temperature): Average temperature of EV battery cells in degrees Celsius. (celsius)
+            * `evChargingCurrent` (EV Charging Current): Charging current for electric and hybrid vehicles. (ampere)
+            * `evChargingEnergy` (EV Charging Energy): Charging energy for electric and hybrid vehicles. (watthour)
             * `evChargingErrorStatus` (EV Charging Error Status): Indicates if the EV charging system has an error. (values: noError | batteryTooHotOrCold | vehicleNotInPark | connectorLockFault | chargingSystemFault | chargingCurrentDifferential | chargingVoltageOutOfRange | chargingSystemNotCompatible | noDataUndeterminedStatus | notAvailable | unknownError)
+            * `evChargingStatus` (EV Charging Status): Charging status for electric and hybrid vehicles. (values: unknown | notCharging | charging)
+            * `evChargingVoltage` (EV Charging Voltage): Charging voltage for electric and hybrid vehicles. (volt)
+            * `evConsumedEnergy` (EV Consumed Energy): Consumed energy (including regenerated) for electric and hybrid vehicles. (watthour)
+            * `evDistanceDriven` (EV Distance Driven): Electric distance driven for electric and hybrid vehicles. (meter)
             * `evHighCapacityBatteryCurrent` (EV High Capacity Battery Current): Current from the high capacity EV battery in amperes. (ampere)
             * `evHighCapacityBatteryVoltage` (High Capacity EV Battery Voltage): Represents the voltage of the high capacity EV battery. (volt)
             * `evMaxAllowedStateOfChargePercent` (EV Max Allowed State of Charge): Maximum allowed state of charge percentage. (percent)
             * `evMaxCellTemperature` (EV Max Cell Temperature): Maximum temperature of EV battery cells in degrees Celsius. (celsius)
             * `evMinAllowedStateOfChargePercent` (EV Min Allowed State of Charge): Minimum allowed state of charge percentage. (percent)
             * `evMinCellTemperature` (EV Min Cell Temperature): Minimum temperature of EV battery cells in degrees Celsius. (celsius)
+            * `evRegeneratedEnergy` (EV Regenerated Energy): Regenerated energy for electric and hybrid vehicles. (watthour)
             * `exhaustGasPressure` (Exhaust Gas Pressure): Represents the exhaust gas pressure. (kilopascal)
+            * `faultCodes` (Fault Codes): Engine fault codes for the asset
             * `fuelConsumptionRate` (Fuel Consumption Rate): The rate at which an asset uses fuel (litersperhour)
             * `fuelLevelPerc` (Fuel Level): Percentage of fuel remaining in the tank. (percent)
             * `fuelSource` (Fuel Source): Type of fuel used by the asset. (values: gasoline | diesel)
             * `geoCoordinates` (Geo Coordinates): GPS coordinates (latitude and longitude) of the asset's location.
+            * `gpsDistance` (GPS Distance): The distance the vehicle has traveled since the gateway was installed based on GPS calculations. (meter)
             * `gpsSpeed` (GPS Speed): Asset speed measured by the gateway's GPS receiver. (meterspersec)
+            * `idlingDuration` (Cumulative Idling Duration): The cumulative idling duration. Cumulative values always increase. (millisecond)
             * `ignitionStatus` (Ignitions Status): Indicates the current ignition status as a voltage (values: off | on)
             * `latitude` (Latitude): Latitude coordinate of the asset's location. (decimaldegrees)
             * `lifetimeFuelConsumed` (Lifetime Fuel Consumed): Represents the vehicle maintained lifetime fuel consumption as reported by the vehicle. (liter)
@@ -16449,6 +16660,7 @@ class AsyncRawBetaApIsClient:
             * `seatbeltDriver` (Seatbelt (Driver)): Indicates whether the driver's seatbelt is buckled or unbuckled. (values: unbuckled | buckled)
             * `seatbeltPassenger` (Seatbelt (Passenger)): Indicates whether the passenger's seatbelt is buckled or unbuckled. (values: unbuckled | buckled)
             * `supportFindNearby` (Support Find Nearby): Indicates if the asset can support find nearby. (values: noData | notCompatible | pendingUpgrade | Ready)
+            * `tellTales` (Tell Tale Status): Tell tales status as read from the vehicle.
             * `tirePressuresBackLeft` (Tire pressure, back left): Represents the tire pressure for the back-left tire. (kilopascal)
             * `tirePressuresBackRight` (Tire pressure, back right): Represents the tire pressure for the back-right tire. (kilopascal)
             * `tirePressuresFrontLeft` (Tire pressure, front left): Represents the tire pressure for the front-left tire. (kilopascal)
@@ -16802,6 +17014,7 @@ class AsyncRawBetaApIsClient:
             * `checkEngineLightJ1939Warning` (Check Engine Light (J1939) - Warning): Indicates whether the J1939 check engine light warning indicator is active or inactive. (values: off | on)
             * `checkEngineLightPassenger` (Check Engine Light (Passenger)): Indicates whether the passenger check engine light indicator is active or inactive. (values: off | on)
             * `coolantTemp` (Engine Coolant Temp): Represents the engine coolant temperature. (celsius)
+            * `crankcasePressure` (Crankcase Pressure): The pressure inside the engine's crankcase (kilopascal)
             * `defLevel` (DEF Level): Represents the DEF (Diesel Exhaust Fluid) level percentage. (percent)
             * `derivedFuelConsumed` (Lifetime Fuel Consumed (Samsara)): Samsara-maintained fuel consumption since the device was firstinstalled. (liter)
             * `deviceOrientation` (Device Orientation): Indicates orientation of the device. (values: invalid | unknown | topDown | bottomDown | leftDown | rightDown | backDown | frontDown)
@@ -16809,27 +17022,41 @@ class AsyncRawBetaApIsClient:
             * `dpfLampStatus` (DPF Lamp Status): Status of the Diesel Particulate Filter warning lamp. (values: off | on | blinking)
             * `dpfSootLoadPercent` (DPF Soot Load): Diesel Particulate Filter soot load percentage. (percent)
             * `ecuHistoryTotalRunTime` (ECU Total Run Time): Total engine run time from ECU in seconds. (second)
+            * `engineExhaustTemperature` (Engine Exhaust Temperature): Temperature of the engine exhaust (celsius)
             * `engineHours` (Engine Hours (ECU)): Represents the total engine runtime in hours as reported by the ECU. (second)
             * `engineHoursDigioBased` (Engine Hours (Synthetic - Aux input)): Represents the synthetic total engine runtime in hours based on auxiliary input. (millisecond)
             * `engineHoursEngineStateBased` (Engine Hours (Synthetic)): Represents the synthetic total engine runtime in hours based on engine state. (millisecond)
+            * `engineImmobilizer` (Engine Immobilizer): The state of the engine immobilizer. Valid values: ignition_disabled, ignition_enabled.
             * `engineIntakeAirTemp` (Engine Intake Air Temperature): Represents the engine intake air temperature. (celsius)
             * `engineLoadPercent` (Engine Load): Engine load percentage. (percent)
+            * `engineOilTemperature` (Engine Oil Temperature): Temperature of the engine oil (celsius)
             * `engineState` (Engine State): Indicates the current state of the engine, such as running, stopped. (values: off | running | idling)
+            * `engineTotalIdleTime` (Engine Total Idle Time): Total idle time for the vehicle. (minute)
             * `ev24VoltDcDcInverterCurrent` (EV 24V DC/DC Inverter Current): Current from the 24V DC-DC inverter in amperes. (ampere)
             * `evAverageCellTemperature` (EV Average Cell Temperature): Average temperature of EV battery cells in degrees Celsius. (celsius)
+            * `evChargingCurrent` (EV Charging Current): Charging current for electric and hybrid vehicles. (ampere)
+            * `evChargingEnergy` (EV Charging Energy): Charging energy for electric and hybrid vehicles. (watthour)
             * `evChargingErrorStatus` (EV Charging Error Status): Indicates if the EV charging system has an error. (values: noError | batteryTooHotOrCold | vehicleNotInPark | connectorLockFault | chargingSystemFault | chargingCurrentDifferential | chargingVoltageOutOfRange | chargingSystemNotCompatible | noDataUndeterminedStatus | notAvailable | unknownError)
+            * `evChargingStatus` (EV Charging Status): Charging status for electric and hybrid vehicles. (values: unknown | notCharging | charging)
+            * `evChargingVoltage` (EV Charging Voltage): Charging voltage for electric and hybrid vehicles. (volt)
+            * `evConsumedEnergy` (EV Consumed Energy): Consumed energy (including regenerated) for electric and hybrid vehicles. (watthour)
+            * `evDistanceDriven` (EV Distance Driven): Electric distance driven for electric and hybrid vehicles. (meter)
             * `evHighCapacityBatteryCurrent` (EV High Capacity Battery Current): Current from the high capacity EV battery in amperes. (ampere)
             * `evHighCapacityBatteryVoltage` (High Capacity EV Battery Voltage): Represents the voltage of the high capacity EV battery. (volt)
             * `evMaxAllowedStateOfChargePercent` (EV Max Allowed State of Charge): Maximum allowed state of charge percentage. (percent)
             * `evMaxCellTemperature` (EV Max Cell Temperature): Maximum temperature of EV battery cells in degrees Celsius. (celsius)
             * `evMinAllowedStateOfChargePercent` (EV Min Allowed State of Charge): Minimum allowed state of charge percentage. (percent)
             * `evMinCellTemperature` (EV Min Cell Temperature): Minimum temperature of EV battery cells in degrees Celsius. (celsius)
+            * `evRegeneratedEnergy` (EV Regenerated Energy): Regenerated energy for electric and hybrid vehicles. (watthour)
             * `exhaustGasPressure` (Exhaust Gas Pressure): Represents the exhaust gas pressure. (kilopascal)
+            * `faultCodes` (Fault Codes): Engine fault codes for the asset
             * `fuelConsumptionRate` (Fuel Consumption Rate): The rate at which an asset uses fuel (litersperhour)
             * `fuelLevelPerc` (Fuel Level): Percentage of fuel remaining in the tank. (percent)
             * `fuelSource` (Fuel Source): Type of fuel used by the asset. (values: gasoline | diesel)
             * `geoCoordinates` (Geo Coordinates): GPS coordinates (latitude and longitude) of the asset's location.
+            * `gpsDistance` (GPS Distance): The distance the vehicle has traveled since the gateway was installed based on GPS calculations. (meter)
             * `gpsSpeed` (GPS Speed): Asset speed measured by the gateway's GPS receiver. (meterspersec)
+            * `idlingDuration` (Cumulative Idling Duration): The cumulative idling duration. Cumulative values always increase. (millisecond)
             * `ignitionStatus` (Ignitions Status): Indicates the current ignition status as a voltage (values: off | on)
             * `latitude` (Latitude): Latitude coordinate of the asset's location. (decimaldegrees)
             * `lifetimeFuelConsumed` (Lifetime Fuel Consumed): Represents the vehicle maintained lifetime fuel consumption as reported by the vehicle. (liter)
@@ -16860,6 +17087,7 @@ class AsyncRawBetaApIsClient:
             * `seatbeltDriver` (Seatbelt (Driver)): Indicates whether the driver's seatbelt is buckled or unbuckled. (values: unbuckled | buckled)
             * `seatbeltPassenger` (Seatbelt (Passenger)): Indicates whether the passenger's seatbelt is buckled or unbuckled. (values: unbuckled | buckled)
             * `supportFindNearby` (Support Find Nearby): Indicates if the asset can support find nearby. (values: noData | notCompatible | pendingUpgrade | Ready)
+            * `tellTales` (Tell Tale Status): Tell tales status as read from the vehicle.
             * `tirePressuresBackLeft` (Tire pressure, back left): Represents the tire pressure for the back-left tire. (kilopascal)
             * `tirePressuresBackRight` (Tire pressure, back right): Represents the tire pressure for the back-right tire. (kilopascal)
             * `tirePressuresFrontLeft` (Tire pressure, front left): Represents the tire pressure for the front-left tire. (kilopascal)
@@ -19590,6 +19818,167 @@ class AsyncRawBetaApIsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
+    async def list_ridership_route_setups(
+        self,
+        *,
+        account_id: str,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[RidershipRouteSetupsListRidershipRouteSetupsResponseBody]:
+        """
+        List all route setups for a ridership account.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Ridership** under the Ridership category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        account_id : str
+            The Samsara UUID of the ridership account to list route setups for.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 512 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[RidershipRouteSetupsListRidershipRouteSetupsResponseBody]
+            OK response.
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "ridership/route-setups",
+            method="GET",
+            params={
+                "accountId": account_id,
+                "after": after,
+                "limit": limit,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    RidershipRouteSetupsListRidershipRouteSetupsResponseBody,
+                    parse_obj_as(
+                        type_=RidershipRouteSetupsListRidershipRouteSetupsResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
     async def create_ridership_route_setup(
         self,
         *,
@@ -19599,7 +19988,7 @@ class AsyncRawBetaApIsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[RidershipRouteSetupsCreateRidershipRouteSetupResponseBody]:
         """
-        Create or replace the passenger assignment setup for a route.
+        Create the passenger assignment setup for a route.
 
          <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 

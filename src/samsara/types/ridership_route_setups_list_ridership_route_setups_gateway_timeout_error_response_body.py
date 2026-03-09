@@ -8,9 +8,9 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 
 
-class DeviceRecoveryGetAssetRecoveryStateNotImplementedErrorResponseBody(UniversalBaseModel):
+class RidershipRouteSetupsListRidershipRouteSetupsGatewayTimeoutErrorResponseBody(UniversalBaseModel):
     """
-    Requested endpoint is not yet implemented
+    Gateway timeout
     """
 
     message: str = pydantic.Field()

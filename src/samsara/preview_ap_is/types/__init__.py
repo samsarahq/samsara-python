@@ -13,12 +13,10 @@ if typing.TYPE_CHECKING:
         DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus,
     )
     from .device_recovery_recover_asset_request_body_status import DeviceRecoveryRecoverAssetRequestBodyStatus
-    from .list_device_recovery_assets_request_statuses_item import ListDeviceRecoveryAssetsRequestStatusesItem
 _dynamic_imports: typing.Dict[str, str] = {
     "DeviceRecoveryRecoverAssetRequestBodyMissingReason": ".device_recovery_recover_asset_request_body_missing_reason",
     "DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus": ".device_recovery_recover_asset_request_body_recovery_status",
     "DeviceRecoveryRecoverAssetRequestBodyStatus": ".device_recovery_recover_asset_request_body_status",
-    "ListDeviceRecoveryAssetsRequestStatusesItem": ".list_device_recovery_assets_request_statuses_item",
 }
 
 
@@ -47,5 +45,4 @@ __all__ = [
     "DeviceRecoveryRecoverAssetRequestBodyMissingReason",
     "DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus",
     "DeviceRecoveryRecoverAssetRequestBodyStatus",
-    "ListDeviceRecoveryAssetsRequestStatusesItem",
 ]

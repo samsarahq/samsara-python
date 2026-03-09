@@ -8,9 +8,9 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 
 
-class DeviceRecoveryListDeviceRecoveryAssetsTooManyRequestsErrorResponseBody(UniversalBaseModel):
+class DeviceRecoveryListDeviceRecoveryMissingAssetsNotFoundErrorResponseBody(UniversalBaseModel):
     """
-    Too many requests
+    Resource not found
     """
 
     message: str = pydantic.Field()

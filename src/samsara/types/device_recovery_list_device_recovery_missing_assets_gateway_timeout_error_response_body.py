@@ -8,9 +8,9 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 
 
-class DeviceRecoveryGetAssetRecoveryStateServiceUnavailableErrorResponseBody(UniversalBaseModel):
+class DeviceRecoveryListDeviceRecoveryMissingAssetsGatewayTimeoutErrorResponseBody(UniversalBaseModel):
     """
-    Service unavailable
+    Gateway timeout
     """
 
     message: str = pydantic.Field()

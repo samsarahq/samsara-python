@@ -6,29 +6,17 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
-from .device_recovery_state_response_body_status import DeviceRecoveryStateResponseBodyStatus
 from .notification_recipient_response_body import NotificationRecipientResponseBody
-from .recovery_photo_response_body import RecoveryPhotoResponseBody
 
 
-class DeviceRecoveryStateResponseBody(UniversalBaseModel):
+class MissingStateResponseBody(UniversalBaseModel):
     """
-    The full recovery state for an asset, including notification recipients and recovery photos.
-    """
-
-    additional_details: typing.Optional[str] = pydantic.Field(default=None)
-    """
-    Additional details provided during recovery.
+    An asset currently marked as missing, including notification recipients.
     """
 
     id: str = pydantic.Field()
     """
     The unique Samsara ID of the asset.
-    """
-
-    missing_reason: typing.Optional[str] = pydantic.Field(default=None)
-    """
-    The reason the asset was originally marked as missing.
     """
 
     name: str = pydantic.Field()
@@ -38,7 +26,7 @@ class DeviceRecoveryStateResponseBody(UniversalBaseModel):
 
     note: typing.Optional[str] = pydantic.Field(default=None)
     """
-    A note associated with the recovery state.
+    A note associated with the missing asset.
     """
 
     notification_recipients: typing.Optional[typing.List[NotificationRecipientResponseBody]] = pydantic.Field(
@@ -48,29 +36,14 @@ class DeviceRecoveryStateResponseBody(UniversalBaseModel):
     Users subscribed to location update notifications for this asset.
     """
 
-    recovery_photos: typing.Optional[typing.List[RecoveryPhotoResponseBody]] = pydantic.Field(default=None)
-    """
-    Photos associated with the recovery event. URLs are temporary and expire at url_expires_at_ms.
-    """
-
-    recovery_status: typing.Optional[str] = pydantic.Field(default=None)
-    """
-    Whether the asset was physically recovered.
-    """
-
-    status: DeviceRecoveryStateResponseBodyStatus = pydantic.Field()
-    """
-    The current recovery status of the asset.  Valid values: `UNKNOWN`, `MISSING`, `LOCATED`, `RECOVERED`
-    """
-
     updated_at_ms: int = pydantic.Field()
     """
-    Timestamp when the recovery state was last updated, in milliseconds since epoch.
+    Timestamp when the asset was marked as missing, in milliseconds since epoch.
     """
 
     updated_by_user_id: typing.Optional[int] = pydantic.Field(default=None)
     """
-    The ID of the user who last updated the recovery state.
+    The ID of the user who marked the asset as missing.
     """
 
     uuid_: typing_extensions.Annotated[

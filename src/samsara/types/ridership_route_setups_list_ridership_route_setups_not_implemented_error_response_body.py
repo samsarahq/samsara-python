@@ -8,9 +8,9 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 
 
-class DeviceRecoveryGetAssetRecoveryStateTooManyRequestsErrorResponseBody(UniversalBaseModel):
+class RidershipRouteSetupsListRidershipRouteSetupsNotImplementedErrorResponseBody(UniversalBaseModel):
     """
-    Too many requests
+    Requested endpoint is not yet implemented
     """
 
     message: str = pydantic.Field()

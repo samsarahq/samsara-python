@@ -465,6 +465,14 @@ def test_betaApIs_get_ridership_passenger() -> None:
     verify_request_count(test_id, "GET", "/ridership/passengers/id", None, 1)
 
 
+def test_betaApIs_list_ridership_route_setups() -> None:
+    """Test listRidershipRouteSetups endpoint with WireMock"""
+    test_id = "beta_ap_is.list_ridership_route_setups.0"
+    client = get_client(test_id)
+    client.beta_ap_is.list_ridership_route_setups(account_id="accountId")
+    verify_request_count(test_id, "GET", "/ridership/route-setups", {"accountId": "accountId"}, 1)
+
+
 def test_betaApIs_create_ridership_route_setup() -> None:
     """Test createRidershipRouteSetup endpoint with WireMock"""
     test_id = "beta_ap_is.create_ridership_route_setup.0"

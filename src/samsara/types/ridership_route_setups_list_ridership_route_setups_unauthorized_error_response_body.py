@@ -8,9 +8,9 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 
 
-class DeviceRecoveryListDeviceRecoveryAssetsGatewayTimeoutErrorResponseBody(UniversalBaseModel):
+class RidershipRouteSetupsListRidershipRouteSetupsUnauthorizedErrorResponseBody(UniversalBaseModel):
     """
-    Gateway timeout
+    Unauthorized
     """
 
     message: str = pydantic.Field()

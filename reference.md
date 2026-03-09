@@ -4037,7 +4037,7 @@ client.beta_ap_is.get_detections(
 <dl>
 <dd>
 
-**detection_behavior_labels:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Optional string of comma separated labels to filter behavior labels. Uses OR semantics for filtering. An empty list allows all values. Valid values: `acceleration`, `braking`, `crash`, `drowsy`, `eatingDrinking`, `edgeRailroadCrossingViolation`, `followingDistance`, `forwardCollisionWarning`, `genericDistraction`, `harshTurn`, `heavySpeeding`, `laneDeparture`, `lightSpeeding`, `maxSpeed`, `mobileUsage`, `moderateSpeeding`, `noSeatbelt`, `obstructedCamera`, `passenger`, `policyViolationMask`, `ranRedLight`, `rearCollisionWarning`, `rollingStop`, `rolloverProtection`, `severeSpeeding`, `smoking`, `speeding`, `unsafeParking`, `vehicleInBlindSpotWarning`, `vulnerableRoadUserCollisionWarning`, `yawControl`. (Example: rollingStop,obstructedCamera,noSeatbelt)
+**detection_behavior_labels:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Optional string of comma separated labels to filter behavior labels. Uses OR semantics for filtering. An empty list allows all values. Valid values: `acceleration`, `braking`, `crash`, `drowsy`, `eatingDrinking`, `edgeRailroadCrossingViolation`, `followingDistance`, `forwardCollisionWarning`, `genericDistraction`, `harshTurn`, `heavySpeeding`, `laneDeparture`, `lightSpeeding`, `maxSpeed`, `mobileUsage`, `moderateSpeeding`, `noSeatbelt`, `obstructedCamera`, `passenger`, `policyViolationMask`, `ranRedLight`, `rearCollisionWarning`, `reversing`, `rollingStop`, `rolloverProtection`, `severeSpeeding`, `smoking`, `speeding`, `unsafeParking`, `vehicleInBlindSpotWarning`, `vulnerableRoadUserCollisionWarning`, `yawControl`. (Example: rollingStop,obstructedCamera,noSeatbelt)
     
 </dd>
 </dl>
@@ -6047,6 +6047,7 @@ Available reading IDs (by category):
 * `checkEngineLightJ1939Warning` (Check Engine Light (J1939) - Warning): Indicates whether the J1939 check engine light warning indicator is active or inactive. (values: off | on)
 * `checkEngineLightPassenger` (Check Engine Light (Passenger)): Indicates whether the passenger check engine light indicator is active or inactive. (values: off | on)
 * `coolantTemp` (Engine Coolant Temp): Represents the engine coolant temperature. (celsius)
+* `crankcasePressure` (Crankcase Pressure): The pressure inside the engine's crankcase (kilopascal)
 * `defLevel` (DEF Level): Represents the DEF (Diesel Exhaust Fluid) level percentage. (percent)
 * `derivedFuelConsumed` (Lifetime Fuel Consumed (Samsara)): Samsara-maintained fuel consumption since the device was firstinstalled. (liter)
 * `deviceOrientation` (Device Orientation): Indicates orientation of the device. (values: invalid | unknown | topDown | bottomDown | leftDown | rightDown | backDown | frontDown)
@@ -6054,27 +6055,41 @@ Available reading IDs (by category):
 * `dpfLampStatus` (DPF Lamp Status): Status of the Diesel Particulate Filter warning lamp. (values: off | on | blinking)
 * `dpfSootLoadPercent` (DPF Soot Load): Diesel Particulate Filter soot load percentage. (percent)
 * `ecuHistoryTotalRunTime` (ECU Total Run Time): Total engine run time from ECU in seconds. (second)
+* `engineExhaustTemperature` (Engine Exhaust Temperature): Temperature of the engine exhaust (celsius)
 * `engineHours` (Engine Hours (ECU)): Represents the total engine runtime in hours as reported by the ECU. (second)
 * `engineHoursDigioBased` (Engine Hours (Synthetic - Aux input)): Represents the synthetic total engine runtime in hours based on auxiliary input. (millisecond)
 * `engineHoursEngineStateBased` (Engine Hours (Synthetic)): Represents the synthetic total engine runtime in hours based on engine state. (millisecond)
+* `engineImmobilizer` (Engine Immobilizer): The state of the engine immobilizer. Valid values: ignition_disabled, ignition_enabled.
 * `engineIntakeAirTemp` (Engine Intake Air Temperature): Represents the engine intake air temperature. (celsius)
 * `engineLoadPercent` (Engine Load): Engine load percentage. (percent)
+* `engineOilTemperature` (Engine Oil Temperature): Temperature of the engine oil (celsius)
 * `engineState` (Engine State): Indicates the current state of the engine, such as running, stopped. (values: off | running | idling)
+* `engineTotalIdleTime` (Engine Total Idle Time): Total idle time for the vehicle. (minute)
 * `ev24VoltDcDcInverterCurrent` (EV 24V DC/DC Inverter Current): Current from the 24V DC-DC inverter in amperes. (ampere)
 * `evAverageCellTemperature` (EV Average Cell Temperature): Average temperature of EV battery cells in degrees Celsius. (celsius)
+* `evChargingCurrent` (EV Charging Current): Charging current for electric and hybrid vehicles. (ampere)
+* `evChargingEnergy` (EV Charging Energy): Charging energy for electric and hybrid vehicles. (watthour)
 * `evChargingErrorStatus` (EV Charging Error Status): Indicates if the EV charging system has an error. (values: noError | batteryTooHotOrCold | vehicleNotInPark | connectorLockFault | chargingSystemFault | chargingCurrentDifferential | chargingVoltageOutOfRange | chargingSystemNotCompatible | noDataUndeterminedStatus | notAvailable | unknownError)
+* `evChargingStatus` (EV Charging Status): Charging status for electric and hybrid vehicles. (values: unknown | notCharging | charging)
+* `evChargingVoltage` (EV Charging Voltage): Charging voltage for electric and hybrid vehicles. (volt)
+* `evConsumedEnergy` (EV Consumed Energy): Consumed energy (including regenerated) for electric and hybrid vehicles. (watthour)
+* `evDistanceDriven` (EV Distance Driven): Electric distance driven for electric and hybrid vehicles. (meter)
 * `evHighCapacityBatteryCurrent` (EV High Capacity Battery Current): Current from the high capacity EV battery in amperes. (ampere)
 * `evHighCapacityBatteryVoltage` (High Capacity EV Battery Voltage): Represents the voltage of the high capacity EV battery. (volt)
 * `evMaxAllowedStateOfChargePercent` (EV Max Allowed State of Charge): Maximum allowed state of charge percentage. (percent)
 * `evMaxCellTemperature` (EV Max Cell Temperature): Maximum temperature of EV battery cells in degrees Celsius. (celsius)
 * `evMinAllowedStateOfChargePercent` (EV Min Allowed State of Charge): Minimum allowed state of charge percentage. (percent)
 * `evMinCellTemperature` (EV Min Cell Temperature): Minimum temperature of EV battery cells in degrees Celsius. (celsius)
+* `evRegeneratedEnergy` (EV Regenerated Energy): Regenerated energy for electric and hybrid vehicles. (watthour)
 * `exhaustGasPressure` (Exhaust Gas Pressure): Represents the exhaust gas pressure. (kilopascal)
+* `faultCodes` (Fault Codes): Engine fault codes for the asset
 * `fuelConsumptionRate` (Fuel Consumption Rate): The rate at which an asset uses fuel (litersperhour)
 * `fuelLevelPerc` (Fuel Level): Percentage of fuel remaining in the tank. (percent)
 * `fuelSource` (Fuel Source): Type of fuel used by the asset. (values: gasoline | diesel)
 * `geoCoordinates` (Geo Coordinates): GPS coordinates (latitude and longitude) of the asset's location.
+* `gpsDistance` (GPS Distance): The distance the vehicle has traveled since the gateway was installed based on GPS calculations. (meter)
 * `gpsSpeed` (GPS Speed): Asset speed measured by the gateway's GPS receiver. (meterspersec)
+* `idlingDuration` (Cumulative Idling Duration): The cumulative idling duration. Cumulative values always increase. (millisecond)
 * `ignitionStatus` (Ignitions Status): Indicates the current ignition status as a voltage (values: off | on)
 * `latitude` (Latitude): Latitude coordinate of the asset's location. (decimaldegrees)
 * `lifetimeFuelConsumed` (Lifetime Fuel Consumed): Represents the vehicle maintained lifetime fuel consumption as reported by the vehicle. (liter)
@@ -6105,6 +6120,7 @@ Available reading IDs (by category):
 * `seatbeltDriver` (Seatbelt (Driver)): Indicates whether the driver's seatbelt is buckled or unbuckled. (values: unbuckled | buckled)
 * `seatbeltPassenger` (Seatbelt (Passenger)): Indicates whether the passenger's seatbelt is buckled or unbuckled. (values: unbuckled | buckled)
 * `supportFindNearby` (Support Find Nearby): Indicates if the asset can support find nearby. (values: noData | notCompatible | pendingUpgrade | Ready)
+* `tellTales` (Tell Tale Status): Tell tales status as read from the vehicle.
 * `tirePressuresBackLeft` (Tire pressure, back left): Represents the tire pressure for the back-left tire. (kilopascal)
 * `tirePressuresBackRight` (Tire pressure, back right): Represents the tire pressure for the back-right tire. (kilopascal)
 * `tirePressuresFrontLeft` (Tire pressure, front left): Represents the tire pressure for the front-left tire. (kilopascal)
@@ -6413,6 +6429,7 @@ Available reading IDs (by category):
 * `checkEngineLightJ1939Warning` (Check Engine Light (J1939) - Warning): Indicates whether the J1939 check engine light warning indicator is active or inactive. (values: off | on)
 * `checkEngineLightPassenger` (Check Engine Light (Passenger)): Indicates whether the passenger check engine light indicator is active or inactive. (values: off | on)
 * `coolantTemp` (Engine Coolant Temp): Represents the engine coolant temperature. (celsius)
+* `crankcasePressure` (Crankcase Pressure): The pressure inside the engine's crankcase (kilopascal)
 * `defLevel` (DEF Level): Represents the DEF (Diesel Exhaust Fluid) level percentage. (percent)
 * `derivedFuelConsumed` (Lifetime Fuel Consumed (Samsara)): Samsara-maintained fuel consumption since the device was firstinstalled. (liter)
 * `deviceOrientation` (Device Orientation): Indicates orientation of the device. (values: invalid | unknown | topDown | bottomDown | leftDown | rightDown | backDown | frontDown)
@@ -6420,27 +6437,41 @@ Available reading IDs (by category):
 * `dpfLampStatus` (DPF Lamp Status): Status of the Diesel Particulate Filter warning lamp. (values: off | on | blinking)
 * `dpfSootLoadPercent` (DPF Soot Load): Diesel Particulate Filter soot load percentage. (percent)
 * `ecuHistoryTotalRunTime` (ECU Total Run Time): Total engine run time from ECU in seconds. (second)
+* `engineExhaustTemperature` (Engine Exhaust Temperature): Temperature of the engine exhaust (celsius)
 * `engineHours` (Engine Hours (ECU)): Represents the total engine runtime in hours as reported by the ECU. (second)
 * `engineHoursDigioBased` (Engine Hours (Synthetic - Aux input)): Represents the synthetic total engine runtime in hours based on auxiliary input. (millisecond)
 * `engineHoursEngineStateBased` (Engine Hours (Synthetic)): Represents the synthetic total engine runtime in hours based on engine state. (millisecond)
+* `engineImmobilizer` (Engine Immobilizer): The state of the engine immobilizer. Valid values: ignition_disabled, ignition_enabled.
 * `engineIntakeAirTemp` (Engine Intake Air Temperature): Represents the engine intake air temperature. (celsius)
 * `engineLoadPercent` (Engine Load): Engine load percentage. (percent)
+* `engineOilTemperature` (Engine Oil Temperature): Temperature of the engine oil (celsius)
 * `engineState` (Engine State): Indicates the current state of the engine, such as running, stopped. (values: off | running | idling)
+* `engineTotalIdleTime` (Engine Total Idle Time): Total idle time for the vehicle. (minute)
 * `ev24VoltDcDcInverterCurrent` (EV 24V DC/DC Inverter Current): Current from the 24V DC-DC inverter in amperes. (ampere)
 * `evAverageCellTemperature` (EV Average Cell Temperature): Average temperature of EV battery cells in degrees Celsius. (celsius)
+* `evChargingCurrent` (EV Charging Current): Charging current for electric and hybrid vehicles. (ampere)
+* `evChargingEnergy` (EV Charging Energy): Charging energy for electric and hybrid vehicles. (watthour)
 * `evChargingErrorStatus` (EV Charging Error Status): Indicates if the EV charging system has an error. (values: noError | batteryTooHotOrCold | vehicleNotInPark | connectorLockFault | chargingSystemFault | chargingCurrentDifferential | chargingVoltageOutOfRange | chargingSystemNotCompatible | noDataUndeterminedStatus | notAvailable | unknownError)
+* `evChargingStatus` (EV Charging Status): Charging status for electric and hybrid vehicles. (values: unknown | notCharging | charging)
+* `evChargingVoltage` (EV Charging Voltage): Charging voltage for electric and hybrid vehicles. (volt)
+* `evConsumedEnergy` (EV Consumed Energy): Consumed energy (including regenerated) for electric and hybrid vehicles. (watthour)
+* `evDistanceDriven` (EV Distance Driven): Electric distance driven for electric and hybrid vehicles. (meter)
 * `evHighCapacityBatteryCurrent` (EV High Capacity Battery Current): Current from the high capacity EV battery in amperes. (ampere)
 * `evHighCapacityBatteryVoltage` (High Capacity EV Battery Voltage): Represents the voltage of the high capacity EV battery. (volt)
 * `evMaxAllowedStateOfChargePercent` (EV Max Allowed State of Charge): Maximum allowed state of charge percentage. (percent)
 * `evMaxCellTemperature` (EV Max Cell Temperature): Maximum temperature of EV battery cells in degrees Celsius. (celsius)
 * `evMinAllowedStateOfChargePercent` (EV Min Allowed State of Charge): Minimum allowed state of charge percentage. (percent)
 * `evMinCellTemperature` (EV Min Cell Temperature): Minimum temperature of EV battery cells in degrees Celsius. (celsius)
+* `evRegeneratedEnergy` (EV Regenerated Energy): Regenerated energy for electric and hybrid vehicles. (watthour)
 * `exhaustGasPressure` (Exhaust Gas Pressure): Represents the exhaust gas pressure. (kilopascal)
+* `faultCodes` (Fault Codes): Engine fault codes for the asset
 * `fuelConsumptionRate` (Fuel Consumption Rate): The rate at which an asset uses fuel (litersperhour)
 * `fuelLevelPerc` (Fuel Level): Percentage of fuel remaining in the tank. (percent)
 * `fuelSource` (Fuel Source): Type of fuel used by the asset. (values: gasoline | diesel)
 * `geoCoordinates` (Geo Coordinates): GPS coordinates (latitude and longitude) of the asset's location.
+* `gpsDistance` (GPS Distance): The distance the vehicle has traveled since the gateway was installed based on GPS calculations. (meter)
 * `gpsSpeed` (GPS Speed): Asset speed measured by the gateway's GPS receiver. (meterspersec)
+* `idlingDuration` (Cumulative Idling Duration): The cumulative idling duration. Cumulative values always increase. (millisecond)
 * `ignitionStatus` (Ignitions Status): Indicates the current ignition status as a voltage (values: off | on)
 * `latitude` (Latitude): Latitude coordinate of the asset's location. (decimaldegrees)
 * `lifetimeFuelConsumed` (Lifetime Fuel Consumed): Represents the vehicle maintained lifetime fuel consumption as reported by the vehicle. (liter)
@@ -6471,6 +6502,7 @@ Available reading IDs (by category):
 * `seatbeltDriver` (Seatbelt (Driver)): Indicates whether the driver's seatbelt is buckled or unbuckled. (values: unbuckled | buckled)
 * `seatbeltPassenger` (Seatbelt (Passenger)): Indicates whether the passenger's seatbelt is buckled or unbuckled. (values: unbuckled | buckled)
 * `supportFindNearby` (Support Find Nearby): Indicates if the asset can support find nearby. (values: noData | notCompatible | pendingUpgrade | Ready)
+* `tellTales` (Tell Tale Status): Tell tales status as read from the vehicle.
 * `tirePressuresBackLeft` (Tire pressure, back left): Represents the tire pressure for the back-left tire. (kilopascal)
 * `tirePressuresBackRight` (Tire pressure, back right): Represents the tire pressure for the back-right tire. (kilopascal)
 * `tirePressuresFrontLeft` (Tire pressure, front left): Represents the tire pressure for the front-left tire. (kilopascal)
@@ -8086,6 +8118,99 @@ client.beta_ap_is.get_ridership_passenger(
 </dl>
 </details>
 
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_ridership_route_setups</a>(...) -&gt; AsyncHttpResponse[RidershipRouteSetupsListRidershipRouteSetupsResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List all route setups for a ridership account.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Ridership** under the Ridership category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.list_ridership_route_setups(
+    account_id="accountId",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**account_id:** `str` — The Samsara UUID of the ridership account to list route setups for.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default and max for this value is 512 objects.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">create_ridership_route_setup</a>(...) -&gt; AsyncHttpResponse[RidershipRouteSetupsCreateRidershipRouteSetupResponseBody]</code></summary>
 <dl>
 <dd>
@@ -8098,7 +8223,7 @@ client.beta_ap_is.get_ridership_passenger(
 <dl>
 <dd>
 
-Create or replace the passenger assignment setup for a route.
+Create the passenger assignment setup for a route.
 
  <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -14777,7 +14902,7 @@ client.driver_vehicle_assignments.get_driver_vehicle_assignments(
 <dl>
 <dd>
 
-**assignment_type:** `typing.Optional[GetDriverVehicleAssignmentsRequestAssignmentType]` — Specifies which assignment type to filter by.  Valid values: `HOS`, `idCard`, `static`, `faceId`, `tachograph`, `safetyManual`, `RFID`, `trailer`, `external`, `qrCode`, `driverApp`
+**assignment_type:** `typing.Optional[GetDriverVehicleAssignmentsRequestAssignmentType]` — Specifies which assignment type to filter by.  Valid values: `HOS`, `idCard`, `static`, `faceId`, `tachograph`, `safetyManual`, `RFID`, `trailer`, `external`, `qrCode`, `driverApp`, `voiceSignIn`
     
 </dd>
 </dl>
@@ -27447,7 +27572,7 @@ client.organization_info.get_organization_info()
 </details>
 
 ## Preview APIs
-<details><summary><code>client.preview_ap_is.<a href="src/samsara/preview_ap_is/client.py">list_device_recovery_assets</a>(...) -&gt; AsyncHttpResponse[DeviceRecoveryListDeviceRecoveryAssetsResponseBody]</code></summary>
+<details><summary><code>client.preview_ap_is.<a href="src/samsara/preview_ap_is/client.py">list_device_recovery_missing_assets</a>(...) -&gt; AsyncHttpResponse[DeviceRecoveryListDeviceRecoveryMissingAssetsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -27459,7 +27584,7 @@ client.organization_info.get_organization_info()
 <dl>
 <dd>
 
-List all assets that have a device recovery state for the organization. Optionally filter by one or more statuses (UNKNOWN, MISSING, LOCATED, RECOVERED).
+List all assets that are currently marked as missing for the organization.
 
  <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -27492,7 +27617,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.preview_ap_is.list_device_recovery_assets()
+client.preview_ap_is.list_device_recovery_missing_assets()
 
 ```
 </dd>
@@ -27504,19 +27629,6 @@ client.preview_ap_is.list_device_recovery_assets()
 
 <dl>
 <dd>
-
-<dl>
-<dd>
-
-**statuses:** `typing.Optional[
-    typing.Union[
-        ListDeviceRecoveryAssetsRequestStatusesItem,
-        typing.Sequence[ListDeviceRecoveryAssetsRequestStatusesItem],
-    ]
-]` — Filter by one or more recovery statuses. Only assets matching the specified statuses will be returned. Returns all statuses if not specified.
-    
-</dd>
-</dl>
 
 <dl>
 <dd>
@@ -27739,89 +27851,6 @@ client.preview_ap_is.recover_asset(
 <dd>
 
 **additional_details:** `typing.Optional[str]` — Optional additional details about the recovery.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.preview_ap_is.<a href="src/samsara/preview_ap_is/client.py">get_asset_recovery_state</a>(...) -&gt; AsyncHttpResponse[DeviceRecoveryGetAssetRecoveryStateResponseBody]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Get the current recovery state for a specific asset, including recovery photos and notification recipients.
-
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Read Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
-
-- Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
-
-- When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.preview_ap_is.get_asset_recovery_state(
-    id="id",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**id:** `str` — The ID of the asset. This can be a Samsara internal ID or an external ID in the format `key:value`.
     
 </dd>
 </dl>
