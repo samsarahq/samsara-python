@@ -3380,6 +3380,66 @@ if typing.TYPE_CHECKING:
     from .location_type import LocationType
     from .log_meta_data_object_response_body import LogMetaDataObjectResponseBody
     from .longitude import Longitude
+    from .maintenance_vendors_list_maintenance_vendors_bad_gateway_error_response_body import (
+        MaintenanceVendorsListMaintenanceVendorsBadGatewayErrorResponseBody,
+    )
+    from .maintenance_vendors_list_maintenance_vendors_gateway_timeout_error_response_body import (
+        MaintenanceVendorsListMaintenanceVendorsGatewayTimeoutErrorResponseBody,
+    )
+    from .maintenance_vendors_list_maintenance_vendors_internal_server_error_response_body import (
+        MaintenanceVendorsListMaintenanceVendorsInternalServerErrorResponseBody,
+    )
+    from .maintenance_vendors_list_maintenance_vendors_method_not_allowed_error_response_body import (
+        MaintenanceVendorsListMaintenanceVendorsMethodNotAllowedErrorResponseBody,
+    )
+    from .maintenance_vendors_list_maintenance_vendors_not_found_error_response_body import (
+        MaintenanceVendorsListMaintenanceVendorsNotFoundErrorResponseBody,
+    )
+    from .maintenance_vendors_list_maintenance_vendors_not_implemented_error_response_body import (
+        MaintenanceVendorsListMaintenanceVendorsNotImplementedErrorResponseBody,
+    )
+    from .maintenance_vendors_list_maintenance_vendors_response_body import (
+        MaintenanceVendorsListMaintenanceVendorsResponseBody,
+    )
+    from .maintenance_vendors_list_maintenance_vendors_service_unavailable_error_response_body import (
+        MaintenanceVendorsListMaintenanceVendorsServiceUnavailableErrorResponseBody,
+    )
+    from .maintenance_vendors_list_maintenance_vendors_too_many_requests_error_response_body import (
+        MaintenanceVendorsListMaintenanceVendorsTooManyRequestsErrorResponseBody,
+    )
+    from .maintenance_vendors_list_maintenance_vendors_unauthorized_error_response_body import (
+        MaintenanceVendorsListMaintenanceVendorsUnauthorizedErrorResponseBody,
+    )
+    from .maintenance_vendors_list_vendor_categories_bad_gateway_error_response_body import (
+        MaintenanceVendorsListVendorCategoriesBadGatewayErrorResponseBody,
+    )
+    from .maintenance_vendors_list_vendor_categories_gateway_timeout_error_response_body import (
+        MaintenanceVendorsListVendorCategoriesGatewayTimeoutErrorResponseBody,
+    )
+    from .maintenance_vendors_list_vendor_categories_internal_server_error_response_body import (
+        MaintenanceVendorsListVendorCategoriesInternalServerErrorResponseBody,
+    )
+    from .maintenance_vendors_list_vendor_categories_method_not_allowed_error_response_body import (
+        MaintenanceVendorsListVendorCategoriesMethodNotAllowedErrorResponseBody,
+    )
+    from .maintenance_vendors_list_vendor_categories_not_found_error_response_body import (
+        MaintenanceVendorsListVendorCategoriesNotFoundErrorResponseBody,
+    )
+    from .maintenance_vendors_list_vendor_categories_not_implemented_error_response_body import (
+        MaintenanceVendorsListVendorCategoriesNotImplementedErrorResponseBody,
+    )
+    from .maintenance_vendors_list_vendor_categories_response_body import (
+        MaintenanceVendorsListVendorCategoriesResponseBody,
+    )
+    from .maintenance_vendors_list_vendor_categories_service_unavailable_error_response_body import (
+        MaintenanceVendorsListVendorCategoriesServiceUnavailableErrorResponseBody,
+    )
+    from .maintenance_vendors_list_vendor_categories_too_many_requests_error_response_body import (
+        MaintenanceVendorsListVendorCategoriesTooManyRequestsErrorResponseBody,
+    )
+    from .maintenance_vendors_list_vendor_categories_unauthorized_error_response_body import (
+        MaintenanceVendorsListVendorCategoriesUnauthorizedErrorResponseBody,
+    )
     from .media_object_response_body import MediaObjectResponseBody
     from .media_object_response_body_camera_role import MediaObjectResponseBodyCameraRole
     from .media_object_response_body_input import MediaObjectResponseBodyInput
@@ -6744,6 +6804,8 @@ if typing.TYPE_CHECKING:
     from .vehicles_lock_unlock_vehicle_unauthorized_error_response_body import (
         VehiclesLockUnlockVehicleUnauthorizedErrorResponseBody,
     )
+    from .vendor_category_object_response_body import VendorCategoryObjectResponseBody
+    from .vendor_object_response_body import VendorObjectResponseBody
     from .vertex_request_body import VertexRequestBody
     from .vertex_response_body import VertexResponseBody
     from .voice_coaching_settings_object_response_body import VoiceCoachingSettingsObjectResponseBody
@@ -8792,6 +8854,26 @@ _dynamic_imports: typing.Dict[str, str] = {
     "LocationType": ".location_type",
     "LogMetaDataObjectResponseBody": ".log_meta_data_object_response_body",
     "Longitude": ".longitude",
+    "MaintenanceVendorsListMaintenanceVendorsBadGatewayErrorResponseBody": ".maintenance_vendors_list_maintenance_vendors_bad_gateway_error_response_body",
+    "MaintenanceVendorsListMaintenanceVendorsGatewayTimeoutErrorResponseBody": ".maintenance_vendors_list_maintenance_vendors_gateway_timeout_error_response_body",
+    "MaintenanceVendorsListMaintenanceVendorsInternalServerErrorResponseBody": ".maintenance_vendors_list_maintenance_vendors_internal_server_error_response_body",
+    "MaintenanceVendorsListMaintenanceVendorsMethodNotAllowedErrorResponseBody": ".maintenance_vendors_list_maintenance_vendors_method_not_allowed_error_response_body",
+    "MaintenanceVendorsListMaintenanceVendorsNotFoundErrorResponseBody": ".maintenance_vendors_list_maintenance_vendors_not_found_error_response_body",
+    "MaintenanceVendorsListMaintenanceVendorsNotImplementedErrorResponseBody": ".maintenance_vendors_list_maintenance_vendors_not_implemented_error_response_body",
+    "MaintenanceVendorsListMaintenanceVendorsResponseBody": ".maintenance_vendors_list_maintenance_vendors_response_body",
+    "MaintenanceVendorsListMaintenanceVendorsServiceUnavailableErrorResponseBody": ".maintenance_vendors_list_maintenance_vendors_service_unavailable_error_response_body",
+    "MaintenanceVendorsListMaintenanceVendorsTooManyRequestsErrorResponseBody": ".maintenance_vendors_list_maintenance_vendors_too_many_requests_error_response_body",
+    "MaintenanceVendorsListMaintenanceVendorsUnauthorizedErrorResponseBody": ".maintenance_vendors_list_maintenance_vendors_unauthorized_error_response_body",
+    "MaintenanceVendorsListVendorCategoriesBadGatewayErrorResponseBody": ".maintenance_vendors_list_vendor_categories_bad_gateway_error_response_body",
+    "MaintenanceVendorsListVendorCategoriesGatewayTimeoutErrorResponseBody": ".maintenance_vendors_list_vendor_categories_gateway_timeout_error_response_body",
+    "MaintenanceVendorsListVendorCategoriesInternalServerErrorResponseBody": ".maintenance_vendors_list_vendor_categories_internal_server_error_response_body",
+    "MaintenanceVendorsListVendorCategoriesMethodNotAllowedErrorResponseBody": ".maintenance_vendors_list_vendor_categories_method_not_allowed_error_response_body",
+    "MaintenanceVendorsListVendorCategoriesNotFoundErrorResponseBody": ".maintenance_vendors_list_vendor_categories_not_found_error_response_body",
+    "MaintenanceVendorsListVendorCategoriesNotImplementedErrorResponseBody": ".maintenance_vendors_list_vendor_categories_not_implemented_error_response_body",
+    "MaintenanceVendorsListVendorCategoriesResponseBody": ".maintenance_vendors_list_vendor_categories_response_body",
+    "MaintenanceVendorsListVendorCategoriesServiceUnavailableErrorResponseBody": ".maintenance_vendors_list_vendor_categories_service_unavailable_error_response_body",
+    "MaintenanceVendorsListVendorCategoriesTooManyRequestsErrorResponseBody": ".maintenance_vendors_list_vendor_categories_too_many_requests_error_response_body",
+    "MaintenanceVendorsListVendorCategoriesUnauthorizedErrorResponseBody": ".maintenance_vendors_list_vendor_categories_unauthorized_error_response_body",
     "MediaObjectResponseBody": ".media_object_response_body",
     "MediaObjectResponseBodyCameraRole": ".media_object_response_body_camera_role",
     "MediaObjectResponseBodyInput": ".media_object_response_body_input",
@@ -10446,6 +10528,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "VehiclesLockUnlockVehicleServiceUnavailableErrorResponseBody": ".vehicles_lock_unlock_vehicle_service_unavailable_error_response_body",
     "VehiclesLockUnlockVehicleTooManyRequestsErrorResponseBody": ".vehicles_lock_unlock_vehicle_too_many_requests_error_response_body",
     "VehiclesLockUnlockVehicleUnauthorizedErrorResponseBody": ".vehicles_lock_unlock_vehicle_unauthorized_error_response_body",
+    "VendorCategoryObjectResponseBody": ".vendor_category_object_response_body",
+    "VendorObjectResponseBody": ".vendor_object_response_body",
     "VertexRequestBody": ".vertex_request_body",
     "VertexResponseBody": ".vertex_response_body",
     "VoiceCoachingSettingsObjectResponseBody": ".voice_coaching_settings_object_response_body",
@@ -12316,6 +12400,26 @@ __all__ = [
     "LocationType",
     "LogMetaDataObjectResponseBody",
     "Longitude",
+    "MaintenanceVendorsListMaintenanceVendorsBadGatewayErrorResponseBody",
+    "MaintenanceVendorsListMaintenanceVendorsGatewayTimeoutErrorResponseBody",
+    "MaintenanceVendorsListMaintenanceVendorsInternalServerErrorResponseBody",
+    "MaintenanceVendorsListMaintenanceVendorsMethodNotAllowedErrorResponseBody",
+    "MaintenanceVendorsListMaintenanceVendorsNotFoundErrorResponseBody",
+    "MaintenanceVendorsListMaintenanceVendorsNotImplementedErrorResponseBody",
+    "MaintenanceVendorsListMaintenanceVendorsResponseBody",
+    "MaintenanceVendorsListMaintenanceVendorsServiceUnavailableErrorResponseBody",
+    "MaintenanceVendorsListMaintenanceVendorsTooManyRequestsErrorResponseBody",
+    "MaintenanceVendorsListMaintenanceVendorsUnauthorizedErrorResponseBody",
+    "MaintenanceVendorsListVendorCategoriesBadGatewayErrorResponseBody",
+    "MaintenanceVendorsListVendorCategoriesGatewayTimeoutErrorResponseBody",
+    "MaintenanceVendorsListVendorCategoriesInternalServerErrorResponseBody",
+    "MaintenanceVendorsListVendorCategoriesMethodNotAllowedErrorResponseBody",
+    "MaintenanceVendorsListVendorCategoriesNotFoundErrorResponseBody",
+    "MaintenanceVendorsListVendorCategoriesNotImplementedErrorResponseBody",
+    "MaintenanceVendorsListVendorCategoriesResponseBody",
+    "MaintenanceVendorsListVendorCategoriesServiceUnavailableErrorResponseBody",
+    "MaintenanceVendorsListVendorCategoriesTooManyRequestsErrorResponseBody",
+    "MaintenanceVendorsListVendorCategoriesUnauthorizedErrorResponseBody",
     "MediaObjectResponseBody",
     "MediaObjectResponseBodyCameraRole",
     "MediaObjectResponseBodyInput",
@@ -13970,6 +14074,8 @@ __all__ = [
     "VehiclesLockUnlockVehicleServiceUnavailableErrorResponseBody",
     "VehiclesLockUnlockVehicleTooManyRequestsErrorResponseBody",
     "VehiclesLockUnlockVehicleUnauthorizedErrorResponseBody",
+    "VendorCategoryObjectResponseBody",
+    "VendorObjectResponseBody",
     "VertexRequestBody",
     "VertexResponseBody",
     "VoiceCoachingSettingsObjectResponseBody",

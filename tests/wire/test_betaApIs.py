@@ -162,6 +162,22 @@ def test_betaApIs_list_carb_ctc_vehicle_history() -> None:
     verify_request_count(test_id, "GET", "/fleet/carb-ctc/vehicles/history", {"vehicleIds": "vehicleIds"}, 1)
 
 
+def test_betaApIs_list_vendor_categories() -> None:
+    """Test listVendorCategories endpoint with WireMock"""
+    test_id = "beta_ap_is.list_vendor_categories.0"
+    client = get_client(test_id)
+    client.beta_ap_is.list_vendor_categories()
+    verify_request_count(test_id, "GET", "/fleet/maintenance/vendor-categories", None, 1)
+
+
+def test_betaApIs_list_maintenance_vendors() -> None:
+    """Test listMaintenanceVendors endpoint with WireMock"""
+    test_id = "beta_ap_is.list_maintenance_vendors.0"
+    client = get_client(test_id)
+    client.beta_ap_is.list_maintenance_vendors()
+    verify_request_count(test_id, "GET", "/fleet/maintenance/vendors", None, 1)
+
+
 def test_betaApIs_get_engine_immobilizer_states() -> None:
     """Test getEngineImmobilizerStates endpoint with WireMock"""
     test_id = "beta_ap_is.get_engine_immobilizer_states.0"

@@ -31,6 +31,12 @@ from ..types.jobs_create_job_response_body import JobsCreateJobResponseBody
 from ..types.jobs_delete_job_response_body import JobsDeleteJobResponseBody
 from ..types.jobs_get_jobs_response_body import JobsGetJobsResponseBody
 from ..types.jobs_patch_job_response_body import JobsPatchJobResponseBody
+from ..types.maintenance_vendors_list_maintenance_vendors_response_body import (
+    MaintenanceVendorsListMaintenanceVendorsResponseBody,
+)
+from ..types.maintenance_vendors_list_vendor_categories_response_body import (
+    MaintenanceVendorsListVendorCategoriesResponseBody,
+)
 from ..types.order_input_object_request_body import OrderInputObjectRequestBody
 from ..types.patch_job_object_request_body import PatchJobObjectRequestBody
 from ..types.plan_orders_create_plan_orders_response_body import PlanOrdersCreatePlanOrdersResponseBody
@@ -1525,6 +1531,95 @@ class BetaApIsClient:
             end_time=end_time,
             after=after,
             request_options=request_options,
+        )
+        return _response.data
+
+    def list_vendor_categories(
+        self, *, after: typing.Optional[str] = None, request_options: typing.Optional[RequestOptions] = None
+    ) -> MaintenanceVendorsListVendorCategoriesResponseBody:
+        """
+        Returns the list of vendor categories available for maintenance vendors.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Work Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        MaintenanceVendorsListVendorCategoriesResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.list_vendor_categories()
+        """
+        _response = self._raw_client.list_vendor_categories(after=after, request_options=request_options)
+        return _response.data
+
+    def list_maintenance_vendors(
+        self,
+        *,
+        ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        include_external_ids: typing.Optional[bool] = None,
+        after: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> MaintenanceVendorsListMaintenanceVendorsResponseBody:
+        """
+        Returns a paginated list of maintenance vendors in the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Work Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A comma-separated list of up to 100 vendor IDs to filter on. Accepts Samsara UUIDs or external IDs in key:value format. The default external ID key is samsara.vendorId (e.g. samsara.vendorId:V-12345). See [external IDs](https://developers.samsara.com/docs/external-ids).
+
+        include_external_ids : typing.Optional[bool]
+            When true, include externalIds on each vendor in the response. Default false.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        MaintenanceVendorsListMaintenanceVendorsResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.list_maintenance_vendors()
+        """
+        _response = self._raw_client.list_maintenance_vendors(
+            ids=ids, include_external_ids=include_external_ids, after=after, request_options=request_options
         )
         return _response.data
 
@@ -5992,6 +6087,111 @@ class AsyncBetaApIsClient:
             end_time=end_time,
             after=after,
             request_options=request_options,
+        )
+        return _response.data
+
+    async def list_vendor_categories(
+        self, *, after: typing.Optional[str] = None, request_options: typing.Optional[RequestOptions] = None
+    ) -> MaintenanceVendorsListVendorCategoriesResponseBody:
+        """
+        Returns the list of vendor categories available for maintenance vendors.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Work Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        MaintenanceVendorsListVendorCategoriesResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.list_vendor_categories()
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.list_vendor_categories(after=after, request_options=request_options)
+        return _response.data
+
+    async def list_maintenance_vendors(
+        self,
+        *,
+        ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        include_external_ids: typing.Optional[bool] = None,
+        after: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> MaintenanceVendorsListMaintenanceVendorsResponseBody:
+        """
+        Returns a paginated list of maintenance vendors in the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Work Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A comma-separated list of up to 100 vendor IDs to filter on. Accepts Samsara UUIDs or external IDs in key:value format. The default external ID key is samsara.vendorId (e.g. samsara.vendorId:V-12345). See [external IDs](https://developers.samsara.com/docs/external-ids).
+
+        include_external_ids : typing.Optional[bool]
+            When true, include externalIds on each vendor in the response. Default false.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        MaintenanceVendorsListMaintenanceVendorsResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.list_maintenance_vendors()
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.list_maintenance_vendors(
+            ids=ids, include_external_ids=include_external_ids, after=after, request_options=request_options
         )
         return _response.data
 
