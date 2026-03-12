@@ -18,6 +18,7 @@ DriverVehicleAssignmentV2ObjectResponseBodyAssignmentType = typing.Union[
         "qrCode",
         "driverApp",
         "voiceSignIn",
+        "smartAssign",
     ],
     typing.Any,
 ]
