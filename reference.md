@@ -15073,7 +15073,7 @@ client.driver_vehicle_assignments.get_driver_vehicle_assignments(
 <dl>
 <dd>
 
-**assignment_type:** `typing.Optional[GetDriverVehicleAssignmentsRequestAssignmentType]` — Specifies which assignment type to filter by.  Valid values: `HOS`, `idCard`, `static`, `faceId`, `tachograph`, `safetyManual`, `RFID`, `trailer`, `external`, `qrCode`, `driverApp`, `voiceSignIn`
+**assignment_type:** `typing.Optional[GetDriverVehicleAssignmentsRequestAssignmentType]` — Specifies which assignment type to filter by.  Valid values: `HOS`, `idCard`, `static`, `faceId`, `tachograph`, `safetyManual`, `RFID`, `trailer`, `external`, `qrCode`, `driverApp`, `voiceSignIn`, `smartAssign`
     
 </dd>
 </dl>
