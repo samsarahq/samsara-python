@@ -7,6 +7,9 @@ from importlib import import_module
 
 if typing.TYPE_CHECKING:
     from .types import (
+        DeviceRecoveryRecoverAssetRequestBodyMissingReason,
+        DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus,
+        DeviceRecoveryRecoverAssetRequestBodyStatus,
         FunctionsStartFunctionRunRequestBodyParamsOverride,
         GetAssetsInputsRequestType,
         GetDriverEfficiencyRequestDriverActivationStatus,
@@ -21,6 +24,9 @@ if typing.TYPE_CHECKING:
         RidershipPassengersUpdateRidershipPassengerRequestBodyClassification,
     )
 _dynamic_imports: typing.Dict[str, str] = {
+    "DeviceRecoveryRecoverAssetRequestBodyMissingReason": ".types",
+    "DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus": ".types",
+    "DeviceRecoveryRecoverAssetRequestBodyStatus": ".types",
     "FunctionsStartFunctionRunRequestBodyParamsOverride": ".types",
     "GetAssetsInputsRequestType": ".types",
     "GetDriverEfficiencyRequestDriverActivationStatus": ".types",
@@ -58,6 +64,9 @@ def __dir__():
 
 
 __all__ = [
+    "DeviceRecoveryRecoverAssetRequestBodyMissingReason",
+    "DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus",
+    "DeviceRecoveryRecoverAssetRequestBodyStatus",
     "FunctionsStartFunctionRunRequestBodyParamsOverride",
     "GetAssetsInputsRequestType",
     "GetDriverEfficiencyRequestDriverActivationStatus",

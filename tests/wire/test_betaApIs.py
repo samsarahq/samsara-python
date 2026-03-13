@@ -146,6 +146,30 @@ def test_betaApIs_get_devices() -> None:
     verify_request_count(test_id, "GET", "/devices", None, 1)
 
 
+def test_betaApIs_list_device_recovery_missing_assets() -> None:
+    """Test listDeviceRecoveryMissingAssets endpoint with WireMock"""
+    test_id = "beta_ap_is.list_device_recovery_missing_assets.0"
+    client = get_client(test_id)
+    client.beta_ap_is.list_device_recovery_missing_assets()
+    verify_request_count(test_id, "GET", "/fleet/assets/device-recovery-missing", None, 1)
+
+
+def test_betaApIs_mark_asset_missing() -> None:
+    """Test markAssetMissing endpoint with WireMock"""
+    test_id = "beta_ap_is.mark_asset_missing.0"
+    client = get_client(test_id)
+    client.beta_ap_is.mark_asset_missing(id="id")
+    verify_request_count(test_id, "POST", "/fleet/assets/device-recovery/id/missing", None, 1)
+
+
+def test_betaApIs_recover_asset() -> None:
+    """Test recoverAsset endpoint with WireMock"""
+    test_id = "beta_ap_is.recover_asset.0"
+    client = get_client(test_id)
+    client.beta_ap_is.recover_asset(id="id", missing_reason="MISPLACED", recovery_status="YES", status="RECOVERED")
+    verify_request_count(test_id, "POST", "/fleet/assets/device-recovery/id/recovered", None, 1)
+
+
 def test_betaApIs_list_carb_ctc_vehicles() -> None:
     """Test listCarbCtcVehicles endpoint with WireMock"""
     test_id = "beta_ap_is.list_carb_ctc_vehicles.0"

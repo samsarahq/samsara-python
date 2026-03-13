@@ -6,7 +6,7 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
-from .notification_recipient_response_body import NotificationRecipientResponseBody
+from .notification_recipient_response_response_body import NotificationRecipientResponseResponseBody
 from .recovery_photo_response_body import RecoveryPhotoResponseBody
 
 
@@ -30,7 +30,7 @@ class RecoveryStateResponseBody(UniversalBaseModel):
     A note associated with the recovery.
     """
 
-    notification_recipients: typing.Optional[typing.List[NotificationRecipientResponseBody]] = pydantic.Field(
+    notification_recipients: typing.Optional[typing.List[NotificationRecipientResponseResponseBody]] = pydantic.Field(
         default=None
     )
     """

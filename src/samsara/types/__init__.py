@@ -3549,9 +3549,9 @@ if typing.TYPE_CHECKING:
     from .notification_recipient_request_body_notification_types_item import (
         NotificationRecipientRequestBodyNotificationTypesItem,
     )
-    from .notification_recipient_response_body import NotificationRecipientResponseBody
-    from .notification_recipient_response_body_notification_types_item import (
-        NotificationRecipientResponseBodyNotificationTypesItem,
+    from .notification_recipient_response_response_body import NotificationRecipientResponseResponseBody
+    from .notification_recipient_response_response_body_notification_types_item import (
+        NotificationRecipientResponseResponseBodyNotificationTypesItem,
     )
     from .number_data_point import NumberDataPoint
     from .number_field_type_meta_data_object_response_body import NumberFieldTypeMetaDataObjectResponseBody
@@ -8923,8 +8923,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "MultipleChoiceValueObjectResponseBody": ".multiple_choice_value_object_response_body",
     "NotificationRecipientRequestBody": ".notification_recipient_request_body",
     "NotificationRecipientRequestBodyNotificationTypesItem": ".notification_recipient_request_body_notification_types_item",
-    "NotificationRecipientResponseBody": ".notification_recipient_response_body",
-    "NotificationRecipientResponseBodyNotificationTypesItem": ".notification_recipient_response_body_notification_types_item",
+    "NotificationRecipientResponseResponseBody": ".notification_recipient_response_response_body",
+    "NotificationRecipientResponseResponseBodyNotificationTypesItem": ".notification_recipient_response_response_body_notification_types_item",
     "NumberDataPoint": ".number_data_point",
     "NumberFieldTypeMetaDataObjectResponseBody": ".number_field_type_meta_data_object_response_body",
     "OperationalSettingsObjectRequestBody": ".operational_settings_object_request_body",
@@ -12469,8 +12469,8 @@ __all__ = [
     "MultipleChoiceValueObjectResponseBody",
     "NotificationRecipientRequestBody",
     "NotificationRecipientRequestBodyNotificationTypesItem",
-    "NotificationRecipientResponseBody",
-    "NotificationRecipientResponseBodyNotificationTypesItem",
+    "NotificationRecipientResponseResponseBody",
+    "NotificationRecipientResponseResponseBodyNotificationTypesItem",
     "NumberDataPoint",
     "NumberFieldTypeMetaDataObjectResponseBody",
     "OperationalSettingsObjectRequestBody",

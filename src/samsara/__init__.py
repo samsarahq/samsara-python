@@ -1746,8 +1746,8 @@ if typing.TYPE_CHECKING:
         MultipleChoiceValueObjectResponseBody,
         NotificationRecipientRequestBody,
         NotificationRecipientRequestBodyNotificationTypesItem,
-        NotificationRecipientResponseBody,
-        NotificationRecipientResponseBodyNotificationTypesItem,
+        NotificationRecipientResponseResponseBody,
+        NotificationRecipientResponseResponseBodyNotificationTypesItem,
         NumberDataPoint,
         NumberFieldTypeMetaDataObjectResponseBody,
         OperationalSettingsObjectRequestBody,
@@ -3616,6 +3616,9 @@ if typing.TYPE_CHECKING:
         UpdateAttributeRequestEntityType,
     )
     from .beta_ap_is import (
+        DeviceRecoveryRecoverAssetRequestBodyMissingReason,
+        DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus,
+        DeviceRecoveryRecoverAssetRequestBodyStatus,
         FunctionsStartFunctionRunRequestBodyParamsOverride,
         GetAssetsInputsRequestType,
         GetDriverEfficiencyRequestDriverActivationStatus,
@@ -3676,11 +3679,6 @@ if typing.TYPE_CHECKING:
         ListUploadedMediaRequestTriggerReasonsItem,
         MediaRetrievalPostMediaRetrievalRequestBodyInputsItem,
         MediaRetrievalPostMediaRetrievalRequestBodyMediaType,
-    )
-    from .preview_ap_is import (
-        DeviceRecoveryRecoverAssetRequestBodyMissingReason,
-        DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus,
-        DeviceRecoveryRecoverAssetRequestBodyStatus,
     )
     from .routes import GetRoutesFeedRequestExpand
     from .safety import GetSafetyEventsV2StreamRequestQueryByTimeField
@@ -4157,9 +4155,9 @@ _dynamic_imports: typing.Dict[str, str] = {
     "DeviceRecoveryRecoverAssetMethodNotAllowedErrorResponseBody": ".types",
     "DeviceRecoveryRecoverAssetNotFoundErrorResponseBody": ".types",
     "DeviceRecoveryRecoverAssetNotImplementedErrorResponseBody": ".types",
-    "DeviceRecoveryRecoverAssetRequestBodyMissingReason": ".preview_ap_is",
-    "DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus": ".preview_ap_is",
-    "DeviceRecoveryRecoverAssetRequestBodyStatus": ".preview_ap_is",
+    "DeviceRecoveryRecoverAssetRequestBodyMissingReason": ".beta_ap_is",
+    "DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus": ".beta_ap_is",
+    "DeviceRecoveryRecoverAssetRequestBodyStatus": ".beta_ap_is",
     "DeviceRecoveryRecoverAssetResponseBody": ".types",
     "DeviceRecoveryRecoverAssetServiceUnavailableErrorResponseBody": ".types",
     "DeviceRecoveryRecoverAssetTooManyRequestsErrorResponseBody": ".types",
@@ -5541,8 +5539,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "NotImplementedError": ".errors",
     "NotificationRecipientRequestBody": ".types",
     "NotificationRecipientRequestBodyNotificationTypesItem": ".types",
-    "NotificationRecipientResponseBody": ".types",
-    "NotificationRecipientResponseBodyNotificationTypesItem": ".types",
+    "NotificationRecipientResponseResponseBody": ".types",
+    "NotificationRecipientResponseResponseBodyNotificationTypesItem": ".types",
     "NumberDataPoint": ".types",
     "NumberFieldTypeMetaDataObjectResponseBody": ".types",
     "OperationalSettingsObjectRequestBody": ".types",
@@ -9254,8 +9252,8 @@ __all__ = [
     "NotImplementedError",
     "NotificationRecipientRequestBody",
     "NotificationRecipientRequestBodyNotificationTypesItem",
-    "NotificationRecipientResponseBody",
-    "NotificationRecipientResponseBodyNotificationTypesItem",
+    "NotificationRecipientResponseResponseBody",
+    "NotificationRecipientResponseResponseBodyNotificationTypesItem",
     "NumberDataPoint",
     "NumberFieldTypeMetaDataObjectResponseBody",
     "OperationalSettingsObjectRequestBody",
