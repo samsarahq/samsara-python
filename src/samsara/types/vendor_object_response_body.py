@@ -44,6 +44,14 @@ class VendorObjectResponseBody(UniversalBaseModel):
         FieldMetadata(alias="servicesProvided"),
         pydantic.Field(alias="servicesProvided", description="Description of services provided by the vendor."),
     ] = None
+    vendor_id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="vendorId"),
+        pydantic.Field(
+            alias="vendorId",
+            description="The vendor's legacy vendor ID from the source system. Multiple vendor locations may share the same vendorId if they belong to the same parent company.",
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

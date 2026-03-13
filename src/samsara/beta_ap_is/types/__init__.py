@@ -6,6 +6,13 @@ import typing
 from importlib import import_module
 
 if typing.TYPE_CHECKING:
+    from .device_recovery_recover_asset_request_body_missing_reason import (
+        DeviceRecoveryRecoverAssetRequestBodyMissingReason,
+    )
+    from .device_recovery_recover_asset_request_body_recovery_status import (
+        DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus,
+    )
+    from .device_recovery_recover_asset_request_body_status import DeviceRecoveryRecoverAssetRequestBodyStatus
     from .functions_start_function_run_request_body_params_override import (
         FunctionsStartFunctionRunRequestBodyParamsOverride,
     )
@@ -25,6 +32,9 @@ if typing.TYPE_CHECKING:
         RidershipPassengersUpdateRidershipPassengerRequestBodyClassification,
     )
 _dynamic_imports: typing.Dict[str, str] = {
+    "DeviceRecoveryRecoverAssetRequestBodyMissingReason": ".device_recovery_recover_asset_request_body_missing_reason",
+    "DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus": ".device_recovery_recover_asset_request_body_recovery_status",
+    "DeviceRecoveryRecoverAssetRequestBodyStatus": ".device_recovery_recover_asset_request_body_status",
     "FunctionsStartFunctionRunRequestBodyParamsOverride": ".functions_start_function_run_request_body_params_override",
     "GetAssetsInputsRequestType": ".get_assets_inputs_request_type",
     "GetDriverEfficiencyRequestDriverActivationStatus": ".get_driver_efficiency_request_driver_activation_status",
@@ -62,6 +72,9 @@ def __dir__():
 
 
 __all__ = [
+    "DeviceRecoveryRecoverAssetRequestBodyMissingReason",
+    "DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus",
+    "DeviceRecoveryRecoverAssetRequestBodyStatus",
     "FunctionsStartFunctionRunRequestBodyParamsOverride",
     "GetAssetsInputsRequestType",
     "GetDriverEfficiencyRequestDriverActivationStatus",
