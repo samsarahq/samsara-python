@@ -6,8 +6,12 @@ import typing
 from importlib import import_module
 
 if typing.TYPE_CHECKING:
-    from .types import SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState
-_dynamic_imports: typing.Dict[str, str] = {"SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState": ".types"}
+    from .safety_events_v_2_patch_safety_events_v_2_batch_request_body_event_state import (
+        SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState,
+    )
+_dynamic_imports: typing.Dict[str, str] = {
+    "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState": ".safety_events_v_2_patch_safety_events_v_2_batch_request_body_event_state"
+}
 
 
 def __getattr__(attr_name: str) -> typing.Any:

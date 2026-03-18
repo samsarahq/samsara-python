@@ -10552,12 +10552,7 @@ client = Samsara(
 )
 client.media.post_media_retrieval(
     end_time="2019-06-13T19:08:55Z",
-    inputs=[
-        "dashcamRoadFacing",
-        "dashcamRoadFacing",
-        "dashcamRoadFacing",
-        "dashcamRoadFacing",
-    ],
+    inputs=["dashcamRoadFacing", "dashcamRoadFacing"],
     media_type="image",
     start_time="2019-06-13T19:08:25Z",
     vehicle_id="1234",
@@ -28023,6 +28018,114 @@ client.organization_info.get_organization_info()
 </details>
 
 ## Preview APIs
+<details><summary><code>client.preview_ap_is.<a href="src/samsara/preview_ap_is/client.py">list_associations</a>(...) -&gt; AsyncHttpResponse[AssociationsListAssociationsResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List associations between vehicles and peripheral devices within a given time range. Associations represent the relationship between a central device (vehicle) and a peripheral device (e.g. asset tag). An association with a null endTime is still active.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+- Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+- When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.preview_ap_is.list_associations(
+    start_time="startTime",
+    end_time="endTime",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**start_time:** `str` — A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**end_time:** `str` — An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**peripheral_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — A comma-separated list of peripheral asset IDs to filter associations by. (Example: 1234,5678)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.preview_ap_is.<a href="src/samsara/preview_ap_is/client.py">create_driver_auth_token</a>(...) -&gt; AsyncHttpResponse[DriversAuthTokenCreateDriverAuthTokenResponseBody]</code></summary>
 <dl>
 <dd>
@@ -28277,6 +28380,124 @@ client.preview_ap_is.unlock_vehicle(
 <dd>
 
 **id:** `str` — The ID of the vehicle to lock or unlock. This can be a Samsara internal ID or an external ID in the format `samsara.vin:{VIN}`.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.preview_ap_is.<a href="src/samsara/preview_ap_is/client.py">patch_safety_events_v_2_batch</a>(...) -&gt; AsyncHttpResponse[SafetyEventsV2PatchSafetyEventsV2BatchResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Asynchronously update eventState and/or context labels for one or more Safety Events. Returns 202 Accepted immediately. State changes propagate asynchronously; use GET /safety-events to confirm updated state. If any safetyEventIds are not found, the entire request fails with 404 before any mutations are executed. If both eventState and label fields are provided, the two mutations execute serially and are not transactional — a label mutation failure will not roll back a successful state change.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+- Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+- When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.preview_ap_is.patch_safety_events_v_2_batch(
+    safety_event_ids=[
+        "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
+        "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
+    ],
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**safety_event_ids:** `typing.Sequence[str]` — IDs of the Safety Events to update. Maximum 200.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**context_label_ids_to_add:** `typing.Optional[typing.Sequence[str]]` — Context label IDs to add to the Safety Events.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**context_label_ids_to_remove:** `typing.Optional[typing.Sequence[str]]` — Context label IDs to remove from the Safety Events.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**dismissal_reason:** `typing.Optional[PatchSafetyEventsDismissalReasonBodyRequestBody]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**event_state:** `typing.Optional[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState]` — The new state to apply to all specified Safety Events.  Valid values: `needsReview`, `reviewed`, `needsCoaching`, `coached`, `dismissed`, `needsRecognition`, `recognized`
     
 </dd>
 </dl>

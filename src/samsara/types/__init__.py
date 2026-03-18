@@ -407,6 +407,35 @@ if typing.TYPE_CHECKING:
         AssetsUpdateAssetTooManyRequestsErrorResponseBody,
     )
     from .assets_update_asset_unauthorized_error_response_body import AssetsUpdateAssetUnauthorizedErrorResponseBody
+    from .association_response_body import AssociationResponseBody
+    from .associations_list_associations_bad_gateway_error_response_body import (
+        AssociationsListAssociationsBadGatewayErrorResponseBody,
+    )
+    from .associations_list_associations_gateway_timeout_error_response_body import (
+        AssociationsListAssociationsGatewayTimeoutErrorResponseBody,
+    )
+    from .associations_list_associations_internal_server_error_response_body import (
+        AssociationsListAssociationsInternalServerErrorResponseBody,
+    )
+    from .associations_list_associations_method_not_allowed_error_response_body import (
+        AssociationsListAssociationsMethodNotAllowedErrorResponseBody,
+    )
+    from .associations_list_associations_not_found_error_response_body import (
+        AssociationsListAssociationsNotFoundErrorResponseBody,
+    )
+    from .associations_list_associations_not_implemented_error_response_body import (
+        AssociationsListAssociationsNotImplementedErrorResponseBody,
+    )
+    from .associations_list_associations_response_body import AssociationsListAssociationsResponseBody
+    from .associations_list_associations_service_unavailable_error_response_body import (
+        AssociationsListAssociationsServiceUnavailableErrorResponseBody,
+    )
+    from .associations_list_associations_too_many_requests_error_response_body import (
+        AssociationsListAssociationsTooManyRequestsErrorResponseBody,
+    )
+    from .associations_list_associations_unauthorized_error_response_body import (
+        AssociationsListAssociationsUnauthorizedErrorResponseBody,
+    )
     from .attribute import Attribute
     from .attribute_attribute_type import AttributeAttributeType
     from .attribute_entity import AttributeEntity
@@ -651,6 +680,7 @@ if typing.TYPE_CHECKING:
     from .defect_trailer_response_response_body import DefectTrailerResponseResponseBody
     from .defect_types_response_data_response_body import DefectTypesResponseDataResponseBody
     from .defect_types_response_data_response_body_section_type import DefectTypesResponseDataResponseBodySectionType
+    from .defect_types_response_data_response_body_severity import DefectTypesResponseDataResponseBodySeverity
     from .defect_vehicle import DefectVehicle
     from .defect_vehicle_response_response_body import DefectVehicleResponseResponseBody
     from .defects_response import DefectsResponse
@@ -3615,6 +3645,12 @@ if typing.TYPE_CHECKING:
     from .patch_response_workflow_configuration_object_response_body import (
         PatchResponseWorkflowConfigurationObjectResponseBody,
     )
+    from .patch_safety_events_dismissal_reason_body_request_body import PatchSafetyEventsDismissalReasonBodyRequestBody
+    from .patch_safety_events_dismissal_reason_body_request_body_code import (
+        PatchSafetyEventsDismissalReasonBodyRequestBodyCode,
+    )
+    from .patch_safety_events_response_item_data_response_body import PatchSafetyEventsResponseItemDataResponseBody
+    from .patch_safety_events_response_item_response_body import PatchSafetyEventsResponseItemResponseBody
     from .patch_shipping_docs_response_body_response_body import PatchShippingDocsResponseBodyResponseBody
     from .pending_duty_status_durations_object_response_body import PendingDutyStatusDurationsObjectResponseBody
     from .person_detected_response_body import PersonDetectedResponseBody
@@ -5023,6 +5059,36 @@ if typing.TYPE_CHECKING:
     )
     from .safety_events_v_2_get_safety_events_v_2_unauthorized_error_response_body import (
         SafetyEventsV2GetSafetyEventsV2UnauthorizedErrorResponseBody,
+    )
+    from .safety_events_v_2_patch_safety_events_v_2_batch_bad_gateway_error_response_body import (
+        SafetyEventsV2PatchSafetyEventsV2BatchBadGatewayErrorResponseBody,
+    )
+    from .safety_events_v_2_patch_safety_events_v_2_batch_gateway_timeout_error_response_body import (
+        SafetyEventsV2PatchSafetyEventsV2BatchGatewayTimeoutErrorResponseBody,
+    )
+    from .safety_events_v_2_patch_safety_events_v_2_batch_internal_server_error_response_body import (
+        SafetyEventsV2PatchSafetyEventsV2BatchInternalServerErrorResponseBody,
+    )
+    from .safety_events_v_2_patch_safety_events_v_2_batch_method_not_allowed_error_response_body import (
+        SafetyEventsV2PatchSafetyEventsV2BatchMethodNotAllowedErrorResponseBody,
+    )
+    from .safety_events_v_2_patch_safety_events_v_2_batch_not_found_error_response_body import (
+        SafetyEventsV2PatchSafetyEventsV2BatchNotFoundErrorResponseBody,
+    )
+    from .safety_events_v_2_patch_safety_events_v_2_batch_not_implemented_error_response_body import (
+        SafetyEventsV2PatchSafetyEventsV2BatchNotImplementedErrorResponseBody,
+    )
+    from .safety_events_v_2_patch_safety_events_v_2_batch_response_body import (
+        SafetyEventsV2PatchSafetyEventsV2BatchResponseBody,
+    )
+    from .safety_events_v_2_patch_safety_events_v_2_batch_service_unavailable_error_response_body import (
+        SafetyEventsV2PatchSafetyEventsV2BatchServiceUnavailableErrorResponseBody,
+    )
+    from .safety_events_v_2_patch_safety_events_v_2_batch_too_many_requests_error_response_body import (
+        SafetyEventsV2PatchSafetyEventsV2BatchTooManyRequestsErrorResponseBody,
+    )
+    from .safety_events_v_2_patch_safety_events_v_2_batch_unauthorized_error_response_body import (
+        SafetyEventsV2PatchSafetyEventsV2BatchUnauthorizedErrorResponseBody,
     )
     from .safety_score_behavior_object_response_body import SafetyScoreBehaviorObjectResponseBody
     from .safety_score_behavior_object_response_body_behavior_type import (
@@ -7377,6 +7443,17 @@ _dynamic_imports: typing.Dict[str, str] = {
     "AssetsUpdateAssetServiceUnavailableErrorResponseBody": ".assets_update_asset_service_unavailable_error_response_body",
     "AssetsUpdateAssetTooManyRequestsErrorResponseBody": ".assets_update_asset_too_many_requests_error_response_body",
     "AssetsUpdateAssetUnauthorizedErrorResponseBody": ".assets_update_asset_unauthorized_error_response_body",
+    "AssociationResponseBody": ".association_response_body",
+    "AssociationsListAssociationsBadGatewayErrorResponseBody": ".associations_list_associations_bad_gateway_error_response_body",
+    "AssociationsListAssociationsGatewayTimeoutErrorResponseBody": ".associations_list_associations_gateway_timeout_error_response_body",
+    "AssociationsListAssociationsInternalServerErrorResponseBody": ".associations_list_associations_internal_server_error_response_body",
+    "AssociationsListAssociationsMethodNotAllowedErrorResponseBody": ".associations_list_associations_method_not_allowed_error_response_body",
+    "AssociationsListAssociationsNotFoundErrorResponseBody": ".associations_list_associations_not_found_error_response_body",
+    "AssociationsListAssociationsNotImplementedErrorResponseBody": ".associations_list_associations_not_implemented_error_response_body",
+    "AssociationsListAssociationsResponseBody": ".associations_list_associations_response_body",
+    "AssociationsListAssociationsServiceUnavailableErrorResponseBody": ".associations_list_associations_service_unavailable_error_response_body",
+    "AssociationsListAssociationsTooManyRequestsErrorResponseBody": ".associations_list_associations_too_many_requests_error_response_body",
+    "AssociationsListAssociationsUnauthorizedErrorResponseBody": ".associations_list_associations_unauthorized_error_response_body",
     "Attribute": ".attribute",
     "AttributeAttributeType": ".attribute_attribute_type",
     "AttributeEntity": ".attribute_entity",
@@ -7537,6 +7614,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "DefectTrailerResponseResponseBody": ".defect_trailer_response_response_body",
     "DefectTypesResponseDataResponseBody": ".defect_types_response_data_response_body",
     "DefectTypesResponseDataResponseBodySectionType": ".defect_types_response_data_response_body_section_type",
+    "DefectTypesResponseDataResponseBodySeverity": ".defect_types_response_data_response_body_severity",
     "DefectVehicle": ".defect_vehicle",
     "DefectVehicleResponseResponseBody": ".defect_vehicle_response_response_body",
     "DefectsResponse": ".defects_response",
@@ -8973,6 +9051,10 @@ _dynamic_imports: typing.Dict[str, str] = {
     "PatchJobObjectRequestBody": ".patch_job_object_request_body",
     "PatchJobObjectjobLocationRequestObjectRequestBody": ".patch_job_objectjob_location_request_object_request_body",
     "PatchResponseWorkflowConfigurationObjectResponseBody": ".patch_response_workflow_configuration_object_response_body",
+    "PatchSafetyEventsDismissalReasonBodyRequestBody": ".patch_safety_events_dismissal_reason_body_request_body",
+    "PatchSafetyEventsDismissalReasonBodyRequestBodyCode": ".patch_safety_events_dismissal_reason_body_request_body_code",
+    "PatchSafetyEventsResponseItemDataResponseBody": ".patch_safety_events_response_item_data_response_body",
+    "PatchSafetyEventsResponseItemResponseBody": ".patch_safety_events_response_item_response_body",
     "PatchShippingDocsResponseBodyResponseBody": ".patch_shipping_docs_response_body_response_body",
     "PendingDutyStatusDurationsObjectResponseBody": ".pending_duty_status_durations_object_response_body",
     "PersonDetectedResponseBody": ".person_detected_response_body",
@@ -9568,6 +9650,16 @@ _dynamic_imports: typing.Dict[str, str] = {
     "SafetyEventsV2GetSafetyEventsV2StreamUnauthorizedErrorResponseBody": ".safety_events_v_2_get_safety_events_v_2_stream_unauthorized_error_response_body",
     "SafetyEventsV2GetSafetyEventsV2TooManyRequestsErrorResponseBody": ".safety_events_v_2_get_safety_events_v_2_too_many_requests_error_response_body",
     "SafetyEventsV2GetSafetyEventsV2UnauthorizedErrorResponseBody": ".safety_events_v_2_get_safety_events_v_2_unauthorized_error_response_body",
+    "SafetyEventsV2PatchSafetyEventsV2BatchBadGatewayErrorResponseBody": ".safety_events_v_2_patch_safety_events_v_2_batch_bad_gateway_error_response_body",
+    "SafetyEventsV2PatchSafetyEventsV2BatchGatewayTimeoutErrorResponseBody": ".safety_events_v_2_patch_safety_events_v_2_batch_gateway_timeout_error_response_body",
+    "SafetyEventsV2PatchSafetyEventsV2BatchInternalServerErrorResponseBody": ".safety_events_v_2_patch_safety_events_v_2_batch_internal_server_error_response_body",
+    "SafetyEventsV2PatchSafetyEventsV2BatchMethodNotAllowedErrorResponseBody": ".safety_events_v_2_patch_safety_events_v_2_batch_method_not_allowed_error_response_body",
+    "SafetyEventsV2PatchSafetyEventsV2BatchNotFoundErrorResponseBody": ".safety_events_v_2_patch_safety_events_v_2_batch_not_found_error_response_body",
+    "SafetyEventsV2PatchSafetyEventsV2BatchNotImplementedErrorResponseBody": ".safety_events_v_2_patch_safety_events_v_2_batch_not_implemented_error_response_body",
+    "SafetyEventsV2PatchSafetyEventsV2BatchResponseBody": ".safety_events_v_2_patch_safety_events_v_2_batch_response_body",
+    "SafetyEventsV2PatchSafetyEventsV2BatchServiceUnavailableErrorResponseBody": ".safety_events_v_2_patch_safety_events_v_2_batch_service_unavailable_error_response_body",
+    "SafetyEventsV2PatchSafetyEventsV2BatchTooManyRequestsErrorResponseBody": ".safety_events_v_2_patch_safety_events_v_2_batch_too_many_requests_error_response_body",
+    "SafetyEventsV2PatchSafetyEventsV2BatchUnauthorizedErrorResponseBody": ".safety_events_v_2_patch_safety_events_v_2_batch_unauthorized_error_response_body",
     "SafetyScoreBehaviorObjectResponseBody": ".safety_score_behavior_object_response_body",
     "SafetyScoreBehaviorObjectResponseBodyBehaviorType": ".safety_score_behavior_object_response_body_behavior_type",
     "SafetyScoreConfigurationSettingsObjectResponseBody": ".safety_score_configuration_settings_object_response_body",
@@ -10923,6 +11015,17 @@ __all__ = [
     "AssetsUpdateAssetServiceUnavailableErrorResponseBody",
     "AssetsUpdateAssetTooManyRequestsErrorResponseBody",
     "AssetsUpdateAssetUnauthorizedErrorResponseBody",
+    "AssociationResponseBody",
+    "AssociationsListAssociationsBadGatewayErrorResponseBody",
+    "AssociationsListAssociationsGatewayTimeoutErrorResponseBody",
+    "AssociationsListAssociationsInternalServerErrorResponseBody",
+    "AssociationsListAssociationsMethodNotAllowedErrorResponseBody",
+    "AssociationsListAssociationsNotFoundErrorResponseBody",
+    "AssociationsListAssociationsNotImplementedErrorResponseBody",
+    "AssociationsListAssociationsResponseBody",
+    "AssociationsListAssociationsServiceUnavailableErrorResponseBody",
+    "AssociationsListAssociationsTooManyRequestsErrorResponseBody",
+    "AssociationsListAssociationsUnauthorizedErrorResponseBody",
     "Attribute",
     "AttributeAttributeType",
     "AttributeEntity",
@@ -11083,6 +11186,7 @@ __all__ = [
     "DefectTrailerResponseResponseBody",
     "DefectTypesResponseDataResponseBody",
     "DefectTypesResponseDataResponseBodySectionType",
+    "DefectTypesResponseDataResponseBodySeverity",
     "DefectVehicle",
     "DefectVehicleResponseResponseBody",
     "DefectsResponse",
@@ -12519,6 +12623,10 @@ __all__ = [
     "PatchJobObjectRequestBody",
     "PatchJobObjectjobLocationRequestObjectRequestBody",
     "PatchResponseWorkflowConfigurationObjectResponseBody",
+    "PatchSafetyEventsDismissalReasonBodyRequestBody",
+    "PatchSafetyEventsDismissalReasonBodyRequestBodyCode",
+    "PatchSafetyEventsResponseItemDataResponseBody",
+    "PatchSafetyEventsResponseItemResponseBody",
     "PatchShippingDocsResponseBodyResponseBody",
     "PendingDutyStatusDurationsObjectResponseBody",
     "PersonDetectedResponseBody",
@@ -13114,6 +13222,16 @@ __all__ = [
     "SafetyEventsV2GetSafetyEventsV2StreamUnauthorizedErrorResponseBody",
     "SafetyEventsV2GetSafetyEventsV2TooManyRequestsErrorResponseBody",
     "SafetyEventsV2GetSafetyEventsV2UnauthorizedErrorResponseBody",
+    "SafetyEventsV2PatchSafetyEventsV2BatchBadGatewayErrorResponseBody",
+    "SafetyEventsV2PatchSafetyEventsV2BatchGatewayTimeoutErrorResponseBody",
+    "SafetyEventsV2PatchSafetyEventsV2BatchInternalServerErrorResponseBody",
+    "SafetyEventsV2PatchSafetyEventsV2BatchMethodNotAllowedErrorResponseBody",
+    "SafetyEventsV2PatchSafetyEventsV2BatchNotFoundErrorResponseBody",
+    "SafetyEventsV2PatchSafetyEventsV2BatchNotImplementedErrorResponseBody",
+    "SafetyEventsV2PatchSafetyEventsV2BatchResponseBody",
+    "SafetyEventsV2PatchSafetyEventsV2BatchServiceUnavailableErrorResponseBody",
+    "SafetyEventsV2PatchSafetyEventsV2BatchTooManyRequestsErrorResponseBody",
+    "SafetyEventsV2PatchSafetyEventsV2BatchUnauthorizedErrorResponseBody",
     "SafetyScoreBehaviorObjectResponseBody",
     "SafetyScoreBehaviorObjectResponseBodyBehaviorType",
     "SafetyScoreConfigurationSettingsObjectResponseBody",
