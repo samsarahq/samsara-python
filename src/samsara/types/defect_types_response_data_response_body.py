@@ -7,6 +7,7 @@ import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .defect_types_response_data_response_body_section_type import DefectTypesResponseDataResponseBodySectionType
+from .defect_types_response_data_response_body_severity import DefectTypesResponseDataResponseBodySeverity
 
 
 class DefectTypesResponseDataResponseBody(UniversalBaseModel):
@@ -37,6 +38,10 @@ class DefectTypesResponseDataResponseBody(UniversalBaseModel):
             description="Section for DVIR defect type.  Valid values: `exteriorFront`, `exteriorRear`, `exteriorSideUnderneath`, `interiorDriverCab`, `interiorPassengerArea`, `other`, `unknown`",
         ),
     ]
+    severity: typing.Optional[DefectTypesResponseDataResponseBodySeverity] = pydantic.Field(default=None)
+    """
+    The severity of the defect type. Only present for DVIR 2.0 defect types.  Valid values: `major`, `minor`, `notApplicable`
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
