@@ -1630,6 +1630,9 @@ if typing.TYPE_CHECKING:
         DvirDefectTypeGetDefectTypesUnauthorizedErrorResponseBody,
     )
     from .dvir_defects_object_v_20220913_response_body import DvirDefectsObjectV20220913ResponseBody
+    from .dvir_defects_object_v_20220913_response_body_defect_severity import (
+        DvirDefectsObjectV20220913ResponseBodyDefectSeverity,
+    )
     from .dvir_get_dvir_bad_gateway_error_response_body import DvirGetDvirBadGatewayErrorResponseBody
     from .dvir_get_dvir_gateway_timeout_error_response_body import DvirGetDvirGatewayTimeoutErrorResponseBody
     from .dvir_get_dvir_internal_server_error_response_body import DvirGetDvirInternalServerErrorResponseBody
@@ -3566,6 +3569,7 @@ if typing.TYPE_CHECKING:
     from .minimal_route_stop_response_body_state import MinimalRouteStopResponseBodyState
     from .missing_dvir_past_due_response_body import MissingDvirPastDueResponseBody
     from .missing_state_response_body import MissingStateResponseBody
+    from .missing_state_response_body_update_source import MissingStateResponseBodyUpdateSource
     from .mobile_usage_detection_alert_settings_object_response_body import (
         MobileUsageDetectionAlertSettingsObjectResponseBody,
     )
@@ -4123,6 +4127,7 @@ if typing.TYPE_CHECKING:
     from .recovery_photo_response_body import RecoveryPhotoResponseBody
     from .recovery_photo_response_body_status import RecoveryPhotoResponseBodyStatus
     from .recovery_state_response_body import RecoveryStateResponseBody
+    from .recovery_state_response_body_update_source import RecoveryStateResponseBodyUpdateSource
     from .reefer_temperature_response_body import ReeferTemperatureResponseBody
     from .report_columns_object_response_body import ReportColumnsObjectResponseBody
     from .report_columns_object_response_body_data_type import ReportColumnsObjectResponseBodyDataType
@@ -4261,6 +4266,39 @@ if typing.TYPE_CHECKING:
     )
     from .reports_get_report_runs_unauthorized_error_response_body import (
         ReportsGetReportRunsUnauthorizedErrorResponseBody,
+    )
+    from .resolve_assignment_by_details_resolve_assignment_by_details_bad_gateway_error_response_body import (
+        ResolveAssignmentByDetailsResolveAssignmentByDetailsBadGatewayErrorResponseBody,
+    )
+    from .resolve_assignment_by_details_resolve_assignment_by_details_gateway_timeout_error_response_body import (
+        ResolveAssignmentByDetailsResolveAssignmentByDetailsGatewayTimeoutErrorResponseBody,
+    )
+    from .resolve_assignment_by_details_resolve_assignment_by_details_internal_server_error_response_body import (
+        ResolveAssignmentByDetailsResolveAssignmentByDetailsInternalServerErrorResponseBody,
+    )
+    from .resolve_assignment_by_details_resolve_assignment_by_details_method_not_allowed_error_response_body import (
+        ResolveAssignmentByDetailsResolveAssignmentByDetailsMethodNotAllowedErrorResponseBody,
+    )
+    from .resolve_assignment_by_details_resolve_assignment_by_details_not_found_error_response_body import (
+        ResolveAssignmentByDetailsResolveAssignmentByDetailsNotFoundErrorResponseBody,
+    )
+    from .resolve_assignment_by_details_resolve_assignment_by_details_not_implemented_error_response_body import (
+        ResolveAssignmentByDetailsResolveAssignmentByDetailsNotImplementedErrorResponseBody,
+    )
+    from .resolve_assignment_by_details_resolve_assignment_by_details_response_body import (
+        ResolveAssignmentByDetailsResolveAssignmentByDetailsResponseBody,
+    )
+    from .resolve_assignment_by_details_resolve_assignment_by_details_service_unavailable_error_response_body import (
+        ResolveAssignmentByDetailsResolveAssignmentByDetailsServiceUnavailableErrorResponseBody,
+    )
+    from .resolve_assignment_by_details_resolve_assignment_by_details_too_many_requests_error_response_body import (
+        ResolveAssignmentByDetailsResolveAssignmentByDetailsTooManyRequestsErrorResponseBody,
+    )
+    from .resolve_assignment_by_details_resolve_assignment_by_details_unauthorized_error_response_body import (
+        ResolveAssignmentByDetailsResolveAssignmentByDetailsUnauthorizedErrorResponseBody,
+    )
+    from .resolve_assignment_by_details_response_body_response_body import (
+        ResolveAssignmentByDetailsResponseBodyResponseBody,
     )
     from .resolved_by import ResolvedBy
     from .resolved_by_type import ResolvedByType
@@ -8026,6 +8064,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "DvirDefectTypeGetDefectTypesTooManyRequestsErrorResponseBody": ".dvir_defect_type_get_defect_types_too_many_requests_error_response_body",
     "DvirDefectTypeGetDefectTypesUnauthorizedErrorResponseBody": ".dvir_defect_type_get_defect_types_unauthorized_error_response_body",
     "DvirDefectsObjectV20220913ResponseBody": ".dvir_defects_object_v_20220913_response_body",
+    "DvirDefectsObjectV20220913ResponseBodyDefectSeverity": ".dvir_defects_object_v_20220913_response_body_defect_severity",
     "DvirGetDvirBadGatewayErrorResponseBody": ".dvir_get_dvir_bad_gateway_error_response_body",
     "DvirGetDvirGatewayTimeoutErrorResponseBody": ".dvir_get_dvir_gateway_timeout_error_response_body",
     "DvirGetDvirInternalServerErrorResponseBody": ".dvir_get_dvir_internal_server_error_response_body",
@@ -8994,6 +9033,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "MinimalRouteStopResponseBodyState": ".minimal_route_stop_response_body_state",
     "MissingDvirPastDueResponseBody": ".missing_dvir_past_due_response_body",
     "MissingStateResponseBody": ".missing_state_response_body",
+    "MissingStateResponseBodyUpdateSource": ".missing_state_response_body_update_source",
     "MobileUsageDetectionAlertSettingsObjectResponseBody": ".mobile_usage_detection_alert_settings_object_response_body",
     "MotionDetectedResponseBody": ".motion_detected_response_body",
     "MultipleChoiceFieldTypeMetaDataObjectResponseBody": ".multiple_choice_field_type_meta_data_object_response_body",
@@ -9251,6 +9291,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "RecoveryPhotoResponseBody": ".recovery_photo_response_body",
     "RecoveryPhotoResponseBodyStatus": ".recovery_photo_response_body_status",
     "RecoveryStateResponseBody": ".recovery_state_response_body",
+    "RecoveryStateResponseBodyUpdateSource": ".recovery_state_response_body_update_source",
     "ReeferTemperatureResponseBody": ".reefer_temperature_response_body",
     "ReportColumnsObjectResponseBody": ".report_columns_object_response_body",
     "ReportColumnsObjectResponseBodyDataType": ".report_columns_object_response_body_data_type",
@@ -9312,6 +9353,17 @@ _dynamic_imports: typing.Dict[str, str] = {
     "ReportsGetReportRunsServiceUnavailableErrorResponseBody": ".reports_get_report_runs_service_unavailable_error_response_body",
     "ReportsGetReportRunsTooManyRequestsErrorResponseBody": ".reports_get_report_runs_too_many_requests_error_response_body",
     "ReportsGetReportRunsUnauthorizedErrorResponseBody": ".reports_get_report_runs_unauthorized_error_response_body",
+    "ResolveAssignmentByDetailsResolveAssignmentByDetailsBadGatewayErrorResponseBody": ".resolve_assignment_by_details_resolve_assignment_by_details_bad_gateway_error_response_body",
+    "ResolveAssignmentByDetailsResolveAssignmentByDetailsGatewayTimeoutErrorResponseBody": ".resolve_assignment_by_details_resolve_assignment_by_details_gateway_timeout_error_response_body",
+    "ResolveAssignmentByDetailsResolveAssignmentByDetailsInternalServerErrorResponseBody": ".resolve_assignment_by_details_resolve_assignment_by_details_internal_server_error_response_body",
+    "ResolveAssignmentByDetailsResolveAssignmentByDetailsMethodNotAllowedErrorResponseBody": ".resolve_assignment_by_details_resolve_assignment_by_details_method_not_allowed_error_response_body",
+    "ResolveAssignmentByDetailsResolveAssignmentByDetailsNotFoundErrorResponseBody": ".resolve_assignment_by_details_resolve_assignment_by_details_not_found_error_response_body",
+    "ResolveAssignmentByDetailsResolveAssignmentByDetailsNotImplementedErrorResponseBody": ".resolve_assignment_by_details_resolve_assignment_by_details_not_implemented_error_response_body",
+    "ResolveAssignmentByDetailsResolveAssignmentByDetailsResponseBody": ".resolve_assignment_by_details_resolve_assignment_by_details_response_body",
+    "ResolveAssignmentByDetailsResolveAssignmentByDetailsServiceUnavailableErrorResponseBody": ".resolve_assignment_by_details_resolve_assignment_by_details_service_unavailable_error_response_body",
+    "ResolveAssignmentByDetailsResolveAssignmentByDetailsTooManyRequestsErrorResponseBody": ".resolve_assignment_by_details_resolve_assignment_by_details_too_many_requests_error_response_body",
+    "ResolveAssignmentByDetailsResolveAssignmentByDetailsUnauthorizedErrorResponseBody": ".resolve_assignment_by_details_resolve_assignment_by_details_unauthorized_error_response_body",
+    "ResolveAssignmentByDetailsResponseBodyResponseBody": ".resolve_assignment_by_details_response_body_response_body",
     "ResolvedBy": ".resolved_by",
     "ResolvedByType": ".resolved_by_type",
     "ReverseGeo": ".reverse_geo",
@@ -11598,6 +11650,7 @@ __all__ = [
     "DvirDefectTypeGetDefectTypesTooManyRequestsErrorResponseBody",
     "DvirDefectTypeGetDefectTypesUnauthorizedErrorResponseBody",
     "DvirDefectsObjectV20220913ResponseBody",
+    "DvirDefectsObjectV20220913ResponseBodyDefectSeverity",
     "DvirGetDvirBadGatewayErrorResponseBody",
     "DvirGetDvirGatewayTimeoutErrorResponseBody",
     "DvirGetDvirInternalServerErrorResponseBody",
@@ -12566,6 +12619,7 @@ __all__ = [
     "MinimalRouteStopResponseBodyState",
     "MissingDvirPastDueResponseBody",
     "MissingStateResponseBody",
+    "MissingStateResponseBodyUpdateSource",
     "MobileUsageDetectionAlertSettingsObjectResponseBody",
     "MotionDetectedResponseBody",
     "MultipleChoiceFieldTypeMetaDataObjectResponseBody",
@@ -12823,6 +12877,7 @@ __all__ = [
     "RecoveryPhotoResponseBody",
     "RecoveryPhotoResponseBodyStatus",
     "RecoveryStateResponseBody",
+    "RecoveryStateResponseBodyUpdateSource",
     "ReeferTemperatureResponseBody",
     "ReportColumnsObjectResponseBody",
     "ReportColumnsObjectResponseBodyDataType",
@@ -12884,6 +12939,17 @@ __all__ = [
     "ReportsGetReportRunsServiceUnavailableErrorResponseBody",
     "ReportsGetReportRunsTooManyRequestsErrorResponseBody",
     "ReportsGetReportRunsUnauthorizedErrorResponseBody",
+    "ResolveAssignmentByDetailsResolveAssignmentByDetailsBadGatewayErrorResponseBody",
+    "ResolveAssignmentByDetailsResolveAssignmentByDetailsGatewayTimeoutErrorResponseBody",
+    "ResolveAssignmentByDetailsResolveAssignmentByDetailsInternalServerErrorResponseBody",
+    "ResolveAssignmentByDetailsResolveAssignmentByDetailsMethodNotAllowedErrorResponseBody",
+    "ResolveAssignmentByDetailsResolveAssignmentByDetailsNotFoundErrorResponseBody",
+    "ResolveAssignmentByDetailsResolveAssignmentByDetailsNotImplementedErrorResponseBody",
+    "ResolveAssignmentByDetailsResolveAssignmentByDetailsResponseBody",
+    "ResolveAssignmentByDetailsResolveAssignmentByDetailsServiceUnavailableErrorResponseBody",
+    "ResolveAssignmentByDetailsResolveAssignmentByDetailsTooManyRequestsErrorResponseBody",
+    "ResolveAssignmentByDetailsResolveAssignmentByDetailsUnauthorizedErrorResponseBody",
+    "ResolveAssignmentByDetailsResponseBodyResponseBody",
     "ResolvedBy",
     "ResolvedByType",
     "ReverseGeo",

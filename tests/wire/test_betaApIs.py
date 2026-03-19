@@ -186,6 +186,14 @@ def test_betaApIs_list_carb_ctc_vehicle_history() -> None:
     verify_request_count(test_id, "GET", "/fleet/carb-ctc/vehicles/history", {"vehicleIds": "vehicleIds"}, 1)
 
 
+def test_betaApIs_resolve_assignment_by_details() -> None:
+    """Test resolveAssignmentByDetails endpoint with WireMock"""
+    test_id = "beta_ap_is.resolve_assignment_by_details.0"
+    client = get_client(test_id)
+    client.beta_ap_is.resolve_assignment_by_details(driver_name="Jane Doe", vehicle_id="281474978683353")
+    verify_request_count(test_id, "POST", "/fleet/drivers/voice-sign-in/resolve-assignment", None, 1)
+
+
 def test_betaApIs_list_vendor_categories() -> None:
     """Test listVendorCategories endpoint with WireMock"""
     test_id = "beta_ap_is.list_vendor_categories.0"

@@ -3,9 +3,8 @@
 import typing
 
 import pydantic
-import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from ..core.serialization import FieldMetadata
+from .missing_state_response_body_update_source import MissingStateResponseBodyUpdateSource
 from .notification_recipient_response_response_body import NotificationRecipientResponseResponseBody
 
 
@@ -36,6 +35,11 @@ class MissingStateResponseBody(UniversalBaseModel):
     Users subscribed to location update notifications for this asset.
     """
 
+    update_source: typing.Optional[MissingStateResponseBodyUpdateSource] = pydantic.Field(default=None)
+    """
+    The source of the last update to this recovery state. Defaults to `dashboard` if not explicitly set.  Valid values: `dashboard`, `api`
+    """
+
     updated_at_ms: int = pydantic.Field()
     """
     Timestamp when the asset was marked as missing, in milliseconds since epoch.
@@ -45,12 +49,6 @@ class MissingStateResponseBody(UniversalBaseModel):
     """
     The ID of the user who marked the asset as missing.
     """
-
-    uuid_: typing_extensions.Annotated[
-        str,
-        FieldMetadata(alias="uuid"),
-        pydantic.Field(alias="uuid", description="The unique UUID of this recovery state record."),
-    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

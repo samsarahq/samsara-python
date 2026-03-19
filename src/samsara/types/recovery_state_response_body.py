@@ -3,11 +3,10 @@
 import typing
 
 import pydantic
-import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from ..core.serialization import FieldMetadata
 from .notification_recipient_response_response_body import NotificationRecipientResponseResponseBody
 from .recovery_photo_response_body import RecoveryPhotoResponseBody
+from .recovery_state_response_body_update_source import RecoveryStateResponseBodyUpdateSource
 
 
 class RecoveryStateResponseBody(UniversalBaseModel):
@@ -42,6 +41,11 @@ class RecoveryStateResponseBody(UniversalBaseModel):
     Photos associated with the recovery event. URLs are temporary and expire at url_expires_at_ms.
     """
 
+    update_source: typing.Optional[RecoveryStateResponseBodyUpdateSource] = pydantic.Field(default=None)
+    """
+    The source of the last update to this recovery state. Defaults to `dashboard` if not explicitly set.  Valid values: `dashboard`, `api`
+    """
+
     updated_at_ms: int = pydantic.Field()
     """
     Timestamp when the recovery state was last updated, in milliseconds since epoch.
@@ -51,12 +55,6 @@ class RecoveryStateResponseBody(UniversalBaseModel):
     """
     The ID of the user who last updated the recovery state.
     """
-
-    uuid_: typing_extensions.Annotated[
-        str,
-        FieldMetadata(alias="uuid"),
-        pydantic.Field(alias="uuid", description="The unique UUID of this recovery state record."),
-    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

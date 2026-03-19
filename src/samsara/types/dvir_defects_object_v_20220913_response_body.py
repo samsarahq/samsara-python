@@ -6,6 +6,9 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .dvir_defects_object_v_20220913_response_body_defect_severity import (
+    DvirDefectsObjectV20220913ResponseBodyDefectSeverity,
+)
 from .dvir_resolved_by_object_response_body import DvirResolvedByObjectResponseBody
 from .goa_trailer_tiny_response_response_body import GoaTrailerTinyResponseResponseBody
 from .vehicle_with_gateway_tiny_response_response_body import VehicleWithGatewayTinyResponseResponseBody
@@ -28,11 +31,24 @@ class DvirDefectsObjectV20220913ResponseBody(UniversalBaseModel):
             alias="createdAtTime", description="Time when the defect was created. UTC timestamp in RFC 3339 format."
         ),
     ]
+    defect_severity: typing_extensions.Annotated[
+        typing.Optional[DvirDefectsObjectV20220913ResponseBodyDefectSeverity],
+        FieldMetadata(alias="defectSeverity"),
+        pydantic.Field(
+            alias="defectSeverity",
+            description="The severity of the DVIR defect.  Valid values: `minor`, `major`, `unspecified`",
+        ),
+    ] = None
     defect_type: typing_extensions.Annotated[
         str,
         FieldMetadata(alias="defectType"),
         pydantic.Field(alias="defectType", description="The type of DVIR defect."),
     ]
+    defect_type_id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="defectTypeId"),
+        pydantic.Field(alias="defectTypeId", description="The ID of the DVIR defect type."),
+    ] = None
     id: str = pydantic.Field()
     """
     The ID of the defect.

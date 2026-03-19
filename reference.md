@@ -4739,6 +4739,94 @@ client.beta_ap_is.list_carb_ctc_vehicle_history(
 </dl>
 </details>
 
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">resolve_assignment_by_details</a>(...) -&gt; AsyncHttpResponse[
+    ResolveAssignmentByDetailsResolveAssignmentByDetailsResponseBody
+]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Resolves a driver by name within an organization via voice sign-in, then creates a driver-vehicle assignment via the Driver Assignment Service.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.resolve_assignment_by_details(
+    driver_name="Jane Doe",
+    vehicle_id="281474978683353",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**driver_name:** `str` — The full name of the driver to resolve.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**vehicle_id:** `str` — The vehicle ID. This can be either a unique Samsara ID or an external ID for the vehicle.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_vendor_categories</a>(...) -&gt; AsyncHttpResponse[MaintenanceVendorsListVendorCategoriesResponseBody]</code></summary>
 <dl>
 <dd>
