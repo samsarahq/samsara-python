@@ -74,6 +74,9 @@ from ..types.reports_get_datasets_response_body import ReportsGetDatasetsRespons
 from ..types.reports_get_report_configs_response_body import ReportsGetReportConfigsResponseBody
 from ..types.reports_get_report_run_data_response_body import ReportsGetReportRunDataResponseBody
 from ..types.reports_get_report_runs_response_body import ReportsGetReportRunsResponseBody
+from ..types.resolve_assignment_by_details_resolve_assignment_by_details_response_body import (
+    ResolveAssignmentByDetailsResolveAssignmentByDetailsResponseBody,
+)
 from ..types.ridership_accounts_create_ridership_account_response_body import (
     RidershipAccountsCreateRidershipAccountResponseBody,
 )
@@ -1704,6 +1707,52 @@ class BetaApIsClient:
             end_time=end_time,
             after=after,
             request_options=request_options,
+        )
+        return _response.data
+
+    def resolve_assignment_by_details(
+        self, *, driver_name: str, vehicle_id: str, request_options: typing.Optional[RequestOptions] = None
+    ) -> ResolveAssignmentByDetailsResolveAssignmentByDetailsResponseBody:
+        """
+        Resolves a driver by name within an organization via voice sign-in, then creates a driver-vehicle assignment via the Driver Assignment Service.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        driver_name : str
+            The full name of the driver to resolve.
+
+        vehicle_id : str
+            The vehicle ID. This can be either a unique Samsara ID or an external ID for the vehicle.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        ResolveAssignmentByDetailsResolveAssignmentByDetailsResponseBody
+            Created response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.resolve_assignment_by_details(
+            driver_name="Jane Doe",
+            vehicle_id="281474978683353",
+        )
+        """
+        _response = self._raw_client.resolve_assignment_by_details(
+            driver_name=driver_name, vehicle_id=vehicle_id, request_options=request_options
         )
         return _response.data
 
@@ -6446,6 +6495,60 @@ class AsyncBetaApIsClient:
             end_time=end_time,
             after=after,
             request_options=request_options,
+        )
+        return _response.data
+
+    async def resolve_assignment_by_details(
+        self, *, driver_name: str, vehicle_id: str, request_options: typing.Optional[RequestOptions] = None
+    ) -> ResolveAssignmentByDetailsResolveAssignmentByDetailsResponseBody:
+        """
+        Resolves a driver by name within an organization via voice sign-in, then creates a driver-vehicle assignment via the Driver Assignment Service.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        driver_name : str
+            The full name of the driver to resolve.
+
+        vehicle_id : str
+            The vehicle ID. This can be either a unique Samsara ID or an external ID for the vehicle.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        ResolveAssignmentByDetailsResolveAssignmentByDetailsResponseBody
+            Created response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.resolve_assignment_by_details(
+                driver_name="Jane Doe",
+                vehicle_id="281474978683353",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.resolve_assignment_by_details(
+            driver_name=driver_name, vehicle_id=vehicle_id, request_options=request_options
         )
         return _response.data
 
