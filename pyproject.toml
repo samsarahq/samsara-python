@@ -4,7 +4,7 @@ dynamic = ["version"]
 
 [tool.poetry]
 name = "samsara-api"
-version = "7.2.1"
+version = "8.0.0"
 description = ""
 readme = "README.md"
 authors = []
