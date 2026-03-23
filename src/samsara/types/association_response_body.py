@@ -10,7 +10,7 @@ from ..core.serialization import FieldMetadata
 
 class AssociationResponseBody(UniversalBaseModel):
     """
-    An association between a vehicle (central device) and a peripheral device.
+    An association between a central device (e.g. vehicle gateway) and a peripheral device.
     """
 
     association_end_time: typing_extensions.Annotated[
@@ -28,6 +28,11 @@ class AssociationResponseBody(UniversalBaseModel):
             alias="associationStartTime", description="The time when this association started, in RFC 3339 format."
         ),
     ]
+    central_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="centralId"),
+        pydantic.Field(alias="centralId", description="The Samsara ID of the central device in this association."),
+    ]
     peripheral_id: typing_extensions.Annotated[
         str,
         FieldMetadata(alias="peripheralId"),
@@ -42,13 +47,6 @@ class AssociationResponseBody(UniversalBaseModel):
             alias="peripheralName", description="The human-readable name of the peripheral device, if available."
         ),
     ] = None
-    vehicle_id: typing_extensions.Annotated[
-        str,
-        FieldMetadata(alias="vehicleId"),
-        pydantic.Field(
-            alias="vehicleId", description="The Samsara ID of the vehicle (central device) in this association."
-        ),
-    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

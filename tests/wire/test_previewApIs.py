@@ -1,16 +1,6 @@
 from .conftest import get_client, verify_request_count
 
 
-def test_previewApIs_list_associations() -> None:
-    """Test listAssociations endpoint with WireMock"""
-    test_id = "preview_ap_is.list_associations.0"
-    client = get_client(test_id)
-    client.preview_ap_is.list_associations(start_time="startTime", end_time="endTime")
-    verify_request_count(
-        test_id, "GET", "/preview/fleet/assets/associations", {"startTime": "startTime", "endTime": "endTime"}, 1
-    )
-
-
 def test_previewApIs_create_driver_auth_token() -> None:
     """Test createDriverAuthToken endpoint with WireMock"""
     test_id = "preview_ap_is.create_driver_auth_token.0"

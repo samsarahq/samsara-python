@@ -7,6 +7,7 @@ from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.request_options import RequestOptions
 from ..types.aemp_equipment_get_aemp_equipment_list_response_body import AempEquipmentGetAempEquipmentListResponseBody
 from ..types.assets_inputs_get_assets_inputs_response_body import AssetsInputsGetAssetsInputsResponseBody
+from ..types.associations_list_associations_response_body import AssociationsListAssociationsResponseBody
 from ..types.carb_ctc_list_carb_ctc_vehicle_history_response_body import CarbCtcListCarbCtcVehicleHistoryResponseBody
 from ..types.carb_ctc_list_carb_ctc_vehicles_response_body import CarbCtcListCarbCtcVehiclesResponseBody
 from ..types.create_report_config_object_request_body import CreateReportConfigObjectRequestBody
@@ -1422,6 +1423,67 @@ class BetaApIsClient:
             include_tags=include_tags,
             tag_ids=tag_ids,
             parent_tag_ids=parent_tag_ids,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def list_associations(
+        self,
+        *,
+        start_time: str,
+        peripheral_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        end_time: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AssociationsListAssociationsResponseBody:
+        """
+        List associations between vehicles and peripheral devices within a given time range. Associations represent the relationship between a central device (vehicle) and a peripheral device (e.g. asset tag). An association with a null endTime is still active. If no endTime query parameter is provided, all associations from startTime onward are returned, including currently active (open) associations.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        start_time : str
+            A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        peripheral_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A comma-separated list of peripheral asset IDs to filter associations by. (Example: 1234,5678)
+
+        end_time : typing.Optional[str]
+            An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). If not provided, all associations from startTime onward are returned, including currently active (open) associations.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AssociationsListAssociationsResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.list_associations(
+            start_time="startTime",
+        )
+        """
+        _response = self._raw_client.list_associations(
+            start_time=start_time,
+            peripheral_ids=peripheral_ids,
+            end_time=end_time,
+            after=after,
             request_options=request_options,
         )
         return _response.data
@@ -6136,6 +6198,75 @@ class AsyncBetaApIsClient:
             include_tags=include_tags,
             tag_ids=tag_ids,
             parent_tag_ids=parent_tag_ids,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def list_associations(
+        self,
+        *,
+        start_time: str,
+        peripheral_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        end_time: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AssociationsListAssociationsResponseBody:
+        """
+        List associations between vehicles and peripheral devices within a given time range. Associations represent the relationship between a central device (vehicle) and a peripheral device (e.g. asset tag). An association with a null endTime is still active. If no endTime query parameter is provided, all associations from startTime onward are returned, including currently active (open) associations.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        start_time : str
+            A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        peripheral_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A comma-separated list of peripheral asset IDs to filter associations by. (Example: 1234,5678)
+
+        end_time : typing.Optional[str]
+            An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). If not provided, all associations from startTime onward are returned, including currently active (open) associations.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AssociationsListAssociationsResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.list_associations(
+                start_time="startTime",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.list_associations(
+            start_time=start_time,
+            peripheral_ids=peripheral_ids,
+            end_time=end_time,
+            after=after,
             request_options=request_options,
         )
         return _response.data

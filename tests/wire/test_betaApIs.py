@@ -146,6 +146,14 @@ def test_betaApIs_get_devices() -> None:
     verify_request_count(test_id, "GET", "/devices", None, 1)
 
 
+def test_betaApIs_list_associations() -> None:
+    """Test listAssociations endpoint with WireMock"""
+    test_id = "beta_ap_is.list_associations.0"
+    client = get_client(test_id)
+    client.beta_ap_is.list_associations(start_time="startTime")
+    verify_request_count(test_id, "GET", "/fleet/assets/associations", {"startTime": "startTime"}, 1)
+
+
 def test_betaApIs_list_device_recovery_missing_assets() -> None:
     """Test listDeviceRecoveryMissingAssets endpoint with WireMock"""
     test_id = "beta_ap_is.list_device_recovery_missing_assets.0"

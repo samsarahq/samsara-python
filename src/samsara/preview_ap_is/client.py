@@ -4,7 +4,6 @@ import typing
 
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.request_options import RequestOptions
-from ..types.associations_list_associations_response_body import AssociationsListAssociationsResponseBody
 from ..types.drivers_auth_token_create_driver_auth_token_response_body import (
     DriversAuthTokenCreateDriverAuthTokenResponseBody,
 )
@@ -37,74 +36,6 @@ class PreviewApIsClient:
         RawPreviewApIsClient
         """
         return self._raw_client
-
-    def list_associations(
-        self,
-        *,
-        start_time: str,
-        end_time: str,
-        peripheral_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        after: typing.Optional[str] = None,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> AssociationsListAssociationsResponseBody:
-        """
-        List associations between vehicles and peripheral devices within a given time range. Associations represent the relationship between a central device (vehicle) and a peripheral device (e.g. asset tag). An association with a null endTime is still active.
-
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Read Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
-
-        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
-
-        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        start_time : str
-            A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-
-        end_time : str
-            An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-
-        peripheral_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            A comma-separated list of peripheral asset IDs to filter associations by. (Example: 1234,5678)
-
-        after : typing.Optional[str]
-             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        AssociationsListAssociationsResponseBody
-            OK response.
-
-        Examples
-        --------
-        from samsara import Samsara
-
-        client = Samsara(
-            token="YOUR_TOKEN",
-        )
-        client.preview_ap_is.list_associations(
-            start_time="startTime",
-            end_time="endTime",
-        )
-        """
-        _response = self._raw_client.list_associations(
-            start_time=start_time,
-            end_time=end_time,
-            peripheral_ids=peripheral_ids,
-            after=after,
-            request_options=request_options,
-        )
-        return _response.data
 
     def create_driver_auth_token(
         self,
@@ -344,82 +275,6 @@ class AsyncPreviewApIsClient:
         AsyncRawPreviewApIsClient
         """
         return self._raw_client
-
-    async def list_associations(
-        self,
-        *,
-        start_time: str,
-        end_time: str,
-        peripheral_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        after: typing.Optional[str] = None,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> AssociationsListAssociationsResponseBody:
-        """
-        List associations between vehicles and peripheral devices within a given time range. Associations represent the relationship between a central device (vehicle) and a peripheral device (e.g. asset tag). An association with a null endTime is still active.
-
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Read Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
-
-        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
-
-        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        start_time : str
-            A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-
-        end_time : str
-            An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-
-        peripheral_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            A comma-separated list of peripheral asset IDs to filter associations by. (Example: 1234,5678)
-
-        after : typing.Optional[str]
-             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        AssociationsListAssociationsResponseBody
-            OK response.
-
-        Examples
-        --------
-        import asyncio
-
-        from samsara import AsyncSamsara
-
-        client = AsyncSamsara(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.preview_ap_is.list_associations(
-                start_time="startTime",
-                end_time="endTime",
-            )
-
-
-        asyncio.run(main())
-        """
-        _response = await self._raw_client.list_associations(
-            start_time=start_time,
-            end_time=end_time,
-            peripheral_ids=peripheral_ids,
-            after=after,
-            request_options=request_options,
-        )
-        return _response.data
 
     async def create_driver_auth_token(
         self,
