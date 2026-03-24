@@ -14,6 +14,12 @@ from ..types.safety_events_v_2_patch_safety_events_v_2_batch_response_body impor
     SafetyEventsV2PatchSafetyEventsV2BatchResponseBody,
 )
 from .raw_client import AsyncRawPreviewApIsClient, RawPreviewApIsClient
+from .types.safety_events_v_2_patch_safety_events_v_2_batch_request_body_context_labels_to_add_item import (
+    SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem,
+)
+from .types.safety_events_v_2_patch_safety_events_v_2_batch_request_body_context_labels_to_remove_item import (
+    SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToRemoveItem,
+)
 from .types.safety_events_v_2_patch_safety_events_v_2_batch_request_body_event_state import (
     SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState,
 )
@@ -190,8 +196,12 @@ class PreviewApIsClient:
         self,
         *,
         safety_event_ids: typing.Sequence[str],
-        context_label_ids_to_add: typing.Optional[typing.Sequence[str]] = OMIT,
-        context_label_ids_to_remove: typing.Optional[typing.Sequence[str]] = OMIT,
+        context_labels_to_add: typing.Optional[
+            typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem]
+        ] = OMIT,
+        context_labels_to_remove: typing.Optional[
+            typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToRemoveItem]
+        ] = OMIT,
         dismissal_reason: typing.Optional[PatchSafetyEventsDismissalReasonBodyRequestBody] = OMIT,
         event_state: typing.Optional[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
@@ -217,11 +227,11 @@ class PreviewApIsClient:
         safety_event_ids : typing.Sequence[str]
             IDs of the Safety Events to update. Maximum 200.
 
-        context_label_ids_to_add : typing.Optional[typing.Sequence[str]]
-            Context label IDs to add to the Safety Events.
+        context_labels_to_add : typing.Optional[typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem]]
+            Context labels to add to the Safety Events.
 
-        context_label_ids_to_remove : typing.Optional[typing.Sequence[str]]
-            Context label IDs to remove from the Safety Events.
+        context_labels_to_remove : typing.Optional[typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToRemoveItem]]
+            Context labels to remove from the Safety Events.
 
         dismissal_reason : typing.Optional[PatchSafetyEventsDismissalReasonBodyRequestBody]
 
@@ -247,13 +257,14 @@ class PreviewApIsClient:
             safety_event_ids=[
                 "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
                 "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
+                "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
             ],
         )
         """
         _response = self._raw_client.patch_safety_events_v_2_batch(
             safety_event_ids=safety_event_ids,
-            context_label_ids_to_add=context_label_ids_to_add,
-            context_label_ids_to_remove=context_label_ids_to_remove,
+            context_labels_to_add=context_labels_to_add,
+            context_labels_to_remove=context_labels_to_remove,
             dismissal_reason=dismissal_reason,
             event_state=event_state,
             request_options=request_options,
@@ -453,8 +464,12 @@ class AsyncPreviewApIsClient:
         self,
         *,
         safety_event_ids: typing.Sequence[str],
-        context_label_ids_to_add: typing.Optional[typing.Sequence[str]] = OMIT,
-        context_label_ids_to_remove: typing.Optional[typing.Sequence[str]] = OMIT,
+        context_labels_to_add: typing.Optional[
+            typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem]
+        ] = OMIT,
+        context_labels_to_remove: typing.Optional[
+            typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToRemoveItem]
+        ] = OMIT,
         dismissal_reason: typing.Optional[PatchSafetyEventsDismissalReasonBodyRequestBody] = OMIT,
         event_state: typing.Optional[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
@@ -480,11 +495,11 @@ class AsyncPreviewApIsClient:
         safety_event_ids : typing.Sequence[str]
             IDs of the Safety Events to update. Maximum 200.
 
-        context_label_ids_to_add : typing.Optional[typing.Sequence[str]]
-            Context label IDs to add to the Safety Events.
+        context_labels_to_add : typing.Optional[typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem]]
+            Context labels to add to the Safety Events.
 
-        context_label_ids_to_remove : typing.Optional[typing.Sequence[str]]
-            Context label IDs to remove from the Safety Events.
+        context_labels_to_remove : typing.Optional[typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToRemoveItem]]
+            Context labels to remove from the Safety Events.
 
         dismissal_reason : typing.Optional[PatchSafetyEventsDismissalReasonBodyRequestBody]
 
@@ -515,6 +530,7 @@ class AsyncPreviewApIsClient:
                 safety_event_ids=[
                     "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
                     "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
+                    "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
                 ],
             )
 
@@ -523,8 +539,8 @@ class AsyncPreviewApIsClient:
         """
         _response = await self._raw_client.patch_safety_events_v_2_batch(
             safety_event_ids=safety_event_ids,
-            context_label_ids_to_add=context_label_ids_to_add,
-            context_label_ids_to_remove=context_label_ids_to_remove,
+            context_labels_to_add=context_labels_to_add,
+            context_labels_to_remove=context_labels_to_remove,
             dismissal_reason=dismissal_reason,
             event_state=event_state,
             request_options=request_options,

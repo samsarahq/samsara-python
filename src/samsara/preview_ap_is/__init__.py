@@ -6,8 +6,16 @@ import typing
 from importlib import import_module
 
 if typing.TYPE_CHECKING:
-    from .types import SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState
-_dynamic_imports: typing.Dict[str, str] = {"SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState": ".types"}
+    from .types import (
+        SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem,
+        SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToRemoveItem,
+        SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState,
+    )
+_dynamic_imports: typing.Dict[str, str] = {
+    "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem": ".types",
+    "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToRemoveItem": ".types",
+    "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState": ".types",
+}
 
 
 def __getattr__(attr_name: str) -> typing.Any:
@@ -31,4 +39,8 @@ def __dir__():
     return sorted(lazy_attrs)
 
 
-__all__ = ["SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState"]
+__all__ = [
+    "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem",
+    "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToRemoveItem",
+    "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState",
+]

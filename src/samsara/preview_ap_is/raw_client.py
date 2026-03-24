@@ -28,6 +28,12 @@ from ..types.patch_safety_events_dismissal_reason_body_request_body import (
 from ..types.safety_events_v_2_patch_safety_events_v_2_batch_response_body import (
     SafetyEventsV2PatchSafetyEventsV2BatchResponseBody,
 )
+from .types.safety_events_v_2_patch_safety_events_v_2_batch_request_body_context_labels_to_add_item import (
+    SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem,
+)
+from .types.safety_events_v_2_patch_safety_events_v_2_batch_request_body_context_labels_to_remove_item import (
+    SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToRemoveItem,
+)
 from .types.safety_events_v_2_patch_safety_events_v_2_batch_request_body_event_state import (
     SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState,
 )
@@ -502,8 +508,12 @@ class RawPreviewApIsClient:
         self,
         *,
         safety_event_ids: typing.Sequence[str],
-        context_label_ids_to_add: typing.Optional[typing.Sequence[str]] = OMIT,
-        context_label_ids_to_remove: typing.Optional[typing.Sequence[str]] = OMIT,
+        context_labels_to_add: typing.Optional[
+            typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem]
+        ] = OMIT,
+        context_labels_to_remove: typing.Optional[
+            typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToRemoveItem]
+        ] = OMIT,
         dismissal_reason: typing.Optional[PatchSafetyEventsDismissalReasonBodyRequestBody] = OMIT,
         event_state: typing.Optional[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
@@ -529,11 +539,11 @@ class RawPreviewApIsClient:
         safety_event_ids : typing.Sequence[str]
             IDs of the Safety Events to update. Maximum 200.
 
-        context_label_ids_to_add : typing.Optional[typing.Sequence[str]]
-            Context label IDs to add to the Safety Events.
+        context_labels_to_add : typing.Optional[typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem]]
+            Context labels to add to the Safety Events.
 
-        context_label_ids_to_remove : typing.Optional[typing.Sequence[str]]
-            Context label IDs to remove from the Safety Events.
+        context_labels_to_remove : typing.Optional[typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToRemoveItem]]
+            Context labels to remove from the Safety Events.
 
         dismissal_reason : typing.Optional[PatchSafetyEventsDismissalReasonBodyRequestBody]
 
@@ -552,8 +562,8 @@ class RawPreviewApIsClient:
             "preview/safety-events/batch",
             method="PATCH",
             json={
-                "contextLabelIdsToAdd": context_label_ids_to_add,
-                "contextLabelIdsToRemove": context_label_ids_to_remove,
+                "contextLabelsToAdd": context_labels_to_add,
+                "contextLabelsToRemove": context_labels_to_remove,
                 "dismissalReason": convert_and_respect_annotation_metadata(
                     object_=dismissal_reason,
                     annotation=PatchSafetyEventsDismissalReasonBodyRequestBody,
@@ -1153,8 +1163,12 @@ class AsyncRawPreviewApIsClient:
         self,
         *,
         safety_event_ids: typing.Sequence[str],
-        context_label_ids_to_add: typing.Optional[typing.Sequence[str]] = OMIT,
-        context_label_ids_to_remove: typing.Optional[typing.Sequence[str]] = OMIT,
+        context_labels_to_add: typing.Optional[
+            typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem]
+        ] = OMIT,
+        context_labels_to_remove: typing.Optional[
+            typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToRemoveItem]
+        ] = OMIT,
         dismissal_reason: typing.Optional[PatchSafetyEventsDismissalReasonBodyRequestBody] = OMIT,
         event_state: typing.Optional[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
@@ -1180,11 +1194,11 @@ class AsyncRawPreviewApIsClient:
         safety_event_ids : typing.Sequence[str]
             IDs of the Safety Events to update. Maximum 200.
 
-        context_label_ids_to_add : typing.Optional[typing.Sequence[str]]
-            Context label IDs to add to the Safety Events.
+        context_labels_to_add : typing.Optional[typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem]]
+            Context labels to add to the Safety Events.
 
-        context_label_ids_to_remove : typing.Optional[typing.Sequence[str]]
-            Context label IDs to remove from the Safety Events.
+        context_labels_to_remove : typing.Optional[typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToRemoveItem]]
+            Context labels to remove from the Safety Events.
 
         dismissal_reason : typing.Optional[PatchSafetyEventsDismissalReasonBodyRequestBody]
 
@@ -1203,8 +1217,8 @@ class AsyncRawPreviewApIsClient:
             "preview/safety-events/batch",
             method="PATCH",
             json={
-                "contextLabelIdsToAdd": context_label_ids_to_add,
-                "contextLabelIdsToRemove": context_label_ids_to_remove,
+                "contextLabelsToAdd": context_labels_to_add,
+                "contextLabelsToRemove": context_labels_to_remove,
                 "dismissalReason": convert_and_respect_annotation_metadata(
                     object_=dismissal_reason,
                     annotation=PatchSafetyEventsDismissalReasonBodyRequestBody,

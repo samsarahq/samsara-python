@@ -638,6 +638,10 @@ if typing.TYPE_CHECKING:
     from .create_attribute_request_entities import CreateAttributeRequestEntities
     from .create_driver_auth_token_response_response_body import CreateDriverAuthTokenResponseResponseBody
     from .create_driver_request_attributes import CreateDriverRequestAttributes
+    from .create_function_detail_response_body import CreateFunctionDetailResponseBody
+    from .create_function_request_config_request_body import CreateFunctionRequestConfigRequestBody
+    from .create_function_request_config_request_body_params import CreateFunctionRequestConfigRequestBodyParams
+    from .create_function_request_config_request_body_secrets import CreateFunctionRequestConfigRequestBodySecrets
     from .create_report_config_column_request_body import CreateReportConfigColumnRequestBody
     from .create_report_config_object_request_body import CreateReportConfigObjectRequestBody
     from .create_routes_stop_request_object_request_body import CreateRoutesStopRequestObjectRequestBody
@@ -685,6 +689,7 @@ if typing.TYPE_CHECKING:
     from .defect_vehicle_response_response_body import DefectVehicleResponseResponseBody
     from .defects_response import DefectsResponse
     from .defects_response_data_response_body import DefectsResponseDataResponseBody
+    from .deploy_function_detail_response_body import DeployFunctionDetailResponseBody
     from .depreciation_get_depreciation_transactions_bad_gateway_error_response_body import (
         DepreciationGetDepreciationTransactionsBadGatewayErrorResponseBody,
     )
@@ -2290,6 +2295,122 @@ if typing.TYPE_CHECKING:
     from .fuel_remaining_response_body import FuelRemainingResponseBody
     from .fuel_volume_response_body import FuelVolumeResponseBody
     from .fuel_volume_response_body_unit import FuelVolumeResponseBodyUnit
+    from .function_code_package_response_body import FunctionCodePackageResponseBody
+    from .function_code_package_response_body_status import FunctionCodePackageResponseBodyStatus
+    from .function_config_response_body import FunctionConfigResponseBody
+    from .function_config_response_body_params import FunctionConfigResponseBodyParams
+    from .function_config_response_body_secrets import FunctionConfigResponseBodySecrets
+    from .function_effects_response_body import FunctionEffectsResponseBody
+    from .function_schedule_entry_request_body import FunctionScheduleEntryRequestBody
+    from .function_schedule_entry_response_body import FunctionScheduleEntryResponseBody
+    from .function_schedule_request_body import FunctionScheduleRequestBody
+    from .function_schedule_response_body import FunctionScheduleResponseBody
+    from .functions_create_function_bad_gateway_error_response_body import (
+        FunctionsCreateFunctionBadGatewayErrorResponseBody,
+    )
+    from .functions_create_function_gateway_timeout_error_response_body import (
+        FunctionsCreateFunctionGatewayTimeoutErrorResponseBody,
+    )
+    from .functions_create_function_internal_server_error_response_body import (
+        FunctionsCreateFunctionInternalServerErrorResponseBody,
+    )
+    from .functions_create_function_method_not_allowed_error_response_body import (
+        FunctionsCreateFunctionMethodNotAllowedErrorResponseBody,
+    )
+    from .functions_create_function_not_found_error_response_body import (
+        FunctionsCreateFunctionNotFoundErrorResponseBody,
+    )
+    from .functions_create_function_not_implemented_error_response_body import (
+        FunctionsCreateFunctionNotImplementedErrorResponseBody,
+    )
+    from .functions_create_function_response_body import FunctionsCreateFunctionResponseBody
+    from .functions_create_function_service_unavailable_error_response_body import (
+        FunctionsCreateFunctionServiceUnavailableErrorResponseBody,
+    )
+    from .functions_create_function_too_many_requests_error_response_body import (
+        FunctionsCreateFunctionTooManyRequestsErrorResponseBody,
+    )
+    from .functions_create_function_unauthorized_error_response_body import (
+        FunctionsCreateFunctionUnauthorizedErrorResponseBody,
+    )
+    from .functions_deploy_function_bad_gateway_error_response_body import (
+        FunctionsDeployFunctionBadGatewayErrorResponseBody,
+    )
+    from .functions_deploy_function_gateway_timeout_error_response_body import (
+        FunctionsDeployFunctionGatewayTimeoutErrorResponseBody,
+    )
+    from .functions_deploy_function_internal_server_error_response_body import (
+        FunctionsDeployFunctionInternalServerErrorResponseBody,
+    )
+    from .functions_deploy_function_method_not_allowed_error_response_body import (
+        FunctionsDeployFunctionMethodNotAllowedErrorResponseBody,
+    )
+    from .functions_deploy_function_not_found_error_response_body import (
+        FunctionsDeployFunctionNotFoundErrorResponseBody,
+    )
+    from .functions_deploy_function_not_implemented_error_response_body import (
+        FunctionsDeployFunctionNotImplementedErrorResponseBody,
+    )
+    from .functions_deploy_function_response_body import FunctionsDeployFunctionResponseBody
+    from .functions_deploy_function_service_unavailable_error_response_body import (
+        FunctionsDeployFunctionServiceUnavailableErrorResponseBody,
+    )
+    from .functions_deploy_function_too_many_requests_error_response_body import (
+        FunctionsDeployFunctionTooManyRequestsErrorResponseBody,
+    )
+    from .functions_deploy_function_unauthorized_error_response_body import (
+        FunctionsDeployFunctionUnauthorizedErrorResponseBody,
+    )
+    from .functions_get_function_bad_gateway_error_response_body import FunctionsGetFunctionBadGatewayErrorResponseBody
+    from .functions_get_function_gateway_timeout_error_response_body import (
+        FunctionsGetFunctionGatewayTimeoutErrorResponseBody,
+    )
+    from .functions_get_function_internal_server_error_response_body import (
+        FunctionsGetFunctionInternalServerErrorResponseBody,
+    )
+    from .functions_get_function_method_not_allowed_error_response_body import (
+        FunctionsGetFunctionMethodNotAllowedErrorResponseBody,
+    )
+    from .functions_get_function_not_found_error_response_body import FunctionsGetFunctionNotFoundErrorResponseBody
+    from .functions_get_function_not_implemented_error_response_body import (
+        FunctionsGetFunctionNotImplementedErrorResponseBody,
+    )
+    from .functions_get_function_response_body import FunctionsGetFunctionResponseBody
+    from .functions_get_function_service_unavailable_error_response_body import (
+        FunctionsGetFunctionServiceUnavailableErrorResponseBody,
+    )
+    from .functions_get_function_too_many_requests_error_response_body import (
+        FunctionsGetFunctionTooManyRequestsErrorResponseBody,
+    )
+    from .functions_get_function_unauthorized_error_response_body import (
+        FunctionsGetFunctionUnauthorizedErrorResponseBody,
+    )
+    from .functions_patch_function_bad_gateway_error_response_body import (
+        FunctionsPatchFunctionBadGatewayErrorResponseBody,
+    )
+    from .functions_patch_function_gateway_timeout_error_response_body import (
+        FunctionsPatchFunctionGatewayTimeoutErrorResponseBody,
+    )
+    from .functions_patch_function_internal_server_error_response_body import (
+        FunctionsPatchFunctionInternalServerErrorResponseBody,
+    )
+    from .functions_patch_function_method_not_allowed_error_response_body import (
+        FunctionsPatchFunctionMethodNotAllowedErrorResponseBody,
+    )
+    from .functions_patch_function_not_found_error_response_body import FunctionsPatchFunctionNotFoundErrorResponseBody
+    from .functions_patch_function_not_implemented_error_response_body import (
+        FunctionsPatchFunctionNotImplementedErrorResponseBody,
+    )
+    from .functions_patch_function_response_body import FunctionsPatchFunctionResponseBody
+    from .functions_patch_function_service_unavailable_error_response_body import (
+        FunctionsPatchFunctionServiceUnavailableErrorResponseBody,
+    )
+    from .functions_patch_function_too_many_requests_error_response_body import (
+        FunctionsPatchFunctionTooManyRequestsErrorResponseBody,
+    )
+    from .functions_patch_function_unauthorized_error_response_body import (
+        FunctionsPatchFunctionUnauthorizedErrorResponseBody,
+    )
     from .functions_start_function_run_bad_gateway_error_response_body import (
         FunctionsStartFunctionRunBadGatewayErrorResponseBody,
     )
@@ -2414,6 +2535,7 @@ if typing.TYPE_CHECKING:
     from .get_driver_trailer_assignments_response_body_response_body import (
         GetDriverTrailerAssignmentsResponseBodyResponseBody,
     )
+    from .get_function_detail_response_body import GetFunctionDetailResponseBody
     from .get_media_retrieval_object_response_body import GetMediaRetrievalObjectResponseBody
     from .get_report_runs_data_object_response_body import GetReportRunsDataObjectResponseBody
     from .get_report_runs_data_object_response_body_status import GetReportRunsDataObjectResponseBodyStatus
@@ -3640,6 +3762,10 @@ if typing.TYPE_CHECKING:
     from .patch_driver_vehicle_assignments_v_2_response_body_response_body import (
         PatchDriverVehicleAssignmentsV2ResponseBodyResponseBody,
     )
+    from .patch_function_detail_response_body import PatchFunctionDetailResponseBody
+    from .patch_function_request_config_request_body import PatchFunctionRequestConfigRequestBody
+    from .patch_function_request_config_request_body_params import PatchFunctionRequestConfigRequestBodyParams
+    from .patch_function_request_config_request_body_secrets import PatchFunctionRequestConfigRequestBodySecrets
     from .patch_issue_request_body_assigned_to_request_body import PatchIssueRequestBodyAssignedToRequestBody
     from .patch_issue_request_body_assigned_to_request_body_type import PatchIssueRequestBodyAssignedToRequestBodyType
     from .patch_job_object_request_body import PatchJobObjectRequestBody
@@ -7614,6 +7740,10 @@ _dynamic_imports: typing.Dict[str, str] = {
     "CreateAttributeRequestEntities": ".create_attribute_request_entities",
     "CreateDriverAuthTokenResponseResponseBody": ".create_driver_auth_token_response_response_body",
     "CreateDriverRequestAttributes": ".create_driver_request_attributes",
+    "CreateFunctionDetailResponseBody": ".create_function_detail_response_body",
+    "CreateFunctionRequestConfigRequestBody": ".create_function_request_config_request_body",
+    "CreateFunctionRequestConfigRequestBodyParams": ".create_function_request_config_request_body_params",
+    "CreateFunctionRequestConfigRequestBodySecrets": ".create_function_request_config_request_body_secrets",
     "CreateReportConfigColumnRequestBody": ".create_report_config_column_request_body",
     "CreateReportConfigObjectRequestBody": ".create_report_config_object_request_body",
     "CreateRoutesStopRequestObjectRequestBody": ".create_routes_stop_request_object_request_body",
@@ -7657,6 +7787,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "DefectVehicleResponseResponseBody": ".defect_vehicle_response_response_body",
     "DefectsResponse": ".defects_response",
     "DefectsResponseDataResponseBody": ".defects_response_data_response_body",
+    "DeployFunctionDetailResponseBody": ".deploy_function_detail_response_body",
     "DepreciationGetDepreciationTransactionsBadGatewayErrorResponseBody": ".depreciation_get_depreciation_transactions_bad_gateway_error_response_body",
     "DepreciationGetDepreciationTransactionsGatewayTimeoutErrorResponseBody": ".depreciation_get_depreciation_transactions_gateway_timeout_error_response_body",
     "DepreciationGetDepreciationTransactionsInternalServerErrorResponseBody": ".depreciation_get_depreciation_transactions_internal_server_error_response_body",
@@ -8414,6 +8545,56 @@ _dynamic_imports: typing.Dict[str, str] = {
     "FuelRemainingResponseBody": ".fuel_remaining_response_body",
     "FuelVolumeResponseBody": ".fuel_volume_response_body",
     "FuelVolumeResponseBodyUnit": ".fuel_volume_response_body_unit",
+    "FunctionCodePackageResponseBody": ".function_code_package_response_body",
+    "FunctionCodePackageResponseBodyStatus": ".function_code_package_response_body_status",
+    "FunctionConfigResponseBody": ".function_config_response_body",
+    "FunctionConfigResponseBodyParams": ".function_config_response_body_params",
+    "FunctionConfigResponseBodySecrets": ".function_config_response_body_secrets",
+    "FunctionEffectsResponseBody": ".function_effects_response_body",
+    "FunctionScheduleEntryRequestBody": ".function_schedule_entry_request_body",
+    "FunctionScheduleEntryResponseBody": ".function_schedule_entry_response_body",
+    "FunctionScheduleRequestBody": ".function_schedule_request_body",
+    "FunctionScheduleResponseBody": ".function_schedule_response_body",
+    "FunctionsCreateFunctionBadGatewayErrorResponseBody": ".functions_create_function_bad_gateway_error_response_body",
+    "FunctionsCreateFunctionGatewayTimeoutErrorResponseBody": ".functions_create_function_gateway_timeout_error_response_body",
+    "FunctionsCreateFunctionInternalServerErrorResponseBody": ".functions_create_function_internal_server_error_response_body",
+    "FunctionsCreateFunctionMethodNotAllowedErrorResponseBody": ".functions_create_function_method_not_allowed_error_response_body",
+    "FunctionsCreateFunctionNotFoundErrorResponseBody": ".functions_create_function_not_found_error_response_body",
+    "FunctionsCreateFunctionNotImplementedErrorResponseBody": ".functions_create_function_not_implemented_error_response_body",
+    "FunctionsCreateFunctionResponseBody": ".functions_create_function_response_body",
+    "FunctionsCreateFunctionServiceUnavailableErrorResponseBody": ".functions_create_function_service_unavailable_error_response_body",
+    "FunctionsCreateFunctionTooManyRequestsErrorResponseBody": ".functions_create_function_too_many_requests_error_response_body",
+    "FunctionsCreateFunctionUnauthorizedErrorResponseBody": ".functions_create_function_unauthorized_error_response_body",
+    "FunctionsDeployFunctionBadGatewayErrorResponseBody": ".functions_deploy_function_bad_gateway_error_response_body",
+    "FunctionsDeployFunctionGatewayTimeoutErrorResponseBody": ".functions_deploy_function_gateway_timeout_error_response_body",
+    "FunctionsDeployFunctionInternalServerErrorResponseBody": ".functions_deploy_function_internal_server_error_response_body",
+    "FunctionsDeployFunctionMethodNotAllowedErrorResponseBody": ".functions_deploy_function_method_not_allowed_error_response_body",
+    "FunctionsDeployFunctionNotFoundErrorResponseBody": ".functions_deploy_function_not_found_error_response_body",
+    "FunctionsDeployFunctionNotImplementedErrorResponseBody": ".functions_deploy_function_not_implemented_error_response_body",
+    "FunctionsDeployFunctionResponseBody": ".functions_deploy_function_response_body",
+    "FunctionsDeployFunctionServiceUnavailableErrorResponseBody": ".functions_deploy_function_service_unavailable_error_response_body",
+    "FunctionsDeployFunctionTooManyRequestsErrorResponseBody": ".functions_deploy_function_too_many_requests_error_response_body",
+    "FunctionsDeployFunctionUnauthorizedErrorResponseBody": ".functions_deploy_function_unauthorized_error_response_body",
+    "FunctionsGetFunctionBadGatewayErrorResponseBody": ".functions_get_function_bad_gateway_error_response_body",
+    "FunctionsGetFunctionGatewayTimeoutErrorResponseBody": ".functions_get_function_gateway_timeout_error_response_body",
+    "FunctionsGetFunctionInternalServerErrorResponseBody": ".functions_get_function_internal_server_error_response_body",
+    "FunctionsGetFunctionMethodNotAllowedErrorResponseBody": ".functions_get_function_method_not_allowed_error_response_body",
+    "FunctionsGetFunctionNotFoundErrorResponseBody": ".functions_get_function_not_found_error_response_body",
+    "FunctionsGetFunctionNotImplementedErrorResponseBody": ".functions_get_function_not_implemented_error_response_body",
+    "FunctionsGetFunctionResponseBody": ".functions_get_function_response_body",
+    "FunctionsGetFunctionServiceUnavailableErrorResponseBody": ".functions_get_function_service_unavailable_error_response_body",
+    "FunctionsGetFunctionTooManyRequestsErrorResponseBody": ".functions_get_function_too_many_requests_error_response_body",
+    "FunctionsGetFunctionUnauthorizedErrorResponseBody": ".functions_get_function_unauthorized_error_response_body",
+    "FunctionsPatchFunctionBadGatewayErrorResponseBody": ".functions_patch_function_bad_gateway_error_response_body",
+    "FunctionsPatchFunctionGatewayTimeoutErrorResponseBody": ".functions_patch_function_gateway_timeout_error_response_body",
+    "FunctionsPatchFunctionInternalServerErrorResponseBody": ".functions_patch_function_internal_server_error_response_body",
+    "FunctionsPatchFunctionMethodNotAllowedErrorResponseBody": ".functions_patch_function_method_not_allowed_error_response_body",
+    "FunctionsPatchFunctionNotFoundErrorResponseBody": ".functions_patch_function_not_found_error_response_body",
+    "FunctionsPatchFunctionNotImplementedErrorResponseBody": ".functions_patch_function_not_implemented_error_response_body",
+    "FunctionsPatchFunctionResponseBody": ".functions_patch_function_response_body",
+    "FunctionsPatchFunctionServiceUnavailableErrorResponseBody": ".functions_patch_function_service_unavailable_error_response_body",
+    "FunctionsPatchFunctionTooManyRequestsErrorResponseBody": ".functions_patch_function_too_many_requests_error_response_body",
+    "FunctionsPatchFunctionUnauthorizedErrorResponseBody": ".functions_patch_function_unauthorized_error_response_body",
     "FunctionsStartFunctionRunBadGatewayErrorResponseBody": ".functions_start_function_run_bad_gateway_error_response_body",
     "FunctionsStartFunctionRunGatewayTimeoutErrorResponseBody": ".functions_start_function_run_gateway_timeout_error_response_body",
     "FunctionsStartFunctionRunInternalServerErrorResponseBody": ".functions_start_function_run_internal_server_error_response_body",
@@ -8476,6 +8657,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "GetAttributesByEntityTypeResponse": ".get_attributes_by_entity_type_response",
     "GetDocumentTypeResponseObjectResponseBody": ".get_document_type_response_object_response_body",
     "GetDriverTrailerAssignmentsResponseBodyResponseBody": ".get_driver_trailer_assignments_response_body_response_body",
+    "GetFunctionDetailResponseBody": ".get_function_detail_response_body",
     "GetMediaRetrievalObjectResponseBody": ".get_media_retrieval_object_response_body",
     "GetReportRunsDataObjectResponseBody": ".get_report_runs_data_object_response_body",
     "GetReportRunsDataObjectResponseBodyStatus": ".get_report_runs_data_object_response_body_status",
@@ -9086,6 +9268,10 @@ _dynamic_imports: typing.Dict[str, str] = {
     "PatchDriverTrailerAssignmentsResponseBodyResponseBody": ".patch_driver_trailer_assignments_response_body_response_body",
     "PatchDriverVehicleAssignmentsV2RequestBodyMetadataRequestBody": ".patch_driver_vehicle_assignments_v_2_request_body_metadata_request_body",
     "PatchDriverVehicleAssignmentsV2ResponseBodyResponseBody": ".patch_driver_vehicle_assignments_v_2_response_body_response_body",
+    "PatchFunctionDetailResponseBody": ".patch_function_detail_response_body",
+    "PatchFunctionRequestConfigRequestBody": ".patch_function_request_config_request_body",
+    "PatchFunctionRequestConfigRequestBodyParams": ".patch_function_request_config_request_body_params",
+    "PatchFunctionRequestConfigRequestBodySecrets": ".patch_function_request_config_request_body_secrets",
     "PatchIssueRequestBodyAssignedToRequestBody": ".patch_issue_request_body_assigned_to_request_body",
     "PatchIssueRequestBodyAssignedToRequestBodyType": ".patch_issue_request_body_assigned_to_request_body_type",
     "PatchJobObjectRequestBody": ".patch_job_object_request_body",
@@ -11200,6 +11386,10 @@ __all__ = [
     "CreateAttributeRequestEntities",
     "CreateDriverAuthTokenResponseResponseBody",
     "CreateDriverRequestAttributes",
+    "CreateFunctionDetailResponseBody",
+    "CreateFunctionRequestConfigRequestBody",
+    "CreateFunctionRequestConfigRequestBodyParams",
+    "CreateFunctionRequestConfigRequestBodySecrets",
     "CreateReportConfigColumnRequestBody",
     "CreateReportConfigObjectRequestBody",
     "CreateRoutesStopRequestObjectRequestBody",
@@ -11243,6 +11433,7 @@ __all__ = [
     "DefectVehicleResponseResponseBody",
     "DefectsResponse",
     "DefectsResponseDataResponseBody",
+    "DeployFunctionDetailResponseBody",
     "DepreciationGetDepreciationTransactionsBadGatewayErrorResponseBody",
     "DepreciationGetDepreciationTransactionsGatewayTimeoutErrorResponseBody",
     "DepreciationGetDepreciationTransactionsInternalServerErrorResponseBody",
@@ -12000,6 +12191,56 @@ __all__ = [
     "FuelRemainingResponseBody",
     "FuelVolumeResponseBody",
     "FuelVolumeResponseBodyUnit",
+    "FunctionCodePackageResponseBody",
+    "FunctionCodePackageResponseBodyStatus",
+    "FunctionConfigResponseBody",
+    "FunctionConfigResponseBodyParams",
+    "FunctionConfigResponseBodySecrets",
+    "FunctionEffectsResponseBody",
+    "FunctionScheduleEntryRequestBody",
+    "FunctionScheduleEntryResponseBody",
+    "FunctionScheduleRequestBody",
+    "FunctionScheduleResponseBody",
+    "FunctionsCreateFunctionBadGatewayErrorResponseBody",
+    "FunctionsCreateFunctionGatewayTimeoutErrorResponseBody",
+    "FunctionsCreateFunctionInternalServerErrorResponseBody",
+    "FunctionsCreateFunctionMethodNotAllowedErrorResponseBody",
+    "FunctionsCreateFunctionNotFoundErrorResponseBody",
+    "FunctionsCreateFunctionNotImplementedErrorResponseBody",
+    "FunctionsCreateFunctionResponseBody",
+    "FunctionsCreateFunctionServiceUnavailableErrorResponseBody",
+    "FunctionsCreateFunctionTooManyRequestsErrorResponseBody",
+    "FunctionsCreateFunctionUnauthorizedErrorResponseBody",
+    "FunctionsDeployFunctionBadGatewayErrorResponseBody",
+    "FunctionsDeployFunctionGatewayTimeoutErrorResponseBody",
+    "FunctionsDeployFunctionInternalServerErrorResponseBody",
+    "FunctionsDeployFunctionMethodNotAllowedErrorResponseBody",
+    "FunctionsDeployFunctionNotFoundErrorResponseBody",
+    "FunctionsDeployFunctionNotImplementedErrorResponseBody",
+    "FunctionsDeployFunctionResponseBody",
+    "FunctionsDeployFunctionServiceUnavailableErrorResponseBody",
+    "FunctionsDeployFunctionTooManyRequestsErrorResponseBody",
+    "FunctionsDeployFunctionUnauthorizedErrorResponseBody",
+    "FunctionsGetFunctionBadGatewayErrorResponseBody",
+    "FunctionsGetFunctionGatewayTimeoutErrorResponseBody",
+    "FunctionsGetFunctionInternalServerErrorResponseBody",
+    "FunctionsGetFunctionMethodNotAllowedErrorResponseBody",
+    "FunctionsGetFunctionNotFoundErrorResponseBody",
+    "FunctionsGetFunctionNotImplementedErrorResponseBody",
+    "FunctionsGetFunctionResponseBody",
+    "FunctionsGetFunctionServiceUnavailableErrorResponseBody",
+    "FunctionsGetFunctionTooManyRequestsErrorResponseBody",
+    "FunctionsGetFunctionUnauthorizedErrorResponseBody",
+    "FunctionsPatchFunctionBadGatewayErrorResponseBody",
+    "FunctionsPatchFunctionGatewayTimeoutErrorResponseBody",
+    "FunctionsPatchFunctionInternalServerErrorResponseBody",
+    "FunctionsPatchFunctionMethodNotAllowedErrorResponseBody",
+    "FunctionsPatchFunctionNotFoundErrorResponseBody",
+    "FunctionsPatchFunctionNotImplementedErrorResponseBody",
+    "FunctionsPatchFunctionResponseBody",
+    "FunctionsPatchFunctionServiceUnavailableErrorResponseBody",
+    "FunctionsPatchFunctionTooManyRequestsErrorResponseBody",
+    "FunctionsPatchFunctionUnauthorizedErrorResponseBody",
     "FunctionsStartFunctionRunBadGatewayErrorResponseBody",
     "FunctionsStartFunctionRunGatewayTimeoutErrorResponseBody",
     "FunctionsStartFunctionRunInternalServerErrorResponseBody",
@@ -12062,6 +12303,7 @@ __all__ = [
     "GetAttributesByEntityTypeResponse",
     "GetDocumentTypeResponseObjectResponseBody",
     "GetDriverTrailerAssignmentsResponseBodyResponseBody",
+    "GetFunctionDetailResponseBody",
     "GetMediaRetrievalObjectResponseBody",
     "GetReportRunsDataObjectResponseBody",
     "GetReportRunsDataObjectResponseBodyStatus",
@@ -12672,6 +12914,10 @@ __all__ = [
     "PatchDriverTrailerAssignmentsResponseBodyResponseBody",
     "PatchDriverVehicleAssignmentsV2RequestBodyMetadataRequestBody",
     "PatchDriverVehicleAssignmentsV2ResponseBodyResponseBody",
+    "PatchFunctionDetailResponseBody",
+    "PatchFunctionRequestConfigRequestBody",
+    "PatchFunctionRequestConfigRequestBodyParams",
+    "PatchFunctionRequestConfigRequestBodySecrets",
     "PatchIssueRequestBodyAssignedToRequestBody",
     "PatchIssueRequestBodyAssignedToRequestBodyType",
     "PatchJobObjectRequestBody",
