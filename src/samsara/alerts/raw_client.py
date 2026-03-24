@@ -65,6 +65,7 @@ class RawAlertsClient:
         Vehicle Engine Idle
         Asset Engine On
         Asset Engine Off
+        Harsh Event
         Scheduled Maintenance
         Scheduled Maintenance by Odometer
         Scheduled Maintenance by Engine Hours
@@ -975,6 +976,7 @@ class AsyncRawAlertsClient:
         Vehicle Engine Idle
         Asset Engine On
         Asset Engine Off
+        Harsh Event
         Scheduled Maintenance
         Scheduled Maintenance by Odometer
         Scheduled Maintenance by Engine Hours

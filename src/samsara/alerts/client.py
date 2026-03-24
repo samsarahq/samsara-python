@@ -63,6 +63,7 @@ class AlertsClient:
         Vehicle Engine Idle
         Asset Engine On
         Asset Engine Off
+        Harsh Event
         Scheduled Maintenance
         Scheduled Maintenance by Odometer
         Scheduled Maintenance by Engine Hours
@@ -211,7 +212,7 @@ class AlertsClient:
             is_enabled=True,
             name="My Harsh Event Alert",
             scope=ScopeObjectRequestBody(
-                all_=True,
+                all_=False,
             ),
             triggers=[
                 WorkflowTriggerObjectRequestBody(
@@ -454,6 +455,7 @@ class AsyncAlertsClient:
         Vehicle Engine Idle
         Asset Engine On
         Asset Engine Off
+        Harsh Event
         Scheduled Maintenance
         Scheduled Maintenance by Odometer
         Scheduled Maintenance by Engine Hours
@@ -615,7 +617,7 @@ class AsyncAlertsClient:
                 is_enabled=True,
                 name="My Harsh Event Alert",
                 scope=ScopeObjectRequestBody(
-                    all_=True,
+                    all_=False,
                 ),
                 triggers=[
                     WorkflowTriggerObjectRequestBody(

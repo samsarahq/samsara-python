@@ -6,11 +6,19 @@ import typing
 from importlib import import_module
 
 if typing.TYPE_CHECKING:
+    from .safety_events_v_2_patch_safety_events_v_2_batch_request_body_context_labels_to_add_item import (
+        SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem,
+    )
+    from .safety_events_v_2_patch_safety_events_v_2_batch_request_body_context_labels_to_remove_item import (
+        SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToRemoveItem,
+    )
     from .safety_events_v_2_patch_safety_events_v_2_batch_request_body_event_state import (
         SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState,
     )
 _dynamic_imports: typing.Dict[str, str] = {
-    "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState": ".safety_events_v_2_patch_safety_events_v_2_batch_request_body_event_state"
+    "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem": ".safety_events_v_2_patch_safety_events_v_2_batch_request_body_context_labels_to_add_item",
+    "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToRemoveItem": ".safety_events_v_2_patch_safety_events_v_2_batch_request_body_context_labels_to_remove_item",
+    "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState": ".safety_events_v_2_patch_safety_events_v_2_batch_request_body_event_state",
 }
 
 
@@ -35,4 +43,8 @@ def __dir__():
     return sorted(lazy_attrs)
 
 
-__all__ = ["SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState"]
+__all__ = [
+    "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem",
+    "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToRemoveItem",
+    "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState",
+]

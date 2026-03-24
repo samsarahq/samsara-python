@@ -10,6 +10,7 @@ from ..types.assets_inputs_get_assets_inputs_response_body import AssetsInputsGe
 from ..types.associations_list_associations_response_body import AssociationsListAssociationsResponseBody
 from ..types.carb_ctc_list_carb_ctc_vehicle_history_response_body import CarbCtcListCarbCtcVehicleHistoryResponseBody
 from ..types.carb_ctc_list_carb_ctc_vehicles_response_body import CarbCtcListCarbCtcVehiclesResponseBody
+from ..types.create_function_request_config_request_body import CreateFunctionRequestConfigRequestBody
 from ..types.create_report_config_object_request_body import CreateReportConfigObjectRequestBody
 from ..types.depreciation_get_depreciation_transactions_response_body import (
     DepreciationGetDepreciationTransactionsResponseBody,
@@ -26,6 +27,10 @@ from ..types.engine_immobilizer_get_engine_immobilizer_states_response_body impo
     EngineImmobilizerGetEngineImmobilizerStatesResponseBody,
 )
 from ..types.equipment_patch_equipment_response_body import EquipmentPatchEquipmentResponseBody
+from ..types.functions_create_function_response_body import FunctionsCreateFunctionResponseBody
+from ..types.functions_deploy_function_response_body import FunctionsDeployFunctionResponseBody
+from ..types.functions_get_function_response_body import FunctionsGetFunctionResponseBody
+from ..types.functions_patch_function_response_body import FunctionsPatchFunctionResponseBody
 from ..types.functions_start_function_run_response_body import FunctionsStartFunctionRunResponseBody
 from ..types.goa_attribute_tiny import GoaAttributeTiny
 from ..types.hos_daily_logs_update_shipping_docs_response_body import HosDailyLogsUpdateShippingDocsResponseBody
@@ -45,6 +50,7 @@ from ..types.maintenance_vendors_list_vendor_categories_response_body import (
 )
 from ..types.notification_recipient_request_body import NotificationRecipientRequestBody
 from ..types.order_input_object_request_body import OrderInputObjectRequestBody
+from ..types.patch_function_request_config_request_body import PatchFunctionRequestConfigRequestBody
 from ..types.patch_job_object_request_body import PatchJobObjectRequestBody
 from ..types.plan_orders_create_plan_orders_response_body import PlanOrdersCreatePlanOrdersResponseBody
 from ..types.post_job_object_request_body import PostJobObjectRequestBody
@@ -1967,6 +1973,202 @@ class BetaApIsClient:
             after=after,
             request_options=request_options,
         )
+        return _response.data
+
+    def create_function(
+        self,
+        *,
+        config: CreateFunctionRequestConfigRequestBody,
+        name: str,
+        description: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> FunctionsCreateFunctionResponseBody:
+        """
+        Create a new Function with the given name, description, and configuration. The response includes a URL (`uploadPutUrl`) for uploading the function's code package. After uploading, call `POST /functions/{name}/deploy` to make the function runnable.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Functions** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        config : CreateFunctionRequestConfigRequestBody
+
+        name : str
+            Unique name for the Function.
+
+        description : typing.Optional[str]
+            A description of the Function.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        FunctionsCreateFunctionResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import CreateFunctionRequestConfigRequestBody, Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.create_function(
+            config=CreateFunctionRequestConfigRequestBody(
+                handler="index.handler",
+            ),
+            name="my-function",
+        )
+        """
+        _response = self._raw_client.create_function(
+            config=config, name=name, description=description, request_options=request_options
+        )
+        return _response.data
+
+    def get_function(
+        self, name: str, *, request_options: typing.Optional[RequestOptions] = None
+    ) -> FunctionsGetFunctionResponseBody:
+        """
+        Retrieve the current state of an existing Function, including its configuration, code package status, and a `lastUpdateTimestampMs` value for use in subsequent PATCH requests.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Functions** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        name : str
+            The name of the Function to retrieve.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        FunctionsGetFunctionResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.get_function(
+            name="name",
+        )
+        """
+        _response = self._raw_client.get_function(name, request_options=request_options)
+        return _response.data
+
+    def patch_function(
+        self,
+        name: str,
+        *,
+        last_update_timestamp_ms: int,
+        config: typing.Optional[PatchFunctionRequestConfigRequestBody] = OMIT,
+        description: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> FunctionsPatchFunctionResponseBody:
+        """
+        Update an existing Function's description and configuration. The request must include `lastUpdateTimestampMs`, which is the timestamp value obtained from a previous create or get response. The response includes a URL (`uploadPutUrl`) for uploading new code. After uploading, call `POST /functions/{name}/deploy` for the changes to be applied.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Functions** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        name : str
+            The name of the Function to update.
+
+        last_update_timestamp_ms : int
+            Timestamp of the last known update to this Function, obtained from a create or get response. Required to prevent conflicting updates.
+
+        config : typing.Optional[PatchFunctionRequestConfigRequestBody]
+
+        description : typing.Optional[str]
+            A description of the Function.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        FunctionsPatchFunctionResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.patch_function(
+            name="name",
+            last_update_timestamp_ms=1609459200000,
+        )
+        """
+        _response = self._raw_client.patch_function(
+            name,
+            last_update_timestamp_ms=last_update_timestamp_ms,
+            config=config,
+            description=description,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def deploy_function(
+        self, name: str, *, request_options: typing.Optional[RequestOptions] = None
+    ) -> FunctionsDeployFunctionResponseBody:
+        """
+        Deploy the uploaded code package for the specified Function, making it runnable.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Functions** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        name : str
+            The name of the Function to deploy.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        FunctionsDeployFunctionResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.deploy_function(
+            name="name",
+        )
+        """
+        _response = self._raw_client.deploy_function(name, request_options=request_options)
         return _response.data
 
     def start_function_run(
@@ -6824,6 +7026,234 @@ class AsyncBetaApIsClient:
             after=after,
             request_options=request_options,
         )
+        return _response.data
+
+    async def create_function(
+        self,
+        *,
+        config: CreateFunctionRequestConfigRequestBody,
+        name: str,
+        description: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> FunctionsCreateFunctionResponseBody:
+        """
+        Create a new Function with the given name, description, and configuration. The response includes a URL (`uploadPutUrl`) for uploading the function's code package. After uploading, call `POST /functions/{name}/deploy` to make the function runnable.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Functions** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        config : CreateFunctionRequestConfigRequestBody
+
+        name : str
+            Unique name for the Function.
+
+        description : typing.Optional[str]
+            A description of the Function.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        FunctionsCreateFunctionResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara, CreateFunctionRequestConfigRequestBody
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.create_function(
+                config=CreateFunctionRequestConfigRequestBody(
+                    handler="index.handler",
+                ),
+                name="my-function",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.create_function(
+            config=config, name=name, description=description, request_options=request_options
+        )
+        return _response.data
+
+    async def get_function(
+        self, name: str, *, request_options: typing.Optional[RequestOptions] = None
+    ) -> FunctionsGetFunctionResponseBody:
+        """
+        Retrieve the current state of an existing Function, including its configuration, code package status, and a `lastUpdateTimestampMs` value for use in subsequent PATCH requests.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Functions** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        name : str
+            The name of the Function to retrieve.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        FunctionsGetFunctionResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.get_function(
+                name="name",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_function(name, request_options=request_options)
+        return _response.data
+
+    async def patch_function(
+        self,
+        name: str,
+        *,
+        last_update_timestamp_ms: int,
+        config: typing.Optional[PatchFunctionRequestConfigRequestBody] = OMIT,
+        description: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> FunctionsPatchFunctionResponseBody:
+        """
+        Update an existing Function's description and configuration. The request must include `lastUpdateTimestampMs`, which is the timestamp value obtained from a previous create or get response. The response includes a URL (`uploadPutUrl`) for uploading new code. After uploading, call `POST /functions/{name}/deploy` for the changes to be applied.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Functions** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        name : str
+            The name of the Function to update.
+
+        last_update_timestamp_ms : int
+            Timestamp of the last known update to this Function, obtained from a create or get response. Required to prevent conflicting updates.
+
+        config : typing.Optional[PatchFunctionRequestConfigRequestBody]
+
+        description : typing.Optional[str]
+            A description of the Function.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        FunctionsPatchFunctionResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.patch_function(
+                name="name",
+                last_update_timestamp_ms=1609459200000,
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.patch_function(
+            name,
+            last_update_timestamp_ms=last_update_timestamp_ms,
+            config=config,
+            description=description,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def deploy_function(
+        self, name: str, *, request_options: typing.Optional[RequestOptions] = None
+    ) -> FunctionsDeployFunctionResponseBody:
+        """
+        Deploy the uploaded code package for the specified Function, making it runnable.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Functions** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        name : str
+            The name of the Function to deploy.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        FunctionsDeployFunctionResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.deploy_function(
+                name="name",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.deploy_function(name, request_options=request_options)
         return _response.data
 
     async def start_function_run(

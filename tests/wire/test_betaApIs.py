@@ -228,6 +228,38 @@ def test_betaApIs_get_engine_immobilizer_states() -> None:
     )
 
 
+def test_betaApIs_create_function() -> None:
+    """Test createFunction endpoint with WireMock"""
+    test_id = "beta_ap_is.create_function.0"
+    client = get_client(test_id)
+    client.beta_ap_is.create_function(config={"handler": "index.handler"}, name="my-function")
+    verify_request_count(test_id, "POST", "/functions", None, 1)
+
+
+def test_betaApIs_get_function() -> None:
+    """Test getFunction endpoint with WireMock"""
+    test_id = "beta_ap_is.get_function.0"
+    client = get_client(test_id)
+    client.beta_ap_is.get_function(name="name")
+    verify_request_count(test_id, "GET", "/functions/name", None, 1)
+
+
+def test_betaApIs_patch_function() -> None:
+    """Test patchFunction endpoint with WireMock"""
+    test_id = "beta_ap_is.patch_function.0"
+    client = get_client(test_id)
+    client.beta_ap_is.patch_function(name="name", last_update_timestamp_ms=1609459200000)
+    verify_request_count(test_id, "PATCH", "/functions/name", None, 1)
+
+
+def test_betaApIs_deploy_function() -> None:
+    """Test deployFunction endpoint with WireMock"""
+    test_id = "beta_ap_is.deploy_function.0"
+    client = get_client(test_id)
+    client.beta_ap_is.deploy_function(name="name")
+    verify_request_count(test_id, "POST", "/functions/name/deploy", None, 1)
+
+
 def test_betaApIs_start_function_run() -> None:
     """Test startFunctionRun endpoint with WireMock"""
     test_id = "beta_ap_is.start_function_run.0"
