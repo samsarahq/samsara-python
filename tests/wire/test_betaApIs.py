@@ -178,22 +178,6 @@ def test_betaApIs_recover_asset() -> None:
     verify_request_count(test_id, "POST", "/fleet/assets/device-recovery/id/recovered", None, 1)
 
 
-def test_betaApIs_list_carb_ctc_vehicles() -> None:
-    """Test listCarbCtcVehicles endpoint with WireMock"""
-    test_id = "beta_ap_is.list_carb_ctc_vehicles.0"
-    client = get_client(test_id)
-    client.beta_ap_is.list_carb_ctc_vehicles()
-    verify_request_count(test_id, "GET", "/fleet/carb-ctc/vehicles", None, 1)
-
-
-def test_betaApIs_list_carb_ctc_vehicle_history() -> None:
-    """Test listCarbCtcVehicleHistory endpoint with WireMock"""
-    test_id = "beta_ap_is.list_carb_ctc_vehicle_history.0"
-    client = get_client(test_id)
-    client.beta_ap_is.list_carb_ctc_vehicle_history(vehicle_ids="vehicleIds")
-    verify_request_count(test_id, "GET", "/fleet/carb-ctc/vehicles/history", {"vehicleIds": "vehicleIds"}, 1)
-
-
 def test_betaApIs_resolve_assignment_by_details() -> None:
     """Test resolveAssignmentByDetails endpoint with WireMock"""
     test_id = "beta_ap_is.resolve_assignment_by_details.0"

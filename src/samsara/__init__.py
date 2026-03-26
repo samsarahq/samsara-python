@@ -3647,6 +3647,7 @@ if typing.TYPE_CHECKING:
         attributes,
         auth_token_for_driver,
         beta_ap_is,
+        carb_ctc,
         carrier_proposed_assignments,
         coaching,
         contacts,
@@ -3728,10 +3729,10 @@ if typing.TYPE_CHECKING:
         GetQualificationTypesRequestEntityType,
         GetTagGroupSafetyScoresRequestScoreType,
         GetTagSafetyScoresRequestScoreType,
-        ListCarbCtcVehiclesRequestTestStatusItem,
         RidershipPassengersCreateRidershipPassengerRequestBodyClassification,
         RidershipPassengersUpdateRidershipPassengerRequestBodyClassification,
     )
+    from .carb_ctc import ListCarbCtcVehiclesRequestTestStatusItem
     from .client import AsyncSamsara, Samsara
     from .documents import DocumentsPostDocumentRequestBodyState
     from .driver_vehicle_assignments import (
@@ -5552,7 +5553,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "Latitude": ".types",
     "ListAddressesResponse": ".types",
     "ListAssetsRequestType": ".assets",
-    "ListCarbCtcVehiclesRequestTestStatusItem": ".beta_ap_is",
+    "ListCarbCtcVehiclesRequestTestStatusItem": ".carb_ctc",
     "ListCarrierProposedAssignmentResponse": ".types",
     "ListContactsResponse": ".types",
     "ListDriversRequestDriverActivationStatus": ".drivers",
@@ -7570,6 +7571,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "attributes": ".attributes",
     "auth_token_for_driver": ".auth_token_for_driver",
     "beta_ap_is": ".beta_ap_is",
+    "carb_ctc": ".carb_ctc",
     "carrier_proposed_assignments": ".carrier_proposed_assignments",
     "coaching": ".coaching",
     "contacts": ".contacts",
@@ -11386,6 +11388,7 @@ __all__ = [
     "attributes",
     "auth_token_for_driver",
     "beta_ap_is",
+    "carb_ctc",
     "carrier_proposed_assignments",
     "coaching",
     "contacts",
