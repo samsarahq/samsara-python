@@ -16,7 +16,7 @@ class ReadingHistoryResponseBody(UniversalBaseModel):
     entity_id: typing_extensions.Annotated[
         str,
         FieldMetadata(alias="entityId"),
-        pydantic.Field(alias="entityId", description="The ID of the entity this readings is for."),
+        pydantic.Field(alias="entityId", description="The ID of the entity this reading is for."),
     ]
     external_ids: typing_extensions.Annotated[
         typing.Optional[typing.Dict[str, str]],

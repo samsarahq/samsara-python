@@ -2962,7 +2962,7 @@ class BetaApIsClient:
             A String of comma separated reading IDs. Include up to 50 readings IDs. If not set, all readings are returned.
 
         entity_types : typing.Optional[str]
-            A list of entity type to return readings for. (Examples: asset, sensor)
+            A list of entity types to return readings for. (Examples: asset, sensor)
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -3001,7 +3001,7 @@ class BetaApIsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ReadingsGetReadingsHistoryResponseBody:
         """
-        Get the values of a reading for a set of entities within the specified time range. Returns a paginated response with data for the specified resource IDs where startTime <= happenedAtTime < endTime. End time of null implies endTime is infinite and all known readings are returned.
+        Get the values of a reading for a set of entities within the specified time range. Returns a paginated response with data for the specified resource IDs where startTime <= happenedAtTime < endTime. If endTime is not set, the time of the request is used as the endTime.
 
          <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -3238,19 +3238,19 @@ class BetaApIsClient:
             **Note:** This is not an exhaustive list. Your organization may have access to additional readings based on enabled features or custom configurations. Use the `/readings/definitions` endpoint to retrieve all available reading IDs for your organization.
 
         entity_type : str
-            A entity type of the entityIds or externalIds to fetch readings for. Use /readings/definitions endpoint to get a list of valid entity types. (Examples: asset, sensor)
+            The entity type of the entityIds or externalIds to fetch readings for. Use /readings/definitions endpoint to get a list of valid entity types. (Examples: asset, sensor)
 
         after : typing.Optional[str]
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
 
         entity_ids : typing.Optional[str]
-            A filter on the data based on this comma-separated list of entity IDs or external IDs. If not set, all entities are returned.
+            A filter on the data based on this comma-separated list of entity IDs. If not set, all entities are returned.
 
         external_ids : typing.Optional[str]
             A filter on the data based on this comma-separated list of external IDs. (Examples: samsara.serial:ZPXKLMN7VJ, samsara.serial:ABXKIMN4NM)
 
         start_time : typing.Optional[str]
-            A filter on the data that returns the last known data points with timestamps greater than or equal to this value. Must be a string in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2020-01-27T07:06:25Z)
+            A filter on the data that returns data points with timestamps greater than or equal to this value. Required when feed mode is not enabled. Must be a string in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2020-01-27T07:06:25Z)
 
         end_time : typing.Optional[str]
             A filter on the data that returns the last known data points with timestamps less than or equal to this value. If not set, the time of the request is considered the endTime. Must be a string in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2020-01-27T07:06:25Z)
@@ -3320,7 +3320,7 @@ class BetaApIsClient:
         Parameters
         ----------
         reading_ids : str
-            A collection of comma separated reading IDs. Include up to 3 readings IDs. Use /readings/definitions endpoint to get a list of valid reading IDs. (Examples: engineRpm,fuelLevel)
+            A collection of comma separated reading IDs. Include up to 5 readings IDs. Use /readings/definitions endpoint to get a list of valid reading IDs. (Examples: engineRpm,fuelLevel)
 
             Available reading IDs (by category):
 
@@ -3545,13 +3545,13 @@ class BetaApIsClient:
             **Note:** This is not an exhaustive list. Your organization may have access to additional readings based on enabled features or custom configurations. Use the `/readings/definitions` endpoint to retrieve all available reading IDs for your organization.
 
         entity_type : str
-            A entity type of the entityIds or externalIds to fetch readings for. Use /readings/definitions endpoint to get a list of valid entity types. (Examples: asset, sensor)
+            The entity type of the entityIds or externalIds to fetch readings for. Use /readings/definitions endpoint to get a list of valid entity types. (Examples: asset, sensor)
 
         after : typing.Optional[str]
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
 
         entity_ids : typing.Optional[str]
-            A filter on the data based on this comma-separated list of entity IDs or external IDs. If not set, all entities are returned.
+            A filter on the data based on this comma-separated list of entity IDs. If not set, all entities are returned.
 
         external_ids : typing.Optional[str]
             A filter on the data based on this comma-separated list of external IDs. (Examples: samsara.serial:ZPXKLMN7VJ, samsara.serial:ABXKIMN4NM)
@@ -8152,7 +8152,7 @@ class AsyncBetaApIsClient:
             A String of comma separated reading IDs. Include up to 50 readings IDs. If not set, all readings are returned.
 
         entity_types : typing.Optional[str]
-            A list of entity type to return readings for. (Examples: asset, sensor)
+            A list of entity types to return readings for. (Examples: asset, sensor)
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -8199,7 +8199,7 @@ class AsyncBetaApIsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ReadingsGetReadingsHistoryResponseBody:
         """
-        Get the values of a reading for a set of entities within the specified time range. Returns a paginated response with data for the specified resource IDs where startTime <= happenedAtTime < endTime. End time of null implies endTime is infinite and all known readings are returned.
+        Get the values of a reading for a set of entities within the specified time range. Returns a paginated response with data for the specified resource IDs where startTime <= happenedAtTime < endTime. If endTime is not set, the time of the request is used as the endTime.
 
          <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -8436,19 +8436,19 @@ class AsyncBetaApIsClient:
             **Note:** This is not an exhaustive list. Your organization may have access to additional readings based on enabled features or custom configurations. Use the `/readings/definitions` endpoint to retrieve all available reading IDs for your organization.
 
         entity_type : str
-            A entity type of the entityIds or externalIds to fetch readings for. Use /readings/definitions endpoint to get a list of valid entity types. (Examples: asset, sensor)
+            The entity type of the entityIds or externalIds to fetch readings for. Use /readings/definitions endpoint to get a list of valid entity types. (Examples: asset, sensor)
 
         after : typing.Optional[str]
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
 
         entity_ids : typing.Optional[str]
-            A filter on the data based on this comma-separated list of entity IDs or external IDs. If not set, all entities are returned.
+            A filter on the data based on this comma-separated list of entity IDs. If not set, all entities are returned.
 
         external_ids : typing.Optional[str]
             A filter on the data based on this comma-separated list of external IDs. (Examples: samsara.serial:ZPXKLMN7VJ, samsara.serial:ABXKIMN4NM)
 
         start_time : typing.Optional[str]
-            A filter on the data that returns the last known data points with timestamps greater than or equal to this value. Must be a string in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2020-01-27T07:06:25Z)
+            A filter on the data that returns data points with timestamps greater than or equal to this value. Required when feed mode is not enabled. Must be a string in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2020-01-27T07:06:25Z)
 
         end_time : typing.Optional[str]
             A filter on the data that returns the last known data points with timestamps less than or equal to this value. If not set, the time of the request is considered the endTime. Must be a string in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2020-01-27T07:06:25Z)
@@ -8526,7 +8526,7 @@ class AsyncBetaApIsClient:
         Parameters
         ----------
         reading_ids : str
-            A collection of comma separated reading IDs. Include up to 3 readings IDs. Use /readings/definitions endpoint to get a list of valid reading IDs. (Examples: engineRpm,fuelLevel)
+            A collection of comma separated reading IDs. Include up to 5 readings IDs. Use /readings/definitions endpoint to get a list of valid reading IDs. (Examples: engineRpm,fuelLevel)
 
             Available reading IDs (by category):
 
@@ -8751,13 +8751,13 @@ class AsyncBetaApIsClient:
             **Note:** This is not an exhaustive list. Your organization may have access to additional readings based on enabled features or custom configurations. Use the `/readings/definitions` endpoint to retrieve all available reading IDs for your organization.
 
         entity_type : str
-            A entity type of the entityIds or externalIds to fetch readings for. Use /readings/definitions endpoint to get a list of valid entity types. (Examples: asset, sensor)
+            The entity type of the entityIds or externalIds to fetch readings for. Use /readings/definitions endpoint to get a list of valid entity types. (Examples: asset, sensor)
 
         after : typing.Optional[str]
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
 
         entity_ids : typing.Optional[str]
-            A filter on the data based on this comma-separated list of entity IDs or external IDs. If not set, all entities are returned.
+            A filter on the data based on this comma-separated list of entity IDs. If not set, all entities are returned.
 
         external_ids : typing.Optional[str]
             A filter on the data based on this comma-separated list of external IDs. (Examples: samsara.serial:ZPXKLMN7VJ, samsara.serial:ABXKIMN4NM)
