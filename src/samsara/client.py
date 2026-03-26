@@ -17,6 +17,7 @@ if typing.TYPE_CHECKING:
     from .attributes.client import AsyncAttributesClient, AttributesClient
     from .auth_token_for_driver.client import AsyncAuthTokenForDriverClient, AuthTokenForDriverClient
     from .beta_ap_is.client import AsyncBetaApIsClient, BetaApIsClient
+    from .carb_ctc.client import AsyncCarbCtcClient, CarbCtcClient
     from .carrier_proposed_assignments.client import (
         AsyncCarrierProposedAssignmentsClient,
         CarrierProposedAssignmentsClient,
@@ -150,6 +151,7 @@ class Samsara:
         self._fuel_and_energy: typing.Optional[FuelAndEnergyClient] = None
         self._driver_trailer_assignments: typing.Optional[DriverTrailerAssignmentsClient] = None
         self._driver_qr_codes: typing.Optional[DriverQrCodesClient] = None
+        self._carb_ctc: typing.Optional[CarbCtcClient] = None
         self._carrier_proposed_assignments: typing.Optional[CarrierProposedAssignmentsClient] = None
         self._legacy_ap_is: typing.Optional[LegacyApIsClient] = None
         self._documents: typing.Optional[DocumentsClient] = None
@@ -295,6 +297,14 @@ class Samsara:
 
             self._driver_qr_codes = DriverQrCodesClient(client_wrapper=self._client_wrapper)
         return self._driver_qr_codes
+
+    @property
+    def carb_ctc(self):
+        if self._carb_ctc is None:
+            from .carb_ctc.client import CarbCtcClient  # noqa: E402
+
+            self._carb_ctc = CarbCtcClient(client_wrapper=self._client_wrapper)
+        return self._carb_ctc
 
     @property
     def carrier_proposed_assignments(self):
@@ -705,6 +715,7 @@ class AsyncSamsara:
         self._fuel_and_energy: typing.Optional[AsyncFuelAndEnergyClient] = None
         self._driver_trailer_assignments: typing.Optional[AsyncDriverTrailerAssignmentsClient] = None
         self._driver_qr_codes: typing.Optional[AsyncDriverQrCodesClient] = None
+        self._carb_ctc: typing.Optional[AsyncCarbCtcClient] = None
         self._carrier_proposed_assignments: typing.Optional[AsyncCarrierProposedAssignmentsClient] = None
         self._legacy_ap_is: typing.Optional[AsyncLegacyApIsClient] = None
         self._documents: typing.Optional[AsyncDocumentsClient] = None
@@ -850,6 +861,14 @@ class AsyncSamsara:
 
             self._driver_qr_codes = AsyncDriverQrCodesClient(client_wrapper=self._client_wrapper)
         return self._driver_qr_codes
+
+    @property
+    def carb_ctc(self):
+        if self._carb_ctc is None:
+            from .carb_ctc.client import AsyncCarbCtcClient  # noqa: E402
+
+            self._carb_ctc = AsyncCarbCtcClient(client_wrapper=self._client_wrapper)
+        return self._carb_ctc
 
     @property
     def carrier_proposed_assignments(self):
