@@ -17,8 +17,6 @@ if typing.TYPE_CHECKING:
         GetJobsRequestStatus,
         GetQualificationRecordsStreamRequestEntityType,
         GetQualificationTypesRequestEntityType,
-        GetTagGroupSafetyScoresRequestScoreType,
-        GetTagSafetyScoresRequestScoreType,
         RidershipPassengersCreateRidershipPassengerRequestBodyClassification,
         RidershipPassengersUpdateRidershipPassengerRequestBodyClassification,
     )
@@ -33,8 +31,6 @@ _dynamic_imports: typing.Dict[str, str] = {
     "GetJobsRequestStatus": ".types",
     "GetQualificationRecordsStreamRequestEntityType": ".types",
     "GetQualificationTypesRequestEntityType": ".types",
-    "GetTagGroupSafetyScoresRequestScoreType": ".types",
-    "GetTagSafetyScoresRequestScoreType": ".types",
     "RidershipPassengersCreateRidershipPassengerRequestBodyClassification": ".types",
     "RidershipPassengersUpdateRidershipPassengerRequestBodyClassification": ".types",
 }
@@ -72,8 +68,6 @@ __all__ = [
     "GetJobsRequestStatus",
     "GetQualificationRecordsStreamRequestEntityType",
     "GetQualificationTypesRequestEntityType",
-    "GetTagGroupSafetyScoresRequestScoreType",
-    "GetTagSafetyScoresRequestScoreType",
     "RidershipPassengersCreateRidershipPassengerRequestBodyClassification",
     "RidershipPassengersUpdateRidershipPassengerRequestBodyClassification",
 ]

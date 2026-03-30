@@ -8,6 +8,7 @@ WorkOrderObjectResponseBodyStatus = typing.Union[
         "Cancelled",
         "Closed",
         "Completed",
+        "Estimate",
         "In Progress",
         "On Hold",
         "Open",

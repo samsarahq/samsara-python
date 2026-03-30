@@ -22,8 +22,6 @@ if typing.TYPE_CHECKING:
     from .get_jobs_request_status import GetJobsRequestStatus
     from .get_qualification_records_stream_request_entity_type import GetQualificationRecordsStreamRequestEntityType
     from .get_qualification_types_request_entity_type import GetQualificationTypesRequestEntityType
-    from .get_tag_group_safety_scores_request_score_type import GetTagGroupSafetyScoresRequestScoreType
-    from .get_tag_safety_scores_request_score_type import GetTagSafetyScoresRequestScoreType
     from .ridership_passengers_create_ridership_passenger_request_body_classification import (
         RidershipPassengersCreateRidershipPassengerRequestBodyClassification,
     )
@@ -41,8 +39,6 @@ _dynamic_imports: typing.Dict[str, str] = {
     "GetJobsRequestStatus": ".get_jobs_request_status",
     "GetQualificationRecordsStreamRequestEntityType": ".get_qualification_records_stream_request_entity_type",
     "GetQualificationTypesRequestEntityType": ".get_qualification_types_request_entity_type",
-    "GetTagGroupSafetyScoresRequestScoreType": ".get_tag_group_safety_scores_request_score_type",
-    "GetTagSafetyScoresRequestScoreType": ".get_tag_safety_scores_request_score_type",
     "RidershipPassengersCreateRidershipPassengerRequestBodyClassification": ".ridership_passengers_create_ridership_passenger_request_body_classification",
     "RidershipPassengersUpdateRidershipPassengerRequestBodyClassification": ".ridership_passengers_update_ridership_passenger_request_body_classification",
 }
@@ -80,8 +76,6 @@ __all__ = [
     "GetJobsRequestStatus",
     "GetQualificationRecordsStreamRequestEntityType",
     "GetQualificationTypesRequestEntityType",
-    "GetTagGroupSafetyScoresRequestScoreType",
-    "GetTagSafetyScoresRequestScoreType",
     "RidershipPassengersCreateRidershipPassengerRequestBodyClassification",
     "RidershipPassengersUpdateRidershipPassengerRequestBodyClassification",
 ]

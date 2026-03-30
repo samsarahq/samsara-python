@@ -5269,36 +5269,6 @@ if typing.TYPE_CHECKING:
     from .safety_score_speeding_object_response_body_speeding_type import (
         SafetyScoreSpeedingObjectResponseBodySpeedingType,
     )
-    from .safety_scores_get_driver_safety_score_trips_bad_gateway_error_response_body import (
-        SafetyScoresGetDriverSafetyScoreTripsBadGatewayErrorResponseBody,
-    )
-    from .safety_scores_get_driver_safety_score_trips_gateway_timeout_error_response_body import (
-        SafetyScoresGetDriverSafetyScoreTripsGatewayTimeoutErrorResponseBody,
-    )
-    from .safety_scores_get_driver_safety_score_trips_internal_server_error_response_body import (
-        SafetyScoresGetDriverSafetyScoreTripsInternalServerErrorResponseBody,
-    )
-    from .safety_scores_get_driver_safety_score_trips_method_not_allowed_error_response_body import (
-        SafetyScoresGetDriverSafetyScoreTripsMethodNotAllowedErrorResponseBody,
-    )
-    from .safety_scores_get_driver_safety_score_trips_not_found_error_response_body import (
-        SafetyScoresGetDriverSafetyScoreTripsNotFoundErrorResponseBody,
-    )
-    from .safety_scores_get_driver_safety_score_trips_not_implemented_error_response_body import (
-        SafetyScoresGetDriverSafetyScoreTripsNotImplementedErrorResponseBody,
-    )
-    from .safety_scores_get_driver_safety_score_trips_response_body import (
-        SafetyScoresGetDriverSafetyScoreTripsResponseBody,
-    )
-    from .safety_scores_get_driver_safety_score_trips_service_unavailable_error_response_body import (
-        SafetyScoresGetDriverSafetyScoreTripsServiceUnavailableErrorResponseBody,
-    )
-    from .safety_scores_get_driver_safety_score_trips_too_many_requests_error_response_body import (
-        SafetyScoresGetDriverSafetyScoreTripsTooManyRequestsErrorResponseBody,
-    )
-    from .safety_scores_get_driver_safety_score_trips_unauthorized_error_response_body import (
-        SafetyScoresGetDriverSafetyScoreTripsUnauthorizedErrorResponseBody,
-    )
     from .safety_scores_get_driver_safety_scores_bad_gateway_error_response_body import (
         SafetyScoresGetDriverSafetyScoresBadGatewayErrorResponseBody,
     )
@@ -5382,36 +5352,6 @@ if typing.TYPE_CHECKING:
     )
     from .safety_scores_get_tag_safety_scores_unauthorized_error_response_body import (
         SafetyScoresGetTagSafetyScoresUnauthorizedErrorResponseBody,
-    )
-    from .safety_scores_get_vehicle_safety_score_trips_bad_gateway_error_response_body import (
-        SafetyScoresGetVehicleSafetyScoreTripsBadGatewayErrorResponseBody,
-    )
-    from .safety_scores_get_vehicle_safety_score_trips_gateway_timeout_error_response_body import (
-        SafetyScoresGetVehicleSafetyScoreTripsGatewayTimeoutErrorResponseBody,
-    )
-    from .safety_scores_get_vehicle_safety_score_trips_internal_server_error_response_body import (
-        SafetyScoresGetVehicleSafetyScoreTripsInternalServerErrorResponseBody,
-    )
-    from .safety_scores_get_vehicle_safety_score_trips_method_not_allowed_error_response_body import (
-        SafetyScoresGetVehicleSafetyScoreTripsMethodNotAllowedErrorResponseBody,
-    )
-    from .safety_scores_get_vehicle_safety_score_trips_not_found_error_response_body import (
-        SafetyScoresGetVehicleSafetyScoreTripsNotFoundErrorResponseBody,
-    )
-    from .safety_scores_get_vehicle_safety_score_trips_not_implemented_error_response_body import (
-        SafetyScoresGetVehicleSafetyScoreTripsNotImplementedErrorResponseBody,
-    )
-    from .safety_scores_get_vehicle_safety_score_trips_response_body import (
-        SafetyScoresGetVehicleSafetyScoreTripsResponseBody,
-    )
-    from .safety_scores_get_vehicle_safety_score_trips_service_unavailable_error_response_body import (
-        SafetyScoresGetVehicleSafetyScoreTripsServiceUnavailableErrorResponseBody,
-    )
-    from .safety_scores_get_vehicle_safety_score_trips_too_many_requests_error_response_body import (
-        SafetyScoresGetVehicleSafetyScoreTripsTooManyRequestsErrorResponseBody,
-    )
-    from .safety_scores_get_vehicle_safety_score_trips_unauthorized_error_response_body import (
-        SafetyScoresGetVehicleSafetyScoreTripsUnauthorizedErrorResponseBody,
     )
     from .safety_scores_get_vehicle_safety_scores_bad_gateway_error_response_body import (
         SafetyScoresGetVehicleSafetyScoresBadGatewayErrorResponseBody,
@@ -6398,7 +6338,6 @@ if typing.TYPE_CHECKING:
     from .trip_response_body import TripResponseBody
     from .trip_response_body_completion_status import TripResponseBodyCompletionStatus
     from .trip_speeding_intervals_response_body import TripSpeedingIntervalsResponseBody
-    from .trips_breakdown_response_body import TripsBreakdownResponseBody
     from .trips_get_trips_bad_gateway_error_response_body import TripsGetTripsBadGatewayErrorResponseBody
     from .trips_get_trips_gateway_timeout_error_response_body import TripsGetTripsGatewayTimeoutErrorResponseBody
     from .trips_get_trips_internal_server_error_response_body import TripsGetTripsInternalServerErrorResponseBody
@@ -9907,16 +9846,6 @@ _dynamic_imports: typing.Dict[str, str] = {
     "SafetyScoreDetailsResponseBodyComparison": ".safety_score_details_response_body_comparison",
     "SafetyScoreSpeedingObjectResponseBody": ".safety_score_speeding_object_response_body",
     "SafetyScoreSpeedingObjectResponseBodySpeedingType": ".safety_score_speeding_object_response_body_speeding_type",
-    "SafetyScoresGetDriverSafetyScoreTripsBadGatewayErrorResponseBody": ".safety_scores_get_driver_safety_score_trips_bad_gateway_error_response_body",
-    "SafetyScoresGetDriverSafetyScoreTripsGatewayTimeoutErrorResponseBody": ".safety_scores_get_driver_safety_score_trips_gateway_timeout_error_response_body",
-    "SafetyScoresGetDriverSafetyScoreTripsInternalServerErrorResponseBody": ".safety_scores_get_driver_safety_score_trips_internal_server_error_response_body",
-    "SafetyScoresGetDriverSafetyScoreTripsMethodNotAllowedErrorResponseBody": ".safety_scores_get_driver_safety_score_trips_method_not_allowed_error_response_body",
-    "SafetyScoresGetDriverSafetyScoreTripsNotFoundErrorResponseBody": ".safety_scores_get_driver_safety_score_trips_not_found_error_response_body",
-    "SafetyScoresGetDriverSafetyScoreTripsNotImplementedErrorResponseBody": ".safety_scores_get_driver_safety_score_trips_not_implemented_error_response_body",
-    "SafetyScoresGetDriverSafetyScoreTripsResponseBody": ".safety_scores_get_driver_safety_score_trips_response_body",
-    "SafetyScoresGetDriverSafetyScoreTripsServiceUnavailableErrorResponseBody": ".safety_scores_get_driver_safety_score_trips_service_unavailable_error_response_body",
-    "SafetyScoresGetDriverSafetyScoreTripsTooManyRequestsErrorResponseBody": ".safety_scores_get_driver_safety_score_trips_too_many_requests_error_response_body",
-    "SafetyScoresGetDriverSafetyScoreTripsUnauthorizedErrorResponseBody": ".safety_scores_get_driver_safety_score_trips_unauthorized_error_response_body",
     "SafetyScoresGetDriverSafetyScoresBadGatewayErrorResponseBody": ".safety_scores_get_driver_safety_scores_bad_gateway_error_response_body",
     "SafetyScoresGetDriverSafetyScoresGatewayTimeoutErrorResponseBody": ".safety_scores_get_driver_safety_scores_gateway_timeout_error_response_body",
     "SafetyScoresGetDriverSafetyScoresInternalServerErrorResponseBody": ".safety_scores_get_driver_safety_scores_internal_server_error_response_body",
@@ -9947,16 +9876,6 @@ _dynamic_imports: typing.Dict[str, str] = {
     "SafetyScoresGetTagSafetyScoresServiceUnavailableErrorResponseBody": ".safety_scores_get_tag_safety_scores_service_unavailable_error_response_body",
     "SafetyScoresGetTagSafetyScoresTooManyRequestsErrorResponseBody": ".safety_scores_get_tag_safety_scores_too_many_requests_error_response_body",
     "SafetyScoresGetTagSafetyScoresUnauthorizedErrorResponseBody": ".safety_scores_get_tag_safety_scores_unauthorized_error_response_body",
-    "SafetyScoresGetVehicleSafetyScoreTripsBadGatewayErrorResponseBody": ".safety_scores_get_vehicle_safety_score_trips_bad_gateway_error_response_body",
-    "SafetyScoresGetVehicleSafetyScoreTripsGatewayTimeoutErrorResponseBody": ".safety_scores_get_vehicle_safety_score_trips_gateway_timeout_error_response_body",
-    "SafetyScoresGetVehicleSafetyScoreTripsInternalServerErrorResponseBody": ".safety_scores_get_vehicle_safety_score_trips_internal_server_error_response_body",
-    "SafetyScoresGetVehicleSafetyScoreTripsMethodNotAllowedErrorResponseBody": ".safety_scores_get_vehicle_safety_score_trips_method_not_allowed_error_response_body",
-    "SafetyScoresGetVehicleSafetyScoreTripsNotFoundErrorResponseBody": ".safety_scores_get_vehicle_safety_score_trips_not_found_error_response_body",
-    "SafetyScoresGetVehicleSafetyScoreTripsNotImplementedErrorResponseBody": ".safety_scores_get_vehicle_safety_score_trips_not_implemented_error_response_body",
-    "SafetyScoresGetVehicleSafetyScoreTripsResponseBody": ".safety_scores_get_vehicle_safety_score_trips_response_body",
-    "SafetyScoresGetVehicleSafetyScoreTripsServiceUnavailableErrorResponseBody": ".safety_scores_get_vehicle_safety_score_trips_service_unavailable_error_response_body",
-    "SafetyScoresGetVehicleSafetyScoreTripsTooManyRequestsErrorResponseBody": ".safety_scores_get_vehicle_safety_score_trips_too_many_requests_error_response_body",
-    "SafetyScoresGetVehicleSafetyScoreTripsUnauthorizedErrorResponseBody": ".safety_scores_get_vehicle_safety_score_trips_unauthorized_error_response_body",
     "SafetyScoresGetVehicleSafetyScoresBadGatewayErrorResponseBody": ".safety_scores_get_vehicle_safety_scores_bad_gateway_error_response_body",
     "SafetyScoresGetVehicleSafetyScoresGatewayTimeoutErrorResponseBody": ".safety_scores_get_vehicle_safety_scores_gateway_timeout_error_response_body",
     "SafetyScoresGetVehicleSafetyScoresInternalServerErrorResponseBody": ".safety_scores_get_vehicle_safety_scores_internal_server_error_response_body",
@@ -10392,7 +10311,6 @@ _dynamic_imports: typing.Dict[str, str] = {
     "TripResponseBody": ".trip_response_body",
     "TripResponseBodyCompletionStatus": ".trip_response_body_completion_status",
     "TripSpeedingIntervalsResponseBody": ".trip_speeding_intervals_response_body",
-    "TripsBreakdownResponseBody": ".trips_breakdown_response_body",
     "TripsGetTripsBadGatewayErrorResponseBody": ".trips_get_trips_bad_gateway_error_response_body",
     "TripsGetTripsGatewayTimeoutErrorResponseBody": ".trips_get_trips_gateway_timeout_error_response_body",
     "TripsGetTripsInternalServerErrorResponseBody": ".trips_get_trips_internal_server_error_response_body",
@@ -13553,16 +13471,6 @@ __all__ = [
     "SafetyScoreDetailsResponseBodyComparison",
     "SafetyScoreSpeedingObjectResponseBody",
     "SafetyScoreSpeedingObjectResponseBodySpeedingType",
-    "SafetyScoresGetDriverSafetyScoreTripsBadGatewayErrorResponseBody",
-    "SafetyScoresGetDriverSafetyScoreTripsGatewayTimeoutErrorResponseBody",
-    "SafetyScoresGetDriverSafetyScoreTripsInternalServerErrorResponseBody",
-    "SafetyScoresGetDriverSafetyScoreTripsMethodNotAllowedErrorResponseBody",
-    "SafetyScoresGetDriverSafetyScoreTripsNotFoundErrorResponseBody",
-    "SafetyScoresGetDriverSafetyScoreTripsNotImplementedErrorResponseBody",
-    "SafetyScoresGetDriverSafetyScoreTripsResponseBody",
-    "SafetyScoresGetDriverSafetyScoreTripsServiceUnavailableErrorResponseBody",
-    "SafetyScoresGetDriverSafetyScoreTripsTooManyRequestsErrorResponseBody",
-    "SafetyScoresGetDriverSafetyScoreTripsUnauthorizedErrorResponseBody",
     "SafetyScoresGetDriverSafetyScoresBadGatewayErrorResponseBody",
     "SafetyScoresGetDriverSafetyScoresGatewayTimeoutErrorResponseBody",
     "SafetyScoresGetDriverSafetyScoresInternalServerErrorResponseBody",
@@ -13593,16 +13501,6 @@ __all__ = [
     "SafetyScoresGetTagSafetyScoresServiceUnavailableErrorResponseBody",
     "SafetyScoresGetTagSafetyScoresTooManyRequestsErrorResponseBody",
     "SafetyScoresGetTagSafetyScoresUnauthorizedErrorResponseBody",
-    "SafetyScoresGetVehicleSafetyScoreTripsBadGatewayErrorResponseBody",
-    "SafetyScoresGetVehicleSafetyScoreTripsGatewayTimeoutErrorResponseBody",
-    "SafetyScoresGetVehicleSafetyScoreTripsInternalServerErrorResponseBody",
-    "SafetyScoresGetVehicleSafetyScoreTripsMethodNotAllowedErrorResponseBody",
-    "SafetyScoresGetVehicleSafetyScoreTripsNotFoundErrorResponseBody",
-    "SafetyScoresGetVehicleSafetyScoreTripsNotImplementedErrorResponseBody",
-    "SafetyScoresGetVehicleSafetyScoreTripsResponseBody",
-    "SafetyScoresGetVehicleSafetyScoreTripsServiceUnavailableErrorResponseBody",
-    "SafetyScoresGetVehicleSafetyScoreTripsTooManyRequestsErrorResponseBody",
-    "SafetyScoresGetVehicleSafetyScoreTripsUnauthorizedErrorResponseBody",
     "SafetyScoresGetVehicleSafetyScoresBadGatewayErrorResponseBody",
     "SafetyScoresGetVehicleSafetyScoresGatewayTimeoutErrorResponseBody",
     "SafetyScoresGetVehicleSafetyScoresInternalServerErrorResponseBody",
@@ -14038,7 +13936,6 @@ __all__ = [
     "TripResponseBody",
     "TripResponseBodyCompletionStatus",
     "TripSpeedingIntervalsResponseBody",
-    "TripsBreakdownResponseBody",
     "TripsGetTripsBadGatewayErrorResponseBody",
     "TripsGetTripsGatewayTimeoutErrorResponseBody",
     "TripsGetTripsInternalServerErrorResponseBody",

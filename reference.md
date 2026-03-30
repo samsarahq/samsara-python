@@ -3532,7 +3532,7 @@ client.beta_ap_is.update_engine_immobilizer_state(
     relay_states=[
         UpdateEngineImmobilizerRelayStateRequestBodyRequestBody(
             id="relay1",
-            is_open=True,
+            is_open=False,
         )
     ],
 )
@@ -6845,6 +6845,7 @@ Available reading IDs (by category):
 * `engineIntakeAirTemp` (Engine Intake Air Temperature): Represents the engine intake air temperature. (celsius)
 * `engineLoadPercent` (Engine Load): Engine load percentage. (percent)
 * `engineOilTemperature` (Engine Oil Temperature): Temperature of the engine oil (celsius)
+* `engineRpm` (Engine Speed): Engine speed in revolutions per minute (RPM). (rpm)
 * `engineState` (Engine State): Indicates the current state of the engine, such as running, stopped. (values: off | running | idling)
 * `engineTotalIdleTime` (Engine Total Idle Time): Total idle time for the vehicle. (minute)
 * `evAverageCellTemperature` (EV Average Cell Temperature): Average temperature of EV battery cells in degrees Celsius. (celsius)
@@ -7211,6 +7212,7 @@ Available reading IDs (by category):
 * `engineIntakeAirTemp` (Engine Intake Air Temperature): Represents the engine intake air temperature. (celsius)
 * `engineLoadPercent` (Engine Load): Engine load percentage. (percent)
 * `engineOilTemperature` (Engine Oil Temperature): Temperature of the engine oil (celsius)
+* `engineRpm` (Engine Speed): Engine speed in revolutions per minute (RPM). (rpm)
 * `engineState` (Engine State): Indicates the current state of the engine, such as running, stopped. (values: off | running | idling)
 * `engineTotalIdleTime` (Engine Total Idle Time): Total idle time for the vehicle. (minute)
 * `evAverageCellTemperature` (EV Average Cell Temperature): Average temperature of EV battery cells in degrees Celsius. (celsius)
@@ -9314,628 +9316,6 @@ client.beta_ap_is.get_ridership_route_setup(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_driver_safety_scores</a>(...) -&gt; AsyncHttpResponse[SafetyScoresGetDriverSafetyScoresResponseBody]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Get safety scores and overall risk factors for drivers.
-
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.beta_ap_is.get_driver_safety_scores(
-    end_time="endTime",
-    start_time="startTime",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**end_time:** `str` — End time in RFC 3339 format. Millisecond precision and timezones are supported. Includes trips that end before this timestamp.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**start_time:** `str` — Start time in RFC 3339 format. Millisecond precision and timezones are supported. Includes trips that end after this timestamp. Can be up to 1 year before endTime.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**driver_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Comma separated list of driver IDs to filter by. Include up to 100 IDs. Defaults to all drivers.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_driver_safety_score_trips</a>(...) -&gt; AsyncHttpResponse[SafetyScoresGetDriverSafetyScoreTripsResponseBody]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Get trips contributing to a driver's safety score, and risk factors in each trip.
-
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.beta_ap_is.get_driver_safety_score_trips(
-    end_time="endTime",
-    start_time="startTime",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**end_time:** `str` — End time in RFC 3339 format. Millisecond precision and timezones are supported. Includes trips that end before this timestamp.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**start_time:** `str` — Start time in RFC 3339 format. Millisecond precision and timezones are supported. Includes trips that end after this timestamp. Can be up to 1 year before endTime.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**driver_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Comma separated list of driver IDs to fetch trip breakdowns for. Include up to 100 drivers.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_tag_group_safety_scores</a>(...) -&gt; AsyncHttpResponse[SafetyScoresGetTagGroupSafetyScoresResponseBody]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Get a combined safety score and risk factors for a set of tags.
-
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.beta_ap_is.get_tag_group_safety_scores(
-    end_time="endTime",
-    start_time="startTime",
-    score_type="driver",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**end_time:** `str` — End time in RFC 3339 format. Millisecond precision and timezones are supported. Includes trips that end before this timestamp.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**start_time:** `str` — Start time in RFC 3339 format. Millisecond precision and timezones are supported. Includes trips that end after this timestamp. Can be up to 1 year before endTime.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**score_type:** `GetTagGroupSafetyScoresRequestScoreType` — Whether to calculate tag score with either all drivers or all vehicles in the tag. Deactivated drivers and unassigned trips are not included when calculating scores for drivers.   Valid values: `driver`, `vehicle`
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**tag_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Comma separated list of tag IDs to filter by. Include up to 100 IDs. Defaults to all tags.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_tag_safety_scores</a>(...) -&gt; AsyncHttpResponse[SafetyScoresGetTagSafetyScoresResponseBody]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Get safety scores and overall risk factors for tags.
-
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.beta_ap_is.get_tag_safety_scores(
-    end_time="endTime",
-    start_time="startTime",
-    score_type="driver",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**end_time:** `str` — End time in RFC 3339 format. Millisecond precision and timezones are supported. Includes trips that end before this timestamp.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**start_time:** `str` — Start time in RFC 3339 format. Millisecond precision and timezones are supported. Includes trips that end after this timestamp. Can be up to 1 year before endTime.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**score_type:** `GetTagSafetyScoresRequestScoreType` — Whether to calculate tag score with either all drivers or all vehicles in the tag. Deactivated drivers and unassigned trips are not included when calculating scores for drivers.   Valid values: `driver`, `vehicle`
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**tag_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Comma separated list of tag IDs to filter by. Include up to 100 IDs. Defaults to all tags.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_vehicle_safety_scores</a>(...) -&gt; AsyncHttpResponse[SafetyScoresGetVehicleSafetyScoresResponseBody]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Get safety scores and overall risk factors for vehicles.
-
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.beta_ap_is.get_vehicle_safety_scores(
-    end_time="endTime",
-    start_time="startTime",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**end_time:** `str` — End time in RFC 3339 format. Millisecond precision and timezones are supported. Includes trips that end before this timestamp.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**start_time:** `str` — Start time in RFC 3339 format. Millisecond precision and timezones are supported. Includes trips that end after this timestamp. Can be up to 1 year before endTime.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**vehicle_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Comma separated list of vehicle IDs to filter by. Include up to 100 IDs. Defaults to all vehicles.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_vehicle_safety_score_trips</a>(...) -&gt; AsyncHttpResponse[SafetyScoresGetVehicleSafetyScoreTripsResponseBody]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Get trips contributing to a vehicle's safety score, and risk factors in each trip.
-
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.beta_ap_is.get_vehicle_safety_score_trips(
-    end_time="endTime",
-    start_time="startTime",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**end_time:** `str` — End time in RFC 3339 format. Millisecond precision and timezones are supported. Includes trips that end before this timestamp.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**start_time:** `str` — Start time in RFC 3339 format. Millisecond precision and timezones are supported. Includes trips that end after this timestamp. Can be up to 1 year before endTime.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**vehicle_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Comma separated list of vehicle IDs to fetch trip breakdowns for. Include up to 100 vehicles.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
 ## LocationAndSpeed
 <details><summary><code>client.location_and_speed.<a href="src/samsara/location_and_speed/client.py">get_location_and_speed</a>(...) -&gt; AsyncHttpResponse[LocationAndSpeedGetLocationAndSpeedResponseBody]</code></summary>
 <dl>
@@ -10857,7 +10237,7 @@ client = Samsara(
 )
 client.media.post_media_retrieval(
     end_time="2019-06-13T19:08:55Z",
-    inputs=["dashcamRoadFacing", "dashcamRoadFacing"],
+    inputs=["dashcamRoadFacing", "dashcamRoadFacing", "dashcamRoadFacing"],
     media_type="image",
     start_time="2019-06-13T19:08:25Z",
     vehicle_id="1234",
@@ -28305,7 +27685,7 @@ client.work_orders.patch_work_orders(
 <dl>
 <dd>
 
-**status:** `typing.Optional[WorkOrdersPatchWorkOrdersRequestBodyStatus]` — The status of the work order  Valid values: `Assigned`, `Cancelled`, `Closed`, `Completed`, `In Progress`, `On Hold`, `Open`, `Pending Approval`, `Pending Parts`
+**status:** `typing.Optional[WorkOrdersPatchWorkOrdersRequestBodyStatus]` — The status of the work order  Valid values: `Assigned`, `Cancelled`, `Closed`, `Completed`, `Estimate`, `In Progress`, `On Hold`, `Open`, `Pending Approval`, `Pending Parts`
     
 </dd>
 </dl>
@@ -28849,7 +28229,6 @@ client = Samsara(
 )
 client.preview_ap_is.patch_safety_events_v_2_batch(
     safety_event_ids=[
-        "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
         "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
         "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
     ],
@@ -29493,6 +28872,425 @@ client.safety.v_1_get_vehicle_safety_score(
 <dd>
 
 **end_ms:** `int` — Timestamp in milliseconds representing the end of the period to fetch, inclusive. Used in combination with startMs. Total duration (endMs - startMs) must be greater than or equal to 1 hour.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## SafetyScores
+<details><summary><code>client.safety_scores.<a href="src/samsara/safety_scores/client.py">get_driver_safety_scores</a>(...) -&gt; AsyncHttpResponse[SafetyScoresGetDriverSafetyScoresResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get safety scores and overall risk factors for drivers.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.safety_scores.get_driver_safety_scores(
+    end_time="endTime",
+    start_time="startTime",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**end_time:** `str` — End time in RFC 3339 format. Millisecond precision and timezones are supported. Includes trips that end before this timestamp.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**start_time:** `str` — Start time in RFC 3339 format. Millisecond precision and timezones are supported. Includes trips that end after this timestamp. Can be up to 1 year before endTime.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**driver_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Comma separated list of driver IDs to filter by. Include up to 100 IDs. Defaults to all drivers.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.safety_scores.<a href="src/samsara/safety_scores/client.py">get_tag_group_safety_scores</a>(...) -&gt; AsyncHttpResponse[SafetyScoresGetTagGroupSafetyScoresResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get a combined safety score and risk factors for a set of tags.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.safety_scores.get_tag_group_safety_scores(
+    end_time="endTime",
+    start_time="startTime",
+    score_type="driver",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**end_time:** `str` — End time in RFC 3339 format. Millisecond precision and timezones are supported. Includes trips that end before this timestamp.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**start_time:** `str` — Start time in RFC 3339 format. Millisecond precision and timezones are supported. Includes trips that end after this timestamp. Can be up to 1 year before endTime.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**score_type:** `GetTagGroupSafetyScoresRequestScoreType` — Whether to calculate tag score with either all drivers or all vehicles in the tag. Deactivated drivers and unassigned trips are not included when calculating scores for drivers.   Valid values: `driver`, `vehicle`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**tag_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Comma separated list of tag IDs to filter by. Include up to 100 IDs. Defaults to all tags.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.safety_scores.<a href="src/samsara/safety_scores/client.py">get_tag_safety_scores</a>(...) -&gt; AsyncHttpResponse[SafetyScoresGetTagSafetyScoresResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get safety scores and overall risk factors for tags.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.safety_scores.get_tag_safety_scores(
+    end_time="endTime",
+    start_time="startTime",
+    score_type="driver",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**end_time:** `str` — End time in RFC 3339 format. Millisecond precision and timezones are supported. Includes trips that end before this timestamp.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**start_time:** `str` — Start time in RFC 3339 format. Millisecond precision and timezones are supported. Includes trips that end after this timestamp. Can be up to 1 year before endTime.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**score_type:** `GetTagSafetyScoresRequestScoreType` — Whether to calculate tag score with either all drivers or all vehicles in the tag. Deactivated drivers and unassigned trips are not included when calculating scores for drivers.   Valid values: `driver`, `vehicle`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**tag_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Comma separated list of tag IDs to filter by. Include up to 100 IDs. Defaults to all tags.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.safety_scores.<a href="src/samsara/safety_scores/client.py">get_vehicle_safety_scores</a>(...) -&gt; AsyncHttpResponse[SafetyScoresGetVehicleSafetyScoresResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get safety scores and overall risk factors for vehicles.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.safety_scores.get_vehicle_safety_scores(
+    end_time="endTime",
+    start_time="startTime",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**end_time:** `str` — End time in RFC 3339 format. Millisecond precision and timezones are supported. Includes trips that end before this timestamp.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**start_time:** `str` — Start time in RFC 3339 format. Millisecond precision and timezones are supported. Includes trips that end after this timestamp. Can be up to 1 year before endTime.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**vehicle_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Comma separated list of vehicle IDs to filter by. Include up to 100 IDs. Defaults to all vehicles.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
     
 </dd>
 </dl>
