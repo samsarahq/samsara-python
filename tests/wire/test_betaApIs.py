@@ -87,7 +87,7 @@ def test_betaApIs_update_engine_immobilizer_state() -> None:
     """Test updateEngineImmobilizerState endpoint with WireMock"""
     test_id = "beta_ap_is.update_engine_immobilizer_state.0"
     client = get_client(test_id)
-    client.beta_ap_is.update_engine_immobilizer_state(id=1000000, relay_states=[{"id": "relay1", "is_open": True}])
+    client.beta_ap_is.update_engine_immobilizer_state(id=1000000, relay_states=[{"id": "relay1", "is_open": False}])
     verify_request_count(test_id, "PATCH", "/beta/fleet/vehicles/1000000/immobilizer", None, 1)
 
 
@@ -583,67 +583,3 @@ def test_betaApIs_get_ridership_route_setup() -> None:
     client = get_client(test_id)
     client.beta_ap_is.get_ridership_route_setup(route_id="routeId")
     verify_request_count(test_id, "GET", "/ridership/route-setups/routeId", None, 1)
-
-
-def test_betaApIs_get_driver_safety_scores() -> None:
-    """Test getDriverSafetyScores endpoint with WireMock"""
-    test_id = "beta_ap_is.get_driver_safety_scores.0"
-    client = get_client(test_id)
-    client.beta_ap_is.get_driver_safety_scores(end_time="endTime", start_time="startTime")
-    verify_request_count(test_id, "GET", "/safety-scores/drivers", {"endTime": "endTime", "startTime": "startTime"}, 1)
-
-
-def test_betaApIs_get_driver_safety_score_trips() -> None:
-    """Test getDriverSafetyScoreTrips endpoint with WireMock"""
-    test_id = "beta_ap_is.get_driver_safety_score_trips.0"
-    client = get_client(test_id)
-    client.beta_ap_is.get_driver_safety_score_trips(end_time="endTime", start_time="startTime")
-    verify_request_count(
-        test_id, "GET", "/safety-scores/drivers/trips", {"endTime": "endTime", "startTime": "startTime"}, 1
-    )
-
-
-def test_betaApIs_get_tag_group_safety_scores() -> None:
-    """Test getTagGroupSafetyScores endpoint with WireMock"""
-    test_id = "beta_ap_is.get_tag_group_safety_scores.0"
-    client = get_client(test_id)
-    client.beta_ap_is.get_tag_group_safety_scores(end_time="endTime", start_time="startTime", score_type="driver")
-    verify_request_count(
-        test_id,
-        "GET",
-        "/safety-scores/tag-group",
-        {"endTime": "endTime", "startTime": "startTime", "scoreType": "driver"},
-        1,
-    )
-
-
-def test_betaApIs_get_tag_safety_scores() -> None:
-    """Test getTagSafetyScores endpoint with WireMock"""
-    test_id = "beta_ap_is.get_tag_safety_scores.0"
-    client = get_client(test_id)
-    client.beta_ap_is.get_tag_safety_scores(end_time="endTime", start_time="startTime", score_type="driver")
-    verify_request_count(
-        test_id,
-        "GET",
-        "/safety-scores/tags",
-        {"endTime": "endTime", "startTime": "startTime", "scoreType": "driver"},
-        1,
-    )
-
-
-def test_betaApIs_get_vehicle_safety_scores() -> None:
-    """Test getVehicleSafetyScores endpoint with WireMock"""
-    test_id = "beta_ap_is.get_vehicle_safety_scores.0"
-    client = get_client(test_id)
-    client.beta_ap_is.get_vehicle_safety_scores(end_time="endTime", start_time="startTime")
-    verify_request_count(test_id, "GET", "/safety-scores/vehicles", {"endTime": "endTime", "startTime": "startTime"}, 1)
-
-
-def test_betaApIs_get_vehicle_safety_score_trips() -> None:
-    """Test getVehicleSafetyScoreTrips endpoint with WireMock"""
-    test_id = "beta_ap_is.get_vehicle_safety_score_trips.0"
-    client = get_client(test_id)
-    client.beta_ap_is.get_vehicle_safety_score_trips(end_time="endTime", start_time="startTime")
-    verify_request_count(
-        test_id, "GET", "/safety-scores/vehicles/trips", {"endTime": "endTime", "startTime": "startTime"}, 1
-    )

@@ -53,6 +53,7 @@ if typing.TYPE_CHECKING:
     from .route_events.client import AsyncRouteEventsClient, RouteEventsClient
     from .routes.client import AsyncRoutesClient, RoutesClient
     from .safety.client import AsyncSafetyClient, SafetyClient
+    from .safety_scores.client import AsyncSafetyScoresClient, SafetyScoresClient
     from .sensors.client import AsyncSensorsClient, SensorsClient
     from .settings.client import AsyncSettingsClient, SettingsClient
     from .speeding_intervals.client import AsyncSpeedingIntervalsClient, SpeedingIntervalsClient
@@ -181,6 +182,7 @@ class Samsara:
         self._preview_ap_is: typing.Optional[PreviewApIsClient] = None
         self._route_events: typing.Optional[RouteEventsClient] = None
         self._safety: typing.Optional[SafetyClient] = None
+        self._safety_scores: typing.Optional[SafetyScoresClient] = None
         self._speeding_intervals: typing.Optional[SpeedingIntervalsClient] = None
         self._tags: typing.Optional[TagsClient] = None
         self._training_assignments: typing.Optional[TrainingAssignmentsClient] = None
@@ -539,6 +541,14 @@ class Samsara:
         return self._safety
 
     @property
+    def safety_scores(self):
+        if self._safety_scores is None:
+            from .safety_scores.client import SafetyScoresClient  # noqa: E402
+
+            self._safety_scores = SafetyScoresClient(client_wrapper=self._client_wrapper)
+        return self._safety_scores
+
+    @property
     def speeding_intervals(self):
         if self._speeding_intervals is None:
             from .speeding_intervals.client import SpeedingIntervalsClient  # noqa: E402
@@ -745,6 +755,7 @@ class AsyncSamsara:
         self._preview_ap_is: typing.Optional[AsyncPreviewApIsClient] = None
         self._route_events: typing.Optional[AsyncRouteEventsClient] = None
         self._safety: typing.Optional[AsyncSafetyClient] = None
+        self._safety_scores: typing.Optional[AsyncSafetyScoresClient] = None
         self._speeding_intervals: typing.Optional[AsyncSpeedingIntervalsClient] = None
         self._tags: typing.Optional[AsyncTagsClient] = None
         self._training_assignments: typing.Optional[AsyncTrainingAssignmentsClient] = None
@@ -1103,6 +1114,14 @@ class AsyncSamsara:
 
             self._safety = AsyncSafetyClient(client_wrapper=self._client_wrapper)
         return self._safety
+
+    @property
+    def safety_scores(self):
+        if self._safety_scores is None:
+            from .safety_scores.client import AsyncSafetyScoresClient  # noqa: E402
+
+            self._safety_scores = AsyncSafetyScoresClient(client_wrapper=self._client_wrapper)
+        return self._safety_scores
 
     @property
     def speeding_intervals(self):
