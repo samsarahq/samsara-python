@@ -40,6 +40,9 @@ from ..types.driver_efficiencies_response import DriverEfficienciesResponse
 from ..types.engine_immobilizer_get_engine_immobilizer_states_response_body import (
     EngineImmobilizerGetEngineImmobilizerStatesResponseBody,
 )
+from ..types.entity_tachograph_live_data_records_service_list_tachograph_live_data_response_body import (
+    EntityTachographLiveDataRecordsServiceListTachographLiveDataResponseBody,
+)
 from ..types.equipment_patch_equipment_response_body import EquipmentPatchEquipmentResponseBody
 from ..types.functions_create_function_response_body import FunctionsCreateFunctionResponseBody
 from ..types.functions_deploy_function_response_body import FunctionsDeployFunctionResponseBody
@@ -4145,6 +4148,177 @@ class RawBetaApIsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
+    def list_tachograph_live_data(
+        self,
+        *,
+        driver_ids: typing.Optional[str] = None,
+        vehicle_ids: typing.Optional[str] = None,
+        start_time: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[EntityTachographLiveDataRecordsServiceListTachographLiveDataResponseBody]:
+        """
+        Returns the latest live tachograph data for drivers, including working state and driving rest times, sourced from real-time telemetry.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Tachograph (EU)** under the Compliance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        driver_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Driver ID values.
+
+        vehicle_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Vehicle ID values.
+
+        start_time : typing.Optional[str]
+            A start time in RFC 3339 format. Millisecond precision and timezones are supported. Defaults to 1 hour before now if not provided.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[EntityTachographLiveDataRecordsServiceListTachographLiveDataResponseBody]
+            OK response.
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "fleet/tachograph-live-data/latest",
+            method="GET",
+            params={
+                "driverIds": driver_ids,
+                "vehicleIds": vehicle_ids,
+                "startTime": start_time,
+                "after": after,
+                "limit": limit,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    EntityTachographLiveDataRecordsServiceListTachographLiveDataResponseBody,
+                    parse_obj_as(
+                        type_=EntityTachographLiveDataRecordsServiceListTachographLiveDataResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
     def get_engine_immobilizer_states(
         self,
         *,
@@ -7482,6 +7656,36 @@ class RawBetaApIsClient:
 
             </details>
 
+            <details>
+            <summary><strong>tireCondition</strong></summary>
+
+            * `axle1tirefromleft1pressure` (Axle 1 Left Outer Tire Pressure): Pressure of the left outer tire on axle 1. (kilopascal)
+            * `axle1tirefromleft1temperature` (Axle 1 Left Outer Tire Temperature): Temperature of the left outer tire on axle 1. (celsius)
+            * `axle1tirefromleft2pressure` (Axle 1 Left Inner Tire Pressure): Pressure of the left inner tire on axle 1. (kilopascal)
+            * `axle1tirefromleft2temperature` (Axle 1 Left Inner Tire Temperature): Temperature of the left inner tire on axle 1. (celsius)
+            * `axle1tirefromleft3pressure` (Axle 1 Right Inner Tire Pressure): Pressure of the right inner tire on axle 1. (kilopascal)
+            * `axle1tirefromleft3temperature` (Axle 1 Right Inner Tire Temperature): Temperature of the right inner tire on axle 1. (celsius)
+            * `axle1tirefromleft4pressure` (Axle 1 Right Outer Tire Pressure): Pressure of the right outer tire on axle 1. (kilopascal)
+            * `axle1tirefromleft4temperature` (Axle 1 Right Outer Tire Temperature): Temperature of the right outer tire on axle 1. (celsius)
+            * `axle2tirefromleft1pressure` (Axle 2 Left Outer Tire Pressure): Pressure of the left outer tire on axle 2. (kilopascal)
+            * `axle2tirefromleft1temperature` (Axle 2 Left Outer Tire Temperature): Temperature of the left outer tire on axle 2. (celsius)
+            * `axle2tirefromleft2pressure` (Axle 2 Left Inner Tire Pressure): Pressure of the left inner tire on axle 2. (kilopascal)
+            * `axle2tirefromleft2temperature` (Axle 2 Left Inner Tire Temperature): Temperature of the left inner tire on axle 2. (celsius)
+            * `axle2tirefromleft3pressure` (Axle 2 Right Inner Tire Pressure): Pressure of the right inner tire on axle 2. (kilopascal)
+            * `axle2tirefromleft3temperature` (Axle 2 Right Inner Tire Temperature): Temperature of the right inner tire on axle 2. (celsius)
+            * `axle2tirefromleft4pressure` (Axle 2 Right Outer Tire Pressure): Pressure of the right outer tire on axle 2. (kilopascal)
+            * `axle2tirefromleft4temperature` (Axle 2 Right Outer Tire Temperature): Temperature of the right outer tire on axle 2. (celsius)
+            * `axle3tirefromleft1pressure` (Axle 3 Left Outer Tire Pressure): Pressure of the left outer tire on axle 3. (kilopascal)
+            * `axle3tirefromleft1temperature` (Axle 3 Left Outer Tire Temperature): Temperature of the left outer tire on axle 3. (celsius)
+            * `axle3tirefromleft2pressure` (Axle 3 Left Inner Tire Pressure): Pressure of the left inner tire on axle 3. (kilopascal)
+            * `axle3tirefromleft2temperature` (Axle 3 Left Inner Tire Temperature): Temperature of the left inner tire on axle 3. (celsius)
+            * `axle3tirefromleft3pressure` (Axle 3 Right Inner Tire Pressure): Pressure of the right inner tire on axle 3. (kilopascal)
+            * `axle3tirefromleft3temperature` (Axle 3 Right Inner Tire Temperature): Temperature of the right inner tire on axle 3. (celsius)
+            * `axle3tirefromleft4pressure` (Axle 3 Right Outer Tire Pressure): Pressure of the right outer tire on axle 3. (kilopascal)
+            * `axle3tirefromleft4temperature` (Axle 3 Right Outer Tire Temperature): Temperature of the right outer tire on axle 3. (celsius)
+
+            </details>
+
             **Note:** This is not an exhaustive list. Your organization may have access to additional readings based on enabled features or custom configurations. Use the `/readings/definitions` endpoint to retrieve all available reading IDs for your organization.
 
         entity_type : str
@@ -7891,6 +8095,36 @@ class RawBetaApIsClient:
             * `widgetBatteryVoltage` (Widget Battery Voltage): Battery voltage level of the widget sensor in millivolts (volt)
             * `widgetBatteryVoltageLow` (Widget Battery Voltage Low): Indicates if widget battery voltage is below 1500mV threshold (values: normal | low)
             * `widgetDisconnect` (Widget Disconnection Status): Connection status between widget and device (values: connected | disconnected)
+
+            </details>
+
+            <details>
+            <summary><strong>tireCondition</strong></summary>
+
+            * `axle1tirefromleft1pressure` (Axle 1 Left Outer Tire Pressure): Pressure of the left outer tire on axle 1. (kilopascal)
+            * `axle1tirefromleft1temperature` (Axle 1 Left Outer Tire Temperature): Temperature of the left outer tire on axle 1. (celsius)
+            * `axle1tirefromleft2pressure` (Axle 1 Left Inner Tire Pressure): Pressure of the left inner tire on axle 1. (kilopascal)
+            * `axle1tirefromleft2temperature` (Axle 1 Left Inner Tire Temperature): Temperature of the left inner tire on axle 1. (celsius)
+            * `axle1tirefromleft3pressure` (Axle 1 Right Inner Tire Pressure): Pressure of the right inner tire on axle 1. (kilopascal)
+            * `axle1tirefromleft3temperature` (Axle 1 Right Inner Tire Temperature): Temperature of the right inner tire on axle 1. (celsius)
+            * `axle1tirefromleft4pressure` (Axle 1 Right Outer Tire Pressure): Pressure of the right outer tire on axle 1. (kilopascal)
+            * `axle1tirefromleft4temperature` (Axle 1 Right Outer Tire Temperature): Temperature of the right outer tire on axle 1. (celsius)
+            * `axle2tirefromleft1pressure` (Axle 2 Left Outer Tire Pressure): Pressure of the left outer tire on axle 2. (kilopascal)
+            * `axle2tirefromleft1temperature` (Axle 2 Left Outer Tire Temperature): Temperature of the left outer tire on axle 2. (celsius)
+            * `axle2tirefromleft2pressure` (Axle 2 Left Inner Tire Pressure): Pressure of the left inner tire on axle 2. (kilopascal)
+            * `axle2tirefromleft2temperature` (Axle 2 Left Inner Tire Temperature): Temperature of the left inner tire on axle 2. (celsius)
+            * `axle2tirefromleft3pressure` (Axle 2 Right Inner Tire Pressure): Pressure of the right inner tire on axle 2. (kilopascal)
+            * `axle2tirefromleft3temperature` (Axle 2 Right Inner Tire Temperature): Temperature of the right inner tire on axle 2. (celsius)
+            * `axle2tirefromleft4pressure` (Axle 2 Right Outer Tire Pressure): Pressure of the right outer tire on axle 2. (kilopascal)
+            * `axle2tirefromleft4temperature` (Axle 2 Right Outer Tire Temperature): Temperature of the right outer tire on axle 2. (celsius)
+            * `axle3tirefromleft1pressure` (Axle 3 Left Outer Tire Pressure): Pressure of the left outer tire on axle 3. (kilopascal)
+            * `axle3tirefromleft1temperature` (Axle 3 Left Outer Tire Temperature): Temperature of the left outer tire on axle 3. (celsius)
+            * `axle3tirefromleft2pressure` (Axle 3 Left Inner Tire Pressure): Pressure of the left inner tire on axle 3. (kilopascal)
+            * `axle3tirefromleft2temperature` (Axle 3 Left Inner Tire Temperature): Temperature of the left inner tire on axle 3. (celsius)
+            * `axle3tirefromleft3pressure` (Axle 3 Right Inner Tire Pressure): Pressure of the right inner tire on axle 3. (kilopascal)
+            * `axle3tirefromleft3temperature` (Axle 3 Right Inner Tire Temperature): Temperature of the right inner tire on axle 3. (celsius)
+            * `axle3tirefromleft4pressure` (Axle 3 Right Outer Tire Pressure): Pressure of the right outer tire on axle 3. (kilopascal)
+            * `axle3tirefromleft4temperature` (Axle 3 Right Outer Tire Temperature): Temperature of the right outer tire on axle 3. (celsius)
 
             </details>
 
@@ -15246,6 +15480,177 @@ class AsyncRawBetaApIsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
+    async def list_tachograph_live_data(
+        self,
+        *,
+        driver_ids: typing.Optional[str] = None,
+        vehicle_ids: typing.Optional[str] = None,
+        start_time: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[EntityTachographLiveDataRecordsServiceListTachographLiveDataResponseBody]:
+        """
+        Returns the latest live tachograph data for drivers, including working state and driving rest times, sourced from real-time telemetry.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Tachograph (EU)** under the Compliance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        driver_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Driver ID values.
+
+        vehicle_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Vehicle ID values.
+
+        start_time : typing.Optional[str]
+            A start time in RFC 3339 format. Millisecond precision and timezones are supported. Defaults to 1 hour before now if not provided.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[EntityTachographLiveDataRecordsServiceListTachographLiveDataResponseBody]
+            OK response.
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "fleet/tachograph-live-data/latest",
+            method="GET",
+            params={
+                "driverIds": driver_ids,
+                "vehicleIds": vehicle_ids,
+                "startTime": start_time,
+                "after": after,
+                "limit": limit,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    EntityTachographLiveDataRecordsServiceListTachographLiveDataResponseBody,
+                    parse_obj_as(
+                        type_=EntityTachographLiveDataRecordsServiceListTachographLiveDataResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
     async def get_engine_immobilizer_states(
         self,
         *,
@@ -18583,6 +18988,36 @@ class AsyncRawBetaApIsClient:
 
             </details>
 
+            <details>
+            <summary><strong>tireCondition</strong></summary>
+
+            * `axle1tirefromleft1pressure` (Axle 1 Left Outer Tire Pressure): Pressure of the left outer tire on axle 1. (kilopascal)
+            * `axle1tirefromleft1temperature` (Axle 1 Left Outer Tire Temperature): Temperature of the left outer tire on axle 1. (celsius)
+            * `axle1tirefromleft2pressure` (Axle 1 Left Inner Tire Pressure): Pressure of the left inner tire on axle 1. (kilopascal)
+            * `axle1tirefromleft2temperature` (Axle 1 Left Inner Tire Temperature): Temperature of the left inner tire on axle 1. (celsius)
+            * `axle1tirefromleft3pressure` (Axle 1 Right Inner Tire Pressure): Pressure of the right inner tire on axle 1. (kilopascal)
+            * `axle1tirefromleft3temperature` (Axle 1 Right Inner Tire Temperature): Temperature of the right inner tire on axle 1. (celsius)
+            * `axle1tirefromleft4pressure` (Axle 1 Right Outer Tire Pressure): Pressure of the right outer tire on axle 1. (kilopascal)
+            * `axle1tirefromleft4temperature` (Axle 1 Right Outer Tire Temperature): Temperature of the right outer tire on axle 1. (celsius)
+            * `axle2tirefromleft1pressure` (Axle 2 Left Outer Tire Pressure): Pressure of the left outer tire on axle 2. (kilopascal)
+            * `axle2tirefromleft1temperature` (Axle 2 Left Outer Tire Temperature): Temperature of the left outer tire on axle 2. (celsius)
+            * `axle2tirefromleft2pressure` (Axle 2 Left Inner Tire Pressure): Pressure of the left inner tire on axle 2. (kilopascal)
+            * `axle2tirefromleft2temperature` (Axle 2 Left Inner Tire Temperature): Temperature of the left inner tire on axle 2. (celsius)
+            * `axle2tirefromleft3pressure` (Axle 2 Right Inner Tire Pressure): Pressure of the right inner tire on axle 2. (kilopascal)
+            * `axle2tirefromleft3temperature` (Axle 2 Right Inner Tire Temperature): Temperature of the right inner tire on axle 2. (celsius)
+            * `axle2tirefromleft4pressure` (Axle 2 Right Outer Tire Pressure): Pressure of the right outer tire on axle 2. (kilopascal)
+            * `axle2tirefromleft4temperature` (Axle 2 Right Outer Tire Temperature): Temperature of the right outer tire on axle 2. (celsius)
+            * `axle3tirefromleft1pressure` (Axle 3 Left Outer Tire Pressure): Pressure of the left outer tire on axle 3. (kilopascal)
+            * `axle3tirefromleft1temperature` (Axle 3 Left Outer Tire Temperature): Temperature of the left outer tire on axle 3. (celsius)
+            * `axle3tirefromleft2pressure` (Axle 3 Left Inner Tire Pressure): Pressure of the left inner tire on axle 3. (kilopascal)
+            * `axle3tirefromleft2temperature` (Axle 3 Left Inner Tire Temperature): Temperature of the left inner tire on axle 3. (celsius)
+            * `axle3tirefromleft3pressure` (Axle 3 Right Inner Tire Pressure): Pressure of the right inner tire on axle 3. (kilopascal)
+            * `axle3tirefromleft3temperature` (Axle 3 Right Inner Tire Temperature): Temperature of the right inner tire on axle 3. (celsius)
+            * `axle3tirefromleft4pressure` (Axle 3 Right Outer Tire Pressure): Pressure of the right outer tire on axle 3. (kilopascal)
+            * `axle3tirefromleft4temperature` (Axle 3 Right Outer Tire Temperature): Temperature of the right outer tire on axle 3. (celsius)
+
+            </details>
+
             **Note:** This is not an exhaustive list. Your organization may have access to additional readings based on enabled features or custom configurations. Use the `/readings/definitions` endpoint to retrieve all available reading IDs for your organization.
 
         entity_type : str
@@ -18992,6 +19427,36 @@ class AsyncRawBetaApIsClient:
             * `widgetBatteryVoltage` (Widget Battery Voltage): Battery voltage level of the widget sensor in millivolts (volt)
             * `widgetBatteryVoltageLow` (Widget Battery Voltage Low): Indicates if widget battery voltage is below 1500mV threshold (values: normal | low)
             * `widgetDisconnect` (Widget Disconnection Status): Connection status between widget and device (values: connected | disconnected)
+
+            </details>
+
+            <details>
+            <summary><strong>tireCondition</strong></summary>
+
+            * `axle1tirefromleft1pressure` (Axle 1 Left Outer Tire Pressure): Pressure of the left outer tire on axle 1. (kilopascal)
+            * `axle1tirefromleft1temperature` (Axle 1 Left Outer Tire Temperature): Temperature of the left outer tire on axle 1. (celsius)
+            * `axle1tirefromleft2pressure` (Axle 1 Left Inner Tire Pressure): Pressure of the left inner tire on axle 1. (kilopascal)
+            * `axle1tirefromleft2temperature` (Axle 1 Left Inner Tire Temperature): Temperature of the left inner tire on axle 1. (celsius)
+            * `axle1tirefromleft3pressure` (Axle 1 Right Inner Tire Pressure): Pressure of the right inner tire on axle 1. (kilopascal)
+            * `axle1tirefromleft3temperature` (Axle 1 Right Inner Tire Temperature): Temperature of the right inner tire on axle 1. (celsius)
+            * `axle1tirefromleft4pressure` (Axle 1 Right Outer Tire Pressure): Pressure of the right outer tire on axle 1. (kilopascal)
+            * `axle1tirefromleft4temperature` (Axle 1 Right Outer Tire Temperature): Temperature of the right outer tire on axle 1. (celsius)
+            * `axle2tirefromleft1pressure` (Axle 2 Left Outer Tire Pressure): Pressure of the left outer tire on axle 2. (kilopascal)
+            * `axle2tirefromleft1temperature` (Axle 2 Left Outer Tire Temperature): Temperature of the left outer tire on axle 2. (celsius)
+            * `axle2tirefromleft2pressure` (Axle 2 Left Inner Tire Pressure): Pressure of the left inner tire on axle 2. (kilopascal)
+            * `axle2tirefromleft2temperature` (Axle 2 Left Inner Tire Temperature): Temperature of the left inner tire on axle 2. (celsius)
+            * `axle2tirefromleft3pressure` (Axle 2 Right Inner Tire Pressure): Pressure of the right inner tire on axle 2. (kilopascal)
+            * `axle2tirefromleft3temperature` (Axle 2 Right Inner Tire Temperature): Temperature of the right inner tire on axle 2. (celsius)
+            * `axle2tirefromleft4pressure` (Axle 2 Right Outer Tire Pressure): Pressure of the right outer tire on axle 2. (kilopascal)
+            * `axle2tirefromleft4temperature` (Axle 2 Right Outer Tire Temperature): Temperature of the right outer tire on axle 2. (celsius)
+            * `axle3tirefromleft1pressure` (Axle 3 Left Outer Tire Pressure): Pressure of the left outer tire on axle 3. (kilopascal)
+            * `axle3tirefromleft1temperature` (Axle 3 Left Outer Tire Temperature): Temperature of the left outer tire on axle 3. (celsius)
+            * `axle3tirefromleft2pressure` (Axle 3 Left Inner Tire Pressure): Pressure of the left inner tire on axle 3. (kilopascal)
+            * `axle3tirefromleft2temperature` (Axle 3 Left Inner Tire Temperature): Temperature of the left inner tire on axle 3. (celsius)
+            * `axle3tirefromleft3pressure` (Axle 3 Right Inner Tire Pressure): Pressure of the right inner tire on axle 3. (kilopascal)
+            * `axle3tirefromleft3temperature` (Axle 3 Right Inner Tire Temperature): Temperature of the right inner tire on axle 3. (celsius)
+            * `axle3tirefromleft4pressure` (Axle 3 Right Outer Tire Pressure): Pressure of the right outer tire on axle 3. (kilopascal)
+            * `axle3tirefromleft4temperature` (Axle 3 Right Outer Tire Temperature): Temperature of the right outer tire on axle 3. (celsius)
 
             </details>
 

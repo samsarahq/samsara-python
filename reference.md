@@ -4890,6 +4890,115 @@ client.beta_ap_is.list_maintenance_vendors()
 </dl>
 </details>
 
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_tachograph_live_data</a>(...) -&gt; AsyncHttpResponse[
+    EntityTachographLiveDataRecordsServiceListTachographLiveDataResponseBody
+]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns the latest live tachograph data for drivers, including working state and driving rest times, sourced from real-time telemetry.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Tachograph (EU)** under the Compliance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.list_tachograph_live_data()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**driver_ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of Driver ID values.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**vehicle_ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of Vehicle ID values.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**start_time:** `typing.Optional[str]` — A start time in RFC 3339 format. Millisecond precision and timezones are supported. Defaults to 1 hour before now if not provided.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_engine_immobilizer_states</a>(...) -&gt; AsyncHttpResponse[EngineImmobilizerGetEngineImmobilizerStatesResponseBody]</code></summary>
 <dl>
 <dd>
@@ -7023,6 +7132,36 @@ Available reading IDs (by category):
 
 </details>
 
+<details>
+<summary><strong>tireCondition</strong></summary>
+
+* `axle1tirefromleft1pressure` (Axle 1 Left Outer Tire Pressure): Pressure of the left outer tire on axle 1. (kilopascal)
+* `axle1tirefromleft1temperature` (Axle 1 Left Outer Tire Temperature): Temperature of the left outer tire on axle 1. (celsius)
+* `axle1tirefromleft2pressure` (Axle 1 Left Inner Tire Pressure): Pressure of the left inner tire on axle 1. (kilopascal)
+* `axle1tirefromleft2temperature` (Axle 1 Left Inner Tire Temperature): Temperature of the left inner tire on axle 1. (celsius)
+* `axle1tirefromleft3pressure` (Axle 1 Right Inner Tire Pressure): Pressure of the right inner tire on axle 1. (kilopascal)
+* `axle1tirefromleft3temperature` (Axle 1 Right Inner Tire Temperature): Temperature of the right inner tire on axle 1. (celsius)
+* `axle1tirefromleft4pressure` (Axle 1 Right Outer Tire Pressure): Pressure of the right outer tire on axle 1. (kilopascal)
+* `axle1tirefromleft4temperature` (Axle 1 Right Outer Tire Temperature): Temperature of the right outer tire on axle 1. (celsius)
+* `axle2tirefromleft1pressure` (Axle 2 Left Outer Tire Pressure): Pressure of the left outer tire on axle 2. (kilopascal)
+* `axle2tirefromleft1temperature` (Axle 2 Left Outer Tire Temperature): Temperature of the left outer tire on axle 2. (celsius)
+* `axle2tirefromleft2pressure` (Axle 2 Left Inner Tire Pressure): Pressure of the left inner tire on axle 2. (kilopascal)
+* `axle2tirefromleft2temperature` (Axle 2 Left Inner Tire Temperature): Temperature of the left inner tire on axle 2. (celsius)
+* `axle2tirefromleft3pressure` (Axle 2 Right Inner Tire Pressure): Pressure of the right inner tire on axle 2. (kilopascal)
+* `axle2tirefromleft3temperature` (Axle 2 Right Inner Tire Temperature): Temperature of the right inner tire on axle 2. (celsius)
+* `axle2tirefromleft4pressure` (Axle 2 Right Outer Tire Pressure): Pressure of the right outer tire on axle 2. (kilopascal)
+* `axle2tirefromleft4temperature` (Axle 2 Right Outer Tire Temperature): Temperature of the right outer tire on axle 2. (celsius)
+* `axle3tirefromleft1pressure` (Axle 3 Left Outer Tire Pressure): Pressure of the left outer tire on axle 3. (kilopascal)
+* `axle3tirefromleft1temperature` (Axle 3 Left Outer Tire Temperature): Temperature of the left outer tire on axle 3. (celsius)
+* `axle3tirefromleft2pressure` (Axle 3 Left Inner Tire Pressure): Pressure of the left inner tire on axle 3. (kilopascal)
+* `axle3tirefromleft2temperature` (Axle 3 Left Inner Tire Temperature): Temperature of the left inner tire on axle 3. (celsius)
+* `axle3tirefromleft3pressure` (Axle 3 Right Inner Tire Pressure): Pressure of the right inner tire on axle 3. (kilopascal)
+* `axle3tirefromleft3temperature` (Axle 3 Right Inner Tire Temperature): Temperature of the right inner tire on axle 3. (celsius)
+* `axle3tirefromleft4pressure` (Axle 3 Right Outer Tire Pressure): Pressure of the right outer tire on axle 3. (kilopascal)
+* `axle3tirefromleft4temperature` (Axle 3 Right Outer Tire Temperature): Temperature of the right outer tire on axle 3. (celsius)
+
+</details>
+
 **Note:** This is not an exhaustive list. Your organization may have access to additional readings based on enabled features or custom configurations. Use the `/readings/definitions` endpoint to retrieve all available reading IDs for your organization.
     
 </dd>
@@ -7387,6 +7526,36 @@ Available reading IDs (by category):
 * `widgetBatteryVoltage` (Widget Battery Voltage): Battery voltage level of the widget sensor in millivolts (volt)
 * `widgetBatteryVoltageLow` (Widget Battery Voltage Low): Indicates if widget battery voltage is below 1500mV threshold (values: normal | low)
 * `widgetDisconnect` (Widget Disconnection Status): Connection status between widget and device (values: connected | disconnected)
+
+</details>
+
+<details>
+<summary><strong>tireCondition</strong></summary>
+
+* `axle1tirefromleft1pressure` (Axle 1 Left Outer Tire Pressure): Pressure of the left outer tire on axle 1. (kilopascal)
+* `axle1tirefromleft1temperature` (Axle 1 Left Outer Tire Temperature): Temperature of the left outer tire on axle 1. (celsius)
+* `axle1tirefromleft2pressure` (Axle 1 Left Inner Tire Pressure): Pressure of the left inner tire on axle 1. (kilopascal)
+* `axle1tirefromleft2temperature` (Axle 1 Left Inner Tire Temperature): Temperature of the left inner tire on axle 1. (celsius)
+* `axle1tirefromleft3pressure` (Axle 1 Right Inner Tire Pressure): Pressure of the right inner tire on axle 1. (kilopascal)
+* `axle1tirefromleft3temperature` (Axle 1 Right Inner Tire Temperature): Temperature of the right inner tire on axle 1. (celsius)
+* `axle1tirefromleft4pressure` (Axle 1 Right Outer Tire Pressure): Pressure of the right outer tire on axle 1. (kilopascal)
+* `axle1tirefromleft4temperature` (Axle 1 Right Outer Tire Temperature): Temperature of the right outer tire on axle 1. (celsius)
+* `axle2tirefromleft1pressure` (Axle 2 Left Outer Tire Pressure): Pressure of the left outer tire on axle 2. (kilopascal)
+* `axle2tirefromleft1temperature` (Axle 2 Left Outer Tire Temperature): Temperature of the left outer tire on axle 2. (celsius)
+* `axle2tirefromleft2pressure` (Axle 2 Left Inner Tire Pressure): Pressure of the left inner tire on axle 2. (kilopascal)
+* `axle2tirefromleft2temperature` (Axle 2 Left Inner Tire Temperature): Temperature of the left inner tire on axle 2. (celsius)
+* `axle2tirefromleft3pressure` (Axle 2 Right Inner Tire Pressure): Pressure of the right inner tire on axle 2. (kilopascal)
+* `axle2tirefromleft3temperature` (Axle 2 Right Inner Tire Temperature): Temperature of the right inner tire on axle 2. (celsius)
+* `axle2tirefromleft4pressure` (Axle 2 Right Outer Tire Pressure): Pressure of the right outer tire on axle 2. (kilopascal)
+* `axle2tirefromleft4temperature` (Axle 2 Right Outer Tire Temperature): Temperature of the right outer tire on axle 2. (celsius)
+* `axle3tirefromleft1pressure` (Axle 3 Left Outer Tire Pressure): Pressure of the left outer tire on axle 3. (kilopascal)
+* `axle3tirefromleft1temperature` (Axle 3 Left Outer Tire Temperature): Temperature of the left outer tire on axle 3. (celsius)
+* `axle3tirefromleft2pressure` (Axle 3 Left Inner Tire Pressure): Pressure of the left inner tire on axle 3. (kilopascal)
+* `axle3tirefromleft2temperature` (Axle 3 Left Inner Tire Temperature): Temperature of the left inner tire on axle 3. (celsius)
+* `axle3tirefromleft3pressure` (Axle 3 Right Inner Tire Pressure): Pressure of the right inner tire on axle 3. (kilopascal)
+* `axle3tirefromleft3temperature` (Axle 3 Right Inner Tire Temperature): Temperature of the right inner tire on axle 3. (celsius)
+* `axle3tirefromleft4pressure` (Axle 3 Right Outer Tire Pressure): Pressure of the right outer tire on axle 3. (kilopascal)
+* `axle3tirefromleft4temperature` (Axle 3 Right Outer Tire Temperature): Temperature of the right outer tire on axle 3. (celsius)
 
 </details>
 

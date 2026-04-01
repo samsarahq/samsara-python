@@ -202,6 +202,14 @@ def test_betaApIs_list_maintenance_vendors() -> None:
     verify_request_count(test_id, "GET", "/fleet/maintenance/vendors", None, 1)
 
 
+def test_betaApIs_list_tachograph_live_data() -> None:
+    """Test listTachographLiveData endpoint with WireMock"""
+    test_id = "beta_ap_is.list_tachograph_live_data.0"
+    client = get_client(test_id)
+    client.beta_ap_is.list_tachograph_live_data()
+    verify_request_count(test_id, "GET", "/fleet/tachograph-live-data/latest", None, 1)
+
+
 def test_betaApIs_get_engine_immobilizer_states() -> None:
     """Test getEngineImmobilizerStates endpoint with WireMock"""
     test_id = "beta_ap_is.get_engine_immobilizer_states.0"
