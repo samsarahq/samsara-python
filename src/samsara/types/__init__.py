@@ -1768,6 +1768,37 @@ if typing.TYPE_CHECKING:
     from .engine_on_details_object_response_body import EngineOnDetailsObjectResponseBody
     from .engine_on_response_body import EngineOnResponseBody
     from .engine_status_response_body import EngineStatusResponseBody
+    from .entity_list_tachograph_live_data_type_response_body import EntityListTachographLiveDataTypeResponseBody
+    from .entity_tachograph_live_data_records_service_list_tachograph_live_data_bad_gateway_error_response_body import (
+        EntityTachographLiveDataRecordsServiceListTachographLiveDataBadGatewayErrorResponseBody,
+    )
+    from .entity_tachograph_live_data_records_service_list_tachograph_live_data_gateway_timeout_error_response_body import (
+        EntityTachographLiveDataRecordsServiceListTachographLiveDataGatewayTimeoutErrorResponseBody,
+    )
+    from .entity_tachograph_live_data_records_service_list_tachograph_live_data_internal_server_error_response_body import (
+        EntityTachographLiveDataRecordsServiceListTachographLiveDataInternalServerErrorResponseBody,
+    )
+    from .entity_tachograph_live_data_records_service_list_tachograph_live_data_method_not_allowed_error_response_body import (
+        EntityTachographLiveDataRecordsServiceListTachographLiveDataMethodNotAllowedErrorResponseBody,
+    )
+    from .entity_tachograph_live_data_records_service_list_tachograph_live_data_not_found_error_response_body import (
+        EntityTachographLiveDataRecordsServiceListTachographLiveDataNotFoundErrorResponseBody,
+    )
+    from .entity_tachograph_live_data_records_service_list_tachograph_live_data_not_implemented_error_response_body import (
+        EntityTachographLiveDataRecordsServiceListTachographLiveDataNotImplementedErrorResponseBody,
+    )
+    from .entity_tachograph_live_data_records_service_list_tachograph_live_data_response_body import (
+        EntityTachographLiveDataRecordsServiceListTachographLiveDataResponseBody,
+    )
+    from .entity_tachograph_live_data_records_service_list_tachograph_live_data_service_unavailable_error_response_body import (
+        EntityTachographLiveDataRecordsServiceListTachographLiveDataServiceUnavailableErrorResponseBody,
+    )
+    from .entity_tachograph_live_data_records_service_list_tachograph_live_data_too_many_requests_error_response_body import (
+        EntityTachographLiveDataRecordsServiceListTachographLiveDataTooManyRequestsErrorResponseBody,
+    )
+    from .entity_tachograph_live_data_records_service_list_tachograph_live_data_unauthorized_error_response_body import (
+        EntityTachographLiveDataRecordsServiceListTachographLiveDataUnauthorizedErrorResponseBody,
+    )
     from .enum_reading_alert_threshold_response_body import EnumReadingAlertThresholdResponseBody
     from .enum_value_response_body import EnumValueResponseBody
     from .equipment_engine_rpm import EquipmentEngineRpm
@@ -8219,6 +8250,17 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EngineOnDetailsObjectResponseBody": ".engine_on_details_object_response_body",
     "EngineOnResponseBody": ".engine_on_response_body",
     "EngineStatusResponseBody": ".engine_status_response_body",
+    "EntityListTachographLiveDataTypeResponseBody": ".entity_list_tachograph_live_data_type_response_body",
+    "EntityTachographLiveDataRecordsServiceListTachographLiveDataBadGatewayErrorResponseBody": ".entity_tachograph_live_data_records_service_list_tachograph_live_data_bad_gateway_error_response_body",
+    "EntityTachographLiveDataRecordsServiceListTachographLiveDataGatewayTimeoutErrorResponseBody": ".entity_tachograph_live_data_records_service_list_tachograph_live_data_gateway_timeout_error_response_body",
+    "EntityTachographLiveDataRecordsServiceListTachographLiveDataInternalServerErrorResponseBody": ".entity_tachograph_live_data_records_service_list_tachograph_live_data_internal_server_error_response_body",
+    "EntityTachographLiveDataRecordsServiceListTachographLiveDataMethodNotAllowedErrorResponseBody": ".entity_tachograph_live_data_records_service_list_tachograph_live_data_method_not_allowed_error_response_body",
+    "EntityTachographLiveDataRecordsServiceListTachographLiveDataNotFoundErrorResponseBody": ".entity_tachograph_live_data_records_service_list_tachograph_live_data_not_found_error_response_body",
+    "EntityTachographLiveDataRecordsServiceListTachographLiveDataNotImplementedErrorResponseBody": ".entity_tachograph_live_data_records_service_list_tachograph_live_data_not_implemented_error_response_body",
+    "EntityTachographLiveDataRecordsServiceListTachographLiveDataResponseBody": ".entity_tachograph_live_data_records_service_list_tachograph_live_data_response_body",
+    "EntityTachographLiveDataRecordsServiceListTachographLiveDataServiceUnavailableErrorResponseBody": ".entity_tachograph_live_data_records_service_list_tachograph_live_data_service_unavailable_error_response_body",
+    "EntityTachographLiveDataRecordsServiceListTachographLiveDataTooManyRequestsErrorResponseBody": ".entity_tachograph_live_data_records_service_list_tachograph_live_data_too_many_requests_error_response_body",
+    "EntityTachographLiveDataRecordsServiceListTachographLiveDataUnauthorizedErrorResponseBody": ".entity_tachograph_live_data_records_service_list_tachograph_live_data_unauthorized_error_response_body",
     "EnumReadingAlertThresholdResponseBody": ".enum_reading_alert_threshold_response_body",
     "EnumValueResponseBody": ".enum_value_response_body",
     "EquipmentEngineRpm": ".equipment_engine_rpm",
@@ -11844,6 +11886,17 @@ __all__ = [
     "EngineOnDetailsObjectResponseBody",
     "EngineOnResponseBody",
     "EngineStatusResponseBody",
+    "EntityListTachographLiveDataTypeResponseBody",
+    "EntityTachographLiveDataRecordsServiceListTachographLiveDataBadGatewayErrorResponseBody",
+    "EntityTachographLiveDataRecordsServiceListTachographLiveDataGatewayTimeoutErrorResponseBody",
+    "EntityTachographLiveDataRecordsServiceListTachographLiveDataInternalServerErrorResponseBody",
+    "EntityTachographLiveDataRecordsServiceListTachographLiveDataMethodNotAllowedErrorResponseBody",
+    "EntityTachographLiveDataRecordsServiceListTachographLiveDataNotFoundErrorResponseBody",
+    "EntityTachographLiveDataRecordsServiceListTachographLiveDataNotImplementedErrorResponseBody",
+    "EntityTachographLiveDataRecordsServiceListTachographLiveDataResponseBody",
+    "EntityTachographLiveDataRecordsServiceListTachographLiveDataServiceUnavailableErrorResponseBody",
+    "EntityTachographLiveDataRecordsServiceListTachographLiveDataTooManyRequestsErrorResponseBody",
+    "EntityTachographLiveDataRecordsServiceListTachographLiveDataUnauthorizedErrorResponseBody",
     "EnumReadingAlertThresholdResponseBody",
     "EnumValueResponseBody",
     "EquipmentEngineRpm",
