@@ -2332,6 +2332,7 @@ if typing.TYPE_CHECKING:
     from .function_config_response_body_params import FunctionConfigResponseBodyParams
     from .function_config_response_body_secrets import FunctionConfigResponseBodySecrets
     from .function_effects_response_body import FunctionEffectsResponseBody
+    from .function_run_context_response_body import FunctionRunContextResponseBody
     from .function_schedule_entry_request_body import FunctionScheduleEntryRequestBody
     from .function_schedule_entry_response_body import FunctionScheduleEntryResponseBody
     from .function_schedule_request_body import FunctionScheduleRequestBody
@@ -2407,6 +2408,34 @@ if typing.TYPE_CHECKING:
         FunctionsGetFunctionNotImplementedErrorResponseBody,
     )
     from .functions_get_function_response_body import FunctionsGetFunctionResponseBody
+    from .functions_get_function_run_bad_gateway_error_response_body import (
+        FunctionsGetFunctionRunBadGatewayErrorResponseBody,
+    )
+    from .functions_get_function_run_gateway_timeout_error_response_body import (
+        FunctionsGetFunctionRunGatewayTimeoutErrorResponseBody,
+    )
+    from .functions_get_function_run_internal_server_error_response_body import (
+        FunctionsGetFunctionRunInternalServerErrorResponseBody,
+    )
+    from .functions_get_function_run_method_not_allowed_error_response_body import (
+        FunctionsGetFunctionRunMethodNotAllowedErrorResponseBody,
+    )
+    from .functions_get_function_run_not_found_error_response_body import (
+        FunctionsGetFunctionRunNotFoundErrorResponseBody,
+    )
+    from .functions_get_function_run_not_implemented_error_response_body import (
+        FunctionsGetFunctionRunNotImplementedErrorResponseBody,
+    )
+    from .functions_get_function_run_response_body import FunctionsGetFunctionRunResponseBody
+    from .functions_get_function_run_service_unavailable_error_response_body import (
+        FunctionsGetFunctionRunServiceUnavailableErrorResponseBody,
+    )
+    from .functions_get_function_run_too_many_requests_error_response_body import (
+        FunctionsGetFunctionRunTooManyRequestsErrorResponseBody,
+    )
+    from .functions_get_function_run_unauthorized_error_response_body import (
+        FunctionsGetFunctionRunUnauthorizedErrorResponseBody,
+    )
     from .functions_get_function_service_unavailable_error_response_body import (
         FunctionsGetFunctionServiceUnavailableErrorResponseBody,
     )
@@ -2567,6 +2596,8 @@ if typing.TYPE_CHECKING:
         GetDriverTrailerAssignmentsResponseBodyResponseBody,
     )
     from .get_function_detail_response_body import GetFunctionDetailResponseBody
+    from .get_function_run_detail_response_body import GetFunctionRunDetailResponseBody
+    from .get_function_run_detail_response_body_status import GetFunctionRunDetailResponseBodyStatus
     from .get_media_retrieval_object_response_body import GetMediaRetrievalObjectResponseBody
     from .get_report_runs_data_object_response_body import GetReportRunsDataObjectResponseBody
     from .get_report_runs_data_object_response_body_status import GetReportRunsDataObjectResponseBodyStatus
@@ -8532,6 +8563,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "FunctionConfigResponseBodyParams": ".function_config_response_body_params",
     "FunctionConfigResponseBodySecrets": ".function_config_response_body_secrets",
     "FunctionEffectsResponseBody": ".function_effects_response_body",
+    "FunctionRunContextResponseBody": ".function_run_context_response_body",
     "FunctionScheduleEntryRequestBody": ".function_schedule_entry_request_body",
     "FunctionScheduleEntryResponseBody": ".function_schedule_entry_response_body",
     "FunctionScheduleRequestBody": ".function_schedule_request_body",
@@ -8563,6 +8595,16 @@ _dynamic_imports: typing.Dict[str, str] = {
     "FunctionsGetFunctionNotFoundErrorResponseBody": ".functions_get_function_not_found_error_response_body",
     "FunctionsGetFunctionNotImplementedErrorResponseBody": ".functions_get_function_not_implemented_error_response_body",
     "FunctionsGetFunctionResponseBody": ".functions_get_function_response_body",
+    "FunctionsGetFunctionRunBadGatewayErrorResponseBody": ".functions_get_function_run_bad_gateway_error_response_body",
+    "FunctionsGetFunctionRunGatewayTimeoutErrorResponseBody": ".functions_get_function_run_gateway_timeout_error_response_body",
+    "FunctionsGetFunctionRunInternalServerErrorResponseBody": ".functions_get_function_run_internal_server_error_response_body",
+    "FunctionsGetFunctionRunMethodNotAllowedErrorResponseBody": ".functions_get_function_run_method_not_allowed_error_response_body",
+    "FunctionsGetFunctionRunNotFoundErrorResponseBody": ".functions_get_function_run_not_found_error_response_body",
+    "FunctionsGetFunctionRunNotImplementedErrorResponseBody": ".functions_get_function_run_not_implemented_error_response_body",
+    "FunctionsGetFunctionRunResponseBody": ".functions_get_function_run_response_body",
+    "FunctionsGetFunctionRunServiceUnavailableErrorResponseBody": ".functions_get_function_run_service_unavailable_error_response_body",
+    "FunctionsGetFunctionRunTooManyRequestsErrorResponseBody": ".functions_get_function_run_too_many_requests_error_response_body",
+    "FunctionsGetFunctionRunUnauthorizedErrorResponseBody": ".functions_get_function_run_unauthorized_error_response_body",
     "FunctionsGetFunctionServiceUnavailableErrorResponseBody": ".functions_get_function_service_unavailable_error_response_body",
     "FunctionsGetFunctionTooManyRequestsErrorResponseBody": ".functions_get_function_too_many_requests_error_response_body",
     "FunctionsGetFunctionUnauthorizedErrorResponseBody": ".functions_get_function_unauthorized_error_response_body",
@@ -8639,6 +8681,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "GetDocumentTypeResponseObjectResponseBody": ".get_document_type_response_object_response_body",
     "GetDriverTrailerAssignmentsResponseBodyResponseBody": ".get_driver_trailer_assignments_response_body_response_body",
     "GetFunctionDetailResponseBody": ".get_function_detail_response_body",
+    "GetFunctionRunDetailResponseBody": ".get_function_run_detail_response_body",
+    "GetFunctionRunDetailResponseBodyStatus": ".get_function_run_detail_response_body_status",
     "GetMediaRetrievalObjectResponseBody": ".get_media_retrieval_object_response_body",
     "GetReportRunsDataObjectResponseBody": ".get_report_runs_data_object_response_body",
     "GetReportRunsDataObjectResponseBodyStatus": ".get_report_runs_data_object_response_body_status",
@@ -12168,6 +12212,7 @@ __all__ = [
     "FunctionConfigResponseBodyParams",
     "FunctionConfigResponseBodySecrets",
     "FunctionEffectsResponseBody",
+    "FunctionRunContextResponseBody",
     "FunctionScheduleEntryRequestBody",
     "FunctionScheduleEntryResponseBody",
     "FunctionScheduleRequestBody",
@@ -12199,6 +12244,16 @@ __all__ = [
     "FunctionsGetFunctionNotFoundErrorResponseBody",
     "FunctionsGetFunctionNotImplementedErrorResponseBody",
     "FunctionsGetFunctionResponseBody",
+    "FunctionsGetFunctionRunBadGatewayErrorResponseBody",
+    "FunctionsGetFunctionRunGatewayTimeoutErrorResponseBody",
+    "FunctionsGetFunctionRunInternalServerErrorResponseBody",
+    "FunctionsGetFunctionRunMethodNotAllowedErrorResponseBody",
+    "FunctionsGetFunctionRunNotFoundErrorResponseBody",
+    "FunctionsGetFunctionRunNotImplementedErrorResponseBody",
+    "FunctionsGetFunctionRunResponseBody",
+    "FunctionsGetFunctionRunServiceUnavailableErrorResponseBody",
+    "FunctionsGetFunctionRunTooManyRequestsErrorResponseBody",
+    "FunctionsGetFunctionRunUnauthorizedErrorResponseBody",
     "FunctionsGetFunctionServiceUnavailableErrorResponseBody",
     "FunctionsGetFunctionTooManyRequestsErrorResponseBody",
     "FunctionsGetFunctionUnauthorizedErrorResponseBody",
@@ -12275,6 +12330,8 @@ __all__ = [
     "GetDocumentTypeResponseObjectResponseBody",
     "GetDriverTrailerAssignmentsResponseBodyResponseBody",
     "GetFunctionDetailResponseBody",
+    "GetFunctionRunDetailResponseBody",
+    "GetFunctionRunDetailResponseBodyStatus",
     "GetMediaRetrievalObjectResponseBody",
     "GetReportRunsDataObjectResponseBody",
     "GetReportRunsDataObjectResponseBodyStatus",
