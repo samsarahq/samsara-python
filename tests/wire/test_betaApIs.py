@@ -87,7 +87,7 @@ def test_betaApIs_update_engine_immobilizer_state() -> None:
     """Test updateEngineImmobilizerState endpoint with WireMock"""
     test_id = "beta_ap_is.update_engine_immobilizer_state.0"
     client = get_client(test_id)
-    client.beta_ap_is.update_engine_immobilizer_state(id=1000000, relay_states=[{"id": "relay1", "is_open": False}])
+    client.beta_ap_is.update_engine_immobilizer_state(id=1000000, relay_states=[{"id": "relay1", "is_open": True}])
     verify_request_count(test_id, "PATCH", "/beta/fleet/vehicles/1000000/immobilizer", None, 1)
 
 
@@ -258,6 +258,14 @@ def test_betaApIs_start_function_run() -> None:
     client = get_client(test_id)
     client.beta_ap_is.start_function_run(name="name", params_override={})
     verify_request_count(test_id, "POST", "/functions/name/runs", None, 1)
+
+
+def test_betaApIs_get_function_run() -> None:
+    """Test getFunctionRun endpoint with WireMock"""
+    test_id = "beta_ap_is.get_function_run.0"
+    client = get_client(test_id)
+    client.beta_ap_is.get_function_run(name="name", correlation_id="correlationId")
+    verify_request_count(test_id, "GET", "/functions/name/runs/correlationId", None, 1)
 
 
 def test_betaApIs_update_shipping_docs() -> None:

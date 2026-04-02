@@ -31,6 +31,7 @@ from ..types.equipment_patch_equipment_response_body import EquipmentPatchEquipm
 from ..types.functions_create_function_response_body import FunctionsCreateFunctionResponseBody
 from ..types.functions_deploy_function_response_body import FunctionsDeployFunctionResponseBody
 from ..types.functions_get_function_response_body import FunctionsGetFunctionResponseBody
+from ..types.functions_get_function_run_response_body import FunctionsGetFunctionRunResponseBody
 from ..types.functions_patch_function_response_body import FunctionsPatchFunctionResponseBody
 from ..types.functions_start_function_run_response_body import FunctionsStartFunctionRunResponseBody
 from ..types.goa_attribute_tiny import GoaAttributeTiny
@@ -1017,7 +1018,7 @@ class BetaApIsClient:
             relay_states=[
                 UpdateEngineImmobilizerRelayStateRequestBodyRequestBody(
                     id="relay1",
-                    is_open=False,
+                    is_open=True,
                 )
             ],
         )
@@ -2148,6 +2149,50 @@ class BetaApIsClient:
         _response = self._raw_client.start_function_run(
             name, params_override=params_override, request_options=request_options
         )
+        return _response.data
+
+    def get_function_run(
+        self, name: str, correlation_id: str, *, request_options: typing.Optional[RequestOptions] = None
+    ) -> FunctionsGetFunctionRunResponseBody:
+        """
+        Retrieve the execution summary for a specific Function run, identified by the correlationId returned from the start run endpoint.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Functions** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        name : str
+            The name of the Function.
+
+        correlation_id : str
+            The unique correlationId of the Function run, returned by the start run endpoint.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        FunctionsGetFunctionRunResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.get_function_run(
+            name="name",
+            correlation_id="correlationId",
+        )
+        """
+        _response = self._raw_client.get_function_run(name, correlation_id, request_options=request_options)
         return _response.data
 
     def update_shipping_docs(
@@ -5560,7 +5605,7 @@ class AsyncBetaApIsClient:
                 relay_states=[
                     UpdateEngineImmobilizerRelayStateRequestBodyRequestBody(
                         id="relay1",
-                        is_open=False,
+                        is_open=True,
                     )
                 ],
             )
@@ -6856,6 +6901,58 @@ class AsyncBetaApIsClient:
         _response = await self._raw_client.start_function_run(
             name, params_override=params_override, request_options=request_options
         )
+        return _response.data
+
+    async def get_function_run(
+        self, name: str, correlation_id: str, *, request_options: typing.Optional[RequestOptions] = None
+    ) -> FunctionsGetFunctionRunResponseBody:
+        """
+        Retrieve the execution summary for a specific Function run, identified by the correlationId returned from the start run endpoint.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Functions** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        name : str
+            The name of the Function.
+
+        correlation_id : str
+            The unique correlationId of the Function run, returned by the start run endpoint.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        FunctionsGetFunctionRunResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.get_function_run(
+                name="name",
+                correlation_id="correlationId",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_function_run(name, correlation_id, request_options=request_options)
         return _response.data
 
     async def update_shipping_docs(
