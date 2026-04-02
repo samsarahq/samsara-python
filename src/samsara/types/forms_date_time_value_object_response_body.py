@@ -4,7 +4,9 @@ import datetime as dt
 import typing
 
 import pydantic
+import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
+from ..core.serialization import FieldMetadata
 from .forms_date_time_value_object_response_body_type import FormsDateTimeValueObjectResponseBodyType
 
 
@@ -13,6 +15,14 @@ class FormsDateTimeValueObjectResponseBody(UniversalBaseModel):
     The value of a datetime form input field.
     """
 
+    date_value: typing_extensions.Annotated[
+        typing.Optional[dt.date],
+        FieldMetadata(alias="dateValue"),
+        pydantic.Field(
+            alias="dateValue",
+            description="Calendar date in YYYY-MM-DD format in the stored field timezone. Present when type is `date` (date-only fields).",
+        ),
+    ] = None
     type: FormsDateTimeValueObjectResponseBodyType = pydantic.Field()
     """
     The type of datetime format.  Valid values: `datetime`, `date`, `time`
