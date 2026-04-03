@@ -17,6 +17,36 @@ def test_trailers_create_trailer() -> None:
     verify_request_count(test_id, "POST", "/fleet/trailers", None, 1)
 
 
+def test_trailers_get_trailer_stats_snapshot() -> None:
+    """Test getTrailerStatsSnapshot endpoint with WireMock"""
+    test_id = "trailers.get_trailer_stats_snapshot.0"
+    client = get_client(test_id)
+    client.trailers.get_trailer_stats_snapshot(types="types")
+    verify_request_count(test_id, "GET", "/fleet/trailers/stats", {"types": "types"}, 1)
+
+
+def test_trailers_get_trailer_stats_feed() -> None:
+    """Test getTrailerStatsFeed endpoint with WireMock"""
+    test_id = "trailers.get_trailer_stats_feed.0"
+    client = get_client(test_id)
+    client.trailers.get_trailer_stats_feed(types="types")
+    verify_request_count(test_id, "GET", "/fleet/trailers/stats/feed", {"types": "types"}, 1)
+
+
+def test_trailers_get_trailer_stats_history() -> None:
+    """Test getTrailerStatsHistory endpoint with WireMock"""
+    test_id = "trailers.get_trailer_stats_history.0"
+    client = get_client(test_id)
+    client.trailers.get_trailer_stats_history(start_time="startTime", end_time="endTime", types="types")
+    verify_request_count(
+        test_id,
+        "GET",
+        "/fleet/trailers/stats/history",
+        {"startTime": "startTime", "endTime": "endTime", "types": "types"},
+        1,
+    )
+
+
 def test_trailers_get_trailer() -> None:
     """Test getTrailer endpoint with WireMock"""
     test_id = "trailers.get_trailer.0"

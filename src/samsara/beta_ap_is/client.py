@@ -21,6 +21,9 @@ from ..types.device_recovery_mark_asset_missing_response_body import DeviceRecov
 from ..types.device_recovery_recover_asset_response_body import DeviceRecoveryRecoverAssetResponseBody
 from ..types.devices_get_devices_response_body import DevicesGetDevicesResponseBody
 from ..types.driver_efficiencies_response import DriverEfficienciesResponse
+from ..types.driver_workflow_assignments_post_driver_workflow_assignment_response_body import (
+    DriverWorkflowAssignmentsPostDriverWorkflowAssignmentResponseBody,
+)
 from ..types.engine_immobilizer_get_engine_immobilizer_states_response_body import (
     EngineImmobilizerGetEngineImmobilizerStatesResponseBody,
 )
@@ -126,11 +129,6 @@ from ..types.ridership_route_setups_list_ridership_route_setups_response_body im
 )
 from ..types.ridership_route_setups_update_ridership_route_setup_response_body import (
     RidershipRouteSetupsUpdateRidershipRouteSetupResponseBody,
-)
-from ..types.trailer_stats_get_trailer_stats_feed_response_body import TrailerStatsGetTrailerStatsFeedResponseBody
-from ..types.trailer_stats_get_trailer_stats_history_response_body import TrailerStatsGetTrailerStatsHistoryResponseBody
-from ..types.trailer_stats_get_trailer_stats_snapshot_response_body import (
-    TrailerStatsGetTrailerStatsSnapshotResponseBody,
 )
 from ..types.update_engine_immobilizer_relay_state_request_body_request_body import (
     UpdateEngineImmobilizerRelayStateRequestBodyRequestBody,
@@ -602,371 +600,6 @@ class BetaApIsClient:
             driver_activation_status=driver_activation_status,
             after=after,
             limit=limit,
-            request_options=request_options,
-        )
-        return _response.data
-
-    def get_trailer_stats_snapshot(
-        self,
-        *,
-        types: str,
-        tag_ids: typing.Optional[str] = None,
-        parent_tag_ids: typing.Optional[str] = None,
-        after: typing.Optional[str] = None,
-        trailer_ids: typing.Optional[str] = None,
-        time: typing.Optional[str] = None,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> TrailerStatsGetTrailerStatsSnapshotResponseBody:
-        """
-        Returns the last known stats of all trailers at the given `time`. If no `time` is specified, the current time is used.
-
-         <b>Rate limit:</b> 25 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Read Trailer Statistics** under the Trailers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        types : str
-            The stat types you want this endpoint to return information on.
-
-            You may list **up to 3** types using comma-separated format. For example: `types=gps,reeferAmbientAirTemperatureMilliC,gpsOdometerMeters`.
-
-            * `gps`: GPS data including lat/long, heading, speed, and a reverse geocode address.
-            * `gpsOdometerMeters`: Odometer reading provided by GPS calculations. You must provide a manual odometer reading before this value is updated. Manual odometer readings can be provided via the PATCH /fleet/trailers/{id} endpoint or through the [cloud dashboard](https://kb.samsara.com/hc/en-us/articles/115005273667-Editing-Odometer-Reading). Odometer readings wthat are manually set will update as GPS trip data is gathered.
-            * `reeferAmbientAirTemperatureMilliC`: The ambient air temperature reading of the reefer in millidegree Celsius.
-            * `reeferObdEngineSeconds`: The cumulative number of seconds the reefer has run according to onboard diagnostics. Only supported on reefer solutions.
-            * `reeferSupplyAirTemperatureMilliCZone1`: The supply or discharge air temperature zone 1 in millidegrees Celsius. For single zone reefers, this applies to the single zone. Only supported on multizone reefer solutions.
-            * `reeferSupplyAirTemperatureMilliCZone2`: The supply or discharge air temperature zone 2 in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferSupplyAirTemperatureMilliCZone3`: The supply or discharge air temperature zone 3 in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferFuelPercent`: The fuel level of the reefer unit in percentage points (e.g. `99`, `50`, etc). Only supported on reefer solutions.
-            * `carrierReeferState`: The overall state of the reefer (`Off`, `On`). Only supported on multizone Carrier reefer solutions.
-            * `reeferStateZone1`: The state of the reefer in zone 1. For single zone reefers, this applies tot he single zone. Only supported on multizone reefer solutions.
-            * `reeferStateZone2`: The state of the reefer in zone 2. Only supported on multizone reefer solutions.
-            * `reeferStateZone3`: The state of the reefer in zone 3. Only supported on multizone reefer solutions.
-            * `reeferRunMode`: The operational mode of the reefer (`Start/Stop`, `Continuous`)
-            * `reeferAlarms`: Any alarms that are present on the reefer. Only supported on reefer solutions.
-            * `reeferReturnAirTemperatureMilliCZone1`: The return air temperature in zone 1 of the reefer in millidegrees Celsius. For single zone reefers, this applies to the single zone. Only supported on multizone reefer solutions.
-            * `reeferReturnAirTemperatureMilliCZone2`: The return air temperature in zone 2 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferReturnAirTemperatureMilliCZone3`: The return air temperature in zone 3 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferSetPointTemperatureMilliCZone1`: The set point temperature in zone 1 of the reefer in millidegrees Celsius. For single zone reefers, this applies to the single zone. Only supported on multizone reefer solutions.
-            * `reeferSetPointTemperatureMilliCZone2`: The set point temperature in zone 2 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferSetPointTemperatureMilliCZone3`: The set point temperature in zone 3 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferDoorStateZone1`: The door status in zone 1 of the reefer. For single zone reefers, this applies to the single zone.
-            * `reeferDoorStateZone2`: The door status in zone 2 of the reefer. Only supported on multizone reefer solutions.
-            * `reeferDoorStateZone3`: The door status in zone 3 of the reefer. Only supported on multizone reefer solutions.
-
-        tag_ids : typing.Optional[str]
-             A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
-
-        parent_tag_ids : typing.Optional[str]
-             A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
-
-        after : typing.Optional[str]
-             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-
-        trailer_ids : typing.Optional[str]
-             A filter on the data based on this comma-separated list of trailer IDs and externalIds. Example: `trailerIds=1234,5678,samsara.vin:1HGBH41JXMN109186`
-
-        time : typing.Optional[str]
-             A filter on the data that returns the last known data points with timestamps less than or equal to this value. Defaults to now if not provided. Must be a string in RFC 3339 Format. Millisecond precision and timezones are supported.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        TrailerStatsGetTrailerStatsSnapshotResponseBody
-            OK response.
-
-        Examples
-        --------
-        from samsara import Samsara
-
-        client = Samsara(
-            token="YOUR_TOKEN",
-        )
-        client.beta_ap_is.get_trailer_stats_snapshot(
-            types="types",
-        )
-        """
-        _response = self._raw_client.get_trailer_stats_snapshot(
-            types=types,
-            tag_ids=tag_ids,
-            parent_tag_ids=parent_tag_ids,
-            after=after,
-            trailer_ids=trailer_ids,
-            time=time,
-            request_options=request_options,
-        )
-        return _response.data
-
-    def get_trailer_stats_feed(
-        self,
-        *,
-        types: str,
-        tag_ids: typing.Optional[str] = None,
-        parent_tag_ids: typing.Optional[str] = None,
-        after: typing.Optional[str] = None,
-        trailer_ids: typing.Optional[str] = None,
-        decorations: typing.Optional[str] = None,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> TrailerStatsGetTrailerStatsFeedResponseBody:
-        """
-        Follow a feed of trailer stats.
-
-        The first call to this endpoint will provide the most recent stats for each trailer and an `endCursor`.
-
-        Providing the `endCursor` value to the `after` query parameter will fetch all updates since the previous API call.
-
-        If `hasNextPage` is false, no new data is immediately available. Please wait a minimum of 5 seconds before making a subsequent request.
-
-         <b>Rate limit:</b> 25 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Read Trailer Statistics** under the Trailers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        types : str
-            The stat types you want this endpoint to return information on.
-
-            You may list **up to 3** types using comma-separated format. For example: `types=gps,reeferAmbientAirTemperatureMilliC,gpsOdometerMeters`.
-
-            * `gps`: GPS data including lat/long, heading, speed, and a reverse geocode address.
-            * `gpsOdometerMeters`: Odometer reading provided by GPS calculations. You must provide a manual odometer reading before this value is updated. Manual odometer readings can be provided via the PATCH /fleet/trailers/{id} endpoint or through the [cloud dashboard](https://kb.samsara.com/hc/en-us/articles/115005273667-Editing-Odometer-Reading). Odometer readings wthat are manually set will update as GPS trip data is gathered.
-            * `reeferAmbientAirTemperatureMilliC`: The ambient air temperature reading of the reefer in millidegree Celsius.
-            * `reeferObdEngineSeconds`: The cumulative number of seconds the reefer has run according to onboard diagnostics. Only supported on reefer solutions.
-            * `reeferSupplyAirTemperatureMilliCZone1`: The supply or discharge air temperature zone 1 in millidegrees Celsius. For single zone reefers, this applies to the single zone. Only supported on multizone reefer solutions.
-            * `reeferSupplyAirTemperatureMilliCZone2`: The supply or discharge air temperature zone 2 in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferSupplyAirTemperatureMilliCZone3`: The supply or discharge air temperature zone 3 in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferFuelPercent`: The fuel level of the reefer unit in percentage points (e.g. `99`, `50`, etc). Only supported on reefer solutions.
-            * `carrierReeferState`: The overall state of the reefer (`Off`, `On`). Only supported on multizone Carrier reefer solutions.
-            * `reeferStateZone1`: The state of the reefer in zone 1. For single zone reefers, this applies tot he single zone. Only supported on multizone reefer solutions.
-            * `reeferStateZone2`: The state of the reefer in zone 2. Only supported on multizone reefer solutions.
-            * `reeferStateZone3`: The state of the reefer in zone 3. Only supported on multizone reefer solutions.
-            * `reeferRunMode`: The operational mode of the reefer (`Start/Stop`, `Continuous`)
-            * `reeferAlarms`: Any alarms that are present on the reefer. Only supported on reefer solutions.
-            * `reeferReturnAirTemperatureMilliCZone1`: The return air temperature in zone 1 of the reefer in millidegrees Celsius. For single zone reefers, this applies to the single zone. Only supported on multizone reefer solutions.
-            * `reeferReturnAirTemperatureMilliCZone2`: The return air temperature in zone 2 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferReturnAirTemperatureMilliCZone3`: The return air temperature in zone 3 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferSetPointTemperatureMilliCZone1`: The set point temperature in zone 1 of the reefer in millidegrees Celsius. For single zone reefers, this applies to the single zone. Only supported on multizone reefer solutions.
-            * `reeferSetPointTemperatureMilliCZone2`: The set point temperature in zone 2 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferSetPointTemperatureMilliCZone3`: The set point temperature in zone 3 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferDoorStateZone1`: The door status in zone 1 of the reefer. For single zone reefers, this applies to the single zone.
-            * `reeferDoorStateZone2`: The door status in zone 2 of the reefer. Only supported on multizone reefer solutions.
-            * `reeferDoorStateZone3`: The door status in zone 3 of the reefer. Only supported on multizone reefer solutions.
-
-        tag_ids : typing.Optional[str]
-             A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
-
-        parent_tag_ids : typing.Optional[str]
-             A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
-
-        after : typing.Optional[str]
-             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-
-        trailer_ids : typing.Optional[str]
-             A filter on the data based on this comma-separated list of trailer IDs and externalIds. Example: `trailerIds=1234,5678,samsara.vin:1HGBH41JXMN109186`
-
-        decorations : typing.Optional[str]
-            Decorations add to the primary stats listed in the `types` parameter. For example, if you wish to know the trailer's location whenever the odometer updates, you may set `types=gpsOdometerMeters&decorations=gps`.
-
-            You may list **up to 2** types using comma-separated format. If multiple stats are listed in the types parameter, the decorations will be added to each type. For example: `types=reeferStateZone1,reeferAmbientAirTemperatureMilliC,gpsOdometerMeters&decorations=gps` will list GPS decorations for each reeferStateZone1 reading, each reeferAmbientAirTemperatureMilliC reding, and gpsOdometerMeters reading.
-
-            Note that decorations may significantly increase the response payload size.
-
-            * `gps`: GPS data including lat/long, heading, speed, and a reverse geocode address.
-            * `gpsOdometerMeters`: Odometer reading provided by GPS calculations. You must provide a manual odometer reading before this value is updated. Manual odometer readings can be provided via the PATCH /fleet/trailers/{id} endpoint or through the [cloud dashboard](https://kb.samsara.com/hc/en-us/articles/115005273667-Editing-Odometer-Reading). Odometer readings wthat are manually set will update as GPS trip data is gathered.
-            * `reeferAmbientAirTemperatureMilliC`: The ambient air temperature reading of the reefer in millidegree Celsius.
-            * `reeferObdEngineSeconds`: The cumulative number of seconds the reefer has run according to onboard diagnostics. Only supported on reefer solutions.
-            * `reeferSupplyAirTemperatureMilliCZone1`: The supply or discharge air temperature zone 1 in millidegrees Celsius. For single zone reefers, this applies to the single zone. Only supported on multizone reefer solutions.
-            * `reeferSupplyAirTemperatureMilliCZone2`: The supply or discharge air temperature zone 2 in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferSupplyAirTemperatureMilliCZone3`: The supply or discharge air temperature zone 3 in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferFuelPercent`: The fuel level of the reefer unit in percentage points (e.g. `99`, `50`, etc). Only supported on reefer solutions.
-            * `carrierReeferState`: The overall state of the reefer (`Off`, `On`). Only supported on multizone Carrier reefer solutions.
-            * `reeferStateZone1`: The state of the reefer in zone 1. For single zone reefers, this applies tot he single zone. Only supported on multizone reefer solutions.
-            * `reeferStateZone2`: The state of the reefer in zone 2. Only supported on multizone reefer solutions.
-            * `reeferStateZone3`: The state of the reefer in zone 3. Only supported on multizone reefer solutions.
-            * `reeferRunMode`: The operational mode of the reefer (`Start/Stop`, `Continuous`)
-            * `reeferAlarms`: Any alarms that are present on the reefer. Only supported on reefer solutions.
-            * `reeferReturnAirTemperatureMilliCZone1`: The return air temperature in zone 1 of the reefer in millidegrees Celsius. For single zone reefers, this applies to the single zone. Only supported on multizone reefer solutions.
-            * `reeferReturnAirTemperatureMilliCZone2`: The return air temperature in zone 2 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferReturnAirTemperatureMilliCZone3`: The return air temperature in zone 3 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferSetPointTemperatureMilliCZone1`: The set point temperature in zone 1 of the reefer in millidegrees Celsius. For single zone reefers, this applies to the single zone. Only supported on multizone reefer solutions.
-            * `reeferSetPointTemperatureMilliCZone2`: The set point temperature in zone 2 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferSetPointTemperatureMilliCZone3`: The set point temperature in zone 3 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferDoorStateZone1`: The door status in zone 1 of the reefer. For single zone reefers, this applies to the single zone.
-            * `reeferDoorStateZone2`: The door status in zone 2 of the reefer. Only supported on multizone reefer solutions.
-            * `reeferDoorStateZone3`: The door status in zone 3 of the reefer. Only supported on multizone reefer solutions.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        TrailerStatsGetTrailerStatsFeedResponseBody
-            OK response.
-
-        Examples
-        --------
-        from samsara import Samsara
-
-        client = Samsara(
-            token="YOUR_TOKEN",
-        )
-        client.beta_ap_is.get_trailer_stats_feed(
-            types="types",
-        )
-        """
-        _response = self._raw_client.get_trailer_stats_feed(
-            types=types,
-            tag_ids=tag_ids,
-            parent_tag_ids=parent_tag_ids,
-            after=after,
-            trailer_ids=trailer_ids,
-            decorations=decorations,
-            request_options=request_options,
-        )
-        return _response.data
-
-    def get_trailer_stats_history(
-        self,
-        *,
-        start_time: str,
-        end_time: str,
-        types: str,
-        tag_ids: typing.Optional[str] = None,
-        parent_tag_ids: typing.Optional[str] = None,
-        after: typing.Optional[str] = None,
-        trailer_ids: typing.Optional[str] = None,
-        decorations: typing.Optional[str] = None,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> TrailerStatsGetTrailerStatsHistoryResponseBody:
-        """
-        Returns trailer stats during the given time range for all trailers. This can be optionally filtered by tags or specific trailer IDs.
-
-         <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Read Trailer Statistics** under the Trailers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        start_time : str
-             A start time in RFC 3339 format. Defaults to now if not provided. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-
-        end_time : str
-             An end time in RFC 3339 format. Defaults to now if not provided. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-
-        types : str
-            The stat types you want this endpoint to return information on.
-
-            You may list **up to 3** types using comma-separated format. For example: `types=gps,reeferAmbientAirTemperatureMilliC,gpsOdometerMeters`.
-
-            * `gps`: GPS data including lat/long, heading, speed, and a reverse geocode address.
-            * `gpsOdometerMeters`: Odometer reading provided by GPS calculations. You must provide a manual odometer reading before this value is updated. Manual odometer readings can be provided via the PATCH /fleet/trailers/{id} endpoint or through the [cloud dashboard](https://kb.samsara.com/hc/en-us/articles/115005273667-Editing-Odometer-Reading). Odometer readings wthat are manually set will update as GPS trip data is gathered.
-            * `reeferAmbientAirTemperatureMilliC`: The ambient air temperature reading of the reefer in millidegree Celsius.
-            * `reeferObdEngineSeconds`: The cumulative number of seconds the reefer has run according to onboard diagnostics. Only supported on reefer solutions.
-            * `reeferSupplyAirTemperatureMilliCZone1`: The supply or discharge air temperature zone 1 in millidegrees Celsius. For single zone reefers, this applies to the single zone. Only supported on multizone reefer solutions.
-            * `reeferSupplyAirTemperatureMilliCZone2`: The supply or discharge air temperature zone 2 in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferSupplyAirTemperatureMilliCZone3`: The supply or discharge air temperature zone 3 in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferFuelPercent`: The fuel level of the reefer unit in percentage points (e.g. `99`, `50`, etc). Only supported on reefer solutions.
-            * `carrierReeferState`: The overall state of the reefer (`Off`, `On`). Only supported on multizone Carrier reefer solutions.
-            * `reeferStateZone1`: The state of the reefer in zone 1. For single zone reefers, this applies tot he single zone. Only supported on multizone reefer solutions.
-            * `reeferStateZone2`: The state of the reefer in zone 2. Only supported on multizone reefer solutions.
-            * `reeferStateZone3`: The state of the reefer in zone 3. Only supported on multizone reefer solutions.
-            * `reeferRunMode`: The operational mode of the reefer (`Start/Stop`, `Continuous`)
-            * `reeferAlarms`: Any alarms that are present on the reefer. Only supported on reefer solutions.
-            * `reeferReturnAirTemperatureMilliCZone1`: The return air temperature in zone 1 of the reefer in millidegrees Celsius. For single zone reefers, this applies to the single zone. Only supported on multizone reefer solutions.
-            * `reeferReturnAirTemperatureMilliCZone2`: The return air temperature in zone 2 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferReturnAirTemperatureMilliCZone3`: The return air temperature in zone 3 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferSetPointTemperatureMilliCZone1`: The set point temperature in zone 1 of the reefer in millidegrees Celsius. For single zone reefers, this applies to the single zone. Only supported on multizone reefer solutions.
-            * `reeferSetPointTemperatureMilliCZone2`: The set point temperature in zone 2 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferSetPointTemperatureMilliCZone3`: The set point temperature in zone 3 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferDoorStateZone1`: The door status in zone 1 of the reefer. For single zone reefers, this applies to the single zone.
-            * `reeferDoorStateZone2`: The door status in zone 2 of the reefer. Only supported on multizone reefer solutions.
-            * `reeferDoorStateZone3`: The door status in zone 3 of the reefer. Only supported on multizone reefer solutions.
-
-        tag_ids : typing.Optional[str]
-             A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
-
-        parent_tag_ids : typing.Optional[str]
-             A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
-
-        after : typing.Optional[str]
-             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-
-        trailer_ids : typing.Optional[str]
-             A filter on the data based on this comma-separated list of trailer IDs and externalIds. Example: `trailerIds=1234,5678,samsara.vin:1HGBH41JXMN109186`
-
-        decorations : typing.Optional[str]
-            Decorations add to the primary stats listed in the `types` parameter. For example, if you wish to know the trailer's location whenever the odometer updates, you may set `types=gpsOdometerMeters&decorations=gps`.
-
-            You may list **up to 2** types using comma-separated format. If multiple stats are listed in the types parameter, the decorations will be added to each type. For example: `types=reeferStateZone1,reeferAmbientAirTemperatureMilliC,gpsOdometerMeters&decorations=gps` will list GPS decorations for each reeferStateZone1 reading, each reeferAmbientAirTemperatureMilliC reding, and gpsOdometerMeters reading.
-
-            Note that decorations may significantly increase the response payload size.
-
-            * `gps`: GPS data including lat/long, heading, speed, and a reverse geocode address.
-            * `gpsOdometerMeters`: Odometer reading provided by GPS calculations. You must provide a manual odometer reading before this value is updated. Manual odometer readings can be provided via the PATCH /fleet/trailers/{id} endpoint or through the [cloud dashboard](https://kb.samsara.com/hc/en-us/articles/115005273667-Editing-Odometer-Reading). Odometer readings wthat are manually set will update as GPS trip data is gathered.
-            * `reeferAmbientAirTemperatureMilliC`: The ambient air temperature reading of the reefer in millidegree Celsius.
-            * `reeferObdEngineSeconds`: The cumulative number of seconds the reefer has run according to onboard diagnostics. Only supported on reefer solutions.
-            * `reeferSupplyAirTemperatureMilliCZone1`: The supply or discharge air temperature zone 1 in millidegrees Celsius. For single zone reefers, this applies to the single zone. Only supported on multizone reefer solutions.
-            * `reeferSupplyAirTemperatureMilliCZone2`: The supply or discharge air temperature zone 2 in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferSupplyAirTemperatureMilliCZone3`: The supply or discharge air temperature zone 3 in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferFuelPercent`: The fuel level of the reefer unit in percentage points (e.g. `99`, `50`, etc). Only supported on reefer solutions.
-            * `carrierReeferState`: The overall state of the reefer (`Off`, `On`). Only supported on multizone Carrier reefer solutions.
-            * `reeferStateZone1`: The state of the reefer in zone 1. For single zone reefers, this applies tot he single zone. Only supported on multizone reefer solutions.
-            * `reeferStateZone2`: The state of the reefer in zone 2. Only supported on multizone reefer solutions.
-            * `reeferStateZone3`: The state of the reefer in zone 3. Only supported on multizone reefer solutions.
-            * `reeferRunMode`: The operational mode of the reefer (`Start/Stop`, `Continuous`)
-            * `reeferAlarms`: Any alarms that are present on the reefer. Only supported on reefer solutions.
-            * `reeferReturnAirTemperatureMilliCZone1`: The return air temperature in zone 1 of the reefer in millidegrees Celsius. For single zone reefers, this applies to the single zone. Only supported on multizone reefer solutions.
-            * `reeferReturnAirTemperatureMilliCZone2`: The return air temperature in zone 2 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferReturnAirTemperatureMilliCZone3`: The return air temperature in zone 3 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferSetPointTemperatureMilliCZone1`: The set point temperature in zone 1 of the reefer in millidegrees Celsius. For single zone reefers, this applies to the single zone. Only supported on multizone reefer solutions.
-            * `reeferSetPointTemperatureMilliCZone2`: The set point temperature in zone 2 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferSetPointTemperatureMilliCZone3`: The set point temperature in zone 3 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferDoorStateZone1`: The door status in zone 1 of the reefer. For single zone reefers, this applies to the single zone.
-            * `reeferDoorStateZone2`: The door status in zone 2 of the reefer. Only supported on multizone reefer solutions.
-            * `reeferDoorStateZone3`: The door status in zone 3 of the reefer. Only supported on multizone reefer solutions.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        TrailerStatsGetTrailerStatsHistoryResponseBody
-            OK response.
-
-        Examples
-        --------
-        from samsara import Samsara
-
-        client = Samsara(
-            token="YOUR_TOKEN",
-        )
-        client.beta_ap_is.get_trailer_stats_history(
-            start_time="startTime",
-            end_time="endTime",
-            types="types",
-        )
-        """
-        _response = self._raw_client.get_trailer_stats_history(
-            start_time=start_time,
-            end_time=end_time,
-            types=types,
-            tag_ids=tag_ids,
-            parent_tag_ids=parent_tag_ids,
-            after=after,
-            trailer_ids=trailer_ids,
-            decorations=decorations,
             request_options=request_options,
         )
         return _response.data
@@ -1687,6 +1320,62 @@ class BetaApIsClient:
         )
         return _response.data
 
+    def post_driver_workflow_assignment(
+        self,
+        *,
+        workflow_id: str,
+        driver_ids_to_publish: typing.Optional[typing.Sequence[str]] = OMIT,
+        driver_ids_to_unpublish: typing.Optional[typing.Sequence[str]] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> DriverWorkflowAssignmentsPostDriverWorkflowAssignmentResponseBody:
+        """
+        Publish or unpublish a driver app workflow to one or more drivers by their IDs. If a workflow is published to a driver who already has it, or unpublished from a driver who does not have it, the operation is a no-op for that driver.
+
+         <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Driver App Settings** under the Drivers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        workflow_id : str
+            The UUID of the workflow to publish.
+
+        driver_ids_to_publish : typing.Optional[typing.Sequence[str]]
+            List of driver IDs to publish the workflow to. If a driver already has the workflow, the operation is a no-op for that driver.
+
+        driver_ids_to_unpublish : typing.Optional[typing.Sequence[str]]
+            List of driver IDs to unpublish the workflow from. If a driver does not have the workflow, the operation is a no-op for that driver.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        DriverWorkflowAssignmentsPostDriverWorkflowAssignmentResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.post_driver_workflow_assignment(
+            workflow_id="a4db8702-79d5-4396-a717-e301d52ecc11",
+        )
+        """
+        _response = self._raw_client.post_driver_workflow_assignment(
+            workflow_id=workflow_id,
+            driver_ids_to_publish=driver_ids_to_publish,
+            driver_ids_to_unpublish=driver_ids_to_unpublish,
+            request_options=request_options,
+        )
+        return _response.data
+
     def list_vendor_categories(
         self, *, after: typing.Optional[str] = None, request_options: typing.Optional[RequestOptions] = None
     ) -> MaintenanceVendorsListVendorCategoriesResponseBody:
@@ -1995,6 +1684,43 @@ class BetaApIsClient:
         )
         """
         _response = self._raw_client.get_function(name, request_options=request_options)
+        return _response.data
+
+    def delete_function(self, name: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
+        """
+        Delete a Function by name. A Function that is currently configured as an action in a workflow config cannot be deleted.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Functions** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        name : str
+            The name of the Function to delete.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.delete_function(
+            name="name",
+        )
+        """
+        _response = self._raw_client.delete_function(name, request_options=request_options)
         return _response.data
 
     def patch_function(
@@ -5164,395 +4890,6 @@ class AsyncBetaApIsClient:
         )
         return _response.data
 
-    async def get_trailer_stats_snapshot(
-        self,
-        *,
-        types: str,
-        tag_ids: typing.Optional[str] = None,
-        parent_tag_ids: typing.Optional[str] = None,
-        after: typing.Optional[str] = None,
-        trailer_ids: typing.Optional[str] = None,
-        time: typing.Optional[str] = None,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> TrailerStatsGetTrailerStatsSnapshotResponseBody:
-        """
-        Returns the last known stats of all trailers at the given `time`. If no `time` is specified, the current time is used.
-
-         <b>Rate limit:</b> 25 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Read Trailer Statistics** under the Trailers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        types : str
-            The stat types you want this endpoint to return information on.
-
-            You may list **up to 3** types using comma-separated format. For example: `types=gps,reeferAmbientAirTemperatureMilliC,gpsOdometerMeters`.
-
-            * `gps`: GPS data including lat/long, heading, speed, and a reverse geocode address.
-            * `gpsOdometerMeters`: Odometer reading provided by GPS calculations. You must provide a manual odometer reading before this value is updated. Manual odometer readings can be provided via the PATCH /fleet/trailers/{id} endpoint or through the [cloud dashboard](https://kb.samsara.com/hc/en-us/articles/115005273667-Editing-Odometer-Reading). Odometer readings wthat are manually set will update as GPS trip data is gathered.
-            * `reeferAmbientAirTemperatureMilliC`: The ambient air temperature reading of the reefer in millidegree Celsius.
-            * `reeferObdEngineSeconds`: The cumulative number of seconds the reefer has run according to onboard diagnostics. Only supported on reefer solutions.
-            * `reeferSupplyAirTemperatureMilliCZone1`: The supply or discharge air temperature zone 1 in millidegrees Celsius. For single zone reefers, this applies to the single zone. Only supported on multizone reefer solutions.
-            * `reeferSupplyAirTemperatureMilliCZone2`: The supply or discharge air temperature zone 2 in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferSupplyAirTemperatureMilliCZone3`: The supply or discharge air temperature zone 3 in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferFuelPercent`: The fuel level of the reefer unit in percentage points (e.g. `99`, `50`, etc). Only supported on reefer solutions.
-            * `carrierReeferState`: The overall state of the reefer (`Off`, `On`). Only supported on multizone Carrier reefer solutions.
-            * `reeferStateZone1`: The state of the reefer in zone 1. For single zone reefers, this applies tot he single zone. Only supported on multizone reefer solutions.
-            * `reeferStateZone2`: The state of the reefer in zone 2. Only supported on multizone reefer solutions.
-            * `reeferStateZone3`: The state of the reefer in zone 3. Only supported on multizone reefer solutions.
-            * `reeferRunMode`: The operational mode of the reefer (`Start/Stop`, `Continuous`)
-            * `reeferAlarms`: Any alarms that are present on the reefer. Only supported on reefer solutions.
-            * `reeferReturnAirTemperatureMilliCZone1`: The return air temperature in zone 1 of the reefer in millidegrees Celsius. For single zone reefers, this applies to the single zone. Only supported on multizone reefer solutions.
-            * `reeferReturnAirTemperatureMilliCZone2`: The return air temperature in zone 2 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferReturnAirTemperatureMilliCZone3`: The return air temperature in zone 3 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferSetPointTemperatureMilliCZone1`: The set point temperature in zone 1 of the reefer in millidegrees Celsius. For single zone reefers, this applies to the single zone. Only supported on multizone reefer solutions.
-            * `reeferSetPointTemperatureMilliCZone2`: The set point temperature in zone 2 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferSetPointTemperatureMilliCZone3`: The set point temperature in zone 3 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferDoorStateZone1`: The door status in zone 1 of the reefer. For single zone reefers, this applies to the single zone.
-            * `reeferDoorStateZone2`: The door status in zone 2 of the reefer. Only supported on multizone reefer solutions.
-            * `reeferDoorStateZone3`: The door status in zone 3 of the reefer. Only supported on multizone reefer solutions.
-
-        tag_ids : typing.Optional[str]
-             A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
-
-        parent_tag_ids : typing.Optional[str]
-             A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
-
-        after : typing.Optional[str]
-             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-
-        trailer_ids : typing.Optional[str]
-             A filter on the data based on this comma-separated list of trailer IDs and externalIds. Example: `trailerIds=1234,5678,samsara.vin:1HGBH41JXMN109186`
-
-        time : typing.Optional[str]
-             A filter on the data that returns the last known data points with timestamps less than or equal to this value. Defaults to now if not provided. Must be a string in RFC 3339 Format. Millisecond precision and timezones are supported.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        TrailerStatsGetTrailerStatsSnapshotResponseBody
-            OK response.
-
-        Examples
-        --------
-        import asyncio
-
-        from samsara import AsyncSamsara
-
-        client = AsyncSamsara(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.beta_ap_is.get_trailer_stats_snapshot(
-                types="types",
-            )
-
-
-        asyncio.run(main())
-        """
-        _response = await self._raw_client.get_trailer_stats_snapshot(
-            types=types,
-            tag_ids=tag_ids,
-            parent_tag_ids=parent_tag_ids,
-            after=after,
-            trailer_ids=trailer_ids,
-            time=time,
-            request_options=request_options,
-        )
-        return _response.data
-
-    async def get_trailer_stats_feed(
-        self,
-        *,
-        types: str,
-        tag_ids: typing.Optional[str] = None,
-        parent_tag_ids: typing.Optional[str] = None,
-        after: typing.Optional[str] = None,
-        trailer_ids: typing.Optional[str] = None,
-        decorations: typing.Optional[str] = None,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> TrailerStatsGetTrailerStatsFeedResponseBody:
-        """
-        Follow a feed of trailer stats.
-
-        The first call to this endpoint will provide the most recent stats for each trailer and an `endCursor`.
-
-        Providing the `endCursor` value to the `after` query parameter will fetch all updates since the previous API call.
-
-        If `hasNextPage` is false, no new data is immediately available. Please wait a minimum of 5 seconds before making a subsequent request.
-
-         <b>Rate limit:</b> 25 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Read Trailer Statistics** under the Trailers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        types : str
-            The stat types you want this endpoint to return information on.
-
-            You may list **up to 3** types using comma-separated format. For example: `types=gps,reeferAmbientAirTemperatureMilliC,gpsOdometerMeters`.
-
-            * `gps`: GPS data including lat/long, heading, speed, and a reverse geocode address.
-            * `gpsOdometerMeters`: Odometer reading provided by GPS calculations. You must provide a manual odometer reading before this value is updated. Manual odometer readings can be provided via the PATCH /fleet/trailers/{id} endpoint or through the [cloud dashboard](https://kb.samsara.com/hc/en-us/articles/115005273667-Editing-Odometer-Reading). Odometer readings wthat are manually set will update as GPS trip data is gathered.
-            * `reeferAmbientAirTemperatureMilliC`: The ambient air temperature reading of the reefer in millidegree Celsius.
-            * `reeferObdEngineSeconds`: The cumulative number of seconds the reefer has run according to onboard diagnostics. Only supported on reefer solutions.
-            * `reeferSupplyAirTemperatureMilliCZone1`: The supply or discharge air temperature zone 1 in millidegrees Celsius. For single zone reefers, this applies to the single zone. Only supported on multizone reefer solutions.
-            * `reeferSupplyAirTemperatureMilliCZone2`: The supply or discharge air temperature zone 2 in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferSupplyAirTemperatureMilliCZone3`: The supply or discharge air temperature zone 3 in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferFuelPercent`: The fuel level of the reefer unit in percentage points (e.g. `99`, `50`, etc). Only supported on reefer solutions.
-            * `carrierReeferState`: The overall state of the reefer (`Off`, `On`). Only supported on multizone Carrier reefer solutions.
-            * `reeferStateZone1`: The state of the reefer in zone 1. For single zone reefers, this applies tot he single zone. Only supported on multizone reefer solutions.
-            * `reeferStateZone2`: The state of the reefer in zone 2. Only supported on multizone reefer solutions.
-            * `reeferStateZone3`: The state of the reefer in zone 3. Only supported on multizone reefer solutions.
-            * `reeferRunMode`: The operational mode of the reefer (`Start/Stop`, `Continuous`)
-            * `reeferAlarms`: Any alarms that are present on the reefer. Only supported on reefer solutions.
-            * `reeferReturnAirTemperatureMilliCZone1`: The return air temperature in zone 1 of the reefer in millidegrees Celsius. For single zone reefers, this applies to the single zone. Only supported on multizone reefer solutions.
-            * `reeferReturnAirTemperatureMilliCZone2`: The return air temperature in zone 2 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferReturnAirTemperatureMilliCZone3`: The return air temperature in zone 3 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferSetPointTemperatureMilliCZone1`: The set point temperature in zone 1 of the reefer in millidegrees Celsius. For single zone reefers, this applies to the single zone. Only supported on multizone reefer solutions.
-            * `reeferSetPointTemperatureMilliCZone2`: The set point temperature in zone 2 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferSetPointTemperatureMilliCZone3`: The set point temperature in zone 3 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferDoorStateZone1`: The door status in zone 1 of the reefer. For single zone reefers, this applies to the single zone.
-            * `reeferDoorStateZone2`: The door status in zone 2 of the reefer. Only supported on multizone reefer solutions.
-            * `reeferDoorStateZone3`: The door status in zone 3 of the reefer. Only supported on multizone reefer solutions.
-
-        tag_ids : typing.Optional[str]
-             A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
-
-        parent_tag_ids : typing.Optional[str]
-             A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
-
-        after : typing.Optional[str]
-             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-
-        trailer_ids : typing.Optional[str]
-             A filter on the data based on this comma-separated list of trailer IDs and externalIds. Example: `trailerIds=1234,5678,samsara.vin:1HGBH41JXMN109186`
-
-        decorations : typing.Optional[str]
-            Decorations add to the primary stats listed in the `types` parameter. For example, if you wish to know the trailer's location whenever the odometer updates, you may set `types=gpsOdometerMeters&decorations=gps`.
-
-            You may list **up to 2** types using comma-separated format. If multiple stats are listed in the types parameter, the decorations will be added to each type. For example: `types=reeferStateZone1,reeferAmbientAirTemperatureMilliC,gpsOdometerMeters&decorations=gps` will list GPS decorations for each reeferStateZone1 reading, each reeferAmbientAirTemperatureMilliC reding, and gpsOdometerMeters reading.
-
-            Note that decorations may significantly increase the response payload size.
-
-            * `gps`: GPS data including lat/long, heading, speed, and a reverse geocode address.
-            * `gpsOdometerMeters`: Odometer reading provided by GPS calculations. You must provide a manual odometer reading before this value is updated. Manual odometer readings can be provided via the PATCH /fleet/trailers/{id} endpoint or through the [cloud dashboard](https://kb.samsara.com/hc/en-us/articles/115005273667-Editing-Odometer-Reading). Odometer readings wthat are manually set will update as GPS trip data is gathered.
-            * `reeferAmbientAirTemperatureMilliC`: The ambient air temperature reading of the reefer in millidegree Celsius.
-            * `reeferObdEngineSeconds`: The cumulative number of seconds the reefer has run according to onboard diagnostics. Only supported on reefer solutions.
-            * `reeferSupplyAirTemperatureMilliCZone1`: The supply or discharge air temperature zone 1 in millidegrees Celsius. For single zone reefers, this applies to the single zone. Only supported on multizone reefer solutions.
-            * `reeferSupplyAirTemperatureMilliCZone2`: The supply or discharge air temperature zone 2 in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferSupplyAirTemperatureMilliCZone3`: The supply or discharge air temperature zone 3 in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferFuelPercent`: The fuel level of the reefer unit in percentage points (e.g. `99`, `50`, etc). Only supported on reefer solutions.
-            * `carrierReeferState`: The overall state of the reefer (`Off`, `On`). Only supported on multizone Carrier reefer solutions.
-            * `reeferStateZone1`: The state of the reefer in zone 1. For single zone reefers, this applies tot he single zone. Only supported on multizone reefer solutions.
-            * `reeferStateZone2`: The state of the reefer in zone 2. Only supported on multizone reefer solutions.
-            * `reeferStateZone3`: The state of the reefer in zone 3. Only supported on multizone reefer solutions.
-            * `reeferRunMode`: The operational mode of the reefer (`Start/Stop`, `Continuous`)
-            * `reeferAlarms`: Any alarms that are present on the reefer. Only supported on reefer solutions.
-            * `reeferReturnAirTemperatureMilliCZone1`: The return air temperature in zone 1 of the reefer in millidegrees Celsius. For single zone reefers, this applies to the single zone. Only supported on multizone reefer solutions.
-            * `reeferReturnAirTemperatureMilliCZone2`: The return air temperature in zone 2 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferReturnAirTemperatureMilliCZone3`: The return air temperature in zone 3 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferSetPointTemperatureMilliCZone1`: The set point temperature in zone 1 of the reefer in millidegrees Celsius. For single zone reefers, this applies to the single zone. Only supported on multizone reefer solutions.
-            * `reeferSetPointTemperatureMilliCZone2`: The set point temperature in zone 2 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferSetPointTemperatureMilliCZone3`: The set point temperature in zone 3 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferDoorStateZone1`: The door status in zone 1 of the reefer. For single zone reefers, this applies to the single zone.
-            * `reeferDoorStateZone2`: The door status in zone 2 of the reefer. Only supported on multizone reefer solutions.
-            * `reeferDoorStateZone3`: The door status in zone 3 of the reefer. Only supported on multizone reefer solutions.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        TrailerStatsGetTrailerStatsFeedResponseBody
-            OK response.
-
-        Examples
-        --------
-        import asyncio
-
-        from samsara import AsyncSamsara
-
-        client = AsyncSamsara(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.beta_ap_is.get_trailer_stats_feed(
-                types="types",
-            )
-
-
-        asyncio.run(main())
-        """
-        _response = await self._raw_client.get_trailer_stats_feed(
-            types=types,
-            tag_ids=tag_ids,
-            parent_tag_ids=parent_tag_ids,
-            after=after,
-            trailer_ids=trailer_ids,
-            decorations=decorations,
-            request_options=request_options,
-        )
-        return _response.data
-
-    async def get_trailer_stats_history(
-        self,
-        *,
-        start_time: str,
-        end_time: str,
-        types: str,
-        tag_ids: typing.Optional[str] = None,
-        parent_tag_ids: typing.Optional[str] = None,
-        after: typing.Optional[str] = None,
-        trailer_ids: typing.Optional[str] = None,
-        decorations: typing.Optional[str] = None,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> TrailerStatsGetTrailerStatsHistoryResponseBody:
-        """
-        Returns trailer stats during the given time range for all trailers. This can be optionally filtered by tags or specific trailer IDs.
-
-         <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Read Trailer Statistics** under the Trailers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        start_time : str
-             A start time in RFC 3339 format. Defaults to now if not provided. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-
-        end_time : str
-             An end time in RFC 3339 format. Defaults to now if not provided. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-
-        types : str
-            The stat types you want this endpoint to return information on.
-
-            You may list **up to 3** types using comma-separated format. For example: `types=gps,reeferAmbientAirTemperatureMilliC,gpsOdometerMeters`.
-
-            * `gps`: GPS data including lat/long, heading, speed, and a reverse geocode address.
-            * `gpsOdometerMeters`: Odometer reading provided by GPS calculations. You must provide a manual odometer reading before this value is updated. Manual odometer readings can be provided via the PATCH /fleet/trailers/{id} endpoint or through the [cloud dashboard](https://kb.samsara.com/hc/en-us/articles/115005273667-Editing-Odometer-Reading). Odometer readings wthat are manually set will update as GPS trip data is gathered.
-            * `reeferAmbientAirTemperatureMilliC`: The ambient air temperature reading of the reefer in millidegree Celsius.
-            * `reeferObdEngineSeconds`: The cumulative number of seconds the reefer has run according to onboard diagnostics. Only supported on reefer solutions.
-            * `reeferSupplyAirTemperatureMilliCZone1`: The supply or discharge air temperature zone 1 in millidegrees Celsius. For single zone reefers, this applies to the single zone. Only supported on multizone reefer solutions.
-            * `reeferSupplyAirTemperatureMilliCZone2`: The supply or discharge air temperature zone 2 in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferSupplyAirTemperatureMilliCZone3`: The supply or discharge air temperature zone 3 in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferFuelPercent`: The fuel level of the reefer unit in percentage points (e.g. `99`, `50`, etc). Only supported on reefer solutions.
-            * `carrierReeferState`: The overall state of the reefer (`Off`, `On`). Only supported on multizone Carrier reefer solutions.
-            * `reeferStateZone1`: The state of the reefer in zone 1. For single zone reefers, this applies tot he single zone. Only supported on multizone reefer solutions.
-            * `reeferStateZone2`: The state of the reefer in zone 2. Only supported on multizone reefer solutions.
-            * `reeferStateZone3`: The state of the reefer in zone 3. Only supported on multizone reefer solutions.
-            * `reeferRunMode`: The operational mode of the reefer (`Start/Stop`, `Continuous`)
-            * `reeferAlarms`: Any alarms that are present on the reefer. Only supported on reefer solutions.
-            * `reeferReturnAirTemperatureMilliCZone1`: The return air temperature in zone 1 of the reefer in millidegrees Celsius. For single zone reefers, this applies to the single zone. Only supported on multizone reefer solutions.
-            * `reeferReturnAirTemperatureMilliCZone2`: The return air temperature in zone 2 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferReturnAirTemperatureMilliCZone3`: The return air temperature in zone 3 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferSetPointTemperatureMilliCZone1`: The set point temperature in zone 1 of the reefer in millidegrees Celsius. For single zone reefers, this applies to the single zone. Only supported on multizone reefer solutions.
-            * `reeferSetPointTemperatureMilliCZone2`: The set point temperature in zone 2 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferSetPointTemperatureMilliCZone3`: The set point temperature in zone 3 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferDoorStateZone1`: The door status in zone 1 of the reefer. For single zone reefers, this applies to the single zone.
-            * `reeferDoorStateZone2`: The door status in zone 2 of the reefer. Only supported on multizone reefer solutions.
-            * `reeferDoorStateZone3`: The door status in zone 3 of the reefer. Only supported on multizone reefer solutions.
-
-        tag_ids : typing.Optional[str]
-             A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
-
-        parent_tag_ids : typing.Optional[str]
-             A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
-
-        after : typing.Optional[str]
-             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-
-        trailer_ids : typing.Optional[str]
-             A filter on the data based on this comma-separated list of trailer IDs and externalIds. Example: `trailerIds=1234,5678,samsara.vin:1HGBH41JXMN109186`
-
-        decorations : typing.Optional[str]
-            Decorations add to the primary stats listed in the `types` parameter. For example, if you wish to know the trailer's location whenever the odometer updates, you may set `types=gpsOdometerMeters&decorations=gps`.
-
-            You may list **up to 2** types using comma-separated format. If multiple stats are listed in the types parameter, the decorations will be added to each type. For example: `types=reeferStateZone1,reeferAmbientAirTemperatureMilliC,gpsOdometerMeters&decorations=gps` will list GPS decorations for each reeferStateZone1 reading, each reeferAmbientAirTemperatureMilliC reding, and gpsOdometerMeters reading.
-
-            Note that decorations may significantly increase the response payload size.
-
-            * `gps`: GPS data including lat/long, heading, speed, and a reverse geocode address.
-            * `gpsOdometerMeters`: Odometer reading provided by GPS calculations. You must provide a manual odometer reading before this value is updated. Manual odometer readings can be provided via the PATCH /fleet/trailers/{id} endpoint or through the [cloud dashboard](https://kb.samsara.com/hc/en-us/articles/115005273667-Editing-Odometer-Reading). Odometer readings wthat are manually set will update as GPS trip data is gathered.
-            * `reeferAmbientAirTemperatureMilliC`: The ambient air temperature reading of the reefer in millidegree Celsius.
-            * `reeferObdEngineSeconds`: The cumulative number of seconds the reefer has run according to onboard diagnostics. Only supported on reefer solutions.
-            * `reeferSupplyAirTemperatureMilliCZone1`: The supply or discharge air temperature zone 1 in millidegrees Celsius. For single zone reefers, this applies to the single zone. Only supported on multizone reefer solutions.
-            * `reeferSupplyAirTemperatureMilliCZone2`: The supply or discharge air temperature zone 2 in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferSupplyAirTemperatureMilliCZone3`: The supply or discharge air temperature zone 3 in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferFuelPercent`: The fuel level of the reefer unit in percentage points (e.g. `99`, `50`, etc). Only supported on reefer solutions.
-            * `carrierReeferState`: The overall state of the reefer (`Off`, `On`). Only supported on multizone Carrier reefer solutions.
-            * `reeferStateZone1`: The state of the reefer in zone 1. For single zone reefers, this applies tot he single zone. Only supported on multizone reefer solutions.
-            * `reeferStateZone2`: The state of the reefer in zone 2. Only supported on multizone reefer solutions.
-            * `reeferStateZone3`: The state of the reefer in zone 3. Only supported on multizone reefer solutions.
-            * `reeferRunMode`: The operational mode of the reefer (`Start/Stop`, `Continuous`)
-            * `reeferAlarms`: Any alarms that are present on the reefer. Only supported on reefer solutions.
-            * `reeferReturnAirTemperatureMilliCZone1`: The return air temperature in zone 1 of the reefer in millidegrees Celsius. For single zone reefers, this applies to the single zone. Only supported on multizone reefer solutions.
-            * `reeferReturnAirTemperatureMilliCZone2`: The return air temperature in zone 2 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferReturnAirTemperatureMilliCZone3`: The return air temperature in zone 3 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferSetPointTemperatureMilliCZone1`: The set point temperature in zone 1 of the reefer in millidegrees Celsius. For single zone reefers, this applies to the single zone. Only supported on multizone reefer solutions.
-            * `reeferSetPointTemperatureMilliCZone2`: The set point temperature in zone 2 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferSetPointTemperatureMilliCZone3`: The set point temperature in zone 3 of the reefer in millidegrees Celsius. Only supported on multizone reefer solutions.
-            * `reeferDoorStateZone1`: The door status in zone 1 of the reefer. For single zone reefers, this applies to the single zone.
-            * `reeferDoorStateZone2`: The door status in zone 2 of the reefer. Only supported on multizone reefer solutions.
-            * `reeferDoorStateZone3`: The door status in zone 3 of the reefer. Only supported on multizone reefer solutions.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        TrailerStatsGetTrailerStatsHistoryResponseBody
-            OK response.
-
-        Examples
-        --------
-        import asyncio
-
-        from samsara import AsyncSamsara
-
-        client = AsyncSamsara(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.beta_ap_is.get_trailer_stats_history(
-                start_time="startTime",
-                end_time="endTime",
-                types="types",
-            )
-
-
-        asyncio.run(main())
-        """
-        _response = await self._raw_client.get_trailer_stats_history(
-            start_time=start_time,
-            end_time=end_time,
-            types=types,
-            tag_ids=tag_ids,
-            parent_tag_ids=parent_tag_ids,
-            after=after,
-            trailer_ids=trailer_ids,
-            decorations=decorations,
-            request_options=request_options,
-        )
-        return _response.data
-
     async def update_engine_immobilizer_state(
         self,
         id: int,
@@ -6367,6 +5704,70 @@ class AsyncBetaApIsClient:
         )
         return _response.data
 
+    async def post_driver_workflow_assignment(
+        self,
+        *,
+        workflow_id: str,
+        driver_ids_to_publish: typing.Optional[typing.Sequence[str]] = OMIT,
+        driver_ids_to_unpublish: typing.Optional[typing.Sequence[str]] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> DriverWorkflowAssignmentsPostDriverWorkflowAssignmentResponseBody:
+        """
+        Publish or unpublish a driver app workflow to one or more drivers by their IDs. If a workflow is published to a driver who already has it, or unpublished from a driver who does not have it, the operation is a no-op for that driver.
+
+         <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Driver App Settings** under the Drivers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        workflow_id : str
+            The UUID of the workflow to publish.
+
+        driver_ids_to_publish : typing.Optional[typing.Sequence[str]]
+            List of driver IDs to publish the workflow to. If a driver already has the workflow, the operation is a no-op for that driver.
+
+        driver_ids_to_unpublish : typing.Optional[typing.Sequence[str]]
+            List of driver IDs to unpublish the workflow from. If a driver does not have the workflow, the operation is a no-op for that driver.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        DriverWorkflowAssignmentsPostDriverWorkflowAssignmentResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.post_driver_workflow_assignment(
+                workflow_id="a4db8702-79d5-4396-a717-e301d52ecc11",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.post_driver_workflow_assignment(
+            workflow_id=workflow_id,
+            driver_ids_to_publish=driver_ids_to_publish,
+            driver_ids_to_unpublish=driver_ids_to_unpublish,
+            request_options=request_options,
+        )
+        return _response.data
+
     async def list_vendor_categories(
         self, *, after: typing.Optional[str] = None, request_options: typing.Optional[RequestOptions] = None
     ) -> MaintenanceVendorsListVendorCategoriesResponseBody:
@@ -6723,6 +6124,51 @@ class AsyncBetaApIsClient:
         asyncio.run(main())
         """
         _response = await self._raw_client.get_function(name, request_options=request_options)
+        return _response.data
+
+    async def delete_function(self, name: str, *, request_options: typing.Optional[RequestOptions] = None) -> None:
+        """
+        Delete a Function by name. A Function that is currently configured as an action in a workflow config cannot be deleted.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Functions** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        name : str
+            The name of the Function to delete.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.delete_function(
+                name="name",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.delete_function(name, request_options=request_options)
         return _response.data
 
     async def patch_function(

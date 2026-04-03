@@ -1476,6 +1476,36 @@ if typing.TYPE_CHECKING:
     from .driver_waiting_time_duty_status_enabled import DriverWaitingTimeDutyStatusEnabled
     from .driver_with_external_id_object_response_body import DriverWithExternalIdObjectResponseBody
     from .driver_with_timezone_eld_settings_object_response_body import DriverWithTimezoneEldSettingsObjectResponseBody
+    from .driver_workflow_assignments_post_driver_workflow_assignment_bad_gateway_error_response_body import (
+        DriverWorkflowAssignmentsPostDriverWorkflowAssignmentBadGatewayErrorResponseBody,
+    )
+    from .driver_workflow_assignments_post_driver_workflow_assignment_gateway_timeout_error_response_body import (
+        DriverWorkflowAssignmentsPostDriverWorkflowAssignmentGatewayTimeoutErrorResponseBody,
+    )
+    from .driver_workflow_assignments_post_driver_workflow_assignment_internal_server_error_response_body import (
+        DriverWorkflowAssignmentsPostDriverWorkflowAssignmentInternalServerErrorResponseBody,
+    )
+    from .driver_workflow_assignments_post_driver_workflow_assignment_method_not_allowed_error_response_body import (
+        DriverWorkflowAssignmentsPostDriverWorkflowAssignmentMethodNotAllowedErrorResponseBody,
+    )
+    from .driver_workflow_assignments_post_driver_workflow_assignment_not_found_error_response_body import (
+        DriverWorkflowAssignmentsPostDriverWorkflowAssignmentNotFoundErrorResponseBody,
+    )
+    from .driver_workflow_assignments_post_driver_workflow_assignment_not_implemented_error_response_body import (
+        DriverWorkflowAssignmentsPostDriverWorkflowAssignmentNotImplementedErrorResponseBody,
+    )
+    from .driver_workflow_assignments_post_driver_workflow_assignment_response_body import (
+        DriverWorkflowAssignmentsPostDriverWorkflowAssignmentResponseBody,
+    )
+    from .driver_workflow_assignments_post_driver_workflow_assignment_service_unavailable_error_response_body import (
+        DriverWorkflowAssignmentsPostDriverWorkflowAssignmentServiceUnavailableErrorResponseBody,
+    )
+    from .driver_workflow_assignments_post_driver_workflow_assignment_too_many_requests_error_response_body import (
+        DriverWorkflowAssignmentsPostDriverWorkflowAssignmentTooManyRequestsErrorResponseBody,
+    )
+    from .driver_workflow_assignments_post_driver_workflow_assignment_unauthorized_error_response_body import (
+        DriverWorkflowAssignmentsPostDriverWorkflowAssignmentUnauthorizedErrorResponseBody,
+    )
     from .drivers_auth_token_create_driver_auth_token_bad_gateway_error_response_body import (
         DriversAuthTokenCreateDriverAuthTokenBadGatewayErrorResponseBody,
     )
@@ -2364,6 +2394,33 @@ if typing.TYPE_CHECKING:
     )
     from .functions_create_function_unauthorized_error_response_body import (
         FunctionsCreateFunctionUnauthorizedErrorResponseBody,
+    )
+    from .functions_delete_function_bad_gateway_error_response_body import (
+        FunctionsDeleteFunctionBadGatewayErrorResponseBody,
+    )
+    from .functions_delete_function_gateway_timeout_error_response_body import (
+        FunctionsDeleteFunctionGatewayTimeoutErrorResponseBody,
+    )
+    from .functions_delete_function_internal_server_error_response_body import (
+        FunctionsDeleteFunctionInternalServerErrorResponseBody,
+    )
+    from .functions_delete_function_method_not_allowed_error_response_body import (
+        FunctionsDeleteFunctionMethodNotAllowedErrorResponseBody,
+    )
+    from .functions_delete_function_not_found_error_response_body import (
+        FunctionsDeleteFunctionNotFoundErrorResponseBody,
+    )
+    from .functions_delete_function_not_implemented_error_response_body import (
+        FunctionsDeleteFunctionNotImplementedErrorResponseBody,
+    )
+    from .functions_delete_function_service_unavailable_error_response_body import (
+        FunctionsDeleteFunctionServiceUnavailableErrorResponseBody,
+    )
+    from .functions_delete_function_too_many_requests_error_response_body import (
+        FunctionsDeleteFunctionTooManyRequestsErrorResponseBody,
+    )
+    from .functions_delete_function_unauthorized_error_response_body import (
+        FunctionsDeleteFunctionUnauthorizedErrorResponseBody,
     )
     from .functions_deploy_function_bad_gateway_error_response_body import (
         FunctionsDeployFunctionBadGatewayErrorResponseBody,
@@ -3896,6 +3953,9 @@ if typing.TYPE_CHECKING:
     )
     from .post_driver_vehicle_assignments_v_2_response_body_response_body import (
         PostDriverVehicleAssignmentsV2ResponseBodyResponseBody,
+    )
+    from .post_driver_workflow_assignment_response_data_object_response_body import (
+        PostDriverWorkflowAssignmentResponseDataObjectResponseBody,
     )
     from .post_fuel_purchase_request_body_discount_request_body import PostFuelPurchaseRequestBodyDiscountRequestBody
     from .post_fuel_purchase_request_body_discount_request_body_currency import (
@@ -8133,6 +8193,16 @@ _dynamic_imports: typing.Dict[str, str] = {
     "DriverWaitingTimeDutyStatusEnabled": ".driver_waiting_time_duty_status_enabled",
     "DriverWithExternalIdObjectResponseBody": ".driver_with_external_id_object_response_body",
     "DriverWithTimezoneEldSettingsObjectResponseBody": ".driver_with_timezone_eld_settings_object_response_body",
+    "DriverWorkflowAssignmentsPostDriverWorkflowAssignmentBadGatewayErrorResponseBody": ".driver_workflow_assignments_post_driver_workflow_assignment_bad_gateway_error_response_body",
+    "DriverWorkflowAssignmentsPostDriverWorkflowAssignmentGatewayTimeoutErrorResponseBody": ".driver_workflow_assignments_post_driver_workflow_assignment_gateway_timeout_error_response_body",
+    "DriverWorkflowAssignmentsPostDriverWorkflowAssignmentInternalServerErrorResponseBody": ".driver_workflow_assignments_post_driver_workflow_assignment_internal_server_error_response_body",
+    "DriverWorkflowAssignmentsPostDriverWorkflowAssignmentMethodNotAllowedErrorResponseBody": ".driver_workflow_assignments_post_driver_workflow_assignment_method_not_allowed_error_response_body",
+    "DriverWorkflowAssignmentsPostDriverWorkflowAssignmentNotFoundErrorResponseBody": ".driver_workflow_assignments_post_driver_workflow_assignment_not_found_error_response_body",
+    "DriverWorkflowAssignmentsPostDriverWorkflowAssignmentNotImplementedErrorResponseBody": ".driver_workflow_assignments_post_driver_workflow_assignment_not_implemented_error_response_body",
+    "DriverWorkflowAssignmentsPostDriverWorkflowAssignmentResponseBody": ".driver_workflow_assignments_post_driver_workflow_assignment_response_body",
+    "DriverWorkflowAssignmentsPostDriverWorkflowAssignmentServiceUnavailableErrorResponseBody": ".driver_workflow_assignments_post_driver_workflow_assignment_service_unavailable_error_response_body",
+    "DriverWorkflowAssignmentsPostDriverWorkflowAssignmentTooManyRequestsErrorResponseBody": ".driver_workflow_assignments_post_driver_workflow_assignment_too_many_requests_error_response_body",
+    "DriverWorkflowAssignmentsPostDriverWorkflowAssignmentUnauthorizedErrorResponseBody": ".driver_workflow_assignments_post_driver_workflow_assignment_unauthorized_error_response_body",
     "DriversAuthTokenCreateDriverAuthTokenBadGatewayErrorResponseBody": ".drivers_auth_token_create_driver_auth_token_bad_gateway_error_response_body",
     "DriversAuthTokenCreateDriverAuthTokenGatewayTimeoutErrorResponseBody": ".drivers_auth_token_create_driver_auth_token_gateway_timeout_error_response_body",
     "DriversAuthTokenCreateDriverAuthTokenInternalServerErrorResponseBody": ".drivers_auth_token_create_driver_auth_token_internal_server_error_response_body",
@@ -8578,6 +8648,15 @@ _dynamic_imports: typing.Dict[str, str] = {
     "FunctionsCreateFunctionServiceUnavailableErrorResponseBody": ".functions_create_function_service_unavailable_error_response_body",
     "FunctionsCreateFunctionTooManyRequestsErrorResponseBody": ".functions_create_function_too_many_requests_error_response_body",
     "FunctionsCreateFunctionUnauthorizedErrorResponseBody": ".functions_create_function_unauthorized_error_response_body",
+    "FunctionsDeleteFunctionBadGatewayErrorResponseBody": ".functions_delete_function_bad_gateway_error_response_body",
+    "FunctionsDeleteFunctionGatewayTimeoutErrorResponseBody": ".functions_delete_function_gateway_timeout_error_response_body",
+    "FunctionsDeleteFunctionInternalServerErrorResponseBody": ".functions_delete_function_internal_server_error_response_body",
+    "FunctionsDeleteFunctionMethodNotAllowedErrorResponseBody": ".functions_delete_function_method_not_allowed_error_response_body",
+    "FunctionsDeleteFunctionNotFoundErrorResponseBody": ".functions_delete_function_not_found_error_response_body",
+    "FunctionsDeleteFunctionNotImplementedErrorResponseBody": ".functions_delete_function_not_implemented_error_response_body",
+    "FunctionsDeleteFunctionServiceUnavailableErrorResponseBody": ".functions_delete_function_service_unavailable_error_response_body",
+    "FunctionsDeleteFunctionTooManyRequestsErrorResponseBody": ".functions_delete_function_too_many_requests_error_response_body",
+    "FunctionsDeleteFunctionUnauthorizedErrorResponseBody": ".functions_delete_function_unauthorized_error_response_body",
     "FunctionsDeployFunctionBadGatewayErrorResponseBody": ".functions_deploy_function_bad_gateway_error_response_body",
     "FunctionsDeployFunctionGatewayTimeoutErrorResponseBody": ".functions_deploy_function_gateway_timeout_error_response_body",
     "FunctionsDeployFunctionInternalServerErrorResponseBody": ".functions_deploy_function_internal_server_error_response_body",
@@ -9330,6 +9409,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "PostDriverTrailerAssignmentsResponseBodyResponseBody": ".post_driver_trailer_assignments_response_body_response_body",
     "PostDriverVehicleAssignmentsV2RequestBodyMetadataRequestBody": ".post_driver_vehicle_assignments_v_2_request_body_metadata_request_body",
     "PostDriverVehicleAssignmentsV2ResponseBodyResponseBody": ".post_driver_vehicle_assignments_v_2_response_body_response_body",
+    "PostDriverWorkflowAssignmentResponseDataObjectResponseBody": ".post_driver_workflow_assignment_response_data_object_response_body",
     "PostFuelPurchaseRequestBodyDiscountRequestBody": ".post_fuel_purchase_request_body_discount_request_body",
     "PostFuelPurchaseRequestBodyDiscountRequestBodyCurrency": ".post_fuel_purchase_request_body_discount_request_body_currency",
     "PostFuelPurchaseRequestBodyPriceRequestBody": ".post_fuel_purchase_request_body_price_request_body",
@@ -11782,6 +11862,16 @@ __all__ = [
     "DriverWaitingTimeDutyStatusEnabled",
     "DriverWithExternalIdObjectResponseBody",
     "DriverWithTimezoneEldSettingsObjectResponseBody",
+    "DriverWorkflowAssignmentsPostDriverWorkflowAssignmentBadGatewayErrorResponseBody",
+    "DriverWorkflowAssignmentsPostDriverWorkflowAssignmentGatewayTimeoutErrorResponseBody",
+    "DriverWorkflowAssignmentsPostDriverWorkflowAssignmentInternalServerErrorResponseBody",
+    "DriverWorkflowAssignmentsPostDriverWorkflowAssignmentMethodNotAllowedErrorResponseBody",
+    "DriverWorkflowAssignmentsPostDriverWorkflowAssignmentNotFoundErrorResponseBody",
+    "DriverWorkflowAssignmentsPostDriverWorkflowAssignmentNotImplementedErrorResponseBody",
+    "DriverWorkflowAssignmentsPostDriverWorkflowAssignmentResponseBody",
+    "DriverWorkflowAssignmentsPostDriverWorkflowAssignmentServiceUnavailableErrorResponseBody",
+    "DriverWorkflowAssignmentsPostDriverWorkflowAssignmentTooManyRequestsErrorResponseBody",
+    "DriverWorkflowAssignmentsPostDriverWorkflowAssignmentUnauthorizedErrorResponseBody",
     "DriversAuthTokenCreateDriverAuthTokenBadGatewayErrorResponseBody",
     "DriversAuthTokenCreateDriverAuthTokenGatewayTimeoutErrorResponseBody",
     "DriversAuthTokenCreateDriverAuthTokenInternalServerErrorResponseBody",
@@ -12227,6 +12317,15 @@ __all__ = [
     "FunctionsCreateFunctionServiceUnavailableErrorResponseBody",
     "FunctionsCreateFunctionTooManyRequestsErrorResponseBody",
     "FunctionsCreateFunctionUnauthorizedErrorResponseBody",
+    "FunctionsDeleteFunctionBadGatewayErrorResponseBody",
+    "FunctionsDeleteFunctionGatewayTimeoutErrorResponseBody",
+    "FunctionsDeleteFunctionInternalServerErrorResponseBody",
+    "FunctionsDeleteFunctionMethodNotAllowedErrorResponseBody",
+    "FunctionsDeleteFunctionNotFoundErrorResponseBody",
+    "FunctionsDeleteFunctionNotImplementedErrorResponseBody",
+    "FunctionsDeleteFunctionServiceUnavailableErrorResponseBody",
+    "FunctionsDeleteFunctionTooManyRequestsErrorResponseBody",
+    "FunctionsDeleteFunctionUnauthorizedErrorResponseBody",
     "FunctionsDeployFunctionBadGatewayErrorResponseBody",
     "FunctionsDeployFunctionGatewayTimeoutErrorResponseBody",
     "FunctionsDeployFunctionInternalServerErrorResponseBody",
@@ -12979,6 +13078,7 @@ __all__ = [
     "PostDriverTrailerAssignmentsResponseBodyResponseBody",
     "PostDriverVehicleAssignmentsV2RequestBodyMetadataRequestBody",
     "PostDriverVehicleAssignmentsV2ResponseBodyResponseBody",
+    "PostDriverWorkflowAssignmentResponseDataObjectResponseBody",
     "PostFuelPurchaseRequestBodyDiscountRequestBody",
     "PostFuelPurchaseRequestBodyDiscountRequestBodyCurrency",
     "PostFuelPurchaseRequestBodyPriceRequestBody",

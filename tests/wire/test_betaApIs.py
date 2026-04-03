@@ -53,36 +53,6 @@ def test_betaApIs_get_hos_eld_events() -> None:
     )
 
 
-def test_betaApIs_get_trailer_stats_snapshot() -> None:
-    """Test getTrailerStatsSnapshot endpoint with WireMock"""
-    test_id = "beta_ap_is.get_trailer_stats_snapshot.0"
-    client = get_client(test_id)
-    client.beta_ap_is.get_trailer_stats_snapshot(types="types")
-    verify_request_count(test_id, "GET", "/beta/fleet/trailers/stats", {"types": "types"}, 1)
-
-
-def test_betaApIs_get_trailer_stats_feed() -> None:
-    """Test getTrailerStatsFeed endpoint with WireMock"""
-    test_id = "beta_ap_is.get_trailer_stats_feed.0"
-    client = get_client(test_id)
-    client.beta_ap_is.get_trailer_stats_feed(types="types")
-    verify_request_count(test_id, "GET", "/beta/fleet/trailers/stats/feed", {"types": "types"}, 1)
-
-
-def test_betaApIs_get_trailer_stats_history() -> None:
-    """Test getTrailerStatsHistory endpoint with WireMock"""
-    test_id = "beta_ap_is.get_trailer_stats_history.0"
-    client = get_client(test_id)
-    client.beta_ap_is.get_trailer_stats_history(start_time="startTime", end_time="endTime", types="types")
-    verify_request_count(
-        test_id,
-        "GET",
-        "/beta/fleet/trailers/stats/history",
-        {"startTime": "startTime", "endTime": "endTime", "types": "types"},
-        1,
-    )
-
-
 def test_betaApIs_update_engine_immobilizer_state() -> None:
     """Test updateEngineImmobilizerState endpoint with WireMock"""
     test_id = "beta_ap_is.update_engine_immobilizer_state.0"
@@ -186,6 +156,14 @@ def test_betaApIs_resolve_assignment_by_details() -> None:
     verify_request_count(test_id, "POST", "/fleet/drivers/voice-sign-in/resolve-assignment", None, 1)
 
 
+def test_betaApIs_post_driver_workflow_assignment() -> None:
+    """Test postDriverWorkflowAssignment endpoint with WireMock"""
+    test_id = "beta_ap_is.post_driver_workflow_assignment.0"
+    client = get_client(test_id)
+    client.beta_ap_is.post_driver_workflow_assignment(workflow_id="a4db8702-79d5-4396-a717-e301d52ecc11")
+    verify_request_count(test_id, "POST", "/fleet/drivers/workflow-assignments", None, 1)
+
+
 def test_betaApIs_list_vendor_categories() -> None:
     """Test listVendorCategories endpoint with WireMock"""
     test_id = "beta_ap_is.list_vendor_categories.0"
@@ -234,6 +212,14 @@ def test_betaApIs_get_function() -> None:
     client = get_client(test_id)
     client.beta_ap_is.get_function(name="name")
     verify_request_count(test_id, "GET", "/functions/name", None, 1)
+
+
+def test_betaApIs_delete_function() -> None:
+    """Test deleteFunction endpoint with WireMock"""
+    test_id = "beta_ap_is.delete_function.0"
+    client = get_client(test_id)
+    client.beta_ap_is.delete_function(name="name")
+    verify_request_count(test_id, "DELETE", "/functions/name", None, 1)
 
 
 def test_betaApIs_patch_function() -> None:
