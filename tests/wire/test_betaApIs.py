@@ -57,7 +57,7 @@ def test_betaApIs_update_engine_immobilizer_state() -> None:
     """Test updateEngineImmobilizerState endpoint with WireMock"""
     test_id = "beta_ap_is.update_engine_immobilizer_state.0"
     client = get_client(test_id)
-    client.beta_ap_is.update_engine_immobilizer_state(id=1000000, relay_states=[{"id": "relay1", "is_open": True}])
+    client.beta_ap_is.update_engine_immobilizer_state(id=1000000, relay_states=[{"id": "relay1", "is_open": False}])
     verify_request_count(test_id, "PATCH", "/beta/fleet/vehicles/1000000/immobilizer", None, 1)
 
 

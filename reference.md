@@ -3013,7 +3013,7 @@ client.beta_ap_is.update_engine_immobilizer_state(
     relay_states=[
         UpdateEngineImmobilizerRelayStateRequestBodyRequestBody(
             id="relay1",
-            is_open=True,
+            is_open=False,
         )
     ],
 )
@@ -10145,7 +10145,7 @@ client = Samsara(
 )
 client.media.post_media_retrieval(
     end_time="2019-06-13T19:08:55Z",
-    inputs=["dashcamRoadFacing", "dashcamRoadFacing"],
+    inputs=["dashcamRoadFacing", "dashcamRoadFacing", "dashcamRoadFacing"],
     media_type="image",
     start_time="2019-06-13T19:08:25Z",
     vehicle_id="1234",

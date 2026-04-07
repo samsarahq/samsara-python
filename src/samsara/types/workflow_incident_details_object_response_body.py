@@ -57,11 +57,13 @@ from .sudden_fuel_level_drop_response_body import SuddenFuelLevelDropResponseBod
 from .sudden_fuel_level_rise_response_body import SuddenFuelLevelRiseResponseBody
 from .tampering_detected_response_body import TamperingDetectedResponseBody
 from .tire_faults_response_body import TireFaultsResponseBody
+from .trailer_moving_without_power_data_response_body import TrailerMovingWithoutPowerDataResponseBody
 from .unassigned_driving_data_response_body import UnassignedDrivingDataResponseBody
 from .vehicle_battery_voltage_response_body import VehicleBatteryVoltageResponseBody
 from .vehicle_def_level_percentage_response_body import VehicleDefLevelPercentageResponseBody
 from .vehicle_detected_response_body import VehicleDetectedResponseBody
 from .vehicle_faults_response_body import VehicleFaultsResponseBody
+from .vehicle_trailer_mismatch_data_response_body import VehicleTrailerMismatchDataResponseBody
 from .worker_safety_sos_data_response_body import WorkerSafetySosDataResponseBody
 from .workflow_dvir_submitted_response_object_response_body import WorkflowDvirSubmittedResponseObjectResponseBody
 from .workflow_geofence_event_response_object_response_body import WorkflowGeofenceEventResponseObjectResponseBody
@@ -325,6 +327,11 @@ class WorkflowIncidentDetailsObjectResponseBody(UniversalBaseModel):
     tire_faults: typing_extensions.Annotated[
         typing.Optional[TireFaultsResponseBody], FieldMetadata(alias="tireFaults"), pydantic.Field(alias="tireFaults")
     ] = None
+    trailer_moving_without_power: typing_extensions.Annotated[
+        typing.Optional[TrailerMovingWithoutPowerDataResponseBody],
+        FieldMetadata(alias="trailerMovingWithoutPower"),
+        pydantic.Field(alias="trailerMovingWithoutPower"),
+    ] = None
     unassigned_driving: typing_extensions.Annotated[
         typing.Optional[UnassignedDrivingDataResponseBody],
         FieldMetadata(alias="unassignedDriving"),
@@ -349,6 +356,11 @@ class WorkflowIncidentDetailsObjectResponseBody(UniversalBaseModel):
         typing.Optional[VehicleFaultsResponseBody],
         FieldMetadata(alias="vehicleFaults"),
         pydantic.Field(alias="vehicleFaults"),
+    ] = None
+    vehicle_trailer_mismatch: typing_extensions.Annotated[
+        typing.Optional[VehicleTrailerMismatchDataResponseBody],
+        FieldMetadata(alias="vehicleTrailerMismatch"),
+        pydantic.Field(alias="vehicleTrailerMismatch"),
     ] = None
     worker_safety_sos: typing_extensions.Annotated[
         typing.Optional[WorkerSafetySosDataResponseBody],
