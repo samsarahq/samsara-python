@@ -5921,6 +5921,7 @@ if typing.TYPE_CHECKING:
     from .trailer_dvir_object_response_body import TrailerDvirObjectResponseBody
     from .trailer_goa_gateway_tiny_response_response_body import TrailerGoaGatewayTinyResponseResponseBody
     from .trailer_goa_gateway_tiny_response_response_body_model import TrailerGoaGatewayTinyResponseResponseBodyModel
+    from .trailer_moving_without_power_data_response_body import TrailerMovingWithoutPowerDataResponseBody
     from .trailer_object_response_body import TrailerObjectResponseBody
     from .trailer_response_object_response_body import TrailerResponseObjectResponseBody
     from .trailer_stat_decoration_response_body import TrailerStatDecorationResponseBody
@@ -6979,6 +6980,7 @@ if typing.TYPE_CHECKING:
     from .vehicle_summary import VehicleSummary
     from .vehicle_tags import VehicleTags
     from .vehicle_tiny_response import VehicleTinyResponse
+    from .vehicle_trailer_mismatch_data_response_body import VehicleTrailerMismatchDataResponseBody
     from .vehicle_type import VehicleType
     from .vehicle_vin import VehicleVin
     from .vehicle_with_gateway_tiny_response_response_body import VehicleWithGatewayTinyResponseResponseBody
@@ -10264,6 +10266,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "TrailerDvirObjectResponseBody": ".trailer_dvir_object_response_body",
     "TrailerGoaGatewayTinyResponseResponseBody": ".trailer_goa_gateway_tiny_response_response_body",
     "TrailerGoaGatewayTinyResponseResponseBodyModel": ".trailer_goa_gateway_tiny_response_response_body_model",
+    "TrailerMovingWithoutPowerDataResponseBody": ".trailer_moving_without_power_data_response_body",
     "TrailerObjectResponseBody": ".trailer_object_response_body",
     "TrailerResponseObjectResponseBody": ".trailer_response_object_response_body",
     "TrailerStatDecorationResponseBody": ".trailer_stat_decoration_response_body",
@@ -10898,6 +10901,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "VehicleSummary": ".vehicle_summary",
     "VehicleTags": ".vehicle_tags",
     "VehicleTinyResponse": ".vehicle_tiny_response",
+    "VehicleTrailerMismatchDataResponseBody": ".vehicle_trailer_mismatch_data_response_body",
     "VehicleType": ".vehicle_type",
     "VehicleVin": ".vehicle_vin",
     "VehicleWithGatewayTinyResponseResponseBody": ".vehicle_with_gateway_tiny_response_response_body",
@@ -13933,6 +13937,7 @@ __all__ = [
     "TrailerDvirObjectResponseBody",
     "TrailerGoaGatewayTinyResponseResponseBody",
     "TrailerGoaGatewayTinyResponseResponseBodyModel",
+    "TrailerMovingWithoutPowerDataResponseBody",
     "TrailerObjectResponseBody",
     "TrailerResponseObjectResponseBody",
     "TrailerStatDecorationResponseBody",
@@ -14567,6 +14572,7 @@ __all__ = [
     "VehicleSummary",
     "VehicleTags",
     "VehicleTinyResponse",
+    "VehicleTrailerMismatchDataResponseBody",
     "VehicleType",
     "VehicleVin",
     "VehicleWithGatewayTinyResponseResponseBody",

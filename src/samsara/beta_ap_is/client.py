@@ -651,7 +651,7 @@ class BetaApIsClient:
             relay_states=[
                 UpdateEngineImmobilizerRelayStateRequestBodyRequestBody(
                     id="relay1",
-                    is_open=True,
+                    is_open=False,
                 )
             ],
         )
@@ -4942,7 +4942,7 @@ class AsyncBetaApIsClient:
                 relay_states=[
                     UpdateEngineImmobilizerRelayStateRequestBodyRequestBody(
                         id="relay1",
-                        is_open=True,
+                        is_open=False,
                     )
                 ],
             )
