@@ -13,8 +13,8 @@ class ListDriversResponse(UniversalBaseModel):
     A list of drivers.
     """
 
-    data: typing.Optional[typing.List[Driver]] = None
-    pagination: typing.Optional[PaginationResponse] = None
+    data: typing.List[Driver]
+    pagination: PaginationResponse
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
