@@ -18,6 +18,16 @@ class MissingStateResponseBody(UniversalBaseModel):
     The unique Samsara ID of the asset.
     """
 
+    initiated_at_ms: typing.Optional[int] = pydantic.Field(default=None)
+    """
+    Timestamp when the asset was first marked as missing, in milliseconds since epoch. Unlike updated_at_ms, this value is preserved when the missing state is edited.
+    """
+
+    initiated_by_user_id: typing.Optional[int] = pydantic.Field(default=None)
+    """
+    The ID of the user who first marked this asset as missing. Unlike updated_by_user_id, this value is preserved when the missing state is edited.
+    """
+
     name: str = pydantic.Field()
     """
     The human-readable name of the asset.
