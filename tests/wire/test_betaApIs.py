@@ -238,6 +238,24 @@ def test_betaApIs_deploy_function() -> None:
     verify_request_count(test_id, "POST", "/functions/name/deploy", None, 1)
 
 
+def test_betaApIs_get_function_logs() -> None:
+    """Test getFunctionLogs endpoint with WireMock"""
+    test_id = "beta_ap_is.get_function_logs.0"
+    client = get_client(test_id)
+    client.beta_ap_is.get_function_logs(
+        name="name",
+        start_time=datetime.fromisoformat("2024-01-15T09:30:00+00:00"),
+        end_time=datetime.fromisoformat("2024-01-15T09:30:00+00:00"),
+    )
+    verify_request_count(
+        test_id,
+        "GET",
+        "/functions/name/logs",
+        {"startTime": "2024-01-15T09:30:00Z", "endTime": "2024-01-15T09:30:00Z"},
+        1,
+    )
+
+
 def test_betaApIs_start_function_run() -> None:
     """Test startFunctionRun endpoint with WireMock"""
     test_id = "beta_ap_is.start_function_run.0"

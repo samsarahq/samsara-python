@@ -33,6 +33,7 @@ from ..types.entity_tachograph_live_data_records_service_list_tachograph_live_da
 from ..types.equipment_patch_equipment_response_body import EquipmentPatchEquipmentResponseBody
 from ..types.functions_create_function_response_body import FunctionsCreateFunctionResponseBody
 from ..types.functions_deploy_function_response_body import FunctionsDeployFunctionResponseBody
+from ..types.functions_get_function_logs_response_body import FunctionsGetFunctionLogsResponseBody
 from ..types.functions_get_function_response_body import FunctionsGetFunctionResponseBody
 from ..types.functions_get_function_run_response_body import FunctionsGetFunctionRunResponseBody
 from ..types.functions_patch_function_response_body import FunctionsPatchFunctionResponseBody
@@ -1824,6 +1825,85 @@ class BetaApIsClient:
         _response = self._raw_client.deploy_function(name, request_options=request_options)
         return _response.data
 
+    def get_function_logs(
+        self,
+        name: str,
+        *,
+        start_time: dt.datetime,
+        end_time: dt.datetime,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        filter_text: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> FunctionsGetFunctionLogsResponseBody:
+        """
+        Retrieve paginated log entries for a specific Function within a given time range. Logs are produced during Function executions and can be filtered by text content.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Functions** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        name : str
+            The name of the Function whose logs to retrieve.
+
+        start_time : dt.datetime
+            Required RFC 3339 timestamp for the beginning of the log time range.
+
+        end_time : dt.datetime
+            Required RFC 3339 timestamp for the end of the log time range.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The maximum number of log entries to return per page. Default is 100.
+
+        filter_text : typing.Optional[str]
+            Optional text to filter log entries. Only logs containing this text will be returned.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        FunctionsGetFunctionLogsResponseBody
+            OK response.
+
+        Examples
+        --------
+        import datetime
+
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.get_function_logs(
+            name="name",
+            start_time=datetime.datetime.fromisoformat(
+                "2024-01-15 09:30:00+00:00",
+            ),
+            end_time=datetime.datetime.fromisoformat(
+                "2024-01-15 09:30:00+00:00",
+            ),
+        )
+        """
+        _response = self._raw_client.get_function_logs(
+            name,
+            start_time=start_time,
+            end_time=end_time,
+            after=after,
+            limit=limit,
+            filter_text=filter_text,
+            request_options=request_options,
+        )
+        return _response.data
+
     def start_function_run(
         self,
         name: str,
@@ -2589,7 +2669,7 @@ class BetaApIsClient:
         """
         Ingest new readings. This endpoint allows the ingestion of batches of readings.
 
-        Ingesting readings is only supported for assets created using the POST /assets API endpoint with readingsIngestionEnabled set to true. To see a full list of readings available for ingestion use the GET readings definitions API. When ingesting location data, the readingID 'location' must be used and the value object must contain at least the following fields: 'speed', 'latitude', 'longitude'.
+        Ingesting readings is only supported for assets created using the POST /assets API endpoint with readingsIngestionEnabled set to true. To see a full list of readings available for ingestion use the GET readings definitions API. When ingesting location data, the readingID 'location' must be used and the value object must contain at least the following fields: 'speed', 'latitude', 'longitude'. Related guide: [Readings](https://developers.samsara.com/docs/readings).
 
          <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -2641,7 +2721,7 @@ class BetaApIsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ReadingsListReadingsDefinitionsResponseBody:
         """
-        An introspection endpoint for discovering the set of readings including their name, description, data type, unit, and other metadata.
+        An introspection endpoint for discovering the set of readings including their name, description, data type, unit, and other metadata. Related guide: [Readings](https://developers.samsara.com/docs/readings).
 
          <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -2698,7 +2778,7 @@ class BetaApIsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ReadingsGetReadingsHistoryResponseBody:
         """
-        Get the values of a reading for a set of entities within the specified time range. Returns a paginated response with data for the specified resource IDs where startTime <= happenedAtTime < endTime. If endTime is not set, the time of the request is used as the endTime.
+        Get the values of a reading for a set of entities within the specified time range. Returns a paginated response with data for the specified resource IDs where startTime <= happenedAtTime < endTime. If endTime is not set, the time of the request is used as the endTime. Related guide: [Readings](https://developers.samsara.com/docs/readings).
 
          <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -3036,7 +3116,7 @@ class BetaApIsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ReadingsGetReadingsSnapshotResponseBody:
         """
-        An endpoint to get the last value of a reading for a set of entities at the specified time.
+        An endpoint to get the last value of a reading for a set of entities at the specified time. Related guide: [Readings](https://developers.samsara.com/docs/readings).
 
          <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -6288,6 +6368,92 @@ class AsyncBetaApIsClient:
         _response = await self._raw_client.deploy_function(name, request_options=request_options)
         return _response.data
 
+    async def get_function_logs(
+        self,
+        name: str,
+        *,
+        start_time: dt.datetime,
+        end_time: dt.datetime,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        filter_text: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> FunctionsGetFunctionLogsResponseBody:
+        """
+        Retrieve paginated log entries for a specific Function within a given time range. Logs are produced during Function executions and can be filtered by text content.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Functions** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        name : str
+            The name of the Function whose logs to retrieve.
+
+        start_time : dt.datetime
+            Required RFC 3339 timestamp for the beginning of the log time range.
+
+        end_time : dt.datetime
+            Required RFC 3339 timestamp for the end of the log time range.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The maximum number of log entries to return per page. Default is 100.
+
+        filter_text : typing.Optional[str]
+            Optional text to filter log entries. Only logs containing this text will be returned.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        FunctionsGetFunctionLogsResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+        import datetime
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.get_function_logs(
+                name="name",
+                start_time=datetime.datetime.fromisoformat(
+                    "2024-01-15 09:30:00+00:00",
+                ),
+                end_time=datetime.datetime.fromisoformat(
+                    "2024-01-15 09:30:00+00:00",
+                ),
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_function_logs(
+            name,
+            start_time=start_time,
+            end_time=end_time,
+            after=after,
+            limit=limit,
+            filter_text=filter_text,
+            request_options=request_options,
+        )
+        return _response.data
+
     async def start_function_run(
         self,
         name: str,
@@ -7158,7 +7324,7 @@ class AsyncBetaApIsClient:
         """
         Ingest new readings. This endpoint allows the ingestion of batches of readings.
 
-        Ingesting readings is only supported for assets created using the POST /assets API endpoint with readingsIngestionEnabled set to true. To see a full list of readings available for ingestion use the GET readings definitions API. When ingesting location data, the readingID 'location' must be used and the value object must contain at least the following fields: 'speed', 'latitude', 'longitude'.
+        Ingesting readings is only supported for assets created using the POST /assets API endpoint with readingsIngestionEnabled set to true. To see a full list of readings available for ingestion use the GET readings definitions API. When ingesting location data, the readingID 'location' must be used and the value object must contain at least the following fields: 'speed', 'latitude', 'longitude'. Related guide: [Readings](https://developers.samsara.com/docs/readings).
 
          <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -7218,7 +7384,7 @@ class AsyncBetaApIsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ReadingsListReadingsDefinitionsResponseBody:
         """
-        An introspection endpoint for discovering the set of readings including their name, description, data type, unit, and other metadata.
+        An introspection endpoint for discovering the set of readings including their name, description, data type, unit, and other metadata. Related guide: [Readings](https://developers.samsara.com/docs/readings).
 
          <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -7283,7 +7449,7 @@ class AsyncBetaApIsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ReadingsGetReadingsHistoryResponseBody:
         """
-        Get the values of a reading for a set of entities within the specified time range. Returns a paginated response with data for the specified resource IDs where startTime <= happenedAtTime < endTime. If endTime is not set, the time of the request is used as the endTime.
+        Get the values of a reading for a set of entities within the specified time range. Returns a paginated response with data for the specified resource IDs where startTime <= happenedAtTime < endTime. If endTime is not set, the time of the request is used as the endTime. Related guide: [Readings](https://developers.samsara.com/docs/readings).
 
          <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -7629,7 +7795,7 @@ class AsyncBetaApIsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ReadingsGetReadingsSnapshotResponseBody:
         """
-        An endpoint to get the last value of a reading for a set of entities at the specified time.
+        An endpoint to get the last value of a reading for a set of entities at the specified time. Related guide: [Readings](https://developers.samsara.com/docs/readings).
 
          <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
