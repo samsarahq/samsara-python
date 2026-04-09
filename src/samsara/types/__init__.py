@@ -2362,6 +2362,7 @@ if typing.TYPE_CHECKING:
     from .function_config_response_body_params import FunctionConfigResponseBodyParams
     from .function_config_response_body_secrets import FunctionConfigResponseBodySecrets
     from .function_effects_response_body import FunctionEffectsResponseBody
+    from .function_log_entry_response_body import FunctionLogEntryResponseBody
     from .function_run_context_response_body import FunctionRunContextResponseBody
     from .function_schedule_entry_request_body import FunctionScheduleEntryRequestBody
     from .function_schedule_entry_response_body import FunctionScheduleEntryResponseBody
@@ -2456,6 +2457,34 @@ if typing.TYPE_CHECKING:
     )
     from .functions_get_function_internal_server_error_response_body import (
         FunctionsGetFunctionInternalServerErrorResponseBody,
+    )
+    from .functions_get_function_logs_bad_gateway_error_response_body import (
+        FunctionsGetFunctionLogsBadGatewayErrorResponseBody,
+    )
+    from .functions_get_function_logs_gateway_timeout_error_response_body import (
+        FunctionsGetFunctionLogsGatewayTimeoutErrorResponseBody,
+    )
+    from .functions_get_function_logs_internal_server_error_response_body import (
+        FunctionsGetFunctionLogsInternalServerErrorResponseBody,
+    )
+    from .functions_get_function_logs_method_not_allowed_error_response_body import (
+        FunctionsGetFunctionLogsMethodNotAllowedErrorResponseBody,
+    )
+    from .functions_get_function_logs_not_found_error_response_body import (
+        FunctionsGetFunctionLogsNotFoundErrorResponseBody,
+    )
+    from .functions_get_function_logs_not_implemented_error_response_body import (
+        FunctionsGetFunctionLogsNotImplementedErrorResponseBody,
+    )
+    from .functions_get_function_logs_response_body import FunctionsGetFunctionLogsResponseBody
+    from .functions_get_function_logs_service_unavailable_error_response_body import (
+        FunctionsGetFunctionLogsServiceUnavailableErrorResponseBody,
+    )
+    from .functions_get_function_logs_too_many_requests_error_response_body import (
+        FunctionsGetFunctionLogsTooManyRequestsErrorResponseBody,
+    )
+    from .functions_get_function_logs_unauthorized_error_response_body import (
+        FunctionsGetFunctionLogsUnauthorizedErrorResponseBody,
     )
     from .functions_get_function_method_not_allowed_error_response_body import (
         FunctionsGetFunctionMethodNotAllowedErrorResponseBody,
@@ -8635,6 +8664,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "FunctionConfigResponseBodyParams": ".function_config_response_body_params",
     "FunctionConfigResponseBodySecrets": ".function_config_response_body_secrets",
     "FunctionEffectsResponseBody": ".function_effects_response_body",
+    "FunctionLogEntryResponseBody": ".function_log_entry_response_body",
     "FunctionRunContextResponseBody": ".function_run_context_response_body",
     "FunctionScheduleEntryRequestBody": ".function_schedule_entry_request_body",
     "FunctionScheduleEntryResponseBody": ".function_schedule_entry_response_body",
@@ -8672,6 +8702,16 @@ _dynamic_imports: typing.Dict[str, str] = {
     "FunctionsGetFunctionBadGatewayErrorResponseBody": ".functions_get_function_bad_gateway_error_response_body",
     "FunctionsGetFunctionGatewayTimeoutErrorResponseBody": ".functions_get_function_gateway_timeout_error_response_body",
     "FunctionsGetFunctionInternalServerErrorResponseBody": ".functions_get_function_internal_server_error_response_body",
+    "FunctionsGetFunctionLogsBadGatewayErrorResponseBody": ".functions_get_function_logs_bad_gateway_error_response_body",
+    "FunctionsGetFunctionLogsGatewayTimeoutErrorResponseBody": ".functions_get_function_logs_gateway_timeout_error_response_body",
+    "FunctionsGetFunctionLogsInternalServerErrorResponseBody": ".functions_get_function_logs_internal_server_error_response_body",
+    "FunctionsGetFunctionLogsMethodNotAllowedErrorResponseBody": ".functions_get_function_logs_method_not_allowed_error_response_body",
+    "FunctionsGetFunctionLogsNotFoundErrorResponseBody": ".functions_get_function_logs_not_found_error_response_body",
+    "FunctionsGetFunctionLogsNotImplementedErrorResponseBody": ".functions_get_function_logs_not_implemented_error_response_body",
+    "FunctionsGetFunctionLogsResponseBody": ".functions_get_function_logs_response_body",
+    "FunctionsGetFunctionLogsServiceUnavailableErrorResponseBody": ".functions_get_function_logs_service_unavailable_error_response_body",
+    "FunctionsGetFunctionLogsTooManyRequestsErrorResponseBody": ".functions_get_function_logs_too_many_requests_error_response_body",
+    "FunctionsGetFunctionLogsUnauthorizedErrorResponseBody": ".functions_get_function_logs_unauthorized_error_response_body",
     "FunctionsGetFunctionMethodNotAllowedErrorResponseBody": ".functions_get_function_method_not_allowed_error_response_body",
     "FunctionsGetFunctionNotFoundErrorResponseBody": ".functions_get_function_not_found_error_response_body",
     "FunctionsGetFunctionNotImplementedErrorResponseBody": ".functions_get_function_not_implemented_error_response_body",
@@ -12306,6 +12346,7 @@ __all__ = [
     "FunctionConfigResponseBodyParams",
     "FunctionConfigResponseBodySecrets",
     "FunctionEffectsResponseBody",
+    "FunctionLogEntryResponseBody",
     "FunctionRunContextResponseBody",
     "FunctionScheduleEntryRequestBody",
     "FunctionScheduleEntryResponseBody",
@@ -12343,6 +12384,16 @@ __all__ = [
     "FunctionsGetFunctionBadGatewayErrorResponseBody",
     "FunctionsGetFunctionGatewayTimeoutErrorResponseBody",
     "FunctionsGetFunctionInternalServerErrorResponseBody",
+    "FunctionsGetFunctionLogsBadGatewayErrorResponseBody",
+    "FunctionsGetFunctionLogsGatewayTimeoutErrorResponseBody",
+    "FunctionsGetFunctionLogsInternalServerErrorResponseBody",
+    "FunctionsGetFunctionLogsMethodNotAllowedErrorResponseBody",
+    "FunctionsGetFunctionLogsNotFoundErrorResponseBody",
+    "FunctionsGetFunctionLogsNotImplementedErrorResponseBody",
+    "FunctionsGetFunctionLogsResponseBody",
+    "FunctionsGetFunctionLogsServiceUnavailableErrorResponseBody",
+    "FunctionsGetFunctionLogsTooManyRequestsErrorResponseBody",
+    "FunctionsGetFunctionLogsUnauthorizedErrorResponseBody",
     "FunctionsGetFunctionMethodNotAllowedErrorResponseBody",
     "FunctionsGetFunctionNotFoundErrorResponseBody",
     "FunctionsGetFunctionNotImplementedErrorResponseBody",
