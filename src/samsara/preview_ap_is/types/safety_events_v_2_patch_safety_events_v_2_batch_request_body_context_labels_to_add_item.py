@@ -4,7 +4,6 @@ import typing
 
 SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem = typing.Union[
     typing.Literal[
-        "Animal Collision",
         "Congested",
         "Construction",
         "Coupling/Uncoupling",
@@ -30,6 +29,7 @@ SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem = typing
         "Speed Sign Verified",
         "Very Drowsy",
         "Wet Road",
+        "Wildlife",
     ],
     typing.Any,
 ]
