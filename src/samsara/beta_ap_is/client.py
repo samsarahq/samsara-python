@@ -2702,7 +2702,6 @@ class BetaApIsClient:
         client.beta_ap_is.post_readings(
             data=[
                 ReadingDatapointRequestBody(
-                    entity_id="123451234512345",
                     entity_type="asset",
                     happened_at_time="2023-10-27T10:00:00Z",
                     reading_id="airInletPressure",
@@ -7370,7 +7369,6 @@ class AsyncBetaApIsClient:
             await client.beta_ap_is.post_readings(
                 data=[
                     ReadingDatapointRequestBody(
-                        entity_id="123451234512345",
                         entity_type="asset",
                         happened_at_time="2023-10-27T10:00:00Z",
                         reading_id="airInletPressure",

@@ -15,18 +15,26 @@ class ReadingDatapointRequestBody(UniversalBaseModel):
     """
 
     entity_id: typing_extensions.Annotated[
-        str,
+        typing.Optional[str],
         FieldMetadata(alias="entityId"),
         pydantic.Field(
             alias="entityId",
-            description="Samsara entity ID. In case of an asset, it’s the assetId. If the asset is not yet present in the system, it is required to create a new one via the /assets endpoint.",
+            description="Samsara entity ID. Required if externalId is not provided. In case of an asset, it’s the assetId. If the asset is not yet present in the system, it is required to create a new one via the /assets endpoint.",
         ),
-    ]
+    ] = None
     entity_type: typing_extensions.Annotated[
         ReadingDatapointRequestBodyEntityType,
         FieldMetadata(alias="entityType"),
         pydantic.Field(alias="entityType", description="The type of the entity (e.g., asset).  Valid values: `asset`"),
     ]
+    external_id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="externalId"),
+        pydantic.Field(
+            alias="externalId",
+            description="An external ID in key:value format. Required if entityId is not provided. Use this to reference an asset by its external ID instead of the Samsara entity ID.",
+        ),
+    ] = None
     happened_at_time: typing_extensions.Annotated[
         str,
         FieldMetadata(alias="happenedAtTime"),
