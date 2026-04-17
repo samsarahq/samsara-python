@@ -10,6 +10,7 @@ from ..core.jsonable_encoder import jsonable_encoder
 from ..core.pagination import AsyncPager, SyncPager
 from ..core.pydantic_utilities import parse_obj_as
 from ..core.request_options import RequestOptions
+from ..core.serialization import convert_and_respect_annotation_metadata
 from ..errors.bad_gateway_error import BadGatewayError
 from ..errors.gateway_timeout_error import GatewayTimeoutError
 from ..errors.internal_server_error import InternalServerError
@@ -23,6 +24,7 @@ from ..types.asset_response_body import AssetResponseBody
 from ..types.assets_create_asset_response_body import AssetsCreateAssetResponseBody
 from ..types.assets_list_assets_response_body import AssetsListAssetsResponseBody
 from ..types.assets_update_asset_response_body import AssetsUpdateAssetResponseBody
+from ..types.goa_attribute_tiny_request_body import GoaAttributeTinyRequestBody
 from ..types.inline_response_2002 import InlineResponse2002
 from ..types.inline_response_2003 import InlineResponse2003
 from ..types.v_1_asset_location_response import V1AssetLocationResponse
@@ -52,6 +54,7 @@ class RawAssetsClient:
         tag_ids: typing.Optional[str] = None,
         parent_tag_ids: typing.Optional[str] = None,
         ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        external_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         attribute_value_ids: typing.Optional[str] = None,
         attributes: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
@@ -92,6 +95,9 @@ class RawAssetsClient:
         ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             A filter on the data based on this comma-separated list of asset IDs and External IDs.
 
+        external_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of external IDs. Example: `externalIds=maintenanceId:250020,vin:1HGBH41JXMN109186`
+
         attribute_value_ids : typing.Optional[str]
             A filter on the data based on this comma-separated list of attribute value IDs. Only entities associated with ALL of the referenced values will be returned (i.e. the intersection of the sets of entities with each value). Example: `attributeValueIds=076efac2-83b5-47aa-ba36-18428436dcac,6707b3f0-23b9-4fe3-b7be-11be34aea544`
 
@@ -118,6 +124,7 @@ class RawAssetsClient:
                 "tagIds": tag_ids,
                 "parentTagIds": parent_tag_ids,
                 "ids": ids,
+                "externalIds": external_ids,
                 "attributeValueIds": attribute_value_ids,
                 "attributes": attributes,
             },
@@ -147,6 +154,7 @@ class RawAssetsClient:
                         tag_ids=tag_ids,
                         parent_tag_ids=parent_tag_ids,
                         ids=ids,
+                        external_ids=external_ids,
                         attribute_value_ids=attribute_value_ids,
                         attributes=attributes,
                         request_options=request_options,
@@ -259,6 +267,7 @@ class RawAssetsClient:
     def create_asset(
         self,
         *,
+        attributes: typing.Optional[typing.Sequence[GoaAttributeTinyRequestBody]] = OMIT,
         external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
         license_plate: typing.Optional[str] = OMIT,
         make: typing.Optional[str] = OMIT,
@@ -268,6 +277,7 @@ class RawAssetsClient:
         readings_ingestion_enabled: typing.Optional[bool] = OMIT,
         regulation_mode: typing.Optional[AssetsCreateAssetRequestBodyRegulationMode] = OMIT,
         serial_number: typing.Optional[str] = OMIT,
+        tag_ids: typing.Optional[typing.Sequence[str]] = OMIT,
         type: typing.Optional[AssetsCreateAssetRequestBodyType] = OMIT,
         vin: typing.Optional[str] = OMIT,
         year: typing.Optional[int] = OMIT,
@@ -285,6 +295,9 @@ class RawAssetsClient:
 
         Parameters
         ----------
+        attributes : typing.Optional[typing.Sequence[GoaAttributeTinyRequestBody]]
+            A list of attributes to assign to the asset.
+
         external_ids : typing.Optional[typing.Dict[str, str]]
             A map of external ids
 
@@ -312,6 +325,9 @@ class RawAssetsClient:
         serial_number : typing.Optional[str]
             The serial number of the asset. This can be an internal serial number or used to hold legacy VIN/PIN numbers such as ones of shorter lengths.
 
+        tag_ids : typing.Optional[typing.Sequence[str]]
+            An array of IDs of tags to associate with this asset. If your access to the API is scoped by one or more tags, this field is required to pass in.
+
         type : typing.Optional[AssetsCreateAssetRequestBodyType]
             The operational context in which the asset interacts with the Samsara system. Examples: Vehicle (eg: truck, bus...), Trailer (eg: dry van, reefer, flatbed...), Powered Equipment (eg: dozer, crane...), Unpowered Equipment (eg: container, dumpster...), or Uncategorized.  Valid values: `uncategorized`, `trailer`, `equipment`, `unpowered`, `vehicle`
 
@@ -333,6 +349,9 @@ class RawAssetsClient:
             "assets",
             method="POST",
             json={
+                "attributes": convert_and_respect_annotation_metadata(
+                    object_=attributes, annotation=typing.Sequence[GoaAttributeTinyRequestBody], direction="write"
+                ),
                 "externalIds": external_ids,
                 "licensePlate": license_plate,
                 "make": make,
@@ -342,6 +361,7 @@ class RawAssetsClient:
                 "readingsIngestionEnabled": readings_ingestion_enabled,
                 "regulationMode": regulation_mode,
                 "serialNumber": serial_number,
+                "tagIds": tag_ids,
                 "type": type,
                 "vin": vin,
                 "year": year,
@@ -1151,6 +1171,7 @@ class AsyncRawAssetsClient:
         tag_ids: typing.Optional[str] = None,
         parent_tag_ids: typing.Optional[str] = None,
         ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        external_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         attribute_value_ids: typing.Optional[str] = None,
         attributes: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
@@ -1191,6 +1212,9 @@ class AsyncRawAssetsClient:
         ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             A filter on the data based on this comma-separated list of asset IDs and External IDs.
 
+        external_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of external IDs. Example: `externalIds=maintenanceId:250020,vin:1HGBH41JXMN109186`
+
         attribute_value_ids : typing.Optional[str]
             A filter on the data based on this comma-separated list of attribute value IDs. Only entities associated with ALL of the referenced values will be returned (i.e. the intersection of the sets of entities with each value). Example: `attributeValueIds=076efac2-83b5-47aa-ba36-18428436dcac,6707b3f0-23b9-4fe3-b7be-11be34aea544`
 
@@ -1217,6 +1241,7 @@ class AsyncRawAssetsClient:
                 "tagIds": tag_ids,
                 "parentTagIds": parent_tag_ids,
                 "ids": ids,
+                "externalIds": external_ids,
                 "attributeValueIds": attribute_value_ids,
                 "attributes": attributes,
             },
@@ -1248,6 +1273,7 @@ class AsyncRawAssetsClient:
                             tag_ids=tag_ids,
                             parent_tag_ids=parent_tag_ids,
                             ids=ids,
+                            external_ids=external_ids,
                             attribute_value_ids=attribute_value_ids,
                             attributes=attributes,
                             request_options=request_options,
@@ -1361,6 +1387,7 @@ class AsyncRawAssetsClient:
     async def create_asset(
         self,
         *,
+        attributes: typing.Optional[typing.Sequence[GoaAttributeTinyRequestBody]] = OMIT,
         external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
         license_plate: typing.Optional[str] = OMIT,
         make: typing.Optional[str] = OMIT,
@@ -1370,6 +1397,7 @@ class AsyncRawAssetsClient:
         readings_ingestion_enabled: typing.Optional[bool] = OMIT,
         regulation_mode: typing.Optional[AssetsCreateAssetRequestBodyRegulationMode] = OMIT,
         serial_number: typing.Optional[str] = OMIT,
+        tag_ids: typing.Optional[typing.Sequence[str]] = OMIT,
         type: typing.Optional[AssetsCreateAssetRequestBodyType] = OMIT,
         vin: typing.Optional[str] = OMIT,
         year: typing.Optional[int] = OMIT,
@@ -1387,6 +1415,9 @@ class AsyncRawAssetsClient:
 
         Parameters
         ----------
+        attributes : typing.Optional[typing.Sequence[GoaAttributeTinyRequestBody]]
+            A list of attributes to assign to the asset.
+
         external_ids : typing.Optional[typing.Dict[str, str]]
             A map of external ids
 
@@ -1414,6 +1445,9 @@ class AsyncRawAssetsClient:
         serial_number : typing.Optional[str]
             The serial number of the asset. This can be an internal serial number or used to hold legacy VIN/PIN numbers such as ones of shorter lengths.
 
+        tag_ids : typing.Optional[typing.Sequence[str]]
+            An array of IDs of tags to associate with this asset. If your access to the API is scoped by one or more tags, this field is required to pass in.
+
         type : typing.Optional[AssetsCreateAssetRequestBodyType]
             The operational context in which the asset interacts with the Samsara system. Examples: Vehicle (eg: truck, bus...), Trailer (eg: dry van, reefer, flatbed...), Powered Equipment (eg: dozer, crane...), Unpowered Equipment (eg: container, dumpster...), or Uncategorized.  Valid values: `uncategorized`, `trailer`, `equipment`, `unpowered`, `vehicle`
 
@@ -1435,6 +1469,9 @@ class AsyncRawAssetsClient:
             "assets",
             method="POST",
             json={
+                "attributes": convert_and_respect_annotation_metadata(
+                    object_=attributes, annotation=typing.Sequence[GoaAttributeTinyRequestBody], direction="write"
+                ),
                 "externalIds": external_ids,
                 "licensePlate": license_plate,
                 "make": make,
@@ -1444,6 +1481,7 @@ class AsyncRawAssetsClient:
                 "readingsIngestionEnabled": readings_ingestion_enabled,
                 "regulationMode": regulation_mode,
                 "serialNumber": serial_number,
+                "tagIds": tag_ids,
                 "type": type,
                 "vin": vin,
                 "year": year,
