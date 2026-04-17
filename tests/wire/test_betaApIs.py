@@ -292,6 +292,14 @@ def test_betaApIs_list_hub_custom_properties() -> None:
     verify_request_count(test_id, "GET", "/hub/customProperties", {"hubId": "hubId"}, 1)
 
 
+def test_betaApIs_list_plan_orders() -> None:
+    """Test listPlanOrders endpoint with WireMock"""
+    test_id = "beta_ap_is.list_plan_orders.0"
+    client = get_client(test_id)
+    client.beta_ap_is.list_plan_orders(plan_id="planId")
+    verify_request_count(test_id, "GET", "/hub/plan/orders", {"planId": "planId"}, 1)
+
+
 def test_betaApIs_create_plan_orders() -> None:
     """Test createPlanOrders endpoint with WireMock"""
     test_id = "beta_ap_is.create_plan_orders.0"
@@ -306,6 +314,14 @@ def test_betaApIs_create_plan_orders() -> None:
         ]
     )
     verify_request_count(test_id, "POST", "/hub/plan/orders", None, 1)
+
+
+def test_betaApIs_delete_plan_orders() -> None:
+    """Test deletePlanOrders endpoint with WireMock"""
+    test_id = "beta_ap_is.delete_plan_orders.0"
+    client = get_client(test_id)
+    client.beta_ap_is.delete_plan_orders(plan_id="planId")
+    verify_request_count(test_id, "DELETE", "/hub/plan/orders", {"planId": "planId"}, 1)
 
 
 def test_betaApIs_get_qualification_records() -> None:
