@@ -3517,6 +3517,7 @@ if typing.TYPE_CHECKING:
     from .list_hub_skills_response_pagination_response_body import ListHubSkillsResponsePaginationResponseBody
     from .list_hubs_response_pagination_response_body import ListHubsResponsePaginationResponseBody
     from .list_industrial_assets_response import ListIndustrialAssetsResponse
+    from .list_plan_orders_response_pagination_response_body import ListPlanOrdersResponsePaginationResponseBody
     from .list_tags_response import ListTagsResponse
     from .list_uploaded_media_object_response_body import ListUploadedMediaObjectResponseBody
     from .list_user_roles_response import ListUserRolesResponse
@@ -3962,6 +3963,61 @@ if typing.TYPE_CHECKING:
     )
     from .plan_orders_create_plan_orders_unauthorized_error_response_body import (
         PlanOrdersCreatePlanOrdersUnauthorizedErrorResponseBody,
+    )
+    from .plan_orders_delete_plan_orders_bad_gateway_error_response_body import (
+        PlanOrdersDeletePlanOrdersBadGatewayErrorResponseBody,
+    )
+    from .plan_orders_delete_plan_orders_gateway_timeout_error_response_body import (
+        PlanOrdersDeletePlanOrdersGatewayTimeoutErrorResponseBody,
+    )
+    from .plan_orders_delete_plan_orders_internal_server_error_response_body import (
+        PlanOrdersDeletePlanOrdersInternalServerErrorResponseBody,
+    )
+    from .plan_orders_delete_plan_orders_method_not_allowed_error_response_body import (
+        PlanOrdersDeletePlanOrdersMethodNotAllowedErrorResponseBody,
+    )
+    from .plan_orders_delete_plan_orders_not_found_error_response_body import (
+        PlanOrdersDeletePlanOrdersNotFoundErrorResponseBody,
+    )
+    from .plan_orders_delete_plan_orders_not_implemented_error_response_body import (
+        PlanOrdersDeletePlanOrdersNotImplementedErrorResponseBody,
+    )
+    from .plan_orders_delete_plan_orders_service_unavailable_error_response_body import (
+        PlanOrdersDeletePlanOrdersServiceUnavailableErrorResponseBody,
+    )
+    from .plan_orders_delete_plan_orders_too_many_requests_error_response_body import (
+        PlanOrdersDeletePlanOrdersTooManyRequestsErrorResponseBody,
+    )
+    from .plan_orders_delete_plan_orders_unauthorized_error_response_body import (
+        PlanOrdersDeletePlanOrdersUnauthorizedErrorResponseBody,
+    )
+    from .plan_orders_list_plan_orders_bad_gateway_error_response_body import (
+        PlanOrdersListPlanOrdersBadGatewayErrorResponseBody,
+    )
+    from .plan_orders_list_plan_orders_gateway_timeout_error_response_body import (
+        PlanOrdersListPlanOrdersGatewayTimeoutErrorResponseBody,
+    )
+    from .plan_orders_list_plan_orders_internal_server_error_response_body import (
+        PlanOrdersListPlanOrdersInternalServerErrorResponseBody,
+    )
+    from .plan_orders_list_plan_orders_method_not_allowed_error_response_body import (
+        PlanOrdersListPlanOrdersMethodNotAllowedErrorResponseBody,
+    )
+    from .plan_orders_list_plan_orders_not_found_error_response_body import (
+        PlanOrdersListPlanOrdersNotFoundErrorResponseBody,
+    )
+    from .plan_orders_list_plan_orders_not_implemented_error_response_body import (
+        PlanOrdersListPlanOrdersNotImplementedErrorResponseBody,
+    )
+    from .plan_orders_list_plan_orders_response_body import PlanOrdersListPlanOrdersResponseBody
+    from .plan_orders_list_plan_orders_service_unavailable_error_response_body import (
+        PlanOrdersListPlanOrdersServiceUnavailableErrorResponseBody,
+    )
+    from .plan_orders_list_plan_orders_too_many_requests_error_response_body import (
+        PlanOrdersListPlanOrdersTooManyRequestsErrorResponseBody,
+    )
+    from .plan_orders_list_plan_orders_unauthorized_error_response_body import (
+        PlanOrdersListPlanOrdersUnauthorizedErrorResponseBody,
     )
     from .policy_violations_detection_alert_settings_object_response_body import (
         PolicyViolationsDetectionAlertSettingsObjectResponseBody,
@@ -9229,6 +9285,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "ListHubSkillsResponsePaginationResponseBody": ".list_hub_skills_response_pagination_response_body",
     "ListHubsResponsePaginationResponseBody": ".list_hubs_response_pagination_response_body",
     "ListIndustrialAssetsResponse": ".list_industrial_assets_response",
+    "ListPlanOrdersResponsePaginationResponseBody": ".list_plan_orders_response_pagination_response_body",
     "ListTagsResponse": ".list_tags_response",
     "ListUploadedMediaObjectResponseBody": ".list_uploaded_media_object_response_body",
     "ListUserRolesResponse": ".list_user_roles_response",
@@ -9443,6 +9500,25 @@ _dynamic_imports: typing.Dict[str, str] = {
     "PlanOrdersCreatePlanOrdersServiceUnavailableErrorResponseBody": ".plan_orders_create_plan_orders_service_unavailable_error_response_body",
     "PlanOrdersCreatePlanOrdersTooManyRequestsErrorResponseBody": ".plan_orders_create_plan_orders_too_many_requests_error_response_body",
     "PlanOrdersCreatePlanOrdersUnauthorizedErrorResponseBody": ".plan_orders_create_plan_orders_unauthorized_error_response_body",
+    "PlanOrdersDeletePlanOrdersBadGatewayErrorResponseBody": ".plan_orders_delete_plan_orders_bad_gateway_error_response_body",
+    "PlanOrdersDeletePlanOrdersGatewayTimeoutErrorResponseBody": ".plan_orders_delete_plan_orders_gateway_timeout_error_response_body",
+    "PlanOrdersDeletePlanOrdersInternalServerErrorResponseBody": ".plan_orders_delete_plan_orders_internal_server_error_response_body",
+    "PlanOrdersDeletePlanOrdersMethodNotAllowedErrorResponseBody": ".plan_orders_delete_plan_orders_method_not_allowed_error_response_body",
+    "PlanOrdersDeletePlanOrdersNotFoundErrorResponseBody": ".plan_orders_delete_plan_orders_not_found_error_response_body",
+    "PlanOrdersDeletePlanOrdersNotImplementedErrorResponseBody": ".plan_orders_delete_plan_orders_not_implemented_error_response_body",
+    "PlanOrdersDeletePlanOrdersServiceUnavailableErrorResponseBody": ".plan_orders_delete_plan_orders_service_unavailable_error_response_body",
+    "PlanOrdersDeletePlanOrdersTooManyRequestsErrorResponseBody": ".plan_orders_delete_plan_orders_too_many_requests_error_response_body",
+    "PlanOrdersDeletePlanOrdersUnauthorizedErrorResponseBody": ".plan_orders_delete_plan_orders_unauthorized_error_response_body",
+    "PlanOrdersListPlanOrdersBadGatewayErrorResponseBody": ".plan_orders_list_plan_orders_bad_gateway_error_response_body",
+    "PlanOrdersListPlanOrdersGatewayTimeoutErrorResponseBody": ".plan_orders_list_plan_orders_gateway_timeout_error_response_body",
+    "PlanOrdersListPlanOrdersInternalServerErrorResponseBody": ".plan_orders_list_plan_orders_internal_server_error_response_body",
+    "PlanOrdersListPlanOrdersMethodNotAllowedErrorResponseBody": ".plan_orders_list_plan_orders_method_not_allowed_error_response_body",
+    "PlanOrdersListPlanOrdersNotFoundErrorResponseBody": ".plan_orders_list_plan_orders_not_found_error_response_body",
+    "PlanOrdersListPlanOrdersNotImplementedErrorResponseBody": ".plan_orders_list_plan_orders_not_implemented_error_response_body",
+    "PlanOrdersListPlanOrdersResponseBody": ".plan_orders_list_plan_orders_response_body",
+    "PlanOrdersListPlanOrdersServiceUnavailableErrorResponseBody": ".plan_orders_list_plan_orders_service_unavailable_error_response_body",
+    "PlanOrdersListPlanOrdersTooManyRequestsErrorResponseBody": ".plan_orders_list_plan_orders_too_many_requests_error_response_body",
+    "PlanOrdersListPlanOrdersUnauthorizedErrorResponseBody": ".plan_orders_list_plan_orders_unauthorized_error_response_body",
     "PolicyViolationsDetectionAlertSettingsObjectResponseBody": ".policy_violations_detection_alert_settings_object_response_body",
     "PolicyViolationsDetectionAlertSettingsObjectResponseBodyEventsAvailableForTestingItem": ".policy_violations_detection_alert_settings_object_response_body_events_available_for_testing_item",
     "PolicyViolationsDetectionAlertSettingsObjectResponseBodyEventsToCoachItem": ".policy_violations_detection_alert_settings_object_response_body_events_to_coach_item",
@@ -12911,6 +12987,7 @@ __all__ = [
     "ListHubSkillsResponsePaginationResponseBody",
     "ListHubsResponsePaginationResponseBody",
     "ListIndustrialAssetsResponse",
+    "ListPlanOrdersResponsePaginationResponseBody",
     "ListTagsResponse",
     "ListUploadedMediaObjectResponseBody",
     "ListUserRolesResponse",
@@ -13125,6 +13202,25 @@ __all__ = [
     "PlanOrdersCreatePlanOrdersServiceUnavailableErrorResponseBody",
     "PlanOrdersCreatePlanOrdersTooManyRequestsErrorResponseBody",
     "PlanOrdersCreatePlanOrdersUnauthorizedErrorResponseBody",
+    "PlanOrdersDeletePlanOrdersBadGatewayErrorResponseBody",
+    "PlanOrdersDeletePlanOrdersGatewayTimeoutErrorResponseBody",
+    "PlanOrdersDeletePlanOrdersInternalServerErrorResponseBody",
+    "PlanOrdersDeletePlanOrdersMethodNotAllowedErrorResponseBody",
+    "PlanOrdersDeletePlanOrdersNotFoundErrorResponseBody",
+    "PlanOrdersDeletePlanOrdersNotImplementedErrorResponseBody",
+    "PlanOrdersDeletePlanOrdersServiceUnavailableErrorResponseBody",
+    "PlanOrdersDeletePlanOrdersTooManyRequestsErrorResponseBody",
+    "PlanOrdersDeletePlanOrdersUnauthorizedErrorResponseBody",
+    "PlanOrdersListPlanOrdersBadGatewayErrorResponseBody",
+    "PlanOrdersListPlanOrdersGatewayTimeoutErrorResponseBody",
+    "PlanOrdersListPlanOrdersInternalServerErrorResponseBody",
+    "PlanOrdersListPlanOrdersMethodNotAllowedErrorResponseBody",
+    "PlanOrdersListPlanOrdersNotFoundErrorResponseBody",
+    "PlanOrdersListPlanOrdersNotImplementedErrorResponseBody",
+    "PlanOrdersListPlanOrdersResponseBody",
+    "PlanOrdersListPlanOrdersServiceUnavailableErrorResponseBody",
+    "PlanOrdersListPlanOrdersTooManyRequestsErrorResponseBody",
+    "PlanOrdersListPlanOrdersUnauthorizedErrorResponseBody",
     "PolicyViolationsDetectionAlertSettingsObjectResponseBody",
     "PolicyViolationsDetectionAlertSettingsObjectResponseBodyEventsAvailableForTestingItem",
     "PolicyViolationsDetectionAlertSettingsObjectResponseBodyEventsToCoachItem",

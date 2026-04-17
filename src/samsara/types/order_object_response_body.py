@@ -17,10 +17,10 @@ class OrderObjectResponseBody(UniversalBaseModel):
     Order object
     """
 
-    created_at: typing_extensions.Annotated[
+    created_at_time: typing_extensions.Annotated[
         dt.datetime,
-        FieldMetadata(alias="createdAt"),
-        pydantic.Field(alias="createdAt", description="The timestamp (in UTC) when the order was created"),
+        FieldMetadata(alias="createdAtTime"),
+        pydantic.Field(alias="createdAtTime", description="The timestamp (in UTC) when the order was created"),
     ]
     custom_properties: typing_extensions.Annotated[
         typing.List[OrderCustomPropertyResponseBody],
@@ -59,15 +59,23 @@ class OrderObjectResponseBody(UniversalBaseModel):
     An array of quantities for the order
     """
 
+    route_id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="routeId"),
+        pydantic.Field(
+            alias="routeId",
+            description="The ID of the route this order is assigned to. Null if the order is unassigned. Only populated on list responses.",
+        ),
+    ] = None
     skills_required: typing_extensions.Annotated[
         typing.List[str],
         FieldMetadata(alias="skillsRequired"),
         pydantic.Field(alias="skillsRequired", description="An array of skill IDs required to fulfill the order"),
     ]
-    updated_at: typing_extensions.Annotated[
+    updated_at_time: typing_extensions.Annotated[
         dt.datetime,
-        FieldMetadata(alias="updatedAt"),
-        pydantic.Field(alias="updatedAt", description="The timestamp (in UTC) when the order was last updated"),
+        FieldMetadata(alias="updatedAtTime"),
+        pydantic.Field(alias="updatedAtTime", description="The timestamp (in UTC) when the order was last updated"),
     ]
 
     if IS_PYDANTIC_V2:

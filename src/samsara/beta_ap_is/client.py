@@ -59,6 +59,7 @@ from ..types.order_input_object_request_body import OrderInputObjectRequestBody
 from ..types.patch_function_request_config_request_body import PatchFunctionRequestConfigRequestBody
 from ..types.patch_job_object_request_body import PatchJobObjectRequestBody
 from ..types.plan_orders_create_plan_orders_response_body import PlanOrdersCreatePlanOrdersResponseBody
+from ..types.plan_orders_list_plan_orders_response_body import PlanOrdersListPlanOrdersResponseBody
 from ..types.post_job_object_request_body import PostJobObjectRequestBody
 from ..types.qualification_owner_request_object_request_body import QualificationOwnerRequestObjectRequestBody
 from ..types.qualification_record_request_field_input_object_request_body import (
@@ -2134,6 +2135,65 @@ class BetaApIsClient:
         )
         return _response.data
 
+    def list_plan_orders(
+        self,
+        *,
+        plan_id: str,
+        order_ids: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> PlanOrdersListPlanOrdersResponseBody:
+        """
+        Retrieve all orders for a specific plan, including both assigned and unassigned orders.
+
+        **Beta:** This endpoint is in beta and is likely to change before being broadly available. Reach out to your Samsara Representative to have RoutePlanning APIs enabled for your organization.
+
+         <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        plan_id : str
+            The plan identifier
+
+        order_ids : typing.Optional[str]
+            Comma-separated list of order IDs for filtering.
+
+        after : typing.Optional[str]
+            If specified, should be the endCursor from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            Maximum number of objects to return. Default and maximum is 100
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        PlanOrdersListPlanOrdersResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.list_plan_orders(
+            plan_id="planId",
+        )
+        """
+        _response = self._raw_client.list_plan_orders(
+            plan_id=plan_id, order_ids=order_ids, after=after, limit=limit, request_options=request_options
+        )
+        return _response.data
+
     def create_plan_orders(
         self,
         *,
@@ -2188,6 +2248,60 @@ class BetaApIsClient:
         """
         _response = self._raw_client.create_plan_orders(
             data=data, enable_update_existing_orders=enable_update_existing_orders, request_options=request_options
+        )
+        return _response.data
+
+    def delete_plan_orders(
+        self,
+        *,
+        plan_id: str,
+        order_ids: typing.Optional[str] = None,
+        delete_all: typing.Optional[bool] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> None:
+        """
+        Delete one or more orders from a plan. Pass either `orderIds` (a comma-separated list) or `deleteAll=true`; exactly one is required. Orders are automatically unassigned from their routes before deletion.
+
+        **Beta:** This endpoint is in beta and is likely to change before being broadly available. Reach out to your Samsara Representative to have RoutePlanning APIs enabled for your organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        plan_id : str
+            The plan identifier
+
+        order_ids : typing.Optional[str]
+            Comma-separated list of order IDs to delete. Mutually exclusive with `deleteAll=true`; exactly one of the two must be provided.
+
+        delete_all : typing.Optional[bool]
+            When `true`, every order in the plan is deleted. Must not be combined with `orderIds`. Must be set to `true` explicitly — `false` is equivalent to omitting the parameter and requires `orderIds` to be supplied.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.delete_plan_orders(
+            plan_id="planId",
+        )
+        """
+        _response = self._raw_client.delete_plan_orders(
+            plan_id=plan_id, order_ids=order_ids, delete_all=delete_all, request_options=request_options
         )
         return _response.data
 
@@ -6723,6 +6837,73 @@ class AsyncBetaApIsClient:
         )
         return _response.data
 
+    async def list_plan_orders(
+        self,
+        *,
+        plan_id: str,
+        order_ids: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> PlanOrdersListPlanOrdersResponseBody:
+        """
+        Retrieve all orders for a specific plan, including both assigned and unassigned orders.
+
+        **Beta:** This endpoint is in beta and is likely to change before being broadly available. Reach out to your Samsara Representative to have RoutePlanning APIs enabled for your organization.
+
+         <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        plan_id : str
+            The plan identifier
+
+        order_ids : typing.Optional[str]
+            Comma-separated list of order IDs for filtering.
+
+        after : typing.Optional[str]
+            If specified, should be the endCursor from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            Maximum number of objects to return. Default and maximum is 100
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        PlanOrdersListPlanOrdersResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.list_plan_orders(
+                plan_id="planId",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.list_plan_orders(
+            plan_id=plan_id, order_ids=order_ids, after=after, limit=limit, request_options=request_options
+        )
+        return _response.data
+
     async def create_plan_orders(
         self,
         *,
@@ -6785,6 +6966,68 @@ class AsyncBetaApIsClient:
         """
         _response = await self._raw_client.create_plan_orders(
             data=data, enable_update_existing_orders=enable_update_existing_orders, request_options=request_options
+        )
+        return _response.data
+
+    async def delete_plan_orders(
+        self,
+        *,
+        plan_id: str,
+        order_ids: typing.Optional[str] = None,
+        delete_all: typing.Optional[bool] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> None:
+        """
+        Delete one or more orders from a plan. Pass either `orderIds` (a comma-separated list) or `deleteAll=true`; exactly one is required. Orders are automatically unassigned from their routes before deletion.
+
+        **Beta:** This endpoint is in beta and is likely to change before being broadly available. Reach out to your Samsara Representative to have RoutePlanning APIs enabled for your organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        plan_id : str
+            The plan identifier
+
+        order_ids : typing.Optional[str]
+            Comma-separated list of order IDs to delete. Mutually exclusive with `deleteAll=true`; exactly one of the two must be provided.
+
+        delete_all : typing.Optional[bool]
+            When `true`, every order in the plan is deleted. Must not be combined with `orderIds`. Must be set to `true` explicitly — `false` is equivalent to omitting the parameter and requires `orderIds` to be supplied.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.delete_plan_orders(
+                plan_id="planId",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.delete_plan_orders(
+            plan_id=plan_id, order_ids=order_ids, delete_all=delete_all, request_options=request_options
         )
         return _response.data
 

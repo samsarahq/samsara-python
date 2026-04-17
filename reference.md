@@ -5652,6 +5652,109 @@ client.beta_ap_is.list_hub_custom_properties(
 </dl>
 </details>
 
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_plan_orders</a>(...) -&gt; AsyncHttpResponse[PlanOrdersListPlanOrdersResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Retrieve all orders for a specific plan, including both assigned and unassigned orders.
+
+**Beta:** This endpoint is in beta and is likely to change before being broadly available. Reach out to your Samsara Representative to have RoutePlanning APIs enabled for your organization.
+
+ <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.list_plan_orders(
+    plan_id="planId",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**plan_id:** `str` — The plan identifier
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**order_ids:** `typing.Optional[str]` — Comma-separated list of order IDs for filtering.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` — If specified, should be the endCursor from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**limit:** `typing.Optional[int]` — Maximum number of objects to return. Default and maximum is 100
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">create_plan_orders</a>(...) -&gt; AsyncHttpResponse[PlanOrdersCreatePlanOrdersResponseBody]</code></summary>
 <dl>
 <dd>
@@ -5726,6 +5829,101 @@ client.beta_ap_is.create_plan_orders(
 <dd>
 
 **enable_update_existing_orders:** `typing.Optional[bool]` — Enable update of existing orders if an order with the same customerOrderId exists. The input must match the same quantity dimensions as the existing order. If not provided, requests will fail if an order's customerOrderId already exists.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">delete_plan_orders</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Delete one or more orders from a plan. Pass either `orderIds` (a comma-separated list) or `deleteAll=true`; exactly one is required. Orders are automatically unassigned from their routes before deletion.
+
+**Beta:** This endpoint is in beta and is likely to change before being broadly available. Reach out to your Samsara Representative to have RoutePlanning APIs enabled for your organization.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.delete_plan_orders(
+    plan_id="planId",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**plan_id:** `str` — The plan identifier
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**order_ids:** `typing.Optional[str]` — Comma-separated list of order IDs to delete. Mutually exclusive with `deleteAll=true`; exactly one of the two must be provided.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**delete_all:** `typing.Optional[bool]` — When `true`, every order in the plan is deleted. Must not be combined with `orderIds`. Must be set to `true` explicitly — `false` is equivalent to omitting the parameter and requires `orderIds` to be supplied.
     
 </dd>
 </dl>
