@@ -9,6 +9,7 @@ from ..types.asset_response_body import AssetResponseBody
 from ..types.assets_create_asset_response_body import AssetsCreateAssetResponseBody
 from ..types.assets_list_assets_response_body import AssetsListAssetsResponseBody
 from ..types.assets_update_asset_response_body import AssetsUpdateAssetResponseBody
+from ..types.goa_attribute_tiny_request_body import GoaAttributeTinyRequestBody
 from ..types.inline_response_2002 import InlineResponse2002
 from ..types.inline_response_2003 import InlineResponse2003
 from ..types.v_1_asset_location_response import V1AssetLocationResponse
@@ -50,6 +51,7 @@ class AssetsClient:
         tag_ids: typing.Optional[str] = None,
         parent_tag_ids: typing.Optional[str] = None,
         ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        external_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         attribute_value_ids: typing.Optional[str] = None,
         attributes: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
@@ -90,6 +92,9 @@ class AssetsClient:
         ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             A filter on the data based on this comma-separated list of asset IDs and External IDs.
 
+        external_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of external IDs. Example: `externalIds=maintenanceId:250020,vin:1HGBH41JXMN109186`
+
         attribute_value_ids : typing.Optional[str]
             A filter on the data based on this comma-separated list of attribute value IDs. Only entities associated with ALL of the referenced values will be returned (i.e. the intersection of the sets of entities with each value). Example: `attributeValueIds=076efac2-83b5-47aa-ba36-18428436dcac,6707b3f0-23b9-4fe3-b7be-11be34aea544`
 
@@ -127,6 +132,7 @@ class AssetsClient:
             tag_ids=tag_ids,
             parent_tag_ids=parent_tag_ids,
             ids=ids,
+            external_ids=external_ids,
             attribute_value_ids=attribute_value_ids,
             attributes=attributes,
             request_options=request_options,
@@ -135,6 +141,7 @@ class AssetsClient:
     def create_asset(
         self,
         *,
+        attributes: typing.Optional[typing.Sequence[GoaAttributeTinyRequestBody]] = OMIT,
         external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
         license_plate: typing.Optional[str] = OMIT,
         make: typing.Optional[str] = OMIT,
@@ -144,6 +151,7 @@ class AssetsClient:
         readings_ingestion_enabled: typing.Optional[bool] = OMIT,
         regulation_mode: typing.Optional[AssetsCreateAssetRequestBodyRegulationMode] = OMIT,
         serial_number: typing.Optional[str] = OMIT,
+        tag_ids: typing.Optional[typing.Sequence[str]] = OMIT,
         type: typing.Optional[AssetsCreateAssetRequestBodyType] = OMIT,
         vin: typing.Optional[str] = OMIT,
         year: typing.Optional[int] = OMIT,
@@ -161,6 +169,9 @@ class AssetsClient:
 
         Parameters
         ----------
+        attributes : typing.Optional[typing.Sequence[GoaAttributeTinyRequestBody]]
+            A list of attributes to assign to the asset.
+
         external_ids : typing.Optional[typing.Dict[str, str]]
             A map of external ids
 
@@ -187,6 +198,9 @@ class AssetsClient:
 
         serial_number : typing.Optional[str]
             The serial number of the asset. This can be an internal serial number or used to hold legacy VIN/PIN numbers such as ones of shorter lengths.
+
+        tag_ids : typing.Optional[typing.Sequence[str]]
+            An array of IDs of tags to associate with this asset. If your access to the API is scoped by one or more tags, this field is required to pass in.
 
         type : typing.Optional[AssetsCreateAssetRequestBodyType]
             The operational context in which the asset interacts with the Samsara system. Examples: Vehicle (eg: truck, bus...), Trailer (eg: dry van, reefer, flatbed...), Powered Equipment (eg: dozer, crane...), Unpowered Equipment (eg: container, dumpster...), or Uncategorized.  Valid values: `uncategorized`, `trailer`, `equipment`, `unpowered`, `vehicle`
@@ -215,6 +229,7 @@ class AssetsClient:
         client.assets.create_asset()
         """
         _response = self._raw_client.create_asset(
+            attributes=attributes,
             external_ids=external_ids,
             license_plate=license_plate,
             make=make,
@@ -224,6 +239,7 @@ class AssetsClient:
             readings_ingestion_enabled=readings_ingestion_enabled,
             regulation_mode=regulation_mode,
             serial_number=serial_number,
+            tag_ids=tag_ids,
             type=type,
             vin=vin,
             year=year,
@@ -689,6 +705,7 @@ class AsyncAssetsClient:
         tag_ids: typing.Optional[str] = None,
         parent_tag_ids: typing.Optional[str] = None,
         ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        external_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         attribute_value_ids: typing.Optional[str] = None,
         attributes: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
@@ -728,6 +745,9 @@ class AsyncAssetsClient:
 
         ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             A filter on the data based on this comma-separated list of asset IDs and External IDs.
+
+        external_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A filter on the data based on this comma-separated list of external IDs. Example: `externalIds=maintenanceId:250020,vin:1HGBH41JXMN109186`
 
         attribute_value_ids : typing.Optional[str]
             A filter on the data based on this comma-separated list of attribute value IDs. Only entities associated with ALL of the referenced values will be returned (i.e. the intersection of the sets of entities with each value). Example: `attributeValueIds=076efac2-83b5-47aa-ba36-18428436dcac,6707b3f0-23b9-4fe3-b7be-11be34aea544`
@@ -775,6 +795,7 @@ class AsyncAssetsClient:
             tag_ids=tag_ids,
             parent_tag_ids=parent_tag_ids,
             ids=ids,
+            external_ids=external_ids,
             attribute_value_ids=attribute_value_ids,
             attributes=attributes,
             request_options=request_options,
@@ -783,6 +804,7 @@ class AsyncAssetsClient:
     async def create_asset(
         self,
         *,
+        attributes: typing.Optional[typing.Sequence[GoaAttributeTinyRequestBody]] = OMIT,
         external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
         license_plate: typing.Optional[str] = OMIT,
         make: typing.Optional[str] = OMIT,
@@ -792,6 +814,7 @@ class AsyncAssetsClient:
         readings_ingestion_enabled: typing.Optional[bool] = OMIT,
         regulation_mode: typing.Optional[AssetsCreateAssetRequestBodyRegulationMode] = OMIT,
         serial_number: typing.Optional[str] = OMIT,
+        tag_ids: typing.Optional[typing.Sequence[str]] = OMIT,
         type: typing.Optional[AssetsCreateAssetRequestBodyType] = OMIT,
         vin: typing.Optional[str] = OMIT,
         year: typing.Optional[int] = OMIT,
@@ -809,6 +832,9 @@ class AsyncAssetsClient:
 
         Parameters
         ----------
+        attributes : typing.Optional[typing.Sequence[GoaAttributeTinyRequestBody]]
+            A list of attributes to assign to the asset.
+
         external_ids : typing.Optional[typing.Dict[str, str]]
             A map of external ids
 
@@ -835,6 +861,9 @@ class AsyncAssetsClient:
 
         serial_number : typing.Optional[str]
             The serial number of the asset. This can be an internal serial number or used to hold legacy VIN/PIN numbers such as ones of shorter lengths.
+
+        tag_ids : typing.Optional[typing.Sequence[str]]
+            An array of IDs of tags to associate with this asset. If your access to the API is scoped by one or more tags, this field is required to pass in.
 
         type : typing.Optional[AssetsCreateAssetRequestBodyType]
             The operational context in which the asset interacts with the Samsara system. Examples: Vehicle (eg: truck, bus...), Trailer (eg: dry van, reefer, flatbed...), Powered Equipment (eg: dozer, crane...), Unpowered Equipment (eg: container, dumpster...), or Uncategorized.  Valid values: `uncategorized`, `trailer`, `equipment`, `unpowered`, `vehicle`
@@ -871,6 +900,7 @@ class AsyncAssetsClient:
         asyncio.run(main())
         """
         _response = await self._raw_client.create_asset(
+            attributes=attributes,
             external_ids=external_ids,
             license_plate=license_plate,
             make=make,
@@ -880,6 +910,7 @@ class AsyncAssetsClient:
             readings_ingestion_enabled=readings_ingestion_enabled,
             regulation_mode=regulation_mode,
             serial_number=serial_number,
+            tag_ids=tag_ids,
             type=type,
             vin=vin,
             year=year,

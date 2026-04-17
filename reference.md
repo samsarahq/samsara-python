@@ -1286,6 +1286,14 @@ for page in response.iter_pages():
 <dl>
 <dd>
 
+**external_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — A filter on the data based on this comma-separated list of external IDs. Example: `externalIds=maintenanceId:250020,vin:1HGBH41JXMN109186`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **attribute_value_ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of attribute value IDs. Only entities associated with ALL of the referenced values will be returned (i.e. the intersection of the sets of entities with each value). Example: `attributeValueIds=076efac2-83b5-47aa-ba36-18428436dcac,6707b3f0-23b9-4fe3-b7be-11be34aea544`
     
 </dd>
@@ -1369,6 +1377,14 @@ client.assets.create_asset()
 <dl>
 <dd>
 
+**attributes:** `typing.Optional[typing.Sequence[GoaAttributeTinyRequestBody]]` — A list of attributes to assign to the asset.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **external_ids:** `typing.Optional[typing.Dict[str, str]]` — A map of external ids
     
 </dd>
@@ -1434,6 +1450,14 @@ client.assets.create_asset()
 <dd>
 
 **serial_number:** `typing.Optional[str]` — The serial number of the asset. This can be an internal serial number or used to hold legacy VIN/PIN numbers such as ones of shorter lengths.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**tag_ids:** `typing.Optional[typing.Sequence[str]]` — An array of IDs of tags to associate with this asset. If your access to the API is scoped by one or more tags, this field is required to pass in.
     
 </dd>
 </dl>
@@ -10277,7 +10301,7 @@ client = Samsara(
 )
 client.media.post_media_retrieval(
     end_time="2019-06-13T19:08:55Z",
-    inputs=["dashcamRoadFacing", "dashcamRoadFacing", "dashcamRoadFacing"],
+    inputs=["dashcamRoadFacing", "dashcamRoadFacing"],
     media_type="image",
     start_time="2019-06-13T19:08:25Z",
     vehicle_id="1234",
