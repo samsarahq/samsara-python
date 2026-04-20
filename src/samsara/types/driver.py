@@ -35,6 +35,7 @@ from .driver_static_assigned_vehicle import DriverStaticAssignedVehicle
 from .driver_tachograph_card_number import DriverTachographCardNumber
 from .driver_tags import DriverTags
 from .driver_timezone import DriverTimezone
+from .driver_trailer_group_tag import DriverTrailerGroupTag
 from .driver_updated_at_time import DriverUpdatedAtTime
 from .driver_username import DriverUsername
 from .driver_vehicle_group_tag import DriverVehicleGroupTag
@@ -156,6 +157,11 @@ class Driver(UniversalBaseModel):
     ] = None
     tags: typing.Optional[DriverTags] = None
     timezone: typing.Optional[DriverTimezone] = None
+    trailer_group_tag: typing_extensions.Annotated[
+        typing.Optional[DriverTrailerGroupTag],
+        FieldMetadata(alias="trailerGroupTag"),
+        pydantic.Field(alias="trailerGroupTag"),
+    ] = None
     updated_at_time: typing_extensions.Annotated[
         typing.Optional[DriverUpdatedAtTime],
         FieldMetadata(alias="updatedAtTime"),

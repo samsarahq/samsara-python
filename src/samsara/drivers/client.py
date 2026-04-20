@@ -163,6 +163,7 @@ class DriversClient:
         tachograph_card_number: typing.Optional[str] = OMIT,
         tag_ids: typing.Optional[typing.Sequence[str]] = OMIT,
         timezone: typing.Optional[str] = OMIT,
+        trailer_group_tag_id: typing.Optional[str] = OMIT,
         us_driver_ruleset_override: typing.Optional[UsDriverRulesetOverride] = OMIT,
         vehicle_group_tag_id: typing.Optional[str] = OMIT,
         waiting_time_duty_status_enabled: typing.Optional[bool] = OMIT,
@@ -257,6 +258,9 @@ class DriversClient:
         timezone : typing.Optional[str]
             Home terminal timezone, in order to indicate what time zone should be used to calculate the ELD logs. Driver timezones use [IANA timezone database](https://www.iana.org/time-zones) keys (e.g. `America/Los_Angeles`, `America/New_York`, `Europe/London`, etc.). You can find a mapping of common timezone formats to IANA timezone keys [here](https://unicode.org/cldr/charts/latest/supplemental/zone_tzid.html).
 
+        trailer_group_tag_id : typing.Optional[str]
+            Tag ID which determines which trailers a driver will see when selecting trailers.
+
         us_driver_ruleset_override : typing.Optional[UsDriverRulesetOverride]
 
         vehicle_group_tag_id : typing.Optional[str]
@@ -316,6 +320,7 @@ class DriversClient:
             tachograph_card_number=tachograph_card_number,
             tag_ids=tag_ids,
             timezone=timezone,
+            trailer_group_tag_id=trailer_group_tag_id,
             us_driver_ruleset_override=us_driver_ruleset_override,
             vehicle_group_tag_id=vehicle_group_tag_id,
             waiting_time_duty_status_enabled=waiting_time_duty_status_enabled,
@@ -463,6 +468,7 @@ class DriversClient:
         tachograph_card_number: typing.Optional[str] = OMIT,
         tag_ids: typing.Optional[typing.Sequence[str]] = OMIT,
         timezone: typing.Optional[str] = OMIT,
+        trailer_group_tag_id: typing.Optional[str] = OMIT,
         us_driver_ruleset_override: typing.Optional[UsDriverRulesetOverride] = OMIT,
         username: typing.Optional[str] = OMIT,
         vehicle_group_tag_id: typing.Optional[str] = OMIT,
@@ -564,6 +570,9 @@ class DriversClient:
         timezone : typing.Optional[str]
             Home terminal timezone, in order to indicate what time zone should be used to calculate the ELD logs. Driver timezones use [IANA timezone database](https://www.iana.org/time-zones) keys (e.g. `America/Los_Angeles`, `America/New_York`, `Europe/London`, etc.). You can find a mapping of common timezone formats to IANA timezone keys [here](https://unicode.org/cldr/charts/latest/supplemental/zone_tzid.html).
 
+        trailer_group_tag_id : typing.Optional[str]
+            Tag ID which determines which trailers a driver will see when selecting trailers.
+
         us_driver_ruleset_override : typing.Optional[UsDriverRulesetOverride]
 
         username : typing.Optional[str]
@@ -626,6 +635,7 @@ class DriversClient:
             tachograph_card_number=tachograph_card_number,
             tag_ids=tag_ids,
             timezone=timezone,
+            trailer_group_tag_id=trailer_group_tag_id,
             us_driver_ruleset_override=us_driver_ruleset_override,
             username=username,
             vehicle_group_tag_id=vehicle_group_tag_id,
@@ -776,6 +786,7 @@ class AsyncDriversClient:
         tachograph_card_number: typing.Optional[str] = OMIT,
         tag_ids: typing.Optional[typing.Sequence[str]] = OMIT,
         timezone: typing.Optional[str] = OMIT,
+        trailer_group_tag_id: typing.Optional[str] = OMIT,
         us_driver_ruleset_override: typing.Optional[UsDriverRulesetOverride] = OMIT,
         vehicle_group_tag_id: typing.Optional[str] = OMIT,
         waiting_time_duty_status_enabled: typing.Optional[bool] = OMIT,
@@ -870,6 +881,9 @@ class AsyncDriversClient:
         timezone : typing.Optional[str]
             Home terminal timezone, in order to indicate what time zone should be used to calculate the ELD logs. Driver timezones use [IANA timezone database](https://www.iana.org/time-zones) keys (e.g. `America/Los_Angeles`, `America/New_York`, `Europe/London`, etc.). You can find a mapping of common timezone formats to IANA timezone keys [here](https://unicode.org/cldr/charts/latest/supplemental/zone_tzid.html).
 
+        trailer_group_tag_id : typing.Optional[str]
+            Tag ID which determines which trailers a driver will see when selecting trailers.
+
         us_driver_ruleset_override : typing.Optional[UsDriverRulesetOverride]
 
         vehicle_group_tag_id : typing.Optional[str]
@@ -937,6 +951,7 @@ class AsyncDriversClient:
             tachograph_card_number=tachograph_card_number,
             tag_ids=tag_ids,
             timezone=timezone,
+            trailer_group_tag_id=trailer_group_tag_id,
             us_driver_ruleset_override=us_driver_ruleset_override,
             vehicle_group_tag_id=vehicle_group_tag_id,
             waiting_time_duty_status_enabled=waiting_time_duty_status_enabled,
@@ -1110,6 +1125,7 @@ class AsyncDriversClient:
         tachograph_card_number: typing.Optional[str] = OMIT,
         tag_ids: typing.Optional[typing.Sequence[str]] = OMIT,
         timezone: typing.Optional[str] = OMIT,
+        trailer_group_tag_id: typing.Optional[str] = OMIT,
         us_driver_ruleset_override: typing.Optional[UsDriverRulesetOverride] = OMIT,
         username: typing.Optional[str] = OMIT,
         vehicle_group_tag_id: typing.Optional[str] = OMIT,
@@ -1211,6 +1227,9 @@ class AsyncDriversClient:
         timezone : typing.Optional[str]
             Home terminal timezone, in order to indicate what time zone should be used to calculate the ELD logs. Driver timezones use [IANA timezone database](https://www.iana.org/time-zones) keys (e.g. `America/Los_Angeles`, `America/New_York`, `Europe/London`, etc.). You can find a mapping of common timezone formats to IANA timezone keys [here](https://unicode.org/cldr/charts/latest/supplemental/zone_tzid.html).
 
+        trailer_group_tag_id : typing.Optional[str]
+            Tag ID which determines which trailers a driver will see when selecting trailers.
+
         us_driver_ruleset_override : typing.Optional[UsDriverRulesetOverride]
 
         username : typing.Optional[str]
@@ -1281,6 +1300,7 @@ class AsyncDriversClient:
             tachograph_card_number=tachograph_card_number,
             tag_ids=tag_ids,
             timezone=timezone,
+            trailer_group_tag_id=trailer_group_tag_id,
             us_driver_ruleset_override=us_driver_ruleset_override,
             username=username,
             vehicle_group_tag_id=vehicle_group_tag_id,
