@@ -1349,6 +1349,7 @@ if typing.TYPE_CHECKING:
     from .driver_tags import DriverTags
     from .driver_timezone import DriverTimezone
     from .driver_tiny_response import DriverTinyResponse
+    from .driver_trailer_group_tag import DriverTrailerGroupTag
     from .driver_updated_at_time import DriverUpdatedAtTime
     from .driver_username import DriverUsername
     from .driver_vehicle_assignment_v_2_object_response_body import DriverVehicleAssignmentV2ObjectResponseBody
@@ -8233,6 +8234,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "DriverTags": ".driver_tags",
     "DriverTimezone": ".driver_timezone",
     "DriverTinyResponse": ".driver_tiny_response",
+    "DriverTrailerGroupTag": ".driver_trailer_group_tag",
     "DriverUpdatedAtTime": ".driver_updated_at_time",
     "DriverUsername": ".driver_username",
     "DriverVehicleAssignmentV2ObjectResponseBody": ".driver_vehicle_assignment_v_2_object_response_body",
@@ -11935,6 +11937,7 @@ __all__ = [
     "DriverTags",
     "DriverTimezone",
     "DriverTinyResponse",
+    "DriverTrailerGroupTag",
     "DriverUpdatedAtTime",
     "DriverUsername",
     "DriverVehicleAssignmentV2ObjectResponseBody",

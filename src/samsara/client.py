@@ -50,6 +50,7 @@ if typing.TYPE_CHECKING:
     from .organization_info.client import AsyncOrganizationInfoClient, OrganizationInfoClient
     from .plans.client import AsyncPlansClient, PlansClient
     from .preview_ap_is.client import AsyncPreviewApIsClient, PreviewApIsClient
+    from .readings.client import AsyncReadingsClient, ReadingsClient
     from .route_events.client import AsyncRouteEventsClient, RouteEventsClient
     from .routes.client import AsyncRoutesClient, RoutesClient
     from .safety.client import AsyncSafetyClient, SafetyClient
@@ -180,6 +181,7 @@ class Samsara:
         self._work_orders: typing.Optional[WorkOrdersClient] = None
         self._organization_info: typing.Optional[OrganizationInfoClient] = None
         self._preview_ap_is: typing.Optional[PreviewApIsClient] = None
+        self._readings: typing.Optional[ReadingsClient] = None
         self._route_events: typing.Optional[RouteEventsClient] = None
         self._safety: typing.Optional[SafetyClient] = None
         self._safety_scores: typing.Optional[SafetyScoresClient] = None
@@ -525,6 +527,14 @@ class Samsara:
         return self._preview_ap_is
 
     @property
+    def readings(self):
+        if self._readings is None:
+            from .readings.client import ReadingsClient  # noqa: E402
+
+            self._readings = ReadingsClient(client_wrapper=self._client_wrapper)
+        return self._readings
+
+    @property
     def route_events(self):
         if self._route_events is None:
             from .route_events.client import RouteEventsClient  # noqa: E402
@@ -753,6 +763,7 @@ class AsyncSamsara:
         self._work_orders: typing.Optional[AsyncWorkOrdersClient] = None
         self._organization_info: typing.Optional[AsyncOrganizationInfoClient] = None
         self._preview_ap_is: typing.Optional[AsyncPreviewApIsClient] = None
+        self._readings: typing.Optional[AsyncReadingsClient] = None
         self._route_events: typing.Optional[AsyncRouteEventsClient] = None
         self._safety: typing.Optional[AsyncSafetyClient] = None
         self._safety_scores: typing.Optional[AsyncSafetyScoresClient] = None
@@ -1098,6 +1109,14 @@ class AsyncSamsara:
 
             self._preview_ap_is = AsyncPreviewApIsClient(client_wrapper=self._client_wrapper)
         return self._preview_ap_is
+
+    @property
+    def readings(self):
+        if self._readings is None:
+            from .readings.client import AsyncReadingsClient  # noqa: E402
+
+            self._readings = AsyncReadingsClient(client_wrapper=self._client_wrapper)
+        return self._readings
 
     @property
     def route_events(self):
