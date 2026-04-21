@@ -8,7 +8,9 @@ import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .quantity_object_response_body import QuantityObjectResponseBody
+from .route_driver_object_response_body import RouteDriverObjectResponseBody
 from .route_stop_object_response_body import RouteStopObjectResponseBody
+from .route_vehicle_object_response_body import RouteVehicleObjectResponseBody
 
 
 class RouteObjectResponseBody(UniversalBaseModel):
@@ -36,6 +38,7 @@ class RouteObjectResponseBody(UniversalBaseModel):
         FieldMetadata(alias="distanceMeters"),
         pydantic.Field(alias="distanceMeters", description="The total distance of the route in meters"),
     ]
+    driver: typing.Optional[RouteDriverObjectResponseBody] = None
     duration_seconds: typing_extensions.Annotated[
         int,
         FieldMetadata(alias="durationSeconds"),
@@ -113,6 +116,7 @@ class RouteObjectResponseBody(UniversalBaseModel):
         FieldMetadata(alias="updatedAt"),
         pydantic.Field(alias="updatedAt", description="The timestamp (in UTC) when the route was last updated"),
     ]
+    vehicle: typing.Optional[RouteVehicleObjectResponseBody] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
