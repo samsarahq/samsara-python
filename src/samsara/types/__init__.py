@@ -5104,6 +5104,7 @@ if typing.TYPE_CHECKING:
         RollingStopDetectionAlertSettingsObjectResponseBody,
     )
     from .route_changes_response_body import RouteChangesResponseBody
+    from .route_driver_object_response_body import RouteDriverObjectResponseBody
     from .route_event_details_response_body import RouteEventDetailsResponseBody
     from .route_event_response_response_body import RouteEventResponseResponseBody
     from .route_event_response_response_body_event_type import RouteEventResponseResponseBodyEventType
@@ -5135,6 +5136,7 @@ if typing.TYPE_CHECKING:
     )
     from .route_stop_eta_response_body import RouteStopEtaResponseBody
     from .route_stop_object_response_body import RouteStopObjectResponseBody
+    from .route_vehicle_object_response_body import RouteVehicleObjectResponseBody
     from .routes_create_route_bad_gateway_error_response_body import RoutesCreateRouteBadGatewayErrorResponseBody
     from .routes_create_route_gateway_timeout_error_response_body import (
         RoutesCreateRouteGatewayTimeoutErrorResponseBody,
@@ -9941,6 +9943,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "RidershipRouteSetupsUpdateRidershipRouteSetupUnauthorizedErrorResponseBody": ".ridership_route_setups_update_ridership_route_setup_unauthorized_error_response_body",
     "RollingStopDetectionAlertSettingsObjectResponseBody": ".rolling_stop_detection_alert_settings_object_response_body",
     "RouteChangesResponseBody": ".route_changes_response_body",
+    "RouteDriverObjectResponseBody": ".route_driver_object_response_body",
     "RouteEventDetailsResponseBody": ".route_event_details_response_body",
     "RouteEventResponseResponseBody": ".route_event_response_response_body",
     "RouteEventResponseResponseBodyEventType": ".route_event_response_response_body_event_type",
@@ -9966,6 +9969,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "RouteStopEstimatedArrivalDetailsObjectResponseBody": ".route_stop_estimated_arrival_details_object_response_body",
     "RouteStopEtaResponseBody": ".route_stop_eta_response_body",
     "RouteStopObjectResponseBody": ".route_stop_object_response_body",
+    "RouteVehicleObjectResponseBody": ".route_vehicle_object_response_body",
     "RoutesCreateRouteBadGatewayErrorResponseBody": ".routes_create_route_bad_gateway_error_response_body",
     "RoutesCreateRouteGatewayTimeoutErrorResponseBody": ".routes_create_route_gateway_timeout_error_response_body",
     "RoutesCreateRouteInternalServerErrorResponseBody": ".routes_create_route_internal_server_error_response_body",
@@ -13644,6 +13648,7 @@ __all__ = [
     "RidershipRouteSetupsUpdateRidershipRouteSetupUnauthorizedErrorResponseBody",
     "RollingStopDetectionAlertSettingsObjectResponseBody",
     "RouteChangesResponseBody",
+    "RouteDriverObjectResponseBody",
     "RouteEventDetailsResponseBody",
     "RouteEventResponseResponseBody",
     "RouteEventResponseResponseBodyEventType",
@@ -13669,6 +13674,7 @@ __all__ = [
     "RouteStopEstimatedArrivalDetailsObjectResponseBody",
     "RouteStopEtaResponseBody",
     "RouteStopObjectResponseBody",
+    "RouteVehicleObjectResponseBody",
     "RoutesCreateRouteBadGatewayErrorResponseBody",
     "RoutesCreateRouteGatewayTimeoutErrorResponseBody",
     "RoutesCreateRouteInternalServerErrorResponseBody",

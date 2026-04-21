@@ -21,6 +21,13 @@ class OrderTaskObjectResponseBody(UniversalBaseModel):
         FieldMetadata(alias="customProperties"),
         pydantic.Field(alias="customProperties", description="List of custom properties for the order"),
     ] = None
+    customer_location_id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="customerLocationId"),
+        pydantic.Field(
+            alias="customerLocationId", description="The external ID of the location associated with this order"
+        ),
+    ] = None
     id: str = pydantic.Field()
     """
     The order identifier
