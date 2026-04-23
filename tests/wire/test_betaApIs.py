@@ -116,6 +116,30 @@ def test_betaApIs_get_devices() -> None:
     verify_request_count(test_id, "GET", "/devices", None, 1)
 
 
+def test_betaApIs_list_asset_assignments() -> None:
+    """Test listAssetAssignments endpoint with WireMock"""
+    test_id = "beta_ap_is.list_asset_assignments.0"
+    client = get_client(test_id)
+    client.beta_ap_is.list_asset_assignments()
+    verify_request_count(test_id, "GET", "/fleet/assets/assignments", None, 1)
+
+
+def test_betaApIs_create_asset_assignment() -> None:
+    """Test createAssetAssignment endpoint with WireMock"""
+    test_id = "beta_ap_is.create_asset_assignment.0"
+    client = get_client(test_id)
+    client.beta_ap_is.create_asset_assignment(asset_id="281474978683353", assignee_id="494123", assignee_type="driver")
+    verify_request_count(test_id, "POST", "/fleet/assets/assignments", None, 1)
+
+
+def test_betaApIs_unassign_asset_assignment() -> None:
+    """Test unassignAssetAssignment endpoint with WireMock"""
+    test_id = "beta_ap_is.unassign_asset_assignment.0"
+    client = get_client(test_id)
+    client.beta_ap_is.unassign_asset_assignment(asset_id="281474978683353")
+    verify_request_count(test_id, "POST", "/fleet/assets/assignments/unassign", None, 1)
+
+
 def test_betaApIs_list_associations() -> None:
     """Test listAssociations endpoint with WireMock"""
     test_id = "beta_ap_is.list_associations.0"
