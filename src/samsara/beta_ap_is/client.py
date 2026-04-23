@@ -47,9 +47,6 @@ from ..types.functions_start_function_run_response_body import FunctionsStartFun
 from ..types.goa_attribute_tiny import GoaAttributeTiny
 from ..types.hos_daily_logs_update_shipping_docs_response_body import HosDailyLogsUpdateShippingDocsResponseBody
 from ..types.hos_eld_events_get_hos_eld_events_response_body import HosEldEventsGetHosEldEventsResponseBody
-from ..types.hub_custom_properties_list_hub_custom_properties_response_body import (
-    HubCustomPropertiesListHubCustomPropertiesResponseBody,
-)
 from ..types.hub_route_templates_list_hub_route_templates_response_body import (
     HubRouteTemplatesListHubRouteTemplatesResponseBody,
 )
@@ -64,10 +61,8 @@ from ..types.maintenance_vendors_list_vendor_categories_response_body import (
     MaintenanceVendorsListVendorCategoriesResponseBody,
 )
 from ..types.notification_recipient_request_body import NotificationRecipientRequestBody
-from ..types.order_input_object_request_body import OrderInputObjectRequestBody
 from ..types.patch_function_request_config_request_body import PatchFunctionRequestConfigRequestBody
 from ..types.patch_job_object_request_body import PatchJobObjectRequestBody
-from ..types.plan_orders_create_plan_orders_response_body import PlanOrdersCreatePlanOrdersResponseBody
 from ..types.plan_orders_list_plan_orders_response_body import PlanOrdersListPlanOrdersResponseBody
 from ..types.post_job_object_request_body import PostJobObjectRequestBody
 from ..types.qualification_owner_request_object_request_body import QualificationOwnerRequestObjectRequestBody
@@ -2219,84 +2214,6 @@ class BetaApIsClient:
         )
         return _response.data
 
-    def list_hub_custom_properties(
-        self,
-        *,
-        hub_id: str,
-        custom_property_ids: typing.Optional[str] = None,
-        custom_property_names: typing.Optional[str] = None,
-        start_time: typing.Optional[dt.datetime] = None,
-        end_time: typing.Optional[dt.datetime] = None,
-        after: typing.Optional[str] = None,
-        limit: typing.Optional[int] = None,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> HubCustomPropertiesListHubCustomPropertiesResponseBody:
-        """
-        Retrieve custom properties for a specific hub.
-
-        **Beta:** This endpoint is in beta and is likely to change before being broadly available. Reach out to your Samsara Representative to have RoutePlanning APIs enabled for your organization.
-
-         <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        hub_id : str
-            The hub identifier
-
-        custom_property_ids : typing.Optional[str]
-            A comma-separated list of custom property IDs that can be used for filtering.
-
-        custom_property_names : typing.Optional[str]
-            A comma-separated list of custom property names that can be used for filtering.
-
-        start_time : typing.Optional[dt.datetime]
-            Time filter of when the custom property was updated, in RFC 3339 format
-
-        end_time : typing.Optional[dt.datetime]
-            Time filter of when the custom property was updated, in RFC 3339 format
-
-        after : typing.Optional[str]
-            If specified, should be the endCursor from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-
-        limit : typing.Optional[int]
-            Maximum number of objects to return. Default and maximum is 100
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        HubCustomPropertiesListHubCustomPropertiesResponseBody
-            OK response.
-
-        Examples
-        --------
-        from samsara import Samsara
-
-        client = Samsara(
-            token="YOUR_TOKEN",
-        )
-        client.beta_ap_is.list_hub_custom_properties(
-            hub_id="hubId",
-        )
-        """
-        _response = self._raw_client.list_hub_custom_properties(
-            hub_id=hub_id,
-            custom_property_ids=custom_property_ids,
-            custom_property_names=custom_property_names,
-            start_time=start_time,
-            end_time=end_time,
-            after=after,
-            limit=limit,
-            request_options=request_options,
-        )
-        return _response.data
-
     def list_plan_orders(
         self,
         *,
@@ -2353,63 +2270,6 @@ class BetaApIsClient:
         """
         _response = self._raw_client.list_plan_orders(
             plan_id=plan_id, order_ids=order_ids, after=after, limit=limit, request_options=request_options
-        )
-        return _response.data
-
-    def create_plan_orders(
-        self,
-        *,
-        data: typing.Sequence[OrderInputObjectRequestBody],
-        enable_update_existing_orders: typing.Optional[bool] = OMIT,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> PlanOrdersCreatePlanOrdersResponseBody:
-        """
-        Create one or more orders (bulk upsert). Pass an array of order objects; any object whose customerOrderId already exists will be updated, otherwise a new order is created. Functions can return JSON arrays in this Order POST format. Orders are initially created at the plan level but will migrate to hub-level entities, with planId becoming optional in future versions.
-
-        **Beta:** This endpoint is in beta and is likely to change before being broadly available. Reach out to your Samsara Representative to have RoutePlanning APIs enabled for your organization.
-
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Write Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        data : typing.Sequence[OrderInputObjectRequestBody]
-            An array of order objects to be created or updated
-
-        enable_update_existing_orders : typing.Optional[bool]
-            Enable update of existing orders if an order with the same customerOrderId exists. The input must match the same quantity dimensions as the existing order. If not provided, requests will fail if an order's customerOrderId already exists.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        PlanOrdersCreatePlanOrdersResponseBody
-            OK response.
-
-        Examples
-        --------
-        from samsara import OrderInputObjectRequestBody, Samsara
-
-        client = Samsara(
-            token="YOUR_TOKEN",
-        )
-        client.beta_ap_is.create_plan_orders(
-            data=[
-                OrderInputObjectRequestBody(
-                    customer_order_id="ORDER-2024-001",
-                    hub_id="550e8400-e29b-41d4-a716-446655440000",
-                    plan_id="650e8400-e29b-41d4-a716-446655440023",
-                )
-            ],
-        )
-        """
-        _response = self._raw_client.create_plan_orders(
-            data=data, enable_update_existing_orders=enable_update_existing_orders, request_options=request_options
         )
         return _response.data
 
@@ -6424,92 +6284,6 @@ class AsyncBetaApIsClient:
         )
         return _response.data
 
-    async def list_hub_custom_properties(
-        self,
-        *,
-        hub_id: str,
-        custom_property_ids: typing.Optional[str] = None,
-        custom_property_names: typing.Optional[str] = None,
-        start_time: typing.Optional[dt.datetime] = None,
-        end_time: typing.Optional[dt.datetime] = None,
-        after: typing.Optional[str] = None,
-        limit: typing.Optional[int] = None,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> HubCustomPropertiesListHubCustomPropertiesResponseBody:
-        """
-        Retrieve custom properties for a specific hub.
-
-        **Beta:** This endpoint is in beta and is likely to change before being broadly available. Reach out to your Samsara Representative to have RoutePlanning APIs enabled for your organization.
-
-         <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        hub_id : str
-            The hub identifier
-
-        custom_property_ids : typing.Optional[str]
-            A comma-separated list of custom property IDs that can be used for filtering.
-
-        custom_property_names : typing.Optional[str]
-            A comma-separated list of custom property names that can be used for filtering.
-
-        start_time : typing.Optional[dt.datetime]
-            Time filter of when the custom property was updated, in RFC 3339 format
-
-        end_time : typing.Optional[dt.datetime]
-            Time filter of when the custom property was updated, in RFC 3339 format
-
-        after : typing.Optional[str]
-            If specified, should be the endCursor from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-
-        limit : typing.Optional[int]
-            Maximum number of objects to return. Default and maximum is 100
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        HubCustomPropertiesListHubCustomPropertiesResponseBody
-            OK response.
-
-        Examples
-        --------
-        import asyncio
-
-        from samsara import AsyncSamsara
-
-        client = AsyncSamsara(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.beta_ap_is.list_hub_custom_properties(
-                hub_id="hubId",
-            )
-
-
-        asyncio.run(main())
-        """
-        _response = await self._raw_client.list_hub_custom_properties(
-            hub_id=hub_id,
-            custom_property_ids=custom_property_ids,
-            custom_property_names=custom_property_names,
-            start_time=start_time,
-            end_time=end_time,
-            after=after,
-            limit=limit,
-            request_options=request_options,
-        )
-        return _response.data
-
     async def list_plan_orders(
         self,
         *,
@@ -6574,71 +6348,6 @@ class AsyncBetaApIsClient:
         """
         _response = await self._raw_client.list_plan_orders(
             plan_id=plan_id, order_ids=order_ids, after=after, limit=limit, request_options=request_options
-        )
-        return _response.data
-
-    async def create_plan_orders(
-        self,
-        *,
-        data: typing.Sequence[OrderInputObjectRequestBody],
-        enable_update_existing_orders: typing.Optional[bool] = OMIT,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> PlanOrdersCreatePlanOrdersResponseBody:
-        """
-        Create one or more orders (bulk upsert). Pass an array of order objects; any object whose customerOrderId already exists will be updated, otherwise a new order is created. Functions can return JSON arrays in this Order POST format. Orders are initially created at the plan level but will migrate to hub-level entities, with planId becoming optional in future versions.
-
-        **Beta:** This endpoint is in beta and is likely to change before being broadly available. Reach out to your Samsara Representative to have RoutePlanning APIs enabled for your organization.
-
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Write Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        data : typing.Sequence[OrderInputObjectRequestBody]
-            An array of order objects to be created or updated
-
-        enable_update_existing_orders : typing.Optional[bool]
-            Enable update of existing orders if an order with the same customerOrderId exists. The input must match the same quantity dimensions as the existing order. If not provided, requests will fail if an order's customerOrderId already exists.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        PlanOrdersCreatePlanOrdersResponseBody
-            OK response.
-
-        Examples
-        --------
-        import asyncio
-
-        from samsara import AsyncSamsara, OrderInputObjectRequestBody
-
-        client = AsyncSamsara(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.beta_ap_is.create_plan_orders(
-                data=[
-                    OrderInputObjectRequestBody(
-                        customer_order_id="ORDER-2024-001",
-                        hub_id="550e8400-e29b-41d4-a716-446655440000",
-                        plan_id="650e8400-e29b-41d4-a716-446655440023",
-                    )
-                ],
-            )
-
-
-        asyncio.run(main())
-        """
-        _response = await self._raw_client.create_plan_orders(
-            data=data, enable_update_existing_orders=enable_update_existing_orders, request_options=request_options
         )
         return _response.data
 

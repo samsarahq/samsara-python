@@ -9,6 +9,14 @@ def test_hubs_list_hub_capacities() -> None:
     verify_request_count(test_id, "GET", "/hub/capacities", {"hubId": "hubId"}, 1)
 
 
+def test_hubs_list_hub_custom_properties() -> None:
+    """Test listHubCustomProperties endpoint with WireMock"""
+    test_id = "hubs.list_hub_custom_properties.0"
+    client = get_client(test_id)
+    client.hubs.list_hub_custom_properties(hub_id="hubId")
+    verify_request_count(test_id, "GET", "/hub/customProperties", {"hubId": "hubId"}, 1)
+
+
 def test_hubs_update_hub_location() -> None:
     """Test updateHubLocation endpoint with WireMock"""
     test_id = "hubs.update_hub_location.0"

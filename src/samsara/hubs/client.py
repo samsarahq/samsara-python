@@ -6,6 +6,9 @@ import typing
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.request_options import RequestOptions
 from ..types.hub_capacities_list_hub_capacities_response_body import HubCapacitiesListHubCapacitiesResponseBody
+from ..types.hub_custom_properties_list_hub_custom_properties_response_body import (
+    HubCustomPropertiesListHubCustomPropertiesResponseBody,
+)
 from ..types.hub_location_input_object_request_body import HubLocationInputObjectRequestBody
 from ..types.hub_locations_create_hub_locations_response_body import HubLocationsCreateHubLocationsResponseBody
 from ..types.hub_locations_list_hub_locations_response_body import HubLocationsListHubLocationsResponseBody
@@ -102,6 +105,82 @@ class HubsClient:
             hub_id=hub_id,
             capacity_ids=capacity_ids,
             capacity_names=capacity_names,
+            start_time=start_time,
+            end_time=end_time,
+            after=after,
+            limit=limit,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def list_hub_custom_properties(
+        self,
+        *,
+        hub_id: str,
+        custom_property_ids: typing.Optional[str] = None,
+        custom_property_names: typing.Optional[str] = None,
+        start_time: typing.Optional[dt.datetime] = None,
+        end_time: typing.Optional[dt.datetime] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HubCustomPropertiesListHubCustomPropertiesResponseBody:
+        """
+        Retrieve custom properties for a specific hub.
+
+         <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        hub_id : str
+            The hub identifier
+
+        custom_property_ids : typing.Optional[str]
+            A comma-separated list of custom property IDs that can be used for filtering.
+
+        custom_property_names : typing.Optional[str]
+            A comma-separated list of custom property names that can be used for filtering.
+
+        start_time : typing.Optional[dt.datetime]
+            Time filter of when the custom property was updated, in RFC 3339 format
+
+        end_time : typing.Optional[dt.datetime]
+            Time filter of when the custom property was updated, in RFC 3339 format
+
+        after : typing.Optional[str]
+            If specified, should be the endCursor from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            Maximum number of objects to return. Default and maximum is 100
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HubCustomPropertiesListHubCustomPropertiesResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.hubs.list_hub_custom_properties(
+            hub_id="hubId",
+        )
+        """
+        _response = self._raw_client.list_hub_custom_properties(
+            hub_id=hub_id,
+            custom_property_ids=custom_property_ids,
+            custom_property_names=custom_property_names,
             start_time=start_time,
             end_time=end_time,
             after=after,
@@ -567,6 +646,90 @@ class AsyncHubsClient:
             hub_id=hub_id,
             capacity_ids=capacity_ids,
             capacity_names=capacity_names,
+            start_time=start_time,
+            end_time=end_time,
+            after=after,
+            limit=limit,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def list_hub_custom_properties(
+        self,
+        *,
+        hub_id: str,
+        custom_property_ids: typing.Optional[str] = None,
+        custom_property_names: typing.Optional[str] = None,
+        start_time: typing.Optional[dt.datetime] = None,
+        end_time: typing.Optional[dt.datetime] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HubCustomPropertiesListHubCustomPropertiesResponseBody:
+        """
+        Retrieve custom properties for a specific hub.
+
+         <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        hub_id : str
+            The hub identifier
+
+        custom_property_ids : typing.Optional[str]
+            A comma-separated list of custom property IDs that can be used for filtering.
+
+        custom_property_names : typing.Optional[str]
+            A comma-separated list of custom property names that can be used for filtering.
+
+        start_time : typing.Optional[dt.datetime]
+            Time filter of when the custom property was updated, in RFC 3339 format
+
+        end_time : typing.Optional[dt.datetime]
+            Time filter of when the custom property was updated, in RFC 3339 format
+
+        after : typing.Optional[str]
+            If specified, should be the endCursor from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            Maximum number of objects to return. Default and maximum is 100
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HubCustomPropertiesListHubCustomPropertiesResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.hubs.list_hub_custom_properties(
+                hub_id="hubId",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.list_hub_custom_properties(
+            hub_id=hub_id,
+            custom_property_ids=custom_property_ids,
+            custom_property_names=custom_property_names,
             start_time=start_time,
             end_time=end_time,
             after=after,

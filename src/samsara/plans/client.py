@@ -7,6 +7,8 @@ from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.request_options import RequestOptions
 from ..types.hub_plans_create_hub_plan_response_body import HubPlansCreateHubPlanResponseBody
 from ..types.hub_plans_list_hub_plans_response_body import HubPlansListHubPlansResponseBody
+from ..types.order_input_object_request_body import OrderInputObjectRequestBody
+from ..types.plan_orders_create_plan_orders_response_body import PlanOrdersCreatePlanOrdersResponseBody
 from .raw_client import AsyncRawPlansClient, RawPlansClient
 
 # this is used as the default value for optional parameters
@@ -79,6 +81,61 @@ class PlansClient:
         """
         _response = self._raw_client.create_hub_plan(
             hub_id=hub_id, name=name, shift_start_time=shift_start_time, request_options=request_options
+        )
+        return _response.data
+
+    def create_plan_orders(
+        self,
+        *,
+        data: typing.Sequence[OrderInputObjectRequestBody],
+        enable_update_existing_orders: typing.Optional[bool] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> PlanOrdersCreatePlanOrdersResponseBody:
+        """
+        Create one or more orders (bulk upsert). Pass an array of order objects; any object whose customerOrderId already exists will be updated, otherwise a new order is created. Functions can return JSON arrays in this Order POST format. Orders are initially created at the plan level but will migrate to hub-level entities, with planId becoming optional in future versions.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        data : typing.Sequence[OrderInputObjectRequestBody]
+            An array of order objects to be created or updated
+
+        enable_update_existing_orders : typing.Optional[bool]
+            Enable update of existing orders if an order with the same customerOrderId exists. The input must match the same quantity dimensions as the existing order. If not provided, requests will fail if an order's customerOrderId already exists.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        PlanOrdersCreatePlanOrdersResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import OrderInputObjectRequestBody, Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.plans.create_plan_orders(
+            data=[
+                OrderInputObjectRequestBody(
+                    customer_order_id="ORDER-2024-001",
+                    hub_id="550e8400-e29b-41d4-a716-446655440000",
+                    plan_id="650e8400-e29b-41d4-a716-446655440023",
+                )
+            ],
+        )
+        """
+        _response = self._raw_client.create_plan_orders(
+            data=data, enable_update_existing_orders=enable_update_existing_orders, request_options=request_options
         )
         return _response.data
 
@@ -228,6 +285,69 @@ class AsyncPlansClient:
         """
         _response = await self._raw_client.create_hub_plan(
             hub_id=hub_id, name=name, shift_start_time=shift_start_time, request_options=request_options
+        )
+        return _response.data
+
+    async def create_plan_orders(
+        self,
+        *,
+        data: typing.Sequence[OrderInputObjectRequestBody],
+        enable_update_existing_orders: typing.Optional[bool] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> PlanOrdersCreatePlanOrdersResponseBody:
+        """
+        Create one or more orders (bulk upsert). Pass an array of order objects; any object whose customerOrderId already exists will be updated, otherwise a new order is created. Functions can return JSON arrays in this Order POST format. Orders are initially created at the plan level but will migrate to hub-level entities, with planId becoming optional in future versions.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        data : typing.Sequence[OrderInputObjectRequestBody]
+            An array of order objects to be created or updated
+
+        enable_update_existing_orders : typing.Optional[bool]
+            Enable update of existing orders if an order with the same customerOrderId exists. The input must match the same quantity dimensions as the existing order. If not provided, requests will fail if an order's customerOrderId already exists.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        PlanOrdersCreatePlanOrdersResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara, OrderInputObjectRequestBody
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.plans.create_plan_orders(
+                data=[
+                    OrderInputObjectRequestBody(
+                        customer_order_id="ORDER-2024-001",
+                        hub_id="550e8400-e29b-41d4-a716-446655440000",
+                        plan_id="650e8400-e29b-41d4-a716-446655440023",
+                    )
+                ],
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.create_plan_orders(
+            data=data, enable_update_existing_orders=enable_update_existing_orders, request_options=request_options
         )
         return _response.data
 
