@@ -308,36 +308,12 @@ def test_betaApIs_update_shipping_docs() -> None:
     )
 
 
-def test_betaApIs_list_hub_custom_properties() -> None:
-    """Test listHubCustomProperties endpoint with WireMock"""
-    test_id = "beta_ap_is.list_hub_custom_properties.0"
-    client = get_client(test_id)
-    client.beta_ap_is.list_hub_custom_properties(hub_id="hubId")
-    verify_request_count(test_id, "GET", "/hub/customProperties", {"hubId": "hubId"}, 1)
-
-
 def test_betaApIs_list_plan_orders() -> None:
     """Test listPlanOrders endpoint with WireMock"""
     test_id = "beta_ap_is.list_plan_orders.0"
     client = get_client(test_id)
     client.beta_ap_is.list_plan_orders(plan_id="planId")
     verify_request_count(test_id, "GET", "/hub/plan/orders", {"planId": "planId"}, 1)
-
-
-def test_betaApIs_create_plan_orders() -> None:
-    """Test createPlanOrders endpoint with WireMock"""
-    test_id = "beta_ap_is.create_plan_orders.0"
-    client = get_client(test_id)
-    client.beta_ap_is.create_plan_orders(
-        data=[
-            {
-                "customer_order_id": "ORDER-2024-001",
-                "hub_id": "550e8400-e29b-41d4-a716-446655440000",
-                "plan_id": "650e8400-e29b-41d4-a716-446655440023",
-            }
-        ]
-    )
-    verify_request_count(test_id, "POST", "/hub/plan/orders", None, 1)
 
 
 def test_betaApIs_delete_plan_orders() -> None:
