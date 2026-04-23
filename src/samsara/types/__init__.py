@@ -3259,6 +3259,39 @@ if typing.TYPE_CHECKING:
     from .hub_plans_list_hub_plans_unauthorized_error_response_body import (
         HubPlansListHubPlansUnauthorizedErrorResponseBody,
     )
+    from .hub_route_template_depot_object_response_body import HubRouteTemplateDepotObjectResponseBody
+    from .hub_route_template_location_object_response_body import HubRouteTemplateLocationObjectResponseBody
+    from .hub_route_template_object_response_body import HubRouteTemplateObjectResponseBody
+    from .hub_route_templates_list_hub_route_templates_bad_gateway_error_response_body import (
+        HubRouteTemplatesListHubRouteTemplatesBadGatewayErrorResponseBody,
+    )
+    from .hub_route_templates_list_hub_route_templates_gateway_timeout_error_response_body import (
+        HubRouteTemplatesListHubRouteTemplatesGatewayTimeoutErrorResponseBody,
+    )
+    from .hub_route_templates_list_hub_route_templates_internal_server_error_response_body import (
+        HubRouteTemplatesListHubRouteTemplatesInternalServerErrorResponseBody,
+    )
+    from .hub_route_templates_list_hub_route_templates_method_not_allowed_error_response_body import (
+        HubRouteTemplatesListHubRouteTemplatesMethodNotAllowedErrorResponseBody,
+    )
+    from .hub_route_templates_list_hub_route_templates_not_found_error_response_body import (
+        HubRouteTemplatesListHubRouteTemplatesNotFoundErrorResponseBody,
+    )
+    from .hub_route_templates_list_hub_route_templates_not_implemented_error_response_body import (
+        HubRouteTemplatesListHubRouteTemplatesNotImplementedErrorResponseBody,
+    )
+    from .hub_route_templates_list_hub_route_templates_response_body import (
+        HubRouteTemplatesListHubRouteTemplatesResponseBody,
+    )
+    from .hub_route_templates_list_hub_route_templates_service_unavailable_error_response_body import (
+        HubRouteTemplatesListHubRouteTemplatesServiceUnavailableErrorResponseBody,
+    )
+    from .hub_route_templates_list_hub_route_templates_too_many_requests_error_response_body import (
+        HubRouteTemplatesListHubRouteTemplatesTooManyRequestsErrorResponseBody,
+    )
+    from .hub_route_templates_list_hub_route_templates_unauthorized_error_response_body import (
+        HubRouteTemplatesListHubRouteTemplatesUnauthorizedErrorResponseBody,
+    )
     from .hub_skill_object_response_body import HubSkillObjectResponseBody
     from .hub_skills_list_hub_skills_bad_gateway_error_response_body import (
         HubSkillsListHubSkillsBadGatewayErrorResponseBody,
@@ -9208,6 +9241,19 @@ _dynamic_imports: typing.Dict[str, str] = {
     "HubPlansListHubPlansServiceUnavailableErrorResponseBody": ".hub_plans_list_hub_plans_service_unavailable_error_response_body",
     "HubPlansListHubPlansTooManyRequestsErrorResponseBody": ".hub_plans_list_hub_plans_too_many_requests_error_response_body",
     "HubPlansListHubPlansUnauthorizedErrorResponseBody": ".hub_plans_list_hub_plans_unauthorized_error_response_body",
+    "HubRouteTemplateDepotObjectResponseBody": ".hub_route_template_depot_object_response_body",
+    "HubRouteTemplateLocationObjectResponseBody": ".hub_route_template_location_object_response_body",
+    "HubRouteTemplateObjectResponseBody": ".hub_route_template_object_response_body",
+    "HubRouteTemplatesListHubRouteTemplatesBadGatewayErrorResponseBody": ".hub_route_templates_list_hub_route_templates_bad_gateway_error_response_body",
+    "HubRouteTemplatesListHubRouteTemplatesGatewayTimeoutErrorResponseBody": ".hub_route_templates_list_hub_route_templates_gateway_timeout_error_response_body",
+    "HubRouteTemplatesListHubRouteTemplatesInternalServerErrorResponseBody": ".hub_route_templates_list_hub_route_templates_internal_server_error_response_body",
+    "HubRouteTemplatesListHubRouteTemplatesMethodNotAllowedErrorResponseBody": ".hub_route_templates_list_hub_route_templates_method_not_allowed_error_response_body",
+    "HubRouteTemplatesListHubRouteTemplatesNotFoundErrorResponseBody": ".hub_route_templates_list_hub_route_templates_not_found_error_response_body",
+    "HubRouteTemplatesListHubRouteTemplatesNotImplementedErrorResponseBody": ".hub_route_templates_list_hub_route_templates_not_implemented_error_response_body",
+    "HubRouteTemplatesListHubRouteTemplatesResponseBody": ".hub_route_templates_list_hub_route_templates_response_body",
+    "HubRouteTemplatesListHubRouteTemplatesServiceUnavailableErrorResponseBody": ".hub_route_templates_list_hub_route_templates_service_unavailable_error_response_body",
+    "HubRouteTemplatesListHubRouteTemplatesTooManyRequestsErrorResponseBody": ".hub_route_templates_list_hub_route_templates_too_many_requests_error_response_body",
+    "HubRouteTemplatesListHubRouteTemplatesUnauthorizedErrorResponseBody": ".hub_route_templates_list_hub_route_templates_unauthorized_error_response_body",
     "HubSkillObjectResponseBody": ".hub_skill_object_response_body",
     "HubSkillsListHubSkillsBadGatewayErrorResponseBody": ".hub_skills_list_hub_skills_bad_gateway_error_response_body",
     "HubSkillsListHubSkillsGatewayTimeoutErrorResponseBody": ".hub_skills_list_hub_skills_gateway_timeout_error_response_body",
@@ -12945,6 +12991,19 @@ __all__ = [
     "HubPlansListHubPlansServiceUnavailableErrorResponseBody",
     "HubPlansListHubPlansTooManyRequestsErrorResponseBody",
     "HubPlansListHubPlansUnauthorizedErrorResponseBody",
+    "HubRouteTemplateDepotObjectResponseBody",
+    "HubRouteTemplateLocationObjectResponseBody",
+    "HubRouteTemplateObjectResponseBody",
+    "HubRouteTemplatesListHubRouteTemplatesBadGatewayErrorResponseBody",
+    "HubRouteTemplatesListHubRouteTemplatesGatewayTimeoutErrorResponseBody",
+    "HubRouteTemplatesListHubRouteTemplatesInternalServerErrorResponseBody",
+    "HubRouteTemplatesListHubRouteTemplatesMethodNotAllowedErrorResponseBody",
+    "HubRouteTemplatesListHubRouteTemplatesNotFoundErrorResponseBody",
+    "HubRouteTemplatesListHubRouteTemplatesNotImplementedErrorResponseBody",
+    "HubRouteTemplatesListHubRouteTemplatesResponseBody",
+    "HubRouteTemplatesListHubRouteTemplatesServiceUnavailableErrorResponseBody",
+    "HubRouteTemplatesListHubRouteTemplatesTooManyRequestsErrorResponseBody",
+    "HubRouteTemplatesListHubRouteTemplatesUnauthorizedErrorResponseBody",
     "HubSkillObjectResponseBody",
     "HubSkillsListHubSkillsBadGatewayErrorResponseBody",
     "HubSkillsListHubSkillsGatewayTimeoutErrorResponseBody",

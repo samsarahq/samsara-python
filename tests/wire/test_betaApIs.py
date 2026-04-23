@@ -348,6 +348,14 @@ def test_betaApIs_delete_plan_orders() -> None:
     verify_request_count(test_id, "DELETE", "/hub/plan/orders", {"planId": "planId"}, 1)
 
 
+def test_betaApIs_list_hub_route_templates() -> None:
+    """Test listHubRouteTemplates endpoint with WireMock"""
+    test_id = "beta_ap_is.list_hub_route_templates.0"
+    client = get_client(test_id)
+    client.beta_ap_is.list_hub_route_templates(hub_id="hubId")
+    verify_request_count(test_id, "GET", "/hub/route-templates", {"hubId": "hubId"}, 1)
+
+
 def test_betaApIs_get_qualification_records() -> None:
     """Test getQualificationRecords endpoint with WireMock"""
     test_id = "beta_ap_is.get_qualification_records.0"

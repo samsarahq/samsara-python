@@ -50,6 +50,9 @@ from ..types.hos_eld_events_get_hos_eld_events_response_body import HosEldEvents
 from ..types.hub_custom_properties_list_hub_custom_properties_response_body import (
     HubCustomPropertiesListHubCustomPropertiesResponseBody,
 )
+from ..types.hub_route_templates_list_hub_route_templates_response_body import (
+    HubRouteTemplatesListHubRouteTemplatesResponseBody,
+)
 from ..types.jobs_create_job_response_body import JobsCreateJobResponseBody
 from ..types.jobs_delete_job_response_body import JobsDeleteJobResponseBody
 from ..types.jobs_get_jobs_response_body import JobsGetJobsResponseBody
@@ -2461,6 +2464,67 @@ class BetaApIsClient:
         """
         _response = self._raw_client.delete_plan_orders(
             plan_id=plan_id, order_ids=order_ids, delete_all=delete_all, request_options=request_options
+        )
+        return _response.data
+
+    def list_hub_route_templates(
+        self,
+        *,
+        hub_id: str,
+        id: typing.Optional[str] = None,
+        name: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HubRouteTemplatesListHubRouteTemplatesResponseBody:
+        """
+        Retrieve route templates for a specific hub. Optionally filter by route template ID or name.
+
+         <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        hub_id : str
+            The hub identifier.
+
+        id : typing.Optional[str]
+            Filter by a specific route template ID.
+
+        name : typing.Optional[str]
+            Filter by route template name (exact match).
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 100 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HubRouteTemplatesListHubRouteTemplatesResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.list_hub_route_templates(
+            hub_id="hubId",
+        )
+        """
+        _response = self._raw_client.list_hub_route_templates(
+            hub_id=hub_id, id=id, name=name, after=after, limit=limit, request_options=request_options
         )
         return _response.data
 
@@ -6637,6 +6701,75 @@ class AsyncBetaApIsClient:
         """
         _response = await self._raw_client.delete_plan_orders(
             plan_id=plan_id, order_ids=order_ids, delete_all=delete_all, request_options=request_options
+        )
+        return _response.data
+
+    async def list_hub_route_templates(
+        self,
+        *,
+        hub_id: str,
+        id: typing.Optional[str] = None,
+        name: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HubRouteTemplatesListHubRouteTemplatesResponseBody:
+        """
+        Retrieve route templates for a specific hub. Optionally filter by route template ID or name.
+
+         <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        hub_id : str
+            The hub identifier.
+
+        id : typing.Optional[str]
+            Filter by a specific route template ID.
+
+        name : typing.Optional[str]
+            Filter by route template name (exact match).
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 100 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HubRouteTemplatesListHubRouteTemplatesResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.list_hub_route_templates(
+                hub_id="hubId",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.list_hub_route_templates(
+            hub_id=hub_id, id=id, name=name, after=after, limit=limit, request_options=request_options
         )
         return _response.data
 
