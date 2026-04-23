@@ -51,7 +51,7 @@ class FormTemplateResponseObjectResponseBody(UniversalBaseModel):
         FieldMetadata(alias="formCategory"),
         pydantic.Field(
             alias="formCategory",
-            description="Category of the form template.  Valid values: `general`, `routing`, `fuel`",
+            description="Category of the form template.  Valid values: `general`, `routing`, `fuel`, `safety`",
         ),
     ] = None
     id: str = pydantic.Field()

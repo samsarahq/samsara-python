@@ -3,5 +3,5 @@
 import typing
 
 FormTemplateResponseObjectResponseBodyFormCategory = typing.Union[
-    typing.Literal["general", "routing", "fuel"], typing.Any
+    typing.Literal["general", "routing", "fuel", "safety"], typing.Any
 ]
