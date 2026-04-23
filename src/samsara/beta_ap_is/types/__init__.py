@@ -6,6 +6,9 @@ import typing
 from importlib import import_module
 
 if typing.TYPE_CHECKING:
+    from .asset_assignments_create_asset_assignment_request_body_assignee_type import (
+        AssetAssignmentsCreateAssetAssignmentRequestBodyAssigneeType,
+    )
     from .device_recovery_recover_asset_request_body_missing_reason import (
         DeviceRecoveryRecoverAssetRequestBodyMissingReason,
     )
@@ -29,6 +32,7 @@ if typing.TYPE_CHECKING:
         RidershipPassengersUpdateRidershipPassengerRequestBodyClassification,
     )
 _dynamic_imports: typing.Dict[str, str] = {
+    "AssetAssignmentsCreateAssetAssignmentRequestBodyAssigneeType": ".asset_assignments_create_asset_assignment_request_body_assignee_type",
     "DeviceRecoveryRecoverAssetRequestBodyMissingReason": ".device_recovery_recover_asset_request_body_missing_reason",
     "DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus": ".device_recovery_recover_asset_request_body_recovery_status",
     "DeviceRecoveryRecoverAssetRequestBodyStatus": ".device_recovery_recover_asset_request_body_status",
@@ -66,6 +70,7 @@ def __dir__():
 
 
 __all__ = [
+    "AssetAssignmentsCreateAssetAssignmentRequestBodyAssigneeType",
     "DeviceRecoveryRecoverAssetRequestBodyMissingReason",
     "DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus",
     "DeviceRecoveryRecoverAssetRequestBodyStatus",

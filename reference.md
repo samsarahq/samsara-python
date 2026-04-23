@@ -3760,6 +3760,277 @@ client.beta_ap_is.get_devices()
 </dl>
 </details>
 
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_asset_assignments</a>(...) -&gt; AsyncHttpResponse[AssetAssignmentsListAssetAssignmentsResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List active asset assignments for the authorized organization. This endpoint only returns currently active assignments. During Beta, response ordering is implementation-defined and will stabilize before GA when database-backed pagination lands.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.list_asset_assignments()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**include_external_ids:** `typing.Optional[bool]` — Optional boolean indicating whether to return external IDs for the referenced asset and assignee objects. Defaults to false.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**asset_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Optional comma-separated list of asset IDs to filter on. IDs may be Samsara asset IDs or external IDs in the format key:value. The response contains the union of matching assets.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**assignee_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Optional comma-separated list of assignee IDs to filter on. IDs may be Samsara assignee IDs or external IDs in the format key:value. The response contains the union of matching assignees.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">create_asset_assignment</a>(...) -&gt; AsyncHttpResponse[AssetAssignmentsCreateAssetAssignmentResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create an asset assignment.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.create_asset_assignment(
+    asset_id="281474978683353",
+    assignee_id="494123",
+    assignee_type="driver",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**asset_id:** `str` — Samsara ID of the asset.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**assignee_id:** `str` — Samsara ID of the assignee.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**assignee_type:** `AssetAssignmentsCreateAssetAssignmentRequestBodyAssigneeType` — Type of the assignee. This required field has no default.  Valid values: `driver`, `asset`, `geofence`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">unassign_asset_assignment</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Unassign an active asset assignment.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.unassign_asset_assignment(
+    asset_id="281474978683353",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**asset_id:** `str` — Samsara ID of the asset.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_associations</a>(...) -&gt; AsyncHttpResponse[AssociationsListAssociationsResponseBody]</code></summary>
 <dl>
 <dd>

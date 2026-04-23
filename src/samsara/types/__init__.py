@@ -237,6 +237,98 @@ if typing.TYPE_CHECKING:
     from .anticipation_brake_event_count import AnticipationBrakeEventCount
     from .appointment_window_request_body import AppointmentWindowRequestBody
     from .appointment_window_response_body import AppointmentWindowResponseBody
+    from .asset_assignment_assignee_response_object_response_body import (
+        AssetAssignmentAssigneeResponseObjectResponseBody,
+    )
+    from .asset_assignment_assignee_response_object_response_body_assignee_type import (
+        AssetAssignmentAssigneeResponseObjectResponseBodyAssigneeType,
+    )
+    from .asset_assignment_response_object_response_body import AssetAssignmentResponseObjectResponseBody
+    from .asset_assignments_create_asset_assignment_bad_gateway_error_response_body import (
+        AssetAssignmentsCreateAssetAssignmentBadGatewayErrorResponseBody,
+    )
+    from .asset_assignments_create_asset_assignment_gateway_timeout_error_response_body import (
+        AssetAssignmentsCreateAssetAssignmentGatewayTimeoutErrorResponseBody,
+    )
+    from .asset_assignments_create_asset_assignment_internal_server_error_response_body import (
+        AssetAssignmentsCreateAssetAssignmentInternalServerErrorResponseBody,
+    )
+    from .asset_assignments_create_asset_assignment_method_not_allowed_error_response_body import (
+        AssetAssignmentsCreateAssetAssignmentMethodNotAllowedErrorResponseBody,
+    )
+    from .asset_assignments_create_asset_assignment_not_found_error_response_body import (
+        AssetAssignmentsCreateAssetAssignmentNotFoundErrorResponseBody,
+    )
+    from .asset_assignments_create_asset_assignment_not_implemented_error_response_body import (
+        AssetAssignmentsCreateAssetAssignmentNotImplementedErrorResponseBody,
+    )
+    from .asset_assignments_create_asset_assignment_response_body import (
+        AssetAssignmentsCreateAssetAssignmentResponseBody,
+    )
+    from .asset_assignments_create_asset_assignment_service_unavailable_error_response_body import (
+        AssetAssignmentsCreateAssetAssignmentServiceUnavailableErrorResponseBody,
+    )
+    from .asset_assignments_create_asset_assignment_too_many_requests_error_response_body import (
+        AssetAssignmentsCreateAssetAssignmentTooManyRequestsErrorResponseBody,
+    )
+    from .asset_assignments_create_asset_assignment_unauthorized_error_response_body import (
+        AssetAssignmentsCreateAssetAssignmentUnauthorizedErrorResponseBody,
+    )
+    from .asset_assignments_list_asset_assignments_bad_gateway_error_response_body import (
+        AssetAssignmentsListAssetAssignmentsBadGatewayErrorResponseBody,
+    )
+    from .asset_assignments_list_asset_assignments_gateway_timeout_error_response_body import (
+        AssetAssignmentsListAssetAssignmentsGatewayTimeoutErrorResponseBody,
+    )
+    from .asset_assignments_list_asset_assignments_internal_server_error_response_body import (
+        AssetAssignmentsListAssetAssignmentsInternalServerErrorResponseBody,
+    )
+    from .asset_assignments_list_asset_assignments_method_not_allowed_error_response_body import (
+        AssetAssignmentsListAssetAssignmentsMethodNotAllowedErrorResponseBody,
+    )
+    from .asset_assignments_list_asset_assignments_not_found_error_response_body import (
+        AssetAssignmentsListAssetAssignmentsNotFoundErrorResponseBody,
+    )
+    from .asset_assignments_list_asset_assignments_not_implemented_error_response_body import (
+        AssetAssignmentsListAssetAssignmentsNotImplementedErrorResponseBody,
+    )
+    from .asset_assignments_list_asset_assignments_response_body import AssetAssignmentsListAssetAssignmentsResponseBody
+    from .asset_assignments_list_asset_assignments_service_unavailable_error_response_body import (
+        AssetAssignmentsListAssetAssignmentsServiceUnavailableErrorResponseBody,
+    )
+    from .asset_assignments_list_asset_assignments_too_many_requests_error_response_body import (
+        AssetAssignmentsListAssetAssignmentsTooManyRequestsErrorResponseBody,
+    )
+    from .asset_assignments_list_asset_assignments_unauthorized_error_response_body import (
+        AssetAssignmentsListAssetAssignmentsUnauthorizedErrorResponseBody,
+    )
+    from .asset_assignments_unassign_asset_assignment_bad_gateway_error_response_body import (
+        AssetAssignmentsUnassignAssetAssignmentBadGatewayErrorResponseBody,
+    )
+    from .asset_assignments_unassign_asset_assignment_gateway_timeout_error_response_body import (
+        AssetAssignmentsUnassignAssetAssignmentGatewayTimeoutErrorResponseBody,
+    )
+    from .asset_assignments_unassign_asset_assignment_internal_server_error_response_body import (
+        AssetAssignmentsUnassignAssetAssignmentInternalServerErrorResponseBody,
+    )
+    from .asset_assignments_unassign_asset_assignment_method_not_allowed_error_response_body import (
+        AssetAssignmentsUnassignAssetAssignmentMethodNotAllowedErrorResponseBody,
+    )
+    from .asset_assignments_unassign_asset_assignment_not_found_error_response_body import (
+        AssetAssignmentsUnassignAssetAssignmentNotFoundErrorResponseBody,
+    )
+    from .asset_assignments_unassign_asset_assignment_not_implemented_error_response_body import (
+        AssetAssignmentsUnassignAssetAssignmentNotImplementedErrorResponseBody,
+    )
+    from .asset_assignments_unassign_asset_assignment_service_unavailable_error_response_body import (
+        AssetAssignmentsUnassignAssetAssignmentServiceUnavailableErrorResponseBody,
+    )
+    from .asset_assignments_unassign_asset_assignment_too_many_requests_error_response_body import (
+        AssetAssignmentsUnassignAssetAssignmentTooManyRequestsErrorResponseBody,
+    )
+    from .asset_assignments_unassign_asset_assignment_unauthorized_error_response_body import (
+        AssetAssignmentsUnassignAssetAssignmentUnauthorizedErrorResponseBody,
+    )
     from .asset_data_input import AssetDataInput
     from .asset_data_input_last_point import AssetDataInputLastPoint
     from .asset_data_output import AssetDataOutput
@@ -7672,6 +7764,38 @@ _dynamic_imports: typing.Dict[str, str] = {
     "AnticipationBrakeEventCount": ".anticipation_brake_event_count",
     "AppointmentWindowRequestBody": ".appointment_window_request_body",
     "AppointmentWindowResponseBody": ".appointment_window_response_body",
+    "AssetAssignmentAssigneeResponseObjectResponseBody": ".asset_assignment_assignee_response_object_response_body",
+    "AssetAssignmentAssigneeResponseObjectResponseBodyAssigneeType": ".asset_assignment_assignee_response_object_response_body_assignee_type",
+    "AssetAssignmentResponseObjectResponseBody": ".asset_assignment_response_object_response_body",
+    "AssetAssignmentsCreateAssetAssignmentBadGatewayErrorResponseBody": ".asset_assignments_create_asset_assignment_bad_gateway_error_response_body",
+    "AssetAssignmentsCreateAssetAssignmentGatewayTimeoutErrorResponseBody": ".asset_assignments_create_asset_assignment_gateway_timeout_error_response_body",
+    "AssetAssignmentsCreateAssetAssignmentInternalServerErrorResponseBody": ".asset_assignments_create_asset_assignment_internal_server_error_response_body",
+    "AssetAssignmentsCreateAssetAssignmentMethodNotAllowedErrorResponseBody": ".asset_assignments_create_asset_assignment_method_not_allowed_error_response_body",
+    "AssetAssignmentsCreateAssetAssignmentNotFoundErrorResponseBody": ".asset_assignments_create_asset_assignment_not_found_error_response_body",
+    "AssetAssignmentsCreateAssetAssignmentNotImplementedErrorResponseBody": ".asset_assignments_create_asset_assignment_not_implemented_error_response_body",
+    "AssetAssignmentsCreateAssetAssignmentResponseBody": ".asset_assignments_create_asset_assignment_response_body",
+    "AssetAssignmentsCreateAssetAssignmentServiceUnavailableErrorResponseBody": ".asset_assignments_create_asset_assignment_service_unavailable_error_response_body",
+    "AssetAssignmentsCreateAssetAssignmentTooManyRequestsErrorResponseBody": ".asset_assignments_create_asset_assignment_too_many_requests_error_response_body",
+    "AssetAssignmentsCreateAssetAssignmentUnauthorizedErrorResponseBody": ".asset_assignments_create_asset_assignment_unauthorized_error_response_body",
+    "AssetAssignmentsListAssetAssignmentsBadGatewayErrorResponseBody": ".asset_assignments_list_asset_assignments_bad_gateway_error_response_body",
+    "AssetAssignmentsListAssetAssignmentsGatewayTimeoutErrorResponseBody": ".asset_assignments_list_asset_assignments_gateway_timeout_error_response_body",
+    "AssetAssignmentsListAssetAssignmentsInternalServerErrorResponseBody": ".asset_assignments_list_asset_assignments_internal_server_error_response_body",
+    "AssetAssignmentsListAssetAssignmentsMethodNotAllowedErrorResponseBody": ".asset_assignments_list_asset_assignments_method_not_allowed_error_response_body",
+    "AssetAssignmentsListAssetAssignmentsNotFoundErrorResponseBody": ".asset_assignments_list_asset_assignments_not_found_error_response_body",
+    "AssetAssignmentsListAssetAssignmentsNotImplementedErrorResponseBody": ".asset_assignments_list_asset_assignments_not_implemented_error_response_body",
+    "AssetAssignmentsListAssetAssignmentsResponseBody": ".asset_assignments_list_asset_assignments_response_body",
+    "AssetAssignmentsListAssetAssignmentsServiceUnavailableErrorResponseBody": ".asset_assignments_list_asset_assignments_service_unavailable_error_response_body",
+    "AssetAssignmentsListAssetAssignmentsTooManyRequestsErrorResponseBody": ".asset_assignments_list_asset_assignments_too_many_requests_error_response_body",
+    "AssetAssignmentsListAssetAssignmentsUnauthorizedErrorResponseBody": ".asset_assignments_list_asset_assignments_unauthorized_error_response_body",
+    "AssetAssignmentsUnassignAssetAssignmentBadGatewayErrorResponseBody": ".asset_assignments_unassign_asset_assignment_bad_gateway_error_response_body",
+    "AssetAssignmentsUnassignAssetAssignmentGatewayTimeoutErrorResponseBody": ".asset_assignments_unassign_asset_assignment_gateway_timeout_error_response_body",
+    "AssetAssignmentsUnassignAssetAssignmentInternalServerErrorResponseBody": ".asset_assignments_unassign_asset_assignment_internal_server_error_response_body",
+    "AssetAssignmentsUnassignAssetAssignmentMethodNotAllowedErrorResponseBody": ".asset_assignments_unassign_asset_assignment_method_not_allowed_error_response_body",
+    "AssetAssignmentsUnassignAssetAssignmentNotFoundErrorResponseBody": ".asset_assignments_unassign_asset_assignment_not_found_error_response_body",
+    "AssetAssignmentsUnassignAssetAssignmentNotImplementedErrorResponseBody": ".asset_assignments_unassign_asset_assignment_not_implemented_error_response_body",
+    "AssetAssignmentsUnassignAssetAssignmentServiceUnavailableErrorResponseBody": ".asset_assignments_unassign_asset_assignment_service_unavailable_error_response_body",
+    "AssetAssignmentsUnassignAssetAssignmentTooManyRequestsErrorResponseBody": ".asset_assignments_unassign_asset_assignment_too_many_requests_error_response_body",
+    "AssetAssignmentsUnassignAssetAssignmentUnauthorizedErrorResponseBody": ".asset_assignments_unassign_asset_assignment_unauthorized_error_response_body",
     "AssetDataInput": ".asset_data_input",
     "AssetDataInputLastPoint": ".asset_data_input_last_point",
     "AssetDataOutput": ".asset_data_output",
@@ -11377,6 +11501,38 @@ __all__ = [
     "AnticipationBrakeEventCount",
     "AppointmentWindowRequestBody",
     "AppointmentWindowResponseBody",
+    "AssetAssignmentAssigneeResponseObjectResponseBody",
+    "AssetAssignmentAssigneeResponseObjectResponseBodyAssigneeType",
+    "AssetAssignmentResponseObjectResponseBody",
+    "AssetAssignmentsCreateAssetAssignmentBadGatewayErrorResponseBody",
+    "AssetAssignmentsCreateAssetAssignmentGatewayTimeoutErrorResponseBody",
+    "AssetAssignmentsCreateAssetAssignmentInternalServerErrorResponseBody",
+    "AssetAssignmentsCreateAssetAssignmentMethodNotAllowedErrorResponseBody",
+    "AssetAssignmentsCreateAssetAssignmentNotFoundErrorResponseBody",
+    "AssetAssignmentsCreateAssetAssignmentNotImplementedErrorResponseBody",
+    "AssetAssignmentsCreateAssetAssignmentResponseBody",
+    "AssetAssignmentsCreateAssetAssignmentServiceUnavailableErrorResponseBody",
+    "AssetAssignmentsCreateAssetAssignmentTooManyRequestsErrorResponseBody",
+    "AssetAssignmentsCreateAssetAssignmentUnauthorizedErrorResponseBody",
+    "AssetAssignmentsListAssetAssignmentsBadGatewayErrorResponseBody",
+    "AssetAssignmentsListAssetAssignmentsGatewayTimeoutErrorResponseBody",
+    "AssetAssignmentsListAssetAssignmentsInternalServerErrorResponseBody",
+    "AssetAssignmentsListAssetAssignmentsMethodNotAllowedErrorResponseBody",
+    "AssetAssignmentsListAssetAssignmentsNotFoundErrorResponseBody",
+    "AssetAssignmentsListAssetAssignmentsNotImplementedErrorResponseBody",
+    "AssetAssignmentsListAssetAssignmentsResponseBody",
+    "AssetAssignmentsListAssetAssignmentsServiceUnavailableErrorResponseBody",
+    "AssetAssignmentsListAssetAssignmentsTooManyRequestsErrorResponseBody",
+    "AssetAssignmentsListAssetAssignmentsUnauthorizedErrorResponseBody",
+    "AssetAssignmentsUnassignAssetAssignmentBadGatewayErrorResponseBody",
+    "AssetAssignmentsUnassignAssetAssignmentGatewayTimeoutErrorResponseBody",
+    "AssetAssignmentsUnassignAssetAssignmentInternalServerErrorResponseBody",
+    "AssetAssignmentsUnassignAssetAssignmentMethodNotAllowedErrorResponseBody",
+    "AssetAssignmentsUnassignAssetAssignmentNotFoundErrorResponseBody",
+    "AssetAssignmentsUnassignAssetAssignmentNotImplementedErrorResponseBody",
+    "AssetAssignmentsUnassignAssetAssignmentServiceUnavailableErrorResponseBody",
+    "AssetAssignmentsUnassignAssetAssignmentTooManyRequestsErrorResponseBody",
+    "AssetAssignmentsUnassignAssetAssignmentUnauthorizedErrorResponseBody",
     "AssetDataInput",
     "AssetDataInputLastPoint",
     "AssetDataOutput",
