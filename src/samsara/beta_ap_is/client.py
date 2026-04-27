@@ -30,6 +30,7 @@ from ..types.driver_efficiencies_response import DriverEfficienciesResponse
 from ..types.driver_workflow_assignments_post_driver_workflow_assignment_response_body import (
     DriverWorkflowAssignmentsPostDriverWorkflowAssignmentResponseBody,
 )
+from ..types.driver_workflows_list_driver_workflows_response_body import DriverWorkflowsListDriverWorkflowsResponseBody
 from ..types.engine_immobilizer_get_engine_immobilizer_states_response_body import (
     EngineImmobilizerGetEngineImmobilizerStatesResponseBody,
 )
@@ -158,6 +159,7 @@ from .types.get_hos_eld_events_request_driver_activation_status import GetHosEld
 from .types.get_jobs_request_status import GetJobsRequestStatus
 from .types.get_qualification_records_stream_request_entity_type import GetQualificationRecordsStreamRequestEntityType
 from .types.get_qualification_types_request_entity_type import GetQualificationTypesRequestEntityType
+from .types.list_driver_workflows_request_workflow_type import ListDriverWorkflowsRequestWorkflowType
 from .types.ridership_passengers_create_ridership_passenger_request_body_classification import (
     RidershipPassengersCreateRidershipPassengerRequestBodyClassification,
 )
@@ -1532,6 +1534,57 @@ class BetaApIsClient:
             driver_ids_to_publish=driver_ids_to_publish,
             driver_ids_to_unpublish=driver_ids_to_unpublish,
             request_options=request_options,
+        )
+        return _response.data
+
+    def list_driver_workflows(
+        self,
+        *,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        workflow_type: typing.Optional[ListDriverWorkflowsRequestWorkflowType] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> DriverWorkflowsListDriverWorkflowsResponseBody:
+        """
+        List the driver app workflows configured for the organization. Use the returned workflow IDs to reference workflows from the driver create/update APIs or from the driver workflow assignment API. Workflows are organization-scoped and unique per organization.
+
+         <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Drivers** under the Drivers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 512 objects.
+
+        workflow_type : typing.Optional[ListDriverWorkflowsRequestWorkflowType]
+            Filter the result to workflows of a specific type. When omitted, workflows of all types are returned.  Valid values: `startOfDay`, `endOfDay`, `assetSelection`, `leaveAsset`, `ridershipSafetyCheck`, `stopArrival`
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        DriverWorkflowsListDriverWorkflowsResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.list_driver_workflows()
+        """
+        _response = self._raw_client.list_driver_workflows(
+            after=after, limit=limit, workflow_type=workflow_type, request_options=request_options
         )
         return _response.data
 
@@ -5499,6 +5552,65 @@ class AsyncBetaApIsClient:
             driver_ids_to_publish=driver_ids_to_publish,
             driver_ids_to_unpublish=driver_ids_to_unpublish,
             request_options=request_options,
+        )
+        return _response.data
+
+    async def list_driver_workflows(
+        self,
+        *,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        workflow_type: typing.Optional[ListDriverWorkflowsRequestWorkflowType] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> DriverWorkflowsListDriverWorkflowsResponseBody:
+        """
+        List the driver app workflows configured for the organization. Use the returned workflow IDs to reference workflows from the driver create/update APIs or from the driver workflow assignment API. Workflows are organization-scoped and unique per organization.
+
+         <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Drivers** under the Drivers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 512 objects.
+
+        workflow_type : typing.Optional[ListDriverWorkflowsRequestWorkflowType]
+            Filter the result to workflows of a specific type. When omitted, workflows of all types are returned.  Valid values: `startOfDay`, `endOfDay`, `assetSelection`, `leaveAsset`, `ridershipSafetyCheck`, `stopArrival`
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        DriverWorkflowsListDriverWorkflowsResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.list_driver_workflows()
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.list_driver_workflows(
+            after=after, limit=limit, workflow_type=workflow_type, request_options=request_options
         )
         return _response.data
 

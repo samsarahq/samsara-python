@@ -188,6 +188,14 @@ def test_betaApIs_post_driver_workflow_assignment() -> None:
     verify_request_count(test_id, "POST", "/fleet/drivers/workflow-assignments", None, 1)
 
 
+def test_betaApIs_list_driver_workflows() -> None:
+    """Test listDriverWorkflows endpoint with WireMock"""
+    test_id = "beta_ap_is.list_driver_workflows.0"
+    client = get_client(test_id)
+    client.beta_ap_is.list_driver_workflows()
+    verify_request_count(test_id, "GET", "/fleet/drivers/workflows", None, 1)
+
+
 def test_betaApIs_list_vendor_categories() -> None:
     """Test listVendorCategories endpoint with WireMock"""
     test_id = "beta_ap_is.list_vendor_categories.0"
