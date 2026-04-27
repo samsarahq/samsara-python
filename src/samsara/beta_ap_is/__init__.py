@@ -18,6 +18,7 @@ if typing.TYPE_CHECKING:
         GetJobsRequestStatus,
         GetQualificationRecordsStreamRequestEntityType,
         GetQualificationTypesRequestEntityType,
+        ListDriverWorkflowsRequestWorkflowType,
         RidershipPassengersCreateRidershipPassengerRequestBodyClassification,
         RidershipPassengersUpdateRidershipPassengerRequestBodyClassification,
     )
@@ -33,6 +34,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "GetJobsRequestStatus": ".types",
     "GetQualificationRecordsStreamRequestEntityType": ".types",
     "GetQualificationTypesRequestEntityType": ".types",
+    "ListDriverWorkflowsRequestWorkflowType": ".types",
     "RidershipPassengersCreateRidershipPassengerRequestBodyClassification": ".types",
     "RidershipPassengersUpdateRidershipPassengerRequestBodyClassification": ".types",
 }
@@ -71,6 +73,7 @@ __all__ = [
     "GetJobsRequestStatus",
     "GetQualificationRecordsStreamRequestEntityType",
     "GetQualificationTypesRequestEntityType",
+    "ListDriverWorkflowsRequestWorkflowType",
     "RidershipPassengersCreateRidershipPassengerRequestBodyClassification",
     "RidershipPassengersUpdateRidershipPassengerRequestBodyClassification",
 ]

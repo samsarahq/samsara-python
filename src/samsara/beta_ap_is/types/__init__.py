@@ -25,6 +25,7 @@ if typing.TYPE_CHECKING:
     from .get_jobs_request_status import GetJobsRequestStatus
     from .get_qualification_records_stream_request_entity_type import GetQualificationRecordsStreamRequestEntityType
     from .get_qualification_types_request_entity_type import GetQualificationTypesRequestEntityType
+    from .list_driver_workflows_request_workflow_type import ListDriverWorkflowsRequestWorkflowType
     from .ridership_passengers_create_ridership_passenger_request_body_classification import (
         RidershipPassengersCreateRidershipPassengerRequestBodyClassification,
     )
@@ -43,6 +44,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "GetJobsRequestStatus": ".get_jobs_request_status",
     "GetQualificationRecordsStreamRequestEntityType": ".get_qualification_records_stream_request_entity_type",
     "GetQualificationTypesRequestEntityType": ".get_qualification_types_request_entity_type",
+    "ListDriverWorkflowsRequestWorkflowType": ".list_driver_workflows_request_workflow_type",
     "RidershipPassengersCreateRidershipPassengerRequestBodyClassification": ".ridership_passengers_create_ridership_passenger_request_body_classification",
     "RidershipPassengersUpdateRidershipPassengerRequestBodyClassification": ".ridership_passengers_update_ridership_passenger_request_body_classification",
 }
@@ -81,6 +83,7 @@ __all__ = [
     "GetJobsRequestStatus",
     "GetQualificationRecordsStreamRequestEntityType",
     "GetQualificationTypesRequestEntityType",
+    "ListDriverWorkflowsRequestWorkflowType",
     "RidershipPassengersCreateRidershipPassengerRequestBodyClassification",
     "RidershipPassengersUpdateRidershipPassengerRequestBodyClassification",
 ]
