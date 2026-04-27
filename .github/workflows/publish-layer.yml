@@ -138,3 +138,22 @@ jobs:
             --layer-name "${LAYER_NAME}" \
             --max-items 1 \
             --region "${{ matrix.region }}"
+
+  notify-layer:
+    if: always()
+    needs: [publish]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify Slack - Lambda layer result
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_SDK_BUILD_WEBHOOK_URL }}
+          RESULT: ${{ needs.publish.result }}
+        run: |
+          if [ "$RESULT" = "success" ]; then
+            ICON=":white_check_mark:"; MSG="Python Lambda layer published (us-west-2, eu-west-1, ca-central-1)"
+          else
+            ICON=":x:"; MSG="Python Lambda layer publish failed"
+          fi
+          curl -s -X POST "$SLACK_WEBHOOK_URL" \
+            -H 'Content-Type: application/json' \
+            -d "{\"text\": \"${ICON} ${MSG} for v${{ inputs.sdk_version }}\"}"

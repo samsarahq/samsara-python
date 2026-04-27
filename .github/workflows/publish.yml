@@ -43,6 +43,42 @@ jobs:
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "SDK version: $VERSION"
 
+      - name: Notify Slack - Python SDK published
+        if: success()
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_SDK_BUILD_WEBHOOK_URL }}
+        run: |
+          curl -s -X POST "$SLACK_WEBHOOK_URL" \
+            -H 'Content-Type: application/json' \
+            -d "{
+              \"text\": \":white_check_mark: Python SDK v${{ steps.get-version.outputs.version }} published to PyPI\",
+              \"blocks\": [{
+                \"type\": \"section\",
+                \"text\": {
+                  \"type\": \"mrkdwn\",
+                  \"text\": \":white_check_mark: *Python SDK Published to PyPI*\n*Version:* \`${{ steps.get-version.outputs.version }}\`\n*Package:* <https://pypi.org/project/samsara-api/${{ steps.get-version.outputs.version }}/|samsara-api>\n*Run:* <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View workflow>\"
+                }
+              }]
+            }"
+
+      - name: Notify Slack on failure
+        if: failure()
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_SDK_BUILD_WEBHOOK_URL }}
+        run: |
+          curl -s -X POST "$SLACK_WEBHOOK_URL" \
+            -H 'Content-Type: application/json' \
+            -d "{
+              \"text\": \":x: Python SDK publish to PyPI failed\",
+              \"blocks\": [{
+                \"type\": \"section\",
+                \"text\": {
+                  \"type\": \"mrkdwn\",
+                  \"text\": \":x: *Python SDK Publish Failed*\n*Run:* <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View workflow>\"
+                }
+              }]
+            }"
+
   publish-layer:
     needs: release
     uses: ./.github/workflows/publish-layer.yml
