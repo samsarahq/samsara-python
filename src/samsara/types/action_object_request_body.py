@@ -24,7 +24,7 @@ class ActionObjectRequestBody(UniversalBaseModel):
         FieldMetadata(alias="actionTypeId"),
         pydantic.Field(
             alias="actionTypeId",
-            description="The id of the of the action type. Reference the following list for the ids:\nThe following action types are in Beta:\nDriver App Push = 5\nThe following action types are Stable:\nNotification (Email, Text, Samsara Fleet Push) = 1\nDashboard Notification = 3\nWebhook = 4\nSlack = 6",
+            description="The id of the of the action type. Reference the following list for the ids:\nThe following action types are in Beta:\nDriver App Push = 5\nFunctions = 14\nThe following action types are Stable:\nNotification (Email, Text, Samsara Fleet Push) = 1\nDashboard Notification = 3\nWebhook = 4\nSlack = 6",
         ),
     ]
 
