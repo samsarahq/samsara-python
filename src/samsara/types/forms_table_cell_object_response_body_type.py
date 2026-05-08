@@ -3,6 +3,8 @@
 import typing
 
 FormsTableCellObjectResponseBodyType = typing.Union[
-    typing.Literal["number", "text", "multiple_choice", "check_boxes", "datetime", "signature", "media", "person"],
+    typing.Literal[
+        "number", "text", "multiple_choice", "check_boxes", "datetime", "signature", "media", "person", "barcode"
+    ],
     typing.Any,
 ]

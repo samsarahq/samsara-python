@@ -4,7 +4,16 @@ import typing
 
 FormSubmissionRequestFieldInputObjectRequestBodyType = typing.Union[
     typing.Literal[
-        "number", "text", "multiple_choice", "check_boxes", "datetime", "asset", "person", "table", "geofence"
+        "number",
+        "text",
+        "multiple_choice",
+        "check_boxes",
+        "datetime",
+        "asset",
+        "person",
+        "table",
+        "geofence",
+        "barcode",
     ],
     typing.Any,
 ]

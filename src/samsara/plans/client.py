@@ -35,6 +35,7 @@ class PlansClient:
         *,
         hub_id: str,
         name: str,
+        session_configuration_id: typing.Optional[str] = OMIT,
         shift_start_time: typing.Optional[dt.datetime] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HubPlansCreateHubPlanResponseBody:
@@ -55,6 +56,9 @@ class PlansClient:
 
         name : str
             The name of the plan
+
+        session_configuration_id : typing.Optional[str]
+            The ID of a saved session configuration (preset) to apply when creating the plan. When provided, the preset's optimization settings and route constructions are applied to the new plan, replacing any defaults.
 
         shift_start_time : typing.Optional[dt.datetime]
             The shift start time for the plan in RFC 3339 format. If not provided, defaults to 9:00 AM on the next business day in the hub's timezone.
@@ -80,7 +84,11 @@ class PlansClient:
         )
         """
         _response = self._raw_client.create_hub_plan(
-            hub_id=hub_id, name=name, shift_start_time=shift_start_time, request_options=request_options
+            hub_id=hub_id,
+            name=name,
+            session_configuration_id=session_configuration_id,
+            shift_start_time=shift_start_time,
+            request_options=request_options,
         )
         return _response.data
 
@@ -231,6 +239,7 @@ class AsyncPlansClient:
         *,
         hub_id: str,
         name: str,
+        session_configuration_id: typing.Optional[str] = OMIT,
         shift_start_time: typing.Optional[dt.datetime] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HubPlansCreateHubPlanResponseBody:
@@ -251,6 +260,9 @@ class AsyncPlansClient:
 
         name : str
             The name of the plan
+
+        session_configuration_id : typing.Optional[str]
+            The ID of a saved session configuration (preset) to apply when creating the plan. When provided, the preset's optimization settings and route constructions are applied to the new plan, replacing any defaults.
 
         shift_start_time : typing.Optional[dt.datetime]
             The shift start time for the plan in RFC 3339 format. If not provided, defaults to 9:00 AM on the next business day in the hub's timezone.
@@ -284,7 +296,11 @@ class AsyncPlansClient:
         asyncio.run(main())
         """
         _response = await self._raw_client.create_hub_plan(
-            hub_id=hub_id, name=name, shift_start_time=shift_start_time, request_options=request_options
+            hub_id=hub_id,
+            name=name,
+            session_configuration_id=session_configuration_id,
+            shift_start_time=shift_start_time,
+            request_options=request_options,
         )
         return _response.data
 

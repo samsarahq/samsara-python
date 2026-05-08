@@ -6,6 +6,9 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .form_submission_request_barcode_value_object_request_body import (
+    FormSubmissionRequestBarcodeValueObjectRequestBody,
+)
 from .form_submission_request_check_boxes_value_object_request_body import (
     FormSubmissionRequestCheckBoxesValueObjectRequestBody,
 )
@@ -28,6 +31,11 @@ class FormSubmissionRequestTableCellObjectRequestBody(UniversalBaseModel):
     The value of a cell in a table row.
     """
 
+    barcode_value: typing_extensions.Annotated[
+        typing.Optional[FormSubmissionRequestBarcodeValueObjectRequestBody],
+        FieldMetadata(alias="barcodeValue"),
+        pydantic.Field(alias="barcodeValue"),
+    ] = None
     check_boxes_value: typing_extensions.Annotated[
         typing.Optional[FormSubmissionRequestCheckBoxesValueObjectRequestBody],
         FieldMetadata(alias="checkBoxesValue"),
@@ -65,7 +73,7 @@ class FormSubmissionRequestTableCellObjectRequestBody(UniversalBaseModel):
     ] = None
     type: FormSubmissionRequestTableCellObjectRequestBodyType = pydantic.Field()
     """
-    Type of the cell field.  Valid values: `number`, `text`, `multiple_choice`, `check_boxes`, `datetime`, `person`
+    Type of the cell field.  Valid values: `number`, `text`, `multiple_choice`, `check_boxes`, `datetime`, `person`, `barcode`
     """
 
     if IS_PYDANTIC_V2:

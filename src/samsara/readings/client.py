@@ -222,10 +222,17 @@ class ReadingsClient:
             * `fillCriticality` (Fill Level Criticality): Indicates if the state of the fill level is critical. (values: normal | criticallyHigh | criticallyLow)
             * `fillMass` (Fill Mass): Mass of material in the vessel. (kilogram)
             * `fillMassAvailableCapacity` (Fill Mass Available Capacity): Available mass to be filled in the vessel. (kilogram)
+            * `fillMassEgress` (Fill Mass Out): Mass negative change in the vessel. (kilogram)
+            * `fillMassIngress` (Fill Mass In): Mass positive change in the vessel. (kilogram)
             * `fillPercent` (Fill Level Percent): Fill level of the vessel as a percentage full. (percent)
             * `fillVolume` (Fill Volume): Volume of material in the vessel. (liter)
             * `fillVolumeAvailableCapacity` (Fill Volume Available Capacity): Available volume to be filled in the vessel. (liter)
+            * `fillVolumeEgress` (Fill Volume Out): Volume negative change in the vessel. (liter)
+            * `fillVolumeIngress` (Fill Volume In): Volume positive change in the vessel. (liter)
             * `fluidLevelStatus` (Battery Water Level): The status of the battery's water level. Will be OK or LOW. (values: noData | ok | low)
+            * `remoteSensingDistance` (Sensor distance measurement): Distance measured by remote sensing device (meter)
+            * `smoothedFillMass` (Smoothed Fill Mass): Algorithm smoothed mass value in the vessel. (kilogram)
+            * `smoothedFillVolume` (Smoothed Fill Volume): Algorithm smoothed volume value in the vessel. (liter)
 
             </details>
 
@@ -563,10 +570,17 @@ class ReadingsClient:
             * `fillCriticality` (Fill Level Criticality): Indicates if the state of the fill level is critical. (values: normal | criticallyHigh | criticallyLow)
             * `fillMass` (Fill Mass): Mass of material in the vessel. (kilogram)
             * `fillMassAvailableCapacity` (Fill Mass Available Capacity): Available mass to be filled in the vessel. (kilogram)
+            * `fillMassEgress` (Fill Mass Out): Mass negative change in the vessel. (kilogram)
+            * `fillMassIngress` (Fill Mass In): Mass positive change in the vessel. (kilogram)
             * `fillPercent` (Fill Level Percent): Fill level of the vessel as a percentage full. (percent)
             * `fillVolume` (Fill Volume): Volume of material in the vessel. (liter)
             * `fillVolumeAvailableCapacity` (Fill Volume Available Capacity): Available volume to be filled in the vessel. (liter)
+            * `fillVolumeEgress` (Fill Volume Out): Volume negative change in the vessel. (liter)
+            * `fillVolumeIngress` (Fill Volume In): Volume positive change in the vessel. (liter)
             * `fluidLevelStatus` (Battery Water Level): The status of the battery's water level. Will be OK or LOW. (values: noData | ok | low)
+            * `remoteSensingDistance` (Sensor distance measurement): Distance measured by remote sensing device (meter)
+            * `smoothedFillMass` (Smoothed Fill Mass): Algorithm smoothed mass value in the vessel. (kilogram)
+            * `smoothedFillVolume` (Smoothed Fill Volume): Algorithm smoothed volume value in the vessel. (liter)
 
             </details>
 
@@ -975,10 +989,17 @@ class AsyncReadingsClient:
             * `fillCriticality` (Fill Level Criticality): Indicates if the state of the fill level is critical. (values: normal | criticallyHigh | criticallyLow)
             * `fillMass` (Fill Mass): Mass of material in the vessel. (kilogram)
             * `fillMassAvailableCapacity` (Fill Mass Available Capacity): Available mass to be filled in the vessel. (kilogram)
+            * `fillMassEgress` (Fill Mass Out): Mass negative change in the vessel. (kilogram)
+            * `fillMassIngress` (Fill Mass In): Mass positive change in the vessel. (kilogram)
             * `fillPercent` (Fill Level Percent): Fill level of the vessel as a percentage full. (percent)
             * `fillVolume` (Fill Volume): Volume of material in the vessel. (liter)
             * `fillVolumeAvailableCapacity` (Fill Volume Available Capacity): Available volume to be filled in the vessel. (liter)
+            * `fillVolumeEgress` (Fill Volume Out): Volume negative change in the vessel. (liter)
+            * `fillVolumeIngress` (Fill Volume In): Volume positive change in the vessel. (liter)
             * `fluidLevelStatus` (Battery Water Level): The status of the battery's water level. Will be OK or LOW. (values: noData | ok | low)
+            * `remoteSensingDistance` (Sensor distance measurement): Distance measured by remote sensing device (meter)
+            * `smoothedFillMass` (Smoothed Fill Mass): Algorithm smoothed mass value in the vessel. (kilogram)
+            * `smoothedFillVolume` (Smoothed Fill Volume): Algorithm smoothed volume value in the vessel. (liter)
 
             </details>
 
@@ -1324,10 +1345,17 @@ class AsyncReadingsClient:
             * `fillCriticality` (Fill Level Criticality): Indicates if the state of the fill level is critical. (values: normal | criticallyHigh | criticallyLow)
             * `fillMass` (Fill Mass): Mass of material in the vessel. (kilogram)
             * `fillMassAvailableCapacity` (Fill Mass Available Capacity): Available mass to be filled in the vessel. (kilogram)
+            * `fillMassEgress` (Fill Mass Out): Mass negative change in the vessel. (kilogram)
+            * `fillMassIngress` (Fill Mass In): Mass positive change in the vessel. (kilogram)
             * `fillPercent` (Fill Level Percent): Fill level of the vessel as a percentage full. (percent)
             * `fillVolume` (Fill Volume): Volume of material in the vessel. (liter)
             * `fillVolumeAvailableCapacity` (Fill Volume Available Capacity): Available volume to be filled in the vessel. (liter)
+            * `fillVolumeEgress` (Fill Volume Out): Volume negative change in the vessel. (liter)
+            * `fillVolumeIngress` (Fill Volume In): Volume positive change in the vessel. (liter)
             * `fluidLevelStatus` (Battery Water Level): The status of the battery's water level. Will be OK or LOW. (values: noData | ok | low)
+            * `remoteSensingDistance` (Sensor distance measurement): Distance measured by remote sensing device (meter)
+            * `smoothedFillMass` (Smoothed Fill Mass): Algorithm smoothed mass value in the vessel. (kilogram)
+            * `smoothedFillVolume` (Smoothed Fill Volume): Algorithm smoothed volume value in the vessel. (liter)
 
             </details>
 

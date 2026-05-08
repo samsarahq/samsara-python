@@ -3,5 +3,5 @@
 import typing
 
 FormSubmissionRequestTableCellObjectRequestBodyType = typing.Union[
-    typing.Literal["number", "text", "multiple_choice", "check_boxes", "datetime", "person"], typing.Any
+    typing.Literal["number", "text", "multiple_choice", "check_boxes", "datetime", "person", "barcode"], typing.Any
 ]

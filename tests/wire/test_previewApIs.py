@@ -25,15 +25,9 @@ def test_previewApIs_unlock_vehicle() -> None:
     verify_request_count(test_id, "DELETE", "/preview/fleet/vehicles/id/lock", None, 1)
 
 
-def test_previewApIs_patch_safety_events_v_2_batch() -> None:
-    """Test patchSafetyEventsV2Batch endpoint with WireMock"""
-    test_id = "preview_ap_is.patch_safety_events_v_2_batch.0"
+def test_previewApIs_pair_gateways() -> None:
+    """Test pairGateways endpoint with WireMock"""
+    test_id = "preview_ap_is.pair_gateways.0"
     client = get_client(test_id)
-    client.preview_ap_is.patch_safety_events_v_2_batch(
-        safety_event_ids=[
-            "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
-            "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
-            "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
-        ]
-    )
-    verify_request_count(test_id, "PATCH", "/preview/safety-events/batch", None, 1)
+    client.preview_ap_is.pair_gateways(pairs=[{"device_serial": "GFRV-43N-VGX", "gateway_serial": "GFRV-43N-VGX"}])
+    verify_request_count(test_id, "POST", "/preview/gateways/pair", None, 1)

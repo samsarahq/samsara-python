@@ -24,7 +24,7 @@ class FormsTableColumnObjectResponseBody(UniversalBaseModel):
 
     type: FormsTableColumnObjectResponseBodyType = pydantic.Field()
     """
-    Type of the column field.  Valid values: `text`, `number`, `datetime`, `check_boxes`, `multiple_choice`, `signature`, `media`, `person`
+    Type of the column field.  Valid values: `text`, `number`, `datetime`, `check_boxes`, `multiple_choice`, `signature`, `media`, `person`, `barcode`
     """
 
     if IS_PYDANTIC_V2:

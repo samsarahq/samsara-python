@@ -136,7 +136,7 @@ class FormsFieldDefinitionObjectResponseBody(UniversalBaseModel):
     ] = None
     type: FormsFieldDefinitionObjectResponseBodyType = pydantic.Field()
     """
-    Type of the field.  Valid values: `number`, `text`, `multiple_choice`, `check_boxes`, `media`, `datetime`, `signature`, `asset`, `person`, `geofence`, `instruction`, `media_instruction`, `table`
+    Type of the field.  Valid values: `number`, `text`, `multiple_choice`, `check_boxes`, `media`, `datetime`, `signature`, `asset`, `person`, `geofence`, `instruction`, `media_instruction`, `table`, `barcode`
     """
 
     if IS_PYDANTIC_V2:

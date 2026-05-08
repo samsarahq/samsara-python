@@ -6,9 +6,6 @@ import typing
 from importlib import import_module
 
 if typing.TYPE_CHECKING:
-    from .asset_assignments_create_asset_assignment_request_body_assignee_type import (
-        AssetAssignmentsCreateAssetAssignmentRequestBodyAssigneeType,
-    )
     from .device_recovery_recover_asset_request_body_missing_reason import (
         DeviceRecoveryRecoverAssetRequestBodyMissingReason,
     )
@@ -32,8 +29,22 @@ if typing.TYPE_CHECKING:
     from .ridership_passengers_update_ridership_passenger_request_body_classification import (
         RidershipPassengersUpdateRidershipPassengerRequestBodyClassification,
     )
+    from .safety_events_v_2_patch_safety_events_v_2_batch_request_body_behavior_labels_to_add_item import (
+        SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyBehaviorLabelsToAddItem,
+    )
+    from .safety_events_v_2_patch_safety_events_v_2_batch_request_body_behavior_labels_to_remove_item import (
+        SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyBehaviorLabelsToRemoveItem,
+    )
+    from .safety_events_v_2_patch_safety_events_v_2_batch_request_body_context_labels_to_add_item import (
+        SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem,
+    )
+    from .safety_events_v_2_patch_safety_events_v_2_batch_request_body_context_labels_to_remove_item import (
+        SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToRemoveItem,
+    )
+    from .safety_events_v_2_patch_safety_events_v_2_batch_request_body_event_state import (
+        SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState,
+    )
 _dynamic_imports: typing.Dict[str, str] = {
-    "AssetAssignmentsCreateAssetAssignmentRequestBodyAssigneeType": ".asset_assignments_create_asset_assignment_request_body_assignee_type",
     "DeviceRecoveryRecoverAssetRequestBodyMissingReason": ".device_recovery_recover_asset_request_body_missing_reason",
     "DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus": ".device_recovery_recover_asset_request_body_recovery_status",
     "DeviceRecoveryRecoverAssetRequestBodyStatus": ".device_recovery_recover_asset_request_body_status",
@@ -47,6 +58,11 @@ _dynamic_imports: typing.Dict[str, str] = {
     "ListDriverWorkflowsRequestWorkflowType": ".list_driver_workflows_request_workflow_type",
     "RidershipPassengersCreateRidershipPassengerRequestBodyClassification": ".ridership_passengers_create_ridership_passenger_request_body_classification",
     "RidershipPassengersUpdateRidershipPassengerRequestBodyClassification": ".ridership_passengers_update_ridership_passenger_request_body_classification",
+    "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyBehaviorLabelsToAddItem": ".safety_events_v_2_patch_safety_events_v_2_batch_request_body_behavior_labels_to_add_item",
+    "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyBehaviorLabelsToRemoveItem": ".safety_events_v_2_patch_safety_events_v_2_batch_request_body_behavior_labels_to_remove_item",
+    "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem": ".safety_events_v_2_patch_safety_events_v_2_batch_request_body_context_labels_to_add_item",
+    "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToRemoveItem": ".safety_events_v_2_patch_safety_events_v_2_batch_request_body_context_labels_to_remove_item",
+    "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState": ".safety_events_v_2_patch_safety_events_v_2_batch_request_body_event_state",
 }
 
 
@@ -72,7 +88,6 @@ def __dir__():
 
 
 __all__ = [
-    "AssetAssignmentsCreateAssetAssignmentRequestBodyAssigneeType",
     "DeviceRecoveryRecoverAssetRequestBodyMissingReason",
     "DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus",
     "DeviceRecoveryRecoverAssetRequestBodyStatus",
@@ -86,4 +101,9 @@ __all__ = [
     "ListDriverWorkflowsRequestWorkflowType",
     "RidershipPassengersCreateRidershipPassengerRequestBodyClassification",
     "RidershipPassengersUpdateRidershipPassengerRequestBodyClassification",
+    "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyBehaviorLabelsToAddItem",
+    "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyBehaviorLabelsToRemoveItem",
+    "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem",
+    "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToRemoveItem",
+    "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState",
 ]

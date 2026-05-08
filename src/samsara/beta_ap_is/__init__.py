@@ -7,7 +7,6 @@ from importlib import import_module
 
 if typing.TYPE_CHECKING:
     from .types import (
-        AssetAssignmentsCreateAssetAssignmentRequestBodyAssigneeType,
         DeviceRecoveryRecoverAssetRequestBodyMissingReason,
         DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus,
         DeviceRecoveryRecoverAssetRequestBodyStatus,
@@ -21,9 +20,13 @@ if typing.TYPE_CHECKING:
         ListDriverWorkflowsRequestWorkflowType,
         RidershipPassengersCreateRidershipPassengerRequestBodyClassification,
         RidershipPassengersUpdateRidershipPassengerRequestBodyClassification,
+        SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyBehaviorLabelsToAddItem,
+        SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyBehaviorLabelsToRemoveItem,
+        SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem,
+        SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToRemoveItem,
+        SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState,
     )
 _dynamic_imports: typing.Dict[str, str] = {
-    "AssetAssignmentsCreateAssetAssignmentRequestBodyAssigneeType": ".types",
     "DeviceRecoveryRecoverAssetRequestBodyMissingReason": ".types",
     "DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus": ".types",
     "DeviceRecoveryRecoverAssetRequestBodyStatus": ".types",
@@ -37,6 +40,11 @@ _dynamic_imports: typing.Dict[str, str] = {
     "ListDriverWorkflowsRequestWorkflowType": ".types",
     "RidershipPassengersCreateRidershipPassengerRequestBodyClassification": ".types",
     "RidershipPassengersUpdateRidershipPassengerRequestBodyClassification": ".types",
+    "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyBehaviorLabelsToAddItem": ".types",
+    "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyBehaviorLabelsToRemoveItem": ".types",
+    "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem": ".types",
+    "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToRemoveItem": ".types",
+    "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState": ".types",
 }
 
 
@@ -62,7 +70,6 @@ def __dir__():
 
 
 __all__ = [
-    "AssetAssignmentsCreateAssetAssignmentRequestBodyAssigneeType",
     "DeviceRecoveryRecoverAssetRequestBodyMissingReason",
     "DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus",
     "DeviceRecoveryRecoverAssetRequestBodyStatus",
@@ -76,4 +83,9 @@ __all__ = [
     "ListDriverWorkflowsRequestWorkflowType",
     "RidershipPassengersCreateRidershipPassengerRequestBodyClassification",
     "RidershipPassengersUpdateRidershipPassengerRequestBodyClassification",
+    "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyBehaviorLabelsToAddItem",
+    "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyBehaviorLabelsToRemoveItem",
+    "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem",
+    "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToRemoveItem",
+    "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState",
 ]
