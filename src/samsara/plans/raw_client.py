@@ -38,6 +38,7 @@ class RawPlansClient:
         *,
         hub_id: str,
         name: str,
+        session_configuration_id: typing.Optional[str] = OMIT,
         shift_start_time: typing.Optional[dt.datetime] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[HubPlansCreateHubPlanResponseBody]:
@@ -59,6 +60,9 @@ class RawPlansClient:
         name : str
             The name of the plan
 
+        session_configuration_id : typing.Optional[str]
+            The ID of a saved session configuration (preset) to apply when creating the plan. When provided, the preset's optimization settings and route constructions are applied to the new plan, replacing any defaults.
+
         shift_start_time : typing.Optional[dt.datetime]
             The shift start time for the plan in RFC 3339 format. If not provided, defaults to 9:00 AM on the next business day in the hub's timezone.
 
@@ -76,6 +80,7 @@ class RawPlansClient:
             json={
                 "hubId": hub_id,
                 "name": name,
+                "sessionConfigurationId": session_configuration_id,
                 "shiftStartTime": shift_start_time,
             },
             headers={
@@ -546,6 +551,7 @@ class AsyncRawPlansClient:
         *,
         hub_id: str,
         name: str,
+        session_configuration_id: typing.Optional[str] = OMIT,
         shift_start_time: typing.Optional[dt.datetime] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[HubPlansCreateHubPlanResponseBody]:
@@ -567,6 +573,9 @@ class AsyncRawPlansClient:
         name : str
             The name of the plan
 
+        session_configuration_id : typing.Optional[str]
+            The ID of a saved session configuration (preset) to apply when creating the plan. When provided, the preset's optimization settings and route constructions are applied to the new plan, replacing any defaults.
+
         shift_start_time : typing.Optional[dt.datetime]
             The shift start time for the plan in RFC 3339 format. If not provided, defaults to 9:00 AM on the next business day in the hub's timezone.
 
@@ -584,6 +593,7 @@ class AsyncRawPlansClient:
             json={
                 "hubId": hub_id,
                 "name": name,
+                "sessionConfigurationId": session_configuration_id,
                 "shiftStartTime": shift_start_time,
             },
             headers={

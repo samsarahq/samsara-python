@@ -7,22 +7,9 @@ from ..core.request_options import RequestOptions
 from ..types.drivers_auth_token_create_driver_auth_token_response_body import (
     DriversAuthTokenCreateDriverAuthTokenResponseBody,
 )
-from ..types.patch_safety_events_dismissal_reason_body_request_body import (
-    PatchSafetyEventsDismissalReasonBodyRequestBody,
-)
-from ..types.safety_events_v_2_patch_safety_events_v_2_batch_response_body import (
-    SafetyEventsV2PatchSafetyEventsV2BatchResponseBody,
-)
+from ..types.gateways_pair_gateways_response_body import GatewaysPairGatewaysResponseBody
+from ..types.pair_gateway_pair_object_request_body import PairGatewayPairObjectRequestBody
 from .raw_client import AsyncRawPreviewApIsClient, RawPreviewApIsClient
-from .types.safety_events_v_2_patch_safety_events_v_2_batch_request_body_context_labels_to_add_item import (
-    SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem,
-)
-from .types.safety_events_v_2_patch_safety_events_v_2_batch_request_body_context_labels_to_remove_item import (
-    SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToRemoveItem,
-)
-from .types.safety_events_v_2_patch_safety_events_v_2_batch_request_body_event_state import (
-    SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState,
-)
 
 # this is used as the default value for optional parameters
 OMIT = typing.cast(typing.Any, ...)
@@ -192,26 +179,19 @@ class PreviewApIsClient:
         _response = self._raw_client.unlock_vehicle(id, request_options=request_options)
         return _response.data
 
-    def patch_safety_events_v_2_batch(
+    def pair_gateways(
         self,
         *,
-        safety_event_ids: typing.Sequence[str],
-        context_labels_to_add: typing.Optional[
-            typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem]
-        ] = OMIT,
-        context_labels_to_remove: typing.Optional[
-            typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToRemoveItem]
-        ] = OMIT,
-        dismissal_reason: typing.Optional[PatchSafetyEventsDismissalReasonBodyRequestBody] = OMIT,
-        event_state: typing.Optional[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState] = OMIT,
+        pairs: typing.Sequence[PairGatewayPairObjectRequestBody],
+        remove_orphan_devices: typing.Optional[bool] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SafetyEventsV2PatchSafetyEventsV2BatchResponseBody:
+    ) -> GatewaysPairGatewaysResponseBody:
         """
-        Asynchronously update eventState and/or context labels for one or more Safety Events. Returns 202 Accepted immediately. State changes propagate asynchronously; use GET /safety-events to confirm updated state. If any safetyEventIds are not found, the entire request fails with 404 before any mutations are executed. If both eventState and label fields are provided, the two mutations execute serially and are not transactional — a label mutation failure will not roll back a successful state change.
+        Reassign one or more gateways to different devices in a single call. Mirrors the dashboard's "Pair Gateway" flow and accepts up to 50 gateway-device pairs per request. Works for any device type: vehicles, assets, equipment, trailers, industrial machines, and asset tags. By default, devices that the reassigned gateways were previously linked to remain in their current group. Pass `removeOrphanDevices: true` to move those orphaned devices to the unassigned group and clear their tags. The endpoint is currently in Preview and gated behind a feature configuration; contact your Samsara representative to enable access.
 
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-        To use this endpoint, select **Write Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Write Gateways** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
         Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
 
@@ -224,50 +204,38 @@ class PreviewApIsClient:
 
         Parameters
         ----------
-        safety_event_ids : typing.Sequence[str]
-            IDs of the Safety Events to update. Maximum 200.
+        pairs : typing.Sequence[PairGatewayPairObjectRequestBody]
+            Gateway-device pairs to apply.
 
-        context_labels_to_add : typing.Optional[typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem]]
-            Context labels to add to the Safety Events.
-
-        context_labels_to_remove : typing.Optional[typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToRemoveItem]]
-            Context labels to remove from the Safety Events.
-
-        dismissal_reason : typing.Optional[PatchSafetyEventsDismissalReasonBodyRequestBody]
-
-        event_state : typing.Optional[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState]
-            The new state to apply to all specified Safety Events.  Valid values: `needsReview`, `reviewed`, `needsCoaching`, `coached`, `dismissed`, `needsRecognition`, `recognized`
+        remove_orphan_devices : typing.Optional[bool]
+            When true, devices that the reassigned gateways were previously linked to are moved to the unassigned group and have their tags cleared as a side-effect of the pairing. The previousDevice fields in the response describe each orphaned device as it existed immediately before the pairing was applied, so they remain stable regardless of this flag. Defaults to false.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
         Returns
         -------
-        SafetyEventsV2PatchSafetyEventsV2BatchResponseBody
-            Accepted response.
+        GatewaysPairGatewaysResponseBody
+            OK response.
 
         Examples
         --------
-        from samsara import Samsara
+        from samsara import PairGatewayPairObjectRequestBody, Samsara
 
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.preview_ap_is.patch_safety_events_v_2_batch(
-            safety_event_ids=[
-                "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
-                "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
-                "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
+        client.preview_ap_is.pair_gateways(
+            pairs=[
+                PairGatewayPairObjectRequestBody(
+                    device_serial="GFRV-43N-VGX",
+                    gateway_serial="GFRV-43N-VGX",
+                )
             ],
         )
         """
-        _response = self._raw_client.patch_safety_events_v_2_batch(
-            safety_event_ids=safety_event_ids,
-            context_labels_to_add=context_labels_to_add,
-            context_labels_to_remove=context_labels_to_remove,
-            dismissal_reason=dismissal_reason,
-            event_state=event_state,
-            request_options=request_options,
+        _response = self._raw_client.pair_gateways(
+            pairs=pairs, remove_orphan_devices=remove_orphan_devices, request_options=request_options
         )
         return _response.data
 
@@ -460,26 +428,19 @@ class AsyncPreviewApIsClient:
         _response = await self._raw_client.unlock_vehicle(id, request_options=request_options)
         return _response.data
 
-    async def patch_safety_events_v_2_batch(
+    async def pair_gateways(
         self,
         *,
-        safety_event_ids: typing.Sequence[str],
-        context_labels_to_add: typing.Optional[
-            typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem]
-        ] = OMIT,
-        context_labels_to_remove: typing.Optional[
-            typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToRemoveItem]
-        ] = OMIT,
-        dismissal_reason: typing.Optional[PatchSafetyEventsDismissalReasonBodyRequestBody] = OMIT,
-        event_state: typing.Optional[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState] = OMIT,
+        pairs: typing.Sequence[PairGatewayPairObjectRequestBody],
+        remove_orphan_devices: typing.Optional[bool] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> SafetyEventsV2PatchSafetyEventsV2BatchResponseBody:
+    ) -> GatewaysPairGatewaysResponseBody:
         """
-        Asynchronously update eventState and/or context labels for one or more Safety Events. Returns 202 Accepted immediately. State changes propagate asynchronously; use GET /safety-events to confirm updated state. If any safetyEventIds are not found, the entire request fails with 404 before any mutations are executed. If both eventState and label fields are provided, the two mutations execute serially and are not transactional — a label mutation failure will not roll back a successful state change.
+        Reassign one or more gateways to different devices in a single call. Mirrors the dashboard's "Pair Gateway" flow and accepts up to 50 gateway-device pairs per request. Works for any device type: vehicles, assets, equipment, trailers, industrial machines, and asset tags. By default, devices that the reassigned gateways were previously linked to remain in their current group. Pass `removeOrphanDevices: true` to move those orphaned devices to the unassigned group and clear their tags. The endpoint is currently in Preview and gated behind a feature configuration; contact your Samsara representative to enable access.
 
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-        To use this endpoint, select **Write Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+        To use this endpoint, select **Write Gateways** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
         Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
 
@@ -492,33 +453,25 @@ class AsyncPreviewApIsClient:
 
         Parameters
         ----------
-        safety_event_ids : typing.Sequence[str]
-            IDs of the Safety Events to update. Maximum 200.
+        pairs : typing.Sequence[PairGatewayPairObjectRequestBody]
+            Gateway-device pairs to apply.
 
-        context_labels_to_add : typing.Optional[typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem]]
-            Context labels to add to the Safety Events.
-
-        context_labels_to_remove : typing.Optional[typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToRemoveItem]]
-            Context labels to remove from the Safety Events.
-
-        dismissal_reason : typing.Optional[PatchSafetyEventsDismissalReasonBodyRequestBody]
-
-        event_state : typing.Optional[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState]
-            The new state to apply to all specified Safety Events.  Valid values: `needsReview`, `reviewed`, `needsCoaching`, `coached`, `dismissed`, `needsRecognition`, `recognized`
+        remove_orphan_devices : typing.Optional[bool]
+            When true, devices that the reassigned gateways were previously linked to are moved to the unassigned group and have their tags cleared as a side-effect of the pairing. The previousDevice fields in the response describe each orphaned device as it existed immediately before the pairing was applied, so they remain stable regardless of this flag. Defaults to false.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
         Returns
         -------
-        SafetyEventsV2PatchSafetyEventsV2BatchResponseBody
-            Accepted response.
+        GatewaysPairGatewaysResponseBody
+            OK response.
 
         Examples
         --------
         import asyncio
 
-        from samsara import AsyncSamsara
+        from samsara import AsyncSamsara, PairGatewayPairObjectRequestBody
 
         client = AsyncSamsara(
             token="YOUR_TOKEN",
@@ -526,23 +479,19 @@ class AsyncPreviewApIsClient:
 
 
         async def main() -> None:
-            await client.preview_ap_is.patch_safety_events_v_2_batch(
-                safety_event_ids=[
-                    "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
-                    "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
-                    "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
+            await client.preview_ap_is.pair_gateways(
+                pairs=[
+                    PairGatewayPairObjectRequestBody(
+                        device_serial="GFRV-43N-VGX",
+                        gateway_serial="GFRV-43N-VGX",
+                    )
                 ],
             )
 
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.patch_safety_events_v_2_batch(
-            safety_event_ids=safety_event_ids,
-            context_labels_to_add=context_labels_to_add,
-            context_labels_to_remove=context_labels_to_remove,
-            dismissal_reason=dismissal_reason,
-            event_state=event_state,
-            request_options=request_options,
+        _response = await self._raw_client.pair_gateways(
+            pairs=pairs, remove_orphan_devices=remove_orphan_devices, request_options=request_options
         )
         return _response.data

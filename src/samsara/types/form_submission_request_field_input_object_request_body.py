@@ -7,6 +7,9 @@ import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .form_submission_request_asset_value_object_request_body import FormSubmissionRequestAssetValueObjectRequestBody
+from .form_submission_request_barcode_value_object_request_body import (
+    FormSubmissionRequestBarcodeValueObjectRequestBody,
+)
 from .form_submission_request_check_boxes_value_object_request_body import (
     FormSubmissionRequestCheckBoxesValueObjectRequestBody,
 )
@@ -37,6 +40,11 @@ class FormSubmissionRequestFieldInputObjectRequestBody(UniversalBaseModel):
         typing.Optional[FormSubmissionRequestAssetValueObjectRequestBody],
         FieldMetadata(alias="assetValue"),
         pydantic.Field(alias="assetValue"),
+    ] = None
+    barcode_value: typing_extensions.Annotated[
+        typing.Optional[FormSubmissionRequestBarcodeValueObjectRequestBody],
+        FieldMetadata(alias="barcodeValue"),
+        pydantic.Field(alias="barcodeValue"),
     ] = None
     check_boxes_value: typing_extensions.Annotated[
         typing.Optional[FormSubmissionRequestCheckBoxesValueObjectRequestBody],
@@ -85,7 +93,7 @@ class FormSubmissionRequestFieldInputObjectRequestBody(UniversalBaseModel):
     ] = None
     type: FormSubmissionRequestFieldInputObjectRequestBodyType = pydantic.Field()
     """
-    Type of the field.  Valid values: `number`, `text`, `multiple_choice`, `check_boxes`, `datetime`, `asset`, `person`, `table`, `geofence`
+    Type of the field.  Valid values: `number`, `text`, `multiple_choice`, `check_boxes`, `datetime`, `asset`, `person`, `table`, `geofence`, `barcode`
     """
 
     if IS_PYDANTIC_V2:

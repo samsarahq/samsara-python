@@ -9,5 +9,5 @@
     "skip_formatting": false,
     "enable_wire_tests": true
   },
-  "sdkVersion": "11.11.1"
+  "sdkVersion": "12.0.0"
 }

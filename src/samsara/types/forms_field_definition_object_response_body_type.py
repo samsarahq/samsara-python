@@ -17,6 +17,7 @@ FormsFieldDefinitionObjectResponseBodyType = typing.Union[
         "instruction",
         "media_instruction",
         "table",
+        "barcode",
     ],
     typing.Any,
 ]

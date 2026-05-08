@@ -15,6 +15,7 @@ FormsFieldInputObjectResponseBodyType = typing.Union[
         "table",
         "person",
         "geofence",
+        "barcode",
     ],
     typing.Any,
 ]

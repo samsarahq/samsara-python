@@ -237,98 +237,6 @@ if typing.TYPE_CHECKING:
     from .anticipation_brake_event_count import AnticipationBrakeEventCount
     from .appointment_window_request_body import AppointmentWindowRequestBody
     from .appointment_window_response_body import AppointmentWindowResponseBody
-    from .asset_assignment_assignee_response_object_response_body import (
-        AssetAssignmentAssigneeResponseObjectResponseBody,
-    )
-    from .asset_assignment_assignee_response_object_response_body_assignee_type import (
-        AssetAssignmentAssigneeResponseObjectResponseBodyAssigneeType,
-    )
-    from .asset_assignment_response_object_response_body import AssetAssignmentResponseObjectResponseBody
-    from .asset_assignments_create_asset_assignment_bad_gateway_error_response_body import (
-        AssetAssignmentsCreateAssetAssignmentBadGatewayErrorResponseBody,
-    )
-    from .asset_assignments_create_asset_assignment_gateway_timeout_error_response_body import (
-        AssetAssignmentsCreateAssetAssignmentGatewayTimeoutErrorResponseBody,
-    )
-    from .asset_assignments_create_asset_assignment_internal_server_error_response_body import (
-        AssetAssignmentsCreateAssetAssignmentInternalServerErrorResponseBody,
-    )
-    from .asset_assignments_create_asset_assignment_method_not_allowed_error_response_body import (
-        AssetAssignmentsCreateAssetAssignmentMethodNotAllowedErrorResponseBody,
-    )
-    from .asset_assignments_create_asset_assignment_not_found_error_response_body import (
-        AssetAssignmentsCreateAssetAssignmentNotFoundErrorResponseBody,
-    )
-    from .asset_assignments_create_asset_assignment_not_implemented_error_response_body import (
-        AssetAssignmentsCreateAssetAssignmentNotImplementedErrorResponseBody,
-    )
-    from .asset_assignments_create_asset_assignment_response_body import (
-        AssetAssignmentsCreateAssetAssignmentResponseBody,
-    )
-    from .asset_assignments_create_asset_assignment_service_unavailable_error_response_body import (
-        AssetAssignmentsCreateAssetAssignmentServiceUnavailableErrorResponseBody,
-    )
-    from .asset_assignments_create_asset_assignment_too_many_requests_error_response_body import (
-        AssetAssignmentsCreateAssetAssignmentTooManyRequestsErrorResponseBody,
-    )
-    from .asset_assignments_create_asset_assignment_unauthorized_error_response_body import (
-        AssetAssignmentsCreateAssetAssignmentUnauthorizedErrorResponseBody,
-    )
-    from .asset_assignments_list_asset_assignments_bad_gateway_error_response_body import (
-        AssetAssignmentsListAssetAssignmentsBadGatewayErrorResponseBody,
-    )
-    from .asset_assignments_list_asset_assignments_gateway_timeout_error_response_body import (
-        AssetAssignmentsListAssetAssignmentsGatewayTimeoutErrorResponseBody,
-    )
-    from .asset_assignments_list_asset_assignments_internal_server_error_response_body import (
-        AssetAssignmentsListAssetAssignmentsInternalServerErrorResponseBody,
-    )
-    from .asset_assignments_list_asset_assignments_method_not_allowed_error_response_body import (
-        AssetAssignmentsListAssetAssignmentsMethodNotAllowedErrorResponseBody,
-    )
-    from .asset_assignments_list_asset_assignments_not_found_error_response_body import (
-        AssetAssignmentsListAssetAssignmentsNotFoundErrorResponseBody,
-    )
-    from .asset_assignments_list_asset_assignments_not_implemented_error_response_body import (
-        AssetAssignmentsListAssetAssignmentsNotImplementedErrorResponseBody,
-    )
-    from .asset_assignments_list_asset_assignments_response_body import AssetAssignmentsListAssetAssignmentsResponseBody
-    from .asset_assignments_list_asset_assignments_service_unavailable_error_response_body import (
-        AssetAssignmentsListAssetAssignmentsServiceUnavailableErrorResponseBody,
-    )
-    from .asset_assignments_list_asset_assignments_too_many_requests_error_response_body import (
-        AssetAssignmentsListAssetAssignmentsTooManyRequestsErrorResponseBody,
-    )
-    from .asset_assignments_list_asset_assignments_unauthorized_error_response_body import (
-        AssetAssignmentsListAssetAssignmentsUnauthorizedErrorResponseBody,
-    )
-    from .asset_assignments_unassign_asset_assignment_bad_gateway_error_response_body import (
-        AssetAssignmentsUnassignAssetAssignmentBadGatewayErrorResponseBody,
-    )
-    from .asset_assignments_unassign_asset_assignment_gateway_timeout_error_response_body import (
-        AssetAssignmentsUnassignAssetAssignmentGatewayTimeoutErrorResponseBody,
-    )
-    from .asset_assignments_unassign_asset_assignment_internal_server_error_response_body import (
-        AssetAssignmentsUnassignAssetAssignmentInternalServerErrorResponseBody,
-    )
-    from .asset_assignments_unassign_asset_assignment_method_not_allowed_error_response_body import (
-        AssetAssignmentsUnassignAssetAssignmentMethodNotAllowedErrorResponseBody,
-    )
-    from .asset_assignments_unassign_asset_assignment_not_found_error_response_body import (
-        AssetAssignmentsUnassignAssetAssignmentNotFoundErrorResponseBody,
-    )
-    from .asset_assignments_unassign_asset_assignment_not_implemented_error_response_body import (
-        AssetAssignmentsUnassignAssetAssignmentNotImplementedErrorResponseBody,
-    )
-    from .asset_assignments_unassign_asset_assignment_service_unavailable_error_response_body import (
-        AssetAssignmentsUnassignAssetAssignmentServiceUnavailableErrorResponseBody,
-    )
-    from .asset_assignments_unassign_asset_assignment_too_many_requests_error_response_body import (
-        AssetAssignmentsUnassignAssetAssignmentTooManyRequestsErrorResponseBody,
-    )
-    from .asset_assignments_unassign_asset_assignment_unauthorized_error_response_body import (
-        AssetAssignmentsUnassignAssetAssignmentUnauthorizedErrorResponseBody,
-    )
     from .asset_data_input import AssetDataInput
     from .asset_data_input_last_point import AssetDataInputLastPoint
     from .asset_data_output import AssetDataOutput
@@ -499,35 +407,6 @@ if typing.TYPE_CHECKING:
         AssetsUpdateAssetTooManyRequestsErrorResponseBody,
     )
     from .assets_update_asset_unauthorized_error_response_body import AssetsUpdateAssetUnauthorizedErrorResponseBody
-    from .association_response_body import AssociationResponseBody
-    from .associations_list_associations_bad_gateway_error_response_body import (
-        AssociationsListAssociationsBadGatewayErrorResponseBody,
-    )
-    from .associations_list_associations_gateway_timeout_error_response_body import (
-        AssociationsListAssociationsGatewayTimeoutErrorResponseBody,
-    )
-    from .associations_list_associations_internal_server_error_response_body import (
-        AssociationsListAssociationsInternalServerErrorResponseBody,
-    )
-    from .associations_list_associations_method_not_allowed_error_response_body import (
-        AssociationsListAssociationsMethodNotAllowedErrorResponseBody,
-    )
-    from .associations_list_associations_not_found_error_response_body import (
-        AssociationsListAssociationsNotFoundErrorResponseBody,
-    )
-    from .associations_list_associations_not_implemented_error_response_body import (
-        AssociationsListAssociationsNotImplementedErrorResponseBody,
-    )
-    from .associations_list_associations_response_body import AssociationsListAssociationsResponseBody
-    from .associations_list_associations_service_unavailable_error_response_body import (
-        AssociationsListAssociationsServiceUnavailableErrorResponseBody,
-    )
-    from .associations_list_associations_too_many_requests_error_response_body import (
-        AssociationsListAssociationsTooManyRequestsErrorResponseBody,
-    )
-    from .associations_list_associations_unauthorized_error_response_body import (
-        AssociationsListAssociationsUnauthorizedErrorResponseBody,
-    )
     from .attribute import Attribute
     from .attribute_attribute_type import AttributeAttributeType
     from .attribute_entity import AttributeEntity
@@ -2049,6 +1928,10 @@ if typing.TYPE_CHECKING:
     )
     from .form_submission_request_assigned_to_request_body import FormSubmissionRequestAssignedToRequestBody
     from .form_submission_request_assigned_to_request_body_type import FormSubmissionRequestAssignedToRequestBodyType
+    from .form_submission_request_barcode_object_request_body import FormSubmissionRequestBarcodeObjectRequestBody
+    from .form_submission_request_barcode_value_object_request_body import (
+        FormSubmissionRequestBarcodeValueObjectRequestBody,
+    )
     from .form_submission_request_check_boxes_value_object_request_body import (
         FormSubmissionRequestCheckBoxesValueObjectRequestBody,
     )
@@ -2311,6 +2194,8 @@ if typing.TYPE_CHECKING:
     from .forms_asset_object_response_body import FormsAssetObjectResponseBody
     from .forms_asset_object_response_body_entry_type import FormsAssetObjectResponseBodyEntryType
     from .forms_asset_value_object_response_body import FormsAssetValueObjectResponseBody
+    from .forms_barcode_object_response_body import FormsBarcodeObjectResponseBody
+    from .forms_barcode_value_object_response_body import FormsBarcodeValueObjectResponseBody
     from .forms_check_boxes_value_object_response_body import FormsCheckBoxesValueObjectResponseBody
     from .forms_condition_object_response_body import FormsConditionObjectResponseBody
     from .forms_condition_object_response_body_type import FormsConditionObjectResponseBodyType
@@ -2708,6 +2593,66 @@ if typing.TYPE_CHECKING:
     from .functions_start_function_run_unauthorized_error_response_body import (
         FunctionsStartFunctionRunUnauthorizedErrorResponseBody,
     )
+    from .functions_storage_delete_function_storage_file_bad_gateway_error_response_body import (
+        FunctionsStorageDeleteFunctionStorageFileBadGatewayErrorResponseBody,
+    )
+    from .functions_storage_delete_function_storage_file_gateway_timeout_error_response_body import (
+        FunctionsStorageDeleteFunctionStorageFileGatewayTimeoutErrorResponseBody,
+    )
+    from .functions_storage_delete_function_storage_file_internal_server_error_response_body import (
+        FunctionsStorageDeleteFunctionStorageFileInternalServerErrorResponseBody,
+    )
+    from .functions_storage_delete_function_storage_file_method_not_allowed_error_response_body import (
+        FunctionsStorageDeleteFunctionStorageFileMethodNotAllowedErrorResponseBody,
+    )
+    from .functions_storage_delete_function_storage_file_not_found_error_response_body import (
+        FunctionsStorageDeleteFunctionStorageFileNotFoundErrorResponseBody,
+    )
+    from .functions_storage_delete_function_storage_file_not_implemented_error_response_body import (
+        FunctionsStorageDeleteFunctionStorageFileNotImplementedErrorResponseBody,
+    )
+    from .functions_storage_delete_function_storage_file_service_unavailable_error_response_body import (
+        FunctionsStorageDeleteFunctionStorageFileServiceUnavailableErrorResponseBody,
+    )
+    from .functions_storage_delete_function_storage_file_too_many_requests_error_response_body import (
+        FunctionsStorageDeleteFunctionStorageFileTooManyRequestsErrorResponseBody,
+    )
+    from .functions_storage_delete_function_storage_file_unauthorized_error_response_body import (
+        FunctionsStorageDeleteFunctionStorageFileUnauthorizedErrorResponseBody,
+    )
+    from .functions_storage_file_response_body import FunctionsStorageFileResponseBody
+    from .functions_storage_list_functions_storage_files_bad_gateway_error_response_body import (
+        FunctionsStorageListFunctionsStorageFilesBadGatewayErrorResponseBody,
+    )
+    from .functions_storage_list_functions_storage_files_gateway_timeout_error_response_body import (
+        FunctionsStorageListFunctionsStorageFilesGatewayTimeoutErrorResponseBody,
+    )
+    from .functions_storage_list_functions_storage_files_internal_server_error_response_body import (
+        FunctionsStorageListFunctionsStorageFilesInternalServerErrorResponseBody,
+    )
+    from .functions_storage_list_functions_storage_files_method_not_allowed_error_response_body import (
+        FunctionsStorageListFunctionsStorageFilesMethodNotAllowedErrorResponseBody,
+    )
+    from .functions_storage_list_functions_storage_files_not_found_error_response_body import (
+        FunctionsStorageListFunctionsStorageFilesNotFoundErrorResponseBody,
+    )
+    from .functions_storage_list_functions_storage_files_not_implemented_error_response_body import (
+        FunctionsStorageListFunctionsStorageFilesNotImplementedErrorResponseBody,
+    )
+    from .functions_storage_list_functions_storage_files_response_body import (
+        FunctionsStorageListFunctionsStorageFilesResponseBody,
+    )
+    from .functions_storage_list_functions_storage_files_service_unavailable_error_response_body import (
+        FunctionsStorageListFunctionsStorageFilesServiceUnavailableErrorResponseBody,
+    )
+    from .functions_storage_list_functions_storage_files_too_many_requests_error_response_body import (
+        FunctionsStorageListFunctionsStorageFilesTooManyRequestsErrorResponseBody,
+    )
+    from .functions_storage_list_functions_storage_files_unauthorized_error_response_body import (
+        FunctionsStorageListFunctionsStorageFilesUnauthorizedErrorResponseBody,
+    )
+    from .functions_storage_signed_url_response_body import FunctionsStorageSignedUrlResponseBody
+    from .functions_storage_signed_url_response_body_url_type import FunctionsStorageSignedUrlResponseBodyUrlType
     from .gaseous_fuel_cost_object_response_body import GaseousFuelCostObjectResponseBody
     from .gaseous_fuel_cost_object_response_body_currency import GaseousFuelCostObjectResponseBodyCurrency
     from .gateway_asset_response_object_response_body import GatewayAssetResponseObjectResponseBody
@@ -2772,6 +2717,30 @@ if typing.TYPE_CHECKING:
         GatewaysGetGatewaysTooManyRequestsErrorResponseBody,
     )
     from .gateways_get_gateways_unauthorized_error_response_body import GatewaysGetGatewaysUnauthorizedErrorResponseBody
+    from .gateways_pair_gateways_bad_gateway_error_response_body import GatewaysPairGatewaysBadGatewayErrorResponseBody
+    from .gateways_pair_gateways_gateway_timeout_error_response_body import (
+        GatewaysPairGatewaysGatewayTimeoutErrorResponseBody,
+    )
+    from .gateways_pair_gateways_internal_server_error_response_body import (
+        GatewaysPairGatewaysInternalServerErrorResponseBody,
+    )
+    from .gateways_pair_gateways_method_not_allowed_error_response_body import (
+        GatewaysPairGatewaysMethodNotAllowedErrorResponseBody,
+    )
+    from .gateways_pair_gateways_not_found_error_response_body import GatewaysPairGatewaysNotFoundErrorResponseBody
+    from .gateways_pair_gateways_not_implemented_error_response_body import (
+        GatewaysPairGatewaysNotImplementedErrorResponseBody,
+    )
+    from .gateways_pair_gateways_response_body import GatewaysPairGatewaysResponseBody
+    from .gateways_pair_gateways_service_unavailable_error_response_body import (
+        GatewaysPairGatewaysServiceUnavailableErrorResponseBody,
+    )
+    from .gateways_pair_gateways_too_many_requests_error_response_body import (
+        GatewaysPairGatewaysTooManyRequestsErrorResponseBody,
+    )
+    from .gateways_pair_gateways_unauthorized_error_response_body import (
+        GatewaysPairGatewaysUnauthorizedErrorResponseBody,
+    )
     from .gateways_post_gateway_bad_gateway_error_response_body import GatewaysPostGatewayBadGatewayErrorResponseBody
     from .gateways_post_gateway_gateway_timeout_error_response_body import (
         GatewaysPostGatewayGatewayTimeoutErrorResponseBody,
@@ -3292,6 +3261,33 @@ if typing.TYPE_CHECKING:
     from .hub_route_template_depot_object_response_body import HubRouteTemplateDepotObjectResponseBody
     from .hub_route_template_location_object_response_body import HubRouteTemplateLocationObjectResponseBody
     from .hub_route_template_object_response_body import HubRouteTemplateObjectResponseBody
+    from .hub_route_templates_delete_hub_route_template_bad_gateway_error_response_body import (
+        HubRouteTemplatesDeleteHubRouteTemplateBadGatewayErrorResponseBody,
+    )
+    from .hub_route_templates_delete_hub_route_template_gateway_timeout_error_response_body import (
+        HubRouteTemplatesDeleteHubRouteTemplateGatewayTimeoutErrorResponseBody,
+    )
+    from .hub_route_templates_delete_hub_route_template_internal_server_error_response_body import (
+        HubRouteTemplatesDeleteHubRouteTemplateInternalServerErrorResponseBody,
+    )
+    from .hub_route_templates_delete_hub_route_template_method_not_allowed_error_response_body import (
+        HubRouteTemplatesDeleteHubRouteTemplateMethodNotAllowedErrorResponseBody,
+    )
+    from .hub_route_templates_delete_hub_route_template_not_found_error_response_body import (
+        HubRouteTemplatesDeleteHubRouteTemplateNotFoundErrorResponseBody,
+    )
+    from .hub_route_templates_delete_hub_route_template_not_implemented_error_response_body import (
+        HubRouteTemplatesDeleteHubRouteTemplateNotImplementedErrorResponseBody,
+    )
+    from .hub_route_templates_delete_hub_route_template_service_unavailable_error_response_body import (
+        HubRouteTemplatesDeleteHubRouteTemplateServiceUnavailableErrorResponseBody,
+    )
+    from .hub_route_templates_delete_hub_route_template_too_many_requests_error_response_body import (
+        HubRouteTemplatesDeleteHubRouteTemplateTooManyRequestsErrorResponseBody,
+    )
+    from .hub_route_templates_delete_hub_route_template_unauthorized_error_response_body import (
+        HubRouteTemplatesDeleteHubRouteTemplateUnauthorizedErrorResponseBody,
+    )
     from .hub_route_templates_list_hub_route_templates_bad_gateway_error_response_body import (
         HubRouteTemplatesListHubRouteTemplatesBadGatewayErrorResponseBody,
     )
@@ -4048,6 +4044,12 @@ if typing.TYPE_CHECKING:
     from .outside_geofence_trigger_details_object_response_body import OutsideGeofenceTriggerDetailsObjectResponseBody
     from .over_speed_ms import OverSpeedMs
     from .pagination_response import PaginationResponse
+    from .pair_gateway_pair_object_request_body import PairGatewayPairObjectRequestBody
+    from .pair_gateway_result_object_response_body import PairGatewayResultObjectResponseBody
+    from .pair_result_device_object_response_body import PairResultDeviceObjectResponseBody
+    from .pair_result_device_object_response_body_type import PairResultDeviceObjectResponseBodyType
+    from .pair_result_gateway_object_response_body import PairResultGatewayObjectResponseBody
+    from .pair_result_gateway_object_response_body_model import PairResultGatewayObjectResponseBodyModel
     from .panic_button_details_object_request_body import PanicButtonDetailsObjectRequestBody
     from .panic_button_details_object_response_body import PanicButtonDetailsObjectResponseBody
     from .panic_button_response_body import PanicButtonResponseBody
@@ -7827,38 +7829,6 @@ _dynamic_imports: typing.Dict[str, str] = {
     "AnticipationBrakeEventCount": ".anticipation_brake_event_count",
     "AppointmentWindowRequestBody": ".appointment_window_request_body",
     "AppointmentWindowResponseBody": ".appointment_window_response_body",
-    "AssetAssignmentAssigneeResponseObjectResponseBody": ".asset_assignment_assignee_response_object_response_body",
-    "AssetAssignmentAssigneeResponseObjectResponseBodyAssigneeType": ".asset_assignment_assignee_response_object_response_body_assignee_type",
-    "AssetAssignmentResponseObjectResponseBody": ".asset_assignment_response_object_response_body",
-    "AssetAssignmentsCreateAssetAssignmentBadGatewayErrorResponseBody": ".asset_assignments_create_asset_assignment_bad_gateway_error_response_body",
-    "AssetAssignmentsCreateAssetAssignmentGatewayTimeoutErrorResponseBody": ".asset_assignments_create_asset_assignment_gateway_timeout_error_response_body",
-    "AssetAssignmentsCreateAssetAssignmentInternalServerErrorResponseBody": ".asset_assignments_create_asset_assignment_internal_server_error_response_body",
-    "AssetAssignmentsCreateAssetAssignmentMethodNotAllowedErrorResponseBody": ".asset_assignments_create_asset_assignment_method_not_allowed_error_response_body",
-    "AssetAssignmentsCreateAssetAssignmentNotFoundErrorResponseBody": ".asset_assignments_create_asset_assignment_not_found_error_response_body",
-    "AssetAssignmentsCreateAssetAssignmentNotImplementedErrorResponseBody": ".asset_assignments_create_asset_assignment_not_implemented_error_response_body",
-    "AssetAssignmentsCreateAssetAssignmentResponseBody": ".asset_assignments_create_asset_assignment_response_body",
-    "AssetAssignmentsCreateAssetAssignmentServiceUnavailableErrorResponseBody": ".asset_assignments_create_asset_assignment_service_unavailable_error_response_body",
-    "AssetAssignmentsCreateAssetAssignmentTooManyRequestsErrorResponseBody": ".asset_assignments_create_asset_assignment_too_many_requests_error_response_body",
-    "AssetAssignmentsCreateAssetAssignmentUnauthorizedErrorResponseBody": ".asset_assignments_create_asset_assignment_unauthorized_error_response_body",
-    "AssetAssignmentsListAssetAssignmentsBadGatewayErrorResponseBody": ".asset_assignments_list_asset_assignments_bad_gateway_error_response_body",
-    "AssetAssignmentsListAssetAssignmentsGatewayTimeoutErrorResponseBody": ".asset_assignments_list_asset_assignments_gateway_timeout_error_response_body",
-    "AssetAssignmentsListAssetAssignmentsInternalServerErrorResponseBody": ".asset_assignments_list_asset_assignments_internal_server_error_response_body",
-    "AssetAssignmentsListAssetAssignmentsMethodNotAllowedErrorResponseBody": ".asset_assignments_list_asset_assignments_method_not_allowed_error_response_body",
-    "AssetAssignmentsListAssetAssignmentsNotFoundErrorResponseBody": ".asset_assignments_list_asset_assignments_not_found_error_response_body",
-    "AssetAssignmentsListAssetAssignmentsNotImplementedErrorResponseBody": ".asset_assignments_list_asset_assignments_not_implemented_error_response_body",
-    "AssetAssignmentsListAssetAssignmentsResponseBody": ".asset_assignments_list_asset_assignments_response_body",
-    "AssetAssignmentsListAssetAssignmentsServiceUnavailableErrorResponseBody": ".asset_assignments_list_asset_assignments_service_unavailable_error_response_body",
-    "AssetAssignmentsListAssetAssignmentsTooManyRequestsErrorResponseBody": ".asset_assignments_list_asset_assignments_too_many_requests_error_response_body",
-    "AssetAssignmentsListAssetAssignmentsUnauthorizedErrorResponseBody": ".asset_assignments_list_asset_assignments_unauthorized_error_response_body",
-    "AssetAssignmentsUnassignAssetAssignmentBadGatewayErrorResponseBody": ".asset_assignments_unassign_asset_assignment_bad_gateway_error_response_body",
-    "AssetAssignmentsUnassignAssetAssignmentGatewayTimeoutErrorResponseBody": ".asset_assignments_unassign_asset_assignment_gateway_timeout_error_response_body",
-    "AssetAssignmentsUnassignAssetAssignmentInternalServerErrorResponseBody": ".asset_assignments_unassign_asset_assignment_internal_server_error_response_body",
-    "AssetAssignmentsUnassignAssetAssignmentMethodNotAllowedErrorResponseBody": ".asset_assignments_unassign_asset_assignment_method_not_allowed_error_response_body",
-    "AssetAssignmentsUnassignAssetAssignmentNotFoundErrorResponseBody": ".asset_assignments_unassign_asset_assignment_not_found_error_response_body",
-    "AssetAssignmentsUnassignAssetAssignmentNotImplementedErrorResponseBody": ".asset_assignments_unassign_asset_assignment_not_implemented_error_response_body",
-    "AssetAssignmentsUnassignAssetAssignmentServiceUnavailableErrorResponseBody": ".asset_assignments_unassign_asset_assignment_service_unavailable_error_response_body",
-    "AssetAssignmentsUnassignAssetAssignmentTooManyRequestsErrorResponseBody": ".asset_assignments_unassign_asset_assignment_too_many_requests_error_response_body",
-    "AssetAssignmentsUnassignAssetAssignmentUnauthorizedErrorResponseBody": ".asset_assignments_unassign_asset_assignment_unauthorized_error_response_body",
     "AssetDataInput": ".asset_data_input",
     "AssetDataInputLastPoint": ".asset_data_input_last_point",
     "AssetDataOutput": ".asset_data_output",
@@ -7945,17 +7915,6 @@ _dynamic_imports: typing.Dict[str, str] = {
     "AssetsUpdateAssetServiceUnavailableErrorResponseBody": ".assets_update_asset_service_unavailable_error_response_body",
     "AssetsUpdateAssetTooManyRequestsErrorResponseBody": ".assets_update_asset_too_many_requests_error_response_body",
     "AssetsUpdateAssetUnauthorizedErrorResponseBody": ".assets_update_asset_unauthorized_error_response_body",
-    "AssociationResponseBody": ".association_response_body",
-    "AssociationsListAssociationsBadGatewayErrorResponseBody": ".associations_list_associations_bad_gateway_error_response_body",
-    "AssociationsListAssociationsGatewayTimeoutErrorResponseBody": ".associations_list_associations_gateway_timeout_error_response_body",
-    "AssociationsListAssociationsInternalServerErrorResponseBody": ".associations_list_associations_internal_server_error_response_body",
-    "AssociationsListAssociationsMethodNotAllowedErrorResponseBody": ".associations_list_associations_method_not_allowed_error_response_body",
-    "AssociationsListAssociationsNotFoundErrorResponseBody": ".associations_list_associations_not_found_error_response_body",
-    "AssociationsListAssociationsNotImplementedErrorResponseBody": ".associations_list_associations_not_implemented_error_response_body",
-    "AssociationsListAssociationsResponseBody": ".associations_list_associations_response_body",
-    "AssociationsListAssociationsServiceUnavailableErrorResponseBody": ".associations_list_associations_service_unavailable_error_response_body",
-    "AssociationsListAssociationsTooManyRequestsErrorResponseBody": ".associations_list_associations_too_many_requests_error_response_body",
-    "AssociationsListAssociationsUnauthorizedErrorResponseBody": ".associations_list_associations_unauthorized_error_response_body",
     "Attribute": ".attribute",
     "AttributeAttributeType": ".attribute_attribute_type",
     "AttributeEntity": ".attribute_entity",
@@ -8721,6 +8680,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "FormSubmissionRequestAssetValueObjectRequestBody": ".form_submission_request_asset_value_object_request_body",
     "FormSubmissionRequestAssignedToRequestBody": ".form_submission_request_assigned_to_request_body",
     "FormSubmissionRequestAssignedToRequestBodyType": ".form_submission_request_assigned_to_request_body_type",
+    "FormSubmissionRequestBarcodeObjectRequestBody": ".form_submission_request_barcode_object_request_body",
+    "FormSubmissionRequestBarcodeValueObjectRequestBody": ".form_submission_request_barcode_value_object_request_body",
     "FormSubmissionRequestCheckBoxesValueObjectRequestBody": ".form_submission_request_check_boxes_value_object_request_body",
     "FormSubmissionRequestDateTimeValueObjectRequestBody": ".form_submission_request_date_time_value_object_request_body",
     "FormSubmissionRequestFieldInputObjectRequestBody": ".form_submission_request_field_input_object_request_body",
@@ -8825,6 +8786,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "FormsAssetObjectResponseBody": ".forms_asset_object_response_body",
     "FormsAssetObjectResponseBodyEntryType": ".forms_asset_object_response_body_entry_type",
     "FormsAssetValueObjectResponseBody": ".forms_asset_value_object_response_body",
+    "FormsBarcodeObjectResponseBody": ".forms_barcode_object_response_body",
+    "FormsBarcodeValueObjectResponseBody": ".forms_barcode_value_object_response_body",
     "FormsCheckBoxesValueObjectResponseBody": ".forms_check_boxes_value_object_response_body",
     "FormsConditionObjectResponseBody": ".forms_condition_object_response_body",
     "FormsConditionObjectResponseBodyType": ".forms_condition_object_response_body_type",
@@ -9008,6 +8971,28 @@ _dynamic_imports: typing.Dict[str, str] = {
     "FunctionsStartFunctionRunServiceUnavailableErrorResponseBody": ".functions_start_function_run_service_unavailable_error_response_body",
     "FunctionsStartFunctionRunTooManyRequestsErrorResponseBody": ".functions_start_function_run_too_many_requests_error_response_body",
     "FunctionsStartFunctionRunUnauthorizedErrorResponseBody": ".functions_start_function_run_unauthorized_error_response_body",
+    "FunctionsStorageDeleteFunctionStorageFileBadGatewayErrorResponseBody": ".functions_storage_delete_function_storage_file_bad_gateway_error_response_body",
+    "FunctionsStorageDeleteFunctionStorageFileGatewayTimeoutErrorResponseBody": ".functions_storage_delete_function_storage_file_gateway_timeout_error_response_body",
+    "FunctionsStorageDeleteFunctionStorageFileInternalServerErrorResponseBody": ".functions_storage_delete_function_storage_file_internal_server_error_response_body",
+    "FunctionsStorageDeleteFunctionStorageFileMethodNotAllowedErrorResponseBody": ".functions_storage_delete_function_storage_file_method_not_allowed_error_response_body",
+    "FunctionsStorageDeleteFunctionStorageFileNotFoundErrorResponseBody": ".functions_storage_delete_function_storage_file_not_found_error_response_body",
+    "FunctionsStorageDeleteFunctionStorageFileNotImplementedErrorResponseBody": ".functions_storage_delete_function_storage_file_not_implemented_error_response_body",
+    "FunctionsStorageDeleteFunctionStorageFileServiceUnavailableErrorResponseBody": ".functions_storage_delete_function_storage_file_service_unavailable_error_response_body",
+    "FunctionsStorageDeleteFunctionStorageFileTooManyRequestsErrorResponseBody": ".functions_storage_delete_function_storage_file_too_many_requests_error_response_body",
+    "FunctionsStorageDeleteFunctionStorageFileUnauthorizedErrorResponseBody": ".functions_storage_delete_function_storage_file_unauthorized_error_response_body",
+    "FunctionsStorageFileResponseBody": ".functions_storage_file_response_body",
+    "FunctionsStorageListFunctionsStorageFilesBadGatewayErrorResponseBody": ".functions_storage_list_functions_storage_files_bad_gateway_error_response_body",
+    "FunctionsStorageListFunctionsStorageFilesGatewayTimeoutErrorResponseBody": ".functions_storage_list_functions_storage_files_gateway_timeout_error_response_body",
+    "FunctionsStorageListFunctionsStorageFilesInternalServerErrorResponseBody": ".functions_storage_list_functions_storage_files_internal_server_error_response_body",
+    "FunctionsStorageListFunctionsStorageFilesMethodNotAllowedErrorResponseBody": ".functions_storage_list_functions_storage_files_method_not_allowed_error_response_body",
+    "FunctionsStorageListFunctionsStorageFilesNotFoundErrorResponseBody": ".functions_storage_list_functions_storage_files_not_found_error_response_body",
+    "FunctionsStorageListFunctionsStorageFilesNotImplementedErrorResponseBody": ".functions_storage_list_functions_storage_files_not_implemented_error_response_body",
+    "FunctionsStorageListFunctionsStorageFilesResponseBody": ".functions_storage_list_functions_storage_files_response_body",
+    "FunctionsStorageListFunctionsStorageFilesServiceUnavailableErrorResponseBody": ".functions_storage_list_functions_storage_files_service_unavailable_error_response_body",
+    "FunctionsStorageListFunctionsStorageFilesTooManyRequestsErrorResponseBody": ".functions_storage_list_functions_storage_files_too_many_requests_error_response_body",
+    "FunctionsStorageListFunctionsStorageFilesUnauthorizedErrorResponseBody": ".functions_storage_list_functions_storage_files_unauthorized_error_response_body",
+    "FunctionsStorageSignedUrlResponseBody": ".functions_storage_signed_url_response_body",
+    "FunctionsStorageSignedUrlResponseBodyUrlType": ".functions_storage_signed_url_response_body_url_type",
     "GaseousFuelCostObjectResponseBody": ".gaseous_fuel_cost_object_response_body",
     "GaseousFuelCostObjectResponseBodyCurrency": ".gaseous_fuel_cost_object_response_body_currency",
     "GatewayAssetResponseObjectResponseBody": ".gateway_asset_response_object_response_body",
@@ -9042,6 +9027,16 @@ _dynamic_imports: typing.Dict[str, str] = {
     "GatewaysGetGatewaysServiceUnavailableErrorResponseBody": ".gateways_get_gateways_service_unavailable_error_response_body",
     "GatewaysGetGatewaysTooManyRequestsErrorResponseBody": ".gateways_get_gateways_too_many_requests_error_response_body",
     "GatewaysGetGatewaysUnauthorizedErrorResponseBody": ".gateways_get_gateways_unauthorized_error_response_body",
+    "GatewaysPairGatewaysBadGatewayErrorResponseBody": ".gateways_pair_gateways_bad_gateway_error_response_body",
+    "GatewaysPairGatewaysGatewayTimeoutErrorResponseBody": ".gateways_pair_gateways_gateway_timeout_error_response_body",
+    "GatewaysPairGatewaysInternalServerErrorResponseBody": ".gateways_pair_gateways_internal_server_error_response_body",
+    "GatewaysPairGatewaysMethodNotAllowedErrorResponseBody": ".gateways_pair_gateways_method_not_allowed_error_response_body",
+    "GatewaysPairGatewaysNotFoundErrorResponseBody": ".gateways_pair_gateways_not_found_error_response_body",
+    "GatewaysPairGatewaysNotImplementedErrorResponseBody": ".gateways_pair_gateways_not_implemented_error_response_body",
+    "GatewaysPairGatewaysResponseBody": ".gateways_pair_gateways_response_body",
+    "GatewaysPairGatewaysServiceUnavailableErrorResponseBody": ".gateways_pair_gateways_service_unavailable_error_response_body",
+    "GatewaysPairGatewaysTooManyRequestsErrorResponseBody": ".gateways_pair_gateways_too_many_requests_error_response_body",
+    "GatewaysPairGatewaysUnauthorizedErrorResponseBody": ".gateways_pair_gateways_unauthorized_error_response_body",
     "GatewaysPostGatewayBadGatewayErrorResponseBody": ".gateways_post_gateway_bad_gateway_error_response_body",
     "GatewaysPostGatewayGatewayTimeoutErrorResponseBody": ".gateways_post_gateway_gateway_timeout_error_response_body",
     "GatewaysPostGatewayInternalServerErrorResponseBody": ".gateways_post_gateway_internal_server_error_response_body",
@@ -9286,6 +9281,15 @@ _dynamic_imports: typing.Dict[str, str] = {
     "HubRouteTemplateDepotObjectResponseBody": ".hub_route_template_depot_object_response_body",
     "HubRouteTemplateLocationObjectResponseBody": ".hub_route_template_location_object_response_body",
     "HubRouteTemplateObjectResponseBody": ".hub_route_template_object_response_body",
+    "HubRouteTemplatesDeleteHubRouteTemplateBadGatewayErrorResponseBody": ".hub_route_templates_delete_hub_route_template_bad_gateway_error_response_body",
+    "HubRouteTemplatesDeleteHubRouteTemplateGatewayTimeoutErrorResponseBody": ".hub_route_templates_delete_hub_route_template_gateway_timeout_error_response_body",
+    "HubRouteTemplatesDeleteHubRouteTemplateInternalServerErrorResponseBody": ".hub_route_templates_delete_hub_route_template_internal_server_error_response_body",
+    "HubRouteTemplatesDeleteHubRouteTemplateMethodNotAllowedErrorResponseBody": ".hub_route_templates_delete_hub_route_template_method_not_allowed_error_response_body",
+    "HubRouteTemplatesDeleteHubRouteTemplateNotFoundErrorResponseBody": ".hub_route_templates_delete_hub_route_template_not_found_error_response_body",
+    "HubRouteTemplatesDeleteHubRouteTemplateNotImplementedErrorResponseBody": ".hub_route_templates_delete_hub_route_template_not_implemented_error_response_body",
+    "HubRouteTemplatesDeleteHubRouteTemplateServiceUnavailableErrorResponseBody": ".hub_route_templates_delete_hub_route_template_service_unavailable_error_response_body",
+    "HubRouteTemplatesDeleteHubRouteTemplateTooManyRequestsErrorResponseBody": ".hub_route_templates_delete_hub_route_template_too_many_requests_error_response_body",
+    "HubRouteTemplatesDeleteHubRouteTemplateUnauthorizedErrorResponseBody": ".hub_route_templates_delete_hub_route_template_unauthorized_error_response_body",
     "HubRouteTemplatesListHubRouteTemplatesBadGatewayErrorResponseBody": ".hub_route_templates_list_hub_route_templates_bad_gateway_error_response_body",
     "HubRouteTemplatesListHubRouteTemplatesGatewayTimeoutErrorResponseBody": ".hub_route_templates_list_hub_route_templates_gateway_timeout_error_response_body",
     "HubRouteTemplatesListHubRouteTemplatesInternalServerErrorResponseBody": ".hub_route_templates_list_hub_route_templates_internal_server_error_response_body",
@@ -9674,6 +9678,12 @@ _dynamic_imports: typing.Dict[str, str] = {
     "OutsideGeofenceTriggerDetailsObjectResponseBody": ".outside_geofence_trigger_details_object_response_body",
     "OverSpeedMs": ".over_speed_ms",
     "PaginationResponse": ".pagination_response",
+    "PairGatewayPairObjectRequestBody": ".pair_gateway_pair_object_request_body",
+    "PairGatewayResultObjectResponseBody": ".pair_gateway_result_object_response_body",
+    "PairResultDeviceObjectResponseBody": ".pair_result_device_object_response_body",
+    "PairResultDeviceObjectResponseBodyType": ".pair_result_device_object_response_body_type",
+    "PairResultGatewayObjectResponseBody": ".pair_result_gateway_object_response_body",
+    "PairResultGatewayObjectResponseBodyModel": ".pair_result_gateway_object_response_body_model",
     "PanicButtonDetailsObjectRequestBody": ".panic_button_details_object_request_body",
     "PanicButtonDetailsObjectResponseBody": ".panic_button_details_object_response_body",
     "PanicButtonResponseBody": ".panic_button_response_body",
@@ -11589,38 +11599,6 @@ __all__ = [
     "AnticipationBrakeEventCount",
     "AppointmentWindowRequestBody",
     "AppointmentWindowResponseBody",
-    "AssetAssignmentAssigneeResponseObjectResponseBody",
-    "AssetAssignmentAssigneeResponseObjectResponseBodyAssigneeType",
-    "AssetAssignmentResponseObjectResponseBody",
-    "AssetAssignmentsCreateAssetAssignmentBadGatewayErrorResponseBody",
-    "AssetAssignmentsCreateAssetAssignmentGatewayTimeoutErrorResponseBody",
-    "AssetAssignmentsCreateAssetAssignmentInternalServerErrorResponseBody",
-    "AssetAssignmentsCreateAssetAssignmentMethodNotAllowedErrorResponseBody",
-    "AssetAssignmentsCreateAssetAssignmentNotFoundErrorResponseBody",
-    "AssetAssignmentsCreateAssetAssignmentNotImplementedErrorResponseBody",
-    "AssetAssignmentsCreateAssetAssignmentResponseBody",
-    "AssetAssignmentsCreateAssetAssignmentServiceUnavailableErrorResponseBody",
-    "AssetAssignmentsCreateAssetAssignmentTooManyRequestsErrorResponseBody",
-    "AssetAssignmentsCreateAssetAssignmentUnauthorizedErrorResponseBody",
-    "AssetAssignmentsListAssetAssignmentsBadGatewayErrorResponseBody",
-    "AssetAssignmentsListAssetAssignmentsGatewayTimeoutErrorResponseBody",
-    "AssetAssignmentsListAssetAssignmentsInternalServerErrorResponseBody",
-    "AssetAssignmentsListAssetAssignmentsMethodNotAllowedErrorResponseBody",
-    "AssetAssignmentsListAssetAssignmentsNotFoundErrorResponseBody",
-    "AssetAssignmentsListAssetAssignmentsNotImplementedErrorResponseBody",
-    "AssetAssignmentsListAssetAssignmentsResponseBody",
-    "AssetAssignmentsListAssetAssignmentsServiceUnavailableErrorResponseBody",
-    "AssetAssignmentsListAssetAssignmentsTooManyRequestsErrorResponseBody",
-    "AssetAssignmentsListAssetAssignmentsUnauthorizedErrorResponseBody",
-    "AssetAssignmentsUnassignAssetAssignmentBadGatewayErrorResponseBody",
-    "AssetAssignmentsUnassignAssetAssignmentGatewayTimeoutErrorResponseBody",
-    "AssetAssignmentsUnassignAssetAssignmentInternalServerErrorResponseBody",
-    "AssetAssignmentsUnassignAssetAssignmentMethodNotAllowedErrorResponseBody",
-    "AssetAssignmentsUnassignAssetAssignmentNotFoundErrorResponseBody",
-    "AssetAssignmentsUnassignAssetAssignmentNotImplementedErrorResponseBody",
-    "AssetAssignmentsUnassignAssetAssignmentServiceUnavailableErrorResponseBody",
-    "AssetAssignmentsUnassignAssetAssignmentTooManyRequestsErrorResponseBody",
-    "AssetAssignmentsUnassignAssetAssignmentUnauthorizedErrorResponseBody",
     "AssetDataInput",
     "AssetDataInputLastPoint",
     "AssetDataOutput",
@@ -11707,17 +11685,6 @@ __all__ = [
     "AssetsUpdateAssetServiceUnavailableErrorResponseBody",
     "AssetsUpdateAssetTooManyRequestsErrorResponseBody",
     "AssetsUpdateAssetUnauthorizedErrorResponseBody",
-    "AssociationResponseBody",
-    "AssociationsListAssociationsBadGatewayErrorResponseBody",
-    "AssociationsListAssociationsGatewayTimeoutErrorResponseBody",
-    "AssociationsListAssociationsInternalServerErrorResponseBody",
-    "AssociationsListAssociationsMethodNotAllowedErrorResponseBody",
-    "AssociationsListAssociationsNotFoundErrorResponseBody",
-    "AssociationsListAssociationsNotImplementedErrorResponseBody",
-    "AssociationsListAssociationsResponseBody",
-    "AssociationsListAssociationsServiceUnavailableErrorResponseBody",
-    "AssociationsListAssociationsTooManyRequestsErrorResponseBody",
-    "AssociationsListAssociationsUnauthorizedErrorResponseBody",
     "Attribute",
     "AttributeAttributeType",
     "AttributeEntity",
@@ -12483,6 +12450,8 @@ __all__ = [
     "FormSubmissionRequestAssetValueObjectRequestBody",
     "FormSubmissionRequestAssignedToRequestBody",
     "FormSubmissionRequestAssignedToRequestBodyType",
+    "FormSubmissionRequestBarcodeObjectRequestBody",
+    "FormSubmissionRequestBarcodeValueObjectRequestBody",
     "FormSubmissionRequestCheckBoxesValueObjectRequestBody",
     "FormSubmissionRequestDateTimeValueObjectRequestBody",
     "FormSubmissionRequestFieldInputObjectRequestBody",
@@ -12587,6 +12556,8 @@ __all__ = [
     "FormsAssetObjectResponseBody",
     "FormsAssetObjectResponseBodyEntryType",
     "FormsAssetValueObjectResponseBody",
+    "FormsBarcodeObjectResponseBody",
+    "FormsBarcodeValueObjectResponseBody",
     "FormsCheckBoxesValueObjectResponseBody",
     "FormsConditionObjectResponseBody",
     "FormsConditionObjectResponseBodyType",
@@ -12770,6 +12741,28 @@ __all__ = [
     "FunctionsStartFunctionRunServiceUnavailableErrorResponseBody",
     "FunctionsStartFunctionRunTooManyRequestsErrorResponseBody",
     "FunctionsStartFunctionRunUnauthorizedErrorResponseBody",
+    "FunctionsStorageDeleteFunctionStorageFileBadGatewayErrorResponseBody",
+    "FunctionsStorageDeleteFunctionStorageFileGatewayTimeoutErrorResponseBody",
+    "FunctionsStorageDeleteFunctionStorageFileInternalServerErrorResponseBody",
+    "FunctionsStorageDeleteFunctionStorageFileMethodNotAllowedErrorResponseBody",
+    "FunctionsStorageDeleteFunctionStorageFileNotFoundErrorResponseBody",
+    "FunctionsStorageDeleteFunctionStorageFileNotImplementedErrorResponseBody",
+    "FunctionsStorageDeleteFunctionStorageFileServiceUnavailableErrorResponseBody",
+    "FunctionsStorageDeleteFunctionStorageFileTooManyRequestsErrorResponseBody",
+    "FunctionsStorageDeleteFunctionStorageFileUnauthorizedErrorResponseBody",
+    "FunctionsStorageFileResponseBody",
+    "FunctionsStorageListFunctionsStorageFilesBadGatewayErrorResponseBody",
+    "FunctionsStorageListFunctionsStorageFilesGatewayTimeoutErrorResponseBody",
+    "FunctionsStorageListFunctionsStorageFilesInternalServerErrorResponseBody",
+    "FunctionsStorageListFunctionsStorageFilesMethodNotAllowedErrorResponseBody",
+    "FunctionsStorageListFunctionsStorageFilesNotFoundErrorResponseBody",
+    "FunctionsStorageListFunctionsStorageFilesNotImplementedErrorResponseBody",
+    "FunctionsStorageListFunctionsStorageFilesResponseBody",
+    "FunctionsStorageListFunctionsStorageFilesServiceUnavailableErrorResponseBody",
+    "FunctionsStorageListFunctionsStorageFilesTooManyRequestsErrorResponseBody",
+    "FunctionsStorageListFunctionsStorageFilesUnauthorizedErrorResponseBody",
+    "FunctionsStorageSignedUrlResponseBody",
+    "FunctionsStorageSignedUrlResponseBodyUrlType",
     "GaseousFuelCostObjectResponseBody",
     "GaseousFuelCostObjectResponseBodyCurrency",
     "GatewayAssetResponseObjectResponseBody",
@@ -12804,6 +12797,16 @@ __all__ = [
     "GatewaysGetGatewaysServiceUnavailableErrorResponseBody",
     "GatewaysGetGatewaysTooManyRequestsErrorResponseBody",
     "GatewaysGetGatewaysUnauthorizedErrorResponseBody",
+    "GatewaysPairGatewaysBadGatewayErrorResponseBody",
+    "GatewaysPairGatewaysGatewayTimeoutErrorResponseBody",
+    "GatewaysPairGatewaysInternalServerErrorResponseBody",
+    "GatewaysPairGatewaysMethodNotAllowedErrorResponseBody",
+    "GatewaysPairGatewaysNotFoundErrorResponseBody",
+    "GatewaysPairGatewaysNotImplementedErrorResponseBody",
+    "GatewaysPairGatewaysResponseBody",
+    "GatewaysPairGatewaysServiceUnavailableErrorResponseBody",
+    "GatewaysPairGatewaysTooManyRequestsErrorResponseBody",
+    "GatewaysPairGatewaysUnauthorizedErrorResponseBody",
     "GatewaysPostGatewayBadGatewayErrorResponseBody",
     "GatewaysPostGatewayGatewayTimeoutErrorResponseBody",
     "GatewaysPostGatewayInternalServerErrorResponseBody",
@@ -13048,6 +13051,15 @@ __all__ = [
     "HubRouteTemplateDepotObjectResponseBody",
     "HubRouteTemplateLocationObjectResponseBody",
     "HubRouteTemplateObjectResponseBody",
+    "HubRouteTemplatesDeleteHubRouteTemplateBadGatewayErrorResponseBody",
+    "HubRouteTemplatesDeleteHubRouteTemplateGatewayTimeoutErrorResponseBody",
+    "HubRouteTemplatesDeleteHubRouteTemplateInternalServerErrorResponseBody",
+    "HubRouteTemplatesDeleteHubRouteTemplateMethodNotAllowedErrorResponseBody",
+    "HubRouteTemplatesDeleteHubRouteTemplateNotFoundErrorResponseBody",
+    "HubRouteTemplatesDeleteHubRouteTemplateNotImplementedErrorResponseBody",
+    "HubRouteTemplatesDeleteHubRouteTemplateServiceUnavailableErrorResponseBody",
+    "HubRouteTemplatesDeleteHubRouteTemplateTooManyRequestsErrorResponseBody",
+    "HubRouteTemplatesDeleteHubRouteTemplateUnauthorizedErrorResponseBody",
     "HubRouteTemplatesListHubRouteTemplatesBadGatewayErrorResponseBody",
     "HubRouteTemplatesListHubRouteTemplatesGatewayTimeoutErrorResponseBody",
     "HubRouteTemplatesListHubRouteTemplatesInternalServerErrorResponseBody",
@@ -13436,6 +13448,12 @@ __all__ = [
     "OutsideGeofenceTriggerDetailsObjectResponseBody",
     "OverSpeedMs",
     "PaginationResponse",
+    "PairGatewayPairObjectRequestBody",
+    "PairGatewayResultObjectResponseBody",
+    "PairResultDeviceObjectResponseBody",
+    "PairResultDeviceObjectResponseBodyType",
+    "PairResultGatewayObjectResponseBody",
+    "PairResultGatewayObjectResponseBodyModel",
     "PanicButtonDetailsObjectRequestBody",
     "PanicButtonDetailsObjectResponseBody",
     "PanicButtonResponseBody",

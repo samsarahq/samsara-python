@@ -6,14 +6,7 @@ import typing
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.request_options import RequestOptions
 from ..types.aemp_equipment_get_aemp_equipment_list_response_body import AempEquipmentGetAempEquipmentListResponseBody
-from ..types.asset_assignments_create_asset_assignment_response_body import (
-    AssetAssignmentsCreateAssetAssignmentResponseBody,
-)
-from ..types.asset_assignments_list_asset_assignments_response_body import (
-    AssetAssignmentsListAssetAssignmentsResponseBody,
-)
 from ..types.assets_inputs_get_assets_inputs_response_body import AssetsInputsGetAssetsInputsResponseBody
-from ..types.associations_list_associations_response_body import AssociationsListAssociationsResponseBody
 from ..types.create_function_request_config_request_body import CreateFunctionRequestConfigRequestBody
 from ..types.create_report_config_object_request_body import CreateReportConfigObjectRequestBody
 from ..types.depreciation_get_depreciation_transactions_response_body import (
@@ -45,6 +38,9 @@ from ..types.functions_get_function_response_body import FunctionsGetFunctionRes
 from ..types.functions_get_function_run_response_body import FunctionsGetFunctionRunResponseBody
 from ..types.functions_patch_function_response_body import FunctionsPatchFunctionResponseBody
 from ..types.functions_start_function_run_response_body import FunctionsStartFunctionRunResponseBody
+from ..types.functions_storage_list_functions_storage_files_response_body import (
+    FunctionsStorageListFunctionsStorageFilesResponseBody,
+)
 from ..types.goa_attribute_tiny import GoaAttributeTiny
 from ..types.hos_daily_logs_update_shipping_docs_response_body import HosDailyLogsUpdateShippingDocsResponseBody
 from ..types.hos_eld_events_get_hos_eld_events_response_body import HosEldEventsGetHosEldEventsResponseBody
@@ -64,6 +60,9 @@ from ..types.maintenance_vendors_list_vendor_categories_response_body import (
 from ..types.notification_recipient_request_body import NotificationRecipientRequestBody
 from ..types.patch_function_request_config_request_body import PatchFunctionRequestConfigRequestBody
 from ..types.patch_job_object_request_body import PatchJobObjectRequestBody
+from ..types.patch_safety_events_dismissal_reason_body_request_body import (
+    PatchSafetyEventsDismissalReasonBodyRequestBody,
+)
 from ..types.plan_orders_list_plan_orders_response_body import PlanOrdersListPlanOrdersResponseBody
 from ..types.post_job_object_request_body import PostJobObjectRequestBody
 from ..types.qualification_owner_request_object_request_body import QualificationOwnerRequestObjectRequestBody
@@ -134,13 +133,13 @@ from ..types.ridership_route_setups_list_ridership_route_setups_response_body im
 from ..types.ridership_route_setups_update_ridership_route_setup_response_body import (
     RidershipRouteSetupsUpdateRidershipRouteSetupResponseBody,
 )
+from ..types.safety_events_v_2_patch_safety_events_v_2_batch_response_body import (
+    SafetyEventsV2PatchSafetyEventsV2BatchResponseBody,
+)
 from ..types.update_engine_immobilizer_relay_state_request_body_request_body import (
     UpdateEngineImmobilizerRelayStateRequestBodyRequestBody,
 )
 from .raw_client import AsyncRawBetaApIsClient, RawBetaApIsClient
-from .types.asset_assignments_create_asset_assignment_request_body_assignee_type import (
-    AssetAssignmentsCreateAssetAssignmentRequestBodyAssigneeType,
-)
 from .types.device_recovery_recover_asset_request_body_missing_reason import (
     DeviceRecoveryRecoverAssetRequestBodyMissingReason,
 )
@@ -165,6 +164,21 @@ from .types.ridership_passengers_create_ridership_passenger_request_body_classif
 )
 from .types.ridership_passengers_update_ridership_passenger_request_body_classification import (
     RidershipPassengersUpdateRidershipPassengerRequestBodyClassification,
+)
+from .types.safety_events_v_2_patch_safety_events_v_2_batch_request_body_behavior_labels_to_add_item import (
+    SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyBehaviorLabelsToAddItem,
+)
+from .types.safety_events_v_2_patch_safety_events_v_2_batch_request_body_behavior_labels_to_remove_item import (
+    SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyBehaviorLabelsToRemoveItem,
+)
+from .types.safety_events_v_2_patch_safety_events_v_2_batch_request_body_context_labels_to_add_item import (
+    SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem,
+)
+from .types.safety_events_v_2_patch_safety_events_v_2_batch_request_body_context_labels_to_remove_item import (
+    SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToRemoveItem,
+)
+from .types.safety_events_v_2_patch_safety_events_v_2_batch_request_body_event_state import (
+    SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState,
 )
 
 # this is used as the default value for optional parameters
@@ -1061,220 +1075,6 @@ class BetaApIsClient:
         )
         return _response.data
 
-    def list_asset_assignments(
-        self,
-        *,
-        include_external_ids: typing.Optional[bool] = None,
-        asset_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        assignee_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        after: typing.Optional[str] = None,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> AssetAssignmentsListAssetAssignmentsResponseBody:
-        """
-        List active asset assignments for the authorized organization. This endpoint only returns currently active assignments. During Beta, response ordering is implementation-defined and will stabilize before GA when database-backed pagination lands.
-
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Read Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        include_external_ids : typing.Optional[bool]
-            Optional boolean indicating whether to return external IDs for the referenced asset and assignee objects. Defaults to false.
-
-        asset_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional comma-separated list of asset IDs to filter on. IDs may be Samsara asset IDs or external IDs in the format key:value. The response contains the union of matching assets.
-
-        assignee_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional comma-separated list of assignee IDs to filter on. IDs may be Samsara assignee IDs or external IDs in the format key:value. The response contains the union of matching assignees.
-
-        after : typing.Optional[str]
-             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        AssetAssignmentsListAssetAssignmentsResponseBody
-            OK response.
-
-        Examples
-        --------
-        from samsara import Samsara
-
-        client = Samsara(
-            token="YOUR_TOKEN",
-        )
-        client.beta_ap_is.list_asset_assignments()
-        """
-        _response = self._raw_client.list_asset_assignments(
-            include_external_ids=include_external_ids,
-            asset_ids=asset_ids,
-            assignee_ids=assignee_ids,
-            after=after,
-            request_options=request_options,
-        )
-        return _response.data
-
-    def create_asset_assignment(
-        self,
-        *,
-        asset_id: str,
-        assignee_id: str,
-        assignee_type: AssetAssignmentsCreateAssetAssignmentRequestBodyAssigneeType,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> AssetAssignmentsCreateAssetAssignmentResponseBody:
-        """
-        Create an asset assignment.
-
-         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Write Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        asset_id : str
-            Samsara ID of the asset.
-
-        assignee_id : str
-            Samsara ID of the assignee.
-
-        assignee_type : AssetAssignmentsCreateAssetAssignmentRequestBodyAssigneeType
-            Type of the assignee. This required field has no default.  Valid values: `driver`, `asset`, `geofence`
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        AssetAssignmentsCreateAssetAssignmentResponseBody
-            OK response.
-
-        Examples
-        --------
-        from samsara import Samsara
-
-        client = Samsara(
-            token="YOUR_TOKEN",
-        )
-        client.beta_ap_is.create_asset_assignment(
-            asset_id="281474978683353",
-            assignee_id="494123",
-            assignee_type="driver",
-        )
-        """
-        _response = self._raw_client.create_asset_assignment(
-            asset_id=asset_id, assignee_id=assignee_id, assignee_type=assignee_type, request_options=request_options
-        )
-        return _response.data
-
-    def unassign_asset_assignment(
-        self, *, asset_id: str, request_options: typing.Optional[RequestOptions] = None
-    ) -> None:
-        """
-        Unassign an active asset assignment.
-
-         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Write Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        asset_id : str
-            Samsara ID of the asset.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        None
-
-        Examples
-        --------
-        from samsara import Samsara
-
-        client = Samsara(
-            token="YOUR_TOKEN",
-        )
-        client.beta_ap_is.unassign_asset_assignment(
-            asset_id="281474978683353",
-        )
-        """
-        _response = self._raw_client.unassign_asset_assignment(asset_id=asset_id, request_options=request_options)
-        return _response.data
-
-    def list_associations(
-        self,
-        *,
-        start_time: str,
-        peripheral_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        end_time: typing.Optional[str] = None,
-        after: typing.Optional[str] = None,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> AssociationsListAssociationsResponseBody:
-        """
-        List associations between vehicles and peripheral devices within a given time range. Associations represent the relationship between a central device (vehicle) and a peripheral device (e.g. asset tag). An association with a null endTime is still active. If no endTime query parameter is provided, all associations from startTime onward are returned, including currently active (open) associations.
-
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Read Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        start_time : str
-            A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-
-        peripheral_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            A comma-separated list of peripheral asset IDs to filter associations by. (Example: 1234,5678)
-
-        end_time : typing.Optional[str]
-            An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). If not provided, all associations from startTime onward are returned, including currently active (open) associations.
-
-        after : typing.Optional[str]
-             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        AssociationsListAssociationsResponseBody
-            OK response.
-
-        Examples
-        --------
-        from samsara import Samsara
-
-        client = Samsara(
-            token="YOUR_TOKEN",
-        )
-        client.beta_ap_is.list_associations(
-            start_time="startTime",
-        )
-        """
-        _response = self._raw_client.list_associations(
-            start_time=start_time,
-            peripheral_ids=peripheral_ids,
-            end_time=end_time,
-            after=after,
-            request_options=request_options,
-        )
-        return _response.data
-
     def list_device_recovery_missing_assets(
         self, *, after: typing.Optional[str] = None, request_options: typing.Optional[RequestOptions] = None
     ) -> DeviceRecoveryListDeviceRecoveryMissingAssetsResponseBody:
@@ -1858,6 +1658,104 @@ class BetaApIsClient:
         )
         return _response.data
 
+    def list_functions_storage_files(
+        self,
+        *,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        include_download_urls: typing.Optional[bool] = None,
+        include_upload_urls: typing.Optional[bool] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> FunctionsStorageListFunctionsStorageFilesResponseBody:
+        """
+        List files in Functions storage for the organization. Returns file metadata and optionally includes presigned download or upload URLs.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Functions Storage** under the Functions category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The maximum number of files to return per page.
+
+        include_download_urls : typing.Optional[bool]
+            If true, include presigned download URLs for each file.
+
+        include_upload_urls : typing.Optional[bool]
+            If true, include presigned upload URLs for each file. Requires write permission.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        FunctionsStorageListFunctionsStorageFilesResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.list_functions_storage_files()
+        """
+        _response = self._raw_client.list_functions_storage_files(
+            after=after,
+            limit=limit,
+            include_download_urls=include_download_urls,
+            include_upload_urls=include_upload_urls,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def delete_function_storage_file(
+        self, *, name: str, request_options: typing.Optional[RequestOptions] = None
+    ) -> None:
+        """
+        Delete a file from Functions storage by name.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Functions Storage** under the Functions category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        name : str
+            The name of the file.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.delete_function_storage_file(
+            name="name",
+        )
+        """
+        _response = self._raw_client.delete_function_storage_file(name=name, request_options=request_options)
+        return _response.data
+
     def get_function(
         self, name: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> FunctionsGetFunctionResponseBody:
@@ -2439,6 +2337,43 @@ class BetaApIsClient:
         _response = self._raw_client.list_hub_route_templates(
             hub_id=hub_id, id=id, name=name, after=after, limit=limit, request_options=request_options
         )
+        return _response.data
+
+    def delete_hub_route_template(self, *, id: str, request_options: typing.Optional[RequestOptions] = None) -> None:
+        """
+        Delete a route template by its unique identifier.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            The unique identifier of the route template to delete.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.delete_hub_route_template(
+            id="id",
+        )
+        """
+        _response = self._raw_client.delete_hub_route_template(id=id, request_options=request_options)
         return _response.data
 
     def get_qualification_records(
@@ -4010,6 +3945,92 @@ class BetaApIsClient:
         _response = self._raw_client.get_ridership_route_setup(route_id, request_options=request_options)
         return _response.data
 
+    def patch_safety_events_v_2_batch(
+        self,
+        *,
+        safety_event_ids: typing.Sequence[str],
+        behavior_labels_to_add: typing.Optional[
+            typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyBehaviorLabelsToAddItem]
+        ] = OMIT,
+        behavior_labels_to_remove: typing.Optional[
+            typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyBehaviorLabelsToRemoveItem]
+        ] = OMIT,
+        context_labels_to_add: typing.Optional[
+            typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem]
+        ] = OMIT,
+        context_labels_to_remove: typing.Optional[
+            typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToRemoveItem]
+        ] = OMIT,
+        dismissal_reason: typing.Optional[PatchSafetyEventsDismissalReasonBodyRequestBody] = OMIT,
+        event_state: typing.Optional[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> SafetyEventsV2PatchSafetyEventsV2BatchResponseBody:
+        """
+        Asynchronously update eventState, context labels, and/or behavior labels for one or more Safety Events. Returns 202 Accepted immediately. State changes propagate asynchronously; use GET /safety-events to confirm updated state. If any safetyEventIds are not found, the entire request fails with 404 before any mutations are executed.If both eventState and label fields are provided, the two mutations execute serially and are not transactional — a label mutation failure will not roll back a successful state change.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        safety_event_ids : typing.Sequence[str]
+            IDs of the Safety Events to update. Maximum 200.
+
+        behavior_labels_to_add : typing.Optional[typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyBehaviorLabelsToAddItem]]
+            Behavior labels to add to the Safety Events.
+
+        behavior_labels_to_remove : typing.Optional[typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyBehaviorLabelsToRemoveItem]]
+            Behavior labels to remove from the Safety Events.
+
+        context_labels_to_add : typing.Optional[typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem]]
+            Context labels to add to the Safety Events.
+
+        context_labels_to_remove : typing.Optional[typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToRemoveItem]]
+            Context labels to remove from the Safety Events.
+
+        dismissal_reason : typing.Optional[PatchSafetyEventsDismissalReasonBodyRequestBody]
+
+        event_state : typing.Optional[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState]
+            The new state to apply to all specified Safety Events.  Valid values: `needsReview`, `reviewed`, `needsCoaching`, `coached`, `dismissed`, `needsRecognition`, `recognized`
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        SafetyEventsV2PatchSafetyEventsV2BatchResponseBody
+            Accepted response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.patch_safety_events_v_2_batch(
+            safety_event_ids=[
+                "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
+                "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
+            ],
+        )
+        """
+        _response = self._raw_client.patch_safety_events_v_2_batch(
+            safety_event_ids=safety_event_ids,
+            behavior_labels_to_add=behavior_labels_to_add,
+            behavior_labels_to_remove=behavior_labels_to_remove,
+            context_labels_to_add=context_labels_to_add,
+            context_labels_to_remove=context_labels_to_remove,
+            dismissal_reason=dismissal_reason,
+            event_state=event_state,
+            request_options=request_options,
+        )
+        return _response.data
+
 
 class AsyncBetaApIsClient:
     def __init__(self, *, client_wrapper: AsyncClientWrapper):
@@ -5005,252 +5026,6 @@ class AsyncBetaApIsClient:
         )
         return _response.data
 
-    async def list_asset_assignments(
-        self,
-        *,
-        include_external_ids: typing.Optional[bool] = None,
-        asset_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        assignee_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        after: typing.Optional[str] = None,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> AssetAssignmentsListAssetAssignmentsResponseBody:
-        """
-        List active asset assignments for the authorized organization. This endpoint only returns currently active assignments. During Beta, response ordering is implementation-defined and will stabilize before GA when database-backed pagination lands.
-
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Read Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        include_external_ids : typing.Optional[bool]
-            Optional boolean indicating whether to return external IDs for the referenced asset and assignee objects. Defaults to false.
-
-        asset_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional comma-separated list of asset IDs to filter on. IDs may be Samsara asset IDs or external IDs in the format key:value. The response contains the union of matching assets.
-
-        assignee_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional comma-separated list of assignee IDs to filter on. IDs may be Samsara assignee IDs or external IDs in the format key:value. The response contains the union of matching assignees.
-
-        after : typing.Optional[str]
-             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        AssetAssignmentsListAssetAssignmentsResponseBody
-            OK response.
-
-        Examples
-        --------
-        import asyncio
-
-        from samsara import AsyncSamsara
-
-        client = AsyncSamsara(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.beta_ap_is.list_asset_assignments()
-
-
-        asyncio.run(main())
-        """
-        _response = await self._raw_client.list_asset_assignments(
-            include_external_ids=include_external_ids,
-            asset_ids=asset_ids,
-            assignee_ids=assignee_ids,
-            after=after,
-            request_options=request_options,
-        )
-        return _response.data
-
-    async def create_asset_assignment(
-        self,
-        *,
-        asset_id: str,
-        assignee_id: str,
-        assignee_type: AssetAssignmentsCreateAssetAssignmentRequestBodyAssigneeType,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> AssetAssignmentsCreateAssetAssignmentResponseBody:
-        """
-        Create an asset assignment.
-
-         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Write Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        asset_id : str
-            Samsara ID of the asset.
-
-        assignee_id : str
-            Samsara ID of the assignee.
-
-        assignee_type : AssetAssignmentsCreateAssetAssignmentRequestBodyAssigneeType
-            Type of the assignee. This required field has no default.  Valid values: `driver`, `asset`, `geofence`
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        AssetAssignmentsCreateAssetAssignmentResponseBody
-            OK response.
-
-        Examples
-        --------
-        import asyncio
-
-        from samsara import AsyncSamsara
-
-        client = AsyncSamsara(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.beta_ap_is.create_asset_assignment(
-                asset_id="281474978683353",
-                assignee_id="494123",
-                assignee_type="driver",
-            )
-
-
-        asyncio.run(main())
-        """
-        _response = await self._raw_client.create_asset_assignment(
-            asset_id=asset_id, assignee_id=assignee_id, assignee_type=assignee_type, request_options=request_options
-        )
-        return _response.data
-
-    async def unassign_asset_assignment(
-        self, *, asset_id: str, request_options: typing.Optional[RequestOptions] = None
-    ) -> None:
-        """
-        Unassign an active asset assignment.
-
-         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Write Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        asset_id : str
-            Samsara ID of the asset.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        None
-
-        Examples
-        --------
-        import asyncio
-
-        from samsara import AsyncSamsara
-
-        client = AsyncSamsara(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.beta_ap_is.unassign_asset_assignment(
-                asset_id="281474978683353",
-            )
-
-
-        asyncio.run(main())
-        """
-        _response = await self._raw_client.unassign_asset_assignment(asset_id=asset_id, request_options=request_options)
-        return _response.data
-
-    async def list_associations(
-        self,
-        *,
-        start_time: str,
-        peripheral_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        end_time: typing.Optional[str] = None,
-        after: typing.Optional[str] = None,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> AssociationsListAssociationsResponseBody:
-        """
-        List associations between vehicles and peripheral devices within a given time range. Associations represent the relationship between a central device (vehicle) and a peripheral device (e.g. asset tag). An association with a null endTime is still active. If no endTime query parameter is provided, all associations from startTime onward are returned, including currently active (open) associations.
-
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Read Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        start_time : str
-            A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-
-        peripheral_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            A comma-separated list of peripheral asset IDs to filter associations by. (Example: 1234,5678)
-
-        end_time : typing.Optional[str]
-            An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). If not provided, all associations from startTime onward are returned, including currently active (open) associations.
-
-        after : typing.Optional[str]
-             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        AssociationsListAssociationsResponseBody
-            OK response.
-
-        Examples
-        --------
-        import asyncio
-
-        from samsara import AsyncSamsara
-
-        client = AsyncSamsara(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.beta_ap_is.list_associations(
-                start_time="startTime",
-            )
-
-
-        asyncio.run(main())
-        """
-        _response = await self._raw_client.list_associations(
-            start_time=start_time,
-            peripheral_ids=peripheral_ids,
-            end_time=end_time,
-            after=after,
-            request_options=request_options,
-        )
-        return _response.data
-
     async def list_device_recovery_missing_assets(
         self, *, after: typing.Optional[str] = None, request_options: typing.Optional[RequestOptions] = None
     ) -> DeviceRecoveryListDeviceRecoveryMissingAssetsResponseBody:
@@ -5924,6 +5699,120 @@ class AsyncBetaApIsClient:
         )
         return _response.data
 
+    async def list_functions_storage_files(
+        self,
+        *,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        include_download_urls: typing.Optional[bool] = None,
+        include_upload_urls: typing.Optional[bool] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> FunctionsStorageListFunctionsStorageFilesResponseBody:
+        """
+        List files in Functions storage for the organization. Returns file metadata and optionally includes presigned download or upload URLs.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Functions Storage** under the Functions category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The maximum number of files to return per page.
+
+        include_download_urls : typing.Optional[bool]
+            If true, include presigned download URLs for each file.
+
+        include_upload_urls : typing.Optional[bool]
+            If true, include presigned upload URLs for each file. Requires write permission.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        FunctionsStorageListFunctionsStorageFilesResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.list_functions_storage_files()
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.list_functions_storage_files(
+            after=after,
+            limit=limit,
+            include_download_urls=include_download_urls,
+            include_upload_urls=include_upload_urls,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def delete_function_storage_file(
+        self, *, name: str, request_options: typing.Optional[RequestOptions] = None
+    ) -> None:
+        """
+        Delete a file from Functions storage by name.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Functions Storage** under the Functions category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        name : str
+            The name of the file.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.delete_function_storage_file(
+                name="name",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.delete_function_storage_file(name=name, request_options=request_options)
+        return _response.data
+
     async def get_function(
         self, name: str, *, request_options: typing.Optional[RequestOptions] = None
     ) -> FunctionsGetFunctionResponseBody:
@@ -6592,6 +6481,53 @@ class AsyncBetaApIsClient:
         _response = await self._raw_client.list_hub_route_templates(
             hub_id=hub_id, id=id, name=name, after=after, limit=limit, request_options=request_options
         )
+        return _response.data
+
+    async def delete_hub_route_template(
+        self, *, id: str, request_options: typing.Optional[RequestOptions] = None
+    ) -> None:
+        """
+        Delete a route template by its unique identifier.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            The unique identifier of the route template to delete.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.delete_hub_route_template(
+                id="id",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.delete_hub_route_template(id=id, request_options=request_options)
         return _response.data
 
     async def get_qualification_records(
@@ -8404,4 +8340,98 @@ class AsyncBetaApIsClient:
         asyncio.run(main())
         """
         _response = await self._raw_client.get_ridership_route_setup(route_id, request_options=request_options)
+        return _response.data
+
+    async def patch_safety_events_v_2_batch(
+        self,
+        *,
+        safety_event_ids: typing.Sequence[str],
+        behavior_labels_to_add: typing.Optional[
+            typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyBehaviorLabelsToAddItem]
+        ] = OMIT,
+        behavior_labels_to_remove: typing.Optional[
+            typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyBehaviorLabelsToRemoveItem]
+        ] = OMIT,
+        context_labels_to_add: typing.Optional[
+            typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem]
+        ] = OMIT,
+        context_labels_to_remove: typing.Optional[
+            typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToRemoveItem]
+        ] = OMIT,
+        dismissal_reason: typing.Optional[PatchSafetyEventsDismissalReasonBodyRequestBody] = OMIT,
+        event_state: typing.Optional[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> SafetyEventsV2PatchSafetyEventsV2BatchResponseBody:
+        """
+        Asynchronously update eventState, context labels, and/or behavior labels for one or more Safety Events. Returns 202 Accepted immediately. State changes propagate asynchronously; use GET /safety-events to confirm updated state. If any safetyEventIds are not found, the entire request fails with 404 before any mutations are executed.If both eventState and label fields are provided, the two mutations execute serially and are not transactional — a label mutation failure will not roll back a successful state change.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        safety_event_ids : typing.Sequence[str]
+            IDs of the Safety Events to update. Maximum 200.
+
+        behavior_labels_to_add : typing.Optional[typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyBehaviorLabelsToAddItem]]
+            Behavior labels to add to the Safety Events.
+
+        behavior_labels_to_remove : typing.Optional[typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyBehaviorLabelsToRemoveItem]]
+            Behavior labels to remove from the Safety Events.
+
+        context_labels_to_add : typing.Optional[typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem]]
+            Context labels to add to the Safety Events.
+
+        context_labels_to_remove : typing.Optional[typing.Sequence[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToRemoveItem]]
+            Context labels to remove from the Safety Events.
+
+        dismissal_reason : typing.Optional[PatchSafetyEventsDismissalReasonBodyRequestBody]
+
+        event_state : typing.Optional[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState]
+            The new state to apply to all specified Safety Events.  Valid values: `needsReview`, `reviewed`, `needsCoaching`, `coached`, `dismissed`, `needsRecognition`, `recognized`
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        SafetyEventsV2PatchSafetyEventsV2BatchResponseBody
+            Accepted response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.patch_safety_events_v_2_batch(
+                safety_event_ids=[
+                    "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
+                    "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
+                ],
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.patch_safety_events_v_2_batch(
+            safety_event_ids=safety_event_ids,
+            behavior_labels_to_add=behavior_labels_to_add,
+            behavior_labels_to_remove=behavior_labels_to_remove,
+            context_labels_to_add=context_labels_to_add,
+            context_labels_to_remove=context_labels_to_remove,
+            dismissal_reason=dismissal_reason,
+            event_state=event_state,
+            request_options=request_options,
+        )
         return _response.data

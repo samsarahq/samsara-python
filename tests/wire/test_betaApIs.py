@@ -116,38 +116,6 @@ def test_betaApIs_get_devices() -> None:
     verify_request_count(test_id, "GET", "/devices", None, 1)
 
 
-def test_betaApIs_list_asset_assignments() -> None:
-    """Test listAssetAssignments endpoint with WireMock"""
-    test_id = "beta_ap_is.list_asset_assignments.0"
-    client = get_client(test_id)
-    client.beta_ap_is.list_asset_assignments()
-    verify_request_count(test_id, "GET", "/fleet/assets/assignments", None, 1)
-
-
-def test_betaApIs_create_asset_assignment() -> None:
-    """Test createAssetAssignment endpoint with WireMock"""
-    test_id = "beta_ap_is.create_asset_assignment.0"
-    client = get_client(test_id)
-    client.beta_ap_is.create_asset_assignment(asset_id="281474978683353", assignee_id="494123", assignee_type="driver")
-    verify_request_count(test_id, "POST", "/fleet/assets/assignments", None, 1)
-
-
-def test_betaApIs_unassign_asset_assignment() -> None:
-    """Test unassignAssetAssignment endpoint with WireMock"""
-    test_id = "beta_ap_is.unassign_asset_assignment.0"
-    client = get_client(test_id)
-    client.beta_ap_is.unassign_asset_assignment(asset_id="281474978683353")
-    verify_request_count(test_id, "POST", "/fleet/assets/assignments/unassign", None, 1)
-
-
-def test_betaApIs_list_associations() -> None:
-    """Test listAssociations endpoint with WireMock"""
-    test_id = "beta_ap_is.list_associations.0"
-    client = get_client(test_id)
-    client.beta_ap_is.list_associations(start_time="startTime")
-    verify_request_count(test_id, "GET", "/fleet/assets/associations", {"startTime": "startTime"}, 1)
-
-
 def test_betaApIs_list_device_recovery_missing_assets() -> None:
     """Test listDeviceRecoveryMissingAssets endpoint with WireMock"""
     test_id = "beta_ap_is.list_device_recovery_missing_assets.0"
@@ -236,6 +204,22 @@ def test_betaApIs_create_function() -> None:
     client = get_client(test_id)
     client.beta_ap_is.create_function(config={"handler": "index.handler"}, name="my-function")
     verify_request_count(test_id, "POST", "/functions", None, 1)
+
+
+def test_betaApIs_list_functions_storage_files() -> None:
+    """Test listFunctionsStorageFiles endpoint with WireMock"""
+    test_id = "beta_ap_is.list_functions_storage_files.0"
+    client = get_client(test_id)
+    client.beta_ap_is.list_functions_storage_files()
+    verify_request_count(test_id, "GET", "/functions-storage/files", None, 1)
+
+
+def test_betaApIs_delete_function_storage_file() -> None:
+    """Test deleteFunctionStorageFile endpoint with WireMock"""
+    test_id = "beta_ap_is.delete_function_storage_file.0"
+    client = get_client(test_id)
+    client.beta_ap_is.delete_function_storage_file(name="name")
+    verify_request_count(test_id, "DELETE", "/functions-storage/files", {"name": "name"}, 1)
 
 
 def test_betaApIs_get_function() -> None:
@@ -338,6 +322,14 @@ def test_betaApIs_list_hub_route_templates() -> None:
     client = get_client(test_id)
     client.beta_ap_is.list_hub_route_templates(hub_id="hubId")
     verify_request_count(test_id, "GET", "/hub/route-templates", {"hubId": "hubId"}, 1)
+
+
+def test_betaApIs_delete_hub_route_template() -> None:
+    """Test deleteHubRouteTemplate endpoint with WireMock"""
+    test_id = "beta_ap_is.delete_hub_route_template.0"
+    client = get_client(test_id)
+    client.beta_ap_is.delete_hub_route_template(id="id")
+    verify_request_count(test_id, "DELETE", "/hub/route-templates", {"id": "id"}, 1)
 
 
 def test_betaApIs_get_qualification_records() -> None:
@@ -608,3 +600,13 @@ def test_betaApIs_get_ridership_route_setup() -> None:
     client = get_client(test_id)
     client.beta_ap_is.get_ridership_route_setup(route_id="routeId")
     verify_request_count(test_id, "GET", "/ridership/route-setups/routeId", None, 1)
+
+
+def test_betaApIs_patch_safety_events_v_2_batch() -> None:
+    """Test patchSafetyEventsV2Batch endpoint with WireMock"""
+    test_id = "beta_ap_is.patch_safety_events_v_2_batch.0"
+    client = get_client(test_id)
+    client.beta_ap_is.patch_safety_events_v_2_batch(
+        safety_event_ids=["bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590", "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590"]
+    )
+    verify_request_count(test_id, "PATCH", "/safety-events/batch", None, 1)

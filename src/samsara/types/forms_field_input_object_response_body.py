@@ -7,6 +7,7 @@ import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .forms_asset_value_object_response_body import FormsAssetValueObjectResponseBody
+from .forms_barcode_value_object_response_body import FormsBarcodeValueObjectResponseBody
 from .forms_check_boxes_value_object_response_body import FormsCheckBoxesValueObjectResponseBody
 from .forms_date_time_value_object_response_body import FormsDateTimeValueObjectResponseBody
 from .forms_field_input_object_response_body_type import FormsFieldInputObjectResponseBodyType
@@ -31,6 +32,11 @@ class FormsFieldInputObjectResponseBody(UniversalBaseModel):
         typing.Optional[FormsAssetValueObjectResponseBody],
         FieldMetadata(alias="assetValue"),
         pydantic.Field(alias="assetValue"),
+    ] = None
+    barcode_value: typing_extensions.Annotated[
+        typing.Optional[FormsBarcodeValueObjectResponseBody],
+        FieldMetadata(alias="barcodeValue"),
+        pydantic.Field(alias="barcodeValue"),
     ] = None
     check_boxes_value: typing_extensions.Annotated[
         typing.Optional[FormsCheckBoxesValueObjectResponseBody],
@@ -105,7 +111,7 @@ class FormsFieldInputObjectResponseBody(UniversalBaseModel):
     ] = None
     type: FormsFieldInputObjectResponseBodyType = pydantic.Field()
     """
-    Type of the field.  Valid values: `number`, `text`, `multiple_choice`, `check_boxes`, `datetime`, `signature`, `media`, `asset`, `table`, `person`, `geofence`
+    Type of the field.  Valid values: `number`, `text`, `multiple_choice`, `check_boxes`, `datetime`, `signature`, `media`, `asset`, `table`, `person`, `geofence`, `barcode`
     """
 
     if IS_PYDANTIC_V2:
