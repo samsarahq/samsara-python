@@ -45,7 +45,9 @@ from .panic_button_response_body import PanicButtonResponseBody
 from .person_detected_response_body import PersonDetectedResponseBody
 from .reading_trigger_details_response_body import ReadingTriggerDetailsResponseBody
 from .reefer_temperature_response_body import ReeferTemperatureResponseBody
+from .route_start_delayed_data_response_body import RouteStartDelayedDataResponseBody
 from .route_stop_details_object_response_body import RouteStopDetailsObjectResponseBody
+from .route_stop_early_late_arrival_data_response_body import RouteStopEarlyLateArrivalDataResponseBody
 from .route_stop_eta_response_body import RouteStopEtaResponseBody
 from .scheduled_maintenance_by_engine_hours_response_body import ScheduledMaintenanceByEngineHoursResponseBody
 from .scheduled_maintenance_data_response_body import ScheduledMaintenanceDataResponseBody
@@ -268,6 +270,11 @@ class WorkflowIncidentDetailsObjectResponseBody(UniversalBaseModel):
         FieldMetadata(alias="reeferTemperature"),
         pydantic.Field(alias="reeferTemperature"),
     ] = None
+    route_start_delayed: typing_extensions.Annotated[
+        typing.Optional[RouteStartDelayedDataResponseBody],
+        FieldMetadata(alias="routeStartDelayed"),
+        pydantic.Field(alias="routeStartDelayed"),
+    ] = None
     route_stop_arrival: typing_extensions.Annotated[
         typing.Optional[RouteStopDetailsObjectResponseBody],
         FieldMetadata(alias="routeStopArrival"),
@@ -282,6 +289,11 @@ class WorkflowIncidentDetailsObjectResponseBody(UniversalBaseModel):
         typing.Optional[RouteStopEtaResponseBody],
         FieldMetadata(alias="routeStopETA"),
         pydantic.Field(alias="routeStopETA"),
+    ] = None
+    route_stop_early_late_arrival: typing_extensions.Annotated[
+        typing.Optional[RouteStopEarlyLateArrivalDataResponseBody],
+        FieldMetadata(alias="routeStopEarlyLateArrival"),
+        pydantic.Field(alias="routeStopEarlyLateArrival"),
     ] = None
     scheduled_maintenance: typing_extensions.Annotated[
         typing.Optional[ScheduledMaintenanceDataResponseBody],

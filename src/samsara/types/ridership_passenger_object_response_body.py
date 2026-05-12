@@ -17,11 +17,6 @@ class RidershipPassengerObjectResponseBody(UniversalBaseModel):
     A ridership passenger entity.
     """
 
-    account_id: typing_extensions.Annotated[
-        str,
-        FieldMetadata(alias="accountId"),
-        pydantic.Field(alias="accountId", description="The Samsara UUID of the account this passenger belongs to."),
-    ]
     classification: typing.Optional[str] = pydantic.Field(default=None)
     """
     Classification or grade level of the passenger.
@@ -68,6 +63,11 @@ class RidershipPassengerObjectResponseBody(UniversalBaseModel):
         typing.Optional[RidershipPassengerSpecialInstructionsObjectResponseBody],
         FieldMetadata(alias="specialInstructions"),
         pydantic.Field(alias="specialInstructions"),
+    ] = None
+    tag_ids: typing_extensions.Annotated[
+        typing.Optional[typing.List[str]],
+        FieldMetadata(alias="tagIds"),
+        pydantic.Field(alias="tagIds", description="IDs of tags associated with this passenger."),
     ] = None
     updated_at_time: typing_extensions.Annotated[
         str,

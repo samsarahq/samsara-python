@@ -14,11 +14,6 @@ class RidershipRouteSetupObjectResponseBody(UniversalBaseModel):
     A ridership route setup representing planned passenger assignments.
     """
 
-    account_id: typing_extensions.Annotated[
-        str,
-        FieldMetadata(alias="accountId"),
-        pydantic.Field(alias="accountId", description="The Samsara UUID of the ridership account."),
-    ]
     created_at_time: typing_extensions.Annotated[
         str,
         FieldMetadata(alias="createdAtTime"),
