@@ -4,11 +4,17 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from .ridership_account_object_response_body import RidershipAccountObjectResponseBody
+from .alert_object_driver_response_body import AlertObjectDriverResponseBody
+from .alert_object_vehicle_response_body import AlertObjectVehicleResponseBody
 
 
-class RidershipAccountsCreateRidershipAccountResponseBody(UniversalBaseModel):
-    data: RidershipAccountObjectResponseBody
+class RouteStartDelayedDataResponseBody(UniversalBaseModel):
+    """
+    Details specific to Route Start Delayed.
+    """
+
+    driver: typing.Optional[AlertObjectDriverResponseBody] = None
+    vehicle: typing.Optional[AlertObjectVehicleResponseBody] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -4795,152 +4795,6 @@ if typing.TYPE_CHECKING:
     from .resolved_by_type import ResolvedByType
     from .reverse_geo import ReverseGeo
     from .reverse_geo_object_response_body import ReverseGeoObjectResponseBody
-    from .ridership_account_object_response_body import RidershipAccountObjectResponseBody
-    from .ridership_accounts_create_ridership_account_bad_gateway_error_response_body import (
-        RidershipAccountsCreateRidershipAccountBadGatewayErrorResponseBody,
-    )
-    from .ridership_accounts_create_ridership_account_gateway_timeout_error_response_body import (
-        RidershipAccountsCreateRidershipAccountGatewayTimeoutErrorResponseBody,
-    )
-    from .ridership_accounts_create_ridership_account_internal_server_error_response_body import (
-        RidershipAccountsCreateRidershipAccountInternalServerErrorResponseBody,
-    )
-    from .ridership_accounts_create_ridership_account_method_not_allowed_error_response_body import (
-        RidershipAccountsCreateRidershipAccountMethodNotAllowedErrorResponseBody,
-    )
-    from .ridership_accounts_create_ridership_account_not_found_error_response_body import (
-        RidershipAccountsCreateRidershipAccountNotFoundErrorResponseBody,
-    )
-    from .ridership_accounts_create_ridership_account_not_implemented_error_response_body import (
-        RidershipAccountsCreateRidershipAccountNotImplementedErrorResponseBody,
-    )
-    from .ridership_accounts_create_ridership_account_response_body import (
-        RidershipAccountsCreateRidershipAccountResponseBody,
-    )
-    from .ridership_accounts_create_ridership_account_service_unavailable_error_response_body import (
-        RidershipAccountsCreateRidershipAccountServiceUnavailableErrorResponseBody,
-    )
-    from .ridership_accounts_create_ridership_account_too_many_requests_error_response_body import (
-        RidershipAccountsCreateRidershipAccountTooManyRequestsErrorResponseBody,
-    )
-    from .ridership_accounts_create_ridership_account_unauthorized_error_response_body import (
-        RidershipAccountsCreateRidershipAccountUnauthorizedErrorResponseBody,
-    )
-    from .ridership_accounts_delete_ridership_account_bad_gateway_error_response_body import (
-        RidershipAccountsDeleteRidershipAccountBadGatewayErrorResponseBody,
-    )
-    from .ridership_accounts_delete_ridership_account_gateway_timeout_error_response_body import (
-        RidershipAccountsDeleteRidershipAccountGatewayTimeoutErrorResponseBody,
-    )
-    from .ridership_accounts_delete_ridership_account_internal_server_error_response_body import (
-        RidershipAccountsDeleteRidershipAccountInternalServerErrorResponseBody,
-    )
-    from .ridership_accounts_delete_ridership_account_method_not_allowed_error_response_body import (
-        RidershipAccountsDeleteRidershipAccountMethodNotAllowedErrorResponseBody,
-    )
-    from .ridership_accounts_delete_ridership_account_not_found_error_response_body import (
-        RidershipAccountsDeleteRidershipAccountNotFoundErrorResponseBody,
-    )
-    from .ridership_accounts_delete_ridership_account_not_implemented_error_response_body import (
-        RidershipAccountsDeleteRidershipAccountNotImplementedErrorResponseBody,
-    )
-    from .ridership_accounts_delete_ridership_account_service_unavailable_error_response_body import (
-        RidershipAccountsDeleteRidershipAccountServiceUnavailableErrorResponseBody,
-    )
-    from .ridership_accounts_delete_ridership_account_too_many_requests_error_response_body import (
-        RidershipAccountsDeleteRidershipAccountTooManyRequestsErrorResponseBody,
-    )
-    from .ridership_accounts_delete_ridership_account_unauthorized_error_response_body import (
-        RidershipAccountsDeleteRidershipAccountUnauthorizedErrorResponseBody,
-    )
-    from .ridership_accounts_get_ridership_account_bad_gateway_error_response_body import (
-        RidershipAccountsGetRidershipAccountBadGatewayErrorResponseBody,
-    )
-    from .ridership_accounts_get_ridership_account_gateway_timeout_error_response_body import (
-        RidershipAccountsGetRidershipAccountGatewayTimeoutErrorResponseBody,
-    )
-    from .ridership_accounts_get_ridership_account_internal_server_error_response_body import (
-        RidershipAccountsGetRidershipAccountInternalServerErrorResponseBody,
-    )
-    from .ridership_accounts_get_ridership_account_method_not_allowed_error_response_body import (
-        RidershipAccountsGetRidershipAccountMethodNotAllowedErrorResponseBody,
-    )
-    from .ridership_accounts_get_ridership_account_not_found_error_response_body import (
-        RidershipAccountsGetRidershipAccountNotFoundErrorResponseBody,
-    )
-    from .ridership_accounts_get_ridership_account_not_implemented_error_response_body import (
-        RidershipAccountsGetRidershipAccountNotImplementedErrorResponseBody,
-    )
-    from .ridership_accounts_get_ridership_account_response_body import RidershipAccountsGetRidershipAccountResponseBody
-    from .ridership_accounts_get_ridership_account_service_unavailable_error_response_body import (
-        RidershipAccountsGetRidershipAccountServiceUnavailableErrorResponseBody,
-    )
-    from .ridership_accounts_get_ridership_account_too_many_requests_error_response_body import (
-        RidershipAccountsGetRidershipAccountTooManyRequestsErrorResponseBody,
-    )
-    from .ridership_accounts_get_ridership_account_unauthorized_error_response_body import (
-        RidershipAccountsGetRidershipAccountUnauthorizedErrorResponseBody,
-    )
-    from .ridership_accounts_list_ridership_accounts_bad_gateway_error_response_body import (
-        RidershipAccountsListRidershipAccountsBadGatewayErrorResponseBody,
-    )
-    from .ridership_accounts_list_ridership_accounts_gateway_timeout_error_response_body import (
-        RidershipAccountsListRidershipAccountsGatewayTimeoutErrorResponseBody,
-    )
-    from .ridership_accounts_list_ridership_accounts_internal_server_error_response_body import (
-        RidershipAccountsListRidershipAccountsInternalServerErrorResponseBody,
-    )
-    from .ridership_accounts_list_ridership_accounts_method_not_allowed_error_response_body import (
-        RidershipAccountsListRidershipAccountsMethodNotAllowedErrorResponseBody,
-    )
-    from .ridership_accounts_list_ridership_accounts_not_found_error_response_body import (
-        RidershipAccountsListRidershipAccountsNotFoundErrorResponseBody,
-    )
-    from .ridership_accounts_list_ridership_accounts_not_implemented_error_response_body import (
-        RidershipAccountsListRidershipAccountsNotImplementedErrorResponseBody,
-    )
-    from .ridership_accounts_list_ridership_accounts_response_body import (
-        RidershipAccountsListRidershipAccountsResponseBody,
-    )
-    from .ridership_accounts_list_ridership_accounts_service_unavailable_error_response_body import (
-        RidershipAccountsListRidershipAccountsServiceUnavailableErrorResponseBody,
-    )
-    from .ridership_accounts_list_ridership_accounts_too_many_requests_error_response_body import (
-        RidershipAccountsListRidershipAccountsTooManyRequestsErrorResponseBody,
-    )
-    from .ridership_accounts_list_ridership_accounts_unauthorized_error_response_body import (
-        RidershipAccountsListRidershipAccountsUnauthorizedErrorResponseBody,
-    )
-    from .ridership_accounts_update_ridership_account_bad_gateway_error_response_body import (
-        RidershipAccountsUpdateRidershipAccountBadGatewayErrorResponseBody,
-    )
-    from .ridership_accounts_update_ridership_account_gateway_timeout_error_response_body import (
-        RidershipAccountsUpdateRidershipAccountGatewayTimeoutErrorResponseBody,
-    )
-    from .ridership_accounts_update_ridership_account_internal_server_error_response_body import (
-        RidershipAccountsUpdateRidershipAccountInternalServerErrorResponseBody,
-    )
-    from .ridership_accounts_update_ridership_account_method_not_allowed_error_response_body import (
-        RidershipAccountsUpdateRidershipAccountMethodNotAllowedErrorResponseBody,
-    )
-    from .ridership_accounts_update_ridership_account_not_found_error_response_body import (
-        RidershipAccountsUpdateRidershipAccountNotFoundErrorResponseBody,
-    )
-    from .ridership_accounts_update_ridership_account_not_implemented_error_response_body import (
-        RidershipAccountsUpdateRidershipAccountNotImplementedErrorResponseBody,
-    )
-    from .ridership_accounts_update_ridership_account_response_body import (
-        RidershipAccountsUpdateRidershipAccountResponseBody,
-    )
-    from .ridership_accounts_update_ridership_account_service_unavailable_error_response_body import (
-        RidershipAccountsUpdateRidershipAccountServiceUnavailableErrorResponseBody,
-    )
-    from .ridership_accounts_update_ridership_account_too_many_requests_error_response_body import (
-        RidershipAccountsUpdateRidershipAccountTooManyRequestsErrorResponseBody,
-    )
-    from .ridership_accounts_update_ridership_account_unauthorized_error_response_body import (
-        RidershipAccountsUpdateRidershipAccountUnauthorizedErrorResponseBody,
-    )
     from .ridership_passenger_identifier_input_request_body import RidershipPassengerIdentifierInputRequestBody
     from .ridership_passenger_identifier_input_request_body_status import (
         RidershipPassengerIdentifierInputRequestBodyStatus,
@@ -5282,9 +5136,14 @@ if typing.TYPE_CHECKING:
     )
     from .route_settings_response_body_route_starting_condition import RouteSettingsResponseBodyRouteStartingCondition
     from .route_settings_response_body_sequencing_method import RouteSettingsResponseBodySequencingMethod
+    from .route_start_delayed_data_response_body import RouteStartDelayedDataResponseBody
     from .route_stop_details_object_response_body import RouteStopDetailsObjectResponseBody
     from .route_stop_details_object_response_body_operation import RouteStopDetailsObjectResponseBodyOperation
     from .route_stop_details_object_response_body_type import RouteStopDetailsObjectResponseBodyType
+    from .route_stop_early_late_arrival_data_response_body import RouteStopEarlyLateArrivalDataResponseBody
+    from .route_stop_early_late_arrival_data_response_body_arrival_status import (
+        RouteStopEarlyLateArrivalDataResponseBodyArrivalStatus,
+    )
     from .route_stop_estimated_arrival_details_object_request_body import (
         RouteStopEstimatedArrivalDetailsObjectRequestBody,
     )
@@ -10003,56 +9862,6 @@ _dynamic_imports: typing.Dict[str, str] = {
     "ResolvedByType": ".resolved_by_type",
     "ReverseGeo": ".reverse_geo",
     "ReverseGeoObjectResponseBody": ".reverse_geo_object_response_body",
-    "RidershipAccountObjectResponseBody": ".ridership_account_object_response_body",
-    "RidershipAccountsCreateRidershipAccountBadGatewayErrorResponseBody": ".ridership_accounts_create_ridership_account_bad_gateway_error_response_body",
-    "RidershipAccountsCreateRidershipAccountGatewayTimeoutErrorResponseBody": ".ridership_accounts_create_ridership_account_gateway_timeout_error_response_body",
-    "RidershipAccountsCreateRidershipAccountInternalServerErrorResponseBody": ".ridership_accounts_create_ridership_account_internal_server_error_response_body",
-    "RidershipAccountsCreateRidershipAccountMethodNotAllowedErrorResponseBody": ".ridership_accounts_create_ridership_account_method_not_allowed_error_response_body",
-    "RidershipAccountsCreateRidershipAccountNotFoundErrorResponseBody": ".ridership_accounts_create_ridership_account_not_found_error_response_body",
-    "RidershipAccountsCreateRidershipAccountNotImplementedErrorResponseBody": ".ridership_accounts_create_ridership_account_not_implemented_error_response_body",
-    "RidershipAccountsCreateRidershipAccountResponseBody": ".ridership_accounts_create_ridership_account_response_body",
-    "RidershipAccountsCreateRidershipAccountServiceUnavailableErrorResponseBody": ".ridership_accounts_create_ridership_account_service_unavailable_error_response_body",
-    "RidershipAccountsCreateRidershipAccountTooManyRequestsErrorResponseBody": ".ridership_accounts_create_ridership_account_too_many_requests_error_response_body",
-    "RidershipAccountsCreateRidershipAccountUnauthorizedErrorResponseBody": ".ridership_accounts_create_ridership_account_unauthorized_error_response_body",
-    "RidershipAccountsDeleteRidershipAccountBadGatewayErrorResponseBody": ".ridership_accounts_delete_ridership_account_bad_gateway_error_response_body",
-    "RidershipAccountsDeleteRidershipAccountGatewayTimeoutErrorResponseBody": ".ridership_accounts_delete_ridership_account_gateway_timeout_error_response_body",
-    "RidershipAccountsDeleteRidershipAccountInternalServerErrorResponseBody": ".ridership_accounts_delete_ridership_account_internal_server_error_response_body",
-    "RidershipAccountsDeleteRidershipAccountMethodNotAllowedErrorResponseBody": ".ridership_accounts_delete_ridership_account_method_not_allowed_error_response_body",
-    "RidershipAccountsDeleteRidershipAccountNotFoundErrorResponseBody": ".ridership_accounts_delete_ridership_account_not_found_error_response_body",
-    "RidershipAccountsDeleteRidershipAccountNotImplementedErrorResponseBody": ".ridership_accounts_delete_ridership_account_not_implemented_error_response_body",
-    "RidershipAccountsDeleteRidershipAccountServiceUnavailableErrorResponseBody": ".ridership_accounts_delete_ridership_account_service_unavailable_error_response_body",
-    "RidershipAccountsDeleteRidershipAccountTooManyRequestsErrorResponseBody": ".ridership_accounts_delete_ridership_account_too_many_requests_error_response_body",
-    "RidershipAccountsDeleteRidershipAccountUnauthorizedErrorResponseBody": ".ridership_accounts_delete_ridership_account_unauthorized_error_response_body",
-    "RidershipAccountsGetRidershipAccountBadGatewayErrorResponseBody": ".ridership_accounts_get_ridership_account_bad_gateway_error_response_body",
-    "RidershipAccountsGetRidershipAccountGatewayTimeoutErrorResponseBody": ".ridership_accounts_get_ridership_account_gateway_timeout_error_response_body",
-    "RidershipAccountsGetRidershipAccountInternalServerErrorResponseBody": ".ridership_accounts_get_ridership_account_internal_server_error_response_body",
-    "RidershipAccountsGetRidershipAccountMethodNotAllowedErrorResponseBody": ".ridership_accounts_get_ridership_account_method_not_allowed_error_response_body",
-    "RidershipAccountsGetRidershipAccountNotFoundErrorResponseBody": ".ridership_accounts_get_ridership_account_not_found_error_response_body",
-    "RidershipAccountsGetRidershipAccountNotImplementedErrorResponseBody": ".ridership_accounts_get_ridership_account_not_implemented_error_response_body",
-    "RidershipAccountsGetRidershipAccountResponseBody": ".ridership_accounts_get_ridership_account_response_body",
-    "RidershipAccountsGetRidershipAccountServiceUnavailableErrorResponseBody": ".ridership_accounts_get_ridership_account_service_unavailable_error_response_body",
-    "RidershipAccountsGetRidershipAccountTooManyRequestsErrorResponseBody": ".ridership_accounts_get_ridership_account_too_many_requests_error_response_body",
-    "RidershipAccountsGetRidershipAccountUnauthorizedErrorResponseBody": ".ridership_accounts_get_ridership_account_unauthorized_error_response_body",
-    "RidershipAccountsListRidershipAccountsBadGatewayErrorResponseBody": ".ridership_accounts_list_ridership_accounts_bad_gateway_error_response_body",
-    "RidershipAccountsListRidershipAccountsGatewayTimeoutErrorResponseBody": ".ridership_accounts_list_ridership_accounts_gateway_timeout_error_response_body",
-    "RidershipAccountsListRidershipAccountsInternalServerErrorResponseBody": ".ridership_accounts_list_ridership_accounts_internal_server_error_response_body",
-    "RidershipAccountsListRidershipAccountsMethodNotAllowedErrorResponseBody": ".ridership_accounts_list_ridership_accounts_method_not_allowed_error_response_body",
-    "RidershipAccountsListRidershipAccountsNotFoundErrorResponseBody": ".ridership_accounts_list_ridership_accounts_not_found_error_response_body",
-    "RidershipAccountsListRidershipAccountsNotImplementedErrorResponseBody": ".ridership_accounts_list_ridership_accounts_not_implemented_error_response_body",
-    "RidershipAccountsListRidershipAccountsResponseBody": ".ridership_accounts_list_ridership_accounts_response_body",
-    "RidershipAccountsListRidershipAccountsServiceUnavailableErrorResponseBody": ".ridership_accounts_list_ridership_accounts_service_unavailable_error_response_body",
-    "RidershipAccountsListRidershipAccountsTooManyRequestsErrorResponseBody": ".ridership_accounts_list_ridership_accounts_too_many_requests_error_response_body",
-    "RidershipAccountsListRidershipAccountsUnauthorizedErrorResponseBody": ".ridership_accounts_list_ridership_accounts_unauthorized_error_response_body",
-    "RidershipAccountsUpdateRidershipAccountBadGatewayErrorResponseBody": ".ridership_accounts_update_ridership_account_bad_gateway_error_response_body",
-    "RidershipAccountsUpdateRidershipAccountGatewayTimeoutErrorResponseBody": ".ridership_accounts_update_ridership_account_gateway_timeout_error_response_body",
-    "RidershipAccountsUpdateRidershipAccountInternalServerErrorResponseBody": ".ridership_accounts_update_ridership_account_internal_server_error_response_body",
-    "RidershipAccountsUpdateRidershipAccountMethodNotAllowedErrorResponseBody": ".ridership_accounts_update_ridership_account_method_not_allowed_error_response_body",
-    "RidershipAccountsUpdateRidershipAccountNotFoundErrorResponseBody": ".ridership_accounts_update_ridership_account_not_found_error_response_body",
-    "RidershipAccountsUpdateRidershipAccountNotImplementedErrorResponseBody": ".ridership_accounts_update_ridership_account_not_implemented_error_response_body",
-    "RidershipAccountsUpdateRidershipAccountResponseBody": ".ridership_accounts_update_ridership_account_response_body",
-    "RidershipAccountsUpdateRidershipAccountServiceUnavailableErrorResponseBody": ".ridership_accounts_update_ridership_account_service_unavailable_error_response_body",
-    "RidershipAccountsUpdateRidershipAccountTooManyRequestsErrorResponseBody": ".ridership_accounts_update_ridership_account_too_many_requests_error_response_body",
-    "RidershipAccountsUpdateRidershipAccountUnauthorizedErrorResponseBody": ".ridership_accounts_update_ridership_account_unauthorized_error_response_body",
     "RidershipPassengerIdentifierInputRequestBody": ".ridership_passenger_identifier_input_request_body",
     "RidershipPassengerIdentifierInputRequestBodyStatus": ".ridership_passenger_identifier_input_request_body_status",
     "RidershipPassengerIdentifierInputRequestBodyType": ".ridership_passenger_identifier_input_request_body_type",
@@ -10184,9 +9993,12 @@ _dynamic_imports: typing.Dict[str, str] = {
     "RouteSettingsResponseBodyRouteCompletionCondition": ".route_settings_response_body_route_completion_condition",
     "RouteSettingsResponseBodyRouteStartingCondition": ".route_settings_response_body_route_starting_condition",
     "RouteSettingsResponseBodySequencingMethod": ".route_settings_response_body_sequencing_method",
+    "RouteStartDelayedDataResponseBody": ".route_start_delayed_data_response_body",
     "RouteStopDetailsObjectResponseBody": ".route_stop_details_object_response_body",
     "RouteStopDetailsObjectResponseBodyOperation": ".route_stop_details_object_response_body_operation",
     "RouteStopDetailsObjectResponseBodyType": ".route_stop_details_object_response_body_type",
+    "RouteStopEarlyLateArrivalDataResponseBody": ".route_stop_early_late_arrival_data_response_body",
+    "RouteStopEarlyLateArrivalDataResponseBodyArrivalStatus": ".route_stop_early_late_arrival_data_response_body_arrival_status",
     "RouteStopEstimatedArrivalDetailsObjectRequestBody": ".route_stop_estimated_arrival_details_object_request_body",
     "RouteStopEstimatedArrivalDetailsObjectResponseBody": ".route_stop_estimated_arrival_details_object_response_body",
     "RouteStopEtaResponseBody": ".route_stop_eta_response_body",
@@ -13773,56 +13585,6 @@ __all__ = [
     "ResolvedByType",
     "ReverseGeo",
     "ReverseGeoObjectResponseBody",
-    "RidershipAccountObjectResponseBody",
-    "RidershipAccountsCreateRidershipAccountBadGatewayErrorResponseBody",
-    "RidershipAccountsCreateRidershipAccountGatewayTimeoutErrorResponseBody",
-    "RidershipAccountsCreateRidershipAccountInternalServerErrorResponseBody",
-    "RidershipAccountsCreateRidershipAccountMethodNotAllowedErrorResponseBody",
-    "RidershipAccountsCreateRidershipAccountNotFoundErrorResponseBody",
-    "RidershipAccountsCreateRidershipAccountNotImplementedErrorResponseBody",
-    "RidershipAccountsCreateRidershipAccountResponseBody",
-    "RidershipAccountsCreateRidershipAccountServiceUnavailableErrorResponseBody",
-    "RidershipAccountsCreateRidershipAccountTooManyRequestsErrorResponseBody",
-    "RidershipAccountsCreateRidershipAccountUnauthorizedErrorResponseBody",
-    "RidershipAccountsDeleteRidershipAccountBadGatewayErrorResponseBody",
-    "RidershipAccountsDeleteRidershipAccountGatewayTimeoutErrorResponseBody",
-    "RidershipAccountsDeleteRidershipAccountInternalServerErrorResponseBody",
-    "RidershipAccountsDeleteRidershipAccountMethodNotAllowedErrorResponseBody",
-    "RidershipAccountsDeleteRidershipAccountNotFoundErrorResponseBody",
-    "RidershipAccountsDeleteRidershipAccountNotImplementedErrorResponseBody",
-    "RidershipAccountsDeleteRidershipAccountServiceUnavailableErrorResponseBody",
-    "RidershipAccountsDeleteRidershipAccountTooManyRequestsErrorResponseBody",
-    "RidershipAccountsDeleteRidershipAccountUnauthorizedErrorResponseBody",
-    "RidershipAccountsGetRidershipAccountBadGatewayErrorResponseBody",
-    "RidershipAccountsGetRidershipAccountGatewayTimeoutErrorResponseBody",
-    "RidershipAccountsGetRidershipAccountInternalServerErrorResponseBody",
-    "RidershipAccountsGetRidershipAccountMethodNotAllowedErrorResponseBody",
-    "RidershipAccountsGetRidershipAccountNotFoundErrorResponseBody",
-    "RidershipAccountsGetRidershipAccountNotImplementedErrorResponseBody",
-    "RidershipAccountsGetRidershipAccountResponseBody",
-    "RidershipAccountsGetRidershipAccountServiceUnavailableErrorResponseBody",
-    "RidershipAccountsGetRidershipAccountTooManyRequestsErrorResponseBody",
-    "RidershipAccountsGetRidershipAccountUnauthorizedErrorResponseBody",
-    "RidershipAccountsListRidershipAccountsBadGatewayErrorResponseBody",
-    "RidershipAccountsListRidershipAccountsGatewayTimeoutErrorResponseBody",
-    "RidershipAccountsListRidershipAccountsInternalServerErrorResponseBody",
-    "RidershipAccountsListRidershipAccountsMethodNotAllowedErrorResponseBody",
-    "RidershipAccountsListRidershipAccountsNotFoundErrorResponseBody",
-    "RidershipAccountsListRidershipAccountsNotImplementedErrorResponseBody",
-    "RidershipAccountsListRidershipAccountsResponseBody",
-    "RidershipAccountsListRidershipAccountsServiceUnavailableErrorResponseBody",
-    "RidershipAccountsListRidershipAccountsTooManyRequestsErrorResponseBody",
-    "RidershipAccountsListRidershipAccountsUnauthorizedErrorResponseBody",
-    "RidershipAccountsUpdateRidershipAccountBadGatewayErrorResponseBody",
-    "RidershipAccountsUpdateRidershipAccountGatewayTimeoutErrorResponseBody",
-    "RidershipAccountsUpdateRidershipAccountInternalServerErrorResponseBody",
-    "RidershipAccountsUpdateRidershipAccountMethodNotAllowedErrorResponseBody",
-    "RidershipAccountsUpdateRidershipAccountNotFoundErrorResponseBody",
-    "RidershipAccountsUpdateRidershipAccountNotImplementedErrorResponseBody",
-    "RidershipAccountsUpdateRidershipAccountResponseBody",
-    "RidershipAccountsUpdateRidershipAccountServiceUnavailableErrorResponseBody",
-    "RidershipAccountsUpdateRidershipAccountTooManyRequestsErrorResponseBody",
-    "RidershipAccountsUpdateRidershipAccountUnauthorizedErrorResponseBody",
     "RidershipPassengerIdentifierInputRequestBody",
     "RidershipPassengerIdentifierInputRequestBodyStatus",
     "RidershipPassengerIdentifierInputRequestBodyType",
@@ -13954,9 +13716,12 @@ __all__ = [
     "RouteSettingsResponseBodyRouteCompletionCondition",
     "RouteSettingsResponseBodyRouteStartingCondition",
     "RouteSettingsResponseBodySequencingMethod",
+    "RouteStartDelayedDataResponseBody",
     "RouteStopDetailsObjectResponseBody",
     "RouteStopDetailsObjectResponseBodyOperation",
     "RouteStopDetailsObjectResponseBodyType",
+    "RouteStopEarlyLateArrivalDataResponseBody",
+    "RouteStopEarlyLateArrivalDataResponseBodyArrivalStatus",
     "RouteStopEstimatedArrivalDetailsObjectRequestBody",
     "RouteStopEstimatedArrivalDetailsObjectResponseBody",
     "RouteStopEtaResponseBody",
