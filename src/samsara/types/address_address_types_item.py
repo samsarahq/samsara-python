@@ -17,6 +17,7 @@ AddressAddressTypesItem = typing.Union[
         "unauthorizedZone",
         "vendor",
         "inventory",
+        "customerSite",
     ],
     typing.Any,
 ]

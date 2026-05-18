@@ -48,6 +48,8 @@ class RawRoutesClient:
         limit: typing.Optional[int] = None,
         after: typing.Optional[str] = None,
         include: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        tag_ids: typing.Optional[str] = None,
+        parent_tag_ids: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[RoutesFetchRoutesResponseBody]:
         """
@@ -77,6 +79,12 @@ class RawRoutesClient:
         include : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             A comma-separated list of additional fields to include in the response. Valid values: `stops.actualDistanceMeters`
 
+        tag_ids : typing.Optional[str]
+             A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+
+        parent_tag_ids : typing.Optional[str]
+             A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -94,6 +102,8 @@ class RawRoutesClient:
                 "limit": limit,
                 "after": after,
                 "include": include,
+                "tagIds": tag_ids,
+                "parentTagIds": parent_tag_ids,
             },
             request_options=request_options,
         )
@@ -1314,6 +1324,8 @@ class AsyncRawRoutesClient:
         limit: typing.Optional[int] = None,
         after: typing.Optional[str] = None,
         include: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        tag_ids: typing.Optional[str] = None,
+        parent_tag_ids: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[RoutesFetchRoutesResponseBody]:
         """
@@ -1343,6 +1355,12 @@ class AsyncRawRoutesClient:
         include : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             A comma-separated list of additional fields to include in the response. Valid values: `stops.actualDistanceMeters`
 
+        tag_ids : typing.Optional[str]
+             A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+
+        parent_tag_ids : typing.Optional[str]
+             A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -1360,6 +1378,8 @@ class AsyncRawRoutesClient:
                 "limit": limit,
                 "after": after,
                 "include": include,
+                "tagIds": tag_ids,
+                "parentTagIds": parent_tag_ids,
             },
             request_options=request_options,
         )

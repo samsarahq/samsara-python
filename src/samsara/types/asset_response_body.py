@@ -8,12 +8,18 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .asset_response_body_regulation_mode import AssetResponseBodyRegulationMode
 from .asset_response_body_type import AssetResponseBodyType
+from .goa_attribute_tiny_response_body import GoaAttributeTinyResponseBody
 from .goa_tag_tiny_response_response_body import GoaTagTinyResponseResponseBody
 
 
 class AssetResponseBody(UniversalBaseModel):
     """
     Representation of a vehicle trailer or other equipment to be tracked.
+    """
+
+    attributes: typing.Optional[typing.List[GoaAttributeTinyResponseBody]] = pydantic.Field(default=None)
+    """
+    List of attributes associated with the entity
     """
 
     created_at_time: typing_extensions.Annotated[

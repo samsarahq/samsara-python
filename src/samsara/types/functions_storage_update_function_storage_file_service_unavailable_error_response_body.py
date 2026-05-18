@@ -8,20 +8,23 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 
 
-class SignatoryUserObjectResponseBody(UniversalBaseModel):
+class FunctionsStorageUpdateFunctionStorageFileServiceUnavailableErrorResponseBody(UniversalBaseModel):
     """
-    The user who signed the DVIR.
+    Service unavailable
     """
 
-    external_ids: typing_extensions.Annotated[
-        typing.Optional[typing.Dict[str, str]],
-        FieldMetadata(alias="externalIds"),
-        pydantic.Field(alias="externalIds", description="A map of external ids"),
-    ] = None
-    id: str = pydantic.Field()
+    message: str = pydantic.Field()
     """
-    ID of the user.
+    Message of error
     """
+
+    request_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="requestId"),
+        pydantic.Field(
+            alias="requestId", description="The request ID; used when reaching out to support for issues with requests."
+        ),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
