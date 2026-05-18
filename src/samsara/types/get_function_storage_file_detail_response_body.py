@@ -6,21 +6,22 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .functions_storage_signed_url_of_type_response_body import FunctionsStorageSignedUrlOfTypeResponseBody
 
 
-class SignatoryUserObjectResponseBody(UniversalBaseModel):
+class GetFunctionStorageFileDetailResponseBody(UniversalBaseModel):
     """
-    The user who signed the DVIR.
+    A file in Functions storage with a presigned download URL.
     """
 
-    external_ids: typing_extensions.Annotated[
-        typing.Optional[typing.Dict[str, str]],
-        FieldMetadata(alias="externalIds"),
-        pydantic.Field(alias="externalIds", description="A map of external ids"),
-    ] = None
-    id: str = pydantic.Field()
+    download_get: typing_extensions.Annotated[
+        FunctionsStorageSignedUrlOfTypeResponseBody,
+        FieldMetadata(alias="downloadGet"),
+        pydantic.Field(alias="downloadGet"),
+    ]
+    name: str = pydantic.Field()
     """
-    ID of the user.
+    The name of the file.
     """
 
     if IS_PYDANTIC_V2:

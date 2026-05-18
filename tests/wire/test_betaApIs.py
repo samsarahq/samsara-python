@@ -206,12 +206,28 @@ def test_betaApIs_create_function() -> None:
     verify_request_count(test_id, "POST", "/functions", None, 1)
 
 
-def test_betaApIs_list_functions_storage_files() -> None:
-    """Test listFunctionsStorageFiles endpoint with WireMock"""
-    test_id = "beta_ap_is.list_functions_storage_files.0"
+def test_betaApIs_get_function_storage_file() -> None:
+    """Test getFunctionStorageFile endpoint with WireMock"""
+    test_id = "beta_ap_is.get_function_storage_file.0"
     client = get_client(test_id)
-    client.beta_ap_is.list_functions_storage_files()
-    verify_request_count(test_id, "GET", "/functions-storage/files", None, 1)
+    client.beta_ap_is.get_function_storage_file(name="name")
+    verify_request_count(test_id, "GET", "/functions-storage/files", {"name": "name"}, 1)
+
+
+def test_betaApIs_create_function_storage_file() -> None:
+    """Test createFunctionStorageFile endpoint with WireMock"""
+    test_id = "beta_ap_is.create_function_storage_file.0"
+    client = get_client(test_id)
+    client.beta_ap_is.create_function_storage_file(name="my-script.js")
+    verify_request_count(test_id, "POST", "/functions-storage/files", None, 1)
+
+
+def test_betaApIs_update_function_storage_file() -> None:
+    """Test updateFunctionStorageFile endpoint with WireMock"""
+    test_id = "beta_ap_is.update_function_storage_file.0"
+    client = get_client(test_id)
+    client.beta_ap_is.update_function_storage_file(name="name")
+    verify_request_count(test_id, "PUT", "/functions-storage/files", {"name": "name"}, 1)
 
 
 def test_betaApIs_delete_function_storage_file() -> None:
@@ -220,6 +236,14 @@ def test_betaApIs_delete_function_storage_file() -> None:
     client = get_client(test_id)
     client.beta_ap_is.delete_function_storage_file(name="name")
     verify_request_count(test_id, "DELETE", "/functions-storage/files", {"name": "name"}, 1)
+
+
+def test_betaApIs_list_functions_storage_files() -> None:
+    """Test listFunctionsStorageFiles endpoint with WireMock"""
+    test_id = "beta_ap_is.list_functions_storage_files.0"
+    client = get_client(test_id)
+    client.beta_ap_is.list_functions_storage_files()
+    verify_request_count(test_id, "GET", "/functions-storage/ls", None, 1)
 
 
 def test_betaApIs_get_function() -> None:
@@ -559,6 +583,10 @@ def test_betaApIs_patch_safety_events_v_2_batch() -> None:
     test_id = "beta_ap_is.patch_safety_events_v_2_batch.0"
     client = get_client(test_id)
     client.beta_ap_is.patch_safety_events_v_2_batch(
-        safety_event_ids=["bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590", "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590"]
+        safety_event_ids=[
+            "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
+            "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
+            "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
+        ]
     )
     verify_request_count(test_id, "PATCH", "/safety-events/batch", None, 1)

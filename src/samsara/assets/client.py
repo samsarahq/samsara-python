@@ -54,6 +54,7 @@ class AssetsClient:
         external_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         attribute_value_ids: typing.Optional[str] = None,
         attributes: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        include_attributes: typing.Optional[bool] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> SyncPager[AssetResponseBody, AssetsListAssetsResponseBody]:
         """
@@ -101,6 +102,9 @@ class AssetsClient:
         attributes : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             A filter on the data to return entities within given range query (only for numeric and date attributes) separated by a comma. Only entities meeting all the conditions will be returned. At least one bound must be provided. Example: `attributes=Length:range(8,)&attributes=Length:range(10,20)&attributes=Date:range(2025-01-01,2025-01-31)`
 
+        include_attributes : typing.Optional[bool]
+            Optional boolean indicating whether to return attributes on supported entities
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -135,6 +139,7 @@ class AssetsClient:
             external_ids=external_ids,
             attribute_value_ids=attribute_value_ids,
             attributes=attributes,
+            include_attributes=include_attributes,
             request_options=request_options,
         )
 
@@ -708,6 +713,7 @@ class AsyncAssetsClient:
         external_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         attribute_value_ids: typing.Optional[str] = None,
         attributes: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        include_attributes: typing.Optional[bool] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncPager[AssetResponseBody, AssetsListAssetsResponseBody]:
         """
@@ -755,6 +761,9 @@ class AsyncAssetsClient:
         attributes : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             A filter on the data to return entities within given range query (only for numeric and date attributes) separated by a comma. Only entities meeting all the conditions will be returned. At least one bound must be provided. Example: `attributes=Length:range(8,)&attributes=Length:range(10,20)&attributes=Date:range(2025-01-01,2025-01-31)`
 
+        include_attributes : typing.Optional[bool]
+            Optional boolean indicating whether to return attributes on supported entities
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -798,6 +807,7 @@ class AsyncAssetsClient:
             external_ids=external_ids,
             attribute_value_ids=attribute_value_ids,
             attributes=attributes,
+            include_attributes=include_attributes,
             request_options=request_options,
         )
 

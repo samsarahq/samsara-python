@@ -40,6 +40,7 @@ from .jamming_detected_response_body import JammingDetectedResponseBody
 from .missing_dvir_past_due_response_body import MissingDvirPastDueResponseBody
 from .motion_detected_response_body import MotionDetectedResponseBody
 from .out_of_route_response_body import OutOfRouteResponseBody
+from .out_of_sequence_stop_arrival_data_response_body import OutOfSequenceStopArrivalDataResponseBody
 from .outside_geofence_data_response_body import OutsideGeofenceDataResponseBody
 from .panic_button_response_body import PanicButtonResponseBody
 from .person_detected_response_body import PersonDetectedResponseBody
@@ -248,6 +249,11 @@ class WorkflowIncidentDetailsObjectResponseBody(UniversalBaseModel):
     ] = None
     out_of_route: typing_extensions.Annotated[
         typing.Optional[OutOfRouteResponseBody], FieldMetadata(alias="outOfRoute"), pydantic.Field(alias="outOfRoute")
+    ] = None
+    out_of_sequence_stop_arrival: typing_extensions.Annotated[
+        typing.Optional[OutOfSequenceStopArrivalDataResponseBody],
+        FieldMetadata(alias="outOfSequenceStopArrival"),
+        pydantic.Field(alias="outOfSequenceStopArrival"),
     ] = None
     outside_geofence: typing_extensions.Annotated[
         typing.Optional[OutsideGeofenceDataResponseBody],

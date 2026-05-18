@@ -38,8 +38,17 @@ from ..types.functions_get_function_response_body import FunctionsGetFunctionRes
 from ..types.functions_get_function_run_response_body import FunctionsGetFunctionRunResponseBody
 from ..types.functions_patch_function_response_body import FunctionsPatchFunctionResponseBody
 from ..types.functions_start_function_run_response_body import FunctionsStartFunctionRunResponseBody
+from ..types.functions_storage_create_function_storage_file_response_body import (
+    FunctionsStorageCreateFunctionStorageFileResponseBody,
+)
+from ..types.functions_storage_get_function_storage_file_response_body import (
+    FunctionsStorageGetFunctionStorageFileResponseBody,
+)
 from ..types.functions_storage_list_functions_storage_files_response_body import (
     FunctionsStorageListFunctionsStorageFilesResponseBody,
+)
+from ..types.functions_storage_update_function_storage_file_response_body import (
+    FunctionsStorageUpdateFunctionStorageFileResponseBody,
 )
 from ..types.goa_attribute_tiny import GoaAttributeTiny
 from ..types.hos_daily_logs_update_shipping_docs_response_body import HosDailyLogsUpdateShippingDocsResponseBody
@@ -1646,6 +1655,165 @@ class BetaApIsClient:
         )
         return _response.data
 
+    def get_function_storage_file(
+        self, *, name: str, request_options: typing.Optional[RequestOptions] = None
+    ) -> FunctionsStorageGetFunctionStorageFileResponseBody:
+        """
+        Get a file from Functions storage by name. Returns file metadata and a presigned download URL.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Functions Storage** under the Functions category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        name : str
+            The name of the file.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        FunctionsStorageGetFunctionStorageFileResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.get_function_storage_file(
+            name="name",
+        )
+        """
+        _response = self._raw_client.get_function_storage_file(name=name, request_options=request_options)
+        return _response.data
+
+    def create_function_storage_file(
+        self, *, name: str, request_options: typing.Optional[RequestOptions] = None
+    ) -> FunctionsStorageCreateFunctionStorageFileResponseBody:
+        """
+        Create a new file in Functions storage. Returns a presigned upload URL. Returns an error if the file already exists.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Functions Storage** under the Functions category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        name : str
+            The name of the file to create.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        FunctionsStorageCreateFunctionStorageFileResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.create_function_storage_file(
+            name="my-script.js",
+        )
+        """
+        _response = self._raw_client.create_function_storage_file(name=name, request_options=request_options)
+        return _response.data
+
+    def update_function_storage_file(
+        self, *, name: str, request_options: typing.Optional[RequestOptions] = None
+    ) -> FunctionsStorageUpdateFunctionStorageFileResponseBody:
+        """
+        Get a presigned upload URL for overwriting an existing file in Functions storage. Returns an error if the file does not exist.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Functions Storage** under the Functions category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        name : str
+            The name of the file.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        FunctionsStorageUpdateFunctionStorageFileResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.update_function_storage_file(
+            name="name",
+        )
+        """
+        _response = self._raw_client.update_function_storage_file(name=name, request_options=request_options)
+        return _response.data
+
+    def delete_function_storage_file(
+        self, *, name: str, request_options: typing.Optional[RequestOptions] = None
+    ) -> None:
+        """
+        Delete a file from Functions storage by name.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Functions Storage** under the Functions category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        name : str
+            The name of the file.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.delete_function_storage_file(
+            name="name",
+        )
+        """
+        _response = self._raw_client.delete_function_storage_file(name=name, request_options=request_options)
+        return _response.data
+
     def list_functions_storage_files(
         self,
         *,
@@ -1703,45 +1871,6 @@ class BetaApIsClient:
             include_upload_urls=include_upload_urls,
             request_options=request_options,
         )
-        return _response.data
-
-    def delete_function_storage_file(
-        self, *, name: str, request_options: typing.Optional[RequestOptions] = None
-    ) -> None:
-        """
-        Delete a file from Functions storage by name.
-
-         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Write Functions Storage** under the Functions category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        name : str
-            The name of the file.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        None
-
-        Examples
-        --------
-        from samsara import Samsara
-
-        client = Samsara(
-            token="YOUR_TOKEN",
-        )
-        client.beta_ap_is.delete_function_storage_file(
-            name="name",
-        )
-        """
-        _response = self._raw_client.delete_function_storage_file(name=name, request_options=request_options)
         return _response.data
 
     def get_function(
@@ -3517,7 +3646,7 @@ class BetaApIsClient:
             List of passenger assignments for the route.
 
         route_id : str
-            The route ID. This is the Samsara route ID returned by the Routing API.
+            The Samsara route ID returned by the Routing API, or an external ID in `key:value` format. For example, `extRoute:WB-12`.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -3568,7 +3697,7 @@ class BetaApIsClient:
         Parameters
         ----------
         route_id : str
-            The route ID. This is the Samsara route ID returned by the Routing API.
+            The Samsara route ID returned by the Routing API, or an external ID in `key:value` format. For example, `extRoute:WB-12`.
 
         passengers : typing.Sequence[RidershipRouteSetupPassengerInputRequestBody]
             List of passenger assignments for the route.
@@ -3618,7 +3747,7 @@ class BetaApIsClient:
         Parameters
         ----------
         route_id : str
-            The route ID. This is the Samsara route ID returned by the Routing API.
+            The Samsara route ID returned by the Routing API, or an external ID in `key:value` format. For example, `extRoute:WB-12`.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -3657,7 +3786,7 @@ class BetaApIsClient:
         Parameters
         ----------
         route_id : str
-            The route ID. This is the Samsara route ID returned by the Routing API.
+            The Samsara route ID returned by the Routing API, or an external ID in `key:value` format. For example, `extRoute:WB-12`.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -3750,6 +3879,7 @@ class BetaApIsClient:
         )
         client.beta_ap_is.patch_safety_events_v_2_batch(
             safety_event_ids=[
+                "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
                 "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
                 "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
             ],
@@ -5435,6 +5565,197 @@ class AsyncBetaApIsClient:
         )
         return _response.data
 
+    async def get_function_storage_file(
+        self, *, name: str, request_options: typing.Optional[RequestOptions] = None
+    ) -> FunctionsStorageGetFunctionStorageFileResponseBody:
+        """
+        Get a file from Functions storage by name. Returns file metadata and a presigned download URL.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Functions Storage** under the Functions category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        name : str
+            The name of the file.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        FunctionsStorageGetFunctionStorageFileResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.get_function_storage_file(
+                name="name",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_function_storage_file(name=name, request_options=request_options)
+        return _response.data
+
+    async def create_function_storage_file(
+        self, *, name: str, request_options: typing.Optional[RequestOptions] = None
+    ) -> FunctionsStorageCreateFunctionStorageFileResponseBody:
+        """
+        Create a new file in Functions storage. Returns a presigned upload URL. Returns an error if the file already exists.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Functions Storage** under the Functions category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        name : str
+            The name of the file to create.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        FunctionsStorageCreateFunctionStorageFileResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.create_function_storage_file(
+                name="my-script.js",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.create_function_storage_file(name=name, request_options=request_options)
+        return _response.data
+
+    async def update_function_storage_file(
+        self, *, name: str, request_options: typing.Optional[RequestOptions] = None
+    ) -> FunctionsStorageUpdateFunctionStorageFileResponseBody:
+        """
+        Get a presigned upload URL for overwriting an existing file in Functions storage. Returns an error if the file does not exist.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Functions Storage** under the Functions category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        name : str
+            The name of the file.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        FunctionsStorageUpdateFunctionStorageFileResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.update_function_storage_file(
+                name="name",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.update_function_storage_file(name=name, request_options=request_options)
+        return _response.data
+
+    async def delete_function_storage_file(
+        self, *, name: str, request_options: typing.Optional[RequestOptions] = None
+    ) -> None:
+        """
+        Delete a file from Functions storage by name.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Functions Storage** under the Functions category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        name : str
+            The name of the file.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.delete_function_storage_file(
+                name="name",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.delete_function_storage_file(name=name, request_options=request_options)
+        return _response.data
+
     async def list_functions_storage_files(
         self,
         *,
@@ -5500,53 +5821,6 @@ class AsyncBetaApIsClient:
             include_upload_urls=include_upload_urls,
             request_options=request_options,
         )
-        return _response.data
-
-    async def delete_function_storage_file(
-        self, *, name: str, request_options: typing.Optional[RequestOptions] = None
-    ) -> None:
-        """
-        Delete a file from Functions storage by name.
-
-         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Write Functions Storage** under the Functions category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        name : str
-            The name of the file.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        None
-
-        Examples
-        --------
-        import asyncio
-
-        from samsara import AsyncSamsara
-
-        client = AsyncSamsara(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.beta_ap_is.delete_function_storage_file(
-                name="name",
-            )
-
-
-        asyncio.run(main())
-        """
-        _response = await self._raw_client.delete_function_storage_file(name=name, request_options=request_options)
         return _response.data
 
     async def get_function(
@@ -7586,7 +7860,7 @@ class AsyncBetaApIsClient:
             List of passenger assignments for the route.
 
         route_id : str
-            The route ID. This is the Samsara route ID returned by the Routing API.
+            The Samsara route ID returned by the Routing API, or an external ID in `key:value` format. For example, `extRoute:WB-12`.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -7645,7 +7919,7 @@ class AsyncBetaApIsClient:
         Parameters
         ----------
         route_id : str
-            The route ID. This is the Samsara route ID returned by the Routing API.
+            The Samsara route ID returned by the Routing API, or an external ID in `key:value` format. For example, `extRoute:WB-12`.
 
         passengers : typing.Sequence[RidershipRouteSetupPassengerInputRequestBody]
             List of passenger assignments for the route.
@@ -7703,7 +7977,7 @@ class AsyncBetaApIsClient:
         Parameters
         ----------
         route_id : str
-            The route ID. This is the Samsara route ID returned by the Routing API.
+            The Samsara route ID returned by the Routing API, or an external ID in `key:value` format. For example, `extRoute:WB-12`.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -7752,7 +8026,7 @@ class AsyncBetaApIsClient:
         Parameters
         ----------
         route_id : str
-            The route ID. This is the Samsara route ID returned by the Routing API.
+            The Samsara route ID returned by the Routing API, or an external ID in `key:value` format. For example, `extRoute:WB-12`.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -7858,6 +8132,7 @@ class AsyncBetaApIsClient:
         async def main() -> None:
             await client.beta_ap_is.patch_safety_events_v_2_batch(
                 safety_event_ids=[
+                    "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
                     "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
                     "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
                 ],

@@ -1310,6 +1310,14 @@ for page in response.iter_pages():
 <dl>
 <dd>
 
+**include_attributes:** `typing.Optional[bool]` — Optional boolean indicating whether to return attributes on supported entities
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
     
 </dd>
@@ -4787,6 +4795,314 @@ client.beta_ap_is.create_function(
 </dl>
 </details>
 
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_function_storage_file</a>(...) -&gt; AsyncHttpResponse[FunctionsStorageGetFunctionStorageFileResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get a file from Functions storage by name. Returns file metadata and a presigned download URL.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Functions Storage** under the Functions category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.get_function_storage_file(
+    name="name",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**name:** `str` — The name of the file.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">create_function_storage_file</a>(...) -&gt; AsyncHttpResponse[FunctionsStorageCreateFunctionStorageFileResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a new file in Functions storage. Returns a presigned upload URL. Returns an error if the file already exists.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Functions Storage** under the Functions category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.create_function_storage_file(
+    name="my-script.js",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**name:** `str` — The name of the file to create.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">update_function_storage_file</a>(...) -&gt; AsyncHttpResponse[FunctionsStorageUpdateFunctionStorageFileResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get a presigned upload URL for overwriting an existing file in Functions storage. Returns an error if the file does not exist.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Functions Storage** under the Functions category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.update_function_storage_file(
+    name="name",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**name:** `str` — The name of the file.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">delete_function_storage_file</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Delete a file from Functions storage by name.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Functions Storage** under the Functions category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.delete_function_storage_file(
+    name="name",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**name:** `str` — The name of the file.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_functions_storage_files</a>(...) -&gt; AsyncHttpResponse[FunctionsStorageListFunctionsStorageFilesResponseBody]</code></summary>
 <dl>
 <dd>
@@ -4867,83 +5183,6 @@ client.beta_ap_is.list_functions_storage_files()
 <dd>
 
 **include_upload_urls:** `typing.Optional[bool]` — If true, include presigned upload URLs for each file. Requires write permission.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">delete_function_storage_file</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Delete a file from Functions storage by name.
-
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Write Functions Storage** under the Functions category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.beta_ap_is.delete_function_storage_file(
-    name="name",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**name:** `str` — The name of the file.
     
 </dd>
 </dl>
@@ -8119,7 +8358,7 @@ client.beta_ap_is.create_ridership_route_setup(
 <dl>
 <dd>
 
-**route_id:** `str` — The route ID. This is the Samsara route ID returned by the Routing API.
+**route_id:** `str` — The Samsara route ID returned by the Routing API, or an external ID in `key:value` format. For example, `extRoute:WB-12`.
     
 </dd>
 </dl>
@@ -8201,7 +8440,7 @@ client.beta_ap_is.update_ridership_route_setup(
 <dl>
 <dd>
 
-**route_id:** `str` — The route ID. This is the Samsara route ID returned by the Routing API.
+**route_id:** `str` — The Samsara route ID returned by the Routing API, or an external ID in `key:value` format. For example, `extRoute:WB-12`.
     
 </dd>
 </dl>
@@ -8286,7 +8525,7 @@ client.beta_ap_is.delete_ridership_route_setup(
 <dl>
 <dd>
 
-**route_id:** `str` — The route ID. This is the Samsara route ID returned by the Routing API.
+**route_id:** `str` — The Samsara route ID returned by the Routing API, or an external ID in `key:value` format. For example, `extRoute:WB-12`.
     
 </dd>
 </dl>
@@ -8363,7 +8602,7 @@ client.beta_ap_is.get_ridership_route_setup(
 <dl>
 <dd>
 
-**route_id:** `str` — The route ID. This is the Samsara route ID returned by the Routing API.
+**route_id:** `str` — The Samsara route ID returned by the Routing API, or an external ID in `key:value` format. For example, `extRoute:WB-12`.
     
 </dd>
 </dl>
@@ -8424,6 +8663,7 @@ client = Samsara(
 )
 client.beta_ap_is.patch_safety_events_v_2_batch(
     safety_event_ids=[
+        "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
         "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
         "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
     ],
@@ -18486,6 +18726,22 @@ client.routes.fetch_routes(
 <dd>
 
 **include:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — A comma-separated list of additional fields to include in the response. Valid values: `stops.actualDistanceMeters`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**tag_ids:** `typing.Optional[str]` —  A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**parent_tag_ids:** `typing.Optional[str]` —  A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
     
 </dd>
 </dl>

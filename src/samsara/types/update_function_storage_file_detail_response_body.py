@@ -6,22 +6,22 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .functions_storage_signed_url_of_type_response_body import FunctionsStorageSignedUrlOfTypeResponseBody
 
 
-class SignatoryUserObjectResponseBody(UniversalBaseModel):
+class UpdateFunctionStorageFileDetailResponseBody(UniversalBaseModel):
     """
-    The user who signed the DVIR.
+    A presigned upload URL for overwriting an existing file in Functions storage.
     """
 
-    external_ids: typing_extensions.Annotated[
-        typing.Optional[typing.Dict[str, str]],
-        FieldMetadata(alias="externalIds"),
-        pydantic.Field(alias="externalIds", description="A map of external ids"),
-    ] = None
-    id: str = pydantic.Field()
+    name: str = pydantic.Field()
     """
-    ID of the user.
+    The name of the file.
     """
+
+    upload_put: typing_extensions.Annotated[
+        FunctionsStorageSignedUrlOfTypeResponseBody, FieldMetadata(alias="uploadPut"), pydantic.Field(alias="uploadPut")
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

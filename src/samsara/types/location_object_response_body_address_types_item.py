@@ -8,6 +8,7 @@ LocationObjectResponseBodyAddressTypesItem = typing.Union[
         "alertsOnly",
         "authorizedZone",
         "avoidanceZone",
+        "customerSite",
         "industrialSite",
         "inventory",
         "knownGPSJammingZone",

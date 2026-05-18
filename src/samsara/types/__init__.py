@@ -613,6 +613,7 @@ if typing.TYPE_CHECKING:
     from .create_function_request_config_request_body import CreateFunctionRequestConfigRequestBody
     from .create_function_request_config_request_body_params import CreateFunctionRequestConfigRequestBodyParams
     from .create_function_request_config_request_body_secrets import CreateFunctionRequestConfigRequestBodySecrets
+    from .create_function_storage_file_detail_response_body import CreateFunctionStorageFileDetailResponseBody
     from .create_report_config_column_request_body import CreateReportConfigColumnRequestBody
     from .create_report_config_object_request_body import CreateReportConfigObjectRequestBody
     from .create_routes_stop_request_object_request_body import CreateRoutesStopRequestObjectRequestBody
@@ -2593,6 +2594,36 @@ if typing.TYPE_CHECKING:
     from .functions_start_function_run_unauthorized_error_response_body import (
         FunctionsStartFunctionRunUnauthorizedErrorResponseBody,
     )
+    from .functions_storage_create_function_storage_file_bad_gateway_error_response_body import (
+        FunctionsStorageCreateFunctionStorageFileBadGatewayErrorResponseBody,
+    )
+    from .functions_storage_create_function_storage_file_gateway_timeout_error_response_body import (
+        FunctionsStorageCreateFunctionStorageFileGatewayTimeoutErrorResponseBody,
+    )
+    from .functions_storage_create_function_storage_file_internal_server_error_response_body import (
+        FunctionsStorageCreateFunctionStorageFileInternalServerErrorResponseBody,
+    )
+    from .functions_storage_create_function_storage_file_method_not_allowed_error_response_body import (
+        FunctionsStorageCreateFunctionStorageFileMethodNotAllowedErrorResponseBody,
+    )
+    from .functions_storage_create_function_storage_file_not_found_error_response_body import (
+        FunctionsStorageCreateFunctionStorageFileNotFoundErrorResponseBody,
+    )
+    from .functions_storage_create_function_storage_file_not_implemented_error_response_body import (
+        FunctionsStorageCreateFunctionStorageFileNotImplementedErrorResponseBody,
+    )
+    from .functions_storage_create_function_storage_file_response_body import (
+        FunctionsStorageCreateFunctionStorageFileResponseBody,
+    )
+    from .functions_storage_create_function_storage_file_service_unavailable_error_response_body import (
+        FunctionsStorageCreateFunctionStorageFileServiceUnavailableErrorResponseBody,
+    )
+    from .functions_storage_create_function_storage_file_too_many_requests_error_response_body import (
+        FunctionsStorageCreateFunctionStorageFileTooManyRequestsErrorResponseBody,
+    )
+    from .functions_storage_create_function_storage_file_unauthorized_error_response_body import (
+        FunctionsStorageCreateFunctionStorageFileUnauthorizedErrorResponseBody,
+    )
     from .functions_storage_delete_function_storage_file_bad_gateway_error_response_body import (
         FunctionsStorageDeleteFunctionStorageFileBadGatewayErrorResponseBody,
     )
@@ -2621,6 +2652,36 @@ if typing.TYPE_CHECKING:
         FunctionsStorageDeleteFunctionStorageFileUnauthorizedErrorResponseBody,
     )
     from .functions_storage_file_response_body import FunctionsStorageFileResponseBody
+    from .functions_storage_get_function_storage_file_bad_gateway_error_response_body import (
+        FunctionsStorageGetFunctionStorageFileBadGatewayErrorResponseBody,
+    )
+    from .functions_storage_get_function_storage_file_gateway_timeout_error_response_body import (
+        FunctionsStorageGetFunctionStorageFileGatewayTimeoutErrorResponseBody,
+    )
+    from .functions_storage_get_function_storage_file_internal_server_error_response_body import (
+        FunctionsStorageGetFunctionStorageFileInternalServerErrorResponseBody,
+    )
+    from .functions_storage_get_function_storage_file_method_not_allowed_error_response_body import (
+        FunctionsStorageGetFunctionStorageFileMethodNotAllowedErrorResponseBody,
+    )
+    from .functions_storage_get_function_storage_file_not_found_error_response_body import (
+        FunctionsStorageGetFunctionStorageFileNotFoundErrorResponseBody,
+    )
+    from .functions_storage_get_function_storage_file_not_implemented_error_response_body import (
+        FunctionsStorageGetFunctionStorageFileNotImplementedErrorResponseBody,
+    )
+    from .functions_storage_get_function_storage_file_response_body import (
+        FunctionsStorageGetFunctionStorageFileResponseBody,
+    )
+    from .functions_storage_get_function_storage_file_service_unavailable_error_response_body import (
+        FunctionsStorageGetFunctionStorageFileServiceUnavailableErrorResponseBody,
+    )
+    from .functions_storage_get_function_storage_file_too_many_requests_error_response_body import (
+        FunctionsStorageGetFunctionStorageFileTooManyRequestsErrorResponseBody,
+    )
+    from .functions_storage_get_function_storage_file_unauthorized_error_response_body import (
+        FunctionsStorageGetFunctionStorageFileUnauthorizedErrorResponseBody,
+    )
     from .functions_storage_list_functions_storage_files_bad_gateway_error_response_body import (
         FunctionsStorageListFunctionsStorageFilesBadGatewayErrorResponseBody,
     )
@@ -2651,8 +2712,39 @@ if typing.TYPE_CHECKING:
     from .functions_storage_list_functions_storage_files_unauthorized_error_response_body import (
         FunctionsStorageListFunctionsStorageFilesUnauthorizedErrorResponseBody,
     )
+    from .functions_storage_signed_url_of_type_response_body import FunctionsStorageSignedUrlOfTypeResponseBody
     from .functions_storage_signed_url_response_body import FunctionsStorageSignedUrlResponseBody
     from .functions_storage_signed_url_response_body_url_type import FunctionsStorageSignedUrlResponseBodyUrlType
+    from .functions_storage_update_function_storage_file_bad_gateway_error_response_body import (
+        FunctionsStorageUpdateFunctionStorageFileBadGatewayErrorResponseBody,
+    )
+    from .functions_storage_update_function_storage_file_gateway_timeout_error_response_body import (
+        FunctionsStorageUpdateFunctionStorageFileGatewayTimeoutErrorResponseBody,
+    )
+    from .functions_storage_update_function_storage_file_internal_server_error_response_body import (
+        FunctionsStorageUpdateFunctionStorageFileInternalServerErrorResponseBody,
+    )
+    from .functions_storage_update_function_storage_file_method_not_allowed_error_response_body import (
+        FunctionsStorageUpdateFunctionStorageFileMethodNotAllowedErrorResponseBody,
+    )
+    from .functions_storage_update_function_storage_file_not_found_error_response_body import (
+        FunctionsStorageUpdateFunctionStorageFileNotFoundErrorResponseBody,
+    )
+    from .functions_storage_update_function_storage_file_not_implemented_error_response_body import (
+        FunctionsStorageUpdateFunctionStorageFileNotImplementedErrorResponseBody,
+    )
+    from .functions_storage_update_function_storage_file_response_body import (
+        FunctionsStorageUpdateFunctionStorageFileResponseBody,
+    )
+    from .functions_storage_update_function_storage_file_service_unavailable_error_response_body import (
+        FunctionsStorageUpdateFunctionStorageFileServiceUnavailableErrorResponseBody,
+    )
+    from .functions_storage_update_function_storage_file_too_many_requests_error_response_body import (
+        FunctionsStorageUpdateFunctionStorageFileTooManyRequestsErrorResponseBody,
+    )
+    from .functions_storage_update_function_storage_file_unauthorized_error_response_body import (
+        FunctionsStorageUpdateFunctionStorageFileUnauthorizedErrorResponseBody,
+    )
     from .gaseous_fuel_cost_object_response_body import GaseousFuelCostObjectResponseBody
     from .gaseous_fuel_cost_object_response_body_currency import GaseousFuelCostObjectResponseBodyCurrency
     from .gateway_asset_response_object_response_body import GatewayAssetResponseObjectResponseBody
@@ -2776,6 +2868,7 @@ if typing.TYPE_CHECKING:
     from .get_function_detail_response_body import GetFunctionDetailResponseBody
     from .get_function_run_detail_response_body import GetFunctionRunDetailResponseBody
     from .get_function_run_detail_response_body_status import GetFunctionRunDetailResponseBodyStatus
+    from .get_function_storage_file_detail_response_body import GetFunctionStorageFileDetailResponseBody
     from .get_media_retrieval_object_response_body import GetMediaRetrievalObjectResponseBody
     from .get_report_runs_data_object_response_body import GetReportRunsDataObjectResponseBody
     from .get_report_runs_data_object_response_body_status import GetReportRunsDataObjectResponseBodyStatus
@@ -4039,6 +4132,7 @@ if typing.TYPE_CHECKING:
     from .out_of_route_details_object_request_body import OutOfRouteDetailsObjectRequestBody
     from .out_of_route_details_object_response_body import OutOfRouteDetailsObjectResponseBody
     from .out_of_route_response_body import OutOfRouteResponseBody
+    from .out_of_sequence_stop_arrival_data_response_body import OutOfSequenceStopArrivalDataResponseBody
     from .outside_geofence_data_response_body import OutsideGeofenceDataResponseBody
     from .outside_geofence_trigger_details_object_request_body import OutsideGeofenceTriggerDetailsObjectRequestBody
     from .outside_geofence_trigger_details_object_response_body import OutsideGeofenceTriggerDetailsObjectResponseBody
@@ -6591,6 +6685,7 @@ if typing.TYPE_CHECKING:
     from .update_engine_immobilizer_relay_state_request_body_request_body_id import (
         UpdateEngineImmobilizerRelayStateRequestBodyRequestBodyId,
     )
+    from .update_function_storage_file_detail_response_body import UpdateFunctionStorageFileDetailResponseBody
     from .update_hub_location_request_body_request_body import UpdateHubLocationRequestBodyRequestBody
     from .update_routes_stop_request_object_request_body import UpdateRoutesStopRequestObjectRequestBody
     from .uploaded_media_object_response_body import UploadedMediaObjectResponseBody
@@ -7900,6 +7995,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "CreateFunctionRequestConfigRequestBody": ".create_function_request_config_request_body",
     "CreateFunctionRequestConfigRequestBodyParams": ".create_function_request_config_request_body_params",
     "CreateFunctionRequestConfigRequestBodySecrets": ".create_function_request_config_request_body_secrets",
+    "CreateFunctionStorageFileDetailResponseBody": ".create_function_storage_file_detail_response_body",
     "CreateReportConfigColumnRequestBody": ".create_report_config_column_request_body",
     "CreateReportConfigObjectRequestBody": ".create_report_config_object_request_body",
     "CreateRoutesStopRequestObjectRequestBody": ".create_routes_stop_request_object_request_body",
@@ -8830,6 +8926,16 @@ _dynamic_imports: typing.Dict[str, str] = {
     "FunctionsStartFunctionRunServiceUnavailableErrorResponseBody": ".functions_start_function_run_service_unavailable_error_response_body",
     "FunctionsStartFunctionRunTooManyRequestsErrorResponseBody": ".functions_start_function_run_too_many_requests_error_response_body",
     "FunctionsStartFunctionRunUnauthorizedErrorResponseBody": ".functions_start_function_run_unauthorized_error_response_body",
+    "FunctionsStorageCreateFunctionStorageFileBadGatewayErrorResponseBody": ".functions_storage_create_function_storage_file_bad_gateway_error_response_body",
+    "FunctionsStorageCreateFunctionStorageFileGatewayTimeoutErrorResponseBody": ".functions_storage_create_function_storage_file_gateway_timeout_error_response_body",
+    "FunctionsStorageCreateFunctionStorageFileInternalServerErrorResponseBody": ".functions_storage_create_function_storage_file_internal_server_error_response_body",
+    "FunctionsStorageCreateFunctionStorageFileMethodNotAllowedErrorResponseBody": ".functions_storage_create_function_storage_file_method_not_allowed_error_response_body",
+    "FunctionsStorageCreateFunctionStorageFileNotFoundErrorResponseBody": ".functions_storage_create_function_storage_file_not_found_error_response_body",
+    "FunctionsStorageCreateFunctionStorageFileNotImplementedErrorResponseBody": ".functions_storage_create_function_storage_file_not_implemented_error_response_body",
+    "FunctionsStorageCreateFunctionStorageFileResponseBody": ".functions_storage_create_function_storage_file_response_body",
+    "FunctionsStorageCreateFunctionStorageFileServiceUnavailableErrorResponseBody": ".functions_storage_create_function_storage_file_service_unavailable_error_response_body",
+    "FunctionsStorageCreateFunctionStorageFileTooManyRequestsErrorResponseBody": ".functions_storage_create_function_storage_file_too_many_requests_error_response_body",
+    "FunctionsStorageCreateFunctionStorageFileUnauthorizedErrorResponseBody": ".functions_storage_create_function_storage_file_unauthorized_error_response_body",
     "FunctionsStorageDeleteFunctionStorageFileBadGatewayErrorResponseBody": ".functions_storage_delete_function_storage_file_bad_gateway_error_response_body",
     "FunctionsStorageDeleteFunctionStorageFileGatewayTimeoutErrorResponseBody": ".functions_storage_delete_function_storage_file_gateway_timeout_error_response_body",
     "FunctionsStorageDeleteFunctionStorageFileInternalServerErrorResponseBody": ".functions_storage_delete_function_storage_file_internal_server_error_response_body",
@@ -8840,6 +8946,16 @@ _dynamic_imports: typing.Dict[str, str] = {
     "FunctionsStorageDeleteFunctionStorageFileTooManyRequestsErrorResponseBody": ".functions_storage_delete_function_storage_file_too_many_requests_error_response_body",
     "FunctionsStorageDeleteFunctionStorageFileUnauthorizedErrorResponseBody": ".functions_storage_delete_function_storage_file_unauthorized_error_response_body",
     "FunctionsStorageFileResponseBody": ".functions_storage_file_response_body",
+    "FunctionsStorageGetFunctionStorageFileBadGatewayErrorResponseBody": ".functions_storage_get_function_storage_file_bad_gateway_error_response_body",
+    "FunctionsStorageGetFunctionStorageFileGatewayTimeoutErrorResponseBody": ".functions_storage_get_function_storage_file_gateway_timeout_error_response_body",
+    "FunctionsStorageGetFunctionStorageFileInternalServerErrorResponseBody": ".functions_storage_get_function_storage_file_internal_server_error_response_body",
+    "FunctionsStorageGetFunctionStorageFileMethodNotAllowedErrorResponseBody": ".functions_storage_get_function_storage_file_method_not_allowed_error_response_body",
+    "FunctionsStorageGetFunctionStorageFileNotFoundErrorResponseBody": ".functions_storage_get_function_storage_file_not_found_error_response_body",
+    "FunctionsStorageGetFunctionStorageFileNotImplementedErrorResponseBody": ".functions_storage_get_function_storage_file_not_implemented_error_response_body",
+    "FunctionsStorageGetFunctionStorageFileResponseBody": ".functions_storage_get_function_storage_file_response_body",
+    "FunctionsStorageGetFunctionStorageFileServiceUnavailableErrorResponseBody": ".functions_storage_get_function_storage_file_service_unavailable_error_response_body",
+    "FunctionsStorageGetFunctionStorageFileTooManyRequestsErrorResponseBody": ".functions_storage_get_function_storage_file_too_many_requests_error_response_body",
+    "FunctionsStorageGetFunctionStorageFileUnauthorizedErrorResponseBody": ".functions_storage_get_function_storage_file_unauthorized_error_response_body",
     "FunctionsStorageListFunctionsStorageFilesBadGatewayErrorResponseBody": ".functions_storage_list_functions_storage_files_bad_gateway_error_response_body",
     "FunctionsStorageListFunctionsStorageFilesGatewayTimeoutErrorResponseBody": ".functions_storage_list_functions_storage_files_gateway_timeout_error_response_body",
     "FunctionsStorageListFunctionsStorageFilesInternalServerErrorResponseBody": ".functions_storage_list_functions_storage_files_internal_server_error_response_body",
@@ -8850,8 +8966,19 @@ _dynamic_imports: typing.Dict[str, str] = {
     "FunctionsStorageListFunctionsStorageFilesServiceUnavailableErrorResponseBody": ".functions_storage_list_functions_storage_files_service_unavailable_error_response_body",
     "FunctionsStorageListFunctionsStorageFilesTooManyRequestsErrorResponseBody": ".functions_storage_list_functions_storage_files_too_many_requests_error_response_body",
     "FunctionsStorageListFunctionsStorageFilesUnauthorizedErrorResponseBody": ".functions_storage_list_functions_storage_files_unauthorized_error_response_body",
+    "FunctionsStorageSignedUrlOfTypeResponseBody": ".functions_storage_signed_url_of_type_response_body",
     "FunctionsStorageSignedUrlResponseBody": ".functions_storage_signed_url_response_body",
     "FunctionsStorageSignedUrlResponseBodyUrlType": ".functions_storage_signed_url_response_body_url_type",
+    "FunctionsStorageUpdateFunctionStorageFileBadGatewayErrorResponseBody": ".functions_storage_update_function_storage_file_bad_gateway_error_response_body",
+    "FunctionsStorageUpdateFunctionStorageFileGatewayTimeoutErrorResponseBody": ".functions_storage_update_function_storage_file_gateway_timeout_error_response_body",
+    "FunctionsStorageUpdateFunctionStorageFileInternalServerErrorResponseBody": ".functions_storage_update_function_storage_file_internal_server_error_response_body",
+    "FunctionsStorageUpdateFunctionStorageFileMethodNotAllowedErrorResponseBody": ".functions_storage_update_function_storage_file_method_not_allowed_error_response_body",
+    "FunctionsStorageUpdateFunctionStorageFileNotFoundErrorResponseBody": ".functions_storage_update_function_storage_file_not_found_error_response_body",
+    "FunctionsStorageUpdateFunctionStorageFileNotImplementedErrorResponseBody": ".functions_storage_update_function_storage_file_not_implemented_error_response_body",
+    "FunctionsStorageUpdateFunctionStorageFileResponseBody": ".functions_storage_update_function_storage_file_response_body",
+    "FunctionsStorageUpdateFunctionStorageFileServiceUnavailableErrorResponseBody": ".functions_storage_update_function_storage_file_service_unavailable_error_response_body",
+    "FunctionsStorageUpdateFunctionStorageFileTooManyRequestsErrorResponseBody": ".functions_storage_update_function_storage_file_too_many_requests_error_response_body",
+    "FunctionsStorageUpdateFunctionStorageFileUnauthorizedErrorResponseBody": ".functions_storage_update_function_storage_file_unauthorized_error_response_body",
     "GaseousFuelCostObjectResponseBody": ".gaseous_fuel_cost_object_response_body",
     "GaseousFuelCostObjectResponseBodyCurrency": ".gaseous_fuel_cost_object_response_body_currency",
     "GatewayAssetResponseObjectResponseBody": ".gateway_asset_response_object_response_body",
@@ -8917,6 +9044,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "GetFunctionDetailResponseBody": ".get_function_detail_response_body",
     "GetFunctionRunDetailResponseBody": ".get_function_run_detail_response_body",
     "GetFunctionRunDetailResponseBodyStatus": ".get_function_run_detail_response_body_status",
+    "GetFunctionStorageFileDetailResponseBody": ".get_function_storage_file_detail_response_body",
     "GetMediaRetrievalObjectResponseBody": ".get_media_retrieval_object_response_body",
     "GetReportRunsDataObjectResponseBody": ".get_report_runs_data_object_response_body",
     "GetReportRunsDataObjectResponseBodyStatus": ".get_report_runs_data_object_response_body_status",
@@ -9532,6 +9660,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "OutOfRouteDetailsObjectRequestBody": ".out_of_route_details_object_request_body",
     "OutOfRouteDetailsObjectResponseBody": ".out_of_route_details_object_response_body",
     "OutOfRouteResponseBody": ".out_of_route_response_body",
+    "OutOfSequenceStopArrivalDataResponseBody": ".out_of_sequence_stop_arrival_data_response_body",
     "OutsideGeofenceDataResponseBody": ".outside_geofence_data_response_body",
     "OutsideGeofenceTriggerDetailsObjectRequestBody": ".outside_geofence_trigger_details_object_request_body",
     "OutsideGeofenceTriggerDetailsObjectResponseBody": ".outside_geofence_trigger_details_object_response_body",
@@ -10654,6 +10783,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "UpdateDriverRequestHosSetting": ".update_driver_request_hos_setting",
     "UpdateEngineImmobilizerRelayStateRequestBodyRequestBody": ".update_engine_immobilizer_relay_state_request_body_request_body",
     "UpdateEngineImmobilizerRelayStateRequestBodyRequestBodyId": ".update_engine_immobilizer_relay_state_request_body_request_body_id",
+    "UpdateFunctionStorageFileDetailResponseBody": ".update_function_storage_file_detail_response_body",
     "UpdateHubLocationRequestBodyRequestBody": ".update_hub_location_request_body_request_body",
     "UpdateRoutesStopRequestObjectRequestBody": ".update_routes_stop_request_object_request_body",
     "UploadedMediaObjectResponseBody": ".uploaded_media_object_response_body",
@@ -11623,6 +11753,7 @@ __all__ = [
     "CreateFunctionRequestConfigRequestBody",
     "CreateFunctionRequestConfigRequestBodyParams",
     "CreateFunctionRequestConfigRequestBodySecrets",
+    "CreateFunctionStorageFileDetailResponseBody",
     "CreateReportConfigColumnRequestBody",
     "CreateReportConfigObjectRequestBody",
     "CreateRoutesStopRequestObjectRequestBody",
@@ -12553,6 +12684,16 @@ __all__ = [
     "FunctionsStartFunctionRunServiceUnavailableErrorResponseBody",
     "FunctionsStartFunctionRunTooManyRequestsErrorResponseBody",
     "FunctionsStartFunctionRunUnauthorizedErrorResponseBody",
+    "FunctionsStorageCreateFunctionStorageFileBadGatewayErrorResponseBody",
+    "FunctionsStorageCreateFunctionStorageFileGatewayTimeoutErrorResponseBody",
+    "FunctionsStorageCreateFunctionStorageFileInternalServerErrorResponseBody",
+    "FunctionsStorageCreateFunctionStorageFileMethodNotAllowedErrorResponseBody",
+    "FunctionsStorageCreateFunctionStorageFileNotFoundErrorResponseBody",
+    "FunctionsStorageCreateFunctionStorageFileNotImplementedErrorResponseBody",
+    "FunctionsStorageCreateFunctionStorageFileResponseBody",
+    "FunctionsStorageCreateFunctionStorageFileServiceUnavailableErrorResponseBody",
+    "FunctionsStorageCreateFunctionStorageFileTooManyRequestsErrorResponseBody",
+    "FunctionsStorageCreateFunctionStorageFileUnauthorizedErrorResponseBody",
     "FunctionsStorageDeleteFunctionStorageFileBadGatewayErrorResponseBody",
     "FunctionsStorageDeleteFunctionStorageFileGatewayTimeoutErrorResponseBody",
     "FunctionsStorageDeleteFunctionStorageFileInternalServerErrorResponseBody",
@@ -12563,6 +12704,16 @@ __all__ = [
     "FunctionsStorageDeleteFunctionStorageFileTooManyRequestsErrorResponseBody",
     "FunctionsStorageDeleteFunctionStorageFileUnauthorizedErrorResponseBody",
     "FunctionsStorageFileResponseBody",
+    "FunctionsStorageGetFunctionStorageFileBadGatewayErrorResponseBody",
+    "FunctionsStorageGetFunctionStorageFileGatewayTimeoutErrorResponseBody",
+    "FunctionsStorageGetFunctionStorageFileInternalServerErrorResponseBody",
+    "FunctionsStorageGetFunctionStorageFileMethodNotAllowedErrorResponseBody",
+    "FunctionsStorageGetFunctionStorageFileNotFoundErrorResponseBody",
+    "FunctionsStorageGetFunctionStorageFileNotImplementedErrorResponseBody",
+    "FunctionsStorageGetFunctionStorageFileResponseBody",
+    "FunctionsStorageGetFunctionStorageFileServiceUnavailableErrorResponseBody",
+    "FunctionsStorageGetFunctionStorageFileTooManyRequestsErrorResponseBody",
+    "FunctionsStorageGetFunctionStorageFileUnauthorizedErrorResponseBody",
     "FunctionsStorageListFunctionsStorageFilesBadGatewayErrorResponseBody",
     "FunctionsStorageListFunctionsStorageFilesGatewayTimeoutErrorResponseBody",
     "FunctionsStorageListFunctionsStorageFilesInternalServerErrorResponseBody",
@@ -12573,8 +12724,19 @@ __all__ = [
     "FunctionsStorageListFunctionsStorageFilesServiceUnavailableErrorResponseBody",
     "FunctionsStorageListFunctionsStorageFilesTooManyRequestsErrorResponseBody",
     "FunctionsStorageListFunctionsStorageFilesUnauthorizedErrorResponseBody",
+    "FunctionsStorageSignedUrlOfTypeResponseBody",
     "FunctionsStorageSignedUrlResponseBody",
     "FunctionsStorageSignedUrlResponseBodyUrlType",
+    "FunctionsStorageUpdateFunctionStorageFileBadGatewayErrorResponseBody",
+    "FunctionsStorageUpdateFunctionStorageFileGatewayTimeoutErrorResponseBody",
+    "FunctionsStorageUpdateFunctionStorageFileInternalServerErrorResponseBody",
+    "FunctionsStorageUpdateFunctionStorageFileMethodNotAllowedErrorResponseBody",
+    "FunctionsStorageUpdateFunctionStorageFileNotFoundErrorResponseBody",
+    "FunctionsStorageUpdateFunctionStorageFileNotImplementedErrorResponseBody",
+    "FunctionsStorageUpdateFunctionStorageFileResponseBody",
+    "FunctionsStorageUpdateFunctionStorageFileServiceUnavailableErrorResponseBody",
+    "FunctionsStorageUpdateFunctionStorageFileTooManyRequestsErrorResponseBody",
+    "FunctionsStorageUpdateFunctionStorageFileUnauthorizedErrorResponseBody",
     "GaseousFuelCostObjectResponseBody",
     "GaseousFuelCostObjectResponseBodyCurrency",
     "GatewayAssetResponseObjectResponseBody",
@@ -12640,6 +12802,7 @@ __all__ = [
     "GetFunctionDetailResponseBody",
     "GetFunctionRunDetailResponseBody",
     "GetFunctionRunDetailResponseBodyStatus",
+    "GetFunctionStorageFileDetailResponseBody",
     "GetMediaRetrievalObjectResponseBody",
     "GetReportRunsDataObjectResponseBody",
     "GetReportRunsDataObjectResponseBodyStatus",
@@ -13255,6 +13418,7 @@ __all__ = [
     "OutOfRouteDetailsObjectRequestBody",
     "OutOfRouteDetailsObjectResponseBody",
     "OutOfRouteResponseBody",
+    "OutOfSequenceStopArrivalDataResponseBody",
     "OutsideGeofenceDataResponseBody",
     "OutsideGeofenceTriggerDetailsObjectRequestBody",
     "OutsideGeofenceTriggerDetailsObjectResponseBody",
@@ -14377,6 +14541,7 @@ __all__ = [
     "UpdateDriverRequestHosSetting",
     "UpdateEngineImmobilizerRelayStateRequestBodyRequestBody",
     "UpdateEngineImmobilizerRelayStateRequestBodyRequestBodyId",
+    "UpdateFunctionStorageFileDetailResponseBody",
     "UpdateHubLocationRequestBodyRequestBody",
     "UpdateRoutesStopRequestObjectRequestBody",
     "UploadedMediaObjectResponseBody",
