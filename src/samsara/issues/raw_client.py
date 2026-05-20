@@ -19,10 +19,14 @@ from ..errors.not_implemented_error import NotImplementedError
 from ..errors.service_unavailable_error import ServiceUnavailableError
 from ..errors.too_many_requests_error import TooManyRequestsError
 from ..errors.unauthorized_error import UnauthorizedError
+from ..types.form_submission_request_media_item_object_request_body import (
+    FormSubmissionRequestMediaItemObjectRequestBody,
+)
 from ..types.issues_get_issues_response_body import IssuesGetIssuesResponseBody
 from ..types.issues_get_issues_stream_response_body import IssuesGetIssuesStreamResponseBody
 from ..types.issues_patch_issue_response_body import IssuesPatchIssueResponseBody
 from ..types.patch_issue_request_body_assigned_to_request_body import PatchIssueRequestBodyAssignedToRequestBody
+from .types.issues_patch_issue_request_body_priority import IssuesPatchIssueRequestBodyPriority
 from .types.issues_patch_issue_request_body_status import IssuesPatchIssueRequestBodyStatus
 
 # this is used as the default value for optional parameters
@@ -194,9 +198,13 @@ class RawIssuesClient:
         *,
         id: str,
         assigned_to: typing.Optional[PatchIssueRequestBodyAssignedToRequestBody] = OMIT,
+        description: typing.Optional[str] = OMIT,
         due_date: typing.Optional[dt.datetime] = OMIT,
         external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
+        media: typing.Optional[typing.Sequence[FormSubmissionRequestMediaItemObjectRequestBody]] = OMIT,
+        priority: typing.Optional[IssuesPatchIssueRequestBodyPriority] = OMIT,
         status: typing.Optional[IssuesPatchIssueRequestBodyStatus] = OMIT,
+        title: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[IssuesPatchIssueResponseBody]:
         """
@@ -216,14 +224,26 @@ class RawIssuesClient:
 
         assigned_to : typing.Optional[PatchIssueRequestBodyAssignedToRequestBody]
 
+        description : typing.Optional[str]
+            Description of the issue. Requires the `issue-api-media-attachment-endpoints` feature.
+
         due_date : typing.Optional[dt.datetime]
             Due date of the issue. UTC timestamp in RFC 3339 format.
 
         external_ids : typing.Optional[typing.Dict[str, str]]
             A map of external ids
 
+        media : typing.Optional[typing.Sequence[FormSubmissionRequestMediaItemObjectRequestBody]]
+            Media items to append to the issue. Requires the `issue-api-media-attachment-endpoints` feature.
+
+        priority : typing.Optional[IssuesPatchIssueRequestBodyPriority]
+            Priority of the issue. Requires the `issue-api-media-attachment-endpoints` feature.  Valid values: `low`, `medium`, `high`
+
         status : typing.Optional[IssuesPatchIssueRequestBodyStatus]
             Status of the issue.  Valid values: `open`, `inProgress`, `resolved`, `dismissed`
+
+        title : typing.Optional[str]
+            Title of the issue. Requires the `issue-api-media-attachment-endpoints` feature.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -240,10 +260,18 @@ class RawIssuesClient:
                 "assignedTo": convert_and_respect_annotation_metadata(
                     object_=assigned_to, annotation=PatchIssueRequestBodyAssignedToRequestBody, direction="write"
                 ),
+                "description": description,
                 "dueDate": due_date,
                 "externalIds": external_ids,
                 "id": id,
+                "media": convert_and_respect_annotation_metadata(
+                    object_=media,
+                    annotation=typing.Sequence[FormSubmissionRequestMediaItemObjectRequestBody],
+                    direction="write",
+                ),
+                "priority": priority,
                 "status": status,
+                "title": title,
             },
             headers={
                 "content-type": "application/json",
@@ -373,6 +401,7 @@ class RawIssuesClient:
         after: typing.Optional[str] = None,
         status: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         asset_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        asset_external_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         include: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         assigned_to_route_stop_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
@@ -402,7 +431,10 @@ class RawIssuesClient:
             A comma-separated list containing status values to filter issues on. Valid values: `open`, `inProgress`, `resolved`, `dismissed`
 
         asset_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            A comma-separated list containing up to 50 asset IDs to filter issues on. Issues with untracked assets can also be included by passing the value: 'untracked'.
+            A comma-separated list containing up to 50 asset IDs to filter issues on. Each value can be a Samsara asset ID, an [external ID](https://developers.samsara.com/docs/external-ids) (`key:value` format), or the literal `untracked` to include issues with untracked assets.
+
+        asset_external_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A comma-separated list containing up to 50 asset [external IDs](https://developers.samsara.com/docs/external-ids) (`key:value` format) to filter issues on.
 
         include : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             A comma separated list of additional fields to include on requested objects. Valid values: `externalIds`
@@ -427,6 +459,7 @@ class RawIssuesClient:
                 "after": after,
                 "status": status,
                 "assetIds": asset_ids,
+                "assetExternalIds": asset_external_ids,
                 "include": include,
                 "assignedToRouteStopIds": assigned_to_route_stop_ids,
             },
@@ -712,9 +745,13 @@ class AsyncRawIssuesClient:
         *,
         id: str,
         assigned_to: typing.Optional[PatchIssueRequestBodyAssignedToRequestBody] = OMIT,
+        description: typing.Optional[str] = OMIT,
         due_date: typing.Optional[dt.datetime] = OMIT,
         external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
+        media: typing.Optional[typing.Sequence[FormSubmissionRequestMediaItemObjectRequestBody]] = OMIT,
+        priority: typing.Optional[IssuesPatchIssueRequestBodyPriority] = OMIT,
         status: typing.Optional[IssuesPatchIssueRequestBodyStatus] = OMIT,
+        title: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[IssuesPatchIssueResponseBody]:
         """
@@ -734,14 +771,26 @@ class AsyncRawIssuesClient:
 
         assigned_to : typing.Optional[PatchIssueRequestBodyAssignedToRequestBody]
 
+        description : typing.Optional[str]
+            Description of the issue. Requires the `issue-api-media-attachment-endpoints` feature.
+
         due_date : typing.Optional[dt.datetime]
             Due date of the issue. UTC timestamp in RFC 3339 format.
 
         external_ids : typing.Optional[typing.Dict[str, str]]
             A map of external ids
 
+        media : typing.Optional[typing.Sequence[FormSubmissionRequestMediaItemObjectRequestBody]]
+            Media items to append to the issue. Requires the `issue-api-media-attachment-endpoints` feature.
+
+        priority : typing.Optional[IssuesPatchIssueRequestBodyPriority]
+            Priority of the issue. Requires the `issue-api-media-attachment-endpoints` feature.  Valid values: `low`, `medium`, `high`
+
         status : typing.Optional[IssuesPatchIssueRequestBodyStatus]
             Status of the issue.  Valid values: `open`, `inProgress`, `resolved`, `dismissed`
+
+        title : typing.Optional[str]
+            Title of the issue. Requires the `issue-api-media-attachment-endpoints` feature.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -758,10 +807,18 @@ class AsyncRawIssuesClient:
                 "assignedTo": convert_and_respect_annotation_metadata(
                     object_=assigned_to, annotation=PatchIssueRequestBodyAssignedToRequestBody, direction="write"
                 ),
+                "description": description,
                 "dueDate": due_date,
                 "externalIds": external_ids,
                 "id": id,
+                "media": convert_and_respect_annotation_metadata(
+                    object_=media,
+                    annotation=typing.Sequence[FormSubmissionRequestMediaItemObjectRequestBody],
+                    direction="write",
+                ),
+                "priority": priority,
                 "status": status,
+                "title": title,
             },
             headers={
                 "content-type": "application/json",
@@ -891,6 +948,7 @@ class AsyncRawIssuesClient:
         after: typing.Optional[str] = None,
         status: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         asset_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        asset_external_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         include: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         assigned_to_route_stop_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
@@ -920,7 +978,10 @@ class AsyncRawIssuesClient:
             A comma-separated list containing status values to filter issues on. Valid values: `open`, `inProgress`, `resolved`, `dismissed`
 
         asset_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            A comma-separated list containing up to 50 asset IDs to filter issues on. Issues with untracked assets can also be included by passing the value: 'untracked'.
+            A comma-separated list containing up to 50 asset IDs to filter issues on. Each value can be a Samsara asset ID, an [external ID](https://developers.samsara.com/docs/external-ids) (`key:value` format), or the literal `untracked` to include issues with untracked assets.
+
+        asset_external_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A comma-separated list containing up to 50 asset [external IDs](https://developers.samsara.com/docs/external-ids) (`key:value` format) to filter issues on.
 
         include : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             A comma separated list of additional fields to include on requested objects. Valid values: `externalIds`
@@ -945,6 +1006,7 @@ class AsyncRawIssuesClient:
                 "after": after,
                 "status": status,
                 "assetIds": asset_ids,
+                "assetExternalIds": asset_external_ids,
                 "include": include,
                 "assignedToRouteStopIds": assigned_to_route_stop_ids,
             },

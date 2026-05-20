@@ -3888,7 +3888,7 @@ if typing.TYPE_CHECKING:
         GetIftaVehicleReportsRequestMonth,
         GetIftaVehicleReportsRequestQuarter,
     )
-    from .issues import IssuesPatchIssueRequestBodyStatus
+    from .issues import IssuesPatchIssueRequestBodyPriority, IssuesPatchIssueRequestBodyStatus
     from .legacy_ap_is import GetDriversVehicleAssignmentsRequestDriverActivationStatus
     from .live_sharing_links import GetLiveSharingLinksRequestType, LiveSharingLinksCreateLiveSharingLinkRequestBodyType
     from .maintenance import CreateDvirRequestSafetyStatus, CreateDvirRequestType
@@ -5759,6 +5759,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "IssuesPatchIssueMethodNotAllowedErrorResponseBody": ".types",
     "IssuesPatchIssueNotFoundErrorResponseBody": ".types",
     "IssuesPatchIssueNotImplementedErrorResponseBody": ".types",
+    "IssuesPatchIssueRequestBodyPriority": ".issues",
     "IssuesPatchIssueRequestBodyStatus": ".issues",
     "IssuesPatchIssueResponseBody": ".types",
     "IssuesPatchIssueServiceUnavailableErrorResponseBody": ".types",
@@ -9693,6 +9694,7 @@ __all__ = [
     "IssuesPatchIssueMethodNotAllowedErrorResponseBody",
     "IssuesPatchIssueNotFoundErrorResponseBody",
     "IssuesPatchIssueNotImplementedErrorResponseBody",
+    "IssuesPatchIssueRequestBodyPriority",
     "IssuesPatchIssueRequestBodyStatus",
     "IssuesPatchIssueResponseBody",
     "IssuesPatchIssueServiceUnavailableErrorResponseBody",
