@@ -6,9 +6,11 @@ import typing
 from importlib import import_module
 
 if typing.TYPE_CHECKING:
+    from .issues_patch_issue_request_body_priority import IssuesPatchIssueRequestBodyPriority
     from .issues_patch_issue_request_body_status import IssuesPatchIssueRequestBodyStatus
 _dynamic_imports: typing.Dict[str, str] = {
-    "IssuesPatchIssueRequestBodyStatus": ".issues_patch_issue_request_body_status"
+    "IssuesPatchIssueRequestBodyPriority": ".issues_patch_issue_request_body_priority",
+    "IssuesPatchIssueRequestBodyStatus": ".issues_patch_issue_request_body_status",
 }
 
 
@@ -33,4 +35,4 @@ def __dir__():
     return sorted(lazy_attrs)
 
 
-__all__ = ["IssuesPatchIssueRequestBodyStatus"]
+__all__ = ["IssuesPatchIssueRequestBodyPriority", "IssuesPatchIssueRequestBodyStatus"]

@@ -8665,7 +8665,6 @@ client.beta_ap_is.patch_safety_events_v_2_batch(
     safety_event_ids=[
         "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
         "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
-        "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
     ],
 )
 
@@ -26631,6 +26630,14 @@ client.issues.patch_issue(
 <dl>
 <dd>
 
+**description:** `typing.Optional[str]` — Description of the issue. Requires the `issue-api-media-attachment-endpoints` feature.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **due_date:** `typing.Optional[dt.datetime]` — Due date of the issue. UTC timestamp in RFC 3339 format.
     
 </dd>
@@ -26647,7 +26654,33 @@ client.issues.patch_issue(
 <dl>
 <dd>
 
+**media:** `typing.Optional[
+    typing.Sequence[FormSubmissionRequestMediaItemObjectRequestBody]
+]` — Media items to append to the issue. Requires the `issue-api-media-attachment-endpoints` feature.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**priority:** `typing.Optional[IssuesPatchIssueRequestBodyPriority]` — Priority of the issue. Requires the `issue-api-media-attachment-endpoints` feature.  Valid values: `low`, `medium`, `high`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **status:** `typing.Optional[IssuesPatchIssueRequestBodyStatus]` — Status of the issue.  Valid values: `open`, `inProgress`, `resolved`, `dismissed`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**title:** `typing.Optional[str]` — Title of the issue. Requires the `issue-api-media-attachment-endpoints` feature.
     
 </dd>
 </dl>
@@ -26756,7 +26789,15 @@ client.issues.get_issues_stream(
 <dl>
 <dd>
 
-**asset_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — A comma-separated list containing up to 50 asset IDs to filter issues on. Issues with untracked assets can also be included by passing the value: 'untracked'.
+**asset_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — A comma-separated list containing up to 50 asset IDs to filter issues on. Each value can be a Samsara asset ID, an [external ID](https://developers.samsara.com/docs/external-ids) (`key:value` format), or the literal `untracked` to include issues with untracked assets.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**asset_external_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — A comma-separated list containing up to 50 asset [external IDs](https://developers.samsara.com/docs/external-ids) (`key:value` format) to filter issues on.
     
 </dd>
 </dl>

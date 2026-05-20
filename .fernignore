@@ -12,3 +12,6 @@ README.md
 src/samsara/utils/webhooks_helper.py
 tests/utils/test_webhooks_helper.py
 changelog.md
+.fern/replay.lock
+.fern/replay.yml
+.gitattributes
