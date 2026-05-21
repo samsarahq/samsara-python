@@ -66,6 +66,7 @@ from ..types.functions_storage_list_functions_storage_files_response_body import
 from ..types.functions_storage_update_function_storage_file_response_body import (
     FunctionsStorageUpdateFunctionStorageFileResponseBody,
 )
+from ..types.geofence_vertex_input_request_body import GeofenceVertexInputRequestBody
 from ..types.goa_attribute_tiny import GoaAttributeTiny
 from ..types.hos_daily_logs_update_shipping_docs_response_body import HosDailyLogsUpdateShippingDocsResponseBody
 from ..types.hos_eld_events_get_hos_eld_events_response_body import HosEldEventsGetHosEldEventsResponseBody
@@ -85,11 +86,18 @@ from ..types.maintenance_vendors_list_vendor_categories_response_body import (
 from ..types.notification_recipient_request_body import NotificationRecipientRequestBody
 from ..types.patch_function_request_config_request_body import PatchFunctionRequestConfigRequestBody
 from ..types.patch_job_object_request_body import PatchJobObjectRequestBody
+from ..types.patch_place_hub_location_upsert_body_request_body import PatchPlaceHubLocationUpsertBodyRequestBody
+from ..types.patch_place_hub_locations_body_request_body import PatchPlaceHubLocationsBodyRequestBody
 from ..types.patch_safety_events_dismissal_reason_body_request_body import (
     PatchSafetyEventsDismissalReasonBodyRequestBody,
 )
+from ..types.places_get_places_response_body import PlacesGetPlacesResponseBody
+from ..types.places_patch_place_response_body import PlacesPatchPlaceResponseBody
+from ..types.places_post_place_response_body import PlacesPostPlaceResponseBody
 from ..types.plan_orders_list_plan_orders_response_body import PlanOrdersListPlanOrdersResponseBody
 from ..types.post_job_object_request_body import PostJobObjectRequestBody
+from ..types.post_place_navigation_input_request_body import PostPlaceNavigationInputRequestBody
+from ..types.post_place_tag_ref_request_body import PostPlaceTagRefRequestBody
 from ..types.qualification_owner_request_object_request_body import QualificationOwnerRequestObjectRequestBody
 from ..types.qualification_record_request_field_input_object_request_body import (
     QualificationRecordRequestFieldInputObjectRequestBody,
@@ -171,6 +179,8 @@ from .types.get_jobs_request_status import GetJobsRequestStatus
 from .types.get_qualification_records_stream_request_entity_type import GetQualificationRecordsStreamRequestEntityType
 from .types.get_qualification_types_request_entity_type import GetQualificationTypesRequestEntityType
 from .types.list_driver_workflows_request_workflow_type import ListDriverWorkflowsRequestWorkflowType
+from .types.places_patch_place_request_body_external_ids import PlacesPatchPlaceRequestBodyExternalIds
+from .types.places_post_place_request_body_external_ids import PlacesPostPlaceRequestBodyExternalIds
 from .types.ridership_passengers_create_ridership_passenger_request_body_classification import (
     RidershipPassengersCreateRidershipPassengerRequestBodyClassification,
 )
@@ -6685,6 +6695,793 @@ class RawBetaApIsClient:
         try:
             if 200 <= _response.status_code < 300:
                 return HttpResponse(response=_response, data=None)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def get_places(
+        self,
+        *,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        place_ids: typing.Optional[str] = None,
+        external_ids: typing.Optional[str] = None,
+        include_tags: typing.Optional[bool] = None,
+        include_external_ids: typing.Optional[bool] = None,
+        tag_ids: typing.Optional[str] = None,
+        parent_tag_ids: typing.Optional[str] = None,
+        place_types: typing.Optional[str] = None,
+        name: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[PlacesGetPlacesResponseBody]:
+        """
+        Returns places for the authorized organization. Supports cursor pagination or batch fetch by Samsara place ids via `placeIds`.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Places** under the Places category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 512 objects.
+
+        place_ids : typing.Optional[str]
+            Comma-separated Samsara place IDs for batch lookup (max 100). When set, list filters and cursor pagination are ignored. External id tokens (key:value) are not supported in this version.
+
+        external_ids : typing.Optional[str]
+            Reserved. Batch lookup by external IDs is not implemented in this API version.
+
+        include_tags : typing.Optional[bool]
+            When true, expands tag objects on each place. Defaults to false.
+
+        include_external_ids : typing.Optional[bool]
+            When true, includes externalIds on each place. Defaults to false.
+
+        tag_ids : typing.Optional[str]
+            Comma-separated numeric tag IDs to filter places.
+
+        parent_tag_ids : typing.Optional[str]
+            Reserved. Filtering by parent tag IDs is not implemented in this API version.
+
+        place_types : typing.Optional[str]
+            Comma-separated place type tokens (e.g. yard,normalGeofence).
+
+        name : typing.Optional[str]
+            Filter places by name text.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[PlacesGetPlacesResponseBody]
+            OK response.
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "places",
+            method="GET",
+            params={
+                "after": after,
+                "limit": limit,
+                "placeIds": place_ids,
+                "externalIds": external_ids,
+                "includeTags": include_tags,
+                "includeExternalIds": include_external_ids,
+                "tagIds": tag_ids,
+                "parentTagIds": parent_tag_ids,
+                "placeTypes": place_types,
+                "name": name,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    PlacesGetPlacesResponseBody,
+                    parse_obj_as(
+                        type_=PlacesGetPlacesResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def post_place(
+        self,
+        *,
+        address: str,
+        name: str,
+        external_ids: typing.Optional[PlacesPostPlaceRequestBodyExternalIds] = OMIT,
+        geofence: typing.Optional[typing.Sequence[GeofenceVertexInputRequestBody]] = OMIT,
+        hub_locations: typing.Optional[typing.Sequence[PatchPlaceHubLocationUpsertBodyRequestBody]] = OMIT,
+        latitude: typing.Optional[float] = OMIT,
+        longitude: typing.Optional[float] = OMIT,
+        navigation: typing.Optional[PostPlaceNavigationInputRequestBody] = OMIT,
+        notes: typing.Optional[str] = OMIT,
+        place_types: typing.Optional[typing.Sequence[str]] = OMIT,
+        radius_meters: typing.Optional[int] = OMIT,
+        tags: typing.Optional[typing.Sequence[PostPlaceTagRefRequestBody]] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[PlacesPostPlaceResponseBody]:
+        """
+        Creates a place. Supply either a polygon `geofence` (at least three vertices) or `radiusMeters` with `latitude` and `longitude`.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Places** under the Places category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        address : str
+            Single-line address string.
+
+        name : str
+            Place name.
+
+        external_ids : typing.Optional[PlacesPostPlaceRequestBodyExternalIds]
+            External identifiers.
+
+        geofence : typing.Optional[typing.Sequence[GeofenceVertexInputRequestBody]]
+            Polygon vertices; at least three when using polygon mode (omit entirely when using latitude, longitude, and radiusMeters for a circle).
+
+        hub_locations : typing.Optional[typing.Sequence[PatchPlaceHubLocationUpsertBodyRequestBody]]
+            Initial route-planning hub rows for the new place. Each entry requires hubId. Omit hubLocationId to let the server assign a row UUID, or set hubLocationId to pin the UUID for idempotent creates.
+
+        latitude : typing.Optional[float]
+            Center latitude when using a circle geofence with radiusMeters.
+
+        longitude : typing.Optional[float]
+            Center longitude when using a circle geofence with radiusMeters.
+
+        navigation : typing.Optional[PostPlaceNavigationInputRequestBody]
+
+        notes : typing.Optional[str]
+            Optional notes.
+
+        place_types : typing.Optional[typing.Sequence[str]]
+            Unsupported on create; when provided this API returns InvalidArgument.
+
+        radius_meters : typing.Optional[int]
+            Circle radius in meters; requires latitude and longitude. Must be at least 1 when set.
+
+        tags : typing.Optional[typing.Sequence[PostPlaceTagRefRequestBody]]
+            Tags to associate.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[PlacesPostPlaceResponseBody]
+            Created response.
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "places",
+            method="POST",
+            json={
+                "address": address,
+                "externalIds": convert_and_respect_annotation_metadata(
+                    object_=external_ids, annotation=PlacesPostPlaceRequestBodyExternalIds, direction="write"
+                ),
+                "geofence": convert_and_respect_annotation_metadata(
+                    object_=geofence, annotation=typing.Sequence[GeofenceVertexInputRequestBody], direction="write"
+                ),
+                "hubLocations": convert_and_respect_annotation_metadata(
+                    object_=hub_locations,
+                    annotation=typing.Sequence[PatchPlaceHubLocationUpsertBodyRequestBody],
+                    direction="write",
+                ),
+                "latitude": latitude,
+                "longitude": longitude,
+                "name": name,
+                "navigation": convert_and_respect_annotation_metadata(
+                    object_=navigation, annotation=PostPlaceNavigationInputRequestBody, direction="write"
+                ),
+                "notes": notes,
+                "placeTypes": place_types,
+                "radiusMeters": radius_meters,
+                "tags": convert_and_respect_annotation_metadata(
+                    object_=tags, annotation=typing.Sequence[PostPlaceTagRefRequestBody], direction="write"
+                ),
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    PlacesPostPlaceResponseBody,
+                    parse_obj_as(
+                        type_=PlacesPostPlaceResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def delete_place(
+        self, *, place_id: int, request_options: typing.Optional[RequestOptions] = None
+    ) -> HttpResponse[None]:
+        """
+        Deletes a place. Pass `placeId` (Samsara id) as a query parameter.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Places** under the Places category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        place_id : int
+            Samsara place id to delete.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[None]
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "places",
+            method="DELETE",
+            params={
+                "placeId": place_id,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                return HttpResponse(response=_response, data=None)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def patch_place(
+        self,
+        *,
+        place_id: int,
+        external_id: typing.Optional[str] = None,
+        address: typing.Optional[str] = OMIT,
+        external_ids: typing.Optional[PlacesPatchPlaceRequestBodyExternalIds] = OMIT,
+        geofence: typing.Optional[typing.Sequence[GeofenceVertexInputRequestBody]] = OMIT,
+        hub_locations: typing.Optional[PatchPlaceHubLocationsBodyRequestBody] = OMIT,
+        latitude: typing.Optional[float] = OMIT,
+        longitude: typing.Optional[float] = OMIT,
+        name: typing.Optional[str] = OMIT,
+        navigation: typing.Optional[PostPlaceNavigationInputRequestBody] = OMIT,
+        notes: typing.Optional[str] = OMIT,
+        place_types: typing.Optional[typing.Sequence[str]] = OMIT,
+        radius_meters: typing.Optional[int] = OMIT,
+        tags: typing.Optional[typing.Sequence[PostPlaceTagRefRequestBody]] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[PlacesPatchPlaceResponseBody]:
+        """
+        Updates a place. Query parameter `placeId` (Samsara id) is required. Optional `externalId` (key:value) is reserved for a future release and must not be combined with `placeId`. Only fields present in the JSON body are changed; omit a field to leave it unchanged.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Places** under the Places category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        place_id : int
+            Samsara place id to update (required). Do not send `externalId` in the same request.
+
+        external_id : typing.Optional[str]
+            External id token in `key:value` form (e.g. crmId:warehouse-east). Mutually exclusive with `placeId`. Batch lookup by external id is not implemented for this endpoint yet; callers should use `placeId` until supported.
+
+        address : typing.Optional[str]
+            Single-line address string.
+
+        external_ids : typing.Optional[PlacesPatchPlaceRequestBodyExternalIds]
+            When present, replaces external ids for the place.
+
+        geofence : typing.Optional[typing.Sequence[GeofenceVertexInputRequestBody]]
+            Polygon vertices; at least three when switching to polygon mode.
+
+        hub_locations : typing.Optional[PatchPlaceHubLocationsBodyRequestBody]
+
+        latitude : typing.Optional[float]
+            Center latitude when switching to or editing a circle geofence.
+
+        longitude : typing.Optional[float]
+            Center longitude when switching to or editing a circle geofence.
+
+        name : typing.Optional[str]
+            Place name.
+
+        navigation : typing.Optional[PostPlaceNavigationInputRequestBody]
+
+        notes : typing.Optional[str]
+            Notes.
+
+        place_types : typing.Optional[typing.Sequence[str]]
+            Unsupported on patch; when provided this API returns InvalidArgument.
+
+        radius_meters : typing.Optional[int]
+            Circle radius in meters; use with latitude and longitude.
+
+        tags : typing.Optional[typing.Sequence[PostPlaceTagRefRequestBody]]
+            When present, replaces all tag associations for the place.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[PlacesPatchPlaceResponseBody]
+            OK response.
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "places",
+            method="PATCH",
+            params={
+                "placeId": place_id,
+                "externalId": external_id,
+            },
+            json={
+                "address": address,
+                "externalIds": convert_and_respect_annotation_metadata(
+                    object_=external_ids, annotation=PlacesPatchPlaceRequestBodyExternalIds, direction="write"
+                ),
+                "geofence": convert_and_respect_annotation_metadata(
+                    object_=geofence, annotation=typing.Sequence[GeofenceVertexInputRequestBody], direction="write"
+                ),
+                "hubLocations": convert_and_respect_annotation_metadata(
+                    object_=hub_locations, annotation=PatchPlaceHubLocationsBodyRequestBody, direction="write"
+                ),
+                "latitude": latitude,
+                "longitude": longitude,
+                "name": name,
+                "navigation": convert_and_respect_annotation_metadata(
+                    object_=navigation, annotation=PostPlaceNavigationInputRequestBody, direction="write"
+                ),
+                "notes": notes,
+                "placeTypes": place_types,
+                "radiusMeters": radius_meters,
+                "tags": convert_and_respect_annotation_metadata(
+                    object_=tags, annotation=typing.Sequence[PostPlaceTagRefRequestBody], direction="write"
+                ),
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    PlacesPatchPlaceResponseBody,
+                    parse_obj_as(
+                        type_=PlacesPatchPlaceResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
             if _response.status_code == 401:
                 raise UnauthorizedError(
                     headers=dict(_response.headers),
@@ -17366,6 +18163,793 @@ class AsyncRawBetaApIsClient:
         try:
             if 200 <= _response.status_code < 300:
                 return AsyncHttpResponse(response=_response, data=None)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def get_places(
+        self,
+        *,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        place_ids: typing.Optional[str] = None,
+        external_ids: typing.Optional[str] = None,
+        include_tags: typing.Optional[bool] = None,
+        include_external_ids: typing.Optional[bool] = None,
+        tag_ids: typing.Optional[str] = None,
+        parent_tag_ids: typing.Optional[str] = None,
+        place_types: typing.Optional[str] = None,
+        name: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[PlacesGetPlacesResponseBody]:
+        """
+        Returns places for the authorized organization. Supports cursor pagination or batch fetch by Samsara place ids via `placeIds`.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Places** under the Places category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 512 objects.
+
+        place_ids : typing.Optional[str]
+            Comma-separated Samsara place IDs for batch lookup (max 100). When set, list filters and cursor pagination are ignored. External id tokens (key:value) are not supported in this version.
+
+        external_ids : typing.Optional[str]
+            Reserved. Batch lookup by external IDs is not implemented in this API version.
+
+        include_tags : typing.Optional[bool]
+            When true, expands tag objects on each place. Defaults to false.
+
+        include_external_ids : typing.Optional[bool]
+            When true, includes externalIds on each place. Defaults to false.
+
+        tag_ids : typing.Optional[str]
+            Comma-separated numeric tag IDs to filter places.
+
+        parent_tag_ids : typing.Optional[str]
+            Reserved. Filtering by parent tag IDs is not implemented in this API version.
+
+        place_types : typing.Optional[str]
+            Comma-separated place type tokens (e.g. yard,normalGeofence).
+
+        name : typing.Optional[str]
+            Filter places by name text.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[PlacesGetPlacesResponseBody]
+            OK response.
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "places",
+            method="GET",
+            params={
+                "after": after,
+                "limit": limit,
+                "placeIds": place_ids,
+                "externalIds": external_ids,
+                "includeTags": include_tags,
+                "includeExternalIds": include_external_ids,
+                "tagIds": tag_ids,
+                "parentTagIds": parent_tag_ids,
+                "placeTypes": place_types,
+                "name": name,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    PlacesGetPlacesResponseBody,
+                    parse_obj_as(
+                        type_=PlacesGetPlacesResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def post_place(
+        self,
+        *,
+        address: str,
+        name: str,
+        external_ids: typing.Optional[PlacesPostPlaceRequestBodyExternalIds] = OMIT,
+        geofence: typing.Optional[typing.Sequence[GeofenceVertexInputRequestBody]] = OMIT,
+        hub_locations: typing.Optional[typing.Sequence[PatchPlaceHubLocationUpsertBodyRequestBody]] = OMIT,
+        latitude: typing.Optional[float] = OMIT,
+        longitude: typing.Optional[float] = OMIT,
+        navigation: typing.Optional[PostPlaceNavigationInputRequestBody] = OMIT,
+        notes: typing.Optional[str] = OMIT,
+        place_types: typing.Optional[typing.Sequence[str]] = OMIT,
+        radius_meters: typing.Optional[int] = OMIT,
+        tags: typing.Optional[typing.Sequence[PostPlaceTagRefRequestBody]] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[PlacesPostPlaceResponseBody]:
+        """
+        Creates a place. Supply either a polygon `geofence` (at least three vertices) or `radiusMeters` with `latitude` and `longitude`.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Places** under the Places category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        address : str
+            Single-line address string.
+
+        name : str
+            Place name.
+
+        external_ids : typing.Optional[PlacesPostPlaceRequestBodyExternalIds]
+            External identifiers.
+
+        geofence : typing.Optional[typing.Sequence[GeofenceVertexInputRequestBody]]
+            Polygon vertices; at least three when using polygon mode (omit entirely when using latitude, longitude, and radiusMeters for a circle).
+
+        hub_locations : typing.Optional[typing.Sequence[PatchPlaceHubLocationUpsertBodyRequestBody]]
+            Initial route-planning hub rows for the new place. Each entry requires hubId. Omit hubLocationId to let the server assign a row UUID, or set hubLocationId to pin the UUID for idempotent creates.
+
+        latitude : typing.Optional[float]
+            Center latitude when using a circle geofence with radiusMeters.
+
+        longitude : typing.Optional[float]
+            Center longitude when using a circle geofence with radiusMeters.
+
+        navigation : typing.Optional[PostPlaceNavigationInputRequestBody]
+
+        notes : typing.Optional[str]
+            Optional notes.
+
+        place_types : typing.Optional[typing.Sequence[str]]
+            Unsupported on create; when provided this API returns InvalidArgument.
+
+        radius_meters : typing.Optional[int]
+            Circle radius in meters; requires latitude and longitude. Must be at least 1 when set.
+
+        tags : typing.Optional[typing.Sequence[PostPlaceTagRefRequestBody]]
+            Tags to associate.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[PlacesPostPlaceResponseBody]
+            Created response.
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "places",
+            method="POST",
+            json={
+                "address": address,
+                "externalIds": convert_and_respect_annotation_metadata(
+                    object_=external_ids, annotation=PlacesPostPlaceRequestBodyExternalIds, direction="write"
+                ),
+                "geofence": convert_and_respect_annotation_metadata(
+                    object_=geofence, annotation=typing.Sequence[GeofenceVertexInputRequestBody], direction="write"
+                ),
+                "hubLocations": convert_and_respect_annotation_metadata(
+                    object_=hub_locations,
+                    annotation=typing.Sequence[PatchPlaceHubLocationUpsertBodyRequestBody],
+                    direction="write",
+                ),
+                "latitude": latitude,
+                "longitude": longitude,
+                "name": name,
+                "navigation": convert_and_respect_annotation_metadata(
+                    object_=navigation, annotation=PostPlaceNavigationInputRequestBody, direction="write"
+                ),
+                "notes": notes,
+                "placeTypes": place_types,
+                "radiusMeters": radius_meters,
+                "tags": convert_and_respect_annotation_metadata(
+                    object_=tags, annotation=typing.Sequence[PostPlaceTagRefRequestBody], direction="write"
+                ),
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    PlacesPostPlaceResponseBody,
+                    parse_obj_as(
+                        type_=PlacesPostPlaceResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def delete_place(
+        self, *, place_id: int, request_options: typing.Optional[RequestOptions] = None
+    ) -> AsyncHttpResponse[None]:
+        """
+        Deletes a place. Pass `placeId` (Samsara id) as a query parameter.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Places** under the Places category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        place_id : int
+            Samsara place id to delete.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[None]
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "places",
+            method="DELETE",
+            params={
+                "placeId": place_id,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                return AsyncHttpResponse(response=_response, data=None)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def patch_place(
+        self,
+        *,
+        place_id: int,
+        external_id: typing.Optional[str] = None,
+        address: typing.Optional[str] = OMIT,
+        external_ids: typing.Optional[PlacesPatchPlaceRequestBodyExternalIds] = OMIT,
+        geofence: typing.Optional[typing.Sequence[GeofenceVertexInputRequestBody]] = OMIT,
+        hub_locations: typing.Optional[PatchPlaceHubLocationsBodyRequestBody] = OMIT,
+        latitude: typing.Optional[float] = OMIT,
+        longitude: typing.Optional[float] = OMIT,
+        name: typing.Optional[str] = OMIT,
+        navigation: typing.Optional[PostPlaceNavigationInputRequestBody] = OMIT,
+        notes: typing.Optional[str] = OMIT,
+        place_types: typing.Optional[typing.Sequence[str]] = OMIT,
+        radius_meters: typing.Optional[int] = OMIT,
+        tags: typing.Optional[typing.Sequence[PostPlaceTagRefRequestBody]] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[PlacesPatchPlaceResponseBody]:
+        """
+        Updates a place. Query parameter `placeId` (Samsara id) is required. Optional `externalId` (key:value) is reserved for a future release and must not be combined with `placeId`. Only fields present in the JSON body are changed; omit a field to leave it unchanged.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Places** under the Places category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        place_id : int
+            Samsara place id to update (required). Do not send `externalId` in the same request.
+
+        external_id : typing.Optional[str]
+            External id token in `key:value` form (e.g. crmId:warehouse-east). Mutually exclusive with `placeId`. Batch lookup by external id is not implemented for this endpoint yet; callers should use `placeId` until supported.
+
+        address : typing.Optional[str]
+            Single-line address string.
+
+        external_ids : typing.Optional[PlacesPatchPlaceRequestBodyExternalIds]
+            When present, replaces external ids for the place.
+
+        geofence : typing.Optional[typing.Sequence[GeofenceVertexInputRequestBody]]
+            Polygon vertices; at least three when switching to polygon mode.
+
+        hub_locations : typing.Optional[PatchPlaceHubLocationsBodyRequestBody]
+
+        latitude : typing.Optional[float]
+            Center latitude when switching to or editing a circle geofence.
+
+        longitude : typing.Optional[float]
+            Center longitude when switching to or editing a circle geofence.
+
+        name : typing.Optional[str]
+            Place name.
+
+        navigation : typing.Optional[PostPlaceNavigationInputRequestBody]
+
+        notes : typing.Optional[str]
+            Notes.
+
+        place_types : typing.Optional[typing.Sequence[str]]
+            Unsupported on patch; when provided this API returns InvalidArgument.
+
+        radius_meters : typing.Optional[int]
+            Circle radius in meters; use with latitude and longitude.
+
+        tags : typing.Optional[typing.Sequence[PostPlaceTagRefRequestBody]]
+            When present, replaces all tag associations for the place.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[PlacesPatchPlaceResponseBody]
+            OK response.
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "places",
+            method="PATCH",
+            params={
+                "placeId": place_id,
+                "externalId": external_id,
+            },
+            json={
+                "address": address,
+                "externalIds": convert_and_respect_annotation_metadata(
+                    object_=external_ids, annotation=PlacesPatchPlaceRequestBodyExternalIds, direction="write"
+                ),
+                "geofence": convert_and_respect_annotation_metadata(
+                    object_=geofence, annotation=typing.Sequence[GeofenceVertexInputRequestBody], direction="write"
+                ),
+                "hubLocations": convert_and_respect_annotation_metadata(
+                    object_=hub_locations, annotation=PatchPlaceHubLocationsBodyRequestBody, direction="write"
+                ),
+                "latitude": latitude,
+                "longitude": longitude,
+                "name": name,
+                "navigation": convert_and_respect_annotation_metadata(
+                    object_=navigation, annotation=PostPlaceNavigationInputRequestBody, direction="write"
+                ),
+                "notes": notes,
+                "placeTypes": place_types,
+                "radiusMeters": radius_meters,
+                "tags": convert_and_respect_annotation_metadata(
+                    object_=tags, annotation=typing.Sequence[PostPlaceTagRefRequestBody], direction="write"
+                ),
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    PlacesPatchPlaceResponseBody,
+                    parse_obj_as(
+                        type_=PlacesPatchPlaceResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
             if _response.status_code == 401:
                 raise UnauthorizedError(
                     headers=dict(_response.headers),

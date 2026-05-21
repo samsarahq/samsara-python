@@ -23,6 +23,8 @@ if typing.TYPE_CHECKING:
     from .get_qualification_records_stream_request_entity_type import GetQualificationRecordsStreamRequestEntityType
     from .get_qualification_types_request_entity_type import GetQualificationTypesRequestEntityType
     from .list_driver_workflows_request_workflow_type import ListDriverWorkflowsRequestWorkflowType
+    from .places_patch_place_request_body_external_ids import PlacesPatchPlaceRequestBodyExternalIds
+    from .places_post_place_request_body_external_ids import PlacesPostPlaceRequestBodyExternalIds
     from .ridership_passengers_create_ridership_passenger_request_body_classification import (
         RidershipPassengersCreateRidershipPassengerRequestBodyClassification,
     )
@@ -56,6 +58,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "GetQualificationRecordsStreamRequestEntityType": ".get_qualification_records_stream_request_entity_type",
     "GetQualificationTypesRequestEntityType": ".get_qualification_types_request_entity_type",
     "ListDriverWorkflowsRequestWorkflowType": ".list_driver_workflows_request_workflow_type",
+    "PlacesPatchPlaceRequestBodyExternalIds": ".places_patch_place_request_body_external_ids",
+    "PlacesPostPlaceRequestBodyExternalIds": ".places_post_place_request_body_external_ids",
     "RidershipPassengersCreateRidershipPassengerRequestBodyClassification": ".ridership_passengers_create_ridership_passenger_request_body_classification",
     "RidershipPassengersUpdateRidershipPassengerRequestBodyClassification": ".ridership_passengers_update_ridership_passenger_request_body_classification",
     "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyBehaviorLabelsToAddItem": ".safety_events_v_2_patch_safety_events_v_2_batch_request_body_behavior_labels_to_add_item",
@@ -99,6 +103,8 @@ __all__ = [
     "GetQualificationRecordsStreamRequestEntityType",
     "GetQualificationTypesRequestEntityType",
     "ListDriverWorkflowsRequestWorkflowType",
+    "PlacesPatchPlaceRequestBodyExternalIds",
+    "PlacesPostPlaceRequestBodyExternalIds",
     "RidershipPassengersCreateRidershipPassengerRequestBodyClassification",
     "RidershipPassengersUpdateRidershipPassengerRequestBodyClassification",
     "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyBehaviorLabelsToAddItem",

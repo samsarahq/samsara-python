@@ -2860,6 +2860,7 @@ if typing.TYPE_CHECKING:
     from .geofence_exit_trigger_details_object_request_body import GeofenceExitTriggerDetailsObjectRequestBody
     from .geofence_exit_trigger_details_object_response_body import GeofenceExitTriggerDetailsObjectResponseBody
     from .geofence_response_response_body import GeofenceResponseResponseBody
+    from .geofence_vertex_input_request_body import GeofenceVertexInputRequestBody
     from .get_attributes_by_entity_type_response import GetAttributesByEntityTypeResponse
     from .get_document_type_response_object_response_body import GetDocumentTypeResponseObjectResponseBody
     from .get_driver_trailer_assignments_response_body_response_body import (
@@ -3181,10 +3182,18 @@ if typing.TYPE_CHECKING:
         HubCustomPropertiesListHubCustomPropertiesUnauthorizedErrorResponseBody,
     )
     from .hub_custom_property_object_response_body import HubCustomPropertyObjectResponseBody
+    from .hub_location_capacity_service_time_response_response_body import (
+        HubLocationCapacityServiceTimeResponseResponseBody,
+    )
     from .hub_location_created_object_response_body import HubLocationCreatedObjectResponseBody
     from .hub_location_input_object_request_body import HubLocationInputObjectRequestBody
     from .hub_location_object_response_body import HubLocationObjectResponseBody
+    from .hub_location_order_service_time_response_response_body import HubLocationOrderServiceTimeResponseResponseBody
+    from .hub_location_required_skill_response_response_body import HubLocationRequiredSkillResponseResponseBody
+    from .hub_location_response_response_body import HubLocationResponseResponseBody
+    from .hub_location_service_time_response_response_body import HubLocationServiceTimeResponseResponseBody
     from .hub_location_service_window_input_request_body import HubLocationServiceWindowInputRequestBody
+    from .hub_location_service_window_response_response_body import HubLocationServiceWindowResponseResponseBody
     from .hub_location_updated_object_response_body import HubLocationUpdatedObjectResponseBody
     from .hub_locations_create_hub_locations_bad_gateway_error_response_body import (
         HubLocationsCreateHubLocationsBadGatewayErrorResponseBody,
@@ -4173,6 +4182,8 @@ if typing.TYPE_CHECKING:
     from .patch_job_objectjob_location_request_object_request_body import (
         PatchJobObjectjobLocationRequestObjectRequestBody,
     )
+    from .patch_place_hub_location_upsert_body_request_body import PatchPlaceHubLocationUpsertBodyRequestBody
+    from .patch_place_hub_locations_body_request_body import PatchPlaceHubLocationsBodyRequestBody
     from .patch_response_workflow_configuration_object_response_body import (
         PatchResponseWorkflowConfigurationObjectResponseBody,
     )
@@ -4187,6 +4198,78 @@ if typing.TYPE_CHECKING:
     from .person_detected_response_body import PersonDetectedResponseBody
     from .photo_value_object_request_body import PhotoValueObjectRequestBody
     from .photo_value_object_response_body import PhotoValueObjectResponseBody
+    from .place_geofence_vertex_response_response_body import PlaceGeofenceVertexResponseResponseBody
+    from .place_navigation_location_response_response_body import PlaceNavigationLocationResponseResponseBody
+    from .place_navigation_response_response_body import PlaceNavigationResponseResponseBody
+    from .place_response_object_response_body import PlaceResponseObjectResponseBody
+    from .place_response_object_response_body_external_ids import PlaceResponseObjectResponseBodyExternalIds
+    from .place_street_view_response_response_body import PlaceStreetViewResponseResponseBody
+    from .place_tag_response_response_body import PlaceTagResponseResponseBody
+    from .places_delete_place_bad_gateway_error_response_body import PlacesDeletePlaceBadGatewayErrorResponseBody
+    from .places_delete_place_gateway_timeout_error_response_body import (
+        PlacesDeletePlaceGatewayTimeoutErrorResponseBody,
+    )
+    from .places_delete_place_internal_server_error_response_body import (
+        PlacesDeletePlaceInternalServerErrorResponseBody,
+    )
+    from .places_delete_place_method_not_allowed_error_response_body import (
+        PlacesDeletePlaceMethodNotAllowedErrorResponseBody,
+    )
+    from .places_delete_place_not_found_error_response_body import PlacesDeletePlaceNotFoundErrorResponseBody
+    from .places_delete_place_not_implemented_error_response_body import (
+        PlacesDeletePlaceNotImplementedErrorResponseBody,
+    )
+    from .places_delete_place_service_unavailable_error_response_body import (
+        PlacesDeletePlaceServiceUnavailableErrorResponseBody,
+    )
+    from .places_delete_place_too_many_requests_error_response_body import (
+        PlacesDeletePlaceTooManyRequestsErrorResponseBody,
+    )
+    from .places_delete_place_unauthorized_error_response_body import PlacesDeletePlaceUnauthorizedErrorResponseBody
+    from .places_get_places_bad_gateway_error_response_body import PlacesGetPlacesBadGatewayErrorResponseBody
+    from .places_get_places_gateway_timeout_error_response_body import PlacesGetPlacesGatewayTimeoutErrorResponseBody
+    from .places_get_places_internal_server_error_response_body import PlacesGetPlacesInternalServerErrorResponseBody
+    from .places_get_places_method_not_allowed_error_response_body import (
+        PlacesGetPlacesMethodNotAllowedErrorResponseBody,
+    )
+    from .places_get_places_not_found_error_response_body import PlacesGetPlacesNotFoundErrorResponseBody
+    from .places_get_places_not_implemented_error_response_body import PlacesGetPlacesNotImplementedErrorResponseBody
+    from .places_get_places_response_body import PlacesGetPlacesResponseBody
+    from .places_get_places_service_unavailable_error_response_body import (
+        PlacesGetPlacesServiceUnavailableErrorResponseBody,
+    )
+    from .places_get_places_too_many_requests_error_response_body import PlacesGetPlacesTooManyRequestsErrorResponseBody
+    from .places_get_places_unauthorized_error_response_body import PlacesGetPlacesUnauthorizedErrorResponseBody
+    from .places_patch_place_bad_gateway_error_response_body import PlacesPatchPlaceBadGatewayErrorResponseBody
+    from .places_patch_place_gateway_timeout_error_response_body import PlacesPatchPlaceGatewayTimeoutErrorResponseBody
+    from .places_patch_place_internal_server_error_response_body import PlacesPatchPlaceInternalServerErrorResponseBody
+    from .places_patch_place_method_not_allowed_error_response_body import (
+        PlacesPatchPlaceMethodNotAllowedErrorResponseBody,
+    )
+    from .places_patch_place_not_found_error_response_body import PlacesPatchPlaceNotFoundErrorResponseBody
+    from .places_patch_place_not_implemented_error_response_body import PlacesPatchPlaceNotImplementedErrorResponseBody
+    from .places_patch_place_response_body import PlacesPatchPlaceResponseBody
+    from .places_patch_place_service_unavailable_error_response_body import (
+        PlacesPatchPlaceServiceUnavailableErrorResponseBody,
+    )
+    from .places_patch_place_too_many_requests_error_response_body import (
+        PlacesPatchPlaceTooManyRequestsErrorResponseBody,
+    )
+    from .places_patch_place_unauthorized_error_response_body import PlacesPatchPlaceUnauthorizedErrorResponseBody
+    from .places_post_place_bad_gateway_error_response_body import PlacesPostPlaceBadGatewayErrorResponseBody
+    from .places_post_place_gateway_timeout_error_response_body import PlacesPostPlaceGatewayTimeoutErrorResponseBody
+    from .places_post_place_internal_server_error_response_body import PlacesPostPlaceInternalServerErrorResponseBody
+    from .places_post_place_method_not_allowed_error_response_body import (
+        PlacesPostPlaceMethodNotAllowedErrorResponseBody,
+    )
+    from .places_post_place_not_found_error_response_body import PlacesPostPlaceNotFoundErrorResponseBody
+    from .places_post_place_not_implemented_error_response_body import PlacesPostPlaceNotImplementedErrorResponseBody
+    from .places_post_place_response_body import PlacesPostPlaceResponseBody
+    from .places_post_place_service_unavailable_error_response_body import (
+        PlacesPostPlaceServiceUnavailableErrorResponseBody,
+    )
+    from .places_post_place_too_many_requests_error_response_body import PlacesPostPlaceTooManyRequestsErrorResponseBody
+    from .places_post_place_unauthorized_error_response_body import PlacesPostPlaceUnauthorizedErrorResponseBody
     from .plan_object_response_body import PlanObjectResponseBody
     from .plan_orders_create_plan_orders_bad_gateway_error_response_body import (
         PlanOrdersCreatePlanOrdersBadGatewayErrorResponseBody,
@@ -4309,6 +4392,12 @@ if typing.TYPE_CHECKING:
         PostJobObjectjobLocationRequestObjectRequestBody,
     )
     from .post_media_retrieval_object_response_body import PostMediaRetrievalObjectResponseBody
+    from .post_place_navigation_input_request_body import PostPlaceNavigationInputRequestBody
+    from .post_place_navigation_location_input_request_body import PostPlaceNavigationLocationInputRequestBody
+    from .post_place_navigation_location_input_request_body_location_type import (
+        PostPlaceNavigationLocationInputRequestBodyLocationType,
+    )
+    from .post_place_tag_ref_request_body import PostPlaceTagRefRequestBody
     from .post_response_res_workflow_configuration_object_response_body import (
         PostResponseResWorkflowConfigurationObjectResponseBody,
     )
@@ -5766,6 +5855,12 @@ if typing.TYPE_CHECKING:
     from .service_task_instance_input_object_request_body_status import ServiceTaskInstanceInputObjectRequestBodyStatus
     from .service_task_instance_object_response_body import ServiceTaskInstanceObjectResponseBody
     from .service_task_instance_object_response_body_status import ServiceTaskInstanceObjectResponseBodyStatus
+    from .service_task_instance_with_time_entries_object_response_body import (
+        ServiceTaskInstanceWithTimeEntriesObjectResponseBody,
+    )
+    from .service_task_instance_with_time_entries_object_response_body_status import (
+        ServiceTaskInstanceWithTimeEntriesObjectResponseBodyStatus,
+    )
     from .service_window_object_response_body import ServiceWindowObjectResponseBody
     from .settings_compliance_response_object_response_body import SettingsComplianceResponseObjectResponseBody
     from .settings_get_compliance_settings_bad_gateway_error_response_body import (
@@ -7459,7 +7554,15 @@ if typing.TYPE_CHECKING:
     from .work_order_tax_create_object_request_body import WorkOrderTaxCreateObjectRequestBody
     from .work_order_tax_object_request_body import WorkOrderTaxObjectRequestBody
     from .work_order_tax_object_response_body import WorkOrderTaxObjectResponseBody
+    from .work_order_time_entry_object_response_body import WorkOrderTimeEntryObjectResponseBody
     from .work_order_unallocated_labor_object_response_body import WorkOrderUnallocatedLaborObjectResponseBody
+    from .work_order_with_time_entries_object_response_body import WorkOrderWithTimeEntriesObjectResponseBody
+    from .work_order_with_time_entries_object_response_body_priority import (
+        WorkOrderWithTimeEntriesObjectResponseBodyPriority,
+    )
+    from .work_order_with_time_entries_object_response_body_status import (
+        WorkOrderWithTimeEntriesObjectResponseBodyStatus,
+    )
     from .work_orders_delete_work_orders_bad_gateway_error_response_body import (
         WorkOrdersDeleteWorkOrdersBadGatewayErrorResponseBody,
     )
@@ -9038,6 +9141,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "GeofenceExitTriggerDetailsObjectRequestBody": ".geofence_exit_trigger_details_object_request_body",
     "GeofenceExitTriggerDetailsObjectResponseBody": ".geofence_exit_trigger_details_object_response_body",
     "GeofenceResponseResponseBody": ".geofence_response_response_body",
+    "GeofenceVertexInputRequestBody": ".geofence_vertex_input_request_body",
     "GetAttributesByEntityTypeResponse": ".get_attributes_by_entity_type_response",
     "GetDocumentTypeResponseObjectResponseBody": ".get_document_type_response_object_response_body",
     "GetDriverTrailerAssignmentsResponseBodyResponseBody": ".get_driver_trailer_assignments_response_body_response_body",
@@ -9199,10 +9303,16 @@ _dynamic_imports: typing.Dict[str, str] = {
     "HubCustomPropertiesListHubCustomPropertiesTooManyRequestsErrorResponseBody": ".hub_custom_properties_list_hub_custom_properties_too_many_requests_error_response_body",
     "HubCustomPropertiesListHubCustomPropertiesUnauthorizedErrorResponseBody": ".hub_custom_properties_list_hub_custom_properties_unauthorized_error_response_body",
     "HubCustomPropertyObjectResponseBody": ".hub_custom_property_object_response_body",
+    "HubLocationCapacityServiceTimeResponseResponseBody": ".hub_location_capacity_service_time_response_response_body",
     "HubLocationCreatedObjectResponseBody": ".hub_location_created_object_response_body",
     "HubLocationInputObjectRequestBody": ".hub_location_input_object_request_body",
     "HubLocationObjectResponseBody": ".hub_location_object_response_body",
+    "HubLocationOrderServiceTimeResponseResponseBody": ".hub_location_order_service_time_response_response_body",
+    "HubLocationRequiredSkillResponseResponseBody": ".hub_location_required_skill_response_response_body",
+    "HubLocationResponseResponseBody": ".hub_location_response_response_body",
+    "HubLocationServiceTimeResponseResponseBody": ".hub_location_service_time_response_response_body",
     "HubLocationServiceWindowInputRequestBody": ".hub_location_service_window_input_request_body",
+    "HubLocationServiceWindowResponseResponseBody": ".hub_location_service_window_response_response_body",
     "HubLocationUpdatedObjectResponseBody": ".hub_location_updated_object_response_body",
     "HubLocationsCreateHubLocationsBadGatewayErrorResponseBody": ".hub_locations_create_hub_locations_bad_gateway_error_response_body",
     "HubLocationsCreateHubLocationsGatewayTimeoutErrorResponseBody": ".hub_locations_create_hub_locations_gateway_timeout_error_response_body",
@@ -9693,6 +9803,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "PatchIssueRequestBodyAssignedToRequestBodyType": ".patch_issue_request_body_assigned_to_request_body_type",
     "PatchJobObjectRequestBody": ".patch_job_object_request_body",
     "PatchJobObjectjobLocationRequestObjectRequestBody": ".patch_job_objectjob_location_request_object_request_body",
+    "PatchPlaceHubLocationUpsertBodyRequestBody": ".patch_place_hub_location_upsert_body_request_body",
+    "PatchPlaceHubLocationsBodyRequestBody": ".patch_place_hub_locations_body_request_body",
     "PatchResponseWorkflowConfigurationObjectResponseBody": ".patch_response_workflow_configuration_object_response_body",
     "PatchSafetyEventsDismissalReasonBodyRequestBody": ".patch_safety_events_dismissal_reason_body_request_body",
     "PatchSafetyEventsDismissalReasonBodyRequestBodyCode": ".patch_safety_events_dismissal_reason_body_request_body_code",
@@ -9703,6 +9815,52 @@ _dynamic_imports: typing.Dict[str, str] = {
     "PersonDetectedResponseBody": ".person_detected_response_body",
     "PhotoValueObjectRequestBody": ".photo_value_object_request_body",
     "PhotoValueObjectResponseBody": ".photo_value_object_response_body",
+    "PlaceGeofenceVertexResponseResponseBody": ".place_geofence_vertex_response_response_body",
+    "PlaceNavigationLocationResponseResponseBody": ".place_navigation_location_response_response_body",
+    "PlaceNavigationResponseResponseBody": ".place_navigation_response_response_body",
+    "PlaceResponseObjectResponseBody": ".place_response_object_response_body",
+    "PlaceResponseObjectResponseBodyExternalIds": ".place_response_object_response_body_external_ids",
+    "PlaceStreetViewResponseResponseBody": ".place_street_view_response_response_body",
+    "PlaceTagResponseResponseBody": ".place_tag_response_response_body",
+    "PlacesDeletePlaceBadGatewayErrorResponseBody": ".places_delete_place_bad_gateway_error_response_body",
+    "PlacesDeletePlaceGatewayTimeoutErrorResponseBody": ".places_delete_place_gateway_timeout_error_response_body",
+    "PlacesDeletePlaceInternalServerErrorResponseBody": ".places_delete_place_internal_server_error_response_body",
+    "PlacesDeletePlaceMethodNotAllowedErrorResponseBody": ".places_delete_place_method_not_allowed_error_response_body",
+    "PlacesDeletePlaceNotFoundErrorResponseBody": ".places_delete_place_not_found_error_response_body",
+    "PlacesDeletePlaceNotImplementedErrorResponseBody": ".places_delete_place_not_implemented_error_response_body",
+    "PlacesDeletePlaceServiceUnavailableErrorResponseBody": ".places_delete_place_service_unavailable_error_response_body",
+    "PlacesDeletePlaceTooManyRequestsErrorResponseBody": ".places_delete_place_too_many_requests_error_response_body",
+    "PlacesDeletePlaceUnauthorizedErrorResponseBody": ".places_delete_place_unauthorized_error_response_body",
+    "PlacesGetPlacesBadGatewayErrorResponseBody": ".places_get_places_bad_gateway_error_response_body",
+    "PlacesGetPlacesGatewayTimeoutErrorResponseBody": ".places_get_places_gateway_timeout_error_response_body",
+    "PlacesGetPlacesInternalServerErrorResponseBody": ".places_get_places_internal_server_error_response_body",
+    "PlacesGetPlacesMethodNotAllowedErrorResponseBody": ".places_get_places_method_not_allowed_error_response_body",
+    "PlacesGetPlacesNotFoundErrorResponseBody": ".places_get_places_not_found_error_response_body",
+    "PlacesGetPlacesNotImplementedErrorResponseBody": ".places_get_places_not_implemented_error_response_body",
+    "PlacesGetPlacesResponseBody": ".places_get_places_response_body",
+    "PlacesGetPlacesServiceUnavailableErrorResponseBody": ".places_get_places_service_unavailable_error_response_body",
+    "PlacesGetPlacesTooManyRequestsErrorResponseBody": ".places_get_places_too_many_requests_error_response_body",
+    "PlacesGetPlacesUnauthorizedErrorResponseBody": ".places_get_places_unauthorized_error_response_body",
+    "PlacesPatchPlaceBadGatewayErrorResponseBody": ".places_patch_place_bad_gateway_error_response_body",
+    "PlacesPatchPlaceGatewayTimeoutErrorResponseBody": ".places_patch_place_gateway_timeout_error_response_body",
+    "PlacesPatchPlaceInternalServerErrorResponseBody": ".places_patch_place_internal_server_error_response_body",
+    "PlacesPatchPlaceMethodNotAllowedErrorResponseBody": ".places_patch_place_method_not_allowed_error_response_body",
+    "PlacesPatchPlaceNotFoundErrorResponseBody": ".places_patch_place_not_found_error_response_body",
+    "PlacesPatchPlaceNotImplementedErrorResponseBody": ".places_patch_place_not_implemented_error_response_body",
+    "PlacesPatchPlaceResponseBody": ".places_patch_place_response_body",
+    "PlacesPatchPlaceServiceUnavailableErrorResponseBody": ".places_patch_place_service_unavailable_error_response_body",
+    "PlacesPatchPlaceTooManyRequestsErrorResponseBody": ".places_patch_place_too_many_requests_error_response_body",
+    "PlacesPatchPlaceUnauthorizedErrorResponseBody": ".places_patch_place_unauthorized_error_response_body",
+    "PlacesPostPlaceBadGatewayErrorResponseBody": ".places_post_place_bad_gateway_error_response_body",
+    "PlacesPostPlaceGatewayTimeoutErrorResponseBody": ".places_post_place_gateway_timeout_error_response_body",
+    "PlacesPostPlaceInternalServerErrorResponseBody": ".places_post_place_internal_server_error_response_body",
+    "PlacesPostPlaceMethodNotAllowedErrorResponseBody": ".places_post_place_method_not_allowed_error_response_body",
+    "PlacesPostPlaceNotFoundErrorResponseBody": ".places_post_place_not_found_error_response_body",
+    "PlacesPostPlaceNotImplementedErrorResponseBody": ".places_post_place_not_implemented_error_response_body",
+    "PlacesPostPlaceResponseBody": ".places_post_place_response_body",
+    "PlacesPostPlaceServiceUnavailableErrorResponseBody": ".places_post_place_service_unavailable_error_response_body",
+    "PlacesPostPlaceTooManyRequestsErrorResponseBody": ".places_post_place_too_many_requests_error_response_body",
+    "PlacesPostPlaceUnauthorizedErrorResponseBody": ".places_post_place_unauthorized_error_response_body",
     "PlanObjectResponseBody": ".plan_object_response_body",
     "PlanOrdersCreatePlanOrdersBadGatewayErrorResponseBody": ".plan_orders_create_plan_orders_bad_gateway_error_response_body",
     "PlanOrdersCreatePlanOrdersGatewayTimeoutErrorResponseBody": ".plan_orders_create_plan_orders_gateway_timeout_error_response_body",
@@ -9751,6 +9909,10 @@ _dynamic_imports: typing.Dict[str, str] = {
     "PostJobObjectRequestBody": ".post_job_object_request_body",
     "PostJobObjectjobLocationRequestObjectRequestBody": ".post_job_objectjob_location_request_object_request_body",
     "PostMediaRetrievalObjectResponseBody": ".post_media_retrieval_object_response_body",
+    "PostPlaceNavigationInputRequestBody": ".post_place_navigation_input_request_body",
+    "PostPlaceNavigationLocationInputRequestBody": ".post_place_navigation_location_input_request_body",
+    "PostPlaceNavigationLocationInputRequestBodyLocationType": ".post_place_navigation_location_input_request_body_location_type",
+    "PostPlaceTagRefRequestBody": ".post_place_tag_ref_request_body",
     "PostResponseResWorkflowConfigurationObjectResponseBody": ".post_response_res_workflow_configuration_object_response_body",
     "PowerTakeOffDurationMs": ".power_take_off_duration_ms",
     "PrimaryTimeRangeRequestBody": ".primary_time_range_request_body",
@@ -10372,6 +10534,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "ServiceTaskInstanceInputObjectRequestBodyStatus": ".service_task_instance_input_object_request_body_status",
     "ServiceTaskInstanceObjectResponseBody": ".service_task_instance_object_response_body",
     "ServiceTaskInstanceObjectResponseBodyStatus": ".service_task_instance_object_response_body_status",
+    "ServiceTaskInstanceWithTimeEntriesObjectResponseBody": ".service_task_instance_with_time_entries_object_response_body",
+    "ServiceTaskInstanceWithTimeEntriesObjectResponseBodyStatus": ".service_task_instance_with_time_entries_object_response_body_status",
     "ServiceWindowObjectResponseBody": ".service_window_object_response_body",
     "SettingsComplianceResponseObjectResponseBody": ".settings_compliance_response_object_response_body",
     "SettingsGetComplianceSettingsBadGatewayErrorResponseBody": ".settings_get_compliance_settings_bad_gateway_error_response_body",
@@ -11321,7 +11485,11 @@ _dynamic_imports: typing.Dict[str, str] = {
     "WorkOrderTaxCreateObjectRequestBody": ".work_order_tax_create_object_request_body",
     "WorkOrderTaxObjectRequestBody": ".work_order_tax_object_request_body",
     "WorkOrderTaxObjectResponseBody": ".work_order_tax_object_response_body",
+    "WorkOrderTimeEntryObjectResponseBody": ".work_order_time_entry_object_response_body",
     "WorkOrderUnallocatedLaborObjectResponseBody": ".work_order_unallocated_labor_object_response_body",
+    "WorkOrderWithTimeEntriesObjectResponseBody": ".work_order_with_time_entries_object_response_body",
+    "WorkOrderWithTimeEntriesObjectResponseBodyPriority": ".work_order_with_time_entries_object_response_body_priority",
+    "WorkOrderWithTimeEntriesObjectResponseBodyStatus": ".work_order_with_time_entries_object_response_body_status",
     "WorkOrdersDeleteWorkOrdersBadGatewayErrorResponseBody": ".work_orders_delete_work_orders_bad_gateway_error_response_body",
     "WorkOrdersDeleteWorkOrdersGatewayTimeoutErrorResponseBody": ".work_orders_delete_work_orders_gateway_timeout_error_response_body",
     "WorkOrdersDeleteWorkOrdersInternalServerErrorResponseBody": ".work_orders_delete_work_orders_internal_server_error_response_body",
@@ -12796,6 +12964,7 @@ __all__ = [
     "GeofenceExitTriggerDetailsObjectRequestBody",
     "GeofenceExitTriggerDetailsObjectResponseBody",
     "GeofenceResponseResponseBody",
+    "GeofenceVertexInputRequestBody",
     "GetAttributesByEntityTypeResponse",
     "GetDocumentTypeResponseObjectResponseBody",
     "GetDriverTrailerAssignmentsResponseBodyResponseBody",
@@ -12957,10 +13126,16 @@ __all__ = [
     "HubCustomPropertiesListHubCustomPropertiesTooManyRequestsErrorResponseBody",
     "HubCustomPropertiesListHubCustomPropertiesUnauthorizedErrorResponseBody",
     "HubCustomPropertyObjectResponseBody",
+    "HubLocationCapacityServiceTimeResponseResponseBody",
     "HubLocationCreatedObjectResponseBody",
     "HubLocationInputObjectRequestBody",
     "HubLocationObjectResponseBody",
+    "HubLocationOrderServiceTimeResponseResponseBody",
+    "HubLocationRequiredSkillResponseResponseBody",
+    "HubLocationResponseResponseBody",
+    "HubLocationServiceTimeResponseResponseBody",
     "HubLocationServiceWindowInputRequestBody",
+    "HubLocationServiceWindowResponseResponseBody",
     "HubLocationUpdatedObjectResponseBody",
     "HubLocationsCreateHubLocationsBadGatewayErrorResponseBody",
     "HubLocationsCreateHubLocationsGatewayTimeoutErrorResponseBody",
@@ -13451,6 +13626,8 @@ __all__ = [
     "PatchIssueRequestBodyAssignedToRequestBodyType",
     "PatchJobObjectRequestBody",
     "PatchJobObjectjobLocationRequestObjectRequestBody",
+    "PatchPlaceHubLocationUpsertBodyRequestBody",
+    "PatchPlaceHubLocationsBodyRequestBody",
     "PatchResponseWorkflowConfigurationObjectResponseBody",
     "PatchSafetyEventsDismissalReasonBodyRequestBody",
     "PatchSafetyEventsDismissalReasonBodyRequestBodyCode",
@@ -13461,6 +13638,52 @@ __all__ = [
     "PersonDetectedResponseBody",
     "PhotoValueObjectRequestBody",
     "PhotoValueObjectResponseBody",
+    "PlaceGeofenceVertexResponseResponseBody",
+    "PlaceNavigationLocationResponseResponseBody",
+    "PlaceNavigationResponseResponseBody",
+    "PlaceResponseObjectResponseBody",
+    "PlaceResponseObjectResponseBodyExternalIds",
+    "PlaceStreetViewResponseResponseBody",
+    "PlaceTagResponseResponseBody",
+    "PlacesDeletePlaceBadGatewayErrorResponseBody",
+    "PlacesDeletePlaceGatewayTimeoutErrorResponseBody",
+    "PlacesDeletePlaceInternalServerErrorResponseBody",
+    "PlacesDeletePlaceMethodNotAllowedErrorResponseBody",
+    "PlacesDeletePlaceNotFoundErrorResponseBody",
+    "PlacesDeletePlaceNotImplementedErrorResponseBody",
+    "PlacesDeletePlaceServiceUnavailableErrorResponseBody",
+    "PlacesDeletePlaceTooManyRequestsErrorResponseBody",
+    "PlacesDeletePlaceUnauthorizedErrorResponseBody",
+    "PlacesGetPlacesBadGatewayErrorResponseBody",
+    "PlacesGetPlacesGatewayTimeoutErrorResponseBody",
+    "PlacesGetPlacesInternalServerErrorResponseBody",
+    "PlacesGetPlacesMethodNotAllowedErrorResponseBody",
+    "PlacesGetPlacesNotFoundErrorResponseBody",
+    "PlacesGetPlacesNotImplementedErrorResponseBody",
+    "PlacesGetPlacesResponseBody",
+    "PlacesGetPlacesServiceUnavailableErrorResponseBody",
+    "PlacesGetPlacesTooManyRequestsErrorResponseBody",
+    "PlacesGetPlacesUnauthorizedErrorResponseBody",
+    "PlacesPatchPlaceBadGatewayErrorResponseBody",
+    "PlacesPatchPlaceGatewayTimeoutErrorResponseBody",
+    "PlacesPatchPlaceInternalServerErrorResponseBody",
+    "PlacesPatchPlaceMethodNotAllowedErrorResponseBody",
+    "PlacesPatchPlaceNotFoundErrorResponseBody",
+    "PlacesPatchPlaceNotImplementedErrorResponseBody",
+    "PlacesPatchPlaceResponseBody",
+    "PlacesPatchPlaceServiceUnavailableErrorResponseBody",
+    "PlacesPatchPlaceTooManyRequestsErrorResponseBody",
+    "PlacesPatchPlaceUnauthorizedErrorResponseBody",
+    "PlacesPostPlaceBadGatewayErrorResponseBody",
+    "PlacesPostPlaceGatewayTimeoutErrorResponseBody",
+    "PlacesPostPlaceInternalServerErrorResponseBody",
+    "PlacesPostPlaceMethodNotAllowedErrorResponseBody",
+    "PlacesPostPlaceNotFoundErrorResponseBody",
+    "PlacesPostPlaceNotImplementedErrorResponseBody",
+    "PlacesPostPlaceResponseBody",
+    "PlacesPostPlaceServiceUnavailableErrorResponseBody",
+    "PlacesPostPlaceTooManyRequestsErrorResponseBody",
+    "PlacesPostPlaceUnauthorizedErrorResponseBody",
     "PlanObjectResponseBody",
     "PlanOrdersCreatePlanOrdersBadGatewayErrorResponseBody",
     "PlanOrdersCreatePlanOrdersGatewayTimeoutErrorResponseBody",
@@ -13509,6 +13732,10 @@ __all__ = [
     "PostJobObjectRequestBody",
     "PostJobObjectjobLocationRequestObjectRequestBody",
     "PostMediaRetrievalObjectResponseBody",
+    "PostPlaceNavigationInputRequestBody",
+    "PostPlaceNavigationLocationInputRequestBody",
+    "PostPlaceNavigationLocationInputRequestBodyLocationType",
+    "PostPlaceTagRefRequestBody",
     "PostResponseResWorkflowConfigurationObjectResponseBody",
     "PowerTakeOffDurationMs",
     "PrimaryTimeRangeRequestBody",
@@ -14130,6 +14357,8 @@ __all__ = [
     "ServiceTaskInstanceInputObjectRequestBodyStatus",
     "ServiceTaskInstanceObjectResponseBody",
     "ServiceTaskInstanceObjectResponseBodyStatus",
+    "ServiceTaskInstanceWithTimeEntriesObjectResponseBody",
+    "ServiceTaskInstanceWithTimeEntriesObjectResponseBodyStatus",
     "ServiceWindowObjectResponseBody",
     "SettingsComplianceResponseObjectResponseBody",
     "SettingsGetComplianceSettingsBadGatewayErrorResponseBody",
@@ -15079,7 +15308,11 @@ __all__ = [
     "WorkOrderTaxCreateObjectRequestBody",
     "WorkOrderTaxObjectRequestBody",
     "WorkOrderTaxObjectResponseBody",
+    "WorkOrderTimeEntryObjectResponseBody",
     "WorkOrderUnallocatedLaborObjectResponseBody",
+    "WorkOrderWithTimeEntriesObjectResponseBody",
+    "WorkOrderWithTimeEntriesObjectResponseBodyPriority",
+    "WorkOrderWithTimeEntriesObjectResponseBodyStatus",
     "WorkOrdersDeleteWorkOrdersBadGatewayErrorResponseBody",
     "WorkOrdersDeleteWorkOrdersGatewayTimeoutErrorResponseBody",
     "WorkOrdersDeleteWorkOrdersInternalServerErrorResponseBody",
