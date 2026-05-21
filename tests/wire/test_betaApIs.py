@@ -356,6 +356,38 @@ def test_betaApIs_delete_hub_route_template() -> None:
     verify_request_count(test_id, "DELETE", "/hub/route-templates", {"id": "id"}, 1)
 
 
+def test_betaApIs_get_places() -> None:
+    """Test getPlaces endpoint with WireMock"""
+    test_id = "beta_ap_is.get_places.0"
+    client = get_client(test_id)
+    client.beta_ap_is.get_places()
+    verify_request_count(test_id, "GET", "/places", None, 1)
+
+
+def test_betaApIs_post_place() -> None:
+    """Test postPlace endpoint with WireMock"""
+    test_id = "beta_ap_is.post_place.0"
+    client = get_client(test_id)
+    client.beta_ap_is.post_place(address="123 Main St, Oakland, CA", name="Oakland Yard")
+    verify_request_count(test_id, "POST", "/places", None, 1)
+
+
+def test_betaApIs_delete_place() -> None:
+    """Test deletePlace endpoint with WireMock"""
+    test_id = "beta_ap_is.delete_place.0"
+    client = get_client(test_id)
+    client.beta_ap_is.delete_place(place_id=1000000)
+    verify_request_count(test_id, "DELETE", "/places", {"placeId": "1000000"}, 1)
+
+
+def test_betaApIs_patch_place() -> None:
+    """Test patchPlace endpoint with WireMock"""
+    test_id = "beta_ap_is.patch_place.0"
+    client = get_client(test_id)
+    client.beta_ap_is.patch_place(place_id=1000000)
+    verify_request_count(test_id, "PATCH", "/places", {"placeId": "1000000"}, 1)
+
+
 def test_betaApIs_get_qualification_records() -> None:
     """Test getQualificationRecords endpoint with WireMock"""
     test_id = "beta_ap_is.get_qualification_records.0"
@@ -583,6 +615,10 @@ def test_betaApIs_patch_safety_events_v_2_batch() -> None:
     test_id = "beta_ap_is.patch_safety_events_v_2_batch.0"
     client = get_client(test_id)
     client.beta_ap_is.patch_safety_events_v_2_batch(
-        safety_event_ids=["bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590", "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590"]
+        safety_event_ids=[
+            "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
+            "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
+            "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
+        ]
     )
     verify_request_count(test_id, "PATCH", "/safety-events/batch", None, 1)
