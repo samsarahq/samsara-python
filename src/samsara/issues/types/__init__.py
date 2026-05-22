@@ -8,9 +8,13 @@ from importlib import import_module
 if typing.TYPE_CHECKING:
     from .issues_patch_issue_request_body_priority import IssuesPatchIssueRequestBodyPriority
     from .issues_patch_issue_request_body_status import IssuesPatchIssueRequestBodyStatus
+    from .issues_post_issue_request_body_priority import IssuesPostIssueRequestBodyPriority
+    from .issues_post_issue_request_body_status import IssuesPostIssueRequestBodyStatus
 _dynamic_imports: typing.Dict[str, str] = {
     "IssuesPatchIssueRequestBodyPriority": ".issues_patch_issue_request_body_priority",
     "IssuesPatchIssueRequestBodyStatus": ".issues_patch_issue_request_body_status",
+    "IssuesPostIssueRequestBodyPriority": ".issues_post_issue_request_body_priority",
+    "IssuesPostIssueRequestBodyStatus": ".issues_post_issue_request_body_status",
 }
 
 
@@ -35,4 +39,9 @@ def __dir__():
     return sorted(lazy_attrs)
 
 
-__all__ = ["IssuesPatchIssueRequestBodyPriority", "IssuesPatchIssueRequestBodyStatus"]
+__all__ = [
+    "IssuesPatchIssueRequestBodyPriority",
+    "IssuesPatchIssueRequestBodyStatus",
+    "IssuesPostIssueRequestBodyPriority",
+    "IssuesPostIssueRequestBodyStatus",
+]

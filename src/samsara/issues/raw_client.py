@@ -25,9 +25,14 @@ from ..types.form_submission_request_media_item_object_request_body import (
 from ..types.issues_get_issues_response_body import IssuesGetIssuesResponseBody
 from ..types.issues_get_issues_stream_response_body import IssuesGetIssuesStreamResponseBody
 from ..types.issues_patch_issue_response_body import IssuesPatchIssueResponseBody
+from ..types.issues_post_issue_response_body import IssuesPostIssueResponseBody
 from ..types.patch_issue_request_body_assigned_to_request_body import PatchIssueRequestBodyAssignedToRequestBody
+from ..types.post_issue_request_body_asset_request_body import PostIssueRequestBodyAssetRequestBody
+from ..types.post_issue_request_body_assigned_to_request_body import PostIssueRequestBodyAssignedToRequestBody
 from .types.issues_patch_issue_request_body_priority import IssuesPatchIssueRequestBodyPriority
 from .types.issues_patch_issue_request_body_status import IssuesPatchIssueRequestBodyStatus
+from .types.issues_post_issue_request_body_priority import IssuesPostIssueRequestBodyPriority
+from .types.issues_post_issue_request_body_status import IssuesPostIssueRequestBodyStatus
 
 # this is used as the default value for optional parameters
 OMIT = typing.cast(typing.Any, ...)
@@ -193,6 +198,207 @@ class RawIssuesClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
+    def post_issue(
+        self,
+        *,
+        asset: PostIssueRequestBodyAssetRequestBody,
+        title: str,
+        assigned_to: typing.Optional[PostIssueRequestBodyAssignedToRequestBody] = OMIT,
+        description: typing.Optional[str] = OMIT,
+        due_date: typing.Optional[dt.datetime] = OMIT,
+        external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
+        media: typing.Optional[typing.Sequence[FormSubmissionRequestMediaItemObjectRequestBody]] = OMIT,
+        priority: typing.Optional[IssuesPostIssueRequestBodyPriority] = OMIT,
+        status: typing.Optional[IssuesPostIssueRequestBodyStatus] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[IssuesPostIssueResponseBody]:
+        """
+        Creates a new issue associated with an asset, with optional media attachments uploaded inline as base64.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Issues** under the Forms category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        asset : PostIssueRequestBodyAssetRequestBody
+
+        title : str
+            Title of the issue.
+
+        assigned_to : typing.Optional[PostIssueRequestBodyAssignedToRequestBody]
+
+        description : typing.Optional[str]
+            Description of the issue.
+
+        due_date : typing.Optional[dt.datetime]
+            Due date of the issue. UTC timestamp in RFC 3339 format.
+
+        external_ids : typing.Optional[typing.Dict[str, str]]
+            A map of external ids
+
+        media : typing.Optional[typing.Sequence[FormSubmissionRequestMediaItemObjectRequestBody]]
+            Media items to attach to the issue.
+
+        priority : typing.Optional[IssuesPostIssueRequestBodyPriority]
+            Priority of the issue.  Valid values: `low`, `medium`, `high`
+
+        status : typing.Optional[IssuesPostIssueRequestBodyStatus]
+            Status of the issue. Defaults to `open` when omitted.  Valid values: `open`, `inProgress`, `resolved`, `dismissed`
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[IssuesPostIssueResponseBody]
+            Created response.
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "issues",
+            method="POST",
+            json={
+                "asset": convert_and_respect_annotation_metadata(
+                    object_=asset, annotation=PostIssueRequestBodyAssetRequestBody, direction="write"
+                ),
+                "assignedTo": convert_and_respect_annotation_metadata(
+                    object_=assigned_to, annotation=PostIssueRequestBodyAssignedToRequestBody, direction="write"
+                ),
+                "description": description,
+                "dueDate": due_date,
+                "externalIds": external_ids,
+                "media": convert_and_respect_annotation_metadata(
+                    object_=media,
+                    annotation=typing.Sequence[FormSubmissionRequestMediaItemObjectRequestBody],
+                    direction="write",
+                ),
+                "priority": priority,
+                "status": status,
+                "title": title,
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    IssuesPostIssueResponseBody,
+                    parse_obj_as(
+                        type_=IssuesPostIssueResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
     def patch_issue(
         self,
         *,
@@ -225,7 +431,7 @@ class RawIssuesClient:
         assigned_to : typing.Optional[PatchIssueRequestBodyAssignedToRequestBody]
 
         description : typing.Optional[str]
-            Description of the issue. Requires the `issue-api-media-attachment-endpoints` feature.
+            Description of the issue.
 
         due_date : typing.Optional[dt.datetime]
             Due date of the issue. UTC timestamp in RFC 3339 format.
@@ -234,16 +440,16 @@ class RawIssuesClient:
             A map of external ids
 
         media : typing.Optional[typing.Sequence[FormSubmissionRequestMediaItemObjectRequestBody]]
-            Media items to append to the issue. Requires the `issue-api-media-attachment-endpoints` feature.
+            Media items to append to the issue.
 
         priority : typing.Optional[IssuesPatchIssueRequestBodyPriority]
-            Priority of the issue. Requires the `issue-api-media-attachment-endpoints` feature.  Valid values: `low`, `medium`, `high`
+            Priority of the issue.  Valid values: `low`, `medium`, `high`
 
         status : typing.Optional[IssuesPatchIssueRequestBodyStatus]
             Status of the issue.  Valid values: `open`, `inProgress`, `resolved`, `dismissed`
 
         title : typing.Optional[str]
-            Title of the issue. Requires the `issue-api-media-attachment-endpoints` feature.
+            Title of the issue.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -740,6 +946,207 @@ class AsyncRawIssuesClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
+    async def post_issue(
+        self,
+        *,
+        asset: PostIssueRequestBodyAssetRequestBody,
+        title: str,
+        assigned_to: typing.Optional[PostIssueRequestBodyAssignedToRequestBody] = OMIT,
+        description: typing.Optional[str] = OMIT,
+        due_date: typing.Optional[dt.datetime] = OMIT,
+        external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
+        media: typing.Optional[typing.Sequence[FormSubmissionRequestMediaItemObjectRequestBody]] = OMIT,
+        priority: typing.Optional[IssuesPostIssueRequestBodyPriority] = OMIT,
+        status: typing.Optional[IssuesPostIssueRequestBodyStatus] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[IssuesPostIssueResponseBody]:
+        """
+        Creates a new issue associated with an asset, with optional media attachments uploaded inline as base64.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Issues** under the Forms category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        asset : PostIssueRequestBodyAssetRequestBody
+
+        title : str
+            Title of the issue.
+
+        assigned_to : typing.Optional[PostIssueRequestBodyAssignedToRequestBody]
+
+        description : typing.Optional[str]
+            Description of the issue.
+
+        due_date : typing.Optional[dt.datetime]
+            Due date of the issue. UTC timestamp in RFC 3339 format.
+
+        external_ids : typing.Optional[typing.Dict[str, str]]
+            A map of external ids
+
+        media : typing.Optional[typing.Sequence[FormSubmissionRequestMediaItemObjectRequestBody]]
+            Media items to attach to the issue.
+
+        priority : typing.Optional[IssuesPostIssueRequestBodyPriority]
+            Priority of the issue.  Valid values: `low`, `medium`, `high`
+
+        status : typing.Optional[IssuesPostIssueRequestBodyStatus]
+            Status of the issue. Defaults to `open` when omitted.  Valid values: `open`, `inProgress`, `resolved`, `dismissed`
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[IssuesPostIssueResponseBody]
+            Created response.
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "issues",
+            method="POST",
+            json={
+                "asset": convert_and_respect_annotation_metadata(
+                    object_=asset, annotation=PostIssueRequestBodyAssetRequestBody, direction="write"
+                ),
+                "assignedTo": convert_and_respect_annotation_metadata(
+                    object_=assigned_to, annotation=PostIssueRequestBodyAssignedToRequestBody, direction="write"
+                ),
+                "description": description,
+                "dueDate": due_date,
+                "externalIds": external_ids,
+                "media": convert_and_respect_annotation_metadata(
+                    object_=media,
+                    annotation=typing.Sequence[FormSubmissionRequestMediaItemObjectRequestBody],
+                    direction="write",
+                ),
+                "priority": priority,
+                "status": status,
+                "title": title,
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    IssuesPostIssueResponseBody,
+                    parse_obj_as(
+                        type_=IssuesPostIssueResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
     async def patch_issue(
         self,
         *,
@@ -772,7 +1179,7 @@ class AsyncRawIssuesClient:
         assigned_to : typing.Optional[PatchIssueRequestBodyAssignedToRequestBody]
 
         description : typing.Optional[str]
-            Description of the issue. Requires the `issue-api-media-attachment-endpoints` feature.
+            Description of the issue.
 
         due_date : typing.Optional[dt.datetime]
             Due date of the issue. UTC timestamp in RFC 3339 format.
@@ -781,16 +1188,16 @@ class AsyncRawIssuesClient:
             A map of external ids
 
         media : typing.Optional[typing.Sequence[FormSubmissionRequestMediaItemObjectRequestBody]]
-            Media items to append to the issue. Requires the `issue-api-media-attachment-endpoints` feature.
+            Media items to append to the issue.
 
         priority : typing.Optional[IssuesPatchIssueRequestBodyPriority]
-            Priority of the issue. Requires the `issue-api-media-attachment-endpoints` feature.  Valid values: `low`, `medium`, `high`
+            Priority of the issue.  Valid values: `low`, `medium`, `high`
 
         status : typing.Optional[IssuesPatchIssueRequestBodyStatus]
             Status of the issue.  Valid values: `open`, `inProgress`, `resolved`, `dismissed`
 
         title : typing.Optional[str]
-            Title of the issue. Requires the `issue-api-media-attachment-endpoints` feature.
+            Title of the issue.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.

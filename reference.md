@@ -10737,7 +10737,7 @@ client = Samsara(
 )
 client.media.post_media_retrieval(
     end_time="2019-06-13T19:08:55Z",
-    inputs=["dashcamRoadFacing", "dashcamRoadFacing"],
+    inputs=["dashcamRoadFacing", "dashcamRoadFacing", "dashcamRoadFacing"],
     media_type="image",
     start_time="2019-06-13T19:08:25Z",
     vehicle_id="1234",
@@ -27607,6 +27607,152 @@ client.issues.get_issues()
 </dl>
 </details>
 
+<details><summary><code>client.issues.<a href="src/samsara/issues/client.py">post_issue</a>(...) -&gt; AsyncHttpResponse[IssuesPostIssueResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Creates a new issue associated with an asset, with optional media attachments uploaded inline as base64.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Issues** under the Forms category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import PostIssueRequestBodyAssetRequestBody, Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.issues.post_issue(
+    asset=PostIssueRequestBodyAssetRequestBody(
+        id="hertzAssetId:HZ-100423",
+    ),
+    title="Front bumper scratch",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**asset:** `PostIssueRequestBodyAssetRequestBody` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**title:** `str` — Title of the issue.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**assigned_to:** `typing.Optional[PostIssueRequestBodyAssignedToRequestBody]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**description:** `typing.Optional[str]` — Description of the issue.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**due_date:** `typing.Optional[dt.datetime]` — Due date of the issue. UTC timestamp in RFC 3339 format.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**external_ids:** `typing.Optional[typing.Dict[str, str]]` — A map of external ids
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**media:** `typing.Optional[
+    typing.Sequence[FormSubmissionRequestMediaItemObjectRequestBody]
+]` — Media items to attach to the issue.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**priority:** `typing.Optional[IssuesPostIssueRequestBodyPriority]` — Priority of the issue.  Valid values: `low`, `medium`, `high`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**status:** `typing.Optional[IssuesPostIssueRequestBodyStatus]` — Status of the issue. Defaults to `open` when omitted.  Valid values: `open`, `inProgress`, `resolved`, `dismissed`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.issues.<a href="src/samsara/issues/client.py">patch_issue</a>(...) -&gt; AsyncHttpResponse[IssuesPatchIssueResponseBody]</code></summary>
 <dl>
 <dd>
@@ -27680,7 +27826,7 @@ client.issues.patch_issue(
 <dl>
 <dd>
 
-**description:** `typing.Optional[str]` — Description of the issue. Requires the `issue-api-media-attachment-endpoints` feature.
+**description:** `typing.Optional[str]` — Description of the issue.
     
 </dd>
 </dl>
@@ -27706,7 +27852,7 @@ client.issues.patch_issue(
 
 **media:** `typing.Optional[
     typing.Sequence[FormSubmissionRequestMediaItemObjectRequestBody]
-]` — Media items to append to the issue. Requires the `issue-api-media-attachment-endpoints` feature.
+]` — Media items to append to the issue.
     
 </dd>
 </dl>
@@ -27714,7 +27860,7 @@ client.issues.patch_issue(
 <dl>
 <dd>
 
-**priority:** `typing.Optional[IssuesPatchIssueRequestBodyPriority]` — Priority of the issue. Requires the `issue-api-media-attachment-endpoints` feature.  Valid values: `low`, `medium`, `high`
+**priority:** `typing.Optional[IssuesPatchIssueRequestBodyPriority]` — Priority of the issue.  Valid values: `low`, `medium`, `high`
     
 </dd>
 </dl>
@@ -27730,7 +27876,7 @@ client.issues.patch_issue(
 <dl>
 <dd>
 
-**title:** `typing.Optional[str]` — Title of the issue. Requires the `issue-api-media-attachment-endpoints` feature.
+**title:** `typing.Optional[str]` — Title of the issue.
     
 </dd>
 </dl>
