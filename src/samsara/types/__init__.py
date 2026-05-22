@@ -4402,6 +4402,204 @@ if typing.TYPE_CHECKING:
         PostResponseResWorkflowConfigurationObjectResponseBody,
     )
     from .power_take_off_duration_ms import PowerTakeOffDurationMs
+    from .preferred_station_address_request_body import PreferredStationAddressRequestBody
+    from .preferred_station_address_response_response_body import PreferredStationAddressResponseResponseBody
+    from .preferred_station_discount_input_request_body import PreferredStationDiscountInputRequestBody
+    from .preferred_station_discount_input_request_body_discount_type import (
+        PreferredStationDiscountInputRequestBodyDiscountType,
+    )
+    from .preferred_station_discount_input_request_body_fuel_type import (
+        PreferredStationDiscountInputRequestBodyFuelType,
+    )
+    from .preferred_station_discount_input_request_body_volume_unit import (
+        PreferredStationDiscountInputRequestBodyVolumeUnit,
+    )
+    from .preferred_station_discount_money_request_body import PreferredStationDiscountMoneyRequestBody
+    from .preferred_station_discount_money_request_body_currency import PreferredStationDiscountMoneyRequestBodyCurrency
+    from .preferred_station_discount_response_money_response_body import (
+        PreferredStationDiscountResponseMoneyResponseBody,
+    )
+    from .preferred_station_discount_response_money_response_body_currency import (
+        PreferredStationDiscountResponseMoneyResponseBodyCurrency,
+    )
+    from .preferred_station_discount_response_response_body import PreferredStationDiscountResponseResponseBody
+    from .preferred_station_discount_response_response_body_discount_type import (
+        PreferredStationDiscountResponseResponseBodyDiscountType,
+    )
+    from .preferred_station_discount_response_response_body_fuel_type import (
+        PreferredStationDiscountResponseResponseBodyFuelType,
+    )
+    from .preferred_station_discount_response_response_body_volume_unit import (
+        PreferredStationDiscountResponseResponseBodyVolumeUnit,
+    )
+    from .preferred_station_gross_price_request_body import PreferredStationGrossPriceRequestBody
+    from .preferred_station_gross_price_request_body_currency import PreferredStationGrossPriceRequestBodyCurrency
+    from .preferred_station_gross_price_response_response_body import PreferredStationGrossPriceResponseResponseBody
+    from .preferred_station_gross_price_response_response_body_currency import (
+        PreferredStationGrossPriceResponseResponseBodyCurrency,
+    )
+    from .preferred_station_net_price_request_body import PreferredStationNetPriceRequestBody
+    from .preferred_station_net_price_request_body_currency import PreferredStationNetPriceRequestBodyCurrency
+    from .preferred_station_net_price_response_response_body import PreferredStationNetPriceResponseResponseBody
+    from .preferred_station_net_price_response_response_body_currency import (
+        PreferredStationNetPriceResponseResponseBodyCurrency,
+    )
+    from .preferred_station_object_response_body import PreferredStationObjectResponseBody
+    from .preferred_station_price_input_request_body import PreferredStationPriceInputRequestBody
+    from .preferred_station_price_input_request_body_fuel_type import PreferredStationPriceInputRequestBodyFuelType
+    from .preferred_station_price_input_request_body_volume_unit import PreferredStationPriceInputRequestBodyVolumeUnit
+    from .preferred_station_price_response_response_body import PreferredStationPriceResponseResponseBody
+    from .preferred_station_price_response_response_body_fuel_type import (
+        PreferredStationPriceResponseResponseBodyFuelType,
+    )
+    from .preferred_station_price_response_response_body_volume_unit import (
+        PreferredStationPriceResponseResponseBodyVolumeUnit,
+    )
+    from .preferred_stations_delete_preferred_station_bad_gateway_error_response_body import (
+        PreferredStationsDeletePreferredStationBadGatewayErrorResponseBody,
+    )
+    from .preferred_stations_delete_preferred_station_gateway_timeout_error_response_body import (
+        PreferredStationsDeletePreferredStationGatewayTimeoutErrorResponseBody,
+    )
+    from .preferred_stations_delete_preferred_station_internal_server_error_response_body import (
+        PreferredStationsDeletePreferredStationInternalServerErrorResponseBody,
+    )
+    from .preferred_stations_delete_preferred_station_method_not_allowed_error_response_body import (
+        PreferredStationsDeletePreferredStationMethodNotAllowedErrorResponseBody,
+    )
+    from .preferred_stations_delete_preferred_station_not_found_error_response_body import (
+        PreferredStationsDeletePreferredStationNotFoundErrorResponseBody,
+    )
+    from .preferred_stations_delete_preferred_station_not_implemented_error_response_body import (
+        PreferredStationsDeletePreferredStationNotImplementedErrorResponseBody,
+    )
+    from .preferred_stations_delete_preferred_station_service_unavailable_error_response_body import (
+        PreferredStationsDeletePreferredStationServiceUnavailableErrorResponseBody,
+    )
+    from .preferred_stations_delete_preferred_station_too_many_requests_error_response_body import (
+        PreferredStationsDeletePreferredStationTooManyRequestsErrorResponseBody,
+    )
+    from .preferred_stations_delete_preferred_station_unauthorized_error_response_body import (
+        PreferredStationsDeletePreferredStationUnauthorizedErrorResponseBody,
+    )
+    from .preferred_stations_get_preferred_station_bad_gateway_error_response_body import (
+        PreferredStationsGetPreferredStationBadGatewayErrorResponseBody,
+    )
+    from .preferred_stations_get_preferred_station_gateway_timeout_error_response_body import (
+        PreferredStationsGetPreferredStationGatewayTimeoutErrorResponseBody,
+    )
+    from .preferred_stations_get_preferred_station_internal_server_error_response_body import (
+        PreferredStationsGetPreferredStationInternalServerErrorResponseBody,
+    )
+    from .preferred_stations_get_preferred_station_method_not_allowed_error_response_body import (
+        PreferredStationsGetPreferredStationMethodNotAllowedErrorResponseBody,
+    )
+    from .preferred_stations_get_preferred_station_not_found_error_response_body import (
+        PreferredStationsGetPreferredStationNotFoundErrorResponseBody,
+    )
+    from .preferred_stations_get_preferred_station_not_implemented_error_response_body import (
+        PreferredStationsGetPreferredStationNotImplementedErrorResponseBody,
+    )
+    from .preferred_stations_get_preferred_station_response_body import PreferredStationsGetPreferredStationResponseBody
+    from .preferred_stations_get_preferred_station_service_unavailable_error_response_body import (
+        PreferredStationsGetPreferredStationServiceUnavailableErrorResponseBody,
+    )
+    from .preferred_stations_get_preferred_station_too_many_requests_error_response_body import (
+        PreferredStationsGetPreferredStationTooManyRequestsErrorResponseBody,
+    )
+    from .preferred_stations_get_preferred_station_unauthorized_error_response_body import (
+        PreferredStationsGetPreferredStationUnauthorizedErrorResponseBody,
+    )
+    from .preferred_stations_list_preferred_stations_bad_gateway_error_response_body import (
+        PreferredStationsListPreferredStationsBadGatewayErrorResponseBody,
+    )
+    from .preferred_stations_list_preferred_stations_gateway_timeout_error_response_body import (
+        PreferredStationsListPreferredStationsGatewayTimeoutErrorResponseBody,
+    )
+    from .preferred_stations_list_preferred_stations_internal_server_error_response_body import (
+        PreferredStationsListPreferredStationsInternalServerErrorResponseBody,
+    )
+    from .preferred_stations_list_preferred_stations_method_not_allowed_error_response_body import (
+        PreferredStationsListPreferredStationsMethodNotAllowedErrorResponseBody,
+    )
+    from .preferred_stations_list_preferred_stations_not_found_error_response_body import (
+        PreferredStationsListPreferredStationsNotFoundErrorResponseBody,
+    )
+    from .preferred_stations_list_preferred_stations_not_implemented_error_response_body import (
+        PreferredStationsListPreferredStationsNotImplementedErrorResponseBody,
+    )
+    from .preferred_stations_list_preferred_stations_response_body import (
+        PreferredStationsListPreferredStationsResponseBody,
+    )
+    from .preferred_stations_list_preferred_stations_service_unavailable_error_response_body import (
+        PreferredStationsListPreferredStationsServiceUnavailableErrorResponseBody,
+    )
+    from .preferred_stations_list_preferred_stations_too_many_requests_error_response_body import (
+        PreferredStationsListPreferredStationsTooManyRequestsErrorResponseBody,
+    )
+    from .preferred_stations_list_preferred_stations_unauthorized_error_response_body import (
+        PreferredStationsListPreferredStationsUnauthorizedErrorResponseBody,
+    )
+    from .preferred_stations_patch_preferred_station_bad_gateway_error_response_body import (
+        PreferredStationsPatchPreferredStationBadGatewayErrorResponseBody,
+    )
+    from .preferred_stations_patch_preferred_station_gateway_timeout_error_response_body import (
+        PreferredStationsPatchPreferredStationGatewayTimeoutErrorResponseBody,
+    )
+    from .preferred_stations_patch_preferred_station_internal_server_error_response_body import (
+        PreferredStationsPatchPreferredStationInternalServerErrorResponseBody,
+    )
+    from .preferred_stations_patch_preferred_station_method_not_allowed_error_response_body import (
+        PreferredStationsPatchPreferredStationMethodNotAllowedErrorResponseBody,
+    )
+    from .preferred_stations_patch_preferred_station_not_found_error_response_body import (
+        PreferredStationsPatchPreferredStationNotFoundErrorResponseBody,
+    )
+    from .preferred_stations_patch_preferred_station_not_implemented_error_response_body import (
+        PreferredStationsPatchPreferredStationNotImplementedErrorResponseBody,
+    )
+    from .preferred_stations_patch_preferred_station_response_body import (
+        PreferredStationsPatchPreferredStationResponseBody,
+    )
+    from .preferred_stations_patch_preferred_station_service_unavailable_error_response_body import (
+        PreferredStationsPatchPreferredStationServiceUnavailableErrorResponseBody,
+    )
+    from .preferred_stations_patch_preferred_station_too_many_requests_error_response_body import (
+        PreferredStationsPatchPreferredStationTooManyRequestsErrorResponseBody,
+    )
+    from .preferred_stations_patch_preferred_station_unauthorized_error_response_body import (
+        PreferredStationsPatchPreferredStationUnauthorizedErrorResponseBody,
+    )
+    from .preferred_stations_post_preferred_station_bad_gateway_error_response_body import (
+        PreferredStationsPostPreferredStationBadGatewayErrorResponseBody,
+    )
+    from .preferred_stations_post_preferred_station_gateway_timeout_error_response_body import (
+        PreferredStationsPostPreferredStationGatewayTimeoutErrorResponseBody,
+    )
+    from .preferred_stations_post_preferred_station_internal_server_error_response_body import (
+        PreferredStationsPostPreferredStationInternalServerErrorResponseBody,
+    )
+    from .preferred_stations_post_preferred_station_method_not_allowed_error_response_body import (
+        PreferredStationsPostPreferredStationMethodNotAllowedErrorResponseBody,
+    )
+    from .preferred_stations_post_preferred_station_not_found_error_response_body import (
+        PreferredStationsPostPreferredStationNotFoundErrorResponseBody,
+    )
+    from .preferred_stations_post_preferred_station_not_implemented_error_response_body import (
+        PreferredStationsPostPreferredStationNotImplementedErrorResponseBody,
+    )
+    from .preferred_stations_post_preferred_station_response_body import (
+        PreferredStationsPostPreferredStationResponseBody,
+    )
+    from .preferred_stations_post_preferred_station_service_unavailable_error_response_body import (
+        PreferredStationsPostPreferredStationServiceUnavailableErrorResponseBody,
+    )
+    from .preferred_stations_post_preferred_station_too_many_requests_error_response_body import (
+        PreferredStationsPostPreferredStationTooManyRequestsErrorResponseBody,
+    )
+    from .preferred_stations_post_preferred_station_unauthorized_error_response_body import (
+        PreferredStationsPostPreferredStationUnauthorizedErrorResponseBody,
+    )
     from .primary_time_range_request_body import PrimaryTimeRangeRequestBody
     from .primary_time_range_response_body import PrimaryTimeRangeResponseBody
     from .push_notification_options_object_request_body import PushNotificationOptionsObjectRequestBody
@@ -9915,6 +10113,84 @@ _dynamic_imports: typing.Dict[str, str] = {
     "PostPlaceTagRefRequestBody": ".post_place_tag_ref_request_body",
     "PostResponseResWorkflowConfigurationObjectResponseBody": ".post_response_res_workflow_configuration_object_response_body",
     "PowerTakeOffDurationMs": ".power_take_off_duration_ms",
+    "PreferredStationAddressRequestBody": ".preferred_station_address_request_body",
+    "PreferredStationAddressResponseResponseBody": ".preferred_station_address_response_response_body",
+    "PreferredStationDiscountInputRequestBody": ".preferred_station_discount_input_request_body",
+    "PreferredStationDiscountInputRequestBodyDiscountType": ".preferred_station_discount_input_request_body_discount_type",
+    "PreferredStationDiscountInputRequestBodyFuelType": ".preferred_station_discount_input_request_body_fuel_type",
+    "PreferredStationDiscountInputRequestBodyVolumeUnit": ".preferred_station_discount_input_request_body_volume_unit",
+    "PreferredStationDiscountMoneyRequestBody": ".preferred_station_discount_money_request_body",
+    "PreferredStationDiscountMoneyRequestBodyCurrency": ".preferred_station_discount_money_request_body_currency",
+    "PreferredStationDiscountResponseMoneyResponseBody": ".preferred_station_discount_response_money_response_body",
+    "PreferredStationDiscountResponseMoneyResponseBodyCurrency": ".preferred_station_discount_response_money_response_body_currency",
+    "PreferredStationDiscountResponseResponseBody": ".preferred_station_discount_response_response_body",
+    "PreferredStationDiscountResponseResponseBodyDiscountType": ".preferred_station_discount_response_response_body_discount_type",
+    "PreferredStationDiscountResponseResponseBodyFuelType": ".preferred_station_discount_response_response_body_fuel_type",
+    "PreferredStationDiscountResponseResponseBodyVolumeUnit": ".preferred_station_discount_response_response_body_volume_unit",
+    "PreferredStationGrossPriceRequestBody": ".preferred_station_gross_price_request_body",
+    "PreferredStationGrossPriceRequestBodyCurrency": ".preferred_station_gross_price_request_body_currency",
+    "PreferredStationGrossPriceResponseResponseBody": ".preferred_station_gross_price_response_response_body",
+    "PreferredStationGrossPriceResponseResponseBodyCurrency": ".preferred_station_gross_price_response_response_body_currency",
+    "PreferredStationNetPriceRequestBody": ".preferred_station_net_price_request_body",
+    "PreferredStationNetPriceRequestBodyCurrency": ".preferred_station_net_price_request_body_currency",
+    "PreferredStationNetPriceResponseResponseBody": ".preferred_station_net_price_response_response_body",
+    "PreferredStationNetPriceResponseResponseBodyCurrency": ".preferred_station_net_price_response_response_body_currency",
+    "PreferredStationObjectResponseBody": ".preferred_station_object_response_body",
+    "PreferredStationPriceInputRequestBody": ".preferred_station_price_input_request_body",
+    "PreferredStationPriceInputRequestBodyFuelType": ".preferred_station_price_input_request_body_fuel_type",
+    "PreferredStationPriceInputRequestBodyVolumeUnit": ".preferred_station_price_input_request_body_volume_unit",
+    "PreferredStationPriceResponseResponseBody": ".preferred_station_price_response_response_body",
+    "PreferredStationPriceResponseResponseBodyFuelType": ".preferred_station_price_response_response_body_fuel_type",
+    "PreferredStationPriceResponseResponseBodyVolumeUnit": ".preferred_station_price_response_response_body_volume_unit",
+    "PreferredStationsDeletePreferredStationBadGatewayErrorResponseBody": ".preferred_stations_delete_preferred_station_bad_gateway_error_response_body",
+    "PreferredStationsDeletePreferredStationGatewayTimeoutErrorResponseBody": ".preferred_stations_delete_preferred_station_gateway_timeout_error_response_body",
+    "PreferredStationsDeletePreferredStationInternalServerErrorResponseBody": ".preferred_stations_delete_preferred_station_internal_server_error_response_body",
+    "PreferredStationsDeletePreferredStationMethodNotAllowedErrorResponseBody": ".preferred_stations_delete_preferred_station_method_not_allowed_error_response_body",
+    "PreferredStationsDeletePreferredStationNotFoundErrorResponseBody": ".preferred_stations_delete_preferred_station_not_found_error_response_body",
+    "PreferredStationsDeletePreferredStationNotImplementedErrorResponseBody": ".preferred_stations_delete_preferred_station_not_implemented_error_response_body",
+    "PreferredStationsDeletePreferredStationServiceUnavailableErrorResponseBody": ".preferred_stations_delete_preferred_station_service_unavailable_error_response_body",
+    "PreferredStationsDeletePreferredStationTooManyRequestsErrorResponseBody": ".preferred_stations_delete_preferred_station_too_many_requests_error_response_body",
+    "PreferredStationsDeletePreferredStationUnauthorizedErrorResponseBody": ".preferred_stations_delete_preferred_station_unauthorized_error_response_body",
+    "PreferredStationsGetPreferredStationBadGatewayErrorResponseBody": ".preferred_stations_get_preferred_station_bad_gateway_error_response_body",
+    "PreferredStationsGetPreferredStationGatewayTimeoutErrorResponseBody": ".preferred_stations_get_preferred_station_gateway_timeout_error_response_body",
+    "PreferredStationsGetPreferredStationInternalServerErrorResponseBody": ".preferred_stations_get_preferred_station_internal_server_error_response_body",
+    "PreferredStationsGetPreferredStationMethodNotAllowedErrorResponseBody": ".preferred_stations_get_preferred_station_method_not_allowed_error_response_body",
+    "PreferredStationsGetPreferredStationNotFoundErrorResponseBody": ".preferred_stations_get_preferred_station_not_found_error_response_body",
+    "PreferredStationsGetPreferredStationNotImplementedErrorResponseBody": ".preferred_stations_get_preferred_station_not_implemented_error_response_body",
+    "PreferredStationsGetPreferredStationResponseBody": ".preferred_stations_get_preferred_station_response_body",
+    "PreferredStationsGetPreferredStationServiceUnavailableErrorResponseBody": ".preferred_stations_get_preferred_station_service_unavailable_error_response_body",
+    "PreferredStationsGetPreferredStationTooManyRequestsErrorResponseBody": ".preferred_stations_get_preferred_station_too_many_requests_error_response_body",
+    "PreferredStationsGetPreferredStationUnauthorizedErrorResponseBody": ".preferred_stations_get_preferred_station_unauthorized_error_response_body",
+    "PreferredStationsListPreferredStationsBadGatewayErrorResponseBody": ".preferred_stations_list_preferred_stations_bad_gateway_error_response_body",
+    "PreferredStationsListPreferredStationsGatewayTimeoutErrorResponseBody": ".preferred_stations_list_preferred_stations_gateway_timeout_error_response_body",
+    "PreferredStationsListPreferredStationsInternalServerErrorResponseBody": ".preferred_stations_list_preferred_stations_internal_server_error_response_body",
+    "PreferredStationsListPreferredStationsMethodNotAllowedErrorResponseBody": ".preferred_stations_list_preferred_stations_method_not_allowed_error_response_body",
+    "PreferredStationsListPreferredStationsNotFoundErrorResponseBody": ".preferred_stations_list_preferred_stations_not_found_error_response_body",
+    "PreferredStationsListPreferredStationsNotImplementedErrorResponseBody": ".preferred_stations_list_preferred_stations_not_implemented_error_response_body",
+    "PreferredStationsListPreferredStationsResponseBody": ".preferred_stations_list_preferred_stations_response_body",
+    "PreferredStationsListPreferredStationsServiceUnavailableErrorResponseBody": ".preferred_stations_list_preferred_stations_service_unavailable_error_response_body",
+    "PreferredStationsListPreferredStationsTooManyRequestsErrorResponseBody": ".preferred_stations_list_preferred_stations_too_many_requests_error_response_body",
+    "PreferredStationsListPreferredStationsUnauthorizedErrorResponseBody": ".preferred_stations_list_preferred_stations_unauthorized_error_response_body",
+    "PreferredStationsPatchPreferredStationBadGatewayErrorResponseBody": ".preferred_stations_patch_preferred_station_bad_gateway_error_response_body",
+    "PreferredStationsPatchPreferredStationGatewayTimeoutErrorResponseBody": ".preferred_stations_patch_preferred_station_gateway_timeout_error_response_body",
+    "PreferredStationsPatchPreferredStationInternalServerErrorResponseBody": ".preferred_stations_patch_preferred_station_internal_server_error_response_body",
+    "PreferredStationsPatchPreferredStationMethodNotAllowedErrorResponseBody": ".preferred_stations_patch_preferred_station_method_not_allowed_error_response_body",
+    "PreferredStationsPatchPreferredStationNotFoundErrorResponseBody": ".preferred_stations_patch_preferred_station_not_found_error_response_body",
+    "PreferredStationsPatchPreferredStationNotImplementedErrorResponseBody": ".preferred_stations_patch_preferred_station_not_implemented_error_response_body",
+    "PreferredStationsPatchPreferredStationResponseBody": ".preferred_stations_patch_preferred_station_response_body",
+    "PreferredStationsPatchPreferredStationServiceUnavailableErrorResponseBody": ".preferred_stations_patch_preferred_station_service_unavailable_error_response_body",
+    "PreferredStationsPatchPreferredStationTooManyRequestsErrorResponseBody": ".preferred_stations_patch_preferred_station_too_many_requests_error_response_body",
+    "PreferredStationsPatchPreferredStationUnauthorizedErrorResponseBody": ".preferred_stations_patch_preferred_station_unauthorized_error_response_body",
+    "PreferredStationsPostPreferredStationBadGatewayErrorResponseBody": ".preferred_stations_post_preferred_station_bad_gateway_error_response_body",
+    "PreferredStationsPostPreferredStationGatewayTimeoutErrorResponseBody": ".preferred_stations_post_preferred_station_gateway_timeout_error_response_body",
+    "PreferredStationsPostPreferredStationInternalServerErrorResponseBody": ".preferred_stations_post_preferred_station_internal_server_error_response_body",
+    "PreferredStationsPostPreferredStationMethodNotAllowedErrorResponseBody": ".preferred_stations_post_preferred_station_method_not_allowed_error_response_body",
+    "PreferredStationsPostPreferredStationNotFoundErrorResponseBody": ".preferred_stations_post_preferred_station_not_found_error_response_body",
+    "PreferredStationsPostPreferredStationNotImplementedErrorResponseBody": ".preferred_stations_post_preferred_station_not_implemented_error_response_body",
+    "PreferredStationsPostPreferredStationResponseBody": ".preferred_stations_post_preferred_station_response_body",
+    "PreferredStationsPostPreferredStationServiceUnavailableErrorResponseBody": ".preferred_stations_post_preferred_station_service_unavailable_error_response_body",
+    "PreferredStationsPostPreferredStationTooManyRequestsErrorResponseBody": ".preferred_stations_post_preferred_station_too_many_requests_error_response_body",
+    "PreferredStationsPostPreferredStationUnauthorizedErrorResponseBody": ".preferred_stations_post_preferred_station_unauthorized_error_response_body",
     "PrimaryTimeRangeRequestBody": ".primary_time_range_request_body",
     "PrimaryTimeRangeResponseBody": ".primary_time_range_response_body",
     "PushNotificationOptionsObjectRequestBody": ".push_notification_options_object_request_body",
@@ -13738,6 +14014,84 @@ __all__ = [
     "PostPlaceTagRefRequestBody",
     "PostResponseResWorkflowConfigurationObjectResponseBody",
     "PowerTakeOffDurationMs",
+    "PreferredStationAddressRequestBody",
+    "PreferredStationAddressResponseResponseBody",
+    "PreferredStationDiscountInputRequestBody",
+    "PreferredStationDiscountInputRequestBodyDiscountType",
+    "PreferredStationDiscountInputRequestBodyFuelType",
+    "PreferredStationDiscountInputRequestBodyVolumeUnit",
+    "PreferredStationDiscountMoneyRequestBody",
+    "PreferredStationDiscountMoneyRequestBodyCurrency",
+    "PreferredStationDiscountResponseMoneyResponseBody",
+    "PreferredStationDiscountResponseMoneyResponseBodyCurrency",
+    "PreferredStationDiscountResponseResponseBody",
+    "PreferredStationDiscountResponseResponseBodyDiscountType",
+    "PreferredStationDiscountResponseResponseBodyFuelType",
+    "PreferredStationDiscountResponseResponseBodyVolumeUnit",
+    "PreferredStationGrossPriceRequestBody",
+    "PreferredStationGrossPriceRequestBodyCurrency",
+    "PreferredStationGrossPriceResponseResponseBody",
+    "PreferredStationGrossPriceResponseResponseBodyCurrency",
+    "PreferredStationNetPriceRequestBody",
+    "PreferredStationNetPriceRequestBodyCurrency",
+    "PreferredStationNetPriceResponseResponseBody",
+    "PreferredStationNetPriceResponseResponseBodyCurrency",
+    "PreferredStationObjectResponseBody",
+    "PreferredStationPriceInputRequestBody",
+    "PreferredStationPriceInputRequestBodyFuelType",
+    "PreferredStationPriceInputRequestBodyVolumeUnit",
+    "PreferredStationPriceResponseResponseBody",
+    "PreferredStationPriceResponseResponseBodyFuelType",
+    "PreferredStationPriceResponseResponseBodyVolumeUnit",
+    "PreferredStationsDeletePreferredStationBadGatewayErrorResponseBody",
+    "PreferredStationsDeletePreferredStationGatewayTimeoutErrorResponseBody",
+    "PreferredStationsDeletePreferredStationInternalServerErrorResponseBody",
+    "PreferredStationsDeletePreferredStationMethodNotAllowedErrorResponseBody",
+    "PreferredStationsDeletePreferredStationNotFoundErrorResponseBody",
+    "PreferredStationsDeletePreferredStationNotImplementedErrorResponseBody",
+    "PreferredStationsDeletePreferredStationServiceUnavailableErrorResponseBody",
+    "PreferredStationsDeletePreferredStationTooManyRequestsErrorResponseBody",
+    "PreferredStationsDeletePreferredStationUnauthorizedErrorResponseBody",
+    "PreferredStationsGetPreferredStationBadGatewayErrorResponseBody",
+    "PreferredStationsGetPreferredStationGatewayTimeoutErrorResponseBody",
+    "PreferredStationsGetPreferredStationInternalServerErrorResponseBody",
+    "PreferredStationsGetPreferredStationMethodNotAllowedErrorResponseBody",
+    "PreferredStationsGetPreferredStationNotFoundErrorResponseBody",
+    "PreferredStationsGetPreferredStationNotImplementedErrorResponseBody",
+    "PreferredStationsGetPreferredStationResponseBody",
+    "PreferredStationsGetPreferredStationServiceUnavailableErrorResponseBody",
+    "PreferredStationsGetPreferredStationTooManyRequestsErrorResponseBody",
+    "PreferredStationsGetPreferredStationUnauthorizedErrorResponseBody",
+    "PreferredStationsListPreferredStationsBadGatewayErrorResponseBody",
+    "PreferredStationsListPreferredStationsGatewayTimeoutErrorResponseBody",
+    "PreferredStationsListPreferredStationsInternalServerErrorResponseBody",
+    "PreferredStationsListPreferredStationsMethodNotAllowedErrorResponseBody",
+    "PreferredStationsListPreferredStationsNotFoundErrorResponseBody",
+    "PreferredStationsListPreferredStationsNotImplementedErrorResponseBody",
+    "PreferredStationsListPreferredStationsResponseBody",
+    "PreferredStationsListPreferredStationsServiceUnavailableErrorResponseBody",
+    "PreferredStationsListPreferredStationsTooManyRequestsErrorResponseBody",
+    "PreferredStationsListPreferredStationsUnauthorizedErrorResponseBody",
+    "PreferredStationsPatchPreferredStationBadGatewayErrorResponseBody",
+    "PreferredStationsPatchPreferredStationGatewayTimeoutErrorResponseBody",
+    "PreferredStationsPatchPreferredStationInternalServerErrorResponseBody",
+    "PreferredStationsPatchPreferredStationMethodNotAllowedErrorResponseBody",
+    "PreferredStationsPatchPreferredStationNotFoundErrorResponseBody",
+    "PreferredStationsPatchPreferredStationNotImplementedErrorResponseBody",
+    "PreferredStationsPatchPreferredStationResponseBody",
+    "PreferredStationsPatchPreferredStationServiceUnavailableErrorResponseBody",
+    "PreferredStationsPatchPreferredStationTooManyRequestsErrorResponseBody",
+    "PreferredStationsPatchPreferredStationUnauthorizedErrorResponseBody",
+    "PreferredStationsPostPreferredStationBadGatewayErrorResponseBody",
+    "PreferredStationsPostPreferredStationGatewayTimeoutErrorResponseBody",
+    "PreferredStationsPostPreferredStationInternalServerErrorResponseBody",
+    "PreferredStationsPostPreferredStationMethodNotAllowedErrorResponseBody",
+    "PreferredStationsPostPreferredStationNotFoundErrorResponseBody",
+    "PreferredStationsPostPreferredStationNotImplementedErrorResponseBody",
+    "PreferredStationsPostPreferredStationResponseBody",
+    "PreferredStationsPostPreferredStationServiceUnavailableErrorResponseBody",
+    "PreferredStationsPostPreferredStationTooManyRequestsErrorResponseBody",
+    "PreferredStationsPostPreferredStationUnauthorizedErrorResponseBody",
     "PrimaryTimeRangeRequestBody",
     "PrimaryTimeRangeResponseBody",
     "PushNotificationOptionsObjectRequestBody",

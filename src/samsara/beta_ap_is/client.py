@@ -82,6 +82,21 @@ from ..types.plan_orders_list_plan_orders_response_body import PlanOrdersListPla
 from ..types.post_job_object_request_body import PostJobObjectRequestBody
 from ..types.post_place_navigation_input_request_body import PostPlaceNavigationInputRequestBody
 from ..types.post_place_tag_ref_request_body import PostPlaceTagRefRequestBody
+from ..types.preferred_station_address_request_body import PreferredStationAddressRequestBody
+from ..types.preferred_station_discount_input_request_body import PreferredStationDiscountInputRequestBody
+from ..types.preferred_station_price_input_request_body import PreferredStationPriceInputRequestBody
+from ..types.preferred_stations_get_preferred_station_response_body import (
+    PreferredStationsGetPreferredStationResponseBody,
+)
+from ..types.preferred_stations_list_preferred_stations_response_body import (
+    PreferredStationsListPreferredStationsResponseBody,
+)
+from ..types.preferred_stations_patch_preferred_station_response_body import (
+    PreferredStationsPatchPreferredStationResponseBody,
+)
+from ..types.preferred_stations_post_preferred_station_response_body import (
+    PreferredStationsPostPreferredStationResponseBody,
+)
 from ..types.qualification_owner_request_object_request_body import QualificationOwnerRequestObjectRequestBody
 from ..types.qualification_record_request_field_input_object_request_body import (
     QualificationRecordRequestFieldInputObjectRequestBody,
@@ -2836,6 +2851,278 @@ class BetaApIsClient:
             radius_meters=radius_meters,
             tags=tags,
             request_options=request_options,
+        )
+        return _response.data
+
+    def list_preferred_stations(
+        self,
+        *,
+        limit: typing.Optional[int] = None,
+        after: typing.Optional[str] = None,
+        include_external_ids: typing.Optional[bool] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> PreferredStationsListPreferredStationsResponseBody:
+        """
+        List all preferred fuel stations for your organization.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Fuel Purchase** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 512 objects.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        include_external_ids : typing.Optional[bool]
+            Whether to include external IDs in the response.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        PreferredStationsListPreferredStationsResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.list_preferred_stations()
+        """
+        _response = self._raw_client.list_preferred_stations(
+            limit=limit, after=after, include_external_ids=include_external_ids, request_options=request_options
+        )
+        return _response.data
+
+    def post_preferred_station(
+        self,
+        *,
+        address: PreferredStationAddressRequestBody,
+        external_ids: typing.Dict[str, str],
+        name: str,
+        discounts: typing.Optional[typing.Sequence[PreferredStationDiscountInputRequestBody]] = OMIT,
+        latitude: typing.Optional[float] = OMIT,
+        longitude: typing.Optional[float] = OMIT,
+        prices: typing.Optional[typing.Sequence[PreferredStationPriceInputRequestBody]] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> PreferredStationsPostPreferredStationResponseBody:
+        """
+        Create a preferred fuel station for your organization.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Fuel Purchase** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        address : PreferredStationAddressRequestBody
+
+        external_ids : typing.Dict[str, str]
+            Map of source-system key to customer-provided station ID.
+
+        name : str
+            Display name of the station.
+
+        discounts : typing.Optional[typing.Sequence[PreferredStationDiscountInputRequestBody]]
+            Array of discount overrides per fuel type. Max 14 items.
+
+        latitude : typing.Optional[float]
+            Latitude in WGS84 degrees.
+
+        longitude : typing.Optional[float]
+            Longitude in WGS84 degrees.
+
+        prices : typing.Optional[typing.Sequence[PreferredStationPriceInputRequestBody]]
+            Array of per-fuel-type prices. Max 14 items.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        PreferredStationsPostPreferredStationResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import PreferredStationAddressRequestBody, Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.post_preferred_station(
+            address=PreferredStationAddressRequestBody(
+                city="Green River",
+                country="US",
+                line_1="8901 US Hwy 374",
+                postal_code="82935",
+            ),
+            external_ids={"key": "value"},
+            name="Station #432",
+        )
+        """
+        _response = self._raw_client.post_preferred_station(
+            address=address,
+            external_ids=external_ids,
+            name=name,
+            discounts=discounts,
+            latitude=latitude,
+            longitude=longitude,
+            prices=prices,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def delete_preferred_station(self, *, id: str, request_options: typing.Optional[RequestOptions] = None) -> None:
+        """
+        Delete a preferred fuel station for your organization.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Fuel Purchase** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Samsara ID of the preferred station to delete.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.delete_preferred_station(
+            id="id",
+        )
+        """
+        _response = self._raw_client.delete_preferred_station(id=id, request_options=request_options)
+        return _response.data
+
+    def patch_preferred_station(
+        self,
+        *,
+        id: str,
+        discounts: typing.Optional[typing.Sequence[PreferredStationDiscountInputRequestBody]] = OMIT,
+        prices: typing.Optional[typing.Sequence[PreferredStationPriceInputRequestBody]] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> PreferredStationsPatchPreferredStationResponseBody:
+        """
+        Update a preferred fuel station for your organization.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Fuel Purchase** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Samsara ID of the preferred station to update.
+
+        discounts : typing.Optional[typing.Sequence[PreferredStationDiscountInputRequestBody]]
+            Replaces all discount overrides. Pass empty array to remove all. Max 14 items.
+
+        prices : typing.Optional[typing.Sequence[PreferredStationPriceInputRequestBody]]
+            Replaces all per-fuel-type prices. Pass empty array to remove all. Max 14 items.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        PreferredStationsPatchPreferredStationResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.patch_preferred_station(
+            id="id",
+        )
+        """
+        _response = self._raw_client.patch_preferred_station(
+            id=id, discounts=discounts, prices=prices, request_options=request_options
+        )
+        return _response.data
+
+    def get_preferred_station(
+        self,
+        id: str,
+        *,
+        include_external_ids: typing.Optional[bool] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> PreferredStationsGetPreferredStationResponseBody:
+        """
+        Get a single preferred fuel station by ID.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Fuel Purchase** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Samsara-assigned station ID.
+
+        include_external_ids : typing.Optional[bool]
+            Whether to include external IDs in the response.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        PreferredStationsGetPreferredStationResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.get_preferred_station(
+            id="id",
+        )
+        """
+        _response = self._raw_client.get_preferred_station(
+            id, include_external_ids=include_external_ids, request_options=request_options
         )
         return _response.data
 
@@ -7251,6 +7538,320 @@ class AsyncBetaApIsClient:
             radius_meters=radius_meters,
             tags=tags,
             request_options=request_options,
+        )
+        return _response.data
+
+    async def list_preferred_stations(
+        self,
+        *,
+        limit: typing.Optional[int] = None,
+        after: typing.Optional[str] = None,
+        include_external_ids: typing.Optional[bool] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> PreferredStationsListPreferredStationsResponseBody:
+        """
+        List all preferred fuel stations for your organization.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Fuel Purchase** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 512 objects.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        include_external_ids : typing.Optional[bool]
+            Whether to include external IDs in the response.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        PreferredStationsListPreferredStationsResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.list_preferred_stations()
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.list_preferred_stations(
+            limit=limit, after=after, include_external_ids=include_external_ids, request_options=request_options
+        )
+        return _response.data
+
+    async def post_preferred_station(
+        self,
+        *,
+        address: PreferredStationAddressRequestBody,
+        external_ids: typing.Dict[str, str],
+        name: str,
+        discounts: typing.Optional[typing.Sequence[PreferredStationDiscountInputRequestBody]] = OMIT,
+        latitude: typing.Optional[float] = OMIT,
+        longitude: typing.Optional[float] = OMIT,
+        prices: typing.Optional[typing.Sequence[PreferredStationPriceInputRequestBody]] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> PreferredStationsPostPreferredStationResponseBody:
+        """
+        Create a preferred fuel station for your organization.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Fuel Purchase** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        address : PreferredStationAddressRequestBody
+
+        external_ids : typing.Dict[str, str]
+            Map of source-system key to customer-provided station ID.
+
+        name : str
+            Display name of the station.
+
+        discounts : typing.Optional[typing.Sequence[PreferredStationDiscountInputRequestBody]]
+            Array of discount overrides per fuel type. Max 14 items.
+
+        latitude : typing.Optional[float]
+            Latitude in WGS84 degrees.
+
+        longitude : typing.Optional[float]
+            Longitude in WGS84 degrees.
+
+        prices : typing.Optional[typing.Sequence[PreferredStationPriceInputRequestBody]]
+            Array of per-fuel-type prices. Max 14 items.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        PreferredStationsPostPreferredStationResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara, PreferredStationAddressRequestBody
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.post_preferred_station(
+                address=PreferredStationAddressRequestBody(
+                    city="Green River",
+                    country="US",
+                    line_1="8901 US Hwy 374",
+                    postal_code="82935",
+                ),
+                external_ids={"key": "value"},
+                name="Station #432",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.post_preferred_station(
+            address=address,
+            external_ids=external_ids,
+            name=name,
+            discounts=discounts,
+            latitude=latitude,
+            longitude=longitude,
+            prices=prices,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def delete_preferred_station(
+        self, *, id: str, request_options: typing.Optional[RequestOptions] = None
+    ) -> None:
+        """
+        Delete a preferred fuel station for your organization.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Fuel Purchase** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Samsara ID of the preferred station to delete.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.delete_preferred_station(
+                id="id",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.delete_preferred_station(id=id, request_options=request_options)
+        return _response.data
+
+    async def patch_preferred_station(
+        self,
+        *,
+        id: str,
+        discounts: typing.Optional[typing.Sequence[PreferredStationDiscountInputRequestBody]] = OMIT,
+        prices: typing.Optional[typing.Sequence[PreferredStationPriceInputRequestBody]] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> PreferredStationsPatchPreferredStationResponseBody:
+        """
+        Update a preferred fuel station for your organization.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Fuel Purchase** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Samsara ID of the preferred station to update.
+
+        discounts : typing.Optional[typing.Sequence[PreferredStationDiscountInputRequestBody]]
+            Replaces all discount overrides. Pass empty array to remove all. Max 14 items.
+
+        prices : typing.Optional[typing.Sequence[PreferredStationPriceInputRequestBody]]
+            Replaces all per-fuel-type prices. Pass empty array to remove all. Max 14 items.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        PreferredStationsPatchPreferredStationResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.patch_preferred_station(
+                id="id",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.patch_preferred_station(
+            id=id, discounts=discounts, prices=prices, request_options=request_options
+        )
+        return _response.data
+
+    async def get_preferred_station(
+        self,
+        id: str,
+        *,
+        include_external_ids: typing.Optional[bool] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> PreferredStationsGetPreferredStationResponseBody:
+        """
+        Get a single preferred fuel station by ID.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Fuel Purchase** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Samsara-assigned station ID.
+
+        include_external_ids : typing.Optional[bool]
+            Whether to include external IDs in the response.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        PreferredStationsGetPreferredStationResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.get_preferred_station(
+                id="id",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_preferred_station(
+            id, include_external_ids=include_external_ids, request_options=request_options
         )
         return _response.data
 

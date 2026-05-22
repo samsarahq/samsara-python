@@ -388,6 +388,50 @@ def test_betaApIs_patch_place() -> None:
     verify_request_count(test_id, "PATCH", "/places", {"placeId": "1000000"}, 1)
 
 
+def test_betaApIs_list_preferred_stations() -> None:
+    """Test listPreferredStations endpoint with WireMock"""
+    test_id = "beta_ap_is.list_preferred_stations.0"
+    client = get_client(test_id)
+    client.beta_ap_is.list_preferred_stations()
+    verify_request_count(test_id, "GET", "/preferred-stations", None, 1)
+
+
+def test_betaApIs_post_preferred_station() -> None:
+    """Test postPreferredStation endpoint with WireMock"""
+    test_id = "beta_ap_is.post_preferred_station.0"
+    client = get_client(test_id)
+    client.beta_ap_is.post_preferred_station(
+        address={"city": "Green River", "country": "US", "line_1": "8901 US Hwy 374", "postal_code": "82935"},
+        external_ids={"key": "value"},
+        name="Station #432",
+    )
+    verify_request_count(test_id, "POST", "/preferred-stations", None, 1)
+
+
+def test_betaApIs_delete_preferred_station() -> None:
+    """Test deletePreferredStation endpoint with WireMock"""
+    test_id = "beta_ap_is.delete_preferred_station.0"
+    client = get_client(test_id)
+    client.beta_ap_is.delete_preferred_station(id="id")
+    verify_request_count(test_id, "DELETE", "/preferred-stations", {"id": "id"}, 1)
+
+
+def test_betaApIs_patch_preferred_station() -> None:
+    """Test patchPreferredStation endpoint with WireMock"""
+    test_id = "beta_ap_is.patch_preferred_station.0"
+    client = get_client(test_id)
+    client.beta_ap_is.patch_preferred_station(id="id")
+    verify_request_count(test_id, "PATCH", "/preferred-stations", {"id": "id"}, 1)
+
+
+def test_betaApIs_get_preferred_station() -> None:
+    """Test getPreferredStation endpoint with WireMock"""
+    test_id = "beta_ap_is.get_preferred_station.0"
+    client = get_client(test_id)
+    client.beta_ap_is.get_preferred_station(id="id")
+    verify_request_count(test_id, "GET", "/preferred-stations/id", None, 1)
+
+
 def test_betaApIs_get_qualification_records() -> None:
     """Test getQualificationRecords endpoint with WireMock"""
     test_id = "beta_ap_is.get_qualification_records.0"
