@@ -9,6 +9,14 @@ def test_issues_get_issues() -> None:
     verify_request_count(test_id, "GET", "/issues", None, 1)
 
 
+def test_issues_post_issue() -> None:
+    """Test postIssue endpoint with WireMock"""
+    test_id = "issues.post_issue.0"
+    client = get_client(test_id)
+    client.issues.post_issue(asset={"id": "hertzAssetId:HZ-100423"}, title="Front bumper scratch")
+    verify_request_count(test_id, "POST", "/issues", None, 1)
+
+
 def test_issues_patch_issue() -> None:
     """Test patchIssue endpoint with WireMock"""
     test_id = "issues.patch_issue.0"

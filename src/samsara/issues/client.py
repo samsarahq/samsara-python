@@ -11,10 +11,15 @@ from ..types.form_submission_request_media_item_object_request_body import (
 from ..types.issues_get_issues_response_body import IssuesGetIssuesResponseBody
 from ..types.issues_get_issues_stream_response_body import IssuesGetIssuesStreamResponseBody
 from ..types.issues_patch_issue_response_body import IssuesPatchIssueResponseBody
+from ..types.issues_post_issue_response_body import IssuesPostIssueResponseBody
 from ..types.patch_issue_request_body_assigned_to_request_body import PatchIssueRequestBodyAssignedToRequestBody
+from ..types.post_issue_request_body_asset_request_body import PostIssueRequestBodyAssetRequestBody
+from ..types.post_issue_request_body_assigned_to_request_body import PostIssueRequestBodyAssignedToRequestBody
 from .raw_client import AsyncRawIssuesClient, RawIssuesClient
 from .types.issues_patch_issue_request_body_priority import IssuesPatchIssueRequestBodyPriority
 from .types.issues_patch_issue_request_body_status import IssuesPatchIssueRequestBodyStatus
+from .types.issues_post_issue_request_body_priority import IssuesPostIssueRequestBodyPriority
+from .types.issues_post_issue_request_body_status import IssuesPostIssueRequestBodyStatus
 
 # this is used as the default value for optional parameters
 OMIT = typing.cast(typing.Any, ...)
@@ -80,6 +85,93 @@ class IssuesClient:
         _response = self._raw_client.get_issues(ids=ids, include=include, request_options=request_options)
         return _response.data
 
+    def post_issue(
+        self,
+        *,
+        asset: PostIssueRequestBodyAssetRequestBody,
+        title: str,
+        assigned_to: typing.Optional[PostIssueRequestBodyAssignedToRequestBody] = OMIT,
+        description: typing.Optional[str] = OMIT,
+        due_date: typing.Optional[dt.datetime] = OMIT,
+        external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
+        media: typing.Optional[typing.Sequence[FormSubmissionRequestMediaItemObjectRequestBody]] = OMIT,
+        priority: typing.Optional[IssuesPostIssueRequestBodyPriority] = OMIT,
+        status: typing.Optional[IssuesPostIssueRequestBodyStatus] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> IssuesPostIssueResponseBody:
+        """
+        Creates a new issue associated with an asset, with optional media attachments uploaded inline as base64.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Issues** under the Forms category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        asset : PostIssueRequestBodyAssetRequestBody
+
+        title : str
+            Title of the issue.
+
+        assigned_to : typing.Optional[PostIssueRequestBodyAssignedToRequestBody]
+
+        description : typing.Optional[str]
+            Description of the issue.
+
+        due_date : typing.Optional[dt.datetime]
+            Due date of the issue. UTC timestamp in RFC 3339 format.
+
+        external_ids : typing.Optional[typing.Dict[str, str]]
+            A map of external ids
+
+        media : typing.Optional[typing.Sequence[FormSubmissionRequestMediaItemObjectRequestBody]]
+            Media items to attach to the issue.
+
+        priority : typing.Optional[IssuesPostIssueRequestBodyPriority]
+            Priority of the issue.  Valid values: `low`, `medium`, `high`
+
+        status : typing.Optional[IssuesPostIssueRequestBodyStatus]
+            Status of the issue. Defaults to `open` when omitted.  Valid values: `open`, `inProgress`, `resolved`, `dismissed`
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        IssuesPostIssueResponseBody
+            Created response.
+
+        Examples
+        --------
+        from samsara import PostIssueRequestBodyAssetRequestBody, Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.issues.post_issue(
+            asset=PostIssueRequestBodyAssetRequestBody(
+                id="hertzAssetId:HZ-100423",
+            ),
+            title="Front bumper scratch",
+        )
+        """
+        _response = self._raw_client.post_issue(
+            asset=asset,
+            title=title,
+            assigned_to=assigned_to,
+            description=description,
+            due_date=due_date,
+            external_ids=external_ids,
+            media=media,
+            priority=priority,
+            status=status,
+            request_options=request_options,
+        )
+        return _response.data
+
     def patch_issue(
         self,
         *,
@@ -112,7 +204,7 @@ class IssuesClient:
         assigned_to : typing.Optional[PatchIssueRequestBodyAssignedToRequestBody]
 
         description : typing.Optional[str]
-            Description of the issue. Requires the `issue-api-media-attachment-endpoints` feature.
+            Description of the issue.
 
         due_date : typing.Optional[dt.datetime]
             Due date of the issue. UTC timestamp in RFC 3339 format.
@@ -121,16 +213,16 @@ class IssuesClient:
             A map of external ids
 
         media : typing.Optional[typing.Sequence[FormSubmissionRequestMediaItemObjectRequestBody]]
-            Media items to append to the issue. Requires the `issue-api-media-attachment-endpoints` feature.
+            Media items to append to the issue.
 
         priority : typing.Optional[IssuesPatchIssueRequestBodyPriority]
-            Priority of the issue. Requires the `issue-api-media-attachment-endpoints` feature.  Valid values: `low`, `medium`, `high`
+            Priority of the issue.  Valid values: `low`, `medium`, `high`
 
         status : typing.Optional[IssuesPatchIssueRequestBodyStatus]
             Status of the issue.  Valid values: `open`, `inProgress`, `resolved`, `dismissed`
 
         title : typing.Optional[str]
-            Title of the issue. Requires the `issue-api-media-attachment-endpoints` feature.
+            Title of the issue.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -315,6 +407,101 @@ class AsyncIssuesClient:
         _response = await self._raw_client.get_issues(ids=ids, include=include, request_options=request_options)
         return _response.data
 
+    async def post_issue(
+        self,
+        *,
+        asset: PostIssueRequestBodyAssetRequestBody,
+        title: str,
+        assigned_to: typing.Optional[PostIssueRequestBodyAssignedToRequestBody] = OMIT,
+        description: typing.Optional[str] = OMIT,
+        due_date: typing.Optional[dt.datetime] = OMIT,
+        external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
+        media: typing.Optional[typing.Sequence[FormSubmissionRequestMediaItemObjectRequestBody]] = OMIT,
+        priority: typing.Optional[IssuesPostIssueRequestBodyPriority] = OMIT,
+        status: typing.Optional[IssuesPostIssueRequestBodyStatus] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> IssuesPostIssueResponseBody:
+        """
+        Creates a new issue associated with an asset, with optional media attachments uploaded inline as base64.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Issues** under the Forms category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        asset : PostIssueRequestBodyAssetRequestBody
+
+        title : str
+            Title of the issue.
+
+        assigned_to : typing.Optional[PostIssueRequestBodyAssignedToRequestBody]
+
+        description : typing.Optional[str]
+            Description of the issue.
+
+        due_date : typing.Optional[dt.datetime]
+            Due date of the issue. UTC timestamp in RFC 3339 format.
+
+        external_ids : typing.Optional[typing.Dict[str, str]]
+            A map of external ids
+
+        media : typing.Optional[typing.Sequence[FormSubmissionRequestMediaItemObjectRequestBody]]
+            Media items to attach to the issue.
+
+        priority : typing.Optional[IssuesPostIssueRequestBodyPriority]
+            Priority of the issue.  Valid values: `low`, `medium`, `high`
+
+        status : typing.Optional[IssuesPostIssueRequestBodyStatus]
+            Status of the issue. Defaults to `open` when omitted.  Valid values: `open`, `inProgress`, `resolved`, `dismissed`
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        IssuesPostIssueResponseBody
+            Created response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara, PostIssueRequestBodyAssetRequestBody
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.issues.post_issue(
+                asset=PostIssueRequestBodyAssetRequestBody(
+                    id="hertzAssetId:HZ-100423",
+                ),
+                title="Front bumper scratch",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.post_issue(
+            asset=asset,
+            title=title,
+            assigned_to=assigned_to,
+            description=description,
+            due_date=due_date,
+            external_ids=external_ids,
+            media=media,
+            priority=priority,
+            status=status,
+            request_options=request_options,
+        )
+        return _response.data
+
     async def patch_issue(
         self,
         *,
@@ -347,7 +534,7 @@ class AsyncIssuesClient:
         assigned_to : typing.Optional[PatchIssueRequestBodyAssignedToRequestBody]
 
         description : typing.Optional[str]
-            Description of the issue. Requires the `issue-api-media-attachment-endpoints` feature.
+            Description of the issue.
 
         due_date : typing.Optional[dt.datetime]
             Due date of the issue. UTC timestamp in RFC 3339 format.
@@ -356,16 +543,16 @@ class AsyncIssuesClient:
             A map of external ids
 
         media : typing.Optional[typing.Sequence[FormSubmissionRequestMediaItemObjectRequestBody]]
-            Media items to append to the issue. Requires the `issue-api-media-attachment-endpoints` feature.
+            Media items to append to the issue.
 
         priority : typing.Optional[IssuesPatchIssueRequestBodyPriority]
-            Priority of the issue. Requires the `issue-api-media-attachment-endpoints` feature.  Valid values: `low`, `medium`, `high`
+            Priority of the issue.  Valid values: `low`, `medium`, `high`
 
         status : typing.Optional[IssuesPatchIssueRequestBodyStatus]
             Status of the issue.  Valid values: `open`, `inProgress`, `resolved`, `dismissed`
 
         title : typing.Optional[str]
-            Title of the issue. Requires the `issue-api-media-attachment-endpoints` feature.
+            Title of the issue.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.

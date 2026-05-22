@@ -3705,6 +3705,20 @@ if typing.TYPE_CHECKING:
         IssuesPatchIssueTooManyRequestsErrorResponseBody,
     )
     from .issues_patch_issue_unauthorized_error_response_body import IssuesPatchIssueUnauthorizedErrorResponseBody
+    from .issues_post_issue_bad_gateway_error_response_body import IssuesPostIssueBadGatewayErrorResponseBody
+    from .issues_post_issue_gateway_timeout_error_response_body import IssuesPostIssueGatewayTimeoutErrorResponseBody
+    from .issues_post_issue_internal_server_error_response_body import IssuesPostIssueInternalServerErrorResponseBody
+    from .issues_post_issue_method_not_allowed_error_response_body import (
+        IssuesPostIssueMethodNotAllowedErrorResponseBody,
+    )
+    from .issues_post_issue_not_found_error_response_body import IssuesPostIssueNotFoundErrorResponseBody
+    from .issues_post_issue_not_implemented_error_response_body import IssuesPostIssueNotImplementedErrorResponseBody
+    from .issues_post_issue_response_body import IssuesPostIssueResponseBody
+    from .issues_post_issue_service_unavailable_error_response_body import (
+        IssuesPostIssueServiceUnavailableErrorResponseBody,
+    )
+    from .issues_post_issue_too_many_requests_error_response_body import IssuesPostIssueTooManyRequestsErrorResponseBody
+    from .issues_post_issue_unauthorized_error_response_body import IssuesPostIssueUnauthorizedErrorResponseBody
     from .j_1939_d_1_status_data_point import J1939D1StatusDataPoint
     from .j_1939_d_1_status_data_point_value import J1939D1StatusDataPointValue
     from .jamming_detected_response_body import JammingDetectedResponseBody
@@ -4387,6 +4401,9 @@ if typing.TYPE_CHECKING:
     )
     from .post_fuel_purchase_response_body_response_body import PostFuelPurchaseResponseBodyResponseBody
     from .post_invoice_scan_response_data_response_body import PostInvoiceScanResponseDataResponseBody
+    from .post_issue_request_body_asset_request_body import PostIssueRequestBodyAssetRequestBody
+    from .post_issue_request_body_assigned_to_request_body import PostIssueRequestBodyAssignedToRequestBody
+    from .post_issue_request_body_assigned_to_request_body_type import PostIssueRequestBodyAssignedToRequestBodyType
     from .post_job_object_request_body import PostJobObjectRequestBody
     from .post_job_objectjob_location_request_object_request_body import (
         PostJobObjectjobLocationRequestObjectRequestBody,
@@ -9740,6 +9757,16 @@ _dynamic_imports: typing.Dict[str, str] = {
     "IssuesPatchIssueServiceUnavailableErrorResponseBody": ".issues_patch_issue_service_unavailable_error_response_body",
     "IssuesPatchIssueTooManyRequestsErrorResponseBody": ".issues_patch_issue_too_many_requests_error_response_body",
     "IssuesPatchIssueUnauthorizedErrorResponseBody": ".issues_patch_issue_unauthorized_error_response_body",
+    "IssuesPostIssueBadGatewayErrorResponseBody": ".issues_post_issue_bad_gateway_error_response_body",
+    "IssuesPostIssueGatewayTimeoutErrorResponseBody": ".issues_post_issue_gateway_timeout_error_response_body",
+    "IssuesPostIssueInternalServerErrorResponseBody": ".issues_post_issue_internal_server_error_response_body",
+    "IssuesPostIssueMethodNotAllowedErrorResponseBody": ".issues_post_issue_method_not_allowed_error_response_body",
+    "IssuesPostIssueNotFoundErrorResponseBody": ".issues_post_issue_not_found_error_response_body",
+    "IssuesPostIssueNotImplementedErrorResponseBody": ".issues_post_issue_not_implemented_error_response_body",
+    "IssuesPostIssueResponseBody": ".issues_post_issue_response_body",
+    "IssuesPostIssueServiceUnavailableErrorResponseBody": ".issues_post_issue_service_unavailable_error_response_body",
+    "IssuesPostIssueTooManyRequestsErrorResponseBody": ".issues_post_issue_too_many_requests_error_response_body",
+    "IssuesPostIssueUnauthorizedErrorResponseBody": ".issues_post_issue_unauthorized_error_response_body",
     "J1939D1StatusDataPoint": ".j_1939_d_1_status_data_point",
     "J1939D1StatusDataPointValue": ".j_1939_d_1_status_data_point_value",
     "JammingDetectedResponseBody": ".jamming_detected_response_body",
@@ -10104,6 +10131,9 @@ _dynamic_imports: typing.Dict[str, str] = {
     "PostFuelPurchaseRequestBodyPriceRequestBodyCurrency": ".post_fuel_purchase_request_body_price_request_body_currency",
     "PostFuelPurchaseResponseBodyResponseBody": ".post_fuel_purchase_response_body_response_body",
     "PostInvoiceScanResponseDataResponseBody": ".post_invoice_scan_response_data_response_body",
+    "PostIssueRequestBodyAssetRequestBody": ".post_issue_request_body_asset_request_body",
+    "PostIssueRequestBodyAssignedToRequestBody": ".post_issue_request_body_assigned_to_request_body",
+    "PostIssueRequestBodyAssignedToRequestBodyType": ".post_issue_request_body_assigned_to_request_body_type",
     "PostJobObjectRequestBody": ".post_job_object_request_body",
     "PostJobObjectjobLocationRequestObjectRequestBody": ".post_job_objectjob_location_request_object_request_body",
     "PostMediaRetrievalObjectResponseBody": ".post_media_retrieval_object_response_body",
@@ -13641,6 +13671,16 @@ __all__ = [
     "IssuesPatchIssueServiceUnavailableErrorResponseBody",
     "IssuesPatchIssueTooManyRequestsErrorResponseBody",
     "IssuesPatchIssueUnauthorizedErrorResponseBody",
+    "IssuesPostIssueBadGatewayErrorResponseBody",
+    "IssuesPostIssueGatewayTimeoutErrorResponseBody",
+    "IssuesPostIssueInternalServerErrorResponseBody",
+    "IssuesPostIssueMethodNotAllowedErrorResponseBody",
+    "IssuesPostIssueNotFoundErrorResponseBody",
+    "IssuesPostIssueNotImplementedErrorResponseBody",
+    "IssuesPostIssueResponseBody",
+    "IssuesPostIssueServiceUnavailableErrorResponseBody",
+    "IssuesPostIssueTooManyRequestsErrorResponseBody",
+    "IssuesPostIssueUnauthorizedErrorResponseBody",
     "J1939D1StatusDataPoint",
     "J1939D1StatusDataPointValue",
     "JammingDetectedResponseBody",
@@ -14005,6 +14045,9 @@ __all__ = [
     "PostFuelPurchaseRequestBodyPriceRequestBodyCurrency",
     "PostFuelPurchaseResponseBodyResponseBody",
     "PostInvoiceScanResponseDataResponseBody",
+    "PostIssueRequestBodyAssetRequestBody",
+    "PostIssueRequestBodyAssignedToRequestBody",
+    "PostIssueRequestBodyAssignedToRequestBodyType",
     "PostJobObjectRequestBody",
     "PostJobObjectjobLocationRequestObjectRequestBody",
     "PostMediaRetrievalObjectResponseBody",
