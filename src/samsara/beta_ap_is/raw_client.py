@@ -91,6 +91,7 @@ from ..types.patch_place_hub_locations_body_request_body import PatchPlaceHubLoc
 from ..types.patch_safety_events_dismissal_reason_body_request_body import (
     PatchSafetyEventsDismissalReasonBodyRequestBody,
 )
+from ..types.place_street_view_response_request_body import PlaceStreetViewResponseRequestBody
 from ..types.places_get_places_response_body import PlacesGetPlacesResponseBody
 from ..types.places_patch_place_response_body import PlacesPatchPlaceResponseBody
 from ..types.places_post_place_response_body import PlacesPostPlaceResponseBody
@@ -194,7 +195,13 @@ from .types.get_jobs_request_status import GetJobsRequestStatus
 from .types.get_qualification_records_stream_request_entity_type import GetQualificationRecordsStreamRequestEntityType
 from .types.get_qualification_types_request_entity_type import GetQualificationTypesRequestEntityType
 from .types.list_driver_workflows_request_workflow_type import ListDriverWorkflowsRequestWorkflowType
+from .types.places_patch_place_request_body_camera_recording_mode_type import (
+    PlacesPatchPlaceRequestBodyCameraRecordingModeType,
+)
 from .types.places_patch_place_request_body_external_ids import PlacesPatchPlaceRequestBodyExternalIds
+from .types.places_post_place_request_body_camera_recording_mode_type import (
+    PlacesPostPlaceRequestBodyCameraRecordingModeType,
+)
 from .types.places_post_place_request_body_external_ids import PlacesPostPlaceRequestBodyExternalIds
 from .types.ridership_passengers_create_ridership_passenger_request_body_classification import (
     RidershipPassengersCreateRidershipPassengerRequestBodyClassification,
@@ -7015,15 +7022,19 @@ class RawBetaApIsClient:
         *,
         address: str,
         name: str,
+        camera_recording_mode_type: typing.Optional[PlacesPostPlaceRequestBodyCameraRecordingModeType] = OMIT,
         external_ids: typing.Optional[PlacesPostPlaceRequestBodyExternalIds] = OMIT,
         geofence: typing.Optional[typing.Sequence[GeofenceVertexInputRequestBody]] = OMIT,
         hub_locations: typing.Optional[typing.Sequence[PatchPlaceHubLocationUpsertBodyRequestBody]] = OMIT,
+        ifta_exemption_types: typing.Optional[typing.Sequence[str]] = OMIT,
         latitude: typing.Optional[float] = OMIT,
         longitude: typing.Optional[float] = OMIT,
         navigation: typing.Optional[PostPlaceNavigationInputRequestBody] = OMIT,
         notes: typing.Optional[str] = OMIT,
         place_types: typing.Optional[typing.Sequence[str]] = OMIT,
         radius_meters: typing.Optional[int] = OMIT,
+        safety_event_exclusions: typing.Optional[typing.Sequence[str]] = OMIT,
+        street_view: typing.Optional[PlaceStreetViewResponseRequestBody] = OMIT,
         tags: typing.Optional[typing.Sequence[PostPlaceTagRefRequestBody]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[PlacesPostPlaceResponseBody]:
@@ -7045,6 +7056,9 @@ class RawBetaApIsClient:
         name : str
             Place name.
 
+        camera_recording_mode_type : typing.Optional[PlacesPostPlaceRequestBodyCameraRecordingModeType]
+            Camera recording mode: fullRecording, driverPrivacy, completePrivacy, or inherit.  Valid values: `fullRecording`, `driverPrivacy`, `completePrivacy`, `inherit`, `unknown`, `unspecified`
+
         external_ids : typing.Optional[PlacesPostPlaceRequestBodyExternalIds]
             External identifiers.
 
@@ -7053,6 +7067,9 @@ class RawBetaApIsClient:
 
         hub_locations : typing.Optional[typing.Sequence[PatchPlaceHubLocationUpsertBodyRequestBody]]
             Initial route-planning hub rows for the new place. Each entry requires hubId. Omit hubLocationId to let the server assign a row UUID, or set hubLocationId to pin the UUID for idempotent creates.
+
+        ifta_exemption_types : typing.Optional[typing.Sequence[str]]
+            IFTA exemption types for this place.
 
         latitude : typing.Optional[float]
             Center latitude when using a circle geofence with radiusMeters.
@@ -7071,6 +7088,11 @@ class RawBetaApIsClient:
         radius_meters : typing.Optional[int]
             Circle radius in meters; requires latitude and longitude. Must be at least 1 when set.
 
+        safety_event_exclusions : typing.Optional[typing.Sequence[str]]
+            Safety event types excluded at this place.
+
+        street_view : typing.Optional[PlaceStreetViewResponseRequestBody]
+
         tags : typing.Optional[typing.Sequence[PostPlaceTagRefRequestBody]]
             Tags to associate.
 
@@ -7087,6 +7109,7 @@ class RawBetaApIsClient:
             method="POST",
             json={
                 "address": address,
+                "cameraRecordingModeType": camera_recording_mode_type,
                 "externalIds": convert_and_respect_annotation_metadata(
                     object_=external_ids, annotation=PlacesPostPlaceRequestBodyExternalIds, direction="write"
                 ),
@@ -7098,6 +7121,7 @@ class RawBetaApIsClient:
                     annotation=typing.Sequence[PatchPlaceHubLocationUpsertBodyRequestBody],
                     direction="write",
                 ),
+                "iftaExemptionTypes": ifta_exemption_types,
                 "latitude": latitude,
                 "longitude": longitude,
                 "name": name,
@@ -7107,6 +7131,10 @@ class RawBetaApIsClient:
                 "notes": notes,
                 "placeTypes": place_types,
                 "radiusMeters": radius_meters,
+                "safetyEventExclusions": safety_event_exclusions,
+                "streetView": convert_and_respect_annotation_metadata(
+                    object_=street_view, annotation=PlaceStreetViewResponseRequestBody, direction="write"
+                ),
                 "tags": convert_and_respect_annotation_metadata(
                     object_=tags, annotation=typing.Sequence[PostPlaceTagRefRequestBody], direction="write"
                 ),
@@ -7377,9 +7405,11 @@ class RawBetaApIsClient:
         place_id: int,
         external_id: typing.Optional[str] = None,
         address: typing.Optional[str] = OMIT,
+        camera_recording_mode_type: typing.Optional[PlacesPatchPlaceRequestBodyCameraRecordingModeType] = OMIT,
         external_ids: typing.Optional[PlacesPatchPlaceRequestBodyExternalIds] = OMIT,
         geofence: typing.Optional[typing.Sequence[GeofenceVertexInputRequestBody]] = OMIT,
         hub_locations: typing.Optional[PatchPlaceHubLocationsBodyRequestBody] = OMIT,
+        ifta_exemption_types: typing.Optional[typing.Sequence[str]] = OMIT,
         latitude: typing.Optional[float] = OMIT,
         longitude: typing.Optional[float] = OMIT,
         name: typing.Optional[str] = OMIT,
@@ -7387,6 +7417,8 @@ class RawBetaApIsClient:
         notes: typing.Optional[str] = OMIT,
         place_types: typing.Optional[typing.Sequence[str]] = OMIT,
         radius_meters: typing.Optional[int] = OMIT,
+        safety_event_exclusions: typing.Optional[typing.Sequence[str]] = OMIT,
+        street_view: typing.Optional[PlaceStreetViewResponseRequestBody] = OMIT,
         tags: typing.Optional[typing.Sequence[PostPlaceTagRefRequestBody]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[PlacesPatchPlaceResponseBody]:
@@ -7411,6 +7443,9 @@ class RawBetaApIsClient:
         address : typing.Optional[str]
             Single-line address string.
 
+        camera_recording_mode_type : typing.Optional[PlacesPatchPlaceRequestBodyCameraRecordingModeType]
+            Camera recording mode: fullRecording, driverPrivacy, completePrivacy, or inherit.  Valid values: `fullRecording`, `driverPrivacy`, `completePrivacy`, `inherit`, `unknown`, `unspecified`
+
         external_ids : typing.Optional[PlacesPatchPlaceRequestBodyExternalIds]
             When present, replaces external ids for the place.
 
@@ -7418,6 +7453,9 @@ class RawBetaApIsClient:
             Polygon vertices; at least three when switching to polygon mode.
 
         hub_locations : typing.Optional[PatchPlaceHubLocationsBodyRequestBody]
+
+        ifta_exemption_types : typing.Optional[typing.Sequence[str]]
+            When present, replaces IFTA exemption types for the place.
 
         latitude : typing.Optional[float]
             Center latitude when switching to or editing a circle geofence.
@@ -7439,6 +7477,11 @@ class RawBetaApIsClient:
         radius_meters : typing.Optional[int]
             Circle radius in meters; use with latitude and longitude.
 
+        safety_event_exclusions : typing.Optional[typing.Sequence[str]]
+            When present, replaces safety event exclusions for the place.
+
+        street_view : typing.Optional[PlaceStreetViewResponseRequestBody]
+
         tags : typing.Optional[typing.Sequence[PostPlaceTagRefRequestBody]]
             When present, replaces all tag associations for the place.
 
@@ -7459,6 +7502,7 @@ class RawBetaApIsClient:
             },
             json={
                 "address": address,
+                "cameraRecordingModeType": camera_recording_mode_type,
                 "externalIds": convert_and_respect_annotation_metadata(
                     object_=external_ids, annotation=PlacesPatchPlaceRequestBodyExternalIds, direction="write"
                 ),
@@ -7468,6 +7512,7 @@ class RawBetaApIsClient:
                 "hubLocations": convert_and_respect_annotation_metadata(
                     object_=hub_locations, annotation=PatchPlaceHubLocationsBodyRequestBody, direction="write"
                 ),
+                "iftaExemptionTypes": ifta_exemption_types,
                 "latitude": latitude,
                 "longitude": longitude,
                 "name": name,
@@ -7477,6 +7522,10 @@ class RawBetaApIsClient:
                 "notes": notes,
                 "placeTypes": place_types,
                 "radiusMeters": radius_meters,
+                "safetyEventExclusions": safety_event_exclusions,
+                "streetView": convert_and_respect_annotation_metadata(
+                    object_=street_view, annotation=PlaceStreetViewResponseRequestBody, direction="write"
+                ),
                 "tags": convert_and_respect_annotation_metadata(
                     object_=tags, annotation=typing.Sequence[PostPlaceTagRefRequestBody], direction="write"
                 ),
@@ -19304,15 +19353,19 @@ class AsyncRawBetaApIsClient:
         *,
         address: str,
         name: str,
+        camera_recording_mode_type: typing.Optional[PlacesPostPlaceRequestBodyCameraRecordingModeType] = OMIT,
         external_ids: typing.Optional[PlacesPostPlaceRequestBodyExternalIds] = OMIT,
         geofence: typing.Optional[typing.Sequence[GeofenceVertexInputRequestBody]] = OMIT,
         hub_locations: typing.Optional[typing.Sequence[PatchPlaceHubLocationUpsertBodyRequestBody]] = OMIT,
+        ifta_exemption_types: typing.Optional[typing.Sequence[str]] = OMIT,
         latitude: typing.Optional[float] = OMIT,
         longitude: typing.Optional[float] = OMIT,
         navigation: typing.Optional[PostPlaceNavigationInputRequestBody] = OMIT,
         notes: typing.Optional[str] = OMIT,
         place_types: typing.Optional[typing.Sequence[str]] = OMIT,
         radius_meters: typing.Optional[int] = OMIT,
+        safety_event_exclusions: typing.Optional[typing.Sequence[str]] = OMIT,
+        street_view: typing.Optional[PlaceStreetViewResponseRequestBody] = OMIT,
         tags: typing.Optional[typing.Sequence[PostPlaceTagRefRequestBody]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[PlacesPostPlaceResponseBody]:
@@ -19334,6 +19387,9 @@ class AsyncRawBetaApIsClient:
         name : str
             Place name.
 
+        camera_recording_mode_type : typing.Optional[PlacesPostPlaceRequestBodyCameraRecordingModeType]
+            Camera recording mode: fullRecording, driverPrivacy, completePrivacy, or inherit.  Valid values: `fullRecording`, `driverPrivacy`, `completePrivacy`, `inherit`, `unknown`, `unspecified`
+
         external_ids : typing.Optional[PlacesPostPlaceRequestBodyExternalIds]
             External identifiers.
 
@@ -19342,6 +19398,9 @@ class AsyncRawBetaApIsClient:
 
         hub_locations : typing.Optional[typing.Sequence[PatchPlaceHubLocationUpsertBodyRequestBody]]
             Initial route-planning hub rows for the new place. Each entry requires hubId. Omit hubLocationId to let the server assign a row UUID, or set hubLocationId to pin the UUID for idempotent creates.
+
+        ifta_exemption_types : typing.Optional[typing.Sequence[str]]
+            IFTA exemption types for this place.
 
         latitude : typing.Optional[float]
             Center latitude when using a circle geofence with radiusMeters.
@@ -19360,6 +19419,11 @@ class AsyncRawBetaApIsClient:
         radius_meters : typing.Optional[int]
             Circle radius in meters; requires latitude and longitude. Must be at least 1 when set.
 
+        safety_event_exclusions : typing.Optional[typing.Sequence[str]]
+            Safety event types excluded at this place.
+
+        street_view : typing.Optional[PlaceStreetViewResponseRequestBody]
+
         tags : typing.Optional[typing.Sequence[PostPlaceTagRefRequestBody]]
             Tags to associate.
 
@@ -19376,6 +19440,7 @@ class AsyncRawBetaApIsClient:
             method="POST",
             json={
                 "address": address,
+                "cameraRecordingModeType": camera_recording_mode_type,
                 "externalIds": convert_and_respect_annotation_metadata(
                     object_=external_ids, annotation=PlacesPostPlaceRequestBodyExternalIds, direction="write"
                 ),
@@ -19387,6 +19452,7 @@ class AsyncRawBetaApIsClient:
                     annotation=typing.Sequence[PatchPlaceHubLocationUpsertBodyRequestBody],
                     direction="write",
                 ),
+                "iftaExemptionTypes": ifta_exemption_types,
                 "latitude": latitude,
                 "longitude": longitude,
                 "name": name,
@@ -19396,6 +19462,10 @@ class AsyncRawBetaApIsClient:
                 "notes": notes,
                 "placeTypes": place_types,
                 "radiusMeters": radius_meters,
+                "safetyEventExclusions": safety_event_exclusions,
+                "streetView": convert_and_respect_annotation_metadata(
+                    object_=street_view, annotation=PlaceStreetViewResponseRequestBody, direction="write"
+                ),
                 "tags": convert_and_respect_annotation_metadata(
                     object_=tags, annotation=typing.Sequence[PostPlaceTagRefRequestBody], direction="write"
                 ),
@@ -19666,9 +19736,11 @@ class AsyncRawBetaApIsClient:
         place_id: int,
         external_id: typing.Optional[str] = None,
         address: typing.Optional[str] = OMIT,
+        camera_recording_mode_type: typing.Optional[PlacesPatchPlaceRequestBodyCameraRecordingModeType] = OMIT,
         external_ids: typing.Optional[PlacesPatchPlaceRequestBodyExternalIds] = OMIT,
         geofence: typing.Optional[typing.Sequence[GeofenceVertexInputRequestBody]] = OMIT,
         hub_locations: typing.Optional[PatchPlaceHubLocationsBodyRequestBody] = OMIT,
+        ifta_exemption_types: typing.Optional[typing.Sequence[str]] = OMIT,
         latitude: typing.Optional[float] = OMIT,
         longitude: typing.Optional[float] = OMIT,
         name: typing.Optional[str] = OMIT,
@@ -19676,6 +19748,8 @@ class AsyncRawBetaApIsClient:
         notes: typing.Optional[str] = OMIT,
         place_types: typing.Optional[typing.Sequence[str]] = OMIT,
         radius_meters: typing.Optional[int] = OMIT,
+        safety_event_exclusions: typing.Optional[typing.Sequence[str]] = OMIT,
+        street_view: typing.Optional[PlaceStreetViewResponseRequestBody] = OMIT,
         tags: typing.Optional[typing.Sequence[PostPlaceTagRefRequestBody]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[PlacesPatchPlaceResponseBody]:
@@ -19700,6 +19774,9 @@ class AsyncRawBetaApIsClient:
         address : typing.Optional[str]
             Single-line address string.
 
+        camera_recording_mode_type : typing.Optional[PlacesPatchPlaceRequestBodyCameraRecordingModeType]
+            Camera recording mode: fullRecording, driverPrivacy, completePrivacy, or inherit.  Valid values: `fullRecording`, `driverPrivacy`, `completePrivacy`, `inherit`, `unknown`, `unspecified`
+
         external_ids : typing.Optional[PlacesPatchPlaceRequestBodyExternalIds]
             When present, replaces external ids for the place.
 
@@ -19707,6 +19784,9 @@ class AsyncRawBetaApIsClient:
             Polygon vertices; at least three when switching to polygon mode.
 
         hub_locations : typing.Optional[PatchPlaceHubLocationsBodyRequestBody]
+
+        ifta_exemption_types : typing.Optional[typing.Sequence[str]]
+            When present, replaces IFTA exemption types for the place.
 
         latitude : typing.Optional[float]
             Center latitude when switching to or editing a circle geofence.
@@ -19728,6 +19808,11 @@ class AsyncRawBetaApIsClient:
         radius_meters : typing.Optional[int]
             Circle radius in meters; use with latitude and longitude.
 
+        safety_event_exclusions : typing.Optional[typing.Sequence[str]]
+            When present, replaces safety event exclusions for the place.
+
+        street_view : typing.Optional[PlaceStreetViewResponseRequestBody]
+
         tags : typing.Optional[typing.Sequence[PostPlaceTagRefRequestBody]]
             When present, replaces all tag associations for the place.
 
@@ -19748,6 +19833,7 @@ class AsyncRawBetaApIsClient:
             },
             json={
                 "address": address,
+                "cameraRecordingModeType": camera_recording_mode_type,
                 "externalIds": convert_and_respect_annotation_metadata(
                     object_=external_ids, annotation=PlacesPatchPlaceRequestBodyExternalIds, direction="write"
                 ),
@@ -19757,6 +19843,7 @@ class AsyncRawBetaApIsClient:
                 "hubLocations": convert_and_respect_annotation_metadata(
                     object_=hub_locations, annotation=PatchPlaceHubLocationsBodyRequestBody, direction="write"
                 ),
+                "iftaExemptionTypes": ifta_exemption_types,
                 "latitude": latitude,
                 "longitude": longitude,
                 "name": name,
@@ -19766,6 +19853,10 @@ class AsyncRawBetaApIsClient:
                 "notes": notes,
                 "placeTypes": place_types,
                 "radiusMeters": radius_meters,
+                "safetyEventExclusions": safety_event_exclusions,
+                "streetView": convert_and_respect_annotation_metadata(
+                    object_=street_view, annotation=PlaceStreetViewResponseRequestBody, direction="write"
+                ),
                 "tags": convert_and_respect_annotation_metadata(
                     object_=tags, annotation=typing.Sequence[PostPlaceTagRefRequestBody], direction="write"
                 ),
