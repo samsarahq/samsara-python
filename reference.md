@@ -6535,6 +6535,14 @@ client.beta_ap_is.post_place(
 <dl>
 <dd>
 
+**camera_recording_mode_type:** `typing.Optional[PlacesPostPlaceRequestBodyCameraRecordingModeType]` — Camera recording mode: fullRecording, driverPrivacy, completePrivacy, or inherit.  Valid values: `fullRecording`, `driverPrivacy`, `completePrivacy`, `inherit`, `unknown`, `unspecified`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **external_ids:** `typing.Optional[PlacesPostPlaceRequestBodyExternalIds]` — External identifiers.
     
 </dd>
@@ -6552,6 +6560,14 @@ client.beta_ap_is.post_place(
 <dd>
 
 **hub_locations:** `typing.Optional[typing.Sequence[PatchPlaceHubLocationUpsertBodyRequestBody]]` — Initial route-planning hub rows for the new place. Each entry requires hubId. Omit hubLocationId to let the server assign a row UUID, or set hubLocationId to pin the UUID for idempotent creates.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**ifta_exemption_types:** `typing.Optional[typing.Sequence[str]]` — IFTA exemption types for this place.
     
 </dd>
 </dl>
@@ -6600,6 +6616,22 @@ client.beta_ap_is.post_place(
 <dd>
 
 **radius_meters:** `typing.Optional[int]` — Circle radius in meters; requires latitude and longitude. Must be at least 1 when set.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**safety_event_exclusions:** `typing.Optional[typing.Sequence[str]]` — Safety event types excluded at this place.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**street_view:** `typing.Optional[PlaceStreetViewResponseRequestBody]` 
     
 </dd>
 </dl>
@@ -6785,6 +6817,14 @@ client.beta_ap_is.patch_place(
 <dl>
 <dd>
 
+**camera_recording_mode_type:** `typing.Optional[PlacesPatchPlaceRequestBodyCameraRecordingModeType]` — Camera recording mode: fullRecording, driverPrivacy, completePrivacy, or inherit.  Valid values: `fullRecording`, `driverPrivacy`, `completePrivacy`, `inherit`, `unknown`, `unspecified`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **external_ids:** `typing.Optional[PlacesPatchPlaceRequestBodyExternalIds]` — When present, replaces external ids for the place.
     
 </dd>
@@ -6802,6 +6842,14 @@ client.beta_ap_is.patch_place(
 <dd>
 
 **hub_locations:** `typing.Optional[PatchPlaceHubLocationsBodyRequestBody]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**ifta_exemption_types:** `typing.Optional[typing.Sequence[str]]` — When present, replaces IFTA exemption types for the place.
     
 </dd>
 </dl>
@@ -6858,6 +6906,22 @@ client.beta_ap_is.patch_place(
 <dd>
 
 **radius_meters:** `typing.Optional[int]` — Circle radius in meters; use with latitude and longitude.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**safety_event_exclusions:** `typing.Optional[typing.Sequence[str]]` — When present, replaces safety event exclusions for the place.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**street_view:** `typing.Optional[PlaceStreetViewResponseRequestBody]` 
     
 </dd>
 </dl>

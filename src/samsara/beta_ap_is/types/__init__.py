@@ -23,7 +23,13 @@ if typing.TYPE_CHECKING:
     from .get_qualification_records_stream_request_entity_type import GetQualificationRecordsStreamRequestEntityType
     from .get_qualification_types_request_entity_type import GetQualificationTypesRequestEntityType
     from .list_driver_workflows_request_workflow_type import ListDriverWorkflowsRequestWorkflowType
+    from .places_patch_place_request_body_camera_recording_mode_type import (
+        PlacesPatchPlaceRequestBodyCameraRecordingModeType,
+    )
     from .places_patch_place_request_body_external_ids import PlacesPatchPlaceRequestBodyExternalIds
+    from .places_post_place_request_body_camera_recording_mode_type import (
+        PlacesPostPlaceRequestBodyCameraRecordingModeType,
+    )
     from .places_post_place_request_body_external_ids import PlacesPostPlaceRequestBodyExternalIds
     from .ridership_passengers_create_ridership_passenger_request_body_classification import (
         RidershipPassengersCreateRidershipPassengerRequestBodyClassification,
@@ -58,7 +64,9 @@ _dynamic_imports: typing.Dict[str, str] = {
     "GetQualificationRecordsStreamRequestEntityType": ".get_qualification_records_stream_request_entity_type",
     "GetQualificationTypesRequestEntityType": ".get_qualification_types_request_entity_type",
     "ListDriverWorkflowsRequestWorkflowType": ".list_driver_workflows_request_workflow_type",
+    "PlacesPatchPlaceRequestBodyCameraRecordingModeType": ".places_patch_place_request_body_camera_recording_mode_type",
     "PlacesPatchPlaceRequestBodyExternalIds": ".places_patch_place_request_body_external_ids",
+    "PlacesPostPlaceRequestBodyCameraRecordingModeType": ".places_post_place_request_body_camera_recording_mode_type",
     "PlacesPostPlaceRequestBodyExternalIds": ".places_post_place_request_body_external_ids",
     "RidershipPassengersCreateRidershipPassengerRequestBodyClassification": ".ridership_passengers_create_ridership_passenger_request_body_classification",
     "RidershipPassengersUpdateRidershipPassengerRequestBodyClassification": ".ridership_passengers_update_ridership_passenger_request_body_classification",
@@ -103,7 +111,9 @@ __all__ = [
     "GetQualificationRecordsStreamRequestEntityType",
     "GetQualificationTypesRequestEntityType",
     "ListDriverWorkflowsRequestWorkflowType",
+    "PlacesPatchPlaceRequestBodyCameraRecordingModeType",
     "PlacesPatchPlaceRequestBodyExternalIds",
+    "PlacesPostPlaceRequestBodyCameraRecordingModeType",
     "PlacesPostPlaceRequestBodyExternalIds",
     "RidershipPassengersCreateRidershipPassengerRequestBodyClassification",
     "RidershipPassengersUpdateRidershipPassengerRequestBodyClassification",

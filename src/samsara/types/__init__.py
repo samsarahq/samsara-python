@@ -4217,6 +4217,7 @@ if typing.TYPE_CHECKING:
     from .place_navigation_response_response_body import PlaceNavigationResponseResponseBody
     from .place_response_object_response_body import PlaceResponseObjectResponseBody
     from .place_response_object_response_body_external_ids import PlaceResponseObjectResponseBodyExternalIds
+    from .place_street_view_response_request_body import PlaceStreetViewResponseRequestBody
     from .place_street_view_response_response_body import PlaceStreetViewResponseResponseBody
     from .place_tag_response_response_body import PlaceTagResponseResponseBody
     from .places_delete_place_bad_gateway_error_response_body import PlacesDeletePlaceBadGatewayErrorResponseBody
@@ -10045,6 +10046,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "PlaceNavigationResponseResponseBody": ".place_navigation_response_response_body",
     "PlaceResponseObjectResponseBody": ".place_response_object_response_body",
     "PlaceResponseObjectResponseBodyExternalIds": ".place_response_object_response_body_external_ids",
+    "PlaceStreetViewResponseRequestBody": ".place_street_view_response_request_body",
     "PlaceStreetViewResponseResponseBody": ".place_street_view_response_response_body",
     "PlaceTagResponseResponseBody": ".place_tag_response_response_body",
     "PlacesDeletePlaceBadGatewayErrorResponseBody": ".places_delete_place_bad_gateway_error_response_body",
@@ -13959,6 +13961,7 @@ __all__ = [
     "PlaceNavigationResponseResponseBody",
     "PlaceResponseObjectResponseBody",
     "PlaceResponseObjectResponseBodyExternalIds",
+    "PlaceStreetViewResponseRequestBody",
     "PlaceStreetViewResponseResponseBody",
     "PlaceTagResponseResponseBody",
     "PlacesDeletePlaceBadGatewayErrorResponseBody",

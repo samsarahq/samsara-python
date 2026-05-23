@@ -34,6 +34,11 @@ class ServiceTaskInstanceWithTimeEntriesObjectResponseBody(UniversalBaseModel):
         FieldMetadata(alias="laborTimeMinutes"),
         pydantic.Field(alias="laborTimeMinutes", description="The time of labor needed"),
     ] = None
+    notes: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Free-form technician notes for the service task.
+    """
+
     parts: typing.Optional[typing.List[PartInstanceObjectResponseBody]] = pydantic.Field(default=None)
     """
     Parts for the service task.
