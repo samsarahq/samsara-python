@@ -384,8 +384,8 @@ def test_betaApIs_patch_place() -> None:
     """Test patchPlace endpoint with WireMock"""
     test_id = "beta_ap_is.patch_place.0"
     client = get_client(test_id)
-    client.beta_ap_is.patch_place(place_id=1000000)
-    verify_request_count(test_id, "PATCH", "/places", {"placeId": "1000000"}, 1)
+    client.beta_ap_is.patch_place()
+    verify_request_count(test_id, "PATCH", "/places", None, 1)
 
 
 def test_betaApIs_list_preferred_stations() -> None:

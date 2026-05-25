@@ -6837,7 +6837,7 @@ class RawBetaApIsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[PlacesGetPlacesResponseBody]:
         """
-        Returns places for the authorized organization. Supports cursor pagination or batch fetch by Samsara place ids via `placeIds`.
+        Returns places for the authorized organization. Supports cursor pagination or batch fetch by Samsara place ids via `placeIds` or by external ids via `externalIds` (mutually exclusive).
 
          <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -6855,10 +6855,10 @@ class RawBetaApIsClient:
             The limit for how many objects will be in the response. Default and max for this value is 512 objects.
 
         place_ids : typing.Optional[str]
-            Comma-separated Samsara place IDs for batch lookup (max 100). When set, list filters and cursor pagination are ignored. External id tokens (key:value) are not supported in this version.
+            Comma-separated Samsara place IDs for batch lookup (max 100). When set, list filters and cursor pagination are ignored. Mutually exclusive with `externalIds`.
 
         external_ids : typing.Optional[str]
-            Reserved. Batch lookup by external IDs is not implemented in this API version.
+            Comma-separated external ID tokens (`key:value`) for batch lookup (max 100). When set, list filters and cursor pagination are ignored. Mutually exclusive with `placeIds`.
 
         include_tags : typing.Optional[bool]
             When true, expands tag objects on each place. Defaults to false.
@@ -7083,7 +7083,7 @@ class RawBetaApIsClient:
             Optional notes.
 
         place_types : typing.Optional[typing.Sequence[str]]
-            Unsupported on create; when provided this API returns InvalidArgument.
+            When present, replaces address-type categories via address metadata. Metadata-derived types (hubLocation, navigation, iftaExemption) must match hubLocations, navigation, and existing IFTA metadata in the same request; conflicting combinations return InvalidArgument.
 
         radius_meters : typing.Optional[int]
             Circle radius in meters; requires latitude and longitude. Must be at least 1 when set.
@@ -7402,7 +7402,7 @@ class RawBetaApIsClient:
     def patch_place(
         self,
         *,
-        place_id: int,
+        place_id: typing.Optional[int] = None,
         external_id: typing.Optional[str] = None,
         address: typing.Optional[str] = OMIT,
         camera_recording_mode_type: typing.Optional[PlacesPatchPlaceRequestBodyCameraRecordingModeType] = OMIT,
@@ -7423,7 +7423,7 @@ class RawBetaApIsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[PlacesPatchPlaceResponseBody]:
         """
-        Updates a place. Query parameter `placeId` (Samsara id) is required. Optional `externalId` (key:value) is reserved for a future release and must not be combined with `placeId`. Only fields present in the JSON body are changed; omit a field to leave it unchanged.
+        Updates a place. Provide exactly one of query parameter `placeId` (Samsara id) or `externalId` (key:value). Only fields present in the JSON body are changed; omit a field to leave it unchanged.
 
          <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -7434,11 +7434,11 @@ class RawBetaApIsClient:
 
         Parameters
         ----------
-        place_id : int
-            Samsara place id to update (required). Do not send `externalId` in the same request.
+        place_id : typing.Optional[int]
+            Samsara place id to update. Mutually exclusive with `externalId`; provide exactly one.
 
         external_id : typing.Optional[str]
-            External id token in `key:value` form (e.g. crmId:warehouse-east). Mutually exclusive with `placeId`. Batch lookup by external id is not implemented for this endpoint yet; callers should use `placeId` until supported.
+            External id token in `key:value` form (e.g. crmId:warehouse-east). Mutually exclusive with `placeId`; provide exactly one.
 
         address : typing.Optional[str]
             Single-line address string.
@@ -7472,7 +7472,7 @@ class RawBetaApIsClient:
             Notes.
 
         place_types : typing.Optional[typing.Sequence[str]]
-            Unsupported on patch; when provided this API returns InvalidArgument.
+            When present, replaces address-type categories via address metadata. Metadata-derived types (hubLocation, navigation, iftaExemption) must match hubLocations, navigation, and IFTA metadata after this request; conflicting combinations return InvalidArgument.
 
         radius_meters : typing.Optional[int]
             Circle radius in meters; use with latitude and longitude.
@@ -19168,7 +19168,7 @@ class AsyncRawBetaApIsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[PlacesGetPlacesResponseBody]:
         """
-        Returns places for the authorized organization. Supports cursor pagination or batch fetch by Samsara place ids via `placeIds`.
+        Returns places for the authorized organization. Supports cursor pagination or batch fetch by Samsara place ids via `placeIds` or by external ids via `externalIds` (mutually exclusive).
 
          <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -19186,10 +19186,10 @@ class AsyncRawBetaApIsClient:
             The limit for how many objects will be in the response. Default and max for this value is 512 objects.
 
         place_ids : typing.Optional[str]
-            Comma-separated Samsara place IDs for batch lookup (max 100). When set, list filters and cursor pagination are ignored. External id tokens (key:value) are not supported in this version.
+            Comma-separated Samsara place IDs for batch lookup (max 100). When set, list filters and cursor pagination are ignored. Mutually exclusive with `externalIds`.
 
         external_ids : typing.Optional[str]
-            Reserved. Batch lookup by external IDs is not implemented in this API version.
+            Comma-separated external ID tokens (`key:value`) for batch lookup (max 100). When set, list filters and cursor pagination are ignored. Mutually exclusive with `placeIds`.
 
         include_tags : typing.Optional[bool]
             When true, expands tag objects on each place. Defaults to false.
@@ -19414,7 +19414,7 @@ class AsyncRawBetaApIsClient:
             Optional notes.
 
         place_types : typing.Optional[typing.Sequence[str]]
-            Unsupported on create; when provided this API returns InvalidArgument.
+            When present, replaces address-type categories via address metadata. Metadata-derived types (hubLocation, navigation, iftaExemption) must match hubLocations, navigation, and existing IFTA metadata in the same request; conflicting combinations return InvalidArgument.
 
         radius_meters : typing.Optional[int]
             Circle radius in meters; requires latitude and longitude. Must be at least 1 when set.
@@ -19733,7 +19733,7 @@ class AsyncRawBetaApIsClient:
     async def patch_place(
         self,
         *,
-        place_id: int,
+        place_id: typing.Optional[int] = None,
         external_id: typing.Optional[str] = None,
         address: typing.Optional[str] = OMIT,
         camera_recording_mode_type: typing.Optional[PlacesPatchPlaceRequestBodyCameraRecordingModeType] = OMIT,
@@ -19754,7 +19754,7 @@ class AsyncRawBetaApIsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[PlacesPatchPlaceResponseBody]:
         """
-        Updates a place. Query parameter `placeId` (Samsara id) is required. Optional `externalId` (key:value) is reserved for a future release and must not be combined with `placeId`. Only fields present in the JSON body are changed; omit a field to leave it unchanged.
+        Updates a place. Provide exactly one of query parameter `placeId` (Samsara id) or `externalId` (key:value). Only fields present in the JSON body are changed; omit a field to leave it unchanged.
 
          <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -19765,11 +19765,11 @@ class AsyncRawBetaApIsClient:
 
         Parameters
         ----------
-        place_id : int
-            Samsara place id to update (required). Do not send `externalId` in the same request.
+        place_id : typing.Optional[int]
+            Samsara place id to update. Mutually exclusive with `externalId`; provide exactly one.
 
         external_id : typing.Optional[str]
-            External id token in `key:value` form (e.g. crmId:warehouse-east). Mutually exclusive with `placeId`. Batch lookup by external id is not implemented for this endpoint yet; callers should use `placeId` until supported.
+            External id token in `key:value` form (e.g. crmId:warehouse-east). Mutually exclusive with `placeId`; provide exactly one.
 
         address : typing.Optional[str]
             Single-line address string.
@@ -19803,7 +19803,7 @@ class AsyncRawBetaApIsClient:
             Notes.
 
         place_types : typing.Optional[typing.Sequence[str]]
-            Unsupported on patch; when provided this API returns InvalidArgument.
+            When present, replaces address-type categories via address metadata. Metadata-derived types (hubLocation, navigation, iftaExemption) must match hubLocations, navigation, and IFTA metadata after this request; conflicting combinations return InvalidArgument.
 
         radius_meters : typing.Optional[int]
             Circle radius in meters; use with latitude and longitude.

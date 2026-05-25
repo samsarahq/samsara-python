@@ -4213,6 +4213,8 @@ if typing.TYPE_CHECKING:
     from .photo_value_object_request_body import PhotoValueObjectRequestBody
     from .photo_value_object_response_body import PhotoValueObjectResponseBody
     from .place_geofence_vertex_response_response_body import PlaceGeofenceVertexResponseResponseBody
+    from .place_hub_location_required_skill_input_request_body import PlaceHubLocationRequiredSkillInputRequestBody
+    from .place_hub_location_service_window_input_request_body import PlaceHubLocationServiceWindowInputRequestBody
     from .place_navigation_location_response_response_body import PlaceNavigationLocationResponseResponseBody
     from .place_navigation_response_response_body import PlaceNavigationResponseResponseBody
     from .place_response_object_response_body import PlaceResponseObjectResponseBody
@@ -10042,6 +10044,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "PhotoValueObjectRequestBody": ".photo_value_object_request_body",
     "PhotoValueObjectResponseBody": ".photo_value_object_response_body",
     "PlaceGeofenceVertexResponseResponseBody": ".place_geofence_vertex_response_response_body",
+    "PlaceHubLocationRequiredSkillInputRequestBody": ".place_hub_location_required_skill_input_request_body",
+    "PlaceHubLocationServiceWindowInputRequestBody": ".place_hub_location_service_window_input_request_body",
     "PlaceNavigationLocationResponseResponseBody": ".place_navigation_location_response_response_body",
     "PlaceNavigationResponseResponseBody": ".place_navigation_response_response_body",
     "PlaceResponseObjectResponseBody": ".place_response_object_response_body",
@@ -13957,6 +13961,8 @@ __all__ = [
     "PhotoValueObjectRequestBody",
     "PhotoValueObjectResponseBody",
     "PlaceGeofenceVertexResponseResponseBody",
+    "PlaceHubLocationRequiredSkillInputRequestBody",
+    "PlaceHubLocationServiceWindowInputRequestBody",
     "PlaceNavigationLocationResponseResponseBody",
     "PlaceNavigationResponseResponseBody",
     "PlaceResponseObjectResponseBody",
