@@ -6,6 +6,8 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .place_hub_location_required_skill_input_request_body import PlaceHubLocationRequiredSkillInputRequestBody
+from .place_hub_location_service_window_input_request_body import PlaceHubLocationServiceWindowInputRequestBody
 
 
 class PatchPlaceHubLocationUpsertBodyRequestBody(UniversalBaseModel):
@@ -51,6 +53,25 @@ class PatchPlaceHubLocationUpsertBodyRequestBody(UniversalBaseModel):
         FieldMetadata(alias="locationPositionType"),
         pydantic.Field(
             alias="locationPositionType", description="Stop position preference: unspecified, any, first, or last."
+        ),
+    ] = None
+    required_skills: typing_extensions.Annotated[
+        typing.Optional[typing.List[PlaceHubLocationRequiredSkillInputRequestBody]],
+        FieldMetadata(alias="requiredSkills"),
+        pydantic.Field(alias="requiredSkills", description="Required planner skills for this hub location."),
+    ] = None
+    service_windows: typing_extensions.Annotated[
+        typing.Optional[typing.List[PlaceHubLocationServiceWindowInputRequestBody]],
+        FieldMetadata(alias="serviceWindows"),
+        pydantic.Field(
+            alias="serviceWindows", description="Recurring local-time service windows for this hub location."
+        ),
+    ] = None
+    standard_driver_instructions: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="standardDriverInstructions"),
+        pydantic.Field(
+            alias="standardDriverInstructions", description="Default instructions for drivers at this hub location."
         ),
     ] = None
 
