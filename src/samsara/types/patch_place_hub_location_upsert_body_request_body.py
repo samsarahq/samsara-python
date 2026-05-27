@@ -6,7 +6,9 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .place_hub_location_order_service_time_input_request_body import PlaceHubLocationOrderServiceTimeInputRequestBody
 from .place_hub_location_required_skill_input_request_body import PlaceHubLocationRequiredSkillInputRequestBody
+from .place_hub_location_service_time_input_request_body import PlaceHubLocationServiceTimeInputRequestBody
 from .place_hub_location_service_window_input_request_body import PlaceHubLocationServiceWindowInputRequestBody
 
 
@@ -55,10 +57,25 @@ class PatchPlaceHubLocationUpsertBodyRequestBody(UniversalBaseModel):
             alias="locationPositionType", description="Stop position preference: unspecified, any, first, or last."
         ),
     ] = None
+    location_priority: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="locationPriority"),
+        pydantic.Field(alias="locationPriority", description="Route priority from 1 (lowest) to 5 (highest)."),
+    ] = None
+    order_service_time: typing_extensions.Annotated[
+        typing.Optional[PlaceHubLocationOrderServiceTimeInputRequestBody],
+        FieldMetadata(alias="orderServiceTime"),
+        pydantic.Field(alias="orderServiceTime"),
+    ] = None
     required_skills: typing_extensions.Annotated[
         typing.Optional[typing.List[PlaceHubLocationRequiredSkillInputRequestBody]],
         FieldMetadata(alias="requiredSkills"),
         pydantic.Field(alias="requiredSkills", description="Required planner skills for this hub location."),
+    ] = None
+    service_time: typing_extensions.Annotated[
+        typing.Optional[PlaceHubLocationServiceTimeInputRequestBody],
+        FieldMetadata(alias="serviceTime"),
+        pydantic.Field(alias="serviceTime"),
     ] = None
     service_windows: typing_extensions.Annotated[
         typing.Optional[typing.List[PlaceHubLocationServiceWindowInputRequestBody]],
