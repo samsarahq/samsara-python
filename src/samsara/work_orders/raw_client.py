@@ -376,6 +376,7 @@ class RawWorkOrdersClient:
         *,
         ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         after: typing.Optional[str] = None,
+        include_external_ids: typing.Optional[bool] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[WorkOrdersGetWorkOrdersResponseBody]:
         """
@@ -396,6 +397,9 @@ class RawWorkOrdersClient:
         after : typing.Optional[str]
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
 
+        include_external_ids : typing.Optional[bool]
+            When true, populates `maintenanceSite.placeExternalIds` on each work order by resolving the linked Place's external ids. Defaults to false. Adds one batch lookup per response page.
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -410,6 +414,7 @@ class RawWorkOrdersClient:
             params={
                 "ids": ids,
                 "after": after,
+                "includeExternalIds": include_external_ids,
             },
             request_options=request_options,
         )
@@ -540,6 +545,8 @@ class RawWorkOrdersClient:
         invoice_number: typing.Optional[str] = OMIT,
         items: typing.Optional[typing.Sequence[WorkOrderItemObjectRequestBody]] = OMIT,
         odometer_meters: typing.Optional[int] = OMIT,
+        place_external_id: typing.Optional[str] = OMIT,
+        place_id: typing.Optional[str] = OMIT,
         po_number: typing.Optional[str] = OMIT,
         priority: typing.Optional[WorkOrdersPostWorkOrdersRequestBodyPriority] = OMIT,
         service_task_instances: typing.Optional[typing.Sequence[ServiceTaskInstanceInputObjectRequestBody]] = OMIT,
@@ -588,6 +595,12 @@ class RawWorkOrdersClient:
         odometer_meters : typing.Optional[int]
             The odometer reading at the time of the work order. Will default to current asset reading if unset.
 
+        place_external_id : typing.Optional[str]
+            External ID (`key:value`) of the Place where the work is performed. Resolved against the organization's external IDs for places; the resolved Place must be linked to a maintenance site. Mutually exclusive with `placeId`.
+
+        place_id : typing.Optional[str]
+            ID of the Place where the work is performed. Must reference a Place returned by the Places API that is linked to a maintenance site in the organization. Mutually exclusive with `placeExternalId`.
+
         po_number : typing.Optional[str]
             The purchase order number for the work order.
 
@@ -628,6 +641,8 @@ class RawWorkOrdersClient:
                     object_=items, annotation=typing.Sequence[WorkOrderItemObjectRequestBody], direction="write"
                 ),
                 "odometerMeters": odometer_meters,
+                "placeExternalId": place_external_id,
+                "placeId": place_id,
                 "poNumber": po_number,
                 "priority": priority,
                 "serviceTaskInstances": convert_and_respect_annotation_metadata(
@@ -915,6 +930,8 @@ class RawWorkOrdersClient:
         invoice_number: typing.Optional[str] = OMIT,
         items: typing.Optional[typing.Sequence[WorkOrderItemObjectRequestBody]] = OMIT,
         odometer_meters: typing.Optional[int] = OMIT,
+        place_external_id: typing.Optional[str] = OMIT,
+        place_id: typing.Optional[str] = OMIT,
         po_number: typing.Optional[str] = OMIT,
         priority: typing.Optional[WorkOrdersPatchWorkOrdersRequestBodyPriority] = OMIT,
         service_task_instances: typing.Optional[typing.Sequence[ServiceTaskInstanceInputObjectRequestBody]] = OMIT,
@@ -970,6 +987,12 @@ class RawWorkOrdersClient:
         odometer_meters : typing.Optional[int]
             The odometer reading at the time of the work order. Will default to current asset reading if unset.
 
+        place_external_id : typing.Optional[str]
+            External ID (`key:value`) of the Place where the work is performed. Resolved against the organization's external IDs for places. Send an empty string to clear the maintenance site on the work order. Mutually exclusive with `placeId`.
+
+        place_id : typing.Optional[str]
+            ID of the Place where the work is performed. Must reference a Place returned by the Places API that is linked to a maintenance site in the organization. Send an empty string to clear the maintenance site on the work order. Mutually exclusive with `placeExternalId`.
+
         po_number : typing.Optional[str]
             The purchase order number for the work order.
 
@@ -1015,6 +1038,8 @@ class RawWorkOrdersClient:
                     object_=items, annotation=typing.Sequence[WorkOrderItemObjectRequestBody], direction="write"
                 ),
                 "odometerMeters": odometer_meters,
+                "placeExternalId": place_external_id,
+                "placeId": place_id,
                 "poNumber": po_number,
                 "priority": priority,
                 "serviceTaskInstances": convert_and_respect_annotation_metadata(
@@ -1162,6 +1187,7 @@ class RawWorkOrdersClient:
         ] = None,
         asset_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         assigned_user_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        include_external_ids: typing.Optional[bool] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[WorkOrdersStreamWorkOrdersResponseBody]:
         """
@@ -1194,6 +1220,9 @@ class RawWorkOrdersClient:
         assigned_user_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             Work Order assigned user id filter. Up to 50 ids.
 
+        include_external_ids : typing.Optional[bool]
+            When true, populates `maintenanceSite.placeExternalIds` on each work order by resolving the linked Place's external ids. Defaults to false. Adds one batch lookup per response page.
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -1212,6 +1241,7 @@ class RawWorkOrdersClient:
                 "workOrderStatuses": work_order_statuses,
                 "assetIds": asset_ids,
                 "assignedUserIds": assigned_user_ids,
+                "includeExternalIds": include_external_ids,
             },
             request_options=request_options,
         )
@@ -1666,6 +1696,7 @@ class AsyncRawWorkOrdersClient:
         *,
         ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         after: typing.Optional[str] = None,
+        include_external_ids: typing.Optional[bool] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[WorkOrdersGetWorkOrdersResponseBody]:
         """
@@ -1686,6 +1717,9 @@ class AsyncRawWorkOrdersClient:
         after : typing.Optional[str]
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
 
+        include_external_ids : typing.Optional[bool]
+            When true, populates `maintenanceSite.placeExternalIds` on each work order by resolving the linked Place's external ids. Defaults to false. Adds one batch lookup per response page.
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -1700,6 +1734,7 @@ class AsyncRawWorkOrdersClient:
             params={
                 "ids": ids,
                 "after": after,
+                "includeExternalIds": include_external_ids,
             },
             request_options=request_options,
         )
@@ -1830,6 +1865,8 @@ class AsyncRawWorkOrdersClient:
         invoice_number: typing.Optional[str] = OMIT,
         items: typing.Optional[typing.Sequence[WorkOrderItemObjectRequestBody]] = OMIT,
         odometer_meters: typing.Optional[int] = OMIT,
+        place_external_id: typing.Optional[str] = OMIT,
+        place_id: typing.Optional[str] = OMIT,
         po_number: typing.Optional[str] = OMIT,
         priority: typing.Optional[WorkOrdersPostWorkOrdersRequestBodyPriority] = OMIT,
         service_task_instances: typing.Optional[typing.Sequence[ServiceTaskInstanceInputObjectRequestBody]] = OMIT,
@@ -1878,6 +1915,12 @@ class AsyncRawWorkOrdersClient:
         odometer_meters : typing.Optional[int]
             The odometer reading at the time of the work order. Will default to current asset reading if unset.
 
+        place_external_id : typing.Optional[str]
+            External ID (`key:value`) of the Place where the work is performed. Resolved against the organization's external IDs for places; the resolved Place must be linked to a maintenance site. Mutually exclusive with `placeId`.
+
+        place_id : typing.Optional[str]
+            ID of the Place where the work is performed. Must reference a Place returned by the Places API that is linked to a maintenance site in the organization. Mutually exclusive with `placeExternalId`.
+
         po_number : typing.Optional[str]
             The purchase order number for the work order.
 
@@ -1918,6 +1961,8 @@ class AsyncRawWorkOrdersClient:
                     object_=items, annotation=typing.Sequence[WorkOrderItemObjectRequestBody], direction="write"
                 ),
                 "odometerMeters": odometer_meters,
+                "placeExternalId": place_external_id,
+                "placeId": place_id,
                 "poNumber": po_number,
                 "priority": priority,
                 "serviceTaskInstances": convert_and_respect_annotation_metadata(
@@ -2205,6 +2250,8 @@ class AsyncRawWorkOrdersClient:
         invoice_number: typing.Optional[str] = OMIT,
         items: typing.Optional[typing.Sequence[WorkOrderItemObjectRequestBody]] = OMIT,
         odometer_meters: typing.Optional[int] = OMIT,
+        place_external_id: typing.Optional[str] = OMIT,
+        place_id: typing.Optional[str] = OMIT,
         po_number: typing.Optional[str] = OMIT,
         priority: typing.Optional[WorkOrdersPatchWorkOrdersRequestBodyPriority] = OMIT,
         service_task_instances: typing.Optional[typing.Sequence[ServiceTaskInstanceInputObjectRequestBody]] = OMIT,
@@ -2260,6 +2307,12 @@ class AsyncRawWorkOrdersClient:
         odometer_meters : typing.Optional[int]
             The odometer reading at the time of the work order. Will default to current asset reading if unset.
 
+        place_external_id : typing.Optional[str]
+            External ID (`key:value`) of the Place where the work is performed. Resolved against the organization's external IDs for places. Send an empty string to clear the maintenance site on the work order. Mutually exclusive with `placeId`.
+
+        place_id : typing.Optional[str]
+            ID of the Place where the work is performed. Must reference a Place returned by the Places API that is linked to a maintenance site in the organization. Send an empty string to clear the maintenance site on the work order. Mutually exclusive with `placeExternalId`.
+
         po_number : typing.Optional[str]
             The purchase order number for the work order.
 
@@ -2305,6 +2358,8 @@ class AsyncRawWorkOrdersClient:
                     object_=items, annotation=typing.Sequence[WorkOrderItemObjectRequestBody], direction="write"
                 ),
                 "odometerMeters": odometer_meters,
+                "placeExternalId": place_external_id,
+                "placeId": place_id,
                 "poNumber": po_number,
                 "priority": priority,
                 "serviceTaskInstances": convert_and_respect_annotation_metadata(
@@ -2452,6 +2507,7 @@ class AsyncRawWorkOrdersClient:
         ] = None,
         asset_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         assigned_user_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        include_external_ids: typing.Optional[bool] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[WorkOrdersStreamWorkOrdersResponseBody]:
         """
@@ -2484,6 +2540,9 @@ class AsyncRawWorkOrdersClient:
         assigned_user_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             Work Order assigned user id filter. Up to 50 ids.
 
+        include_external_ids : typing.Optional[bool]
+            When true, populates `maintenanceSite.placeExternalIds` on each work order by resolving the linked Place's external ids. Defaults to false. Adds one batch lookup per response page.
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -2502,6 +2561,7 @@ class AsyncRawWorkOrdersClient:
                 "workOrderStatuses": work_order_statuses,
                 "assetIds": asset_ids,
                 "assignedUserIds": assigned_user_ids,
+                "includeExternalIds": include_external_ids,
             },
             request_options=request_options,
         )

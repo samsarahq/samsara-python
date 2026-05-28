@@ -10,6 +10,7 @@ from .attribute_tiny import AttributeTiny
 from .driver_activation_status import DriverActivationStatus
 from .driver_carrier_settings import DriverCarrierSettings
 from .driver_created_at_time import DriverCreatedAtTime
+from .driver_date_of_birth import DriverDateOfBirth
 from .driver_eld_adverse_weather_exemption_enabled import DriverEldAdverseWeatherExemptionEnabled
 from .driver_eld_big_day_exemption_enabled import DriverEldBigDayExemptionEnabled
 from .driver_eld_day_start_hour import DriverEldDayStartHour
@@ -68,6 +69,9 @@ class Driver(UniversalBaseModel):
         typing.Optional[DriverIdCardCode],
         FieldMetadata(alias="currentIdCardCode"),
         pydantic.Field(alias="currentIdCardCode"),
+    ] = None
+    date_of_birth: typing_extensions.Annotated[
+        typing.Optional[DriverDateOfBirth], FieldMetadata(alias="dateOfBirth"), pydantic.Field(alias="dateOfBirth")
     ] = None
     driver_activation_status: typing_extensions.Annotated[
         typing.Optional[DriverActivationStatus],

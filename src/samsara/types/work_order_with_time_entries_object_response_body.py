@@ -13,6 +13,7 @@ from .service_task_instance_with_time_entries_object_response_body import (
 from .work_order_attachment_object_response_body import WorkOrderAttachmentObjectResponseBody
 from .work_order_discount_object_response_body import WorkOrderDiscountObjectResponseBody
 from .work_order_item_object_response_body import WorkOrderItemObjectResponseBody
+from .work_order_maintenance_site_object_response_body import WorkOrderMaintenanceSiteObjectResponseBody
 from .work_order_tax_object_response_body import WorkOrderTaxObjectResponseBody
 from .work_order_unallocated_labor_object_response_body import WorkOrderUnallocatedLaborObjectResponseBody
 from .work_order_with_time_entries_object_response_body_priority import (
@@ -102,6 +103,11 @@ class WorkOrderWithTimeEntriesObjectResponseBody(UniversalBaseModel):
     Items related to the work order.
     """
 
+    maintenance_site: typing_extensions.Annotated[
+        typing.Optional[WorkOrderMaintenanceSiteObjectResponseBody],
+        FieldMetadata(alias="maintenanceSite"),
+        pydantic.Field(alias="maintenanceSite"),
+    ] = None
     odometer_meters: typing_extensions.Annotated[
         typing.Optional[int],
         FieldMetadata(alias="odometerMeters"),

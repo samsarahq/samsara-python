@@ -1083,6 +1083,7 @@ if typing.TYPE_CHECKING:
         DriverCoachAssignmentsPutDriverCoachAssignmentUnauthorizedErrorResponseBody,
     )
     from .driver_created_at_time import DriverCreatedAtTime
+    from .driver_date_of_birth import DriverDateOfBirth
     from .driver_document_submitted_details_object_request_body import DriverDocumentSubmittedDetailsObjectRequestBody
     from .driver_document_submitted_details_object_response_body import DriverDocumentSubmittedDetailsObjectResponseBody
     from .driver_document_submitted_response_body import DriverDocumentSubmittedResponseBody
@@ -7772,6 +7773,7 @@ if typing.TYPE_CHECKING:
     from .work_order_item_object_request_body_type import WorkOrderItemObjectRequestBodyType
     from .work_order_item_object_response_body import WorkOrderItemObjectResponseBody
     from .work_order_item_object_response_body_type import WorkOrderItemObjectResponseBodyType
+    from .work_order_maintenance_site_object_response_body import WorkOrderMaintenanceSiteObjectResponseBody
     from .work_order_money_object_request_body import WorkOrderMoneyObjectRequestBody
     from .work_order_money_object_request_body_currency import WorkOrderMoneyObjectRequestBodyCurrency
     from .work_order_money_object_response_body import WorkOrderMoneyObjectResponseBody
@@ -8546,6 +8548,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "DriverCoachAssignmentsPutDriverCoachAssignmentTooManyRequestsErrorResponseBody": ".driver_coach_assignments_put_driver_coach_assignment_too_many_requests_error_response_body",
     "DriverCoachAssignmentsPutDriverCoachAssignmentUnauthorizedErrorResponseBody": ".driver_coach_assignments_put_driver_coach_assignment_unauthorized_error_response_body",
     "DriverCreatedAtTime": ".driver_created_at_time",
+    "DriverDateOfBirth": ".driver_date_of_birth",
     "DriverDocumentSubmittedDetailsObjectRequestBody": ".driver_document_submitted_details_object_request_body",
     "DriverDocumentSubmittedDetailsObjectResponseBody": ".driver_document_submitted_details_object_response_body",
     "DriverDocumentSubmittedResponseBody": ".driver_document_submitted_response_body",
@@ -11801,6 +11804,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "WorkOrderItemObjectRequestBodyType": ".work_order_item_object_request_body_type",
     "WorkOrderItemObjectResponseBody": ".work_order_item_object_response_body",
     "WorkOrderItemObjectResponseBodyType": ".work_order_item_object_response_body_type",
+    "WorkOrderMaintenanceSiteObjectResponseBody": ".work_order_maintenance_site_object_response_body",
     "WorkOrderMoneyObjectRequestBody": ".work_order_money_object_request_body",
     "WorkOrderMoneyObjectRequestBodyCurrency": ".work_order_money_object_request_body_currency",
     "WorkOrderMoneyObjectResponseBody": ".work_order_money_object_response_body",
@@ -12467,6 +12471,7 @@ __all__ = [
     "DriverCoachAssignmentsPutDriverCoachAssignmentTooManyRequestsErrorResponseBody",
     "DriverCoachAssignmentsPutDriverCoachAssignmentUnauthorizedErrorResponseBody",
     "DriverCreatedAtTime",
+    "DriverDateOfBirth",
     "DriverDocumentSubmittedDetailsObjectRequestBody",
     "DriverDocumentSubmittedDetailsObjectResponseBody",
     "DriverDocumentSubmittedResponseBody",
@@ -15722,6 +15727,7 @@ __all__ = [
     "WorkOrderItemObjectRequestBodyType",
     "WorkOrderItemObjectResponseBody",
     "WorkOrderItemObjectResponseBodyType",
+    "WorkOrderMaintenanceSiteObjectResponseBody",
     "WorkOrderMoneyObjectRequestBody",
     "WorkOrderMoneyObjectRequestBodyCurrency",
     "WorkOrderMoneyObjectResponseBody",
