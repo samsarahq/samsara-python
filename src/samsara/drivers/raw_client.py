@@ -23,6 +23,7 @@ from ..errors.unauthorized_error import UnauthorizedError
 from ..types.create_driver_request_attributes import CreateDriverRequestAttributes
 from ..types.driver import Driver
 from ..types.driver_carrier_settings import DriverCarrierSettings
+from ..types.driver_date_of_birth import DriverDateOfBirth
 from ..types.driver_has_driving_features_hidden import DriverHasDrivingFeaturesHidden
 from ..types.driver_has_vehicle_unpinning_enabled import DriverHasVehicleUnpinningEnabled
 from ..types.driver_hos_setting import DriverHosSetting
@@ -165,6 +166,7 @@ class RawDriversClient:
         attributes: typing.Optional[typing.Sequence[CreateDriverRequestAttributes]] = OMIT,
         carrier_settings: typing.Optional[DriverCarrierSettings] = OMIT,
         current_id_card_code: typing.Optional[str] = OMIT,
+        date_of_birth: typing.Optional[DriverDateOfBirth] = OMIT,
         eld_adverse_weather_exemption_enabled: typing.Optional[bool] = OMIT,
         eld_big_day_exemption_enabled: typing.Optional[bool] = OMIT,
         eld_day_start_hour: typing.Optional[int] = OMIT,
@@ -218,6 +220,8 @@ class RawDriversClient:
 
         current_id_card_code : typing.Optional[str]
             The ID Card Code on the back of the physical card assigned to the driver.  Contact Samsara if you would like to enable this feature.
+
+        date_of_birth : typing.Optional[DriverDateOfBirth]
 
         eld_adverse_weather_exemption_enabled : typing.Optional[bool]
             Flag indicating this driver may use Adverse Weather exemptions in ELD logs.
@@ -313,6 +317,7 @@ class RawDriversClient:
                     object_=carrier_settings, annotation=DriverCarrierSettings, direction="write"
                 ),
                 "currentIdCardCode": current_id_card_code,
+                "dateOfBirth": date_of_birth,
                 "eldAdverseWeatherExemptionEnabled": eld_adverse_weather_exemption_enabled,
                 "eldBigDayExemptionEnabled": eld_big_day_exemption_enabled,
                 "eldDayStartHour": eld_day_start_hour,
@@ -599,6 +604,7 @@ class RawDriversClient:
         attributes: typing.Optional[typing.Sequence[UpdateDriverRequestAttributes]] = OMIT,
         carrier_settings: typing.Optional[DriverCarrierSettings] = OMIT,
         current_id_card_code: typing.Optional[str] = OMIT,
+        date_of_birth: typing.Optional[DriverDateOfBirth] = OMIT,
         deactivated_at_time: typing.Optional[str] = OMIT,
         driver_activation_status: typing.Optional[UpdateDriverRequestDriverActivationStatus] = OMIT,
         eld_adverse_weather_exemption_enabled: typing.Optional[bool] = OMIT,
@@ -651,6 +657,8 @@ class RawDriversClient:
 
         current_id_card_code : typing.Optional[str]
             The ID Card Code on the back of the physical card assigned to the driver.  Contact Samsara if you would like to enable this feature.
+
+        date_of_birth : typing.Optional[DriverDateOfBirth]
 
         deactivated_at_time : typing.Optional[str]
             The date and time this driver is considered to be deactivated in RFC 3339 format.
@@ -761,6 +769,7 @@ class RawDriversClient:
                     object_=carrier_settings, annotation=DriverCarrierSettings, direction="write"
                 ),
                 "currentIdCardCode": current_id_card_code,
+                "dateOfBirth": date_of_birth,
                 "deactivatedAtTime": deactivated_at_time,
                 "driverActivationStatus": driver_activation_status,
                 "eldAdverseWeatherExemptionEnabled": eld_adverse_weather_exemption_enabled,
@@ -943,6 +952,7 @@ class AsyncRawDriversClient:
         attributes: typing.Optional[typing.Sequence[CreateDriverRequestAttributes]] = OMIT,
         carrier_settings: typing.Optional[DriverCarrierSettings] = OMIT,
         current_id_card_code: typing.Optional[str] = OMIT,
+        date_of_birth: typing.Optional[DriverDateOfBirth] = OMIT,
         eld_adverse_weather_exemption_enabled: typing.Optional[bool] = OMIT,
         eld_big_day_exemption_enabled: typing.Optional[bool] = OMIT,
         eld_day_start_hour: typing.Optional[int] = OMIT,
@@ -996,6 +1006,8 @@ class AsyncRawDriversClient:
 
         current_id_card_code : typing.Optional[str]
             The ID Card Code on the back of the physical card assigned to the driver.  Contact Samsara if you would like to enable this feature.
+
+        date_of_birth : typing.Optional[DriverDateOfBirth]
 
         eld_adverse_weather_exemption_enabled : typing.Optional[bool]
             Flag indicating this driver may use Adverse Weather exemptions in ELD logs.
@@ -1091,6 +1103,7 @@ class AsyncRawDriversClient:
                     object_=carrier_settings, annotation=DriverCarrierSettings, direction="write"
                 ),
                 "currentIdCardCode": current_id_card_code,
+                "dateOfBirth": date_of_birth,
                 "eldAdverseWeatherExemptionEnabled": eld_adverse_weather_exemption_enabled,
                 "eldBigDayExemptionEnabled": eld_big_day_exemption_enabled,
                 "eldDayStartHour": eld_day_start_hour,
@@ -1381,6 +1394,7 @@ class AsyncRawDriversClient:
         attributes: typing.Optional[typing.Sequence[UpdateDriverRequestAttributes]] = OMIT,
         carrier_settings: typing.Optional[DriverCarrierSettings] = OMIT,
         current_id_card_code: typing.Optional[str] = OMIT,
+        date_of_birth: typing.Optional[DriverDateOfBirth] = OMIT,
         deactivated_at_time: typing.Optional[str] = OMIT,
         driver_activation_status: typing.Optional[UpdateDriverRequestDriverActivationStatus] = OMIT,
         eld_adverse_weather_exemption_enabled: typing.Optional[bool] = OMIT,
@@ -1433,6 +1447,8 @@ class AsyncRawDriversClient:
 
         current_id_card_code : typing.Optional[str]
             The ID Card Code on the back of the physical card assigned to the driver.  Contact Samsara if you would like to enable this feature.
+
+        date_of_birth : typing.Optional[DriverDateOfBirth]
 
         deactivated_at_time : typing.Optional[str]
             The date and time this driver is considered to be deactivated in RFC 3339 format.
@@ -1543,6 +1559,7 @@ class AsyncRawDriversClient:
                     object_=carrier_settings, annotation=DriverCarrierSettings, direction="write"
                 ),
                 "currentIdCardCode": current_id_card_code,
+                "dateOfBirth": date_of_birth,
                 "deactivatedAtTime": deactivated_at_time,
                 "driverActivationStatus": driver_activation_status,
                 "eldAdverseWeatherExemptionEnabled": eld_adverse_weather_exemption_enabled,

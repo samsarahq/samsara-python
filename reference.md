@@ -9819,6 +9819,7 @@ client.beta_ap_is.patch_safety_events_v_2_batch(
         "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
         "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
         "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
+        "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
     ],
 )
 
@@ -16475,6 +16476,14 @@ client.drivers.create(
 <dl>
 <dd>
 
+**date_of_birth:** `typing.Optional[DriverDateOfBirth]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **eld_adverse_weather_exemption_enabled:** `typing.Optional[bool]` — Flag indicating this driver may use Adverse Weather exemptions in ELD logs.
     
 </dd>
@@ -16993,6 +17002,14 @@ client.drivers.update(
 <dd>
 
 **current_id_card_code:** `typing.Optional[str]` — The ID Card Code on the back of the physical card assigned to the driver.  Contact Samsara if you would like to enable this feature.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**date_of_birth:** `typing.Optional[DriverDateOfBirth]` 
     
 </dd>
 </dl>
@@ -28797,6 +28814,14 @@ client.work_orders.get_work_orders()
 <dl>
 <dd>
 
+**include_external_ids:** `typing.Optional[bool]` — When true, populates `maintenanceSite.placeExternalIds` on each work order by resolving the linked Place's external ids. Defaults to false. Adds one batch lookup per response page.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
     
 </dd>
@@ -28939,6 +28964,22 @@ client.work_orders.post_work_orders(
 <dd>
 
 **odometer_meters:** `typing.Optional[int]` — The odometer reading at the time of the work order. Will default to current asset reading if unset.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**place_external_id:** `typing.Optional[str]` — External ID (`key:value`) of the Place where the work is performed. Resolved against the organization's external IDs for places; the resolved Place must be linked to a maintenance site. Mutually exclusive with `placeId`.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**place_id:** `typing.Optional[str]` — ID of the Place where the work is performed. Must reference a Place returned by the Places API that is linked to a maintenance site in the organization. Mutually exclusive with `placeExternalId`.
     
 </dd>
 </dl>
@@ -29228,6 +29269,22 @@ client.work_orders.patch_work_orders(
 <dl>
 <dd>
 
+**place_external_id:** `typing.Optional[str]` — External ID (`key:value`) of the Place where the work is performed. Resolved against the organization's external IDs for places. Send an empty string to clear the maintenance site on the work order. Mutually exclusive with `placeId`.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**place_id:** `typing.Optional[str]` — ID of the Place where the work is performed. Must reference a Place returned by the Places API that is linked to a maintenance site in the organization. Send an empty string to clear the maintenance site on the work order. Mutually exclusive with `placeExternalId`.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **po_number:** `typing.Optional[str]` — The purchase order number for the work order.
     
 </dd>
@@ -29391,6 +29448,14 @@ client.work_orders.stream_work_orders(
 <dd>
 
 **assigned_user_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Work Order assigned user id filter. Up to 50 ids.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_external_ids:** `typing.Optional[bool]` — When true, populates `maintenanceSite.placeExternalIds` on each work order by resolving the linked Place's external ids. Defaults to false. Adds one batch lookup per response page.
     
 </dd>
 </dl>
