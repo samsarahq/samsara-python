@@ -388,6 +388,14 @@ def test_betaApIs_patch_place() -> None:
     verify_request_count(test_id, "PATCH", "/places", None, 1)
 
 
+def test_betaApIs_get_place_deletions() -> None:
+    """Test getPlaceDeletions endpoint with WireMock"""
+    test_id = "beta_ap_is.get_place_deletions.0"
+    client = get_client(test_id)
+    client.beta_ap_is.get_place_deletions()
+    verify_request_count(test_id, "GET", "/places/deletions", None, 1)
+
+
 def test_betaApIs_list_preferred_stations() -> None:
     """Test listPreferredStations endpoint with WireMock"""
     test_id = "beta_ap_is.list_preferred_stations.0"

@@ -4213,6 +4213,10 @@ if typing.TYPE_CHECKING:
     from .person_detected_response_body import PersonDetectedResponseBody
     from .photo_value_object_request_body import PhotoValueObjectRequestBody
     from .photo_value_object_response_body import PhotoValueObjectResponseBody
+    from .place_deletion_marker_object_response_body import PlaceDeletionMarkerObjectResponseBody
+    from .place_deletion_marker_object_response_body_external_ids import (
+        PlaceDeletionMarkerObjectResponseBodyExternalIds,
+    )
     from .place_geofence_vertex_response_response_body import PlaceGeofenceVertexResponseResponseBody
     from .place_hub_location_capacity_service_time_input_request_body import (
         PlaceHubLocationCapacityServiceTimeInputRequestBody,
@@ -4254,6 +4258,34 @@ if typing.TYPE_CHECKING:
         PlacesDeletePlaceTooManyRequestsErrorResponseBody,
     )
     from .places_delete_place_unauthorized_error_response_body import PlacesDeletePlaceUnauthorizedErrorResponseBody
+    from .places_get_place_deletions_bad_gateway_error_response_body import (
+        PlacesGetPlaceDeletionsBadGatewayErrorResponseBody,
+    )
+    from .places_get_place_deletions_gateway_timeout_error_response_body import (
+        PlacesGetPlaceDeletionsGatewayTimeoutErrorResponseBody,
+    )
+    from .places_get_place_deletions_internal_server_error_response_body import (
+        PlacesGetPlaceDeletionsInternalServerErrorResponseBody,
+    )
+    from .places_get_place_deletions_method_not_allowed_error_response_body import (
+        PlacesGetPlaceDeletionsMethodNotAllowedErrorResponseBody,
+    )
+    from .places_get_place_deletions_not_found_error_response_body import (
+        PlacesGetPlaceDeletionsNotFoundErrorResponseBody,
+    )
+    from .places_get_place_deletions_not_implemented_error_response_body import (
+        PlacesGetPlaceDeletionsNotImplementedErrorResponseBody,
+    )
+    from .places_get_place_deletions_response_body import PlacesGetPlaceDeletionsResponseBody
+    from .places_get_place_deletions_service_unavailable_error_response_body import (
+        PlacesGetPlaceDeletionsServiceUnavailableErrorResponseBody,
+    )
+    from .places_get_place_deletions_too_many_requests_error_response_body import (
+        PlacesGetPlaceDeletionsTooManyRequestsErrorResponseBody,
+    )
+    from .places_get_place_deletions_unauthorized_error_response_body import (
+        PlacesGetPlaceDeletionsUnauthorizedErrorResponseBody,
+    )
     from .places_get_places_bad_gateway_error_response_body import PlacesGetPlacesBadGatewayErrorResponseBody
     from .places_get_places_gateway_timeout_error_response_body import PlacesGetPlacesGatewayTimeoutErrorResponseBody
     from .places_get_places_internal_server_error_response_body import PlacesGetPlacesInternalServerErrorResponseBody
@@ -10056,6 +10088,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "PersonDetectedResponseBody": ".person_detected_response_body",
     "PhotoValueObjectRequestBody": ".photo_value_object_request_body",
     "PhotoValueObjectResponseBody": ".photo_value_object_response_body",
+    "PlaceDeletionMarkerObjectResponseBody": ".place_deletion_marker_object_response_body",
+    "PlaceDeletionMarkerObjectResponseBodyExternalIds": ".place_deletion_marker_object_response_body_external_ids",
     "PlaceGeofenceVertexResponseResponseBody": ".place_geofence_vertex_response_response_body",
     "PlaceHubLocationCapacityServiceTimeInputRequestBody": ".place_hub_location_capacity_service_time_input_request_body",
     "PlaceHubLocationOrderServiceTimeInputRequestBody": ".place_hub_location_order_service_time_input_request_body",
@@ -10079,6 +10113,16 @@ _dynamic_imports: typing.Dict[str, str] = {
     "PlacesDeletePlaceServiceUnavailableErrorResponseBody": ".places_delete_place_service_unavailable_error_response_body",
     "PlacesDeletePlaceTooManyRequestsErrorResponseBody": ".places_delete_place_too_many_requests_error_response_body",
     "PlacesDeletePlaceUnauthorizedErrorResponseBody": ".places_delete_place_unauthorized_error_response_body",
+    "PlacesGetPlaceDeletionsBadGatewayErrorResponseBody": ".places_get_place_deletions_bad_gateway_error_response_body",
+    "PlacesGetPlaceDeletionsGatewayTimeoutErrorResponseBody": ".places_get_place_deletions_gateway_timeout_error_response_body",
+    "PlacesGetPlaceDeletionsInternalServerErrorResponseBody": ".places_get_place_deletions_internal_server_error_response_body",
+    "PlacesGetPlaceDeletionsMethodNotAllowedErrorResponseBody": ".places_get_place_deletions_method_not_allowed_error_response_body",
+    "PlacesGetPlaceDeletionsNotFoundErrorResponseBody": ".places_get_place_deletions_not_found_error_response_body",
+    "PlacesGetPlaceDeletionsNotImplementedErrorResponseBody": ".places_get_place_deletions_not_implemented_error_response_body",
+    "PlacesGetPlaceDeletionsResponseBody": ".places_get_place_deletions_response_body",
+    "PlacesGetPlaceDeletionsServiceUnavailableErrorResponseBody": ".places_get_place_deletions_service_unavailable_error_response_body",
+    "PlacesGetPlaceDeletionsTooManyRequestsErrorResponseBody": ".places_get_place_deletions_too_many_requests_error_response_body",
+    "PlacesGetPlaceDeletionsUnauthorizedErrorResponseBody": ".places_get_place_deletions_unauthorized_error_response_body",
     "PlacesGetPlacesBadGatewayErrorResponseBody": ".places_get_places_bad_gateway_error_response_body",
     "PlacesGetPlacesGatewayTimeoutErrorResponseBody": ".places_get_places_gateway_timeout_error_response_body",
     "PlacesGetPlacesInternalServerErrorResponseBody": ".places_get_places_internal_server_error_response_body",
@@ -13979,6 +14023,8 @@ __all__ = [
     "PersonDetectedResponseBody",
     "PhotoValueObjectRequestBody",
     "PhotoValueObjectResponseBody",
+    "PlaceDeletionMarkerObjectResponseBody",
+    "PlaceDeletionMarkerObjectResponseBodyExternalIds",
     "PlaceGeofenceVertexResponseResponseBody",
     "PlaceHubLocationCapacityServiceTimeInputRequestBody",
     "PlaceHubLocationOrderServiceTimeInputRequestBody",
@@ -14002,6 +14048,16 @@ __all__ = [
     "PlacesDeletePlaceServiceUnavailableErrorResponseBody",
     "PlacesDeletePlaceTooManyRequestsErrorResponseBody",
     "PlacesDeletePlaceUnauthorizedErrorResponseBody",
+    "PlacesGetPlaceDeletionsBadGatewayErrorResponseBody",
+    "PlacesGetPlaceDeletionsGatewayTimeoutErrorResponseBody",
+    "PlacesGetPlaceDeletionsInternalServerErrorResponseBody",
+    "PlacesGetPlaceDeletionsMethodNotAllowedErrorResponseBody",
+    "PlacesGetPlaceDeletionsNotFoundErrorResponseBody",
+    "PlacesGetPlaceDeletionsNotImplementedErrorResponseBody",
+    "PlacesGetPlaceDeletionsResponseBody",
+    "PlacesGetPlaceDeletionsServiceUnavailableErrorResponseBody",
+    "PlacesGetPlaceDeletionsTooManyRequestsErrorResponseBody",
+    "PlacesGetPlaceDeletionsUnauthorizedErrorResponseBody",
     "PlacesGetPlacesBadGatewayErrorResponseBody",
     "PlacesGetPlacesGatewayTimeoutErrorResponseBody",
     "PlacesGetPlacesInternalServerErrorResponseBody",

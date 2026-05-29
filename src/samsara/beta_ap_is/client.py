@@ -76,6 +76,7 @@ from ..types.patch_safety_events_dismissal_reason_body_request_body import (
     PatchSafetyEventsDismissalReasonBodyRequestBody,
 )
 from ..types.place_street_view_response_request_body import PlaceStreetViewResponseRequestBody
+from ..types.places_get_place_deletions_response_body import PlacesGetPlaceDeletionsResponseBody
 from ..types.places_get_places_response_body import PlacesGetPlacesResponseBody
 from ..types.places_patch_place_response_body import PlacesPatchPlaceResponseBody
 from ..types.places_post_place_response_body import PlacesPostPlaceResponseBody
@@ -2905,6 +2906,51 @@ class BetaApIsClient:
             tags=tags,
             request_options=request_options,
         )
+        return _response.data
+
+    def get_place_deletions(
+        self,
+        *,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> PlacesGetPlaceDeletionsResponseBody:
+        """
+        Returns cursor-paginated deletion markers for soft-deleted places in the organization. Use for replication after DELETE /places.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Places** under the Places category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 512 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        PlacesGetPlaceDeletionsResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.get_place_deletions()
+        """
+        _response = self._raw_client.get_place_deletions(after=after, limit=limit, request_options=request_options)
         return _response.data
 
     def list_preferred_stations(
@@ -7664,6 +7710,61 @@ class AsyncBetaApIsClient:
             street_view=street_view,
             tags=tags,
             request_options=request_options,
+        )
+        return _response.data
+
+    async def get_place_deletions(
+        self,
+        *,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> PlacesGetPlaceDeletionsResponseBody:
+        """
+        Returns cursor-paginated deletion markers for soft-deleted places in the organization. Use for replication after DELETE /places.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Places** under the Places category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 512 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        PlacesGetPlaceDeletionsResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.get_place_deletions()
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_place_deletions(
+            after=after, limit=limit, request_options=request_options
         )
         return _response.data
 
