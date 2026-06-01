@@ -30,6 +30,7 @@ WebhooksPostWebhooksResponseBodyEventTypesItem = typing.Union[
         "RouteStopResequence",
         "SevereSpeedingEnded",
         "SevereSpeedingStarted",
+        "ShipmentTrackingEvent",
         "SpeedingEventEnded",
         "SpeedingEventStarted",
         "SuddenFuelLevelDrop",
