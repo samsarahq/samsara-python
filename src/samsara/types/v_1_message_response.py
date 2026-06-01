@@ -13,7 +13,10 @@ class V1MessageResponse(UniversalBaseModel):
     driver_id: typing_extensions.Annotated[
         int,
         FieldMetadata(alias="driverId"),
-        pydantic.Field(alias="driverId", description="ID of the driver for whom the message is sent to or sent by."),
+        pydantic.Field(
+            alias="driverId",
+            description="ID of the driver associated with this message row. For organizations using Messages v2, this field uses 0 as a sentinel when the message belongs to a non–single-driver channel (for example Announcements channel, multi-member groups, or Driver-to-Admin channels): the API returns one row for the message instead of one row per recipient driver. For 1:1 conversations, this is the driver’s ID. Integrations that only need 1:1 messages should filter responses where driverId != 0.",
+        ),
     ]
     is_read: typing_extensions.Annotated[
         bool,
