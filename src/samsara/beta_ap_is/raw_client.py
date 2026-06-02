@@ -22,6 +22,9 @@ from ..errors.service_unavailable_error import ServiceUnavailableError
 from ..errors.too_many_requests_error import TooManyRequestsError
 from ..errors.unauthorized_error import UnauthorizedError
 from ..types.aemp_equipment_get_aemp_equipment_list_response_body import AempEquipmentGetAempEquipmentListResponseBody
+from ..types.agent_studio_voice_sessions_get_voice_sessions_stream_response_body import (
+    AgentStudioVoiceSessionsGetVoiceSessionsStreamResponseBody,
+)
 from ..types.assets_inputs_get_assets_inputs_response_body import AssetsInputsGetAssetsInputsResponseBody
 from ..types.create_function_request_config_request_body import CreateFunctionRequestConfigRequestBody
 from ..types.create_report_config_object_request_body import CreateReportConfigObjectRequestBody
@@ -233,6 +236,192 @@ OMIT = typing.cast(typing.Any, ...)
 class RawBetaApIsClient:
     def __init__(self, *, client_wrapper: SyncClientWrapper):
         self._client_wrapper = client_wrapper
+
+    def get_voice_sessions_stream(
+        self,
+        *,
+        start_time: str,
+        end_time: typing.Optional[str] = None,
+        agent_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        vehicle_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        driver_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        session_status: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[AgentStudioVoiceSessionsGetVoiceSessionsStreamResponseBody]:
+        """
+        Returns a paginated stream of voice agent session summaries, filterable by start time, agent, vehicle, driver, and status. Sessions are returned ordered by `happenedAtTime` descending (most recent first). Use this endpoint to discover sessions; pass the returned IDs to GET /agent-studio/voice-sessions to fetch full session details.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Agent Studio Voice Sessions** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        start_time : str
+            Lower bound on session start time, in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2026-05-19T14:23:11Z, 2026-05-19T14:23:11.455Z, OR 2026-05-19T10:23:11-04:00).
+
+        end_time : typing.Optional[str]
+            Upper bound on session start time, in RFC 3339 format. Defaults to the current time when omitted. Millisecond precision and timezones are supported.
+
+        agent_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Required, comma-separated list of Agent Studio agent IDs to filter sessions on. Up to 100 agent IDs per call.
+
+        vehicle_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Optional, comma-separated list of vehicle IDs. When set, only sessions whose target device was associated with one of these vehicles are returned. Up to 100 vehicle IDs per call.
+
+        driver_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Optional, comma-separated list of driver IDs. When set, only sessions whose target device was associated with one of these drivers are returned. Up to 100 driver IDs per call.
+
+        session_status : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Optional, comma-separated list of session statuses to filter on. Valid values: `completed`, `running`, `failed`, `unknown`. Defaults to `completed` when omitted.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            Maximum number of sessions to return. Default 50, max 100.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[AgentStudioVoiceSessionsGetVoiceSessionsStreamResponseBody]
+            OK response.
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "agent-studio/voice-sessions/stream",
+            method="GET",
+            params={
+                "startTime": start_time,
+                "endTime": end_time,
+                "agentIds": agent_ids,
+                "vehicleIds": vehicle_ids,
+                "driverIds": driver_ids,
+                "sessionStatus": session_status,
+                "after": after,
+                "limit": limit,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    AgentStudioVoiceSessionsGetVoiceSessionsStreamResponseBody,
+                    parse_obj_as(
+                        type_=AgentStudioVoiceSessionsGetVoiceSessionsStreamResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
     def get_depreciation_transactions(
         self,
@@ -12756,6 +12945,192 @@ class RawBetaApIsClient:
 class AsyncRawBetaApIsClient:
     def __init__(self, *, client_wrapper: AsyncClientWrapper):
         self._client_wrapper = client_wrapper
+
+    async def get_voice_sessions_stream(
+        self,
+        *,
+        start_time: str,
+        end_time: typing.Optional[str] = None,
+        agent_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        vehicle_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        driver_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        session_status: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[AgentStudioVoiceSessionsGetVoiceSessionsStreamResponseBody]:
+        """
+        Returns a paginated stream of voice agent session summaries, filterable by start time, agent, vehicle, driver, and status. Sessions are returned ordered by `happenedAtTime` descending (most recent first). Use this endpoint to discover sessions; pass the returned IDs to GET /agent-studio/voice-sessions to fetch full session details.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Agent Studio Voice Sessions** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        start_time : str
+            Lower bound on session start time, in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2026-05-19T14:23:11Z, 2026-05-19T14:23:11.455Z, OR 2026-05-19T10:23:11-04:00).
+
+        end_time : typing.Optional[str]
+            Upper bound on session start time, in RFC 3339 format. Defaults to the current time when omitted. Millisecond precision and timezones are supported.
+
+        agent_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Required, comma-separated list of Agent Studio agent IDs to filter sessions on. Up to 100 agent IDs per call.
+
+        vehicle_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Optional, comma-separated list of vehicle IDs. When set, only sessions whose target device was associated with one of these vehicles are returned. Up to 100 vehicle IDs per call.
+
+        driver_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Optional, comma-separated list of driver IDs. When set, only sessions whose target device was associated with one of these drivers are returned. Up to 100 driver IDs per call.
+
+        session_status : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Optional, comma-separated list of session statuses to filter on. Valid values: `completed`, `running`, `failed`, `unknown`. Defaults to `completed` when omitted.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            Maximum number of sessions to return. Default 50, max 100.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[AgentStudioVoiceSessionsGetVoiceSessionsStreamResponseBody]
+            OK response.
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "agent-studio/voice-sessions/stream",
+            method="GET",
+            params={
+                "startTime": start_time,
+                "endTime": end_time,
+                "agentIds": agent_ids,
+                "vehicleIds": vehicle_ids,
+                "driverIds": driver_ids,
+                "sessionStatus": session_status,
+                "after": after,
+                "limit": limit,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    AgentStudioVoiceSessionsGetVoiceSessionsStreamResponseBody,
+                    parse_obj_as(
+                        type_=AgentStudioVoiceSessionsGetVoiceSessionsStreamResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
     async def get_depreciation_transactions(
         self,

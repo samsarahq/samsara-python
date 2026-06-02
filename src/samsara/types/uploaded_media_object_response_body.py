@@ -14,6 +14,14 @@ from .url_info_object_response_body import UrlInfoObjectResponseBody
 
 
 class UploadedMediaObjectResponseBody(UniversalBaseModel):
+    aux_cam_serial: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="auxCamSerial"),
+        pydantic.Field(
+            alias="auxCamSerial",
+            description="Serial number of the auxiliary camera that captured this media. Only present for analog inputs from auxiliary camera devices (e.g. Octo-1, Octo-4). Examples: ABDVJ123456789",
+        ),
+    ] = None
     available_at_time: typing_extensions.Annotated[
         str,
         FieldMetadata(alias="availableAtTime"),

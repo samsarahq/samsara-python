@@ -6,6 +6,9 @@ import typing
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.request_options import RequestOptions
 from ..types.aemp_equipment_get_aemp_equipment_list_response_body import AempEquipmentGetAempEquipmentListResponseBody
+from ..types.agent_studio_voice_sessions_get_voice_sessions_stream_response_body import (
+    AgentStudioVoiceSessionsGetVoiceSessionsStreamResponseBody,
+)
 from ..types.assets_inputs_get_assets_inputs_response_body import AssetsInputsGetAssetsInputsResponseBody
 from ..types.create_function_request_config_request_body import CreateFunctionRequestConfigRequestBody
 from ..types.create_report_config_object_request_body import CreateReportConfigObjectRequestBody
@@ -229,6 +232,87 @@ class BetaApIsClient:
         RawBetaApIsClient
         """
         return self._raw_client
+
+    def get_voice_sessions_stream(
+        self,
+        *,
+        start_time: str,
+        end_time: typing.Optional[str] = None,
+        agent_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        vehicle_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        driver_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        session_status: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AgentStudioVoiceSessionsGetVoiceSessionsStreamResponseBody:
+        """
+        Returns a paginated stream of voice agent session summaries, filterable by start time, agent, vehicle, driver, and status. Sessions are returned ordered by `happenedAtTime` descending (most recent first). Use this endpoint to discover sessions; pass the returned IDs to GET /agent-studio/voice-sessions to fetch full session details.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Agent Studio Voice Sessions** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        start_time : str
+            Lower bound on session start time, in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2026-05-19T14:23:11Z, 2026-05-19T14:23:11.455Z, OR 2026-05-19T10:23:11-04:00).
+
+        end_time : typing.Optional[str]
+            Upper bound on session start time, in RFC 3339 format. Defaults to the current time when omitted. Millisecond precision and timezones are supported.
+
+        agent_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Required, comma-separated list of Agent Studio agent IDs to filter sessions on. Up to 100 agent IDs per call.
+
+        vehicle_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Optional, comma-separated list of vehicle IDs. When set, only sessions whose target device was associated with one of these vehicles are returned. Up to 100 vehicle IDs per call.
+
+        driver_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Optional, comma-separated list of driver IDs. When set, only sessions whose target device was associated with one of these drivers are returned. Up to 100 driver IDs per call.
+
+        session_status : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Optional, comma-separated list of session statuses to filter on. Valid values: `completed`, `running`, `failed`, `unknown`. Defaults to `completed` when omitted.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            Maximum number of sessions to return. Default 50, max 100.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AgentStudioVoiceSessionsGetVoiceSessionsStreamResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.get_voice_sessions_stream(
+            start_time="startTime",
+        )
+        """
+        _response = self._raw_client.get_voice_sessions_stream(
+            start_time=start_time,
+            end_time=end_time,
+            agent_ids=agent_ids,
+            vehicle_ids=vehicle_ids,
+            driver_ids=driver_ids,
+            session_status=session_status,
+            after=after,
+            limit=limit,
+            request_options=request_options,
+        )
+        return _response.data
 
     def get_depreciation_transactions(
         self,
@@ -4671,6 +4755,95 @@ class AsyncBetaApIsClient:
         AsyncRawBetaApIsClient
         """
         return self._raw_client
+
+    async def get_voice_sessions_stream(
+        self,
+        *,
+        start_time: str,
+        end_time: typing.Optional[str] = None,
+        agent_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        vehicle_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        driver_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        session_status: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AgentStudioVoiceSessionsGetVoiceSessionsStreamResponseBody:
+        """
+        Returns a paginated stream of voice agent session summaries, filterable by start time, agent, vehicle, driver, and status. Sessions are returned ordered by `happenedAtTime` descending (most recent first). Use this endpoint to discover sessions; pass the returned IDs to GET /agent-studio/voice-sessions to fetch full session details.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Agent Studio Voice Sessions** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        start_time : str
+            Lower bound on session start time, in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2026-05-19T14:23:11Z, 2026-05-19T14:23:11.455Z, OR 2026-05-19T10:23:11-04:00).
+
+        end_time : typing.Optional[str]
+            Upper bound on session start time, in RFC 3339 format. Defaults to the current time when omitted. Millisecond precision and timezones are supported.
+
+        agent_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Required, comma-separated list of Agent Studio agent IDs to filter sessions on. Up to 100 agent IDs per call.
+
+        vehicle_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Optional, comma-separated list of vehicle IDs. When set, only sessions whose target device was associated with one of these vehicles are returned. Up to 100 vehicle IDs per call.
+
+        driver_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Optional, comma-separated list of driver IDs. When set, only sessions whose target device was associated with one of these drivers are returned. Up to 100 driver IDs per call.
+
+        session_status : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Optional, comma-separated list of session statuses to filter on. Valid values: `completed`, `running`, `failed`, `unknown`. Defaults to `completed` when omitted.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            Maximum number of sessions to return. Default 50, max 100.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AgentStudioVoiceSessionsGetVoiceSessionsStreamResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.get_voice_sessions_stream(
+                start_time="startTime",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_voice_sessions_stream(
+            start_time=start_time,
+            end_time=end_time,
+            agent_ids=agent_ids,
+            vehicle_ids=vehicle_ids,
+            driver_ids=driver_ids,
+            session_status=session_status,
+            after=after,
+            limit=limit,
+            request_options=request_options,
+        )
+        return _response.data
 
     async def get_depreciation_transactions(
         self,

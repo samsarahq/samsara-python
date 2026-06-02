@@ -141,9 +141,9 @@ class Samsara:
             timeout=_defaulted_timeout,
         )
         self._addresses: typing.Optional[AddressesClient] = None
+        self._beta_ap_is: typing.Optional[BetaApIsClient] = None
         self._alerts: typing.Optional[AlertsClient] = None
         self._assets: typing.Optional[AssetsClient] = None
-        self._beta_ap_is: typing.Optional[BetaApIsClient] = None
         self._location_and_speed: typing.Optional[LocationAndSpeedClient] = None
         self._attributes: typing.Optional[AttributesClient] = None
         self._media: typing.Optional[MediaClient] = None
@@ -207,6 +207,14 @@ class Samsara:
         return self._addresses
 
     @property
+    def beta_ap_is(self):
+        if self._beta_ap_is is None:
+            from .beta_ap_is.client import BetaApIsClient  # noqa: E402
+
+            self._beta_ap_is = BetaApIsClient(client_wrapper=self._client_wrapper)
+        return self._beta_ap_is
+
+    @property
     def alerts(self):
         if self._alerts is None:
             from .alerts.client import AlertsClient  # noqa: E402
@@ -221,14 +229,6 @@ class Samsara:
 
             self._assets = AssetsClient(client_wrapper=self._client_wrapper)
         return self._assets
-
-    @property
-    def beta_ap_is(self):
-        if self._beta_ap_is is None:
-            from .beta_ap_is.client import BetaApIsClient  # noqa: E402
-
-            self._beta_ap_is = BetaApIsClient(client_wrapper=self._client_wrapper)
-        return self._beta_ap_is
 
     @property
     def location_and_speed(self):
@@ -723,9 +723,9 @@ class AsyncSamsara:
             timeout=_defaulted_timeout,
         )
         self._addresses: typing.Optional[AsyncAddressesClient] = None
+        self._beta_ap_is: typing.Optional[AsyncBetaApIsClient] = None
         self._alerts: typing.Optional[AsyncAlertsClient] = None
         self._assets: typing.Optional[AsyncAssetsClient] = None
-        self._beta_ap_is: typing.Optional[AsyncBetaApIsClient] = None
         self._location_and_speed: typing.Optional[AsyncLocationAndSpeedClient] = None
         self._attributes: typing.Optional[AsyncAttributesClient] = None
         self._media: typing.Optional[AsyncMediaClient] = None
@@ -789,6 +789,14 @@ class AsyncSamsara:
         return self._addresses
 
     @property
+    def beta_ap_is(self):
+        if self._beta_ap_is is None:
+            from .beta_ap_is.client import AsyncBetaApIsClient  # noqa: E402
+
+            self._beta_ap_is = AsyncBetaApIsClient(client_wrapper=self._client_wrapper)
+        return self._beta_ap_is
+
+    @property
     def alerts(self):
         if self._alerts is None:
             from .alerts.client import AsyncAlertsClient  # noqa: E402
@@ -803,14 +811,6 @@ class AsyncSamsara:
 
             self._assets = AsyncAssetsClient(client_wrapper=self._client_wrapper)
         return self._assets
-
-    @property
-    def beta_ap_is(self):
-        if self._beta_ap_is is None:
-            from .beta_ap_is.client import AsyncBetaApIsClient  # noqa: E402
-
-            self._beta_ap_is = AsyncBetaApIsClient(client_wrapper=self._client_wrapper)
-        return self._beta_ap_is
 
     @property
     def location_and_speed(self):
