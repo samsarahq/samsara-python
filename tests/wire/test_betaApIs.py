@@ -3,6 +3,14 @@ from datetime import datetime
 from .conftest import get_client, verify_request_count
 
 
+def test_betaApIs_get_voice_sessions_stream() -> None:
+    """Test getVoiceSessionsStream endpoint with WireMock"""
+    test_id = "beta_ap_is.get_voice_sessions_stream.0"
+    client = get_client(test_id)
+    client.beta_ap_is.get_voice_sessions_stream(start_time="startTime")
+    verify_request_count(test_id, "GET", "/agent-studio/voice-sessions/stream", {"startTime": "startTime"}, 1)
+
+
 def test_betaApIs_get_depreciation_transactions() -> None:
     """Test getDepreciationTransactions endpoint with WireMock"""
     test_id = "beta_ap_is.get_depreciation_transactions.0"

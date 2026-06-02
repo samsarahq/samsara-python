@@ -81,6 +81,40 @@ if typing.TYPE_CHECKING:
     from .aemp_equipment_with_additional_fields_response_body import AempEquipmentWithAdditionalFieldsResponseBody
     from .aemp_fleet_list_response_body import AempFleetListResponseBody
     from .aemp_link_response_body import AempLinkResponseBody
+    from .agent_studio_voice_session_summary_response_body import AgentStudioVoiceSessionSummaryResponseBody
+    from .agent_studio_voice_session_summary_response_body_session_status import (
+        AgentStudioVoiceSessionSummaryResponseBodySessionStatus,
+    )
+    from .agent_studio_voice_sessions_get_voice_sessions_stream_bad_gateway_error_response_body import (
+        AgentStudioVoiceSessionsGetVoiceSessionsStreamBadGatewayErrorResponseBody,
+    )
+    from .agent_studio_voice_sessions_get_voice_sessions_stream_gateway_timeout_error_response_body import (
+        AgentStudioVoiceSessionsGetVoiceSessionsStreamGatewayTimeoutErrorResponseBody,
+    )
+    from .agent_studio_voice_sessions_get_voice_sessions_stream_internal_server_error_response_body import (
+        AgentStudioVoiceSessionsGetVoiceSessionsStreamInternalServerErrorResponseBody,
+    )
+    from .agent_studio_voice_sessions_get_voice_sessions_stream_method_not_allowed_error_response_body import (
+        AgentStudioVoiceSessionsGetVoiceSessionsStreamMethodNotAllowedErrorResponseBody,
+    )
+    from .agent_studio_voice_sessions_get_voice_sessions_stream_not_found_error_response_body import (
+        AgentStudioVoiceSessionsGetVoiceSessionsStreamNotFoundErrorResponseBody,
+    )
+    from .agent_studio_voice_sessions_get_voice_sessions_stream_not_implemented_error_response_body import (
+        AgentStudioVoiceSessionsGetVoiceSessionsStreamNotImplementedErrorResponseBody,
+    )
+    from .agent_studio_voice_sessions_get_voice_sessions_stream_response_body import (
+        AgentStudioVoiceSessionsGetVoiceSessionsStreamResponseBody,
+    )
+    from .agent_studio_voice_sessions_get_voice_sessions_stream_service_unavailable_error_response_body import (
+        AgentStudioVoiceSessionsGetVoiceSessionsStreamServiceUnavailableErrorResponseBody,
+    )
+    from .agent_studio_voice_sessions_get_voice_sessions_stream_too_many_requests_error_response_body import (
+        AgentStudioVoiceSessionsGetVoiceSessionsStreamTooManyRequestsErrorResponseBody,
+    )
+    from .agent_studio_voice_sessions_get_voice_sessions_stream_unauthorized_error_response_body import (
+        AgentStudioVoiceSessionsGetVoiceSessionsStreamUnauthorizedErrorResponseBody,
+    )
     from .alert_object_asset_response_body import AlertObjectAssetResponseBody
     from .alert_object_asset_response_body_type import AlertObjectAssetResponseBodyType
     from .alert_object_driver_response_body import AlertObjectDriverResponseBody
@@ -8080,6 +8114,18 @@ _dynamic_imports: typing.Dict[str, str] = {
     "AempEquipmentWithAdditionalFieldsResponseBody": ".aemp_equipment_with_additional_fields_response_body",
     "AempFleetListResponseBody": ".aemp_fleet_list_response_body",
     "AempLinkResponseBody": ".aemp_link_response_body",
+    "AgentStudioVoiceSessionSummaryResponseBody": ".agent_studio_voice_session_summary_response_body",
+    "AgentStudioVoiceSessionSummaryResponseBodySessionStatus": ".agent_studio_voice_session_summary_response_body_session_status",
+    "AgentStudioVoiceSessionsGetVoiceSessionsStreamBadGatewayErrorResponseBody": ".agent_studio_voice_sessions_get_voice_sessions_stream_bad_gateway_error_response_body",
+    "AgentStudioVoiceSessionsGetVoiceSessionsStreamGatewayTimeoutErrorResponseBody": ".agent_studio_voice_sessions_get_voice_sessions_stream_gateway_timeout_error_response_body",
+    "AgentStudioVoiceSessionsGetVoiceSessionsStreamInternalServerErrorResponseBody": ".agent_studio_voice_sessions_get_voice_sessions_stream_internal_server_error_response_body",
+    "AgentStudioVoiceSessionsGetVoiceSessionsStreamMethodNotAllowedErrorResponseBody": ".agent_studio_voice_sessions_get_voice_sessions_stream_method_not_allowed_error_response_body",
+    "AgentStudioVoiceSessionsGetVoiceSessionsStreamNotFoundErrorResponseBody": ".agent_studio_voice_sessions_get_voice_sessions_stream_not_found_error_response_body",
+    "AgentStudioVoiceSessionsGetVoiceSessionsStreamNotImplementedErrorResponseBody": ".agent_studio_voice_sessions_get_voice_sessions_stream_not_implemented_error_response_body",
+    "AgentStudioVoiceSessionsGetVoiceSessionsStreamResponseBody": ".agent_studio_voice_sessions_get_voice_sessions_stream_response_body",
+    "AgentStudioVoiceSessionsGetVoiceSessionsStreamServiceUnavailableErrorResponseBody": ".agent_studio_voice_sessions_get_voice_sessions_stream_service_unavailable_error_response_body",
+    "AgentStudioVoiceSessionsGetVoiceSessionsStreamTooManyRequestsErrorResponseBody": ".agent_studio_voice_sessions_get_voice_sessions_stream_too_many_requests_error_response_body",
+    "AgentStudioVoiceSessionsGetVoiceSessionsStreamUnauthorizedErrorResponseBody": ".agent_studio_voice_sessions_get_voice_sessions_stream_unauthorized_error_response_body",
     "AlertObjectAssetResponseBody": ".alert_object_asset_response_body",
     "AlertObjectAssetResponseBodyType": ".alert_object_asset_response_body_type",
     "AlertObjectDriverResponseBody": ".alert_object_driver_response_body",
@@ -12015,6 +12061,18 @@ __all__ = [
     "AempEquipmentWithAdditionalFieldsResponseBody",
     "AempFleetListResponseBody",
     "AempLinkResponseBody",
+    "AgentStudioVoiceSessionSummaryResponseBody",
+    "AgentStudioVoiceSessionSummaryResponseBodySessionStatus",
+    "AgentStudioVoiceSessionsGetVoiceSessionsStreamBadGatewayErrorResponseBody",
+    "AgentStudioVoiceSessionsGetVoiceSessionsStreamGatewayTimeoutErrorResponseBody",
+    "AgentStudioVoiceSessionsGetVoiceSessionsStreamInternalServerErrorResponseBody",
+    "AgentStudioVoiceSessionsGetVoiceSessionsStreamMethodNotAllowedErrorResponseBody",
+    "AgentStudioVoiceSessionsGetVoiceSessionsStreamNotFoundErrorResponseBody",
+    "AgentStudioVoiceSessionsGetVoiceSessionsStreamNotImplementedErrorResponseBody",
+    "AgentStudioVoiceSessionsGetVoiceSessionsStreamResponseBody",
+    "AgentStudioVoiceSessionsGetVoiceSessionsStreamServiceUnavailableErrorResponseBody",
+    "AgentStudioVoiceSessionsGetVoiceSessionsStreamTooManyRequestsErrorResponseBody",
+    "AgentStudioVoiceSessionsGetVoiceSessionsStreamUnauthorizedErrorResponseBody",
     "AlertObjectAssetResponseBody",
     "AlertObjectAssetResponseBodyType",
     "AlertObjectDriverResponseBody",

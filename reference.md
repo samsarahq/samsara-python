@@ -559,8 +559,8 @@ client.addresses.update(
 </dl>
 </details>
 
-## Alerts
-<details><summary><code>client.alerts.<a href="src/samsara/alerts/client.py">get_configurations</a>(...) -&gt; AsyncHttpResponse[AlertsGetConfigurationsResponseBody]</code></summary>
+## Beta APIs
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_voice_sessions_stream</a>(...) -&gt; AsyncHttpResponse[AgentStudioVoiceSessionsGetVoiceSessionsStreamResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -572,301 +572,11 @@ client.addresses.update(
 <dl>
 <dd>
 
-Get specified Alert Configurations.
-
-The following trigger types are API enabled and will show up in the results:
-Vehicle Speed
-Ambient Temperature
-Fuel Level (Percentage)
-Vehicle DEF Level (Percentage)
-Vehicle Battery
-Gateway Unplugged
-Dashcam Disconnected
-Camera Connector Disconnected
-Asset starts moving
-Inside Geofence
-Outside Geofence
-Unassigned Driving
-Driver HOS Violation
-Vehicle Engine Idle
-Asset Engine On
-Asset Engine Off
-Harsh Event
-Scheduled Maintenance
-Scheduled Maintenance by Odometer
-Scheduled Maintenance by Engine Hours
-Out of Route
-GPS Signal Loss
-Cell Signal Loss
-Fault Code
-Tire Faults
-Gateway Disconnected
-Panic Button
-Tampering Detected
-Asset Reading
-If vehicle is severely speeding (as defined by your organization)
-DVIR Submitted for Asset
-Driver Document Submitted
-Driver App Sign In
-Driver App Sign Out
-Geofence Entry
-Geofence Exit
-Route Stop ETA Alert
-Driver Recorded
-A safety event occurred with a driver assigned
-A safety event occurred
-Sudden Fuel Level Rise
-Sudden Fuel Level Drop
-Scheduled Date And Time
-Training Assignment Due Soon
-Training Assignment Past Due
-
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Read Alerts** under the Alerts category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.alerts.get_configurations()
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Filter by the IDs. Returns all if no ids are provided.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**status:** `typing.Optional[GetConfigurationsRequestStatus]` — The status of the alert configuration.  Valid values: `all`, `enabled`, `disabled`
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**include_external_ids:** `typing.Optional[bool]` — Optional boolean indicating whether to return external IDs on supported entities
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.alerts.<a href="src/samsara/alerts/client.py">post_configurations</a>(...) -&gt; AsyncHttpResponse[AlertsPostConfigurationsResponseBody]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Creates an alert configuration.
+Returns a paginated stream of voice agent session summaries, filterable by start time, agent, vehicle, driver, and status. Sessions are returned ordered by `happenedAtTime` descending (most recent first). Use this endpoint to discover sessions; pass the returned IDs to GET /agent-studio/voice-sessions to fetch full session details.
 
  <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Alerts** under the Alerts category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import (
-    ActionObjectRequestBody,
-    Samsara,
-    ScopeObjectRequestBody,
-    WorkflowTriggerObjectRequestBody,
-)
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.alerts.post_configurations(
-    actions=[
-        ActionObjectRequestBody(
-            action_type_id=1,
-        )
-    ],
-    is_enabled=True,
-    name="My Harsh Event Alert",
-    scope=ScopeObjectRequestBody(
-        all_=False,
-    ),
-    triggers=[
-        WorkflowTriggerObjectRequestBody(
-            trigger_type_id=1000,
-        )
-    ],
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**actions:** `typing.Sequence[ActionObjectRequestBody]` — An array of actions.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**is_enabled:** `bool` — Whether the alert is enabled or not.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**name:** `str` — The custom name of the configuration.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**scope:** `ScopeObjectRequestBody` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**triggers:** `typing.Sequence[WorkflowTriggerObjectRequestBody]` — An array of triggers.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**external_ids:** `typing.Optional[typing.Dict[str, str]]` — A map of external ids
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**operational_settings:** `typing.Optional[OperationalSettingsObjectRequestBody]` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.alerts.<a href="src/samsara/alerts/client.py">delete_configurations</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Delete an alert configuration.
-
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Write Alerts** under the Alerts category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+To use this endpoint, select **Read Agent Studio Voice Sessions** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -889,217 +599,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.alerts.delete_configurations(
-    id="id",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**id:** `str` — The unqiue Samsara id of the alert configuration.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.alerts.<a href="src/samsara/alerts/client.py">patch_configurations</a>(...) -&gt; AsyncHttpResponse[AlertsPatchConfigurationsResponseBody]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Updates an alert configuration.
-
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Write Alerts** under the Alerts category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.alerts.patch_configurations(
-    id="e1c5dffc-c7b7-47b0-a778-6a65de638abf",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**id:** `str` — The unqiue Samsara id of the alert configuration.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**actions:** `typing.Optional[typing.Sequence[ActionObjectRequestBody]]` — An array of actions.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**external_ids:** `typing.Optional[typing.Dict[str, str]]` — A map of external ids
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**is_enabled:** `typing.Optional[bool]` — Whether the alert is enabled or not.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**name:** `typing.Optional[str]` — The custom name of the configuration.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**operational_settings:** `typing.Optional[OperationalSettingsObjectRequestBody]` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**scope:** `typing.Optional[ScopeObjectRequestBody]` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**triggers:** `typing.Optional[typing.Sequence[WorkflowTriggerObjectRequestBody]]` — An array of triggers.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.alerts.<a href="src/samsara/alerts/client.py">get_incidents</a>(...) -&gt; AsyncHttpResponse[AlertsGetIncidentsResponseBody]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Get Alert Incidents for specific Alert Configurations over a specified period of time.
-
- <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Read Alerts** under the Alerts category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.alerts.get_incidents(
+client.beta_ap_is.get_voice_sessions_stream(
     start_time="startTime",
 )
 
@@ -1117,7 +617,7 @@ client.alerts.get_incidents(
 <dl>
 <dd>
 
-**start_time:** `str` — Required RFC 3339 timestamp that indicates when to begin receiving data. This will be based on updatedAtTime.
+**start_time:** `str` — Lower bound on session start time, in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2026-05-19T14:23:11Z, 2026-05-19T14:23:11.455Z, OR 2026-05-19T10:23:11-04:00).
     
 </dd>
 </dl>
@@ -1125,7 +625,7 @@ client.alerts.get_incidents(
 <dl>
 <dd>
 
-**configuration_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Required array of alert configuration ids to return incident data for.
+**end_time:** `typing.Optional[str]` — Upper bound on session start time, in RFC 3339 format. Defaults to the current time when omitted. Millisecond precision and timezones are supported.
     
 </dd>
 </dl>
@@ -1133,7 +633,7 @@ client.alerts.get_incidents(
 <dl>
 <dd>
 
-**end_time:** `typing.Optional[str]` — Optional RFC 3339 timestamp to stop receiving data. Defaults to now if not provided. This will be based on updatedAtTime.
+**agent_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Required, comma-separated list of Agent Studio agent IDs to filter sessions on. Up to 100 agent IDs per call.
     
 </dd>
 </dl>
@@ -1141,7 +641,7 @@ client.alerts.get_incidents(
 <dl>
 <dd>
 
-**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+**vehicle_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Optional, comma-separated list of vehicle IDs. When set, only sessions whose target device was associated with one of these vehicles are returned. Up to 100 vehicle IDs per call.
     
 </dd>
 </dl>
@@ -1149,80 +649,15 @@ client.alerts.get_incidents(
 <dl>
 <dd>
 
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+**driver_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Optional, comma-separated list of driver IDs. When set, only sessions whose target device was associated with one of these drivers are returned. Up to 100 driver IDs per call.
     
 </dd>
 </dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-## Assets
-<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">list</a>(...) -&gt; AsyncPager[AssetResponseBody, AssetsListAssetsResponseBody]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
 
 <dl>
 <dd>
 
-<dl>
-<dd>
-
-List all assets. Up to 300 assets will be returned per page.
-
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Read Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-response = client.assets.list()
-for item in response:
-    yield item
-# alternatively, you can paginate page-by-page
-for page in response.iter_pages():
-    yield page
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**type:** `typing.Optional[ListAssetsRequestType]` — The operational context in which the asset interacts with the Samsara system. Examples: Vehicle (eg: truck, bus...), Trailer (eg: dry van, reefer, flatbed...), Powered Equipment (eg: dozer, crane...), Unpowered Equipment (eg: container, dumpster...), or Uncategorized.  Valid values: `uncategorized`, `trailer`, `equipment`, `unpowered`, `vehicle`
+**session_status:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Optional, comma-separated list of session statuses to filter on. Valid values: `completed`, `running`, `failed`, `unknown`. Defaults to `completed` when omitted.
     
 </dd>
 </dl>
@@ -1238,79 +673,7 @@ for page in response.iter_pages():
 <dl>
 <dd>
 
-**updated_after_time:** `typing.Optional[str]` —  A filter on data to have an updated at time after or equal to this specified time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**include_external_ids:** `typing.Optional[bool]` — Optional boolean indicating whether to return external IDs on supported entities
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**include_tags:** `typing.Optional[bool]` — Optional boolean indicating whether to return tags on supported entities
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**tag_ids:** `typing.Optional[str]` —  A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**parent_tag_ids:** `typing.Optional[str]` —  A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — A filter on the data based on this comma-separated list of asset IDs and External IDs.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**external_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — A filter on the data based on this comma-separated list of external IDs. Example: `externalIds=maintenanceId:250020,vin:1HGBH41JXMN109186`
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**attribute_value_ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of attribute value IDs. Only entities associated with ALL of the referenced values will be returned (i.e. the intersection of the sets of entities with each value). Example: `attributeValueIds=076efac2-83b5-47aa-ba36-18428436dcac,6707b3f0-23b9-4fe3-b7be-11be34aea544`
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**attributes:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — A filter on the data to return entities within given range query (only for numeric and date attributes) separated by a comma. Only entities meeting all the conditions will be returned. At least one bound must be provided. Example: `attributes=Length:range(8,)&attributes=Length:range(10,20)&attributes=Date:range(2025-01-01,2025-01-31)`
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**include_attributes:** `typing.Optional[bool]` — Optional boolean indicating whether to return attributes on supported entities
+**limit:** `typing.Optional[int]` — Maximum number of sessions to return. Default 50, max 100.
     
 </dd>
 </dl>
@@ -1330,955 +693,6 @@ for page in response.iter_pages():
 </dl>
 </details>
 
-<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">create_asset</a>(...) -&gt; AsyncHttpResponse[AssetsCreateAssetResponseBody]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Create a new asset.
-
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Write Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.assets.create_asset()
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**attributes:** `typing.Optional[typing.Sequence[GoaAttributeTinyRequestBody]]` — A list of attributes to assign to the asset.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**external_ids:** `typing.Optional[typing.Dict[str, str]]` — A map of external ids
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**license_plate:** `typing.Optional[str]` — The license plate of the asset.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**make:** `typing.Optional[str]` — The OEM/manufacturer of the asset. Updates to this field are restricted.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**model:** `typing.Optional[str]` — The model of the asset. Updates to this field are restricted.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**name:** `typing.Optional[str]` — The human-readable name of the asset. This is set by a fleet administrator and will appear in both Samsara’s cloud dashboard as well as the Samsara Driver mobile app. By default, this name is the serial number of the Samsara Asset Gateway. It can be set or updated through the Samsara Dashboard or through the API at any time.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**notes:** `typing.Optional[str]` — These are generic notes about the asset. Can be set or updated through the Samsara Dashboard or the API at any time.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**readings_ingestion_enabled:** `typing.Optional[bool]` — Indicates whether the asset is expected to have data ingested using the Readings API.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**regulation_mode:** `typing.Optional[AssetsCreateAssetRequestBodyRegulationMode]` — Whether or not the asset is regulated, unregulated (non-CMV), or a mixed use unregulated asset. Primarily used with vehicles.  Valid values: `mixed`, `regulated`, `unregulated`
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**serial_number:** `typing.Optional[str]` — The serial number of the asset. This can be an internal serial number or used to hold legacy VIN/PIN numbers such as ones of shorter lengths.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**tag_ids:** `typing.Optional[typing.Sequence[str]]` — An array of IDs of tags to associate with this asset. If your access to the API is scoped by one or more tags, this field is required to pass in.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**type:** `typing.Optional[AssetsCreateAssetRequestBodyType]` — The operational context in which the asset interacts with the Samsara system. Examples: Vehicle (eg: truck, bus...), Trailer (eg: dry van, reefer, flatbed...), Powered Equipment (eg: dozer, crane...), Unpowered Equipment (eg: container, dumpster...), or Uncategorized.  Valid values: `uncategorized`, `trailer`, `equipment`, `unpowered`, `vehicle`
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**vin:** `typing.Optional[str]` — The unique 17-digit VIN (Vehicle Identification Number) or PIN (Product Identification Number) of the asset.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**year:** `typing.Optional[int]` — The model year of the asset. Updates to this field are restricted.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">delete_asset</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Delete an existing asset.
-
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Write Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.assets.delete_asset(
-    id="id",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**id:** `str` — A filter selecting a single asset by id.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">update_asset</a>(...) -&gt; AsyncHttpResponse[AssetsUpdateAssetResponseBody]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Update an existing asset.
-
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Write Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.assets.update_asset(
-    id="id",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**id:** `str` — A filter selecting a single asset by id.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**external_ids:** `typing.Optional[typing.Dict[str, str]]` — A map of external ids
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**license_plate:** `typing.Optional[str]` — The license plate of the asset.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**make:** `typing.Optional[str]` — The OEM/manufacturer of the asset. Updates to this field are restricted.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**model:** `typing.Optional[str]` — The model of the asset. Updates to this field are restricted.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**name:** `typing.Optional[str]` — The human-readable name of the asset. This is set by a fleet administrator and will appear in both Samsara’s cloud dashboard as well as the Samsara Driver mobile app. By default, this name is the serial number of the Samsara Asset Gateway. It can be set or updated through the Samsara Dashboard or through the API at any time.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**notes:** `typing.Optional[str]` — These are generic notes about the asset. Can be set or updated through the Samsara Dashboard or the API at any time.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**readings_ingestion_enabled:** `typing.Optional[bool]` — Indicates whether the asset is expected to have data ingested using the Readings API.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**regulation_mode:** `typing.Optional[AssetsUpdateAssetRequestBodyRegulationMode]` — Whether or not the asset is regulated, unregulated (non-CMV), or a mixed use unregulated asset. Primarily used with vehicles.  Valid values: `mixed`, `regulated`, `unregulated`
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**serial_number:** `typing.Optional[str]` — The serial number of the asset. This can be an internal serial number or used to hold legacy VIN/PIN numbers such as ones of shorter lengths.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**type:** `typing.Optional[AssetsUpdateAssetRequestBodyType]` — The operational context in which the asset interacts with the Samsara system. Examples: Vehicle (eg: truck, bus...), Trailer (eg: dry van, reefer, flatbed...), Powered Equipment (eg: dozer, crane...), Unpowered Equipment (eg: container, dumpster...), or Uncategorized.  Valid values: `uncategorized`, `trailer`, `equipment`, `unpowered`, `vehicle`
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**vin:** `typing.Optional[str]` — The unique 17-digit VIN (Vehicle Identification Number) or PIN (Product Identification Number) of the asset.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**year:** `typing.Optional[int]` — The model year of the asset. Updates to this field are restricted.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">v_1_get_all_asset_current_locations</a>(...) -&gt; AsyncHttpResponse[InlineResponse2002]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-<n class="warning">
-<nh>
-<i class="fa fa-exclamation-circle"></i>
-This endpoint is still on our legacy API.
-</nh>
-</n>
-
-Fetch current locations of all assets. 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.assets.v_1_get_all_asset_current_locations()
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**starting_after:** `typing.Optional[str]` — Pagination parameter indicating the cursor position to continue returning results after. Used in conjunction with the 'limit' parameter. Mutually exclusive with 'endingBefore' parameter.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**ending_before:** `typing.Optional[str]` — Pagination parameter indicating the cursor position to return results before. Used in conjunction with the 'limit' parameter. Mutually exclusive with 'startingAfter' parameter.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**limit:** `typing.Optional[int]` — Pagination parameter indicating the number of results to return in this request. Used in conjunction with either 'startingAfter' or 'endingBefore'.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">v_1_get_assets_reefers</a>(...) -&gt; AsyncHttpResponse[InlineResponse2003]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-<n class="warning">
-<nh>
-<i class="fa fa-exclamation-circle"></i>
-This endpoint is still on our legacy API.
-</nh>
-</n>
-
-Fetches all reefers and reefer-specific stats. 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-To use this endpoint, select **Read Trailers** under the Trailers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.assets.v_1_get_assets_reefers(
-    start_ms=1000000,
-    end_ms=1000000,
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**start_ms:** `int` — Timestamp in milliseconds representing the start of the period to fetch, inclusive. Used in combination with endMs.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**end_ms:** `int` — Timestamp in milliseconds representing the end of the period to fetch, inclusive. Used in combination with startMs.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**starting_after:** `typing.Optional[str]` — Pagination parameter indicating the cursor position to continue returning results after. Used in conjunction with the 'limit' parameter. Mutually exclusive with 'endingBefore' parameter.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**ending_before:** `typing.Optional[str]` — Pagination parameter indicating the cursor position to return results before. Used in conjunction with the 'limit' parameter. Mutually exclusive with 'startingAfter' parameter.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**limit:** `typing.Optional[int]` — Pagination parameter indicating the number of results to return in this request. Used in conjunction with either 'startingAfter' or 'endingBefore'.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">v_1_get_asset_location</a>(...) -&gt; AsyncHttpResponse[V1AssetLocationResponse]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-<n class="warning">
-<nh>
-<i class="fa fa-exclamation-circle"></i>
-This endpoint is still on our legacy API.
-</nh>
-</n>
-
-List historical locations for a given asset. 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.assets.v_1_get_asset_location(
-    asset_id=1000000,
-    start_ms=1000000,
-    end_ms=1000000,
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**asset_id:** `int` — ID of the asset. Must contain only digits 0-9.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**start_ms:** `int` — Timestamp in milliseconds representing the start of the period to fetch, inclusive. Used in combination with endMs.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**end_ms:** `int` — Timestamp in milliseconds representing the end of the period to fetch, inclusive. Used in combination with startMs.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">v_1_get_asset_reefer</a>(...) -&gt; AsyncHttpResponse[V1AssetReeferResponse]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-<n class="warning">
-<nh>
-<i class="fa fa-exclamation-circle"></i>
-This endpoint is still on our legacy API.
-</nh>
-</n>
-
-Fetch the reefer-specific stats of an asset. 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-To use this endpoint, select **Read Trailers** under the Trailers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.assets.v_1_get_asset_reefer(
-    asset_id=1000000,
-    start_ms=1000000,
-    end_ms=1000000,
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**asset_id:** `int` — ID of the asset. Must contain only digits 0-9.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**start_ms:** `int` — Timestamp in milliseconds representing the start of the period to fetch, inclusive. Used in combination with endMs.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**end_ms:** `int` — Timestamp in milliseconds representing the end of the period to fetch, inclusive. Used in combination with startMs.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">get</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.assets.get(
-    id="id",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**id:** `str` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">update</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
-<dl>
-<dd>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.assets.update(
-    id="id",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**id:** `str` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-## Beta APIs
 <details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_depreciation_transactions</a>(...) -&gt; AsyncHttpResponse[DepreciationGetDepreciationTransactionsResponseBody]</code></summary>
 <dl>
 <dd>
@@ -9985,6 +8399,1726 @@ client.beta_ap_is.patch_safety_events_v_2_batch(
 <dd>
 
 **event_state:** `typing.Optional[SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState]` — The new state to apply to all specified Safety Events.  Valid values: `needsReview`, `reviewed`, `needsCoaching`, `coached`, `dismissed`, `needsRecognition`, `recognized`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## Alerts
+<details><summary><code>client.alerts.<a href="src/samsara/alerts/client.py">get_configurations</a>(...) -&gt; AsyncHttpResponse[AlertsGetConfigurationsResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get specified Alert Configurations.
+
+The following trigger types are API enabled and will show up in the results:
+Vehicle Speed
+Ambient Temperature
+Fuel Level (Percentage)
+Vehicle DEF Level (Percentage)
+Vehicle Battery
+Gateway Unplugged
+Dashcam Disconnected
+Camera Connector Disconnected
+Asset starts moving
+Inside Geofence
+Outside Geofence
+Unassigned Driving
+Driver HOS Violation
+Vehicle Engine Idle
+Asset Engine On
+Asset Engine Off
+Harsh Event
+Scheduled Maintenance
+Scheduled Maintenance by Odometer
+Scheduled Maintenance by Engine Hours
+Out of Route
+GPS Signal Loss
+Cell Signal Loss
+Fault Code
+Tire Faults
+Gateway Disconnected
+Panic Button
+Tampering Detected
+Asset Reading
+If vehicle is severely speeding (as defined by your organization)
+DVIR Submitted for Asset
+Driver Document Submitted
+Driver App Sign In
+Driver App Sign Out
+Geofence Entry
+Geofence Exit
+Route Stop ETA Alert
+Driver Recorded
+A safety event occurred with a driver assigned
+A safety event occurred
+Sudden Fuel Level Rise
+Sudden Fuel Level Drop
+Scheduled Date And Time
+Training Assignment Due Soon
+Training Assignment Past Due
+Asset assignment past due
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Alerts** under the Alerts category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.alerts.get_configurations()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Filter by the IDs. Returns all if no ids are provided.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**status:** `typing.Optional[GetConfigurationsRequestStatus]` — The status of the alert configuration.  Valid values: `all`, `enabled`, `disabled`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_external_ids:** `typing.Optional[bool]` — Optional boolean indicating whether to return external IDs on supported entities
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.alerts.<a href="src/samsara/alerts/client.py">post_configurations</a>(...) -&gt; AsyncHttpResponse[AlertsPostConfigurationsResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Creates an alert configuration.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Alerts** under the Alerts category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import (
+    ActionObjectRequestBody,
+    Samsara,
+    ScopeObjectRequestBody,
+    WorkflowTriggerObjectRequestBody,
+)
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.alerts.post_configurations(
+    actions=[
+        ActionObjectRequestBody(
+            action_type_id=1,
+        )
+    ],
+    is_enabled=True,
+    name="My Harsh Event Alert",
+    scope=ScopeObjectRequestBody(
+        all_=False,
+    ),
+    triggers=[
+        WorkflowTriggerObjectRequestBody(
+            trigger_type_id=1000,
+        )
+    ],
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**actions:** `typing.Sequence[ActionObjectRequestBody]` — An array of actions.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_enabled:** `bool` — Whether the alert is enabled or not.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `str` — The custom name of the configuration.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**scope:** `ScopeObjectRequestBody` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**triggers:** `typing.Sequence[WorkflowTriggerObjectRequestBody]` — An array of triggers.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**external_ids:** `typing.Optional[typing.Dict[str, str]]` — A map of external ids
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**operational_settings:** `typing.Optional[OperationalSettingsObjectRequestBody]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.alerts.<a href="src/samsara/alerts/client.py">delete_configurations</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Delete an alert configuration.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Alerts** under the Alerts category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.alerts.delete_configurations(
+    id="id",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` — The unqiue Samsara id of the alert configuration.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.alerts.<a href="src/samsara/alerts/client.py">patch_configurations</a>(...) -&gt; AsyncHttpResponse[AlertsPatchConfigurationsResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Updates an alert configuration.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Alerts** under the Alerts category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.alerts.patch_configurations(
+    id="e1c5dffc-c7b7-47b0-a778-6a65de638abf",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` — The unqiue Samsara id of the alert configuration.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**actions:** `typing.Optional[typing.Sequence[ActionObjectRequestBody]]` — An array of actions.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**external_ids:** `typing.Optional[typing.Dict[str, str]]` — A map of external ids
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_enabled:** `typing.Optional[bool]` — Whether the alert is enabled or not.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `typing.Optional[str]` — The custom name of the configuration.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**operational_settings:** `typing.Optional[OperationalSettingsObjectRequestBody]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**scope:** `typing.Optional[ScopeObjectRequestBody]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**triggers:** `typing.Optional[typing.Sequence[WorkflowTriggerObjectRequestBody]]` — An array of triggers.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.alerts.<a href="src/samsara/alerts/client.py">get_incidents</a>(...) -&gt; AsyncHttpResponse[AlertsGetIncidentsResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get Alert Incidents for specific Alert Configurations over a specified period of time.
+
+ <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Alerts** under the Alerts category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.alerts.get_incidents(
+    start_time="startTime",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**start_time:** `str` — Required RFC 3339 timestamp that indicates when to begin receiving data. This will be based on updatedAtTime.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**configuration_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Required array of alert configuration ids to return incident data for.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**end_time:** `typing.Optional[str]` — Optional RFC 3339 timestamp to stop receiving data. Defaults to now if not provided. This will be based on updatedAtTime.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## Assets
+<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">list</a>(...) -&gt; AsyncPager[AssetResponseBody, AssetsListAssetsResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List all assets. Up to 300 assets will be returned per page.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+response = client.assets.list()
+for item in response:
+    yield item
+# alternatively, you can paginate page-by-page
+for page in response.iter_pages():
+    yield page
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**type:** `typing.Optional[ListAssetsRequestType]` — The operational context in which the asset interacts with the Samsara system. Examples: Vehicle (eg: truck, bus...), Trailer (eg: dry van, reefer, flatbed...), Powered Equipment (eg: dozer, crane...), Unpowered Equipment (eg: container, dumpster...), or Uncategorized.  Valid values: `uncategorized`, `trailer`, `equipment`, `unpowered`, `vehicle`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**updated_after_time:** `typing.Optional[str]` —  A filter on data to have an updated at time after or equal to this specified time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_external_ids:** `typing.Optional[bool]` — Optional boolean indicating whether to return external IDs on supported entities
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_tags:** `typing.Optional[bool]` — Optional boolean indicating whether to return tags on supported entities
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**tag_ids:** `typing.Optional[str]` —  A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**parent_tag_ids:** `typing.Optional[str]` —  A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — A filter on the data based on this comma-separated list of asset IDs and External IDs.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**external_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — A filter on the data based on this comma-separated list of external IDs. Example: `externalIds=maintenanceId:250020,vin:1HGBH41JXMN109186`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**attribute_value_ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of attribute value IDs. Only entities associated with ALL of the referenced values will be returned (i.e. the intersection of the sets of entities with each value). Example: `attributeValueIds=076efac2-83b5-47aa-ba36-18428436dcac,6707b3f0-23b9-4fe3-b7be-11be34aea544`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**attributes:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — A filter on the data to return entities within given range query (only for numeric and date attributes) separated by a comma. Only entities meeting all the conditions will be returned. At least one bound must be provided. Example: `attributes=Length:range(8,)&attributes=Length:range(10,20)&attributes=Date:range(2025-01-01,2025-01-31)`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_attributes:** `typing.Optional[bool]` — Optional boolean indicating whether to return attributes on supported entities
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">create_asset</a>(...) -&gt; AsyncHttpResponse[AssetsCreateAssetResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a new asset.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.assets.create_asset()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**attributes:** `typing.Optional[typing.Sequence[GoaAttributeTinyRequestBody]]` — A list of attributes to assign to the asset.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**external_ids:** `typing.Optional[typing.Dict[str, str]]` — A map of external ids
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**license_plate:** `typing.Optional[str]` — The license plate of the asset.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**make:** `typing.Optional[str]` — The OEM/manufacturer of the asset. Updates to this field are restricted.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**model:** `typing.Optional[str]` — The model of the asset. Updates to this field are restricted.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `typing.Optional[str]` — The human-readable name of the asset. This is set by a fleet administrator and will appear in both Samsara’s cloud dashboard as well as the Samsara Driver mobile app. By default, this name is the serial number of the Samsara Asset Gateway. It can be set or updated through the Samsara Dashboard or through the API at any time.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**notes:** `typing.Optional[str]` — These are generic notes about the asset. Can be set or updated through the Samsara Dashboard or the API at any time.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**readings_ingestion_enabled:** `typing.Optional[bool]` — Indicates whether the asset is expected to have data ingested using the Readings API.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**regulation_mode:** `typing.Optional[AssetsCreateAssetRequestBodyRegulationMode]` — Whether or not the asset is regulated, unregulated (non-CMV), or a mixed use unregulated asset. Primarily used with vehicles.  Valid values: `mixed`, `regulated`, `unregulated`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**serial_number:** `typing.Optional[str]` — The serial number of the asset. This can be an internal serial number or used to hold legacy VIN/PIN numbers such as ones of shorter lengths.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**tag_ids:** `typing.Optional[typing.Sequence[str]]` — An array of IDs of tags to associate with this asset. If your access to the API is scoped by one or more tags, this field is required to pass in.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**type:** `typing.Optional[AssetsCreateAssetRequestBodyType]` — The operational context in which the asset interacts with the Samsara system. Examples: Vehicle (eg: truck, bus...), Trailer (eg: dry van, reefer, flatbed...), Powered Equipment (eg: dozer, crane...), Unpowered Equipment (eg: container, dumpster...), or Uncategorized.  Valid values: `uncategorized`, `trailer`, `equipment`, `unpowered`, `vehicle`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**vin:** `typing.Optional[str]` — The unique 17-digit VIN (Vehicle Identification Number) or PIN (Product Identification Number) of the asset.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**year:** `typing.Optional[int]` — The model year of the asset. Updates to this field are restricted.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">delete_asset</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Delete an existing asset.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.assets.delete_asset(
+    id="id",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` — A filter selecting a single asset by id.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">update_asset</a>(...) -&gt; AsyncHttpResponse[AssetsUpdateAssetResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Update an existing asset.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.assets.update_asset(
+    id="id",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` — A filter selecting a single asset by id.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**external_ids:** `typing.Optional[typing.Dict[str, str]]` — A map of external ids
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**license_plate:** `typing.Optional[str]` — The license plate of the asset.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**make:** `typing.Optional[str]` — The OEM/manufacturer of the asset. Updates to this field are restricted.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**model:** `typing.Optional[str]` — The model of the asset. Updates to this field are restricted.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `typing.Optional[str]` — The human-readable name of the asset. This is set by a fleet administrator and will appear in both Samsara’s cloud dashboard as well as the Samsara Driver mobile app. By default, this name is the serial number of the Samsara Asset Gateway. It can be set or updated through the Samsara Dashboard or through the API at any time.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**notes:** `typing.Optional[str]` — These are generic notes about the asset. Can be set or updated through the Samsara Dashboard or the API at any time.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**readings_ingestion_enabled:** `typing.Optional[bool]` — Indicates whether the asset is expected to have data ingested using the Readings API.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**regulation_mode:** `typing.Optional[AssetsUpdateAssetRequestBodyRegulationMode]` — Whether or not the asset is regulated, unregulated (non-CMV), or a mixed use unregulated asset. Primarily used with vehicles.  Valid values: `mixed`, `regulated`, `unregulated`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**serial_number:** `typing.Optional[str]` — The serial number of the asset. This can be an internal serial number or used to hold legacy VIN/PIN numbers such as ones of shorter lengths.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**type:** `typing.Optional[AssetsUpdateAssetRequestBodyType]` — The operational context in which the asset interacts with the Samsara system. Examples: Vehicle (eg: truck, bus...), Trailer (eg: dry van, reefer, flatbed...), Powered Equipment (eg: dozer, crane...), Unpowered Equipment (eg: container, dumpster...), or Uncategorized.  Valid values: `uncategorized`, `trailer`, `equipment`, `unpowered`, `vehicle`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**vin:** `typing.Optional[str]` — The unique 17-digit VIN (Vehicle Identification Number) or PIN (Product Identification Number) of the asset.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**year:** `typing.Optional[int]` — The model year of the asset. Updates to this field are restricted.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">v_1_get_all_asset_current_locations</a>(...) -&gt; AsyncHttpResponse[InlineResponse2002]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+<n class="warning">
+<nh>
+<i class="fa fa-exclamation-circle"></i>
+This endpoint is still on our legacy API.
+</nh>
+</n>
+
+Fetch current locations of all assets. 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.assets.v_1_get_all_asset_current_locations()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**starting_after:** `typing.Optional[str]` — Pagination parameter indicating the cursor position to continue returning results after. Used in conjunction with the 'limit' parameter. Mutually exclusive with 'endingBefore' parameter.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**ending_before:** `typing.Optional[str]` — Pagination parameter indicating the cursor position to return results before. Used in conjunction with the 'limit' parameter. Mutually exclusive with 'startingAfter' parameter.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**limit:** `typing.Optional[int]` — Pagination parameter indicating the number of results to return in this request. Used in conjunction with either 'startingAfter' or 'endingBefore'.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">v_1_get_assets_reefers</a>(...) -&gt; AsyncHttpResponse[InlineResponse2003]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+<n class="warning">
+<nh>
+<i class="fa fa-exclamation-circle"></i>
+This endpoint is still on our legacy API.
+</nh>
+</n>
+
+Fetches all reefers and reefer-specific stats. 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+To use this endpoint, select **Read Trailers** under the Trailers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.assets.v_1_get_assets_reefers(
+    start_ms=1000000,
+    end_ms=1000000,
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**start_ms:** `int` — Timestamp in milliseconds representing the start of the period to fetch, inclusive. Used in combination with endMs.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**end_ms:** `int` — Timestamp in milliseconds representing the end of the period to fetch, inclusive. Used in combination with startMs.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**starting_after:** `typing.Optional[str]` — Pagination parameter indicating the cursor position to continue returning results after. Used in conjunction with the 'limit' parameter. Mutually exclusive with 'endingBefore' parameter.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**ending_before:** `typing.Optional[str]` — Pagination parameter indicating the cursor position to return results before. Used in conjunction with the 'limit' parameter. Mutually exclusive with 'startingAfter' parameter.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**limit:** `typing.Optional[int]` — Pagination parameter indicating the number of results to return in this request. Used in conjunction with either 'startingAfter' or 'endingBefore'.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">v_1_get_asset_location</a>(...) -&gt; AsyncHttpResponse[V1AssetLocationResponse]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+<n class="warning">
+<nh>
+<i class="fa fa-exclamation-circle"></i>
+This endpoint is still on our legacy API.
+</nh>
+</n>
+
+List historical locations for a given asset. 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.assets.v_1_get_asset_location(
+    asset_id=1000000,
+    start_ms=1000000,
+    end_ms=1000000,
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**asset_id:** `int` — ID of the asset. Must contain only digits 0-9.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**start_ms:** `int` — Timestamp in milliseconds representing the start of the period to fetch, inclusive. Used in combination with endMs.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**end_ms:** `int` — Timestamp in milliseconds representing the end of the period to fetch, inclusive. Used in combination with startMs.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">v_1_get_asset_reefer</a>(...) -&gt; AsyncHttpResponse[V1AssetReeferResponse]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+<n class="warning">
+<nh>
+<i class="fa fa-exclamation-circle"></i>
+This endpoint is still on our legacy API.
+</nh>
+</n>
+
+Fetch the reefer-specific stats of an asset. 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+To use this endpoint, select **Read Trailers** under the Trailers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.assets.v_1_get_asset_reefer(
+    asset_id=1000000,
+    start_ms=1000000,
+    end_ms=1000000,
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**asset_id:** `int` — ID of the asset. Must contain only digits 0-9.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**start_ms:** `int` — Timestamp in milliseconds representing the start of the period to fetch, inclusive. Used in combination with endMs.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**end_ms:** `int` — Timestamp in milliseconds representing the end of the period to fetch, inclusive. Used in combination with startMs.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">get</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.assets.get(
+    id="id",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">update</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
+<dl>
+<dd>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.assets.update(
+    id="id",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` 
     
 </dd>
 </dl>
