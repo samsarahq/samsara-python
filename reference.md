@@ -4839,7 +4839,7 @@ client.beta_ap_is.get_places()
 <dl>
 <dd>
 
-**parent_tag_ids:** `typing.Optional[str]` — Reserved. Filtering by parent tag IDs is not implemented in this API version.
+**parent_tag_ids:** `typing.Optional[str]` — Comma-separated parent tag IDs to filter places. Includes places tagged with each parent tag and its descendant tags.
     
 </dd>
 </dl>

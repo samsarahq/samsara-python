@@ -2659,7 +2659,7 @@ class BetaApIsClient:
             Comma-separated numeric tag IDs to filter places.
 
         parent_tag_ids : typing.Optional[str]
-            Reserved. Filtering by parent tag IDs is not implemented in this API version.
+            Comma-separated parent tag IDs to filter places. Includes places tagged with each parent tag and its descendant tags.
 
         place_types : typing.Optional[str]
             Comma-separated place type tokens (e.g. yard,normalGeofence).
@@ -7521,7 +7521,7 @@ class AsyncBetaApIsClient:
             Comma-separated numeric tag IDs to filter places.
 
         parent_tag_ids : typing.Optional[str]
-            Reserved. Filtering by parent tag IDs is not implemented in this API version.
+            Comma-separated parent tag IDs to filter places. Includes places tagged with each parent tag and its descendant tags.
 
         place_types : typing.Optional[str]
             Comma-separated place type tokens (e.g. yard,normalGeofence).
