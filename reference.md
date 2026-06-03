@@ -560,6 +560,81 @@ client.addresses.update(
 </details>
 
 ## Beta APIs
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_voice_sessions</a>(...) -&gt; AsyncHttpResponse[AgentStudioVoiceSessionsGetVoiceSessionsResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns full details — including the transcript, tool calls, lifecycle events, and a recording URL — for a batch of voice agent sessions identified by `ids`. Discover session IDs with GET /agent-studio/voice-sessions/stream. Up to 100 IDs may be requested per call; IDs that are not found are omitted from the response.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Agent Studio Voice Sessions** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.get_voice_sessions()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Required, comma-separated list of voice session IDs to fetch full details for. Up to 100 session IDs per call. IDs that are not found are omitted from the response.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_voice_sessions_stream</a>(...) -&gt; AsyncHttpResponse[AgentStudioVoiceSessionsGetVoiceSessionsStreamResponseBody]</code></summary>
 <dl>
 <dd>
@@ -1459,7 +1534,7 @@ client.beta_ap_is.update_engine_immobilizer_state(
     relay_states=[
         UpdateEngineImmobilizerRelayStateRequestBodyRequestBody(
             id="relay1",
-            is_open=False,
+            is_open=True,
         )
     ],
 )
@@ -8316,7 +8391,6 @@ client.beta_ap_is.patch_safety_events_v_2_batch(
         "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
         "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
         "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
-        "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
     ],
 )
 
@@ -8619,7 +8693,7 @@ client.alerts.post_configurations(
     is_enabled=True,
     name="My Harsh Event Alert",
     scope=ScopeObjectRequestBody(
-        all_=False,
+        all_=True,
     ),
     triggers=[
         WorkflowTriggerObjectRequestBody(
@@ -11059,7 +11133,7 @@ client = Samsara(
 )
 client.media.post_media_retrieval(
     end_time="2019-06-13T19:08:55Z",
-    inputs=["dashcamRoadFacing", "dashcamRoadFacing", "dashcamRoadFacing"],
+    inputs=["dashcamRoadFacing", "dashcamRoadFacing"],
     media_type="image",
     start_time="2019-06-13T19:08:25Z",
     vehicle_id="1234",

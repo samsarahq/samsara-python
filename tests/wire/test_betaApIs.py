@@ -3,6 +3,14 @@ from datetime import datetime
 from .conftest import get_client, verify_request_count
 
 
+def test_betaApIs_get_voice_sessions() -> None:
+    """Test getVoiceSessions endpoint with WireMock"""
+    test_id = "beta_ap_is.get_voice_sessions.0"
+    client = get_client(test_id)
+    client.beta_ap_is.get_voice_sessions()
+    verify_request_count(test_id, "GET", "/agent-studio/voice-sessions", None, 1)
+
+
 def test_betaApIs_get_voice_sessions_stream() -> None:
     """Test getVoiceSessionsStream endpoint with WireMock"""
     test_id = "beta_ap_is.get_voice_sessions_stream.0"
@@ -65,7 +73,7 @@ def test_betaApIs_update_engine_immobilizer_state() -> None:
     """Test updateEngineImmobilizerState endpoint with WireMock"""
     test_id = "beta_ap_is.update_engine_immobilizer_state.0"
     client = get_client(test_id)
-    client.beta_ap_is.update_engine_immobilizer_state(id=1000000, relay_states=[{"id": "relay1", "is_open": False}])
+    client.beta_ap_is.update_engine_immobilizer_state(id=1000000, relay_states=[{"id": "relay1", "is_open": True}])
     verify_request_count(test_id, "PATCH", "/beta/fleet/vehicles/1000000/immobilizer", None, 1)
 
 
@@ -676,7 +684,6 @@ def test_betaApIs_patch_safety_events_v_2_batch() -> None:
     client = get_client(test_id)
     client.beta_ap_is.patch_safety_events_v_2_batch(
         safety_event_ids=[
-            "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
             "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
             "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
             "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",

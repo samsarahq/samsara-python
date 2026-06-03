@@ -6,6 +6,9 @@ import typing
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.request_options import RequestOptions
 from ..types.aemp_equipment_get_aemp_equipment_list_response_body import AempEquipmentGetAempEquipmentListResponseBody
+from ..types.agent_studio_voice_sessions_get_voice_sessions_response_body import (
+    AgentStudioVoiceSessionsGetVoiceSessionsResponseBody,
+)
 from ..types.agent_studio_voice_sessions_get_voice_sessions_stream_response_body import (
     AgentStudioVoiceSessionsGetVoiceSessionsStreamResponseBody,
 )
@@ -232,6 +235,47 @@ class BetaApIsClient:
         RawBetaApIsClient
         """
         return self._raw_client
+
+    def get_voice_sessions(
+        self,
+        *,
+        ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AgentStudioVoiceSessionsGetVoiceSessionsResponseBody:
+        """
+        Returns full details — including the transcript, tool calls, lifecycle events, and a recording URL — for a batch of voice agent sessions identified by `ids`. Discover session IDs with GET /agent-studio/voice-sessions/stream. Up to 100 IDs may be requested per call; IDs that are not found are omitted from the response.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Agent Studio Voice Sessions** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Required, comma-separated list of voice session IDs to fetch full details for. Up to 100 session IDs per call. IDs that are not found are omitted from the response.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AgentStudioVoiceSessionsGetVoiceSessionsResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.get_voice_sessions()
+        """
+        _response = self._raw_client.get_voice_sessions(ids=ids, request_options=request_options)
+        return _response.data
 
     def get_voice_sessions_stream(
         self,
@@ -787,7 +831,7 @@ class BetaApIsClient:
             relay_states=[
                 UpdateEngineImmobilizerRelayStateRequestBodyRequestBody(
                     id="relay1",
-                    is_open=False,
+                    is_open=True,
                 )
             ],
         )
@@ -4724,7 +4768,6 @@ class BetaApIsClient:
                 "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
                 "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
                 "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
-                "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
             ],
         )
         """
@@ -4755,6 +4798,55 @@ class AsyncBetaApIsClient:
         AsyncRawBetaApIsClient
         """
         return self._raw_client
+
+    async def get_voice_sessions(
+        self,
+        *,
+        ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AgentStudioVoiceSessionsGetVoiceSessionsResponseBody:
+        """
+        Returns full details — including the transcript, tool calls, lifecycle events, and a recording URL — for a batch of voice agent sessions identified by `ids`. Discover session IDs with GET /agent-studio/voice-sessions/stream. Up to 100 IDs may be requested per call; IDs that are not found are omitted from the response.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Agent Studio Voice Sessions** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Required, comma-separated list of voice session IDs to fetch full details for. Up to 100 session IDs per call. IDs that are not found are omitted from the response.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AgentStudioVoiceSessionsGetVoiceSessionsResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.get_voice_sessions()
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_voice_sessions(ids=ids, request_options=request_options)
+        return _response.data
 
     async def get_voice_sessions_stream(
         self,
@@ -5371,7 +5463,7 @@ class AsyncBetaApIsClient:
                 relay_states=[
                     UpdateEngineImmobilizerRelayStateRequestBodyRequestBody(
                         id="relay1",
-                        is_open=False,
+                        is_open=True,
                     )
                 ],
             )
@@ -9873,7 +9965,6 @@ class AsyncBetaApIsClient:
         async def main() -> None:
             await client.beta_ap_is.patch_safety_events_v_2_batch(
                 safety_event_ids=[
-                    "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
                     "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
                     "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
                     "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
