@@ -37,6 +37,7 @@ SafetyBehaviorTriggerDetailsObjectResponseBodyBehaviorsItem = typing.Union[
         "ForwardCollisionWarning",
         "GenericDistraction",
         "GenericTailgating",
+        "HarshImpact",
         "HarshTurn",
         "HeavySpeeding",
         "HighSpeedSuddenDisconnect",

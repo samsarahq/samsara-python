@@ -27,6 +27,7 @@ SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyBehaviorLabelsToAddItem = typin
         "ForwardCollisionWarning",
         "GenericDistraction",
         "GenericTailgating",
+        "HarshImpact",
         "HarshTurn",
         "HeavySpeeding",
         "HighSpeedSuddenDisconnect",
