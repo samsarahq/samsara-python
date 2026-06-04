@@ -16831,6 +16831,14 @@ client.drivers.create(
 <dl>
 <dd>
 
+**email:** `typing.Optional[DriverEmail]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **external_ids:** `typing.Optional[typing.Dict[str, str]]` — The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.
     
 </dd>
@@ -17373,6 +17381,14 @@ client.drivers.update(
 <dd>
 
 **eld_ym_enabled:** `typing.Optional[bool]` — Flag indicating this driver may select the Yard Move duty status in ELD logs.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**email:** `typing.Optional[DriverEmail]` 
     
 </dd>
 </dl>

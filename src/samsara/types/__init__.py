@@ -1250,6 +1250,7 @@ if typing.TYPE_CHECKING:
     from .driver_eld_rulesets import DriverEldRulesets
     from .driver_eld_settings import DriverEldSettings
     from .driver_eld_ym_enabled import DriverEldYmEnabled
+    from .driver_email import DriverEmail
     from .driver_external_ids import DriverExternalIds
     from .driver_has_driving_features_hidden import DriverHasDrivingFeaturesHidden
     from .driver_has_vehicle_unpinning_enabled import DriverHasVehicleUnpinningEnabled
@@ -8734,6 +8735,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "DriverEldRulesets": ".driver_eld_rulesets",
     "DriverEldSettings": ".driver_eld_settings",
     "DriverEldYmEnabled": ".driver_eld_ym_enabled",
+    "DriverEmail": ".driver_email",
     "DriverExternalIds": ".driver_external_ids",
     "DriverHasDrivingFeaturesHidden": ".driver_has_driving_features_hidden",
     "DriverHasVehicleUnpinningEnabled": ".driver_has_vehicle_unpinning_enabled",
@@ -12698,6 +12700,7 @@ __all__ = [
     "DriverEldRulesets",
     "DriverEldSettings",
     "DriverEldYmEnabled",
+    "DriverEmail",
     "DriverExternalIds",
     "DriverHasDrivingFeaturesHidden",
     "DriverHasVehicleUnpinningEnabled",
