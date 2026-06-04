@@ -19,6 +19,7 @@ from .driver_eld_exempt_reason import DriverEldExemptReason
 from .driver_eld_pc_enabled import DriverEldPcEnabled
 from .driver_eld_settings import DriverEldSettings
 from .driver_eld_ym_enabled import DriverEldYmEnabled
+from .driver_email import DriverEmail
 from .driver_external_ids import DriverExternalIds
 from .driver_has_driving_features_hidden import DriverHasDrivingFeaturesHidden
 from .driver_has_vehicle_unpinning_enabled import DriverHasVehicleUnpinningEnabled
@@ -110,6 +111,7 @@ class Driver(UniversalBaseModel):
     eld_ym_enabled: typing_extensions.Annotated[
         typing.Optional[DriverEldYmEnabled], FieldMetadata(alias="eldYmEnabled"), pydantic.Field(alias="eldYmEnabled")
     ] = None
+    email: typing.Optional[DriverEmail] = None
     external_ids: typing_extensions.Annotated[
         typing.Optional[DriverExternalIds], FieldMetadata(alias="externalIds"), pydantic.Field(alias="externalIds")
     ] = None

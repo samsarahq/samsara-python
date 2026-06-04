@@ -9,6 +9,7 @@ from ..types.create_driver_request_attributes import CreateDriverRequestAttribut
 from ..types.driver import Driver
 from ..types.driver_carrier_settings import DriverCarrierSettings
 from ..types.driver_date_of_birth import DriverDateOfBirth
+from ..types.driver_email import DriverEmail
 from ..types.driver_has_driving_features_hidden import DriverHasDrivingFeaturesHidden
 from ..types.driver_has_vehicle_unpinning_enabled import DriverHasVehicleUnpinningEnabled
 from ..types.driver_hos_setting import DriverHosSetting
@@ -149,6 +150,7 @@ class DriversClient:
         eld_exempt_reason: typing.Optional[str] = OMIT,
         eld_pc_enabled: typing.Optional[bool] = OMIT,
         eld_ym_enabled: typing.Optional[bool] = OMIT,
+        email: typing.Optional[DriverEmail] = OMIT,
         external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
         has_driving_features_hidden: typing.Optional[DriverHasDrivingFeaturesHidden] = OMIT,
         has_vehicle_unpinning_enabled: typing.Optional[DriverHasVehicleUnpinningEnabled] = OMIT,
@@ -218,6 +220,8 @@ class DriversClient:
 
         eld_ym_enabled : typing.Optional[bool]
             Flag indicating this driver may select the Yard Move duty status in ELD logs.
+
+        email : typing.Optional[DriverEmail]
 
         external_ids : typing.Optional[typing.Dict[str, str]]
             The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.
@@ -309,6 +313,7 @@ class DriversClient:
             eld_exempt_reason=eld_exempt_reason,
             eld_pc_enabled=eld_pc_enabled,
             eld_ym_enabled=eld_ym_enabled,
+            email=email,
             external_ids=external_ids,
             has_driving_features_hidden=has_driving_features_hidden,
             has_vehicle_unpinning_enabled=has_vehicle_unpinning_enabled,
@@ -456,6 +461,7 @@ class DriversClient:
         eld_exempt_reason: typing.Optional[str] = OMIT,
         eld_pc_enabled: typing.Optional[bool] = OMIT,
         eld_ym_enabled: typing.Optional[bool] = OMIT,
+        email: typing.Optional[DriverEmail] = OMIT,
         external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
         has_driving_features_hidden: typing.Optional[DriverHasDrivingFeaturesHidden] = OMIT,
         has_vehicle_unpinning_enabled: typing.Optional[DriverHasVehicleUnpinningEnabled] = OMIT,
@@ -528,6 +534,8 @@ class DriversClient:
 
         eld_ym_enabled : typing.Optional[bool]
             Flag indicating this driver may select the Yard Move duty status in ELD logs.
+
+        email : typing.Optional[DriverEmail]
 
         external_ids : typing.Optional[typing.Dict[str, str]]
             The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.
@@ -626,6 +634,7 @@ class DriversClient:
             eld_exempt_reason=eld_exempt_reason,
             eld_pc_enabled=eld_pc_enabled,
             eld_ym_enabled=eld_ym_enabled,
+            email=email,
             external_ids=external_ids,
             has_driving_features_hidden=has_driving_features_hidden,
             has_vehicle_unpinning_enabled=has_vehicle_unpinning_enabled,
@@ -780,6 +789,7 @@ class AsyncDriversClient:
         eld_exempt_reason: typing.Optional[str] = OMIT,
         eld_pc_enabled: typing.Optional[bool] = OMIT,
         eld_ym_enabled: typing.Optional[bool] = OMIT,
+        email: typing.Optional[DriverEmail] = OMIT,
         external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
         has_driving_features_hidden: typing.Optional[DriverHasDrivingFeaturesHidden] = OMIT,
         has_vehicle_unpinning_enabled: typing.Optional[DriverHasVehicleUnpinningEnabled] = OMIT,
@@ -849,6 +859,8 @@ class AsyncDriversClient:
 
         eld_ym_enabled : typing.Optional[bool]
             Flag indicating this driver may select the Yard Move duty status in ELD logs.
+
+        email : typing.Optional[DriverEmail]
 
         external_ids : typing.Optional[typing.Dict[str, str]]
             The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.
@@ -948,6 +960,7 @@ class AsyncDriversClient:
             eld_exempt_reason=eld_exempt_reason,
             eld_pc_enabled=eld_pc_enabled,
             eld_ym_enabled=eld_ym_enabled,
+            email=email,
             external_ids=external_ids,
             has_driving_features_hidden=has_driving_features_hidden,
             has_vehicle_unpinning_enabled=has_vehicle_unpinning_enabled,
@@ -1121,6 +1134,7 @@ class AsyncDriversClient:
         eld_exempt_reason: typing.Optional[str] = OMIT,
         eld_pc_enabled: typing.Optional[bool] = OMIT,
         eld_ym_enabled: typing.Optional[bool] = OMIT,
+        email: typing.Optional[DriverEmail] = OMIT,
         external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
         has_driving_features_hidden: typing.Optional[DriverHasDrivingFeaturesHidden] = OMIT,
         has_vehicle_unpinning_enabled: typing.Optional[DriverHasVehicleUnpinningEnabled] = OMIT,
@@ -1193,6 +1207,8 @@ class AsyncDriversClient:
 
         eld_ym_enabled : typing.Optional[bool]
             Flag indicating this driver may select the Yard Move duty status in ELD logs.
+
+        email : typing.Optional[DriverEmail]
 
         external_ids : typing.Optional[typing.Dict[str, str]]
             The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.
@@ -1299,6 +1315,7 @@ class AsyncDriversClient:
             eld_exempt_reason=eld_exempt_reason,
             eld_pc_enabled=eld_pc_enabled,
             eld_ym_enabled=eld_ym_enabled,
+            email=email,
             external_ids=external_ids,
             has_driving_features_hidden=has_driving_features_hidden,
             has_vehicle_unpinning_enabled=has_vehicle_unpinning_enabled,
