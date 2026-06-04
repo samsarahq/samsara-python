@@ -13,6 +13,7 @@ DetectionLogDetectionObjectResponseBodyTriggerDetectionLabel = typing.Union[
         "followingDistance",
         "forwardCollisionWarning",
         "genericDistraction",
+        "harshImpact",
         "harshTurn",
         "heavySpeeding",
         "laneDeparture",

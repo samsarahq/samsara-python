@@ -21,6 +21,7 @@ SafetyEventBehaviorLabelsResponseBodyType = typing.Union[
         "ForwardCollisionWarning",
         "GenericDistraction",
         "GenericTailgating",
+        "HarshImpact",
         "HarshTurn",
         "HighSpeedSuddenDisconnect",
         "Invalid",

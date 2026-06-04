@@ -27,6 +27,7 @@ SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyBehaviorLabelsToRemoveItem = ty
         "ForwardCollisionWarning",
         "GenericDistraction",
         "GenericTailgating",
+        "HarshImpact",
         "HarshTurn",
         "HeavySpeeding",
         "HighSpeedSuddenDisconnect",
