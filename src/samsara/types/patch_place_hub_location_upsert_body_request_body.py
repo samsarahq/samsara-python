@@ -20,9 +20,7 @@ class PatchPlaceHubLocationUpsertBodyRequestBody(UniversalBaseModel):
     display_name: typing_extensions.Annotated[
         typing.Optional[str],
         FieldMetadata(alias="displayName"),
-        pydantic.Field(
-            alias="displayName", description="Optional label; stored as planner-facing notes for this hub row."
-        ),
+        pydantic.Field(alias="displayName", description="Optional label override for this hub location row."),
     ] = None
     external_id: typing_extensions.Annotated[
         typing.Optional[str],
@@ -66,6 +64,11 @@ class PatchPlaceHubLocationUpsertBodyRequestBody(UniversalBaseModel):
         typing.Optional[PlaceHubLocationOrderServiceTimeInputRequestBody],
         FieldMetadata(alias="orderServiceTime"),
         pydantic.Field(alias="orderServiceTime"),
+    ] = None
+    planner_notes: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="plannerNotes"),
+        pydantic.Field(alias="plannerNotes", description="Planner-facing notes for this hub location row."),
     ] = None
     required_skills: typing_extensions.Annotated[
         typing.Optional[typing.List[PlaceHubLocationRequiredSkillInputRequestBody]],
