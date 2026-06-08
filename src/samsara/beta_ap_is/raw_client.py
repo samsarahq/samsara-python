@@ -10314,6 +10314,7 @@ class RawBetaApIsClient:
         * `faultCodesJ1939`
         * `faultCodesOBDII`
         * `fuelLevelPerc`
+        * `gps`
         * `location`
         * `odometerEcu`
         * `oilPressure`
@@ -23174,6 +23175,7 @@ class AsyncRawBetaApIsClient:
         * `faultCodesJ1939`
         * `faultCodesOBDII`
         * `fuelLevelPerc`
+        * `gps`
         * `location`
         * `odometerEcu`
         * `oilPressure`
