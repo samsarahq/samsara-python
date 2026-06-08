@@ -31,7 +31,7 @@ class PreferredStationAddressRequestBody(UniversalBaseModel):
     ]
     state: typing.Optional[str] = pydantic.Field(default=None)
     """
-    State or province code.
+    State or province code. Required when country is "US".
     """
 
     if IS_PYDANTIC_V2:

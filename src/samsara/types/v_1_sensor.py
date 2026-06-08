@@ -13,11 +13,32 @@ class V1Sensor(UniversalBaseModel):
     Contains information about a sensor.
     """
 
+    activated_at_ms: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="activatedAtMs"),
+        pydantic.Field(
+            alias="activatedAtMs",
+            description="Sensor activation time in Unix milliseconds. Null if the sensor has no monitor.",
+        ),
+    ] = None
+    health_status: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="healthStatus"),
+        pydantic.Field(alias="healthStatus", description="Current sensor health status."),
+    ] = None
     id: int = pydantic.Field()
     """
     ID of the sensor.
     """
 
+    last_transmission_at_ms: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="lastTransmissionAtMs"),
+        pydantic.Field(
+            alias="lastTransmissionAtMs",
+            description="Last sensor transmission time in Unix milliseconds. Null when the sensor is connected or has never connected.",
+        ),
+    ] = None
     mac_address: typing_extensions.Annotated[
         typing.Optional[str],
         FieldMetadata(alias="macAddress"),
@@ -27,6 +48,12 @@ class V1Sensor(UniversalBaseModel):
     """
     Name of the sensor.
     """
+
+    sensor_type: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="sensorType"),
+        pydantic.Field(alias="sensorType", description="Product type of the sensor."),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
