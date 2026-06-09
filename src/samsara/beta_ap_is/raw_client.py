@@ -10311,6 +10311,7 @@ class RawBetaApIsClient:
         * `engineHours`
         * `engineRpm`
         * `engineState` (values: off | running | idling)
+        * `faultCodes`
         * `faultCodesJ1939`
         * `faultCodesOBDII`
         * `fuelLevelPerc`
@@ -23172,6 +23173,7 @@ class AsyncRawBetaApIsClient:
         * `engineHours`
         * `engineRpm`
         * `engineState` (values: off | running | idling)
+        * `faultCodes`
         * `faultCodesJ1939`
         * `faultCodesOBDII`
         * `fuelLevelPerc`
