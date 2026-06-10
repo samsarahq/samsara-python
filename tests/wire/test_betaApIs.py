@@ -372,6 +372,14 @@ def test_betaApIs_delete_hub_route_template() -> None:
     verify_request_count(test_id, "DELETE", "/hub/route-templates", {"id": "id"}, 1)
 
 
+def test_betaApIs_get_work_order_templates() -> None:
+    """Test getWorkOrderTemplates endpoint with WireMock"""
+    test_id = "beta_ap_is.get_work_order_templates.0"
+    client = get_client(test_id)
+    client.beta_ap_is.get_work_order_templates()
+    verify_request_count(test_id, "GET", "/maintenance/work-order-templates", None, 1)
+
+
 def test_betaApIs_get_places() -> None:
     """Test getPlaces endpoint with WireMock"""
     test_id = "beta_ap_is.get_places.0"
@@ -684,6 +692,7 @@ def test_betaApIs_patch_safety_events_v_2_batch() -> None:
     client = get_client(test_id)
     client.beta_ap_is.patch_safety_events_v_2_batch(
         safety_event_ids=[
+            "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
             "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
             "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
             "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
