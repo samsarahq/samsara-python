@@ -4815,7 +4815,7 @@ client.beta_ap_is.delete_hub_route_template(
 <dl>
 <dd>
 
-Gets work order templates by id. Ids that do not resolve to a template (e.g. deleted) are omitted from the response.
+Gets work order templates. Optionally filter to specific template ids; ids that do not resolve to a template (e.g. deleted) are omitted from the response.
 
  <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -4858,7 +4858,15 @@ client.beta_ap_is.get_work_order_templates()
 <dl>
 <dd>
 
-**ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — The work order template IDs to look up. Up to 100 ids. Ids that do not resolve to a template (e.g. deleted) are omitted from the response.
+**ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Filter by work order template IDs. Up to 100 ids. Returns all templates if no ids are provided. Ids that do not resolve to a template (e.g. deleted) are omitted from the response.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
     
 </dd>
 </dl>

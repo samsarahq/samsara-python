@@ -2659,10 +2659,11 @@ class BetaApIsClient:
         self,
         *,
         ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        after: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> WorkOrdersGetWorkOrderTemplatesResponseBody:
         """
-        Gets work order templates by id. Ids that do not resolve to a template (e.g. deleted) are omitted from the response.
+        Gets work order templates. Optionally filter to specific template ids; ids that do not resolve to a template (e.g. deleted) are omitted from the response.
 
          <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -2674,7 +2675,10 @@ class BetaApIsClient:
         Parameters
         ----------
         ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            The work order template IDs to look up. Up to 100 ids. Ids that do not resolve to a template (e.g. deleted) are omitted from the response.
+            Filter by work order template IDs. Up to 100 ids. Returns all templates if no ids are provided. Ids that do not resolve to a template (e.g. deleted) are omitted from the response.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -2693,7 +2697,7 @@ class BetaApIsClient:
         )
         client.beta_ap_is.get_work_order_templates()
         """
-        _response = self._raw_client.get_work_order_templates(ids=ids, request_options=request_options)
+        _response = self._raw_client.get_work_order_templates(ids=ids, after=after, request_options=request_options)
         return _response.data
 
     def get_places(
@@ -7612,10 +7616,11 @@ class AsyncBetaApIsClient:
         self,
         *,
         ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        after: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> WorkOrdersGetWorkOrderTemplatesResponseBody:
         """
-        Gets work order templates by id. Ids that do not resolve to a template (e.g. deleted) are omitted from the response.
+        Gets work order templates. Optionally filter to specific template ids; ids that do not resolve to a template (e.g. deleted) are omitted from the response.
 
          <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -7627,7 +7632,10 @@ class AsyncBetaApIsClient:
         Parameters
         ----------
         ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            The work order template IDs to look up. Up to 100 ids. Ids that do not resolve to a template (e.g. deleted) are omitted from the response.
+            Filter by work order template IDs. Up to 100 ids. Returns all templates if no ids are provided. Ids that do not resolve to a template (e.g. deleted) are omitted from the response.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -7654,7 +7662,9 @@ class AsyncBetaApIsClient:
 
         asyncio.run(main())
         """
-        _response = await self._raw_client.get_work_order_templates(ids=ids, request_options=request_options)
+        _response = await self._raw_client.get_work_order_templates(
+            ids=ids, after=after, request_options=request_options
+        )
         return _response.data
 
     async def get_places(
