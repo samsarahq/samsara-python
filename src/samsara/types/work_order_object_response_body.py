@@ -147,6 +147,14 @@ class WorkOrderObjectResponseBody(UniversalBaseModel):
         FieldMetadata(alias="vendorUuid"),
         pydantic.Field(alias="vendorUuid", description="The vendor UUID for the work order."),
     ] = None
+    work_order_template_ids: typing_extensions.Annotated[
+        typing.Optional[typing.List[str]],
+        FieldMetadata(alias="workOrderTemplateIds"),
+        pydantic.Field(
+            alias="workOrderTemplateIds",
+            description="IDs of the work order template(s) this work order was created from. May include templates that have since been deleted.",
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

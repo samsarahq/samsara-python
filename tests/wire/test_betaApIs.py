@@ -695,7 +695,6 @@ def test_betaApIs_patch_safety_events_v_2_batch() -> None:
             "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
             "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
             "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
-            "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
         ]
     )
     verify_request_count(test_id, "PATCH", "/safety-events/batch", None, 1)

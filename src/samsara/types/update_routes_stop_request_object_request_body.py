@@ -7,6 +7,7 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .hos_violation_day_object_request_body import HosViolationDayObjectRequestBody
 from .routes_single_use_address_object_request_body import RoutesSingleUseAddressObjectRequestBody
 
 
@@ -18,6 +19,11 @@ class UpdateRoutesStopRequestObjectRequestBody(UniversalBaseModel):
             alias="addressId",
             description="ID of the address. An address [externalId](https://developers.samsara.com/docs/external-ids#using-external-ids) can also be used interchangeably here.",
         ),
+    ] = None
+    appointment_windows: typing_extensions.Annotated[
+        typing.Optional[typing.List[HosViolationDayObjectRequestBody]],
+        FieldMetadata(alias="appointmentWindows"),
+        pydantic.Field(alias="appointmentWindows", description="Appointment windows for the stop."),
     ] = None
     external_ids: typing_extensions.Annotated[
         typing.Optional[typing.Dict[str, str]],
