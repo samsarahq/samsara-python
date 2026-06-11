@@ -7896,6 +7896,7 @@ if typing.TYPE_CHECKING:
     from .work_order_tax_create_object_request_body import WorkOrderTaxCreateObjectRequestBody
     from .work_order_tax_object_request_body import WorkOrderTaxObjectRequestBody
     from .work_order_tax_object_response_body import WorkOrderTaxObjectResponseBody
+    from .work_order_template_object_response_body import WorkOrderTemplateObjectResponseBody
     from .work_order_time_entry_object_response_body import WorkOrderTimeEntryObjectResponseBody
     from .work_order_unallocated_labor_object_response_body import WorkOrderUnallocatedLaborObjectResponseBody
     from .work_order_with_time_entries_object_response_body import WorkOrderWithTimeEntriesObjectResponseBody
@@ -7959,6 +7960,34 @@ if typing.TYPE_CHECKING:
     )
     from .work_orders_get_service_tasks_unauthorized_error_response_body import (
         WorkOrdersGetServiceTasksUnauthorizedErrorResponseBody,
+    )
+    from .work_orders_get_work_order_templates_bad_gateway_error_response_body import (
+        WorkOrdersGetWorkOrderTemplatesBadGatewayErrorResponseBody,
+    )
+    from .work_orders_get_work_order_templates_gateway_timeout_error_response_body import (
+        WorkOrdersGetWorkOrderTemplatesGatewayTimeoutErrorResponseBody,
+    )
+    from .work_orders_get_work_order_templates_internal_server_error_response_body import (
+        WorkOrdersGetWorkOrderTemplatesInternalServerErrorResponseBody,
+    )
+    from .work_orders_get_work_order_templates_method_not_allowed_error_response_body import (
+        WorkOrdersGetWorkOrderTemplatesMethodNotAllowedErrorResponseBody,
+    )
+    from .work_orders_get_work_order_templates_not_found_error_response_body import (
+        WorkOrdersGetWorkOrderTemplatesNotFoundErrorResponseBody,
+    )
+    from .work_orders_get_work_order_templates_not_implemented_error_response_body import (
+        WorkOrdersGetWorkOrderTemplatesNotImplementedErrorResponseBody,
+    )
+    from .work_orders_get_work_order_templates_response_body import WorkOrdersGetWorkOrderTemplatesResponseBody
+    from .work_orders_get_work_order_templates_service_unavailable_error_response_body import (
+        WorkOrdersGetWorkOrderTemplatesServiceUnavailableErrorResponseBody,
+    )
+    from .work_orders_get_work_order_templates_too_many_requests_error_response_body import (
+        WorkOrdersGetWorkOrderTemplatesTooManyRequestsErrorResponseBody,
+    )
+    from .work_orders_get_work_order_templates_unauthorized_error_response_body import (
+        WorkOrdersGetWorkOrderTemplatesUnauthorizedErrorResponseBody,
     )
     from .work_orders_get_work_orders_bad_gateway_error_response_body import (
         WorkOrdersGetWorkOrdersBadGatewayErrorResponseBody,
@@ -11969,6 +11998,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "WorkOrderTaxCreateObjectRequestBody": ".work_order_tax_create_object_request_body",
     "WorkOrderTaxObjectRequestBody": ".work_order_tax_object_request_body",
     "WorkOrderTaxObjectResponseBody": ".work_order_tax_object_response_body",
+    "WorkOrderTemplateObjectResponseBody": ".work_order_template_object_response_body",
     "WorkOrderTimeEntryObjectResponseBody": ".work_order_time_entry_object_response_body",
     "WorkOrderUnallocatedLaborObjectResponseBody": ".work_order_unallocated_labor_object_response_body",
     "WorkOrderWithTimeEntriesObjectResponseBody": ".work_order_with_time_entries_object_response_body",
@@ -11993,6 +12023,16 @@ _dynamic_imports: typing.Dict[str, str] = {
     "WorkOrdersGetServiceTasksServiceUnavailableErrorResponseBody": ".work_orders_get_service_tasks_service_unavailable_error_response_body",
     "WorkOrdersGetServiceTasksTooManyRequestsErrorResponseBody": ".work_orders_get_service_tasks_too_many_requests_error_response_body",
     "WorkOrdersGetServiceTasksUnauthorizedErrorResponseBody": ".work_orders_get_service_tasks_unauthorized_error_response_body",
+    "WorkOrdersGetWorkOrderTemplatesBadGatewayErrorResponseBody": ".work_orders_get_work_order_templates_bad_gateway_error_response_body",
+    "WorkOrdersGetWorkOrderTemplatesGatewayTimeoutErrorResponseBody": ".work_orders_get_work_order_templates_gateway_timeout_error_response_body",
+    "WorkOrdersGetWorkOrderTemplatesInternalServerErrorResponseBody": ".work_orders_get_work_order_templates_internal_server_error_response_body",
+    "WorkOrdersGetWorkOrderTemplatesMethodNotAllowedErrorResponseBody": ".work_orders_get_work_order_templates_method_not_allowed_error_response_body",
+    "WorkOrdersGetWorkOrderTemplatesNotFoundErrorResponseBody": ".work_orders_get_work_order_templates_not_found_error_response_body",
+    "WorkOrdersGetWorkOrderTemplatesNotImplementedErrorResponseBody": ".work_orders_get_work_order_templates_not_implemented_error_response_body",
+    "WorkOrdersGetWorkOrderTemplatesResponseBody": ".work_orders_get_work_order_templates_response_body",
+    "WorkOrdersGetWorkOrderTemplatesServiceUnavailableErrorResponseBody": ".work_orders_get_work_order_templates_service_unavailable_error_response_body",
+    "WorkOrdersGetWorkOrderTemplatesTooManyRequestsErrorResponseBody": ".work_orders_get_work_order_templates_too_many_requests_error_response_body",
+    "WorkOrdersGetWorkOrderTemplatesUnauthorizedErrorResponseBody": ".work_orders_get_work_order_templates_unauthorized_error_response_body",
     "WorkOrdersGetWorkOrdersBadGatewayErrorResponseBody": ".work_orders_get_work_orders_bad_gateway_error_response_body",
     "WorkOrdersGetWorkOrdersGatewayTimeoutErrorResponseBody": ".work_orders_get_work_orders_gateway_timeout_error_response_body",
     "WorkOrdersGetWorkOrdersInternalServerErrorResponseBody": ".work_orders_get_work_orders_internal_server_error_response_body",
@@ -15934,6 +15974,7 @@ __all__ = [
     "WorkOrderTaxCreateObjectRequestBody",
     "WorkOrderTaxObjectRequestBody",
     "WorkOrderTaxObjectResponseBody",
+    "WorkOrderTemplateObjectResponseBody",
     "WorkOrderTimeEntryObjectResponseBody",
     "WorkOrderUnallocatedLaborObjectResponseBody",
     "WorkOrderWithTimeEntriesObjectResponseBody",
@@ -15958,6 +15999,16 @@ __all__ = [
     "WorkOrdersGetServiceTasksServiceUnavailableErrorResponseBody",
     "WorkOrdersGetServiceTasksTooManyRequestsErrorResponseBody",
     "WorkOrdersGetServiceTasksUnauthorizedErrorResponseBody",
+    "WorkOrdersGetWorkOrderTemplatesBadGatewayErrorResponseBody",
+    "WorkOrdersGetWorkOrderTemplatesGatewayTimeoutErrorResponseBody",
+    "WorkOrdersGetWorkOrderTemplatesInternalServerErrorResponseBody",
+    "WorkOrdersGetWorkOrderTemplatesMethodNotAllowedErrorResponseBody",
+    "WorkOrdersGetWorkOrderTemplatesNotFoundErrorResponseBody",
+    "WorkOrdersGetWorkOrderTemplatesNotImplementedErrorResponseBody",
+    "WorkOrdersGetWorkOrderTemplatesResponseBody",
+    "WorkOrdersGetWorkOrderTemplatesServiceUnavailableErrorResponseBody",
+    "WorkOrdersGetWorkOrderTemplatesTooManyRequestsErrorResponseBody",
+    "WorkOrdersGetWorkOrderTemplatesUnauthorizedErrorResponseBody",
     "WorkOrdersGetWorkOrdersBadGatewayErrorResponseBody",
     "WorkOrdersGetWorkOrdersGatewayTimeoutErrorResponseBody",
     "WorkOrdersGetWorkOrdersInternalServerErrorResponseBody",
