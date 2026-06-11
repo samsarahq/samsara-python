@@ -3162,6 +3162,7 @@ if typing.TYPE_CHECKING:
     from .hos_logs_response import HosLogsResponse
     from .hos_shift import HosShift
     from .hos_violation_data_response_body import HosViolationDataResponseBody
+    from .hos_violation_day_object_request_body import HosViolationDayObjectRequestBody
     from .hos_violation_day_object_response_body import HosViolationDayObjectResponseBody
     from .hos_violation_object_response_body import HosViolationObjectResponseBody
     from .hos_violation_object_response_body_type import HosViolationObjectResponseBodyType
@@ -9664,6 +9665,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "HosLogsResponse": ".hos_logs_response",
     "HosShift": ".hos_shift",
     "HosViolationDataResponseBody": ".hos_violation_data_response_body",
+    "HosViolationDayObjectRequestBody": ".hos_violation_day_object_request_body",
     "HosViolationDayObjectResponseBody": ".hos_violation_day_object_response_body",
     "HosViolationObjectResponseBody": ".hos_violation_object_response_body",
     "HosViolationObjectResponseBodyType": ".hos_violation_object_response_body_type",
@@ -13640,6 +13642,7 @@ __all__ = [
     "HosLogsResponse",
     "HosShift",
     "HosViolationDataResponseBody",
+    "HosViolationDayObjectRequestBody",
     "HosViolationDayObjectResponseBody",
     "HosViolationObjectResponseBody",
     "HosViolationObjectResponseBodyType",
