@@ -32,6 +32,7 @@ from .gateway_disconnected_response_body import GatewayDisconnectedResponseBody
 from .gateway_with_vehicle_tiny_response_response_body import GatewayWithVehicleTinyResponseResponseBody
 from .gps_signal_loss_response_body import GpsSignalLossResponseBody
 from .harsh_event_data_response_body import HarshEventDataResponseBody
+from .hos_duty_status_data_response_body import HosDutyStatusDataResponseBody
 from .hos_violation_data_response_body import HosViolationDataResponseBody
 from .inactivity_response_body import InactivityResponseBody
 from .inside_geofence_data_response_body import InsideGeofenceDataResponseBody
@@ -215,6 +216,11 @@ class WorkflowIncidentDetailsObjectResponseBody(UniversalBaseModel):
         typing.Optional[HarshEventDataResponseBody],
         FieldMetadata(alias="harshEvent"),
         pydantic.Field(alias="harshEvent"),
+    ] = None
+    hos_duty_status: typing_extensions.Annotated[
+        typing.Optional[HosDutyStatusDataResponseBody],
+        FieldMetadata(alias="hosDutyStatus"),
+        pydantic.Field(alias="hosDutyStatus"),
     ] = None
     hos_violation: typing_extensions.Annotated[
         typing.Optional[HosViolationDataResponseBody],

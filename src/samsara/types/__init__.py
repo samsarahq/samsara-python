@@ -3119,6 +3119,7 @@ if typing.TYPE_CHECKING:
     from .hos_drivers_eld_event_object_response_body_driver_activation_status import (
         HosDriversEldEventObjectResponseBodyDriverActivationStatus,
     )
+    from .hos_duty_status_data_response_body import HosDutyStatusDataResponseBody
     from .hos_eld_event_location_object_response_body import HosEldEventLocationObjectResponseBody
     from .hos_eld_event_object_response_body import HosEldEventObjectResponseBody
     from .hos_eld_event_object_response_body_malfunction_diagnostic_code import (
@@ -9642,6 +9643,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "HosDrive": ".hos_drive",
     "HosDriversEldEventObjectResponseBody": ".hos_drivers_eld_event_object_response_body",
     "HosDriversEldEventObjectResponseBodyDriverActivationStatus": ".hos_drivers_eld_event_object_response_body_driver_activation_status",
+    "HosDutyStatusDataResponseBody": ".hos_duty_status_data_response_body",
     "HosEldEventLocationObjectResponseBody": ".hos_eld_event_location_object_response_body",
     "HosEldEventObjectResponseBody": ".hos_eld_event_object_response_body",
     "HosEldEventObjectResponseBodyMalfunctionDiagnosticCode": ".hos_eld_event_object_response_body_malfunction_diagnostic_code",
@@ -13619,6 +13621,7 @@ __all__ = [
     "HosDrive",
     "HosDriversEldEventObjectResponseBody",
     "HosDriversEldEventObjectResponseBodyDriverActivationStatus",
+    "HosDutyStatusDataResponseBody",
     "HosEldEventLocationObjectResponseBody",
     "HosEldEventObjectResponseBody",
     "HosEldEventObjectResponseBodyMalfunctionDiagnosticCode",
