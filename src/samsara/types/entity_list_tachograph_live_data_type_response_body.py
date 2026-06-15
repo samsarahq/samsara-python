@@ -18,7 +18,7 @@ class EntityListTachographLiveDataTypeResponseBody(UniversalBaseModel):
         FieldMetadata(alias="cumulatedDrivingTimePreviousAndCurrentWeekMinute"),
         pydantic.Field(
             alias="cumulatedDrivingTimePreviousAndCurrentWeekMinute",
-            description="The driver's cumulated driving time across the previous and current week, as defined by ISO 16844-7 (Tachograph - Digital data interface).",
+            description="The driver's cumulated driving time across the previous and current week, as defined by ISO 16844-7 (Tachograph - Digital data interface). Measured in minutes.",
         ),
     ] = None
     cumulative_break_time_minute: typing_extensions.Annotated[
@@ -26,7 +26,7 @@ class EntityListTachographLiveDataTypeResponseBody(UniversalBaseModel):
         FieldMetadata(alias="cumulativeBreakTimeMinute"),
         pydantic.Field(
             alias="cumulativeBreakTimeMinute",
-            description="The driver's cumulative break time, as defined by ISO 16844-7 (Tachograph - Digital data interface).",
+            description="The driver's cumulative break time, as defined by ISO 16844-7 (Tachograph - Digital data interface). Measured in minutes.",
         ),
     ] = None
     current_daily_driving_time_minute: typing_extensions.Annotated[
@@ -34,7 +34,7 @@ class EntityListTachographLiveDataTypeResponseBody(UniversalBaseModel):
         FieldMetadata(alias="currentDailyDrivingTimeMinute"),
         pydantic.Field(
             alias="currentDailyDrivingTimeMinute",
-            description="The driver's current daily driving time, as defined by ISO 16844-7 (Tachograph - Digital data interface).",
+            description="The driver's current daily driving time, as defined by ISO 16844-7 (Tachograph - Digital data interface). Measured in minutes.",
         ),
     ] = None
     current_duration_of_selected_activity_minute: typing_extensions.Annotated[
@@ -42,7 +42,7 @@ class EntityListTachographLiveDataTypeResponseBody(UniversalBaseModel):
         FieldMetadata(alias="currentDurationOfSelectedActivityMinute"),
         pydantic.Field(
             alias="currentDurationOfSelectedActivityMinute",
-            description="The duration of the driver's currently selected activity, as defined by ISO 16844-7 (Tachograph - Digital data interface).",
+            description="The duration of the driver's currently selected activity, as defined by ISO 16844-7 (Tachograph - Digital data interface). Measured in minutes.",
         ),
     ] = None
     current_weekly_driving_time_minute: typing_extensions.Annotated[
@@ -50,7 +50,7 @@ class EntityListTachographLiveDataTypeResponseBody(UniversalBaseModel):
         FieldMetadata(alias="currentWeeklyDrivingTimeMinute"),
         pydantic.Field(
             alias="currentWeeklyDrivingTimeMinute",
-            description="The driver's current weekly driving time, as defined by ISO 16844-7 (Tachograph - Digital data interface).",
+            description="The driver's current weekly driving time, as defined by ISO 16844-7 (Tachograph - Digital data interface). Measured in minutes.",
         ),
     ] = None
     driver_id: typing_extensions.Annotated[
@@ -63,7 +63,7 @@ class EntityListTachographLiveDataTypeResponseBody(UniversalBaseModel):
         FieldMetadata(alias="durationOfNextBreakRestMinute"),
         pydantic.Field(
             alias="durationOfNextBreakRestMinute",
-            description="The expected duration of the driver's next break or rest period, as defined by ISO 16844-7 (Tachograph - Digital data interface).",
+            description="The expected duration of the driver's next break or rest period, as defined by ISO 16844-7 (Tachograph - Digital data interface). Measured in minutes.",
         ),
     ] = None
     duration_of_next_driving_period_minute: typing_extensions.Annotated[
@@ -71,7 +71,7 @@ class EntityListTachographLiveDataTypeResponseBody(UniversalBaseModel):
         FieldMetadata(alias="durationOfNextDrivingPeriodMinute"),
         pydantic.Field(
             alias="durationOfNextDrivingPeriodMinute",
-            description="The expected duration of the driver's next driving period, as defined by ISO 16844-7 (Tachograph - Digital data interface).",
+            description="The expected duration of the driver's next driving period, as defined by ISO 16844-7 (Tachograph - Digital data interface). Measured in minutes.",
         ),
     ] = None
     end_of_last_daily_rest_period: typing_extensions.Annotated[
@@ -100,7 +100,7 @@ class EntityListTachographLiveDataTypeResponseBody(UniversalBaseModel):
         FieldMetadata(alias="maximumDailyDrivingTimeMinute"),
         pydantic.Field(
             alias="maximumDailyDrivingTimeMinute",
-            description="The maximum allowed daily driving time for the driver, as defined by ISO 16844-7 (Tachograph - Digital data interface).",
+            description="The maximum allowed daily driving time for the driver, as defined by ISO 16844-7 (Tachograph - Digital data interface). Measured in minutes.",
         ),
     ] = None
     minimum_daily_rest_minute: typing_extensions.Annotated[
@@ -108,7 +108,7 @@ class EntityListTachographLiveDataTypeResponseBody(UniversalBaseModel):
         FieldMetadata(alias="minimumDailyRestMinute"),
         pydantic.Field(
             alias="minimumDailyRestMinute",
-            description="The minimum required daily rest duration for the driver, as defined by ISO 16844-7 (Tachograph - Digital data interface).",
+            description="The minimum required daily rest duration for the driver, as defined by ISO 16844-7 (Tachograph - Digital data interface). Measured in minutes.",
         ),
     ] = None
     minimum_weekly_rest_minute: typing_extensions.Annotated[
@@ -116,7 +116,7 @@ class EntityListTachographLiveDataTypeResponseBody(UniversalBaseModel):
         FieldMetadata(alias="minimumWeeklyRestMinute"),
         pydantic.Field(
             alias="minimumWeeklyRestMinute",
-            description="The minimum required weekly rest duration for the driver, as defined by ISO 16844-7 (Tachograph - Digital data interface).",
+            description="The minimum required weekly rest duration for the driver, as defined by ISO 16844-7 (Tachograph - Digital data interface). Measured in minutes.",
         ),
     ] = None
     number_of_times_9_h_daily_driving_times_exceeded: typing_extensions.Annotated[
@@ -140,7 +140,7 @@ class EntityListTachographLiveDataTypeResponseBody(UniversalBaseModel):
         FieldMetadata(alias="openCompensationInSecondWeekBeforeLastMinute"),
         pydantic.Field(
             alias="openCompensationInSecondWeekBeforeLastMinute",
-            description="Open rest compensation owed from the second week before last, as defined by ISO 16844-7 (Tachograph - Digital data interface).",
+            description="Open rest compensation owed from the second week before last, as defined by ISO 16844-7 (Tachograph - Digital data interface). Measured in minutes.",
         ),
     ] = None
     open_compensation_in_the_last_week_minute: typing_extensions.Annotated[
@@ -148,7 +148,7 @@ class EntityListTachographLiveDataTypeResponseBody(UniversalBaseModel):
         FieldMetadata(alias="openCompensationInTheLastWeekMinute"),
         pydantic.Field(
             alias="openCompensationInTheLastWeekMinute",
-            description="Open rest compensation owed from the last week, as defined by ISO 16844-7 (Tachograph - Digital data interface).",
+            description="Open rest compensation owed from the last week, as defined by ISO 16844-7 (Tachograph - Digital data interface). Measured in minutes.",
         ),
     ] = None
     open_compensation_in_week_before_last_minute: typing_extensions.Annotated[
@@ -156,7 +156,7 @@ class EntityListTachographLiveDataTypeResponseBody(UniversalBaseModel):
         FieldMetadata(alias="openCompensationInWeekBeforeLastMinute"),
         pydantic.Field(
             alias="openCompensationInWeekBeforeLastMinute",
-            description="Open rest compensation owed from the week before last, as defined by ISO 16844-7 (Tachograph - Digital data interface).",
+            description="Open rest compensation owed from the week before last, as defined by ISO 16844-7 (Tachograph - Digital data interface). Measured in minutes.",
         ),
     ] = None
     remaining_2_weeks_driving_time_minute: typing_extensions.Annotated[
@@ -164,7 +164,7 @@ class EntityListTachographLiveDataTypeResponseBody(UniversalBaseModel):
         FieldMetadata(alias="remaining2WeeksDrivingTimeMinute"),
         pydantic.Field(
             alias="remaining2WeeksDrivingTimeMinute",
-            description="The driver's remaining driving time across the current two-week period, as defined by ISO 16844-7 (Tachograph - Digital data interface).",
+            description="The driver's remaining driving time across the current two-week period, as defined by ISO 16844-7 (Tachograph - Digital data interface). Measured in minutes.",
         ),
     ] = None
     remaining_current_driving_time_minute: typing_extensions.Annotated[
@@ -172,7 +172,7 @@ class EntityListTachographLiveDataTypeResponseBody(UniversalBaseModel):
         FieldMetadata(alias="remainingCurrentDrivingTimeMinute"),
         pydantic.Field(
             alias="remainingCurrentDrivingTimeMinute",
-            description="The driver's remaining current continuous driving time before a break is required, as defined by ISO 16844-7 (Tachograph - Digital data interface).",
+            description="The driver's remaining current continuous driving time before a break is required, as defined by ISO 16844-7 (Tachograph - Digital data interface). Measured in minutes.",
         ),
     ] = None
     remaining_driving_time_of_current_week_minute: typing_extensions.Annotated[
@@ -180,7 +180,7 @@ class EntityListTachographLiveDataTypeResponseBody(UniversalBaseModel):
         FieldMetadata(alias="remainingDrivingTimeOfCurrentWeekMinute"),
         pydantic.Field(
             alias="remainingDrivingTimeOfCurrentWeekMinute",
-            description="The driver's remaining driving time for the current week, as defined by ISO 16844-7 (Tachograph - Digital data interface).",
+            description="The driver's remaining driving time for the current week, as defined by ISO 16844-7 (Tachograph - Digital data interface). Measured in minutes.",
         ),
     ] = None
     remaining_driving_time_on_current_shift_minute: typing_extensions.Annotated[
@@ -188,7 +188,7 @@ class EntityListTachographLiveDataTypeResponseBody(UniversalBaseModel):
         FieldMetadata(alias="remainingDrivingTimeOnCurrentShiftMinute"),
         pydantic.Field(
             alias="remainingDrivingTimeOnCurrentShiftMinute",
-            description="The driver's remaining driving time on the current shift, as defined by ISO 16844-7 (Tachograph - Digital data interface).",
+            description="The driver's remaining driving time on the current shift, as defined by ISO 16844-7 (Tachograph - Digital data interface). Measured in minutes.",
         ),
     ] = None
     remaining_time_of_current_break_rest_minute: typing_extensions.Annotated[
@@ -196,7 +196,7 @@ class EntityListTachographLiveDataTypeResponseBody(UniversalBaseModel):
         FieldMetadata(alias="remainingTimeOfCurrentBreakRestMinute"),
         pydantic.Field(
             alias="remainingTimeOfCurrentBreakRestMinute",
-            description="Time remaining in the driver's current break or rest period, as defined by ISO 16844-7 (Tachograph - Digital data interface).",
+            description="Time remaining in the driver's current break or rest period, as defined by ISO 16844-7 (Tachograph - Digital data interface). Measured in minutes.",
         ),
     ] = None
     remaining_time_until_next_break_or_rest_minute: typing_extensions.Annotated[
@@ -204,7 +204,7 @@ class EntityListTachographLiveDataTypeResponseBody(UniversalBaseModel):
         FieldMetadata(alias="remainingTimeUntilNextBreakOrRestMinute"),
         pydantic.Field(
             alias="remainingTimeUntilNextBreakOrRestMinute",
-            description="Time remaining until the driver's next required break or rest period, as defined by ISO 16844-7 (Tachograph - Digital data interface).",
+            description="Time remaining until the driver's next required break or rest period, as defined by ISO 16844-7 (Tachograph - Digital data interface). Measured in minutes.",
         ),
     ] = None
     tachograph_card_number: typing_extensions.Annotated[
@@ -217,7 +217,7 @@ class EntityListTachographLiveDataTypeResponseBody(UniversalBaseModel):
         FieldMetadata(alias="timeLeftUntilNewDailyRestPeriodMinute"),
         pydantic.Field(
             alias="timeLeftUntilNewDailyRestPeriodMinute",
-            description="Time remaining until the driver must begin a new daily rest period, as defined by ISO 16844-7 (Tachograph - Digital data interface).",
+            description="Time remaining until the driver must begin a new daily rest period, as defined by ISO 16844-7 (Tachograph - Digital data interface). Measured in minutes.",
         ),
     ] = None
     time_left_until_new_weekly_rest_period_minute: typing_extensions.Annotated[
@@ -225,7 +225,7 @@ class EntityListTachographLiveDataTypeResponseBody(UniversalBaseModel):
         FieldMetadata(alias="timeLeftUntilNewWeeklyRestPeriodMinute"),
         pydantic.Field(
             alias="timeLeftUntilNewWeeklyRestPeriodMinute",
-            description="Time remaining until the driver must begin a new weekly rest period, as defined by ISO 16844-7 (Tachograph - Digital data interface).",
+            description="Time remaining until the driver must begin a new weekly rest period, as defined by ISO 16844-7 (Tachograph - Digital data interface). Measured in minutes.",
         ),
     ] = None
     time_left_until_next_driving_period_minute: typing_extensions.Annotated[
@@ -233,7 +233,7 @@ class EntityListTachographLiveDataTypeResponseBody(UniversalBaseModel):
         FieldMetadata(alias="timeLeftUntilNextDrivingPeriodMinute"),
         pydantic.Field(
             alias="timeLeftUntilNextDrivingPeriodMinute",
-            description="Time remaining until the driver's next driving period can begin, as defined by ISO 16844-7 (Tachograph - Digital data interface).",
+            description="Time remaining until the driver's next driving period can begin, as defined by ISO 16844-7 (Tachograph - Digital data interface). Measured in minutes.",
         ),
     ] = None
     vehicle_id: typing_extensions.Annotated[

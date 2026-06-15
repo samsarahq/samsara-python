@@ -7,7 +7,7 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
-from .hos_violation_day_object_request_body import HosViolationDayObjectRequestBody
+from .route_stop_appointment_window_request_body import RouteStopAppointmentWindowRequestBody
 from .routes_single_use_address_object_request_body import RoutesSingleUseAddressObjectRequestBody
 
 
@@ -21,7 +21,7 @@ class CreateRoutesStopRequestObjectRequestBody(UniversalBaseModel):
         ),
     ] = None
     appointment_windows: typing_extensions.Annotated[
-        typing.Optional[typing.List[HosViolationDayObjectRequestBody]],
+        typing.Optional[typing.List[RouteStopAppointmentWindowRequestBody]],
         FieldMetadata(alias="appointmentWindows"),
         pydantic.Field(alias="appointmentWindows", description="Appointment windows for the stop."),
     ] = None
