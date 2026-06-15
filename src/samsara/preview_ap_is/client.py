@@ -7,8 +7,6 @@ from ..core.request_options import RequestOptions
 from ..types.drivers_auth_token_create_driver_auth_token_response_body import (
     DriversAuthTokenCreateDriverAuthTokenResponseBody,
 )
-from ..types.gateways_pair_gateways_response_body import GatewaysPairGatewaysResponseBody
-from ..types.pair_gateway_pair_object_request_body import PairGatewayPairObjectRequestBody
 from .raw_client import AsyncRawPreviewApIsClient, RawPreviewApIsClient
 
 # this is used as the default value for optional parameters
@@ -177,66 +175,6 @@ class PreviewApIsClient:
         )
         """
         _response = self._raw_client.unlock_vehicle(id, request_options=request_options)
-        return _response.data
-
-    def pair_gateways(
-        self,
-        *,
-        pairs: typing.Sequence[PairGatewayPairObjectRequestBody],
-        remove_orphan_devices: typing.Optional[bool] = OMIT,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> GatewaysPairGatewaysResponseBody:
-        """
-        Reassign one or more gateways to different devices in a single call. Mirrors the dashboard's "Pair Gateway" flow and accepts up to 50 gateway-device pairs per request. Works for any device type: vehicles, assets, equipment, trailers, industrial machines, and asset tags. By default, devices that the reassigned gateways were previously linked to remain in their current group. Pass `removeOrphanDevices: true` to move those orphaned devices to the unassigned group and clear their tags. The endpoint is currently in Preview and gated behind a feature configuration; contact your Samsara representative to enable access.
-
-         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Write Gateways** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
-
-        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
-
-        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        pairs : typing.Sequence[PairGatewayPairObjectRequestBody]
-            Gateway-device pairs to apply.
-
-        remove_orphan_devices : typing.Optional[bool]
-            When true, devices that the reassigned gateways were previously linked to are moved to the unassigned group and have their tags cleared as a side-effect of the pairing. The previousDevice fields in the response describe each orphaned device as it existed immediately before the pairing was applied, so they remain stable regardless of this flag. Defaults to false.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        GatewaysPairGatewaysResponseBody
-            OK response.
-
-        Examples
-        --------
-        from samsara import PairGatewayPairObjectRequestBody, Samsara
-
-        client = Samsara(
-            token="YOUR_TOKEN",
-        )
-        client.preview_ap_is.pair_gateways(
-            pairs=[
-                PairGatewayPairObjectRequestBody(
-                    device_serial="GFRV-43N-VGX",
-                    gateway_serial="GFRV-43N-VGX",
-                )
-            ],
-        )
-        """
-        _response = self._raw_client.pair_gateways(
-            pairs=pairs, remove_orphan_devices=remove_orphan_devices, request_options=request_options
-        )
         return _response.data
 
 
@@ -426,72 +364,4 @@ class AsyncPreviewApIsClient:
         asyncio.run(main())
         """
         _response = await self._raw_client.unlock_vehicle(id, request_options=request_options)
-        return _response.data
-
-    async def pair_gateways(
-        self,
-        *,
-        pairs: typing.Sequence[PairGatewayPairObjectRequestBody],
-        remove_orphan_devices: typing.Optional[bool] = OMIT,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> GatewaysPairGatewaysResponseBody:
-        """
-        Reassign one or more gateways to different devices in a single call. Mirrors the dashboard's "Pair Gateway" flow and accepts up to 50 gateway-device pairs per request. Works for any device type: vehicles, assets, equipment, trailers, industrial machines, and asset tags. By default, devices that the reassigned gateways were previously linked to remain in their current group. Pass `removeOrphanDevices: true` to move those orphaned devices to the unassigned group and clear their tags. The endpoint is currently in Preview and gated behind a feature configuration; contact your Samsara representative to enable access.
-
-         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Write Gateways** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
-
-        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
-
-        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        pairs : typing.Sequence[PairGatewayPairObjectRequestBody]
-            Gateway-device pairs to apply.
-
-        remove_orphan_devices : typing.Optional[bool]
-            When true, devices that the reassigned gateways were previously linked to are moved to the unassigned group and have their tags cleared as a side-effect of the pairing. The previousDevice fields in the response describe each orphaned device as it existed immediately before the pairing was applied, so they remain stable regardless of this flag. Defaults to false.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        GatewaysPairGatewaysResponseBody
-            OK response.
-
-        Examples
-        --------
-        import asyncio
-
-        from samsara import AsyncSamsara, PairGatewayPairObjectRequestBody
-
-        client = AsyncSamsara(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.preview_ap_is.pair_gateways(
-                pairs=[
-                    PairGatewayPairObjectRequestBody(
-                        device_serial="GFRV-43N-VGX",
-                        gateway_serial="GFRV-43N-VGX",
-                    )
-                ],
-            )
-
-
-        asyncio.run(main())
-        """
-        _response = await self._raw_client.pair_gateways(
-            pairs=pairs, remove_orphan_devices=remove_orphan_devices, request_options=request_options
-        )
         return _response.data

@@ -33,8 +33,14 @@ from ..types.driver_workflows_list_driver_workflows_response_body import DriverW
 from ..types.engine_immobilizer_get_engine_immobilizer_states_response_body import (
     EngineImmobilizerGetEngineImmobilizerStatesResponseBody,
 )
+from ..types.entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_response_body import (
+    EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesResponseBody,
+)
 from ..types.entity_tachograph_live_data_records_service_list_tachograph_live_data_response_body import (
     EntityTachographLiveDataRecordsServiceListTachographLiveDataResponseBody,
+)
+from ..types.entity_upcoming_preventative_maintenances_service_list_upcoming_preventive_maintenance_response_body import (
+    EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceResponseBody,
 )
 from ..types.equipment_patch_equipment_response_body import EquipmentPatchEquipmentResponseBody
 from ..types.functions_create_function_response_body import FunctionsCreateFunctionResponseBody
@@ -56,6 +62,7 @@ from ..types.functions_storage_list_functions_storage_files_response_body import
 from ..types.functions_storage_update_function_storage_file_response_body import (
     FunctionsStorageUpdateFunctionStorageFileResponseBody,
 )
+from ..types.gateways_pair_gateways_response_body import GatewaysPairGatewaysResponseBody
 from ..types.geofence_vertex_input_request_body import GeofenceVertexInputRequestBody
 from ..types.goa_attribute_tiny import GoaAttributeTiny
 from ..types.hos_daily_logs_update_shipping_docs_response_body import HosDailyLogsUpdateShippingDocsResponseBody
@@ -74,6 +81,7 @@ from ..types.maintenance_vendors_list_vendor_categories_response_body import (
     MaintenanceVendorsListVendorCategoriesResponseBody,
 )
 from ..types.notification_recipient_request_body import NotificationRecipientRequestBody
+from ..types.pair_gateway_pair_object_request_body import PairGatewayPairObjectRequestBody
 from ..types.patch_function_request_config_request_body import PatchFunctionRequestConfigRequestBody
 from ..types.patch_job_object_request_body import PatchJobObjectRequestBody
 from ..types.patch_place_hub_location_upsert_body_request_body import PatchPlaceHubLocationUpsertBodyRequestBody
@@ -2389,6 +2397,60 @@ class BetaApIsClient:
         _response = self._raw_client.get_function_run(name, correlation_id, request_options=request_options)
         return _response.data
 
+    def pair_gateways(
+        self,
+        *,
+        pairs: typing.Sequence[PairGatewayPairObjectRequestBody],
+        remove_orphan_devices: typing.Optional[bool] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> GatewaysPairGatewaysResponseBody:
+        """
+        Reassign one or more gateways to different devices in a single call. Mirrors the dashboard's "Pair Gateway" flow and accepts up to 50 gateway-device pairs per request. Works for any device type: vehicles, assets, equipment, trailers, industrial machines, and asset tags. By default, devices that the reassigned gateways were previously linked to remain in their current group. Pass `removeOrphanDevices: true` to move those orphaned devices to the unassigned group and clear their tags. The endpoint is currently in Beta and gated behind a feature configuration; contact your Samsara representative to enable access.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Gateways** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        pairs : typing.Sequence[PairGatewayPairObjectRequestBody]
+            Gateway-device pairs to apply.
+
+        remove_orphan_devices : typing.Optional[bool]
+            When true, devices that the reassigned gateways were previously linked to are moved to the unassigned group and have their tags cleared as a side-effect of the pairing. The previousDevice fields in the response describe each orphaned device as it existed immediately before the pairing was applied, so they remain stable regardless of this flag. Defaults to false.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        GatewaysPairGatewaysResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import PairGatewayPairObjectRequestBody, Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.pair_gateways(
+            pairs=[
+                PairGatewayPairObjectRequestBody(
+                    device_serial="GFRV-43N-VGX",
+                    gateway_serial="GFRV-43N-VGX",
+                )
+            ],
+        )
+        """
+        _response = self._raw_client.pair_gateways(
+            pairs=pairs, remove_orphan_devices=remove_orphan_devices, request_options=request_options
+        )
+        return _response.data
+
     def update_shipping_docs(
         self,
         *,
@@ -2653,6 +2715,116 @@ class BetaApIsClient:
         )
         """
         _response = self._raw_client.delete_hub_route_template(id=id, request_options=request_options)
+        return _response.data
+
+    def list_preventive_maintenance_schedules(
+        self,
+        *,
+        id_in: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesResponseBody:
+        """
+        Returns a paginated list of preventive maintenance schedules for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Preventive Maintenance Schedules** under the Preventive Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id_in : typing.Optional[str]
+            A filter on the data based on this comma-separated list of ID values.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.list_preventive_maintenance_schedules()
+        """
+        _response = self._raw_client.list_preventive_maintenance_schedules(
+            id_in=id_in, after=after, limit=limit, request_options=request_options
+        )
+        return _response.data
+
+    def list_upcoming_preventive_maintenance(
+        self,
+        *,
+        preventative_maintenance_schedule_ids: typing.Optional[str] = None,
+        asset_ids: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceResponseBody:
+        """
+        Returns a paginated list of upcoming preventive maintenance schedules for the organization's assets, enriched with live telemetry (current odometer, engine hours) and due-date projections.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Upcoming Preventive Maintenance** under the Preventive Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        preventative_maintenance_schedule_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Preventive Maintenance Schedule ID values.
+
+        asset_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Asset ID values.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.list_upcoming_preventive_maintenance()
+        """
+        _response = self._raw_client.list_upcoming_preventive_maintenance(
+            preventative_maintenance_schedule_ids=preventative_maintenance_schedule_ids,
+            asset_ids=asset_ids,
+            after=after,
+            limit=limit,
+            request_options=request_options,
+        )
         return _response.data
 
     def get_work_order_templates(
@@ -7304,6 +7476,68 @@ class AsyncBetaApIsClient:
         _response = await self._raw_client.get_function_run(name, correlation_id, request_options=request_options)
         return _response.data
 
+    async def pair_gateways(
+        self,
+        *,
+        pairs: typing.Sequence[PairGatewayPairObjectRequestBody],
+        remove_orphan_devices: typing.Optional[bool] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> GatewaysPairGatewaysResponseBody:
+        """
+        Reassign one or more gateways to different devices in a single call. Mirrors the dashboard's "Pair Gateway" flow and accepts up to 50 gateway-device pairs per request. Works for any device type: vehicles, assets, equipment, trailers, industrial machines, and asset tags. By default, devices that the reassigned gateways were previously linked to remain in their current group. Pass `removeOrphanDevices: true` to move those orphaned devices to the unassigned group and clear their tags. The endpoint is currently in Beta and gated behind a feature configuration; contact your Samsara representative to enable access.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Gateways** under the Setup & Administration category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        pairs : typing.Sequence[PairGatewayPairObjectRequestBody]
+            Gateway-device pairs to apply.
+
+        remove_orphan_devices : typing.Optional[bool]
+            When true, devices that the reassigned gateways were previously linked to are moved to the unassigned group and have their tags cleared as a side-effect of the pairing. The previousDevice fields in the response describe each orphaned device as it existed immediately before the pairing was applied, so they remain stable regardless of this flag. Defaults to false.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        GatewaysPairGatewaysResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara, PairGatewayPairObjectRequestBody
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.pair_gateways(
+                pairs=[
+                    PairGatewayPairObjectRequestBody(
+                        device_serial="GFRV-43N-VGX",
+                        gateway_serial="GFRV-43N-VGX",
+                    )
+                ],
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.pair_gateways(
+            pairs=pairs, remove_orphan_devices=remove_orphan_devices, request_options=request_options
+        )
+        return _response.data
+
     async def update_shipping_docs(
         self,
         *,
@@ -7610,6 +7844,132 @@ class AsyncBetaApIsClient:
         asyncio.run(main())
         """
         _response = await self._raw_client.delete_hub_route_template(id=id, request_options=request_options)
+        return _response.data
+
+    async def list_preventive_maintenance_schedules(
+        self,
+        *,
+        id_in: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesResponseBody:
+        """
+        Returns a paginated list of preventive maintenance schedules for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Preventive Maintenance Schedules** under the Preventive Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id_in : typing.Optional[str]
+            A filter on the data based on this comma-separated list of ID values.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.list_preventive_maintenance_schedules()
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.list_preventive_maintenance_schedules(
+            id_in=id_in, after=after, limit=limit, request_options=request_options
+        )
+        return _response.data
+
+    async def list_upcoming_preventive_maintenance(
+        self,
+        *,
+        preventative_maintenance_schedule_ids: typing.Optional[str] = None,
+        asset_ids: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceResponseBody:
+        """
+        Returns a paginated list of upcoming preventive maintenance schedules for the organization's assets, enriched with live telemetry (current odometer, engine hours) and due-date projections.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Upcoming Preventive Maintenance** under the Preventive Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        preventative_maintenance_schedule_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Preventive Maintenance Schedule ID values.
+
+        asset_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Asset ID values.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.list_upcoming_preventive_maintenance()
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.list_upcoming_preventive_maintenance(
+            preventative_maintenance_schedule_ids=preventative_maintenance_schedule_ids,
+            asset_ids=asset_ids,
+            after=after,
+            limit=limit,
+            request_options=request_options,
+        )
         return _response.data
 
     async def get_work_order_templates(

@@ -1882,7 +1882,46 @@ if typing.TYPE_CHECKING:
     from .engine_on_details_object_response_body import EngineOnDetailsObjectResponseBody
     from .engine_on_response_body import EngineOnResponseBody
     from .engine_status_response_body import EngineStatusResponseBody
+    from .entity_list_preventive_maintenance_schedules_type_response_body import (
+        EntityListPreventiveMaintenanceSchedulesTypeResponseBody,
+    )
     from .entity_list_tachograph_live_data_type_response_body import EntityListTachographLiveDataTypeResponseBody
+    from .entity_list_upcoming_preventive_maintenance_type_response_body import (
+        EntityListUpcomingPreventiveMaintenanceTypeResponseBody,
+    )
+    from .entity_preventative_maintenance_schedule_preventative_maintenance_schedule_ref_type_response_body import (
+        EntityPreventativeMaintenanceSchedulePreventativeMaintenanceScheduleRefTypeResponseBody,
+    )
+    from .entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_bad_gateway_error_response_body import (
+        EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesBadGatewayErrorResponseBody,
+    )
+    from .entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_gateway_timeout_error_response_body import (
+        EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesGatewayTimeoutErrorResponseBody,
+    )
+    from .entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_internal_server_error_response_body import (
+        EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesInternalServerErrorResponseBody,
+    )
+    from .entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_method_not_allowed_error_response_body import (
+        EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesMethodNotAllowedErrorResponseBody,
+    )
+    from .entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_not_found_error_response_body import (
+        EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesNotFoundErrorResponseBody,
+    )
+    from .entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_not_implemented_error_response_body import (
+        EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesNotImplementedErrorResponseBody,
+    )
+    from .entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_response_body import (
+        EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesResponseBody,
+    )
+    from .entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_service_unavailable_error_response_body import (
+        EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesServiceUnavailableErrorResponseBody,
+    )
+    from .entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_too_many_requests_error_response_body import (
+        EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesTooManyRequestsErrorResponseBody,
+    )
+    from .entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_unauthorized_error_response_body import (
+        EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesUnauthorizedErrorResponseBody,
+    )
     from .entity_tachograph_live_data_records_service_list_tachograph_live_data_bad_gateway_error_response_body import (
         EntityTachographLiveDataRecordsServiceListTachographLiveDataBadGatewayErrorResponseBody,
     )
@@ -1912,6 +1951,45 @@ if typing.TYPE_CHECKING:
     )
     from .entity_tachograph_live_data_records_service_list_tachograph_live_data_unauthorized_error_response_body import (
         EntityTachographLiveDataRecordsServiceListTachographLiveDataUnauthorizedErrorResponseBody,
+    )
+    from .entity_upcoming_preventative_maintenance_asset_ref_type_response_body import (
+        EntityUpcomingPreventativeMaintenanceAssetRefTypeResponseBody,
+    )
+    from .entity_upcoming_preventative_maintenance_preventative_maintenance_schedule_ref_type_response_body import (
+        EntityUpcomingPreventativeMaintenancePreventativeMaintenanceScheduleRefTypeResponseBody,
+    )
+    from .entity_upcoming_preventative_maintenance_work_order_ref_type_response_body import (
+        EntityUpcomingPreventativeMaintenanceWorkOrderRefTypeResponseBody,
+    )
+    from .entity_upcoming_preventative_maintenances_service_list_upcoming_preventive_maintenance_bad_gateway_error_response_body import (
+        EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceBadGatewayErrorResponseBody,
+    )
+    from .entity_upcoming_preventative_maintenances_service_list_upcoming_preventive_maintenance_gateway_timeout_error_response_body import (
+        EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceGatewayTimeoutErrorResponseBody,
+    )
+    from .entity_upcoming_preventative_maintenances_service_list_upcoming_preventive_maintenance_internal_server_error_response_body import (
+        EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceInternalServerErrorResponseBody,
+    )
+    from .entity_upcoming_preventative_maintenances_service_list_upcoming_preventive_maintenance_method_not_allowed_error_response_body import (
+        EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceMethodNotAllowedErrorResponseBody,
+    )
+    from .entity_upcoming_preventative_maintenances_service_list_upcoming_preventive_maintenance_not_found_error_response_body import (
+        EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceNotFoundErrorResponseBody,
+    )
+    from .entity_upcoming_preventative_maintenances_service_list_upcoming_preventive_maintenance_not_implemented_error_response_body import (
+        EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceNotImplementedErrorResponseBody,
+    )
+    from .entity_upcoming_preventative_maintenances_service_list_upcoming_preventive_maintenance_response_body import (
+        EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceResponseBody,
+    )
+    from .entity_upcoming_preventative_maintenances_service_list_upcoming_preventive_maintenance_service_unavailable_error_response_body import (
+        EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceServiceUnavailableErrorResponseBody,
+    )
+    from .entity_upcoming_preventative_maintenances_service_list_upcoming_preventive_maintenance_too_many_requests_error_response_body import (
+        EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceTooManyRequestsErrorResponseBody,
+    )
+    from .entity_upcoming_preventative_maintenances_service_list_upcoming_preventive_maintenance_unauthorized_error_response_body import (
+        EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceUnauthorizedErrorResponseBody,
     )
     from .enum_reading_alert_threshold_response_body import EnumReadingAlertThresholdResponseBody
     from .enum_value_response_body import EnumValueResponseBody
@@ -3163,7 +3241,6 @@ if typing.TYPE_CHECKING:
     from .hos_logs_response import HosLogsResponse
     from .hos_shift import HosShift
     from .hos_violation_data_response_body import HosViolationDataResponseBody
-    from .hos_violation_day_object_request_body import HosViolationDayObjectRequestBody
     from .hos_violation_day_object_response_body import HosViolationDayObjectResponseBody
     from .hos_violation_object_response_body import HosViolationObjectResponseBody
     from .hos_violation_object_response_body_type import HosViolationObjectResponseBodyType
@@ -5663,6 +5740,8 @@ if typing.TYPE_CHECKING:
     from .route_settings_response_body_route_starting_condition import RouteSettingsResponseBodyRouteStartingCondition
     from .route_settings_response_body_sequencing_method import RouteSettingsResponseBodySequencingMethod
     from .route_start_delayed_data_response_body import RouteStartDelayedDataResponseBody
+    from .route_stop_appointment_window_request_body import RouteStopAppointmentWindowRequestBody
+    from .route_stop_appointment_window_response_body import RouteStopAppointmentWindowResponseBody
     from .route_stop_details_object_response_body import RouteStopDetailsObjectResponseBody
     from .route_stop_details_object_response_body_operation import RouteStopDetailsObjectResponseBodyOperation
     from .route_stop_details_object_response_body_type import RouteStopDetailsObjectResponseBodyType
@@ -9062,7 +9141,20 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EngineOnDetailsObjectResponseBody": ".engine_on_details_object_response_body",
     "EngineOnResponseBody": ".engine_on_response_body",
     "EngineStatusResponseBody": ".engine_status_response_body",
+    "EntityListPreventiveMaintenanceSchedulesTypeResponseBody": ".entity_list_preventive_maintenance_schedules_type_response_body",
     "EntityListTachographLiveDataTypeResponseBody": ".entity_list_tachograph_live_data_type_response_body",
+    "EntityListUpcomingPreventiveMaintenanceTypeResponseBody": ".entity_list_upcoming_preventive_maintenance_type_response_body",
+    "EntityPreventativeMaintenanceSchedulePreventativeMaintenanceScheduleRefTypeResponseBody": ".entity_preventative_maintenance_schedule_preventative_maintenance_schedule_ref_type_response_body",
+    "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesBadGatewayErrorResponseBody": ".entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_bad_gateway_error_response_body",
+    "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesGatewayTimeoutErrorResponseBody": ".entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_gateway_timeout_error_response_body",
+    "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesInternalServerErrorResponseBody": ".entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_internal_server_error_response_body",
+    "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesMethodNotAllowedErrorResponseBody": ".entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_method_not_allowed_error_response_body",
+    "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesNotFoundErrorResponseBody": ".entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_not_found_error_response_body",
+    "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesNotImplementedErrorResponseBody": ".entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_not_implemented_error_response_body",
+    "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesResponseBody": ".entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_response_body",
+    "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesServiceUnavailableErrorResponseBody": ".entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_service_unavailable_error_response_body",
+    "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesTooManyRequestsErrorResponseBody": ".entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_too_many_requests_error_response_body",
+    "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesUnauthorizedErrorResponseBody": ".entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_unauthorized_error_response_body",
     "EntityTachographLiveDataRecordsServiceListTachographLiveDataBadGatewayErrorResponseBody": ".entity_tachograph_live_data_records_service_list_tachograph_live_data_bad_gateway_error_response_body",
     "EntityTachographLiveDataRecordsServiceListTachographLiveDataGatewayTimeoutErrorResponseBody": ".entity_tachograph_live_data_records_service_list_tachograph_live_data_gateway_timeout_error_response_body",
     "EntityTachographLiveDataRecordsServiceListTachographLiveDataInternalServerErrorResponseBody": ".entity_tachograph_live_data_records_service_list_tachograph_live_data_internal_server_error_response_body",
@@ -9073,6 +9165,19 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EntityTachographLiveDataRecordsServiceListTachographLiveDataServiceUnavailableErrorResponseBody": ".entity_tachograph_live_data_records_service_list_tachograph_live_data_service_unavailable_error_response_body",
     "EntityTachographLiveDataRecordsServiceListTachographLiveDataTooManyRequestsErrorResponseBody": ".entity_tachograph_live_data_records_service_list_tachograph_live_data_too_many_requests_error_response_body",
     "EntityTachographLiveDataRecordsServiceListTachographLiveDataUnauthorizedErrorResponseBody": ".entity_tachograph_live_data_records_service_list_tachograph_live_data_unauthorized_error_response_body",
+    "EntityUpcomingPreventativeMaintenanceAssetRefTypeResponseBody": ".entity_upcoming_preventative_maintenance_asset_ref_type_response_body",
+    "EntityUpcomingPreventativeMaintenancePreventativeMaintenanceScheduleRefTypeResponseBody": ".entity_upcoming_preventative_maintenance_preventative_maintenance_schedule_ref_type_response_body",
+    "EntityUpcomingPreventativeMaintenanceWorkOrderRefTypeResponseBody": ".entity_upcoming_preventative_maintenance_work_order_ref_type_response_body",
+    "EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceBadGatewayErrorResponseBody": ".entity_upcoming_preventative_maintenances_service_list_upcoming_preventive_maintenance_bad_gateway_error_response_body",
+    "EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceGatewayTimeoutErrorResponseBody": ".entity_upcoming_preventative_maintenances_service_list_upcoming_preventive_maintenance_gateway_timeout_error_response_body",
+    "EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceInternalServerErrorResponseBody": ".entity_upcoming_preventative_maintenances_service_list_upcoming_preventive_maintenance_internal_server_error_response_body",
+    "EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceMethodNotAllowedErrorResponseBody": ".entity_upcoming_preventative_maintenances_service_list_upcoming_preventive_maintenance_method_not_allowed_error_response_body",
+    "EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceNotFoundErrorResponseBody": ".entity_upcoming_preventative_maintenances_service_list_upcoming_preventive_maintenance_not_found_error_response_body",
+    "EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceNotImplementedErrorResponseBody": ".entity_upcoming_preventative_maintenances_service_list_upcoming_preventive_maintenance_not_implemented_error_response_body",
+    "EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceResponseBody": ".entity_upcoming_preventative_maintenances_service_list_upcoming_preventive_maintenance_response_body",
+    "EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceServiceUnavailableErrorResponseBody": ".entity_upcoming_preventative_maintenances_service_list_upcoming_preventive_maintenance_service_unavailable_error_response_body",
+    "EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceTooManyRequestsErrorResponseBody": ".entity_upcoming_preventative_maintenances_service_list_upcoming_preventive_maintenance_too_many_requests_error_response_body",
+    "EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceUnauthorizedErrorResponseBody": ".entity_upcoming_preventative_maintenances_service_list_upcoming_preventive_maintenance_unauthorized_error_response_body",
     "EnumReadingAlertThresholdResponseBody": ".enum_reading_alert_threshold_response_body",
     "EnumValueResponseBody": ".enum_value_response_body",
     "EquipmentEngineRpm": ".equipment_engine_rpm",
@@ -9667,7 +9772,6 @@ _dynamic_imports: typing.Dict[str, str] = {
     "HosLogsResponse": ".hos_logs_response",
     "HosShift": ".hos_shift",
     "HosViolationDataResponseBody": ".hos_violation_data_response_body",
-    "HosViolationDayObjectRequestBody": ".hos_violation_day_object_request_body",
     "HosViolationDayObjectResponseBody": ".hos_violation_day_object_response_body",
     "HosViolationObjectResponseBody": ".hos_violation_object_response_body",
     "HosViolationObjectResponseBodyType": ".hos_violation_object_response_body_type",
@@ -10801,6 +10905,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "RouteSettingsResponseBodyRouteStartingCondition": ".route_settings_response_body_route_starting_condition",
     "RouteSettingsResponseBodySequencingMethod": ".route_settings_response_body_sequencing_method",
     "RouteStartDelayedDataResponseBody": ".route_start_delayed_data_response_body",
+    "RouteStopAppointmentWindowRequestBody": ".route_stop_appointment_window_request_body",
+    "RouteStopAppointmentWindowResponseBody": ".route_stop_appointment_window_response_body",
     "RouteStopDetailsObjectResponseBody": ".route_stop_details_object_response_body",
     "RouteStopDetailsObjectResponseBodyOperation": ".route_stop_details_object_response_body_operation",
     "RouteStopDetailsObjectResponseBodyType": ".route_stop_details_object_response_body_type",
@@ -13040,7 +13146,20 @@ __all__ = [
     "EngineOnDetailsObjectResponseBody",
     "EngineOnResponseBody",
     "EngineStatusResponseBody",
+    "EntityListPreventiveMaintenanceSchedulesTypeResponseBody",
     "EntityListTachographLiveDataTypeResponseBody",
+    "EntityListUpcomingPreventiveMaintenanceTypeResponseBody",
+    "EntityPreventativeMaintenanceSchedulePreventativeMaintenanceScheduleRefTypeResponseBody",
+    "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesBadGatewayErrorResponseBody",
+    "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesGatewayTimeoutErrorResponseBody",
+    "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesInternalServerErrorResponseBody",
+    "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesMethodNotAllowedErrorResponseBody",
+    "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesNotFoundErrorResponseBody",
+    "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesNotImplementedErrorResponseBody",
+    "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesResponseBody",
+    "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesServiceUnavailableErrorResponseBody",
+    "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesTooManyRequestsErrorResponseBody",
+    "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesUnauthorizedErrorResponseBody",
     "EntityTachographLiveDataRecordsServiceListTachographLiveDataBadGatewayErrorResponseBody",
     "EntityTachographLiveDataRecordsServiceListTachographLiveDataGatewayTimeoutErrorResponseBody",
     "EntityTachographLiveDataRecordsServiceListTachographLiveDataInternalServerErrorResponseBody",
@@ -13051,6 +13170,19 @@ __all__ = [
     "EntityTachographLiveDataRecordsServiceListTachographLiveDataServiceUnavailableErrorResponseBody",
     "EntityTachographLiveDataRecordsServiceListTachographLiveDataTooManyRequestsErrorResponseBody",
     "EntityTachographLiveDataRecordsServiceListTachographLiveDataUnauthorizedErrorResponseBody",
+    "EntityUpcomingPreventativeMaintenanceAssetRefTypeResponseBody",
+    "EntityUpcomingPreventativeMaintenancePreventativeMaintenanceScheduleRefTypeResponseBody",
+    "EntityUpcomingPreventativeMaintenanceWorkOrderRefTypeResponseBody",
+    "EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceBadGatewayErrorResponseBody",
+    "EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceGatewayTimeoutErrorResponseBody",
+    "EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceInternalServerErrorResponseBody",
+    "EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceMethodNotAllowedErrorResponseBody",
+    "EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceNotFoundErrorResponseBody",
+    "EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceNotImplementedErrorResponseBody",
+    "EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceResponseBody",
+    "EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceServiceUnavailableErrorResponseBody",
+    "EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceTooManyRequestsErrorResponseBody",
+    "EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceUnauthorizedErrorResponseBody",
     "EnumReadingAlertThresholdResponseBody",
     "EnumValueResponseBody",
     "EquipmentEngineRpm",
@@ -13645,7 +13777,6 @@ __all__ = [
     "HosLogsResponse",
     "HosShift",
     "HosViolationDataResponseBody",
-    "HosViolationDayObjectRequestBody",
     "HosViolationDayObjectResponseBody",
     "HosViolationObjectResponseBody",
     "HosViolationObjectResponseBodyType",
@@ -14779,6 +14910,8 @@ __all__ = [
     "RouteSettingsResponseBodyRouteStartingCondition",
     "RouteSettingsResponseBodySequencingMethod",
     "RouteStartDelayedDataResponseBody",
+    "RouteStopAppointmentWindowRequestBody",
+    "RouteStopAppointmentWindowResponseBody",
     "RouteStopDetailsObjectResponseBody",
     "RouteStopDetailsObjectResponseBodyOperation",
     "RouteStopDetailsObjectResponseBodyType",

@@ -11,8 +11,8 @@ from .goa_address_tiny_response_response_body import GoaAddressTinyResponseRespo
 from .goa_document_tiny_response_response_body import GoaDocumentTinyResponseResponseBody
 from .goa_form_tiny_response_response_body import GoaFormTinyResponseResponseBody
 from .goa_issue_tiny_response_response_body import GoaIssueTinyResponseResponseBody
-from .hos_violation_day_object_response_body import HosViolationDayObjectResponseBody
 from .live_sharing_link_response_object_response_body import LiveSharingLinkResponseObjectResponseBody
+from .route_stop_appointment_window_response_body import RouteStopAppointmentWindowResponseBody
 from .routes_single_use_address_object_response_body import RoutesSingleUseAddressObjectResponseBody
 from .routes_stop_response_object_response_body_state import RoutesStopResponseObjectResponseBodyState
 
@@ -44,7 +44,7 @@ class RoutesStopResponseObjectResponseBody(UniversalBaseModel):
     ] = None
     address: typing.Optional[GoaAddressTinyResponseResponseBody] = None
     appointment_windows: typing_extensions.Annotated[
-        typing.Optional[typing.List[HosViolationDayObjectResponseBody]],
+        typing.Optional[typing.List[RouteStopAppointmentWindowResponseBody]],
         FieldMetadata(alias="appointmentWindows"),
         pydantic.Field(alias="appointmentWindows", description="Appointment windows for the stop."),
     ] = None

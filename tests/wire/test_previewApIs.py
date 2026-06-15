@@ -23,11 +23,3 @@ def test_previewApIs_unlock_vehicle() -> None:
     client = get_client(test_id)
     client.preview_ap_is.unlock_vehicle(id="id")
     verify_request_count(test_id, "DELETE", "/preview/fleet/vehicles/id/lock", None, 1)
-
-
-def test_previewApIs_pair_gateways() -> None:
-    """Test pairGateways endpoint with WireMock"""
-    test_id = "preview_ap_is.pair_gateways.0"
-    client = get_client(test_id)
-    client.preview_ap_is.pair_gateways(pairs=[{"device_serial": "GFRV-43N-VGX", "gateway_serial": "GFRV-43N-VGX"}])
-    verify_request_count(test_id, "POST", "/preview/gateways/pair", None, 1)

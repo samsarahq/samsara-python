@@ -8,21 +8,19 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 
 
-class HosViolationDayObjectRequestBody(UniversalBaseModel):
+class RouteStopAppointmentWindowResponseBody(UniversalBaseModel):
     end_time: typing_extensions.Annotated[
         str,
         FieldMetadata(alias="endTime"),
         pydantic.Field(
-            alias="endTime",
-            description="The end time of the day on which the violation occurred in RFC 3339 format. This is determined by the driver's ELD start hour (00:00 or 12:00)",
+            alias="endTime", description="The end time of the appointment window for the stop in RFC 3339 format."
         ),
     ]
     start_time: typing_extensions.Annotated[
         str,
         FieldMetadata(alias="startTime"),
         pydantic.Field(
-            alias="startTime",
-            description="The start time of the day on which the violation occurred in RFC 3339 format. This is determined by the driver's ELD start hour (00:00 or 12:00)",
+            alias="startTime", description="The start time of the appointment window for the stop in RFC 3339 format."
         ),
     ]
 

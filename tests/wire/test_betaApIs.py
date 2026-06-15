@@ -328,6 +328,14 @@ def test_betaApIs_get_function_run() -> None:
     verify_request_count(test_id, "GET", "/functions/name/runs/correlationId", None, 1)
 
 
+def test_betaApIs_pair_gateways() -> None:
+    """Test pairGateways endpoint with WireMock"""
+    test_id = "beta_ap_is.pair_gateways.0"
+    client = get_client(test_id)
+    client.beta_ap_is.pair_gateways(pairs=[{"device_serial": "GFRV-43N-VGX", "gateway_serial": "GFRV-43N-VGX"}])
+    verify_request_count(test_id, "POST", "/gateways/pair", None, 1)
+
+
 def test_betaApIs_update_shipping_docs() -> None:
     """Test updateShippingDocs endpoint with WireMock"""
     test_id = "beta_ap_is.update_shipping_docs.0"
@@ -370,6 +378,22 @@ def test_betaApIs_delete_hub_route_template() -> None:
     client = get_client(test_id)
     client.beta_ap_is.delete_hub_route_template(id="id")
     verify_request_count(test_id, "DELETE", "/hub/route-templates", {"id": "id"}, 1)
+
+
+def test_betaApIs_list_preventive_maintenance_schedules() -> None:
+    """Test listPreventiveMaintenanceSchedules endpoint with WireMock"""
+    test_id = "beta_ap_is.list_preventive_maintenance_schedules.0"
+    client = get_client(test_id)
+    client.beta_ap_is.list_preventive_maintenance_schedules()
+    verify_request_count(test_id, "GET", "/maintenance/preventive/schedules", None, 1)
+
+
+def test_betaApIs_list_upcoming_preventive_maintenance() -> None:
+    """Test listUpcomingPreventiveMaintenance endpoint with WireMock"""
+    test_id = "beta_ap_is.list_upcoming_preventive_maintenance.0"
+    client = get_client(test_id)
+    client.beta_ap_is.list_upcoming_preventive_maintenance()
+    verify_request_count(test_id, "GET", "/maintenance/preventive/upcoming", None, 1)
 
 
 def test_betaApIs_get_work_order_templates() -> None:
