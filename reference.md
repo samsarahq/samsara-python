@@ -1534,7 +1534,7 @@ client.beta_ap_is.update_engine_immobilizer_state(
     relay_states=[
         UpdateEngineImmobilizerRelayStateRequestBodyRequestBody(
             id="relay1",
-            is_open=True,
+            is_open=False,
         )
     ],
 )
@@ -5351,13 +5351,14 @@ To use this endpoint, select **Write Places** under the Places category when cre
 <dd>
 
 ```python
-from samsara import Samsara
+from samsara import PlaceGeofenceInputRequestBody, Samsara
 
 client = Samsara(
     token="YOUR_TOKEN",
 )
 client.beta_ap_is.post_place(
     address="123 Main St, Oakland, CA",
+    geofence=PlaceGeofenceInputRequestBody(),
     name="Oakland Yard",
 )
 
@@ -5376,6 +5377,14 @@ client.beta_ap_is.post_place(
 <dd>
 
 **address:** `str` — Single-line address string.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**geofence:** `PlaceGeofenceInputRequestBody` 
     
 </dd>
 </dl>
@@ -5407,22 +5416,6 @@ client.beta_ap_is.post_place(
 <dl>
 <dd>
 
-**geofence:** `typing.Optional[typing.Sequence[GeofenceVertexInputRequestBody]]` — Polygon vertices; at least three when using polygon mode (omit entirely when using latitude, longitude, and radiusMeters for a circle).
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**hub_locations:** `typing.Optional[typing.Sequence[PatchPlaceHubLocationUpsertBodyRequestBody]]` — Initial route-planning hub rows for the new place. Each entry requires hubId. Omit hubLocationId to let the server assign a row UUID, or set hubLocationId to pin the UUID for idempotent creates.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
 **ifta_exemption_types:** `typing.Optional[typing.Sequence[str]]` — IFTA exemption types for this place.
     
 </dd>
@@ -5432,22 +5425,6 @@ client.beta_ap_is.post_place(
 <dd>
 
 **is_show_addresses_enabled:** `typing.Optional[bool]` — When true, show addresses inside the geofence on the map.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**latitude:** `typing.Optional[float]` — Center latitude when using a circle geofence with radiusMeters.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**longitude:** `typing.Optional[float]` — Center longitude when using a circle geofence with radiusMeters.
     
 </dd>
 </dl>
@@ -5471,7 +5448,7 @@ client.beta_ap_is.post_place(
 <dl>
 <dd>
 
-**place_types:** `typing.Optional[typing.Sequence[str]]` — When present, replaces address-type categories via address metadata. Metadata-derived types (hubLocation, navigation, iftaExemption) must match hubLocations, navigation, and existing IFTA metadata in the same request; conflicting combinations return InvalidArgument.
+**place_types:** `typing.Optional[typing.Sequence[str]]` — When present, replaces address-type categories via address metadata. Metadata-derived types (hubLocation, navigation, iftaExemption) must match routing, navigation, and existing IFTA metadata in the same request; conflicting combinations return InvalidArgument.
     
 </dd>
 </dl>
@@ -5479,7 +5456,7 @@ client.beta_ap_is.post_place(
 <dl>
 <dd>
 
-**radius_meters:** `typing.Optional[int]` — Circle radius in meters; requires latitude and longitude. Must be at least 1 when set.
+**routing:** `typing.Optional[typing.Sequence[PlaceRoutingInputRequestBody]]` — Initial route-planning rows for the new place. Each entry requires hubId; (placeId, hubId) must be unique.
     
 </dd>
 </dl>
@@ -5495,7 +5472,7 @@ client.beta_ap_is.post_place(
 <dl>
 <dd>
 
-**street_view:** `typing.Optional[PlaceStreetViewResponseRequestBody]` 
+**street_view:** `typing.Optional[PlaceStreetViewInputRequestBody]` 
     
 </dd>
 </dl>
@@ -5695,15 +5672,7 @@ client.beta_ap_is.patch_place()
 <dl>
 <dd>
 
-**geofence:** `typing.Optional[typing.Sequence[GeofenceVertexInputRequestBody]]` — Polygon vertices; at least three when switching to polygon mode.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**hub_locations:** `typing.Optional[PatchPlaceHubLocationsBodyRequestBody]` 
+**geofence:** `typing.Optional[PlaceGeofenceInputRequestBody]` 
     
 </dd>
 </dl>
@@ -5720,22 +5689,6 @@ client.beta_ap_is.patch_place()
 <dd>
 
 **is_show_addresses_enabled:** `typing.Optional[bool]` — When true, show addresses inside the geofence on the map.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**latitude:** `typing.Optional[float]` — Center latitude when switching to or editing a circle geofence.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**longitude:** `typing.Optional[float]` — Center longitude when switching to or editing a circle geofence.
     
 </dd>
 </dl>
@@ -5767,7 +5720,7 @@ client.beta_ap_is.patch_place()
 <dl>
 <dd>
 
-**place_types:** `typing.Optional[typing.Sequence[str]]` — When present, replaces address-type categories via address metadata. Metadata-derived types (hubLocation, navigation, iftaExemption) must match hubLocations, navigation, and IFTA metadata after this request; conflicting combinations return InvalidArgument.
+**place_types:** `typing.Optional[typing.Sequence[str]]` — When present, replaces address-type categories via address metadata. Metadata-derived types (hubLocation, navigation, iftaExemption) must match routing, navigation, and IFTA metadata after this request; conflicting combinations return InvalidArgument.
     
 </dd>
 </dl>
@@ -5775,7 +5728,7 @@ client.beta_ap_is.patch_place()
 <dl>
 <dd>
 
-**radius_meters:** `typing.Optional[int]` — Circle radius in meters; use with latitude and longitude.
+**routing:** `typing.Optional[PlaceRoutingPatchInputRequestBody]` 
     
 </dd>
 </dl>
@@ -5791,7 +5744,7 @@ client.beta_ap_is.patch_place()
 <dl>
 <dd>
 
-**street_view:** `typing.Optional[PlaceStreetViewResponseRequestBody]` 
+**street_view:** `typing.Optional[PlaceStreetViewInputRequestBody]` 
     
 </dd>
 </dl>
@@ -7224,19 +7177,14 @@ Readings that currently support ingestion (by category):
 * `engineRpm`
 * `engineState` (values: off | running | idling)
 * `faultCodes`
-* `faultCodesJ1939`
-* `faultCodesOBDII`
 * `fuelLevelPerc`
 * `gps`
-* `location`
 * `odometerEcu`
 * `oilPressure`
 
 </details>
 
-**Note:** Use the `GET /readings/definitions` endpoint and check the `ingestionEnabled` field for the authoritative, up-to-date set of ingestible readings for your organization.
-
-When ingesting location data, the readingID 'location' must be used and the value object must contain at least the following fields: 'speed', 'latitude', 'longitude'.
+When ingesting GPS location data, use the readingID 'gps'. The value object must contain the following fields: 'latitude' (decimal degrees), 'longitude' (decimal degrees), and 'speed' (meters per second).
 
 Related guide: [Readings](https://developers.samsara.com/docs/readings).
 
@@ -8760,6 +8708,7 @@ client.beta_ap_is.patch_safety_events_v_2_batch(
         "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
         "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
         "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
+        "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
     ],
 )
 
@@ -9062,7 +9011,7 @@ client.alerts.post_configurations(
     is_enabled=True,
     name="My Harsh Event Alert",
     scope=ScopeObjectRequestBody(
-        all_=True,
+        all_=False,
     ),
     triggers=[
         WorkflowTriggerObjectRequestBody(
@@ -11502,7 +11451,7 @@ client = Samsara(
 )
 client.media.post_media_retrieval(
     end_time="2019-06-13T19:08:55Z",
-    inputs=["dashcamRoadFacing", "dashcamRoadFacing"],
+    inputs=["dashcamRoadFacing", "dashcamRoadFacing", "dashcamRoadFacing"],
     media_type="image",
     start_time="2019-06-13T19:08:25Z",
     vehicle_id="1234",
@@ -30305,6 +30254,116 @@ client.preview_ap_is.create_driver_auth_token(
 <dd>
 
 **username:** `typing.Optional[str]` — Optional. Username of the driver. This is the login identifier configured when the driver is created. One of `id`, `externalId`, or `username` is required.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.preview_ap_is.<a href="src/samsara/preview_ap_is/client.py">post_tachograph_file_upload</a>(...) -&gt; AsyncHttpResponse[TachographFileUploadsPostTachographFileUploadResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Reserve a tachograph file upload and return a presigned URL. Upload the file bytes directly to the URL with the returned headers. The driver or device the file belongs to is resolved from the file contents after upload.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Tachograph (EU)** under the Compliance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+- Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+- When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.preview_ap_is.post_tachograph_file_upload(
+    content_md_5="rL0Y20zC+Fzt72VPzMSk2A==",
+    content_type="application/octet-stream",
+    file_size_bytes=8192,
+    file_type="driverCard",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**content_md_5:** `str` — Base64-encoded MD5 digest of the file bytes (base64(md5(bytes))). Used as the Content-MD5 integrity check enforced by object storage on upload.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**content_type:** `TachographFileUploadsPostTachographFileUploadRequestBodyContentType` — The MIME content type of the file. The upload is sent to object storage as raw bytes.  Valid values: `application/octet-stream`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**file_size_bytes:** `int` — The size of the file in bytes. Enforced as the Content-Length on upload and validated against the maximum allowed tachograph file size.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**file_type:** `TachographFileUploadsPostTachographFileUploadRequestBodyFileType` — The kind of tachograph file being uploaded. The driver or device the file belongs to is resolved from the file contents, not from this field.  Valid values: `driverCard`, `vehicleUnit`
     
 </dd>
 </dl>

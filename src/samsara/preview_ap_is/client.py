@@ -7,7 +7,16 @@ from ..core.request_options import RequestOptions
 from ..types.drivers_auth_token_create_driver_auth_token_response_body import (
     DriversAuthTokenCreateDriverAuthTokenResponseBody,
 )
+from ..types.tachograph_file_uploads_post_tachograph_file_upload_response_body import (
+    TachographFileUploadsPostTachographFileUploadResponseBody,
+)
 from .raw_client import AsyncRawPreviewApIsClient, RawPreviewApIsClient
+from .types.tachograph_file_uploads_post_tachograph_file_upload_request_body_content_type import (
+    TachographFileUploadsPostTachographFileUploadRequestBodyContentType,
+)
+from .types.tachograph_file_uploads_post_tachograph_file_upload_request_body_file_type import (
+    TachographFileUploadsPostTachographFileUploadRequestBodyFileType,
+)
 
 # this is used as the default value for optional parameters
 OMIT = typing.cast(typing.Any, ...)
@@ -88,6 +97,76 @@ class PreviewApIsClient:
         """
         _response = self._raw_client.create_driver_auth_token(
             code=code, external_id=external_id, id=id, username=username, request_options=request_options
+        )
+        return _response.data
+
+    def post_tachograph_file_upload(
+        self,
+        *,
+        content_md_5: str,
+        content_type: TachographFileUploadsPostTachographFileUploadRequestBodyContentType,
+        file_size_bytes: int,
+        file_type: TachographFileUploadsPostTachographFileUploadRequestBodyFileType,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> TachographFileUploadsPostTachographFileUploadResponseBody:
+        """
+        Reserve a tachograph file upload and return a presigned URL. Upload the file bytes directly to the URL with the returned headers. The driver or device the file belongs to is resolved from the file contents after upload.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Tachograph (EU)** under the Compliance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        content_md_5 : str
+            Base64-encoded MD5 digest of the file bytes (base64(md5(bytes))). Used as the Content-MD5 integrity check enforced by object storage on upload.
+
+        content_type : TachographFileUploadsPostTachographFileUploadRequestBodyContentType
+            The MIME content type of the file. The upload is sent to object storage as raw bytes.  Valid values: `application/octet-stream`
+
+        file_size_bytes : int
+            The size of the file in bytes. Enforced as the Content-Length on upload and validated against the maximum allowed tachograph file size.
+
+        file_type : TachographFileUploadsPostTachographFileUploadRequestBodyFileType
+            The kind of tachograph file being uploaded. The driver or device the file belongs to is resolved from the file contents, not from this field.  Valid values: `driverCard`, `vehicleUnit`
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        TachographFileUploadsPostTachographFileUploadResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.preview_ap_is.post_tachograph_file_upload(
+            content_md_5="rL0Y20zC+Fzt72VPzMSk2A==",
+            content_type="application/octet-stream",
+            file_size_bytes=8192,
+            file_type="driverCard",
+        )
+        """
+        _response = self._raw_client.post_tachograph_file_upload(
+            content_md_5=content_md_5,
+            content_type=content_type,
+            file_size_bytes=file_size_bytes,
+            file_type=file_type,
+            request_options=request_options,
         )
         return _response.data
 
@@ -261,6 +340,84 @@ class AsyncPreviewApIsClient:
         """
         _response = await self._raw_client.create_driver_auth_token(
             code=code, external_id=external_id, id=id, username=username, request_options=request_options
+        )
+        return _response.data
+
+    async def post_tachograph_file_upload(
+        self,
+        *,
+        content_md_5: str,
+        content_type: TachographFileUploadsPostTachographFileUploadRequestBodyContentType,
+        file_size_bytes: int,
+        file_type: TachographFileUploadsPostTachographFileUploadRequestBodyFileType,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> TachographFileUploadsPostTachographFileUploadResponseBody:
+        """
+        Reserve a tachograph file upload and return a presigned URL. Upload the file bytes directly to the URL with the returned headers. The driver or device the file belongs to is resolved from the file contents after upload.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Tachograph (EU)** under the Compliance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        content_md_5 : str
+            Base64-encoded MD5 digest of the file bytes (base64(md5(bytes))). Used as the Content-MD5 integrity check enforced by object storage on upload.
+
+        content_type : TachographFileUploadsPostTachographFileUploadRequestBodyContentType
+            The MIME content type of the file. The upload is sent to object storage as raw bytes.  Valid values: `application/octet-stream`
+
+        file_size_bytes : int
+            The size of the file in bytes. Enforced as the Content-Length on upload and validated against the maximum allowed tachograph file size.
+
+        file_type : TachographFileUploadsPostTachographFileUploadRequestBodyFileType
+            The kind of tachograph file being uploaded. The driver or device the file belongs to is resolved from the file contents, not from this field.  Valid values: `driverCard`, `vehicleUnit`
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        TachographFileUploadsPostTachographFileUploadResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.preview_ap_is.post_tachograph_file_upload(
+                content_md_5="rL0Y20zC+Fzt72VPzMSk2A==",
+                content_type="application/octet-stream",
+                file_size_bytes=8192,
+                file_type="driverCard",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.post_tachograph_file_upload(
+            content_md_5=content_md_5,
+            content_type=content_type,
+            file_size_bytes=file_size_bytes,
+            file_type=file_type,
+            request_options=request_options,
         )
         return _response.data
 

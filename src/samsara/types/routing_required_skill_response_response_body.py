@@ -6,14 +6,19 @@ import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 
 
-class PlaceHubLocationRequiredSkillInputRequestBody(UniversalBaseModel):
+class RoutingRequiredSkillResponseResponseBody(UniversalBaseModel):
     """
-    Required planner skill reference for a place hub location row.
+    Required planner skill reference.
     """
 
     id: str = pydantic.Field()
     """
     Planner skill UUID.
+    """
+
+    name: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Skill display name when resolved on GET.
     """
 
     if IS_PYDANTIC_V2:

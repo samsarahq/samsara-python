@@ -6,13 +6,15 @@ import typing
 from importlib import import_module
 
 if typing.TYPE_CHECKING:
-    from .types import (
+    from .tachograph_file_uploads_post_tachograph_file_upload_request_body_content_type import (
         TachographFileUploadsPostTachographFileUploadRequestBodyContentType,
+    )
+    from .tachograph_file_uploads_post_tachograph_file_upload_request_body_file_type import (
         TachographFileUploadsPostTachographFileUploadRequestBodyFileType,
     )
 _dynamic_imports: typing.Dict[str, str] = {
-    "TachographFileUploadsPostTachographFileUploadRequestBodyContentType": ".types",
-    "TachographFileUploadsPostTachographFileUploadRequestBodyFileType": ".types",
+    "TachographFileUploadsPostTachographFileUploadRequestBodyContentType": ".tachograph_file_uploads_post_tachograph_file_upload_request_body_content_type",
+    "TachographFileUploadsPostTachographFileUploadRequestBodyFileType": ".tachograph_file_uploads_post_tachograph_file_upload_request_body_file_type",
 }
 
 

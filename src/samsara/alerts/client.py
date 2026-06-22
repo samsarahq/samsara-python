@@ -213,7 +213,7 @@ class AlertsClient:
             is_enabled=True,
             name="My Harsh Event Alert",
             scope=ScopeObjectRequestBody(
-                all_=True,
+                all_=False,
             ),
             triggers=[
                 WorkflowTriggerObjectRequestBody(
@@ -619,7 +619,7 @@ class AsyncAlertsClient:
                 is_enabled=True,
                 name="My Harsh Event Alert",
                 scope=ScopeObjectRequestBody(
-                    all_=True,
+                    all_=False,
                 ),
                 triggers=[
                     WorkflowTriggerObjectRequestBody(

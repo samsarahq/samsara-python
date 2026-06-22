@@ -73,7 +73,7 @@ def test_betaApIs_update_engine_immobilizer_state() -> None:
     """Test updateEngineImmobilizerState endpoint with WireMock"""
     test_id = "beta_ap_is.update_engine_immobilizer_state.0"
     client = get_client(test_id)
-    client.beta_ap_is.update_engine_immobilizer_state(id=1000000, relay_states=[{"id": "relay1", "is_open": True}])
+    client.beta_ap_is.update_engine_immobilizer_state(id=1000000, relay_states=[{"id": "relay1", "is_open": False}])
     verify_request_count(test_id, "PATCH", "/beta/fleet/vehicles/1000000/immobilizer", None, 1)
 
 
@@ -416,7 +416,7 @@ def test_betaApIs_post_place() -> None:
     """Test postPlace endpoint with WireMock"""
     test_id = "beta_ap_is.post_place.0"
     client = get_client(test_id)
-    client.beta_ap_is.post_place(address="123 Main St, Oakland, CA", name="Oakland Yard")
+    client.beta_ap_is.post_place(address="123 Main St, Oakland, CA", geofence={}, name="Oakland Yard")
     verify_request_count(test_id, "POST", "/places", None, 1)
 
 
@@ -716,6 +716,7 @@ def test_betaApIs_patch_safety_events_v_2_batch() -> None:
     client = get_client(test_id)
     client.beta_ap_is.patch_safety_events_v_2_batch(
         safety_event_ids=[
+            "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
             "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
             "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
             "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",

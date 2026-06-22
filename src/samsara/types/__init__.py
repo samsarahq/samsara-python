@@ -3342,18 +3342,10 @@ if typing.TYPE_CHECKING:
         HubCustomPropertiesListHubCustomPropertiesUnauthorizedErrorResponseBody,
     )
     from .hub_custom_property_object_response_body import HubCustomPropertyObjectResponseBody
-    from .hub_location_capacity_service_time_response_response_body import (
-        HubLocationCapacityServiceTimeResponseResponseBody,
-    )
     from .hub_location_created_object_response_body import HubLocationCreatedObjectResponseBody
     from .hub_location_input_object_request_body import HubLocationInputObjectRequestBody
     from .hub_location_object_response_body import HubLocationObjectResponseBody
-    from .hub_location_order_service_time_response_response_body import HubLocationOrderServiceTimeResponseResponseBody
-    from .hub_location_required_skill_response_response_body import HubLocationRequiredSkillResponseResponseBody
-    from .hub_location_response_response_body import HubLocationResponseResponseBody
-    from .hub_location_service_time_response_response_body import HubLocationServiceTimeResponseResponseBody
     from .hub_location_service_window_input_request_body import HubLocationServiceWindowInputRequestBody
-    from .hub_location_service_window_response_response_body import HubLocationServiceWindowResponseResponseBody
     from .hub_location_updated_object_response_body import HubLocationUpdatedObjectResponseBody
     from .hub_locations_create_hub_locations_bad_gateway_error_response_body import (
         HubLocationsCreateHubLocationsBadGatewayErrorResponseBody,
@@ -4356,8 +4348,6 @@ if typing.TYPE_CHECKING:
     from .patch_job_objectjob_location_request_object_request_body import (
         PatchJobObjectjobLocationRequestObjectRequestBody,
     )
-    from .patch_place_hub_location_upsert_body_request_body import PatchPlaceHubLocationUpsertBodyRequestBody
-    from .patch_place_hub_locations_body_request_body import PatchPlaceHubLocationsBodyRequestBody
     from .patch_response_workflow_configuration_object_response_body import (
         PatchResponseWorkflowConfigurationObjectResponseBody,
     )
@@ -4376,24 +4366,30 @@ if typing.TYPE_CHECKING:
     from .place_deletion_marker_object_response_body_external_ids import (
         PlaceDeletionMarkerObjectResponseBodyExternalIds,
     )
+    from .place_geofence_circle_input_request_body import PlaceGeofenceCircleInputRequestBody
+    from .place_geofence_circle_response_response_body import PlaceGeofenceCircleResponseResponseBody
+    from .place_geofence_input_request_body import PlaceGeofenceInputRequestBody
+    from .place_geofence_input_request_body_type import PlaceGeofenceInputRequestBodyType
+    from .place_geofence_polygon_input_request_body import PlaceGeofencePolygonInputRequestBody
+    from .place_geofence_polygon_response_response_body import PlaceGeofencePolygonResponseResponseBody
+    from .place_geofence_response_response_body import PlaceGeofenceResponseResponseBody
+    from .place_geofence_response_response_body_type import PlaceGeofenceResponseResponseBodyType
     from .place_geofence_vertex_response_response_body import PlaceGeofenceVertexResponseResponseBody
-    from .place_hub_location_capacity_service_time_input_request_body import (
-        PlaceHubLocationCapacityServiceTimeInputRequestBody,
-    )
-    from .place_hub_location_order_service_time_input_request_body import (
-        PlaceHubLocationOrderServiceTimeInputRequestBody,
-    )
-    from .place_hub_location_order_service_time_input_request_body_mode_type import (
-        PlaceHubLocationOrderServiceTimeInputRequestBodyModeType,
-    )
-    from .place_hub_location_required_skill_input_request_body import PlaceHubLocationRequiredSkillInputRequestBody
-    from .place_hub_location_service_time_input_request_body import PlaceHubLocationServiceTimeInputRequestBody
-    from .place_hub_location_service_window_input_request_body import PlaceHubLocationServiceWindowInputRequestBody
     from .place_navigation_location_response_response_body import PlaceNavigationLocationResponseResponseBody
     from .place_navigation_response_response_body import PlaceNavigationResponseResponseBody
     from .place_response_object_response_body import PlaceResponseObjectResponseBody
     from .place_response_object_response_body_external_ids import PlaceResponseObjectResponseBodyExternalIds
-    from .place_street_view_response_request_body import PlaceStreetViewResponseRequestBody
+    from .place_routing_capacity_service_time_input_request_body import PlaceRoutingCapacityServiceTimeInputRequestBody
+    from .place_routing_input_request_body import PlaceRoutingInputRequestBody
+    from .place_routing_order_service_time_input_request_body import PlaceRoutingOrderServiceTimeInputRequestBody
+    from .place_routing_order_service_time_input_request_body_mode_type import (
+        PlaceRoutingOrderServiceTimeInputRequestBodyModeType,
+    )
+    from .place_routing_patch_input_request_body import PlaceRoutingPatchInputRequestBody
+    from .place_routing_required_skill_input_request_body import PlaceRoutingRequiredSkillInputRequestBody
+    from .place_routing_service_time_input_request_body import PlaceRoutingServiceTimeInputRequestBody
+    from .place_routing_service_window_input_request_body import PlaceRoutingServiceWindowInputRequestBody
+    from .place_street_view_input_request_body import PlaceStreetViewInputRequestBody
     from .place_street_view_response_response_body import PlaceStreetViewResponseResponseBody
     from .place_tag_response_response_body import PlaceTagResponseResponseBody
     from .places_delete_place_bad_gateway_error_response_body import PlacesDeletePlaceBadGatewayErrorResponseBody
@@ -5911,6 +5907,12 @@ if typing.TYPE_CHECKING:
     from .routes_single_use_address_object_response_body import RoutesSingleUseAddressObjectResponseBody
     from .routes_stop_response_object_response_body import RoutesStopResponseObjectResponseBody
     from .routes_stop_response_object_response_body_state import RoutesStopResponseObjectResponseBodyState
+    from .routing_capacity_service_time_response_response_body import RoutingCapacityServiceTimeResponseResponseBody
+    from .routing_order_service_time_response_response_body import RoutingOrderServiceTimeResponseResponseBody
+    from .routing_required_skill_response_response_body import RoutingRequiredSkillResponseResponseBody
+    from .routing_response_response_body import RoutingResponseResponseBody
+    from .routing_service_time_response_response_body import RoutingServiceTimeResponseResponseBody
+    from .routing_service_window_response_response_body import RoutingServiceWindowResponseResponseBody
     from .safety_behavior_trigger_details_object_request_body import SafetyBehaviorTriggerDetailsObjectRequestBody
     from .safety_behavior_trigger_details_object_request_body_behaviors_item import (
         SafetyBehaviorTriggerDetailsObjectRequestBodyBehaviorsItem,
@@ -6494,6 +6496,38 @@ if typing.TYPE_CHECKING:
     from .tachograph_driver_file_list import TachographDriverFileList
     from .tachograph_driver_file_list_wrapper import TachographDriverFileListWrapper
     from .tachograph_driver_files_response import TachographDriverFilesResponse
+    from .tachograph_file_upload_response_body import TachographFileUploadResponseBody
+    from .tachograph_file_uploads_post_tachograph_file_upload_bad_gateway_error_response_body import (
+        TachographFileUploadsPostTachographFileUploadBadGatewayErrorResponseBody,
+    )
+    from .tachograph_file_uploads_post_tachograph_file_upload_gateway_timeout_error_response_body import (
+        TachographFileUploadsPostTachographFileUploadGatewayTimeoutErrorResponseBody,
+    )
+    from .tachograph_file_uploads_post_tachograph_file_upload_internal_server_error_response_body import (
+        TachographFileUploadsPostTachographFileUploadInternalServerErrorResponseBody,
+    )
+    from .tachograph_file_uploads_post_tachograph_file_upload_method_not_allowed_error_response_body import (
+        TachographFileUploadsPostTachographFileUploadMethodNotAllowedErrorResponseBody,
+    )
+    from .tachograph_file_uploads_post_tachograph_file_upload_not_found_error_response_body import (
+        TachographFileUploadsPostTachographFileUploadNotFoundErrorResponseBody,
+    )
+    from .tachograph_file_uploads_post_tachograph_file_upload_not_implemented_error_response_body import (
+        TachographFileUploadsPostTachographFileUploadNotImplementedErrorResponseBody,
+    )
+    from .tachograph_file_uploads_post_tachograph_file_upload_response_body import (
+        TachographFileUploadsPostTachographFileUploadResponseBody,
+    )
+    from .tachograph_file_uploads_post_tachograph_file_upload_service_unavailable_error_response_body import (
+        TachographFileUploadsPostTachographFileUploadServiceUnavailableErrorResponseBody,
+    )
+    from .tachograph_file_uploads_post_tachograph_file_upload_too_many_requests_error_response_body import (
+        TachographFileUploadsPostTachographFileUploadTooManyRequestsErrorResponseBody,
+    )
+    from .tachograph_file_uploads_post_tachograph_file_upload_unauthorized_error_response_body import (
+        TachographFileUploadsPostTachographFileUploadUnauthorizedErrorResponseBody,
+    )
+    from .tachograph_upload_required_header_response_body import TachographUploadRequiredHeaderResponseBody
     from .tachograph_vehicle_file import TachographVehicleFile
     from .tachograph_vehicle_file_data import TachographVehicleFileData
     from .tachograph_vehicle_file_list import TachographVehicleFileList
@@ -9813,16 +9847,10 @@ _dynamic_imports: typing.Dict[str, str] = {
     "HubCustomPropertiesListHubCustomPropertiesTooManyRequestsErrorResponseBody": ".hub_custom_properties_list_hub_custom_properties_too_many_requests_error_response_body",
     "HubCustomPropertiesListHubCustomPropertiesUnauthorizedErrorResponseBody": ".hub_custom_properties_list_hub_custom_properties_unauthorized_error_response_body",
     "HubCustomPropertyObjectResponseBody": ".hub_custom_property_object_response_body",
-    "HubLocationCapacityServiceTimeResponseResponseBody": ".hub_location_capacity_service_time_response_response_body",
     "HubLocationCreatedObjectResponseBody": ".hub_location_created_object_response_body",
     "HubLocationInputObjectRequestBody": ".hub_location_input_object_request_body",
     "HubLocationObjectResponseBody": ".hub_location_object_response_body",
-    "HubLocationOrderServiceTimeResponseResponseBody": ".hub_location_order_service_time_response_response_body",
-    "HubLocationRequiredSkillResponseResponseBody": ".hub_location_required_skill_response_response_body",
-    "HubLocationResponseResponseBody": ".hub_location_response_response_body",
-    "HubLocationServiceTimeResponseResponseBody": ".hub_location_service_time_response_response_body",
     "HubLocationServiceWindowInputRequestBody": ".hub_location_service_window_input_request_body",
-    "HubLocationServiceWindowResponseResponseBody": ".hub_location_service_window_response_response_body",
     "HubLocationUpdatedObjectResponseBody": ".hub_location_updated_object_response_body",
     "HubLocationsCreateHubLocationsBadGatewayErrorResponseBody": ".hub_locations_create_hub_locations_bad_gateway_error_response_body",
     "HubLocationsCreateHubLocationsGatewayTimeoutErrorResponseBody": ".hub_locations_create_hub_locations_gateway_timeout_error_response_body",
@@ -10323,8 +10351,6 @@ _dynamic_imports: typing.Dict[str, str] = {
     "PatchIssueRequestBodyAssignedToRequestBodyType": ".patch_issue_request_body_assigned_to_request_body_type",
     "PatchJobObjectRequestBody": ".patch_job_object_request_body",
     "PatchJobObjectjobLocationRequestObjectRequestBody": ".patch_job_objectjob_location_request_object_request_body",
-    "PatchPlaceHubLocationUpsertBodyRequestBody": ".patch_place_hub_location_upsert_body_request_body",
-    "PatchPlaceHubLocationsBodyRequestBody": ".patch_place_hub_locations_body_request_body",
     "PatchResponseWorkflowConfigurationObjectResponseBody": ".patch_response_workflow_configuration_object_response_body",
     "PatchSafetyEventsDismissalReasonBodyRequestBody": ".patch_safety_events_dismissal_reason_body_request_body",
     "PatchSafetyEventsDismissalReasonBodyRequestBodyCode": ".patch_safety_events_dismissal_reason_body_request_body_code",
@@ -10337,18 +10363,28 @@ _dynamic_imports: typing.Dict[str, str] = {
     "PhotoValueObjectResponseBody": ".photo_value_object_response_body",
     "PlaceDeletionMarkerObjectResponseBody": ".place_deletion_marker_object_response_body",
     "PlaceDeletionMarkerObjectResponseBodyExternalIds": ".place_deletion_marker_object_response_body_external_ids",
+    "PlaceGeofenceCircleInputRequestBody": ".place_geofence_circle_input_request_body",
+    "PlaceGeofenceCircleResponseResponseBody": ".place_geofence_circle_response_response_body",
+    "PlaceGeofenceInputRequestBody": ".place_geofence_input_request_body",
+    "PlaceGeofenceInputRequestBodyType": ".place_geofence_input_request_body_type",
+    "PlaceGeofencePolygonInputRequestBody": ".place_geofence_polygon_input_request_body",
+    "PlaceGeofencePolygonResponseResponseBody": ".place_geofence_polygon_response_response_body",
+    "PlaceGeofenceResponseResponseBody": ".place_geofence_response_response_body",
+    "PlaceGeofenceResponseResponseBodyType": ".place_geofence_response_response_body_type",
     "PlaceGeofenceVertexResponseResponseBody": ".place_geofence_vertex_response_response_body",
-    "PlaceHubLocationCapacityServiceTimeInputRequestBody": ".place_hub_location_capacity_service_time_input_request_body",
-    "PlaceHubLocationOrderServiceTimeInputRequestBody": ".place_hub_location_order_service_time_input_request_body",
-    "PlaceHubLocationOrderServiceTimeInputRequestBodyModeType": ".place_hub_location_order_service_time_input_request_body_mode_type",
-    "PlaceHubLocationRequiredSkillInputRequestBody": ".place_hub_location_required_skill_input_request_body",
-    "PlaceHubLocationServiceTimeInputRequestBody": ".place_hub_location_service_time_input_request_body",
-    "PlaceHubLocationServiceWindowInputRequestBody": ".place_hub_location_service_window_input_request_body",
     "PlaceNavigationLocationResponseResponseBody": ".place_navigation_location_response_response_body",
     "PlaceNavigationResponseResponseBody": ".place_navigation_response_response_body",
     "PlaceResponseObjectResponseBody": ".place_response_object_response_body",
     "PlaceResponseObjectResponseBodyExternalIds": ".place_response_object_response_body_external_ids",
-    "PlaceStreetViewResponseRequestBody": ".place_street_view_response_request_body",
+    "PlaceRoutingCapacityServiceTimeInputRequestBody": ".place_routing_capacity_service_time_input_request_body",
+    "PlaceRoutingInputRequestBody": ".place_routing_input_request_body",
+    "PlaceRoutingOrderServiceTimeInputRequestBody": ".place_routing_order_service_time_input_request_body",
+    "PlaceRoutingOrderServiceTimeInputRequestBodyModeType": ".place_routing_order_service_time_input_request_body_mode_type",
+    "PlaceRoutingPatchInputRequestBody": ".place_routing_patch_input_request_body",
+    "PlaceRoutingRequiredSkillInputRequestBody": ".place_routing_required_skill_input_request_body",
+    "PlaceRoutingServiceTimeInputRequestBody": ".place_routing_service_time_input_request_body",
+    "PlaceRoutingServiceWindowInputRequestBody": ".place_routing_service_window_input_request_body",
+    "PlaceStreetViewInputRequestBody": ".place_street_view_input_request_body",
     "PlaceStreetViewResponseResponseBody": ".place_street_view_response_response_body",
     "PlaceTagResponseResponseBody": ".place_tag_response_response_body",
     "PlacesDeletePlaceBadGatewayErrorResponseBody": ".places_delete_place_bad_gateway_error_response_body",
@@ -10990,6 +11026,12 @@ _dynamic_imports: typing.Dict[str, str] = {
     "RoutesSingleUseAddressObjectResponseBody": ".routes_single_use_address_object_response_body",
     "RoutesStopResponseObjectResponseBody": ".routes_stop_response_object_response_body",
     "RoutesStopResponseObjectResponseBodyState": ".routes_stop_response_object_response_body_state",
+    "RoutingCapacityServiceTimeResponseResponseBody": ".routing_capacity_service_time_response_response_body",
+    "RoutingOrderServiceTimeResponseResponseBody": ".routing_order_service_time_response_response_body",
+    "RoutingRequiredSkillResponseResponseBody": ".routing_required_skill_response_response_body",
+    "RoutingResponseResponseBody": ".routing_response_response_body",
+    "RoutingServiceTimeResponseResponseBody": ".routing_service_time_response_response_body",
+    "RoutingServiceWindowResponseResponseBody": ".routing_service_window_response_response_body",
     "SafetyBehaviorTriggerDetailsObjectRequestBody": ".safety_behavior_trigger_details_object_request_body",
     "SafetyBehaviorTriggerDetailsObjectRequestBodyBehaviorsItem": ".safety_behavior_trigger_details_object_request_body_behaviors_item",
     "SafetyBehaviorTriggerDetailsObjectRequestBodySeveritiesItem": ".safety_behavior_trigger_details_object_request_body_severities_item",
@@ -11263,6 +11305,18 @@ _dynamic_imports: typing.Dict[str, str] = {
     "TachographDriverFileList": ".tachograph_driver_file_list",
     "TachographDriverFileListWrapper": ".tachograph_driver_file_list_wrapper",
     "TachographDriverFilesResponse": ".tachograph_driver_files_response",
+    "TachographFileUploadResponseBody": ".tachograph_file_upload_response_body",
+    "TachographFileUploadsPostTachographFileUploadBadGatewayErrorResponseBody": ".tachograph_file_uploads_post_tachograph_file_upload_bad_gateway_error_response_body",
+    "TachographFileUploadsPostTachographFileUploadGatewayTimeoutErrorResponseBody": ".tachograph_file_uploads_post_tachograph_file_upload_gateway_timeout_error_response_body",
+    "TachographFileUploadsPostTachographFileUploadInternalServerErrorResponseBody": ".tachograph_file_uploads_post_tachograph_file_upload_internal_server_error_response_body",
+    "TachographFileUploadsPostTachographFileUploadMethodNotAllowedErrorResponseBody": ".tachograph_file_uploads_post_tachograph_file_upload_method_not_allowed_error_response_body",
+    "TachographFileUploadsPostTachographFileUploadNotFoundErrorResponseBody": ".tachograph_file_uploads_post_tachograph_file_upload_not_found_error_response_body",
+    "TachographFileUploadsPostTachographFileUploadNotImplementedErrorResponseBody": ".tachograph_file_uploads_post_tachograph_file_upload_not_implemented_error_response_body",
+    "TachographFileUploadsPostTachographFileUploadResponseBody": ".tachograph_file_uploads_post_tachograph_file_upload_response_body",
+    "TachographFileUploadsPostTachographFileUploadServiceUnavailableErrorResponseBody": ".tachograph_file_uploads_post_tachograph_file_upload_service_unavailable_error_response_body",
+    "TachographFileUploadsPostTachographFileUploadTooManyRequestsErrorResponseBody": ".tachograph_file_uploads_post_tachograph_file_upload_too_many_requests_error_response_body",
+    "TachographFileUploadsPostTachographFileUploadUnauthorizedErrorResponseBody": ".tachograph_file_uploads_post_tachograph_file_upload_unauthorized_error_response_body",
+    "TachographUploadRequiredHeaderResponseBody": ".tachograph_upload_required_header_response_body",
     "TachographVehicleFile": ".tachograph_vehicle_file",
     "TachographVehicleFileData": ".tachograph_vehicle_file_data",
     "TachographVehicleFileList": ".tachograph_vehicle_file_list",
@@ -13818,16 +13872,10 @@ __all__ = [
     "HubCustomPropertiesListHubCustomPropertiesTooManyRequestsErrorResponseBody",
     "HubCustomPropertiesListHubCustomPropertiesUnauthorizedErrorResponseBody",
     "HubCustomPropertyObjectResponseBody",
-    "HubLocationCapacityServiceTimeResponseResponseBody",
     "HubLocationCreatedObjectResponseBody",
     "HubLocationInputObjectRequestBody",
     "HubLocationObjectResponseBody",
-    "HubLocationOrderServiceTimeResponseResponseBody",
-    "HubLocationRequiredSkillResponseResponseBody",
-    "HubLocationResponseResponseBody",
-    "HubLocationServiceTimeResponseResponseBody",
     "HubLocationServiceWindowInputRequestBody",
-    "HubLocationServiceWindowResponseResponseBody",
     "HubLocationUpdatedObjectResponseBody",
     "HubLocationsCreateHubLocationsBadGatewayErrorResponseBody",
     "HubLocationsCreateHubLocationsGatewayTimeoutErrorResponseBody",
@@ -14328,8 +14376,6 @@ __all__ = [
     "PatchIssueRequestBodyAssignedToRequestBodyType",
     "PatchJobObjectRequestBody",
     "PatchJobObjectjobLocationRequestObjectRequestBody",
-    "PatchPlaceHubLocationUpsertBodyRequestBody",
-    "PatchPlaceHubLocationsBodyRequestBody",
     "PatchResponseWorkflowConfigurationObjectResponseBody",
     "PatchSafetyEventsDismissalReasonBodyRequestBody",
     "PatchSafetyEventsDismissalReasonBodyRequestBodyCode",
@@ -14342,18 +14388,28 @@ __all__ = [
     "PhotoValueObjectResponseBody",
     "PlaceDeletionMarkerObjectResponseBody",
     "PlaceDeletionMarkerObjectResponseBodyExternalIds",
+    "PlaceGeofenceCircleInputRequestBody",
+    "PlaceGeofenceCircleResponseResponseBody",
+    "PlaceGeofenceInputRequestBody",
+    "PlaceGeofenceInputRequestBodyType",
+    "PlaceGeofencePolygonInputRequestBody",
+    "PlaceGeofencePolygonResponseResponseBody",
+    "PlaceGeofenceResponseResponseBody",
+    "PlaceGeofenceResponseResponseBodyType",
     "PlaceGeofenceVertexResponseResponseBody",
-    "PlaceHubLocationCapacityServiceTimeInputRequestBody",
-    "PlaceHubLocationOrderServiceTimeInputRequestBody",
-    "PlaceHubLocationOrderServiceTimeInputRequestBodyModeType",
-    "PlaceHubLocationRequiredSkillInputRequestBody",
-    "PlaceHubLocationServiceTimeInputRequestBody",
-    "PlaceHubLocationServiceWindowInputRequestBody",
     "PlaceNavigationLocationResponseResponseBody",
     "PlaceNavigationResponseResponseBody",
     "PlaceResponseObjectResponseBody",
     "PlaceResponseObjectResponseBodyExternalIds",
-    "PlaceStreetViewResponseRequestBody",
+    "PlaceRoutingCapacityServiceTimeInputRequestBody",
+    "PlaceRoutingInputRequestBody",
+    "PlaceRoutingOrderServiceTimeInputRequestBody",
+    "PlaceRoutingOrderServiceTimeInputRequestBodyModeType",
+    "PlaceRoutingPatchInputRequestBody",
+    "PlaceRoutingRequiredSkillInputRequestBody",
+    "PlaceRoutingServiceTimeInputRequestBody",
+    "PlaceRoutingServiceWindowInputRequestBody",
+    "PlaceStreetViewInputRequestBody",
     "PlaceStreetViewResponseResponseBody",
     "PlaceTagResponseResponseBody",
     "PlacesDeletePlaceBadGatewayErrorResponseBody",
@@ -14995,6 +15051,12 @@ __all__ = [
     "RoutesSingleUseAddressObjectResponseBody",
     "RoutesStopResponseObjectResponseBody",
     "RoutesStopResponseObjectResponseBodyState",
+    "RoutingCapacityServiceTimeResponseResponseBody",
+    "RoutingOrderServiceTimeResponseResponseBody",
+    "RoutingRequiredSkillResponseResponseBody",
+    "RoutingResponseResponseBody",
+    "RoutingServiceTimeResponseResponseBody",
+    "RoutingServiceWindowResponseResponseBody",
     "SafetyBehaviorTriggerDetailsObjectRequestBody",
     "SafetyBehaviorTriggerDetailsObjectRequestBodyBehaviorsItem",
     "SafetyBehaviorTriggerDetailsObjectRequestBodySeveritiesItem",
@@ -15268,6 +15330,18 @@ __all__ = [
     "TachographDriverFileList",
     "TachographDriverFileListWrapper",
     "TachographDriverFilesResponse",
+    "TachographFileUploadResponseBody",
+    "TachographFileUploadsPostTachographFileUploadBadGatewayErrorResponseBody",
+    "TachographFileUploadsPostTachographFileUploadGatewayTimeoutErrorResponseBody",
+    "TachographFileUploadsPostTachographFileUploadInternalServerErrorResponseBody",
+    "TachographFileUploadsPostTachographFileUploadMethodNotAllowedErrorResponseBody",
+    "TachographFileUploadsPostTachographFileUploadNotFoundErrorResponseBody",
+    "TachographFileUploadsPostTachographFileUploadNotImplementedErrorResponseBody",
+    "TachographFileUploadsPostTachographFileUploadResponseBody",
+    "TachographFileUploadsPostTachographFileUploadServiceUnavailableErrorResponseBody",
+    "TachographFileUploadsPostTachographFileUploadTooManyRequestsErrorResponseBody",
+    "TachographFileUploadsPostTachographFileUploadUnauthorizedErrorResponseBody",
+    "TachographUploadRequiredHeaderResponseBody",
     "TachographVehicleFile",
     "TachographVehicleFileData",
     "TachographVehicleFileList",

@@ -8,25 +8,25 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 
 
-class HubLocationServiceWindowResponseResponseBody(UniversalBaseModel):
+class PlaceGeofenceCircleInputRequestBody(UniversalBaseModel):
     """
-    Recurring service window for a hub location.
-    """
-
-    days: typing.List[str] = pydantic.Field()
-    """
-    Days this window applies.
+    Circle geofence on write.
     """
 
-    end_time: typing_extensions.Annotated[
+    latitude: float = pydantic.Field()
+    """
+    Circle center latitude in decimal degrees.
+    """
+
+    longitude: float = pydantic.Field()
+    """
+    Circle center longitude in decimal degrees.
+    """
+
+    radius_meters: typing_extensions.Annotated[
         int,
-        FieldMetadata(alias="endTime"),
-        pydantic.Field(alias="endTime", description="End time as seconds since local midnight."),
-    ]
-    start_time: typing_extensions.Annotated[
-        int,
-        FieldMetadata(alias="startTime"),
-        pydantic.Field(alias="startTime", description="Start time as seconds since local midnight."),
+        FieldMetadata(alias="radiusMeters"),
+        pydantic.Field(alias="radiusMeters", description="Radius in meters; must be positive."),
     ]
 
     if IS_PYDANTIC_V2:
