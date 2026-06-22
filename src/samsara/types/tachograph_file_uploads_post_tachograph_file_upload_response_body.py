@@ -4,17 +4,11 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
+from .tachograph_file_upload_response_body import TachographFileUploadResponseBody
 
 
-class HubLocationRequiredSkillResponseResponseBody(UniversalBaseModel):
-    """
-    Required planner skill reference.
-    """
-
-    id: str = pydantic.Field()
-    """
-    Planner skill UUID.
-    """
+class TachographFileUploadsPostTachographFileUploadResponseBody(UniversalBaseModel):
+    data: TachographFileUploadResponseBody
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

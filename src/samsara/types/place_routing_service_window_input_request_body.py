@@ -8,9 +8,9 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 
 
-class PlaceHubLocationServiceWindowInputRequestBody(UniversalBaseModel):
+class PlaceRoutingServiceWindowInputRequestBody(UniversalBaseModel):
     """
-    Recurring service window for a place hub location row.
+    Recurring service window for a routing row.
     """
 
     days: typing.List[str] = pydantic.Field()
@@ -19,14 +19,17 @@ class PlaceHubLocationServiceWindowInputRequestBody(UniversalBaseModel):
     """
 
     end_time: typing_extensions.Annotated[
-        int,
+        str,
         FieldMetadata(alias="endTime"),
-        pydantic.Field(alias="endTime", description="End time as seconds since local midnight."),
+        pydantic.Field(
+            alias="endTime",
+            description="End time as HH:MM:SS in the org timezone. Overnight windows may have endTime before startTime.",
+        ),
     ]
     start_time: typing_extensions.Annotated[
-        int,
+        str,
         FieldMetadata(alias="startTime"),
-        pydantic.Field(alias="startTime", description="Start time as seconds since local midnight."),
+        pydantic.Field(alias="startTime", description="Start time as HH:MM:SS in the org timezone."),
     ]
 
     if IS_PYDANTIC_V2:

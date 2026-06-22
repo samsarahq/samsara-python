@@ -13,11 +13,14 @@ class PlaceStreetViewResponseResponseBody(UniversalBaseModel):
     Street view settings for a place.
     """
 
-    heading: typing.Optional[float] = pydantic.Field(default=None)
-    """
-    Camera heading.
-    """
-
+    heading_degrees: typing_extensions.Annotated[
+        typing.Optional[float],
+        FieldMetadata(alias="headingDegrees"),
+        pydantic.Field(
+            alias="headingDegrees",
+            description="Camera heading clockwise from true north; 0 ≤ headingDegrees < 360 on write, normalized mod 360 on GET.",
+        ),
+    ] = None
     is_enabled: typing_extensions.Annotated[
         bool,
         FieldMetadata(alias="isEnabled"),
@@ -33,11 +36,14 @@ class PlaceStreetViewResponseResponseBody(UniversalBaseModel):
     Longitude.
     """
 
-    pitch: typing.Optional[float] = pydantic.Field(default=None)
-    """
-    Camera pitch.
-    """
-
+    pitch_degrees: typing_extensions.Annotated[
+        typing.Optional[float],
+        FieldMetadata(alias="pitchDegrees"),
+        pydantic.Field(
+            alias="pitchDegrees",
+            description="Camera pitch relative to the Street View horizon; −90 ≤ pitchDegrees ≤ 90.",
+        ),
+    ] = None
     zoom: typing.Optional[float] = pydantic.Field(default=None)
     """
     Zoom level.

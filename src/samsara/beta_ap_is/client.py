@@ -63,7 +63,6 @@ from ..types.functions_storage_update_function_storage_file_response_body import
     FunctionsStorageUpdateFunctionStorageFileResponseBody,
 )
 from ..types.gateways_pair_gateways_response_body import GatewaysPairGatewaysResponseBody
-from ..types.geofence_vertex_input_request_body import GeofenceVertexInputRequestBody
 from ..types.goa_attribute_tiny import GoaAttributeTiny
 from ..types.hos_daily_logs_update_shipping_docs_response_body import HosDailyLogsUpdateShippingDocsResponseBody
 from ..types.hos_eld_events_get_hos_eld_events_response_body import HosEldEventsGetHosEldEventsResponseBody
@@ -84,12 +83,13 @@ from ..types.notification_recipient_request_body import NotificationRecipientReq
 from ..types.pair_gateway_pair_object_request_body import PairGatewayPairObjectRequestBody
 from ..types.patch_function_request_config_request_body import PatchFunctionRequestConfigRequestBody
 from ..types.patch_job_object_request_body import PatchJobObjectRequestBody
-from ..types.patch_place_hub_location_upsert_body_request_body import PatchPlaceHubLocationUpsertBodyRequestBody
-from ..types.patch_place_hub_locations_body_request_body import PatchPlaceHubLocationsBodyRequestBody
 from ..types.patch_safety_events_dismissal_reason_body_request_body import (
     PatchSafetyEventsDismissalReasonBodyRequestBody,
 )
-from ..types.place_street_view_response_request_body import PlaceStreetViewResponseRequestBody
+from ..types.place_geofence_input_request_body import PlaceGeofenceInputRequestBody
+from ..types.place_routing_input_request_body import PlaceRoutingInputRequestBody
+from ..types.place_routing_patch_input_request_body import PlaceRoutingPatchInputRequestBody
+from ..types.place_street_view_input_request_body import PlaceStreetViewInputRequestBody
 from ..types.places_get_place_deletions_response_body import PlacesGetPlaceDeletionsResponseBody
 from ..types.places_get_places_response_body import PlacesGetPlacesResponseBody
 from ..types.places_patch_place_response_body import PlacesPatchPlaceResponseBody
@@ -840,7 +840,7 @@ class BetaApIsClient:
             relay_states=[
                 UpdateEngineImmobilizerRelayStateRequestBodyRequestBody(
                     id="relay1",
-                    is_open=True,
+                    is_open=False,
                 )
             ],
         )
@@ -2965,21 +2965,18 @@ class BetaApIsClient:
         self,
         *,
         address: str,
+        geofence: PlaceGeofenceInputRequestBody,
         name: str,
         camera_recording_mode_type: typing.Optional[PlacesPostPlaceRequestBodyCameraRecordingModeType] = OMIT,
         external_ids: typing.Optional[PlacesPostPlaceRequestBodyExternalIds] = OMIT,
-        geofence: typing.Optional[typing.Sequence[GeofenceVertexInputRequestBody]] = OMIT,
-        hub_locations: typing.Optional[typing.Sequence[PatchPlaceHubLocationUpsertBodyRequestBody]] = OMIT,
         ifta_exemption_types: typing.Optional[typing.Sequence[str]] = OMIT,
         is_show_addresses_enabled: typing.Optional[bool] = OMIT,
-        latitude: typing.Optional[float] = OMIT,
-        longitude: typing.Optional[float] = OMIT,
         navigation: typing.Optional[PostPlaceNavigationInputRequestBody] = OMIT,
         notes: typing.Optional[str] = OMIT,
         place_types: typing.Optional[typing.Sequence[str]] = OMIT,
-        radius_meters: typing.Optional[int] = OMIT,
+        routing: typing.Optional[typing.Sequence[PlaceRoutingInputRequestBody]] = OMIT,
         safety_event_exclusions: typing.Optional[typing.Sequence[str]] = OMIT,
-        street_view: typing.Optional[PlaceStreetViewResponseRequestBody] = OMIT,
+        street_view: typing.Optional[PlaceStreetViewInputRequestBody] = OMIT,
         tags: typing.Optional[typing.Sequence[PostPlaceTagRefRequestBody]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> PlacesPostPlaceResponseBody:
@@ -2998,6 +2995,8 @@ class BetaApIsClient:
         address : str
             Single-line address string.
 
+        geofence : PlaceGeofenceInputRequestBody
+
         name : str
             Place name.
 
@@ -3007,23 +3006,11 @@ class BetaApIsClient:
         external_ids : typing.Optional[PlacesPostPlaceRequestBodyExternalIds]
             External identifiers.
 
-        geofence : typing.Optional[typing.Sequence[GeofenceVertexInputRequestBody]]
-            Polygon vertices; at least three when using polygon mode (omit entirely when using latitude, longitude, and radiusMeters for a circle).
-
-        hub_locations : typing.Optional[typing.Sequence[PatchPlaceHubLocationUpsertBodyRequestBody]]
-            Initial route-planning hub rows for the new place. Each entry requires hubId. Omit hubLocationId to let the server assign a row UUID, or set hubLocationId to pin the UUID for idempotent creates.
-
         ifta_exemption_types : typing.Optional[typing.Sequence[str]]
             IFTA exemption types for this place.
 
         is_show_addresses_enabled : typing.Optional[bool]
             When true, show addresses inside the geofence on the map.
-
-        latitude : typing.Optional[float]
-            Center latitude when using a circle geofence with radiusMeters.
-
-        longitude : typing.Optional[float]
-            Center longitude when using a circle geofence with radiusMeters.
 
         navigation : typing.Optional[PostPlaceNavigationInputRequestBody]
 
@@ -3031,15 +3018,15 @@ class BetaApIsClient:
             Optional notes.
 
         place_types : typing.Optional[typing.Sequence[str]]
-            When present, replaces address-type categories via address metadata. Metadata-derived types (hubLocation, navigation, iftaExemption) must match hubLocations, navigation, and existing IFTA metadata in the same request; conflicting combinations return InvalidArgument.
+            When present, replaces address-type categories via address metadata. Metadata-derived types (hubLocation, navigation, iftaExemption) must match routing, navigation, and existing IFTA metadata in the same request; conflicting combinations return InvalidArgument.
 
-        radius_meters : typing.Optional[int]
-            Circle radius in meters; requires latitude and longitude. Must be at least 1 when set.
+        routing : typing.Optional[typing.Sequence[PlaceRoutingInputRequestBody]]
+            Initial route-planning rows for the new place. Each entry requires hubId; (placeId, hubId) must be unique.
 
         safety_event_exclusions : typing.Optional[typing.Sequence[str]]
             Safety event types excluded at this place.
 
-        street_view : typing.Optional[PlaceStreetViewResponseRequestBody]
+        street_view : typing.Optional[PlaceStreetViewInputRequestBody]
 
         tags : typing.Optional[typing.Sequence[PostPlaceTagRefRequestBody]]
             Tags to associate.
@@ -3054,31 +3041,29 @@ class BetaApIsClient:
 
         Examples
         --------
-        from samsara import Samsara
+        from samsara import PlaceGeofenceInputRequestBody, Samsara
 
         client = Samsara(
             token="YOUR_TOKEN",
         )
         client.beta_ap_is.post_place(
             address="123 Main St, Oakland, CA",
+            geofence=PlaceGeofenceInputRequestBody(),
             name="Oakland Yard",
         )
         """
         _response = self._raw_client.post_place(
             address=address,
+            geofence=geofence,
             name=name,
             camera_recording_mode_type=camera_recording_mode_type,
             external_ids=external_ids,
-            geofence=geofence,
-            hub_locations=hub_locations,
             ifta_exemption_types=ifta_exemption_types,
             is_show_addresses_enabled=is_show_addresses_enabled,
-            latitude=latitude,
-            longitude=longitude,
             navigation=navigation,
             notes=notes,
             place_types=place_types,
-            radius_meters=radius_meters,
+            routing=routing,
             safety_event_exclusions=safety_event_exclusions,
             street_view=street_view,
             tags=tags,
@@ -3131,19 +3116,16 @@ class BetaApIsClient:
         address: typing.Optional[str] = OMIT,
         camera_recording_mode_type: typing.Optional[PlacesPatchPlaceRequestBodyCameraRecordingModeType] = OMIT,
         external_ids: typing.Optional[PlacesPatchPlaceRequestBodyExternalIds] = OMIT,
-        geofence: typing.Optional[typing.Sequence[GeofenceVertexInputRequestBody]] = OMIT,
-        hub_locations: typing.Optional[PatchPlaceHubLocationsBodyRequestBody] = OMIT,
+        geofence: typing.Optional[PlaceGeofenceInputRequestBody] = OMIT,
         ifta_exemption_types: typing.Optional[typing.Sequence[str]] = OMIT,
         is_show_addresses_enabled: typing.Optional[bool] = OMIT,
-        latitude: typing.Optional[float] = OMIT,
-        longitude: typing.Optional[float] = OMIT,
         name: typing.Optional[str] = OMIT,
         navigation: typing.Optional[PostPlaceNavigationInputRequestBody] = OMIT,
         notes: typing.Optional[str] = OMIT,
         place_types: typing.Optional[typing.Sequence[str]] = OMIT,
-        radius_meters: typing.Optional[int] = OMIT,
+        routing: typing.Optional[PlaceRoutingPatchInputRequestBody] = OMIT,
         safety_event_exclusions: typing.Optional[typing.Sequence[str]] = OMIT,
-        street_view: typing.Optional[PlaceStreetViewResponseRequestBody] = OMIT,
+        street_view: typing.Optional[PlaceStreetViewInputRequestBody] = OMIT,
         tags: typing.Optional[typing.Sequence[PostPlaceTagRefRequestBody]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> PlacesPatchPlaceResponseBody:
@@ -3174,22 +3156,13 @@ class BetaApIsClient:
         external_ids : typing.Optional[PlacesPatchPlaceRequestBodyExternalIds]
             When present, replaces external ids for the place.
 
-        geofence : typing.Optional[typing.Sequence[GeofenceVertexInputRequestBody]]
-            Polygon vertices; at least three when switching to polygon mode.
-
-        hub_locations : typing.Optional[PatchPlaceHubLocationsBodyRequestBody]
+        geofence : typing.Optional[PlaceGeofenceInputRequestBody]
 
         ifta_exemption_types : typing.Optional[typing.Sequence[str]]
             When present, replaces IFTA exemption types for the place.
 
         is_show_addresses_enabled : typing.Optional[bool]
             When true, show addresses inside the geofence on the map.
-
-        latitude : typing.Optional[float]
-            Center latitude when switching to or editing a circle geofence.
-
-        longitude : typing.Optional[float]
-            Center longitude when switching to or editing a circle geofence.
 
         name : typing.Optional[str]
             Place name.
@@ -3200,15 +3173,14 @@ class BetaApIsClient:
             Notes.
 
         place_types : typing.Optional[typing.Sequence[str]]
-            When present, replaces address-type categories via address metadata. Metadata-derived types (hubLocation, navigation, iftaExemption) must match hubLocations, navigation, and IFTA metadata after this request; conflicting combinations return InvalidArgument.
+            When present, replaces address-type categories via address metadata. Metadata-derived types (hubLocation, navigation, iftaExemption) must match routing, navigation, and IFTA metadata after this request; conflicting combinations return InvalidArgument.
 
-        radius_meters : typing.Optional[int]
-            Circle radius in meters; use with latitude and longitude.
+        routing : typing.Optional[PlaceRoutingPatchInputRequestBody]
 
         safety_event_exclusions : typing.Optional[typing.Sequence[str]]
             When present, replaces safety event exclusions for the place.
 
-        street_view : typing.Optional[PlaceStreetViewResponseRequestBody]
+        street_view : typing.Optional[PlaceStreetViewInputRequestBody]
 
         tags : typing.Optional[typing.Sequence[PostPlaceTagRefRequestBody]]
             When present, replaces all tag associations for the place.
@@ -3237,16 +3209,13 @@ class BetaApIsClient:
             camera_recording_mode_type=camera_recording_mode_type,
             external_ids=external_ids,
             geofence=geofence,
-            hub_locations=hub_locations,
             ifta_exemption_types=ifta_exemption_types,
             is_show_addresses_enabled=is_show_addresses_enabled,
-            latitude=latitude,
-            longitude=longitude,
             name=name,
             navigation=navigation,
             notes=notes,
             place_types=place_types,
-            radius_meters=radius_meters,
+            routing=routing,
             safety_event_exclusions=safety_event_exclusions,
             street_view=street_view,
             tags=tags,
@@ -4065,19 +4034,14 @@ class BetaApIsClient:
         * `engineRpm`
         * `engineState` (values: off | running | idling)
         * `faultCodes`
-        * `faultCodesJ1939`
-        * `faultCodesOBDII`
         * `fuelLevelPerc`
         * `gps`
-        * `location`
         * `odometerEcu`
         * `oilPressure`
 
         </details>
 
-        **Note:** Use the `GET /readings/definitions` endpoint and check the `ingestionEnabled` field for the authoritative, up-to-date set of ingestible readings for your organization.
-
-        When ingesting location data, the readingID 'location' must be used and the value object must contain at least the following fields: 'speed', 'latitude', 'longitude'.
+        When ingesting GPS location data, use the readingID 'gps'. The value object must contain the following fields: 'latitude' (decimal degrees), 'longitude' (decimal degrees), and 'speed' (meters per second).
 
         Related guide: [Readings](https://developers.samsara.com/docs/readings).
 
@@ -4988,6 +4952,7 @@ class BetaApIsClient:
                 "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
                 "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
                 "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
+                "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
             ],
         )
         """
@@ -5683,7 +5648,7 @@ class AsyncBetaApIsClient:
                 relay_states=[
                     UpdateEngineImmobilizerRelayStateRequestBodyRequestBody(
                         id="relay1",
-                        is_open=True,
+                        is_open=False,
                     )
                 ],
             )
@@ -8128,21 +8093,18 @@ class AsyncBetaApIsClient:
         self,
         *,
         address: str,
+        geofence: PlaceGeofenceInputRequestBody,
         name: str,
         camera_recording_mode_type: typing.Optional[PlacesPostPlaceRequestBodyCameraRecordingModeType] = OMIT,
         external_ids: typing.Optional[PlacesPostPlaceRequestBodyExternalIds] = OMIT,
-        geofence: typing.Optional[typing.Sequence[GeofenceVertexInputRequestBody]] = OMIT,
-        hub_locations: typing.Optional[typing.Sequence[PatchPlaceHubLocationUpsertBodyRequestBody]] = OMIT,
         ifta_exemption_types: typing.Optional[typing.Sequence[str]] = OMIT,
         is_show_addresses_enabled: typing.Optional[bool] = OMIT,
-        latitude: typing.Optional[float] = OMIT,
-        longitude: typing.Optional[float] = OMIT,
         navigation: typing.Optional[PostPlaceNavigationInputRequestBody] = OMIT,
         notes: typing.Optional[str] = OMIT,
         place_types: typing.Optional[typing.Sequence[str]] = OMIT,
-        radius_meters: typing.Optional[int] = OMIT,
+        routing: typing.Optional[typing.Sequence[PlaceRoutingInputRequestBody]] = OMIT,
         safety_event_exclusions: typing.Optional[typing.Sequence[str]] = OMIT,
-        street_view: typing.Optional[PlaceStreetViewResponseRequestBody] = OMIT,
+        street_view: typing.Optional[PlaceStreetViewInputRequestBody] = OMIT,
         tags: typing.Optional[typing.Sequence[PostPlaceTagRefRequestBody]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> PlacesPostPlaceResponseBody:
@@ -8161,6 +8123,8 @@ class AsyncBetaApIsClient:
         address : str
             Single-line address string.
 
+        geofence : PlaceGeofenceInputRequestBody
+
         name : str
             Place name.
 
@@ -8170,23 +8134,11 @@ class AsyncBetaApIsClient:
         external_ids : typing.Optional[PlacesPostPlaceRequestBodyExternalIds]
             External identifiers.
 
-        geofence : typing.Optional[typing.Sequence[GeofenceVertexInputRequestBody]]
-            Polygon vertices; at least three when using polygon mode (omit entirely when using latitude, longitude, and radiusMeters for a circle).
-
-        hub_locations : typing.Optional[typing.Sequence[PatchPlaceHubLocationUpsertBodyRequestBody]]
-            Initial route-planning hub rows for the new place. Each entry requires hubId. Omit hubLocationId to let the server assign a row UUID, or set hubLocationId to pin the UUID for idempotent creates.
-
         ifta_exemption_types : typing.Optional[typing.Sequence[str]]
             IFTA exemption types for this place.
 
         is_show_addresses_enabled : typing.Optional[bool]
             When true, show addresses inside the geofence on the map.
-
-        latitude : typing.Optional[float]
-            Center latitude when using a circle geofence with radiusMeters.
-
-        longitude : typing.Optional[float]
-            Center longitude when using a circle geofence with radiusMeters.
 
         navigation : typing.Optional[PostPlaceNavigationInputRequestBody]
 
@@ -8194,15 +8146,15 @@ class AsyncBetaApIsClient:
             Optional notes.
 
         place_types : typing.Optional[typing.Sequence[str]]
-            When present, replaces address-type categories via address metadata. Metadata-derived types (hubLocation, navigation, iftaExemption) must match hubLocations, navigation, and existing IFTA metadata in the same request; conflicting combinations return InvalidArgument.
+            When present, replaces address-type categories via address metadata. Metadata-derived types (hubLocation, navigation, iftaExemption) must match routing, navigation, and existing IFTA metadata in the same request; conflicting combinations return InvalidArgument.
 
-        radius_meters : typing.Optional[int]
-            Circle radius in meters; requires latitude and longitude. Must be at least 1 when set.
+        routing : typing.Optional[typing.Sequence[PlaceRoutingInputRequestBody]]
+            Initial route-planning rows for the new place. Each entry requires hubId; (placeId, hubId) must be unique.
 
         safety_event_exclusions : typing.Optional[typing.Sequence[str]]
             Safety event types excluded at this place.
 
-        street_view : typing.Optional[PlaceStreetViewResponseRequestBody]
+        street_view : typing.Optional[PlaceStreetViewInputRequestBody]
 
         tags : typing.Optional[typing.Sequence[PostPlaceTagRefRequestBody]]
             Tags to associate.
@@ -8219,7 +8171,7 @@ class AsyncBetaApIsClient:
         --------
         import asyncio
 
-        from samsara import AsyncSamsara
+        from samsara import AsyncSamsara, PlaceGeofenceInputRequestBody
 
         client = AsyncSamsara(
             token="YOUR_TOKEN",
@@ -8229,6 +8181,7 @@ class AsyncBetaApIsClient:
         async def main() -> None:
             await client.beta_ap_is.post_place(
                 address="123 Main St, Oakland, CA",
+                geofence=PlaceGeofenceInputRequestBody(),
                 name="Oakland Yard",
             )
 
@@ -8237,19 +8190,16 @@ class AsyncBetaApIsClient:
         """
         _response = await self._raw_client.post_place(
             address=address,
+            geofence=geofence,
             name=name,
             camera_recording_mode_type=camera_recording_mode_type,
             external_ids=external_ids,
-            geofence=geofence,
-            hub_locations=hub_locations,
             ifta_exemption_types=ifta_exemption_types,
             is_show_addresses_enabled=is_show_addresses_enabled,
-            latitude=latitude,
-            longitude=longitude,
             navigation=navigation,
             notes=notes,
             place_types=place_types,
-            radius_meters=radius_meters,
+            routing=routing,
             safety_event_exclusions=safety_event_exclusions,
             street_view=street_view,
             tags=tags,
@@ -8310,19 +8260,16 @@ class AsyncBetaApIsClient:
         address: typing.Optional[str] = OMIT,
         camera_recording_mode_type: typing.Optional[PlacesPatchPlaceRequestBodyCameraRecordingModeType] = OMIT,
         external_ids: typing.Optional[PlacesPatchPlaceRequestBodyExternalIds] = OMIT,
-        geofence: typing.Optional[typing.Sequence[GeofenceVertexInputRequestBody]] = OMIT,
-        hub_locations: typing.Optional[PatchPlaceHubLocationsBodyRequestBody] = OMIT,
+        geofence: typing.Optional[PlaceGeofenceInputRequestBody] = OMIT,
         ifta_exemption_types: typing.Optional[typing.Sequence[str]] = OMIT,
         is_show_addresses_enabled: typing.Optional[bool] = OMIT,
-        latitude: typing.Optional[float] = OMIT,
-        longitude: typing.Optional[float] = OMIT,
         name: typing.Optional[str] = OMIT,
         navigation: typing.Optional[PostPlaceNavigationInputRequestBody] = OMIT,
         notes: typing.Optional[str] = OMIT,
         place_types: typing.Optional[typing.Sequence[str]] = OMIT,
-        radius_meters: typing.Optional[int] = OMIT,
+        routing: typing.Optional[PlaceRoutingPatchInputRequestBody] = OMIT,
         safety_event_exclusions: typing.Optional[typing.Sequence[str]] = OMIT,
-        street_view: typing.Optional[PlaceStreetViewResponseRequestBody] = OMIT,
+        street_view: typing.Optional[PlaceStreetViewInputRequestBody] = OMIT,
         tags: typing.Optional[typing.Sequence[PostPlaceTagRefRequestBody]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> PlacesPatchPlaceResponseBody:
@@ -8353,22 +8300,13 @@ class AsyncBetaApIsClient:
         external_ids : typing.Optional[PlacesPatchPlaceRequestBodyExternalIds]
             When present, replaces external ids for the place.
 
-        geofence : typing.Optional[typing.Sequence[GeofenceVertexInputRequestBody]]
-            Polygon vertices; at least three when switching to polygon mode.
-
-        hub_locations : typing.Optional[PatchPlaceHubLocationsBodyRequestBody]
+        geofence : typing.Optional[PlaceGeofenceInputRequestBody]
 
         ifta_exemption_types : typing.Optional[typing.Sequence[str]]
             When present, replaces IFTA exemption types for the place.
 
         is_show_addresses_enabled : typing.Optional[bool]
             When true, show addresses inside the geofence on the map.
-
-        latitude : typing.Optional[float]
-            Center latitude when switching to or editing a circle geofence.
-
-        longitude : typing.Optional[float]
-            Center longitude when switching to or editing a circle geofence.
 
         name : typing.Optional[str]
             Place name.
@@ -8379,15 +8317,14 @@ class AsyncBetaApIsClient:
             Notes.
 
         place_types : typing.Optional[typing.Sequence[str]]
-            When present, replaces address-type categories via address metadata. Metadata-derived types (hubLocation, navigation, iftaExemption) must match hubLocations, navigation, and IFTA metadata after this request; conflicting combinations return InvalidArgument.
+            When present, replaces address-type categories via address metadata. Metadata-derived types (hubLocation, navigation, iftaExemption) must match routing, navigation, and IFTA metadata after this request; conflicting combinations return InvalidArgument.
 
-        radius_meters : typing.Optional[int]
-            Circle radius in meters; use with latitude and longitude.
+        routing : typing.Optional[PlaceRoutingPatchInputRequestBody]
 
         safety_event_exclusions : typing.Optional[typing.Sequence[str]]
             When present, replaces safety event exclusions for the place.
 
-        street_view : typing.Optional[PlaceStreetViewResponseRequestBody]
+        street_view : typing.Optional[PlaceStreetViewInputRequestBody]
 
         tags : typing.Optional[typing.Sequence[PostPlaceTagRefRequestBody]]
             When present, replaces all tag associations for the place.
@@ -8424,16 +8361,13 @@ class AsyncBetaApIsClient:
             camera_recording_mode_type=camera_recording_mode_type,
             external_ids=external_ids,
             geofence=geofence,
-            hub_locations=hub_locations,
             ifta_exemption_types=ifta_exemption_types,
             is_show_addresses_enabled=is_show_addresses_enabled,
-            latitude=latitude,
-            longitude=longitude,
             name=name,
             navigation=navigation,
             notes=notes,
             place_types=place_types,
-            radius_meters=radius_meters,
+            routing=routing,
             safety_event_exclusions=safety_event_exclusions,
             street_view=street_view,
             tags=tags,
@@ -9369,19 +9303,14 @@ class AsyncBetaApIsClient:
         * `engineRpm`
         * `engineState` (values: off | running | idling)
         * `faultCodes`
-        * `faultCodesJ1939`
-        * `faultCodesOBDII`
         * `fuelLevelPerc`
         * `gps`
-        * `location`
         * `odometerEcu`
         * `oilPressure`
 
         </details>
 
-        **Note:** Use the `GET /readings/definitions` endpoint and check the `ingestionEnabled` field for the authoritative, up-to-date set of ingestible readings for your organization.
-
-        When ingesting location data, the readingID 'location' must be used and the value object must contain at least the following fields: 'speed', 'latitude', 'longitude'.
+        When ingesting GPS location data, use the readingID 'gps'. The value object must contain the following fields: 'latitude' (decimal degrees), 'longitude' (decimal degrees), and 'speed' (meters per second).
 
         Related guide: [Readings](https://developers.samsara.com/docs/readings).
 
@@ -10430,6 +10359,7 @@ class AsyncBetaApIsClient:
         async def main() -> None:
             await client.beta_ap_is.patch_safety_events_v_2_batch(
                 safety_event_ids=[
+                    "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
                     "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
                     "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
                     "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",

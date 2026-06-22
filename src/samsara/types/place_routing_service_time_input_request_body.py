@@ -8,20 +8,20 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 
 
-class PlaceHubLocationServiceTimeInputRequestBody(UniversalBaseModel):
+class PlaceRoutingServiceTimeInputRequestBody(UniversalBaseModel):
     """
-    Additional service time configuration for a hub location row.
+    Additional service time configuration for a routing row.
     """
 
-    additional_time_minutes: typing_extensions.Annotated[
-        int,
-        FieldMetadata(alias="additionalTimeMinutes"),
-        pydantic.Field(alias="additionalTimeMinutes", description="Whole minutes of additional service time."),
-    ]
     is_enabled: typing_extensions.Annotated[
         bool,
         FieldMetadata(alias="isEnabled"),
         pydantic.Field(alias="isEnabled", description="Whether additional service time is enabled."),
+    ]
+    service_time_minutes: typing_extensions.Annotated[
+        int,
+        FieldMetadata(alias="serviceTimeMinutes"),
+        pydantic.Field(alias="serviceTimeMinutes", description="Whole minutes of additional service time."),
     ]
 
     if IS_PYDANTIC_V2:

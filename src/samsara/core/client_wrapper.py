@@ -24,12 +24,12 @@ class BaseClientWrapper:
         import platform
 
         headers: typing.Dict[str, str] = {
-            "User-Agent": "samsara-api/13.22.0",
+            "User-Agent": "samsara-api/13.23.0",
             "X-Fern-Language": "Python",
             "X-Fern-Runtime": f"python/{platform.python_version()}",
             "X-Fern-Platform": f"{platform.system().lower()}/{platform.release()}",
             "X-Fern-SDK-Name": "samsara-api",
-            "X-Fern-SDK-Version": "13.22.0",
+            "X-Fern-SDK-Version": "13.23.0",
             **(self.get_custom_headers() or {}),
         }
         headers["Authorization"] = f"Bearer {self._get_token()}"

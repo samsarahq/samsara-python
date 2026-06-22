@@ -8,25 +8,23 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 
 
-class PlaceHubLocationCapacityServiceTimeInputRequestBody(UniversalBaseModel):
+class RoutingCapacityServiceTimeResponseResponseBody(UniversalBaseModel):
     """
-    Per-capacity order service time entry for a hub location row.
+    Per-capacity order service time entry.
     """
 
     capacity_id: typing_extensions.Annotated[
         str, FieldMetadata(alias="capacityId"), pydantic.Field(alias="capacityId", description="Capacity UUID.")
     ]
+    quantity_unit_per_service_time: typing_extensions.Annotated[
+        float,
+        FieldMetadata(alias="quantityUnitPerServiceTime"),
+        pydantic.Field(alias="quantityUnitPerServiceTime", description="Quantity units per service time chunk."),
+    ]
     service_time_seconds: typing_extensions.Annotated[
         int,
         FieldMetadata(alias="serviceTimeSeconds"),
         pydantic.Field(alias="serviceTimeSeconds", description="Service time in seconds."),
-    ]
-    service_time_seconds_per_quantity_unit: typing_extensions.Annotated[
-        float,
-        FieldMetadata(alias="serviceTimeSecondsPerQuantityUnit"),
-        pydantic.Field(
-            alias="serviceTimeSecondsPerQuantityUnit", description="Additional service time per quantity unit."
-        ),
     ]
 
     if IS_PYDANTIC_V2:

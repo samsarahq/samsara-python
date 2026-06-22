@@ -7,12 +7,12 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
-from .hub_location_response_response_body import HubLocationResponseResponseBody
-from .place_geofence_vertex_response_response_body import PlaceGeofenceVertexResponseResponseBody
+from .place_geofence_response_response_body import PlaceGeofenceResponseResponseBody
 from .place_navigation_response_response_body import PlaceNavigationResponseResponseBody
 from .place_response_object_response_body_external_ids import PlaceResponseObjectResponseBodyExternalIds
 from .place_street_view_response_response_body import PlaceStreetViewResponseResponseBody
 from .place_tag_response_response_body import PlaceTagResponseResponseBody
+from .routing_response_response_body import RoutingResponseResponseBody
 
 
 class PlaceResponseObjectResponseBody(UniversalBaseModel):
@@ -43,16 +43,7 @@ class PlaceResponseObjectResponseBody(UniversalBaseModel):
         FieldMetadata(alias="externalIds"),
         pydantic.Field(alias="externalIds", description="External ids when includeExternalIds=true."),
     ] = None
-    geofence: typing.Optional[typing.List[PlaceGeofenceVertexResponseResponseBody]] = pydantic.Field(default=None)
-    """
-    Polygon vertices when applicable.
-    """
-
-    hub_locations: typing_extensions.Annotated[
-        typing.Optional[typing.List[HubLocationResponseResponseBody]],
-        FieldMetadata(alias="hubLocations"),
-        pydantic.Field(alias="hubLocations", description="Route-planning hub location rows when present."),
-    ] = None
+    geofence: PlaceGeofenceResponseResponseBody
     id: str = pydantic.Field()
     """
     Samsara place id.
@@ -73,16 +64,6 @@ class PlaceResponseObjectResponseBody(UniversalBaseModel):
         FieldMetadata(alias="isShowAddressesEnabled"),
         pydantic.Field(alias="isShowAddressesEnabled", description="Show addresses inside geofence."),
     ] = None
-    latitude: typing.Optional[float] = pydantic.Field(default=None)
-    """
-    Center latitude when applicable.
-    """
-
-    longitude: typing.Optional[float] = pydantic.Field(default=None)
-    """
-    Center longitude when applicable.
-    """
-
     name: str = pydantic.Field()
     """
     Place name.
@@ -99,11 +80,11 @@ class PlaceResponseObjectResponseBody(UniversalBaseModel):
         FieldMetadata(alias="placeTypes"),
         pydantic.Field(alias="placeTypes", description="Assigned place types."),
     ] = None
-    radius_meters: typing_extensions.Annotated[
-        typing.Optional[int],
-        FieldMetadata(alias="radiusMeters"),
-        pydantic.Field(alias="radiusMeters", description="Circle radius in meters when geometry is a point + buffer."),
-    ] = None
+    routing: typing.Optional[typing.List[RoutingResponseResponseBody]] = pydantic.Field(default=None)
+    """
+    Route-planning rows when present.
+    """
+
     safety_event_exclusions: typing_extensions.Annotated[
         typing.Optional[typing.List[str]],
         FieldMetadata(alias="safetyEventExclusions"),

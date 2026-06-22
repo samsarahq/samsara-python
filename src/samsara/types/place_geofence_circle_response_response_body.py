@@ -8,20 +8,25 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 
 
-class HubLocationServiceTimeResponseResponseBody(UniversalBaseModel):
+class PlaceGeofenceCircleResponseResponseBody(UniversalBaseModel):
     """
-    Additional service time at a hub location.
+    Circle geofence geometry.
     """
 
-    additional_time_minutes: typing_extensions.Annotated[
+    latitude: float = pydantic.Field()
+    """
+    Circle center latitude in decimal degrees.
+    """
+
+    longitude: float = pydantic.Field()
+    """
+    Circle center longitude in decimal degrees.
+    """
+
+    radius_meters: typing_extensions.Annotated[
         int,
-        FieldMetadata(alias="additionalTimeMinutes"),
-        pydantic.Field(alias="additionalTimeMinutes", description="Whole minutes of additional service time."),
-    ]
-    is_enabled: typing_extensions.Annotated[
-        bool,
-        FieldMetadata(alias="isEnabled"),
-        pydantic.Field(alias="isEnabled", description="Whether additional service time is enabled."),
+        FieldMetadata(alias="radiusMeters"),
+        pydantic.Field(alias="radiusMeters", description="Radius in meters; must be positive."),
     ]
 
     if IS_PYDANTIC_V2:
