@@ -52,6 +52,12 @@ if typing.TYPE_CHECKING:
     from .safety_events_v_2_patch_safety_events_v_2_batch_request_body_event_state import (
         SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState,
     )
+    from .tachograph_file_uploads_post_tachograph_file_upload_request_body_content_type import (
+        TachographFileUploadsPostTachographFileUploadRequestBodyContentType,
+    )
+    from .tachograph_file_uploads_post_tachograph_file_upload_request_body_file_type import (
+        TachographFileUploadsPostTachographFileUploadRequestBodyFileType,
+    )
 _dynamic_imports: typing.Dict[str, str] = {
     "DeviceRecoveryRecoverAssetRequestBodyMissingReason": ".device_recovery_recover_asset_request_body_missing_reason",
     "DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus": ".device_recovery_recover_asset_request_body_recovery_status",
@@ -75,6 +81,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem": ".safety_events_v_2_patch_safety_events_v_2_batch_request_body_context_labels_to_add_item",
     "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToRemoveItem": ".safety_events_v_2_patch_safety_events_v_2_batch_request_body_context_labels_to_remove_item",
     "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState": ".safety_events_v_2_patch_safety_events_v_2_batch_request_body_event_state",
+    "TachographFileUploadsPostTachographFileUploadRequestBodyContentType": ".tachograph_file_uploads_post_tachograph_file_upload_request_body_content_type",
+    "TachographFileUploadsPostTachographFileUploadRequestBodyFileType": ".tachograph_file_uploads_post_tachograph_file_upload_request_body_file_type",
 }
 
 
@@ -122,4 +130,6 @@ __all__ = [
     "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem",
     "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToRemoveItem",
     "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState",
+    "TachographFileUploadsPostTachographFileUploadRequestBodyContentType",
+    "TachographFileUploadsPostTachographFileUploadRequestBodyFileType",
 ]

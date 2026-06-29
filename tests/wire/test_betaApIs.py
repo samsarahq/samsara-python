@@ -204,6 +204,19 @@ def test_betaApIs_list_tachograph_live_data() -> None:
     verify_request_count(test_id, "GET", "/fleet/tachograph-live-data/latest", None, 1)
 
 
+def test_betaApIs_post_tachograph_file_upload() -> None:
+    """Test postTachographFileUpload endpoint with WireMock"""
+    test_id = "beta_ap_is.post_tachograph_file_upload.0"
+    client = get_client(test_id)
+    client.beta_ap_is.post_tachograph_file_upload(
+        content_md_5="rL0Y20zC+Fzt72VPzMSk2A==",
+        content_type="application/octet-stream",
+        file_size_bytes=8192,
+        file_type="driverCard",
+    )
+    verify_request_count(test_id, "POST", "/fleet/tachograph/file-uploads", None, 1)
+
+
 def test_betaApIs_get_engine_immobilizer_states() -> None:
     """Test getEngineImmobilizerStates endpoint with WireMock"""
     test_id = "beta_ap_is.get_engine_immobilizer_states.0"

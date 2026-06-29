@@ -2072,6 +2072,123 @@ if typing.TYPE_CHECKING:
     from .filters_request_body import FiltersRequestBody
     from .filters_response_body import FiltersResponseBody
     from .fleet_device_object_response_body import FleetDeviceObjectResponseBody
+    from .fleet_installer_photo_upload_context_response_body import FleetInstallerPhotoUploadContextResponseBody
+    from .fleet_installer_photo_upload_create_data_response_body import FleetInstallerPhotoUploadCreateDataResponseBody
+    from .fleet_installer_photo_upload_create_data_response_body_file_format_type import (
+        FleetInstallerPhotoUploadCreateDataResponseBodyFileFormatType,
+    )
+    from .fleet_installer_photo_upload_create_data_response_body_hardware_type import (
+        FleetInstallerPhotoUploadCreateDataResponseBodyHardwareType,
+    )
+    from .fleet_installer_photo_upload_create_data_response_body_photo_type import (
+        FleetInstallerPhotoUploadCreateDataResponseBodyPhotoType,
+    )
+    from .fleet_installer_photo_upload_create_data_response_body_processing_status import (
+        FleetInstallerPhotoUploadCreateDataResponseBodyProcessingStatus,
+    )
+    from .fleet_installer_photo_upload_session_response_body import FleetInstallerPhotoUploadSessionResponseBody
+    from .fleet_installer_photo_upload_session_response_body_file_format_type import (
+        FleetInstallerPhotoUploadSessionResponseBodyFileFormatType,
+    )
+    from .fleet_installer_photo_upload_session_response_body_hardware_type import (
+        FleetInstallerPhotoUploadSessionResponseBodyHardwareType,
+    )
+    from .fleet_installer_photo_upload_session_response_body_photo_type import (
+        FleetInstallerPhotoUploadSessionResponseBodyPhotoType,
+    )
+    from .fleet_installer_photo_upload_session_response_body_processing_status import (
+        FleetInstallerPhotoUploadSessionResponseBodyProcessingStatus,
+    )
+    from .fleet_installer_photo_uploads_get_fleet_installer_photo_uploads_bad_gateway_error_response_body import (
+        FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsBadGatewayErrorResponseBody,
+    )
+    from .fleet_installer_photo_uploads_get_fleet_installer_photo_uploads_gateway_timeout_error_response_body import (
+        FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsGatewayTimeoutErrorResponseBody,
+    )
+    from .fleet_installer_photo_uploads_get_fleet_installer_photo_uploads_internal_server_error_response_body import (
+        FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsInternalServerErrorResponseBody,
+    )
+    from .fleet_installer_photo_uploads_get_fleet_installer_photo_uploads_method_not_allowed_error_response_body import (
+        FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsMethodNotAllowedErrorResponseBody,
+    )
+    from .fleet_installer_photo_uploads_get_fleet_installer_photo_uploads_not_found_error_response_body import (
+        FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsNotFoundErrorResponseBody,
+    )
+    from .fleet_installer_photo_uploads_get_fleet_installer_photo_uploads_not_implemented_error_response_body import (
+        FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsNotImplementedErrorResponseBody,
+    )
+    from .fleet_installer_photo_uploads_get_fleet_installer_photo_uploads_response_body import (
+        FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsResponseBody,
+    )
+    from .fleet_installer_photo_uploads_get_fleet_installer_photo_uploads_service_unavailable_error_response_body import (
+        FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsServiceUnavailableErrorResponseBody,
+    )
+    from .fleet_installer_photo_uploads_get_fleet_installer_photo_uploads_too_many_requests_error_response_body import (
+        FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsTooManyRequestsErrorResponseBody,
+    )
+    from .fleet_installer_photo_uploads_get_fleet_installer_photo_uploads_unauthorized_error_response_body import (
+        FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsUnauthorizedErrorResponseBody,
+    )
+    from .fleet_installer_photo_uploads_post_fleet_installer_photo_upload_bad_gateway_error_response_body import (
+        FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadBadGatewayErrorResponseBody,
+    )
+    from .fleet_installer_photo_uploads_post_fleet_installer_photo_upload_complete_bad_gateway_error_response_body import (
+        FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteBadGatewayErrorResponseBody,
+    )
+    from .fleet_installer_photo_uploads_post_fleet_installer_photo_upload_complete_gateway_timeout_error_response_body import (
+        FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteGatewayTimeoutErrorResponseBody,
+    )
+    from .fleet_installer_photo_uploads_post_fleet_installer_photo_upload_complete_internal_server_error_response_body import (
+        FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteInternalServerErrorResponseBody,
+    )
+    from .fleet_installer_photo_uploads_post_fleet_installer_photo_upload_complete_method_not_allowed_error_response_body import (
+        FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteMethodNotAllowedErrorResponseBody,
+    )
+    from .fleet_installer_photo_uploads_post_fleet_installer_photo_upload_complete_not_found_error_response_body import (
+        FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteNotFoundErrorResponseBody,
+    )
+    from .fleet_installer_photo_uploads_post_fleet_installer_photo_upload_complete_not_implemented_error_response_body import (
+        FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteNotImplementedErrorResponseBody,
+    )
+    from .fleet_installer_photo_uploads_post_fleet_installer_photo_upload_complete_response_body import (
+        FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteResponseBody,
+    )
+    from .fleet_installer_photo_uploads_post_fleet_installer_photo_upload_complete_service_unavailable_error_response_body import (
+        FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteServiceUnavailableErrorResponseBody,
+    )
+    from .fleet_installer_photo_uploads_post_fleet_installer_photo_upload_complete_too_many_requests_error_response_body import (
+        FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteTooManyRequestsErrorResponseBody,
+    )
+    from .fleet_installer_photo_uploads_post_fleet_installer_photo_upload_complete_unauthorized_error_response_body import (
+        FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteUnauthorizedErrorResponseBody,
+    )
+    from .fleet_installer_photo_uploads_post_fleet_installer_photo_upload_gateway_timeout_error_response_body import (
+        FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadGatewayTimeoutErrorResponseBody,
+    )
+    from .fleet_installer_photo_uploads_post_fleet_installer_photo_upload_internal_server_error_response_body import (
+        FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadInternalServerErrorResponseBody,
+    )
+    from .fleet_installer_photo_uploads_post_fleet_installer_photo_upload_method_not_allowed_error_response_body import (
+        FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadMethodNotAllowedErrorResponseBody,
+    )
+    from .fleet_installer_photo_uploads_post_fleet_installer_photo_upload_not_found_error_response_body import (
+        FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadNotFoundErrorResponseBody,
+    )
+    from .fleet_installer_photo_uploads_post_fleet_installer_photo_upload_not_implemented_error_response_body import (
+        FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadNotImplementedErrorResponseBody,
+    )
+    from .fleet_installer_photo_uploads_post_fleet_installer_photo_upload_response_body import (
+        FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadResponseBody,
+    )
+    from .fleet_installer_photo_uploads_post_fleet_installer_photo_upload_service_unavailable_error_response_body import (
+        FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadServiceUnavailableErrorResponseBody,
+    )
+    from .fleet_installer_photo_uploads_post_fleet_installer_photo_upload_too_many_requests_error_response_body import (
+        FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadTooManyRequestsErrorResponseBody,
+    )
+    from .fleet_installer_photo_uploads_post_fleet_installer_photo_upload_unauthorized_error_response_body import (
+        FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadUnauthorizedErrorResponseBody,
+    )
     from .following_distance_detection_alert_settings_object_response_body import (
         FollowingDistanceDetectionAlertSettingsObjectResponseBody,
     )
@@ -9273,6 +9390,47 @@ _dynamic_imports: typing.Dict[str, str] = {
     "FiltersRequestBody": ".filters_request_body",
     "FiltersResponseBody": ".filters_response_body",
     "FleetDeviceObjectResponseBody": ".fleet_device_object_response_body",
+    "FleetInstallerPhotoUploadContextResponseBody": ".fleet_installer_photo_upload_context_response_body",
+    "FleetInstallerPhotoUploadCreateDataResponseBody": ".fleet_installer_photo_upload_create_data_response_body",
+    "FleetInstallerPhotoUploadCreateDataResponseBodyFileFormatType": ".fleet_installer_photo_upload_create_data_response_body_file_format_type",
+    "FleetInstallerPhotoUploadCreateDataResponseBodyHardwareType": ".fleet_installer_photo_upload_create_data_response_body_hardware_type",
+    "FleetInstallerPhotoUploadCreateDataResponseBodyPhotoType": ".fleet_installer_photo_upload_create_data_response_body_photo_type",
+    "FleetInstallerPhotoUploadCreateDataResponseBodyProcessingStatus": ".fleet_installer_photo_upload_create_data_response_body_processing_status",
+    "FleetInstallerPhotoUploadSessionResponseBody": ".fleet_installer_photo_upload_session_response_body",
+    "FleetInstallerPhotoUploadSessionResponseBodyFileFormatType": ".fleet_installer_photo_upload_session_response_body_file_format_type",
+    "FleetInstallerPhotoUploadSessionResponseBodyHardwareType": ".fleet_installer_photo_upload_session_response_body_hardware_type",
+    "FleetInstallerPhotoUploadSessionResponseBodyPhotoType": ".fleet_installer_photo_upload_session_response_body_photo_type",
+    "FleetInstallerPhotoUploadSessionResponseBodyProcessingStatus": ".fleet_installer_photo_upload_session_response_body_processing_status",
+    "FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsBadGatewayErrorResponseBody": ".fleet_installer_photo_uploads_get_fleet_installer_photo_uploads_bad_gateway_error_response_body",
+    "FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsGatewayTimeoutErrorResponseBody": ".fleet_installer_photo_uploads_get_fleet_installer_photo_uploads_gateway_timeout_error_response_body",
+    "FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsInternalServerErrorResponseBody": ".fleet_installer_photo_uploads_get_fleet_installer_photo_uploads_internal_server_error_response_body",
+    "FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsMethodNotAllowedErrorResponseBody": ".fleet_installer_photo_uploads_get_fleet_installer_photo_uploads_method_not_allowed_error_response_body",
+    "FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsNotFoundErrorResponseBody": ".fleet_installer_photo_uploads_get_fleet_installer_photo_uploads_not_found_error_response_body",
+    "FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsNotImplementedErrorResponseBody": ".fleet_installer_photo_uploads_get_fleet_installer_photo_uploads_not_implemented_error_response_body",
+    "FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsResponseBody": ".fleet_installer_photo_uploads_get_fleet_installer_photo_uploads_response_body",
+    "FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsServiceUnavailableErrorResponseBody": ".fleet_installer_photo_uploads_get_fleet_installer_photo_uploads_service_unavailable_error_response_body",
+    "FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsTooManyRequestsErrorResponseBody": ".fleet_installer_photo_uploads_get_fleet_installer_photo_uploads_too_many_requests_error_response_body",
+    "FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsUnauthorizedErrorResponseBody": ".fleet_installer_photo_uploads_get_fleet_installer_photo_uploads_unauthorized_error_response_body",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadBadGatewayErrorResponseBody": ".fleet_installer_photo_uploads_post_fleet_installer_photo_upload_bad_gateway_error_response_body",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteBadGatewayErrorResponseBody": ".fleet_installer_photo_uploads_post_fleet_installer_photo_upload_complete_bad_gateway_error_response_body",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteGatewayTimeoutErrorResponseBody": ".fleet_installer_photo_uploads_post_fleet_installer_photo_upload_complete_gateway_timeout_error_response_body",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteInternalServerErrorResponseBody": ".fleet_installer_photo_uploads_post_fleet_installer_photo_upload_complete_internal_server_error_response_body",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteMethodNotAllowedErrorResponseBody": ".fleet_installer_photo_uploads_post_fleet_installer_photo_upload_complete_method_not_allowed_error_response_body",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteNotFoundErrorResponseBody": ".fleet_installer_photo_uploads_post_fleet_installer_photo_upload_complete_not_found_error_response_body",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteNotImplementedErrorResponseBody": ".fleet_installer_photo_uploads_post_fleet_installer_photo_upload_complete_not_implemented_error_response_body",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteResponseBody": ".fleet_installer_photo_uploads_post_fleet_installer_photo_upload_complete_response_body",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteServiceUnavailableErrorResponseBody": ".fleet_installer_photo_uploads_post_fleet_installer_photo_upload_complete_service_unavailable_error_response_body",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteTooManyRequestsErrorResponseBody": ".fleet_installer_photo_uploads_post_fleet_installer_photo_upload_complete_too_many_requests_error_response_body",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteUnauthorizedErrorResponseBody": ".fleet_installer_photo_uploads_post_fleet_installer_photo_upload_complete_unauthorized_error_response_body",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadGatewayTimeoutErrorResponseBody": ".fleet_installer_photo_uploads_post_fleet_installer_photo_upload_gateway_timeout_error_response_body",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadInternalServerErrorResponseBody": ".fleet_installer_photo_uploads_post_fleet_installer_photo_upload_internal_server_error_response_body",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadMethodNotAllowedErrorResponseBody": ".fleet_installer_photo_uploads_post_fleet_installer_photo_upload_method_not_allowed_error_response_body",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadNotFoundErrorResponseBody": ".fleet_installer_photo_uploads_post_fleet_installer_photo_upload_not_found_error_response_body",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadNotImplementedErrorResponseBody": ".fleet_installer_photo_uploads_post_fleet_installer_photo_upload_not_implemented_error_response_body",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadResponseBody": ".fleet_installer_photo_uploads_post_fleet_installer_photo_upload_response_body",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadServiceUnavailableErrorResponseBody": ".fleet_installer_photo_uploads_post_fleet_installer_photo_upload_service_unavailable_error_response_body",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadTooManyRequestsErrorResponseBody": ".fleet_installer_photo_uploads_post_fleet_installer_photo_upload_too_many_requests_error_response_body",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadUnauthorizedErrorResponseBody": ".fleet_installer_photo_uploads_post_fleet_installer_photo_upload_unauthorized_error_response_body",
     "FollowingDistanceDetectionAlertSettingsObjectResponseBody": ".following_distance_detection_alert_settings_object_response_body",
     "FormSubmissionPdfExportResponseObjectResponseBody": ".form_submission_pdf_export_response_object_response_body",
     "FormSubmissionPdfExportResponseObjectResponseBodyJobStatus": ".form_submission_pdf_export_response_object_response_body_job_status",
@@ -13298,6 +13456,47 @@ __all__ = [
     "FiltersRequestBody",
     "FiltersResponseBody",
     "FleetDeviceObjectResponseBody",
+    "FleetInstallerPhotoUploadContextResponseBody",
+    "FleetInstallerPhotoUploadCreateDataResponseBody",
+    "FleetInstallerPhotoUploadCreateDataResponseBodyFileFormatType",
+    "FleetInstallerPhotoUploadCreateDataResponseBodyHardwareType",
+    "FleetInstallerPhotoUploadCreateDataResponseBodyPhotoType",
+    "FleetInstallerPhotoUploadCreateDataResponseBodyProcessingStatus",
+    "FleetInstallerPhotoUploadSessionResponseBody",
+    "FleetInstallerPhotoUploadSessionResponseBodyFileFormatType",
+    "FleetInstallerPhotoUploadSessionResponseBodyHardwareType",
+    "FleetInstallerPhotoUploadSessionResponseBodyPhotoType",
+    "FleetInstallerPhotoUploadSessionResponseBodyProcessingStatus",
+    "FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsBadGatewayErrorResponseBody",
+    "FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsGatewayTimeoutErrorResponseBody",
+    "FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsInternalServerErrorResponseBody",
+    "FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsMethodNotAllowedErrorResponseBody",
+    "FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsNotFoundErrorResponseBody",
+    "FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsNotImplementedErrorResponseBody",
+    "FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsResponseBody",
+    "FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsServiceUnavailableErrorResponseBody",
+    "FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsTooManyRequestsErrorResponseBody",
+    "FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsUnauthorizedErrorResponseBody",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadBadGatewayErrorResponseBody",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteBadGatewayErrorResponseBody",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteGatewayTimeoutErrorResponseBody",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteInternalServerErrorResponseBody",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteMethodNotAllowedErrorResponseBody",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteNotFoundErrorResponseBody",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteNotImplementedErrorResponseBody",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteResponseBody",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteServiceUnavailableErrorResponseBody",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteTooManyRequestsErrorResponseBody",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteUnauthorizedErrorResponseBody",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadGatewayTimeoutErrorResponseBody",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadInternalServerErrorResponseBody",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadMethodNotAllowedErrorResponseBody",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadNotFoundErrorResponseBody",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadNotImplementedErrorResponseBody",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadResponseBody",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadServiceUnavailableErrorResponseBody",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadTooManyRequestsErrorResponseBody",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadUnauthorizedErrorResponseBody",
     "FollowingDistanceDetectionAlertSettingsObjectResponseBody",
     "FormSubmissionPdfExportResponseObjectResponseBody",
     "FormSubmissionPdfExportResponseObjectResponseBodyJobStatus",

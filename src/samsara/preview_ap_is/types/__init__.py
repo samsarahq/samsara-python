@@ -6,15 +6,19 @@ import typing
 from importlib import import_module
 
 if typing.TYPE_CHECKING:
-    from .tachograph_file_uploads_post_tachograph_file_upload_request_body_content_type import (
-        TachographFileUploadsPostTachographFileUploadRequestBodyContentType,
+    from .fleet_installer_photo_uploads_post_fleet_installer_photo_upload_request_body_file_format_type import (
+        FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyFileFormatType,
     )
-    from .tachograph_file_uploads_post_tachograph_file_upload_request_body_file_type import (
-        TachographFileUploadsPostTachographFileUploadRequestBodyFileType,
+    from .fleet_installer_photo_uploads_post_fleet_installer_photo_upload_request_body_hardware_type import (
+        FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyHardwareType,
+    )
+    from .fleet_installer_photo_uploads_post_fleet_installer_photo_upload_request_body_photo_type import (
+        FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyPhotoType,
     )
 _dynamic_imports: typing.Dict[str, str] = {
-    "TachographFileUploadsPostTachographFileUploadRequestBodyContentType": ".tachograph_file_uploads_post_tachograph_file_upload_request_body_content_type",
-    "TachographFileUploadsPostTachographFileUploadRequestBodyFileType": ".tachograph_file_uploads_post_tachograph_file_upload_request_body_file_type",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyFileFormatType": ".fleet_installer_photo_uploads_post_fleet_installer_photo_upload_request_body_file_format_type",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyHardwareType": ".fleet_installer_photo_uploads_post_fleet_installer_photo_upload_request_body_hardware_type",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyPhotoType": ".fleet_installer_photo_uploads_post_fleet_installer_photo_upload_request_body_photo_type",
 }
 
 
@@ -40,6 +44,7 @@ def __dir__():
 
 
 __all__ = [
-    "TachographFileUploadsPostTachographFileUploadRequestBodyContentType",
-    "TachographFileUploadsPostTachographFileUploadRequestBodyFileType",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyFileFormatType",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyHardwareType",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyPhotoType",
 ]

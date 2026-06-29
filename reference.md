@@ -3086,6 +3086,133 @@ client.beta_ap_is.list_tachograph_live_data()
 </dl>
 </details>
 
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">post_tachograph_file_upload</a>(...) -&gt; AsyncHttpResponse[TachographFileUploadsPostTachographFileUploadResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Reserve a tachograph file upload and return a presigned URL. Upload the file bytes directly to the URL with the returned headers. The driver or device the file belongs to is resolved from the file contents after upload.
+
+**Uploading the file**
+
+Once you have the `uploadUrl` and `requiredHeaders` from the response, PUT the raw file bytes directly to the URL — do not send the request through the Samsara API servers:
+
+```bash
+curl -X PUT "<uploadUrl>" \
+  -H "Content-Type: <value from requiredHeaders>" \
+  -H "Content-MD5: <value from requiredHeaders>" \
+  -H "Content-Length: <value from requiredHeaders>" \
+  --data-binary @/path/to/file.ddd
+```
+
+Every header listed in `requiredHeaders` must be sent verbatim — they are part of the URL signature, and the upload is rejected with a `403` if any header is missing or has a different value.
+
+**Retrieving uploaded files**
+
+A successful response to this request reserves the upload; it does not indicate that a file has been received or processed. Uploaded files are processed asynchronously after the PUT completes. Once a file has been processed, it can be retrieved through the standard tachograph file endpoints:
+
+- **Driver-card files** — `GET /fleet/drivers/tachograph-files/history`
+- **Vehicle-unit files** — `GET /fleet/vehicles/tachograph-files/history`
+
+Files that cannot be processed — for example files that are corrupt, are not valid tachograph files, or cannot be matched to a driver or vehicle in your organization — are not retrievable through these endpoints.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Tachograph (EU)** under the Compliance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.post_tachograph_file_upload(
+    content_md_5="rL0Y20zC+Fzt72VPzMSk2A==",
+    content_type="application/octet-stream",
+    file_size_bytes=8192,
+    file_type="driverCard",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**content_md_5:** `str` — Base64-encoded MD5 digest of the file bytes (base64(md5(bytes))). Used as the Content-MD5 integrity check enforced by object storage on upload.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**content_type:** `TachographFileUploadsPostTachographFileUploadRequestBodyContentType` — The MIME content type of the file. The upload is sent to object storage as raw bytes.  Valid values: `application/octet-stream`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**file_size_bytes:** `int` — The size of the file in bytes. Enforced as the Content-Length on upload. Maximum 10 MB (10485760 bytes).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**file_type:** `TachographFileUploadsPostTachographFileUploadRequestBodyFileType` — The kind of tachograph file being uploaded. The driver or device the file belongs to is resolved from the file contents, not from this field.  Valid values: `driverCard`, `vehicleUnit`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_engine_immobilizer_states</a>(...) -&gt; AsyncHttpResponse[EngineImmobilizerGetEngineImmobilizerStatesResponseBody]</code></summary>
 <dl>
 <dd>
@@ -30273,7 +30400,9 @@ client.preview_ap_is.create_driver_auth_token(
 </dl>
 </details>
 
-<details><summary><code>client.preview_ap_is.<a href="src/samsara/preview_ap_is/client.py">post_tachograph_file_upload</a>(...) -&gt; AsyncHttpResponse[TachographFileUploadsPostTachographFileUploadResponseBody]</code></summary>
+<details><summary><code>client.preview_ap_is.<a href="src/samsara/preview_ap_is/client.py">get_fleet_installer_photo_uploads</a>(...) -&gt; AsyncHttpResponse[
+    FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsResponseBody
+]</code></summary>
 <dl>
 <dd>
 
@@ -30285,11 +30414,11 @@ client.preview_ap_is.create_driver_auth_token(
 <dl>
 <dd>
 
-Reserve a tachograph file upload and return a presigned URL. Upload the file bytes directly to the URL with the returned headers. The driver or device the file belongs to is resolved from the file contents after upload.
+Returns fleet installer photo upload sessions for the caller's org. Results are ordered by updatedAtTime ascending and paginated (up to 25 per page). Supports filtering by session IDs, startTime, and endTime. Omitting startTime returns all sessions for the org. endTime requires startTime.
 
  <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Tachograph (EU)** under the Compliance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+To use this endpoint, select **Read Devices** under the Devices category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
 Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
 
@@ -30318,11 +30447,121 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.preview_ap_is.post_tachograph_file_upload(
+client.preview_ap_is.get_fleet_installer_photo_uploads()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Comma-separated list of upload session IDs to filter by. Max 100 IDs. When a single ID is provided and not found, returns 404. When multiple IDs are provided and any are not found, returns 400.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**start_time:** `typing.Optional[str]` — A start time in RFC 3339 format. When provided, returns sessions where updatedAtTime >= startTime. Omit to return sessions regardless of time. Combine with endTime for a bounded window.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**end_time:** `typing.Optional[str]` — An end time in RFC 3339 format. Returns sessions where updatedAtTime < endTime. Requires startTime — returns 400 if provided without startTime. Must be after startTime. Millisecond precision and timezones are supported. (Examples: 2026-06-13T19:08:25Z, 2026-06-13T19:08:25.455Z, OR 2026-06-13T14:00:12-04:00).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.preview_ap_is.<a href="src/samsara/preview_ap_is/client.py">post_fleet_installer_photo_upload</a>(...) -&gt; AsyncHttpResponse[
+    FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadResponseBody
+]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Creates a fleet installer photo upload session and returns a presigned S3 PUT URL. Upload the file bytes directly to the presigned URL using the headers in uploadContext, then call POST /fleet/installer/photo-uploads/complete to finalize.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Devices** under the Devices category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+- Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+- When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.preview_ap_is.post_fleet_installer_photo_upload(
     content_md_5="rL0Y20zC+Fzt72VPzMSk2A==",
-    content_type="application/octet-stream",
-    file_size_bytes=8192,
-    file_type="driverCard",
+    device_id="281474977961335",
+    file_format_type="imageJpeg",
+    file_name="front_camera_install.jpg",
+    hardware_type="vehicleGateway",
+    photo_type="installPhoto",
+    size_bytes=482193,
 )
 
 ```
@@ -30339,7 +30578,7 @@ client.preview_ap_is.post_tachograph_file_upload(
 <dl>
 <dd>
 
-**content_md_5:** `str` — Base64-encoded MD5 digest of the file bytes (base64(md5(bytes))). Used as the Content-MD5 integrity check enforced by object storage on upload.
+**content_md_5:** `str` — Base64-encoded MD5 of the file bytes. Signed into the presigned URL as Content-MD5; object storage verifies upload integrity on PUT. Must be exactly 24 characters (base64-encoded 16-byte MD5 digest).
     
 </dd>
 </dl>
@@ -30347,7 +30586,7 @@ client.preview_ap_is.post_tachograph_file_upload(
 <dl>
 <dd>
 
-**content_type:** `TachographFileUploadsPostTachographFileUploadRequestBodyContentType` — The MIME content type of the file. The upload is sent to object storage as raw bytes.  Valid values: `application/octet-stream`
+**device_id:** `str` — Samsara device ID. The device must belong to the caller's organization.
     
 </dd>
 </dl>
@@ -30355,7 +30594,7 @@ client.preview_ap_is.post_tachograph_file_upload(
 <dl>
 <dd>
 
-**file_size_bytes:** `int` — The size of the file in bytes. Enforced as the Content-Length on upload and validated against the maximum allowed tachograph file size.
+**file_format_type:** `FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyFileFormatType` — File format. Samsara maps this to the corresponding MIME type for the presigned URL.  Valid values: `imageJpeg`, `imagePng`
     
 </dd>
 </dl>
@@ -30363,7 +30602,116 @@ client.preview_ap_is.post_tachograph_file_upload(
 <dl>
 <dd>
 
-**file_type:** `TachographFileUploadsPostTachographFileUploadRequestBodyFileType` — The kind of tachograph file being uploaded. The driver or device the file belongs to is resolved from the file contents, not from this field.  Valid values: `driverCard`, `vehicleUnit`
+**file_name:** `str` — Original file name. Max 255 characters; printable characters only; no null bytes or path separators (/ or \).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**hardware_type:** `FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyHardwareType` — Hardware category of the device being installed.  Valid values: `vehicleGateway`, `assetGateway`, `camera`, `cameraConnector`, `environmentalMonitor`, `assetTag`, `trackingLabel`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**photo_type:** `FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyPhotoType` — Purpose of the photo.  Valid values: `installPhoto`, `assetPhoto`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**size_bytes:** `int` — File size in bytes. Validated against the maximum allowed size (10 MB) and signed into the presigned URL as Content-Length.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.preview_ap_is.<a href="src/samsara/preview_ap_is/client.py">post_fleet_installer_photo_upload_complete</a>(...) -&gt; AsyncHttpResponse[
+    FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteResponseBody
+]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Marks a fleet installer photo upload session as complete after the file bytes have been uploaded to S3. Triggers async processing of the photo. Poll GET /fleet/installer/photo-uploads to observe the final state.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Devices** under the Devices category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+- Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+- When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.preview_ap_is.post_fleet_installer_photo_upload_complete(
+    id="id",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` — Upload session ID to mark as complete. Accepts exactly one ID.
     
 </dd>
 </dl>
