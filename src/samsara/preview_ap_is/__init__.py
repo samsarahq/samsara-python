@@ -7,12 +7,14 @@ from importlib import import_module
 
 if typing.TYPE_CHECKING:
     from .types import (
-        TachographFileUploadsPostTachographFileUploadRequestBodyContentType,
-        TachographFileUploadsPostTachographFileUploadRequestBodyFileType,
+        FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyFileFormatType,
+        FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyHardwareType,
+        FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyPhotoType,
     )
 _dynamic_imports: typing.Dict[str, str] = {
-    "TachographFileUploadsPostTachographFileUploadRequestBodyContentType": ".types",
-    "TachographFileUploadsPostTachographFileUploadRequestBodyFileType": ".types",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyFileFormatType": ".types",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyHardwareType": ".types",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyPhotoType": ".types",
 }
 
 
@@ -38,6 +40,7 @@ def __dir__():
 
 
 __all__ = [
-    "TachographFileUploadsPostTachographFileUploadRequestBodyContentType",
-    "TachographFileUploadsPostTachographFileUploadRequestBodyFileType",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyFileFormatType",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyHardwareType",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyPhotoType",
 ]

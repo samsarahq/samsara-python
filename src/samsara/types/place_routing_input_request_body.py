@@ -17,9 +17,19 @@ class PlaceRoutingInputRequestBody(UniversalBaseModel):
     Route-planning metadata row for a place and hub.
     """
 
+    driver_instructions: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="driverInstructions"),
+        pydantic.Field(alias="driverInstructions", description="Default instructions for drivers at this stop."),
+    ] = None
     hub_id: typing_extensions.Annotated[
         str, FieldMetadata(alias="hubId"), pydantic.Field(alias="hubId", description="Planner hub UUID for this row.")
     ]
+    hub_notes: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="hubNotes"),
+        pydantic.Field(alias="hubNotes", description="Hub-facing notes for this routing row."),
+    ] = None
     is_depot: typing_extensions.Annotated[
         typing.Optional[bool],
         FieldMetadata(alias="isDepot"),
@@ -29,11 +39,6 @@ class PlaceRoutingInputRequestBody(UniversalBaseModel):
         typing.Optional[PlaceRoutingOrderServiceTimeInputRequestBody],
         FieldMetadata(alias="orderServiceTime"),
         pydantic.Field(alias="orderServiceTime"),
-    ] = None
-    planner_notes: typing_extensions.Annotated[
-        typing.Optional[str],
-        FieldMetadata(alias="plannerNotes"),
-        pydantic.Field(alias="plannerNotes", description="Planner-facing notes for this routing row."),
     ] = None
     position: typing.Optional[str] = pydantic.Field(default=None)
     """
@@ -65,13 +70,6 @@ class PlaceRoutingInputRequestBody(UniversalBaseModel):
         FieldMetadata(alias="serviceWindows"),
         pydantic.Field(
             alias="serviceWindows", description="Recurring local-time service windows for this routing row."
-        ),
-    ] = None
-    standard_driver_instructions: typing_extensions.Annotated[
-        typing.Optional[str],
-        FieldMetadata(alias="standardDriverInstructions"),
-        pydantic.Field(
-            alias="standardDriverInstructions", description="Default instructions for drivers at this stop."
         ),
     ] = None
 

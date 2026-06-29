@@ -29,6 +29,8 @@ if typing.TYPE_CHECKING:
         SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem,
         SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToRemoveItem,
         SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState,
+        TachographFileUploadsPostTachographFileUploadRequestBodyContentType,
+        TachographFileUploadsPostTachographFileUploadRequestBodyFileType,
     )
 _dynamic_imports: typing.Dict[str, str] = {
     "DeviceRecoveryRecoverAssetRequestBodyMissingReason": ".types",
@@ -53,6 +55,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem": ".types",
     "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToRemoveItem": ".types",
     "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState": ".types",
+    "TachographFileUploadsPostTachographFileUploadRequestBodyContentType": ".types",
+    "TachographFileUploadsPostTachographFileUploadRequestBodyFileType": ".types",
 }
 
 
@@ -100,4 +104,6 @@ __all__ = [
     "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToAddItem",
     "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyContextLabelsToRemoveItem",
     "SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyEventState",
+    "TachographFileUploadsPostTachographFileUploadRequestBodyContentType",
+    "TachographFileUploadsPostTachographFileUploadRequestBodyFileType",
 ]

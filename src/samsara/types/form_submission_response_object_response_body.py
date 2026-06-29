@@ -59,6 +59,14 @@ class FormSubmissionResponseObjectResponseBody(UniversalBaseModel):
             description="Time of when the submission is due. Sometimes returned, if the submission has a due date. UTC timestamp in RFC 3339 format.",
         ),
     ] = None
+    duration_ms: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="durationMs"),
+        pydantic.Field(
+            alias="durationMs",
+            description="Duration between when the form submission was started on the client and submitted, in milliseconds. Omitted until the form is actually submitted or when the client start timestamp was not recorded.",
+        ),
+    ] = None
     external_ids: typing_extensions.Annotated[
         typing.Optional[typing.Dict[str, str]],
         FieldMetadata(alias="externalIds"),

@@ -17,9 +17,19 @@ class RoutingResponseResponseBody(UniversalBaseModel):
     Route-planning metadata row for a place and hub.
     """
 
+    driver_instructions: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="driverInstructions"),
+        pydantic.Field(alias="driverInstructions", description="Default instructions for drivers."),
+    ] = None
     hub_id: typing_extensions.Annotated[
         str, FieldMetadata(alias="hubId"), pydantic.Field(alias="hubId", description="Hub (planner) UUID.")
     ]
+    hub_notes: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="hubNotes"),
+        pydantic.Field(alias="hubNotes", description="Hub-facing notes."),
+    ] = None
     is_depot: typing_extensions.Annotated[
         bool,
         FieldMetadata(alias="isDepot"),
@@ -29,11 +39,6 @@ class RoutingResponseResponseBody(UniversalBaseModel):
         typing.Optional[RoutingOrderServiceTimeResponseResponseBody],
         FieldMetadata(alias="orderServiceTime"),
         pydantic.Field(alias="orderServiceTime"),
-    ] = None
-    planner_notes: typing_extensions.Annotated[
-        typing.Optional[str],
-        FieldMetadata(alias="plannerNotes"),
-        pydantic.Field(alias="plannerNotes", description="Planner-facing notes."),
     ] = None
     position: str = pydantic.Field()
     """
@@ -64,11 +69,6 @@ class RoutingResponseResponseBody(UniversalBaseModel):
         typing.Optional[typing.List[RoutingServiceWindowResponseResponseBody]],
         FieldMetadata(alias="serviceWindows"),
         pydantic.Field(alias="serviceWindows", description="Configured service windows."),
-    ] = None
-    standard_driver_instructions: typing_extensions.Annotated[
-        typing.Optional[str],
-        FieldMetadata(alias="standardDriverInstructions"),
-        pydantic.Field(alias="standardDriverInstructions", description="Default instructions for drivers."),
     ] = None
 
     if IS_PYDANTIC_V2:
