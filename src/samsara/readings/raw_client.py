@@ -196,6 +196,7 @@ class RawReadingsClient:
         entity_type: str,
         after: typing.Optional[str] = None,
         entity_ids: typing.Optional[str] = None,
+        asset_types: typing.Optional[str] = None,
         external_ids: typing.Optional[str] = None,
         start_time: typing.Optional[str] = None,
         end_time: typing.Optional[str] = None,
@@ -490,6 +491,9 @@ class RawReadingsClient:
         entity_ids : typing.Optional[str]
             A filter on the data based on this comma-separated list of entity IDs. If not set, all entities are returned.
 
+        asset_types : typing.Optional[str]
+            A filter on asset readings based on this comma-separated list of asset types. Only supported when entityType is asset. Valid values are: uncategorized, trailer, equipment, unpowered, vehicle.
+
         external_ids : typing.Optional[str]
             A filter on the data based on this comma-separated list of external IDs. (Examples: samsara.serial:ZPXKLMN7VJ, samsara.serial:ABXKIMN4NM)
 
@@ -521,6 +525,7 @@ class RawReadingsClient:
                 "readingId": reading_id,
                 "entityIds": entity_ids,
                 "entityType": entity_type,
+                "assetTypes": asset_types,
                 "externalIds": external_ids,
                 "startTime": start_time,
                 "endTime": end_time,
@@ -652,6 +657,7 @@ class RawReadingsClient:
         entity_ids: typing.Optional[str] = None,
         external_ids: typing.Optional[str] = None,
         as_of_time: typing.Optional[str] = None,
+        asset_types: typing.Optional[str] = None,
         include_external_ids: typing.Optional[bool] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[ReadingsGetReadingsSnapshotResponseBody]:
@@ -948,6 +954,9 @@ class RawReadingsClient:
         as_of_time : typing.Optional[str]
             A filter on the data that returns the last known data points with timestamps less than or equal to this value. Defaults to now if not provided. Must be a string in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2020-01-27T07:06:25Z)
 
+        asset_types : typing.Optional[str]
+            A filter on asset readings based on this comma-separated list of asset types. Only supported when entityType is asset. Valid values are: uncategorized, trailer, equipment, unpowered, vehicle.
+
         include_external_ids : typing.Optional[bool]
             Optional boolean indicating whether to return external IDs on supported entities
 
@@ -969,6 +978,7 @@ class RawReadingsClient:
                 "externalIds": external_ids,
                 "asOfTime": as_of_time,
                 "entityType": entity_type,
+                "assetTypes": asset_types,
                 "includeExternalIds": include_external_ids,
             },
             request_options=request_options,
@@ -1262,6 +1272,7 @@ class AsyncRawReadingsClient:
         entity_type: str,
         after: typing.Optional[str] = None,
         entity_ids: typing.Optional[str] = None,
+        asset_types: typing.Optional[str] = None,
         external_ids: typing.Optional[str] = None,
         start_time: typing.Optional[str] = None,
         end_time: typing.Optional[str] = None,
@@ -1556,6 +1567,9 @@ class AsyncRawReadingsClient:
         entity_ids : typing.Optional[str]
             A filter on the data based on this comma-separated list of entity IDs. If not set, all entities are returned.
 
+        asset_types : typing.Optional[str]
+            A filter on asset readings based on this comma-separated list of asset types. Only supported when entityType is asset. Valid values are: uncategorized, trailer, equipment, unpowered, vehicle.
+
         external_ids : typing.Optional[str]
             A filter on the data based on this comma-separated list of external IDs. (Examples: samsara.serial:ZPXKLMN7VJ, samsara.serial:ABXKIMN4NM)
 
@@ -1587,6 +1601,7 @@ class AsyncRawReadingsClient:
                 "readingId": reading_id,
                 "entityIds": entity_ids,
                 "entityType": entity_type,
+                "assetTypes": asset_types,
                 "externalIds": external_ids,
                 "startTime": start_time,
                 "endTime": end_time,
@@ -1718,6 +1733,7 @@ class AsyncRawReadingsClient:
         entity_ids: typing.Optional[str] = None,
         external_ids: typing.Optional[str] = None,
         as_of_time: typing.Optional[str] = None,
+        asset_types: typing.Optional[str] = None,
         include_external_ids: typing.Optional[bool] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[ReadingsGetReadingsSnapshotResponseBody]:
@@ -2014,6 +2030,9 @@ class AsyncRawReadingsClient:
         as_of_time : typing.Optional[str]
             A filter on the data that returns the last known data points with timestamps less than or equal to this value. Defaults to now if not provided. Must be a string in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2020-01-27T07:06:25Z)
 
+        asset_types : typing.Optional[str]
+            A filter on asset readings based on this comma-separated list of asset types. Only supported when entityType is asset. Valid values are: uncategorized, trailer, equipment, unpowered, vehicle.
+
         include_external_ids : typing.Optional[bool]
             Optional boolean indicating whether to return external IDs on supported entities
 
@@ -2035,6 +2054,7 @@ class AsyncRawReadingsClient:
                 "externalIds": external_ids,
                 "asOfTime": as_of_time,
                 "entityType": entity_type,
+                "assetTypes": asset_types,
                 "includeExternalIds": include_external_ids,
             },
             request_options=request_options,
