@@ -31346,6 +31346,14 @@ Available reading IDs (by category):
 <dl>
 <dd>
 
+**asset_types:** `typing.Optional[str]` — A filter on asset readings based on this comma-separated list of asset types. Only supported when entityType is asset. Valid values are: uncategorized, trailer, equipment, unpowered, vehicle.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **external_ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of external IDs. (Examples: samsara.serial:ZPXKLMN7VJ, samsara.serial:ABXKIMN4NM)
     
 </dd>
@@ -31762,6 +31770,14 @@ Available reading IDs (by category):
 <dd>
 
 **as_of_time:** `typing.Optional[str]` — A filter on the data that returns the last known data points with timestamps less than or equal to this value. Defaults to now if not provided. Must be a string in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2020-01-27T07:06:25Z)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**asset_types:** `typing.Optional[str]` — A filter on asset readings based on this comma-separated list of asset types. Only supported when entityType is asset. Valid values are: uncategorized, trailer, equipment, unpowered, vehicle.
     
 </dd>
 </dl>
