@@ -385,6 +385,16 @@ def test_betaApIs_list_hub_route_templates() -> None:
     verify_request_count(test_id, "GET", "/hub/route-templates", {"hubId": "hubId"}, 1)
 
 
+def test_betaApIs_create_hub_route_template() -> None:
+    """Test createHubRouteTemplate endpoint with WireMock"""
+    test_id = "beta_ap_is.create_hub_route_template.0"
+    client = get_client(test_id)
+    client.beta_ap_is.create_hub_route_template(
+        hub_id="550e8400-e29b-41d4-a716-446655440000", name="Downtown Delivery Route"
+    )
+    verify_request_count(test_id, "POST", "/hub/route-templates", None, 1)
+
+
 def test_betaApIs_delete_hub_route_template() -> None:
     """Test deleteHubRouteTemplate endpoint with WireMock"""
     test_id = "beta_ap_is.delete_hub_route_template.0"

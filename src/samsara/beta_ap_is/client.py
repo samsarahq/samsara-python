@@ -14,6 +14,12 @@ from ..types.agent_studio_voice_sessions_get_voice_sessions_stream_response_body
 )
 from ..types.assets_inputs_get_assets_inputs_response_body import AssetsInputsGetAssetsInputsResponseBody
 from ..types.create_function_request_config_request_body import CreateFunctionRequestConfigRequestBody
+from ..types.create_hub_route_template_depot_end_input_request_body import (
+    CreateHubRouteTemplateDepotEndInputRequestBody,
+)
+from ..types.create_hub_route_template_depot_start_input_request_body import (
+    CreateHubRouteTemplateDepotStartInputRequestBody,
+)
 from ..types.create_report_config_object_request_body import CreateReportConfigObjectRequestBody
 from ..types.depreciation_get_depreciation_transactions_response_body import (
     DepreciationGetDepreciationTransactionsResponseBody,
@@ -66,6 +72,9 @@ from ..types.gateways_pair_gateways_response_body import GatewaysPairGatewaysRes
 from ..types.goa_attribute_tiny import GoaAttributeTiny
 from ..types.hos_daily_logs_update_shipping_docs_response_body import HosDailyLogsUpdateShippingDocsResponseBody
 from ..types.hos_eld_events_get_hos_eld_events_response_body import HosEldEventsGetHosEldEventsResponseBody
+from ..types.hub_route_templates_create_hub_route_template_response_body import (
+    HubRouteTemplatesCreateHubRouteTemplateResponseBody,
+)
 from ..types.hub_route_templates_list_hub_route_templates_response_body import (
     HubRouteTemplatesListHubRouteTemplatesResponseBody,
 )
@@ -2773,6 +2782,76 @@ class BetaApIsClient:
         """
         _response = self._raw_client.list_hub_route_templates(
             hub_id=hub_id, id=id, name=name, after=after, limit=limit, request_options=request_options
+        )
+        return _response.data
+
+    def create_hub_route_template(
+        self,
+        *,
+        hub_id: str,
+        name: str,
+        default_depot_end: typing.Optional[CreateHubRouteTemplateDepotEndInputRequestBody] = OMIT,
+        default_depot_start: typing.Optional[CreateHubRouteTemplateDepotStartInputRequestBody] = OMIT,
+        default_start_time_of_day: typing.Optional[str] = OMIT,
+        location_external_ids: typing.Optional[typing.Sequence[str]] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HubRouteTemplatesCreateHubRouteTemplateResponseBody:
+        """
+        Create a new route template for a hub.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        hub_id : str
+            The ID of the hub.
+
+        name : str
+            The name of the route template.
+
+        default_depot_end : typing.Optional[CreateHubRouteTemplateDepotEndInputRequestBody]
+
+        default_depot_start : typing.Optional[CreateHubRouteTemplateDepotStartInputRequestBody]
+
+        default_start_time_of_day : typing.Optional[str]
+            Default start time in HH:MM format in the hub's local timezone (e.g. '08:00').
+
+        location_external_ids : typing.Optional[typing.Sequence[str]]
+            Stop locations referenced by external ID, in the order they should be visited.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HubRouteTemplatesCreateHubRouteTemplateResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.create_hub_route_template(
+            hub_id="550e8400-e29b-41d4-a716-446655440000",
+            name="Downtown Delivery Route",
+        )
+        """
+        _response = self._raw_client.create_hub_route_template(
+            hub_id=hub_id,
+            name=name,
+            default_depot_end=default_depot_end,
+            default_depot_start=default_depot_start,
+            default_start_time_of_day=default_start_time_of_day,
+            location_external_ids=location_external_ids,
+            request_options=request_options,
         )
         return _response.data
 
@@ -7952,6 +8031,84 @@ class AsyncBetaApIsClient:
         """
         _response = await self._raw_client.list_hub_route_templates(
             hub_id=hub_id, id=id, name=name, after=after, limit=limit, request_options=request_options
+        )
+        return _response.data
+
+    async def create_hub_route_template(
+        self,
+        *,
+        hub_id: str,
+        name: str,
+        default_depot_end: typing.Optional[CreateHubRouteTemplateDepotEndInputRequestBody] = OMIT,
+        default_depot_start: typing.Optional[CreateHubRouteTemplateDepotStartInputRequestBody] = OMIT,
+        default_start_time_of_day: typing.Optional[str] = OMIT,
+        location_external_ids: typing.Optional[typing.Sequence[str]] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HubRouteTemplatesCreateHubRouteTemplateResponseBody:
+        """
+        Create a new route template for a hub.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        hub_id : str
+            The ID of the hub.
+
+        name : str
+            The name of the route template.
+
+        default_depot_end : typing.Optional[CreateHubRouteTemplateDepotEndInputRequestBody]
+
+        default_depot_start : typing.Optional[CreateHubRouteTemplateDepotStartInputRequestBody]
+
+        default_start_time_of_day : typing.Optional[str]
+            Default start time in HH:MM format in the hub's local timezone (e.g. '08:00').
+
+        location_external_ids : typing.Optional[typing.Sequence[str]]
+            Stop locations referenced by external ID, in the order they should be visited.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HubRouteTemplatesCreateHubRouteTemplateResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.create_hub_route_template(
+                hub_id="550e8400-e29b-41d4-a716-446655440000",
+                name="Downtown Delivery Route",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.create_hub_route_template(
+            hub_id=hub_id,
+            name=name,
+            default_depot_end=default_depot_end,
+            default_depot_start=default_depot_start,
+            default_start_time_of_day=default_start_time_of_day,
+            location_external_ids=location_external_ids,
+            request_options=request_options,
         )
         return _response.data
 

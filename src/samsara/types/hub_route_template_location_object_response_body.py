@@ -23,11 +23,6 @@ class HubRouteTemplateLocationObjectResponseBody(UniversalBaseModel):
         FieldMetadata(alias="formattedAddress"),
         pydantic.Field(alias="formattedAddress", description="The formatted address of the location."),
     ]
-    id: str = pydantic.Field()
-    """
-    The unique identifier for the location.
-    """
-
     latitude: float = pydantic.Field()
     """
     Latitude coordinate of the location.
