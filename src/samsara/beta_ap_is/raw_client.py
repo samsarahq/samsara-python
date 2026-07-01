@@ -30,6 +30,12 @@ from ..types.agent_studio_voice_sessions_get_voice_sessions_stream_response_body
 )
 from ..types.assets_inputs_get_assets_inputs_response_body import AssetsInputsGetAssetsInputsResponseBody
 from ..types.create_function_request_config_request_body import CreateFunctionRequestConfigRequestBody
+from ..types.create_hub_route_template_depot_end_input_request_body import (
+    CreateHubRouteTemplateDepotEndInputRequestBody,
+)
+from ..types.create_hub_route_template_depot_start_input_request_body import (
+    CreateHubRouteTemplateDepotStartInputRequestBody,
+)
 from ..types.create_report_config_object_request_body import CreateReportConfigObjectRequestBody
 from ..types.depreciation_get_depreciation_transactions_response_body import (
     DepreciationGetDepreciationTransactionsResponseBody,
@@ -82,6 +88,9 @@ from ..types.gateways_pair_gateways_response_body import GatewaysPairGatewaysRes
 from ..types.goa_attribute_tiny import GoaAttributeTiny
 from ..types.hos_daily_logs_update_shipping_docs_response_body import HosDailyLogsUpdateShippingDocsResponseBody
 from ..types.hos_eld_events_get_hos_eld_events_response_body import HosEldEventsGetHosEldEventsResponseBody
+from ..types.hub_route_templates_create_hub_route_template_response_body import (
+    HubRouteTemplatesCreateHubRouteTemplateResponseBody,
+)
 from ..types.hub_route_templates_list_hub_route_templates_response_body import (
     HubRouteTemplatesListHubRouteTemplatesResponseBody,
 )
@@ -7290,6 +7299,192 @@ class RawBetaApIsClient:
                     HubRouteTemplatesListHubRouteTemplatesResponseBody,
                     parse_obj_as(
                         type_=HubRouteTemplatesListHubRouteTemplatesResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def create_hub_route_template(
+        self,
+        *,
+        hub_id: str,
+        name: str,
+        default_depot_end: typing.Optional[CreateHubRouteTemplateDepotEndInputRequestBody] = OMIT,
+        default_depot_start: typing.Optional[CreateHubRouteTemplateDepotStartInputRequestBody] = OMIT,
+        default_start_time_of_day: typing.Optional[str] = OMIT,
+        location_external_ids: typing.Optional[typing.Sequence[str]] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[HubRouteTemplatesCreateHubRouteTemplateResponseBody]:
+        """
+        Create a new route template for a hub.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        hub_id : str
+            The ID of the hub.
+
+        name : str
+            The name of the route template.
+
+        default_depot_end : typing.Optional[CreateHubRouteTemplateDepotEndInputRequestBody]
+
+        default_depot_start : typing.Optional[CreateHubRouteTemplateDepotStartInputRequestBody]
+
+        default_start_time_of_day : typing.Optional[str]
+            Default start time in HH:MM format in the hub's local timezone (e.g. '08:00').
+
+        location_external_ids : typing.Optional[typing.Sequence[str]]
+            Stop locations referenced by external ID, in the order they should be visited.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[HubRouteTemplatesCreateHubRouteTemplateResponseBody]
+            OK response.
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "hub/route-templates",
+            method="POST",
+            json={
+                "defaultDepotEnd": convert_and_respect_annotation_metadata(
+                    object_=default_depot_end,
+                    annotation=CreateHubRouteTemplateDepotEndInputRequestBody,
+                    direction="write",
+                ),
+                "defaultDepotStart": convert_and_respect_annotation_metadata(
+                    object_=default_depot_start,
+                    annotation=CreateHubRouteTemplateDepotStartInputRequestBody,
+                    direction="write",
+                ),
+                "defaultStartTimeOfDay": default_start_time_of_day,
+                "hubId": hub_id,
+                "locationExternalIds": location_external_ids,
+                "name": name,
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    HubRouteTemplatesCreateHubRouteTemplateResponseBody,
+                    parse_obj_as(
+                        type_=HubRouteTemplatesCreateHubRouteTemplateResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -20951,6 +21146,192 @@ class AsyncRawBetaApIsClient:
                     HubRouteTemplatesListHubRouteTemplatesResponseBody,
                     parse_obj_as(
                         type_=HubRouteTemplatesListHubRouteTemplatesResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def create_hub_route_template(
+        self,
+        *,
+        hub_id: str,
+        name: str,
+        default_depot_end: typing.Optional[CreateHubRouteTemplateDepotEndInputRequestBody] = OMIT,
+        default_depot_start: typing.Optional[CreateHubRouteTemplateDepotStartInputRequestBody] = OMIT,
+        default_start_time_of_day: typing.Optional[str] = OMIT,
+        location_external_ids: typing.Optional[typing.Sequence[str]] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[HubRouteTemplatesCreateHubRouteTemplateResponseBody]:
+        """
+        Create a new route template for a hub.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        hub_id : str
+            The ID of the hub.
+
+        name : str
+            The name of the route template.
+
+        default_depot_end : typing.Optional[CreateHubRouteTemplateDepotEndInputRequestBody]
+
+        default_depot_start : typing.Optional[CreateHubRouteTemplateDepotStartInputRequestBody]
+
+        default_start_time_of_day : typing.Optional[str]
+            Default start time in HH:MM format in the hub's local timezone (e.g. '08:00').
+
+        location_external_ids : typing.Optional[typing.Sequence[str]]
+            Stop locations referenced by external ID, in the order they should be visited.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[HubRouteTemplatesCreateHubRouteTemplateResponseBody]
+            OK response.
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "hub/route-templates",
+            method="POST",
+            json={
+                "defaultDepotEnd": convert_and_respect_annotation_metadata(
+                    object_=default_depot_end,
+                    annotation=CreateHubRouteTemplateDepotEndInputRequestBody,
+                    direction="write",
+                ),
+                "defaultDepotStart": convert_and_respect_annotation_metadata(
+                    object_=default_depot_start,
+                    annotation=CreateHubRouteTemplateDepotStartInputRequestBody,
+                    direction="write",
+                ),
+                "defaultStartTimeOfDay": default_start_time_of_day,
+                "hubId": hub_id,
+                "locationExternalIds": location_external_ids,
+                "name": name,
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    HubRouteTemplatesCreateHubRouteTemplateResponseBody,
+                    parse_obj_as(
+                        type_=HubRouteTemplatesCreateHubRouteTemplateResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )

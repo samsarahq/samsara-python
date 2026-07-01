@@ -11,9 +11,9 @@ from .hub_route_template_depot_object_response_body import HubRouteTemplateDepot
 from .hub_route_template_location_object_response_body import HubRouteTemplateLocationObjectResponseBody
 
 
-class HubRouteTemplateObjectResponseBody(UniversalBaseModel):
+class CreateHubRouteTemplateObjectResponseBody(UniversalBaseModel):
     """
-    A route template for a hub.
+    A newly created route template.
     """
 
     created_at_time: typing_extensions.Annotated[
@@ -55,11 +55,6 @@ class HubRouteTemplateObjectResponseBody(UniversalBaseModel):
         str,
         FieldMetadata(alias="hubId"),
         pydantic.Field(alias="hubId", description="The hub identifier this route template belongs to."),
-    ]
-    hub_timezone: typing_extensions.Annotated[
-        str,
-        FieldMetadata(alias="hubTimezone"),
-        pydantic.Field(alias="hubTimezone", description="The IANA timezone of the hub (e.g. 'America/Los_Angeles')."),
     ]
     id: str = pydantic.Field()
     """

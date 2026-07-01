@@ -4943,6 +4943,124 @@ client.beta_ap_is.list_hub_route_templates(
 </dl>
 </details>
 
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">create_hub_route_template</a>(...) -&gt; AsyncHttpResponse[HubRouteTemplatesCreateHubRouteTemplateResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a new route template for a hub.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.create_hub_route_template(
+    hub_id="550e8400-e29b-41d4-a716-446655440000",
+    name="Downtown Delivery Route",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**hub_id:** `str` — The ID of the hub.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `str` — The name of the route template.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**default_depot_end:** `typing.Optional[CreateHubRouteTemplateDepotEndInputRequestBody]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**default_depot_start:** `typing.Optional[CreateHubRouteTemplateDepotStartInputRequestBody]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**default_start_time_of_day:** `typing.Optional[str]` — Default start time in HH:MM format in the hub's local timezone (e.g. '08:00').
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**location_external_ids:** `typing.Optional[typing.Sequence[str]]` — Stop locations referenced by external ID, in the order they should be visited.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">delete_hub_route_template</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>

@@ -693,6 +693,11 @@ if typing.TYPE_CHECKING:
     from .create_function_request_config_request_body_params import CreateFunctionRequestConfigRequestBodyParams
     from .create_function_request_config_request_body_secrets import CreateFunctionRequestConfigRequestBodySecrets
     from .create_function_storage_file_detail_response_body import CreateFunctionStorageFileDetailResponseBody
+    from .create_hub_route_template_depot_end_input_request_body import CreateHubRouteTemplateDepotEndInputRequestBody
+    from .create_hub_route_template_depot_start_input_request_body import (
+        CreateHubRouteTemplateDepotStartInputRequestBody,
+    )
+    from .create_hub_route_template_object_response_body import CreateHubRouteTemplateObjectResponseBody
     from .create_report_config_column_request_body import CreateReportConfigColumnRequestBody
     from .create_report_config_object_request_body import CreateReportConfigObjectRequestBody
     from .create_routes_stop_request_object_request_body import CreateRoutesStopRequestObjectRequestBody
@@ -3632,6 +3637,36 @@ if typing.TYPE_CHECKING:
     from .hub_route_template_depot_object_response_body import HubRouteTemplateDepotObjectResponseBody
     from .hub_route_template_location_object_response_body import HubRouteTemplateLocationObjectResponseBody
     from .hub_route_template_object_response_body import HubRouteTemplateObjectResponseBody
+    from .hub_route_templates_create_hub_route_template_bad_gateway_error_response_body import (
+        HubRouteTemplatesCreateHubRouteTemplateBadGatewayErrorResponseBody,
+    )
+    from .hub_route_templates_create_hub_route_template_gateway_timeout_error_response_body import (
+        HubRouteTemplatesCreateHubRouteTemplateGatewayTimeoutErrorResponseBody,
+    )
+    from .hub_route_templates_create_hub_route_template_internal_server_error_response_body import (
+        HubRouteTemplatesCreateHubRouteTemplateInternalServerErrorResponseBody,
+    )
+    from .hub_route_templates_create_hub_route_template_method_not_allowed_error_response_body import (
+        HubRouteTemplatesCreateHubRouteTemplateMethodNotAllowedErrorResponseBody,
+    )
+    from .hub_route_templates_create_hub_route_template_not_found_error_response_body import (
+        HubRouteTemplatesCreateHubRouteTemplateNotFoundErrorResponseBody,
+    )
+    from .hub_route_templates_create_hub_route_template_not_implemented_error_response_body import (
+        HubRouteTemplatesCreateHubRouteTemplateNotImplementedErrorResponseBody,
+    )
+    from .hub_route_templates_create_hub_route_template_response_body import (
+        HubRouteTemplatesCreateHubRouteTemplateResponseBody,
+    )
+    from .hub_route_templates_create_hub_route_template_service_unavailable_error_response_body import (
+        HubRouteTemplatesCreateHubRouteTemplateServiceUnavailableErrorResponseBody,
+    )
+    from .hub_route_templates_create_hub_route_template_too_many_requests_error_response_body import (
+        HubRouteTemplatesCreateHubRouteTemplateTooManyRequestsErrorResponseBody,
+    )
+    from .hub_route_templates_create_hub_route_template_unauthorized_error_response_body import (
+        HubRouteTemplatesCreateHubRouteTemplateUnauthorizedErrorResponseBody,
+    )
     from .hub_route_templates_delete_hub_route_template_bad_gateway_error_response_body import (
         HubRouteTemplatesDeleteHubRouteTemplateBadGatewayErrorResponseBody,
     )
@@ -8731,6 +8766,9 @@ _dynamic_imports: typing.Dict[str, str] = {
     "CreateFunctionRequestConfigRequestBodyParams": ".create_function_request_config_request_body_params",
     "CreateFunctionRequestConfigRequestBodySecrets": ".create_function_request_config_request_body_secrets",
     "CreateFunctionStorageFileDetailResponseBody": ".create_function_storage_file_detail_response_body",
+    "CreateHubRouteTemplateDepotEndInputRequestBody": ".create_hub_route_template_depot_end_input_request_body",
+    "CreateHubRouteTemplateDepotStartInputRequestBody": ".create_hub_route_template_depot_start_input_request_body",
+    "CreateHubRouteTemplateObjectResponseBody": ".create_hub_route_template_object_response_body",
     "CreateReportConfigColumnRequestBody": ".create_report_config_column_request_body",
     "CreateReportConfigObjectRequestBody": ".create_report_config_object_request_body",
     "CreateRoutesStopRequestObjectRequestBody": ".create_routes_stop_request_object_request_body",
@@ -10074,6 +10112,16 @@ _dynamic_imports: typing.Dict[str, str] = {
     "HubRouteTemplateDepotObjectResponseBody": ".hub_route_template_depot_object_response_body",
     "HubRouteTemplateLocationObjectResponseBody": ".hub_route_template_location_object_response_body",
     "HubRouteTemplateObjectResponseBody": ".hub_route_template_object_response_body",
+    "HubRouteTemplatesCreateHubRouteTemplateBadGatewayErrorResponseBody": ".hub_route_templates_create_hub_route_template_bad_gateway_error_response_body",
+    "HubRouteTemplatesCreateHubRouteTemplateGatewayTimeoutErrorResponseBody": ".hub_route_templates_create_hub_route_template_gateway_timeout_error_response_body",
+    "HubRouteTemplatesCreateHubRouteTemplateInternalServerErrorResponseBody": ".hub_route_templates_create_hub_route_template_internal_server_error_response_body",
+    "HubRouteTemplatesCreateHubRouteTemplateMethodNotAllowedErrorResponseBody": ".hub_route_templates_create_hub_route_template_method_not_allowed_error_response_body",
+    "HubRouteTemplatesCreateHubRouteTemplateNotFoundErrorResponseBody": ".hub_route_templates_create_hub_route_template_not_found_error_response_body",
+    "HubRouteTemplatesCreateHubRouteTemplateNotImplementedErrorResponseBody": ".hub_route_templates_create_hub_route_template_not_implemented_error_response_body",
+    "HubRouteTemplatesCreateHubRouteTemplateResponseBody": ".hub_route_templates_create_hub_route_template_response_body",
+    "HubRouteTemplatesCreateHubRouteTemplateServiceUnavailableErrorResponseBody": ".hub_route_templates_create_hub_route_template_service_unavailable_error_response_body",
+    "HubRouteTemplatesCreateHubRouteTemplateTooManyRequestsErrorResponseBody": ".hub_route_templates_create_hub_route_template_too_many_requests_error_response_body",
+    "HubRouteTemplatesCreateHubRouteTemplateUnauthorizedErrorResponseBody": ".hub_route_templates_create_hub_route_template_unauthorized_error_response_body",
     "HubRouteTemplatesDeleteHubRouteTemplateBadGatewayErrorResponseBody": ".hub_route_templates_delete_hub_route_template_bad_gateway_error_response_body",
     "HubRouteTemplatesDeleteHubRouteTemplateGatewayTimeoutErrorResponseBody": ".hub_route_templates_delete_hub_route_template_gateway_timeout_error_response_body",
     "HubRouteTemplatesDeleteHubRouteTemplateInternalServerErrorResponseBody": ".hub_route_templates_delete_hub_route_template_internal_server_error_response_body",
@@ -12797,6 +12845,9 @@ __all__ = [
     "CreateFunctionRequestConfigRequestBodyParams",
     "CreateFunctionRequestConfigRequestBodySecrets",
     "CreateFunctionStorageFileDetailResponseBody",
+    "CreateHubRouteTemplateDepotEndInputRequestBody",
+    "CreateHubRouteTemplateDepotStartInputRequestBody",
+    "CreateHubRouteTemplateObjectResponseBody",
     "CreateReportConfigColumnRequestBody",
     "CreateReportConfigObjectRequestBody",
     "CreateRoutesStopRequestObjectRequestBody",
@@ -14140,6 +14191,16 @@ __all__ = [
     "HubRouteTemplateDepotObjectResponseBody",
     "HubRouteTemplateLocationObjectResponseBody",
     "HubRouteTemplateObjectResponseBody",
+    "HubRouteTemplatesCreateHubRouteTemplateBadGatewayErrorResponseBody",
+    "HubRouteTemplatesCreateHubRouteTemplateGatewayTimeoutErrorResponseBody",
+    "HubRouteTemplatesCreateHubRouteTemplateInternalServerErrorResponseBody",
+    "HubRouteTemplatesCreateHubRouteTemplateMethodNotAllowedErrorResponseBody",
+    "HubRouteTemplatesCreateHubRouteTemplateNotFoundErrorResponseBody",
+    "HubRouteTemplatesCreateHubRouteTemplateNotImplementedErrorResponseBody",
+    "HubRouteTemplatesCreateHubRouteTemplateResponseBody",
+    "HubRouteTemplatesCreateHubRouteTemplateServiceUnavailableErrorResponseBody",
+    "HubRouteTemplatesCreateHubRouteTemplateTooManyRequestsErrorResponseBody",
+    "HubRouteTemplatesCreateHubRouteTemplateUnauthorizedErrorResponseBody",
     "HubRouteTemplatesDeleteHubRouteTemplateBadGatewayErrorResponseBody",
     "HubRouteTemplatesDeleteHubRouteTemplateGatewayTimeoutErrorResponseBody",
     "HubRouteTemplatesDeleteHubRouteTemplateInternalServerErrorResponseBody",
