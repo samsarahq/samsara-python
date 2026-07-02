@@ -16,10 +16,10 @@ class PlaceRoutingCapacityServiceTimeInputRequestBody(UniversalBaseModel):
     capacity_id: typing_extensions.Annotated[
         str, FieldMetadata(alias="capacityId"), pydantic.Field(alias="capacityId", description="Capacity UUID.")
     ]
-    quantity_unit_per_service_time: typing_extensions.Annotated[
+    quantity_per_service_time: typing_extensions.Annotated[
         float,
-        FieldMetadata(alias="quantityUnitPerServiceTime"),
-        pydantic.Field(alias="quantityUnitPerServiceTime", description="Quantity units per service time chunk."),
+        FieldMetadata(alias="quantityPerServiceTime"),
+        pydantic.Field(alias="quantityPerServiceTime", description="Quantity units per service time chunk."),
     ]
     service_time_seconds: typing_extensions.Annotated[
         int,

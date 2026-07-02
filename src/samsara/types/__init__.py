@@ -4533,6 +4533,7 @@ if typing.TYPE_CHECKING:
     from .place_response_object_response_body_external_ids import PlaceResponseObjectResponseBodyExternalIds
     from .place_routing_capacity_service_time_input_request_body import PlaceRoutingCapacityServiceTimeInputRequestBody
     from .place_routing_input_request_body import PlaceRoutingInputRequestBody
+    from .place_routing_input_request_body_position import PlaceRoutingInputRequestBodyPosition
     from .place_routing_order_service_time_input_request_body import PlaceRoutingOrderServiceTimeInputRequestBody
     from .place_routing_order_service_time_input_request_body_mode_type import (
         PlaceRoutingOrderServiceTimeInputRequestBodyModeType,
@@ -10584,6 +10585,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "PlaceResponseObjectResponseBodyExternalIds": ".place_response_object_response_body_external_ids",
     "PlaceRoutingCapacityServiceTimeInputRequestBody": ".place_routing_capacity_service_time_input_request_body",
     "PlaceRoutingInputRequestBody": ".place_routing_input_request_body",
+    "PlaceRoutingInputRequestBodyPosition": ".place_routing_input_request_body_position",
     "PlaceRoutingOrderServiceTimeInputRequestBody": ".place_routing_order_service_time_input_request_body",
     "PlaceRoutingOrderServiceTimeInputRequestBodyModeType": ".place_routing_order_service_time_input_request_body_mode_type",
     "PlaceRoutingPatchInputRequestBody": ".place_routing_patch_input_request_body",
@@ -14663,6 +14665,7 @@ __all__ = [
     "PlaceResponseObjectResponseBodyExternalIds",
     "PlaceRoutingCapacityServiceTimeInputRequestBody",
     "PlaceRoutingInputRequestBody",
+    "PlaceRoutingInputRequestBodyPosition",
     "PlaceRoutingOrderServiceTimeInputRequestBody",
     "PlaceRoutingOrderServiceTimeInputRequestBodyModeType",
     "PlaceRoutingPatchInputRequestBody",

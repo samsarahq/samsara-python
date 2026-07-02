@@ -40,9 +40,9 @@ class RoutingResponseResponseBody(UniversalBaseModel):
         FieldMetadata(alias="orderServiceTime"),
         pydantic.Field(alias="orderServiceTime"),
     ] = None
-    position: str = pydantic.Field()
+    position: typing.Optional[str] = pydantic.Field(default=None)
     """
-    Stop position preference: unknown, unspecified, any, first, or last.
+    Stop position preference: first or last.
     """
 
     priority: typing.Optional[int] = pydantic.Field(default=None)

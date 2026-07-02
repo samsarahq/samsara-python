@@ -19,6 +19,11 @@ class RoutingOrderServiceTimeResponseResponseBody(UniversalBaseModel):
         FieldMetadata(alias="capacityServiceTime"),
         pydantic.Field(alias="capacityServiceTime"),
     ] = None
+    fixed_service_time_seconds: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="fixedServiceTimeSeconds"),
+        pydantic.Field(alias="fixedServiceTimeSeconds", description="Fixed order service time in seconds."),
+    ] = None
     is_enabled: typing_extensions.Annotated[
         bool,
         FieldMetadata(alias="isEnabled"),
