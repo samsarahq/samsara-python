@@ -6,6 +6,7 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .place_routing_input_request_body_position import PlaceRoutingInputRequestBodyPosition
 from .place_routing_order_service_time_input_request_body import PlaceRoutingOrderServiceTimeInputRequestBody
 from .place_routing_required_skill_input_request_body import PlaceRoutingRequiredSkillInputRequestBody
 from .place_routing_service_time_input_request_body import PlaceRoutingServiceTimeInputRequestBody
@@ -40,9 +41,9 @@ class PlaceRoutingInputRequestBody(UniversalBaseModel):
         FieldMetadata(alias="orderServiceTime"),
         pydantic.Field(alias="orderServiceTime"),
     ] = None
-    position: typing.Optional[str] = pydantic.Field(default=None)
+    position: typing.Optional[PlaceRoutingInputRequestBodyPosition] = pydantic.Field(default=None)
     """
-    Stop position preference: unknown, unspecified, any, first, or last.
+    Stop position preference: first or last.  Valid values: `first`, `last`
     """
 
     priority: typing.Optional[int] = pydantic.Field(default=None)
