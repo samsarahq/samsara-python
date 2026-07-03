@@ -576,12 +576,7 @@ class RawHoursOfServiceClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[None]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Set an individual driver’s current duty status to 'On Duty' or 'Off Duty'.
 
@@ -646,12 +641,7 @@ class RawHoursOfServiceClient:
         self, *, driver_id: int, start_ms: int, end_ms: int, request_options: typing.Optional[RequestOptions] = None
     ) -> HttpResponse[V1HosAuthenticationLogsResponse]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Get the HOS (hours of service) signin and signout logs for the specified driver. The response includes 4 fields that are now deprecated.
 
@@ -1252,12 +1242,7 @@ class AsyncRawHoursOfServiceClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[None]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Set an individual driver’s current duty status to 'On Duty' or 'Off Duty'.
 
@@ -1322,12 +1307,7 @@ class AsyncRawHoursOfServiceClient:
         self, *, driver_id: int, start_ms: int, end_ms: int, request_options: typing.Optional[RequestOptions] = None
     ) -> AsyncHttpResponse[V1HosAuthenticationLogsResponse]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Get the HOS (hours of service) signin and signout logs for the specified driver. The response includes 4 fields that are now deprecated.
 

@@ -28,12 +28,7 @@ class RawTrailerAssignmentsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[InlineResponse2007]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Fetch trailer assignment data for all trailers in your organization.
 
@@ -104,12 +99,7 @@ class RawTrailerAssignmentsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[V1TrailerAssignmentsResponse]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Fetch trailer assignment data for a single trailer.
 
@@ -178,12 +168,7 @@ class AsyncRawTrailerAssignmentsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[InlineResponse2007]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Fetch trailer assignment data for all trailers in your organization.
 
@@ -254,12 +239,7 @@ class AsyncRawTrailerAssignmentsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[V1TrailerAssignmentsResponse]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Fetch trailer assignment data for a single trailer.
 

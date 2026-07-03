@@ -743,12 +743,7 @@ class RawIndustrialClient:
         self, *, request_options: typing.Optional[RequestOptions] = None
     ) -> HttpResponse[V1VisionCamerasResponse]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Fetch all cameras.
 
@@ -790,12 +785,7 @@ class RawIndustrialClient:
         self, camera_id: int, *, request_options: typing.Optional[RequestOptions] = None
     ) -> HttpResponse[V1ProgramsForTheCameraResponse]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Fetch configured programs on the camera.
 
@@ -912,12 +902,7 @@ class RawIndustrialClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[V1VisionRunsResponse]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Fetch runs.
 
@@ -974,12 +959,7 @@ class RawIndustrialClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[V1VisionRunsByCameraResponse]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Fetch runs by camera.
 
@@ -1040,12 +1020,7 @@ class RawIndustrialClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[V1VisionRunsByCameraAndProgramResponse]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Fetch runs by camera and program.
 
@@ -1102,12 +1077,7 @@ class RawIndustrialClient:
         self, *, end_ms: int, start_ms: int, request_options: typing.Optional[RequestOptions] = None
     ) -> HttpResponse[V1MachineHistoryResponse]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Get historical data for machine objects. This method returns a set of historical data for all machines.
 
@@ -1163,12 +1133,7 @@ class RawIndustrialClient:
         self, *, request_options: typing.Optional[RequestOptions] = None
     ) -> HttpResponse[InlineResponse2008]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Get machine objects. This method returns a list of the machine objects in the Samsara Cloud and information about them.
 
@@ -1904,12 +1869,7 @@ class AsyncRawIndustrialClient:
         self, *, request_options: typing.Optional[RequestOptions] = None
     ) -> AsyncHttpResponse[V1VisionCamerasResponse]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Fetch all cameras.
 
@@ -1951,12 +1911,7 @@ class AsyncRawIndustrialClient:
         self, camera_id: int, *, request_options: typing.Optional[RequestOptions] = None
     ) -> AsyncHttpResponse[V1ProgramsForTheCameraResponse]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Fetch configured programs on the camera.
 
@@ -2073,12 +2028,7 @@ class AsyncRawIndustrialClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[V1VisionRunsResponse]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Fetch runs.
 
@@ -2135,12 +2085,7 @@ class AsyncRawIndustrialClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[V1VisionRunsByCameraResponse]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Fetch runs by camera.
 
@@ -2201,12 +2146,7 @@ class AsyncRawIndustrialClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[V1VisionRunsByCameraAndProgramResponse]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Fetch runs by camera and program.
 
@@ -2263,12 +2203,7 @@ class AsyncRawIndustrialClient:
         self, *, end_ms: int, start_ms: int, request_options: typing.Optional[RequestOptions] = None
     ) -> AsyncHttpResponse[V1MachineHistoryResponse]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Get historical data for machine objects. This method returns a set of historical data for all machines.
 
@@ -2324,12 +2259,7 @@ class AsyncRawIndustrialClient:
         self, *, request_options: typing.Optional[RequestOptions] = None
     ) -> AsyncHttpResponse[InlineResponse2008]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Get machine objects. This method returns a list of the machine objects in the Samsara Cloud and information about them.
 

@@ -548,12 +548,7 @@ class MaintenanceClient:
         self, *, request_options: typing.Optional[RequestOptions] = None
     ) -> InlineResponse2004:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Get list of the vehicles with any engine faults or check light data.
 
@@ -1175,12 +1170,7 @@ class AsyncMaintenanceClient:
         self, *, request_options: typing.Optional[RequestOptions] = None
     ) -> InlineResponse2004:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Get list of the vehicles with any engine faults or check light data.
 

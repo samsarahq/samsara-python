@@ -27,6 +27,7 @@ HarshEventTriggerDetailsObjectResponseBodyTypesItem = typing.Union[
         "haPersonalProtectiveEquipment",
         "haPhonePolicy",
         "haPolicyDetector",
+        "haProximityWarning",
         "haRearCollisionWarning",
         "haRedLightViolation",
         "haReversing",

@@ -205,12 +205,7 @@ class SafetyClient:
         self, driver_id: int, *, start_ms: int, end_ms: int, request_options: typing.Optional[RequestOptions] = None
     ) -> V1DriverSafetyScoreResponse:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Fetch the safety score for the driver.
 
@@ -261,12 +256,7 @@ class SafetyClient:
         self, vehicle_id: int, *, start_ms: int, end_ms: int, request_options: typing.Optional[RequestOptions] = None
     ) -> V1VehicleSafetyScoreResponse:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Fetch the safety score for the vehicle.
 
@@ -519,12 +509,7 @@ class AsyncSafetyClient:
         self, driver_id: int, *, start_ms: int, end_ms: int, request_options: typing.Optional[RequestOptions] = None
     ) -> V1DriverSafetyScoreResponse:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Fetch the safety score for the driver.
 
@@ -583,12 +568,7 @@ class AsyncSafetyClient:
         self, vehicle_id: int, *, start_ms: int, end_ms: int, request_options: typing.Optional[RequestOptions] = None
     ) -> V1VehicleSafetyScoreResponse:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Fetch the safety score for the vehicle.
 

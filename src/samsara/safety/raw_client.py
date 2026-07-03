@@ -419,12 +419,7 @@ class RawSafetyClient:
         self, driver_id: int, *, start_ms: int, end_ms: int, request_options: typing.Optional[RequestOptions] = None
     ) -> HttpResponse[V1DriverSafetyScoreResponse]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Fetch the safety score for the driver.
 
@@ -481,12 +476,7 @@ class RawSafetyClient:
         self, vehicle_id: int, *, start_ms: int, end_ms: int, request_options: typing.Optional[RequestOptions] = None
     ) -> HttpResponse[V1VehicleSafetyScoreResponse]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Fetch the safety score for the vehicle.
 
@@ -930,12 +920,7 @@ class AsyncRawSafetyClient:
         self, driver_id: int, *, start_ms: int, end_ms: int, request_options: typing.Optional[RequestOptions] = None
     ) -> AsyncHttpResponse[V1DriverSafetyScoreResponse]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Fetch the safety score for the driver.
 
@@ -992,12 +977,7 @@ class AsyncRawSafetyClient:
         self, vehicle_id: int, *, start_ms: int, end_ms: int, request_options: typing.Optional[RequestOptions] = None
     ) -> AsyncHttpResponse[V1VehicleSafetyScoreResponse]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Fetch the safety score for the vehicle.
 

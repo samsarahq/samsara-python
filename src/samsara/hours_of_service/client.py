@@ -344,12 +344,7 @@ class HoursOfServiceClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> None:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Set an individual driver’s current duty status to 'On Duty' or 'Off Duty'.
 
@@ -413,12 +408,7 @@ class HoursOfServiceClient:
         self, *, driver_id: int, start_ms: int, end_ms: int, request_options: typing.Optional[RequestOptions] = None
     ) -> V1HosAuthenticationLogsResponse:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Get the HOS (hours of service) signin and signout logs for the specified driver. The response includes 4 fields that are now deprecated.
 
@@ -825,12 +815,7 @@ class AsyncHoursOfServiceClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> None:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Set an individual driver’s current duty status to 'On Duty' or 'Off Duty'.
 
@@ -902,12 +887,7 @@ class AsyncHoursOfServiceClient:
         self, *, driver_id: int, start_ms: int, end_ms: int, request_options: typing.Optional[RequestOptions] = None
     ) -> V1HosAuthenticationLogsResponse:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Get the HOS (hours of service) signin and signout logs for the specified driver. The response includes 4 fields that are now deprecated.
 

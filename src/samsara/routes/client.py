@@ -505,12 +505,7 @@ class RoutesClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> None:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Delete a dispatch route and its associated jobs.
 
@@ -1090,12 +1085,7 @@ class AsyncRoutesClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> None:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Delete a dispatch route and its associated jobs.
 
