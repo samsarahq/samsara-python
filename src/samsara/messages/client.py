@@ -35,12 +35,7 @@ class MessagesClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> InlineResponse2005:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Get all messages.
 
@@ -84,12 +79,7 @@ class MessagesClient:
         self, *, driver_ids: typing.Sequence[int], text: str, request_options: typing.Optional[RequestOptions] = None
     ) -> InlineResponse2006:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Send a message to a list of driver ids.
 
@@ -154,12 +144,7 @@ class AsyncMessagesClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> InlineResponse2005:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Get all messages.
 
@@ -211,12 +196,7 @@ class AsyncMessagesClient:
         self, *, driver_ids: typing.Sequence[int], text: str, request_options: typing.Optional[RequestOptions] = None
     ) -> InlineResponse2006:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Send a message to a list of driver ids.
 

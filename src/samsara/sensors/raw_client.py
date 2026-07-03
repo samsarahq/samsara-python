@@ -30,12 +30,7 @@ class RawSensorsClient:
         self, *, sensors: typing.Sequence[int], request_options: typing.Optional[RequestOptions] = None
     ) -> HttpResponse[V1CargoResponse]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Get cargo monitor status (empty / full) for requested sensors.
 
@@ -87,12 +82,7 @@ class RawSensorsClient:
         self, *, sensors: typing.Sequence[int], request_options: typing.Optional[RequestOptions] = None
     ) -> HttpResponse[V1DoorResponse]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Get door monitor status (closed / open) for requested sensors.
 
@@ -151,12 +141,7 @@ class RawSensorsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[V1SensorHistoryResponse]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Get historical data for specified sensors. This method returns a set of historical data for the specified sensors in the specified time range and at the specified time resolution.
 
@@ -226,12 +211,7 @@ class RawSensorsClient:
         self, *, sensors: typing.Sequence[int], request_options: typing.Optional[RequestOptions] = None
     ) -> HttpResponse[V1HumidityResponse]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Get humidity for requested sensors. This method returns the current relative humidity for the requested sensors.
 
@@ -283,12 +263,7 @@ class RawSensorsClient:
         self, *, request_options: typing.Optional[RequestOptions] = None
     ) -> HttpResponse[InlineResponse2009]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Get sensor objects. This method returns a list of the sensor objects in the Samsara Cloud and information about them.
 
@@ -330,12 +305,7 @@ class RawSensorsClient:
         self, *, sensors: typing.Sequence[int], request_options: typing.Optional[RequestOptions] = None
     ) -> HttpResponse[V1TemperatureResponse]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Get temperature for requested sensors. This method returns the current ambient temperature (and probe temperature if applicable) for the requested sensors.
 
@@ -392,12 +362,7 @@ class AsyncRawSensorsClient:
         self, *, sensors: typing.Sequence[int], request_options: typing.Optional[RequestOptions] = None
     ) -> AsyncHttpResponse[V1CargoResponse]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Get cargo monitor status (empty / full) for requested sensors.
 
@@ -449,12 +414,7 @@ class AsyncRawSensorsClient:
         self, *, sensors: typing.Sequence[int], request_options: typing.Optional[RequestOptions] = None
     ) -> AsyncHttpResponse[V1DoorResponse]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Get door monitor status (closed / open) for requested sensors.
 
@@ -513,12 +473,7 @@ class AsyncRawSensorsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[V1SensorHistoryResponse]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Get historical data for specified sensors. This method returns a set of historical data for the specified sensors in the specified time range and at the specified time resolution.
 
@@ -588,12 +543,7 @@ class AsyncRawSensorsClient:
         self, *, sensors: typing.Sequence[int], request_options: typing.Optional[RequestOptions] = None
     ) -> AsyncHttpResponse[V1HumidityResponse]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Get humidity for requested sensors. This method returns the current relative humidity for the requested sensors.
 
@@ -645,12 +595,7 @@ class AsyncRawSensorsClient:
         self, *, request_options: typing.Optional[RequestOptions] = None
     ) -> AsyncHttpResponse[InlineResponse2009]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Get sensor objects. This method returns a list of the sensor objects in the Samsara Cloud and information about them.
 
@@ -692,12 +637,7 @@ class AsyncRawSensorsClient:
         self, *, sensors: typing.Sequence[int], request_options: typing.Optional[RequestOptions] = None
     ) -> AsyncHttpResponse[V1TemperatureResponse]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Get temperature for requested sensors. This method returns the current ambient temperature (and probe temperature if applicable) for the requested sensors.
 

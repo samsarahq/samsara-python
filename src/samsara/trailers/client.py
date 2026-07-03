@@ -288,6 +288,8 @@ class TrailersClient:
 
         If `hasNextPage` is false, no new data is immediately available. Please wait a minimum of 5 seconds before making a subsequent request.
 
+        Each page includes every trailer in the current device page, even when a requested stat type has no datapoints. For example, a trailer without recent GPS data is returned with an empty `gps` array rather than being omitted from the response. An empty stat array typically indicates the gateway has not reported that stat recently due to an unhealthy or low-battery gateway, or because the trailer has been inactive.
+
          <b>Rate limit:</b> 25 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
         To use this endpoint, select **Read Trailer Statistics** under the Trailers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
@@ -998,6 +1000,8 @@ class AsyncTrailersClient:
         Providing the `endCursor` value to the `after` query parameter will fetch all updates since the previous API call.
 
         If `hasNextPage` is false, no new data is immediately available. Please wait a minimum of 5 seconds before making a subsequent request.
+
+        Each page includes every trailer in the current device page, even when a requested stat type has no datapoints. For example, a trailer without recent GPS data is returned with an empty `gps` array rather than being omitted from the response. An empty stat array typically indicates the gateway has not reported that stat recently due to an unhealthy or low-battery gateway, or because the trailer has been inactive.
 
          <b>Rate limit:</b> 25 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 

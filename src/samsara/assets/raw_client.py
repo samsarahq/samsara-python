@@ -856,12 +856,7 @@ class RawAssetsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[InlineResponse2002]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Fetch current locations of all assets.
 
@@ -924,12 +919,7 @@ class RawAssetsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[InlineResponse2003]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Fetches all reefers and reefer-specific stats.
 
@@ -993,12 +983,7 @@ class RawAssetsClient:
         self, asset_id: int, *, start_ms: int, end_ms: int, request_options: typing.Optional[RequestOptions] = None
     ) -> HttpResponse[V1AssetLocationResponse]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         List historical locations for a given asset.
 
@@ -1053,12 +1038,7 @@ class RawAssetsClient:
         self, asset_id: int, *, start_ms: int, end_ms: int, request_options: typing.Optional[RequestOptions] = None
     ) -> HttpResponse[V1AssetReeferResponse]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Fetch the reefer-specific stats of an asset.
 
@@ -1984,12 +1964,7 @@ class AsyncRawAssetsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[InlineResponse2002]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Fetch current locations of all assets.
 
@@ -2052,12 +2027,7 @@ class AsyncRawAssetsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[InlineResponse2003]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Fetches all reefers and reefer-specific stats.
 
@@ -2121,12 +2091,7 @@ class AsyncRawAssetsClient:
         self, asset_id: int, *, start_ms: int, end_ms: int, request_options: typing.Optional[RequestOptions] = None
     ) -> AsyncHttpResponse[V1AssetLocationResponse]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         List historical locations for a given asset.
 
@@ -2181,12 +2146,7 @@ class AsyncRawAssetsClient:
         self, asset_id: int, *, start_ms: int, end_ms: int, request_options: typing.Optional[RequestOptions] = None
     ) -> AsyncHttpResponse[V1AssetReeferResponse]:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Fetch the reefer-specific stats of an asset.
 

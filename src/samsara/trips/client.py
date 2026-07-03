@@ -106,12 +106,7 @@ class TripsClient:
         self, *, vehicle_id: int, start_ms: int, end_ms: int, request_options: typing.Optional[RequestOptions] = None
     ) -> V1TripResponse:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Get historical trips data for specified vehicle. This method returns a set of historical trips data for the specified vehicle in the specified time range.
 
@@ -260,12 +255,7 @@ class AsyncTripsClient:
         self, *, vehicle_id: int, start_ms: int, end_ms: int, request_options: typing.Optional[RequestOptions] = None
     ) -> V1TripResponse:
         """
-        <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        > 🚧 This endpoint is still on our legacy API.
 
         Get historical trips data for specified vehicle. This method returns a set of historical trips data for the specified vehicle in the specified time range.
 

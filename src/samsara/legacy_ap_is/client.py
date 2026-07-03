@@ -538,12 +538,7 @@ class LegacyApIsClient:
         self, vehicle_id: int, *, timestamp: int, request_options: typing.Optional[RequestOptions] = None
     ) -> V1VehicleHarshEventResponse:
         """
-        **Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getsafetyeventsv2stream) instead. The endpoint will continue to function as documented.** <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        **Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getsafetyeventsv2stream) instead. The endpoint will continue to function as documented.** > 🚧 This endpoint is still on our legacy API.
 
         Fetch harsh event details for a vehicle.
 
@@ -1153,12 +1148,7 @@ class AsyncLegacyApIsClient:
         self, vehicle_id: int, *, timestamp: int, request_options: typing.Optional[RequestOptions] = None
     ) -> V1VehicleHarshEventResponse:
         """
-        **Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getsafetyeventsv2stream) instead. The endpoint will continue to function as documented.** <n class="warning">
-        <nh>
-        <i class="fa fa-exclamation-circle"></i>
-        This endpoint is still on our legacy API.
-        </nh>
-        </n>
+        **Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getsafetyeventsv2stream) instead. The endpoint will continue to function as documented.** > 🚧 This endpoint is still on our legacy API.
 
         Fetch harsh event details for a vehicle.
 
