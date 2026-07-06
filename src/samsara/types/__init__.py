@@ -4518,6 +4518,7 @@ if typing.TYPE_CHECKING:
     from .place_deletion_marker_object_response_body_external_ids import (
         PlaceDeletionMarkerObjectResponseBodyExternalIds,
     )
+    from .place_geocode_result_response_response_body import PlaceGeocodeResultResponseResponseBody
     from .place_geofence_circle_input_request_body import PlaceGeofenceCircleInputRequestBody
     from .place_geofence_circle_response_response_body import PlaceGeofenceCircleResponseResponseBody
     from .place_geofence_input_request_body import PlaceGeofenceInputRequestBody
@@ -4593,6 +4594,32 @@ if typing.TYPE_CHECKING:
     )
     from .places_get_place_deletions_unauthorized_error_response_body import (
         PlacesGetPlaceDeletionsUnauthorizedErrorResponseBody,
+    )
+    from .places_get_place_geocode_bad_gateway_error_response_body import (
+        PlacesGetPlaceGeocodeBadGatewayErrorResponseBody,
+    )
+    from .places_get_place_geocode_gateway_timeout_error_response_body import (
+        PlacesGetPlaceGeocodeGatewayTimeoutErrorResponseBody,
+    )
+    from .places_get_place_geocode_internal_server_error_response_body import (
+        PlacesGetPlaceGeocodeInternalServerErrorResponseBody,
+    )
+    from .places_get_place_geocode_method_not_allowed_error_response_body import (
+        PlacesGetPlaceGeocodeMethodNotAllowedErrorResponseBody,
+    )
+    from .places_get_place_geocode_not_found_error_response_body import PlacesGetPlaceGeocodeNotFoundErrorResponseBody
+    from .places_get_place_geocode_not_implemented_error_response_body import (
+        PlacesGetPlaceGeocodeNotImplementedErrorResponseBody,
+    )
+    from .places_get_place_geocode_response_body import PlacesGetPlaceGeocodeResponseBody
+    from .places_get_place_geocode_service_unavailable_error_response_body import (
+        PlacesGetPlaceGeocodeServiceUnavailableErrorResponseBody,
+    )
+    from .places_get_place_geocode_too_many_requests_error_response_body import (
+        PlacesGetPlaceGeocodeTooManyRequestsErrorResponseBody,
+    )
+    from .places_get_place_geocode_unauthorized_error_response_body import (
+        PlacesGetPlaceGeocodeUnauthorizedErrorResponseBody,
     )
     from .places_get_places_bad_gateway_error_response_body import PlacesGetPlacesBadGatewayErrorResponseBody
     from .places_get_places_gateway_timeout_error_response_body import PlacesGetPlacesGatewayTimeoutErrorResponseBody
@@ -10570,6 +10597,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "PhotoValueObjectResponseBody": ".photo_value_object_response_body",
     "PlaceDeletionMarkerObjectResponseBody": ".place_deletion_marker_object_response_body",
     "PlaceDeletionMarkerObjectResponseBodyExternalIds": ".place_deletion_marker_object_response_body_external_ids",
+    "PlaceGeocodeResultResponseResponseBody": ".place_geocode_result_response_response_body",
     "PlaceGeofenceCircleInputRequestBody": ".place_geofence_circle_input_request_body",
     "PlaceGeofenceCircleResponseResponseBody": ".place_geofence_circle_response_response_body",
     "PlaceGeofenceInputRequestBody": ".place_geofence_input_request_body",
@@ -10614,6 +10642,16 @@ _dynamic_imports: typing.Dict[str, str] = {
     "PlacesGetPlaceDeletionsServiceUnavailableErrorResponseBody": ".places_get_place_deletions_service_unavailable_error_response_body",
     "PlacesGetPlaceDeletionsTooManyRequestsErrorResponseBody": ".places_get_place_deletions_too_many_requests_error_response_body",
     "PlacesGetPlaceDeletionsUnauthorizedErrorResponseBody": ".places_get_place_deletions_unauthorized_error_response_body",
+    "PlacesGetPlaceGeocodeBadGatewayErrorResponseBody": ".places_get_place_geocode_bad_gateway_error_response_body",
+    "PlacesGetPlaceGeocodeGatewayTimeoutErrorResponseBody": ".places_get_place_geocode_gateway_timeout_error_response_body",
+    "PlacesGetPlaceGeocodeInternalServerErrorResponseBody": ".places_get_place_geocode_internal_server_error_response_body",
+    "PlacesGetPlaceGeocodeMethodNotAllowedErrorResponseBody": ".places_get_place_geocode_method_not_allowed_error_response_body",
+    "PlacesGetPlaceGeocodeNotFoundErrorResponseBody": ".places_get_place_geocode_not_found_error_response_body",
+    "PlacesGetPlaceGeocodeNotImplementedErrorResponseBody": ".places_get_place_geocode_not_implemented_error_response_body",
+    "PlacesGetPlaceGeocodeResponseBody": ".places_get_place_geocode_response_body",
+    "PlacesGetPlaceGeocodeServiceUnavailableErrorResponseBody": ".places_get_place_geocode_service_unavailable_error_response_body",
+    "PlacesGetPlaceGeocodeTooManyRequestsErrorResponseBody": ".places_get_place_geocode_too_many_requests_error_response_body",
+    "PlacesGetPlaceGeocodeUnauthorizedErrorResponseBody": ".places_get_place_geocode_unauthorized_error_response_body",
     "PlacesGetPlacesBadGatewayErrorResponseBody": ".places_get_places_bad_gateway_error_response_body",
     "PlacesGetPlacesGatewayTimeoutErrorResponseBody": ".places_get_places_gateway_timeout_error_response_body",
     "PlacesGetPlacesInternalServerErrorResponseBody": ".places_get_places_internal_server_error_response_body",
@@ -14650,6 +14688,7 @@ __all__ = [
     "PhotoValueObjectResponseBody",
     "PlaceDeletionMarkerObjectResponseBody",
     "PlaceDeletionMarkerObjectResponseBodyExternalIds",
+    "PlaceGeocodeResultResponseResponseBody",
     "PlaceGeofenceCircleInputRequestBody",
     "PlaceGeofenceCircleResponseResponseBody",
     "PlaceGeofenceInputRequestBody",
@@ -14694,6 +14733,16 @@ __all__ = [
     "PlacesGetPlaceDeletionsServiceUnavailableErrorResponseBody",
     "PlacesGetPlaceDeletionsTooManyRequestsErrorResponseBody",
     "PlacesGetPlaceDeletionsUnauthorizedErrorResponseBody",
+    "PlacesGetPlaceGeocodeBadGatewayErrorResponseBody",
+    "PlacesGetPlaceGeocodeGatewayTimeoutErrorResponseBody",
+    "PlacesGetPlaceGeocodeInternalServerErrorResponseBody",
+    "PlacesGetPlaceGeocodeMethodNotAllowedErrorResponseBody",
+    "PlacesGetPlaceGeocodeNotFoundErrorResponseBody",
+    "PlacesGetPlaceGeocodeNotImplementedErrorResponseBody",
+    "PlacesGetPlaceGeocodeResponseBody",
+    "PlacesGetPlaceGeocodeServiceUnavailableErrorResponseBody",
+    "PlacesGetPlaceGeocodeTooManyRequestsErrorResponseBody",
+    "PlacesGetPlaceGeocodeUnauthorizedErrorResponseBody",
     "PlacesGetPlacesBadGatewayErrorResponseBody",
     "PlacesGetPlacesGatewayTimeoutErrorResponseBody",
     "PlacesGetPlacesInternalServerErrorResponseBody",

@@ -6100,6 +6100,99 @@ client.beta_ap_is.get_place_deletions()
 </dl>
 </details>
 
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_place_geocode</a>(...) -&gt; AsyncHttpResponse[PlacesGetPlaceGeocodeResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Forward-geocodes a free-form address string. Does not create or update a Place. Returns geocode candidates with cursor pagination.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Places** under the Places category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.get_place_geocode(
+    address="address",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**address:** `str` — Address string to forward-geocode (URL-encoded). Required; must be non-empty.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default 5, max 20.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_preferred_stations</a>(...) -&gt; AsyncHttpResponse[PreferredStationsListPreferredStationsResponseBody]</code></summary>
 <dl>
 <dd>

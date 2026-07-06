@@ -467,6 +467,14 @@ def test_betaApIs_get_place_deletions() -> None:
     verify_request_count(test_id, "GET", "/places/deletions", None, 1)
 
 
+def test_betaApIs_get_place_geocode() -> None:
+    """Test getPlaceGeocode endpoint with WireMock"""
+    test_id = "beta_ap_is.get_place_geocode.0"
+    client = get_client(test_id)
+    client.beta_ap_is.get_place_geocode(address="address")
+    verify_request_count(test_id, "GET", "/places/geocode", {"address": "address"}, 1)
+
+
 def test_betaApIs_list_preferred_stations() -> None:
     """Test listPreferredStations endpoint with WireMock"""
     test_id = "beta_ap_is.list_preferred_stations.0"

@@ -116,6 +116,7 @@ from ..types.place_routing_input_request_body import PlaceRoutingInputRequestBod
 from ..types.place_routing_patch_input_request_body import PlaceRoutingPatchInputRequestBody
 from ..types.place_street_view_input_request_body import PlaceStreetViewInputRequestBody
 from ..types.places_get_place_deletions_response_body import PlacesGetPlaceDeletionsResponseBody
+from ..types.places_get_place_geocode_response_body import PlacesGetPlaceGeocodeResponseBody
 from ..types.places_get_places_response_body import PlacesGetPlacesResponseBody
 from ..types.places_patch_place_response_body import PlacesPatchPlaceResponseBody
 from ..types.places_post_place_response_body import PlacesPostPlaceResponseBody
@@ -9069,6 +9070,167 @@ class RawBetaApIsClient:
                     PlacesGetPlaceDeletionsResponseBody,
                     parse_obj_as(
                         type_=PlacesGetPlaceDeletionsResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def get_place_geocode(
+        self,
+        *,
+        address: str,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[PlacesGetPlaceGeocodeResponseBody]:
+        """
+        Forward-geocodes a free-form address string. Does not create or update a Place. Returns geocode candidates with cursor pagination.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Places** under the Places category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        address : str
+            Address string to forward-geocode (URL-encoded). Required; must be non-empty.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default 5, max 20.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[PlacesGetPlaceGeocodeResponseBody]
+            OK response.
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "places/geocode",
+            method="GET",
+            params={
+                "address": address,
+                "after": after,
+                "limit": limit,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    PlacesGetPlaceGeocodeResponseBody,
+                    parse_obj_as(
+                        type_=PlacesGetPlaceGeocodeResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -22916,6 +23078,167 @@ class AsyncRawBetaApIsClient:
                     PlacesGetPlaceDeletionsResponseBody,
                     parse_obj_as(
                         type_=PlacesGetPlaceDeletionsResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def get_place_geocode(
+        self,
+        *,
+        address: str,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[PlacesGetPlaceGeocodeResponseBody]:
+        """
+        Forward-geocodes a free-form address string. Does not create or update a Place. Returns geocode candidates with cursor pagination.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Places** under the Places category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        address : str
+            Address string to forward-geocode (URL-encoded). Required; must be non-empty.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default 5, max 20.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[PlacesGetPlaceGeocodeResponseBody]
+            OK response.
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "places/geocode",
+            method="GET",
+            params={
+                "address": address,
+                "after": after,
+                "limit": limit,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    PlacesGetPlaceGeocodeResponseBody,
+                    parse_obj_as(
+                        type_=PlacesGetPlaceGeocodeResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
