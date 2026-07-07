@@ -531,6 +531,11 @@ if typing.TYPE_CHECKING:
     from .behavior_count_details_response_body_comparison import BehaviorCountDetailsResponseBodyComparison
     from .behavior_response_body import BehaviorResponseBody
     from .behavior_response_body_coachable_behavior_type import BehaviorResponseBodyCoachableBehaviorType
+    from .ble_asset_tag_details_response_response_body import BleAssetTagDetailsResponseResponseBody
+    from .ble_asset_tag_details_response_response_body_battery_state import (
+        BleAssetTagDetailsResponseResponseBodyBatteryState,
+    )
+    from .camera_connector_details_response_response_body import CameraConnectorDetailsResponseResponseBody
     from .camera_connector_disconected_response_body import CameraConnectorDisconectedResponseBody
     from .camera_details_response_response_body import CameraDetailsResponseResponseBody
     from .camera_serial import CameraSerial
@@ -8700,6 +8705,9 @@ _dynamic_imports: typing.Dict[str, str] = {
     "BehaviorCountDetailsResponseBodyComparison": ".behavior_count_details_response_body_comparison",
     "BehaviorResponseBody": ".behavior_response_body",
     "BehaviorResponseBodyCoachableBehaviorType": ".behavior_response_body_coachable_behavior_type",
+    "BleAssetTagDetailsResponseResponseBody": ".ble_asset_tag_details_response_response_body",
+    "BleAssetTagDetailsResponseResponseBodyBatteryState": ".ble_asset_tag_details_response_response_body_battery_state",
+    "CameraConnectorDetailsResponseResponseBody": ".camera_connector_details_response_response_body",
     "CameraConnectorDisconectedResponseBody": ".camera_connector_disconected_response_body",
     "CameraDetailsResponseResponseBody": ".camera_details_response_response_body",
     "CameraSerial": ".camera_serial",
@@ -12791,6 +12799,9 @@ __all__ = [
     "BehaviorCountDetailsResponseBodyComparison",
     "BehaviorResponseBody",
     "BehaviorResponseBodyCoachableBehaviorType",
+    "BleAssetTagDetailsResponseResponseBody",
+    "BleAssetTagDetailsResponseResponseBodyBatteryState",
+    "CameraConnectorDetailsResponseResponseBody",
     "CameraConnectorDisconectedResponseBody",
     "CameraDetailsResponseResponseBody",
     "CameraSerial",

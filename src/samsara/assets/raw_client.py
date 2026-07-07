@@ -302,7 +302,7 @@ class RawAssetsClient:
         Parameters
         ----------
         attributes : typing.Optional[typing.Sequence[GoaAttributeTinyRequestBody]]
-            A list of attributes to assign to the asset.
+            A list of attributes to assign to the asset. If provided, this replaces the asset's entire set of attribute associations with exactly this list; omit this field to leave existing attribute associations unchanged, or pass an empty array to clear them.
 
         external_ids : typing.Optional[typing.Dict[str, str]]
             A map of external ids
@@ -332,7 +332,7 @@ class RawAssetsClient:
             The serial number of the asset. This can be an internal serial number or used to hold legacy VIN/PIN numbers such as ones of shorter lengths.
 
         tag_ids : typing.Optional[typing.Sequence[str]]
-            An array of IDs of tags to associate with this asset. If your access to the API is scoped by one or more tags, this field is required to pass in.
+            An array of IDs of tags to associate with this asset. If provided, this replaces the asset's entire set of tag associations with exactly this list; omit this field to leave existing tag associations unchanged, or pass an empty array to clear them. If your access to the API is scoped by one or more tags, this field is required to pass in.
 
         type : typing.Optional[AssetsCreateAssetRequestBodyType]
             The operational context in which the asset interacts with the Samsara system. Examples: Vehicle (eg: truck, bus...), Trailer (eg: dry van, reefer, flatbed...), Powered Equipment (eg: dozer, crane...), Unpowered Equipment (eg: container, dumpster...), or Uncategorized.  Valid values: `uncategorized`, `trailer`, `equipment`, `unpowered`, `vehicle`
@@ -634,6 +634,7 @@ class RawAssetsClient:
         self,
         *,
         id: str,
+        attributes: typing.Optional[typing.Sequence[GoaAttributeTinyRequestBody]] = OMIT,
         external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
         license_plate: typing.Optional[str] = OMIT,
         make: typing.Optional[str] = OMIT,
@@ -643,6 +644,7 @@ class RawAssetsClient:
         readings_ingestion_enabled: typing.Optional[bool] = OMIT,
         regulation_mode: typing.Optional[AssetsUpdateAssetRequestBodyRegulationMode] = OMIT,
         serial_number: typing.Optional[str] = OMIT,
+        tag_ids: typing.Optional[typing.Sequence[str]] = OMIT,
         type: typing.Optional[AssetsUpdateAssetRequestBodyType] = OMIT,
         vin: typing.Optional[str] = OMIT,
         year: typing.Optional[int] = OMIT,
@@ -662,6 +664,9 @@ class RawAssetsClient:
         ----------
         id : str
             A filter selecting a single asset by id.
+
+        attributes : typing.Optional[typing.Sequence[GoaAttributeTinyRequestBody]]
+            A list of attributes to assign to the asset. If provided, this replaces the asset's entire set of attribute associations with exactly this list; omit this field to leave existing attribute associations unchanged, or pass an empty array to clear them.
 
         external_ids : typing.Optional[typing.Dict[str, str]]
             A map of external ids
@@ -690,6 +695,9 @@ class RawAssetsClient:
         serial_number : typing.Optional[str]
             The serial number of the asset. This can be an internal serial number or used to hold legacy VIN/PIN numbers such as ones of shorter lengths.
 
+        tag_ids : typing.Optional[typing.Sequence[str]]
+            An array of IDs of tags to associate with this asset. If provided, this replaces the asset's entire set of tag associations with exactly this list; omit this field to leave existing tag associations unchanged, or pass an empty array to clear them. If your access to the API is scoped by one or more tags, this field is required to pass in.
+
         type : typing.Optional[AssetsUpdateAssetRequestBodyType]
             The operational context in which the asset interacts with the Samsara system. Examples: Vehicle (eg: truck, bus...), Trailer (eg: dry van, reefer, flatbed...), Powered Equipment (eg: dozer, crane...), Unpowered Equipment (eg: container, dumpster...), or Uncategorized.  Valid values: `uncategorized`, `trailer`, `equipment`, `unpowered`, `vehicle`
 
@@ -714,6 +722,9 @@ class RawAssetsClient:
                 "id": id,
             },
             json={
+                "attributes": convert_and_respect_annotation_metadata(
+                    object_=attributes, annotation=typing.Sequence[GoaAttributeTinyRequestBody], direction="write"
+                ),
                 "externalIds": external_ids,
                 "licensePlate": license_plate,
                 "make": make,
@@ -723,6 +734,7 @@ class RawAssetsClient:
                 "readingsIngestionEnabled": readings_ingestion_enabled,
                 "regulationMode": regulation_mode,
                 "serialNumber": serial_number,
+                "tagIds": tag_ids,
                 "type": type,
                 "vin": vin,
                 "year": year,
@@ -1408,7 +1420,7 @@ class AsyncRawAssetsClient:
         Parameters
         ----------
         attributes : typing.Optional[typing.Sequence[GoaAttributeTinyRequestBody]]
-            A list of attributes to assign to the asset.
+            A list of attributes to assign to the asset. If provided, this replaces the asset's entire set of attribute associations with exactly this list; omit this field to leave existing attribute associations unchanged, or pass an empty array to clear them.
 
         external_ids : typing.Optional[typing.Dict[str, str]]
             A map of external ids
@@ -1438,7 +1450,7 @@ class AsyncRawAssetsClient:
             The serial number of the asset. This can be an internal serial number or used to hold legacy VIN/PIN numbers such as ones of shorter lengths.
 
         tag_ids : typing.Optional[typing.Sequence[str]]
-            An array of IDs of tags to associate with this asset. If your access to the API is scoped by one or more tags, this field is required to pass in.
+            An array of IDs of tags to associate with this asset. If provided, this replaces the asset's entire set of tag associations with exactly this list; omit this field to leave existing tag associations unchanged, or pass an empty array to clear them. If your access to the API is scoped by one or more tags, this field is required to pass in.
 
         type : typing.Optional[AssetsCreateAssetRequestBodyType]
             The operational context in which the asset interacts with the Samsara system. Examples: Vehicle (eg: truck, bus...), Trailer (eg: dry van, reefer, flatbed...), Powered Equipment (eg: dozer, crane...), Unpowered Equipment (eg: container, dumpster...), or Uncategorized.  Valid values: `uncategorized`, `trailer`, `equipment`, `unpowered`, `vehicle`
@@ -1742,6 +1754,7 @@ class AsyncRawAssetsClient:
         self,
         *,
         id: str,
+        attributes: typing.Optional[typing.Sequence[GoaAttributeTinyRequestBody]] = OMIT,
         external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
         license_plate: typing.Optional[str] = OMIT,
         make: typing.Optional[str] = OMIT,
@@ -1751,6 +1764,7 @@ class AsyncRawAssetsClient:
         readings_ingestion_enabled: typing.Optional[bool] = OMIT,
         regulation_mode: typing.Optional[AssetsUpdateAssetRequestBodyRegulationMode] = OMIT,
         serial_number: typing.Optional[str] = OMIT,
+        tag_ids: typing.Optional[typing.Sequence[str]] = OMIT,
         type: typing.Optional[AssetsUpdateAssetRequestBodyType] = OMIT,
         vin: typing.Optional[str] = OMIT,
         year: typing.Optional[int] = OMIT,
@@ -1770,6 +1784,9 @@ class AsyncRawAssetsClient:
         ----------
         id : str
             A filter selecting a single asset by id.
+
+        attributes : typing.Optional[typing.Sequence[GoaAttributeTinyRequestBody]]
+            A list of attributes to assign to the asset. If provided, this replaces the asset's entire set of attribute associations with exactly this list; omit this field to leave existing attribute associations unchanged, or pass an empty array to clear them.
 
         external_ids : typing.Optional[typing.Dict[str, str]]
             A map of external ids
@@ -1798,6 +1815,9 @@ class AsyncRawAssetsClient:
         serial_number : typing.Optional[str]
             The serial number of the asset. This can be an internal serial number or used to hold legacy VIN/PIN numbers such as ones of shorter lengths.
 
+        tag_ids : typing.Optional[typing.Sequence[str]]
+            An array of IDs of tags to associate with this asset. If provided, this replaces the asset's entire set of tag associations with exactly this list; omit this field to leave existing tag associations unchanged, or pass an empty array to clear them. If your access to the API is scoped by one or more tags, this field is required to pass in.
+
         type : typing.Optional[AssetsUpdateAssetRequestBodyType]
             The operational context in which the asset interacts with the Samsara system. Examples: Vehicle (eg: truck, bus...), Trailer (eg: dry van, reefer, flatbed...), Powered Equipment (eg: dozer, crane...), Unpowered Equipment (eg: container, dumpster...), or Uncategorized.  Valid values: `uncategorized`, `trailer`, `equipment`, `unpowered`, `vehicle`
 
@@ -1822,6 +1842,9 @@ class AsyncRawAssetsClient:
                 "id": id,
             },
             json={
+                "attributes": convert_and_respect_annotation_metadata(
+                    object_=attributes, annotation=typing.Sequence[GoaAttributeTinyRequestBody], direction="write"
+                ),
                 "externalIds": external_ids,
                 "licensePlate": license_plate,
                 "make": make,
@@ -1831,6 +1854,7 @@ class AsyncRawAssetsClient:
                 "readingsIngestionEnabled": readings_ingestion_enabled,
                 "regulationMode": regulation_mode,
                 "serialNumber": serial_number,
+                "tagIds": tag_ids,
                 "type": type,
                 "vin": vin,
                 "year": year,

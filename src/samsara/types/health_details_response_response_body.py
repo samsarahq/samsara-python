@@ -6,6 +6,8 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .ble_asset_tag_details_response_response_body import BleAssetTagDetailsResponseResponseBody
+from .camera_connector_details_response_response_body import CameraConnectorDetailsResponseResponseBody
 from .camera_details_response_response_body import CameraDetailsResponseResponseBody
 from .gateway_details_response_response_body import GatewayDetailsResponseResponseBody
 
@@ -15,6 +17,16 @@ class HealthDetailsResponseResponseBody(UniversalBaseModel):
     Detailed health related metadata for the device.
     """
 
+    ble_asset_tag_details: typing_extensions.Annotated[
+        typing.Optional[BleAssetTagDetailsResponseResponseBody],
+        FieldMetadata(alias="bleAssetTagDetails"),
+        pydantic.Field(alias="bleAssetTagDetails"),
+    ] = None
+    camera_connector_details: typing_extensions.Annotated[
+        typing.Optional[CameraConnectorDetailsResponseResponseBody],
+        FieldMetadata(alias="cameraConnectorDetails"),
+        pydantic.Field(alias="cameraConnectorDetails"),
+    ] = None
     camera_details: typing_extensions.Annotated[
         typing.Optional[CameraDetailsResponseResponseBody],
         FieldMetadata(alias="cameraDetails"),
