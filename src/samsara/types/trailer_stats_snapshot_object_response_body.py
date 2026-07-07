@@ -61,6 +61,11 @@ class TrailerStatsSnapshotObjectResponseBody(UniversalBaseModel):
         FieldMetadata(alias="carrierReeferState"),
         pydantic.Field(alias="carrierReeferState"),
     ] = None
+    external_ids: typing_extensions.Annotated[
+        typing.Optional[typing.Dict[str, str]],
+        FieldMetadata(alias="externalIds"),
+        pydantic.Field(alias="externalIds", description="A map of external ids"),
+    ] = None
     gps: typing.Optional[TrailerStatGpsTypeResponseBody] = None
     gps_odometer_meters: typing_extensions.Annotated[
         typing.Optional[TrailerStatGpsOdometerMetersTypeResponseBody],
