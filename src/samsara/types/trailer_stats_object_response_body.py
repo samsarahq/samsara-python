@@ -85,6 +85,11 @@ class TrailerStatsObjectResponseBody(UniversalBaseModel):
         FieldMetadata(alias="carrierReeferState"),
         pydantic.Field(alias="carrierReeferState", description="A list of engine state points."),
     ] = None
+    external_ids: typing_extensions.Annotated[
+        typing.Optional[typing.Dict[str, str]],
+        FieldMetadata(alias="externalIds"),
+        pydantic.Field(alias="externalIds", description="A map of external ids"),
+    ] = None
     gps: typing.Optional[typing.List[TrailerStatGpsWithDecorationsTypeResponseBody]] = pydantic.Field(default=None)
     """
     A list of GPS points.
