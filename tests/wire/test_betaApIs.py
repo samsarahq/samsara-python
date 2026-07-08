@@ -475,6 +475,14 @@ def test_betaApIs_get_place_geocode() -> None:
     verify_request_count(test_id, "GET", "/places/geocode", {"address": "address"}, 1)
 
 
+def test_betaApIs_get_place_geofence() -> None:
+    """Test getPlaceGeofence endpoint with WireMock"""
+    test_id = "beta_ap_is.get_place_geofence.0"
+    client = get_client(test_id)
+    client.beta_ap_is.get_place_geofence(latitude=1.1, longitude=1.1)
+    verify_request_count(test_id, "GET", "/places/geofence", {"latitude": "1.1", "longitude": "1.1"}, 1)
+
+
 def test_betaApIs_list_preferred_stations() -> None:
     """Test listPreferredStations endpoint with WireMock"""
     test_id = "beta_ap_is.list_preferred_stations.0"

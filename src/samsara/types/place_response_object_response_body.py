@@ -7,6 +7,7 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .place_business_contacts_response_response_body import PlaceBusinessContactsResponseResponseBody
 from .place_geofence_response_response_body import PlaceGeofenceResponseResponseBody
 from .place_navigation_response_response_body import PlaceNavigationResponseResponseBody
 from .place_response_object_response_body_external_ids import PlaceResponseObjectResponseBodyExternalIds
@@ -25,6 +26,11 @@ class PlaceResponseObjectResponseBody(UniversalBaseModel):
     Address string.
     """
 
+    business_contacts: typing_extensions.Annotated[
+        typing.Optional[PlaceBusinessContactsResponseResponseBody],
+        FieldMetadata(alias="businessContacts"),
+        pydantic.Field(alias="businessContacts"),
+    ] = None
     camera_recording_mode_type: typing_extensions.Annotated[
         typing.Optional[str],
         FieldMetadata(alias="cameraRecordingModeType"),

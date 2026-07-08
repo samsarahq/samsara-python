@@ -10,6 +10,7 @@ if typing.TYPE_CHECKING:
         ListUploadedMediaRequestInputsItem,
         ListUploadedMediaRequestMediaTypesItem,
         ListUploadedMediaRequestTriggerReasonsItem,
+        MediaRetrievalPostMediaRetrievalRequestBodyCameraRolesItem,
         MediaRetrievalPostMediaRetrievalRequestBodyInputsItem,
         MediaRetrievalPostMediaRetrievalRequestBodyMediaType,
     )
@@ -17,6 +18,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "ListUploadedMediaRequestInputsItem": ".types",
     "ListUploadedMediaRequestMediaTypesItem": ".types",
     "ListUploadedMediaRequestTriggerReasonsItem": ".types",
+    "MediaRetrievalPostMediaRetrievalRequestBodyCameraRolesItem": ".types",
     "MediaRetrievalPostMediaRetrievalRequestBodyInputsItem": ".types",
     "MediaRetrievalPostMediaRetrievalRequestBodyMediaType": ".types",
 }
@@ -47,6 +49,7 @@ __all__ = [
     "ListUploadedMediaRequestInputsItem",
     "ListUploadedMediaRequestMediaTypesItem",
     "ListUploadedMediaRequestTriggerReasonsItem",
+    "MediaRetrievalPostMediaRetrievalRequestBodyCameraRolesItem",
     "MediaRetrievalPostMediaRetrievalRequestBodyInputsItem",
     "MediaRetrievalPostMediaRetrievalRequestBodyMediaType",
 ]

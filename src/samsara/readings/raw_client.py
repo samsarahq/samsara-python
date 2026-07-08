@@ -394,9 +394,13 @@ class RawReadingsClient:
             <summary><strong>reefer</strong></summary>
 
             * `reeferAlarm` (Reefer Alarms): Array of active alarm codes for the refrigeration unit with metadata
+            * `reeferAlarmActive` (TouchPrint Alarm Active): TouchPrint ALM digital output (input configured as Switch). On-device gating ensures this only reports on alarm-configured inputs; see reeferAlarm for OEM alarm codes and reeferAlarmSeverity for severity. (values: inactive | active)
             * `reeferAlarmSeverity` (Reefer Alarm Severity): Highest severity level across active reefer alarms (green, yellow, red, orange) (values: none | green | yellow | red | orange)
             * `reeferAmbientAir` (Reefer Ambient Air Temperature): External environment temperature for the reefer (celsius)
             * `reeferBatteryVoltage` (Reefer Battery Voltage): The voltage of the Refrigeration Unit's battery. (volt)
+            * `reeferDefrostZone1` (Reefer Defrost (Zone 1)): Whether the reefer defrost cycle is active in zone 1 (sustained state). On-device gating ensures this only reports on defrost-configured inputs. (values: off | on)
+            * `reeferDefrostZone2` (Reefer Defrost (Zone 2)): Whether the reefer defrost cycle is active in zone 2 (sustained state). On-device gating ensures this only reports on defrost-configured inputs. (values: off | on)
+            * `reeferDefrostZone3` (Reefer Defrost (Zone 3)): Whether the reefer defrost cycle is active in zone 3 (sustained state). On-device gating ensures this only reports on defrost-configured inputs. (values: off | on)
             * `reeferDoorOpenZone1` (Reefer Door Open (Zone 1)): Status indicating whether the reefer's door (zone 1) is closed or open (values: closed | open)
             * `reeferDoorOpenZone2` (Reefer Door Open (Zone 2)): Status indicating whether the reefer's door (zone 2) is closed or open (values: closed | open)
             * `reeferDoorOpenZone3` (Reefer Door Open (Zone 3)): Status indicating whether the reefer's door (zone 3) is closed or open (values: closed | open)
@@ -851,9 +855,13 @@ class RawReadingsClient:
             <summary><strong>reefer</strong></summary>
 
             * `reeferAlarm` (Reefer Alarms): Array of active alarm codes for the refrigeration unit with metadata
+            * `reeferAlarmActive` (TouchPrint Alarm Active): TouchPrint ALM digital output (input configured as Switch). On-device gating ensures this only reports on alarm-configured inputs; see reeferAlarm for OEM alarm codes and reeferAlarmSeverity for severity. (values: inactive | active)
             * `reeferAlarmSeverity` (Reefer Alarm Severity): Highest severity level across active reefer alarms (green, yellow, red, orange) (values: none | green | yellow | red | orange)
             * `reeferAmbientAir` (Reefer Ambient Air Temperature): External environment temperature for the reefer (celsius)
             * `reeferBatteryVoltage` (Reefer Battery Voltage): The voltage of the Refrigeration Unit's battery. (volt)
+            * `reeferDefrostZone1` (Reefer Defrost (Zone 1)): Whether the reefer defrost cycle is active in zone 1 (sustained state). On-device gating ensures this only reports on defrost-configured inputs. (values: off | on)
+            * `reeferDefrostZone2` (Reefer Defrost (Zone 2)): Whether the reefer defrost cycle is active in zone 2 (sustained state). On-device gating ensures this only reports on defrost-configured inputs. (values: off | on)
+            * `reeferDefrostZone3` (Reefer Defrost (Zone 3)): Whether the reefer defrost cycle is active in zone 3 (sustained state). On-device gating ensures this only reports on defrost-configured inputs. (values: off | on)
             * `reeferDoorOpenZone1` (Reefer Door Open (Zone 1)): Status indicating whether the reefer's door (zone 1) is closed or open (values: closed | open)
             * `reeferDoorOpenZone2` (Reefer Door Open (Zone 2)): Status indicating whether the reefer's door (zone 2) is closed or open (values: closed | open)
             * `reeferDoorOpenZone3` (Reefer Door Open (Zone 3)): Status indicating whether the reefer's door (zone 3) is closed or open (values: closed | open)
@@ -1470,9 +1478,13 @@ class AsyncRawReadingsClient:
             <summary><strong>reefer</strong></summary>
 
             * `reeferAlarm` (Reefer Alarms): Array of active alarm codes for the refrigeration unit with metadata
+            * `reeferAlarmActive` (TouchPrint Alarm Active): TouchPrint ALM digital output (input configured as Switch). On-device gating ensures this only reports on alarm-configured inputs; see reeferAlarm for OEM alarm codes and reeferAlarmSeverity for severity. (values: inactive | active)
             * `reeferAlarmSeverity` (Reefer Alarm Severity): Highest severity level across active reefer alarms (green, yellow, red, orange) (values: none | green | yellow | red | orange)
             * `reeferAmbientAir` (Reefer Ambient Air Temperature): External environment temperature for the reefer (celsius)
             * `reeferBatteryVoltage` (Reefer Battery Voltage): The voltage of the Refrigeration Unit's battery. (volt)
+            * `reeferDefrostZone1` (Reefer Defrost (Zone 1)): Whether the reefer defrost cycle is active in zone 1 (sustained state). On-device gating ensures this only reports on defrost-configured inputs. (values: off | on)
+            * `reeferDefrostZone2` (Reefer Defrost (Zone 2)): Whether the reefer defrost cycle is active in zone 2 (sustained state). On-device gating ensures this only reports on defrost-configured inputs. (values: off | on)
+            * `reeferDefrostZone3` (Reefer Defrost (Zone 3)): Whether the reefer defrost cycle is active in zone 3 (sustained state). On-device gating ensures this only reports on defrost-configured inputs. (values: off | on)
             * `reeferDoorOpenZone1` (Reefer Door Open (Zone 1)): Status indicating whether the reefer's door (zone 1) is closed or open (values: closed | open)
             * `reeferDoorOpenZone2` (Reefer Door Open (Zone 2)): Status indicating whether the reefer's door (zone 2) is closed or open (values: closed | open)
             * `reeferDoorOpenZone3` (Reefer Door Open (Zone 3)): Status indicating whether the reefer's door (zone 3) is closed or open (values: closed | open)
@@ -1927,9 +1939,13 @@ class AsyncRawReadingsClient:
             <summary><strong>reefer</strong></summary>
 
             * `reeferAlarm` (Reefer Alarms): Array of active alarm codes for the refrigeration unit with metadata
+            * `reeferAlarmActive` (TouchPrint Alarm Active): TouchPrint ALM digital output (input configured as Switch). On-device gating ensures this only reports on alarm-configured inputs; see reeferAlarm for OEM alarm codes and reeferAlarmSeverity for severity. (values: inactive | active)
             * `reeferAlarmSeverity` (Reefer Alarm Severity): Highest severity level across active reefer alarms (green, yellow, red, orange) (values: none | green | yellow | red | orange)
             * `reeferAmbientAir` (Reefer Ambient Air Temperature): External environment temperature for the reefer (celsius)
             * `reeferBatteryVoltage` (Reefer Battery Voltage): The voltage of the Refrigeration Unit's battery. (volt)
+            * `reeferDefrostZone1` (Reefer Defrost (Zone 1)): Whether the reefer defrost cycle is active in zone 1 (sustained state). On-device gating ensures this only reports on defrost-configured inputs. (values: off | on)
+            * `reeferDefrostZone2` (Reefer Defrost (Zone 2)): Whether the reefer defrost cycle is active in zone 2 (sustained state). On-device gating ensures this only reports on defrost-configured inputs. (values: off | on)
+            * `reeferDefrostZone3` (Reefer Defrost (Zone 3)): Whether the reefer defrost cycle is active in zone 3 (sustained state). On-device gating ensures this only reports on defrost-configured inputs. (values: off | on)
             * `reeferDoorOpenZone1` (Reefer Door Open (Zone 1)): Status indicating whether the reefer's door (zone 1) is closed or open (values: closed | open)
             * `reeferDoorOpenZone2` (Reefer Door Open (Zone 2)): Status indicating whether the reefer's door (zone 2) is closed or open (values: closed | open)
             * `reeferDoorOpenZone3` (Reefer Door Open (Zone 3)): Status indicating whether the reefer's door (zone 3) is closed or open (values: closed | open)

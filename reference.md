@@ -5645,6 +5645,14 @@ client.beta_ap_is.post_place(
 <dl>
 <dd>
 
+**business_contacts:** `typing.Optional[PostPlaceBusinessContactsInputRequestBody]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **camera_recording_mode_type:** `typing.Optional[PlacesPostPlaceRequestBodyCameraRecordingModeType]` — Camera recording mode: fullRecording, driverPrivacy, completePrivacy, or inherit.  Valid values: `fullRecording`, `driverPrivacy`, `completePrivacy`, `inherit`, `unknown`, `unspecified`
     
 </dd>
@@ -5894,6 +5902,14 @@ client.beta_ap_is.patch_place()
 <dd>
 
 **address:** `typing.Optional[str]` — Single-line address string.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**business_contacts:** `typing.Optional[PostPlaceBusinessContactsInputRequestBody]` 
     
 </dd>
 </dl>
@@ -6174,6 +6190,180 @@ client.beta_ap_is.get_place_geocode(
 <dd>
 
 **limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default 5, max 20.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_place_geofence</a>(...) -&gt; AsyncHttpResponse[PlacesGetPlaceGeofenceResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns geofence suggestion candidates for a seed point. Does not create or update a Place. Applies the same selection rules as geofence.auto on Place write.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Places** under the Places category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.get_place_geofence(
+    latitude=1.1,
+    longitude=1.1,
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**latitude:** `float` — Seed point latitude in WGS84 decimal degrees.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**longitude:** `float` — Seed point longitude in WGS84 decimal degrees.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**suggestion_types:** `typing.Optional[str]` — Comma-separated geofence suggestion types in priority order. Values: building, parcel, landUse, boundary, facility, infrastructure.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**size_order:** `typing.Optional[GetPlaceGeofenceRequestSizeOrder]` — Candidate sort order: smallestFirst (default) or largestFirst.  Valid values: `smallestFirst`, `largestFirst`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**min_latitude:** `typing.Optional[float]` — Search bound minimum latitude (WGS84 decimal degrees). Must be supplied with minLongitude, maxLatitude, and maxLongitude, or omitted entirely.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**min_longitude:** `typing.Optional[float]` — Search bound minimum longitude (WGS84 decimal degrees).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**max_latitude:** `typing.Optional[float]` — Search bound maximum latitude (WGS84 decimal degrees).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**max_longitude:** `typing.Optional[float]` — Search bound maximum longitude (WGS84 decimal degrees).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**max_area_square_meters:** `typing.Optional[float]` — Drop candidates with area above this value in square meters.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**max_source_vertices:** `typing.Optional[int]` — Drop candidates whose source polygon exceeds this vertex count before simplification.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**max_vertices:** `typing.Optional[int]` — Simplify each returned candidate polygon to at most this many vertices.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**max_results:** `typing.Optional[int]` — Page size: max candidates in data[] per page. Default 5, max 20.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
     
 </dd>
 </dl>
@@ -11783,12 +11973,6 @@ client = Samsara(
 )
 client.media.post_media_retrieval(
     end_time="2019-06-13T19:08:55Z",
-    inputs=[
-        "dashcamRoadFacing",
-        "dashcamRoadFacing",
-        "dashcamRoadFacing",
-        "dashcamRoadFacing",
-    ],
     media_type="image",
     start_time="2019-06-13T19:08:25Z",
     vehicle_id="1234",
@@ -11816,14 +12000,6 @@ client.media.post_media_retrieval(
 <dl>
 <dd>
 
-**inputs:** `typing.Sequence[MediaRetrievalPostMediaRetrievalRequestBodyInputsItem]` — A list of desired camera inputs for which to capture media. Only media with valid inputs (e.g. device has that input stream and device was recording at the time) will be uploaded. An empty list is invalid.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
 **media_type:** `MediaRetrievalPostMediaRetrievalRequestBodyMediaType` — The desired media type. If a video is requested, endTime must be after startTime. If an image is requested, endTime must be the same as startTime. Must be one of: image, videoHighRes, videoLowRes. Examples: image, videoHighRes, videoLowRes, hyperlapse.  Valid values: `image`, `videoHighRes`, `videoLowRes`, `hyperlapse`
     
 </dd>
@@ -11841,6 +12017,26 @@ client.media.post_media_retrieval(
 <dd>
 
 **vehicle_id:** `str` — Vehicle ID for which to initiate media capture. Examples: 1234
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**camera_roles:** `typing.Optional[
+    typing.Sequence[MediaRetrievalPostMediaRetrievalRequestBodyCameraRolesItem]
+]` — Optional list of camera roles to resolve to analog inputs at request time. Requires an AHD4 auxcam device. Can be used alone or combined with inputs.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**inputs:** `typing.Optional[
+    typing.Sequence[MediaRetrievalPostMediaRetrievalRequestBodyInputsItem]
+]` — A list of desired camera inputs for which to capture media. Only media with valid inputs (e.g. device has that input stream and device was recording at the time) will be uploaded. At least one of inputs or cameraRoles must be provided.
     
 </dd>
 </dl>
@@ -31380,9 +31576,13 @@ Available reading IDs (by category):
 <summary><strong>reefer</strong></summary>
 
 * `reeferAlarm` (Reefer Alarms): Array of active alarm codes for the refrigeration unit with metadata
+* `reeferAlarmActive` (TouchPrint Alarm Active): TouchPrint ALM digital output (input configured as Switch). On-device gating ensures this only reports on alarm-configured inputs; see reeferAlarm for OEM alarm codes and reeferAlarmSeverity for severity. (values: inactive | active)
 * `reeferAlarmSeverity` (Reefer Alarm Severity): Highest severity level across active reefer alarms (green, yellow, red, orange) (values: none | green | yellow | red | orange)
 * `reeferAmbientAir` (Reefer Ambient Air Temperature): External environment temperature for the reefer (celsius)
 * `reeferBatteryVoltage` (Reefer Battery Voltage): The voltage of the Refrigeration Unit's battery. (volt)
+* `reeferDefrostZone1` (Reefer Defrost (Zone 1)): Whether the reefer defrost cycle is active in zone 1 (sustained state). On-device gating ensures this only reports on defrost-configured inputs. (values: off | on)
+* `reeferDefrostZone2` (Reefer Defrost (Zone 2)): Whether the reefer defrost cycle is active in zone 2 (sustained state). On-device gating ensures this only reports on defrost-configured inputs. (values: off | on)
+* `reeferDefrostZone3` (Reefer Defrost (Zone 3)): Whether the reefer defrost cycle is active in zone 3 (sustained state). On-device gating ensures this only reports on defrost-configured inputs. (values: off | on)
 * `reeferDoorOpenZone1` (Reefer Door Open (Zone 1)): Status indicating whether the reefer's door (zone 1) is closed or open (values: closed | open)
 * `reeferDoorOpenZone2` (Reefer Door Open (Zone 2)): Status indicating whether the reefer's door (zone 2) is closed or open (values: closed | open)
 * `reeferDoorOpenZone3` (Reefer Door Open (Zone 3)): Status indicating whether the reefer's door (zone 3) is closed or open (values: closed | open)
@@ -31795,9 +31995,13 @@ Available reading IDs (by category):
 <summary><strong>reefer</strong></summary>
 
 * `reeferAlarm` (Reefer Alarms): Array of active alarm codes for the refrigeration unit with metadata
+* `reeferAlarmActive` (TouchPrint Alarm Active): TouchPrint ALM digital output (input configured as Switch). On-device gating ensures this only reports on alarm-configured inputs; see reeferAlarm for OEM alarm codes and reeferAlarmSeverity for severity. (values: inactive | active)
 * `reeferAlarmSeverity` (Reefer Alarm Severity): Highest severity level across active reefer alarms (green, yellow, red, orange) (values: none | green | yellow | red | orange)
 * `reeferAmbientAir` (Reefer Ambient Air Temperature): External environment temperature for the reefer (celsius)
 * `reeferBatteryVoltage` (Reefer Battery Voltage): The voltage of the Refrigeration Unit's battery. (volt)
+* `reeferDefrostZone1` (Reefer Defrost (Zone 1)): Whether the reefer defrost cycle is active in zone 1 (sustained state). On-device gating ensures this only reports on defrost-configured inputs. (values: off | on)
+* `reeferDefrostZone2` (Reefer Defrost (Zone 2)): Whether the reefer defrost cycle is active in zone 2 (sustained state). On-device gating ensures this only reports on defrost-configured inputs. (values: off | on)
+* `reeferDefrostZone3` (Reefer Defrost (Zone 3)): Whether the reefer defrost cycle is active in zone 3 (sustained state). On-device gating ensures this only reports on defrost-configured inputs. (values: off | on)
 * `reeferDoorOpenZone1` (Reefer Door Open (Zone 1)): Status indicating whether the reefer's door (zone 1) is closed or open (values: closed | open)
 * `reeferDoorOpenZone2` (Reefer Door Open (Zone 2)): Status indicating whether the reefer's door (zone 2) is closed or open (values: closed | open)
 * `reeferDoorOpenZone3` (Reefer Door Open (Zone 3)): Status indicating whether the reefer's door (zone 3) is closed or open (values: closed | open)

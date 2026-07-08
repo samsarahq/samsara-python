@@ -101,11 +101,13 @@ from ..types.place_routing_patch_input_request_body import PlaceRoutingPatchInpu
 from ..types.place_street_view_input_request_body import PlaceStreetViewInputRequestBody
 from ..types.places_get_place_deletions_response_body import PlacesGetPlaceDeletionsResponseBody
 from ..types.places_get_place_geocode_response_body import PlacesGetPlaceGeocodeResponseBody
+from ..types.places_get_place_geofence_response_body import PlacesGetPlaceGeofenceResponseBody
 from ..types.places_get_places_response_body import PlacesGetPlacesResponseBody
 from ..types.places_patch_place_response_body import PlacesPatchPlaceResponseBody
 from ..types.places_post_place_response_body import PlacesPostPlaceResponseBody
 from ..types.plan_orders_list_plan_orders_response_body import PlanOrdersListPlanOrdersResponseBody
 from ..types.post_job_object_request_body import PostJobObjectRequestBody
+from ..types.post_place_business_contacts_input_request_body import PostPlaceBusinessContactsInputRequestBody
 from ..types.post_place_navigation_input_request_body import PostPlaceNavigationInputRequestBody
 from ..types.post_place_tag_ref_request_body import PostPlaceTagRefRequestBody
 from ..types.preferred_station_address_request_body import PreferredStationAddressRequestBody
@@ -206,6 +208,7 @@ from .types.get_driver_efficiency_request_driver_activation_status import (
 )
 from .types.get_hos_eld_events_request_driver_activation_status import GetHosEldEventsRequestDriverActivationStatus
 from .types.get_jobs_request_status import GetJobsRequestStatus
+from .types.get_place_geofence_request_size_order import GetPlaceGeofenceRequestSizeOrder
 from .types.get_qualification_records_stream_request_entity_type import GetQualificationRecordsStreamRequestEntityType
 from .types.get_qualification_types_request_entity_type import GetQualificationTypesRequestEntityType
 from .types.list_driver_workflows_request_workflow_type import ListDriverWorkflowsRequestWorkflowType
@@ -3143,6 +3146,7 @@ class BetaApIsClient:
         address: str,
         geofence: PlaceGeofenceInputRequestBody,
         name: str,
+        business_contacts: typing.Optional[PostPlaceBusinessContactsInputRequestBody] = OMIT,
         camera_recording_mode_type: typing.Optional[PlacesPostPlaceRequestBodyCameraRecordingModeType] = OMIT,
         external_ids: typing.Optional[PlacesPostPlaceRequestBodyExternalIds] = OMIT,
         ifta_exemption_types: typing.Optional[typing.Sequence[str]] = OMIT,
@@ -3175,6 +3179,8 @@ class BetaApIsClient:
 
         name : str
             Place name.
+
+        business_contacts : typing.Optional[PostPlaceBusinessContactsInputRequestBody]
 
         camera_recording_mode_type : typing.Optional[PlacesPostPlaceRequestBodyCameraRecordingModeType]
             Camera recording mode: fullRecording, driverPrivacy, completePrivacy, or inherit.  Valid values: `fullRecording`, `driverPrivacy`, `completePrivacy`, `inherit`, `unknown`, `unspecified`
@@ -3232,6 +3238,7 @@ class BetaApIsClient:
             address=address,
             geofence=geofence,
             name=name,
+            business_contacts=business_contacts,
             camera_recording_mode_type=camera_recording_mode_type,
             external_ids=external_ids,
             ifta_exemption_types=ifta_exemption_types,
@@ -3290,6 +3297,7 @@ class BetaApIsClient:
         place_id: typing.Optional[int] = None,
         external_id: typing.Optional[str] = None,
         address: typing.Optional[str] = OMIT,
+        business_contacts: typing.Optional[PostPlaceBusinessContactsInputRequestBody] = OMIT,
         camera_recording_mode_type: typing.Optional[PlacesPatchPlaceRequestBodyCameraRecordingModeType] = OMIT,
         external_ids: typing.Optional[PlacesPatchPlaceRequestBodyExternalIds] = OMIT,
         geofence: typing.Optional[PlaceGeofenceInputRequestBody] = OMIT,
@@ -3325,6 +3333,8 @@ class BetaApIsClient:
 
         address : typing.Optional[str]
             Single-line address string.
+
+        business_contacts : typing.Optional[PostPlaceBusinessContactsInputRequestBody]
 
         camera_recording_mode_type : typing.Optional[PlacesPatchPlaceRequestBodyCameraRecordingModeType]
             Camera recording mode: fullRecording, driverPrivacy, completePrivacy, or inherit.  Valid values: `fullRecording`, `driverPrivacy`, `completePrivacy`, `inherit`, `unknown`, `unspecified`
@@ -3382,6 +3392,7 @@ class BetaApIsClient:
             place_id=place_id,
             external_id=external_id,
             address=address,
+            business_contacts=business_contacts,
             camera_recording_mode_type=camera_recording_mode_type,
             external_ids=external_ids,
             geofence=geofence,
@@ -3494,6 +3505,113 @@ class BetaApIsClient:
         """
         _response = self._raw_client.get_place_geocode(
             address=address, after=after, limit=limit, request_options=request_options
+        )
+        return _response.data
+
+    def get_place_geofence(
+        self,
+        *,
+        latitude: float,
+        longitude: float,
+        suggestion_types: typing.Optional[str] = None,
+        size_order: typing.Optional[GetPlaceGeofenceRequestSizeOrder] = None,
+        min_latitude: typing.Optional[float] = None,
+        min_longitude: typing.Optional[float] = None,
+        max_latitude: typing.Optional[float] = None,
+        max_longitude: typing.Optional[float] = None,
+        max_area_square_meters: typing.Optional[float] = None,
+        max_source_vertices: typing.Optional[int] = None,
+        max_vertices: typing.Optional[int] = None,
+        max_results: typing.Optional[int] = None,
+        after: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> PlacesGetPlaceGeofenceResponseBody:
+        """
+        Returns geofence suggestion candidates for a seed point. Does not create or update a Place. Applies the same selection rules as geofence.auto on Place write.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Places** under the Places category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        latitude : float
+            Seed point latitude in WGS84 decimal degrees.
+
+        longitude : float
+            Seed point longitude in WGS84 decimal degrees.
+
+        suggestion_types : typing.Optional[str]
+            Comma-separated geofence suggestion types in priority order. Values: building, parcel, landUse, boundary, facility, infrastructure.
+
+        size_order : typing.Optional[GetPlaceGeofenceRequestSizeOrder]
+            Candidate sort order: smallestFirst (default) or largestFirst.  Valid values: `smallestFirst`, `largestFirst`
+
+        min_latitude : typing.Optional[float]
+            Search bound minimum latitude (WGS84 decimal degrees). Must be supplied with minLongitude, maxLatitude, and maxLongitude, or omitted entirely.
+
+        min_longitude : typing.Optional[float]
+            Search bound minimum longitude (WGS84 decimal degrees).
+
+        max_latitude : typing.Optional[float]
+            Search bound maximum latitude (WGS84 decimal degrees).
+
+        max_longitude : typing.Optional[float]
+            Search bound maximum longitude (WGS84 decimal degrees).
+
+        max_area_square_meters : typing.Optional[float]
+            Drop candidates with area above this value in square meters.
+
+        max_source_vertices : typing.Optional[int]
+            Drop candidates whose source polygon exceeds this vertex count before simplification.
+
+        max_vertices : typing.Optional[int]
+            Simplify each returned candidate polygon to at most this many vertices.
+
+        max_results : typing.Optional[int]
+            Page size: max candidates in data[] per page. Default 5, max 20.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        PlacesGetPlaceGeofenceResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.get_place_geofence(
+            latitude=1.1,
+            longitude=1.1,
+        )
+        """
+        _response = self._raw_client.get_place_geofence(
+            latitude=latitude,
+            longitude=longitude,
+            suggestion_types=suggestion_types,
+            size_order=size_order,
+            min_latitude=min_latitude,
+            min_longitude=min_longitude,
+            max_latitude=max_latitude,
+            max_longitude=max_longitude,
+            max_area_square_meters=max_area_square_meters,
+            max_source_vertices=max_source_vertices,
+            max_vertices=max_vertices,
+            max_results=max_results,
+            after=after,
+            request_options=request_options,
         )
         return _response.data
 
@@ -8495,6 +8613,7 @@ class AsyncBetaApIsClient:
         address: str,
         geofence: PlaceGeofenceInputRequestBody,
         name: str,
+        business_contacts: typing.Optional[PostPlaceBusinessContactsInputRequestBody] = OMIT,
         camera_recording_mode_type: typing.Optional[PlacesPostPlaceRequestBodyCameraRecordingModeType] = OMIT,
         external_ids: typing.Optional[PlacesPostPlaceRequestBodyExternalIds] = OMIT,
         ifta_exemption_types: typing.Optional[typing.Sequence[str]] = OMIT,
@@ -8527,6 +8646,8 @@ class AsyncBetaApIsClient:
 
         name : str
             Place name.
+
+        business_contacts : typing.Optional[PostPlaceBusinessContactsInputRequestBody]
 
         camera_recording_mode_type : typing.Optional[PlacesPostPlaceRequestBodyCameraRecordingModeType]
             Camera recording mode: fullRecording, driverPrivacy, completePrivacy, or inherit.  Valid values: `fullRecording`, `driverPrivacy`, `completePrivacy`, `inherit`, `unknown`, `unspecified`
@@ -8592,6 +8713,7 @@ class AsyncBetaApIsClient:
             address=address,
             geofence=geofence,
             name=name,
+            business_contacts=business_contacts,
             camera_recording_mode_type=camera_recording_mode_type,
             external_ids=external_ids,
             ifta_exemption_types=ifta_exemption_types,
@@ -8658,6 +8780,7 @@ class AsyncBetaApIsClient:
         place_id: typing.Optional[int] = None,
         external_id: typing.Optional[str] = None,
         address: typing.Optional[str] = OMIT,
+        business_contacts: typing.Optional[PostPlaceBusinessContactsInputRequestBody] = OMIT,
         camera_recording_mode_type: typing.Optional[PlacesPatchPlaceRequestBodyCameraRecordingModeType] = OMIT,
         external_ids: typing.Optional[PlacesPatchPlaceRequestBodyExternalIds] = OMIT,
         geofence: typing.Optional[PlaceGeofenceInputRequestBody] = OMIT,
@@ -8693,6 +8816,8 @@ class AsyncBetaApIsClient:
 
         address : typing.Optional[str]
             Single-line address string.
+
+        business_contacts : typing.Optional[PostPlaceBusinessContactsInputRequestBody]
 
         camera_recording_mode_type : typing.Optional[PlacesPatchPlaceRequestBodyCameraRecordingModeType]
             Camera recording mode: fullRecording, driverPrivacy, completePrivacy, or inherit.  Valid values: `fullRecording`, `driverPrivacy`, `completePrivacy`, `inherit`, `unknown`, `unspecified`
@@ -8758,6 +8883,7 @@ class AsyncBetaApIsClient:
             place_id=place_id,
             external_id=external_id,
             address=address,
+            business_contacts=business_contacts,
             camera_recording_mode_type=camera_recording_mode_type,
             external_ids=external_ids,
             geofence=geofence,
@@ -8888,6 +9014,121 @@ class AsyncBetaApIsClient:
         """
         _response = await self._raw_client.get_place_geocode(
             address=address, after=after, limit=limit, request_options=request_options
+        )
+        return _response.data
+
+    async def get_place_geofence(
+        self,
+        *,
+        latitude: float,
+        longitude: float,
+        suggestion_types: typing.Optional[str] = None,
+        size_order: typing.Optional[GetPlaceGeofenceRequestSizeOrder] = None,
+        min_latitude: typing.Optional[float] = None,
+        min_longitude: typing.Optional[float] = None,
+        max_latitude: typing.Optional[float] = None,
+        max_longitude: typing.Optional[float] = None,
+        max_area_square_meters: typing.Optional[float] = None,
+        max_source_vertices: typing.Optional[int] = None,
+        max_vertices: typing.Optional[int] = None,
+        max_results: typing.Optional[int] = None,
+        after: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> PlacesGetPlaceGeofenceResponseBody:
+        """
+        Returns geofence suggestion candidates for a seed point. Does not create or update a Place. Applies the same selection rules as geofence.auto on Place write.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Places** under the Places category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        latitude : float
+            Seed point latitude in WGS84 decimal degrees.
+
+        longitude : float
+            Seed point longitude in WGS84 decimal degrees.
+
+        suggestion_types : typing.Optional[str]
+            Comma-separated geofence suggestion types in priority order. Values: building, parcel, landUse, boundary, facility, infrastructure.
+
+        size_order : typing.Optional[GetPlaceGeofenceRequestSizeOrder]
+            Candidate sort order: smallestFirst (default) or largestFirst.  Valid values: `smallestFirst`, `largestFirst`
+
+        min_latitude : typing.Optional[float]
+            Search bound minimum latitude (WGS84 decimal degrees). Must be supplied with minLongitude, maxLatitude, and maxLongitude, or omitted entirely.
+
+        min_longitude : typing.Optional[float]
+            Search bound minimum longitude (WGS84 decimal degrees).
+
+        max_latitude : typing.Optional[float]
+            Search bound maximum latitude (WGS84 decimal degrees).
+
+        max_longitude : typing.Optional[float]
+            Search bound maximum longitude (WGS84 decimal degrees).
+
+        max_area_square_meters : typing.Optional[float]
+            Drop candidates with area above this value in square meters.
+
+        max_source_vertices : typing.Optional[int]
+            Drop candidates whose source polygon exceeds this vertex count before simplification.
+
+        max_vertices : typing.Optional[int]
+            Simplify each returned candidate polygon to at most this many vertices.
+
+        max_results : typing.Optional[int]
+            Page size: max candidates in data[] per page. Default 5, max 20.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        PlacesGetPlaceGeofenceResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.get_place_geofence(
+                latitude=1.1,
+                longitude=1.1,
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_place_geofence(
+            latitude=latitude,
+            longitude=longitude,
+            suggestion_types=suggestion_types,
+            size_order=size_order,
+            min_latitude=min_latitude,
+            min_longitude=min_longitude,
+            max_latitude=max_latitude,
+            max_longitude=max_longitude,
+            max_area_square_meters=max_area_square_meters,
+            max_source_vertices=max_source_vertices,
+            max_vertices=max_vertices,
+            max_results=max_results,
+            after=after,
+            request_options=request_options,
         )
         return _response.data
 
