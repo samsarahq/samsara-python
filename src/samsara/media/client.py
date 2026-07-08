@@ -11,6 +11,9 @@ from .raw_client import AsyncRawMediaClient, RawMediaClient
 from .types.list_uploaded_media_request_inputs_item import ListUploadedMediaRequestInputsItem
 from .types.list_uploaded_media_request_media_types_item import ListUploadedMediaRequestMediaTypesItem
 from .types.list_uploaded_media_request_trigger_reasons_item import ListUploadedMediaRequestTriggerReasonsItem
+from .types.media_retrieval_post_media_retrieval_request_body_camera_roles_item import (
+    MediaRetrievalPostMediaRetrievalRequestBodyCameraRolesItem,
+)
 from .types.media_retrieval_post_media_retrieval_request_body_inputs_item import (
     MediaRetrievalPostMediaRetrievalRequestBodyInputsItem,
 )
@@ -174,10 +177,13 @@ class MediaClient:
         self,
         *,
         end_time: str,
-        inputs: typing.Sequence[MediaRetrievalPostMediaRetrievalRequestBodyInputsItem],
         media_type: MediaRetrievalPostMediaRetrievalRequestBodyMediaType,
         start_time: str,
         vehicle_id: str,
+        camera_roles: typing.Optional[
+            typing.Sequence[MediaRetrievalPostMediaRetrievalRequestBodyCameraRolesItem]
+        ] = OMIT,
+        inputs: typing.Optional[typing.Sequence[MediaRetrievalPostMediaRetrievalRequestBodyInputsItem]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> MediaRetrievalPostMediaRetrievalResponseBody:
         """
@@ -195,9 +201,6 @@ class MediaClient:
         end_time : str
             An end time in RFC 3339 format. If endTime is the same as startTime, an image will be captured at startTime. Must be 1 second or more after startTime and no more than the maximum allowed duration per video retrieval type. Please refer to our KB articles for more information. (Examples: 2019-06-13T19:08:55Z, 2019-06-13T19:08:55.455Z, OR 2015-09-15T14:00:42-04:00).
 
-        inputs : typing.Sequence[MediaRetrievalPostMediaRetrievalRequestBodyInputsItem]
-            A list of desired camera inputs for which to capture media. Only media with valid inputs (e.g. device has that input stream and device was recording at the time) will be uploaded. An empty list is invalid.
-
         media_type : MediaRetrievalPostMediaRetrievalRequestBodyMediaType
             The desired media type. If a video is requested, endTime must be after startTime. If an image is requested, endTime must be the same as startTime. Must be one of: image, videoHighRes, videoLowRes. Examples: image, videoHighRes, videoLowRes, hyperlapse.  Valid values: `image`, `videoHighRes`, `videoLowRes`, `hyperlapse`
 
@@ -206,6 +209,12 @@ class MediaClient:
 
         vehicle_id : str
             Vehicle ID for which to initiate media capture. Examples: 1234
+
+        camera_roles : typing.Optional[typing.Sequence[MediaRetrievalPostMediaRetrievalRequestBodyCameraRolesItem]]
+            Optional list of camera roles to resolve to analog inputs at request time. Requires an AHD4 auxcam device. Can be used alone or combined with inputs.
+
+        inputs : typing.Optional[typing.Sequence[MediaRetrievalPostMediaRetrievalRequestBodyInputsItem]]
+            A list of desired camera inputs for which to capture media. Only media with valid inputs (e.g. device has that input stream and device was recording at the time) will be uploaded. At least one of inputs or cameraRoles must be provided.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -224,12 +233,6 @@ class MediaClient:
         )
         client.media.post_media_retrieval(
             end_time="2019-06-13T19:08:55Z",
-            inputs=[
-                "dashcamRoadFacing",
-                "dashcamRoadFacing",
-                "dashcamRoadFacing",
-                "dashcamRoadFacing",
-            ],
             media_type="image",
             start_time="2019-06-13T19:08:25Z",
             vehicle_id="1234",
@@ -237,10 +240,11 @@ class MediaClient:
         """
         _response = self._raw_client.post_media_retrieval(
             end_time=end_time,
-            inputs=inputs,
             media_type=media_type,
             start_time=start_time,
             vehicle_id=vehicle_id,
+            camera_roles=camera_roles,
+            inputs=inputs,
             request_options=request_options,
         )
         return _response.data
@@ -416,10 +420,13 @@ class AsyncMediaClient:
         self,
         *,
         end_time: str,
-        inputs: typing.Sequence[MediaRetrievalPostMediaRetrievalRequestBodyInputsItem],
         media_type: MediaRetrievalPostMediaRetrievalRequestBodyMediaType,
         start_time: str,
         vehicle_id: str,
+        camera_roles: typing.Optional[
+            typing.Sequence[MediaRetrievalPostMediaRetrievalRequestBodyCameraRolesItem]
+        ] = OMIT,
+        inputs: typing.Optional[typing.Sequence[MediaRetrievalPostMediaRetrievalRequestBodyInputsItem]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> MediaRetrievalPostMediaRetrievalResponseBody:
         """
@@ -437,9 +444,6 @@ class AsyncMediaClient:
         end_time : str
             An end time in RFC 3339 format. If endTime is the same as startTime, an image will be captured at startTime. Must be 1 second or more after startTime and no more than the maximum allowed duration per video retrieval type. Please refer to our KB articles for more information. (Examples: 2019-06-13T19:08:55Z, 2019-06-13T19:08:55.455Z, OR 2015-09-15T14:00:42-04:00).
 
-        inputs : typing.Sequence[MediaRetrievalPostMediaRetrievalRequestBodyInputsItem]
-            A list of desired camera inputs for which to capture media. Only media with valid inputs (e.g. device has that input stream and device was recording at the time) will be uploaded. An empty list is invalid.
-
         media_type : MediaRetrievalPostMediaRetrievalRequestBodyMediaType
             The desired media type. If a video is requested, endTime must be after startTime. If an image is requested, endTime must be the same as startTime. Must be one of: image, videoHighRes, videoLowRes. Examples: image, videoHighRes, videoLowRes, hyperlapse.  Valid values: `image`, `videoHighRes`, `videoLowRes`, `hyperlapse`
 
@@ -448,6 +452,12 @@ class AsyncMediaClient:
 
         vehicle_id : str
             Vehicle ID for which to initiate media capture. Examples: 1234
+
+        camera_roles : typing.Optional[typing.Sequence[MediaRetrievalPostMediaRetrievalRequestBodyCameraRolesItem]]
+            Optional list of camera roles to resolve to analog inputs at request time. Requires an AHD4 auxcam device. Can be used alone or combined with inputs.
+
+        inputs : typing.Optional[typing.Sequence[MediaRetrievalPostMediaRetrievalRequestBodyInputsItem]]
+            A list of desired camera inputs for which to capture media. Only media with valid inputs (e.g. device has that input stream and device was recording at the time) will be uploaded. At least one of inputs or cameraRoles must be provided.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -471,12 +481,6 @@ class AsyncMediaClient:
         async def main() -> None:
             await client.media.post_media_retrieval(
                 end_time="2019-06-13T19:08:55Z",
-                inputs=[
-                    "dashcamRoadFacing",
-                    "dashcamRoadFacing",
-                    "dashcamRoadFacing",
-                    "dashcamRoadFacing",
-                ],
                 media_type="image",
                 start_time="2019-06-13T19:08:25Z",
                 vehicle_id="1234",
@@ -487,10 +491,11 @@ class AsyncMediaClient:
         """
         _response = await self._raw_client.post_media_retrieval(
             end_time=end_time,
-            inputs=inputs,
             media_type=media_type,
             start_time=start_time,
             vehicle_id=vehicle_id,
+            camera_roles=camera_roles,
+            inputs=inputs,
             request_options=request_options,
         )
         return _response.data

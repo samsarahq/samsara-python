@@ -9,6 +9,9 @@ if typing.TYPE_CHECKING:
     from .list_uploaded_media_request_inputs_item import ListUploadedMediaRequestInputsItem
     from .list_uploaded_media_request_media_types_item import ListUploadedMediaRequestMediaTypesItem
     from .list_uploaded_media_request_trigger_reasons_item import ListUploadedMediaRequestTriggerReasonsItem
+    from .media_retrieval_post_media_retrieval_request_body_camera_roles_item import (
+        MediaRetrievalPostMediaRetrievalRequestBodyCameraRolesItem,
+    )
     from .media_retrieval_post_media_retrieval_request_body_inputs_item import (
         MediaRetrievalPostMediaRetrievalRequestBodyInputsItem,
     )
@@ -19,6 +22,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "ListUploadedMediaRequestInputsItem": ".list_uploaded_media_request_inputs_item",
     "ListUploadedMediaRequestMediaTypesItem": ".list_uploaded_media_request_media_types_item",
     "ListUploadedMediaRequestTriggerReasonsItem": ".list_uploaded_media_request_trigger_reasons_item",
+    "MediaRetrievalPostMediaRetrievalRequestBodyCameraRolesItem": ".media_retrieval_post_media_retrieval_request_body_camera_roles_item",
     "MediaRetrievalPostMediaRetrievalRequestBodyInputsItem": ".media_retrieval_post_media_retrieval_request_body_inputs_item",
     "MediaRetrievalPostMediaRetrievalRequestBodyMediaType": ".media_retrieval_post_media_retrieval_request_body_media_type",
 }
@@ -49,6 +53,7 @@ __all__ = [
     "ListUploadedMediaRequestInputsItem",
     "ListUploadedMediaRequestMediaTypesItem",
     "ListUploadedMediaRequestTriggerReasonsItem",
+    "MediaRetrievalPostMediaRetrievalRequestBodyCameraRolesItem",
     "MediaRetrievalPostMediaRetrievalRequestBodyInputsItem",
     "MediaRetrievalPostMediaRetrievalRequestBodyMediaType",
 ]

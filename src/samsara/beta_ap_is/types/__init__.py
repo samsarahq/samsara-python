@@ -20,6 +20,7 @@ if typing.TYPE_CHECKING:
     from .get_driver_efficiency_request_driver_activation_status import GetDriverEfficiencyRequestDriverActivationStatus
     from .get_hos_eld_events_request_driver_activation_status import GetHosEldEventsRequestDriverActivationStatus
     from .get_jobs_request_status import GetJobsRequestStatus
+    from .get_place_geofence_request_size_order import GetPlaceGeofenceRequestSizeOrder
     from .get_qualification_records_stream_request_entity_type import GetQualificationRecordsStreamRequestEntityType
     from .get_qualification_types_request_entity_type import GetQualificationTypesRequestEntityType
     from .list_driver_workflows_request_workflow_type import ListDriverWorkflowsRequestWorkflowType
@@ -67,6 +68,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "GetDriverEfficiencyRequestDriverActivationStatus": ".get_driver_efficiency_request_driver_activation_status",
     "GetHosEldEventsRequestDriverActivationStatus": ".get_hos_eld_events_request_driver_activation_status",
     "GetJobsRequestStatus": ".get_jobs_request_status",
+    "GetPlaceGeofenceRequestSizeOrder": ".get_place_geofence_request_size_order",
     "GetQualificationRecordsStreamRequestEntityType": ".get_qualification_records_stream_request_entity_type",
     "GetQualificationTypesRequestEntityType": ".get_qualification_types_request_entity_type",
     "ListDriverWorkflowsRequestWorkflowType": ".list_driver_workflows_request_workflow_type",
@@ -116,6 +118,7 @@ __all__ = [
     "GetDriverEfficiencyRequestDriverActivationStatus",
     "GetHosEldEventsRequestDriverActivationStatus",
     "GetJobsRequestStatus",
+    "GetPlaceGeofenceRequestSizeOrder",
     "GetQualificationRecordsStreamRequestEntityType",
     "GetQualificationTypesRequestEntityType",
     "ListDriverWorkflowsRequestWorkflowType",

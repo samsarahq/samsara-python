@@ -4519,6 +4519,8 @@ if typing.TYPE_CHECKING:
     from .person_detected_response_body import PersonDetectedResponseBody
     from .photo_value_object_request_body import PhotoValueObjectRequestBody
     from .photo_value_object_response_body import PhotoValueObjectResponseBody
+    from .place_business_contact_response_response_body import PlaceBusinessContactResponseResponseBody
+    from .place_business_contacts_response_response_body import PlaceBusinessContactsResponseResponseBody
     from .place_deletion_marker_object_response_body import PlaceDeletionMarkerObjectResponseBody
     from .place_deletion_marker_object_response_body_external_ids import (
         PlaceDeletionMarkerObjectResponseBodyExternalIds,
@@ -4532,6 +4534,12 @@ if typing.TYPE_CHECKING:
     from .place_geofence_polygon_response_response_body import PlaceGeofencePolygonResponseResponseBody
     from .place_geofence_response_response_body import PlaceGeofenceResponseResponseBody
     from .place_geofence_response_response_body_type import PlaceGeofenceResponseResponseBodyType
+    from .place_geofence_suggestion_candidate_response_response_body import (
+        PlaceGeofenceSuggestionCandidateResponseResponseBody,
+    )
+    from .place_geofence_suggestion_candidate_response_response_body_type import (
+        PlaceGeofenceSuggestionCandidateResponseResponseBodyType,
+    )
     from .place_geofence_vertex_response_response_body import PlaceGeofenceVertexResponseResponseBody
     from .place_navigation_location_response_response_body import PlaceNavigationLocationResponseResponseBody
     from .place_navigation_response_response_body import PlaceNavigationResponseResponseBody
@@ -4625,6 +4633,32 @@ if typing.TYPE_CHECKING:
     )
     from .places_get_place_geocode_unauthorized_error_response_body import (
         PlacesGetPlaceGeocodeUnauthorizedErrorResponseBody,
+    )
+    from .places_get_place_geofence_bad_gateway_error_response_body import (
+        PlacesGetPlaceGeofenceBadGatewayErrorResponseBody,
+    )
+    from .places_get_place_geofence_gateway_timeout_error_response_body import (
+        PlacesGetPlaceGeofenceGatewayTimeoutErrorResponseBody,
+    )
+    from .places_get_place_geofence_internal_server_error_response_body import (
+        PlacesGetPlaceGeofenceInternalServerErrorResponseBody,
+    )
+    from .places_get_place_geofence_method_not_allowed_error_response_body import (
+        PlacesGetPlaceGeofenceMethodNotAllowedErrorResponseBody,
+    )
+    from .places_get_place_geofence_not_found_error_response_body import PlacesGetPlaceGeofenceNotFoundErrorResponseBody
+    from .places_get_place_geofence_not_implemented_error_response_body import (
+        PlacesGetPlaceGeofenceNotImplementedErrorResponseBody,
+    )
+    from .places_get_place_geofence_response_body import PlacesGetPlaceGeofenceResponseBody
+    from .places_get_place_geofence_service_unavailable_error_response_body import (
+        PlacesGetPlaceGeofenceServiceUnavailableErrorResponseBody,
+    )
+    from .places_get_place_geofence_too_many_requests_error_response_body import (
+        PlacesGetPlaceGeofenceTooManyRequestsErrorResponseBody,
+    )
+    from .places_get_place_geofence_unauthorized_error_response_body import (
+        PlacesGetPlaceGeofenceUnauthorizedErrorResponseBody,
     )
     from .places_get_places_bad_gateway_error_response_body import PlacesGetPlacesBadGatewayErrorResponseBody
     from .places_get_places_gateway_timeout_error_response_body import PlacesGetPlacesGatewayTimeoutErrorResponseBody
@@ -4795,6 +4829,8 @@ if typing.TYPE_CHECKING:
         PostJobObjectjobLocationRequestObjectRequestBody,
     )
     from .post_media_retrieval_object_response_body import PostMediaRetrievalObjectResponseBody
+    from .post_place_business_contact_input_request_body import PostPlaceBusinessContactInputRequestBody
+    from .post_place_business_contacts_input_request_body import PostPlaceBusinessContactsInputRequestBody
     from .post_place_navigation_input_request_body import PostPlaceNavigationInputRequestBody
     from .post_place_navigation_location_input_request_body import PostPlaceNavigationLocationInputRequestBody
     from .post_place_navigation_location_input_request_body_location_type import (
@@ -10603,6 +10639,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "PersonDetectedResponseBody": ".person_detected_response_body",
     "PhotoValueObjectRequestBody": ".photo_value_object_request_body",
     "PhotoValueObjectResponseBody": ".photo_value_object_response_body",
+    "PlaceBusinessContactResponseResponseBody": ".place_business_contact_response_response_body",
+    "PlaceBusinessContactsResponseResponseBody": ".place_business_contacts_response_response_body",
     "PlaceDeletionMarkerObjectResponseBody": ".place_deletion_marker_object_response_body",
     "PlaceDeletionMarkerObjectResponseBodyExternalIds": ".place_deletion_marker_object_response_body_external_ids",
     "PlaceGeocodeResultResponseResponseBody": ".place_geocode_result_response_response_body",
@@ -10614,6 +10652,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "PlaceGeofencePolygonResponseResponseBody": ".place_geofence_polygon_response_response_body",
     "PlaceGeofenceResponseResponseBody": ".place_geofence_response_response_body",
     "PlaceGeofenceResponseResponseBodyType": ".place_geofence_response_response_body_type",
+    "PlaceGeofenceSuggestionCandidateResponseResponseBody": ".place_geofence_suggestion_candidate_response_response_body",
+    "PlaceGeofenceSuggestionCandidateResponseResponseBodyType": ".place_geofence_suggestion_candidate_response_response_body_type",
     "PlaceGeofenceVertexResponseResponseBody": ".place_geofence_vertex_response_response_body",
     "PlaceNavigationLocationResponseResponseBody": ".place_navigation_location_response_response_body",
     "PlaceNavigationResponseResponseBody": ".place_navigation_response_response_body",
@@ -10660,6 +10700,16 @@ _dynamic_imports: typing.Dict[str, str] = {
     "PlacesGetPlaceGeocodeServiceUnavailableErrorResponseBody": ".places_get_place_geocode_service_unavailable_error_response_body",
     "PlacesGetPlaceGeocodeTooManyRequestsErrorResponseBody": ".places_get_place_geocode_too_many_requests_error_response_body",
     "PlacesGetPlaceGeocodeUnauthorizedErrorResponseBody": ".places_get_place_geocode_unauthorized_error_response_body",
+    "PlacesGetPlaceGeofenceBadGatewayErrorResponseBody": ".places_get_place_geofence_bad_gateway_error_response_body",
+    "PlacesGetPlaceGeofenceGatewayTimeoutErrorResponseBody": ".places_get_place_geofence_gateway_timeout_error_response_body",
+    "PlacesGetPlaceGeofenceInternalServerErrorResponseBody": ".places_get_place_geofence_internal_server_error_response_body",
+    "PlacesGetPlaceGeofenceMethodNotAllowedErrorResponseBody": ".places_get_place_geofence_method_not_allowed_error_response_body",
+    "PlacesGetPlaceGeofenceNotFoundErrorResponseBody": ".places_get_place_geofence_not_found_error_response_body",
+    "PlacesGetPlaceGeofenceNotImplementedErrorResponseBody": ".places_get_place_geofence_not_implemented_error_response_body",
+    "PlacesGetPlaceGeofenceResponseBody": ".places_get_place_geofence_response_body",
+    "PlacesGetPlaceGeofenceServiceUnavailableErrorResponseBody": ".places_get_place_geofence_service_unavailable_error_response_body",
+    "PlacesGetPlaceGeofenceTooManyRequestsErrorResponseBody": ".places_get_place_geofence_too_many_requests_error_response_body",
+    "PlacesGetPlaceGeofenceUnauthorizedErrorResponseBody": ".places_get_place_geofence_unauthorized_error_response_body",
     "PlacesGetPlacesBadGatewayErrorResponseBody": ".places_get_places_bad_gateway_error_response_body",
     "PlacesGetPlacesGatewayTimeoutErrorResponseBody": ".places_get_places_gateway_timeout_error_response_body",
     "PlacesGetPlacesInternalServerErrorResponseBody": ".places_get_places_internal_server_error_response_body",
@@ -10741,6 +10791,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "PostJobObjectRequestBody": ".post_job_object_request_body",
     "PostJobObjectjobLocationRequestObjectRequestBody": ".post_job_objectjob_location_request_object_request_body",
     "PostMediaRetrievalObjectResponseBody": ".post_media_retrieval_object_response_body",
+    "PostPlaceBusinessContactInputRequestBody": ".post_place_business_contact_input_request_body",
+    "PostPlaceBusinessContactsInputRequestBody": ".post_place_business_contacts_input_request_body",
     "PostPlaceNavigationInputRequestBody": ".post_place_navigation_input_request_body",
     "PostPlaceNavigationLocationInputRequestBody": ".post_place_navigation_location_input_request_body",
     "PostPlaceNavigationLocationInputRequestBodyLocationType": ".post_place_navigation_location_input_request_body_location_type",
@@ -14697,6 +14749,8 @@ __all__ = [
     "PersonDetectedResponseBody",
     "PhotoValueObjectRequestBody",
     "PhotoValueObjectResponseBody",
+    "PlaceBusinessContactResponseResponseBody",
+    "PlaceBusinessContactsResponseResponseBody",
     "PlaceDeletionMarkerObjectResponseBody",
     "PlaceDeletionMarkerObjectResponseBodyExternalIds",
     "PlaceGeocodeResultResponseResponseBody",
@@ -14708,6 +14762,8 @@ __all__ = [
     "PlaceGeofencePolygonResponseResponseBody",
     "PlaceGeofenceResponseResponseBody",
     "PlaceGeofenceResponseResponseBodyType",
+    "PlaceGeofenceSuggestionCandidateResponseResponseBody",
+    "PlaceGeofenceSuggestionCandidateResponseResponseBodyType",
     "PlaceGeofenceVertexResponseResponseBody",
     "PlaceNavigationLocationResponseResponseBody",
     "PlaceNavigationResponseResponseBody",
@@ -14754,6 +14810,16 @@ __all__ = [
     "PlacesGetPlaceGeocodeServiceUnavailableErrorResponseBody",
     "PlacesGetPlaceGeocodeTooManyRequestsErrorResponseBody",
     "PlacesGetPlaceGeocodeUnauthorizedErrorResponseBody",
+    "PlacesGetPlaceGeofenceBadGatewayErrorResponseBody",
+    "PlacesGetPlaceGeofenceGatewayTimeoutErrorResponseBody",
+    "PlacesGetPlaceGeofenceInternalServerErrorResponseBody",
+    "PlacesGetPlaceGeofenceMethodNotAllowedErrorResponseBody",
+    "PlacesGetPlaceGeofenceNotFoundErrorResponseBody",
+    "PlacesGetPlaceGeofenceNotImplementedErrorResponseBody",
+    "PlacesGetPlaceGeofenceResponseBody",
+    "PlacesGetPlaceGeofenceServiceUnavailableErrorResponseBody",
+    "PlacesGetPlaceGeofenceTooManyRequestsErrorResponseBody",
+    "PlacesGetPlaceGeofenceUnauthorizedErrorResponseBody",
     "PlacesGetPlacesBadGatewayErrorResponseBody",
     "PlacesGetPlacesGatewayTimeoutErrorResponseBody",
     "PlacesGetPlacesInternalServerErrorResponseBody",
@@ -14835,6 +14901,8 @@ __all__ = [
     "PostJobObjectRequestBody",
     "PostJobObjectjobLocationRequestObjectRequestBody",
     "PostMediaRetrievalObjectResponseBody",
+    "PostPlaceBusinessContactInputRequestBody",
+    "PostPlaceBusinessContactsInputRequestBody",
     "PostPlaceNavigationInputRequestBody",
     "PostPlaceNavigationLocationInputRequestBody",
     "PostPlaceNavigationLocationInputRequestBodyLocationType",
