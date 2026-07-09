@@ -353,6 +353,13 @@ if typing.TYPE_CHECKING:
     from .asset_location_heading import AssetLocationHeading
     from .asset_location_speed import AssetLocationSpeed
     from .asset_name import AssetName
+    from .asset_reefer_alarm_object_response_body import AssetReeferAlarmObjectResponseBody
+    from .asset_reefer_alarms_stat_object_response_body import AssetReeferAlarmsStatObjectResponseBody
+    from .asset_reefer_engine_hours_stat_object_response_body import AssetReeferEngineHoursStatObjectResponseBody
+    from .asset_reefer_fuel_percentage_stat_object_response_body import AssetReeferFuelPercentageStatObjectResponseBody
+    from .asset_reefer_power_status_object_response_body import AssetReeferPowerStatusObjectResponseBody
+    from .asset_reefer_stats_object_response_body import AssetReeferStatsObjectResponseBody
+    from .asset_reefer_temperature_stat_object_response_body import AssetReeferTemperatureStatObjectResponseBody
     from .asset_response import AssetResponse
     from .asset_response_body import AssetResponseBody
     from .asset_response_body_regulation_mode import AssetResponseBodyRegulationMode
@@ -404,6 +411,30 @@ if typing.TYPE_CHECKING:
         AssetsDeleteAssetTooManyRequestsErrorResponseBody,
     )
     from .assets_delete_asset_unauthorized_error_response_body import AssetsDeleteAssetUnauthorizedErrorResponseBody
+    from .assets_get_asset_reefer_bad_gateway_error_response_body import AssetsGetAssetReeferBadGatewayErrorResponseBody
+    from .assets_get_asset_reefer_gateway_timeout_error_response_body import (
+        AssetsGetAssetReeferGatewayTimeoutErrorResponseBody,
+    )
+    from .assets_get_asset_reefer_internal_server_error_response_body import (
+        AssetsGetAssetReeferInternalServerErrorResponseBody,
+    )
+    from .assets_get_asset_reefer_method_not_allowed_error_response_body import (
+        AssetsGetAssetReeferMethodNotAllowedErrorResponseBody,
+    )
+    from .assets_get_asset_reefer_not_found_error_response_body import AssetsGetAssetReeferNotFoundErrorResponseBody
+    from .assets_get_asset_reefer_not_implemented_error_response_body import (
+        AssetsGetAssetReeferNotImplementedErrorResponseBody,
+    )
+    from .assets_get_asset_reefer_response_body import AssetsGetAssetReeferResponseBody
+    from .assets_get_asset_reefer_service_unavailable_error_response_body import (
+        AssetsGetAssetReeferServiceUnavailableErrorResponseBody,
+    )
+    from .assets_get_asset_reefer_too_many_requests_error_response_body import (
+        AssetsGetAssetReeferTooManyRequestsErrorResponseBody,
+    )
+    from .assets_get_asset_reefer_unauthorized_error_response_body import (
+        AssetsGetAssetReeferUnauthorizedErrorResponseBody,
+    )
     from .assets_inputs_asset_response_response_body import AssetsInputsAssetResponseResponseBody
     from .assets_inputs_aux_input_response_body import AssetsInputsAuxInputResponseBody
     from .assets_inputs_get_assets_inputs_bad_gateway_error_response_body import (
@@ -8639,6 +8670,13 @@ _dynamic_imports: typing.Dict[str, str] = {
     "AssetLocationHeading": ".asset_location_heading",
     "AssetLocationSpeed": ".asset_location_speed",
     "AssetName": ".asset_name",
+    "AssetReeferAlarmObjectResponseBody": ".asset_reefer_alarm_object_response_body",
+    "AssetReeferAlarmsStatObjectResponseBody": ".asset_reefer_alarms_stat_object_response_body",
+    "AssetReeferEngineHoursStatObjectResponseBody": ".asset_reefer_engine_hours_stat_object_response_body",
+    "AssetReeferFuelPercentageStatObjectResponseBody": ".asset_reefer_fuel_percentage_stat_object_response_body",
+    "AssetReeferPowerStatusObjectResponseBody": ".asset_reefer_power_status_object_response_body",
+    "AssetReeferStatsObjectResponseBody": ".asset_reefer_stats_object_response_body",
+    "AssetReeferTemperatureStatObjectResponseBody": ".asset_reefer_temperature_stat_object_response_body",
     "AssetResponse": ".asset_response",
     "AssetResponseBody": ".asset_response_body",
     "AssetResponseBodyRegulationMode": ".asset_response_body_regulation_mode",
@@ -8666,6 +8704,16 @@ _dynamic_imports: typing.Dict[str, str] = {
     "AssetsDeleteAssetServiceUnavailableErrorResponseBody": ".assets_delete_asset_service_unavailable_error_response_body",
     "AssetsDeleteAssetTooManyRequestsErrorResponseBody": ".assets_delete_asset_too_many_requests_error_response_body",
     "AssetsDeleteAssetUnauthorizedErrorResponseBody": ".assets_delete_asset_unauthorized_error_response_body",
+    "AssetsGetAssetReeferBadGatewayErrorResponseBody": ".assets_get_asset_reefer_bad_gateway_error_response_body",
+    "AssetsGetAssetReeferGatewayTimeoutErrorResponseBody": ".assets_get_asset_reefer_gateway_timeout_error_response_body",
+    "AssetsGetAssetReeferInternalServerErrorResponseBody": ".assets_get_asset_reefer_internal_server_error_response_body",
+    "AssetsGetAssetReeferMethodNotAllowedErrorResponseBody": ".assets_get_asset_reefer_method_not_allowed_error_response_body",
+    "AssetsGetAssetReeferNotFoundErrorResponseBody": ".assets_get_asset_reefer_not_found_error_response_body",
+    "AssetsGetAssetReeferNotImplementedErrorResponseBody": ".assets_get_asset_reefer_not_implemented_error_response_body",
+    "AssetsGetAssetReeferResponseBody": ".assets_get_asset_reefer_response_body",
+    "AssetsGetAssetReeferServiceUnavailableErrorResponseBody": ".assets_get_asset_reefer_service_unavailable_error_response_body",
+    "AssetsGetAssetReeferTooManyRequestsErrorResponseBody": ".assets_get_asset_reefer_too_many_requests_error_response_body",
+    "AssetsGetAssetReeferUnauthorizedErrorResponseBody": ".assets_get_asset_reefer_unauthorized_error_response_body",
     "AssetsInputsAssetResponseResponseBody": ".assets_inputs_asset_response_response_body",
     "AssetsInputsAuxInputResponseBody": ".assets_inputs_aux_input_response_body",
     "AssetsInputsGetAssetsInputsBadGatewayErrorResponseBody": ".assets_inputs_get_assets_inputs_bad_gateway_error_response_body",
@@ -12749,6 +12797,13 @@ __all__ = [
     "AssetLocationHeading",
     "AssetLocationSpeed",
     "AssetName",
+    "AssetReeferAlarmObjectResponseBody",
+    "AssetReeferAlarmsStatObjectResponseBody",
+    "AssetReeferEngineHoursStatObjectResponseBody",
+    "AssetReeferFuelPercentageStatObjectResponseBody",
+    "AssetReeferPowerStatusObjectResponseBody",
+    "AssetReeferStatsObjectResponseBody",
+    "AssetReeferTemperatureStatObjectResponseBody",
     "AssetResponse",
     "AssetResponseBody",
     "AssetResponseBodyRegulationMode",
@@ -12776,6 +12831,16 @@ __all__ = [
     "AssetsDeleteAssetServiceUnavailableErrorResponseBody",
     "AssetsDeleteAssetTooManyRequestsErrorResponseBody",
     "AssetsDeleteAssetUnauthorizedErrorResponseBody",
+    "AssetsGetAssetReeferBadGatewayErrorResponseBody",
+    "AssetsGetAssetReeferGatewayTimeoutErrorResponseBody",
+    "AssetsGetAssetReeferInternalServerErrorResponseBody",
+    "AssetsGetAssetReeferMethodNotAllowedErrorResponseBody",
+    "AssetsGetAssetReeferNotFoundErrorResponseBody",
+    "AssetsGetAssetReeferNotImplementedErrorResponseBody",
+    "AssetsGetAssetReeferResponseBody",
+    "AssetsGetAssetReeferServiceUnavailableErrorResponseBody",
+    "AssetsGetAssetReeferTooManyRequestsErrorResponseBody",
+    "AssetsGetAssetReeferUnauthorizedErrorResponseBody",
     "AssetsInputsAssetResponseResponseBody",
     "AssetsInputsAuxInputResponseBody",
     "AssetsInputsGetAssetsInputsBadGatewayErrorResponseBody",

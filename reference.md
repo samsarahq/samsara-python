@@ -10752,6 +10752,101 @@ client.assets.v_1_get_assets_reefers(
 </dl>
 </details>
 
+<details><summary><code>client.assets.<a href="src/samsara/assets/client.py">get_asset_reefer</a>(...) -&gt; AsyncHttpResponse[AssetsGetAssetReeferResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Fetch the reefer-specific stats of an asset.
+
+ <b>Rate limit:</b> 25 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Trailers** under the Trailers category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.assets.get_asset_reefer(
+    asset_id=1000000,
+    start_ms=1000000,
+    end_ms=1000000,
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**asset_id:** `int` — ID of the asset. Must contain only digits 0-9.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**start_ms:** `int` — Timestamp in milliseconds representing the start of the period to fetch, inclusive. Used in combination with endMs.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**end_ms:** `int` — Timestamp in milliseconds representing the end of the period to fetch, inclusive. Used in combination with startMs.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.assets.<a href="src/samsara/assets/client.py">v_1_get_asset_location</a>(...) -&gt; AsyncHttpResponse[V1AssetLocationResponse]</code></summary>
 <dl>
 <dd>
