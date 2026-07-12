@@ -2136,7 +2136,7 @@ client.beta_ap_is.get_detections(
 <dl>
 <dd>
 
-Returns all installed cameras (CM3x), vehicle gateways (VGs), and asset gateways (AGs) and their health information within an organization. 
+Returns all installed cameras (CM3x, AIM4, AHD1), vehicle gateways (VGs), asset gateways (AGs), and asset tags (AT11–AT13) and their health information within an organization. 
 
 **Beta:** This endpoint is in beta and is likely to change before being broadly available. Reach out to your Samsara Representative to have Devices API enabled for your organization.
 
@@ -2181,7 +2181,7 @@ client.beta_ap_is.get_devices()
 <dl>
 <dd>
 
-**models:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Optional string of comma separated device models. Valid values: `CM31`, `CM32`, `CM33`, `CM34`, `VG34`, `VG34M`, `VG34EU`, `VG34FN`, `VG54NA`, `VG54EU`, `VG55NA`, `VG55EU`, `AG24`, `AG24EU`, `AG26`, `AG26EU`, `AG45`, `AG45EU`, `AG46`, `AG46EU`, `AG46P`, `AG46PEU`, `AG51`, `AG51EU`, `AG52`, `AG52EU`, `AG53`, `AG53EU`
+**models:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Optional string of comma separated device models. Valid values: `CM31`, `CM32`, `CM33`, `CM34`, `VG34`, `VG34M`, `VG34EU`, `VG34FN`, `VG54NA`, `VG54EU`, `VG55NA`, `VG55EU`, `AG24`, `AG24EU`, `AG26`, `AG26EU`, `AG45`, `AG45EU`, `AG46`, `AG46EU`, `AG46P`, `AG46PEU`, `AG51`, `AG51EU`, `AG52`, `AG52EU`, `AG53`, `AG53EU`, `AT11`, `AT11X`, `AT12`, `AT12X`, `AT13`, `LM11`, `AIM4`, `AHD1`
     
 </dd>
 </dl>
@@ -5574,7 +5574,7 @@ client.beta_ap_is.get_places()
 <dl>
 <dd>
 
-Creates a place. Supply either a polygon `geofence` (at least three vertices) or `radiusMeters` with `latitude` and `longitude`.
+Creates a place. Supply a polygon `geofence`, a circle `geofence`, or an `auto` geofence that resolves geometry server-side.
 
  <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -9233,6 +9233,7 @@ client = Samsara(
 )
 client.beta_ap_is.patch_safety_events_v_2_batch(
     safety_event_ids=[
+        "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
         "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
         "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
     ],
