@@ -4,6 +4,7 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
+from .place_geofence_auto_input_request_body import PlaceGeofenceAutoInputRequestBody
 from .place_geofence_circle_input_request_body import PlaceGeofenceCircleInputRequestBody
 from .place_geofence_input_request_body_type import PlaceGeofenceInputRequestBodyType
 from .place_geofence_polygon_input_request_body import PlaceGeofencePolygonInputRequestBody
@@ -11,14 +12,15 @@ from .place_geofence_polygon_input_request_body import PlaceGeofencePolygonInput
 
 class PlaceGeofenceInputRequestBody(UniversalBaseModel):
     """
-    Discriminated geofence on write. Exactly one of circle or polygon must be set.
+    Discriminated geofence on write. Exactly one of circle, polygon, or auto must be set.
     """
 
+    auto: typing.Optional[PlaceGeofenceAutoInputRequestBody] = None
     circle: typing.Optional[PlaceGeofenceCircleInputRequestBody] = None
     polygon: typing.Optional[PlaceGeofencePolygonInputRequestBody] = None
     type: typing.Optional[PlaceGeofenceInputRequestBodyType] = pydantic.Field(default=None)
     """
-    Geofence type: circle or polygon. When present, must match the populated branch.  Valid values: `circle`, `polygon`
+    Geofence type: circle, polygon, or auto (write only). When present, must match the populated branch.  Valid values: `circle`, `polygon`, `auto`
     """
 
     if IS_PYDANTIC_V2:

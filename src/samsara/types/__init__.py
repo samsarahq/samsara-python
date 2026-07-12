@@ -4557,6 +4557,19 @@ if typing.TYPE_CHECKING:
         PlaceDeletionMarkerObjectResponseBodyExternalIds,
     )
     from .place_geocode_result_response_response_body import PlaceGeocodeResultResponseResponseBody
+    from .place_geofence_auto_fallback_behavior_input_request_body import (
+        PlaceGeofenceAutoFallbackBehaviorInputRequestBody,
+    )
+    from .place_geofence_auto_fallback_behavior_input_request_body_behavior_type import (
+        PlaceGeofenceAutoFallbackBehaviorInputRequestBodyBehaviorType,
+    )
+    from .place_geofence_auto_fallback_circle_input_request_body import PlaceGeofenceAutoFallbackCircleInputRequestBody
+    from .place_geofence_auto_input_request_body import PlaceGeofenceAutoInputRequestBody
+    from .place_geofence_auto_input_request_body_size_order import PlaceGeofenceAutoInputRequestBodySizeOrder
+    from .place_geofence_auto_input_request_body_suggestion_types_item import (
+        PlaceGeofenceAutoInputRequestBodySuggestionTypesItem,
+    )
+    from .place_geofence_auto_search_bounds_input_request_body import PlaceGeofenceAutoSearchBoundsInputRequestBody
     from .place_geofence_circle_input_request_body import PlaceGeofenceCircleInputRequestBody
     from .place_geofence_circle_response_response_body import PlaceGeofenceCircleResponseResponseBody
     from .place_geofence_input_request_body import PlaceGeofenceInputRequestBody
@@ -10692,6 +10705,13 @@ _dynamic_imports: typing.Dict[str, str] = {
     "PlaceDeletionMarkerObjectResponseBody": ".place_deletion_marker_object_response_body",
     "PlaceDeletionMarkerObjectResponseBodyExternalIds": ".place_deletion_marker_object_response_body_external_ids",
     "PlaceGeocodeResultResponseResponseBody": ".place_geocode_result_response_response_body",
+    "PlaceGeofenceAutoFallbackBehaviorInputRequestBody": ".place_geofence_auto_fallback_behavior_input_request_body",
+    "PlaceGeofenceAutoFallbackBehaviorInputRequestBodyBehaviorType": ".place_geofence_auto_fallback_behavior_input_request_body_behavior_type",
+    "PlaceGeofenceAutoFallbackCircleInputRequestBody": ".place_geofence_auto_fallback_circle_input_request_body",
+    "PlaceGeofenceAutoInputRequestBody": ".place_geofence_auto_input_request_body",
+    "PlaceGeofenceAutoInputRequestBodySizeOrder": ".place_geofence_auto_input_request_body_size_order",
+    "PlaceGeofenceAutoInputRequestBodySuggestionTypesItem": ".place_geofence_auto_input_request_body_suggestion_types_item",
+    "PlaceGeofenceAutoSearchBoundsInputRequestBody": ".place_geofence_auto_search_bounds_input_request_body",
     "PlaceGeofenceCircleInputRequestBody": ".place_geofence_circle_input_request_body",
     "PlaceGeofenceCircleResponseResponseBody": ".place_geofence_circle_response_response_body",
     "PlaceGeofenceInputRequestBody": ".place_geofence_input_request_body",
@@ -14819,6 +14839,13 @@ __all__ = [
     "PlaceDeletionMarkerObjectResponseBody",
     "PlaceDeletionMarkerObjectResponseBodyExternalIds",
     "PlaceGeocodeResultResponseResponseBody",
+    "PlaceGeofenceAutoFallbackBehaviorInputRequestBody",
+    "PlaceGeofenceAutoFallbackBehaviorInputRequestBodyBehaviorType",
+    "PlaceGeofenceAutoFallbackCircleInputRequestBody",
+    "PlaceGeofenceAutoInputRequestBody",
+    "PlaceGeofenceAutoInputRequestBodySizeOrder",
+    "PlaceGeofenceAutoInputRequestBodySuggestionTypesItem",
+    "PlaceGeofenceAutoSearchBoundsInputRequestBody",
     "PlaceGeofenceCircleInputRequestBody",
     "PlaceGeofenceCircleResponseResponseBody",
     "PlaceGeofenceInputRequestBody",

@@ -2,4 +2,4 @@
 
 import typing
 
-PlaceGeofenceInputRequestBodyType = typing.Union[typing.Literal["circle", "polygon"], typing.Any]
+PlaceGeofenceInputRequestBodyType = typing.Union[typing.Literal["circle", "polygon", "auto"], typing.Any]
