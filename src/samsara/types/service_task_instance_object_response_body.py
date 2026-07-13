@@ -8,6 +8,7 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .part_instance_object_response_body import PartInstanceObjectResponseBody
 from .service_task_instance_object_response_body_status import ServiceTaskInstanceObjectResponseBodyStatus
+from .service_task_subtask_object_response_body import ServiceTaskSubtaskObjectResponseBody
 from .work_order_money_object_response_body import WorkOrderMoneyObjectResponseBody
 
 
@@ -54,6 +55,11 @@ class ServiceTaskInstanceObjectResponseBody(UniversalBaseModel):
     status: ServiceTaskInstanceObjectResponseBodyStatus = pydantic.Field()
     """
     The status of the service task.  Valid values: `Unknown`, `Open`, `In Progress`, `On Hold`, `Completed`
+    """
+
+    subtasks: typing.Optional[typing.List[ServiceTaskSubtaskObjectResponseBody]] = pydantic.Field(default=None)
+    """
+    Subtasks for the service task.
     """
 
     if IS_PYDANTIC_V2:
