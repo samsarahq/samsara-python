@@ -9,6 +9,7 @@ from ..core.serialization import FieldMetadata
 from .defect_photo_response_response_body import DefectPhotoResponseResponseBody
 from .defect_trailer_response_response_body import DefectTrailerResponseResponseBody
 from .defect_vehicle_response_response_body import DefectVehicleResponseResponseBody
+from .defects_response_data_response_body_defect_safety_status import DefectsResponseDataResponseBodyDefectSafetyStatus
 from .dvir_resolved_by_object_response_body import DvirResolvedByObjectResponseBody
 
 
@@ -31,6 +32,14 @@ class DefectsResponseDataResponseBody(UniversalBaseModel):
         typing.Optional[typing.List[DefectPhotoResponseResponseBody]],
         FieldMetadata(alias="defectPhotos"),
         pydantic.Field(alias="defectPhotos", description="List of DVIR defect's photos"),
+    ] = None
+    defect_safety_status: typing_extensions.Annotated[
+        typing.Optional[DefectsResponseDataResponseBodyDefectSafetyStatus],
+        FieldMetadata(alias="defectSafetyStatus"),
+        pydantic.Field(
+            alias="defectSafetyStatus",
+            description="Driver-designated safety classification for this defect.  Valid values: `safe`, `unsafe`",
+        ),
     ] = None
     defect_type_id: typing_extensions.Annotated[
         typing.Optional[str],

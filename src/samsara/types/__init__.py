@@ -781,6 +781,9 @@ if typing.TYPE_CHECKING:
     from .defect_vehicle_response_response_body import DefectVehicleResponseResponseBody
     from .defects_response import DefectsResponse
     from .defects_response_data_response_body import DefectsResponseDataResponseBody
+    from .defects_response_data_response_body_defect_safety_status import (
+        DefectsResponseDataResponseBodyDefectSafetyStatus,
+    )
     from .deploy_function_detail_response_body import DeployFunctionDetailResponseBody
     from .depreciation_get_depreciation_transactions_bad_gateway_error_response_body import (
         DepreciationGetDepreciationTransactionsBadGatewayErrorResponseBody,
@@ -1724,6 +1727,9 @@ if typing.TYPE_CHECKING:
         DvirDefectGetDefectNotImplementedErrorResponseBody,
     )
     from .dvir_defect_get_defect_response_body import DvirDefectGetDefectResponseBody
+    from .dvir_defect_get_defect_response_body_defect_safety_status import (
+        DvirDefectGetDefectResponseBodyDefectSafetyStatus,
+    )
     from .dvir_defect_get_defect_service_unavailable_error_response_body import (
         DvirDefectGetDefectServiceUnavailableErrorResponseBody,
     )
@@ -6540,6 +6546,7 @@ if typing.TYPE_CHECKING:
     from .sensor_response_body import SensorResponseBody
     from .serial import Serial
     from .service_task_definition_object_response_body import ServiceTaskDefinitionObjectResponseBody
+    from .service_task_form_subtask_object_response_body import ServiceTaskFormSubtaskObjectResponseBody
     from .service_task_instance_input_object_request_body import ServiceTaskInstanceInputObjectRequestBody
     from .service_task_instance_input_object_request_body_status import ServiceTaskInstanceInputObjectRequestBodyStatus
     from .service_task_instance_object_response_body import ServiceTaskInstanceObjectResponseBody
@@ -6550,6 +6557,8 @@ if typing.TYPE_CHECKING:
     from .service_task_instance_with_time_entries_object_response_body_status import (
         ServiceTaskInstanceWithTimeEntriesObjectResponseBodyStatus,
     )
+    from .service_task_procedure_subtask_object_response_body import ServiceTaskProcedureSubtaskObjectResponseBody
+    from .service_task_subtask_object_response_body import ServiceTaskSubtaskObjectResponseBody
     from .service_window_object_response_body import ServiceWindowObjectResponseBody
     from .settings_compliance_response_object_response_body import SettingsComplianceResponseObjectResponseBody
     from .settings_get_compliance_settings_bad_gateway_error_response_body import (
@@ -8945,6 +8954,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "DefectVehicleResponseResponseBody": ".defect_vehicle_response_response_body",
     "DefectsResponse": ".defects_response",
     "DefectsResponseDataResponseBody": ".defects_response_data_response_body",
+    "DefectsResponseDataResponseBodyDefectSafetyStatus": ".defects_response_data_response_body_defect_safety_status",
     "DeployFunctionDetailResponseBody": ".deploy_function_detail_response_body",
     "DepreciationGetDepreciationTransactionsBadGatewayErrorResponseBody": ".depreciation_get_depreciation_transactions_bad_gateway_error_response_body",
     "DepreciationGetDepreciationTransactionsGatewayTimeoutErrorResponseBody": ".depreciation_get_depreciation_transactions_gateway_timeout_error_response_body",
@@ -9354,6 +9364,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "DvirDefectGetDefectNotFoundErrorResponseBody": ".dvir_defect_get_defect_not_found_error_response_body",
     "DvirDefectGetDefectNotImplementedErrorResponseBody": ".dvir_defect_get_defect_not_implemented_error_response_body",
     "DvirDefectGetDefectResponseBody": ".dvir_defect_get_defect_response_body",
+    "DvirDefectGetDefectResponseBodyDefectSafetyStatus": ".dvir_defect_get_defect_response_body_defect_safety_status",
     "DvirDefectGetDefectServiceUnavailableErrorResponseBody": ".dvir_defect_get_defect_service_unavailable_error_response_body",
     "DvirDefectGetDefectTooManyRequestsErrorResponseBody": ".dvir_defect_get_defect_too_many_requests_error_response_body",
     "DvirDefectGetDefectUnauthorizedErrorResponseBody": ".dvir_defect_get_defect_unauthorized_error_response_body",
@@ -11568,12 +11579,15 @@ _dynamic_imports: typing.Dict[str, str] = {
     "SensorResponseBody": ".sensor_response_body",
     "Serial": ".serial",
     "ServiceTaskDefinitionObjectResponseBody": ".service_task_definition_object_response_body",
+    "ServiceTaskFormSubtaskObjectResponseBody": ".service_task_form_subtask_object_response_body",
     "ServiceTaskInstanceInputObjectRequestBody": ".service_task_instance_input_object_request_body",
     "ServiceTaskInstanceInputObjectRequestBodyStatus": ".service_task_instance_input_object_request_body_status",
     "ServiceTaskInstanceObjectResponseBody": ".service_task_instance_object_response_body",
     "ServiceTaskInstanceObjectResponseBodyStatus": ".service_task_instance_object_response_body_status",
     "ServiceTaskInstanceWithTimeEntriesObjectResponseBody": ".service_task_instance_with_time_entries_object_response_body",
     "ServiceTaskInstanceWithTimeEntriesObjectResponseBodyStatus": ".service_task_instance_with_time_entries_object_response_body_status",
+    "ServiceTaskProcedureSubtaskObjectResponseBody": ".service_task_procedure_subtask_object_response_body",
+    "ServiceTaskSubtaskObjectResponseBody": ".service_task_subtask_object_response_body",
     "ServiceWindowObjectResponseBody": ".service_window_object_response_body",
     "SettingsComplianceResponseObjectResponseBody": ".settings_compliance_response_object_response_body",
     "SettingsGetComplianceSettingsBadGatewayErrorResponseBody": ".settings_get_compliance_settings_bad_gateway_error_response_body",
@@ -13079,6 +13093,7 @@ __all__ = [
     "DefectVehicleResponseResponseBody",
     "DefectsResponse",
     "DefectsResponseDataResponseBody",
+    "DefectsResponseDataResponseBodyDefectSafetyStatus",
     "DeployFunctionDetailResponseBody",
     "DepreciationGetDepreciationTransactionsBadGatewayErrorResponseBody",
     "DepreciationGetDepreciationTransactionsGatewayTimeoutErrorResponseBody",
@@ -13488,6 +13503,7 @@ __all__ = [
     "DvirDefectGetDefectNotFoundErrorResponseBody",
     "DvirDefectGetDefectNotImplementedErrorResponseBody",
     "DvirDefectGetDefectResponseBody",
+    "DvirDefectGetDefectResponseBodyDefectSafetyStatus",
     "DvirDefectGetDefectServiceUnavailableErrorResponseBody",
     "DvirDefectGetDefectTooManyRequestsErrorResponseBody",
     "DvirDefectGetDefectUnauthorizedErrorResponseBody",
@@ -15702,12 +15718,15 @@ __all__ = [
     "SensorResponseBody",
     "Serial",
     "ServiceTaskDefinitionObjectResponseBody",
+    "ServiceTaskFormSubtaskObjectResponseBody",
     "ServiceTaskInstanceInputObjectRequestBody",
     "ServiceTaskInstanceInputObjectRequestBodyStatus",
     "ServiceTaskInstanceObjectResponseBody",
     "ServiceTaskInstanceObjectResponseBodyStatus",
     "ServiceTaskInstanceWithTimeEntriesObjectResponseBody",
     "ServiceTaskInstanceWithTimeEntriesObjectResponseBodyStatus",
+    "ServiceTaskProcedureSubtaskObjectResponseBody",
+    "ServiceTaskSubtaskObjectResponseBody",
     "ServiceWindowObjectResponseBody",
     "SettingsComplianceResponseObjectResponseBody",
     "SettingsGetComplianceSettingsBadGatewayErrorResponseBody",
