@@ -13,14 +13,14 @@ class PlaceGeofenceCircleInputRequestBody(UniversalBaseModel):
     Circle geofence on write.
     """
 
-    latitude: float = pydantic.Field()
+    latitude: typing.Optional[float] = pydantic.Field(default=None)
     """
-    Circle center latitude in decimal degrees.
+    Circle center latitude in decimal degrees. Omit on POST to geocode from top-level address.
     """
 
-    longitude: float = pydantic.Field()
+    longitude: typing.Optional[float] = pydantic.Field(default=None)
     """
-    Circle center longitude in decimal degrees.
+    Circle center longitude in decimal degrees. Omit on POST to geocode from top-level address.
     """
 
     radius_meters: typing_extensions.Annotated[
