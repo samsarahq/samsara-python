@@ -10,7 +10,7 @@ from ..core.serialization import FieldMetadata
 
 class PlaceGeofenceAutoFallbackCircleInputRequestBody(UniversalBaseModel):
     """
-    Circle geometry used when fallbackBehavior.behaviorType is circle.
+    Circle geometry for circle fallback. When present, behaviorType defaults to circle if omitted.
     """
 
     radius_meters: typing_extensions.Annotated[

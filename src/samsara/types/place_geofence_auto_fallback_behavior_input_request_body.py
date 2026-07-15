@@ -22,7 +22,7 @@ class PlaceGeofenceAutoFallbackBehaviorInputRequestBody(UniversalBaseModel):
         FieldMetadata(alias="behaviorType"),
         pydantic.Field(
             alias="behaviorType",
-            description="Fallback action: fail (default) or circle.  Valid values: `fail`, `circle`",
+            description="Fallback action: fail (default) or circle. Optional when fallbackBehavior.circle is set; inferred as circle.  Valid values: `fail`, `circle`",
         ),
     ] = None
     circle: typing.Optional[PlaceGeofenceAutoFallbackCircleInputRequestBody] = None

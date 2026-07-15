@@ -345,6 +345,8 @@ class RawReadingsClient:
             * `remoteSensingDistance` (Sensor distance measurement): Distance measured by remote sensing device (meter)
             * `smoothedFillMass` (Smoothed Fill Mass): Algorithm smoothed mass value in the vessel. (kilogram)
             * `smoothedFillVolume` (Smoothed Fill Volume): Algorithm smoothed volume value in the vessel. (liter)
+            * `totalCapacityMass` (Total Capacity Mass): Total mass capacity of the vessel. (kilogram)
+            * `totalCapacityVolume` (Total Capacity Volume): Total volume capacity of the vessel. (liter)
 
             </details>
 
@@ -806,6 +808,8 @@ class RawReadingsClient:
             * `remoteSensingDistance` (Sensor distance measurement): Distance measured by remote sensing device (meter)
             * `smoothedFillMass` (Smoothed Fill Mass): Algorithm smoothed mass value in the vessel. (kilogram)
             * `smoothedFillVolume` (Smoothed Fill Volume): Algorithm smoothed volume value in the vessel. (liter)
+            * `totalCapacityMass` (Total Capacity Mass): Total mass capacity of the vessel. (kilogram)
+            * `totalCapacityVolume` (Total Capacity Volume): Total volume capacity of the vessel. (liter)
 
             </details>
 
@@ -1429,6 +1433,8 @@ class AsyncRawReadingsClient:
             * `remoteSensingDistance` (Sensor distance measurement): Distance measured by remote sensing device (meter)
             * `smoothedFillMass` (Smoothed Fill Mass): Algorithm smoothed mass value in the vessel. (kilogram)
             * `smoothedFillVolume` (Smoothed Fill Volume): Algorithm smoothed volume value in the vessel. (liter)
+            * `totalCapacityMass` (Total Capacity Mass): Total mass capacity of the vessel. (kilogram)
+            * `totalCapacityVolume` (Total Capacity Volume): Total volume capacity of the vessel. (liter)
 
             </details>
 
@@ -1890,6 +1896,8 @@ class AsyncRawReadingsClient:
             * `remoteSensingDistance` (Sensor distance measurement): Distance measured by remote sensing device (meter)
             * `smoothedFillMass` (Smoothed Fill Mass): Algorithm smoothed mass value in the vessel. (kilogram)
             * `smoothedFillVolume` (Smoothed Fill Volume): Algorithm smoothed volume value in the vessel. (liter)
+            * `totalCapacityMass` (Total Capacity Mass): Total mass capacity of the vessel. (kilogram)
+            * `totalCapacityVolume` (Total Capacity Volume): Total volume capacity of the vessel. (liter)
 
             </details>
 
