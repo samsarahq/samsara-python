@@ -7,6 +7,7 @@ from importlib import import_module
 
 if typing.TYPE_CHECKING:
     from .types import (
+        AssetAssignmentsCreateAssetAssignmentRequestBodyAssigneeType,
         DeviceRecoveryRecoverAssetRequestBodyMissingReason,
         DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus,
         DeviceRecoveryRecoverAssetRequestBodyStatus,
@@ -34,6 +35,7 @@ if typing.TYPE_CHECKING:
         TachographFileUploadsPostTachographFileUploadRequestBodyFileType,
     )
 _dynamic_imports: typing.Dict[str, str] = {
+    "AssetAssignmentsCreateAssetAssignmentRequestBodyAssigneeType": ".types",
     "DeviceRecoveryRecoverAssetRequestBodyMissingReason": ".types",
     "DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus": ".types",
     "DeviceRecoveryRecoverAssetRequestBodyStatus": ".types",
@@ -84,6 +86,7 @@ def __dir__():
 
 
 __all__ = [
+    "AssetAssignmentsCreateAssetAssignmentRequestBodyAssigneeType",
     "DeviceRecoveryRecoverAssetRequestBodyMissingReason",
     "DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus",
     "DeviceRecoveryRecoverAssetRequestBodyStatus",

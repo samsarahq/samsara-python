@@ -414,6 +414,7 @@ class RawFormsClient:
         approval_details: typing.Optional[FormSubmissionRequestApprovalDetailsRequestBody] = OMIT,
         assigned_to: typing.Optional[FormSubmissionRequestAssignedToRequestBody] = OMIT,
         due_at_time: typing.Optional[dt.datetime] = OMIT,
+        fields: typing.Optional[typing.Sequence[FormSubmissionRequestFieldInputObjectRequestBody]] = OMIT,
         is_required: typing.Optional[bool] = OMIT,
         route_stop_id: typing.Optional[str] = OMIT,
         status: typing.Optional[FormSubmissionsPatchFormSubmissionRequestBodyStatus] = OMIT,
@@ -441,6 +442,9 @@ class RawFormsClient:
 
         due_at_time : typing.Optional[dt.datetime]
             Due date of the form submission. UTC timestamp in RFC 3339 format.
+
+        fields : typing.Optional[typing.Sequence[FormSubmissionRequestFieldInputObjectRequestBody]]
+            List of field inputs to update in a form submission.
 
         is_required : typing.Optional[bool]
             Indicates whether the worker is required to complete this form or not at a specific route stop. Defaults to `true` if the form is assigned to a user or driver. When true, the worker cannot depart the route stop until this form submission is `submitted`.
@@ -475,6 +479,11 @@ class RawFormsClient:
                     object_=assigned_to, annotation=FormSubmissionRequestAssignedToRequestBody, direction="write"
                 ),
                 "dueAtTime": due_at_time,
+                "fields": convert_and_respect_annotation_metadata(
+                    object_=fields,
+                    annotation=typing.Sequence[FormSubmissionRequestFieldInputObjectRequestBody],
+                    direction="write",
+                ),
                 "id": id,
                 "isRequired": is_required,
                 "routeStopId": route_stop_id,
@@ -1603,6 +1612,7 @@ class AsyncRawFormsClient:
         approval_details: typing.Optional[FormSubmissionRequestApprovalDetailsRequestBody] = OMIT,
         assigned_to: typing.Optional[FormSubmissionRequestAssignedToRequestBody] = OMIT,
         due_at_time: typing.Optional[dt.datetime] = OMIT,
+        fields: typing.Optional[typing.Sequence[FormSubmissionRequestFieldInputObjectRequestBody]] = OMIT,
         is_required: typing.Optional[bool] = OMIT,
         route_stop_id: typing.Optional[str] = OMIT,
         status: typing.Optional[FormSubmissionsPatchFormSubmissionRequestBodyStatus] = OMIT,
@@ -1630,6 +1640,9 @@ class AsyncRawFormsClient:
 
         due_at_time : typing.Optional[dt.datetime]
             Due date of the form submission. UTC timestamp in RFC 3339 format.
+
+        fields : typing.Optional[typing.Sequence[FormSubmissionRequestFieldInputObjectRequestBody]]
+            List of field inputs to update in a form submission.
 
         is_required : typing.Optional[bool]
             Indicates whether the worker is required to complete this form or not at a specific route stop. Defaults to `true` if the form is assigned to a user or driver. When true, the worker cannot depart the route stop until this form submission is `submitted`.
@@ -1664,6 +1677,11 @@ class AsyncRawFormsClient:
                     object_=assigned_to, annotation=FormSubmissionRequestAssignedToRequestBody, direction="write"
                 ),
                 "dueAtTime": due_at_time,
+                "fields": convert_and_respect_annotation_metadata(
+                    object_=fields,
+                    annotation=typing.Sequence[FormSubmissionRequestFieldInputObjectRequestBody],
+                    direction="write",
+                ),
                 "id": id,
                 "isRequired": is_required,
                 "routeStopId": route_stop_id,

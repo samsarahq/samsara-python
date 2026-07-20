@@ -73,7 +73,7 @@ def test_betaApIs_update_engine_immobilizer_state() -> None:
     """Test updateEngineImmobilizerState endpoint with WireMock"""
     test_id = "beta_ap_is.update_engine_immobilizer_state.0"
     client = get_client(test_id)
-    client.beta_ap_is.update_engine_immobilizer_state(id=1000000, relay_states=[{"id": "relay1", "is_open": False}])
+    client.beta_ap_is.update_engine_immobilizer_state(id=1000000, relay_states=[{"id": "relay1", "is_open": True}])
     verify_request_count(test_id, "PATCH", "/beta/fleet/vehicles/1000000/immobilizer", None, 1)
 
 
@@ -132,6 +132,30 @@ def test_betaApIs_get_devices() -> None:
     verify_request_count(test_id, "GET", "/devices", None, 1)
 
 
+def test_betaApIs_list_asset_assignments() -> None:
+    """Test listAssetAssignments endpoint with WireMock"""
+    test_id = "beta_ap_is.list_asset_assignments.0"
+    client = get_client(test_id)
+    client.beta_ap_is.list_asset_assignments()
+    verify_request_count(test_id, "GET", "/fleet/assets/assignments", None, 1)
+
+
+def test_betaApIs_create_asset_assignment() -> None:
+    """Test createAssetAssignment endpoint with WireMock"""
+    test_id = "beta_ap_is.create_asset_assignment.0"
+    client = get_client(test_id)
+    client.beta_ap_is.create_asset_assignment(asset_id="281474978683353", assignee_id="494123", assignee_type="driver")
+    verify_request_count(test_id, "POST", "/fleet/assets/assignments", None, 1)
+
+
+def test_betaApIs_unassign_asset_assignment() -> None:
+    """Test unassignAssetAssignment endpoint with WireMock"""
+    test_id = "beta_ap_is.unassign_asset_assignment.0"
+    client = get_client(test_id)
+    client.beta_ap_is.unassign_asset_assignment(asset_id="281474978683353")
+    verify_request_count(test_id, "POST", "/fleet/assets/assignments/unassign", None, 1)
+
+
 def test_betaApIs_list_device_recovery_missing_assets() -> None:
     """Test listDeviceRecoveryMissingAssets endpoint with WireMock"""
     test_id = "beta_ap_is.list_device_recovery_missing_assets.0"
@@ -178,6 +202,14 @@ def test_betaApIs_list_driver_workflows() -> None:
     client = get_client(test_id)
     client.beta_ap_is.list_driver_workflows()
     verify_request_count(test_id, "GET", "/fleet/drivers/workflows", None, 1)
+
+
+def test_betaApIs_get_fleet_installer_photo_uploads() -> None:
+    """Test getFleetInstallerPhotoUploads endpoint with WireMock"""
+    test_id = "beta_ap_is.get_fleet_installer_photo_uploads.0"
+    client = get_client(test_id)
+    client.beta_ap_is.get_fleet_installer_photo_uploads()
+    verify_request_count(test_id, "GET", "/fleet/installer/photo-uploads", None, 1)
 
 
 def test_betaApIs_list_vendor_categories() -> None:
@@ -401,6 +433,14 @@ def test_betaApIs_delete_hub_route_template() -> None:
     client = get_client(test_id)
     client.beta_ap_is.delete_hub_route_template(id="id")
     verify_request_count(test_id, "DELETE", "/hub/route-templates", {"id": "id"}, 1)
+
+
+def test_betaApIs_update_hub_route_template() -> None:
+    """Test updateHubRouteTemplate endpoint with WireMock"""
+    test_id = "beta_ap_is.update_hub_route_template.0"
+    client = get_client(test_id)
+    client.beta_ap_is.update_hub_route_template(id="id")
+    verify_request_count(test_id, "PATCH", "/hub/route-templates", {"id": "id"}, 1)
 
 
 def test_betaApIs_list_preventive_maintenance_schedules() -> None:
@@ -754,6 +794,10 @@ def test_betaApIs_patch_safety_events_v_2_batch() -> None:
     test_id = "beta_ap_is.patch_safety_events_v_2_batch.0"
     client = get_client(test_id)
     client.beta_ap_is.patch_safety_events_v_2_batch(
-        safety_event_ids=["bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590", "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590"]
+        safety_event_ids=[
+            "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
+            "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
+            "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
+        ]
     )
     verify_request_count(test_id, "PATCH", "/safety-events/batch", None, 1)
