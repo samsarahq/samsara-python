@@ -42,12 +42,12 @@ class PlaceGeofenceAutoInputRequestBody(UniversalBaseModel):
     ] = None
     latitude: typing.Optional[float] = pydantic.Field(default=None)
     """
-    Seed latitude in WGS84 decimal degrees. Omit to geocode from top-level address.
+    Seed latitude in WGS84 decimal degrees. Supply together with longitude, or omit both to geocode from top-level address.
     """
 
     longitude: typing.Optional[float] = pydantic.Field(default=None)
     """
-    Seed longitude in WGS84 decimal degrees. Omit to geocode from top-level address.
+    Seed longitude in WGS84 decimal degrees. Supply together with latitude, or omit both to geocode from top-level address.
     """
 
     max_area_square_meters: typing_extensions.Annotated[
