@@ -9,14 +9,6 @@ def test_previewApIs_create_driver_auth_token() -> None:
     verify_request_count(test_id, "POST", "/preview/fleet/drivers/create-auth-token", None, 1)
 
 
-def test_previewApIs_get_fleet_installer_photo_uploads() -> None:
-    """Test getFleetInstallerPhotoUploads endpoint with WireMock"""
-    test_id = "preview_ap_is.get_fleet_installer_photo_uploads.0"
-    client = get_client(test_id)
-    client.preview_ap_is.get_fleet_installer_photo_uploads()
-    verify_request_count(test_id, "GET", "/preview/fleet/installer/photo-uploads", None, 1)
-
-
 def test_previewApIs_post_fleet_installer_photo_upload() -> None:
     """Test postFleetInstallerPhotoUpload endpoint with WireMock"""
     test_id = "preview_ap_is.post_fleet_installer_photo_upload.0"

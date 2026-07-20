@@ -7,9 +7,6 @@ from ..core.request_options import RequestOptions
 from ..types.drivers_auth_token_create_driver_auth_token_response_body import (
     DriversAuthTokenCreateDriverAuthTokenResponseBody,
 )
-from ..types.fleet_installer_photo_uploads_get_fleet_installer_photo_uploads_response_body import (
-    FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsResponseBody,
-)
 from ..types.fleet_installer_photo_uploads_post_fleet_installer_photo_upload_complete_response_body import (
     FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteResponseBody,
 )
@@ -106,67 +103,6 @@ class PreviewApIsClient:
         """
         _response = self._raw_client.create_driver_auth_token(
             code=code, external_id=external_id, id=id, username=username, request_options=request_options
-        )
-        return _response.data
-
-    def get_fleet_installer_photo_uploads(
-        self,
-        *,
-        ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        start_time: typing.Optional[str] = None,
-        end_time: typing.Optional[str] = None,
-        after: typing.Optional[str] = None,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsResponseBody:
-        """
-        Returns fleet installer photo upload sessions for the caller's org. Results are ordered by updatedAtTime ascending and paginated (up to 25 per page). Supports filtering by session IDs, startTime, and endTime. Omitting startTime returns all sessions for the org. endTime requires startTime.
-
-         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Read Devices** under the Devices category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
-
-        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
-
-        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Comma-separated list of upload session IDs to filter by. Max 100 IDs. When a single ID is provided and not found, returns 404. When multiple IDs are provided and any are not found, returns 400.
-
-        start_time : typing.Optional[str]
-            A start time in RFC 3339 format. When provided, returns sessions where updatedAtTime >= startTime. Omit to return sessions regardless of time. Combine with endTime for a bounded window.
-
-        end_time : typing.Optional[str]
-            An end time in RFC 3339 format. Returns sessions where updatedAtTime < endTime. Requires startTime — returns 400 if provided without startTime. Must be after startTime. Millisecond precision and timezones are supported. (Examples: 2026-06-13T19:08:25Z, 2026-06-13T19:08:25.455Z, OR 2026-06-13T14:00:12-04:00).
-
-        after : typing.Optional[str]
-             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsResponseBody
-            OK response.
-
-        Examples
-        --------
-        from samsara import Samsara
-
-        client = Samsara(
-            token="YOUR_TOKEN",
-        )
-        client.preview_ap_is.get_fleet_installer_photo_uploads()
-        """
-        _response = self._raw_client.get_fleet_installer_photo_uploads(
-            ids=ids, start_time=start_time, end_time=end_time, after=after, request_options=request_options
         )
         return _response.data
 
@@ -474,75 +410,6 @@ class AsyncPreviewApIsClient:
         """
         _response = await self._raw_client.create_driver_auth_token(
             code=code, external_id=external_id, id=id, username=username, request_options=request_options
-        )
-        return _response.data
-
-    async def get_fleet_installer_photo_uploads(
-        self,
-        *,
-        ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        start_time: typing.Optional[str] = None,
-        end_time: typing.Optional[str] = None,
-        after: typing.Optional[str] = None,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsResponseBody:
-        """
-        Returns fleet installer photo upload sessions for the caller's org. Results are ordered by updatedAtTime ascending and paginated (up to 25 per page). Supports filtering by session IDs, startTime, and endTime. Omitting startTime returns all sessions for the org. endTime requires startTime.
-
-         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Read Devices** under the Devices category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
-
-        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
-
-        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Comma-separated list of upload session IDs to filter by. Max 100 IDs. When a single ID is provided and not found, returns 404. When multiple IDs are provided and any are not found, returns 400.
-
-        start_time : typing.Optional[str]
-            A start time in RFC 3339 format. When provided, returns sessions where updatedAtTime >= startTime. Omit to return sessions regardless of time. Combine with endTime for a bounded window.
-
-        end_time : typing.Optional[str]
-            An end time in RFC 3339 format. Returns sessions where updatedAtTime < endTime. Requires startTime — returns 400 if provided without startTime. Must be after startTime. Millisecond precision and timezones are supported. (Examples: 2026-06-13T19:08:25Z, 2026-06-13T19:08:25.455Z, OR 2026-06-13T14:00:12-04:00).
-
-        after : typing.Optional[str]
-             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsResponseBody
-            OK response.
-
-        Examples
-        --------
-        import asyncio
-
-        from samsara import AsyncSamsara
-
-        client = AsyncSamsara(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.preview_ap_is.get_fleet_installer_photo_uploads()
-
-
-        asyncio.run(main())
-        """
-        _response = await self._raw_client.get_fleet_installer_photo_uploads(
-            ids=ids, start_time=start_time, end_time=end_time, after=after, request_options=request_options
         )
         return _response.data
 

@@ -1534,7 +1534,7 @@ client.beta_ap_is.update_engine_immobilizer_state(
     relay_states=[
         UpdateEngineImmobilizerRelayStateRequestBodyRequestBody(
             id="relay1",
-            is_open=False,
+            is_open=True,
         )
     ],
 )
@@ -2257,6 +2257,285 @@ client.beta_ap_is.get_devices()
 </dl>
 </details>
 
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_asset_assignments</a>(...) -&gt; AsyncHttpResponse[AssetAssignmentsListAssetAssignmentsResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List active asset assignments for the authorized organization. This endpoint only returns currently active assignments. During Beta, response ordering is implementation-defined and will stabilize before GA when database-backed pagination lands.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.list_asset_assignments()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**include_external_ids:** `typing.Optional[bool]` — Optional boolean indicating whether to return external IDs for the referenced asset and assignee objects. Defaults to false.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**asset_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Optional comma-separated list of asset IDs to filter on. IDs may be Samsara asset IDs or external IDs in the format key:value. The response contains the union of matching assets.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**assignee_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Optional comma-separated list of assignee IDs to filter on. IDs may be Samsara assignee IDs or external IDs in the format key:value. The response contains the union of matching assignees.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">create_asset_assignment</a>(...) -&gt; AsyncHttpResponse[AssetAssignmentsCreateAssetAssignmentResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create an asset assignment.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.create_asset_assignment(
+    asset_id="281474978683353",
+    assignee_id="494123",
+    assignee_type="driver",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**asset_id:** `str` — Samsara ID of the asset.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**assignee_id:** `str` — Samsara ID of the assignee.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**assignee_type:** `AssetAssignmentsCreateAssetAssignmentRequestBodyAssigneeType` — Type of the assignee. This required field has no default.  Valid values: `driver`, `asset`, `geofence`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**expected_end_time:** `typing.Optional[dt.datetime]` — Optional. The expected end time of the assignment in RFC 3339 format. Must be strictly after the current time.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">unassign_asset_assignment</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Unassign an active asset assignment.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.unassign_asset_assignment(
+    asset_id="281474978683353",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**asset_id:** `str` — Samsara ID of the asset.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_device_recovery_missing_assets</a>(...) -&gt; AsyncHttpResponse[DeviceRecoveryListDeviceRecoveryMissingAssetsResponseBody]</code></summary>
 <dl>
 <dd>
@@ -2792,6 +3071,107 @@ client.beta_ap_is.list_driver_workflows()
 <dd>
 
 **workflow_type:** `typing.Optional[ListDriverWorkflowsRequestWorkflowType]` — Filter the result to workflows of a specific type. When omitted, workflows of all types are returned.  Valid values: `startOfDay`, `endOfDay`, `assetSelection`, `leaveAsset`, `ridershipSafetyCheck`, `stopArrival`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_fleet_installer_photo_uploads</a>(...) -&gt; AsyncHttpResponse[
+    FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsResponseBody
+]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns fleet installer photo upload sessions for the caller's org. Results are ordered by updatedAtTime ascending and paginated (up to 25 per page). Supports filtering by session IDs, startTime, and endTime. Omitting startTime returns all sessions for the org. endTime requires startTime.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Devices** under the Devices category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.get_fleet_installer_photo_uploads()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Comma-separated list of upload session IDs to filter by. Max 100 IDs. When a single ID is provided and not found, returns 404. When multiple IDs are provided and any are not found, returns 400.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**start_time:** `typing.Optional[str]` — A start time in RFC 3339 format. When provided, returns sessions where updatedAtTime >= startTime. Omit to return sessions regardless of time. Combine with endTime for a bounded window.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**end_time:** `typing.Optional[str]` — An end time in RFC 3339 format. Returns sessions where updatedAtTime < endTime. Requires startTime — returns 400 if provided without startTime. Must be after startTime. Millisecond precision and timezones are supported. (Examples: 2026-06-13T19:08:25Z, 2026-06-13T19:08:25.455Z, OR 2026-06-13T14:00:12-04:00).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
     
 </dd>
 </dl>
@@ -5119,6 +5499,123 @@ client.beta_ap_is.delete_hub_route_template(
 <dd>
 
 **id:** `str` — The unique identifier of the route template to delete.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">update_hub_route_template</a>(...) -&gt; AsyncHttpResponse[HubRouteTemplatesUpdateHubRouteTemplateResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Update an existing route template by its unique identifier. Only the fields provided in the request body are changed.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.update_hub_route_template(
+    id="id",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` — The unique identifier of the route template to update.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**default_depot_end_external_id:** `typing.Optional[str]` — The external identifier of the default end depot, as configured in the hub. Send an empty string to clear it.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**default_depot_start_external_id:** `typing.Optional[str]` — The external identifier of the default start depot, as configured in the hub. Send an empty string to clear it.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**default_start_time_of_day:** `typing.Optional[str]` — Default start time in HH:MM format in the hub's local timezone (e.g. '08:00'). Send an empty string to clear it.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**locations_by_external_ids:** `typing.Optional[typing.Sequence[str]]` — Full replacement of the ordered stop list, referenced by external ID. Omit to leave stops unchanged; send an empty array to clear all stops.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `typing.Optional[str]` — The new name of the route template.
     
 </dd>
 </dl>
@@ -9235,6 +9732,7 @@ client.beta_ap_is.patch_safety_events_v_2_batch(
     safety_event_ids=[
         "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
         "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
+        "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
     ],
 )
 
@@ -9537,7 +10035,7 @@ client.alerts.post_configurations(
     is_enabled=True,
     name="My Harsh Event Alert",
     scope=ScopeObjectRequestBody(
-        all_=False,
+        all_=True,
     ),
     triggers=[
         WorkflowTriggerObjectRequestBody(
@@ -25275,6 +25773,16 @@ client.forms.patch_form_submission(
 <dl>
 <dd>
 
+**fields:** `typing.Optional[
+    typing.Sequence[FormSubmissionRequestFieldInputObjectRequestBody]
+]` — List of field inputs to update in a form submission.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **is_required:** `typing.Optional[bool]` — Indicates whether the worker is required to complete this form or not at a specific route stop. Defaults to `true` if the form is assigned to a user or driver. When true, the worker cannot depart the route stop until this form submission is `submitted`.
     
 </dd>
@@ -30824,113 +31332,6 @@ client.preview_ap_is.create_driver_auth_token(
 <dd>
 
 **username:** `typing.Optional[str]` — Optional. Username of the driver. This is the login identifier configured when the driver is created. One of `id`, `externalId`, or `username` is required.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.preview_ap_is.<a href="src/samsara/preview_ap_is/client.py">get_fleet_installer_photo_uploads</a>(...) -&gt; AsyncHttpResponse[
-    FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsResponseBody
-]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Returns fleet installer photo upload sessions for the caller's org. Results are ordered by updatedAtTime ascending and paginated (up to 25 per page). Supports filtering by session IDs, startTime, and endTime. Omitting startTime returns all sessions for the org. endTime requires startTime.
-
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Read Devices** under the Devices category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
-
-- Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
-
-- When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.preview_ap_is.get_fleet_installer_photo_uploads()
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Comma-separated list of upload session IDs to filter by. Max 100 IDs. When a single ID is provided and not found, returns 404. When multiple IDs are provided and any are not found, returns 400.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**start_time:** `typing.Optional[str]` — A start time in RFC 3339 format. When provided, returns sessions where updatedAtTime >= startTime. Omit to return sessions regardless of time. Combine with endTime for a bounded window.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**end_time:** `typing.Optional[str]` — An end time in RFC 3339 format. Returns sessions where updatedAtTime < endTime. Requires startTime — returns 400 if provided without startTime. Must be after startTime. Millisecond precision and timezones are supported. (Examples: 2026-06-13T19:08:25Z, 2026-06-13T19:08:25.455Z, OR 2026-06-13T14:00:12-04:00).
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
     
 </dd>
 </dl>
