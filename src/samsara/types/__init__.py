@@ -1142,6 +1142,12 @@ if typing.TYPE_CHECKING:
         CreateHubRouteTemplateDepotStartInputRequestBody,
     )
     from .create_hub_route_template_object_response_body import CreateHubRouteTemplateObjectResponseBody
+    from .create_part_entity_part_definition_money_input_type_request_body import (
+        CreatePartEntityPartDefinitionMoneyInputTypeRequestBody,
+    )
+    from .create_part_entity_part_definition_money_type_response_body import (
+        CreatePartEntityPartDefinitionMoneyTypeResponseBody,
+    )
     from .create_report_config_column_request_body import CreateReportConfigColumnRequestBody
     from .create_report_config_object_request_body import CreateReportConfigObjectRequestBody
     from .create_routes_stop_request_object_request_body import CreateRoutesStopRequestObjectRequestBody
@@ -2338,12 +2344,131 @@ if typing.TYPE_CHECKING:
     from .engine_on_details_object_response_body import EngineOnDetailsObjectResponseBody
     from .engine_on_response_body import EngineOnResponseBody
     from .engine_status_response_body import EngineStatusResponseBody
+    from .entity_create_part_type_response_body import EntityCreatePartTypeResponseBody
+    from .entity_list_parts_type_response_body import EntityListPartsTypeResponseBody
     from .entity_list_preventive_maintenance_schedules_type_response_body import (
         EntityListPreventiveMaintenanceSchedulesTypeResponseBody,
     )
     from .entity_list_tachograph_live_data_type_response_body import EntityListTachographLiveDataTypeResponseBody
     from .entity_list_upcoming_preventive_maintenance_type_response_body import (
         EntityListUpcomingPreventiveMaintenanceTypeResponseBody,
+    )
+    from .entity_part_definitions_service_create_part_bad_gateway_error_response_body import (
+        EntityPartDefinitionsServiceCreatePartBadGatewayErrorResponseBody,
+    )
+    from .entity_part_definitions_service_create_part_gateway_timeout_error_response_body import (
+        EntityPartDefinitionsServiceCreatePartGatewayTimeoutErrorResponseBody,
+    )
+    from .entity_part_definitions_service_create_part_internal_server_error_response_body import (
+        EntityPartDefinitionsServiceCreatePartInternalServerErrorResponseBody,
+    )
+    from .entity_part_definitions_service_create_part_method_not_allowed_error_response_body import (
+        EntityPartDefinitionsServiceCreatePartMethodNotAllowedErrorResponseBody,
+    )
+    from .entity_part_definitions_service_create_part_not_found_error_response_body import (
+        EntityPartDefinitionsServiceCreatePartNotFoundErrorResponseBody,
+    )
+    from .entity_part_definitions_service_create_part_not_implemented_error_response_body import (
+        EntityPartDefinitionsServiceCreatePartNotImplementedErrorResponseBody,
+    )
+    from .entity_part_definitions_service_create_part_response_body import (
+        EntityPartDefinitionsServiceCreatePartResponseBody,
+    )
+    from .entity_part_definitions_service_create_part_service_unavailable_error_response_body import (
+        EntityPartDefinitionsServiceCreatePartServiceUnavailableErrorResponseBody,
+    )
+    from .entity_part_definitions_service_create_part_too_many_requests_error_response_body import (
+        EntityPartDefinitionsServiceCreatePartTooManyRequestsErrorResponseBody,
+    )
+    from .entity_part_definitions_service_create_part_unauthorized_error_response_body import (
+        EntityPartDefinitionsServiceCreatePartUnauthorizedErrorResponseBody,
+    )
+    from .entity_part_definitions_service_delete_part_bad_gateway_error_response_body import (
+        EntityPartDefinitionsServiceDeletePartBadGatewayErrorResponseBody,
+    )
+    from .entity_part_definitions_service_delete_part_gateway_timeout_error_response_body import (
+        EntityPartDefinitionsServiceDeletePartGatewayTimeoutErrorResponseBody,
+    )
+    from .entity_part_definitions_service_delete_part_internal_server_error_response_body import (
+        EntityPartDefinitionsServiceDeletePartInternalServerErrorResponseBody,
+    )
+    from .entity_part_definitions_service_delete_part_method_not_allowed_error_response_body import (
+        EntityPartDefinitionsServiceDeletePartMethodNotAllowedErrorResponseBody,
+    )
+    from .entity_part_definitions_service_delete_part_not_found_error_response_body import (
+        EntityPartDefinitionsServiceDeletePartNotFoundErrorResponseBody,
+    )
+    from .entity_part_definitions_service_delete_part_not_implemented_error_response_body import (
+        EntityPartDefinitionsServiceDeletePartNotImplementedErrorResponseBody,
+    )
+    from .entity_part_definitions_service_delete_part_service_unavailable_error_response_body import (
+        EntityPartDefinitionsServiceDeletePartServiceUnavailableErrorResponseBody,
+    )
+    from .entity_part_definitions_service_delete_part_too_many_requests_error_response_body import (
+        EntityPartDefinitionsServiceDeletePartTooManyRequestsErrorResponseBody,
+    )
+    from .entity_part_definitions_service_delete_part_unauthorized_error_response_body import (
+        EntityPartDefinitionsServiceDeletePartUnauthorizedErrorResponseBody,
+    )
+    from .entity_part_definitions_service_list_parts_bad_gateway_error_response_body import (
+        EntityPartDefinitionsServiceListPartsBadGatewayErrorResponseBody,
+    )
+    from .entity_part_definitions_service_list_parts_gateway_timeout_error_response_body import (
+        EntityPartDefinitionsServiceListPartsGatewayTimeoutErrorResponseBody,
+    )
+    from .entity_part_definitions_service_list_parts_internal_server_error_response_body import (
+        EntityPartDefinitionsServiceListPartsInternalServerErrorResponseBody,
+    )
+    from .entity_part_definitions_service_list_parts_method_not_allowed_error_response_body import (
+        EntityPartDefinitionsServiceListPartsMethodNotAllowedErrorResponseBody,
+    )
+    from .entity_part_definitions_service_list_parts_not_found_error_response_body import (
+        EntityPartDefinitionsServiceListPartsNotFoundErrorResponseBody,
+    )
+    from .entity_part_definitions_service_list_parts_not_implemented_error_response_body import (
+        EntityPartDefinitionsServiceListPartsNotImplementedErrorResponseBody,
+    )
+    from .entity_part_definitions_service_list_parts_response_body import (
+        EntityPartDefinitionsServiceListPartsResponseBody,
+    )
+    from .entity_part_definitions_service_list_parts_service_unavailable_error_response_body import (
+        EntityPartDefinitionsServiceListPartsServiceUnavailableErrorResponseBody,
+    )
+    from .entity_part_definitions_service_list_parts_too_many_requests_error_response_body import (
+        EntityPartDefinitionsServiceListPartsTooManyRequestsErrorResponseBody,
+    )
+    from .entity_part_definitions_service_list_parts_unauthorized_error_response_body import (
+        EntityPartDefinitionsServiceListPartsUnauthorizedErrorResponseBody,
+    )
+    from .entity_part_definitions_service_update_part_bad_gateway_error_response_body import (
+        EntityPartDefinitionsServiceUpdatePartBadGatewayErrorResponseBody,
+    )
+    from .entity_part_definitions_service_update_part_gateway_timeout_error_response_body import (
+        EntityPartDefinitionsServiceUpdatePartGatewayTimeoutErrorResponseBody,
+    )
+    from .entity_part_definitions_service_update_part_internal_server_error_response_body import (
+        EntityPartDefinitionsServiceUpdatePartInternalServerErrorResponseBody,
+    )
+    from .entity_part_definitions_service_update_part_method_not_allowed_error_response_body import (
+        EntityPartDefinitionsServiceUpdatePartMethodNotAllowedErrorResponseBody,
+    )
+    from .entity_part_definitions_service_update_part_not_found_error_response_body import (
+        EntityPartDefinitionsServiceUpdatePartNotFoundErrorResponseBody,
+    )
+    from .entity_part_definitions_service_update_part_not_implemented_error_response_body import (
+        EntityPartDefinitionsServiceUpdatePartNotImplementedErrorResponseBody,
+    )
+    from .entity_part_definitions_service_update_part_response_body import (
+        EntityPartDefinitionsServiceUpdatePartResponseBody,
+    )
+    from .entity_part_definitions_service_update_part_service_unavailable_error_response_body import (
+        EntityPartDefinitionsServiceUpdatePartServiceUnavailableErrorResponseBody,
+    )
+    from .entity_part_definitions_service_update_part_too_many_requests_error_response_body import (
+        EntityPartDefinitionsServiceUpdatePartTooManyRequestsErrorResponseBody,
+    )
+    from .entity_part_definitions_service_update_part_unauthorized_error_response_body import (
+        EntityPartDefinitionsServiceUpdatePartUnauthorizedErrorResponseBody,
     )
     from .entity_preventative_maintenance_schedule_preventative_maintenance_schedule_ref_type_response_body import (
         EntityPreventativeMaintenanceSchedulePreventativeMaintenanceScheduleRefTypeResponseBody,
@@ -2447,6 +2572,7 @@ if typing.TYPE_CHECKING:
     from .entity_upcoming_preventative_maintenances_service_list_upcoming_preventive_maintenance_unauthorized_error_response_body import (
         EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceUnauthorizedErrorResponseBody,
     )
+    from .entity_update_part_type_response_body import EntityUpdatePartTypeResponseBody
     from .enum_reading_alert_threshold_response_body import EnumReadingAlertThresholdResponseBody
     from .enum_value_response_body import EnumValueResponseBody
     from .equipment_engine_rpm import EquipmentEngineRpm
@@ -4600,6 +4726,9 @@ if typing.TYPE_CHECKING:
     from .list_hub_skills_response_pagination_response_body import ListHubSkillsResponsePaginationResponseBody
     from .list_hubs_response_pagination_response_body import ListHubsResponsePaginationResponseBody
     from .list_industrial_assets_response import ListIndustrialAssetsResponse
+    from .list_parts_entity_part_definition_money_type_response_body import (
+        ListPartsEntityPartDefinitionMoneyTypeResponseBody,
+    )
     from .list_plan_orders_response_pagination_response_body import ListPlanOrdersResponsePaginationResponseBody
     from .list_tags_response import ListTagsResponse
     from .list_uploaded_media_object_response_body import ListUploadedMediaObjectResponseBody
@@ -7989,6 +8118,12 @@ if typing.TYPE_CHECKING:
     )
     from .update_function_storage_file_detail_response_body import UpdateFunctionStorageFileDetailResponseBody
     from .update_hub_location_request_body_request_body import UpdateHubLocationRequestBodyRequestBody
+    from .update_part_entity_part_definition_money_input_type_request_body import (
+        UpdatePartEntityPartDefinitionMoneyInputTypeRequestBody,
+    )
+    from .update_part_entity_part_definition_money_type_response_body import (
+        UpdatePartEntityPartDefinitionMoneyTypeResponseBody,
+    )
     from .update_routes_stop_request_object_request_body import UpdateRoutesStopRequestObjectRequestBody
     from .update_shared_asset_request_object_request_body import UpdateSharedAssetRequestObjectRequestBody
     from .uploaded_media_object_response_body import UploadedMediaObjectResponseBody
@@ -9529,6 +9664,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "CreateHubRouteTemplateDepotEndInputRequestBody": ".create_hub_route_template_depot_end_input_request_body",
     "CreateHubRouteTemplateDepotStartInputRequestBody": ".create_hub_route_template_depot_start_input_request_body",
     "CreateHubRouteTemplateObjectResponseBody": ".create_hub_route_template_object_response_body",
+    "CreatePartEntityPartDefinitionMoneyInputTypeRequestBody": ".create_part_entity_part_definition_money_input_type_request_body",
+    "CreatePartEntityPartDefinitionMoneyTypeResponseBody": ".create_part_entity_part_definition_money_type_response_body",
     "CreateReportConfigColumnRequestBody": ".create_report_config_column_request_body",
     "CreateReportConfigObjectRequestBody": ".create_report_config_object_request_body",
     "CreateRoutesStopRequestObjectRequestBody": ".create_routes_stop_request_object_request_body",
@@ -10093,9 +10230,50 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EngineOnDetailsObjectResponseBody": ".engine_on_details_object_response_body",
     "EngineOnResponseBody": ".engine_on_response_body",
     "EngineStatusResponseBody": ".engine_status_response_body",
+    "EntityCreatePartTypeResponseBody": ".entity_create_part_type_response_body",
+    "EntityListPartsTypeResponseBody": ".entity_list_parts_type_response_body",
     "EntityListPreventiveMaintenanceSchedulesTypeResponseBody": ".entity_list_preventive_maintenance_schedules_type_response_body",
     "EntityListTachographLiveDataTypeResponseBody": ".entity_list_tachograph_live_data_type_response_body",
     "EntityListUpcomingPreventiveMaintenanceTypeResponseBody": ".entity_list_upcoming_preventive_maintenance_type_response_body",
+    "EntityPartDefinitionsServiceCreatePartBadGatewayErrorResponseBody": ".entity_part_definitions_service_create_part_bad_gateway_error_response_body",
+    "EntityPartDefinitionsServiceCreatePartGatewayTimeoutErrorResponseBody": ".entity_part_definitions_service_create_part_gateway_timeout_error_response_body",
+    "EntityPartDefinitionsServiceCreatePartInternalServerErrorResponseBody": ".entity_part_definitions_service_create_part_internal_server_error_response_body",
+    "EntityPartDefinitionsServiceCreatePartMethodNotAllowedErrorResponseBody": ".entity_part_definitions_service_create_part_method_not_allowed_error_response_body",
+    "EntityPartDefinitionsServiceCreatePartNotFoundErrorResponseBody": ".entity_part_definitions_service_create_part_not_found_error_response_body",
+    "EntityPartDefinitionsServiceCreatePartNotImplementedErrorResponseBody": ".entity_part_definitions_service_create_part_not_implemented_error_response_body",
+    "EntityPartDefinitionsServiceCreatePartResponseBody": ".entity_part_definitions_service_create_part_response_body",
+    "EntityPartDefinitionsServiceCreatePartServiceUnavailableErrorResponseBody": ".entity_part_definitions_service_create_part_service_unavailable_error_response_body",
+    "EntityPartDefinitionsServiceCreatePartTooManyRequestsErrorResponseBody": ".entity_part_definitions_service_create_part_too_many_requests_error_response_body",
+    "EntityPartDefinitionsServiceCreatePartUnauthorizedErrorResponseBody": ".entity_part_definitions_service_create_part_unauthorized_error_response_body",
+    "EntityPartDefinitionsServiceDeletePartBadGatewayErrorResponseBody": ".entity_part_definitions_service_delete_part_bad_gateway_error_response_body",
+    "EntityPartDefinitionsServiceDeletePartGatewayTimeoutErrorResponseBody": ".entity_part_definitions_service_delete_part_gateway_timeout_error_response_body",
+    "EntityPartDefinitionsServiceDeletePartInternalServerErrorResponseBody": ".entity_part_definitions_service_delete_part_internal_server_error_response_body",
+    "EntityPartDefinitionsServiceDeletePartMethodNotAllowedErrorResponseBody": ".entity_part_definitions_service_delete_part_method_not_allowed_error_response_body",
+    "EntityPartDefinitionsServiceDeletePartNotFoundErrorResponseBody": ".entity_part_definitions_service_delete_part_not_found_error_response_body",
+    "EntityPartDefinitionsServiceDeletePartNotImplementedErrorResponseBody": ".entity_part_definitions_service_delete_part_not_implemented_error_response_body",
+    "EntityPartDefinitionsServiceDeletePartServiceUnavailableErrorResponseBody": ".entity_part_definitions_service_delete_part_service_unavailable_error_response_body",
+    "EntityPartDefinitionsServiceDeletePartTooManyRequestsErrorResponseBody": ".entity_part_definitions_service_delete_part_too_many_requests_error_response_body",
+    "EntityPartDefinitionsServiceDeletePartUnauthorizedErrorResponseBody": ".entity_part_definitions_service_delete_part_unauthorized_error_response_body",
+    "EntityPartDefinitionsServiceListPartsBadGatewayErrorResponseBody": ".entity_part_definitions_service_list_parts_bad_gateway_error_response_body",
+    "EntityPartDefinitionsServiceListPartsGatewayTimeoutErrorResponseBody": ".entity_part_definitions_service_list_parts_gateway_timeout_error_response_body",
+    "EntityPartDefinitionsServiceListPartsInternalServerErrorResponseBody": ".entity_part_definitions_service_list_parts_internal_server_error_response_body",
+    "EntityPartDefinitionsServiceListPartsMethodNotAllowedErrorResponseBody": ".entity_part_definitions_service_list_parts_method_not_allowed_error_response_body",
+    "EntityPartDefinitionsServiceListPartsNotFoundErrorResponseBody": ".entity_part_definitions_service_list_parts_not_found_error_response_body",
+    "EntityPartDefinitionsServiceListPartsNotImplementedErrorResponseBody": ".entity_part_definitions_service_list_parts_not_implemented_error_response_body",
+    "EntityPartDefinitionsServiceListPartsResponseBody": ".entity_part_definitions_service_list_parts_response_body",
+    "EntityPartDefinitionsServiceListPartsServiceUnavailableErrorResponseBody": ".entity_part_definitions_service_list_parts_service_unavailable_error_response_body",
+    "EntityPartDefinitionsServiceListPartsTooManyRequestsErrorResponseBody": ".entity_part_definitions_service_list_parts_too_many_requests_error_response_body",
+    "EntityPartDefinitionsServiceListPartsUnauthorizedErrorResponseBody": ".entity_part_definitions_service_list_parts_unauthorized_error_response_body",
+    "EntityPartDefinitionsServiceUpdatePartBadGatewayErrorResponseBody": ".entity_part_definitions_service_update_part_bad_gateway_error_response_body",
+    "EntityPartDefinitionsServiceUpdatePartGatewayTimeoutErrorResponseBody": ".entity_part_definitions_service_update_part_gateway_timeout_error_response_body",
+    "EntityPartDefinitionsServiceUpdatePartInternalServerErrorResponseBody": ".entity_part_definitions_service_update_part_internal_server_error_response_body",
+    "EntityPartDefinitionsServiceUpdatePartMethodNotAllowedErrorResponseBody": ".entity_part_definitions_service_update_part_method_not_allowed_error_response_body",
+    "EntityPartDefinitionsServiceUpdatePartNotFoundErrorResponseBody": ".entity_part_definitions_service_update_part_not_found_error_response_body",
+    "EntityPartDefinitionsServiceUpdatePartNotImplementedErrorResponseBody": ".entity_part_definitions_service_update_part_not_implemented_error_response_body",
+    "EntityPartDefinitionsServiceUpdatePartResponseBody": ".entity_part_definitions_service_update_part_response_body",
+    "EntityPartDefinitionsServiceUpdatePartServiceUnavailableErrorResponseBody": ".entity_part_definitions_service_update_part_service_unavailable_error_response_body",
+    "EntityPartDefinitionsServiceUpdatePartTooManyRequestsErrorResponseBody": ".entity_part_definitions_service_update_part_too_many_requests_error_response_body",
+    "EntityPartDefinitionsServiceUpdatePartUnauthorizedErrorResponseBody": ".entity_part_definitions_service_update_part_unauthorized_error_response_body",
     "EntityPreventativeMaintenanceSchedulePreventativeMaintenanceScheduleRefTypeResponseBody": ".entity_preventative_maintenance_schedule_preventative_maintenance_schedule_ref_type_response_body",
     "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesBadGatewayErrorResponseBody": ".entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_bad_gateway_error_response_body",
     "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesGatewayTimeoutErrorResponseBody": ".entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_gateway_timeout_error_response_body",
@@ -10130,6 +10308,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceServiceUnavailableErrorResponseBody": ".entity_upcoming_preventative_maintenances_service_list_upcoming_preventive_maintenance_service_unavailable_error_response_body",
     "EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceTooManyRequestsErrorResponseBody": ".entity_upcoming_preventative_maintenances_service_list_upcoming_preventive_maintenance_too_many_requests_error_response_body",
     "EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceUnauthorizedErrorResponseBody": ".entity_upcoming_preventative_maintenances_service_list_upcoming_preventive_maintenance_unauthorized_error_response_body",
+    "EntityUpdatePartTypeResponseBody": ".entity_update_part_type_response_body",
     "EnumReadingAlertThresholdResponseBody": ".enum_reading_alert_threshold_response_body",
     "EnumValueResponseBody": ".enum_value_response_body",
     "EquipmentEngineRpm": ".equipment_engine_rpm",
@@ -11139,6 +11318,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "ListHubSkillsResponsePaginationResponseBody": ".list_hub_skills_response_pagination_response_body",
     "ListHubsResponsePaginationResponseBody": ".list_hubs_response_pagination_response_body",
     "ListIndustrialAssetsResponse": ".list_industrial_assets_response",
+    "ListPartsEntityPartDefinitionMoneyTypeResponseBody": ".list_parts_entity_part_definition_money_type_response_body",
     "ListPlanOrdersResponsePaginationResponseBody": ".list_plan_orders_response_pagination_response_body",
     "ListTagsResponse": ".list_tags_response",
     "ListUploadedMediaObjectResponseBody": ".list_uploaded_media_object_response_body",
@@ -12658,6 +12838,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "UpdateEngineImmobilizerRelayStateRequestBodyRequestBodyId": ".update_engine_immobilizer_relay_state_request_body_request_body_id",
     "UpdateFunctionStorageFileDetailResponseBody": ".update_function_storage_file_detail_response_body",
     "UpdateHubLocationRequestBodyRequestBody": ".update_hub_location_request_body_request_body",
+    "UpdatePartEntityPartDefinitionMoneyInputTypeRequestBody": ".update_part_entity_part_definition_money_input_type_request_body",
+    "UpdatePartEntityPartDefinitionMoneyTypeResponseBody": ".update_part_entity_part_definition_money_type_response_body",
     "UpdateRoutesStopRequestObjectRequestBody": ".update_routes_stop_request_object_request_body",
     "UpdateSharedAssetRequestObjectRequestBody": ".update_shared_asset_request_object_request_body",
     "UploadedMediaObjectResponseBody": ".uploaded_media_object_response_body",
@@ -13836,6 +14018,8 @@ __all__ = [
     "CreateHubRouteTemplateDepotEndInputRequestBody",
     "CreateHubRouteTemplateDepotStartInputRequestBody",
     "CreateHubRouteTemplateObjectResponseBody",
+    "CreatePartEntityPartDefinitionMoneyInputTypeRequestBody",
+    "CreatePartEntityPartDefinitionMoneyTypeResponseBody",
     "CreateReportConfigColumnRequestBody",
     "CreateReportConfigObjectRequestBody",
     "CreateRoutesStopRequestObjectRequestBody",
@@ -14400,9 +14584,50 @@ __all__ = [
     "EngineOnDetailsObjectResponseBody",
     "EngineOnResponseBody",
     "EngineStatusResponseBody",
+    "EntityCreatePartTypeResponseBody",
+    "EntityListPartsTypeResponseBody",
     "EntityListPreventiveMaintenanceSchedulesTypeResponseBody",
     "EntityListTachographLiveDataTypeResponseBody",
     "EntityListUpcomingPreventiveMaintenanceTypeResponseBody",
+    "EntityPartDefinitionsServiceCreatePartBadGatewayErrorResponseBody",
+    "EntityPartDefinitionsServiceCreatePartGatewayTimeoutErrorResponseBody",
+    "EntityPartDefinitionsServiceCreatePartInternalServerErrorResponseBody",
+    "EntityPartDefinitionsServiceCreatePartMethodNotAllowedErrorResponseBody",
+    "EntityPartDefinitionsServiceCreatePartNotFoundErrorResponseBody",
+    "EntityPartDefinitionsServiceCreatePartNotImplementedErrorResponseBody",
+    "EntityPartDefinitionsServiceCreatePartResponseBody",
+    "EntityPartDefinitionsServiceCreatePartServiceUnavailableErrorResponseBody",
+    "EntityPartDefinitionsServiceCreatePartTooManyRequestsErrorResponseBody",
+    "EntityPartDefinitionsServiceCreatePartUnauthorizedErrorResponseBody",
+    "EntityPartDefinitionsServiceDeletePartBadGatewayErrorResponseBody",
+    "EntityPartDefinitionsServiceDeletePartGatewayTimeoutErrorResponseBody",
+    "EntityPartDefinitionsServiceDeletePartInternalServerErrorResponseBody",
+    "EntityPartDefinitionsServiceDeletePartMethodNotAllowedErrorResponseBody",
+    "EntityPartDefinitionsServiceDeletePartNotFoundErrorResponseBody",
+    "EntityPartDefinitionsServiceDeletePartNotImplementedErrorResponseBody",
+    "EntityPartDefinitionsServiceDeletePartServiceUnavailableErrorResponseBody",
+    "EntityPartDefinitionsServiceDeletePartTooManyRequestsErrorResponseBody",
+    "EntityPartDefinitionsServiceDeletePartUnauthorizedErrorResponseBody",
+    "EntityPartDefinitionsServiceListPartsBadGatewayErrorResponseBody",
+    "EntityPartDefinitionsServiceListPartsGatewayTimeoutErrorResponseBody",
+    "EntityPartDefinitionsServiceListPartsInternalServerErrorResponseBody",
+    "EntityPartDefinitionsServiceListPartsMethodNotAllowedErrorResponseBody",
+    "EntityPartDefinitionsServiceListPartsNotFoundErrorResponseBody",
+    "EntityPartDefinitionsServiceListPartsNotImplementedErrorResponseBody",
+    "EntityPartDefinitionsServiceListPartsResponseBody",
+    "EntityPartDefinitionsServiceListPartsServiceUnavailableErrorResponseBody",
+    "EntityPartDefinitionsServiceListPartsTooManyRequestsErrorResponseBody",
+    "EntityPartDefinitionsServiceListPartsUnauthorizedErrorResponseBody",
+    "EntityPartDefinitionsServiceUpdatePartBadGatewayErrorResponseBody",
+    "EntityPartDefinitionsServiceUpdatePartGatewayTimeoutErrorResponseBody",
+    "EntityPartDefinitionsServiceUpdatePartInternalServerErrorResponseBody",
+    "EntityPartDefinitionsServiceUpdatePartMethodNotAllowedErrorResponseBody",
+    "EntityPartDefinitionsServiceUpdatePartNotFoundErrorResponseBody",
+    "EntityPartDefinitionsServiceUpdatePartNotImplementedErrorResponseBody",
+    "EntityPartDefinitionsServiceUpdatePartResponseBody",
+    "EntityPartDefinitionsServiceUpdatePartServiceUnavailableErrorResponseBody",
+    "EntityPartDefinitionsServiceUpdatePartTooManyRequestsErrorResponseBody",
+    "EntityPartDefinitionsServiceUpdatePartUnauthorizedErrorResponseBody",
     "EntityPreventativeMaintenanceSchedulePreventativeMaintenanceScheduleRefTypeResponseBody",
     "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesBadGatewayErrorResponseBody",
     "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesGatewayTimeoutErrorResponseBody",
@@ -14437,6 +14662,7 @@ __all__ = [
     "EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceServiceUnavailableErrorResponseBody",
     "EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceTooManyRequestsErrorResponseBody",
     "EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceUnauthorizedErrorResponseBody",
+    "EntityUpdatePartTypeResponseBody",
     "EnumReadingAlertThresholdResponseBody",
     "EnumValueResponseBody",
     "EquipmentEngineRpm",
@@ -15446,6 +15672,7 @@ __all__ = [
     "ListHubSkillsResponsePaginationResponseBody",
     "ListHubsResponsePaginationResponseBody",
     "ListIndustrialAssetsResponse",
+    "ListPartsEntityPartDefinitionMoneyTypeResponseBody",
     "ListPlanOrdersResponsePaginationResponseBody",
     "ListTagsResponse",
     "ListUploadedMediaObjectResponseBody",
@@ -16965,6 +17192,8 @@ __all__ = [
     "UpdateEngineImmobilizerRelayStateRequestBodyRequestBodyId",
     "UpdateFunctionStorageFileDetailResponseBody",
     "UpdateHubLocationRequestBodyRequestBody",
+    "UpdatePartEntityPartDefinitionMoneyInputTypeRequestBody",
+    "UpdatePartEntityPartDefinitionMoneyTypeResponseBody",
     "UpdateRoutesStopRequestObjectRequestBody",
     "UpdateSharedAssetRequestObjectRequestBody",
     "UploadedMediaObjectResponseBody",

@@ -50,6 +50,9 @@ from ..types.create_hub_route_template_depot_end_input_request_body import (
 from ..types.create_hub_route_template_depot_start_input_request_body import (
     CreateHubRouteTemplateDepotStartInputRequestBody,
 )
+from ..types.create_part_entity_part_definition_money_input_type_request_body import (
+    CreatePartEntityPartDefinitionMoneyInputTypeRequestBody,
+)
 from ..types.create_report_config_object_request_body import CreateReportConfigObjectRequestBody
 from ..types.create_shared_asset_request_object_request_body import CreateSharedAssetRequestObjectRequestBody
 from ..types.depreciation_get_depreciation_transactions_response_body import (
@@ -69,6 +72,15 @@ from ..types.driver_workflow_assignments_post_driver_workflow_assignment_respons
 from ..types.driver_workflows_list_driver_workflows_response_body import DriverWorkflowsListDriverWorkflowsResponseBody
 from ..types.engine_immobilizer_get_engine_immobilizer_states_response_body import (
     EngineImmobilizerGetEngineImmobilizerStatesResponseBody,
+)
+from ..types.entity_part_definitions_service_create_part_response_body import (
+    EntityPartDefinitionsServiceCreatePartResponseBody,
+)
+from ..types.entity_part_definitions_service_list_parts_response_body import (
+    EntityPartDefinitionsServiceListPartsResponseBody,
+)
+from ..types.entity_part_definitions_service_update_part_response_body import (
+    EntityPartDefinitionsServiceUpdatePartResponseBody,
 )
 from ..types.entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_response_body import (
     EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesResponseBody,
@@ -229,6 +241,9 @@ from ..types.tachograph_file_uploads_post_tachograph_file_upload_response_body i
 )
 from ..types.update_engine_immobilizer_relay_state_request_body_request_body import (
     UpdateEngineImmobilizerRelayStateRequestBodyRequestBody,
+)
+from ..types.update_part_entity_part_definition_money_input_type_request_body import (
+    UpdatePartEntityPartDefinitionMoneyInputTypeRequestBody,
 )
 from ..types.update_shared_asset_request_object_request_body import UpdateSharedAssetRequestObjectRequestBody
 from ..types.work_orders_get_work_order_templates_response_body import WorkOrdersGetWorkOrderTemplatesResponseBody
@@ -3728,6 +3743,277 @@ class BetaApIsClient:
             default_start_time_of_day=default_start_time_of_day,
             locations_by_external_ids=locations_by_external_ids,
             name=name,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def list_parts(
+        self,
+        *,
+        id_in: typing.Optional[str] = None,
+        part_ids: typing.Optional[str] = None,
+        part_status: typing.Optional[str] = None,
+        include_deleted: typing.Optional[bool] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityPartDefinitionsServiceListPartsResponseBody:
+        """
+        Returns a paginated list of parts for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id_in : typing.Optional[str]
+            A filter on the data based on this comma-separated list of ID values.
+
+        part_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Part ID values.
+
+        part_status : typing.Optional[str]
+            A filter on the data based on Part status. Status of the part.
+
+        include_deleted : typing.Optional[bool]
+            Whether to include deleted parts in the response. Defaults to false.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityPartDefinitionsServiceListPartsResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.list_parts()
+        """
+        _response = self._raw_client.list_parts(
+            id_in=id_in,
+            part_ids=part_ids,
+            part_status=part_status,
+            include_deleted=include_deleted,
+            after=after,
+            limit=limit,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def create_part(
+        self,
+        *,
+        part_number: str,
+        barcode_string: typing.Optional[str] = OMIT,
+        description: typing.Optional[str] = OMIT,
+        is_inventory_tracked: typing.Optional[bool] = OMIT,
+        manufacturer_part_number: typing.Optional[str] = OMIT,
+        name: typing.Optional[str] = OMIT,
+        unit_cost: typing.Optional[CreatePartEntityPartDefinitionMoneyInputTypeRequestBody] = OMIT,
+        vmrs_code: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityPartDefinitionsServiceCreatePartResponseBody:
+        """
+        Creates a part for the organization.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        part_number : str
+            Customer-visible part number for the part.
+
+        barcode_string : typing.Optional[str]
+            Barcode associated with the part definition.
+
+        description : typing.Optional[str]
+            Description of the part definition.
+
+        is_inventory_tracked : typing.Optional[bool]
+            Whether inventory tracking is enabled for this part.
+
+        manufacturer_part_number : typing.Optional[str]
+            Manufacturer-supplied part number.
+
+        name : typing.Optional[str]
+            Name of the part definition.
+
+        unit_cost : typing.Optional[CreatePartEntityPartDefinitionMoneyInputTypeRequestBody]
+
+        vmrs_code : typing.Optional[str]
+            VMRS code associated with the part definition.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityPartDefinitionsServiceCreatePartResponseBody
+            Created response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.create_part(
+            part_number="12345",
+        )
+        """
+        _response = self._raw_client.create_part(
+            part_number=part_number,
+            barcode_string=barcode_string,
+            description=description,
+            is_inventory_tracked=is_inventory_tracked,
+            manufacturer_part_number=manufacturer_part_number,
+            name=name,
+            unit_cost=unit_cost,
+            vmrs_code=vmrs_code,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def delete_part(self, *, id: str, request_options: typing.Optional[RequestOptions] = None) -> None:
+        """
+        Deletes a part for the organization.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Unique identifier for the PartDefinition record.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.delete_part(
+            id="id",
+        )
+        """
+        _response = self._raw_client.delete_part(id=id, request_options=request_options)
+        return _response.data
+
+    def update_part(
+        self,
+        *,
+        id: str,
+        barcode_string: typing.Optional[str] = OMIT,
+        description: typing.Optional[str] = OMIT,
+        is_inventory_tracked: typing.Optional[bool] = OMIT,
+        manufacturer_part_number: typing.Optional[str] = OMIT,
+        name: typing.Optional[str] = OMIT,
+        part_number: typing.Optional[str] = OMIT,
+        unit_cost: typing.Optional[UpdatePartEntityPartDefinitionMoneyInputTypeRequestBody] = OMIT,
+        vmrs_code: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityPartDefinitionsServiceUpdatePartResponseBody:
+        """
+        Updates an existing part for the organization.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Unique identifier for the PartDefinition record.
+
+        barcode_string : typing.Optional[str]
+            Barcode associated with the part definition.
+
+        description : typing.Optional[str]
+            Description of the part definition.
+
+        is_inventory_tracked : typing.Optional[bool]
+            Whether inventory tracking is enabled for this part.
+
+        manufacturer_part_number : typing.Optional[str]
+            Manufacturer-supplied part number.
+
+        name : typing.Optional[str]
+            Name of the part definition.
+
+        part_number : typing.Optional[str]
+            Customer-visible part number for the part.
+
+        unit_cost : typing.Optional[UpdatePartEntityPartDefinitionMoneyInputTypeRequestBody]
+
+        vmrs_code : typing.Optional[str]
+            VMRS code associated with the part definition.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityPartDefinitionsServiceUpdatePartResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.update_part(
+            id="id",
+        )
+        """
+        _response = self._raw_client.update_part(
+            id=id,
+            barcode_string=barcode_string,
+            description=description,
+            is_inventory_tracked=is_inventory_tracked,
+            manufacturer_part_number=manufacturer_part_number,
+            name=name,
+            part_number=part_number,
+            unit_cost=unit_cost,
+            vmrs_code=vmrs_code,
             request_options=request_options,
         )
         return _response.data
@@ -10073,6 +10359,309 @@ class AsyncBetaApIsClient:
             default_start_time_of_day=default_start_time_of_day,
             locations_by_external_ids=locations_by_external_ids,
             name=name,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def list_parts(
+        self,
+        *,
+        id_in: typing.Optional[str] = None,
+        part_ids: typing.Optional[str] = None,
+        part_status: typing.Optional[str] = None,
+        include_deleted: typing.Optional[bool] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityPartDefinitionsServiceListPartsResponseBody:
+        """
+        Returns a paginated list of parts for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id_in : typing.Optional[str]
+            A filter on the data based on this comma-separated list of ID values.
+
+        part_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Part ID values.
+
+        part_status : typing.Optional[str]
+            A filter on the data based on Part status. Status of the part.
+
+        include_deleted : typing.Optional[bool]
+            Whether to include deleted parts in the response. Defaults to false.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityPartDefinitionsServiceListPartsResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.list_parts()
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.list_parts(
+            id_in=id_in,
+            part_ids=part_ids,
+            part_status=part_status,
+            include_deleted=include_deleted,
+            after=after,
+            limit=limit,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def create_part(
+        self,
+        *,
+        part_number: str,
+        barcode_string: typing.Optional[str] = OMIT,
+        description: typing.Optional[str] = OMIT,
+        is_inventory_tracked: typing.Optional[bool] = OMIT,
+        manufacturer_part_number: typing.Optional[str] = OMIT,
+        name: typing.Optional[str] = OMIT,
+        unit_cost: typing.Optional[CreatePartEntityPartDefinitionMoneyInputTypeRequestBody] = OMIT,
+        vmrs_code: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityPartDefinitionsServiceCreatePartResponseBody:
+        """
+        Creates a part for the organization.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        part_number : str
+            Customer-visible part number for the part.
+
+        barcode_string : typing.Optional[str]
+            Barcode associated with the part definition.
+
+        description : typing.Optional[str]
+            Description of the part definition.
+
+        is_inventory_tracked : typing.Optional[bool]
+            Whether inventory tracking is enabled for this part.
+
+        manufacturer_part_number : typing.Optional[str]
+            Manufacturer-supplied part number.
+
+        name : typing.Optional[str]
+            Name of the part definition.
+
+        unit_cost : typing.Optional[CreatePartEntityPartDefinitionMoneyInputTypeRequestBody]
+
+        vmrs_code : typing.Optional[str]
+            VMRS code associated with the part definition.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityPartDefinitionsServiceCreatePartResponseBody
+            Created response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.create_part(
+                part_number="12345",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.create_part(
+            part_number=part_number,
+            barcode_string=barcode_string,
+            description=description,
+            is_inventory_tracked=is_inventory_tracked,
+            manufacturer_part_number=manufacturer_part_number,
+            name=name,
+            unit_cost=unit_cost,
+            vmrs_code=vmrs_code,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def delete_part(self, *, id: str, request_options: typing.Optional[RequestOptions] = None) -> None:
+        """
+        Deletes a part for the organization.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Unique identifier for the PartDefinition record.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.delete_part(
+                id="id",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.delete_part(id=id, request_options=request_options)
+        return _response.data
+
+    async def update_part(
+        self,
+        *,
+        id: str,
+        barcode_string: typing.Optional[str] = OMIT,
+        description: typing.Optional[str] = OMIT,
+        is_inventory_tracked: typing.Optional[bool] = OMIT,
+        manufacturer_part_number: typing.Optional[str] = OMIT,
+        name: typing.Optional[str] = OMIT,
+        part_number: typing.Optional[str] = OMIT,
+        unit_cost: typing.Optional[UpdatePartEntityPartDefinitionMoneyInputTypeRequestBody] = OMIT,
+        vmrs_code: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityPartDefinitionsServiceUpdatePartResponseBody:
+        """
+        Updates an existing part for the organization.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Unique identifier for the PartDefinition record.
+
+        barcode_string : typing.Optional[str]
+            Barcode associated with the part definition.
+
+        description : typing.Optional[str]
+            Description of the part definition.
+
+        is_inventory_tracked : typing.Optional[bool]
+            Whether inventory tracking is enabled for this part.
+
+        manufacturer_part_number : typing.Optional[str]
+            Manufacturer-supplied part number.
+
+        name : typing.Optional[str]
+            Name of the part definition.
+
+        part_number : typing.Optional[str]
+            Customer-visible part number for the part.
+
+        unit_cost : typing.Optional[UpdatePartEntityPartDefinitionMoneyInputTypeRequestBody]
+
+        vmrs_code : typing.Optional[str]
+            VMRS code associated with the part definition.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityPartDefinitionsServiceUpdatePartResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.update_part(
+                id="id",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.update_part(
+            id=id,
+            barcode_string=barcode_string,
+            description=description,
+            is_inventory_tracked=is_inventory_tracked,
+            manufacturer_part_number=manufacturer_part_number,
+            name=name,
+            part_number=part_number,
+            unit_cost=unit_cost,
+            vmrs_code=vmrs_code,
             request_options=request_options,
         )
         return _response.data
