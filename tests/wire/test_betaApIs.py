@@ -531,6 +531,38 @@ def test_betaApIs_update_hub_route_template() -> None:
     verify_request_count(test_id, "PATCH", "/hub/route-templates", {"id": "id"}, 1)
 
 
+def test_betaApIs_list_parts() -> None:
+    """Test listParts endpoint with WireMock"""
+    test_id = "beta_ap_is.list_parts.0"
+    client = get_client(test_id)
+    client.beta_ap_is.list_parts()
+    verify_request_count(test_id, "GET", "/maintenance/parts", None, 1)
+
+
+def test_betaApIs_create_part() -> None:
+    """Test createPart endpoint with WireMock"""
+    test_id = "beta_ap_is.create_part.0"
+    client = get_client(test_id)
+    client.beta_ap_is.create_part(part_number="12345")
+    verify_request_count(test_id, "POST", "/maintenance/parts", None, 1)
+
+
+def test_betaApIs_delete_part() -> None:
+    """Test deletePart endpoint with WireMock"""
+    test_id = "beta_ap_is.delete_part.0"
+    client = get_client(test_id)
+    client.beta_ap_is.delete_part(id="id")
+    verify_request_count(test_id, "DELETE", "/maintenance/parts", {"id": "id"}, 1)
+
+
+def test_betaApIs_update_part() -> None:
+    """Test updatePart endpoint with WireMock"""
+    test_id = "beta_ap_is.update_part.0"
+    client = get_client(test_id)
+    client.beta_ap_is.update_part(id="id")
+    verify_request_count(test_id, "PATCH", "/maintenance/parts", {"id": "id"}, 1)
+
+
 def test_betaApIs_list_preventive_maintenance_schedules() -> None:
     """Test listPreventiveMaintenanceSchedules endpoint with WireMock"""
     test_id = "beta_ap_is.list_preventive_maintenance_schedules.0"
