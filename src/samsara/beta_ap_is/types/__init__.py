@@ -9,6 +9,15 @@ if typing.TYPE_CHECKING:
     from .asset_assignments_create_asset_assignment_request_body_assignee_type import (
         AssetAssignmentsCreateAssetAssignmentRequestBodyAssigneeType,
     )
+    from .asset_sharing_agreements_create_asset_sharing_agreement_request_body_operator import (
+        AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyOperator,
+    )
+    from .asset_sharing_agreements_create_asset_sharing_agreement_request_body_provider_data_packages_item import (
+        AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyProviderDataPackagesItem,
+    )
+    from .asset_sharing_agreements_create_asset_sharing_agreement_request_body_recipient_data_packages_item import (
+        AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyRecipientDataPackagesItem,
+    )
     from .device_recovery_recover_asset_request_body_missing_reason import (
         DeviceRecoveryRecoverAssetRequestBodyMissingReason,
     )
@@ -64,6 +73,9 @@ if typing.TYPE_CHECKING:
     )
 _dynamic_imports: typing.Dict[str, str] = {
     "AssetAssignmentsCreateAssetAssignmentRequestBodyAssigneeType": ".asset_assignments_create_asset_assignment_request_body_assignee_type",
+    "AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyOperator": ".asset_sharing_agreements_create_asset_sharing_agreement_request_body_operator",
+    "AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyProviderDataPackagesItem": ".asset_sharing_agreements_create_asset_sharing_agreement_request_body_provider_data_packages_item",
+    "AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyRecipientDataPackagesItem": ".asset_sharing_agreements_create_asset_sharing_agreement_request_body_recipient_data_packages_item",
     "DeviceRecoveryRecoverAssetRequestBodyMissingReason": ".device_recovery_recover_asset_request_body_missing_reason",
     "DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus": ".device_recovery_recover_asset_request_body_recovery_status",
     "DeviceRecoveryRecoverAssetRequestBodyStatus": ".device_recovery_recover_asset_request_body_status",
@@ -115,6 +127,9 @@ def __dir__():
 
 __all__ = [
     "AssetAssignmentsCreateAssetAssignmentRequestBodyAssigneeType",
+    "AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyOperator",
+    "AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyProviderDataPackagesItem",
+    "AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyRecipientDataPackagesItem",
     "DeviceRecoveryRecoverAssetRequestBodyMissingReason",
     "DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus",
     "DeviceRecoveryRecoverAssetRequestBodyStatus",

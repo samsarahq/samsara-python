@@ -4,11 +4,11 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from .base_route_response_object_response_body import BaseRouteResponseObjectResponseBody
+from .base_route_with_stop_forms_response_object_response_body import BaseRouteWithStopFormsResponseObjectResponseBody
 
 
 class RoutesCreateRouteResponseBody(UniversalBaseModel):
-    data: typing.Optional[BaseRouteResponseObjectResponseBody] = None
+    data: typing.Optional[BaseRouteWithStopFormsResponseObjectResponseBody] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

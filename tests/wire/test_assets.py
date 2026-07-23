@@ -49,6 +49,14 @@ def test_assets_v_1_get_assets_reefers() -> None:
     verify_request_count(test_id, "GET", "/v1/fleet/assets/reefers", {"startMs": "1000000", "endMs": "1000000"}, 1)
 
 
+def test_assets_get_asset_location() -> None:
+    """Test getAssetLocation endpoint with WireMock"""
+    test_id = "assets.get_asset_location.0"
+    client = get_client(test_id)
+    client.assets.get_asset_location(asset_id=1000000)
+    verify_request_count(test_id, "GET", "/v1/fleet/assets/1000000/locations", None, 1)
+
+
 def test_assets_get_asset_reefer() -> None:
     """Test getAssetReefer endpoint with WireMock"""
     test_id = "assets.get_asset_reefer.0"

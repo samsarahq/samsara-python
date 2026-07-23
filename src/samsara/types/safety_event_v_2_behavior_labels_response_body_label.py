@@ -50,6 +50,7 @@ SafetyEventV2BehaviorLabelsResponseBodyLabel = typing.Union[
         "Passenger",
         "PolicyViolationMask",
         "ProtectiveEquipment",
+        "ProximityWarning",
         "RanRedLight",
         "RearCollisionWarning",
         "Reversing",

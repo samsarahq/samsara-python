@@ -25,6 +25,7 @@ DetectionLogDetectionObjectResponseBodyTriggerDetectionLabel = typing.Union[
         "obstructedCamera",
         "passenger",
         "policyViolationMask",
+        "proximityWarning",
         "ranRedLight",
         "rearCollisionWarning",
         "reversing",

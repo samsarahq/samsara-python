@@ -8,6 +8,7 @@ import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .route_stop_appointment_window_request_body import RouteStopAppointmentWindowRequestBody
+from .route_stop_form_request_object_request_body import RouteStopFormRequestObjectRequestBody
 from .routes_single_use_address_object_request_body import RoutesSingleUseAddressObjectRequestBody
 
 
@@ -30,6 +31,11 @@ class CreateRoutesStopRequestObjectRequestBody(UniversalBaseModel):
         FieldMetadata(alias="externalIds"),
         pydantic.Field(alias="externalIds", description="A map of external ids"),
     ] = None
+    forms: typing.Optional[typing.List[RouteStopFormRequestObjectRequestBody]] = pydantic.Field(default=None)
+    """
+    Form attachments for the stop.
+    """
+
     name: typing.Optional[str] = pydantic.Field(default=None)
     """
     Name of the stop

@@ -166,6 +166,7 @@ if typing.TYPE_CHECKING:
     from .alert_object_machine_input_response_body import AlertObjectMachineInputResponseBody
     from .alert_object_onvif_camera_stream_response_body import AlertObjectOnvifCameraStreamResponseBody
     from .alert_object_product_response_body import AlertObjectProductResponseBody
+    from .alert_object_route_response_body import AlertObjectRouteResponseBody
     from .alert_object_sensor_response_body import AlertObjectSensorResponseBody
     from .alert_object_sites_response_body import AlertObjectSitesResponseBody
     from .alert_object_trailer_response_body import AlertObjectTrailerResponseBody
@@ -443,7 +444,36 @@ if typing.TYPE_CHECKING:
     )
     from .asset_location import AssetLocation
     from .asset_location_heading import AssetLocationHeading
+    from .asset_location_response_body import AssetLocationResponseBody
     from .asset_location_speed import AssetLocationSpeed
+    from .asset_locations_get_asset_location_bad_gateway_error_response_body import (
+        AssetLocationsGetAssetLocationBadGatewayErrorResponseBody,
+    )
+    from .asset_locations_get_asset_location_gateway_timeout_error_response_body import (
+        AssetLocationsGetAssetLocationGatewayTimeoutErrorResponseBody,
+    )
+    from .asset_locations_get_asset_location_internal_server_error_response_body import (
+        AssetLocationsGetAssetLocationInternalServerErrorResponseBody,
+    )
+    from .asset_locations_get_asset_location_method_not_allowed_error_response_body import (
+        AssetLocationsGetAssetLocationMethodNotAllowedErrorResponseBody,
+    )
+    from .asset_locations_get_asset_location_not_found_error_response_body import (
+        AssetLocationsGetAssetLocationNotFoundErrorResponseBody,
+    )
+    from .asset_locations_get_asset_location_not_implemented_error_response_body import (
+        AssetLocationsGetAssetLocationNotImplementedErrorResponseBody,
+    )
+    from .asset_locations_get_asset_location_response_body import AssetLocationsGetAssetLocationResponseBody
+    from .asset_locations_get_asset_location_service_unavailable_error_response_body import (
+        AssetLocationsGetAssetLocationServiceUnavailableErrorResponseBody,
+    )
+    from .asset_locations_get_asset_location_too_many_requests_error_response_body import (
+        AssetLocationsGetAssetLocationTooManyRequestsErrorResponseBody,
+    )
+    from .asset_locations_get_asset_location_unauthorized_error_response_body import (
+        AssetLocationsGetAssetLocationUnauthorizedErrorResponseBody,
+    )
     from .asset_name import AssetName
     from .asset_reefer_alarm_object_response_body import AssetReeferAlarmObjectResponseBody
     from .asset_reefer_alarms_stat_object_response_body import AssetReeferAlarmsStatObjectResponseBody
@@ -460,6 +490,289 @@ if typing.TYPE_CHECKING:
     from .asset_response_parent_asset import AssetResponseParentAsset
     from .asset_response_response_body import AssetResponseResponseBody
     from .asset_response_running_status_data_input import AssetResponseRunningStatusDataInput
+    from .asset_sharing_agreement_response_object_response_body import AssetSharingAgreementResponseObjectResponseBody
+    from .asset_sharing_agreement_response_object_response_body_canceled_by_party import (
+        AssetSharingAgreementResponseObjectResponseBodyCanceledByParty,
+    )
+    from .asset_sharing_agreement_response_object_response_body_operator import (
+        AssetSharingAgreementResponseObjectResponseBodyOperator,
+    )
+    from .asset_sharing_agreement_response_object_response_body_provider_data_packages_item import (
+        AssetSharingAgreementResponseObjectResponseBodyProviderDataPackagesItem,
+    )
+    from .asset_sharing_agreement_response_object_response_body_recipient_data_packages_item import (
+        AssetSharingAgreementResponseObjectResponseBodyRecipientDataPackagesItem,
+    )
+    from .asset_sharing_agreement_response_object_response_body_status import (
+        AssetSharingAgreementResponseObjectResponseBodyStatus,
+    )
+    from .asset_sharing_agreements_accept_asset_sharing_agreement_bad_gateway_error_response_body import (
+        AssetSharingAgreementsAcceptAssetSharingAgreementBadGatewayErrorResponseBody,
+    )
+    from .asset_sharing_agreements_accept_asset_sharing_agreement_gateway_timeout_error_response_body import (
+        AssetSharingAgreementsAcceptAssetSharingAgreementGatewayTimeoutErrorResponseBody,
+    )
+    from .asset_sharing_agreements_accept_asset_sharing_agreement_internal_server_error_response_body import (
+        AssetSharingAgreementsAcceptAssetSharingAgreementInternalServerErrorResponseBody,
+    )
+    from .asset_sharing_agreements_accept_asset_sharing_agreement_method_not_allowed_error_response_body import (
+        AssetSharingAgreementsAcceptAssetSharingAgreementMethodNotAllowedErrorResponseBody,
+    )
+    from .asset_sharing_agreements_accept_asset_sharing_agreement_not_found_error_response_body import (
+        AssetSharingAgreementsAcceptAssetSharingAgreementNotFoundErrorResponseBody,
+    )
+    from .asset_sharing_agreements_accept_asset_sharing_agreement_not_implemented_error_response_body import (
+        AssetSharingAgreementsAcceptAssetSharingAgreementNotImplementedErrorResponseBody,
+    )
+    from .asset_sharing_agreements_accept_asset_sharing_agreement_response_body import (
+        AssetSharingAgreementsAcceptAssetSharingAgreementResponseBody,
+    )
+    from .asset_sharing_agreements_accept_asset_sharing_agreement_service_unavailable_error_response_body import (
+        AssetSharingAgreementsAcceptAssetSharingAgreementServiceUnavailableErrorResponseBody,
+    )
+    from .asset_sharing_agreements_accept_asset_sharing_agreement_too_many_requests_error_response_body import (
+        AssetSharingAgreementsAcceptAssetSharingAgreementTooManyRequestsErrorResponseBody,
+    )
+    from .asset_sharing_agreements_accept_asset_sharing_agreement_unauthorized_error_response_body import (
+        AssetSharingAgreementsAcceptAssetSharingAgreementUnauthorizedErrorResponseBody,
+    )
+    from .asset_sharing_agreements_cancel_asset_sharing_agreement_bad_gateway_error_response_body import (
+        AssetSharingAgreementsCancelAssetSharingAgreementBadGatewayErrorResponseBody,
+    )
+    from .asset_sharing_agreements_cancel_asset_sharing_agreement_gateway_timeout_error_response_body import (
+        AssetSharingAgreementsCancelAssetSharingAgreementGatewayTimeoutErrorResponseBody,
+    )
+    from .asset_sharing_agreements_cancel_asset_sharing_agreement_internal_server_error_response_body import (
+        AssetSharingAgreementsCancelAssetSharingAgreementInternalServerErrorResponseBody,
+    )
+    from .asset_sharing_agreements_cancel_asset_sharing_agreement_method_not_allowed_error_response_body import (
+        AssetSharingAgreementsCancelAssetSharingAgreementMethodNotAllowedErrorResponseBody,
+    )
+    from .asset_sharing_agreements_cancel_asset_sharing_agreement_not_found_error_response_body import (
+        AssetSharingAgreementsCancelAssetSharingAgreementNotFoundErrorResponseBody,
+    )
+    from .asset_sharing_agreements_cancel_asset_sharing_agreement_not_implemented_error_response_body import (
+        AssetSharingAgreementsCancelAssetSharingAgreementNotImplementedErrorResponseBody,
+    )
+    from .asset_sharing_agreements_cancel_asset_sharing_agreement_response_body import (
+        AssetSharingAgreementsCancelAssetSharingAgreementResponseBody,
+    )
+    from .asset_sharing_agreements_cancel_asset_sharing_agreement_service_unavailable_error_response_body import (
+        AssetSharingAgreementsCancelAssetSharingAgreementServiceUnavailableErrorResponseBody,
+    )
+    from .asset_sharing_agreements_cancel_asset_sharing_agreement_too_many_requests_error_response_body import (
+        AssetSharingAgreementsCancelAssetSharingAgreementTooManyRequestsErrorResponseBody,
+    )
+    from .asset_sharing_agreements_cancel_asset_sharing_agreement_unauthorized_error_response_body import (
+        AssetSharingAgreementsCancelAssetSharingAgreementUnauthorizedErrorResponseBody,
+    )
+    from .asset_sharing_agreements_create_asset_sharing_agreement_bad_gateway_error_response_body import (
+        AssetSharingAgreementsCreateAssetSharingAgreementBadGatewayErrorResponseBody,
+    )
+    from .asset_sharing_agreements_create_asset_sharing_agreement_gateway_timeout_error_response_body import (
+        AssetSharingAgreementsCreateAssetSharingAgreementGatewayTimeoutErrorResponseBody,
+    )
+    from .asset_sharing_agreements_create_asset_sharing_agreement_internal_server_error_response_body import (
+        AssetSharingAgreementsCreateAssetSharingAgreementInternalServerErrorResponseBody,
+    )
+    from .asset_sharing_agreements_create_asset_sharing_agreement_method_not_allowed_error_response_body import (
+        AssetSharingAgreementsCreateAssetSharingAgreementMethodNotAllowedErrorResponseBody,
+    )
+    from .asset_sharing_agreements_create_asset_sharing_agreement_not_found_error_response_body import (
+        AssetSharingAgreementsCreateAssetSharingAgreementNotFoundErrorResponseBody,
+    )
+    from .asset_sharing_agreements_create_asset_sharing_agreement_not_implemented_error_response_body import (
+        AssetSharingAgreementsCreateAssetSharingAgreementNotImplementedErrorResponseBody,
+    )
+    from .asset_sharing_agreements_create_asset_sharing_agreement_response_body import (
+        AssetSharingAgreementsCreateAssetSharingAgreementResponseBody,
+    )
+    from .asset_sharing_agreements_create_asset_sharing_agreement_service_unavailable_error_response_body import (
+        AssetSharingAgreementsCreateAssetSharingAgreementServiceUnavailableErrorResponseBody,
+    )
+    from .asset_sharing_agreements_create_asset_sharing_agreement_too_many_requests_error_response_body import (
+        AssetSharingAgreementsCreateAssetSharingAgreementTooManyRequestsErrorResponseBody,
+    )
+    from .asset_sharing_agreements_create_asset_sharing_agreement_unauthorized_error_response_body import (
+        AssetSharingAgreementsCreateAssetSharingAgreementUnauthorizedErrorResponseBody,
+    )
+    from .asset_sharing_agreements_create_shared_assets_batch_bad_gateway_error_response_body import (
+        AssetSharingAgreementsCreateSharedAssetsBatchBadGatewayErrorResponseBody,
+    )
+    from .asset_sharing_agreements_create_shared_assets_batch_gateway_timeout_error_response_body import (
+        AssetSharingAgreementsCreateSharedAssetsBatchGatewayTimeoutErrorResponseBody,
+    )
+    from .asset_sharing_agreements_create_shared_assets_batch_internal_server_error_response_body import (
+        AssetSharingAgreementsCreateSharedAssetsBatchInternalServerErrorResponseBody,
+    )
+    from .asset_sharing_agreements_create_shared_assets_batch_method_not_allowed_error_response_body import (
+        AssetSharingAgreementsCreateSharedAssetsBatchMethodNotAllowedErrorResponseBody,
+    )
+    from .asset_sharing_agreements_create_shared_assets_batch_not_found_error_response_body import (
+        AssetSharingAgreementsCreateSharedAssetsBatchNotFoundErrorResponseBody,
+    )
+    from .asset_sharing_agreements_create_shared_assets_batch_not_implemented_error_response_body import (
+        AssetSharingAgreementsCreateSharedAssetsBatchNotImplementedErrorResponseBody,
+    )
+    from .asset_sharing_agreements_create_shared_assets_batch_response_body import (
+        AssetSharingAgreementsCreateSharedAssetsBatchResponseBody,
+    )
+    from .asset_sharing_agreements_create_shared_assets_batch_service_unavailable_error_response_body import (
+        AssetSharingAgreementsCreateSharedAssetsBatchServiceUnavailableErrorResponseBody,
+    )
+    from .asset_sharing_agreements_create_shared_assets_batch_too_many_requests_error_response_body import (
+        AssetSharingAgreementsCreateSharedAssetsBatchTooManyRequestsErrorResponseBody,
+    )
+    from .asset_sharing_agreements_create_shared_assets_batch_unauthorized_error_response_body import (
+        AssetSharingAgreementsCreateSharedAssetsBatchUnauthorizedErrorResponseBody,
+    )
+    from .asset_sharing_agreements_delete_asset_sharing_agreement_bad_gateway_error_response_body import (
+        AssetSharingAgreementsDeleteAssetSharingAgreementBadGatewayErrorResponseBody,
+    )
+    from .asset_sharing_agreements_delete_asset_sharing_agreement_gateway_timeout_error_response_body import (
+        AssetSharingAgreementsDeleteAssetSharingAgreementGatewayTimeoutErrorResponseBody,
+    )
+    from .asset_sharing_agreements_delete_asset_sharing_agreement_internal_server_error_response_body import (
+        AssetSharingAgreementsDeleteAssetSharingAgreementInternalServerErrorResponseBody,
+    )
+    from .asset_sharing_agreements_delete_asset_sharing_agreement_method_not_allowed_error_response_body import (
+        AssetSharingAgreementsDeleteAssetSharingAgreementMethodNotAllowedErrorResponseBody,
+    )
+    from .asset_sharing_agreements_delete_asset_sharing_agreement_not_found_error_response_body import (
+        AssetSharingAgreementsDeleteAssetSharingAgreementNotFoundErrorResponseBody,
+    )
+    from .asset_sharing_agreements_delete_asset_sharing_agreement_not_implemented_error_response_body import (
+        AssetSharingAgreementsDeleteAssetSharingAgreementNotImplementedErrorResponseBody,
+    )
+    from .asset_sharing_agreements_delete_asset_sharing_agreement_service_unavailable_error_response_body import (
+        AssetSharingAgreementsDeleteAssetSharingAgreementServiceUnavailableErrorResponseBody,
+    )
+    from .asset_sharing_agreements_delete_asset_sharing_agreement_too_many_requests_error_response_body import (
+        AssetSharingAgreementsDeleteAssetSharingAgreementTooManyRequestsErrorResponseBody,
+    )
+    from .asset_sharing_agreements_delete_asset_sharing_agreement_unauthorized_error_response_body import (
+        AssetSharingAgreementsDeleteAssetSharingAgreementUnauthorizedErrorResponseBody,
+    )
+    from .asset_sharing_agreements_list_asset_sharing_agreements_bad_gateway_error_response_body import (
+        AssetSharingAgreementsListAssetSharingAgreementsBadGatewayErrorResponseBody,
+    )
+    from .asset_sharing_agreements_list_asset_sharing_agreements_gateway_timeout_error_response_body import (
+        AssetSharingAgreementsListAssetSharingAgreementsGatewayTimeoutErrorResponseBody,
+    )
+    from .asset_sharing_agreements_list_asset_sharing_agreements_internal_server_error_response_body import (
+        AssetSharingAgreementsListAssetSharingAgreementsInternalServerErrorResponseBody,
+    )
+    from .asset_sharing_agreements_list_asset_sharing_agreements_method_not_allowed_error_response_body import (
+        AssetSharingAgreementsListAssetSharingAgreementsMethodNotAllowedErrorResponseBody,
+    )
+    from .asset_sharing_agreements_list_asset_sharing_agreements_not_found_error_response_body import (
+        AssetSharingAgreementsListAssetSharingAgreementsNotFoundErrorResponseBody,
+    )
+    from .asset_sharing_agreements_list_asset_sharing_agreements_not_implemented_error_response_body import (
+        AssetSharingAgreementsListAssetSharingAgreementsNotImplementedErrorResponseBody,
+    )
+    from .asset_sharing_agreements_list_asset_sharing_agreements_response_body import (
+        AssetSharingAgreementsListAssetSharingAgreementsResponseBody,
+    )
+    from .asset_sharing_agreements_list_asset_sharing_agreements_service_unavailable_error_response_body import (
+        AssetSharingAgreementsListAssetSharingAgreementsServiceUnavailableErrorResponseBody,
+    )
+    from .asset_sharing_agreements_list_asset_sharing_agreements_too_many_requests_error_response_body import (
+        AssetSharingAgreementsListAssetSharingAgreementsTooManyRequestsErrorResponseBody,
+    )
+    from .asset_sharing_agreements_list_asset_sharing_agreements_unauthorized_error_response_body import (
+        AssetSharingAgreementsListAssetSharingAgreementsUnauthorizedErrorResponseBody,
+    )
+    from .asset_sharing_agreements_list_shared_assets_bad_gateway_error_response_body import (
+        AssetSharingAgreementsListSharedAssetsBadGatewayErrorResponseBody,
+    )
+    from .asset_sharing_agreements_list_shared_assets_gateway_timeout_error_response_body import (
+        AssetSharingAgreementsListSharedAssetsGatewayTimeoutErrorResponseBody,
+    )
+    from .asset_sharing_agreements_list_shared_assets_internal_server_error_response_body import (
+        AssetSharingAgreementsListSharedAssetsInternalServerErrorResponseBody,
+    )
+    from .asset_sharing_agreements_list_shared_assets_method_not_allowed_error_response_body import (
+        AssetSharingAgreementsListSharedAssetsMethodNotAllowedErrorResponseBody,
+    )
+    from .asset_sharing_agreements_list_shared_assets_not_found_error_response_body import (
+        AssetSharingAgreementsListSharedAssetsNotFoundErrorResponseBody,
+    )
+    from .asset_sharing_agreements_list_shared_assets_not_implemented_error_response_body import (
+        AssetSharingAgreementsListSharedAssetsNotImplementedErrorResponseBody,
+    )
+    from .asset_sharing_agreements_list_shared_assets_response_body import (
+        AssetSharingAgreementsListSharedAssetsResponseBody,
+    )
+    from .asset_sharing_agreements_list_shared_assets_service_unavailable_error_response_body import (
+        AssetSharingAgreementsListSharedAssetsServiceUnavailableErrorResponseBody,
+    )
+    from .asset_sharing_agreements_list_shared_assets_too_many_requests_error_response_body import (
+        AssetSharingAgreementsListSharedAssetsTooManyRequestsErrorResponseBody,
+    )
+    from .asset_sharing_agreements_list_shared_assets_unauthorized_error_response_body import (
+        AssetSharingAgreementsListSharedAssetsUnauthorizedErrorResponseBody,
+    )
+    from .asset_sharing_agreements_reject_asset_sharing_agreement_bad_gateway_error_response_body import (
+        AssetSharingAgreementsRejectAssetSharingAgreementBadGatewayErrorResponseBody,
+    )
+    from .asset_sharing_agreements_reject_asset_sharing_agreement_gateway_timeout_error_response_body import (
+        AssetSharingAgreementsRejectAssetSharingAgreementGatewayTimeoutErrorResponseBody,
+    )
+    from .asset_sharing_agreements_reject_asset_sharing_agreement_internal_server_error_response_body import (
+        AssetSharingAgreementsRejectAssetSharingAgreementInternalServerErrorResponseBody,
+    )
+    from .asset_sharing_agreements_reject_asset_sharing_agreement_method_not_allowed_error_response_body import (
+        AssetSharingAgreementsRejectAssetSharingAgreementMethodNotAllowedErrorResponseBody,
+    )
+    from .asset_sharing_agreements_reject_asset_sharing_agreement_not_found_error_response_body import (
+        AssetSharingAgreementsRejectAssetSharingAgreementNotFoundErrorResponseBody,
+    )
+    from .asset_sharing_agreements_reject_asset_sharing_agreement_not_implemented_error_response_body import (
+        AssetSharingAgreementsRejectAssetSharingAgreementNotImplementedErrorResponseBody,
+    )
+    from .asset_sharing_agreements_reject_asset_sharing_agreement_response_body import (
+        AssetSharingAgreementsRejectAssetSharingAgreementResponseBody,
+    )
+    from .asset_sharing_agreements_reject_asset_sharing_agreement_service_unavailable_error_response_body import (
+        AssetSharingAgreementsRejectAssetSharingAgreementServiceUnavailableErrorResponseBody,
+    )
+    from .asset_sharing_agreements_reject_asset_sharing_agreement_too_many_requests_error_response_body import (
+        AssetSharingAgreementsRejectAssetSharingAgreementTooManyRequestsErrorResponseBody,
+    )
+    from .asset_sharing_agreements_reject_asset_sharing_agreement_unauthorized_error_response_body import (
+        AssetSharingAgreementsRejectAssetSharingAgreementUnauthorizedErrorResponseBody,
+    )
+    from .asset_sharing_agreements_update_shared_assets_batch_bad_gateway_error_response_body import (
+        AssetSharingAgreementsUpdateSharedAssetsBatchBadGatewayErrorResponseBody,
+    )
+    from .asset_sharing_agreements_update_shared_assets_batch_gateway_timeout_error_response_body import (
+        AssetSharingAgreementsUpdateSharedAssetsBatchGatewayTimeoutErrorResponseBody,
+    )
+    from .asset_sharing_agreements_update_shared_assets_batch_internal_server_error_response_body import (
+        AssetSharingAgreementsUpdateSharedAssetsBatchInternalServerErrorResponseBody,
+    )
+    from .asset_sharing_agreements_update_shared_assets_batch_method_not_allowed_error_response_body import (
+        AssetSharingAgreementsUpdateSharedAssetsBatchMethodNotAllowedErrorResponseBody,
+    )
+    from .asset_sharing_agreements_update_shared_assets_batch_not_found_error_response_body import (
+        AssetSharingAgreementsUpdateSharedAssetsBatchNotFoundErrorResponseBody,
+    )
+    from .asset_sharing_agreements_update_shared_assets_batch_not_implemented_error_response_body import (
+        AssetSharingAgreementsUpdateSharedAssetsBatchNotImplementedErrorResponseBody,
+    )
+    from .asset_sharing_agreements_update_shared_assets_batch_response_body import (
+        AssetSharingAgreementsUpdateSharedAssetsBatchResponseBody,
+    )
+    from .asset_sharing_agreements_update_shared_assets_batch_service_unavailable_error_response_body import (
+        AssetSharingAgreementsUpdateSharedAssetsBatchServiceUnavailableErrorResponseBody,
+    )
+    from .asset_sharing_agreements_update_shared_assets_batch_too_many_requests_error_response_body import (
+        AssetSharingAgreementsUpdateSharedAssetsBatchTooManyRequestsErrorResponseBody,
+    )
+    from .asset_sharing_agreements_update_shared_assets_batch_unauthorized_error_response_body import (
+        AssetSharingAgreementsUpdateSharedAssetsBatchUnauthorizedErrorResponseBody,
+    )
     from .assets_create_asset_bad_gateway_error_response_body import AssetsCreateAssetBadGatewayErrorResponseBody
     from .assets_create_asset_gateway_timeout_error_response_body import (
         AssetsCreateAssetGatewayTimeoutErrorResponseBody,
@@ -648,6 +961,9 @@ if typing.TYPE_CHECKING:
     from .barcode_value_object_request_body import BarcodeValueObjectRequestBody
     from .barcode_value_object_response_body import BarcodeValueObjectResponseBody
     from .base_route_response_object_response_body import BaseRouteResponseObjectResponseBody
+    from .base_route_with_stop_forms_response_object_response_body import (
+        BaseRouteWithStopFormsResponseObjectResponseBody,
+    )
     from .behavior_count_details_request_body import BehaviorCountDetailsRequestBody
     from .behavior_count_details_request_body_comparison import BehaviorCountDetailsRequestBodyComparison
     from .behavior_count_details_response_body import BehaviorCountDetailsResponseBody
@@ -829,6 +1145,7 @@ if typing.TYPE_CHECKING:
     from .create_report_config_column_request_body import CreateReportConfigColumnRequestBody
     from .create_report_config_object_request_body import CreateReportConfigObjectRequestBody
     from .create_routes_stop_request_object_request_body import CreateRoutesStopRequestObjectRequestBody
+    from .create_shared_asset_request_object_request_body import CreateSharedAssetRequestObjectRequestBody
     from .create_user_request_roles import CreateUserRequestRoles
     from .cruise_control_duration_ms import CruiseControlDurationMs
     from .cumulative_operating_hours_response_body import CumulativeOperatingHoursResponseBody
@@ -2157,6 +2474,36 @@ if typing.TYPE_CHECKING:
     from .equipment_obd_engine_state import EquipmentObdEngineState
     from .equipment_obd_engine_state_value import EquipmentObdEngineStateValue
     from .equipment_object import EquipmentObject
+    from .equipment_output_control_set_equipment_digital_output_bad_gateway_error_response_body import (
+        EquipmentOutputControlSetEquipmentDigitalOutputBadGatewayErrorResponseBody,
+    )
+    from .equipment_output_control_set_equipment_digital_output_gateway_timeout_error_response_body import (
+        EquipmentOutputControlSetEquipmentDigitalOutputGatewayTimeoutErrorResponseBody,
+    )
+    from .equipment_output_control_set_equipment_digital_output_internal_server_error_response_body import (
+        EquipmentOutputControlSetEquipmentDigitalOutputInternalServerErrorResponseBody,
+    )
+    from .equipment_output_control_set_equipment_digital_output_method_not_allowed_error_response_body import (
+        EquipmentOutputControlSetEquipmentDigitalOutputMethodNotAllowedErrorResponseBody,
+    )
+    from .equipment_output_control_set_equipment_digital_output_not_found_error_response_body import (
+        EquipmentOutputControlSetEquipmentDigitalOutputNotFoundErrorResponseBody,
+    )
+    from .equipment_output_control_set_equipment_digital_output_not_implemented_error_response_body import (
+        EquipmentOutputControlSetEquipmentDigitalOutputNotImplementedErrorResponseBody,
+    )
+    from .equipment_output_control_set_equipment_digital_output_response_body import (
+        EquipmentOutputControlSetEquipmentDigitalOutputResponseBody,
+    )
+    from .equipment_output_control_set_equipment_digital_output_service_unavailable_error_response_body import (
+        EquipmentOutputControlSetEquipmentDigitalOutputServiceUnavailableErrorResponseBody,
+    )
+    from .equipment_output_control_set_equipment_digital_output_too_many_requests_error_response_body import (
+        EquipmentOutputControlSetEquipmentDigitalOutputTooManyRequestsErrorResponseBody,
+    )
+    from .equipment_output_control_set_equipment_digital_output_unauthorized_error_response_body import (
+        EquipmentOutputControlSetEquipmentDigitalOutputUnauthorizedErrorResponseBody,
+    )
     from .equipment_patch_equipment_bad_gateway_error_response_body import (
         EquipmentPatchEquipmentBadGatewayErrorResponseBody,
     )
@@ -6145,6 +6492,8 @@ if typing.TYPE_CHECKING:
         RouteStopEstimatedArrivalDetailsObjectResponseBody,
     )
     from .route_stop_eta_response_body import RouteStopEtaResponseBody
+    from .route_stop_form_request_object_request_body import RouteStopFormRequestObjectRequestBody
+    from .route_stop_form_response_object_response_body import RouteStopFormResponseObjectResponseBody
     from .route_stop_object_response_body import RouteStopObjectResponseBody
     from .route_vehicle_object_response_body import RouteVehicleObjectResponseBody
     from .routes_create_route_bad_gateway_error_response_body import RoutesCreateRouteBadGatewayErrorResponseBody
@@ -6300,6 +6649,10 @@ if typing.TYPE_CHECKING:
     from .routes_single_use_address_object_response_body import RoutesSingleUseAddressObjectResponseBody
     from .routes_stop_response_object_response_body import RoutesStopResponseObjectResponseBody
     from .routes_stop_response_object_response_body_state import RoutesStopResponseObjectResponseBodyState
+    from .routes_stop_with_forms_response_object_response_body import RoutesStopWithFormsResponseObjectResponseBody
+    from .routes_stop_with_forms_response_object_response_body_state import (
+        RoutesStopWithFormsResponseObjectResponseBodyState,
+    )
     from .routing_capacity_service_time_response_response_body import RoutingCapacityServiceTimeResponseResponseBody
     from .routing_order_service_time_response_response_body import RoutingOrderServiceTimeResponseResponseBody
     from .routing_required_skill_response_response_body import RoutingRequiredSkillResponseResponseBody
@@ -6682,6 +7035,7 @@ if typing.TYPE_CHECKING:
     from .service_task_procedure_subtask_object_response_body import ServiceTaskProcedureSubtaskObjectResponseBody
     from .service_task_subtask_object_response_body import ServiceTaskSubtaskObjectResponseBody
     from .service_window_object_response_body import ServiceWindowObjectResponseBody
+    from .set_equipment_digital_output_data_response_body import SetEquipmentDigitalOutputDataResponseBody
     from .settings_compliance_response_object_response_body import SettingsComplianceResponseObjectResponseBody
     from .settings_get_compliance_settings_bad_gateway_error_response_body import (
         SettingsGetComplianceSettingsBadGatewayErrorResponseBody,
@@ -6798,6 +7152,7 @@ if typing.TYPE_CHECKING:
     from .settings_response_body import SettingsResponseBody
     from .severe_speeding_started_object_response_body import SevereSpeedingStartedObjectResponseBody
     from .severe_speeding_started_response_object_response_body import SevereSpeedingStartedResponseObjectResponseBody
+    from .shared_asset_response_object_response_body import SharedAssetResponseObjectResponseBody
     from .signatory_user_object_response_body import SignatoryUserObjectResponseBody
     from .signature_field_type_meta_data_object_response_body import SignatureFieldTypeMetaDataObjectResponseBody
     from .signature_value_object_request_body import SignatureValueObjectRequestBody
@@ -7635,6 +7990,7 @@ if typing.TYPE_CHECKING:
     from .update_function_storage_file_detail_response_body import UpdateFunctionStorageFileDetailResponseBody
     from .update_hub_location_request_body_request_body import UpdateHubLocationRequestBodyRequestBody
     from .update_routes_stop_request_object_request_body import UpdateRoutesStopRequestObjectRequestBody
+    from .update_shared_asset_request_object_request_body import UpdateSharedAssetRequestObjectRequestBody
     from .uploaded_media_object_response_body import UploadedMediaObjectResponseBody
     from .uploaded_media_object_response_body_camera_role import UploadedMediaObjectResponseBodyCameraRole
     from .uploaded_media_object_response_body_input import UploadedMediaObjectResponseBodyInput
@@ -8735,6 +9091,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "AlertObjectMachineInputResponseBody": ".alert_object_machine_input_response_body",
     "AlertObjectOnvifCameraStreamResponseBody": ".alert_object_onvif_camera_stream_response_body",
     "AlertObjectProductResponseBody": ".alert_object_product_response_body",
+    "AlertObjectRouteResponseBody": ".alert_object_route_response_body",
     "AlertObjectSensorResponseBody": ".alert_object_sensor_response_body",
     "AlertObjectSitesResponseBody": ".alert_object_sites_response_body",
     "AlertObjectTrailerResponseBody": ".alert_object_trailer_response_body",
@@ -8844,7 +9201,18 @@ _dynamic_imports: typing.Dict[str, str] = {
     "AssetDataOutputsPatchAssetDataOutputsUnauthorizedErrorResponseBody": ".asset_data_outputs_patch_asset_data_outputs_unauthorized_error_response_body",
     "AssetLocation": ".asset_location",
     "AssetLocationHeading": ".asset_location_heading",
+    "AssetLocationResponseBody": ".asset_location_response_body",
     "AssetLocationSpeed": ".asset_location_speed",
+    "AssetLocationsGetAssetLocationBadGatewayErrorResponseBody": ".asset_locations_get_asset_location_bad_gateway_error_response_body",
+    "AssetLocationsGetAssetLocationGatewayTimeoutErrorResponseBody": ".asset_locations_get_asset_location_gateway_timeout_error_response_body",
+    "AssetLocationsGetAssetLocationInternalServerErrorResponseBody": ".asset_locations_get_asset_location_internal_server_error_response_body",
+    "AssetLocationsGetAssetLocationMethodNotAllowedErrorResponseBody": ".asset_locations_get_asset_location_method_not_allowed_error_response_body",
+    "AssetLocationsGetAssetLocationNotFoundErrorResponseBody": ".asset_locations_get_asset_location_not_found_error_response_body",
+    "AssetLocationsGetAssetLocationNotImplementedErrorResponseBody": ".asset_locations_get_asset_location_not_implemented_error_response_body",
+    "AssetLocationsGetAssetLocationResponseBody": ".asset_locations_get_asset_location_response_body",
+    "AssetLocationsGetAssetLocationServiceUnavailableErrorResponseBody": ".asset_locations_get_asset_location_service_unavailable_error_response_body",
+    "AssetLocationsGetAssetLocationTooManyRequestsErrorResponseBody": ".asset_locations_get_asset_location_too_many_requests_error_response_body",
+    "AssetLocationsGetAssetLocationUnauthorizedErrorResponseBody": ".asset_locations_get_asset_location_unauthorized_error_response_body",
     "AssetName": ".asset_name",
     "AssetReeferAlarmObjectResponseBody": ".asset_reefer_alarm_object_response_body",
     "AssetReeferAlarmsStatObjectResponseBody": ".asset_reefer_alarms_stat_object_response_body",
@@ -8861,6 +9229,101 @@ _dynamic_imports: typing.Dict[str, str] = {
     "AssetResponseParentAsset": ".asset_response_parent_asset",
     "AssetResponseResponseBody": ".asset_response_response_body",
     "AssetResponseRunningStatusDataInput": ".asset_response_running_status_data_input",
+    "AssetSharingAgreementResponseObjectResponseBody": ".asset_sharing_agreement_response_object_response_body",
+    "AssetSharingAgreementResponseObjectResponseBodyCanceledByParty": ".asset_sharing_agreement_response_object_response_body_canceled_by_party",
+    "AssetSharingAgreementResponseObjectResponseBodyOperator": ".asset_sharing_agreement_response_object_response_body_operator",
+    "AssetSharingAgreementResponseObjectResponseBodyProviderDataPackagesItem": ".asset_sharing_agreement_response_object_response_body_provider_data_packages_item",
+    "AssetSharingAgreementResponseObjectResponseBodyRecipientDataPackagesItem": ".asset_sharing_agreement_response_object_response_body_recipient_data_packages_item",
+    "AssetSharingAgreementResponseObjectResponseBodyStatus": ".asset_sharing_agreement_response_object_response_body_status",
+    "AssetSharingAgreementsAcceptAssetSharingAgreementBadGatewayErrorResponseBody": ".asset_sharing_agreements_accept_asset_sharing_agreement_bad_gateway_error_response_body",
+    "AssetSharingAgreementsAcceptAssetSharingAgreementGatewayTimeoutErrorResponseBody": ".asset_sharing_agreements_accept_asset_sharing_agreement_gateway_timeout_error_response_body",
+    "AssetSharingAgreementsAcceptAssetSharingAgreementInternalServerErrorResponseBody": ".asset_sharing_agreements_accept_asset_sharing_agreement_internal_server_error_response_body",
+    "AssetSharingAgreementsAcceptAssetSharingAgreementMethodNotAllowedErrorResponseBody": ".asset_sharing_agreements_accept_asset_sharing_agreement_method_not_allowed_error_response_body",
+    "AssetSharingAgreementsAcceptAssetSharingAgreementNotFoundErrorResponseBody": ".asset_sharing_agreements_accept_asset_sharing_agreement_not_found_error_response_body",
+    "AssetSharingAgreementsAcceptAssetSharingAgreementNotImplementedErrorResponseBody": ".asset_sharing_agreements_accept_asset_sharing_agreement_not_implemented_error_response_body",
+    "AssetSharingAgreementsAcceptAssetSharingAgreementResponseBody": ".asset_sharing_agreements_accept_asset_sharing_agreement_response_body",
+    "AssetSharingAgreementsAcceptAssetSharingAgreementServiceUnavailableErrorResponseBody": ".asset_sharing_agreements_accept_asset_sharing_agreement_service_unavailable_error_response_body",
+    "AssetSharingAgreementsAcceptAssetSharingAgreementTooManyRequestsErrorResponseBody": ".asset_sharing_agreements_accept_asset_sharing_agreement_too_many_requests_error_response_body",
+    "AssetSharingAgreementsAcceptAssetSharingAgreementUnauthorizedErrorResponseBody": ".asset_sharing_agreements_accept_asset_sharing_agreement_unauthorized_error_response_body",
+    "AssetSharingAgreementsCancelAssetSharingAgreementBadGatewayErrorResponseBody": ".asset_sharing_agreements_cancel_asset_sharing_agreement_bad_gateway_error_response_body",
+    "AssetSharingAgreementsCancelAssetSharingAgreementGatewayTimeoutErrorResponseBody": ".asset_sharing_agreements_cancel_asset_sharing_agreement_gateway_timeout_error_response_body",
+    "AssetSharingAgreementsCancelAssetSharingAgreementInternalServerErrorResponseBody": ".asset_sharing_agreements_cancel_asset_sharing_agreement_internal_server_error_response_body",
+    "AssetSharingAgreementsCancelAssetSharingAgreementMethodNotAllowedErrorResponseBody": ".asset_sharing_agreements_cancel_asset_sharing_agreement_method_not_allowed_error_response_body",
+    "AssetSharingAgreementsCancelAssetSharingAgreementNotFoundErrorResponseBody": ".asset_sharing_agreements_cancel_asset_sharing_agreement_not_found_error_response_body",
+    "AssetSharingAgreementsCancelAssetSharingAgreementNotImplementedErrorResponseBody": ".asset_sharing_agreements_cancel_asset_sharing_agreement_not_implemented_error_response_body",
+    "AssetSharingAgreementsCancelAssetSharingAgreementResponseBody": ".asset_sharing_agreements_cancel_asset_sharing_agreement_response_body",
+    "AssetSharingAgreementsCancelAssetSharingAgreementServiceUnavailableErrorResponseBody": ".asset_sharing_agreements_cancel_asset_sharing_agreement_service_unavailable_error_response_body",
+    "AssetSharingAgreementsCancelAssetSharingAgreementTooManyRequestsErrorResponseBody": ".asset_sharing_agreements_cancel_asset_sharing_agreement_too_many_requests_error_response_body",
+    "AssetSharingAgreementsCancelAssetSharingAgreementUnauthorizedErrorResponseBody": ".asset_sharing_agreements_cancel_asset_sharing_agreement_unauthorized_error_response_body",
+    "AssetSharingAgreementsCreateAssetSharingAgreementBadGatewayErrorResponseBody": ".asset_sharing_agreements_create_asset_sharing_agreement_bad_gateway_error_response_body",
+    "AssetSharingAgreementsCreateAssetSharingAgreementGatewayTimeoutErrorResponseBody": ".asset_sharing_agreements_create_asset_sharing_agreement_gateway_timeout_error_response_body",
+    "AssetSharingAgreementsCreateAssetSharingAgreementInternalServerErrorResponseBody": ".asset_sharing_agreements_create_asset_sharing_agreement_internal_server_error_response_body",
+    "AssetSharingAgreementsCreateAssetSharingAgreementMethodNotAllowedErrorResponseBody": ".asset_sharing_agreements_create_asset_sharing_agreement_method_not_allowed_error_response_body",
+    "AssetSharingAgreementsCreateAssetSharingAgreementNotFoundErrorResponseBody": ".asset_sharing_agreements_create_asset_sharing_agreement_not_found_error_response_body",
+    "AssetSharingAgreementsCreateAssetSharingAgreementNotImplementedErrorResponseBody": ".asset_sharing_agreements_create_asset_sharing_agreement_not_implemented_error_response_body",
+    "AssetSharingAgreementsCreateAssetSharingAgreementResponseBody": ".asset_sharing_agreements_create_asset_sharing_agreement_response_body",
+    "AssetSharingAgreementsCreateAssetSharingAgreementServiceUnavailableErrorResponseBody": ".asset_sharing_agreements_create_asset_sharing_agreement_service_unavailable_error_response_body",
+    "AssetSharingAgreementsCreateAssetSharingAgreementTooManyRequestsErrorResponseBody": ".asset_sharing_agreements_create_asset_sharing_agreement_too_many_requests_error_response_body",
+    "AssetSharingAgreementsCreateAssetSharingAgreementUnauthorizedErrorResponseBody": ".asset_sharing_agreements_create_asset_sharing_agreement_unauthorized_error_response_body",
+    "AssetSharingAgreementsCreateSharedAssetsBatchBadGatewayErrorResponseBody": ".asset_sharing_agreements_create_shared_assets_batch_bad_gateway_error_response_body",
+    "AssetSharingAgreementsCreateSharedAssetsBatchGatewayTimeoutErrorResponseBody": ".asset_sharing_agreements_create_shared_assets_batch_gateway_timeout_error_response_body",
+    "AssetSharingAgreementsCreateSharedAssetsBatchInternalServerErrorResponseBody": ".asset_sharing_agreements_create_shared_assets_batch_internal_server_error_response_body",
+    "AssetSharingAgreementsCreateSharedAssetsBatchMethodNotAllowedErrorResponseBody": ".asset_sharing_agreements_create_shared_assets_batch_method_not_allowed_error_response_body",
+    "AssetSharingAgreementsCreateSharedAssetsBatchNotFoundErrorResponseBody": ".asset_sharing_agreements_create_shared_assets_batch_not_found_error_response_body",
+    "AssetSharingAgreementsCreateSharedAssetsBatchNotImplementedErrorResponseBody": ".asset_sharing_agreements_create_shared_assets_batch_not_implemented_error_response_body",
+    "AssetSharingAgreementsCreateSharedAssetsBatchResponseBody": ".asset_sharing_agreements_create_shared_assets_batch_response_body",
+    "AssetSharingAgreementsCreateSharedAssetsBatchServiceUnavailableErrorResponseBody": ".asset_sharing_agreements_create_shared_assets_batch_service_unavailable_error_response_body",
+    "AssetSharingAgreementsCreateSharedAssetsBatchTooManyRequestsErrorResponseBody": ".asset_sharing_agreements_create_shared_assets_batch_too_many_requests_error_response_body",
+    "AssetSharingAgreementsCreateSharedAssetsBatchUnauthorizedErrorResponseBody": ".asset_sharing_agreements_create_shared_assets_batch_unauthorized_error_response_body",
+    "AssetSharingAgreementsDeleteAssetSharingAgreementBadGatewayErrorResponseBody": ".asset_sharing_agreements_delete_asset_sharing_agreement_bad_gateway_error_response_body",
+    "AssetSharingAgreementsDeleteAssetSharingAgreementGatewayTimeoutErrorResponseBody": ".asset_sharing_agreements_delete_asset_sharing_agreement_gateway_timeout_error_response_body",
+    "AssetSharingAgreementsDeleteAssetSharingAgreementInternalServerErrorResponseBody": ".asset_sharing_agreements_delete_asset_sharing_agreement_internal_server_error_response_body",
+    "AssetSharingAgreementsDeleteAssetSharingAgreementMethodNotAllowedErrorResponseBody": ".asset_sharing_agreements_delete_asset_sharing_agreement_method_not_allowed_error_response_body",
+    "AssetSharingAgreementsDeleteAssetSharingAgreementNotFoundErrorResponseBody": ".asset_sharing_agreements_delete_asset_sharing_agreement_not_found_error_response_body",
+    "AssetSharingAgreementsDeleteAssetSharingAgreementNotImplementedErrorResponseBody": ".asset_sharing_agreements_delete_asset_sharing_agreement_not_implemented_error_response_body",
+    "AssetSharingAgreementsDeleteAssetSharingAgreementServiceUnavailableErrorResponseBody": ".asset_sharing_agreements_delete_asset_sharing_agreement_service_unavailable_error_response_body",
+    "AssetSharingAgreementsDeleteAssetSharingAgreementTooManyRequestsErrorResponseBody": ".asset_sharing_agreements_delete_asset_sharing_agreement_too_many_requests_error_response_body",
+    "AssetSharingAgreementsDeleteAssetSharingAgreementUnauthorizedErrorResponseBody": ".asset_sharing_agreements_delete_asset_sharing_agreement_unauthorized_error_response_body",
+    "AssetSharingAgreementsListAssetSharingAgreementsBadGatewayErrorResponseBody": ".asset_sharing_agreements_list_asset_sharing_agreements_bad_gateway_error_response_body",
+    "AssetSharingAgreementsListAssetSharingAgreementsGatewayTimeoutErrorResponseBody": ".asset_sharing_agreements_list_asset_sharing_agreements_gateway_timeout_error_response_body",
+    "AssetSharingAgreementsListAssetSharingAgreementsInternalServerErrorResponseBody": ".asset_sharing_agreements_list_asset_sharing_agreements_internal_server_error_response_body",
+    "AssetSharingAgreementsListAssetSharingAgreementsMethodNotAllowedErrorResponseBody": ".asset_sharing_agreements_list_asset_sharing_agreements_method_not_allowed_error_response_body",
+    "AssetSharingAgreementsListAssetSharingAgreementsNotFoundErrorResponseBody": ".asset_sharing_agreements_list_asset_sharing_agreements_not_found_error_response_body",
+    "AssetSharingAgreementsListAssetSharingAgreementsNotImplementedErrorResponseBody": ".asset_sharing_agreements_list_asset_sharing_agreements_not_implemented_error_response_body",
+    "AssetSharingAgreementsListAssetSharingAgreementsResponseBody": ".asset_sharing_agreements_list_asset_sharing_agreements_response_body",
+    "AssetSharingAgreementsListAssetSharingAgreementsServiceUnavailableErrorResponseBody": ".asset_sharing_agreements_list_asset_sharing_agreements_service_unavailable_error_response_body",
+    "AssetSharingAgreementsListAssetSharingAgreementsTooManyRequestsErrorResponseBody": ".asset_sharing_agreements_list_asset_sharing_agreements_too_many_requests_error_response_body",
+    "AssetSharingAgreementsListAssetSharingAgreementsUnauthorizedErrorResponseBody": ".asset_sharing_agreements_list_asset_sharing_agreements_unauthorized_error_response_body",
+    "AssetSharingAgreementsListSharedAssetsBadGatewayErrorResponseBody": ".asset_sharing_agreements_list_shared_assets_bad_gateway_error_response_body",
+    "AssetSharingAgreementsListSharedAssetsGatewayTimeoutErrorResponseBody": ".asset_sharing_agreements_list_shared_assets_gateway_timeout_error_response_body",
+    "AssetSharingAgreementsListSharedAssetsInternalServerErrorResponseBody": ".asset_sharing_agreements_list_shared_assets_internal_server_error_response_body",
+    "AssetSharingAgreementsListSharedAssetsMethodNotAllowedErrorResponseBody": ".asset_sharing_agreements_list_shared_assets_method_not_allowed_error_response_body",
+    "AssetSharingAgreementsListSharedAssetsNotFoundErrorResponseBody": ".asset_sharing_agreements_list_shared_assets_not_found_error_response_body",
+    "AssetSharingAgreementsListSharedAssetsNotImplementedErrorResponseBody": ".asset_sharing_agreements_list_shared_assets_not_implemented_error_response_body",
+    "AssetSharingAgreementsListSharedAssetsResponseBody": ".asset_sharing_agreements_list_shared_assets_response_body",
+    "AssetSharingAgreementsListSharedAssetsServiceUnavailableErrorResponseBody": ".asset_sharing_agreements_list_shared_assets_service_unavailable_error_response_body",
+    "AssetSharingAgreementsListSharedAssetsTooManyRequestsErrorResponseBody": ".asset_sharing_agreements_list_shared_assets_too_many_requests_error_response_body",
+    "AssetSharingAgreementsListSharedAssetsUnauthorizedErrorResponseBody": ".asset_sharing_agreements_list_shared_assets_unauthorized_error_response_body",
+    "AssetSharingAgreementsRejectAssetSharingAgreementBadGatewayErrorResponseBody": ".asset_sharing_agreements_reject_asset_sharing_agreement_bad_gateway_error_response_body",
+    "AssetSharingAgreementsRejectAssetSharingAgreementGatewayTimeoutErrorResponseBody": ".asset_sharing_agreements_reject_asset_sharing_agreement_gateway_timeout_error_response_body",
+    "AssetSharingAgreementsRejectAssetSharingAgreementInternalServerErrorResponseBody": ".asset_sharing_agreements_reject_asset_sharing_agreement_internal_server_error_response_body",
+    "AssetSharingAgreementsRejectAssetSharingAgreementMethodNotAllowedErrorResponseBody": ".asset_sharing_agreements_reject_asset_sharing_agreement_method_not_allowed_error_response_body",
+    "AssetSharingAgreementsRejectAssetSharingAgreementNotFoundErrorResponseBody": ".asset_sharing_agreements_reject_asset_sharing_agreement_not_found_error_response_body",
+    "AssetSharingAgreementsRejectAssetSharingAgreementNotImplementedErrorResponseBody": ".asset_sharing_agreements_reject_asset_sharing_agreement_not_implemented_error_response_body",
+    "AssetSharingAgreementsRejectAssetSharingAgreementResponseBody": ".asset_sharing_agreements_reject_asset_sharing_agreement_response_body",
+    "AssetSharingAgreementsRejectAssetSharingAgreementServiceUnavailableErrorResponseBody": ".asset_sharing_agreements_reject_asset_sharing_agreement_service_unavailable_error_response_body",
+    "AssetSharingAgreementsRejectAssetSharingAgreementTooManyRequestsErrorResponseBody": ".asset_sharing_agreements_reject_asset_sharing_agreement_too_many_requests_error_response_body",
+    "AssetSharingAgreementsRejectAssetSharingAgreementUnauthorizedErrorResponseBody": ".asset_sharing_agreements_reject_asset_sharing_agreement_unauthorized_error_response_body",
+    "AssetSharingAgreementsUpdateSharedAssetsBatchBadGatewayErrorResponseBody": ".asset_sharing_agreements_update_shared_assets_batch_bad_gateway_error_response_body",
+    "AssetSharingAgreementsUpdateSharedAssetsBatchGatewayTimeoutErrorResponseBody": ".asset_sharing_agreements_update_shared_assets_batch_gateway_timeout_error_response_body",
+    "AssetSharingAgreementsUpdateSharedAssetsBatchInternalServerErrorResponseBody": ".asset_sharing_agreements_update_shared_assets_batch_internal_server_error_response_body",
+    "AssetSharingAgreementsUpdateSharedAssetsBatchMethodNotAllowedErrorResponseBody": ".asset_sharing_agreements_update_shared_assets_batch_method_not_allowed_error_response_body",
+    "AssetSharingAgreementsUpdateSharedAssetsBatchNotFoundErrorResponseBody": ".asset_sharing_agreements_update_shared_assets_batch_not_found_error_response_body",
+    "AssetSharingAgreementsUpdateSharedAssetsBatchNotImplementedErrorResponseBody": ".asset_sharing_agreements_update_shared_assets_batch_not_implemented_error_response_body",
+    "AssetSharingAgreementsUpdateSharedAssetsBatchResponseBody": ".asset_sharing_agreements_update_shared_assets_batch_response_body",
+    "AssetSharingAgreementsUpdateSharedAssetsBatchServiceUnavailableErrorResponseBody": ".asset_sharing_agreements_update_shared_assets_batch_service_unavailable_error_response_body",
+    "AssetSharingAgreementsUpdateSharedAssetsBatchTooManyRequestsErrorResponseBody": ".asset_sharing_agreements_update_shared_assets_batch_too_many_requests_error_response_body",
+    "AssetSharingAgreementsUpdateSharedAssetsBatchUnauthorizedErrorResponseBody": ".asset_sharing_agreements_update_shared_assets_batch_unauthorized_error_response_body",
     "AssetsCreateAssetBadGatewayErrorResponseBody": ".assets_create_asset_bad_gateway_error_response_body",
     "AssetsCreateAssetGatewayTimeoutErrorResponseBody": ".assets_create_asset_gateway_timeout_error_response_body",
     "AssetsCreateAssetInternalServerErrorResponseBody": ".assets_create_asset_internal_server_error_response_body",
@@ -8959,6 +9422,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "BarcodeValueObjectRequestBody": ".barcode_value_object_request_body",
     "BarcodeValueObjectResponseBody": ".barcode_value_object_response_body",
     "BaseRouteResponseObjectResponseBody": ".base_route_response_object_response_body",
+    "BaseRouteWithStopFormsResponseObjectResponseBody": ".base_route_with_stop_forms_response_object_response_body",
     "BehaviorCountDetailsRequestBody": ".behavior_count_details_request_body",
     "BehaviorCountDetailsRequestBodyComparison": ".behavior_count_details_request_body_comparison",
     "BehaviorCountDetailsResponseBody": ".behavior_count_details_response_body",
@@ -9068,6 +9532,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "CreateReportConfigColumnRequestBody": ".create_report_config_column_request_body",
     "CreateReportConfigObjectRequestBody": ".create_report_config_object_request_body",
     "CreateRoutesStopRequestObjectRequestBody": ".create_routes_stop_request_object_request_body",
+    "CreateSharedAssetRequestObjectRequestBody": ".create_shared_asset_request_object_request_body",
     "CreateUserRequestRoles": ".create_user_request_roles",
     "CruiseControlDurationMs": ".cruise_control_duration_ms",
     "CumulativeOperatingHoursResponseBody": ".cumulative_operating_hours_response_body",
@@ -9692,6 +10157,16 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EquipmentObdEngineState": ".equipment_obd_engine_state",
     "EquipmentObdEngineStateValue": ".equipment_obd_engine_state_value",
     "EquipmentObject": ".equipment_object",
+    "EquipmentOutputControlSetEquipmentDigitalOutputBadGatewayErrorResponseBody": ".equipment_output_control_set_equipment_digital_output_bad_gateway_error_response_body",
+    "EquipmentOutputControlSetEquipmentDigitalOutputGatewayTimeoutErrorResponseBody": ".equipment_output_control_set_equipment_digital_output_gateway_timeout_error_response_body",
+    "EquipmentOutputControlSetEquipmentDigitalOutputInternalServerErrorResponseBody": ".equipment_output_control_set_equipment_digital_output_internal_server_error_response_body",
+    "EquipmentOutputControlSetEquipmentDigitalOutputMethodNotAllowedErrorResponseBody": ".equipment_output_control_set_equipment_digital_output_method_not_allowed_error_response_body",
+    "EquipmentOutputControlSetEquipmentDigitalOutputNotFoundErrorResponseBody": ".equipment_output_control_set_equipment_digital_output_not_found_error_response_body",
+    "EquipmentOutputControlSetEquipmentDigitalOutputNotImplementedErrorResponseBody": ".equipment_output_control_set_equipment_digital_output_not_implemented_error_response_body",
+    "EquipmentOutputControlSetEquipmentDigitalOutputResponseBody": ".equipment_output_control_set_equipment_digital_output_response_body",
+    "EquipmentOutputControlSetEquipmentDigitalOutputServiceUnavailableErrorResponseBody": ".equipment_output_control_set_equipment_digital_output_service_unavailable_error_response_body",
+    "EquipmentOutputControlSetEquipmentDigitalOutputTooManyRequestsErrorResponseBody": ".equipment_output_control_set_equipment_digital_output_too_many_requests_error_response_body",
+    "EquipmentOutputControlSetEquipmentDigitalOutputUnauthorizedErrorResponseBody": ".equipment_output_control_set_equipment_digital_output_unauthorized_error_response_body",
     "EquipmentPatchEquipmentBadGatewayErrorResponseBody": ".equipment_patch_equipment_bad_gateway_error_response_body",
     "EquipmentPatchEquipmentGatewayTimeoutErrorResponseBody": ".equipment_patch_equipment_gateway_timeout_error_response_body",
     "EquipmentPatchEquipmentInternalServerErrorResponseBody": ".equipment_patch_equipment_internal_server_error_response_body",
@@ -11500,6 +11975,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "RouteStopEstimatedArrivalDetailsObjectRequestBody": ".route_stop_estimated_arrival_details_object_request_body",
     "RouteStopEstimatedArrivalDetailsObjectResponseBody": ".route_stop_estimated_arrival_details_object_response_body",
     "RouteStopEtaResponseBody": ".route_stop_eta_response_body",
+    "RouteStopFormRequestObjectRequestBody": ".route_stop_form_request_object_request_body",
+    "RouteStopFormResponseObjectResponseBody": ".route_stop_form_response_object_response_body",
     "RouteStopObjectResponseBody": ".route_stop_object_response_body",
     "RouteVehicleObjectResponseBody": ".route_vehicle_object_response_body",
     "RoutesCreateRouteBadGatewayErrorResponseBody": ".routes_create_route_bad_gateway_error_response_body",
@@ -11575,6 +12052,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "RoutesSingleUseAddressObjectResponseBody": ".routes_single_use_address_object_response_body",
     "RoutesStopResponseObjectResponseBody": ".routes_stop_response_object_response_body",
     "RoutesStopResponseObjectResponseBodyState": ".routes_stop_response_object_response_body_state",
+    "RoutesStopWithFormsResponseObjectResponseBody": ".routes_stop_with_forms_response_object_response_body",
+    "RoutesStopWithFormsResponseObjectResponseBodyState": ".routes_stop_with_forms_response_object_response_body_state",
     "RoutingCapacityServiceTimeResponseResponseBody": ".routing_capacity_service_time_response_response_body",
     "RoutingOrderServiceTimeResponseResponseBody": ".routing_order_service_time_response_response_body",
     "RoutingRequiredSkillResponseResponseBody": ".routing_required_skill_response_response_body",
@@ -11753,6 +12232,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "ServiceTaskProcedureSubtaskObjectResponseBody": ".service_task_procedure_subtask_object_response_body",
     "ServiceTaskSubtaskObjectResponseBody": ".service_task_subtask_object_response_body",
     "ServiceWindowObjectResponseBody": ".service_window_object_response_body",
+    "SetEquipmentDigitalOutputDataResponseBody": ".set_equipment_digital_output_data_response_body",
     "SettingsComplianceResponseObjectResponseBody": ".settings_compliance_response_object_response_body",
     "SettingsGetComplianceSettingsBadGatewayErrorResponseBody": ".settings_get_compliance_settings_bad_gateway_error_response_body",
     "SettingsGetComplianceSettingsGatewayTimeoutErrorResponseBody": ".settings_get_compliance_settings_gateway_timeout_error_response_body",
@@ -11797,6 +12277,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "SettingsResponseBody": ".settings_response_body",
     "SevereSpeedingStartedObjectResponseBody": ".severe_speeding_started_object_response_body",
     "SevereSpeedingStartedResponseObjectResponseBody": ".severe_speeding_started_response_object_response_body",
+    "SharedAssetResponseObjectResponseBody": ".shared_asset_response_object_response_body",
     "SignatoryUserObjectResponseBody": ".signatory_user_object_response_body",
     "SignatureFieldTypeMetaDataObjectResponseBody": ".signature_field_type_meta_data_object_response_body",
     "SignatureValueObjectRequestBody": ".signature_value_object_request_body",
@@ -12178,6 +12659,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "UpdateFunctionStorageFileDetailResponseBody": ".update_function_storage_file_detail_response_body",
     "UpdateHubLocationRequestBodyRequestBody": ".update_hub_location_request_body_request_body",
     "UpdateRoutesStopRequestObjectRequestBody": ".update_routes_stop_request_object_request_body",
+    "UpdateSharedAssetRequestObjectRequestBody": ".update_shared_asset_request_object_request_body",
     "UploadedMediaObjectResponseBody": ".uploaded_media_object_response_body",
     "UploadedMediaObjectResponseBodyCameraRole": ".uploaded_media_object_response_body_camera_role",
     "UploadedMediaObjectResponseBodyInput": ".uploaded_media_object_response_body_input",
@@ -12916,6 +13398,7 @@ __all__ = [
     "AlertObjectMachineInputResponseBody",
     "AlertObjectOnvifCameraStreamResponseBody",
     "AlertObjectProductResponseBody",
+    "AlertObjectRouteResponseBody",
     "AlertObjectSensorResponseBody",
     "AlertObjectSitesResponseBody",
     "AlertObjectTrailerResponseBody",
@@ -13025,7 +13508,18 @@ __all__ = [
     "AssetDataOutputsPatchAssetDataOutputsUnauthorizedErrorResponseBody",
     "AssetLocation",
     "AssetLocationHeading",
+    "AssetLocationResponseBody",
     "AssetLocationSpeed",
+    "AssetLocationsGetAssetLocationBadGatewayErrorResponseBody",
+    "AssetLocationsGetAssetLocationGatewayTimeoutErrorResponseBody",
+    "AssetLocationsGetAssetLocationInternalServerErrorResponseBody",
+    "AssetLocationsGetAssetLocationMethodNotAllowedErrorResponseBody",
+    "AssetLocationsGetAssetLocationNotFoundErrorResponseBody",
+    "AssetLocationsGetAssetLocationNotImplementedErrorResponseBody",
+    "AssetLocationsGetAssetLocationResponseBody",
+    "AssetLocationsGetAssetLocationServiceUnavailableErrorResponseBody",
+    "AssetLocationsGetAssetLocationTooManyRequestsErrorResponseBody",
+    "AssetLocationsGetAssetLocationUnauthorizedErrorResponseBody",
     "AssetName",
     "AssetReeferAlarmObjectResponseBody",
     "AssetReeferAlarmsStatObjectResponseBody",
@@ -13042,6 +13536,101 @@ __all__ = [
     "AssetResponseParentAsset",
     "AssetResponseResponseBody",
     "AssetResponseRunningStatusDataInput",
+    "AssetSharingAgreementResponseObjectResponseBody",
+    "AssetSharingAgreementResponseObjectResponseBodyCanceledByParty",
+    "AssetSharingAgreementResponseObjectResponseBodyOperator",
+    "AssetSharingAgreementResponseObjectResponseBodyProviderDataPackagesItem",
+    "AssetSharingAgreementResponseObjectResponseBodyRecipientDataPackagesItem",
+    "AssetSharingAgreementResponseObjectResponseBodyStatus",
+    "AssetSharingAgreementsAcceptAssetSharingAgreementBadGatewayErrorResponseBody",
+    "AssetSharingAgreementsAcceptAssetSharingAgreementGatewayTimeoutErrorResponseBody",
+    "AssetSharingAgreementsAcceptAssetSharingAgreementInternalServerErrorResponseBody",
+    "AssetSharingAgreementsAcceptAssetSharingAgreementMethodNotAllowedErrorResponseBody",
+    "AssetSharingAgreementsAcceptAssetSharingAgreementNotFoundErrorResponseBody",
+    "AssetSharingAgreementsAcceptAssetSharingAgreementNotImplementedErrorResponseBody",
+    "AssetSharingAgreementsAcceptAssetSharingAgreementResponseBody",
+    "AssetSharingAgreementsAcceptAssetSharingAgreementServiceUnavailableErrorResponseBody",
+    "AssetSharingAgreementsAcceptAssetSharingAgreementTooManyRequestsErrorResponseBody",
+    "AssetSharingAgreementsAcceptAssetSharingAgreementUnauthorizedErrorResponseBody",
+    "AssetSharingAgreementsCancelAssetSharingAgreementBadGatewayErrorResponseBody",
+    "AssetSharingAgreementsCancelAssetSharingAgreementGatewayTimeoutErrorResponseBody",
+    "AssetSharingAgreementsCancelAssetSharingAgreementInternalServerErrorResponseBody",
+    "AssetSharingAgreementsCancelAssetSharingAgreementMethodNotAllowedErrorResponseBody",
+    "AssetSharingAgreementsCancelAssetSharingAgreementNotFoundErrorResponseBody",
+    "AssetSharingAgreementsCancelAssetSharingAgreementNotImplementedErrorResponseBody",
+    "AssetSharingAgreementsCancelAssetSharingAgreementResponseBody",
+    "AssetSharingAgreementsCancelAssetSharingAgreementServiceUnavailableErrorResponseBody",
+    "AssetSharingAgreementsCancelAssetSharingAgreementTooManyRequestsErrorResponseBody",
+    "AssetSharingAgreementsCancelAssetSharingAgreementUnauthorizedErrorResponseBody",
+    "AssetSharingAgreementsCreateAssetSharingAgreementBadGatewayErrorResponseBody",
+    "AssetSharingAgreementsCreateAssetSharingAgreementGatewayTimeoutErrorResponseBody",
+    "AssetSharingAgreementsCreateAssetSharingAgreementInternalServerErrorResponseBody",
+    "AssetSharingAgreementsCreateAssetSharingAgreementMethodNotAllowedErrorResponseBody",
+    "AssetSharingAgreementsCreateAssetSharingAgreementNotFoundErrorResponseBody",
+    "AssetSharingAgreementsCreateAssetSharingAgreementNotImplementedErrorResponseBody",
+    "AssetSharingAgreementsCreateAssetSharingAgreementResponseBody",
+    "AssetSharingAgreementsCreateAssetSharingAgreementServiceUnavailableErrorResponseBody",
+    "AssetSharingAgreementsCreateAssetSharingAgreementTooManyRequestsErrorResponseBody",
+    "AssetSharingAgreementsCreateAssetSharingAgreementUnauthorizedErrorResponseBody",
+    "AssetSharingAgreementsCreateSharedAssetsBatchBadGatewayErrorResponseBody",
+    "AssetSharingAgreementsCreateSharedAssetsBatchGatewayTimeoutErrorResponseBody",
+    "AssetSharingAgreementsCreateSharedAssetsBatchInternalServerErrorResponseBody",
+    "AssetSharingAgreementsCreateSharedAssetsBatchMethodNotAllowedErrorResponseBody",
+    "AssetSharingAgreementsCreateSharedAssetsBatchNotFoundErrorResponseBody",
+    "AssetSharingAgreementsCreateSharedAssetsBatchNotImplementedErrorResponseBody",
+    "AssetSharingAgreementsCreateSharedAssetsBatchResponseBody",
+    "AssetSharingAgreementsCreateSharedAssetsBatchServiceUnavailableErrorResponseBody",
+    "AssetSharingAgreementsCreateSharedAssetsBatchTooManyRequestsErrorResponseBody",
+    "AssetSharingAgreementsCreateSharedAssetsBatchUnauthorizedErrorResponseBody",
+    "AssetSharingAgreementsDeleteAssetSharingAgreementBadGatewayErrorResponseBody",
+    "AssetSharingAgreementsDeleteAssetSharingAgreementGatewayTimeoutErrorResponseBody",
+    "AssetSharingAgreementsDeleteAssetSharingAgreementInternalServerErrorResponseBody",
+    "AssetSharingAgreementsDeleteAssetSharingAgreementMethodNotAllowedErrorResponseBody",
+    "AssetSharingAgreementsDeleteAssetSharingAgreementNotFoundErrorResponseBody",
+    "AssetSharingAgreementsDeleteAssetSharingAgreementNotImplementedErrorResponseBody",
+    "AssetSharingAgreementsDeleteAssetSharingAgreementServiceUnavailableErrorResponseBody",
+    "AssetSharingAgreementsDeleteAssetSharingAgreementTooManyRequestsErrorResponseBody",
+    "AssetSharingAgreementsDeleteAssetSharingAgreementUnauthorizedErrorResponseBody",
+    "AssetSharingAgreementsListAssetSharingAgreementsBadGatewayErrorResponseBody",
+    "AssetSharingAgreementsListAssetSharingAgreementsGatewayTimeoutErrorResponseBody",
+    "AssetSharingAgreementsListAssetSharingAgreementsInternalServerErrorResponseBody",
+    "AssetSharingAgreementsListAssetSharingAgreementsMethodNotAllowedErrorResponseBody",
+    "AssetSharingAgreementsListAssetSharingAgreementsNotFoundErrorResponseBody",
+    "AssetSharingAgreementsListAssetSharingAgreementsNotImplementedErrorResponseBody",
+    "AssetSharingAgreementsListAssetSharingAgreementsResponseBody",
+    "AssetSharingAgreementsListAssetSharingAgreementsServiceUnavailableErrorResponseBody",
+    "AssetSharingAgreementsListAssetSharingAgreementsTooManyRequestsErrorResponseBody",
+    "AssetSharingAgreementsListAssetSharingAgreementsUnauthorizedErrorResponseBody",
+    "AssetSharingAgreementsListSharedAssetsBadGatewayErrorResponseBody",
+    "AssetSharingAgreementsListSharedAssetsGatewayTimeoutErrorResponseBody",
+    "AssetSharingAgreementsListSharedAssetsInternalServerErrorResponseBody",
+    "AssetSharingAgreementsListSharedAssetsMethodNotAllowedErrorResponseBody",
+    "AssetSharingAgreementsListSharedAssetsNotFoundErrorResponseBody",
+    "AssetSharingAgreementsListSharedAssetsNotImplementedErrorResponseBody",
+    "AssetSharingAgreementsListSharedAssetsResponseBody",
+    "AssetSharingAgreementsListSharedAssetsServiceUnavailableErrorResponseBody",
+    "AssetSharingAgreementsListSharedAssetsTooManyRequestsErrorResponseBody",
+    "AssetSharingAgreementsListSharedAssetsUnauthorizedErrorResponseBody",
+    "AssetSharingAgreementsRejectAssetSharingAgreementBadGatewayErrorResponseBody",
+    "AssetSharingAgreementsRejectAssetSharingAgreementGatewayTimeoutErrorResponseBody",
+    "AssetSharingAgreementsRejectAssetSharingAgreementInternalServerErrorResponseBody",
+    "AssetSharingAgreementsRejectAssetSharingAgreementMethodNotAllowedErrorResponseBody",
+    "AssetSharingAgreementsRejectAssetSharingAgreementNotFoundErrorResponseBody",
+    "AssetSharingAgreementsRejectAssetSharingAgreementNotImplementedErrorResponseBody",
+    "AssetSharingAgreementsRejectAssetSharingAgreementResponseBody",
+    "AssetSharingAgreementsRejectAssetSharingAgreementServiceUnavailableErrorResponseBody",
+    "AssetSharingAgreementsRejectAssetSharingAgreementTooManyRequestsErrorResponseBody",
+    "AssetSharingAgreementsRejectAssetSharingAgreementUnauthorizedErrorResponseBody",
+    "AssetSharingAgreementsUpdateSharedAssetsBatchBadGatewayErrorResponseBody",
+    "AssetSharingAgreementsUpdateSharedAssetsBatchGatewayTimeoutErrorResponseBody",
+    "AssetSharingAgreementsUpdateSharedAssetsBatchInternalServerErrorResponseBody",
+    "AssetSharingAgreementsUpdateSharedAssetsBatchMethodNotAllowedErrorResponseBody",
+    "AssetSharingAgreementsUpdateSharedAssetsBatchNotFoundErrorResponseBody",
+    "AssetSharingAgreementsUpdateSharedAssetsBatchNotImplementedErrorResponseBody",
+    "AssetSharingAgreementsUpdateSharedAssetsBatchResponseBody",
+    "AssetSharingAgreementsUpdateSharedAssetsBatchServiceUnavailableErrorResponseBody",
+    "AssetSharingAgreementsUpdateSharedAssetsBatchTooManyRequestsErrorResponseBody",
+    "AssetSharingAgreementsUpdateSharedAssetsBatchUnauthorizedErrorResponseBody",
     "AssetsCreateAssetBadGatewayErrorResponseBody",
     "AssetsCreateAssetGatewayTimeoutErrorResponseBody",
     "AssetsCreateAssetInternalServerErrorResponseBody",
@@ -13140,6 +13729,7 @@ __all__ = [
     "BarcodeValueObjectRequestBody",
     "BarcodeValueObjectResponseBody",
     "BaseRouteResponseObjectResponseBody",
+    "BaseRouteWithStopFormsResponseObjectResponseBody",
     "BehaviorCountDetailsRequestBody",
     "BehaviorCountDetailsRequestBodyComparison",
     "BehaviorCountDetailsResponseBody",
@@ -13249,6 +13839,7 @@ __all__ = [
     "CreateReportConfigColumnRequestBody",
     "CreateReportConfigObjectRequestBody",
     "CreateRoutesStopRequestObjectRequestBody",
+    "CreateSharedAssetRequestObjectRequestBody",
     "CreateUserRequestRoles",
     "CruiseControlDurationMs",
     "CumulativeOperatingHoursResponseBody",
@@ -13873,6 +14464,16 @@ __all__ = [
     "EquipmentObdEngineState",
     "EquipmentObdEngineStateValue",
     "EquipmentObject",
+    "EquipmentOutputControlSetEquipmentDigitalOutputBadGatewayErrorResponseBody",
+    "EquipmentOutputControlSetEquipmentDigitalOutputGatewayTimeoutErrorResponseBody",
+    "EquipmentOutputControlSetEquipmentDigitalOutputInternalServerErrorResponseBody",
+    "EquipmentOutputControlSetEquipmentDigitalOutputMethodNotAllowedErrorResponseBody",
+    "EquipmentOutputControlSetEquipmentDigitalOutputNotFoundErrorResponseBody",
+    "EquipmentOutputControlSetEquipmentDigitalOutputNotImplementedErrorResponseBody",
+    "EquipmentOutputControlSetEquipmentDigitalOutputResponseBody",
+    "EquipmentOutputControlSetEquipmentDigitalOutputServiceUnavailableErrorResponseBody",
+    "EquipmentOutputControlSetEquipmentDigitalOutputTooManyRequestsErrorResponseBody",
+    "EquipmentOutputControlSetEquipmentDigitalOutputUnauthorizedErrorResponseBody",
     "EquipmentPatchEquipmentBadGatewayErrorResponseBody",
     "EquipmentPatchEquipmentGatewayTimeoutErrorResponseBody",
     "EquipmentPatchEquipmentInternalServerErrorResponseBody",
@@ -15681,6 +16282,8 @@ __all__ = [
     "RouteStopEstimatedArrivalDetailsObjectRequestBody",
     "RouteStopEstimatedArrivalDetailsObjectResponseBody",
     "RouteStopEtaResponseBody",
+    "RouteStopFormRequestObjectRequestBody",
+    "RouteStopFormResponseObjectResponseBody",
     "RouteStopObjectResponseBody",
     "RouteVehicleObjectResponseBody",
     "RoutesCreateRouteBadGatewayErrorResponseBody",
@@ -15756,6 +16359,8 @@ __all__ = [
     "RoutesSingleUseAddressObjectResponseBody",
     "RoutesStopResponseObjectResponseBody",
     "RoutesStopResponseObjectResponseBodyState",
+    "RoutesStopWithFormsResponseObjectResponseBody",
+    "RoutesStopWithFormsResponseObjectResponseBodyState",
     "RoutingCapacityServiceTimeResponseResponseBody",
     "RoutingOrderServiceTimeResponseResponseBody",
     "RoutingRequiredSkillResponseResponseBody",
@@ -15934,6 +16539,7 @@ __all__ = [
     "ServiceTaskProcedureSubtaskObjectResponseBody",
     "ServiceTaskSubtaskObjectResponseBody",
     "ServiceWindowObjectResponseBody",
+    "SetEquipmentDigitalOutputDataResponseBody",
     "SettingsComplianceResponseObjectResponseBody",
     "SettingsGetComplianceSettingsBadGatewayErrorResponseBody",
     "SettingsGetComplianceSettingsGatewayTimeoutErrorResponseBody",
@@ -15978,6 +16584,7 @@ __all__ = [
     "SettingsResponseBody",
     "SevereSpeedingStartedObjectResponseBody",
     "SevereSpeedingStartedResponseObjectResponseBody",
+    "SharedAssetResponseObjectResponseBody",
     "SignatoryUserObjectResponseBody",
     "SignatureFieldTypeMetaDataObjectResponseBody",
     "SignatureValueObjectRequestBody",
@@ -16359,6 +16966,7 @@ __all__ = [
     "UpdateFunctionStorageFileDetailResponseBody",
     "UpdateHubLocationRequestBodyRequestBody",
     "UpdateRoutesStopRequestObjectRequestBody",
+    "UpdateSharedAssetRequestObjectRequestBody",
     "UploadedMediaObjectResponseBody",
     "UploadedMediaObjectResponseBodyCameraRole",
     "UploadedMediaObjectResponseBodyInput",

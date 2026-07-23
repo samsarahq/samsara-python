@@ -7,6 +7,7 @@ import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .alert_object_driver_response_body import AlertObjectDriverResponseBody
+from .alert_object_route_response_body import AlertObjectRouteResponseBody
 from .alert_object_vehicle_response_body import AlertObjectVehicleResponseBody
 
 
@@ -26,6 +27,7 @@ class OutOfSequenceStopArrivalDataResponseBody(UniversalBaseModel):
         FieldMetadata(alias="expectedStopName"),
         pydantic.Field(alias="expectedStopName", description="Name of the stop the driver was expected to arrive at."),
     ] = None
+    route: typing.Optional[AlertObjectRouteResponseBody] = None
     vehicle: typing.Optional[AlertObjectVehicleResponseBody] = None
 
     if IS_PYDANTIC_V2:

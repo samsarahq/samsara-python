@@ -35,6 +35,7 @@ SafetyEventBehaviorLabelsResponseBodyType = typing.Union[
         "Passenger",
         "PolicyViolationMask",
         "ProtectiveEquipment",
+        "ProximityWarning",
         "RanRedLight",
         "RearCollisionWarning",
         "RollingStop",

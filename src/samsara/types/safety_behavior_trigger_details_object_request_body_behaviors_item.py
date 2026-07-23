@@ -59,6 +59,7 @@ SafetyBehaviorTriggerDetailsObjectRequestBodyBehaviorsItem = typing.Union[
         "Passenger",
         "PolicyViolationMask",
         "ProtectiveEquipment",
+        "ProximityWarning",
         "RanRedLight",
         "Reversing",
         "RollingStop",

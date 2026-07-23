@@ -50,6 +50,7 @@ SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyBehaviorLabelsToAddItem = typin
         "Passenger",
         "PolicyViolationMask",
         "ProtectiveEquipment",
+        "ProximityWarning",
         "RanRedLight",
         "RearCollisionWarning",
         "Reversing",
