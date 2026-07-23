@@ -18,6 +18,30 @@ from ..types.asset_assignments_create_asset_assignment_response_body import (
 from ..types.asset_assignments_list_asset_assignments_response_body import (
     AssetAssignmentsListAssetAssignmentsResponseBody,
 )
+from ..types.asset_sharing_agreements_accept_asset_sharing_agreement_response_body import (
+    AssetSharingAgreementsAcceptAssetSharingAgreementResponseBody,
+)
+from ..types.asset_sharing_agreements_cancel_asset_sharing_agreement_response_body import (
+    AssetSharingAgreementsCancelAssetSharingAgreementResponseBody,
+)
+from ..types.asset_sharing_agreements_create_asset_sharing_agreement_response_body import (
+    AssetSharingAgreementsCreateAssetSharingAgreementResponseBody,
+)
+from ..types.asset_sharing_agreements_create_shared_assets_batch_response_body import (
+    AssetSharingAgreementsCreateSharedAssetsBatchResponseBody,
+)
+from ..types.asset_sharing_agreements_list_asset_sharing_agreements_response_body import (
+    AssetSharingAgreementsListAssetSharingAgreementsResponseBody,
+)
+from ..types.asset_sharing_agreements_list_shared_assets_response_body import (
+    AssetSharingAgreementsListSharedAssetsResponseBody,
+)
+from ..types.asset_sharing_agreements_reject_asset_sharing_agreement_response_body import (
+    AssetSharingAgreementsRejectAssetSharingAgreementResponseBody,
+)
+from ..types.asset_sharing_agreements_update_shared_assets_batch_response_body import (
+    AssetSharingAgreementsUpdateSharedAssetsBatchResponseBody,
+)
 from ..types.assets_inputs_get_assets_inputs_response_body import AssetsInputsGetAssetsInputsResponseBody
 from ..types.create_function_request_config_request_body import CreateFunctionRequestConfigRequestBody
 from ..types.create_hub_route_template_depot_end_input_request_body import (
@@ -27,6 +51,7 @@ from ..types.create_hub_route_template_depot_start_input_request_body import (
     CreateHubRouteTemplateDepotStartInputRequestBody,
 )
 from ..types.create_report_config_object_request_body import CreateReportConfigObjectRequestBody
+from ..types.create_shared_asset_request_object_request_body import CreateSharedAssetRequestObjectRequestBody
 from ..types.depreciation_get_depreciation_transactions_response_body import (
     DepreciationGetDepreciationTransactionsResponseBody,
 )
@@ -53,6 +78,9 @@ from ..types.entity_tachograph_live_data_records_service_list_tachograph_live_da
 )
 from ..types.entity_upcoming_preventative_maintenances_service_list_upcoming_preventive_maintenance_response_body import (
     EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceResponseBody,
+)
+from ..types.equipment_output_control_set_equipment_digital_output_response_body import (
+    EquipmentOutputControlSetEquipmentDigitalOutputResponseBody,
 )
 from ..types.equipment_patch_equipment_response_body import EquipmentPatchEquipmentResponseBody
 from ..types.fleet_installer_photo_uploads_get_fleet_installer_photo_uploads_response_body import (
@@ -202,10 +230,20 @@ from ..types.tachograph_file_uploads_post_tachograph_file_upload_response_body i
 from ..types.update_engine_immobilizer_relay_state_request_body_request_body import (
     UpdateEngineImmobilizerRelayStateRequestBodyRequestBody,
 )
+from ..types.update_shared_asset_request_object_request_body import UpdateSharedAssetRequestObjectRequestBody
 from ..types.work_orders_get_work_order_templates_response_body import WorkOrdersGetWorkOrderTemplatesResponseBody
 from .raw_client import AsyncRawBetaApIsClient, RawBetaApIsClient
 from .types.asset_assignments_create_asset_assignment_request_body_assignee_type import (
     AssetAssignmentsCreateAssetAssignmentRequestBodyAssigneeType,
+)
+from .types.asset_sharing_agreements_create_asset_sharing_agreement_request_body_operator import (
+    AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyOperator,
+)
+from .types.asset_sharing_agreements_create_asset_sharing_agreement_request_body_provider_data_packages_item import (
+    AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyProviderDataPackagesItem,
+)
+from .types.asset_sharing_agreements_create_asset_sharing_agreement_request_body_recipient_data_packages_item import (
+    AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyRecipientDataPackagesItem,
 )
 from .types.device_recovery_recover_asset_request_body_missing_reason import (
     DeviceRecoveryRecoverAssetRequestBodyMissingReason,
@@ -1136,7 +1174,7 @@ class BetaApIsClient:
             Optional string of comma separated asset IDs. If asset ID is present, events for the specified asset(s) will be returned. Max for this value is 2000 objects. (Example: 281474982859091,281471982957527)
 
         detection_behavior_labels : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated labels to filter behavior labels. Uses OR semantics for filtering. An empty list allows all values. Valid values: `acceleration`, `braking`, `crash`, `drowsy`, `eatingDrinking`, `edgeRailroadCrossingViolation`, `followingDistance`, `forwardCollisionWarning`, `genericDistraction`, `harshImpact`, `harshTurn`, `heavySpeeding`, `laneDeparture`, `lightSpeeding`, `maxSpeed`, `mobileUsage`, `moderateSpeeding`, `noSeatbelt`, `obstructedCamera`, `passenger`, `policyViolationMask`, `ranRedLight`, `rearCollisionWarning`, `reversing`, `rollingStop`, `rolloverProtection`, `severeSpeeding`, `smoking`, `speeding`, `unsafeParking`, `vehicleInBlindSpotWarning`, `vulnerableRoadUserCollisionWarning`, `yawControl`. (Example: rollingStop,obstructedCamera,noSeatbelt)
+            Optional string of comma separated labels to filter behavior labels. Uses OR semantics for filtering. An empty list allows all values. Valid values: `acceleration`, `braking`, `crash`, `drowsy`, `eatingDrinking`, `edgeRailroadCrossingViolation`, `followingDistance`, `forwardCollisionWarning`, `genericDistraction`, `harshImpact`, `harshTurn`, `heavySpeeding`, `laneDeparture`, `lightSpeeding`, `maxSpeed`, `mobileUsage`, `moderateSpeeding`, `noSeatbelt`, `obstructedCamera`, `passenger`, `policyViolationMask`, `proximityWarning`, `ranRedLight`, `rearCollisionWarning`, `reversing`, `rollingStop`, `rolloverProtection`, `severeSpeeding`, `smoking`, `speeding`, `unsafeParking`, `vehicleInBlindSpotWarning`, `vulnerableRoadUserCollisionWarning`, `yawControl`. (Example: rollingStop,obstructedCamera,noSeatbelt)
 
         inbox_filter_reason : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             Optional string of comma separated reasons to filter detections. Uses OR semantics for filtering. An empty list allows all values. Valid values: `overDailyLimit`, `overHourlyLimit`, `overTripLimit`, `belowConfidenceThreshold`, `belowSeverityThreshold`, `overEventRateLimit`, `geofenceFilter`, `belowNudgeThreshold`, `belowSpeedThreshold`, `nighttimeFilter`, `speedingFilter`, `inCabAlertOnly`, `unknown`. (Example: overDailyLimit,overHourlyLimit,belowConfidenceThreshold)
@@ -1277,6 +1315,443 @@ class BetaApIsClient:
             parent_tag_ids=parent_tag_ids,
             request_options=request_options,
         )
+        return _response.data
+
+    def list_asset_sharing_agreements(
+        self,
+        *,
+        ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        status_in: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        role_in: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        after: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AssetSharingAgreementsListAssetSharingAgreementsResponseBody:
+        """
+        Returns every Data Sharing Agreement (DSA) your organization participates in, as either the provider or the recipient. Soft-deleted agreements are omitted. Narrow the results with the ids, statusIn, and roleIn filters, and page through large result sets with cursor pagination.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Asset Sharing** under the Asset Sharing category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Comma-separated list of agreement IDs to filter by.
+
+        status_in : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Comma-separated list of statuses to filter by. Valid values: pending, accepted, rejected, canceled.
+
+        role_in : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Comma-separated list of roles to filter by. Valid values: provider, recipient.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AssetSharingAgreementsListAssetSharingAgreementsResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.list_asset_sharing_agreements()
+        """
+        _response = self._raw_client.list_asset_sharing_agreements(
+            ids=ids, status_in=status_in, role_in=role_in, after=after, request_options=request_options
+        )
+        return _response.data
+
+    def create_asset_sharing_agreement(
+        self,
+        *,
+        operator: AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyOperator,
+        provider_data_packages: typing.Sequence[
+            AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyProviderDataPackagesItem
+        ],
+        recipient_data_packages: typing.Sequence[
+            AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyRecipientDataPackagesItem
+        ],
+        recipient_organization_id: str,
+        recipient_organization_name: str,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AssetSharingAgreementsCreateAssetSharingAgreementResponseBody:
+        """
+        Creates a new Data Sharing Agreement (DSA) in pending status. Only the provider organization can create an agreement, and the recipient must be a different organization. Use providerDataPackages and recipientDataPackages to declare which categories of data flow to each side, and operator to indicate which organization operates the assets (where the gateways live).
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Asset Sharing** under the Asset Sharing category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        operator : AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyOperator
+            Defines where the gateways will be located.  Valid values: `provider`, `recipient`
+
+        provider_data_packages : typing.Sequence[AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyProviderDataPackagesItem]
+            List of data packages the provider will see.
+
+        recipient_data_packages : typing.Sequence[AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyRecipientDataPackagesItem]
+            List of data packages the recipient will see.
+
+        recipient_organization_id : str
+            The ID of the recipient organization.
+
+        recipient_organization_name : str
+            The display name to use for the recipient organization.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AssetSharingAgreementsCreateAssetSharingAgreementResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.create_asset_sharing_agreement(
+            operator="provider",
+            provider_data_packages=["all", "maintenance", "maintenance", "maintenance"],
+            recipient_data_packages=["all", "reefer", "all", "maintenance"],
+            recipient_organization_id="456",
+            recipient_organization_name="Acme Logistics",
+        )
+        """
+        _response = self._raw_client.create_asset_sharing_agreement(
+            operator=operator,
+            provider_data_packages=provider_data_packages,
+            recipient_data_packages=recipient_data_packages,
+            recipient_organization_id=recipient_organization_id,
+            recipient_organization_name=recipient_organization_name,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def delete_asset_sharing_agreement(
+        self, *, id: str, request_options: typing.Optional[RequestOptions] = None
+    ) -> None:
+        """
+        Soft-deletes a Data Sharing Agreement so it no longer appears in list results. Only the provider organization can delete, and only while the agreement is in pending, rejected, or canceled status; an accepted agreement must be canceled first. Identify the agreement with the id query parameter. Returns 204 No Content.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Asset Sharing** under the Asset Sharing category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            The unique identifier of the agreement.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.delete_asset_sharing_agreement(
+            id="id",
+        )
+        """
+        _response = self._raw_client.delete_asset_sharing_agreement(id=id, request_options=request_options)
+        return _response.data
+
+    def accept_asset_sharing_agreement(
+        self, *, id: str, request_options: typing.Optional[RequestOptions] = None
+    ) -> AssetSharingAgreementsAcceptAssetSharingAgreementResponseBody:
+        """
+        Accepts a pending Data Sharing Agreement, transitioning it to accepted. Only the recipient organization can accept. Identify the agreement with the id query parameter.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Asset Sharing** under the Asset Sharing category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            The unique identifier of the agreement.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AssetSharingAgreementsAcceptAssetSharingAgreementResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.accept_asset_sharing_agreement(
+            id="id",
+        )
+        """
+        _response = self._raw_client.accept_asset_sharing_agreement(id=id, request_options=request_options)
+        return _response.data
+
+    def list_shared_assets(
+        self,
+        *,
+        dsa_id: str,
+        after: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AssetSharingAgreementsListSharedAssetsResponseBody:
+        """
+        Returns shared asset records under a Data Sharing Agreement, identified by the dsaId query parameter. Results may include ended or historical sharing records; use each record's startTime and endTime to determine whether sharing is currently active. Supports cursor pagination.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Asset Sharing** under the Asset Sharing category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        dsa_id : str
+            The unique identifier of the Data Sharing Agreement.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AssetSharingAgreementsListSharedAssetsResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.list_shared_assets(
+            dsa_id="dsaId",
+        )
+        """
+        _response = self._raw_client.list_shared_assets(dsa_id=dsa_id, after=after, request_options=request_options)
+        return _response.data
+
+    def create_shared_assets_batch(
+        self,
+        *,
+        dsa_id: str,
+        data: typing.Sequence[CreateSharedAssetRequestObjectRequestBody],
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AssetSharingAgreementsCreateSharedAssetsBatchResponseBody:
+        """
+        Shares one or more assets under an accepted Data Sharing Agreement, identified by the dsaId query parameter. Available only to the provider organization. Serials are matched in canonical form. Up to 100 assets may be shared per request; each may carry an optional startTime (defaults to now) and endTime (defaults to indefinite).
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Asset Sharing** under the Asset Sharing category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        dsa_id : str
+            The unique identifier of the Data Sharing Agreement.
+
+        data : typing.Sequence[CreateSharedAssetRequestObjectRequestBody]
+            List of assets to share.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AssetSharingAgreementsCreateSharedAssetsBatchResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import CreateSharedAssetRequestObjectRequestBody, Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.create_shared_assets_batch(
+            dsa_id="dsaId",
+            data=[
+                CreateSharedAssetRequestObjectRequestBody(
+                    serial="GVJC3VXXXX",
+                )
+            ],
+        )
+        """
+        _response = self._raw_client.create_shared_assets_batch(
+            dsa_id=dsa_id, data=data, request_options=request_options
+        )
+        return _response.data
+
+    def update_shared_assets_batch(
+        self,
+        *,
+        data: typing.Sequence[UpdateSharedAssetRequestObjectRequestBody],
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AssetSharingAgreementsUpdateSharedAssetsBatchResponseBody:
+        """
+        Updates the sharing period of one or more shared assets, each identified by its shared-asset id. Only the endTime can be changed (an empty value means indefinite sharing). To stop sharing an asset, set its endTime to the current time rather than deleting it, which preserves the rental history. Up to 100 assets may be updated per request.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Asset Sharing** under the Asset Sharing category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        data : typing.Sequence[UpdateSharedAssetRequestObjectRequestBody]
+            List of shared assets to update.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AssetSharingAgreementsUpdateSharedAssetsBatchResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara, UpdateSharedAssetRequestObjectRequestBody
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.update_shared_assets_batch(
+            data=[
+                UpdateSharedAssetRequestObjectRequestBody(
+                    end_time="2025-01-13T10:00:00Z",
+                    id="11111111-1111-1111-1111-111111111111",
+                )
+            ],
+        )
+        """
+        _response = self._raw_client.update_shared_assets_batch(data=data, request_options=request_options)
+        return _response.data
+
+    def cancel_asset_sharing_agreement(
+        self, *, id: str, request_options: typing.Optional[RequestOptions] = None
+    ) -> AssetSharingAgreementsCancelAssetSharingAgreementResponseBody:
+        """
+        Cancels an accepted Data Sharing Agreement, transitioning it to the terminal canceled state and ending all asset sharing under it. Either the provider or the recipient can cancel. Identify the agreement with the id query parameter.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Asset Sharing** under the Asset Sharing category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            The unique identifier of the agreement.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AssetSharingAgreementsCancelAssetSharingAgreementResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.cancel_asset_sharing_agreement(
+            id="id",
+        )
+        """
+        _response = self._raw_client.cancel_asset_sharing_agreement(id=id, request_options=request_options)
+        return _response.data
+
+    def reject_asset_sharing_agreement(
+        self, *, id: str, request_options: typing.Optional[RequestOptions] = None
+    ) -> AssetSharingAgreementsRejectAssetSharingAgreementResponseBody:
+        """
+        Rejects a pending Data Sharing Agreement, transitioning it to the terminal rejected state. Only the recipient organization can reject. Identify the agreement with the id query parameter.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Asset Sharing** under the Asset Sharing category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            The unique identifier of the agreement.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AssetSharingAgreementsRejectAssetSharingAgreementResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.reject_asset_sharing_agreement(
+            id="id",
+        )
+        """
+        _response = self._raw_client.reject_asset_sharing_agreement(id=id, request_options=request_options)
         return _response.data
 
     def list_asset_assignments(
@@ -1750,6 +2225,65 @@ class BetaApIsClient:
         """
         _response = self._raw_client.list_driver_workflows(
             after=after, limit=limit, workflow_type=workflow_type, request_options=request_options
+        )
+        return _response.data
+
+    def set_equipment_digital_output(
+        self,
+        id: int,
+        *,
+        pin_id: int,
+        state: bool,
+        duration_seconds: typing.Optional[int] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EquipmentOutputControlSetEquipmentDigitalOutputResponseBody:
+        """
+        Set the state of a digital output on the gateway connected to a piece of powered equipment. The command is delivered to the device synchronously; a success response indicates the device acknowledged and applied the requested state. This requires an AG53 gateway connected to powered equipment via the CBL-AG-BEQP cable.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Equipment Output Control** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : int
+            The Samsara ID of the gateway whose digital output is being controlled. This must be an AG53 connected to powered equipment via the CBL-AG-BEQP cable.
+
+        pin_id : int
+            The digital output pin to control. Only pin `1` is currently supported.
+
+        state : bool
+            The desired output state. Provide `true` to energize the output, or `false` to de-energize it.
+
+        duration_seconds : typing.Optional[int]
+            How long, in seconds, to hold the requested state before the device automatically reverts. Provide `0` (the default) to hold the state indefinitely. The maximum is 604800 seconds (7 days).
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EquipmentOutputControlSetEquipmentDigitalOutputResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.set_equipment_digital_output(
+            id=1000000,
+            pin_id=1,
+            state=True,
+        )
+        """
+        _response = self._raw_client.set_equipment_digital_output(
+            id, pin_id=pin_id, state=state, duration_seconds=duration_seconds, request_options=request_options
         )
         return _response.data
 
@@ -5601,6 +6135,7 @@ class BetaApIsClient:
                 "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
                 "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
                 "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
+                "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
             ],
         )
         """
@@ -6590,7 +7125,7 @@ class AsyncBetaApIsClient:
             Optional string of comma separated asset IDs. If asset ID is present, events for the specified asset(s) will be returned. Max for this value is 2000 objects. (Example: 281474982859091,281471982957527)
 
         detection_behavior_labels : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated labels to filter behavior labels. Uses OR semantics for filtering. An empty list allows all values. Valid values: `acceleration`, `braking`, `crash`, `drowsy`, `eatingDrinking`, `edgeRailroadCrossingViolation`, `followingDistance`, `forwardCollisionWarning`, `genericDistraction`, `harshImpact`, `harshTurn`, `heavySpeeding`, `laneDeparture`, `lightSpeeding`, `maxSpeed`, `mobileUsage`, `moderateSpeeding`, `noSeatbelt`, `obstructedCamera`, `passenger`, `policyViolationMask`, `ranRedLight`, `rearCollisionWarning`, `reversing`, `rollingStop`, `rolloverProtection`, `severeSpeeding`, `smoking`, `speeding`, `unsafeParking`, `vehicleInBlindSpotWarning`, `vulnerableRoadUserCollisionWarning`, `yawControl`. (Example: rollingStop,obstructedCamera,noSeatbelt)
+            Optional string of comma separated labels to filter behavior labels. Uses OR semantics for filtering. An empty list allows all values. Valid values: `acceleration`, `braking`, `crash`, `drowsy`, `eatingDrinking`, `edgeRailroadCrossingViolation`, `followingDistance`, `forwardCollisionWarning`, `genericDistraction`, `harshImpact`, `harshTurn`, `heavySpeeding`, `laneDeparture`, `lightSpeeding`, `maxSpeed`, `mobileUsage`, `moderateSpeeding`, `noSeatbelt`, `obstructedCamera`, `passenger`, `policyViolationMask`, `proximityWarning`, `ranRedLight`, `rearCollisionWarning`, `reversing`, `rollingStop`, `rolloverProtection`, `severeSpeeding`, `smoking`, `speeding`, `unsafeParking`, `vehicleInBlindSpotWarning`, `vulnerableRoadUserCollisionWarning`, `yawControl`. (Example: rollingStop,obstructedCamera,noSeatbelt)
 
         inbox_filter_reason : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             Optional string of comma separated reasons to filter detections. Uses OR semantics for filtering. An empty list allows all values. Valid values: `overDailyLimit`, `overHourlyLimit`, `overTripLimit`, `belowConfidenceThreshold`, `belowSeverityThreshold`, `overEventRateLimit`, `geofenceFilter`, `belowNudgeThreshold`, `belowSpeedThreshold`, `nighttimeFilter`, `speedingFilter`, `inCabAlertOnly`, `unknown`. (Example: overDailyLimit,overHourlyLimit,belowConfidenceThreshold)
@@ -6747,6 +7282,522 @@ class AsyncBetaApIsClient:
             parent_tag_ids=parent_tag_ids,
             request_options=request_options,
         )
+        return _response.data
+
+    async def list_asset_sharing_agreements(
+        self,
+        *,
+        ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        status_in: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        role_in: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        after: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AssetSharingAgreementsListAssetSharingAgreementsResponseBody:
+        """
+        Returns every Data Sharing Agreement (DSA) your organization participates in, as either the provider or the recipient. Soft-deleted agreements are omitted. Narrow the results with the ids, statusIn, and roleIn filters, and page through large result sets with cursor pagination.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Asset Sharing** under the Asset Sharing category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Comma-separated list of agreement IDs to filter by.
+
+        status_in : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Comma-separated list of statuses to filter by. Valid values: pending, accepted, rejected, canceled.
+
+        role_in : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Comma-separated list of roles to filter by. Valid values: provider, recipient.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AssetSharingAgreementsListAssetSharingAgreementsResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.list_asset_sharing_agreements()
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.list_asset_sharing_agreements(
+            ids=ids, status_in=status_in, role_in=role_in, after=after, request_options=request_options
+        )
+        return _response.data
+
+    async def create_asset_sharing_agreement(
+        self,
+        *,
+        operator: AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyOperator,
+        provider_data_packages: typing.Sequence[
+            AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyProviderDataPackagesItem
+        ],
+        recipient_data_packages: typing.Sequence[
+            AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyRecipientDataPackagesItem
+        ],
+        recipient_organization_id: str,
+        recipient_organization_name: str,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AssetSharingAgreementsCreateAssetSharingAgreementResponseBody:
+        """
+        Creates a new Data Sharing Agreement (DSA) in pending status. Only the provider organization can create an agreement, and the recipient must be a different organization. Use providerDataPackages and recipientDataPackages to declare which categories of data flow to each side, and operator to indicate which organization operates the assets (where the gateways live).
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Asset Sharing** under the Asset Sharing category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        operator : AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyOperator
+            Defines where the gateways will be located.  Valid values: `provider`, `recipient`
+
+        provider_data_packages : typing.Sequence[AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyProviderDataPackagesItem]
+            List of data packages the provider will see.
+
+        recipient_data_packages : typing.Sequence[AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyRecipientDataPackagesItem]
+            List of data packages the recipient will see.
+
+        recipient_organization_id : str
+            The ID of the recipient organization.
+
+        recipient_organization_name : str
+            The display name to use for the recipient organization.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AssetSharingAgreementsCreateAssetSharingAgreementResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.create_asset_sharing_agreement(
+                operator="provider",
+                provider_data_packages=[
+                    "all",
+                    "maintenance",
+                    "maintenance",
+                    "maintenance",
+                ],
+                recipient_data_packages=["all", "reefer", "all", "maintenance"],
+                recipient_organization_id="456",
+                recipient_organization_name="Acme Logistics",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.create_asset_sharing_agreement(
+            operator=operator,
+            provider_data_packages=provider_data_packages,
+            recipient_data_packages=recipient_data_packages,
+            recipient_organization_id=recipient_organization_id,
+            recipient_organization_name=recipient_organization_name,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def delete_asset_sharing_agreement(
+        self, *, id: str, request_options: typing.Optional[RequestOptions] = None
+    ) -> None:
+        """
+        Soft-deletes a Data Sharing Agreement so it no longer appears in list results. Only the provider organization can delete, and only while the agreement is in pending, rejected, or canceled status; an accepted agreement must be canceled first. Identify the agreement with the id query parameter. Returns 204 No Content.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Asset Sharing** under the Asset Sharing category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            The unique identifier of the agreement.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.delete_asset_sharing_agreement(
+                id="id",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.delete_asset_sharing_agreement(id=id, request_options=request_options)
+        return _response.data
+
+    async def accept_asset_sharing_agreement(
+        self, *, id: str, request_options: typing.Optional[RequestOptions] = None
+    ) -> AssetSharingAgreementsAcceptAssetSharingAgreementResponseBody:
+        """
+        Accepts a pending Data Sharing Agreement, transitioning it to accepted. Only the recipient organization can accept. Identify the agreement with the id query parameter.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Asset Sharing** under the Asset Sharing category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            The unique identifier of the agreement.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AssetSharingAgreementsAcceptAssetSharingAgreementResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.accept_asset_sharing_agreement(
+                id="id",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.accept_asset_sharing_agreement(id=id, request_options=request_options)
+        return _response.data
+
+    async def list_shared_assets(
+        self,
+        *,
+        dsa_id: str,
+        after: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AssetSharingAgreementsListSharedAssetsResponseBody:
+        """
+        Returns shared asset records under a Data Sharing Agreement, identified by the dsaId query parameter. Results may include ended or historical sharing records; use each record's startTime and endTime to determine whether sharing is currently active. Supports cursor pagination.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Asset Sharing** under the Asset Sharing category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        dsa_id : str
+            The unique identifier of the Data Sharing Agreement.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AssetSharingAgreementsListSharedAssetsResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.list_shared_assets(
+                dsa_id="dsaId",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.list_shared_assets(
+            dsa_id=dsa_id, after=after, request_options=request_options
+        )
+        return _response.data
+
+    async def create_shared_assets_batch(
+        self,
+        *,
+        dsa_id: str,
+        data: typing.Sequence[CreateSharedAssetRequestObjectRequestBody],
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AssetSharingAgreementsCreateSharedAssetsBatchResponseBody:
+        """
+        Shares one or more assets under an accepted Data Sharing Agreement, identified by the dsaId query parameter. Available only to the provider organization. Serials are matched in canonical form. Up to 100 assets may be shared per request; each may carry an optional startTime (defaults to now) and endTime (defaults to indefinite).
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Asset Sharing** under the Asset Sharing category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        dsa_id : str
+            The unique identifier of the Data Sharing Agreement.
+
+        data : typing.Sequence[CreateSharedAssetRequestObjectRequestBody]
+            List of assets to share.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AssetSharingAgreementsCreateSharedAssetsBatchResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara, CreateSharedAssetRequestObjectRequestBody
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.create_shared_assets_batch(
+                dsa_id="dsaId",
+                data=[
+                    CreateSharedAssetRequestObjectRequestBody(
+                        serial="GVJC3VXXXX",
+                    )
+                ],
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.create_shared_assets_batch(
+            dsa_id=dsa_id, data=data, request_options=request_options
+        )
+        return _response.data
+
+    async def update_shared_assets_batch(
+        self,
+        *,
+        data: typing.Sequence[UpdateSharedAssetRequestObjectRequestBody],
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AssetSharingAgreementsUpdateSharedAssetsBatchResponseBody:
+        """
+        Updates the sharing period of one or more shared assets, each identified by its shared-asset id. Only the endTime can be changed (an empty value means indefinite sharing). To stop sharing an asset, set its endTime to the current time rather than deleting it, which preserves the rental history. Up to 100 assets may be updated per request.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Asset Sharing** under the Asset Sharing category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        data : typing.Sequence[UpdateSharedAssetRequestObjectRequestBody]
+            List of shared assets to update.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AssetSharingAgreementsUpdateSharedAssetsBatchResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara, UpdateSharedAssetRequestObjectRequestBody
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.update_shared_assets_batch(
+                data=[
+                    UpdateSharedAssetRequestObjectRequestBody(
+                        end_time="2025-01-13T10:00:00Z",
+                        id="11111111-1111-1111-1111-111111111111",
+                    )
+                ],
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.update_shared_assets_batch(data=data, request_options=request_options)
+        return _response.data
+
+    async def cancel_asset_sharing_agreement(
+        self, *, id: str, request_options: typing.Optional[RequestOptions] = None
+    ) -> AssetSharingAgreementsCancelAssetSharingAgreementResponseBody:
+        """
+        Cancels an accepted Data Sharing Agreement, transitioning it to the terminal canceled state and ending all asset sharing under it. Either the provider or the recipient can cancel. Identify the agreement with the id query parameter.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Asset Sharing** under the Asset Sharing category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            The unique identifier of the agreement.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AssetSharingAgreementsCancelAssetSharingAgreementResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.cancel_asset_sharing_agreement(
+                id="id",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.cancel_asset_sharing_agreement(id=id, request_options=request_options)
+        return _response.data
+
+    async def reject_asset_sharing_agreement(
+        self, *, id: str, request_options: typing.Optional[RequestOptions] = None
+    ) -> AssetSharingAgreementsRejectAssetSharingAgreementResponseBody:
+        """
+        Rejects a pending Data Sharing Agreement, transitioning it to the terminal rejected state. Only the recipient organization can reject. Identify the agreement with the id query parameter.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Asset Sharing** under the Asset Sharing category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            The unique identifier of the agreement.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AssetSharingAgreementsRejectAssetSharingAgreementResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.reject_asset_sharing_agreement(
+                id="id",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.reject_asset_sharing_agreement(id=id, request_options=request_options)
         return _response.data
 
     async def list_asset_assignments(
@@ -7294,6 +8345,73 @@ class AsyncBetaApIsClient:
         """
         _response = await self._raw_client.list_driver_workflows(
             after=after, limit=limit, workflow_type=workflow_type, request_options=request_options
+        )
+        return _response.data
+
+    async def set_equipment_digital_output(
+        self,
+        id: int,
+        *,
+        pin_id: int,
+        state: bool,
+        duration_seconds: typing.Optional[int] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EquipmentOutputControlSetEquipmentDigitalOutputResponseBody:
+        """
+        Set the state of a digital output on the gateway connected to a piece of powered equipment. The command is delivered to the device synchronously; a success response indicates the device acknowledged and applied the requested state. This requires an AG53 gateway connected to powered equipment via the CBL-AG-BEQP cable.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Equipment Output Control** under the Closed Beta category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : int
+            The Samsara ID of the gateway whose digital output is being controlled. This must be an AG53 connected to powered equipment via the CBL-AG-BEQP cable.
+
+        pin_id : int
+            The digital output pin to control. Only pin `1` is currently supported.
+
+        state : bool
+            The desired output state. Provide `true` to energize the output, or `false` to de-energize it.
+
+        duration_seconds : typing.Optional[int]
+            How long, in seconds, to hold the requested state before the device automatically reverts. Provide `0` (the default) to hold the state indefinitely. The maximum is 604800 seconds (7 days).
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EquipmentOutputControlSetEquipmentDigitalOutputResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.set_equipment_digital_output(
+                id=1000000,
+                pin_id=1,
+                state=True,
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.set_equipment_digital_output(
+            id, pin_id=pin_id, state=state, duration_seconds=duration_seconds, request_options=request_options
         )
         return _response.data
 
@@ -11691,6 +12809,7 @@ class AsyncBetaApIsClient:
         async def main() -> None:
             await client.beta_ap_is.patch_safety_events_v_2_batch(
                 safety_event_ids=[
+                    "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
                     "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
                     "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
                     "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",

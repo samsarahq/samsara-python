@@ -132,6 +132,86 @@ def test_betaApIs_get_devices() -> None:
     verify_request_count(test_id, "GET", "/devices", None, 1)
 
 
+def test_betaApIs_list_asset_sharing_agreements() -> None:
+    """Test listAssetSharingAgreements endpoint with WireMock"""
+    test_id = "beta_ap_is.list_asset_sharing_agreements.0"
+    client = get_client(test_id)
+    client.beta_ap_is.list_asset_sharing_agreements()
+    verify_request_count(test_id, "GET", "/fleet/asset-sharing/agreements", None, 1)
+
+
+def test_betaApIs_create_asset_sharing_agreement() -> None:
+    """Test createAssetSharingAgreement endpoint with WireMock"""
+    test_id = "beta_ap_is.create_asset_sharing_agreement.0"
+    client = get_client(test_id)
+    client.beta_ap_is.create_asset_sharing_agreement(
+        operator="provider",
+        provider_data_packages=["all", "maintenance", "maintenance", "maintenance"],
+        recipient_data_packages=["all", "reefer", "all", "maintenance"],
+        recipient_organization_id="456",
+        recipient_organization_name="Acme Logistics",
+    )
+    verify_request_count(test_id, "POST", "/fleet/asset-sharing/agreements", None, 1)
+
+
+def test_betaApIs_delete_asset_sharing_agreement() -> None:
+    """Test deleteAssetSharingAgreement endpoint with WireMock"""
+    test_id = "beta_ap_is.delete_asset_sharing_agreement.0"
+    client = get_client(test_id)
+    client.beta_ap_is.delete_asset_sharing_agreement(id="id")
+    verify_request_count(test_id, "DELETE", "/fleet/asset-sharing/agreements", {"id": "id"}, 1)
+
+
+def test_betaApIs_accept_asset_sharing_agreement() -> None:
+    """Test acceptAssetSharingAgreement endpoint with WireMock"""
+    test_id = "beta_ap_is.accept_asset_sharing_agreement.0"
+    client = get_client(test_id)
+    client.beta_ap_is.accept_asset_sharing_agreement(id="id")
+    verify_request_count(test_id, "POST", "/fleet/asset-sharing/agreements/accept", {"id": "id"}, 1)
+
+
+def test_betaApIs_list_shared_assets() -> None:
+    """Test listSharedAssets endpoint with WireMock"""
+    test_id = "beta_ap_is.list_shared_assets.0"
+    client = get_client(test_id)
+    client.beta_ap_is.list_shared_assets(dsa_id="dsaId")
+    verify_request_count(test_id, "GET", "/fleet/asset-sharing/agreements/assets", {"dsaId": "dsaId"}, 1)
+
+
+def test_betaApIs_create_shared_assets_batch() -> None:
+    """Test createSharedAssetsBatch endpoint with WireMock"""
+    test_id = "beta_ap_is.create_shared_assets_batch.0"
+    client = get_client(test_id)
+    client.beta_ap_is.create_shared_assets_batch(dsa_id="dsaId", data=[{"serial": "GVJC3VXXXX"}])
+    verify_request_count(test_id, "POST", "/fleet/asset-sharing/agreements/assets/batch", {"dsaId": "dsaId"}, 1)
+
+
+def test_betaApIs_update_shared_assets_batch() -> None:
+    """Test updateSharedAssetsBatch endpoint with WireMock"""
+    test_id = "beta_ap_is.update_shared_assets_batch.0"
+    client = get_client(test_id)
+    client.beta_ap_is.update_shared_assets_batch(
+        data=[{"end_time": "2025-01-13T10:00:00Z", "id": "11111111-1111-1111-1111-111111111111"}]
+    )
+    verify_request_count(test_id, "PATCH", "/fleet/asset-sharing/agreements/assets/batch", None, 1)
+
+
+def test_betaApIs_cancel_asset_sharing_agreement() -> None:
+    """Test cancelAssetSharingAgreement endpoint with WireMock"""
+    test_id = "beta_ap_is.cancel_asset_sharing_agreement.0"
+    client = get_client(test_id)
+    client.beta_ap_is.cancel_asset_sharing_agreement(id="id")
+    verify_request_count(test_id, "POST", "/fleet/asset-sharing/agreements/cancel", {"id": "id"}, 1)
+
+
+def test_betaApIs_reject_asset_sharing_agreement() -> None:
+    """Test rejectAssetSharingAgreement endpoint with WireMock"""
+    test_id = "beta_ap_is.reject_asset_sharing_agreement.0"
+    client = get_client(test_id)
+    client.beta_ap_is.reject_asset_sharing_agreement(id="id")
+    verify_request_count(test_id, "POST", "/fleet/asset-sharing/agreements/reject", {"id": "id"}, 1)
+
+
 def test_betaApIs_list_asset_assignments() -> None:
     """Test listAssetAssignments endpoint with WireMock"""
     test_id = "beta_ap_is.list_asset_assignments.0"
@@ -202,6 +282,14 @@ def test_betaApIs_list_driver_workflows() -> None:
     client = get_client(test_id)
     client.beta_ap_is.list_driver_workflows()
     verify_request_count(test_id, "GET", "/fleet/drivers/workflows", None, 1)
+
+
+def test_betaApIs_set_equipment_digital_output() -> None:
+    """Test setEquipmentDigitalOutput endpoint with WireMock"""
+    test_id = "beta_ap_is.set_equipment_digital_output.0"
+    client = get_client(test_id)
+    client.beta_ap_is.set_equipment_digital_output(id=1000000, pin_id=1, state=True)
+    verify_request_count(test_id, "PATCH", "/fleet/equipment/1000000/digital-output", None, 1)
 
 
 def test_betaApIs_get_fleet_installer_photo_uploads() -> None:
@@ -795,6 +883,7 @@ def test_betaApIs_patch_safety_events_v_2_batch() -> None:
     client = get_client(test_id)
     client.beta_ap_is.patch_safety_events_v_2_batch(
         safety_event_ids=[
+            "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
             "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
             "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
             "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",

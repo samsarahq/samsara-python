@@ -8,6 +8,7 @@ import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .route_stop_appointment_window_request_body import RouteStopAppointmentWindowRequestBody
+from .route_stop_form_request_object_request_body import RouteStopFormRequestObjectRequestBody
 from .routes_single_use_address_object_request_body import RoutesSingleUseAddressObjectRequestBody
 
 
@@ -30,9 +31,14 @@ class UpdateRoutesStopRequestObjectRequestBody(UniversalBaseModel):
         FieldMetadata(alias="externalIds"),
         pydantic.Field(alias="externalIds", description="A map of external ids"),
     ] = None
+    forms: typing.Optional[typing.List[RouteStopFormRequestObjectRequestBody]] = pydantic.Field(default=None)
+    """
+    Form attachments for the stop.
+    """
+
     id: typing.Optional[str] = pydantic.Field(default=None)
     """
-    ID of the stop
+    ID of the stop. This can either be the Samsara-specified ID or an external ID in `key:value` format.
     """
 
     name: typing.Optional[str] = pydantic.Field(default=None)

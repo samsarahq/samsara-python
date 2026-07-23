@@ -5,6 +5,7 @@ import typing
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.pagination import AsyncPager, SyncPager
 from ..core.request_options import RequestOptions
+from ..types.asset_locations_get_asset_location_response_body import AssetLocationsGetAssetLocationResponseBody
 from ..types.asset_response_body import AssetResponseBody
 from ..types.assets_create_asset_response_body import AssetsCreateAssetResponseBody
 from ..types.assets_get_asset_reefer_response_body import AssetsGetAssetReeferResponseBody
@@ -519,6 +520,66 @@ class AssetsClient:
             ending_before=ending_before,
             limit=limit,
             request_options=request_options,
+        )
+        return _response.data
+
+    def get_asset_location(
+        self,
+        asset_id: int,
+        *,
+        start_ms: typing.Optional[int] = None,
+        end_ms: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AssetLocationsGetAssetLocationResponseBody:
+        """
+        <n class="warning">
+        <nh>
+        <i class="fa fa-exclamation-circle"></i>
+        This endpoint is still on our legacy API.
+        </nh>
+        </n>
+
+        List historical locations for a given asset.
+
+         <b>Rate limit:</b> 25 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        asset_id : int
+            Samsara asset ID.
+
+        start_ms : typing.Optional[int]
+            Timestamp in milliseconds representing the start of the period to fetch, inclusive. Used in combination with endMs.
+
+        end_ms : typing.Optional[int]
+            Timestamp in milliseconds representing the end of the period to fetch, inclusive. Used in combination with startMs.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AssetLocationsGetAssetLocationResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.assets.get_asset_location(
+            asset_id=1000000,
+        )
+        """
+        _response = self._raw_client.get_asset_location(
+            asset_id, start_ms=start_ms, end_ms=end_ms, request_options=request_options
         )
         return _response.data
 
@@ -1267,6 +1328,74 @@ class AsyncAssetsClient:
             ending_before=ending_before,
             limit=limit,
             request_options=request_options,
+        )
+        return _response.data
+
+    async def get_asset_location(
+        self,
+        asset_id: int,
+        *,
+        start_ms: typing.Optional[int] = None,
+        end_ms: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AssetLocationsGetAssetLocationResponseBody:
+        """
+        <n class="warning">
+        <nh>
+        <i class="fa fa-exclamation-circle"></i>
+        This endpoint is still on our legacy API.
+        </nh>
+        </n>
+
+        List historical locations for a given asset.
+
+         <b>Rate limit:</b> 25 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Equipment Statistics** under the Equipment category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        asset_id : int
+            Samsara asset ID.
+
+        start_ms : typing.Optional[int]
+            Timestamp in milliseconds representing the start of the period to fetch, inclusive. Used in combination with endMs.
+
+        end_ms : typing.Optional[int]
+            Timestamp in milliseconds representing the end of the period to fetch, inclusive. Used in combination with startMs.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AssetLocationsGetAssetLocationResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.assets.get_asset_location(
+                asset_id=1000000,
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_asset_location(
+            asset_id, start_ms=start_ms, end_ms=end_ms, request_options=request_options
         )
         return _response.data
 

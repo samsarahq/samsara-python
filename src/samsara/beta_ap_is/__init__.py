@@ -8,6 +8,9 @@ from importlib import import_module
 if typing.TYPE_CHECKING:
     from .types import (
         AssetAssignmentsCreateAssetAssignmentRequestBodyAssigneeType,
+        AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyOperator,
+        AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyProviderDataPackagesItem,
+        AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyRecipientDataPackagesItem,
         DeviceRecoveryRecoverAssetRequestBodyMissingReason,
         DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus,
         DeviceRecoveryRecoverAssetRequestBodyStatus,
@@ -36,6 +39,9 @@ if typing.TYPE_CHECKING:
     )
 _dynamic_imports: typing.Dict[str, str] = {
     "AssetAssignmentsCreateAssetAssignmentRequestBodyAssigneeType": ".types",
+    "AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyOperator": ".types",
+    "AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyProviderDataPackagesItem": ".types",
+    "AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyRecipientDataPackagesItem": ".types",
     "DeviceRecoveryRecoverAssetRequestBodyMissingReason": ".types",
     "DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus": ".types",
     "DeviceRecoveryRecoverAssetRequestBodyStatus": ".types",
@@ -87,6 +93,9 @@ def __dir__():
 
 __all__ = [
     "AssetAssignmentsCreateAssetAssignmentRequestBodyAssigneeType",
+    "AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyOperator",
+    "AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyProviderDataPackagesItem",
+    "AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyRecipientDataPackagesItem",
     "DeviceRecoveryRecoverAssetRequestBodyMissingReason",
     "DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus",
     "DeviceRecoveryRecoverAssetRequestBodyStatus",

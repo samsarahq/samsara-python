@@ -17,7 +17,7 @@ def test_alerts_post_configurations() -> None:
         actions=[{"action_type_id": 1}],
         is_enabled=True,
         name="My Harsh Event Alert",
-        scope={"all_": True},
+        scope={"all_": False},
         triggers=[{"trigger_type_id": 1000}],
     )
     verify_request_count(test_id, "POST", "/alerts/configurations", None, 1)

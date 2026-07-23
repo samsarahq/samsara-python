@@ -50,6 +50,7 @@ SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyBehaviorLabelsToRemoveItem = ty
         "Passenger",
         "PolicyViolationMask",
         "ProtectiveEquipment",
+        "ProximityWarning",
         "RanRedLight",
         "RearCollisionWarning",
         "Reversing",
