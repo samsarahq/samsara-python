@@ -98,6 +98,12 @@ from ..types.equipment_patch_equipment_response_body import EquipmentPatchEquipm
 from ..types.fleet_installer_photo_uploads_get_fleet_installer_photo_uploads_response_body import (
     FleetInstallerPhotoUploadsGetFleetInstallerPhotoUploadsResponseBody,
 )
+from ..types.fleet_installer_photo_uploads_post_fleet_installer_photo_upload_complete_response_body import (
+    FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteResponseBody,
+)
+from ..types.fleet_installer_photo_uploads_post_fleet_installer_photo_upload_response_body import (
+    FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadResponseBody,
+)
 from ..types.functions_create_function_response_body import FunctionsCreateFunctionResponseBody
 from ..types.functions_deploy_function_response_body import FunctionsDeployFunctionResponseBody
 from ..types.functions_get_function_logs_response_body import FunctionsGetFunctionLogsResponseBody
@@ -267,6 +273,15 @@ from .types.device_recovery_recover_asset_request_body_recovery_status import (
     DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus,
 )
 from .types.device_recovery_recover_asset_request_body_status import DeviceRecoveryRecoverAssetRequestBodyStatus
+from .types.fleet_installer_photo_uploads_post_fleet_installer_photo_upload_request_body_file_format_type import (
+    FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyFileFormatType,
+)
+from .types.fleet_installer_photo_uploads_post_fleet_installer_photo_upload_request_body_hardware_type import (
+    FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyHardwareType,
+)
+from .types.fleet_installer_photo_uploads_post_fleet_installer_photo_upload_request_body_photo_type import (
+    FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyPhotoType,
+)
 from .types.functions_start_function_run_request_body_params_override import (
     FunctionsStartFunctionRunRequestBodyParamsOverride,
 )
@@ -2357,6 +2372,128 @@ class BetaApIsClient:
         )
         return _response.data
 
+    def post_fleet_installer_photo_upload(
+        self,
+        *,
+        content_md_5: str,
+        device_id: str,
+        file_format_type: FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyFileFormatType,
+        file_name: str,
+        hardware_type: FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyHardwareType,
+        photo_type: FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyPhotoType,
+        size_bytes: int,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadResponseBody:
+        """
+        Creates a fleet installer photo upload session and returns a presigned S3 PUT URL. Upload the file bytes directly to the presigned URL using the headers in uploadContext, then call POST /fleet/installer/photo-uploads/complete to finalize.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Devices** under the Devices category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        content_md_5 : str
+            Base64-encoded MD5 of the file bytes. Signed into the presigned URL as Content-MD5; object storage verifies upload integrity on PUT. Must be exactly 24 characters (base64-encoded 16-byte MD5 digest).
+
+        device_id : str
+            Samsara device ID. The device must belong to the caller's organization.
+
+        file_format_type : FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyFileFormatType
+            File format. Samsara maps this to the corresponding MIME type for the presigned URL.  Valid values: `imageJpeg`, `imagePng`
+
+        file_name : str
+            Original file name. Max 255 characters; printable characters only; no null bytes or path separators (/ or \\).
+
+        hardware_type : FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyHardwareType
+            Hardware category of the device being installed.  Valid values: `vehicleGateway`, `assetGateway`, `camera`, `cameraConnector`, `environmentalMonitor`, `assetTag`, `trackingLabel`
+
+        photo_type : FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyPhotoType
+            Purpose of the photo.  Valid values: `installPhoto`, `assetPhoto`
+
+        size_bytes : int
+            File size in bytes. Validated against the maximum allowed size (10 MB) and signed into the presigned URL as Content-Length.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.post_fleet_installer_photo_upload(
+            content_md_5="rL0Y20zC+Fzt72VPzMSk2A==",
+            device_id="281474977961335",
+            file_format_type="imageJpeg",
+            file_name="front_camera_install.jpg",
+            hardware_type="vehicleGateway",
+            photo_type="installPhoto",
+            size_bytes=482193,
+        )
+        """
+        _response = self._raw_client.post_fleet_installer_photo_upload(
+            content_md_5=content_md_5,
+            device_id=device_id,
+            file_format_type=file_format_type,
+            file_name=file_name,
+            hardware_type=hardware_type,
+            photo_type=photo_type,
+            size_bytes=size_bytes,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def post_fleet_installer_photo_upload_complete(
+        self, *, id: str, request_options: typing.Optional[RequestOptions] = None
+    ) -> FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteResponseBody:
+        """
+        Marks a fleet installer photo upload session as complete after the file bytes have been uploaded to S3. Triggers async processing of the photo. Poll GET /fleet/installer/photo-uploads to observe the final state.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Devices** under the Devices category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Upload session ID to mark as complete. Accepts exactly one ID.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.post_fleet_installer_photo_upload_complete(
+            id="id",
+        )
+        """
+        _response = self._raw_client.post_fleet_installer_photo_upload_complete(id=id, request_options=request_options)
+        return _response.data
+
     def list_vendor_categories(
         self, *, after: typing.Optional[str] = None, request_options: typing.Optional[RequestOptions] = None
     ) -> MaintenanceVendorsListVendorCategoriesResponseBody:
@@ -4021,7 +4158,7 @@ class BetaApIsClient:
     def list_preventive_maintenance_schedules(
         self,
         *,
-        id_in: typing.Optional[str] = None,
+        ids: typing.Optional[str] = None,
         after: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
@@ -4038,7 +4175,7 @@ class BetaApIsClient:
 
         Parameters
         ----------
-        id_in : typing.Optional[str]
+        ids : typing.Optional[str]
             A filter on the data based on this comma-separated list of ID values.
 
         after : typing.Optional[str]
@@ -4065,7 +4202,7 @@ class BetaApIsClient:
         client.beta_ap_is.list_preventive_maintenance_schedules()
         """
         _response = self._raw_client.list_preventive_maintenance_schedules(
-            id_in=id_in, after=after, limit=limit, request_options=request_options
+            ids=ids, after=after, limit=limit, request_options=request_options
         )
         return _response.data
 
@@ -8760,6 +8897,146 @@ class AsyncBetaApIsClient:
         )
         return _response.data
 
+    async def post_fleet_installer_photo_upload(
+        self,
+        *,
+        content_md_5: str,
+        device_id: str,
+        file_format_type: FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyFileFormatType,
+        file_name: str,
+        hardware_type: FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyHardwareType,
+        photo_type: FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyPhotoType,
+        size_bytes: int,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadResponseBody:
+        """
+        Creates a fleet installer photo upload session and returns a presigned S3 PUT URL. Upload the file bytes directly to the presigned URL using the headers in uploadContext, then call POST /fleet/installer/photo-uploads/complete to finalize.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Devices** under the Devices category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        content_md_5 : str
+            Base64-encoded MD5 of the file bytes. Signed into the presigned URL as Content-MD5; object storage verifies upload integrity on PUT. Must be exactly 24 characters (base64-encoded 16-byte MD5 digest).
+
+        device_id : str
+            Samsara device ID. The device must belong to the caller's organization.
+
+        file_format_type : FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyFileFormatType
+            File format. Samsara maps this to the corresponding MIME type for the presigned URL.  Valid values: `imageJpeg`, `imagePng`
+
+        file_name : str
+            Original file name. Max 255 characters; printable characters only; no null bytes or path separators (/ or \\).
+
+        hardware_type : FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyHardwareType
+            Hardware category of the device being installed.  Valid values: `vehicleGateway`, `assetGateway`, `camera`, `cameraConnector`, `environmentalMonitor`, `assetTag`, `trackingLabel`
+
+        photo_type : FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyPhotoType
+            Purpose of the photo.  Valid values: `installPhoto`, `assetPhoto`
+
+        size_bytes : int
+            File size in bytes. Validated against the maximum allowed size (10 MB) and signed into the presigned URL as Content-Length.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.post_fleet_installer_photo_upload(
+                content_md_5="rL0Y20zC+Fzt72VPzMSk2A==",
+                device_id="281474977961335",
+                file_format_type="imageJpeg",
+                file_name="front_camera_install.jpg",
+                hardware_type="vehicleGateway",
+                photo_type="installPhoto",
+                size_bytes=482193,
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.post_fleet_installer_photo_upload(
+            content_md_5=content_md_5,
+            device_id=device_id,
+            file_format_type=file_format_type,
+            file_name=file_name,
+            hardware_type=hardware_type,
+            photo_type=photo_type,
+            size_bytes=size_bytes,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def post_fleet_installer_photo_upload_complete(
+        self, *, id: str, request_options: typing.Optional[RequestOptions] = None
+    ) -> FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteResponseBody:
+        """
+        Marks a fleet installer photo upload session as complete after the file bytes have been uploaded to S3. Triggers async processing of the photo. Poll GET /fleet/installer/photo-uploads to observe the final state.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Devices** under the Devices category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Upload session ID to mark as complete. Accepts exactly one ID.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.post_fleet_installer_photo_upload_complete(
+                id="id",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.post_fleet_installer_photo_upload_complete(
+            id=id, request_options=request_options
+        )
+        return _response.data
+
     async def list_vendor_categories(
         self, *, after: typing.Optional[str] = None, request_options: typing.Optional[RequestOptions] = None
     ) -> MaintenanceVendorsListVendorCategoriesResponseBody:
@@ -10665,7 +10942,7 @@ class AsyncBetaApIsClient:
     async def list_preventive_maintenance_schedules(
         self,
         *,
-        id_in: typing.Optional[str] = None,
+        ids: typing.Optional[str] = None,
         after: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
@@ -10682,7 +10959,7 @@ class AsyncBetaApIsClient:
 
         Parameters
         ----------
-        id_in : typing.Optional[str]
+        ids : typing.Optional[str]
             A filter on the data based on this comma-separated list of ID values.
 
         after : typing.Optional[str]
@@ -10717,7 +10994,7 @@ class AsyncBetaApIsClient:
         asyncio.run(main())
         """
         _response = await self._raw_client.list_preventive_maintenance_schedules(
-            id_in=id_in, after=after, limit=limit, request_options=request_options
+            ids=ids, after=after, limit=limit, request_options=request_options
         )
         return _response.data
 

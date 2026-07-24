@@ -2346,6 +2346,9 @@ if typing.TYPE_CHECKING:
     from .engine_status_response_body import EngineStatusResponseBody
     from .entity_create_part_type_response_body import EntityCreatePartTypeResponseBody
     from .entity_list_parts_type_response_body import EntityListPartsTypeResponseBody
+    from .entity_list_preventive_maintenance_schedules_preventative_maintenance_schedule_ref_type_response_body import (
+        EntityListPreventiveMaintenanceSchedulesPreventativeMaintenanceScheduleRefTypeResponseBody,
+    )
     from .entity_list_preventive_maintenance_schedules_type_response_body import (
         EntityListPreventiveMaintenanceSchedulesTypeResponseBody,
     )
@@ -2478,9 +2481,6 @@ if typing.TYPE_CHECKING:
     )
     from .entity_part_definitions_service_update_part_unauthorized_error_response_body import (
         EntityPartDefinitionsServiceUpdatePartUnauthorizedErrorResponseBody,
-    )
-    from .entity_preventative_maintenance_schedule_preventative_maintenance_schedule_ref_type_response_body import (
-        EntityPreventativeMaintenanceSchedulePreventativeMaintenanceScheduleRefTypeResponseBody,
     )
     from .entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_bad_gateway_error_response_body import (
         EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesBadGatewayErrorResponseBody,
@@ -10305,6 +10305,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EngineStatusResponseBody": ".engine_status_response_body",
     "EntityCreatePartTypeResponseBody": ".entity_create_part_type_response_body",
     "EntityListPartsTypeResponseBody": ".entity_list_parts_type_response_body",
+    "EntityListPreventiveMaintenanceSchedulesPreventativeMaintenanceScheduleRefTypeResponseBody": ".entity_list_preventive_maintenance_schedules_preventative_maintenance_schedule_ref_type_response_body",
     "EntityListPreventiveMaintenanceSchedulesTypeResponseBody": ".entity_list_preventive_maintenance_schedules_type_response_body",
     "EntityListTachographLiveDataTypeResponseBody": ".entity_list_tachograph_live_data_type_response_body",
     "EntityListUpcomingPreventiveMaintenanceAssetRefTypeResponseBody": ".entity_list_upcoming_preventive_maintenance_asset_ref_type_response_body",
@@ -10350,7 +10351,6 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EntityPartDefinitionsServiceUpdatePartServiceUnavailableErrorResponseBody": ".entity_part_definitions_service_update_part_service_unavailable_error_response_body",
     "EntityPartDefinitionsServiceUpdatePartTooManyRequestsErrorResponseBody": ".entity_part_definitions_service_update_part_too_many_requests_error_response_body",
     "EntityPartDefinitionsServiceUpdatePartUnauthorizedErrorResponseBody": ".entity_part_definitions_service_update_part_unauthorized_error_response_body",
-    "EntityPreventativeMaintenanceSchedulePreventativeMaintenanceScheduleRefTypeResponseBody": ".entity_preventative_maintenance_schedule_preventative_maintenance_schedule_ref_type_response_body",
     "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesBadGatewayErrorResponseBody": ".entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_bad_gateway_error_response_body",
     "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesGatewayTimeoutErrorResponseBody": ".entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_gateway_timeout_error_response_body",
     "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesInternalServerErrorResponseBody": ".entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_internal_server_error_response_body",
@@ -14686,6 +14686,7 @@ __all__ = [
     "EngineStatusResponseBody",
     "EntityCreatePartTypeResponseBody",
     "EntityListPartsTypeResponseBody",
+    "EntityListPreventiveMaintenanceSchedulesPreventativeMaintenanceScheduleRefTypeResponseBody",
     "EntityListPreventiveMaintenanceSchedulesTypeResponseBody",
     "EntityListTachographLiveDataTypeResponseBody",
     "EntityListUpcomingPreventiveMaintenanceAssetRefTypeResponseBody",
@@ -14731,7 +14732,6 @@ __all__ = [
     "EntityPartDefinitionsServiceUpdatePartServiceUnavailableErrorResponseBody",
     "EntityPartDefinitionsServiceUpdatePartTooManyRequestsErrorResponseBody",
     "EntityPartDefinitionsServiceUpdatePartUnauthorizedErrorResponseBody",
-    "EntityPreventativeMaintenanceSchedulePreventativeMaintenanceScheduleRefTypeResponseBody",
     "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesBadGatewayErrorResponseBody",
     "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesGatewayTimeoutErrorResponseBody",
     "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesInternalServerErrorResponseBody",

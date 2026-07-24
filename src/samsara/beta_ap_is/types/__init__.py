@@ -25,6 +25,15 @@ if typing.TYPE_CHECKING:
         DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus,
     )
     from .device_recovery_recover_asset_request_body_status import DeviceRecoveryRecoverAssetRequestBodyStatus
+    from .fleet_installer_photo_uploads_post_fleet_installer_photo_upload_request_body_file_format_type import (
+        FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyFileFormatType,
+    )
+    from .fleet_installer_photo_uploads_post_fleet_installer_photo_upload_request_body_hardware_type import (
+        FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyHardwareType,
+    )
+    from .fleet_installer_photo_uploads_post_fleet_installer_photo_upload_request_body_photo_type import (
+        FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyPhotoType,
+    )
     from .functions_start_function_run_request_body_params_override import (
         FunctionsStartFunctionRunRequestBodyParamsOverride,
     )
@@ -79,6 +88,9 @@ _dynamic_imports: typing.Dict[str, str] = {
     "DeviceRecoveryRecoverAssetRequestBodyMissingReason": ".device_recovery_recover_asset_request_body_missing_reason",
     "DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus": ".device_recovery_recover_asset_request_body_recovery_status",
     "DeviceRecoveryRecoverAssetRequestBodyStatus": ".device_recovery_recover_asset_request_body_status",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyFileFormatType": ".fleet_installer_photo_uploads_post_fleet_installer_photo_upload_request_body_file_format_type",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyHardwareType": ".fleet_installer_photo_uploads_post_fleet_installer_photo_upload_request_body_hardware_type",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyPhotoType": ".fleet_installer_photo_uploads_post_fleet_installer_photo_upload_request_body_photo_type",
     "FunctionsStartFunctionRunRequestBodyParamsOverride": ".functions_start_function_run_request_body_params_override",
     "GetAssetsInputsRequestType": ".get_assets_inputs_request_type",
     "GetDriverEfficiencyRequestDriverActivationStatus": ".get_driver_efficiency_request_driver_activation_status",
@@ -133,6 +145,9 @@ __all__ = [
     "DeviceRecoveryRecoverAssetRequestBodyMissingReason",
     "DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus",
     "DeviceRecoveryRecoverAssetRequestBodyStatus",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyFileFormatType",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyHardwareType",
+    "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyPhotoType",
     "FunctionsStartFunctionRunRequestBodyParamsOverride",
     "GetAssetsInputsRequestType",
     "GetDriverEfficiencyRequestDriverActivationStatus",
