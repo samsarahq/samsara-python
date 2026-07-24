@@ -4072,7 +4072,7 @@ class BetaApIsClient:
     def list_upcoming_preventive_maintenance(
         self,
         *,
-        preventative_maintenance_schedule_ids: typing.Optional[str] = None,
+        schedule_ids: typing.Optional[str] = None,
         asset_ids: typing.Optional[str] = None,
         after: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
@@ -4090,8 +4090,8 @@ class BetaApIsClient:
 
         Parameters
         ----------
-        preventative_maintenance_schedule_ids : typing.Optional[str]
-            A filter on the data based on this comma-separated list of Preventive Maintenance Schedule ID values.
+        schedule_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Preventive maintenance schedule ID values.
 
         asset_ids : typing.Optional[str]
             A filter on the data based on this comma-separated list of Asset ID values.
@@ -4120,11 +4120,7 @@ class BetaApIsClient:
         client.beta_ap_is.list_upcoming_preventive_maintenance()
         """
         _response = self._raw_client.list_upcoming_preventive_maintenance(
-            preventative_maintenance_schedule_ids=preventative_maintenance_schedule_ids,
-            asset_ids=asset_ids,
-            after=after,
-            limit=limit,
-            request_options=request_options,
+            schedule_ids=schedule_ids, asset_ids=asset_ids, after=after, limit=limit, request_options=request_options
         )
         return _response.data
 
@@ -10728,7 +10724,7 @@ class AsyncBetaApIsClient:
     async def list_upcoming_preventive_maintenance(
         self,
         *,
-        preventative_maintenance_schedule_ids: typing.Optional[str] = None,
+        schedule_ids: typing.Optional[str] = None,
         asset_ids: typing.Optional[str] = None,
         after: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
@@ -10746,8 +10742,8 @@ class AsyncBetaApIsClient:
 
         Parameters
         ----------
-        preventative_maintenance_schedule_ids : typing.Optional[str]
-            A filter on the data based on this comma-separated list of Preventive Maintenance Schedule ID values.
+        schedule_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Preventive maintenance schedule ID values.
 
         asset_ids : typing.Optional[str]
             A filter on the data based on this comma-separated list of Asset ID values.
@@ -10784,11 +10780,7 @@ class AsyncBetaApIsClient:
         asyncio.run(main())
         """
         _response = await self._raw_client.list_upcoming_preventive_maintenance(
-            preventative_maintenance_schedule_ids=preventative_maintenance_schedule_ids,
-            asset_ids=asset_ids,
-            after=after,
-            limit=limit,
-            request_options=request_options,
+            schedule_ids=schedule_ids, asset_ids=asset_ids, after=after, limit=limit, request_options=request_options
         )
         return _response.data
 

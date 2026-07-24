@@ -126,7 +126,7 @@ class WorkOrderObjectResponseBody(UniversalBaseModel):
     ] = None
     status: WorkOrderObjectResponseBodyStatus = pydantic.Field()
     """
-    The status of the work order  Valid values: `Assigned`, `Cancelled`, `Closed`, `Completed`, `Estimate`, `In Progress`, `On Hold`, `Open`, `Pending Approval`, `Pending Parts`
+    The status of the work order  Valid values: `Assigned`, `Cancelled`, `Closed`, `Completed`, `Estimate`, `In Progress`, `On Hold`, `Open`, `Pending Approval`, `Pending Parts`, `Planning`
     """
 
     tax: typing.Optional[WorkOrderTaxObjectResponseBody] = None

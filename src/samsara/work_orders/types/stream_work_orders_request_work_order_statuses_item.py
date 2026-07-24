@@ -14,6 +14,7 @@ StreamWorkOrdersRequestWorkOrderStatusesItem = typing.Union[
         "Open",
         "Pending Approval",
         "Pending Parts",
+        "Planning",
     ],
     typing.Any,
 ]

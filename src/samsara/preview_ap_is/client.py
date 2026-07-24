@@ -7,6 +7,9 @@ from ..core.request_options import RequestOptions
 from ..types.drivers_auth_token_create_driver_auth_token_response_body import (
     DriversAuthTokenCreateDriverAuthTokenResponseBody,
 )
+from ..types.entity_upcoming_preventative_maintenances_service_update_upcoming_preventive_maintenance_response_body import (
+    EntityUpcomingPreventativeMaintenancesServiceUpdateUpcomingPreventiveMaintenanceResponseBody,
+)
 from ..types.fleet_installer_photo_uploads_post_fleet_installer_photo_upload_complete_response_body import (
     FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteResponseBody,
 )
@@ -324,6 +327,91 @@ class PreviewApIsClient:
         )
         """
         _response = self._raw_client.unlock_vehicle(id, request_options=request_options)
+        return _response.data
+
+    def update_upcoming_preventive_maintenance(
+        self,
+        *,
+        asset_id: typing.Optional[str] = None,
+        schedule_id: typing.Optional[str] = None,
+        last_resolved_at: typing.Optional[str] = OMIT,
+        last_resolved_at_engine_hours: typing.Optional[int] = OMIT,
+        last_resolved_at_odometer: typing.Optional[int] = OMIT,
+        next_engine_hours: typing.Optional[int] = OMIT,
+        next_odometer: typing.Optional[int] = OMIT,
+        next_time: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityUpcomingPreventativeMaintenancesServiceUpdateUpcomingPreventiveMaintenanceResponseBody:
+        """
+        Patches the due-target and last-resolved values on the open preventive maintenance instance for a schedule and asset. Only fields provided in the request are updated.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Preventive Maintenance Schedules** under the Preventive Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        asset_id : typing.Optional[str]
+            Samsara ID for the asset.
+
+        schedule_id : typing.Optional[str]
+            ID of the preventive maintenance schedule that the vehicle is scheduled to be serviced for.
+
+        last_resolved_at : typing.Optional[str]
+            Date and time when the prior instance was resolved.
+
+        last_resolved_at_engine_hours : typing.Optional[int]
+            Engine hours at the time the prior instance was resolved.
+
+        last_resolved_at_odometer : typing.Optional[int]
+            Odometer reading at the time the prior instance was resolved. Measured in meters.
+
+        next_engine_hours : typing.Optional[int]
+            The next engine hour value that the vehicle is scheduled to be serviced.
+
+        next_odometer : typing.Optional[int]
+            The next odometer value that the vehicle is scheduled to be serviced. Measured in meters.
+
+        next_time : typing.Optional[str]
+            The next time that the vehicle is scheduled to be serviced for a date based PM.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityUpcomingPreventativeMaintenancesServiceUpdateUpcomingPreventiveMaintenanceResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.preview_ap_is.update_upcoming_preventive_maintenance()
+        """
+        _response = self._raw_client.update_upcoming_preventive_maintenance(
+            asset_id=asset_id,
+            schedule_id=schedule_id,
+            last_resolved_at=last_resolved_at,
+            last_resolved_at_engine_hours=last_resolved_at_engine_hours,
+            last_resolved_at_odometer=last_resolved_at_odometer,
+            next_engine_hours=next_engine_hours,
+            next_odometer=next_odometer,
+            next_time=next_time,
+            request_options=request_options,
+        )
         return _response.data
 
 
@@ -665,4 +753,97 @@ class AsyncPreviewApIsClient:
         asyncio.run(main())
         """
         _response = await self._raw_client.unlock_vehicle(id, request_options=request_options)
+        return _response.data
+
+    async def update_upcoming_preventive_maintenance(
+        self,
+        *,
+        asset_id: typing.Optional[str] = None,
+        schedule_id: typing.Optional[str] = None,
+        last_resolved_at: typing.Optional[str] = OMIT,
+        last_resolved_at_engine_hours: typing.Optional[int] = OMIT,
+        last_resolved_at_odometer: typing.Optional[int] = OMIT,
+        next_engine_hours: typing.Optional[int] = OMIT,
+        next_odometer: typing.Optional[int] = OMIT,
+        next_time: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityUpcomingPreventativeMaintenancesServiceUpdateUpcomingPreventiveMaintenanceResponseBody:
+        """
+        Patches the due-target and last-resolved values on the open preventive maintenance instance for a schedule and asset. Only fields provided in the request are updated.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Preventive Maintenance Schedules** under the Preventive Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        asset_id : typing.Optional[str]
+            Samsara ID for the asset.
+
+        schedule_id : typing.Optional[str]
+            ID of the preventive maintenance schedule that the vehicle is scheduled to be serviced for.
+
+        last_resolved_at : typing.Optional[str]
+            Date and time when the prior instance was resolved.
+
+        last_resolved_at_engine_hours : typing.Optional[int]
+            Engine hours at the time the prior instance was resolved.
+
+        last_resolved_at_odometer : typing.Optional[int]
+            Odometer reading at the time the prior instance was resolved. Measured in meters.
+
+        next_engine_hours : typing.Optional[int]
+            The next engine hour value that the vehicle is scheduled to be serviced.
+
+        next_odometer : typing.Optional[int]
+            The next odometer value that the vehicle is scheduled to be serviced. Measured in meters.
+
+        next_time : typing.Optional[str]
+            The next time that the vehicle is scheduled to be serviced for a date based PM.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityUpcomingPreventativeMaintenancesServiceUpdateUpcomingPreventiveMaintenanceResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.preview_ap_is.update_upcoming_preventive_maintenance()
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.update_upcoming_preventive_maintenance(
+            asset_id=asset_id,
+            schedule_id=schedule_id,
+            last_resolved_at=last_resolved_at,
+            last_resolved_at_engine_hours=last_resolved_at_engine_hours,
+            last_resolved_at_odometer=last_resolved_at_odometer,
+            next_engine_hours=next_engine_hours,
+            next_odometer=next_odometer,
+            next_time=next_time,
+            request_options=request_options,
+        )
         return _response.data

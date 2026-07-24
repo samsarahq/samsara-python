@@ -3,18 +3,28 @@
 import typing
 
 import pydantic
+import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
+from ..core.serialization import FieldMetadata
 
 
-class EntityUpcomingPreventativeMaintenanceWorkOrderRefTypeResponseBody(UniversalBaseModel):
+class FleetLocationsGetFleetLocationsUnauthorizedErrorResponseBody(UniversalBaseModel):
     """
-    Reference to a WorkOrder
+    Unauthorized
     """
 
-    id: str = pydantic.Field()
+    message: str = pydantic.Field()
     """
-    The ID of the referenced WorkOrder.
+    Message of error
     """
+
+    request_id: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="requestId"),
+        pydantic.Field(
+            alias="requestId", description="The request ID; used when reaching out to support for issues with requests."
+        ),
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
