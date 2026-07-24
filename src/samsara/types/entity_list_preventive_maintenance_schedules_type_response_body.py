@@ -6,8 +6,8 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
-from .entity_preventative_maintenance_schedule_preventative_maintenance_schedule_ref_type_response_body import (
-    EntityPreventativeMaintenanceSchedulePreventativeMaintenanceScheduleRefTypeResponseBody,
+from .entity_list_preventive_maintenance_schedules_preventative_maintenance_schedule_ref_type_response_body import (
+    EntityListPreventiveMaintenanceSchedulesPreventativeMaintenanceScheduleRefTypeResponseBody,
 )
 
 
@@ -52,7 +52,7 @@ class EntityListPreventiveMaintenanceSchedulesTypeResponseBody(UniversalBaseMode
 
     linked_schedules: typing_extensions.Annotated[
         typing.Optional[
-            typing.List[EntityPreventativeMaintenanceSchedulePreventativeMaintenanceScheduleRefTypeResponseBody]
+            typing.List[EntityListPreventiveMaintenanceSchedulesPreventativeMaintenanceScheduleRefTypeResponseBody]
         ],
         FieldMetadata(alias="linkedSchedules"),
         pydantic.Field(

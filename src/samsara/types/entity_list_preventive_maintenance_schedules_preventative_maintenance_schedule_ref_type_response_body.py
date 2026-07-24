@@ -6,7 +6,7 @@ import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 
 
-class EntityPreventativeMaintenanceSchedulePreventativeMaintenanceScheduleRefTypeResponseBody(UniversalBaseModel):
+class EntityListPreventiveMaintenanceSchedulesPreventativeMaintenanceScheduleRefTypeResponseBody(UniversalBaseModel):
     """
     Reference to a PreventativeMaintenanceSchedule
     """

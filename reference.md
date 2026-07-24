@@ -4075,6 +4075,218 @@ client.beta_ap_is.get_fleet_installer_photo_uploads()
 </dl>
 </details>
 
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">post_fleet_installer_photo_upload</a>(...) -&gt; AsyncHttpResponse[
+    FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadResponseBody
+]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Creates a fleet installer photo upload session and returns a presigned S3 PUT URL. Upload the file bytes directly to the presigned URL using the headers in uploadContext, then call POST /fleet/installer/photo-uploads/complete to finalize.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Devices** under the Devices category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.post_fleet_installer_photo_upload(
+    content_md_5="rL0Y20zC+Fzt72VPzMSk2A==",
+    device_id="281474977961335",
+    file_format_type="imageJpeg",
+    file_name="front_camera_install.jpg",
+    hardware_type="vehicleGateway",
+    photo_type="installPhoto",
+    size_bytes=482193,
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**content_md_5:** `str` — Base64-encoded MD5 of the file bytes. Signed into the presigned URL as Content-MD5; object storage verifies upload integrity on PUT. Must be exactly 24 characters (base64-encoded 16-byte MD5 digest).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**device_id:** `str` — Samsara device ID. The device must belong to the caller's organization.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**file_format_type:** `FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyFileFormatType` — File format. Samsara maps this to the corresponding MIME type for the presigned URL.  Valid values: `imageJpeg`, `imagePng`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**file_name:** `str` — Original file name. Max 255 characters; printable characters only; no null bytes or path separators (/ or \).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**hardware_type:** `FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyHardwareType` — Hardware category of the device being installed.  Valid values: `vehicleGateway`, `assetGateway`, `camera`, `cameraConnector`, `environmentalMonitor`, `assetTag`, `trackingLabel`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**photo_type:** `FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyPhotoType` — Purpose of the photo.  Valid values: `installPhoto`, `assetPhoto`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**size_bytes:** `int` — File size in bytes. Validated against the maximum allowed size (10 MB) and signed into the presigned URL as Content-Length.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">post_fleet_installer_photo_upload_complete</a>(...) -&gt; AsyncHttpResponse[
+    FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteResponseBody
+]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Marks a fleet installer photo upload session as complete after the file bytes have been uploaded to S3. Triggers async processing of the photo. Poll GET /fleet/installer/photo-uploads to observe the final state.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Devices** under the Devices category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.post_fleet_installer_photo_upload_complete(
+    id="id",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` — Upload session ID to mark as complete. Accepts exactly one ID.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_vendor_categories</a>(...) -&gt; AsyncHttpResponse[MaintenanceVendorsListVendorCategoriesResponseBody]</code></summary>
 <dl>
 <dd>
@@ -7042,7 +7254,7 @@ client.beta_ap_is.list_preventive_maintenance_schedules()
 <dl>
 <dd>
 
-**id_in:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of ID values.
+**ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of ID values.
     
 </dd>
 </dl>
@@ -32783,230 +32995,6 @@ client.preview_ap_is.create_driver_auth_token(
 <dd>
 
 **username:** `typing.Optional[str]` — Optional. Username of the driver. This is the login identifier configured when the driver is created. One of `id`, `externalId`, or `username` is required.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.preview_ap_is.<a href="src/samsara/preview_ap_is/client.py">post_fleet_installer_photo_upload</a>(...) -&gt; AsyncHttpResponse[
-    FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadResponseBody
-]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Creates a fleet installer photo upload session and returns a presigned S3 PUT URL. Upload the file bytes directly to the presigned URL using the headers in uploadContext, then call POST /fleet/installer/photo-uploads/complete to finalize.
-
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Write Devices** under the Devices category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
-
-- Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
-
-- When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.preview_ap_is.post_fleet_installer_photo_upload(
-    content_md_5="rL0Y20zC+Fzt72VPzMSk2A==",
-    device_id="281474977961335",
-    file_format_type="imageJpeg",
-    file_name="front_camera_install.jpg",
-    hardware_type="vehicleGateway",
-    photo_type="installPhoto",
-    size_bytes=482193,
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**content_md_5:** `str` — Base64-encoded MD5 of the file bytes. Signed into the presigned URL as Content-MD5; object storage verifies upload integrity on PUT. Must be exactly 24 characters (base64-encoded 16-byte MD5 digest).
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**device_id:** `str` — Samsara device ID. The device must belong to the caller's organization.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**file_format_type:** `FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyFileFormatType` — File format. Samsara maps this to the corresponding MIME type for the presigned URL.  Valid values: `imageJpeg`, `imagePng`
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**file_name:** `str` — Original file name. Max 255 characters; printable characters only; no null bytes or path separators (/ or \).
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**hardware_type:** `FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyHardwareType` — Hardware category of the device being installed.  Valid values: `vehicleGateway`, `assetGateway`, `camera`, `cameraConnector`, `environmentalMonitor`, `assetTag`, `trackingLabel`
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**photo_type:** `FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyPhotoType` — Purpose of the photo.  Valid values: `installPhoto`, `assetPhoto`
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**size_bytes:** `int` — File size in bytes. Validated against the maximum allowed size (10 MB) and signed into the presigned URL as Content-Length.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.preview_ap_is.<a href="src/samsara/preview_ap_is/client.py">post_fleet_installer_photo_upload_complete</a>(...) -&gt; AsyncHttpResponse[
-    FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadCompleteResponseBody
-]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Marks a fleet installer photo upload session as complete after the file bytes have been uploaded to S3. Triggers async processing of the photo. Poll GET /fleet/installer/photo-uploads to observe the final state.
-
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Write Devices** under the Devices category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
-
-- Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
-
-- When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.preview_ap_is.post_fleet_installer_photo_upload_complete(
-    id="id",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**id:** `str` — Upload session ID to mark as complete. Accepts exactly one ID.
     
 </dd>
 </dl>
