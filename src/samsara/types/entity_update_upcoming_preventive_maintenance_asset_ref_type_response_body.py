@@ -6,14 +6,14 @@ import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 
 
-class EntityUpcomingPreventativeMaintenancePreventativeMaintenanceScheduleRefTypeResponseBody(UniversalBaseModel):
+class EntityUpdateUpcomingPreventiveMaintenanceAssetRefTypeResponseBody(UniversalBaseModel):
     """
-    Reference to a PreventativeMaintenanceSchedule
+    Reference to a Asset
     """
 
     id: str = pydantic.Field()
     """
-    The ID of the referenced PreventativeMaintenanceSchedule.
+    The ID of the referenced Asset.
     """
 
     if IS_PYDANTIC_V2:

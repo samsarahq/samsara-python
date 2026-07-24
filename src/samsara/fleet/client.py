@@ -5,6 +5,8 @@ from __future__ import annotations
 import typing
 
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
+from ..core.request_options import RequestOptions
+from ..types.fleet_locations_get_fleet_locations_response_body import FleetLocationsGetFleetLocationsResponseBody
 from .raw_client import AsyncRawFleetClient, RawFleetClient
 
 if typing.TYPE_CHECKING:
@@ -32,6 +34,61 @@ class FleetClient:
         RawFleetClient
         """
         return self._raw_client
+
+    def get_fleet_locations(
+        self,
+        *,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        vehicle_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> FleetLocationsGetFleetLocationsResponseBody:
+        """
+        Get current location of vehicles.
+
+         <b>Rate limit:</b> 50 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Vehicle Statistics** under the Vehicles category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        after : typing.Optional[str]
+            Pagination parameter indicating the cursor position to continue returning results after. Used in conjunction with the 'limit' parameter.
+
+        limit : typing.Optional[int]
+            Pagination parameter indicating the number of results to return in this request. Used in conjunction with 'after'.
+
+        vehicle_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A comma-separated list of vehicle IDs. Example: `vehicleIds=1000,1001`
+
+        tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A comma-separated list of tag IDs. Example: `tagIds=1000,1001`
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        FleetLocationsGetFleetLocationsResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.fleet.get_fleet_locations()
+        """
+        _response = self._raw_client.get_fleet_locations(
+            after=after, limit=limit, vehicle_ids=vehicle_ids, tag_ids=tag_ids, request_options=request_options
+        )
+        return _response.data
 
     @property
     def carrier_proposed_assignments(self):
@@ -67,6 +124,69 @@ class AsyncFleetClient:
         AsyncRawFleetClient
         """
         return self._raw_client
+
+    async def get_fleet_locations(
+        self,
+        *,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        vehicle_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        tag_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> FleetLocationsGetFleetLocationsResponseBody:
+        """
+        Get current location of vehicles.
+
+         <b>Rate limit:</b> 50 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Vehicle Statistics** under the Vehicles category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        after : typing.Optional[str]
+            Pagination parameter indicating the cursor position to continue returning results after. Used in conjunction with the 'limit' parameter.
+
+        limit : typing.Optional[int]
+            Pagination parameter indicating the number of results to return in this request. Used in conjunction with 'after'.
+
+        vehicle_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A comma-separated list of vehicle IDs. Example: `vehicleIds=1000,1001`
+
+        tag_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A comma-separated list of tag IDs. Example: `tagIds=1000,1001`
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        FleetLocationsGetFleetLocationsResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.fleet.get_fleet_locations()
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_fleet_locations(
+            after=after, limit=limit, vehicle_ids=vehicle_ids, tag_ids=tag_ids, request_options=request_options
+        )
+        return _response.data
 
     @property
     def carrier_proposed_assignments(self):

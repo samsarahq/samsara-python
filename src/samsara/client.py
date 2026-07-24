@@ -192,11 +192,11 @@ class Samsara:
         self._trips: typing.Optional[TripsClient] = None
         self._users: typing.Optional[UsersClient] = None
         self._legacy: typing.Optional[LegacyClient] = None
+        self._fleet: typing.Optional[FleetClient] = None
         self._messages: typing.Optional[MessagesClient] = None
         self._trailer_assignments: typing.Optional[TrailerAssignmentsClient] = None
         self._sensors: typing.Optional[SensorsClient] = None
         self._webhooks: typing.Optional[WebhooksClient] = None
-        self._fleet: typing.Optional[FleetClient] = None
 
     @property
     def addresses(self):
@@ -615,6 +615,14 @@ class Samsara:
         return self._legacy
 
     @property
+    def fleet(self):
+        if self._fleet is None:
+            from .fleet.client import FleetClient  # noqa: E402
+
+            self._fleet = FleetClient(client_wrapper=self._client_wrapper)
+        return self._fleet
+
+    @property
     def messages(self):
         if self._messages is None:
             from .messages.client import MessagesClient  # noqa: E402
@@ -645,14 +653,6 @@ class Samsara:
 
             self._webhooks = WebhooksClient(client_wrapper=self._client_wrapper)
         return self._webhooks
-
-    @property
-    def fleet(self):
-        if self._fleet is None:
-            from .fleet.client import FleetClient  # noqa: E402
-
-            self._fleet = FleetClient(client_wrapper=self._client_wrapper)
-        return self._fleet
 
 
 class AsyncSamsara:
@@ -774,11 +774,11 @@ class AsyncSamsara:
         self._trips: typing.Optional[AsyncTripsClient] = None
         self._users: typing.Optional[AsyncUsersClient] = None
         self._legacy: typing.Optional[AsyncLegacyClient] = None
+        self._fleet: typing.Optional[AsyncFleetClient] = None
         self._messages: typing.Optional[AsyncMessagesClient] = None
         self._trailer_assignments: typing.Optional[AsyncTrailerAssignmentsClient] = None
         self._sensors: typing.Optional[AsyncSensorsClient] = None
         self._webhooks: typing.Optional[AsyncWebhooksClient] = None
-        self._fleet: typing.Optional[AsyncFleetClient] = None
 
     @property
     def addresses(self):
@@ -1199,6 +1199,14 @@ class AsyncSamsara:
         return self._legacy
 
     @property
+    def fleet(self):
+        if self._fleet is None:
+            from .fleet.client import AsyncFleetClient  # noqa: E402
+
+            self._fleet = AsyncFleetClient(client_wrapper=self._client_wrapper)
+        return self._fleet
+
+    @property
     def messages(self):
         if self._messages is None:
             from .messages.client import AsyncMessagesClient  # noqa: E402
@@ -1229,14 +1237,6 @@ class AsyncSamsara:
 
             self._webhooks = AsyncWebhooksClient(client_wrapper=self._client_wrapper)
         return self._webhooks
-
-    @property
-    def fleet(self):
-        if self._fleet is None:
-            from .fleet.client import AsyncFleetClient  # noqa: E402
-
-            self._fleet = AsyncFleetClient(client_wrapper=self._client_wrapper)
-        return self._fleet
 
 
 def _get_base_url(*, base_url: typing.Optional[str] = None, environment: SamsaraEnvironment) -> str:

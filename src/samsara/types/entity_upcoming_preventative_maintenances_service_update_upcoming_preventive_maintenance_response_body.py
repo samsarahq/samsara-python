@@ -4,17 +4,13 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
+from .entity_update_upcoming_preventive_maintenance_type_response_body import (
+    EntityUpdateUpcomingPreventiveMaintenanceTypeResponseBody,
+)
 
 
-class EntityUpcomingPreventativeMaintenanceAssetRefTypeResponseBody(UniversalBaseModel):
-    """
-    Reference to a Asset
-    """
-
-    id: str = pydantic.Field()
-    """
-    The ID of the referenced Asset.
-    """
+class EntityUpcomingPreventativeMaintenancesServiceUpdateUpcomingPreventiveMaintenanceResponseBody(UniversalBaseModel):
+    data: EntityUpdateUpcomingPreventiveMaintenanceTypeResponseBody
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

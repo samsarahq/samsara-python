@@ -47,3 +47,11 @@ def test_previewApIs_unlock_vehicle() -> None:
     client = get_client(test_id)
     client.preview_ap_is.unlock_vehicle(id="id")
     verify_request_count(test_id, "DELETE", "/preview/fleet/vehicles/id/lock", None, 1)
+
+
+def test_previewApIs_update_upcoming_preventive_maintenance() -> None:
+    """Test updateUpcomingPreventiveMaintenance endpoint with WireMock"""
+    test_id = "preview_ap_is.update_upcoming_preventive_maintenance.0"
+    client = get_client(test_id)
+    client.preview_ap_is.update_upcoming_preventive_maintenance()
+    verify_request_count(test_id, "PATCH", "/preview/maintenance/preventive/upcoming", None, 1)

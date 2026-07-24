@@ -6,23 +6,23 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
-from .entity_list_upcoming_preventive_maintenance_asset_ref_type_response_body import (
-    EntityListUpcomingPreventiveMaintenanceAssetRefTypeResponseBody,
+from .entity_update_upcoming_preventive_maintenance_asset_ref_type_response_body import (
+    EntityUpdateUpcomingPreventiveMaintenanceAssetRefTypeResponseBody,
 )
-from .entity_list_upcoming_preventive_maintenance_preventative_maintenance_schedule_ref_type_response_body import (
-    EntityListUpcomingPreventiveMaintenancePreventativeMaintenanceScheduleRefTypeResponseBody,
+from .entity_update_upcoming_preventive_maintenance_preventative_maintenance_schedule_ref_type_response_body import (
+    EntityUpdateUpcomingPreventiveMaintenancePreventativeMaintenanceScheduleRefTypeResponseBody,
 )
-from .entity_list_upcoming_preventive_maintenance_work_order_ref_type_response_body import (
-    EntityListUpcomingPreventiveMaintenanceWorkOrderRefTypeResponseBody,
+from .entity_update_upcoming_preventive_maintenance_work_order_ref_type_response_body import (
+    EntityUpdateUpcomingPreventiveMaintenanceWorkOrderRefTypeResponseBody,
 )
 
 
-class EntityListUpcomingPreventiveMaintenanceTypeResponseBody(UniversalBaseModel):
+class EntityUpdateUpcomingPreventiveMaintenanceTypeResponseBody(UniversalBaseModel):
     """
     UpcomingPreventativeMaintenance object
     """
 
-    asset: typing.Optional[EntityListUpcomingPreventiveMaintenanceAssetRefTypeResponseBody] = None
+    asset: typing.Optional[EntityUpdateUpcomingPreventiveMaintenanceAssetRefTypeResponseBody] = None
     current_engine_hours: typing_extensions.Annotated[
         typing.Optional[int],
         FieldMetadata(alias="currentEngineHours"),
@@ -36,6 +36,14 @@ class EntityListUpcomingPreventiveMaintenanceTypeResponseBody(UniversalBaseModel
         pydantic.Field(
             alias="currentOdometer",
             description="Current odometer reading for the asset at the time of query. Measured in meters.",
+        ),
+    ] = None
+    current_odometer_miles: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="currentOdometerMiles"),
+        pydantic.Field(
+            alias="currentOdometerMiles",
+            description="Current odometer reading for the asset at the time of query. Measured in miles.",
         ),
     ] = None
     due_in_days: typing_extensions.Annotated[
@@ -58,6 +66,14 @@ class EntityListUpcomingPreventiveMaintenanceTypeResponseBody(UniversalBaseModel
         pydantic.Field(
             alias="dueInOdometer",
             description="The odometer distance until the next scheduled service. Measured in meters.",
+        ),
+    ] = None
+    due_in_odometer_miles: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="dueInOdometerMiles"),
+        pydantic.Field(
+            alias="dueInOdometerMiles",
+            description="The odometer distance until the next scheduled service. Measured in miles.",
         ),
     ] = None
     last_resolved_at: typing_extensions.Annotated[
@@ -96,6 +112,14 @@ class EntityListUpcomingPreventiveMaintenanceTypeResponseBody(UniversalBaseModel
             description="The next odometer value that the vehicle is scheduled to be serviced. Measured in meters.",
         ),
     ] = None
+    next_odometer_miles: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="nextOdometerMiles"),
+        pydantic.Field(
+            alias="nextOdometerMiles",
+            description="The next odometer value that the vehicle is scheduled to be serviced. Measured in miles.",
+        ),
+    ] = None
     next_time: typing_extensions.Annotated[
         typing.Optional[str],
         FieldMetadata(alias="nextTime"),
@@ -104,8 +128,13 @@ class EntityListUpcomingPreventiveMaintenanceTypeResponseBody(UniversalBaseModel
             description="The next time that the vehicle is scheduled to be serviced for a date based PM.",
         ),
     ] = None
+    priority: typing.Optional[int] = pydantic.Field(default=None)
+    """
+    Estimated number of days until the next scheduled service, calculated by converting mileage and engine hour schedules to approximate daily rates. We take the minimum value for schedules with multiple interval types.
+    """
+
     schedule: typing.Optional[
-        EntityListUpcomingPreventiveMaintenancePreventativeMaintenanceScheduleRefTypeResponseBody
+        EntityUpdateUpcomingPreventiveMaintenancePreventativeMaintenanceScheduleRefTypeResponseBody
     ] = None
     status: typing.Optional[str] = pydantic.Field(default=None)
     """
@@ -113,7 +142,7 @@ class EntityListUpcomingPreventiveMaintenanceTypeResponseBody(UniversalBaseModel
     """
 
     work_order: typing_extensions.Annotated[
-        typing.Optional[EntityListUpcomingPreventiveMaintenanceWorkOrderRefTypeResponseBody],
+        typing.Optional[EntityUpdateUpcomingPreventiveMaintenanceWorkOrderRefTypeResponseBody],
         FieldMetadata(alias="workOrder"),
         pydantic.Field(alias="workOrder"),
     ] = None

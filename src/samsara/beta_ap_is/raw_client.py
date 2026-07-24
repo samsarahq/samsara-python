@@ -11083,7 +11083,7 @@ class RawBetaApIsClient:
     def list_upcoming_preventive_maintenance(
         self,
         *,
-        preventative_maintenance_schedule_ids: typing.Optional[str] = None,
+        schedule_ids: typing.Optional[str] = None,
         asset_ids: typing.Optional[str] = None,
         after: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
@@ -11101,8 +11101,8 @@ class RawBetaApIsClient:
 
         Parameters
         ----------
-        preventative_maintenance_schedule_ids : typing.Optional[str]
-            A filter on the data based on this comma-separated list of Preventive Maintenance Schedule ID values.
+        schedule_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Preventive maintenance schedule ID values.
 
         asset_ids : typing.Optional[str]
             A filter on the data based on this comma-separated list of Asset ID values.
@@ -11125,7 +11125,7 @@ class RawBetaApIsClient:
             "maintenance/preventive/upcoming",
             method="GET",
             params={
-                "preventativeMaintenanceScheduleIds": preventative_maintenance_schedule_ids,
+                "scheduleIds": schedule_ids,
                 "assetIds": asset_ids,
                 "after": after,
                 "limit": limit,
@@ -28430,7 +28430,7 @@ class AsyncRawBetaApIsClient:
     async def list_upcoming_preventive_maintenance(
         self,
         *,
-        preventative_maintenance_schedule_ids: typing.Optional[str] = None,
+        schedule_ids: typing.Optional[str] = None,
         asset_ids: typing.Optional[str] = None,
         after: typing.Optional[str] = None,
         limit: typing.Optional[int] = None,
@@ -28448,8 +28448,8 @@ class AsyncRawBetaApIsClient:
 
         Parameters
         ----------
-        preventative_maintenance_schedule_ids : typing.Optional[str]
-            A filter on the data based on this comma-separated list of Preventive Maintenance Schedule ID values.
+        schedule_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Preventive maintenance schedule ID values.
 
         asset_ids : typing.Optional[str]
             A filter on the data based on this comma-separated list of Asset ID values.
@@ -28472,7 +28472,7 @@ class AsyncRawBetaApIsClient:
             "maintenance/preventive/upcoming",
             method="GET",
             params={
-                "preventativeMaintenanceScheduleIds": preventative_maintenance_schedule_ids,
+                "scheduleIds": schedule_ids,
                 "assetIds": asset_ids,
                 "after": after,
                 "limit": limit,
