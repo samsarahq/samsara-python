@@ -43,6 +43,7 @@ from ..types.asset_sharing_agreements_update_shared_assets_batch_response_body i
     AssetSharingAgreementsUpdateSharedAssetsBatchResponseBody,
 )
 from ..types.assets_inputs_get_assets_inputs_response_body import AssetsInputsGetAssetsInputsResponseBody
+from ..types.associations_list_associations_response_body import AssociationsListAssociationsResponseBody
 from ..types.create_function_request_config_request_body import CreateFunctionRequestConfigRequestBody
 from ..types.create_hub_route_template_depot_end_input_request_body import (
     CreateHubRouteTemplateDepotEndInputRequestBody,
@@ -52,6 +53,9 @@ from ..types.create_hub_route_template_depot_start_input_request_body import (
 )
 from ..types.create_part_entity_part_definition_money_input_type_request_body import (
     CreatePartEntityPartDefinitionMoneyInputTypeRequestBody,
+)
+from ..types.create_part_inventory_location_entity_part_inventory_location_money_input_type_request_body import (
+    CreatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody,
 )
 from ..types.create_report_config_object_request_body import CreateReportConfigObjectRequestBody
 from ..types.create_shared_asset_request_object_request_body import CreateSharedAssetRequestObjectRequestBody
@@ -81,6 +85,15 @@ from ..types.entity_part_definitions_service_list_parts_response_body import (
 )
 from ..types.entity_part_definitions_service_update_part_response_body import (
     EntityPartDefinitionsServiceUpdatePartResponseBody,
+)
+from ..types.entity_part_inventory_locations_service_create_part_inventory_location_response_body import (
+    EntityPartInventoryLocationsServiceCreatePartInventoryLocationResponseBody,
+)
+from ..types.entity_part_inventory_locations_service_list_part_inventory_response_body import (
+    EntityPartInventoryLocationsServiceListPartInventoryResponseBody,
+)
+from ..types.entity_part_inventory_locations_service_update_part_inventory_location_response_body import (
+    EntityPartInventoryLocationsServiceUpdatePartInventoryLocationResponseBody,
 )
 from ..types.entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_response_body import (
     EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesResponseBody,
@@ -250,6 +263,9 @@ from ..types.update_engine_immobilizer_relay_state_request_body_request_body imp
 )
 from ..types.update_part_entity_part_definition_money_input_type_request_body import (
     UpdatePartEntityPartDefinitionMoneyInputTypeRequestBody,
+)
+from ..types.update_part_inventory_location_entity_part_inventory_location_money_input_type_request_body import (
+    UpdatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody,
 )
 from ..types.update_shared_asset_request_object_request_body import UpdateSharedAssetRequestObjectRequestBody
 from ..types.work_orders_get_work_order_templates_response_body import WorkOrdersGetWorkOrderTemplatesResponseBody
@@ -1943,6 +1959,67 @@ class BetaApIsClient:
         )
         """
         _response = self._raw_client.unassign_asset_assignment(asset_id=asset_id, request_options=request_options)
+        return _response.data
+
+    def list_associations(
+        self,
+        *,
+        start_time: str,
+        peripheral_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        end_time: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AssociationsListAssociationsResponseBody:
+        """
+        List associations between vehicles and peripheral devices within a given time range. Associations represent the relationship between a central device (vehicle) and a peripheral device (e.g. asset tag). An association with a null endTime is still active. If no endTime query parameter is provided, all associations from startTime onward are returned, including currently active (open) associations.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        start_time : str
+            A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        peripheral_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A comma-separated list of peripheral asset IDs to filter associations by. (Example: 1234,5678)
+
+        end_time : typing.Optional[str]
+            An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). If not provided, all associations from startTime onward are returned, including currently active (open) associations.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AssociationsListAssociationsResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.list_associations(
+            start_time="startTime",
+        )
+        """
+        _response = self._raw_client.list_associations(
+            start_time=start_time,
+            peripheral_ids=peripheral_ids,
+            end_time=end_time,
+            after=after,
+            request_options=request_options,
+        )
         return _response.data
 
     def list_device_recovery_missing_assets(
@@ -4151,6 +4228,265 @@ class BetaApIsClient:
             part_number=part_number,
             unit_cost=unit_cost,
             vmrs_code=vmrs_code,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def list_part_inventory(
+        self,
+        *,
+        place_ids: typing.Optional[str] = None,
+        is_low_stock: typing.Optional[bool] = None,
+        part_samsara_ids: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityPartInventoryLocationsServiceListPartInventoryResponseBody:
+        """
+        Returns a paginated list of per-part, per-location inventory levels for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        place_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Place ID values.
+
+        is_low_stock : typing.Optional[bool]
+            A filter on the data based on Low stock. Whether the available quantity is greater than zero and at or below the reorder threshold.
+
+        part_samsara_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Part ID values.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityPartInventoryLocationsServiceListPartInventoryResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.list_part_inventory()
+        """
+        _response = self._raw_client.list_part_inventory(
+            place_ids=place_ids,
+            is_low_stock=is_low_stock,
+            part_samsara_ids=part_samsara_ids,
+            after=after,
+            limit=limit,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def create_part_inventory_location(
+        self,
+        *,
+        part_samsara_id: typing.Optional[str] = None,
+        place_id: typing.Optional[str] = None,
+        aisle: typing.Optional[str] = OMIT,
+        bin: typing.Optional[str] = OMIT,
+        current_quantity: typing.Optional[float] = OMIT,
+        is_cost_tracked: typing.Optional[bool] = OMIT,
+        max_stock_level: typing.Optional[float] = OMIT,
+        min_stock_level: typing.Optional[float] = OMIT,
+        reorder_quantity: typing.Optional[float] = OMIT,
+        reorder_threshold: typing.Optional[float] = OMIT,
+        row: typing.Optional[str] = OMIT,
+        unit_cost: typing.Optional[
+            CreatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody
+        ] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityPartInventoryLocationsServiceCreatePartInventoryLocationResponseBody:
+        """
+        Creates per-part, per-location inventory metadata for the organization. Upserts by part and place — a second create at the same pair updates the existing record instead of duplicating it.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        part_samsara_id : typing.Optional[str]
+            Unique identifier for the part definition these inventory levels are tracked for.
+
+        place_id : typing.Optional[str]
+            Unique identifier for the place linked to the maintenance site holding this inventory. The internal location identifier is never exposed.
+
+        aisle : typing.Optional[str]
+            Aisle within the location where the part is stored.
+
+        bin : typing.Optional[str]
+            Bin within the location where the part is stored.
+
+        current_quantity : typing.Optional[float]
+            Total physical quantity on hand at this location, equal to the available quantity plus the reserved quantity. Read-only; changes only via stock movements.
+
+        is_cost_tracked : typing.Optional[bool]
+            Whether costing is tracked at this location. Defaults to false; once enabled it cannot be turned back off.
+
+        max_stock_level : typing.Optional[float]
+            Maximum quantity to keep in stock at this location.
+
+        min_stock_level : typing.Optional[float]
+            Minimum quantity to keep in stock at this location.
+
+        reorder_quantity : typing.Optional[float]
+            Quantity to reorder when stock reaches the reorder threshold.
+
+        reorder_threshold : typing.Optional[float]
+            Available quantity at or below which the part should be reordered at this location.
+
+        row : typing.Optional[str]
+            Row within the location where the part is stored.
+
+        unit_cost : typing.Optional[CreatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody]
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityPartInventoryLocationsServiceCreatePartInventoryLocationResponseBody
+            Created response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.create_part_inventory_location()
+        """
+        _response = self._raw_client.create_part_inventory_location(
+            part_samsara_id=part_samsara_id,
+            place_id=place_id,
+            aisle=aisle,
+            bin=bin,
+            current_quantity=current_quantity,
+            is_cost_tracked=is_cost_tracked,
+            max_stock_level=max_stock_level,
+            min_stock_level=min_stock_level,
+            reorder_quantity=reorder_quantity,
+            reorder_threshold=reorder_threshold,
+            row=row,
+            unit_cost=unit_cost,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def update_part_inventory_location(
+        self,
+        *,
+        part_samsara_id: typing.Optional[str] = None,
+        place_id: typing.Optional[str] = None,
+        aisle: typing.Optional[str] = OMIT,
+        bin: typing.Optional[str] = OMIT,
+        is_cost_tracked: typing.Optional[bool] = OMIT,
+        max_stock_level: typing.Optional[float] = OMIT,
+        min_stock_level: typing.Optional[float] = OMIT,
+        reorder_quantity: typing.Optional[float] = OMIT,
+        reorder_threshold: typing.Optional[float] = OMIT,
+        row: typing.Optional[str] = OMIT,
+        unit_cost: typing.Optional[
+            UpdatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody
+        ] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityPartInventoryLocationsServiceUpdatePartInventoryLocationResponseBody:
+        """
+        Updates existing per-part, per-location inventory metadata for the organization.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        part_samsara_id : typing.Optional[str]
+            Unique identifier for the part definition these inventory levels are tracked for.
+
+        place_id : typing.Optional[str]
+            Unique identifier for the place linked to the maintenance site holding this inventory. The internal location identifier is never exposed.
+
+        aisle : typing.Optional[str]
+            Aisle within the location where the part is stored.
+
+        bin : typing.Optional[str]
+            Bin within the location where the part is stored.
+
+        is_cost_tracked : typing.Optional[bool]
+            Whether costing is tracked at this location. Defaults to false; once enabled it cannot be turned back off.
+
+        max_stock_level : typing.Optional[float]
+            Maximum quantity to keep in stock at this location.
+
+        min_stock_level : typing.Optional[float]
+            Minimum quantity to keep in stock at this location.
+
+        reorder_quantity : typing.Optional[float]
+            Quantity to reorder when stock reaches the reorder threshold.
+
+        reorder_threshold : typing.Optional[float]
+            Available quantity at or below which the part should be reordered at this location.
+
+        row : typing.Optional[str]
+            Row within the location where the part is stored.
+
+        unit_cost : typing.Optional[UpdatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody]
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityPartInventoryLocationsServiceUpdatePartInventoryLocationResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.update_part_inventory_location()
+        """
+        _response = self._raw_client.update_part_inventory_location(
+            part_samsara_id=part_samsara_id,
+            place_id=place_id,
+            aisle=aisle,
+            bin=bin,
+            is_cost_tracked=is_cost_tracked,
+            max_stock_level=max_stock_level,
+            min_stock_level=min_stock_level,
+            reorder_quantity=reorder_quantity,
+            reorder_threshold=reorder_threshold,
+            row=row,
+            unit_cost=unit_cost,
             request_options=request_options,
         )
         return _response.data
@@ -8404,6 +8740,75 @@ class AsyncBetaApIsClient:
         _response = await self._raw_client.unassign_asset_assignment(asset_id=asset_id, request_options=request_options)
         return _response.data
 
+    async def list_associations(
+        self,
+        *,
+        start_time: str,
+        peripheral_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        end_time: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AssociationsListAssociationsResponseBody:
+        """
+        List associations between vehicles and peripheral devices within a given time range. Associations represent the relationship between a central device (vehicle) and a peripheral device (e.g. asset tag). An association with a null endTime is still active. If no endTime query parameter is provided, all associations from startTime onward are returned, including currently active (open) associations.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        start_time : str
+            A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        peripheral_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A comma-separated list of peripheral asset IDs to filter associations by. (Example: 1234,5678)
+
+        end_time : typing.Optional[str]
+            An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). If not provided, all associations from startTime onward are returned, including currently active (open) associations.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AssociationsListAssociationsResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.list_associations(
+                start_time="startTime",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.list_associations(
+            start_time=start_time,
+            peripheral_ids=peripheral_ids,
+            end_time=end_time,
+            after=after,
+            request_options=request_options,
+        )
+        return _response.data
+
     async def list_device_recovery_missing_assets(
         self, *, after: typing.Optional[str] = None, request_options: typing.Optional[RequestOptions] = None
     ) -> DeviceRecoveryListDeviceRecoveryMissingAssetsResponseBody:
@@ -10935,6 +11340,289 @@ class AsyncBetaApIsClient:
             part_number=part_number,
             unit_cost=unit_cost,
             vmrs_code=vmrs_code,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def list_part_inventory(
+        self,
+        *,
+        place_ids: typing.Optional[str] = None,
+        is_low_stock: typing.Optional[bool] = None,
+        part_samsara_ids: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityPartInventoryLocationsServiceListPartInventoryResponseBody:
+        """
+        Returns a paginated list of per-part, per-location inventory levels for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        place_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Place ID values.
+
+        is_low_stock : typing.Optional[bool]
+            A filter on the data based on Low stock. Whether the available quantity is greater than zero and at or below the reorder threshold.
+
+        part_samsara_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Part ID values.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityPartInventoryLocationsServiceListPartInventoryResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.list_part_inventory()
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.list_part_inventory(
+            place_ids=place_ids,
+            is_low_stock=is_low_stock,
+            part_samsara_ids=part_samsara_ids,
+            after=after,
+            limit=limit,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def create_part_inventory_location(
+        self,
+        *,
+        part_samsara_id: typing.Optional[str] = None,
+        place_id: typing.Optional[str] = None,
+        aisle: typing.Optional[str] = OMIT,
+        bin: typing.Optional[str] = OMIT,
+        current_quantity: typing.Optional[float] = OMIT,
+        is_cost_tracked: typing.Optional[bool] = OMIT,
+        max_stock_level: typing.Optional[float] = OMIT,
+        min_stock_level: typing.Optional[float] = OMIT,
+        reorder_quantity: typing.Optional[float] = OMIT,
+        reorder_threshold: typing.Optional[float] = OMIT,
+        row: typing.Optional[str] = OMIT,
+        unit_cost: typing.Optional[
+            CreatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody
+        ] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityPartInventoryLocationsServiceCreatePartInventoryLocationResponseBody:
+        """
+        Creates per-part, per-location inventory metadata for the organization. Upserts by part and place — a second create at the same pair updates the existing record instead of duplicating it.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        part_samsara_id : typing.Optional[str]
+            Unique identifier for the part definition these inventory levels are tracked for.
+
+        place_id : typing.Optional[str]
+            Unique identifier for the place linked to the maintenance site holding this inventory. The internal location identifier is never exposed.
+
+        aisle : typing.Optional[str]
+            Aisle within the location where the part is stored.
+
+        bin : typing.Optional[str]
+            Bin within the location where the part is stored.
+
+        current_quantity : typing.Optional[float]
+            Total physical quantity on hand at this location, equal to the available quantity plus the reserved quantity. Read-only; changes only via stock movements.
+
+        is_cost_tracked : typing.Optional[bool]
+            Whether costing is tracked at this location. Defaults to false; once enabled it cannot be turned back off.
+
+        max_stock_level : typing.Optional[float]
+            Maximum quantity to keep in stock at this location.
+
+        min_stock_level : typing.Optional[float]
+            Minimum quantity to keep in stock at this location.
+
+        reorder_quantity : typing.Optional[float]
+            Quantity to reorder when stock reaches the reorder threshold.
+
+        reorder_threshold : typing.Optional[float]
+            Available quantity at or below which the part should be reordered at this location.
+
+        row : typing.Optional[str]
+            Row within the location where the part is stored.
+
+        unit_cost : typing.Optional[CreatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody]
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityPartInventoryLocationsServiceCreatePartInventoryLocationResponseBody
+            Created response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.create_part_inventory_location()
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.create_part_inventory_location(
+            part_samsara_id=part_samsara_id,
+            place_id=place_id,
+            aisle=aisle,
+            bin=bin,
+            current_quantity=current_quantity,
+            is_cost_tracked=is_cost_tracked,
+            max_stock_level=max_stock_level,
+            min_stock_level=min_stock_level,
+            reorder_quantity=reorder_quantity,
+            reorder_threshold=reorder_threshold,
+            row=row,
+            unit_cost=unit_cost,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def update_part_inventory_location(
+        self,
+        *,
+        part_samsara_id: typing.Optional[str] = None,
+        place_id: typing.Optional[str] = None,
+        aisle: typing.Optional[str] = OMIT,
+        bin: typing.Optional[str] = OMIT,
+        is_cost_tracked: typing.Optional[bool] = OMIT,
+        max_stock_level: typing.Optional[float] = OMIT,
+        min_stock_level: typing.Optional[float] = OMIT,
+        reorder_quantity: typing.Optional[float] = OMIT,
+        reorder_threshold: typing.Optional[float] = OMIT,
+        row: typing.Optional[str] = OMIT,
+        unit_cost: typing.Optional[
+            UpdatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody
+        ] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityPartInventoryLocationsServiceUpdatePartInventoryLocationResponseBody:
+        """
+        Updates existing per-part, per-location inventory metadata for the organization.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        part_samsara_id : typing.Optional[str]
+            Unique identifier for the part definition these inventory levels are tracked for.
+
+        place_id : typing.Optional[str]
+            Unique identifier for the place linked to the maintenance site holding this inventory. The internal location identifier is never exposed.
+
+        aisle : typing.Optional[str]
+            Aisle within the location where the part is stored.
+
+        bin : typing.Optional[str]
+            Bin within the location where the part is stored.
+
+        is_cost_tracked : typing.Optional[bool]
+            Whether costing is tracked at this location. Defaults to false; once enabled it cannot be turned back off.
+
+        max_stock_level : typing.Optional[float]
+            Maximum quantity to keep in stock at this location.
+
+        min_stock_level : typing.Optional[float]
+            Minimum quantity to keep in stock at this location.
+
+        reorder_quantity : typing.Optional[float]
+            Quantity to reorder when stock reaches the reorder threshold.
+
+        reorder_threshold : typing.Optional[float]
+            Available quantity at or below which the part should be reordered at this location.
+
+        row : typing.Optional[str]
+            Row within the location where the part is stored.
+
+        unit_cost : typing.Optional[UpdatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody]
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityPartInventoryLocationsServiceUpdatePartInventoryLocationResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.update_part_inventory_location()
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.update_part_inventory_location(
+            part_samsara_id=part_samsara_id,
+            place_id=place_id,
+            aisle=aisle,
+            bin=bin,
+            is_cost_tracked=is_cost_tracked,
+            max_stock_level=max_stock_level,
+            min_stock_level=min_stock_level,
+            reorder_quantity=reorder_quantity,
+            reorder_threshold=reorder_threshold,
+            row=row,
+            unit_cost=unit_cost,
             request_options=request_options,
         )
         return _response.data

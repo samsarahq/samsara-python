@@ -59,6 +59,7 @@ from ..types.asset_sharing_agreements_update_shared_assets_batch_response_body i
     AssetSharingAgreementsUpdateSharedAssetsBatchResponseBody,
 )
 from ..types.assets_inputs_get_assets_inputs_response_body import AssetsInputsGetAssetsInputsResponseBody
+from ..types.associations_list_associations_response_body import AssociationsListAssociationsResponseBody
 from ..types.create_function_request_config_request_body import CreateFunctionRequestConfigRequestBody
 from ..types.create_hub_route_template_depot_end_input_request_body import (
     CreateHubRouteTemplateDepotEndInputRequestBody,
@@ -68,6 +69,9 @@ from ..types.create_hub_route_template_depot_start_input_request_body import (
 )
 from ..types.create_part_entity_part_definition_money_input_type_request_body import (
     CreatePartEntityPartDefinitionMoneyInputTypeRequestBody,
+)
+from ..types.create_part_inventory_location_entity_part_inventory_location_money_input_type_request_body import (
+    CreatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody,
 )
 from ..types.create_report_config_object_request_body import CreateReportConfigObjectRequestBody
 from ..types.create_shared_asset_request_object_request_body import CreateSharedAssetRequestObjectRequestBody
@@ -97,6 +101,15 @@ from ..types.entity_part_definitions_service_list_parts_response_body import (
 )
 from ..types.entity_part_definitions_service_update_part_response_body import (
     EntityPartDefinitionsServiceUpdatePartResponseBody,
+)
+from ..types.entity_part_inventory_locations_service_create_part_inventory_location_response_body import (
+    EntityPartInventoryLocationsServiceCreatePartInventoryLocationResponseBody,
+)
+from ..types.entity_part_inventory_locations_service_list_part_inventory_response_body import (
+    EntityPartInventoryLocationsServiceListPartInventoryResponseBody,
+)
+from ..types.entity_part_inventory_locations_service_update_part_inventory_location_response_body import (
+    EntityPartInventoryLocationsServiceUpdatePartInventoryLocationResponseBody,
 )
 from ..types.entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_response_body import (
     EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesResponseBody,
@@ -266,6 +279,9 @@ from ..types.update_engine_immobilizer_relay_state_request_body_request_body imp
 )
 from ..types.update_part_entity_part_definition_money_input_type_request_body import (
     UpdatePartEntityPartDefinitionMoneyInputTypeRequestBody,
+)
+from ..types.update_part_inventory_location_entity_part_inventory_location_money_input_type_request_body import (
+    UpdatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody,
 )
 from ..types.update_shared_asset_request_object_request_body import UpdateSharedAssetRequestObjectRequestBody
 from ..types.work_orders_get_work_order_templates_response_body import WorkOrdersGetWorkOrderTemplatesResponseBody
@@ -4643,6 +4659,172 @@ class RawBetaApIsClient:
         try:
             if 200 <= _response.status_code < 300:
                 return HttpResponse(response=_response, data=None)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def list_associations(
+        self,
+        *,
+        start_time: str,
+        peripheral_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        end_time: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[AssociationsListAssociationsResponseBody]:
+        """
+        List associations between vehicles and peripheral devices within a given time range. Associations represent the relationship between a central device (vehicle) and a peripheral device (e.g. asset tag). An association with a null endTime is still active. If no endTime query parameter is provided, all associations from startTime onward are returned, including currently active (open) associations.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        start_time : str
+            A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        peripheral_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A comma-separated list of peripheral asset IDs to filter associations by. (Example: 1234,5678)
+
+        end_time : typing.Optional[str]
+            An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). If not provided, all associations from startTime onward are returned, including currently active (open) associations.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[AssociationsListAssociationsResponseBody]
+            OK response.
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "fleet/assets/associations",
+            method="GET",
+            params={
+                "peripheralIds": peripheral_ids,
+                "startTime": start_time,
+                "endTime": end_time,
+                "after": after,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    AssociationsListAssociationsResponseBody,
+                    parse_obj_as(
+                        type_=AssociationsListAssociationsResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
             if _response.status_code == 401:
                 raise UnauthorizedError(
                     headers=dict(_response.headers),
@@ -11159,6 +11341,606 @@ class RawBetaApIsClient:
                     EntityPartDefinitionsServiceUpdatePartResponseBody,
                     parse_obj_as(
                         type_=EntityPartDefinitionsServiceUpdatePartResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def list_part_inventory(
+        self,
+        *,
+        place_ids: typing.Optional[str] = None,
+        is_low_stock: typing.Optional[bool] = None,
+        part_samsara_ids: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[EntityPartInventoryLocationsServiceListPartInventoryResponseBody]:
+        """
+        Returns a paginated list of per-part, per-location inventory levels for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        place_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Place ID values.
+
+        is_low_stock : typing.Optional[bool]
+            A filter on the data based on Low stock. Whether the available quantity is greater than zero and at or below the reorder threshold.
+
+        part_samsara_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Part ID values.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[EntityPartInventoryLocationsServiceListPartInventoryResponseBody]
+            OK response.
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "maintenance/parts/inventory-location",
+            method="GET",
+            params={
+                "placeIds": place_ids,
+                "isLowStock": is_low_stock,
+                "partSamsaraIds": part_samsara_ids,
+                "after": after,
+                "limit": limit,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    EntityPartInventoryLocationsServiceListPartInventoryResponseBody,
+                    parse_obj_as(
+                        type_=EntityPartInventoryLocationsServiceListPartInventoryResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def create_part_inventory_location(
+        self,
+        *,
+        part_samsara_id: typing.Optional[str] = None,
+        place_id: typing.Optional[str] = None,
+        aisle: typing.Optional[str] = OMIT,
+        bin: typing.Optional[str] = OMIT,
+        current_quantity: typing.Optional[float] = OMIT,
+        is_cost_tracked: typing.Optional[bool] = OMIT,
+        max_stock_level: typing.Optional[float] = OMIT,
+        min_stock_level: typing.Optional[float] = OMIT,
+        reorder_quantity: typing.Optional[float] = OMIT,
+        reorder_threshold: typing.Optional[float] = OMIT,
+        row: typing.Optional[str] = OMIT,
+        unit_cost: typing.Optional[
+            CreatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody
+        ] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[EntityPartInventoryLocationsServiceCreatePartInventoryLocationResponseBody]:
+        """
+        Creates per-part, per-location inventory metadata for the organization. Upserts by part and place — a second create at the same pair updates the existing record instead of duplicating it.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        part_samsara_id : typing.Optional[str]
+            Unique identifier for the part definition these inventory levels are tracked for.
+
+        place_id : typing.Optional[str]
+            Unique identifier for the place linked to the maintenance site holding this inventory. The internal location identifier is never exposed.
+
+        aisle : typing.Optional[str]
+            Aisle within the location where the part is stored.
+
+        bin : typing.Optional[str]
+            Bin within the location where the part is stored.
+
+        current_quantity : typing.Optional[float]
+            Total physical quantity on hand at this location, equal to the available quantity plus the reserved quantity. Read-only; changes only via stock movements.
+
+        is_cost_tracked : typing.Optional[bool]
+            Whether costing is tracked at this location. Defaults to false; once enabled it cannot be turned back off.
+
+        max_stock_level : typing.Optional[float]
+            Maximum quantity to keep in stock at this location.
+
+        min_stock_level : typing.Optional[float]
+            Minimum quantity to keep in stock at this location.
+
+        reorder_quantity : typing.Optional[float]
+            Quantity to reorder when stock reaches the reorder threshold.
+
+        reorder_threshold : typing.Optional[float]
+            Available quantity at or below which the part should be reordered at this location.
+
+        row : typing.Optional[str]
+            Row within the location where the part is stored.
+
+        unit_cost : typing.Optional[CreatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody]
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[EntityPartInventoryLocationsServiceCreatePartInventoryLocationResponseBody]
+            Created response.
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "maintenance/parts/inventory-location",
+            method="POST",
+            params={
+                "partSamsaraId": part_samsara_id,
+                "placeId": place_id,
+            },
+            json={
+                "aisle": aisle,
+                "bin": bin,
+                "currentQuantity": current_quantity,
+                "isCostTracked": is_cost_tracked,
+                "maxStockLevel": max_stock_level,
+                "minStockLevel": min_stock_level,
+                "reorderQuantity": reorder_quantity,
+                "reorderThreshold": reorder_threshold,
+                "row": row,
+                "unitCost": convert_and_respect_annotation_metadata(
+                    object_=unit_cost,
+                    annotation=CreatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody,
+                    direction="write",
+                ),
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    EntityPartInventoryLocationsServiceCreatePartInventoryLocationResponseBody,
+                    parse_obj_as(
+                        type_=EntityPartInventoryLocationsServiceCreatePartInventoryLocationResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def update_part_inventory_location(
+        self,
+        *,
+        part_samsara_id: typing.Optional[str] = None,
+        place_id: typing.Optional[str] = None,
+        aisle: typing.Optional[str] = OMIT,
+        bin: typing.Optional[str] = OMIT,
+        is_cost_tracked: typing.Optional[bool] = OMIT,
+        max_stock_level: typing.Optional[float] = OMIT,
+        min_stock_level: typing.Optional[float] = OMIT,
+        reorder_quantity: typing.Optional[float] = OMIT,
+        reorder_threshold: typing.Optional[float] = OMIT,
+        row: typing.Optional[str] = OMIT,
+        unit_cost: typing.Optional[
+            UpdatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody
+        ] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[EntityPartInventoryLocationsServiceUpdatePartInventoryLocationResponseBody]:
+        """
+        Updates existing per-part, per-location inventory metadata for the organization.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        part_samsara_id : typing.Optional[str]
+            Unique identifier for the part definition these inventory levels are tracked for.
+
+        place_id : typing.Optional[str]
+            Unique identifier for the place linked to the maintenance site holding this inventory. The internal location identifier is never exposed.
+
+        aisle : typing.Optional[str]
+            Aisle within the location where the part is stored.
+
+        bin : typing.Optional[str]
+            Bin within the location where the part is stored.
+
+        is_cost_tracked : typing.Optional[bool]
+            Whether costing is tracked at this location. Defaults to false; once enabled it cannot be turned back off.
+
+        max_stock_level : typing.Optional[float]
+            Maximum quantity to keep in stock at this location.
+
+        min_stock_level : typing.Optional[float]
+            Minimum quantity to keep in stock at this location.
+
+        reorder_quantity : typing.Optional[float]
+            Quantity to reorder when stock reaches the reorder threshold.
+
+        reorder_threshold : typing.Optional[float]
+            Available quantity at or below which the part should be reordered at this location.
+
+        row : typing.Optional[str]
+            Row within the location where the part is stored.
+
+        unit_cost : typing.Optional[UpdatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody]
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[EntityPartInventoryLocationsServiceUpdatePartInventoryLocationResponseBody]
+            OK response.
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "maintenance/parts/inventory-location",
+            method="PATCH",
+            params={
+                "partSamsaraId": part_samsara_id,
+                "placeId": place_id,
+            },
+            json={
+                "aisle": aisle,
+                "bin": bin,
+                "isCostTracked": is_cost_tracked,
+                "maxStockLevel": max_stock_level,
+                "minStockLevel": min_stock_level,
+                "reorderQuantity": reorder_quantity,
+                "reorderThreshold": reorder_threshold,
+                "row": row,
+                "unitCost": convert_and_respect_annotation_metadata(
+                    object_=unit_cost,
+                    annotation=UpdatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody,
+                    direction="write",
+                ),
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    EntityPartInventoryLocationsServiceUpdatePartInventoryLocationResponseBody,
+                    parse_obj_as(
+                        type_=EntityPartInventoryLocationsServiceUpdatePartInventoryLocationResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -22425,6 +23207,172 @@ class AsyncRawBetaApIsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
+    async def list_associations(
+        self,
+        *,
+        start_time: str,
+        peripheral_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        end_time: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[AssociationsListAssociationsResponseBody]:
+        """
+        List associations between vehicles and peripheral devices within a given time range. Associations represent the relationship between a central device (vehicle) and a peripheral device (e.g. asset tag). An association with a null endTime is still active. If no endTime query parameter is provided, all associations from startTime onward are returned, including currently active (open) associations.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Assets** under the Assets category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        start_time : str
+            A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        peripheral_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A comma-separated list of peripheral asset IDs to filter associations by. (Example: 1234,5678)
+
+        end_time : typing.Optional[str]
+            An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). If not provided, all associations from startTime onward are returned, including currently active (open) associations.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[AssociationsListAssociationsResponseBody]
+            OK response.
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "fleet/assets/associations",
+            method="GET",
+            params={
+                "peripheralIds": peripheral_ids,
+                "startTime": start_time,
+                "endTime": end_time,
+                "after": after,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    AssociationsListAssociationsResponseBody,
+                    parse_obj_as(
+                        type_=AssociationsListAssociationsResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
     async def list_device_recovery_missing_assets(
         self, *, after: typing.Optional[str] = None, request_options: typing.Optional[RequestOptions] = None
     ) -> AsyncHttpResponse[DeviceRecoveryListDeviceRecoveryMissingAssetsResponseBody]:
@@ -28839,6 +29787,606 @@ class AsyncRawBetaApIsClient:
                     EntityPartDefinitionsServiceUpdatePartResponseBody,
                     parse_obj_as(
                         type_=EntityPartDefinitionsServiceUpdatePartResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def list_part_inventory(
+        self,
+        *,
+        place_ids: typing.Optional[str] = None,
+        is_low_stock: typing.Optional[bool] = None,
+        part_samsara_ids: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[EntityPartInventoryLocationsServiceListPartInventoryResponseBody]:
+        """
+        Returns a paginated list of per-part, per-location inventory levels for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        place_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Place ID values.
+
+        is_low_stock : typing.Optional[bool]
+            A filter on the data based on Low stock. Whether the available quantity is greater than zero and at or below the reorder threshold.
+
+        part_samsara_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Part ID values.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[EntityPartInventoryLocationsServiceListPartInventoryResponseBody]
+            OK response.
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "maintenance/parts/inventory-location",
+            method="GET",
+            params={
+                "placeIds": place_ids,
+                "isLowStock": is_low_stock,
+                "partSamsaraIds": part_samsara_ids,
+                "after": after,
+                "limit": limit,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    EntityPartInventoryLocationsServiceListPartInventoryResponseBody,
+                    parse_obj_as(
+                        type_=EntityPartInventoryLocationsServiceListPartInventoryResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def create_part_inventory_location(
+        self,
+        *,
+        part_samsara_id: typing.Optional[str] = None,
+        place_id: typing.Optional[str] = None,
+        aisle: typing.Optional[str] = OMIT,
+        bin: typing.Optional[str] = OMIT,
+        current_quantity: typing.Optional[float] = OMIT,
+        is_cost_tracked: typing.Optional[bool] = OMIT,
+        max_stock_level: typing.Optional[float] = OMIT,
+        min_stock_level: typing.Optional[float] = OMIT,
+        reorder_quantity: typing.Optional[float] = OMIT,
+        reorder_threshold: typing.Optional[float] = OMIT,
+        row: typing.Optional[str] = OMIT,
+        unit_cost: typing.Optional[
+            CreatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody
+        ] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[EntityPartInventoryLocationsServiceCreatePartInventoryLocationResponseBody]:
+        """
+        Creates per-part, per-location inventory metadata for the organization. Upserts by part and place — a second create at the same pair updates the existing record instead of duplicating it.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        part_samsara_id : typing.Optional[str]
+            Unique identifier for the part definition these inventory levels are tracked for.
+
+        place_id : typing.Optional[str]
+            Unique identifier for the place linked to the maintenance site holding this inventory. The internal location identifier is never exposed.
+
+        aisle : typing.Optional[str]
+            Aisle within the location where the part is stored.
+
+        bin : typing.Optional[str]
+            Bin within the location where the part is stored.
+
+        current_quantity : typing.Optional[float]
+            Total physical quantity on hand at this location, equal to the available quantity plus the reserved quantity. Read-only; changes only via stock movements.
+
+        is_cost_tracked : typing.Optional[bool]
+            Whether costing is tracked at this location. Defaults to false; once enabled it cannot be turned back off.
+
+        max_stock_level : typing.Optional[float]
+            Maximum quantity to keep in stock at this location.
+
+        min_stock_level : typing.Optional[float]
+            Minimum quantity to keep in stock at this location.
+
+        reorder_quantity : typing.Optional[float]
+            Quantity to reorder when stock reaches the reorder threshold.
+
+        reorder_threshold : typing.Optional[float]
+            Available quantity at or below which the part should be reordered at this location.
+
+        row : typing.Optional[str]
+            Row within the location where the part is stored.
+
+        unit_cost : typing.Optional[CreatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody]
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[EntityPartInventoryLocationsServiceCreatePartInventoryLocationResponseBody]
+            Created response.
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "maintenance/parts/inventory-location",
+            method="POST",
+            params={
+                "partSamsaraId": part_samsara_id,
+                "placeId": place_id,
+            },
+            json={
+                "aisle": aisle,
+                "bin": bin,
+                "currentQuantity": current_quantity,
+                "isCostTracked": is_cost_tracked,
+                "maxStockLevel": max_stock_level,
+                "minStockLevel": min_stock_level,
+                "reorderQuantity": reorder_quantity,
+                "reorderThreshold": reorder_threshold,
+                "row": row,
+                "unitCost": convert_and_respect_annotation_metadata(
+                    object_=unit_cost,
+                    annotation=CreatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody,
+                    direction="write",
+                ),
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    EntityPartInventoryLocationsServiceCreatePartInventoryLocationResponseBody,
+                    parse_obj_as(
+                        type_=EntityPartInventoryLocationsServiceCreatePartInventoryLocationResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def update_part_inventory_location(
+        self,
+        *,
+        part_samsara_id: typing.Optional[str] = None,
+        place_id: typing.Optional[str] = None,
+        aisle: typing.Optional[str] = OMIT,
+        bin: typing.Optional[str] = OMIT,
+        is_cost_tracked: typing.Optional[bool] = OMIT,
+        max_stock_level: typing.Optional[float] = OMIT,
+        min_stock_level: typing.Optional[float] = OMIT,
+        reorder_quantity: typing.Optional[float] = OMIT,
+        reorder_threshold: typing.Optional[float] = OMIT,
+        row: typing.Optional[str] = OMIT,
+        unit_cost: typing.Optional[
+            UpdatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody
+        ] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[EntityPartInventoryLocationsServiceUpdatePartInventoryLocationResponseBody]:
+        """
+        Updates existing per-part, per-location inventory metadata for the organization.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        part_samsara_id : typing.Optional[str]
+            Unique identifier for the part definition these inventory levels are tracked for.
+
+        place_id : typing.Optional[str]
+            Unique identifier for the place linked to the maintenance site holding this inventory. The internal location identifier is never exposed.
+
+        aisle : typing.Optional[str]
+            Aisle within the location where the part is stored.
+
+        bin : typing.Optional[str]
+            Bin within the location where the part is stored.
+
+        is_cost_tracked : typing.Optional[bool]
+            Whether costing is tracked at this location. Defaults to false; once enabled it cannot be turned back off.
+
+        max_stock_level : typing.Optional[float]
+            Maximum quantity to keep in stock at this location.
+
+        min_stock_level : typing.Optional[float]
+            Minimum quantity to keep in stock at this location.
+
+        reorder_quantity : typing.Optional[float]
+            Quantity to reorder when stock reaches the reorder threshold.
+
+        reorder_threshold : typing.Optional[float]
+            Available quantity at or below which the part should be reordered at this location.
+
+        row : typing.Optional[str]
+            Row within the location where the part is stored.
+
+        unit_cost : typing.Optional[UpdatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody]
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[EntityPartInventoryLocationsServiceUpdatePartInventoryLocationResponseBody]
+            OK response.
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "maintenance/parts/inventory-location",
+            method="PATCH",
+            params={
+                "partSamsaraId": part_samsara_id,
+                "placeId": place_id,
+            },
+            json={
+                "aisle": aisle,
+                "bin": bin,
+                "isCostTracked": is_cost_tracked,
+                "maxStockLevel": max_stock_level,
+                "minStockLevel": min_stock_level,
+                "reorderQuantity": reorder_quantity,
+                "reorderThreshold": reorder_threshold,
+                "row": row,
+                "unitCost": convert_and_respect_annotation_metadata(
+                    object_=unit_cost,
+                    annotation=UpdatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody,
+                    direction="write",
+                ),
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    EntityPartInventoryLocationsServiceUpdatePartInventoryLocationResponseBody,
+                    parse_obj_as(
+                        type_=EntityPartInventoryLocationsServiceUpdatePartInventoryLocationResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
