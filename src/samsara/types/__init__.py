@@ -922,6 +922,35 @@ if typing.TYPE_CHECKING:
         AssetsUpdateAssetTooManyRequestsErrorResponseBody,
     )
     from .assets_update_asset_unauthorized_error_response_body import AssetsUpdateAssetUnauthorizedErrorResponseBody
+    from .association_response_body import AssociationResponseBody
+    from .associations_list_associations_bad_gateway_error_response_body import (
+        AssociationsListAssociationsBadGatewayErrorResponseBody,
+    )
+    from .associations_list_associations_gateway_timeout_error_response_body import (
+        AssociationsListAssociationsGatewayTimeoutErrorResponseBody,
+    )
+    from .associations_list_associations_internal_server_error_response_body import (
+        AssociationsListAssociationsInternalServerErrorResponseBody,
+    )
+    from .associations_list_associations_method_not_allowed_error_response_body import (
+        AssociationsListAssociationsMethodNotAllowedErrorResponseBody,
+    )
+    from .associations_list_associations_not_found_error_response_body import (
+        AssociationsListAssociationsNotFoundErrorResponseBody,
+    )
+    from .associations_list_associations_not_implemented_error_response_body import (
+        AssociationsListAssociationsNotImplementedErrorResponseBody,
+    )
+    from .associations_list_associations_response_body import AssociationsListAssociationsResponseBody
+    from .associations_list_associations_service_unavailable_error_response_body import (
+        AssociationsListAssociationsServiceUnavailableErrorResponseBody,
+    )
+    from .associations_list_associations_too_many_requests_error_response_body import (
+        AssociationsListAssociationsTooManyRequestsErrorResponseBody,
+    )
+    from .associations_list_associations_unauthorized_error_response_body import (
+        AssociationsListAssociationsUnauthorizedErrorResponseBody,
+    )
     from .attribute import Attribute
     from .attribute_attribute_type import AttributeAttributeType
     from .attribute_entity import AttributeEntity
@@ -1147,6 +1176,12 @@ if typing.TYPE_CHECKING:
     )
     from .create_part_entity_part_definition_money_type_response_body import (
         CreatePartEntityPartDefinitionMoneyTypeResponseBody,
+    )
+    from .create_part_inventory_location_entity_part_inventory_location_money_input_type_request_body import (
+        CreatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody,
+    )
+    from .create_part_inventory_location_entity_part_inventory_location_money_type_response_body import (
+        CreatePartInventoryLocationEntityPartInventoryLocationMoneyTypeResponseBody,
     )
     from .create_report_config_column_request_body import CreateReportConfigColumnRequestBody
     from .create_report_config_object_request_body import CreateReportConfigObjectRequestBody
@@ -2344,7 +2379,21 @@ if typing.TYPE_CHECKING:
     from .engine_on_details_object_response_body import EngineOnDetailsObjectResponseBody
     from .engine_on_response_body import EngineOnResponseBody
     from .engine_status_response_body import EngineStatusResponseBody
+    from .entity_create_part_inventory_location_part_definition_ref_type_response_body import (
+        EntityCreatePartInventoryLocationPartDefinitionRefTypeResponseBody,
+    )
+    from .entity_create_part_inventory_location_place_ref_type_response_body import (
+        EntityCreatePartInventoryLocationPlaceRefTypeResponseBody,
+    )
+    from .entity_create_part_inventory_location_type_response_body import (
+        EntityCreatePartInventoryLocationTypeResponseBody,
+    )
     from .entity_create_part_type_response_body import EntityCreatePartTypeResponseBody
+    from .entity_list_part_inventory_part_definition_ref_type_response_body import (
+        EntityListPartInventoryPartDefinitionRefTypeResponseBody,
+    )
+    from .entity_list_part_inventory_place_ref_type_response_body import EntityListPartInventoryPlaceRefTypeResponseBody
+    from .entity_list_part_inventory_type_response_body import EntityListPartInventoryTypeResponseBody
     from .entity_list_parts_type_response_body import EntityListPartsTypeResponseBody
     from .entity_list_preventive_maintenance_schedules_preventative_maintenance_schedule_ref_type_response_body import (
         EntityListPreventiveMaintenanceSchedulesPreventativeMaintenanceScheduleRefTypeResponseBody,
@@ -2482,6 +2531,96 @@ if typing.TYPE_CHECKING:
     from .entity_part_definitions_service_update_part_unauthorized_error_response_body import (
         EntityPartDefinitionsServiceUpdatePartUnauthorizedErrorResponseBody,
     )
+    from .entity_part_inventory_locations_service_create_part_inventory_location_bad_gateway_error_response_body import (
+        EntityPartInventoryLocationsServiceCreatePartInventoryLocationBadGatewayErrorResponseBody,
+    )
+    from .entity_part_inventory_locations_service_create_part_inventory_location_gateway_timeout_error_response_body import (
+        EntityPartInventoryLocationsServiceCreatePartInventoryLocationGatewayTimeoutErrorResponseBody,
+    )
+    from .entity_part_inventory_locations_service_create_part_inventory_location_internal_server_error_response_body import (
+        EntityPartInventoryLocationsServiceCreatePartInventoryLocationInternalServerErrorResponseBody,
+    )
+    from .entity_part_inventory_locations_service_create_part_inventory_location_method_not_allowed_error_response_body import (
+        EntityPartInventoryLocationsServiceCreatePartInventoryLocationMethodNotAllowedErrorResponseBody,
+    )
+    from .entity_part_inventory_locations_service_create_part_inventory_location_not_found_error_response_body import (
+        EntityPartInventoryLocationsServiceCreatePartInventoryLocationNotFoundErrorResponseBody,
+    )
+    from .entity_part_inventory_locations_service_create_part_inventory_location_not_implemented_error_response_body import (
+        EntityPartInventoryLocationsServiceCreatePartInventoryLocationNotImplementedErrorResponseBody,
+    )
+    from .entity_part_inventory_locations_service_create_part_inventory_location_response_body import (
+        EntityPartInventoryLocationsServiceCreatePartInventoryLocationResponseBody,
+    )
+    from .entity_part_inventory_locations_service_create_part_inventory_location_service_unavailable_error_response_body import (
+        EntityPartInventoryLocationsServiceCreatePartInventoryLocationServiceUnavailableErrorResponseBody,
+    )
+    from .entity_part_inventory_locations_service_create_part_inventory_location_too_many_requests_error_response_body import (
+        EntityPartInventoryLocationsServiceCreatePartInventoryLocationTooManyRequestsErrorResponseBody,
+    )
+    from .entity_part_inventory_locations_service_create_part_inventory_location_unauthorized_error_response_body import (
+        EntityPartInventoryLocationsServiceCreatePartInventoryLocationUnauthorizedErrorResponseBody,
+    )
+    from .entity_part_inventory_locations_service_list_part_inventory_bad_gateway_error_response_body import (
+        EntityPartInventoryLocationsServiceListPartInventoryBadGatewayErrorResponseBody,
+    )
+    from .entity_part_inventory_locations_service_list_part_inventory_gateway_timeout_error_response_body import (
+        EntityPartInventoryLocationsServiceListPartInventoryGatewayTimeoutErrorResponseBody,
+    )
+    from .entity_part_inventory_locations_service_list_part_inventory_internal_server_error_response_body import (
+        EntityPartInventoryLocationsServiceListPartInventoryInternalServerErrorResponseBody,
+    )
+    from .entity_part_inventory_locations_service_list_part_inventory_method_not_allowed_error_response_body import (
+        EntityPartInventoryLocationsServiceListPartInventoryMethodNotAllowedErrorResponseBody,
+    )
+    from .entity_part_inventory_locations_service_list_part_inventory_not_found_error_response_body import (
+        EntityPartInventoryLocationsServiceListPartInventoryNotFoundErrorResponseBody,
+    )
+    from .entity_part_inventory_locations_service_list_part_inventory_not_implemented_error_response_body import (
+        EntityPartInventoryLocationsServiceListPartInventoryNotImplementedErrorResponseBody,
+    )
+    from .entity_part_inventory_locations_service_list_part_inventory_response_body import (
+        EntityPartInventoryLocationsServiceListPartInventoryResponseBody,
+    )
+    from .entity_part_inventory_locations_service_list_part_inventory_service_unavailable_error_response_body import (
+        EntityPartInventoryLocationsServiceListPartInventoryServiceUnavailableErrorResponseBody,
+    )
+    from .entity_part_inventory_locations_service_list_part_inventory_too_many_requests_error_response_body import (
+        EntityPartInventoryLocationsServiceListPartInventoryTooManyRequestsErrorResponseBody,
+    )
+    from .entity_part_inventory_locations_service_list_part_inventory_unauthorized_error_response_body import (
+        EntityPartInventoryLocationsServiceListPartInventoryUnauthorizedErrorResponseBody,
+    )
+    from .entity_part_inventory_locations_service_update_part_inventory_location_bad_gateway_error_response_body import (
+        EntityPartInventoryLocationsServiceUpdatePartInventoryLocationBadGatewayErrorResponseBody,
+    )
+    from .entity_part_inventory_locations_service_update_part_inventory_location_gateway_timeout_error_response_body import (
+        EntityPartInventoryLocationsServiceUpdatePartInventoryLocationGatewayTimeoutErrorResponseBody,
+    )
+    from .entity_part_inventory_locations_service_update_part_inventory_location_internal_server_error_response_body import (
+        EntityPartInventoryLocationsServiceUpdatePartInventoryLocationInternalServerErrorResponseBody,
+    )
+    from .entity_part_inventory_locations_service_update_part_inventory_location_method_not_allowed_error_response_body import (
+        EntityPartInventoryLocationsServiceUpdatePartInventoryLocationMethodNotAllowedErrorResponseBody,
+    )
+    from .entity_part_inventory_locations_service_update_part_inventory_location_not_found_error_response_body import (
+        EntityPartInventoryLocationsServiceUpdatePartInventoryLocationNotFoundErrorResponseBody,
+    )
+    from .entity_part_inventory_locations_service_update_part_inventory_location_not_implemented_error_response_body import (
+        EntityPartInventoryLocationsServiceUpdatePartInventoryLocationNotImplementedErrorResponseBody,
+    )
+    from .entity_part_inventory_locations_service_update_part_inventory_location_response_body import (
+        EntityPartInventoryLocationsServiceUpdatePartInventoryLocationResponseBody,
+    )
+    from .entity_part_inventory_locations_service_update_part_inventory_location_service_unavailable_error_response_body import (
+        EntityPartInventoryLocationsServiceUpdatePartInventoryLocationServiceUnavailableErrorResponseBody,
+    )
+    from .entity_part_inventory_locations_service_update_part_inventory_location_too_many_requests_error_response_body import (
+        EntityPartInventoryLocationsServiceUpdatePartInventoryLocationTooManyRequestsErrorResponseBody,
+    )
+    from .entity_part_inventory_locations_service_update_part_inventory_location_unauthorized_error_response_body import (
+        EntityPartInventoryLocationsServiceUpdatePartInventoryLocationUnauthorizedErrorResponseBody,
+    )
     from .entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_bad_gateway_error_response_body import (
         EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesBadGatewayErrorResponseBody,
     )
@@ -2601,6 +2740,15 @@ if typing.TYPE_CHECKING:
     )
     from .entity_upcoming_preventative_maintenances_service_update_upcoming_preventive_maintenance_unauthorized_error_response_body import (
         EntityUpcomingPreventativeMaintenancesServiceUpdateUpcomingPreventiveMaintenanceUnauthorizedErrorResponseBody,
+    )
+    from .entity_update_part_inventory_location_part_definition_ref_type_response_body import (
+        EntityUpdatePartInventoryLocationPartDefinitionRefTypeResponseBody,
+    )
+    from .entity_update_part_inventory_location_place_ref_type_response_body import (
+        EntityUpdatePartInventoryLocationPlaceRefTypeResponseBody,
+    )
+    from .entity_update_part_inventory_location_type_response_body import (
+        EntityUpdatePartInventoryLocationTypeResponseBody,
     )
     from .entity_update_part_type_response_body import EntityUpdatePartTypeResponseBody
     from .entity_update_upcoming_preventive_maintenance_asset_ref_type_response_body import (
@@ -4797,6 +4945,9 @@ if typing.TYPE_CHECKING:
     from .list_hub_skills_response_pagination_response_body import ListHubSkillsResponsePaginationResponseBody
     from .list_hubs_response_pagination_response_body import ListHubsResponsePaginationResponseBody
     from .list_industrial_assets_response import ListIndustrialAssetsResponse
+    from .list_part_inventory_entity_part_inventory_location_money_type_response_body import (
+        ListPartInventoryEntityPartInventoryLocationMoneyTypeResponseBody,
+    )
     from .list_parts_entity_part_definition_money_type_response_body import (
         ListPartsEntityPartDefinitionMoneyTypeResponseBody,
     )
@@ -8195,6 +8346,12 @@ if typing.TYPE_CHECKING:
     from .update_part_entity_part_definition_money_type_response_body import (
         UpdatePartEntityPartDefinitionMoneyTypeResponseBody,
     )
+    from .update_part_inventory_location_entity_part_inventory_location_money_input_type_request_body import (
+        UpdatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody,
+    )
+    from .update_part_inventory_location_entity_part_inventory_location_money_type_response_body import (
+        UpdatePartInventoryLocationEntityPartInventoryLocationMoneyTypeResponseBody,
+    )
     from .update_routes_stop_request_object_request_body import UpdateRoutesStopRequestObjectRequestBody
     from .update_shared_asset_request_object_request_body import UpdateSharedAssetRequestObjectRequestBody
     from .uploaded_media_object_response_body import UploadedMediaObjectResponseBody
@@ -9603,6 +9760,17 @@ _dynamic_imports: typing.Dict[str, str] = {
     "AssetsUpdateAssetServiceUnavailableErrorResponseBody": ".assets_update_asset_service_unavailable_error_response_body",
     "AssetsUpdateAssetTooManyRequestsErrorResponseBody": ".assets_update_asset_too_many_requests_error_response_body",
     "AssetsUpdateAssetUnauthorizedErrorResponseBody": ".assets_update_asset_unauthorized_error_response_body",
+    "AssociationResponseBody": ".association_response_body",
+    "AssociationsListAssociationsBadGatewayErrorResponseBody": ".associations_list_associations_bad_gateway_error_response_body",
+    "AssociationsListAssociationsGatewayTimeoutErrorResponseBody": ".associations_list_associations_gateway_timeout_error_response_body",
+    "AssociationsListAssociationsInternalServerErrorResponseBody": ".associations_list_associations_internal_server_error_response_body",
+    "AssociationsListAssociationsMethodNotAllowedErrorResponseBody": ".associations_list_associations_method_not_allowed_error_response_body",
+    "AssociationsListAssociationsNotFoundErrorResponseBody": ".associations_list_associations_not_found_error_response_body",
+    "AssociationsListAssociationsNotImplementedErrorResponseBody": ".associations_list_associations_not_implemented_error_response_body",
+    "AssociationsListAssociationsResponseBody": ".associations_list_associations_response_body",
+    "AssociationsListAssociationsServiceUnavailableErrorResponseBody": ".associations_list_associations_service_unavailable_error_response_body",
+    "AssociationsListAssociationsTooManyRequestsErrorResponseBody": ".associations_list_associations_too_many_requests_error_response_body",
+    "AssociationsListAssociationsUnauthorizedErrorResponseBody": ".associations_list_associations_unauthorized_error_response_body",
     "Attribute": ".attribute",
     "AttributeAttributeType": ".attribute_attribute_type",
     "AttributeEntity": ".attribute_entity",
@@ -9739,6 +9907,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "CreateHubRouteTemplateObjectResponseBody": ".create_hub_route_template_object_response_body",
     "CreatePartEntityPartDefinitionMoneyInputTypeRequestBody": ".create_part_entity_part_definition_money_input_type_request_body",
     "CreatePartEntityPartDefinitionMoneyTypeResponseBody": ".create_part_entity_part_definition_money_type_response_body",
+    "CreatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody": ".create_part_inventory_location_entity_part_inventory_location_money_input_type_request_body",
+    "CreatePartInventoryLocationEntityPartInventoryLocationMoneyTypeResponseBody": ".create_part_inventory_location_entity_part_inventory_location_money_type_response_body",
     "CreateReportConfigColumnRequestBody": ".create_report_config_column_request_body",
     "CreateReportConfigObjectRequestBody": ".create_report_config_object_request_body",
     "CreateRoutesStopRequestObjectRequestBody": ".create_routes_stop_request_object_request_body",
@@ -10303,7 +10473,13 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EngineOnDetailsObjectResponseBody": ".engine_on_details_object_response_body",
     "EngineOnResponseBody": ".engine_on_response_body",
     "EngineStatusResponseBody": ".engine_status_response_body",
+    "EntityCreatePartInventoryLocationPartDefinitionRefTypeResponseBody": ".entity_create_part_inventory_location_part_definition_ref_type_response_body",
+    "EntityCreatePartInventoryLocationPlaceRefTypeResponseBody": ".entity_create_part_inventory_location_place_ref_type_response_body",
+    "EntityCreatePartInventoryLocationTypeResponseBody": ".entity_create_part_inventory_location_type_response_body",
     "EntityCreatePartTypeResponseBody": ".entity_create_part_type_response_body",
+    "EntityListPartInventoryPartDefinitionRefTypeResponseBody": ".entity_list_part_inventory_part_definition_ref_type_response_body",
+    "EntityListPartInventoryPlaceRefTypeResponseBody": ".entity_list_part_inventory_place_ref_type_response_body",
+    "EntityListPartInventoryTypeResponseBody": ".entity_list_part_inventory_type_response_body",
     "EntityListPartsTypeResponseBody": ".entity_list_parts_type_response_body",
     "EntityListPreventiveMaintenanceSchedulesPreventativeMaintenanceScheduleRefTypeResponseBody": ".entity_list_preventive_maintenance_schedules_preventative_maintenance_schedule_ref_type_response_body",
     "EntityListPreventiveMaintenanceSchedulesTypeResponseBody": ".entity_list_preventive_maintenance_schedules_type_response_body",
@@ -10351,6 +10527,36 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EntityPartDefinitionsServiceUpdatePartServiceUnavailableErrorResponseBody": ".entity_part_definitions_service_update_part_service_unavailable_error_response_body",
     "EntityPartDefinitionsServiceUpdatePartTooManyRequestsErrorResponseBody": ".entity_part_definitions_service_update_part_too_many_requests_error_response_body",
     "EntityPartDefinitionsServiceUpdatePartUnauthorizedErrorResponseBody": ".entity_part_definitions_service_update_part_unauthorized_error_response_body",
+    "EntityPartInventoryLocationsServiceCreatePartInventoryLocationBadGatewayErrorResponseBody": ".entity_part_inventory_locations_service_create_part_inventory_location_bad_gateway_error_response_body",
+    "EntityPartInventoryLocationsServiceCreatePartInventoryLocationGatewayTimeoutErrorResponseBody": ".entity_part_inventory_locations_service_create_part_inventory_location_gateway_timeout_error_response_body",
+    "EntityPartInventoryLocationsServiceCreatePartInventoryLocationInternalServerErrorResponseBody": ".entity_part_inventory_locations_service_create_part_inventory_location_internal_server_error_response_body",
+    "EntityPartInventoryLocationsServiceCreatePartInventoryLocationMethodNotAllowedErrorResponseBody": ".entity_part_inventory_locations_service_create_part_inventory_location_method_not_allowed_error_response_body",
+    "EntityPartInventoryLocationsServiceCreatePartInventoryLocationNotFoundErrorResponseBody": ".entity_part_inventory_locations_service_create_part_inventory_location_not_found_error_response_body",
+    "EntityPartInventoryLocationsServiceCreatePartInventoryLocationNotImplementedErrorResponseBody": ".entity_part_inventory_locations_service_create_part_inventory_location_not_implemented_error_response_body",
+    "EntityPartInventoryLocationsServiceCreatePartInventoryLocationResponseBody": ".entity_part_inventory_locations_service_create_part_inventory_location_response_body",
+    "EntityPartInventoryLocationsServiceCreatePartInventoryLocationServiceUnavailableErrorResponseBody": ".entity_part_inventory_locations_service_create_part_inventory_location_service_unavailable_error_response_body",
+    "EntityPartInventoryLocationsServiceCreatePartInventoryLocationTooManyRequestsErrorResponseBody": ".entity_part_inventory_locations_service_create_part_inventory_location_too_many_requests_error_response_body",
+    "EntityPartInventoryLocationsServiceCreatePartInventoryLocationUnauthorizedErrorResponseBody": ".entity_part_inventory_locations_service_create_part_inventory_location_unauthorized_error_response_body",
+    "EntityPartInventoryLocationsServiceListPartInventoryBadGatewayErrorResponseBody": ".entity_part_inventory_locations_service_list_part_inventory_bad_gateway_error_response_body",
+    "EntityPartInventoryLocationsServiceListPartInventoryGatewayTimeoutErrorResponseBody": ".entity_part_inventory_locations_service_list_part_inventory_gateway_timeout_error_response_body",
+    "EntityPartInventoryLocationsServiceListPartInventoryInternalServerErrorResponseBody": ".entity_part_inventory_locations_service_list_part_inventory_internal_server_error_response_body",
+    "EntityPartInventoryLocationsServiceListPartInventoryMethodNotAllowedErrorResponseBody": ".entity_part_inventory_locations_service_list_part_inventory_method_not_allowed_error_response_body",
+    "EntityPartInventoryLocationsServiceListPartInventoryNotFoundErrorResponseBody": ".entity_part_inventory_locations_service_list_part_inventory_not_found_error_response_body",
+    "EntityPartInventoryLocationsServiceListPartInventoryNotImplementedErrorResponseBody": ".entity_part_inventory_locations_service_list_part_inventory_not_implemented_error_response_body",
+    "EntityPartInventoryLocationsServiceListPartInventoryResponseBody": ".entity_part_inventory_locations_service_list_part_inventory_response_body",
+    "EntityPartInventoryLocationsServiceListPartInventoryServiceUnavailableErrorResponseBody": ".entity_part_inventory_locations_service_list_part_inventory_service_unavailable_error_response_body",
+    "EntityPartInventoryLocationsServiceListPartInventoryTooManyRequestsErrorResponseBody": ".entity_part_inventory_locations_service_list_part_inventory_too_many_requests_error_response_body",
+    "EntityPartInventoryLocationsServiceListPartInventoryUnauthorizedErrorResponseBody": ".entity_part_inventory_locations_service_list_part_inventory_unauthorized_error_response_body",
+    "EntityPartInventoryLocationsServiceUpdatePartInventoryLocationBadGatewayErrorResponseBody": ".entity_part_inventory_locations_service_update_part_inventory_location_bad_gateway_error_response_body",
+    "EntityPartInventoryLocationsServiceUpdatePartInventoryLocationGatewayTimeoutErrorResponseBody": ".entity_part_inventory_locations_service_update_part_inventory_location_gateway_timeout_error_response_body",
+    "EntityPartInventoryLocationsServiceUpdatePartInventoryLocationInternalServerErrorResponseBody": ".entity_part_inventory_locations_service_update_part_inventory_location_internal_server_error_response_body",
+    "EntityPartInventoryLocationsServiceUpdatePartInventoryLocationMethodNotAllowedErrorResponseBody": ".entity_part_inventory_locations_service_update_part_inventory_location_method_not_allowed_error_response_body",
+    "EntityPartInventoryLocationsServiceUpdatePartInventoryLocationNotFoundErrorResponseBody": ".entity_part_inventory_locations_service_update_part_inventory_location_not_found_error_response_body",
+    "EntityPartInventoryLocationsServiceUpdatePartInventoryLocationNotImplementedErrorResponseBody": ".entity_part_inventory_locations_service_update_part_inventory_location_not_implemented_error_response_body",
+    "EntityPartInventoryLocationsServiceUpdatePartInventoryLocationResponseBody": ".entity_part_inventory_locations_service_update_part_inventory_location_response_body",
+    "EntityPartInventoryLocationsServiceUpdatePartInventoryLocationServiceUnavailableErrorResponseBody": ".entity_part_inventory_locations_service_update_part_inventory_location_service_unavailable_error_response_body",
+    "EntityPartInventoryLocationsServiceUpdatePartInventoryLocationTooManyRequestsErrorResponseBody": ".entity_part_inventory_locations_service_update_part_inventory_location_too_many_requests_error_response_body",
+    "EntityPartInventoryLocationsServiceUpdatePartInventoryLocationUnauthorizedErrorResponseBody": ".entity_part_inventory_locations_service_update_part_inventory_location_unauthorized_error_response_body",
     "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesBadGatewayErrorResponseBody": ".entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_bad_gateway_error_response_body",
     "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesGatewayTimeoutErrorResponseBody": ".entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_gateway_timeout_error_response_body",
     "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesInternalServerErrorResponseBody": ".entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_internal_server_error_response_body",
@@ -10391,6 +10597,9 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EntityUpcomingPreventativeMaintenancesServiceUpdateUpcomingPreventiveMaintenanceServiceUnavailableErrorResponseBody": ".entity_upcoming_preventative_maintenances_service_update_upcoming_preventive_maintenance_service_unavailable_error_response_body",
     "EntityUpcomingPreventativeMaintenancesServiceUpdateUpcomingPreventiveMaintenanceTooManyRequestsErrorResponseBody": ".entity_upcoming_preventative_maintenances_service_update_upcoming_preventive_maintenance_too_many_requests_error_response_body",
     "EntityUpcomingPreventativeMaintenancesServiceUpdateUpcomingPreventiveMaintenanceUnauthorizedErrorResponseBody": ".entity_upcoming_preventative_maintenances_service_update_upcoming_preventive_maintenance_unauthorized_error_response_body",
+    "EntityUpdatePartInventoryLocationPartDefinitionRefTypeResponseBody": ".entity_update_part_inventory_location_part_definition_ref_type_response_body",
+    "EntityUpdatePartInventoryLocationPlaceRefTypeResponseBody": ".entity_update_part_inventory_location_place_ref_type_response_body",
+    "EntityUpdatePartInventoryLocationTypeResponseBody": ".entity_update_part_inventory_location_type_response_body",
     "EntityUpdatePartTypeResponseBody": ".entity_update_part_type_response_body",
     "EntityUpdateUpcomingPreventiveMaintenanceAssetRefTypeResponseBody": ".entity_update_upcoming_preventive_maintenance_asset_ref_type_response_body",
     "EntityUpdateUpcomingPreventiveMaintenancePreventativeMaintenanceScheduleRefTypeResponseBody": ".entity_update_upcoming_preventive_maintenance_preventative_maintenance_schedule_ref_type_response_body",
@@ -11416,6 +11625,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "ListHubSkillsResponsePaginationResponseBody": ".list_hub_skills_response_pagination_response_body",
     "ListHubsResponsePaginationResponseBody": ".list_hubs_response_pagination_response_body",
     "ListIndustrialAssetsResponse": ".list_industrial_assets_response",
+    "ListPartInventoryEntityPartInventoryLocationMoneyTypeResponseBody": ".list_part_inventory_entity_part_inventory_location_money_type_response_body",
     "ListPartsEntityPartDefinitionMoneyTypeResponseBody": ".list_parts_entity_part_definition_money_type_response_body",
     "ListPlanOrdersResponsePaginationResponseBody": ".list_plan_orders_response_pagination_response_body",
     "ListTagsResponse": ".list_tags_response",
@@ -12938,6 +13148,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "UpdateHubLocationRequestBodyRequestBody": ".update_hub_location_request_body_request_body",
     "UpdatePartEntityPartDefinitionMoneyInputTypeRequestBody": ".update_part_entity_part_definition_money_input_type_request_body",
     "UpdatePartEntityPartDefinitionMoneyTypeResponseBody": ".update_part_entity_part_definition_money_type_response_body",
+    "UpdatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody": ".update_part_inventory_location_entity_part_inventory_location_money_input_type_request_body",
+    "UpdatePartInventoryLocationEntityPartInventoryLocationMoneyTypeResponseBody": ".update_part_inventory_location_entity_part_inventory_location_money_type_response_body",
     "UpdateRoutesStopRequestObjectRequestBody": ".update_routes_stop_request_object_request_body",
     "UpdateSharedAssetRequestObjectRequestBody": ".update_shared_asset_request_object_request_body",
     "UploadedMediaObjectResponseBody": ".uploaded_media_object_response_body",
@@ -13984,6 +14196,17 @@ __all__ = [
     "AssetsUpdateAssetServiceUnavailableErrorResponseBody",
     "AssetsUpdateAssetTooManyRequestsErrorResponseBody",
     "AssetsUpdateAssetUnauthorizedErrorResponseBody",
+    "AssociationResponseBody",
+    "AssociationsListAssociationsBadGatewayErrorResponseBody",
+    "AssociationsListAssociationsGatewayTimeoutErrorResponseBody",
+    "AssociationsListAssociationsInternalServerErrorResponseBody",
+    "AssociationsListAssociationsMethodNotAllowedErrorResponseBody",
+    "AssociationsListAssociationsNotFoundErrorResponseBody",
+    "AssociationsListAssociationsNotImplementedErrorResponseBody",
+    "AssociationsListAssociationsResponseBody",
+    "AssociationsListAssociationsServiceUnavailableErrorResponseBody",
+    "AssociationsListAssociationsTooManyRequestsErrorResponseBody",
+    "AssociationsListAssociationsUnauthorizedErrorResponseBody",
     "Attribute",
     "AttributeAttributeType",
     "AttributeEntity",
@@ -14120,6 +14343,8 @@ __all__ = [
     "CreateHubRouteTemplateObjectResponseBody",
     "CreatePartEntityPartDefinitionMoneyInputTypeRequestBody",
     "CreatePartEntityPartDefinitionMoneyTypeResponseBody",
+    "CreatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody",
+    "CreatePartInventoryLocationEntityPartInventoryLocationMoneyTypeResponseBody",
     "CreateReportConfigColumnRequestBody",
     "CreateReportConfigObjectRequestBody",
     "CreateRoutesStopRequestObjectRequestBody",
@@ -14684,7 +14909,13 @@ __all__ = [
     "EngineOnDetailsObjectResponseBody",
     "EngineOnResponseBody",
     "EngineStatusResponseBody",
+    "EntityCreatePartInventoryLocationPartDefinitionRefTypeResponseBody",
+    "EntityCreatePartInventoryLocationPlaceRefTypeResponseBody",
+    "EntityCreatePartInventoryLocationTypeResponseBody",
     "EntityCreatePartTypeResponseBody",
+    "EntityListPartInventoryPartDefinitionRefTypeResponseBody",
+    "EntityListPartInventoryPlaceRefTypeResponseBody",
+    "EntityListPartInventoryTypeResponseBody",
     "EntityListPartsTypeResponseBody",
     "EntityListPreventiveMaintenanceSchedulesPreventativeMaintenanceScheduleRefTypeResponseBody",
     "EntityListPreventiveMaintenanceSchedulesTypeResponseBody",
@@ -14732,6 +14963,36 @@ __all__ = [
     "EntityPartDefinitionsServiceUpdatePartServiceUnavailableErrorResponseBody",
     "EntityPartDefinitionsServiceUpdatePartTooManyRequestsErrorResponseBody",
     "EntityPartDefinitionsServiceUpdatePartUnauthorizedErrorResponseBody",
+    "EntityPartInventoryLocationsServiceCreatePartInventoryLocationBadGatewayErrorResponseBody",
+    "EntityPartInventoryLocationsServiceCreatePartInventoryLocationGatewayTimeoutErrorResponseBody",
+    "EntityPartInventoryLocationsServiceCreatePartInventoryLocationInternalServerErrorResponseBody",
+    "EntityPartInventoryLocationsServiceCreatePartInventoryLocationMethodNotAllowedErrorResponseBody",
+    "EntityPartInventoryLocationsServiceCreatePartInventoryLocationNotFoundErrorResponseBody",
+    "EntityPartInventoryLocationsServiceCreatePartInventoryLocationNotImplementedErrorResponseBody",
+    "EntityPartInventoryLocationsServiceCreatePartInventoryLocationResponseBody",
+    "EntityPartInventoryLocationsServiceCreatePartInventoryLocationServiceUnavailableErrorResponseBody",
+    "EntityPartInventoryLocationsServiceCreatePartInventoryLocationTooManyRequestsErrorResponseBody",
+    "EntityPartInventoryLocationsServiceCreatePartInventoryLocationUnauthorizedErrorResponseBody",
+    "EntityPartInventoryLocationsServiceListPartInventoryBadGatewayErrorResponseBody",
+    "EntityPartInventoryLocationsServiceListPartInventoryGatewayTimeoutErrorResponseBody",
+    "EntityPartInventoryLocationsServiceListPartInventoryInternalServerErrorResponseBody",
+    "EntityPartInventoryLocationsServiceListPartInventoryMethodNotAllowedErrorResponseBody",
+    "EntityPartInventoryLocationsServiceListPartInventoryNotFoundErrorResponseBody",
+    "EntityPartInventoryLocationsServiceListPartInventoryNotImplementedErrorResponseBody",
+    "EntityPartInventoryLocationsServiceListPartInventoryResponseBody",
+    "EntityPartInventoryLocationsServiceListPartInventoryServiceUnavailableErrorResponseBody",
+    "EntityPartInventoryLocationsServiceListPartInventoryTooManyRequestsErrorResponseBody",
+    "EntityPartInventoryLocationsServiceListPartInventoryUnauthorizedErrorResponseBody",
+    "EntityPartInventoryLocationsServiceUpdatePartInventoryLocationBadGatewayErrorResponseBody",
+    "EntityPartInventoryLocationsServiceUpdatePartInventoryLocationGatewayTimeoutErrorResponseBody",
+    "EntityPartInventoryLocationsServiceUpdatePartInventoryLocationInternalServerErrorResponseBody",
+    "EntityPartInventoryLocationsServiceUpdatePartInventoryLocationMethodNotAllowedErrorResponseBody",
+    "EntityPartInventoryLocationsServiceUpdatePartInventoryLocationNotFoundErrorResponseBody",
+    "EntityPartInventoryLocationsServiceUpdatePartInventoryLocationNotImplementedErrorResponseBody",
+    "EntityPartInventoryLocationsServiceUpdatePartInventoryLocationResponseBody",
+    "EntityPartInventoryLocationsServiceUpdatePartInventoryLocationServiceUnavailableErrorResponseBody",
+    "EntityPartInventoryLocationsServiceUpdatePartInventoryLocationTooManyRequestsErrorResponseBody",
+    "EntityPartInventoryLocationsServiceUpdatePartInventoryLocationUnauthorizedErrorResponseBody",
     "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesBadGatewayErrorResponseBody",
     "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesGatewayTimeoutErrorResponseBody",
     "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesInternalServerErrorResponseBody",
@@ -14772,6 +15033,9 @@ __all__ = [
     "EntityUpcomingPreventativeMaintenancesServiceUpdateUpcomingPreventiveMaintenanceServiceUnavailableErrorResponseBody",
     "EntityUpcomingPreventativeMaintenancesServiceUpdateUpcomingPreventiveMaintenanceTooManyRequestsErrorResponseBody",
     "EntityUpcomingPreventativeMaintenancesServiceUpdateUpcomingPreventiveMaintenanceUnauthorizedErrorResponseBody",
+    "EntityUpdatePartInventoryLocationPartDefinitionRefTypeResponseBody",
+    "EntityUpdatePartInventoryLocationPlaceRefTypeResponseBody",
+    "EntityUpdatePartInventoryLocationTypeResponseBody",
     "EntityUpdatePartTypeResponseBody",
     "EntityUpdateUpcomingPreventiveMaintenanceAssetRefTypeResponseBody",
     "EntityUpdateUpcomingPreventiveMaintenancePreventativeMaintenanceScheduleRefTypeResponseBody",
@@ -15797,6 +16061,7 @@ __all__ = [
     "ListHubSkillsResponsePaginationResponseBody",
     "ListHubsResponsePaginationResponseBody",
     "ListIndustrialAssetsResponse",
+    "ListPartInventoryEntityPartInventoryLocationMoneyTypeResponseBody",
     "ListPartsEntityPartDefinitionMoneyTypeResponseBody",
     "ListPlanOrdersResponsePaginationResponseBody",
     "ListTagsResponse",
@@ -17319,6 +17584,8 @@ __all__ = [
     "UpdateHubLocationRequestBodyRequestBody",
     "UpdatePartEntityPartDefinitionMoneyInputTypeRequestBody",
     "UpdatePartEntityPartDefinitionMoneyTypeResponseBody",
+    "UpdatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody",
+    "UpdatePartInventoryLocationEntityPartInventoryLocationMoneyTypeResponseBody",
     "UpdateRoutesStopRequestObjectRequestBody",
     "UpdateSharedAssetRequestObjectRequestBody",
     "UploadedMediaObjectResponseBody",

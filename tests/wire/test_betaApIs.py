@@ -236,6 +236,14 @@ def test_betaApIs_unassign_asset_assignment() -> None:
     verify_request_count(test_id, "POST", "/fleet/assets/assignments/unassign", None, 1)
 
 
+def test_betaApIs_list_associations() -> None:
+    """Test listAssociations endpoint with WireMock"""
+    test_id = "beta_ap_is.list_associations.0"
+    client = get_client(test_id)
+    client.beta_ap_is.list_associations(start_time="startTime")
+    verify_request_count(test_id, "GET", "/fleet/assets/associations", {"startTime": "startTime"}, 1)
+
+
 def test_betaApIs_list_device_recovery_missing_assets() -> None:
     """Test listDeviceRecoveryMissingAssets endpoint with WireMock"""
     test_id = "beta_ap_is.list_device_recovery_missing_assets.0"
@@ -585,6 +593,30 @@ def test_betaApIs_update_part() -> None:
     client = get_client(test_id)
     client.beta_ap_is.update_part(id="id")
     verify_request_count(test_id, "PATCH", "/maintenance/parts", {"id": "id"}, 1)
+
+
+def test_betaApIs_list_part_inventory() -> None:
+    """Test listPartInventory endpoint with WireMock"""
+    test_id = "beta_ap_is.list_part_inventory.0"
+    client = get_client(test_id)
+    client.beta_ap_is.list_part_inventory()
+    verify_request_count(test_id, "GET", "/maintenance/parts/inventory-location", None, 1)
+
+
+def test_betaApIs_create_part_inventory_location() -> None:
+    """Test createPartInventoryLocation endpoint with WireMock"""
+    test_id = "beta_ap_is.create_part_inventory_location.0"
+    client = get_client(test_id)
+    client.beta_ap_is.create_part_inventory_location()
+    verify_request_count(test_id, "POST", "/maintenance/parts/inventory-location", None, 1)
+
+
+def test_betaApIs_update_part_inventory_location() -> None:
+    """Test updatePartInventoryLocation endpoint with WireMock"""
+    test_id = "beta_ap_is.update_part_inventory_location.0"
+    client = get_client(test_id)
+    client.beta_ap_is.update_part_inventory_location()
+    verify_request_count(test_id, "PATCH", "/maintenance/parts/inventory-location", None, 1)
 
 
 def test_betaApIs_list_preventive_maintenance_schedules() -> None:
