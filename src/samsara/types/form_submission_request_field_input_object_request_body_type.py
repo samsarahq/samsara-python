@@ -14,6 +14,7 @@ FormSubmissionRequestFieldInputObjectRequestBodyType = typing.Union[
         "table",
         "geofence",
         "barcode",
+        "media",
     ],
     typing.Any,
 ]

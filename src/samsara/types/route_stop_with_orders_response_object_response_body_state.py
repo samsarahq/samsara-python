@@ -2,6 +2,6 @@
 
 import typing
 
-RoutesStopWithFormsResponseObjectResponseBodyState = typing.Union[
+RouteStopWithOrdersResponseObjectResponseBodyState = typing.Union[
     typing.Literal["unassigned", "scheduled", "en route", "skipped", "arrived", "departed"], typing.Any
 ]

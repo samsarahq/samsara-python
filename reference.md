@@ -1534,7 +1534,7 @@ client.beta_ap_is.update_engine_immobilizer_state(
     relay_states=[
         UpdateEngineImmobilizerRelayStateRequestBodyRequestBody(
             id="relay1",
-            is_open=True,
+            is_open=False,
         )
     ],
 )
@@ -6118,6 +6118,223 @@ client.beta_ap_is.pair_gateways(
 </dl>
 </details>
 
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">create_watchpoint</a>(...) -&gt; AsyncHttpResponse[EntityWatchpointsServiceCreateWatchpointResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Creates a Ground Intelligence watchpoint for the organization.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Watchpoints** under the Ground Intelligence category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara, WatchpointLatLngTypeRequestBody
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.create_watchpoint(
+    location=WatchpointLatLngTypeRequestBody(
+        latitude=37.7749,
+        longitude=-122.4194,
+    ),
+    mode="justOnce",
+    observation_type="roadDefect",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**location:** `WatchpointLatLngTypeRequestBody` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**mode:** `EntityWatchpointsServiceCreateWatchpointRequestBodyMode` — Recurrence frequency for observations.  Valid values: `justOnce`, `daily`, `weekly`, `monthly`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**observation_type:** `EntityWatchpointsServiceCreateWatchpointRequestBodyObservationType` — Type of condition to observe at this watchpoint.  Valid values: `roadDefect`, `utilityCut`, `guardrail`, `streetlight`, `signage`, `stormDrain`, `graffiti`, `vegetation`, `blight`, `illegalDumping`, `littering`, `highVegetationWeeds`, `fire`, `other`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `typing.Optional[str]` — Customer-provided name for the watchpoint.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**note:** `typing.Optional[str]` — Customer-provided note about the watchpoint.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">update_watchpoint</a>(...) -&gt; AsyncHttpResponse[EntityWatchpointsServiceUpdateWatchpointResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Updates the name, note, or observation type for an existing Ground Intelligence watchpoint.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Watchpoints** under the Ground Intelligence category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.update_watchpoint(
+    id="id",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` — Unique identifier for the Watchpoint record.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `typing.Optional[str]` — Customer-provided name for the watchpoint. Set to null to clear.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**note:** `typing.Optional[str]` — Customer-provided note about the watchpoint. Set to null to clear.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**observation_type:** `typing.Optional[
+    EntityWatchpointsServiceUpdateWatchpointRequestBodyObservationType
+]` — Type of condition to observe at this watchpoint.  Valid values: `roadDefect`, `utilityCut`, `guardrail`, `streetlight`, `signage`, `stormDrain`, `graffiti`, `vegetation`, `blight`, `illegalDumping`, `littering`, `highVegetationWeeds`, `fire`, `other`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">update_shipping_docs</a>(...) -&gt; AsyncHttpResponse[HosDailyLogsUpdateShippingDocsResponseBody]</code></summary>
 <dl>
 <dd>
@@ -7733,6 +7950,284 @@ client.beta_ap_is.update_part_inventory_location()
 </dl>
 </details>
 
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">create_stock_movement</a>(...) -&gt; AsyncHttpResponse[
+    CreateStockMovementActionServiceCreateStockMovementResponseBody
+]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Records a receive, transfer, scrap, or adjust stock movement against a part's inventory and returns the resulting inventory location(s). Not idempotent — retrying a request that already succeeded records the movement again.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.create_stock_movement(
+    movement_type="12345",
+    part_samsara_id="12345",
+    quantity=123.45,
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**movement_type:** `str` — Type of stock movement to record. Must be one of Receive, Transfer, Scrap, or Adjust; Unknown is rejected.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**part_samsara_id:** `str` — Unique identifier of the part definition the movement applies to.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**quantity:** `float` — Quantity moved, in the part's unit of measure. Positive magnitude for receive, transfer, and scrap; signed delta for adjust.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**batch:** `typing.Optional[str]` — Batch or lot identifier the movement applies to, if the part is batch-tracked.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**from_place_id:** `typing.Optional[str]` — Unique identifier of the place linked to the maintenance site the inventory is transferred out of. Transfer only.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**happened_at_time:** `typing.Optional[str]` — Time when the movement occurred. Defaults to the current time if not provided.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**notes:** `typing.Optional[str]` — Notes explaining the movement. Scrap and adjust only.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**place_id:** `typing.Optional[str]` — Unique identifier of the place linked to the maintenance site the movement targets. Required for receive, scrap, and adjust; rejected for transfer (use fromPlaceId and toPlaceId).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**purchase_order:** `typing.Optional[str]` — Purchase order reference for the received inventory. Receive only.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**to_place_id:** `typing.Optional[str]` — Unique identifier of the place linked to the maintenance site the inventory is transferred into. Transfer only.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**unit_cost:** `typing.Optional[EntityCreateStockMovementMoneyInputTypeRequestBody]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**vendor_id:** `typing.Optional[str]` — Unique identifier of the vendor the inventory was received from. Receive only.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">resolve_preventive_maintenance</a>(...) -&gt; AsyncHttpResponse[
+    ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceResponseBody
+]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Resolves the current open preventive maintenance instance for a schedule and asset, and automatically creates the next due record based on the schedule's intervals.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Preventive Maintenance Resolve** under the Preventive Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.resolve_preventive_maintenance()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**asset_id:** `typing.Optional[str]` — Samsara ID of the asset the instance is being resolved for.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**schedule_id:** `typing.Optional[str]` — ID of the preventive maintenance schedule to resolve.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**resolved_at:** `typing.Optional[str]` — RFC3339 time when the maintenance was resolved. Defaults to the current time if not provided.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**resolved_at_engine_hours:** `typing.Optional[int]` — Engine hours reading at the time of resolution.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**resolved_at_odometer:** `typing.Optional[int]` — Odometer reading at the time of resolution. Measured in meters.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_preventive_maintenance_schedules</a>(...) -&gt; AsyncHttpResponse[
     EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesResponseBody
 ]</code></summary>
@@ -7892,6 +8387,240 @@ client.beta_ap_is.list_upcoming_preventive_maintenance()
 <dd>
 
 **asset_ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of Asset ID values.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">update_upcoming_preventive_maintenance</a>(...) -&gt; AsyncHttpResponse[
+    EntityUpcomingPreventativeMaintenancesServiceUpdateUpcomingPreventiveMaintenanceResponseBody
+]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Patches the due-target and last-resolved values on the open preventive maintenance instance for a schedule and asset. Only fields provided in the request are updated.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Upcoming Preventive Maintenance** under the Preventive Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.update_upcoming_preventive_maintenance()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**asset_id:** `typing.Optional[str]` — Samsara ID for the asset.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**schedule_id:** `typing.Optional[str]` — ID of the preventive maintenance schedule that the vehicle is scheduled to be serviced for.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**last_resolved_at:** `typing.Optional[str]` — Date and time when the prior instance was resolved.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**last_resolved_at_engine_hours:** `typing.Optional[int]` — Engine hours at the time the prior instance was resolved.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**last_resolved_at_odometer:** `typing.Optional[int]` — Odometer reading at the time the prior instance was resolved. Measured in meters.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**next_engine_hours:** `typing.Optional[int]` — The next engine hour value that the vehicle is scheduled to be serviced.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**next_odometer:** `typing.Optional[int]` — The next odometer value that the vehicle is scheduled to be serviced. Measured in meters.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**next_time:** `typing.Optional[str]` — The next time that the vehicle is scheduled to be serviced for a date based PM.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_time_entries</a>(...) -&gt; AsyncHttpResponse[EntityTimeEntriesServiceListTimeEntriesResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns a paginated feed of technician time entries updated in the requested time window, including deletion tombstones.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Time Entries** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.list_time_entries(
+    start_time="startTime",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**start_time:** `str` — A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**end_time:** `typing.Optional[str]` — An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
     
 </dd>
 </dl>
@@ -11831,7 +12560,6 @@ client.beta_ap_is.patch_safety_events_v_2_batch(
         "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
         "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
         "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
-        "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
     ],
 )
 
@@ -12134,7 +12862,7 @@ client.alerts.post_configurations(
     is_enabled=True,
     name="My Harsh Event Alert",
     scope=ScopeObjectRequestBody(
-        all_=False,
+        all_=True,
     ),
     triggers=[
         WorkflowTriggerObjectRequestBody(
@@ -23895,14 +24623,14 @@ To use this endpoint, select **Write Routes** under the Driver Workflow category
 <dd>
 
 ```python
-from samsara import CreateRoutesStopRequestObjectRequestBody, Samsara
+from samsara import CreateRouteStopWithOrdersRequestObjectRequestBody, Samsara
 
 client = Samsara(
     token="YOUR_TOKEN",
 )
 client.routes.create_route(
     name="Bid 123",
-    stops=[CreateRoutesStopRequestObjectRequestBody()],
+    stops=[CreateRouteStopWithOrdersRequestObjectRequestBody()],
 )
 
 ```
@@ -23927,7 +24655,7 @@ client.routes.create_route(
 <dl>
 <dd>
 
-**stops:** `typing.Sequence[CreateRoutesStopRequestObjectRequestBody]` — List of stops along the route. For each stop, exactly one of `addressId` and `singleUseLocation` are required. Depending on the `settings` on your route, either a `scheduledArrivalTime` or `scheduledDepartureTime` must be specified for the first job.
+**stops:** `typing.Sequence[CreateRouteStopWithOrdersRequestObjectRequestBody]` — List of stops along the route. For each stop, exactly one of `addressId` and `singleUseLocation` are required. Depending on the `settings` on your route, either a `scheduledArrivalTime` or `scheduledDepartureTime` must be specified for the first job.
     
 </dd>
 </dl>
@@ -33550,6 +34278,485 @@ client.preview_ap_is.create_driver_auth_token(
 </dl>
 </details>
 
+<details><summary><code>client.preview_ap_is.<a href="src/samsara/preview_ap_is/client.py">get_orders</a>(...) -&gt; AsyncHttpResponse[OrdersGetOrdersResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns current canonical order state for up to 100 supplied order IDs.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+- Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+- When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.preview_ap_is.get_orders()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**order_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Comma-separated Samsara order UUIDs or external ID tokens. Maximum 100.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_external_ids:** `typing.Optional[bool]` — Include external IDs in returned orders.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.preview_ap_is.<a href="src/samsara/preview_ap_is/client.py">delete_order</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Deletes one canonical order by Samsara UUID or external ID.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+- Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+- When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.preview_ap_is.delete_order(
+    order_id="orderId",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**order_id:** `str` — One Samsara order UUID or external ID token.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.preview_ap_is.<a href="src/samsara/preview_ap_is/client.py">post_orders_batch</a>(...) -&gt; AsyncHttpResponse[OrdersPostOrdersBatchResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Atomically creates or updates up to 250 canonical orders.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+- Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+- When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import FleetOrderBatchUpsertInputRequestBody, Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.preview_ap_is.post_orders_batch(
+    data=[FleetOrderBatchUpsertInputRequestBody()],
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**data:** `typing.Sequence[FleetOrderBatchUpsertInputRequestBody]` — Orders to upsert atomically. Maximum 250.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.preview_ap_is.<a href="src/samsara/preview_ap_is/client.py">get_order_deletions</a>(...) -&gt; AsyncHttpResponse[OrdersGetOrderDeletionsResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns deletion markers for order replication.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+- Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+- When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.preview_ap_is.get_order_deletions()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**start_time:** `typing.Optional[dt.datetime]` — Optional deletedAtTime lower bound in RFC 3339 format.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**end_time:** `typing.Optional[dt.datetime]` — Optional deletedAtTime upper bound in RFC 3339 format.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**limit:** `typing.Optional[int]` — Maximum number of deletion markers to return.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.preview_ap_is.<a href="src/samsara/preview_ap_is/client.py">get_orders_stream</a>(...) -&gt; AsyncHttpResponse[OrdersGetOrdersStreamResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns live order create and update state for replication.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Routes** under the Driver Workflow category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+- Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+- When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+import datetime
+
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.preview_ap_is.get_orders_stream(
+    start_time=datetime.datetime.fromisoformat(
+        "2024-01-15 09:30:00+00:00",
+    ),
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**start_time:** `dt.datetime` — Inclusive updatedAtTime lower bound in RFC 3339 format.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**end_time:** `typing.Optional[dt.datetime]` — Exclusive updatedAtTime upper bound in RFC 3339 format.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**route_id:** `typing.Optional[str]` — Optional route ID scope.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_external_ids:** `typing.Optional[bool]` — Include external IDs in returned orders.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.preview_ap_is.<a href="src/samsara/preview_ap_is/client.py">lock_vehicle</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
@@ -33716,8 +34923,8 @@ client.preview_ap_is.unlock_vehicle(
 </dl>
 </details>
 
-<details><summary><code>client.preview_ap_is.<a href="src/samsara/preview_ap_is/client.py">update_upcoming_preventive_maintenance</a>(...) -&gt; AsyncHttpResponse[
-    EntityUpcomingPreventativeMaintenancesServiceUpdateUpcomingPreventiveMaintenanceResponseBody
+<details><summary><code>client.preview_ap_is.<a href="src/samsara/preview_ap_is/client.py">list_part_transactions</a>(...) -&gt; AsyncHttpResponse[
+    EntityInventoryTransactionsServiceListPartTransactionsResponseBody
 ]</code></summary>
 <dl>
 <dd>
@@ -33730,11 +34937,11 @@ client.preview_ap_is.unlock_vehicle(
 <dl>
 <dd>
 
-Patches the due-target and last-resolved values on the open preventive maintenance instance for a schedule and asset. Only fields provided in the request are updated.
+Returns a paginated, time-windowed feed of inventory transactions (an append-only parts audit log) for the organization, ordered by the time each transaction occurred.
 
  <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Upcoming Preventive Maintenance** under the Preventive Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+To use this endpoint, select **Read Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 
 Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
 
@@ -33763,7 +34970,9 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.preview_ap_is.update_upcoming_preventive_maintenance()
+client.preview_ap_is.list_part_transactions(
+    happened_at_time_start="happenedAtTimeStart",
+)
 
 ```
 </dd>
@@ -33779,7 +34988,7 @@ client.preview_ap_is.update_upcoming_preventive_maintenance()
 <dl>
 <dd>
 
-**asset_id:** `typing.Optional[str]` — Samsara ID for the asset.
+**happened_at_time_start:** `str` — A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
     
 </dd>
 </dl>
@@ -33787,7 +34996,7 @@ client.preview_ap_is.update_upcoming_preventive_maintenance()
 <dl>
 <dd>
 
-**schedule_id:** `typing.Optional[str]` — ID of the preventive maintenance schedule that the vehicle is scheduled to be serviced for.
+**happened_at_time_end:** `typing.Optional[str]` — An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
     
 </dd>
 </dl>
@@ -33795,7 +35004,7 @@ client.preview_ap_is.update_upcoming_preventive_maintenance()
 <dl>
 <dd>
 
-**last_resolved_at:** `typing.Optional[str]` — Date and time when the prior instance was resolved.
+**part_samsara_ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of Part Samsara ID values.
     
 </dd>
 </dl>
@@ -33803,7 +35012,7 @@ client.preview_ap_is.update_upcoming_preventive_maintenance()
 <dl>
 <dd>
 
-**last_resolved_at_engine_hours:** `typing.Optional[int]` — Engine hours at the time the prior instance was resolved.
+**place_ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of Place ID values.
     
 </dd>
 </dl>
@@ -33811,7 +35020,7 @@ client.preview_ap_is.update_upcoming_preventive_maintenance()
 <dl>
 <dd>
 
-**last_resolved_at_odometer:** `typing.Optional[int]` — Odometer reading at the time the prior instance was resolved. Measured in meters.
+**transaction_type_in:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of Transaction Type values.
     
 </dd>
 </dl>
@@ -33819,7 +35028,7 @@ client.preview_ap_is.update_upcoming_preventive_maintenance()
 <dl>
 <dd>
 
-**next_engine_hours:** `typing.Optional[int]` — The next engine hour value that the vehicle is scheduled to be serviced.
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
     
 </dd>
 </dl>
@@ -33827,15 +35036,7 @@ client.preview_ap_is.update_upcoming_preventive_maintenance()
 <dl>
 <dd>
 
-**next_odometer:** `typing.Optional[int]` — The next odometer value that the vehicle is scheduled to be serviced. Measured in meters.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**next_time:** `typing.Optional[str]` — The next time that the vehicle is scheduled to be serviced for a date based PM.
+**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default and max for this value is 200 objects.
     
 </dd>
 </dl>

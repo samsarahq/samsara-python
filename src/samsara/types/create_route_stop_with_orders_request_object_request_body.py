@@ -9,10 +9,11 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .route_stop_appointment_window_request_body import RouteStopAppointmentWindowRequestBody
 from .route_stop_form_request_object_request_body import RouteStopFormRequestObjectRequestBody
+from .route_stop_order_upsert_input_request_body import RouteStopOrderUpsertInputRequestBody
 from .routes_single_use_address_object_request_body import RoutesSingleUseAddressObjectRequestBody
 
 
-class CreateRoutesStopRequestObjectRequestBody(UniversalBaseModel):
+class CreateRouteStopWithOrdersRequestObjectRequestBody(UniversalBaseModel):
     address_id: typing_extensions.Annotated[
         typing.Optional[str],
         FieldMetadata(alias="addressId"),
@@ -62,6 +63,11 @@ class CreateRoutesStopRequestObjectRequestBody(UniversalBaseModel):
             description="Specifies the time window (in milliseconds) before a stop's scheduled arrival time during which the stop is considered 'on-time'.",
         ),
     ] = None
+    orders: typing.Optional[typing.List[RouteStopOrderUpsertInputRequestBody]] = pydantic.Field(default=None)
+    """
+    Orders to upsert and attach to this stop.
+    """
+
     scheduled_arrival_time: typing_extensions.Annotated[
         typing.Optional[dt.datetime],
         FieldMetadata(alias="scheduledArrivalTime"),

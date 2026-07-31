@@ -4,11 +4,11 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from .create_hub_route_template_object_response_body import CreateHubRouteTemplateObjectResponseBody
+from .hub_route_template_object_response_body import HubRouteTemplateObjectResponseBody
 
 
 class HubRouteTemplatesCreateHubRouteTemplateResponseBody(UniversalBaseModel):
-    data: CreateHubRouteTemplateObjectResponseBody
+    data: HubRouteTemplateObjectResponseBody
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

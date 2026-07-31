@@ -990,9 +990,7 @@ if typing.TYPE_CHECKING:
     from .barcode_value_object_request_body import BarcodeValueObjectRequestBody
     from .barcode_value_object_response_body import BarcodeValueObjectResponseBody
     from .base_route_response_object_response_body import BaseRouteResponseObjectResponseBody
-    from .base_route_with_stop_forms_response_object_response_body import (
-        BaseRouteWithStopFormsResponseObjectResponseBody,
-    )
+    from .base_route_with_orders_response_object_response_body import BaseRouteWithOrdersResponseObjectResponseBody
     from .behavior_count_details_request_body import BehaviorCountDetailsRequestBody
     from .behavior_count_details_request_body_comparison import BehaviorCountDetailsRequestBodyComparison
     from .behavior_count_details_response_body import BehaviorCountDetailsResponseBody
@@ -1170,7 +1168,6 @@ if typing.TYPE_CHECKING:
     from .create_hub_route_template_depot_start_input_request_body import (
         CreateHubRouteTemplateDepotStartInputRequestBody,
     )
-    from .create_hub_route_template_object_response_body import CreateHubRouteTemplateObjectResponseBody
     from .create_part_entity_part_definition_money_input_type_request_body import (
         CreatePartEntityPartDefinitionMoneyInputTypeRequestBody,
     )
@@ -1185,8 +1182,43 @@ if typing.TYPE_CHECKING:
     )
     from .create_report_config_column_request_body import CreateReportConfigColumnRequestBody
     from .create_report_config_object_request_body import CreateReportConfigObjectRequestBody
-    from .create_routes_stop_request_object_request_body import CreateRoutesStopRequestObjectRequestBody
+    from .create_route_stop_with_orders_request_object_request_body import (
+        CreateRouteStopWithOrdersRequestObjectRequestBody,
+    )
     from .create_shared_asset_request_object_request_body import CreateSharedAssetRequestObjectRequestBody
+    from .create_stock_movement_action_service_create_stock_movement_bad_gateway_error_response_body import (
+        CreateStockMovementActionServiceCreateStockMovementBadGatewayErrorResponseBody,
+    )
+    from .create_stock_movement_action_service_create_stock_movement_gateway_timeout_error_response_body import (
+        CreateStockMovementActionServiceCreateStockMovementGatewayTimeoutErrorResponseBody,
+    )
+    from .create_stock_movement_action_service_create_stock_movement_internal_server_error_response_body import (
+        CreateStockMovementActionServiceCreateStockMovementInternalServerErrorResponseBody,
+    )
+    from .create_stock_movement_action_service_create_stock_movement_method_not_allowed_error_response_body import (
+        CreateStockMovementActionServiceCreateStockMovementMethodNotAllowedErrorResponseBody,
+    )
+    from .create_stock_movement_action_service_create_stock_movement_not_found_error_response_body import (
+        CreateStockMovementActionServiceCreateStockMovementNotFoundErrorResponseBody,
+    )
+    from .create_stock_movement_action_service_create_stock_movement_not_implemented_error_response_body import (
+        CreateStockMovementActionServiceCreateStockMovementNotImplementedErrorResponseBody,
+    )
+    from .create_stock_movement_action_service_create_stock_movement_response_body import (
+        CreateStockMovementActionServiceCreateStockMovementResponseBody,
+    )
+    from .create_stock_movement_action_service_create_stock_movement_service_unavailable_error_response_body import (
+        CreateStockMovementActionServiceCreateStockMovementServiceUnavailableErrorResponseBody,
+    )
+    from .create_stock_movement_action_service_create_stock_movement_too_many_requests_error_response_body import (
+        CreateStockMovementActionServiceCreateStockMovementTooManyRequestsErrorResponseBody,
+    )
+    from .create_stock_movement_action_service_create_stock_movement_unauthorized_error_response_body import (
+        CreateStockMovementActionServiceCreateStockMovementUnauthorizedErrorResponseBody,
+    )
+    from .create_stock_movement_response_object_type_response_body import (
+        CreateStockMovementResponseObjectTypeResponseBody,
+    )
     from .create_user_request_roles import CreateUserRequestRoles
     from .cruise_control_duration_ms import CruiseControlDurationMs
     from .cumulative_operating_hours_response_body import CumulativeOperatingHoursResponseBody
@@ -2389,11 +2421,61 @@ if typing.TYPE_CHECKING:
         EntityCreatePartInventoryLocationTypeResponseBody,
     )
     from .entity_create_part_type_response_body import EntityCreatePartTypeResponseBody
+    from .entity_create_stock_movement_money_input_type_request_body import (
+        EntityCreateStockMovementMoneyInputTypeRequestBody,
+    )
+    from .entity_create_stock_movement_money_type_response_body import EntityCreateStockMovementMoneyTypeResponseBody
+    from .entity_create_stock_movement_stock_movement_location_type_response_body import (
+        EntityCreateStockMovementStockMovementLocationTypeResponseBody,
+    )
+    from .entity_create_watchpoint_type_response_body import EntityCreateWatchpointTypeResponseBody
+    from .entity_create_watchpoint_type_response_body_mode import EntityCreateWatchpointTypeResponseBodyMode
+    from .entity_create_watchpoint_type_response_body_observation_type import (
+        EntityCreateWatchpointTypeResponseBodyObservationType,
+    )
+    from .entity_create_watchpoint_type_response_body_status import EntityCreateWatchpointTypeResponseBodyStatus
+    from .entity_inventory_transactions_service_list_part_transactions_bad_gateway_error_response_body import (
+        EntityInventoryTransactionsServiceListPartTransactionsBadGatewayErrorResponseBody,
+    )
+    from .entity_inventory_transactions_service_list_part_transactions_gateway_timeout_error_response_body import (
+        EntityInventoryTransactionsServiceListPartTransactionsGatewayTimeoutErrorResponseBody,
+    )
+    from .entity_inventory_transactions_service_list_part_transactions_internal_server_error_response_body import (
+        EntityInventoryTransactionsServiceListPartTransactionsInternalServerErrorResponseBody,
+    )
+    from .entity_inventory_transactions_service_list_part_transactions_method_not_allowed_error_response_body import (
+        EntityInventoryTransactionsServiceListPartTransactionsMethodNotAllowedErrorResponseBody,
+    )
+    from .entity_inventory_transactions_service_list_part_transactions_not_found_error_response_body import (
+        EntityInventoryTransactionsServiceListPartTransactionsNotFoundErrorResponseBody,
+    )
+    from .entity_inventory_transactions_service_list_part_transactions_not_implemented_error_response_body import (
+        EntityInventoryTransactionsServiceListPartTransactionsNotImplementedErrorResponseBody,
+    )
+    from .entity_inventory_transactions_service_list_part_transactions_response_body import (
+        EntityInventoryTransactionsServiceListPartTransactionsResponseBody,
+    )
+    from .entity_inventory_transactions_service_list_part_transactions_service_unavailable_error_response_body import (
+        EntityInventoryTransactionsServiceListPartTransactionsServiceUnavailableErrorResponseBody,
+    )
+    from .entity_inventory_transactions_service_list_part_transactions_too_many_requests_error_response_body import (
+        EntityInventoryTransactionsServiceListPartTransactionsTooManyRequestsErrorResponseBody,
+    )
+    from .entity_inventory_transactions_service_list_part_transactions_unauthorized_error_response_body import (
+        EntityInventoryTransactionsServiceListPartTransactionsUnauthorizedErrorResponseBody,
+    )
     from .entity_list_part_inventory_part_definition_ref_type_response_body import (
         EntityListPartInventoryPartDefinitionRefTypeResponseBody,
     )
     from .entity_list_part_inventory_place_ref_type_response_body import EntityListPartInventoryPlaceRefTypeResponseBody
     from .entity_list_part_inventory_type_response_body import EntityListPartInventoryTypeResponseBody
+    from .entity_list_part_transactions_part_definition_ref_type_response_body import (
+        EntityListPartTransactionsPartDefinitionRefTypeResponseBody,
+    )
+    from .entity_list_part_transactions_type_response_body import EntityListPartTransactionsTypeResponseBody
+    from .entity_list_part_transactions_work_order_ref_type_response_body import (
+        EntityListPartTransactionsWorkOrderRefTypeResponseBody,
+    )
     from .entity_list_parts_type_response_body import EntityListPartsTypeResponseBody
     from .entity_list_preventive_maintenance_schedules_preventative_maintenance_schedule_ref_type_response_body import (
         EntityListPreventiveMaintenanceSchedulesPreventativeMaintenanceScheduleRefTypeResponseBody,
@@ -2402,6 +2484,7 @@ if typing.TYPE_CHECKING:
         EntityListPreventiveMaintenanceSchedulesTypeResponseBody,
     )
     from .entity_list_tachograph_live_data_type_response_body import EntityListTachographLiveDataTypeResponseBody
+    from .entity_list_time_entries_type_response_body import EntityListTimeEntriesTypeResponseBody
     from .entity_list_upcoming_preventive_maintenance_asset_ref_type_response_body import (
         EntityListUpcomingPreventiveMaintenanceAssetRefTypeResponseBody,
     )
@@ -2681,6 +2764,36 @@ if typing.TYPE_CHECKING:
     from .entity_tachograph_live_data_records_service_list_tachograph_live_data_unauthorized_error_response_body import (
         EntityTachographLiveDataRecordsServiceListTachographLiveDataUnauthorizedErrorResponseBody,
     )
+    from .entity_time_entries_service_list_time_entries_bad_gateway_error_response_body import (
+        EntityTimeEntriesServiceListTimeEntriesBadGatewayErrorResponseBody,
+    )
+    from .entity_time_entries_service_list_time_entries_gateway_timeout_error_response_body import (
+        EntityTimeEntriesServiceListTimeEntriesGatewayTimeoutErrorResponseBody,
+    )
+    from .entity_time_entries_service_list_time_entries_internal_server_error_response_body import (
+        EntityTimeEntriesServiceListTimeEntriesInternalServerErrorResponseBody,
+    )
+    from .entity_time_entries_service_list_time_entries_method_not_allowed_error_response_body import (
+        EntityTimeEntriesServiceListTimeEntriesMethodNotAllowedErrorResponseBody,
+    )
+    from .entity_time_entries_service_list_time_entries_not_found_error_response_body import (
+        EntityTimeEntriesServiceListTimeEntriesNotFoundErrorResponseBody,
+    )
+    from .entity_time_entries_service_list_time_entries_not_implemented_error_response_body import (
+        EntityTimeEntriesServiceListTimeEntriesNotImplementedErrorResponseBody,
+    )
+    from .entity_time_entries_service_list_time_entries_response_body import (
+        EntityTimeEntriesServiceListTimeEntriesResponseBody,
+    )
+    from .entity_time_entries_service_list_time_entries_service_unavailable_error_response_body import (
+        EntityTimeEntriesServiceListTimeEntriesServiceUnavailableErrorResponseBody,
+    )
+    from .entity_time_entries_service_list_time_entries_too_many_requests_error_response_body import (
+        EntityTimeEntriesServiceListTimeEntriesTooManyRequestsErrorResponseBody,
+    )
+    from .entity_time_entries_service_list_time_entries_unauthorized_error_response_body import (
+        EntityTimeEntriesServiceListTimeEntriesUnauthorizedErrorResponseBody,
+    )
     from .entity_upcoming_preventative_maintenances_service_list_upcoming_preventive_maintenance_bad_gateway_error_response_body import (
         EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceBadGatewayErrorResponseBody,
     )
@@ -2762,6 +2875,72 @@ if typing.TYPE_CHECKING:
     )
     from .entity_update_upcoming_preventive_maintenance_work_order_ref_type_response_body import (
         EntityUpdateUpcomingPreventiveMaintenanceWorkOrderRefTypeResponseBody,
+    )
+    from .entity_update_watchpoint_type_response_body import EntityUpdateWatchpointTypeResponseBody
+    from .entity_update_watchpoint_type_response_body_mode import EntityUpdateWatchpointTypeResponseBodyMode
+    from .entity_update_watchpoint_type_response_body_observation_type import (
+        EntityUpdateWatchpointTypeResponseBodyObservationType,
+    )
+    from .entity_update_watchpoint_type_response_body_status import EntityUpdateWatchpointTypeResponseBodyStatus
+    from .entity_watchpoints_service_create_watchpoint_bad_gateway_error_response_body import (
+        EntityWatchpointsServiceCreateWatchpointBadGatewayErrorResponseBody,
+    )
+    from .entity_watchpoints_service_create_watchpoint_gateway_timeout_error_response_body import (
+        EntityWatchpointsServiceCreateWatchpointGatewayTimeoutErrorResponseBody,
+    )
+    from .entity_watchpoints_service_create_watchpoint_internal_server_error_response_body import (
+        EntityWatchpointsServiceCreateWatchpointInternalServerErrorResponseBody,
+    )
+    from .entity_watchpoints_service_create_watchpoint_method_not_allowed_error_response_body import (
+        EntityWatchpointsServiceCreateWatchpointMethodNotAllowedErrorResponseBody,
+    )
+    from .entity_watchpoints_service_create_watchpoint_not_found_error_response_body import (
+        EntityWatchpointsServiceCreateWatchpointNotFoundErrorResponseBody,
+    )
+    from .entity_watchpoints_service_create_watchpoint_not_implemented_error_response_body import (
+        EntityWatchpointsServiceCreateWatchpointNotImplementedErrorResponseBody,
+    )
+    from .entity_watchpoints_service_create_watchpoint_response_body import (
+        EntityWatchpointsServiceCreateWatchpointResponseBody,
+    )
+    from .entity_watchpoints_service_create_watchpoint_service_unavailable_error_response_body import (
+        EntityWatchpointsServiceCreateWatchpointServiceUnavailableErrorResponseBody,
+    )
+    from .entity_watchpoints_service_create_watchpoint_too_many_requests_error_response_body import (
+        EntityWatchpointsServiceCreateWatchpointTooManyRequestsErrorResponseBody,
+    )
+    from .entity_watchpoints_service_create_watchpoint_unauthorized_error_response_body import (
+        EntityWatchpointsServiceCreateWatchpointUnauthorizedErrorResponseBody,
+    )
+    from .entity_watchpoints_service_update_watchpoint_bad_gateway_error_response_body import (
+        EntityWatchpointsServiceUpdateWatchpointBadGatewayErrorResponseBody,
+    )
+    from .entity_watchpoints_service_update_watchpoint_gateway_timeout_error_response_body import (
+        EntityWatchpointsServiceUpdateWatchpointGatewayTimeoutErrorResponseBody,
+    )
+    from .entity_watchpoints_service_update_watchpoint_internal_server_error_response_body import (
+        EntityWatchpointsServiceUpdateWatchpointInternalServerErrorResponseBody,
+    )
+    from .entity_watchpoints_service_update_watchpoint_method_not_allowed_error_response_body import (
+        EntityWatchpointsServiceUpdateWatchpointMethodNotAllowedErrorResponseBody,
+    )
+    from .entity_watchpoints_service_update_watchpoint_not_found_error_response_body import (
+        EntityWatchpointsServiceUpdateWatchpointNotFoundErrorResponseBody,
+    )
+    from .entity_watchpoints_service_update_watchpoint_not_implemented_error_response_body import (
+        EntityWatchpointsServiceUpdateWatchpointNotImplementedErrorResponseBody,
+    )
+    from .entity_watchpoints_service_update_watchpoint_response_body import (
+        EntityWatchpointsServiceUpdateWatchpointResponseBody,
+    )
+    from .entity_watchpoints_service_update_watchpoint_service_unavailable_error_response_body import (
+        EntityWatchpointsServiceUpdateWatchpointServiceUnavailableErrorResponseBody,
+    )
+    from .entity_watchpoints_service_update_watchpoint_too_many_requests_error_response_body import (
+        EntityWatchpointsServiceUpdateWatchpointTooManyRequestsErrorResponseBody,
+    )
+    from .entity_watchpoints_service_update_watchpoint_unauthorized_error_response_body import (
+        EntityWatchpointsServiceUpdateWatchpointUnauthorizedErrorResponseBody,
     )
     from .enum_reading_alert_threshold_response_body import EnumReadingAlertThresholdResponseBody
     from .enum_value_response_body import EnumValueResponseBody
@@ -3020,6 +3199,48 @@ if typing.TYPE_CHECKING:
         FleetLocationsGetFleetLocationsUnauthorizedErrorResponseBody,
     )
     from .fleet_locations_pagination_response_body import FleetLocationsPaginationResponseBody
+    from .fleet_order_batch_custom_address_input_request_body import FleetOrderBatchCustomAddressInputRequestBody
+    from .fleet_order_batch_customer_property_input_request_body import FleetOrderBatchCustomerPropertyInputRequestBody
+    from .fleet_order_batch_quantity_input_request_body import FleetOrderBatchQuantityInputRequestBody
+    from .fleet_order_batch_response_item_response_body import FleetOrderBatchResponseItemResponseBody
+    from .fleet_order_batch_service_location_input_request_body import FleetOrderBatchServiceLocationInputRequestBody
+    from .fleet_order_batch_service_window_upsert_input_request_body import (
+        FleetOrderBatchServiceWindowUpsertInputRequestBody,
+    )
+    from .fleet_order_batch_task_upsert_input_request_body import FleetOrderBatchTaskUpsertInputRequestBody
+    from .fleet_order_batch_upsert_input_request_body import FleetOrderBatchUpsertInputRequestBody
+    from .fleet_order_batch_upsert_input_request_body_external_ids import (
+        FleetOrderBatchUpsertInputRequestBodyExternalIds,
+    )
+    from .fleet_order_custom_address_input_request_body import FleetOrderCustomAddressInputRequestBody
+    from .fleet_order_custom_address_object_response_body import FleetOrderCustomAddressObjectResponseBody
+    from .fleet_order_customer_property_object_request_body import FleetOrderCustomerPropertyObjectRequestBody
+    from .fleet_order_customer_property_object_response_body import FleetOrderCustomerPropertyObjectResponseBody
+    from .fleet_order_deletion_marker_object_response_body import FleetOrderDeletionMarkerObjectResponseBody
+    from .fleet_order_object_response_body import FleetOrderObjectResponseBody
+    from .fleet_order_object_response_body_external_ids import FleetOrderObjectResponseBodyExternalIds
+    from .fleet_order_quantity_input_request_body import FleetOrderQuantityInputRequestBody
+    from .fleet_order_quantity_object_response_body import FleetOrderQuantityObjectResponseBody
+    from .fleet_order_service_location_input_request_body import FleetOrderServiceLocationInputRequestBody
+    from .fleet_order_service_location_input_request_body_service_location_type import (
+        FleetOrderServiceLocationInputRequestBodyServiceLocationType,
+    )
+    from .fleet_order_service_location_object_response_body import FleetOrderServiceLocationObjectResponseBody
+    from .fleet_order_service_location_object_response_body_service_location_type import (
+        FleetOrderServiceLocationObjectResponseBodyServiceLocationType,
+    )
+    from .fleet_order_service_window_object_response_body import FleetOrderServiceWindowObjectResponseBody
+    from .fleet_order_service_window_upsert_input_request_body import FleetOrderServiceWindowUpsertInputRequestBody
+    from .fleet_order_task_object_response_body import FleetOrderTaskObjectResponseBody
+    from .fleet_order_task_object_response_body_position_constraint_type import (
+        FleetOrderTaskObjectResponseBodyPositionConstraintType,
+    )
+    from .fleet_order_task_object_response_body_task_type import FleetOrderTaskObjectResponseBodyTaskType
+    from .fleet_order_task_upsert_input_request_body import FleetOrderTaskUpsertInputRequestBody
+    from .fleet_order_task_upsert_input_request_body_position_constraint_type import (
+        FleetOrderTaskUpsertInputRequestBodyPositionConstraintType,
+    )
+    from .fleet_order_task_upsert_input_request_body_task_type import FleetOrderTaskUpsertInputRequestBodyTaskType
     from .following_distance_detection_alert_settings_object_response_body import (
         FollowingDistanceDetectionAlertSettingsObjectResponseBody,
     )
@@ -4953,6 +5174,12 @@ if typing.TYPE_CHECKING:
     )
     from .list_plan_orders_response_pagination_response_body import ListPlanOrdersResponsePaginationResponseBody
     from .list_tags_response import ListTagsResponse
+    from .list_time_entries_entity_time_entry_money_type_response_body import (
+        ListTimeEntriesEntityTimeEntryMoneyTypeResponseBody,
+    )
+    from .list_time_entries_entity_time_entry_time_entry_location_type_response_body import (
+        ListTimeEntriesEntityTimeEntryTimeEntryLocationTypeResponseBody,
+    )
     from .list_uploaded_media_object_response_body import ListUploadedMediaObjectResponseBody
     from .list_user_roles_response import ListUserRolesResponse
     from .list_users_response import ListUsersResponse
@@ -5315,6 +5542,121 @@ if typing.TYPE_CHECKING:
     from .order_task_response_body import OrderTaskResponseBody
     from .order_task_response_body_position import OrderTaskResponseBodyPosition
     from .order_task_skill_object_response_body import OrderTaskSkillObjectResponseBody
+    from .orders_delete_order_bad_gateway_error_response_body import OrdersDeleteOrderBadGatewayErrorResponseBody
+    from .orders_delete_order_gateway_timeout_error_response_body import (
+        OrdersDeleteOrderGatewayTimeoutErrorResponseBody,
+    )
+    from .orders_delete_order_internal_server_error_response_body import (
+        OrdersDeleteOrderInternalServerErrorResponseBody,
+    )
+    from .orders_delete_order_method_not_allowed_error_response_body import (
+        OrdersDeleteOrderMethodNotAllowedErrorResponseBody,
+    )
+    from .orders_delete_order_not_found_error_response_body import OrdersDeleteOrderNotFoundErrorResponseBody
+    from .orders_delete_order_not_implemented_error_response_body import (
+        OrdersDeleteOrderNotImplementedErrorResponseBody,
+    )
+    from .orders_delete_order_service_unavailable_error_response_body import (
+        OrdersDeleteOrderServiceUnavailableErrorResponseBody,
+    )
+    from .orders_delete_order_too_many_requests_error_response_body import (
+        OrdersDeleteOrderTooManyRequestsErrorResponseBody,
+    )
+    from .orders_delete_order_unauthorized_error_response_body import OrdersDeleteOrderUnauthorizedErrorResponseBody
+    from .orders_get_order_deletions_bad_gateway_error_response_body import (
+        OrdersGetOrderDeletionsBadGatewayErrorResponseBody,
+    )
+    from .orders_get_order_deletions_gateway_timeout_error_response_body import (
+        OrdersGetOrderDeletionsGatewayTimeoutErrorResponseBody,
+    )
+    from .orders_get_order_deletions_internal_server_error_response_body import (
+        OrdersGetOrderDeletionsInternalServerErrorResponseBody,
+    )
+    from .orders_get_order_deletions_method_not_allowed_error_response_body import (
+        OrdersGetOrderDeletionsMethodNotAllowedErrorResponseBody,
+    )
+    from .orders_get_order_deletions_not_found_error_response_body import (
+        OrdersGetOrderDeletionsNotFoundErrorResponseBody,
+    )
+    from .orders_get_order_deletions_not_implemented_error_response_body import (
+        OrdersGetOrderDeletionsNotImplementedErrorResponseBody,
+    )
+    from .orders_get_order_deletions_response_body import OrdersGetOrderDeletionsResponseBody
+    from .orders_get_order_deletions_service_unavailable_error_response_body import (
+        OrdersGetOrderDeletionsServiceUnavailableErrorResponseBody,
+    )
+    from .orders_get_order_deletions_too_many_requests_error_response_body import (
+        OrdersGetOrderDeletionsTooManyRequestsErrorResponseBody,
+    )
+    from .orders_get_order_deletions_unauthorized_error_response_body import (
+        OrdersGetOrderDeletionsUnauthorizedErrorResponseBody,
+    )
+    from .orders_get_orders_bad_gateway_error_response_body import OrdersGetOrdersBadGatewayErrorResponseBody
+    from .orders_get_orders_gateway_timeout_error_response_body import OrdersGetOrdersGatewayTimeoutErrorResponseBody
+    from .orders_get_orders_internal_server_error_response_body import OrdersGetOrdersInternalServerErrorResponseBody
+    from .orders_get_orders_method_not_allowed_error_response_body import (
+        OrdersGetOrdersMethodNotAllowedErrorResponseBody,
+    )
+    from .orders_get_orders_not_found_error_response_body import OrdersGetOrdersNotFoundErrorResponseBody
+    from .orders_get_orders_not_implemented_error_response_body import OrdersGetOrdersNotImplementedErrorResponseBody
+    from .orders_get_orders_response_body import OrdersGetOrdersResponseBody
+    from .orders_get_orders_service_unavailable_error_response_body import (
+        OrdersGetOrdersServiceUnavailableErrorResponseBody,
+    )
+    from .orders_get_orders_stream_bad_gateway_error_response_body import (
+        OrdersGetOrdersStreamBadGatewayErrorResponseBody,
+    )
+    from .orders_get_orders_stream_gateway_timeout_error_response_body import (
+        OrdersGetOrdersStreamGatewayTimeoutErrorResponseBody,
+    )
+    from .orders_get_orders_stream_internal_server_error_response_body import (
+        OrdersGetOrdersStreamInternalServerErrorResponseBody,
+    )
+    from .orders_get_orders_stream_method_not_allowed_error_response_body import (
+        OrdersGetOrdersStreamMethodNotAllowedErrorResponseBody,
+    )
+    from .orders_get_orders_stream_not_found_error_response_body import OrdersGetOrdersStreamNotFoundErrorResponseBody
+    from .orders_get_orders_stream_not_implemented_error_response_body import (
+        OrdersGetOrdersStreamNotImplementedErrorResponseBody,
+    )
+    from .orders_get_orders_stream_response_body import OrdersGetOrdersStreamResponseBody
+    from .orders_get_orders_stream_service_unavailable_error_response_body import (
+        OrdersGetOrdersStreamServiceUnavailableErrorResponseBody,
+    )
+    from .orders_get_orders_stream_too_many_requests_error_response_body import (
+        OrdersGetOrdersStreamTooManyRequestsErrorResponseBody,
+    )
+    from .orders_get_orders_stream_unauthorized_error_response_body import (
+        OrdersGetOrdersStreamUnauthorizedErrorResponseBody,
+    )
+    from .orders_get_orders_too_many_requests_error_response_body import OrdersGetOrdersTooManyRequestsErrorResponseBody
+    from .orders_get_orders_unauthorized_error_response_body import OrdersGetOrdersUnauthorizedErrorResponseBody
+    from .orders_post_orders_batch_bad_gateway_error_response_body import (
+        OrdersPostOrdersBatchBadGatewayErrorResponseBody,
+    )
+    from .orders_post_orders_batch_gateway_timeout_error_response_body import (
+        OrdersPostOrdersBatchGatewayTimeoutErrorResponseBody,
+    )
+    from .orders_post_orders_batch_internal_server_error_response_body import (
+        OrdersPostOrdersBatchInternalServerErrorResponseBody,
+    )
+    from .orders_post_orders_batch_method_not_allowed_error_response_body import (
+        OrdersPostOrdersBatchMethodNotAllowedErrorResponseBody,
+    )
+    from .orders_post_orders_batch_not_found_error_response_body import OrdersPostOrdersBatchNotFoundErrorResponseBody
+    from .orders_post_orders_batch_not_implemented_error_response_body import (
+        OrdersPostOrdersBatchNotImplementedErrorResponseBody,
+    )
+    from .orders_post_orders_batch_response_body import OrdersPostOrdersBatchResponseBody
+    from .orders_post_orders_batch_service_unavailable_error_response_body import (
+        OrdersPostOrdersBatchServiceUnavailableErrorResponseBody,
+    )
+    from .orders_post_orders_batch_too_many_requests_error_response_body import (
+        OrdersPostOrdersBatchTooManyRequestsErrorResponseBody,
+    )
+    from .orders_post_orders_batch_unauthorized_error_response_body import (
+        OrdersPostOrdersBatchUnauthorizedErrorResponseBody,
+    )
     from .organization_info_carrier_settings import OrganizationInfoCarrierSettings
     from .organization_info_object import OrganizationInfoObject
     from .organization_info_response import OrganizationInfoResponse
@@ -5909,6 +6251,10 @@ if typing.TYPE_CHECKING:
     from .preferred_stations_post_preferred_station_unauthorized_error_response_body import (
         PreferredStationsPostPreferredStationUnauthorizedErrorResponseBody,
     )
+    from .preventive_maintenance_schedule_due_data_response_body import PreventiveMaintenanceScheduleDueDataResponseBody
+    from .preventive_maintenance_schedule_due_data_response_body_due_reasons_item import (
+        PreventiveMaintenanceScheduleDueDataResponseBodyDueReasonsItem,
+    )
     from .primary_time_range_request_body import PrimaryTimeRangeRequestBody
     from .primary_time_range_response_body import PrimaryTimeRangeResponseBody
     from .push_notification_options_object_request_body import PushNotificationOptionsObjectRequestBody
@@ -6481,6 +6827,39 @@ if typing.TYPE_CHECKING:
     from .resolve_assignment_by_details_response_body_response_body import (
         ResolveAssignmentByDetailsResponseBodyResponseBody,
     )
+    from .resolve_preventive_maintenance_action_service_resolve_preventive_maintenance_bad_gateway_error_response_body import (
+        ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceBadGatewayErrorResponseBody,
+    )
+    from .resolve_preventive_maintenance_action_service_resolve_preventive_maintenance_gateway_timeout_error_response_body import (
+        ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceGatewayTimeoutErrorResponseBody,
+    )
+    from .resolve_preventive_maintenance_action_service_resolve_preventive_maintenance_internal_server_error_response_body import (
+        ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceInternalServerErrorResponseBody,
+    )
+    from .resolve_preventive_maintenance_action_service_resolve_preventive_maintenance_method_not_allowed_error_response_body import (
+        ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceMethodNotAllowedErrorResponseBody,
+    )
+    from .resolve_preventive_maintenance_action_service_resolve_preventive_maintenance_not_found_error_response_body import (
+        ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceNotFoundErrorResponseBody,
+    )
+    from .resolve_preventive_maintenance_action_service_resolve_preventive_maintenance_not_implemented_error_response_body import (
+        ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceNotImplementedErrorResponseBody,
+    )
+    from .resolve_preventive_maintenance_action_service_resolve_preventive_maintenance_response_body import (
+        ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceResponseBody,
+    )
+    from .resolve_preventive_maintenance_action_service_resolve_preventive_maintenance_service_unavailable_error_response_body import (
+        ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceServiceUnavailableErrorResponseBody,
+    )
+    from .resolve_preventive_maintenance_action_service_resolve_preventive_maintenance_too_many_requests_error_response_body import (
+        ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceTooManyRequestsErrorResponseBody,
+    )
+    from .resolve_preventive_maintenance_action_service_resolve_preventive_maintenance_unauthorized_error_response_body import (
+        ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceUnauthorizedErrorResponseBody,
+    )
+    from .resolve_preventive_maintenance_response_object_type_response_body import (
+        ResolvePreventiveMaintenanceResponseObjectTypeResponseBody,
+    )
     from .resolved_by import ResolvedBy
     from .resolved_by_type import ResolvedByType
     from .reverse_geo import ReverseGeo
@@ -6846,6 +7225,13 @@ if typing.TYPE_CHECKING:
     from .route_stop_form_request_object_request_body import RouteStopFormRequestObjectRequestBody
     from .route_stop_form_response_object_response_body import RouteStopFormResponseObjectResponseBody
     from .route_stop_object_response_body import RouteStopObjectResponseBody
+    from .route_stop_order_task_reference_object_response_body import RouteStopOrderTaskReferenceObjectResponseBody
+    from .route_stop_order_upsert_input_request_body import RouteStopOrderUpsertInputRequestBody
+    from .route_stop_order_upsert_input_request_body_external_ids import RouteStopOrderUpsertInputRequestBodyExternalIds
+    from .route_stop_with_orders_response_object_response_body import RouteStopWithOrdersResponseObjectResponseBody
+    from .route_stop_with_orders_response_object_response_body_state import (
+        RouteStopWithOrdersResponseObjectResponseBodyState,
+    )
     from .route_vehicle_object_response_body import RouteVehicleObjectResponseBody
     from .routes_create_route_bad_gateway_error_response_body import RoutesCreateRouteBadGatewayErrorResponseBody
     from .routes_create_route_gateway_timeout_error_response_body import (
@@ -7000,10 +7386,6 @@ if typing.TYPE_CHECKING:
     from .routes_single_use_address_object_response_body import RoutesSingleUseAddressObjectResponseBody
     from .routes_stop_response_object_response_body import RoutesStopResponseObjectResponseBody
     from .routes_stop_response_object_response_body_state import RoutesStopResponseObjectResponseBodyState
-    from .routes_stop_with_forms_response_object_response_body import RoutesStopWithFormsResponseObjectResponseBody
-    from .routes_stop_with_forms_response_object_response_body_state import (
-        RoutesStopWithFormsResponseObjectResponseBodyState,
-    )
     from .routing_capacity_service_time_response_response_body import RoutingCapacityServiceTimeResponseResponseBody
     from .routing_order_service_time_response_response_body import RoutingOrderServiceTimeResponseResponseBody
     from .routing_required_skill_response_response_body import RoutingRequiredSkillResponseResponseBody
@@ -8974,6 +9356,8 @@ if typing.TYPE_CHECKING:
     )
     from .voice_coaching_settings_object_response_body_language import VoiceCoachingSettingsObjectResponseBodyLanguage
     from .walkaround_photo_object_response_body import WalkaroundPhotoObjectResponseBody
+    from .watchpoint_lat_lng_type_request_body import WatchpointLatLngTypeRequestBody
+    from .watchpoint_lat_lng_type_response_body import WatchpointLatLngTypeResponseBody
     from .webhook_params_object_request_body import WebhookParamsObjectRequestBody
     from .webhook_params_object_request_body_payload_type import WebhookParamsObjectRequestBodyPayloadType
     from .webhook_params_object_response_body import WebhookParamsObjectResponseBody
@@ -9798,7 +10182,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "BarcodeValueObjectRequestBody": ".barcode_value_object_request_body",
     "BarcodeValueObjectResponseBody": ".barcode_value_object_response_body",
     "BaseRouteResponseObjectResponseBody": ".base_route_response_object_response_body",
-    "BaseRouteWithStopFormsResponseObjectResponseBody": ".base_route_with_stop_forms_response_object_response_body",
+    "BaseRouteWithOrdersResponseObjectResponseBody": ".base_route_with_orders_response_object_response_body",
     "BehaviorCountDetailsRequestBody": ".behavior_count_details_request_body",
     "BehaviorCountDetailsRequestBodyComparison": ".behavior_count_details_request_body_comparison",
     "BehaviorCountDetailsResponseBody": ".behavior_count_details_response_body",
@@ -9904,15 +10288,25 @@ _dynamic_imports: typing.Dict[str, str] = {
     "CreateFunctionStorageFileDetailResponseBody": ".create_function_storage_file_detail_response_body",
     "CreateHubRouteTemplateDepotEndInputRequestBody": ".create_hub_route_template_depot_end_input_request_body",
     "CreateHubRouteTemplateDepotStartInputRequestBody": ".create_hub_route_template_depot_start_input_request_body",
-    "CreateHubRouteTemplateObjectResponseBody": ".create_hub_route_template_object_response_body",
     "CreatePartEntityPartDefinitionMoneyInputTypeRequestBody": ".create_part_entity_part_definition_money_input_type_request_body",
     "CreatePartEntityPartDefinitionMoneyTypeResponseBody": ".create_part_entity_part_definition_money_type_response_body",
     "CreatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody": ".create_part_inventory_location_entity_part_inventory_location_money_input_type_request_body",
     "CreatePartInventoryLocationEntityPartInventoryLocationMoneyTypeResponseBody": ".create_part_inventory_location_entity_part_inventory_location_money_type_response_body",
     "CreateReportConfigColumnRequestBody": ".create_report_config_column_request_body",
     "CreateReportConfigObjectRequestBody": ".create_report_config_object_request_body",
-    "CreateRoutesStopRequestObjectRequestBody": ".create_routes_stop_request_object_request_body",
+    "CreateRouteStopWithOrdersRequestObjectRequestBody": ".create_route_stop_with_orders_request_object_request_body",
     "CreateSharedAssetRequestObjectRequestBody": ".create_shared_asset_request_object_request_body",
+    "CreateStockMovementActionServiceCreateStockMovementBadGatewayErrorResponseBody": ".create_stock_movement_action_service_create_stock_movement_bad_gateway_error_response_body",
+    "CreateStockMovementActionServiceCreateStockMovementGatewayTimeoutErrorResponseBody": ".create_stock_movement_action_service_create_stock_movement_gateway_timeout_error_response_body",
+    "CreateStockMovementActionServiceCreateStockMovementInternalServerErrorResponseBody": ".create_stock_movement_action_service_create_stock_movement_internal_server_error_response_body",
+    "CreateStockMovementActionServiceCreateStockMovementMethodNotAllowedErrorResponseBody": ".create_stock_movement_action_service_create_stock_movement_method_not_allowed_error_response_body",
+    "CreateStockMovementActionServiceCreateStockMovementNotFoundErrorResponseBody": ".create_stock_movement_action_service_create_stock_movement_not_found_error_response_body",
+    "CreateStockMovementActionServiceCreateStockMovementNotImplementedErrorResponseBody": ".create_stock_movement_action_service_create_stock_movement_not_implemented_error_response_body",
+    "CreateStockMovementActionServiceCreateStockMovementResponseBody": ".create_stock_movement_action_service_create_stock_movement_response_body",
+    "CreateStockMovementActionServiceCreateStockMovementServiceUnavailableErrorResponseBody": ".create_stock_movement_action_service_create_stock_movement_service_unavailable_error_response_body",
+    "CreateStockMovementActionServiceCreateStockMovementTooManyRequestsErrorResponseBody": ".create_stock_movement_action_service_create_stock_movement_too_many_requests_error_response_body",
+    "CreateStockMovementActionServiceCreateStockMovementUnauthorizedErrorResponseBody": ".create_stock_movement_action_service_create_stock_movement_unauthorized_error_response_body",
+    "CreateStockMovementResponseObjectTypeResponseBody": ".create_stock_movement_response_object_type_response_body",
     "CreateUserRequestRoles": ".create_user_request_roles",
     "CruiseControlDurationMs": ".cruise_control_duration_ms",
     "CumulativeOperatingHoursResponseBody": ".cumulative_operating_hours_response_body",
@@ -10477,13 +10871,34 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EntityCreatePartInventoryLocationPlaceRefTypeResponseBody": ".entity_create_part_inventory_location_place_ref_type_response_body",
     "EntityCreatePartInventoryLocationTypeResponseBody": ".entity_create_part_inventory_location_type_response_body",
     "EntityCreatePartTypeResponseBody": ".entity_create_part_type_response_body",
+    "EntityCreateStockMovementMoneyInputTypeRequestBody": ".entity_create_stock_movement_money_input_type_request_body",
+    "EntityCreateStockMovementMoneyTypeResponseBody": ".entity_create_stock_movement_money_type_response_body",
+    "EntityCreateStockMovementStockMovementLocationTypeResponseBody": ".entity_create_stock_movement_stock_movement_location_type_response_body",
+    "EntityCreateWatchpointTypeResponseBody": ".entity_create_watchpoint_type_response_body",
+    "EntityCreateWatchpointTypeResponseBodyMode": ".entity_create_watchpoint_type_response_body_mode",
+    "EntityCreateWatchpointTypeResponseBodyObservationType": ".entity_create_watchpoint_type_response_body_observation_type",
+    "EntityCreateWatchpointTypeResponseBodyStatus": ".entity_create_watchpoint_type_response_body_status",
+    "EntityInventoryTransactionsServiceListPartTransactionsBadGatewayErrorResponseBody": ".entity_inventory_transactions_service_list_part_transactions_bad_gateway_error_response_body",
+    "EntityInventoryTransactionsServiceListPartTransactionsGatewayTimeoutErrorResponseBody": ".entity_inventory_transactions_service_list_part_transactions_gateway_timeout_error_response_body",
+    "EntityInventoryTransactionsServiceListPartTransactionsInternalServerErrorResponseBody": ".entity_inventory_transactions_service_list_part_transactions_internal_server_error_response_body",
+    "EntityInventoryTransactionsServiceListPartTransactionsMethodNotAllowedErrorResponseBody": ".entity_inventory_transactions_service_list_part_transactions_method_not_allowed_error_response_body",
+    "EntityInventoryTransactionsServiceListPartTransactionsNotFoundErrorResponseBody": ".entity_inventory_transactions_service_list_part_transactions_not_found_error_response_body",
+    "EntityInventoryTransactionsServiceListPartTransactionsNotImplementedErrorResponseBody": ".entity_inventory_transactions_service_list_part_transactions_not_implemented_error_response_body",
+    "EntityInventoryTransactionsServiceListPartTransactionsResponseBody": ".entity_inventory_transactions_service_list_part_transactions_response_body",
+    "EntityInventoryTransactionsServiceListPartTransactionsServiceUnavailableErrorResponseBody": ".entity_inventory_transactions_service_list_part_transactions_service_unavailable_error_response_body",
+    "EntityInventoryTransactionsServiceListPartTransactionsTooManyRequestsErrorResponseBody": ".entity_inventory_transactions_service_list_part_transactions_too_many_requests_error_response_body",
+    "EntityInventoryTransactionsServiceListPartTransactionsUnauthorizedErrorResponseBody": ".entity_inventory_transactions_service_list_part_transactions_unauthorized_error_response_body",
     "EntityListPartInventoryPartDefinitionRefTypeResponseBody": ".entity_list_part_inventory_part_definition_ref_type_response_body",
     "EntityListPartInventoryPlaceRefTypeResponseBody": ".entity_list_part_inventory_place_ref_type_response_body",
     "EntityListPartInventoryTypeResponseBody": ".entity_list_part_inventory_type_response_body",
+    "EntityListPartTransactionsPartDefinitionRefTypeResponseBody": ".entity_list_part_transactions_part_definition_ref_type_response_body",
+    "EntityListPartTransactionsTypeResponseBody": ".entity_list_part_transactions_type_response_body",
+    "EntityListPartTransactionsWorkOrderRefTypeResponseBody": ".entity_list_part_transactions_work_order_ref_type_response_body",
     "EntityListPartsTypeResponseBody": ".entity_list_parts_type_response_body",
     "EntityListPreventiveMaintenanceSchedulesPreventativeMaintenanceScheduleRefTypeResponseBody": ".entity_list_preventive_maintenance_schedules_preventative_maintenance_schedule_ref_type_response_body",
     "EntityListPreventiveMaintenanceSchedulesTypeResponseBody": ".entity_list_preventive_maintenance_schedules_type_response_body",
     "EntityListTachographLiveDataTypeResponseBody": ".entity_list_tachograph_live_data_type_response_body",
+    "EntityListTimeEntriesTypeResponseBody": ".entity_list_time_entries_type_response_body",
     "EntityListUpcomingPreventiveMaintenanceAssetRefTypeResponseBody": ".entity_list_upcoming_preventive_maintenance_asset_ref_type_response_body",
     "EntityListUpcomingPreventiveMaintenancePreventativeMaintenanceScheduleRefTypeResponseBody": ".entity_list_upcoming_preventive_maintenance_preventative_maintenance_schedule_ref_type_response_body",
     "EntityListUpcomingPreventiveMaintenanceTypeResponseBody": ".entity_list_upcoming_preventive_maintenance_type_response_body",
@@ -10577,6 +10992,16 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EntityTachographLiveDataRecordsServiceListTachographLiveDataServiceUnavailableErrorResponseBody": ".entity_tachograph_live_data_records_service_list_tachograph_live_data_service_unavailable_error_response_body",
     "EntityTachographLiveDataRecordsServiceListTachographLiveDataTooManyRequestsErrorResponseBody": ".entity_tachograph_live_data_records_service_list_tachograph_live_data_too_many_requests_error_response_body",
     "EntityTachographLiveDataRecordsServiceListTachographLiveDataUnauthorizedErrorResponseBody": ".entity_tachograph_live_data_records_service_list_tachograph_live_data_unauthorized_error_response_body",
+    "EntityTimeEntriesServiceListTimeEntriesBadGatewayErrorResponseBody": ".entity_time_entries_service_list_time_entries_bad_gateway_error_response_body",
+    "EntityTimeEntriesServiceListTimeEntriesGatewayTimeoutErrorResponseBody": ".entity_time_entries_service_list_time_entries_gateway_timeout_error_response_body",
+    "EntityTimeEntriesServiceListTimeEntriesInternalServerErrorResponseBody": ".entity_time_entries_service_list_time_entries_internal_server_error_response_body",
+    "EntityTimeEntriesServiceListTimeEntriesMethodNotAllowedErrorResponseBody": ".entity_time_entries_service_list_time_entries_method_not_allowed_error_response_body",
+    "EntityTimeEntriesServiceListTimeEntriesNotFoundErrorResponseBody": ".entity_time_entries_service_list_time_entries_not_found_error_response_body",
+    "EntityTimeEntriesServiceListTimeEntriesNotImplementedErrorResponseBody": ".entity_time_entries_service_list_time_entries_not_implemented_error_response_body",
+    "EntityTimeEntriesServiceListTimeEntriesResponseBody": ".entity_time_entries_service_list_time_entries_response_body",
+    "EntityTimeEntriesServiceListTimeEntriesServiceUnavailableErrorResponseBody": ".entity_time_entries_service_list_time_entries_service_unavailable_error_response_body",
+    "EntityTimeEntriesServiceListTimeEntriesTooManyRequestsErrorResponseBody": ".entity_time_entries_service_list_time_entries_too_many_requests_error_response_body",
+    "EntityTimeEntriesServiceListTimeEntriesUnauthorizedErrorResponseBody": ".entity_time_entries_service_list_time_entries_unauthorized_error_response_body",
     "EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceBadGatewayErrorResponseBody": ".entity_upcoming_preventative_maintenances_service_list_upcoming_preventive_maintenance_bad_gateway_error_response_body",
     "EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceGatewayTimeoutErrorResponseBody": ".entity_upcoming_preventative_maintenances_service_list_upcoming_preventive_maintenance_gateway_timeout_error_response_body",
     "EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceInternalServerErrorResponseBody": ".entity_upcoming_preventative_maintenances_service_list_upcoming_preventive_maintenance_internal_server_error_response_body",
@@ -10605,6 +11030,30 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EntityUpdateUpcomingPreventiveMaintenancePreventativeMaintenanceScheduleRefTypeResponseBody": ".entity_update_upcoming_preventive_maintenance_preventative_maintenance_schedule_ref_type_response_body",
     "EntityUpdateUpcomingPreventiveMaintenanceTypeResponseBody": ".entity_update_upcoming_preventive_maintenance_type_response_body",
     "EntityUpdateUpcomingPreventiveMaintenanceWorkOrderRefTypeResponseBody": ".entity_update_upcoming_preventive_maintenance_work_order_ref_type_response_body",
+    "EntityUpdateWatchpointTypeResponseBody": ".entity_update_watchpoint_type_response_body",
+    "EntityUpdateWatchpointTypeResponseBodyMode": ".entity_update_watchpoint_type_response_body_mode",
+    "EntityUpdateWatchpointTypeResponseBodyObservationType": ".entity_update_watchpoint_type_response_body_observation_type",
+    "EntityUpdateWatchpointTypeResponseBodyStatus": ".entity_update_watchpoint_type_response_body_status",
+    "EntityWatchpointsServiceCreateWatchpointBadGatewayErrorResponseBody": ".entity_watchpoints_service_create_watchpoint_bad_gateway_error_response_body",
+    "EntityWatchpointsServiceCreateWatchpointGatewayTimeoutErrorResponseBody": ".entity_watchpoints_service_create_watchpoint_gateway_timeout_error_response_body",
+    "EntityWatchpointsServiceCreateWatchpointInternalServerErrorResponseBody": ".entity_watchpoints_service_create_watchpoint_internal_server_error_response_body",
+    "EntityWatchpointsServiceCreateWatchpointMethodNotAllowedErrorResponseBody": ".entity_watchpoints_service_create_watchpoint_method_not_allowed_error_response_body",
+    "EntityWatchpointsServiceCreateWatchpointNotFoundErrorResponseBody": ".entity_watchpoints_service_create_watchpoint_not_found_error_response_body",
+    "EntityWatchpointsServiceCreateWatchpointNotImplementedErrorResponseBody": ".entity_watchpoints_service_create_watchpoint_not_implemented_error_response_body",
+    "EntityWatchpointsServiceCreateWatchpointResponseBody": ".entity_watchpoints_service_create_watchpoint_response_body",
+    "EntityWatchpointsServiceCreateWatchpointServiceUnavailableErrorResponseBody": ".entity_watchpoints_service_create_watchpoint_service_unavailable_error_response_body",
+    "EntityWatchpointsServiceCreateWatchpointTooManyRequestsErrorResponseBody": ".entity_watchpoints_service_create_watchpoint_too_many_requests_error_response_body",
+    "EntityWatchpointsServiceCreateWatchpointUnauthorizedErrorResponseBody": ".entity_watchpoints_service_create_watchpoint_unauthorized_error_response_body",
+    "EntityWatchpointsServiceUpdateWatchpointBadGatewayErrorResponseBody": ".entity_watchpoints_service_update_watchpoint_bad_gateway_error_response_body",
+    "EntityWatchpointsServiceUpdateWatchpointGatewayTimeoutErrorResponseBody": ".entity_watchpoints_service_update_watchpoint_gateway_timeout_error_response_body",
+    "EntityWatchpointsServiceUpdateWatchpointInternalServerErrorResponseBody": ".entity_watchpoints_service_update_watchpoint_internal_server_error_response_body",
+    "EntityWatchpointsServiceUpdateWatchpointMethodNotAllowedErrorResponseBody": ".entity_watchpoints_service_update_watchpoint_method_not_allowed_error_response_body",
+    "EntityWatchpointsServiceUpdateWatchpointNotFoundErrorResponseBody": ".entity_watchpoints_service_update_watchpoint_not_found_error_response_body",
+    "EntityWatchpointsServiceUpdateWatchpointNotImplementedErrorResponseBody": ".entity_watchpoints_service_update_watchpoint_not_implemented_error_response_body",
+    "EntityWatchpointsServiceUpdateWatchpointResponseBody": ".entity_watchpoints_service_update_watchpoint_response_body",
+    "EntityWatchpointsServiceUpdateWatchpointServiceUnavailableErrorResponseBody": ".entity_watchpoints_service_update_watchpoint_service_unavailable_error_response_body",
+    "EntityWatchpointsServiceUpdateWatchpointTooManyRequestsErrorResponseBody": ".entity_watchpoints_service_update_watchpoint_too_many_requests_error_response_body",
+    "EntityWatchpointsServiceUpdateWatchpointUnauthorizedErrorResponseBody": ".entity_watchpoints_service_update_watchpoint_unauthorized_error_response_body",
     "EnumReadingAlertThresholdResponseBody": ".enum_reading_alert_threshold_response_body",
     "EnumValueResponseBody": ".enum_value_response_body",
     "EquipmentEngineRpm": ".equipment_engine_rpm",
@@ -10728,6 +11177,36 @@ _dynamic_imports: typing.Dict[str, str] = {
     "FleetLocationsGetFleetLocationsTooManyRequestsErrorResponseBody": ".fleet_locations_get_fleet_locations_too_many_requests_error_response_body",
     "FleetLocationsGetFleetLocationsUnauthorizedErrorResponseBody": ".fleet_locations_get_fleet_locations_unauthorized_error_response_body",
     "FleetLocationsPaginationResponseBody": ".fleet_locations_pagination_response_body",
+    "FleetOrderBatchCustomAddressInputRequestBody": ".fleet_order_batch_custom_address_input_request_body",
+    "FleetOrderBatchCustomerPropertyInputRequestBody": ".fleet_order_batch_customer_property_input_request_body",
+    "FleetOrderBatchQuantityInputRequestBody": ".fleet_order_batch_quantity_input_request_body",
+    "FleetOrderBatchResponseItemResponseBody": ".fleet_order_batch_response_item_response_body",
+    "FleetOrderBatchServiceLocationInputRequestBody": ".fleet_order_batch_service_location_input_request_body",
+    "FleetOrderBatchServiceWindowUpsertInputRequestBody": ".fleet_order_batch_service_window_upsert_input_request_body",
+    "FleetOrderBatchTaskUpsertInputRequestBody": ".fleet_order_batch_task_upsert_input_request_body",
+    "FleetOrderBatchUpsertInputRequestBody": ".fleet_order_batch_upsert_input_request_body",
+    "FleetOrderBatchUpsertInputRequestBodyExternalIds": ".fleet_order_batch_upsert_input_request_body_external_ids",
+    "FleetOrderCustomAddressInputRequestBody": ".fleet_order_custom_address_input_request_body",
+    "FleetOrderCustomAddressObjectResponseBody": ".fleet_order_custom_address_object_response_body",
+    "FleetOrderCustomerPropertyObjectRequestBody": ".fleet_order_customer_property_object_request_body",
+    "FleetOrderCustomerPropertyObjectResponseBody": ".fleet_order_customer_property_object_response_body",
+    "FleetOrderDeletionMarkerObjectResponseBody": ".fleet_order_deletion_marker_object_response_body",
+    "FleetOrderObjectResponseBody": ".fleet_order_object_response_body",
+    "FleetOrderObjectResponseBodyExternalIds": ".fleet_order_object_response_body_external_ids",
+    "FleetOrderQuantityInputRequestBody": ".fleet_order_quantity_input_request_body",
+    "FleetOrderQuantityObjectResponseBody": ".fleet_order_quantity_object_response_body",
+    "FleetOrderServiceLocationInputRequestBody": ".fleet_order_service_location_input_request_body",
+    "FleetOrderServiceLocationInputRequestBodyServiceLocationType": ".fleet_order_service_location_input_request_body_service_location_type",
+    "FleetOrderServiceLocationObjectResponseBody": ".fleet_order_service_location_object_response_body",
+    "FleetOrderServiceLocationObjectResponseBodyServiceLocationType": ".fleet_order_service_location_object_response_body_service_location_type",
+    "FleetOrderServiceWindowObjectResponseBody": ".fleet_order_service_window_object_response_body",
+    "FleetOrderServiceWindowUpsertInputRequestBody": ".fleet_order_service_window_upsert_input_request_body",
+    "FleetOrderTaskObjectResponseBody": ".fleet_order_task_object_response_body",
+    "FleetOrderTaskObjectResponseBodyPositionConstraintType": ".fleet_order_task_object_response_body_position_constraint_type",
+    "FleetOrderTaskObjectResponseBodyTaskType": ".fleet_order_task_object_response_body_task_type",
+    "FleetOrderTaskUpsertInputRequestBody": ".fleet_order_task_upsert_input_request_body",
+    "FleetOrderTaskUpsertInputRequestBodyPositionConstraintType": ".fleet_order_task_upsert_input_request_body_position_constraint_type",
+    "FleetOrderTaskUpsertInputRequestBodyTaskType": ".fleet_order_task_upsert_input_request_body_task_type",
     "FollowingDistanceDetectionAlertSettingsObjectResponseBody": ".following_distance_detection_alert_settings_object_response_body",
     "FormSubmissionPdfExportResponseObjectResponseBody": ".form_submission_pdf_export_response_object_response_body",
     "FormSubmissionPdfExportResponseObjectResponseBodyJobStatus": ".form_submission_pdf_export_response_object_response_body_job_status",
@@ -11629,6 +12108,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "ListPartsEntityPartDefinitionMoneyTypeResponseBody": ".list_parts_entity_part_definition_money_type_response_body",
     "ListPlanOrdersResponsePaginationResponseBody": ".list_plan_orders_response_pagination_response_body",
     "ListTagsResponse": ".list_tags_response",
+    "ListTimeEntriesEntityTimeEntryMoneyTypeResponseBody": ".list_time_entries_entity_time_entry_money_type_response_body",
+    "ListTimeEntriesEntityTimeEntryTimeEntryLocationTypeResponseBody": ".list_time_entries_entity_time_entry_time_entry_location_type_response_body",
     "ListUploadedMediaObjectResponseBody": ".list_uploaded_media_object_response_body",
     "ListUserRolesResponse": ".list_user_roles_response",
     "ListUsersResponse": ".list_users_response",
@@ -11789,6 +12270,55 @@ _dynamic_imports: typing.Dict[str, str] = {
     "OrderTaskResponseBody": ".order_task_response_body",
     "OrderTaskResponseBodyPosition": ".order_task_response_body_position",
     "OrderTaskSkillObjectResponseBody": ".order_task_skill_object_response_body",
+    "OrdersDeleteOrderBadGatewayErrorResponseBody": ".orders_delete_order_bad_gateway_error_response_body",
+    "OrdersDeleteOrderGatewayTimeoutErrorResponseBody": ".orders_delete_order_gateway_timeout_error_response_body",
+    "OrdersDeleteOrderInternalServerErrorResponseBody": ".orders_delete_order_internal_server_error_response_body",
+    "OrdersDeleteOrderMethodNotAllowedErrorResponseBody": ".orders_delete_order_method_not_allowed_error_response_body",
+    "OrdersDeleteOrderNotFoundErrorResponseBody": ".orders_delete_order_not_found_error_response_body",
+    "OrdersDeleteOrderNotImplementedErrorResponseBody": ".orders_delete_order_not_implemented_error_response_body",
+    "OrdersDeleteOrderServiceUnavailableErrorResponseBody": ".orders_delete_order_service_unavailable_error_response_body",
+    "OrdersDeleteOrderTooManyRequestsErrorResponseBody": ".orders_delete_order_too_many_requests_error_response_body",
+    "OrdersDeleteOrderUnauthorizedErrorResponseBody": ".orders_delete_order_unauthorized_error_response_body",
+    "OrdersGetOrderDeletionsBadGatewayErrorResponseBody": ".orders_get_order_deletions_bad_gateway_error_response_body",
+    "OrdersGetOrderDeletionsGatewayTimeoutErrorResponseBody": ".orders_get_order_deletions_gateway_timeout_error_response_body",
+    "OrdersGetOrderDeletionsInternalServerErrorResponseBody": ".orders_get_order_deletions_internal_server_error_response_body",
+    "OrdersGetOrderDeletionsMethodNotAllowedErrorResponseBody": ".orders_get_order_deletions_method_not_allowed_error_response_body",
+    "OrdersGetOrderDeletionsNotFoundErrorResponseBody": ".orders_get_order_deletions_not_found_error_response_body",
+    "OrdersGetOrderDeletionsNotImplementedErrorResponseBody": ".orders_get_order_deletions_not_implemented_error_response_body",
+    "OrdersGetOrderDeletionsResponseBody": ".orders_get_order_deletions_response_body",
+    "OrdersGetOrderDeletionsServiceUnavailableErrorResponseBody": ".orders_get_order_deletions_service_unavailable_error_response_body",
+    "OrdersGetOrderDeletionsTooManyRequestsErrorResponseBody": ".orders_get_order_deletions_too_many_requests_error_response_body",
+    "OrdersGetOrderDeletionsUnauthorizedErrorResponseBody": ".orders_get_order_deletions_unauthorized_error_response_body",
+    "OrdersGetOrdersBadGatewayErrorResponseBody": ".orders_get_orders_bad_gateway_error_response_body",
+    "OrdersGetOrdersGatewayTimeoutErrorResponseBody": ".orders_get_orders_gateway_timeout_error_response_body",
+    "OrdersGetOrdersInternalServerErrorResponseBody": ".orders_get_orders_internal_server_error_response_body",
+    "OrdersGetOrdersMethodNotAllowedErrorResponseBody": ".orders_get_orders_method_not_allowed_error_response_body",
+    "OrdersGetOrdersNotFoundErrorResponseBody": ".orders_get_orders_not_found_error_response_body",
+    "OrdersGetOrdersNotImplementedErrorResponseBody": ".orders_get_orders_not_implemented_error_response_body",
+    "OrdersGetOrdersResponseBody": ".orders_get_orders_response_body",
+    "OrdersGetOrdersServiceUnavailableErrorResponseBody": ".orders_get_orders_service_unavailable_error_response_body",
+    "OrdersGetOrdersStreamBadGatewayErrorResponseBody": ".orders_get_orders_stream_bad_gateway_error_response_body",
+    "OrdersGetOrdersStreamGatewayTimeoutErrorResponseBody": ".orders_get_orders_stream_gateway_timeout_error_response_body",
+    "OrdersGetOrdersStreamInternalServerErrorResponseBody": ".orders_get_orders_stream_internal_server_error_response_body",
+    "OrdersGetOrdersStreamMethodNotAllowedErrorResponseBody": ".orders_get_orders_stream_method_not_allowed_error_response_body",
+    "OrdersGetOrdersStreamNotFoundErrorResponseBody": ".orders_get_orders_stream_not_found_error_response_body",
+    "OrdersGetOrdersStreamNotImplementedErrorResponseBody": ".orders_get_orders_stream_not_implemented_error_response_body",
+    "OrdersGetOrdersStreamResponseBody": ".orders_get_orders_stream_response_body",
+    "OrdersGetOrdersStreamServiceUnavailableErrorResponseBody": ".orders_get_orders_stream_service_unavailable_error_response_body",
+    "OrdersGetOrdersStreamTooManyRequestsErrorResponseBody": ".orders_get_orders_stream_too_many_requests_error_response_body",
+    "OrdersGetOrdersStreamUnauthorizedErrorResponseBody": ".orders_get_orders_stream_unauthorized_error_response_body",
+    "OrdersGetOrdersTooManyRequestsErrorResponseBody": ".orders_get_orders_too_many_requests_error_response_body",
+    "OrdersGetOrdersUnauthorizedErrorResponseBody": ".orders_get_orders_unauthorized_error_response_body",
+    "OrdersPostOrdersBatchBadGatewayErrorResponseBody": ".orders_post_orders_batch_bad_gateway_error_response_body",
+    "OrdersPostOrdersBatchGatewayTimeoutErrorResponseBody": ".orders_post_orders_batch_gateway_timeout_error_response_body",
+    "OrdersPostOrdersBatchInternalServerErrorResponseBody": ".orders_post_orders_batch_internal_server_error_response_body",
+    "OrdersPostOrdersBatchMethodNotAllowedErrorResponseBody": ".orders_post_orders_batch_method_not_allowed_error_response_body",
+    "OrdersPostOrdersBatchNotFoundErrorResponseBody": ".orders_post_orders_batch_not_found_error_response_body",
+    "OrdersPostOrdersBatchNotImplementedErrorResponseBody": ".orders_post_orders_batch_not_implemented_error_response_body",
+    "OrdersPostOrdersBatchResponseBody": ".orders_post_orders_batch_response_body",
+    "OrdersPostOrdersBatchServiceUnavailableErrorResponseBody": ".orders_post_orders_batch_service_unavailable_error_response_body",
+    "OrdersPostOrdersBatchTooManyRequestsErrorResponseBody": ".orders_post_orders_batch_too_many_requests_error_response_body",
+    "OrdersPostOrdersBatchUnauthorizedErrorResponseBody": ".orders_post_orders_batch_unauthorized_error_response_body",
     "OrganizationInfoCarrierSettings": ".organization_info_carrier_settings",
     "OrganizationInfoObject": ".organization_info_object",
     "OrganizationInfoResponse": ".organization_info_response",
@@ -12083,6 +12613,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "PreferredStationsPostPreferredStationServiceUnavailableErrorResponseBody": ".preferred_stations_post_preferred_station_service_unavailable_error_response_body",
     "PreferredStationsPostPreferredStationTooManyRequestsErrorResponseBody": ".preferred_stations_post_preferred_station_too_many_requests_error_response_body",
     "PreferredStationsPostPreferredStationUnauthorizedErrorResponseBody": ".preferred_stations_post_preferred_station_unauthorized_error_response_body",
+    "PreventiveMaintenanceScheduleDueDataResponseBody": ".preventive_maintenance_schedule_due_data_response_body",
+    "PreventiveMaintenanceScheduleDueDataResponseBodyDueReasonsItem": ".preventive_maintenance_schedule_due_data_response_body_due_reasons_item",
     "PrimaryTimeRangeRequestBody": ".primary_time_range_request_body",
     "PrimaryTimeRangeResponseBody": ".primary_time_range_response_body",
     "PushNotificationOptionsObjectRequestBody": ".push_notification_options_object_request_body",
@@ -12317,6 +12849,17 @@ _dynamic_imports: typing.Dict[str, str] = {
     "ResolveAssignmentByDetailsResolveAssignmentByDetailsTooManyRequestsErrorResponseBody": ".resolve_assignment_by_details_resolve_assignment_by_details_too_many_requests_error_response_body",
     "ResolveAssignmentByDetailsResolveAssignmentByDetailsUnauthorizedErrorResponseBody": ".resolve_assignment_by_details_resolve_assignment_by_details_unauthorized_error_response_body",
     "ResolveAssignmentByDetailsResponseBodyResponseBody": ".resolve_assignment_by_details_response_body_response_body",
+    "ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceBadGatewayErrorResponseBody": ".resolve_preventive_maintenance_action_service_resolve_preventive_maintenance_bad_gateway_error_response_body",
+    "ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceGatewayTimeoutErrorResponseBody": ".resolve_preventive_maintenance_action_service_resolve_preventive_maintenance_gateway_timeout_error_response_body",
+    "ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceInternalServerErrorResponseBody": ".resolve_preventive_maintenance_action_service_resolve_preventive_maintenance_internal_server_error_response_body",
+    "ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceMethodNotAllowedErrorResponseBody": ".resolve_preventive_maintenance_action_service_resolve_preventive_maintenance_method_not_allowed_error_response_body",
+    "ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceNotFoundErrorResponseBody": ".resolve_preventive_maintenance_action_service_resolve_preventive_maintenance_not_found_error_response_body",
+    "ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceNotImplementedErrorResponseBody": ".resolve_preventive_maintenance_action_service_resolve_preventive_maintenance_not_implemented_error_response_body",
+    "ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceResponseBody": ".resolve_preventive_maintenance_action_service_resolve_preventive_maintenance_response_body",
+    "ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceServiceUnavailableErrorResponseBody": ".resolve_preventive_maintenance_action_service_resolve_preventive_maintenance_service_unavailable_error_response_body",
+    "ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceTooManyRequestsErrorResponseBody": ".resolve_preventive_maintenance_action_service_resolve_preventive_maintenance_too_many_requests_error_response_body",
+    "ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceUnauthorizedErrorResponseBody": ".resolve_preventive_maintenance_action_service_resolve_preventive_maintenance_unauthorized_error_response_body",
+    "ResolvePreventiveMaintenanceResponseObjectTypeResponseBody": ".resolve_preventive_maintenance_response_object_type_response_body",
     "ResolvedBy": ".resolved_by",
     "ResolvedByType": ".resolved_by_type",
     "ReverseGeo": ".reverse_geo",
@@ -12466,6 +13009,11 @@ _dynamic_imports: typing.Dict[str, str] = {
     "RouteStopFormRequestObjectRequestBody": ".route_stop_form_request_object_request_body",
     "RouteStopFormResponseObjectResponseBody": ".route_stop_form_response_object_response_body",
     "RouteStopObjectResponseBody": ".route_stop_object_response_body",
+    "RouteStopOrderTaskReferenceObjectResponseBody": ".route_stop_order_task_reference_object_response_body",
+    "RouteStopOrderUpsertInputRequestBody": ".route_stop_order_upsert_input_request_body",
+    "RouteStopOrderUpsertInputRequestBodyExternalIds": ".route_stop_order_upsert_input_request_body_external_ids",
+    "RouteStopWithOrdersResponseObjectResponseBody": ".route_stop_with_orders_response_object_response_body",
+    "RouteStopWithOrdersResponseObjectResponseBodyState": ".route_stop_with_orders_response_object_response_body_state",
     "RouteVehicleObjectResponseBody": ".route_vehicle_object_response_body",
     "RoutesCreateRouteBadGatewayErrorResponseBody": ".routes_create_route_bad_gateway_error_response_body",
     "RoutesCreateRouteGatewayTimeoutErrorResponseBody": ".routes_create_route_gateway_timeout_error_response_body",
@@ -12540,8 +13088,6 @@ _dynamic_imports: typing.Dict[str, str] = {
     "RoutesSingleUseAddressObjectResponseBody": ".routes_single_use_address_object_response_body",
     "RoutesStopResponseObjectResponseBody": ".routes_stop_response_object_response_body",
     "RoutesStopResponseObjectResponseBodyState": ".routes_stop_response_object_response_body_state",
-    "RoutesStopWithFormsResponseObjectResponseBody": ".routes_stop_with_forms_response_object_response_body",
-    "RoutesStopWithFormsResponseObjectResponseBodyState": ".routes_stop_with_forms_response_object_response_body_state",
     "RoutingCapacityServiceTimeResponseResponseBody": ".routing_capacity_service_time_response_response_body",
     "RoutingOrderServiceTimeResponseResponseBody": ".routing_order_service_time_response_response_body",
     "RoutingRequiredSkillResponseResponseBody": ".routing_required_skill_response_response_body",
@@ -13608,6 +14154,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "VoiceCoachingSettingsObjectResponseBodyEventsToCoachItem": ".voice_coaching_settings_object_response_body_events_to_coach_item",
     "VoiceCoachingSettingsObjectResponseBodyLanguage": ".voice_coaching_settings_object_response_body_language",
     "WalkaroundPhotoObjectResponseBody": ".walkaround_photo_object_response_body",
+    "WatchpointLatLngTypeRequestBody": ".watchpoint_lat_lng_type_request_body",
+    "WatchpointLatLngTypeResponseBody": ".watchpoint_lat_lng_type_response_body",
     "WebhookParamsObjectRequestBody": ".webhook_params_object_request_body",
     "WebhookParamsObjectRequestBodyPayloadType": ".webhook_params_object_request_body_payload_type",
     "WebhookParamsObjectResponseBody": ".webhook_params_object_response_body",
@@ -14234,7 +14782,7 @@ __all__ = [
     "BarcodeValueObjectRequestBody",
     "BarcodeValueObjectResponseBody",
     "BaseRouteResponseObjectResponseBody",
-    "BaseRouteWithStopFormsResponseObjectResponseBody",
+    "BaseRouteWithOrdersResponseObjectResponseBody",
     "BehaviorCountDetailsRequestBody",
     "BehaviorCountDetailsRequestBodyComparison",
     "BehaviorCountDetailsResponseBody",
@@ -14340,15 +14888,25 @@ __all__ = [
     "CreateFunctionStorageFileDetailResponseBody",
     "CreateHubRouteTemplateDepotEndInputRequestBody",
     "CreateHubRouteTemplateDepotStartInputRequestBody",
-    "CreateHubRouteTemplateObjectResponseBody",
     "CreatePartEntityPartDefinitionMoneyInputTypeRequestBody",
     "CreatePartEntityPartDefinitionMoneyTypeResponseBody",
     "CreatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody",
     "CreatePartInventoryLocationEntityPartInventoryLocationMoneyTypeResponseBody",
     "CreateReportConfigColumnRequestBody",
     "CreateReportConfigObjectRequestBody",
-    "CreateRoutesStopRequestObjectRequestBody",
+    "CreateRouteStopWithOrdersRequestObjectRequestBody",
     "CreateSharedAssetRequestObjectRequestBody",
+    "CreateStockMovementActionServiceCreateStockMovementBadGatewayErrorResponseBody",
+    "CreateStockMovementActionServiceCreateStockMovementGatewayTimeoutErrorResponseBody",
+    "CreateStockMovementActionServiceCreateStockMovementInternalServerErrorResponseBody",
+    "CreateStockMovementActionServiceCreateStockMovementMethodNotAllowedErrorResponseBody",
+    "CreateStockMovementActionServiceCreateStockMovementNotFoundErrorResponseBody",
+    "CreateStockMovementActionServiceCreateStockMovementNotImplementedErrorResponseBody",
+    "CreateStockMovementActionServiceCreateStockMovementResponseBody",
+    "CreateStockMovementActionServiceCreateStockMovementServiceUnavailableErrorResponseBody",
+    "CreateStockMovementActionServiceCreateStockMovementTooManyRequestsErrorResponseBody",
+    "CreateStockMovementActionServiceCreateStockMovementUnauthorizedErrorResponseBody",
+    "CreateStockMovementResponseObjectTypeResponseBody",
     "CreateUserRequestRoles",
     "CruiseControlDurationMs",
     "CumulativeOperatingHoursResponseBody",
@@ -14913,13 +15471,34 @@ __all__ = [
     "EntityCreatePartInventoryLocationPlaceRefTypeResponseBody",
     "EntityCreatePartInventoryLocationTypeResponseBody",
     "EntityCreatePartTypeResponseBody",
+    "EntityCreateStockMovementMoneyInputTypeRequestBody",
+    "EntityCreateStockMovementMoneyTypeResponseBody",
+    "EntityCreateStockMovementStockMovementLocationTypeResponseBody",
+    "EntityCreateWatchpointTypeResponseBody",
+    "EntityCreateWatchpointTypeResponseBodyMode",
+    "EntityCreateWatchpointTypeResponseBodyObservationType",
+    "EntityCreateWatchpointTypeResponseBodyStatus",
+    "EntityInventoryTransactionsServiceListPartTransactionsBadGatewayErrorResponseBody",
+    "EntityInventoryTransactionsServiceListPartTransactionsGatewayTimeoutErrorResponseBody",
+    "EntityInventoryTransactionsServiceListPartTransactionsInternalServerErrorResponseBody",
+    "EntityInventoryTransactionsServiceListPartTransactionsMethodNotAllowedErrorResponseBody",
+    "EntityInventoryTransactionsServiceListPartTransactionsNotFoundErrorResponseBody",
+    "EntityInventoryTransactionsServiceListPartTransactionsNotImplementedErrorResponseBody",
+    "EntityInventoryTransactionsServiceListPartTransactionsResponseBody",
+    "EntityInventoryTransactionsServiceListPartTransactionsServiceUnavailableErrorResponseBody",
+    "EntityInventoryTransactionsServiceListPartTransactionsTooManyRequestsErrorResponseBody",
+    "EntityInventoryTransactionsServiceListPartTransactionsUnauthorizedErrorResponseBody",
     "EntityListPartInventoryPartDefinitionRefTypeResponseBody",
     "EntityListPartInventoryPlaceRefTypeResponseBody",
     "EntityListPartInventoryTypeResponseBody",
+    "EntityListPartTransactionsPartDefinitionRefTypeResponseBody",
+    "EntityListPartTransactionsTypeResponseBody",
+    "EntityListPartTransactionsWorkOrderRefTypeResponseBody",
     "EntityListPartsTypeResponseBody",
     "EntityListPreventiveMaintenanceSchedulesPreventativeMaintenanceScheduleRefTypeResponseBody",
     "EntityListPreventiveMaintenanceSchedulesTypeResponseBody",
     "EntityListTachographLiveDataTypeResponseBody",
+    "EntityListTimeEntriesTypeResponseBody",
     "EntityListUpcomingPreventiveMaintenanceAssetRefTypeResponseBody",
     "EntityListUpcomingPreventiveMaintenancePreventativeMaintenanceScheduleRefTypeResponseBody",
     "EntityListUpcomingPreventiveMaintenanceTypeResponseBody",
@@ -15013,6 +15592,16 @@ __all__ = [
     "EntityTachographLiveDataRecordsServiceListTachographLiveDataServiceUnavailableErrorResponseBody",
     "EntityTachographLiveDataRecordsServiceListTachographLiveDataTooManyRequestsErrorResponseBody",
     "EntityTachographLiveDataRecordsServiceListTachographLiveDataUnauthorizedErrorResponseBody",
+    "EntityTimeEntriesServiceListTimeEntriesBadGatewayErrorResponseBody",
+    "EntityTimeEntriesServiceListTimeEntriesGatewayTimeoutErrorResponseBody",
+    "EntityTimeEntriesServiceListTimeEntriesInternalServerErrorResponseBody",
+    "EntityTimeEntriesServiceListTimeEntriesMethodNotAllowedErrorResponseBody",
+    "EntityTimeEntriesServiceListTimeEntriesNotFoundErrorResponseBody",
+    "EntityTimeEntriesServiceListTimeEntriesNotImplementedErrorResponseBody",
+    "EntityTimeEntriesServiceListTimeEntriesResponseBody",
+    "EntityTimeEntriesServiceListTimeEntriesServiceUnavailableErrorResponseBody",
+    "EntityTimeEntriesServiceListTimeEntriesTooManyRequestsErrorResponseBody",
+    "EntityTimeEntriesServiceListTimeEntriesUnauthorizedErrorResponseBody",
     "EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceBadGatewayErrorResponseBody",
     "EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceGatewayTimeoutErrorResponseBody",
     "EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceInternalServerErrorResponseBody",
@@ -15041,6 +15630,30 @@ __all__ = [
     "EntityUpdateUpcomingPreventiveMaintenancePreventativeMaintenanceScheduleRefTypeResponseBody",
     "EntityUpdateUpcomingPreventiveMaintenanceTypeResponseBody",
     "EntityUpdateUpcomingPreventiveMaintenanceWorkOrderRefTypeResponseBody",
+    "EntityUpdateWatchpointTypeResponseBody",
+    "EntityUpdateWatchpointTypeResponseBodyMode",
+    "EntityUpdateWatchpointTypeResponseBodyObservationType",
+    "EntityUpdateWatchpointTypeResponseBodyStatus",
+    "EntityWatchpointsServiceCreateWatchpointBadGatewayErrorResponseBody",
+    "EntityWatchpointsServiceCreateWatchpointGatewayTimeoutErrorResponseBody",
+    "EntityWatchpointsServiceCreateWatchpointInternalServerErrorResponseBody",
+    "EntityWatchpointsServiceCreateWatchpointMethodNotAllowedErrorResponseBody",
+    "EntityWatchpointsServiceCreateWatchpointNotFoundErrorResponseBody",
+    "EntityWatchpointsServiceCreateWatchpointNotImplementedErrorResponseBody",
+    "EntityWatchpointsServiceCreateWatchpointResponseBody",
+    "EntityWatchpointsServiceCreateWatchpointServiceUnavailableErrorResponseBody",
+    "EntityWatchpointsServiceCreateWatchpointTooManyRequestsErrorResponseBody",
+    "EntityWatchpointsServiceCreateWatchpointUnauthorizedErrorResponseBody",
+    "EntityWatchpointsServiceUpdateWatchpointBadGatewayErrorResponseBody",
+    "EntityWatchpointsServiceUpdateWatchpointGatewayTimeoutErrorResponseBody",
+    "EntityWatchpointsServiceUpdateWatchpointInternalServerErrorResponseBody",
+    "EntityWatchpointsServiceUpdateWatchpointMethodNotAllowedErrorResponseBody",
+    "EntityWatchpointsServiceUpdateWatchpointNotFoundErrorResponseBody",
+    "EntityWatchpointsServiceUpdateWatchpointNotImplementedErrorResponseBody",
+    "EntityWatchpointsServiceUpdateWatchpointResponseBody",
+    "EntityWatchpointsServiceUpdateWatchpointServiceUnavailableErrorResponseBody",
+    "EntityWatchpointsServiceUpdateWatchpointTooManyRequestsErrorResponseBody",
+    "EntityWatchpointsServiceUpdateWatchpointUnauthorizedErrorResponseBody",
     "EnumReadingAlertThresholdResponseBody",
     "EnumValueResponseBody",
     "EquipmentEngineRpm",
@@ -15164,6 +15777,36 @@ __all__ = [
     "FleetLocationsGetFleetLocationsTooManyRequestsErrorResponseBody",
     "FleetLocationsGetFleetLocationsUnauthorizedErrorResponseBody",
     "FleetLocationsPaginationResponseBody",
+    "FleetOrderBatchCustomAddressInputRequestBody",
+    "FleetOrderBatchCustomerPropertyInputRequestBody",
+    "FleetOrderBatchQuantityInputRequestBody",
+    "FleetOrderBatchResponseItemResponseBody",
+    "FleetOrderBatchServiceLocationInputRequestBody",
+    "FleetOrderBatchServiceWindowUpsertInputRequestBody",
+    "FleetOrderBatchTaskUpsertInputRequestBody",
+    "FleetOrderBatchUpsertInputRequestBody",
+    "FleetOrderBatchUpsertInputRequestBodyExternalIds",
+    "FleetOrderCustomAddressInputRequestBody",
+    "FleetOrderCustomAddressObjectResponseBody",
+    "FleetOrderCustomerPropertyObjectRequestBody",
+    "FleetOrderCustomerPropertyObjectResponseBody",
+    "FleetOrderDeletionMarkerObjectResponseBody",
+    "FleetOrderObjectResponseBody",
+    "FleetOrderObjectResponseBodyExternalIds",
+    "FleetOrderQuantityInputRequestBody",
+    "FleetOrderQuantityObjectResponseBody",
+    "FleetOrderServiceLocationInputRequestBody",
+    "FleetOrderServiceLocationInputRequestBodyServiceLocationType",
+    "FleetOrderServiceLocationObjectResponseBody",
+    "FleetOrderServiceLocationObjectResponseBodyServiceLocationType",
+    "FleetOrderServiceWindowObjectResponseBody",
+    "FleetOrderServiceWindowUpsertInputRequestBody",
+    "FleetOrderTaskObjectResponseBody",
+    "FleetOrderTaskObjectResponseBodyPositionConstraintType",
+    "FleetOrderTaskObjectResponseBodyTaskType",
+    "FleetOrderTaskUpsertInputRequestBody",
+    "FleetOrderTaskUpsertInputRequestBodyPositionConstraintType",
+    "FleetOrderTaskUpsertInputRequestBodyTaskType",
     "FollowingDistanceDetectionAlertSettingsObjectResponseBody",
     "FormSubmissionPdfExportResponseObjectResponseBody",
     "FormSubmissionPdfExportResponseObjectResponseBodyJobStatus",
@@ -16065,6 +16708,8 @@ __all__ = [
     "ListPartsEntityPartDefinitionMoneyTypeResponseBody",
     "ListPlanOrdersResponsePaginationResponseBody",
     "ListTagsResponse",
+    "ListTimeEntriesEntityTimeEntryMoneyTypeResponseBody",
+    "ListTimeEntriesEntityTimeEntryTimeEntryLocationTypeResponseBody",
     "ListUploadedMediaObjectResponseBody",
     "ListUserRolesResponse",
     "ListUsersResponse",
@@ -16225,6 +16870,55 @@ __all__ = [
     "OrderTaskResponseBody",
     "OrderTaskResponseBodyPosition",
     "OrderTaskSkillObjectResponseBody",
+    "OrdersDeleteOrderBadGatewayErrorResponseBody",
+    "OrdersDeleteOrderGatewayTimeoutErrorResponseBody",
+    "OrdersDeleteOrderInternalServerErrorResponseBody",
+    "OrdersDeleteOrderMethodNotAllowedErrorResponseBody",
+    "OrdersDeleteOrderNotFoundErrorResponseBody",
+    "OrdersDeleteOrderNotImplementedErrorResponseBody",
+    "OrdersDeleteOrderServiceUnavailableErrorResponseBody",
+    "OrdersDeleteOrderTooManyRequestsErrorResponseBody",
+    "OrdersDeleteOrderUnauthorizedErrorResponseBody",
+    "OrdersGetOrderDeletionsBadGatewayErrorResponseBody",
+    "OrdersGetOrderDeletionsGatewayTimeoutErrorResponseBody",
+    "OrdersGetOrderDeletionsInternalServerErrorResponseBody",
+    "OrdersGetOrderDeletionsMethodNotAllowedErrorResponseBody",
+    "OrdersGetOrderDeletionsNotFoundErrorResponseBody",
+    "OrdersGetOrderDeletionsNotImplementedErrorResponseBody",
+    "OrdersGetOrderDeletionsResponseBody",
+    "OrdersGetOrderDeletionsServiceUnavailableErrorResponseBody",
+    "OrdersGetOrderDeletionsTooManyRequestsErrorResponseBody",
+    "OrdersGetOrderDeletionsUnauthorizedErrorResponseBody",
+    "OrdersGetOrdersBadGatewayErrorResponseBody",
+    "OrdersGetOrdersGatewayTimeoutErrorResponseBody",
+    "OrdersGetOrdersInternalServerErrorResponseBody",
+    "OrdersGetOrdersMethodNotAllowedErrorResponseBody",
+    "OrdersGetOrdersNotFoundErrorResponseBody",
+    "OrdersGetOrdersNotImplementedErrorResponseBody",
+    "OrdersGetOrdersResponseBody",
+    "OrdersGetOrdersServiceUnavailableErrorResponseBody",
+    "OrdersGetOrdersStreamBadGatewayErrorResponseBody",
+    "OrdersGetOrdersStreamGatewayTimeoutErrorResponseBody",
+    "OrdersGetOrdersStreamInternalServerErrorResponseBody",
+    "OrdersGetOrdersStreamMethodNotAllowedErrorResponseBody",
+    "OrdersGetOrdersStreamNotFoundErrorResponseBody",
+    "OrdersGetOrdersStreamNotImplementedErrorResponseBody",
+    "OrdersGetOrdersStreamResponseBody",
+    "OrdersGetOrdersStreamServiceUnavailableErrorResponseBody",
+    "OrdersGetOrdersStreamTooManyRequestsErrorResponseBody",
+    "OrdersGetOrdersStreamUnauthorizedErrorResponseBody",
+    "OrdersGetOrdersTooManyRequestsErrorResponseBody",
+    "OrdersGetOrdersUnauthorizedErrorResponseBody",
+    "OrdersPostOrdersBatchBadGatewayErrorResponseBody",
+    "OrdersPostOrdersBatchGatewayTimeoutErrorResponseBody",
+    "OrdersPostOrdersBatchInternalServerErrorResponseBody",
+    "OrdersPostOrdersBatchMethodNotAllowedErrorResponseBody",
+    "OrdersPostOrdersBatchNotFoundErrorResponseBody",
+    "OrdersPostOrdersBatchNotImplementedErrorResponseBody",
+    "OrdersPostOrdersBatchResponseBody",
+    "OrdersPostOrdersBatchServiceUnavailableErrorResponseBody",
+    "OrdersPostOrdersBatchTooManyRequestsErrorResponseBody",
+    "OrdersPostOrdersBatchUnauthorizedErrorResponseBody",
     "OrganizationInfoCarrierSettings",
     "OrganizationInfoObject",
     "OrganizationInfoResponse",
@@ -16519,6 +17213,8 @@ __all__ = [
     "PreferredStationsPostPreferredStationServiceUnavailableErrorResponseBody",
     "PreferredStationsPostPreferredStationTooManyRequestsErrorResponseBody",
     "PreferredStationsPostPreferredStationUnauthorizedErrorResponseBody",
+    "PreventiveMaintenanceScheduleDueDataResponseBody",
+    "PreventiveMaintenanceScheduleDueDataResponseBodyDueReasonsItem",
     "PrimaryTimeRangeRequestBody",
     "PrimaryTimeRangeResponseBody",
     "PushNotificationOptionsObjectRequestBody",
@@ -16753,6 +17449,17 @@ __all__ = [
     "ResolveAssignmentByDetailsResolveAssignmentByDetailsTooManyRequestsErrorResponseBody",
     "ResolveAssignmentByDetailsResolveAssignmentByDetailsUnauthorizedErrorResponseBody",
     "ResolveAssignmentByDetailsResponseBodyResponseBody",
+    "ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceBadGatewayErrorResponseBody",
+    "ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceGatewayTimeoutErrorResponseBody",
+    "ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceInternalServerErrorResponseBody",
+    "ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceMethodNotAllowedErrorResponseBody",
+    "ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceNotFoundErrorResponseBody",
+    "ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceNotImplementedErrorResponseBody",
+    "ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceResponseBody",
+    "ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceServiceUnavailableErrorResponseBody",
+    "ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceTooManyRequestsErrorResponseBody",
+    "ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceUnauthorizedErrorResponseBody",
+    "ResolvePreventiveMaintenanceResponseObjectTypeResponseBody",
     "ResolvedBy",
     "ResolvedByType",
     "ReverseGeo",
@@ -16902,6 +17609,11 @@ __all__ = [
     "RouteStopFormRequestObjectRequestBody",
     "RouteStopFormResponseObjectResponseBody",
     "RouteStopObjectResponseBody",
+    "RouteStopOrderTaskReferenceObjectResponseBody",
+    "RouteStopOrderUpsertInputRequestBody",
+    "RouteStopOrderUpsertInputRequestBodyExternalIds",
+    "RouteStopWithOrdersResponseObjectResponseBody",
+    "RouteStopWithOrdersResponseObjectResponseBodyState",
     "RouteVehicleObjectResponseBody",
     "RoutesCreateRouteBadGatewayErrorResponseBody",
     "RoutesCreateRouteGatewayTimeoutErrorResponseBody",
@@ -16976,8 +17688,6 @@ __all__ = [
     "RoutesSingleUseAddressObjectResponseBody",
     "RoutesStopResponseObjectResponseBody",
     "RoutesStopResponseObjectResponseBodyState",
-    "RoutesStopWithFormsResponseObjectResponseBody",
-    "RoutesStopWithFormsResponseObjectResponseBodyState",
     "RoutingCapacityServiceTimeResponseResponseBody",
     "RoutingOrderServiceTimeResponseResponseBody",
     "RoutingRequiredSkillResponseResponseBody",
@@ -18044,6 +18754,8 @@ __all__ = [
     "VoiceCoachingSettingsObjectResponseBodyEventsToCoachItem",
     "VoiceCoachingSettingsObjectResponseBodyLanguage",
     "WalkaroundPhotoObjectResponseBody",
+    "WatchpointLatLngTypeRequestBody",
+    "WatchpointLatLngTypeResponseBody",
     "WebhookParamsObjectRequestBody",
     "WebhookParamsObjectRequestBodyPayloadType",
     "WebhookParamsObjectResponseBody",

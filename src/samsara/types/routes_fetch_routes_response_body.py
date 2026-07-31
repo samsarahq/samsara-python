@@ -4,12 +4,12 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from .base_route_with_stop_forms_response_object_response_body import BaseRouteWithStopFormsResponseObjectResponseBody
+from .base_route_with_orders_response_object_response_body import BaseRouteWithOrdersResponseObjectResponseBody
 from .goa_pagination_response_response_body import GoaPaginationResponseResponseBody
 
 
 class RoutesFetchRoutesResponseBody(UniversalBaseModel):
-    data: typing.List[BaseRouteWithStopFormsResponseObjectResponseBody] = pydantic.Field()
+    data: typing.List[BaseRouteWithOrdersResponseObjectResponseBody] = pydantic.Field()
     """
     An array containing multiple routes.
     """

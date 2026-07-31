@@ -22,6 +22,7 @@ from .form_submission_request_field_input_object_request_body_type import (
 from .form_submission_request_geofence_value_object_request_body import (
     FormSubmissionRequestGeofenceValueObjectRequestBody,
 )
+from .form_submission_request_media_value_object_request_body import FormSubmissionRequestMediaValueObjectRequestBody
 from .form_submission_request_multiple_choice_value_object_request_body import (
     FormSubmissionRequestMultipleChoiceValueObjectRequestBody,
 )
@@ -66,6 +67,11 @@ class FormSubmissionRequestFieldInputObjectRequestBody(UniversalBaseModel):
     ID of the forms input field object.
     """
 
+    media_value: typing_extensions.Annotated[
+        typing.Optional[FormSubmissionRequestMediaValueObjectRequestBody],
+        FieldMetadata(alias="mediaValue"),
+        pydantic.Field(alias="mediaValue"),
+    ] = None
     multiple_choice_value: typing_extensions.Annotated[
         typing.Optional[FormSubmissionRequestMultipleChoiceValueObjectRequestBody],
         FieldMetadata(alias="multipleChoiceValue"),
@@ -93,7 +99,7 @@ class FormSubmissionRequestFieldInputObjectRequestBody(UniversalBaseModel):
     ] = None
     type: FormSubmissionRequestFieldInputObjectRequestBodyType = pydantic.Field()
     """
-    Type of the field.  Valid values: `number`, `text`, `multiple_choice`, `check_boxes`, `datetime`, `asset`, `person`, `table`, `geofence`, `barcode`
+    Type of the field.  Valid values: `number`, `text`, `multiple_choice`, `check_boxes`, `datetime`, `asset`, `person`, `table`, `geofence`, `barcode`, `media`
     """
 
     if IS_PYDANTIC_V2:

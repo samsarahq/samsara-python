@@ -73,7 +73,7 @@ def test_betaApIs_update_engine_immobilizer_state() -> None:
     """Test updateEngineImmobilizerState endpoint with WireMock"""
     test_id = "beta_ap_is.update_engine_immobilizer_state.0"
     client = get_client(test_id)
-    client.beta_ap_is.update_engine_immobilizer_state(id=1000000, relay_states=[{"id": "relay1", "is_open": True}])
+    client.beta_ap_is.update_engine_immobilizer_state(id=1000000, relay_states=[{"id": "relay1", "is_open": False}])
     verify_request_count(test_id, "PATCH", "/beta/fleet/vehicles/1000000/immobilizer", None, 1)
 
 
@@ -501,6 +501,24 @@ def test_betaApIs_pair_gateways() -> None:
     verify_request_count(test_id, "POST", "/gateways/pair", None, 1)
 
 
+def test_betaApIs_create_watchpoint() -> None:
+    """Test createWatchpoint endpoint with WireMock"""
+    test_id = "beta_ap_is.create_watchpoint.0"
+    client = get_client(test_id)
+    client.beta_ap_is.create_watchpoint(
+        location={"latitude": 37.7749, "longitude": -122.4194}, mode="justOnce", observation_type="roadDefect"
+    )
+    verify_request_count(test_id, "POST", "/ground-intelligence/watchpoints", None, 1)
+
+
+def test_betaApIs_update_watchpoint() -> None:
+    """Test updateWatchpoint endpoint with WireMock"""
+    test_id = "beta_ap_is.update_watchpoint.0"
+    client = get_client(test_id)
+    client.beta_ap_is.update_watchpoint(id="id")
+    verify_request_count(test_id, "PATCH", "/ground-intelligence/watchpoints", {"id": "id"}, 1)
+
+
 def test_betaApIs_update_shipping_docs() -> None:
     """Test updateShippingDocs endpoint with WireMock"""
     test_id = "beta_ap_is.update_shipping_docs.0"
@@ -619,6 +637,22 @@ def test_betaApIs_update_part_inventory_location() -> None:
     verify_request_count(test_id, "PATCH", "/maintenance/parts/inventory-location", None, 1)
 
 
+def test_betaApIs_create_stock_movement() -> None:
+    """Test createStockMovement endpoint with WireMock"""
+    test_id = "beta_ap_is.create_stock_movement.0"
+    client = get_client(test_id)
+    client.beta_ap_is.create_stock_movement(movement_type="12345", part_samsara_id="12345", quantity=123.45)
+    verify_request_count(test_id, "POST", "/maintenance/parts/stock-movements", None, 1)
+
+
+def test_betaApIs_resolve_preventive_maintenance() -> None:
+    """Test resolvePreventiveMaintenance endpoint with WireMock"""
+    test_id = "beta_ap_is.resolve_preventive_maintenance.0"
+    client = get_client(test_id)
+    client.beta_ap_is.resolve_preventive_maintenance()
+    verify_request_count(test_id, "POST", "/maintenance/preventive/resolve", None, 1)
+
+
 def test_betaApIs_list_preventive_maintenance_schedules() -> None:
     """Test listPreventiveMaintenanceSchedules endpoint with WireMock"""
     test_id = "beta_ap_is.list_preventive_maintenance_schedules.0"
@@ -633,6 +667,22 @@ def test_betaApIs_list_upcoming_preventive_maintenance() -> None:
     client = get_client(test_id)
     client.beta_ap_is.list_upcoming_preventive_maintenance()
     verify_request_count(test_id, "GET", "/maintenance/preventive/upcoming", None, 1)
+
+
+def test_betaApIs_update_upcoming_preventive_maintenance() -> None:
+    """Test updateUpcomingPreventiveMaintenance endpoint with WireMock"""
+    test_id = "beta_ap_is.update_upcoming_preventive_maintenance.0"
+    client = get_client(test_id)
+    client.beta_ap_is.update_upcoming_preventive_maintenance()
+    verify_request_count(test_id, "PATCH", "/maintenance/preventive/upcoming", None, 1)
+
+
+def test_betaApIs_list_time_entries() -> None:
+    """Test listTimeEntries endpoint with WireMock"""
+    test_id = "beta_ap_is.list_time_entries.0"
+    client = get_client(test_id)
+    client.beta_ap_is.list_time_entries(start_time="startTime")
+    verify_request_count(test_id, "GET", "/maintenance/time-entries/stream", {"startTime": "startTime"}, 1)
 
 
 def test_betaApIs_get_work_order_templates() -> None:
@@ -971,7 +1021,6 @@ def test_betaApIs_patch_safety_events_v_2_batch() -> None:
     client = get_client(test_id)
     client.beta_ap_is.patch_safety_events_v_2_batch(
         safety_event_ids=[
-            "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
             "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
             "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
             "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
