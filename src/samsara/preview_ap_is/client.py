@@ -5,17 +5,38 @@ import typing
 
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.request_options import RequestOptions
+from ..types.create_purchase_order_entity_purchase_order_money_input_type_request_body import (
+    CreatePurchaseOrderEntityPurchaseOrderMoneyInputTypeRequestBody,
+)
+from ..types.create_purchase_order_entity_purchase_order_purchase_order_part_input_type_request_body import (
+    CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputTypeRequestBody,
+)
 from ..types.drivers_auth_token_create_driver_auth_token_response_body import (
     DriversAuthTokenCreateDriverAuthTokenResponseBody,
 )
 from ..types.entity_inventory_transactions_service_list_part_transactions_response_body import (
     EntityInventoryTransactionsServiceListPartTransactionsResponseBody,
 )
+from ..types.entity_purchase_orders_service_create_purchase_order_response_body import (
+    EntityPurchaseOrdersServiceCreatePurchaseOrderResponseBody,
+)
+from ..types.entity_purchase_orders_service_list_purchase_orders_response_body import (
+    EntityPurchaseOrdersServiceListPurchaseOrdersResponseBody,
+)
+from ..types.entity_purchase_orders_service_update_purchase_order_response_body import (
+    EntityPurchaseOrdersServiceUpdatePurchaseOrderResponseBody,
+)
 from ..types.fleet_order_batch_upsert_input_request_body import FleetOrderBatchUpsertInputRequestBody
 from ..types.orders_get_order_deletions_response_body import OrdersGetOrderDeletionsResponseBody
 from ..types.orders_get_orders_response_body import OrdersGetOrdersResponseBody
 from ..types.orders_get_orders_stream_response_body import OrdersGetOrdersStreamResponseBody
 from ..types.orders_post_orders_batch_response_body import OrdersPostOrdersBatchResponseBody
+from ..types.update_purchase_order_entity_purchase_order_money_input_type_request_body import (
+    UpdatePurchaseOrderEntityPurchaseOrderMoneyInputTypeRequestBody,
+)
+from ..types.update_purchase_order_entity_purchase_order_purchase_order_part_input_type_request_body import (
+    UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputTypeRequestBody,
+)
 from .raw_client import AsyncRawPreviewApIsClient, RawPreviewApIsClient
 
 # this is used as the default value for optional parameters
@@ -546,6 +567,323 @@ class PreviewApIsClient:
             transaction_type_in=transaction_type_in,
             after=after,
             limit=limit,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def list_purchase_orders(
+        self,
+        *,
+        start_time: str,
+        ids: typing.Optional[str] = None,
+        po_numbers: typing.Optional[str] = None,
+        vendor_ids: typing.Optional[str] = None,
+        end_time: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityPurchaseOrdersServiceListPurchaseOrdersResponseBody:
+        """
+        Returns a paginated list of purchase orders ordered by last update time.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Purchase Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        start_time : str
+            Required start of the updated time range, inclusive.
+
+        ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of ID values.
+
+        po_numbers : typing.Optional[str]
+            A filter on the data based on this comma-separated list of PO number values.
+
+        vendor_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Vendor values.
+
+        end_time : typing.Optional[str]
+            Optional end of the updated time range, exclusive. Defaults to the server's current time.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityPurchaseOrdersServiceListPurchaseOrdersResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.preview_ap_is.list_purchase_orders(
+            start_time="startTime",
+        )
+        """
+        _response = self._raw_client.list_purchase_orders(
+            start_time=start_time,
+            ids=ids,
+            po_numbers=po_numbers,
+            vendor_ids=vendor_ids,
+            end_time=end_time,
+            after=after,
+            limit=limit,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def create_purchase_order(
+        self,
+        *,
+        order_status: str,
+        vendor_id: str,
+        gl_code: typing.Optional[str] = OMIT,
+        invoice_number: typing.Optional[str] = OMIT,
+        notes: typing.Optional[str] = OMIT,
+        other_cost: typing.Optional[CreatePurchaseOrderEntityPurchaseOrderMoneyInputTypeRequestBody] = OMIT,
+        parts: typing.Optional[
+            typing.Sequence[CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputTypeRequestBody]
+        ] = OMIT,
+        po_number_prefix: typing.Optional[str] = OMIT,
+        po_number_suffix: typing.Optional[str] = OMIT,
+        tracking_number: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityPurchaseOrdersServiceCreatePurchaseOrderResponseBody:
+        """
+        Creates a purchase order for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Purchase Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        order_status : str
+            Current customer-visible status of the purchase order.
+
+        vendor_id : str
+            ID of the vendor supplying this purchase order.
+
+        gl_code : typing.Optional[str]
+            General ledger code associated with this purchase order.
+
+        invoice_number : typing.Optional[str]
+            Vendor invoice number associated with this purchase order.
+
+        notes : typing.Optional[str]
+            Free-text notes for the purchase order.
+
+        other_cost : typing.Optional[CreatePurchaseOrderEntityPurchaseOrderMoneyInputTypeRequestBody]
+
+        parts : typing.Optional[typing.Sequence[CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputTypeRequestBody]]
+            Parts ordered on the purchase order.
+
+        po_number_prefix : typing.Optional[str]
+            Optional prefix included in the purchase order number.
+
+        po_number_suffix : typing.Optional[str]
+            Optional suffix included in the purchase order number.
+
+        tracking_number : typing.Optional[str]
+            Shipment tracking number for the purchase order.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityPurchaseOrdersServiceCreatePurchaseOrderResponseBody
+            Created response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.preview_ap_is.create_purchase_order(
+            order_status="12345",
+            vendor_id="281474976710656",
+        )
+        """
+        _response = self._raw_client.create_purchase_order(
+            order_status=order_status,
+            vendor_id=vendor_id,
+            gl_code=gl_code,
+            invoice_number=invoice_number,
+            notes=notes,
+            other_cost=other_cost,
+            parts=parts,
+            po_number_prefix=po_number_prefix,
+            po_number_suffix=po_number_suffix,
+            tracking_number=tracking_number,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def delete_purchase_order(self, *, id: str, request_options: typing.Optional[RequestOptions] = None) -> None:
+        """
+        Deletes a purchase order for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Purchase Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Unique identifier for the PurchaseOrder record.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.preview_ap_is.delete_purchase_order(
+            id="id",
+        )
+        """
+        _response = self._raw_client.delete_purchase_order(id=id, request_options=request_options)
+        return _response.data
+
+    def update_purchase_order(
+        self,
+        *,
+        id: str,
+        gl_code: typing.Optional[str] = OMIT,
+        invoice_number: typing.Optional[str] = OMIT,
+        notes: typing.Optional[str] = OMIT,
+        order_status: typing.Optional[str] = OMIT,
+        other_cost: typing.Optional[UpdatePurchaseOrderEntityPurchaseOrderMoneyInputTypeRequestBody] = OMIT,
+        parts: typing.Optional[
+            typing.Sequence[UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputTypeRequestBody]
+        ] = OMIT,
+        tracking_number: typing.Optional[str] = OMIT,
+        vendor_id: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityPurchaseOrdersServiceUpdatePurchaseOrderResponseBody:
+        """
+        Updates a purchase order for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Purchase Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Unique identifier for the PurchaseOrder record.
+
+        gl_code : typing.Optional[str]
+            General ledger code associated with this purchase order.
+
+        invoice_number : typing.Optional[str]
+            Vendor invoice number associated with this purchase order.
+
+        notes : typing.Optional[str]
+            Free-text notes for the purchase order.
+
+        order_status : typing.Optional[str]
+            Current customer-visible status of the purchase order.
+
+        other_cost : typing.Optional[UpdatePurchaseOrderEntityPurchaseOrderMoneyInputTypeRequestBody]
+
+        parts : typing.Optional[typing.Sequence[UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputTypeRequestBody]]
+            Parts ordered on the purchase order.
+
+        tracking_number : typing.Optional[str]
+            Shipment tracking number for the purchase order.
+
+        vendor_id : typing.Optional[str]
+            ID of the vendor supplying this purchase order.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityPurchaseOrdersServiceUpdatePurchaseOrderResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.preview_ap_is.update_purchase_order(
+            id="id",
+        )
+        """
+        _response = self._raw_client.update_purchase_order(
+            id=id,
+            gl_code=gl_code,
+            invoice_number=invoice_number,
+            notes=notes,
+            order_status=order_status,
+            other_cost=other_cost,
+            parts=parts,
+            tracking_number=tracking_number,
+            vendor_id=vendor_id,
             request_options=request_options,
         )
         return _response.data
@@ -1146,6 +1484,355 @@ class AsyncPreviewApIsClient:
             transaction_type_in=transaction_type_in,
             after=after,
             limit=limit,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def list_purchase_orders(
+        self,
+        *,
+        start_time: str,
+        ids: typing.Optional[str] = None,
+        po_numbers: typing.Optional[str] = None,
+        vendor_ids: typing.Optional[str] = None,
+        end_time: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityPurchaseOrdersServiceListPurchaseOrdersResponseBody:
+        """
+        Returns a paginated list of purchase orders ordered by last update time.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Purchase Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        start_time : str
+            Required start of the updated time range, inclusive.
+
+        ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of ID values.
+
+        po_numbers : typing.Optional[str]
+            A filter on the data based on this comma-separated list of PO number values.
+
+        vendor_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Vendor values.
+
+        end_time : typing.Optional[str]
+            Optional end of the updated time range, exclusive. Defaults to the server's current time.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityPurchaseOrdersServiceListPurchaseOrdersResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.preview_ap_is.list_purchase_orders(
+                start_time="startTime",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.list_purchase_orders(
+            start_time=start_time,
+            ids=ids,
+            po_numbers=po_numbers,
+            vendor_ids=vendor_ids,
+            end_time=end_time,
+            after=after,
+            limit=limit,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def create_purchase_order(
+        self,
+        *,
+        order_status: str,
+        vendor_id: str,
+        gl_code: typing.Optional[str] = OMIT,
+        invoice_number: typing.Optional[str] = OMIT,
+        notes: typing.Optional[str] = OMIT,
+        other_cost: typing.Optional[CreatePurchaseOrderEntityPurchaseOrderMoneyInputTypeRequestBody] = OMIT,
+        parts: typing.Optional[
+            typing.Sequence[CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputTypeRequestBody]
+        ] = OMIT,
+        po_number_prefix: typing.Optional[str] = OMIT,
+        po_number_suffix: typing.Optional[str] = OMIT,
+        tracking_number: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityPurchaseOrdersServiceCreatePurchaseOrderResponseBody:
+        """
+        Creates a purchase order for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Purchase Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        order_status : str
+            Current customer-visible status of the purchase order.
+
+        vendor_id : str
+            ID of the vendor supplying this purchase order.
+
+        gl_code : typing.Optional[str]
+            General ledger code associated with this purchase order.
+
+        invoice_number : typing.Optional[str]
+            Vendor invoice number associated with this purchase order.
+
+        notes : typing.Optional[str]
+            Free-text notes for the purchase order.
+
+        other_cost : typing.Optional[CreatePurchaseOrderEntityPurchaseOrderMoneyInputTypeRequestBody]
+
+        parts : typing.Optional[typing.Sequence[CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputTypeRequestBody]]
+            Parts ordered on the purchase order.
+
+        po_number_prefix : typing.Optional[str]
+            Optional prefix included in the purchase order number.
+
+        po_number_suffix : typing.Optional[str]
+            Optional suffix included in the purchase order number.
+
+        tracking_number : typing.Optional[str]
+            Shipment tracking number for the purchase order.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityPurchaseOrdersServiceCreatePurchaseOrderResponseBody
+            Created response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.preview_ap_is.create_purchase_order(
+                order_status="12345",
+                vendor_id="281474976710656",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.create_purchase_order(
+            order_status=order_status,
+            vendor_id=vendor_id,
+            gl_code=gl_code,
+            invoice_number=invoice_number,
+            notes=notes,
+            other_cost=other_cost,
+            parts=parts,
+            po_number_prefix=po_number_prefix,
+            po_number_suffix=po_number_suffix,
+            tracking_number=tracking_number,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def delete_purchase_order(self, *, id: str, request_options: typing.Optional[RequestOptions] = None) -> None:
+        """
+        Deletes a purchase order for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Purchase Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Unique identifier for the PurchaseOrder record.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.preview_ap_is.delete_purchase_order(
+                id="id",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.delete_purchase_order(id=id, request_options=request_options)
+        return _response.data
+
+    async def update_purchase_order(
+        self,
+        *,
+        id: str,
+        gl_code: typing.Optional[str] = OMIT,
+        invoice_number: typing.Optional[str] = OMIT,
+        notes: typing.Optional[str] = OMIT,
+        order_status: typing.Optional[str] = OMIT,
+        other_cost: typing.Optional[UpdatePurchaseOrderEntityPurchaseOrderMoneyInputTypeRequestBody] = OMIT,
+        parts: typing.Optional[
+            typing.Sequence[UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputTypeRequestBody]
+        ] = OMIT,
+        tracking_number: typing.Optional[str] = OMIT,
+        vendor_id: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityPurchaseOrdersServiceUpdatePurchaseOrderResponseBody:
+        """
+        Updates a purchase order for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Purchase Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Unique identifier for the PurchaseOrder record.
+
+        gl_code : typing.Optional[str]
+            General ledger code associated with this purchase order.
+
+        invoice_number : typing.Optional[str]
+            Vendor invoice number associated with this purchase order.
+
+        notes : typing.Optional[str]
+            Free-text notes for the purchase order.
+
+        order_status : typing.Optional[str]
+            Current customer-visible status of the purchase order.
+
+        other_cost : typing.Optional[UpdatePurchaseOrderEntityPurchaseOrderMoneyInputTypeRequestBody]
+
+        parts : typing.Optional[typing.Sequence[UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputTypeRequestBody]]
+            Parts ordered on the purchase order.
+
+        tracking_number : typing.Optional[str]
+            Shipment tracking number for the purchase order.
+
+        vendor_id : typing.Optional[str]
+            ID of the vendor supplying this purchase order.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityPurchaseOrdersServiceUpdatePurchaseOrderResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.preview_ap_is.update_purchase_order(
+                id="id",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.update_purchase_order(
+            id=id,
+            gl_code=gl_code,
+            invoice_number=invoice_number,
+            notes=notes,
+            order_status=order_status,
+            other_cost=other_cost,
+            parts=parts,
+            tracking_number=tracking_number,
+            vendor_id=vendor_id,
             request_options=request_options,
         )
         return _response.data

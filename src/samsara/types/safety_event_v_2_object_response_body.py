@@ -48,7 +48,8 @@ class SafetyEventV2ObjectResponseBody(UniversalBaseModel):
         str,
         FieldMetadata(alias="createdAtTime"),
         pydantic.Field(
-            alias="createdAtTime", description="UTC time the Safety Event was created in Samsara in RFC 3339 format."
+            alias="createdAtTime",
+            description="UTC time the Safety Event was created in Samsara in RFC 3339 format. This field may differ from when the event was detected (`startMs`).",
         ),
     ]
     detected_streams: typing_extensions.Annotated[
@@ -65,7 +66,7 @@ class SafetyEventV2ObjectResponseBody(UniversalBaseModel):
     end_ms: typing_extensions.Annotated[
         str,
         FieldMetadata(alias="endMs"),
-        pydantic.Field(alias="endMs", description="UTC time the Safety Event ended in RFC 3339 format."),
+        pydantic.Field(alias="endMs", description="UTC time the Safety Event detection ended in RFC 3339 format."),
     ]
     event_state: typing_extensions.Annotated[
         SafetyEventV2ObjectResponseBodyEventState,
@@ -117,7 +118,7 @@ class SafetyEventV2ObjectResponseBody(UniversalBaseModel):
     start_ms: typing_extensions.Annotated[
         str,
         FieldMetadata(alias="startMs"),
-        pydantic.Field(alias="startMs", description="UTC time the Safety Event started in RFC 3339 format."),
+        pydantic.Field(alias="startMs", description="UTC time the Safety Event was detected in RFC 3339 format."),
     ]
     trip_end_time: typing_extensions.Annotated[
         typing.Optional[str],
