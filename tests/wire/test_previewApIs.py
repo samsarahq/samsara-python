@@ -75,3 +75,35 @@ def test_previewApIs_list_part_transactions() -> None:
     verify_request_count(
         test_id, "GET", "/preview/maintenance/parts/transactions", {"happenedAtTimeStart": "happenedAtTimeStart"}, 1
     )
+
+
+def test_previewApIs_list_purchase_orders() -> None:
+    """Test listPurchaseOrders endpoint with WireMock"""
+    test_id = "preview_ap_is.list_purchase_orders.0"
+    client = get_client(test_id)
+    client.preview_ap_is.list_purchase_orders(start_time="startTime")
+    verify_request_count(test_id, "GET", "/preview/maintenance/purchase-orders", {"startTime": "startTime"}, 1)
+
+
+def test_previewApIs_create_purchase_order() -> None:
+    """Test createPurchaseOrder endpoint with WireMock"""
+    test_id = "preview_ap_is.create_purchase_order.0"
+    client = get_client(test_id)
+    client.preview_ap_is.create_purchase_order(order_status="12345", vendor_id="281474976710656")
+    verify_request_count(test_id, "POST", "/preview/maintenance/purchase-orders", None, 1)
+
+
+def test_previewApIs_delete_purchase_order() -> None:
+    """Test deletePurchaseOrder endpoint with WireMock"""
+    test_id = "preview_ap_is.delete_purchase_order.0"
+    client = get_client(test_id)
+    client.preview_ap_is.delete_purchase_order(id="id")
+    verify_request_count(test_id, "DELETE", "/preview/maintenance/purchase-orders", {"id": "id"}, 1)
+
+
+def test_previewApIs_update_purchase_order() -> None:
+    """Test updatePurchaseOrder endpoint with WireMock"""
+    test_id = "preview_ap_is.update_purchase_order.0"
+    client = get_client(test_id)
+    client.preview_ap_is.update_purchase_order(id="id")
+    verify_request_count(test_id, "PATCH", "/preview/maintenance/purchase-orders", {"id": "id"}, 1)

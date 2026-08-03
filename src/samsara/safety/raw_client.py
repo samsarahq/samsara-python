@@ -235,13 +235,13 @@ class RawSafetyClient:
         Parameters
         ----------
         start_time : str
-            RFC 3339 timestamp that indicates when to begin receiving data. Value is compared against `updatedAtTime` or `createdAtTime` depending on the `queryByTimeField` parameter.
+            RFC 3339 timestamp that indicates when to begin receiving data. Value is compared against `updatedAtTime` or the event detection time (`startMs`) depending on the `queryByTimeField` parameter.
 
         end_time : typing.Optional[str]
-            RFC 3339 timestamp. If not provided and filtering by `updatedAtTime` then the endpoint behaves as an unending feed of changes. If endTime is set the same as startTime, the most recent data point before that time will be returned per asset. Value is compared against `updatedAtTime` or `createdAtTime` depending on the `queryByTimeField` parameter.
+            RFC 3339 timestamp. If not provided and filtering by `updatedAtTime` then the endpoint behaves as an unending feed of changes. If endTime is set the same as startTime, the most recent data point before that time will be returned per asset. Value is compared against `updatedAtTime` or the event detection time (`startMs`) depending on the `queryByTimeField` parameter.
 
         query_by_time_field : typing.Optional[GetSafetyEventsV2StreamRequestQueryByTimeField]
-            Optional string that decides which field to compare against the provided time range.  Valid values: `updatedAtTime`, `createdAtTime`
+            Optional string that decides which timestamp to compare against the provided time range. `updatedAtTime` filters by when the Safety Event was last updated in Samsara. `createdAtTime` filters by when the Safety Event was detected (`startMs` in the response).  Valid values: `updatedAtTime`, `createdAtTime`
 
         asset_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             Optional string of comma separated asset IDs. If asset ID is present, events for the specified asset(s) will be returned. Limit of 2000 asset IDs.
@@ -736,13 +736,13 @@ class AsyncRawSafetyClient:
         Parameters
         ----------
         start_time : str
-            RFC 3339 timestamp that indicates when to begin receiving data. Value is compared against `updatedAtTime` or `createdAtTime` depending on the `queryByTimeField` parameter.
+            RFC 3339 timestamp that indicates when to begin receiving data. Value is compared against `updatedAtTime` or the event detection time (`startMs`) depending on the `queryByTimeField` parameter.
 
         end_time : typing.Optional[str]
-            RFC 3339 timestamp. If not provided and filtering by `updatedAtTime` then the endpoint behaves as an unending feed of changes. If endTime is set the same as startTime, the most recent data point before that time will be returned per asset. Value is compared against `updatedAtTime` or `createdAtTime` depending on the `queryByTimeField` parameter.
+            RFC 3339 timestamp. If not provided and filtering by `updatedAtTime` then the endpoint behaves as an unending feed of changes. If endTime is set the same as startTime, the most recent data point before that time will be returned per asset. Value is compared against `updatedAtTime` or the event detection time (`startMs`) depending on the `queryByTimeField` parameter.
 
         query_by_time_field : typing.Optional[GetSafetyEventsV2StreamRequestQueryByTimeField]
-            Optional string that decides which field to compare against the provided time range.  Valid values: `updatedAtTime`, `createdAtTime`
+            Optional string that decides which timestamp to compare against the provided time range. `updatedAtTime` filters by when the Safety Event was last updated in Samsara. `createdAtTime` filters by when the Safety Event was detected (`startMs` in the response).  Valid values: `updatedAtTime`, `createdAtTime`
 
         asset_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             Optional string of comma separated asset IDs. If asset ID is present, events for the specified asset(s) will be returned. Limit of 2000 asset IDs.

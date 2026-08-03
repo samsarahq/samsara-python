@@ -1180,6 +1180,30 @@ if typing.TYPE_CHECKING:
     from .create_part_inventory_location_entity_part_inventory_location_money_type_response_body import (
         CreatePartInventoryLocationEntityPartInventoryLocationMoneyTypeResponseBody,
     )
+    from .create_purchase_order_entity_purchase_order_core_recoverability_policy_input_type_request_body import (
+        CreatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicyInputTypeRequestBody,
+    )
+    from .create_purchase_order_entity_purchase_order_core_recoverability_policy_type_response_body import (
+        CreatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicyTypeResponseBody,
+    )
+    from .create_purchase_order_entity_purchase_order_money_input_type_request_body import (
+        CreatePurchaseOrderEntityPurchaseOrderMoneyInputTypeRequestBody,
+    )
+    from .create_purchase_order_entity_purchase_order_money_type_response_body import (
+        CreatePurchaseOrderEntityPurchaseOrderMoneyTypeResponseBody,
+    )
+    from .create_purchase_order_entity_purchase_order_purchase_order_core_charge_input_type_request_body import (
+        CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeInputTypeRequestBody,
+    )
+    from .create_purchase_order_entity_purchase_order_purchase_order_core_charge_type_response_body import (
+        CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseBody,
+    )
+    from .create_purchase_order_entity_purchase_order_purchase_order_part_input_type_request_body import (
+        CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputTypeRequestBody,
+    )
+    from .create_purchase_order_entity_purchase_order_purchase_order_part_type_response_body import (
+        CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartTypeResponseBody,
+    )
     from .create_report_config_column_request_body import CreateReportConfigColumnRequestBody
     from .create_report_config_object_request_body import CreateReportConfigObjectRequestBody
     from .create_route_stop_with_orders_request_object_request_body import (
@@ -2421,6 +2445,16 @@ if typing.TYPE_CHECKING:
         EntityCreatePartInventoryLocationTypeResponseBody,
     )
     from .entity_create_part_type_response_body import EntityCreatePartTypeResponseBody
+    from .entity_create_purchase_order_part_definition_ref_type_response_body import (
+        EntityCreatePurchaseOrderPartDefinitionRefTypeResponseBody,
+    )
+    from .entity_create_purchase_order_place_ref_type_response_body import (
+        EntityCreatePurchaseOrderPlaceRefTypeResponseBody,
+    )
+    from .entity_create_purchase_order_type_response_body import EntityCreatePurchaseOrderTypeResponseBody
+    from .entity_create_purchase_order_vendor_ref_type_response_body import (
+        EntityCreatePurchaseOrderVendorRefTypeResponseBody,
+    )
     from .entity_create_stock_movement_money_input_type_request_body import (
         EntityCreateStockMovementMoneyInputTypeRequestBody,
     )
@@ -2482,6 +2516,16 @@ if typing.TYPE_CHECKING:
     )
     from .entity_list_preventive_maintenance_schedules_type_response_body import (
         EntityListPreventiveMaintenanceSchedulesTypeResponseBody,
+    )
+    from .entity_list_purchase_orders_part_definition_ref_type_response_body import (
+        EntityListPurchaseOrdersPartDefinitionRefTypeResponseBody,
+    )
+    from .entity_list_purchase_orders_place_ref_type_response_body import (
+        EntityListPurchaseOrdersPlaceRefTypeResponseBody,
+    )
+    from .entity_list_purchase_orders_type_response_body import EntityListPurchaseOrdersTypeResponseBody
+    from .entity_list_purchase_orders_vendor_ref_type_response_body import (
+        EntityListPurchaseOrdersVendorRefTypeResponseBody,
     )
     from .entity_list_tachograph_live_data_type_response_body import EntityListTachographLiveDataTypeResponseBody
     from .entity_list_time_entries_type_response_body import EntityListTimeEntriesTypeResponseBody
@@ -2734,6 +2778,123 @@ if typing.TYPE_CHECKING:
     from .entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_unauthorized_error_response_body import (
         EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesUnauthorizedErrorResponseBody,
     )
+    from .entity_purchase_orders_service_create_purchase_order_bad_gateway_error_response_body import (
+        EntityPurchaseOrdersServiceCreatePurchaseOrderBadGatewayErrorResponseBody,
+    )
+    from .entity_purchase_orders_service_create_purchase_order_gateway_timeout_error_response_body import (
+        EntityPurchaseOrdersServiceCreatePurchaseOrderGatewayTimeoutErrorResponseBody,
+    )
+    from .entity_purchase_orders_service_create_purchase_order_internal_server_error_response_body import (
+        EntityPurchaseOrdersServiceCreatePurchaseOrderInternalServerErrorResponseBody,
+    )
+    from .entity_purchase_orders_service_create_purchase_order_method_not_allowed_error_response_body import (
+        EntityPurchaseOrdersServiceCreatePurchaseOrderMethodNotAllowedErrorResponseBody,
+    )
+    from .entity_purchase_orders_service_create_purchase_order_not_found_error_response_body import (
+        EntityPurchaseOrdersServiceCreatePurchaseOrderNotFoundErrorResponseBody,
+    )
+    from .entity_purchase_orders_service_create_purchase_order_not_implemented_error_response_body import (
+        EntityPurchaseOrdersServiceCreatePurchaseOrderNotImplementedErrorResponseBody,
+    )
+    from .entity_purchase_orders_service_create_purchase_order_response_body import (
+        EntityPurchaseOrdersServiceCreatePurchaseOrderResponseBody,
+    )
+    from .entity_purchase_orders_service_create_purchase_order_service_unavailable_error_response_body import (
+        EntityPurchaseOrdersServiceCreatePurchaseOrderServiceUnavailableErrorResponseBody,
+    )
+    from .entity_purchase_orders_service_create_purchase_order_too_many_requests_error_response_body import (
+        EntityPurchaseOrdersServiceCreatePurchaseOrderTooManyRequestsErrorResponseBody,
+    )
+    from .entity_purchase_orders_service_create_purchase_order_unauthorized_error_response_body import (
+        EntityPurchaseOrdersServiceCreatePurchaseOrderUnauthorizedErrorResponseBody,
+    )
+    from .entity_purchase_orders_service_delete_purchase_order_bad_gateway_error_response_body import (
+        EntityPurchaseOrdersServiceDeletePurchaseOrderBadGatewayErrorResponseBody,
+    )
+    from .entity_purchase_orders_service_delete_purchase_order_gateway_timeout_error_response_body import (
+        EntityPurchaseOrdersServiceDeletePurchaseOrderGatewayTimeoutErrorResponseBody,
+    )
+    from .entity_purchase_orders_service_delete_purchase_order_internal_server_error_response_body import (
+        EntityPurchaseOrdersServiceDeletePurchaseOrderInternalServerErrorResponseBody,
+    )
+    from .entity_purchase_orders_service_delete_purchase_order_method_not_allowed_error_response_body import (
+        EntityPurchaseOrdersServiceDeletePurchaseOrderMethodNotAllowedErrorResponseBody,
+    )
+    from .entity_purchase_orders_service_delete_purchase_order_not_found_error_response_body import (
+        EntityPurchaseOrdersServiceDeletePurchaseOrderNotFoundErrorResponseBody,
+    )
+    from .entity_purchase_orders_service_delete_purchase_order_not_implemented_error_response_body import (
+        EntityPurchaseOrdersServiceDeletePurchaseOrderNotImplementedErrorResponseBody,
+    )
+    from .entity_purchase_orders_service_delete_purchase_order_service_unavailable_error_response_body import (
+        EntityPurchaseOrdersServiceDeletePurchaseOrderServiceUnavailableErrorResponseBody,
+    )
+    from .entity_purchase_orders_service_delete_purchase_order_too_many_requests_error_response_body import (
+        EntityPurchaseOrdersServiceDeletePurchaseOrderTooManyRequestsErrorResponseBody,
+    )
+    from .entity_purchase_orders_service_delete_purchase_order_unauthorized_error_response_body import (
+        EntityPurchaseOrdersServiceDeletePurchaseOrderUnauthorizedErrorResponseBody,
+    )
+    from .entity_purchase_orders_service_list_purchase_orders_bad_gateway_error_response_body import (
+        EntityPurchaseOrdersServiceListPurchaseOrdersBadGatewayErrorResponseBody,
+    )
+    from .entity_purchase_orders_service_list_purchase_orders_gateway_timeout_error_response_body import (
+        EntityPurchaseOrdersServiceListPurchaseOrdersGatewayTimeoutErrorResponseBody,
+    )
+    from .entity_purchase_orders_service_list_purchase_orders_internal_server_error_response_body import (
+        EntityPurchaseOrdersServiceListPurchaseOrdersInternalServerErrorResponseBody,
+    )
+    from .entity_purchase_orders_service_list_purchase_orders_method_not_allowed_error_response_body import (
+        EntityPurchaseOrdersServiceListPurchaseOrdersMethodNotAllowedErrorResponseBody,
+    )
+    from .entity_purchase_orders_service_list_purchase_orders_not_found_error_response_body import (
+        EntityPurchaseOrdersServiceListPurchaseOrdersNotFoundErrorResponseBody,
+    )
+    from .entity_purchase_orders_service_list_purchase_orders_not_implemented_error_response_body import (
+        EntityPurchaseOrdersServiceListPurchaseOrdersNotImplementedErrorResponseBody,
+    )
+    from .entity_purchase_orders_service_list_purchase_orders_response_body import (
+        EntityPurchaseOrdersServiceListPurchaseOrdersResponseBody,
+    )
+    from .entity_purchase_orders_service_list_purchase_orders_service_unavailable_error_response_body import (
+        EntityPurchaseOrdersServiceListPurchaseOrdersServiceUnavailableErrorResponseBody,
+    )
+    from .entity_purchase_orders_service_list_purchase_orders_too_many_requests_error_response_body import (
+        EntityPurchaseOrdersServiceListPurchaseOrdersTooManyRequestsErrorResponseBody,
+    )
+    from .entity_purchase_orders_service_list_purchase_orders_unauthorized_error_response_body import (
+        EntityPurchaseOrdersServiceListPurchaseOrdersUnauthorizedErrorResponseBody,
+    )
+    from .entity_purchase_orders_service_update_purchase_order_bad_gateway_error_response_body import (
+        EntityPurchaseOrdersServiceUpdatePurchaseOrderBadGatewayErrorResponseBody,
+    )
+    from .entity_purchase_orders_service_update_purchase_order_gateway_timeout_error_response_body import (
+        EntityPurchaseOrdersServiceUpdatePurchaseOrderGatewayTimeoutErrorResponseBody,
+    )
+    from .entity_purchase_orders_service_update_purchase_order_internal_server_error_response_body import (
+        EntityPurchaseOrdersServiceUpdatePurchaseOrderInternalServerErrorResponseBody,
+    )
+    from .entity_purchase_orders_service_update_purchase_order_method_not_allowed_error_response_body import (
+        EntityPurchaseOrdersServiceUpdatePurchaseOrderMethodNotAllowedErrorResponseBody,
+    )
+    from .entity_purchase_orders_service_update_purchase_order_not_found_error_response_body import (
+        EntityPurchaseOrdersServiceUpdatePurchaseOrderNotFoundErrorResponseBody,
+    )
+    from .entity_purchase_orders_service_update_purchase_order_not_implemented_error_response_body import (
+        EntityPurchaseOrdersServiceUpdatePurchaseOrderNotImplementedErrorResponseBody,
+    )
+    from .entity_purchase_orders_service_update_purchase_order_response_body import (
+        EntityPurchaseOrdersServiceUpdatePurchaseOrderResponseBody,
+    )
+    from .entity_purchase_orders_service_update_purchase_order_service_unavailable_error_response_body import (
+        EntityPurchaseOrdersServiceUpdatePurchaseOrderServiceUnavailableErrorResponseBody,
+    )
+    from .entity_purchase_orders_service_update_purchase_order_too_many_requests_error_response_body import (
+        EntityPurchaseOrdersServiceUpdatePurchaseOrderTooManyRequestsErrorResponseBody,
+    )
+    from .entity_purchase_orders_service_update_purchase_order_unauthorized_error_response_body import (
+        EntityPurchaseOrdersServiceUpdatePurchaseOrderUnauthorizedErrorResponseBody,
+    )
     from .entity_tachograph_live_data_records_service_list_tachograph_live_data_bad_gateway_error_response_body import (
         EntityTachographLiveDataRecordsServiceListTachographLiveDataBadGatewayErrorResponseBody,
     )
@@ -2864,6 +3025,16 @@ if typing.TYPE_CHECKING:
         EntityUpdatePartInventoryLocationTypeResponseBody,
     )
     from .entity_update_part_type_response_body import EntityUpdatePartTypeResponseBody
+    from .entity_update_purchase_order_part_definition_ref_type_response_body import (
+        EntityUpdatePurchaseOrderPartDefinitionRefTypeResponseBody,
+    )
+    from .entity_update_purchase_order_place_ref_type_response_body import (
+        EntityUpdatePurchaseOrderPlaceRefTypeResponseBody,
+    )
+    from .entity_update_purchase_order_type_response_body import EntityUpdatePurchaseOrderTypeResponseBody
+    from .entity_update_purchase_order_vendor_ref_type_response_body import (
+        EntityUpdatePurchaseOrderVendorRefTypeResponseBody,
+    )
     from .entity_update_upcoming_preventive_maintenance_asset_ref_type_response_body import (
         EntityUpdateUpcomingPreventiveMaintenanceAssetRefTypeResponseBody,
     )
@@ -5173,6 +5344,18 @@ if typing.TYPE_CHECKING:
         ListPartsEntityPartDefinitionMoneyTypeResponseBody,
     )
     from .list_plan_orders_response_pagination_response_body import ListPlanOrdersResponsePaginationResponseBody
+    from .list_purchase_orders_entity_purchase_order_core_recoverability_policy_type_response_body import (
+        ListPurchaseOrdersEntityPurchaseOrderCoreRecoverabilityPolicyTypeResponseBody,
+    )
+    from .list_purchase_orders_entity_purchase_order_money_type_response_body import (
+        ListPurchaseOrdersEntityPurchaseOrderMoneyTypeResponseBody,
+    )
+    from .list_purchase_orders_entity_purchase_order_purchase_order_core_charge_type_response_body import (
+        ListPurchaseOrdersEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseBody,
+    )
+    from .list_purchase_orders_entity_purchase_order_purchase_order_part_type_response_body import (
+        ListPurchaseOrdersEntityPurchaseOrderPurchaseOrderPartTypeResponseBody,
+    )
     from .list_tags_response import ListTagsResponse
     from .list_time_entries_entity_time_entry_money_type_response_body import (
         ListTimeEntriesEntityTimeEntryMoneyTypeResponseBody,
@@ -8734,6 +8917,30 @@ if typing.TYPE_CHECKING:
     from .update_part_inventory_location_entity_part_inventory_location_money_type_response_body import (
         UpdatePartInventoryLocationEntityPartInventoryLocationMoneyTypeResponseBody,
     )
+    from .update_purchase_order_entity_purchase_order_core_recoverability_policy_input_type_request_body import (
+        UpdatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicyInputTypeRequestBody,
+    )
+    from .update_purchase_order_entity_purchase_order_core_recoverability_policy_type_response_body import (
+        UpdatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicyTypeResponseBody,
+    )
+    from .update_purchase_order_entity_purchase_order_money_input_type_request_body import (
+        UpdatePurchaseOrderEntityPurchaseOrderMoneyInputTypeRequestBody,
+    )
+    from .update_purchase_order_entity_purchase_order_money_type_response_body import (
+        UpdatePurchaseOrderEntityPurchaseOrderMoneyTypeResponseBody,
+    )
+    from .update_purchase_order_entity_purchase_order_purchase_order_core_charge_input_type_request_body import (
+        UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeInputTypeRequestBody,
+    )
+    from .update_purchase_order_entity_purchase_order_purchase_order_core_charge_type_response_body import (
+        UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseBody,
+    )
+    from .update_purchase_order_entity_purchase_order_purchase_order_part_input_type_request_body import (
+        UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputTypeRequestBody,
+    )
+    from .update_purchase_order_entity_purchase_order_purchase_order_part_type_response_body import (
+        UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartTypeResponseBody,
+    )
     from .update_routes_stop_request_object_request_body import UpdateRoutesStopRequestObjectRequestBody
     from .update_shared_asset_request_object_request_body import UpdateSharedAssetRequestObjectRequestBody
     from .uploaded_media_object_response_body import UploadedMediaObjectResponseBody
@@ -10292,6 +10499,14 @@ _dynamic_imports: typing.Dict[str, str] = {
     "CreatePartEntityPartDefinitionMoneyTypeResponseBody": ".create_part_entity_part_definition_money_type_response_body",
     "CreatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody": ".create_part_inventory_location_entity_part_inventory_location_money_input_type_request_body",
     "CreatePartInventoryLocationEntityPartInventoryLocationMoneyTypeResponseBody": ".create_part_inventory_location_entity_part_inventory_location_money_type_response_body",
+    "CreatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicyInputTypeRequestBody": ".create_purchase_order_entity_purchase_order_core_recoverability_policy_input_type_request_body",
+    "CreatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicyTypeResponseBody": ".create_purchase_order_entity_purchase_order_core_recoverability_policy_type_response_body",
+    "CreatePurchaseOrderEntityPurchaseOrderMoneyInputTypeRequestBody": ".create_purchase_order_entity_purchase_order_money_input_type_request_body",
+    "CreatePurchaseOrderEntityPurchaseOrderMoneyTypeResponseBody": ".create_purchase_order_entity_purchase_order_money_type_response_body",
+    "CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeInputTypeRequestBody": ".create_purchase_order_entity_purchase_order_purchase_order_core_charge_input_type_request_body",
+    "CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseBody": ".create_purchase_order_entity_purchase_order_purchase_order_core_charge_type_response_body",
+    "CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputTypeRequestBody": ".create_purchase_order_entity_purchase_order_purchase_order_part_input_type_request_body",
+    "CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartTypeResponseBody": ".create_purchase_order_entity_purchase_order_purchase_order_part_type_response_body",
     "CreateReportConfigColumnRequestBody": ".create_report_config_column_request_body",
     "CreateReportConfigObjectRequestBody": ".create_report_config_object_request_body",
     "CreateRouteStopWithOrdersRequestObjectRequestBody": ".create_route_stop_with_orders_request_object_request_body",
@@ -10871,6 +11086,10 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EntityCreatePartInventoryLocationPlaceRefTypeResponseBody": ".entity_create_part_inventory_location_place_ref_type_response_body",
     "EntityCreatePartInventoryLocationTypeResponseBody": ".entity_create_part_inventory_location_type_response_body",
     "EntityCreatePartTypeResponseBody": ".entity_create_part_type_response_body",
+    "EntityCreatePurchaseOrderPartDefinitionRefTypeResponseBody": ".entity_create_purchase_order_part_definition_ref_type_response_body",
+    "EntityCreatePurchaseOrderPlaceRefTypeResponseBody": ".entity_create_purchase_order_place_ref_type_response_body",
+    "EntityCreatePurchaseOrderTypeResponseBody": ".entity_create_purchase_order_type_response_body",
+    "EntityCreatePurchaseOrderVendorRefTypeResponseBody": ".entity_create_purchase_order_vendor_ref_type_response_body",
     "EntityCreateStockMovementMoneyInputTypeRequestBody": ".entity_create_stock_movement_money_input_type_request_body",
     "EntityCreateStockMovementMoneyTypeResponseBody": ".entity_create_stock_movement_money_type_response_body",
     "EntityCreateStockMovementStockMovementLocationTypeResponseBody": ".entity_create_stock_movement_stock_movement_location_type_response_body",
@@ -10897,6 +11116,10 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EntityListPartsTypeResponseBody": ".entity_list_parts_type_response_body",
     "EntityListPreventiveMaintenanceSchedulesPreventativeMaintenanceScheduleRefTypeResponseBody": ".entity_list_preventive_maintenance_schedules_preventative_maintenance_schedule_ref_type_response_body",
     "EntityListPreventiveMaintenanceSchedulesTypeResponseBody": ".entity_list_preventive_maintenance_schedules_type_response_body",
+    "EntityListPurchaseOrdersPartDefinitionRefTypeResponseBody": ".entity_list_purchase_orders_part_definition_ref_type_response_body",
+    "EntityListPurchaseOrdersPlaceRefTypeResponseBody": ".entity_list_purchase_orders_place_ref_type_response_body",
+    "EntityListPurchaseOrdersTypeResponseBody": ".entity_list_purchase_orders_type_response_body",
+    "EntityListPurchaseOrdersVendorRefTypeResponseBody": ".entity_list_purchase_orders_vendor_ref_type_response_body",
     "EntityListTachographLiveDataTypeResponseBody": ".entity_list_tachograph_live_data_type_response_body",
     "EntityListTimeEntriesTypeResponseBody": ".entity_list_time_entries_type_response_body",
     "EntityListUpcomingPreventiveMaintenanceAssetRefTypeResponseBody": ".entity_list_upcoming_preventive_maintenance_asset_ref_type_response_body",
@@ -10982,6 +11205,45 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesServiceUnavailableErrorResponseBody": ".entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_service_unavailable_error_response_body",
     "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesTooManyRequestsErrorResponseBody": ".entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_too_many_requests_error_response_body",
     "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesUnauthorizedErrorResponseBody": ".entity_preventative_maintenance_schedules_service_list_preventive_maintenance_schedules_unauthorized_error_response_body",
+    "EntityPurchaseOrdersServiceCreatePurchaseOrderBadGatewayErrorResponseBody": ".entity_purchase_orders_service_create_purchase_order_bad_gateway_error_response_body",
+    "EntityPurchaseOrdersServiceCreatePurchaseOrderGatewayTimeoutErrorResponseBody": ".entity_purchase_orders_service_create_purchase_order_gateway_timeout_error_response_body",
+    "EntityPurchaseOrdersServiceCreatePurchaseOrderInternalServerErrorResponseBody": ".entity_purchase_orders_service_create_purchase_order_internal_server_error_response_body",
+    "EntityPurchaseOrdersServiceCreatePurchaseOrderMethodNotAllowedErrorResponseBody": ".entity_purchase_orders_service_create_purchase_order_method_not_allowed_error_response_body",
+    "EntityPurchaseOrdersServiceCreatePurchaseOrderNotFoundErrorResponseBody": ".entity_purchase_orders_service_create_purchase_order_not_found_error_response_body",
+    "EntityPurchaseOrdersServiceCreatePurchaseOrderNotImplementedErrorResponseBody": ".entity_purchase_orders_service_create_purchase_order_not_implemented_error_response_body",
+    "EntityPurchaseOrdersServiceCreatePurchaseOrderResponseBody": ".entity_purchase_orders_service_create_purchase_order_response_body",
+    "EntityPurchaseOrdersServiceCreatePurchaseOrderServiceUnavailableErrorResponseBody": ".entity_purchase_orders_service_create_purchase_order_service_unavailable_error_response_body",
+    "EntityPurchaseOrdersServiceCreatePurchaseOrderTooManyRequestsErrorResponseBody": ".entity_purchase_orders_service_create_purchase_order_too_many_requests_error_response_body",
+    "EntityPurchaseOrdersServiceCreatePurchaseOrderUnauthorizedErrorResponseBody": ".entity_purchase_orders_service_create_purchase_order_unauthorized_error_response_body",
+    "EntityPurchaseOrdersServiceDeletePurchaseOrderBadGatewayErrorResponseBody": ".entity_purchase_orders_service_delete_purchase_order_bad_gateway_error_response_body",
+    "EntityPurchaseOrdersServiceDeletePurchaseOrderGatewayTimeoutErrorResponseBody": ".entity_purchase_orders_service_delete_purchase_order_gateway_timeout_error_response_body",
+    "EntityPurchaseOrdersServiceDeletePurchaseOrderInternalServerErrorResponseBody": ".entity_purchase_orders_service_delete_purchase_order_internal_server_error_response_body",
+    "EntityPurchaseOrdersServiceDeletePurchaseOrderMethodNotAllowedErrorResponseBody": ".entity_purchase_orders_service_delete_purchase_order_method_not_allowed_error_response_body",
+    "EntityPurchaseOrdersServiceDeletePurchaseOrderNotFoundErrorResponseBody": ".entity_purchase_orders_service_delete_purchase_order_not_found_error_response_body",
+    "EntityPurchaseOrdersServiceDeletePurchaseOrderNotImplementedErrorResponseBody": ".entity_purchase_orders_service_delete_purchase_order_not_implemented_error_response_body",
+    "EntityPurchaseOrdersServiceDeletePurchaseOrderServiceUnavailableErrorResponseBody": ".entity_purchase_orders_service_delete_purchase_order_service_unavailable_error_response_body",
+    "EntityPurchaseOrdersServiceDeletePurchaseOrderTooManyRequestsErrorResponseBody": ".entity_purchase_orders_service_delete_purchase_order_too_many_requests_error_response_body",
+    "EntityPurchaseOrdersServiceDeletePurchaseOrderUnauthorizedErrorResponseBody": ".entity_purchase_orders_service_delete_purchase_order_unauthorized_error_response_body",
+    "EntityPurchaseOrdersServiceListPurchaseOrdersBadGatewayErrorResponseBody": ".entity_purchase_orders_service_list_purchase_orders_bad_gateway_error_response_body",
+    "EntityPurchaseOrdersServiceListPurchaseOrdersGatewayTimeoutErrorResponseBody": ".entity_purchase_orders_service_list_purchase_orders_gateway_timeout_error_response_body",
+    "EntityPurchaseOrdersServiceListPurchaseOrdersInternalServerErrorResponseBody": ".entity_purchase_orders_service_list_purchase_orders_internal_server_error_response_body",
+    "EntityPurchaseOrdersServiceListPurchaseOrdersMethodNotAllowedErrorResponseBody": ".entity_purchase_orders_service_list_purchase_orders_method_not_allowed_error_response_body",
+    "EntityPurchaseOrdersServiceListPurchaseOrdersNotFoundErrorResponseBody": ".entity_purchase_orders_service_list_purchase_orders_not_found_error_response_body",
+    "EntityPurchaseOrdersServiceListPurchaseOrdersNotImplementedErrorResponseBody": ".entity_purchase_orders_service_list_purchase_orders_not_implemented_error_response_body",
+    "EntityPurchaseOrdersServiceListPurchaseOrdersResponseBody": ".entity_purchase_orders_service_list_purchase_orders_response_body",
+    "EntityPurchaseOrdersServiceListPurchaseOrdersServiceUnavailableErrorResponseBody": ".entity_purchase_orders_service_list_purchase_orders_service_unavailable_error_response_body",
+    "EntityPurchaseOrdersServiceListPurchaseOrdersTooManyRequestsErrorResponseBody": ".entity_purchase_orders_service_list_purchase_orders_too_many_requests_error_response_body",
+    "EntityPurchaseOrdersServiceListPurchaseOrdersUnauthorizedErrorResponseBody": ".entity_purchase_orders_service_list_purchase_orders_unauthorized_error_response_body",
+    "EntityPurchaseOrdersServiceUpdatePurchaseOrderBadGatewayErrorResponseBody": ".entity_purchase_orders_service_update_purchase_order_bad_gateway_error_response_body",
+    "EntityPurchaseOrdersServiceUpdatePurchaseOrderGatewayTimeoutErrorResponseBody": ".entity_purchase_orders_service_update_purchase_order_gateway_timeout_error_response_body",
+    "EntityPurchaseOrdersServiceUpdatePurchaseOrderInternalServerErrorResponseBody": ".entity_purchase_orders_service_update_purchase_order_internal_server_error_response_body",
+    "EntityPurchaseOrdersServiceUpdatePurchaseOrderMethodNotAllowedErrorResponseBody": ".entity_purchase_orders_service_update_purchase_order_method_not_allowed_error_response_body",
+    "EntityPurchaseOrdersServiceUpdatePurchaseOrderNotFoundErrorResponseBody": ".entity_purchase_orders_service_update_purchase_order_not_found_error_response_body",
+    "EntityPurchaseOrdersServiceUpdatePurchaseOrderNotImplementedErrorResponseBody": ".entity_purchase_orders_service_update_purchase_order_not_implemented_error_response_body",
+    "EntityPurchaseOrdersServiceUpdatePurchaseOrderResponseBody": ".entity_purchase_orders_service_update_purchase_order_response_body",
+    "EntityPurchaseOrdersServiceUpdatePurchaseOrderServiceUnavailableErrorResponseBody": ".entity_purchase_orders_service_update_purchase_order_service_unavailable_error_response_body",
+    "EntityPurchaseOrdersServiceUpdatePurchaseOrderTooManyRequestsErrorResponseBody": ".entity_purchase_orders_service_update_purchase_order_too_many_requests_error_response_body",
+    "EntityPurchaseOrdersServiceUpdatePurchaseOrderUnauthorizedErrorResponseBody": ".entity_purchase_orders_service_update_purchase_order_unauthorized_error_response_body",
     "EntityTachographLiveDataRecordsServiceListTachographLiveDataBadGatewayErrorResponseBody": ".entity_tachograph_live_data_records_service_list_tachograph_live_data_bad_gateway_error_response_body",
     "EntityTachographLiveDataRecordsServiceListTachographLiveDataGatewayTimeoutErrorResponseBody": ".entity_tachograph_live_data_records_service_list_tachograph_live_data_gateway_timeout_error_response_body",
     "EntityTachographLiveDataRecordsServiceListTachographLiveDataInternalServerErrorResponseBody": ".entity_tachograph_live_data_records_service_list_tachograph_live_data_internal_server_error_response_body",
@@ -11026,6 +11288,10 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EntityUpdatePartInventoryLocationPlaceRefTypeResponseBody": ".entity_update_part_inventory_location_place_ref_type_response_body",
     "EntityUpdatePartInventoryLocationTypeResponseBody": ".entity_update_part_inventory_location_type_response_body",
     "EntityUpdatePartTypeResponseBody": ".entity_update_part_type_response_body",
+    "EntityUpdatePurchaseOrderPartDefinitionRefTypeResponseBody": ".entity_update_purchase_order_part_definition_ref_type_response_body",
+    "EntityUpdatePurchaseOrderPlaceRefTypeResponseBody": ".entity_update_purchase_order_place_ref_type_response_body",
+    "EntityUpdatePurchaseOrderTypeResponseBody": ".entity_update_purchase_order_type_response_body",
+    "EntityUpdatePurchaseOrderVendorRefTypeResponseBody": ".entity_update_purchase_order_vendor_ref_type_response_body",
     "EntityUpdateUpcomingPreventiveMaintenanceAssetRefTypeResponseBody": ".entity_update_upcoming_preventive_maintenance_asset_ref_type_response_body",
     "EntityUpdateUpcomingPreventiveMaintenancePreventativeMaintenanceScheduleRefTypeResponseBody": ".entity_update_upcoming_preventive_maintenance_preventative_maintenance_schedule_ref_type_response_body",
     "EntityUpdateUpcomingPreventiveMaintenanceTypeResponseBody": ".entity_update_upcoming_preventive_maintenance_type_response_body",
@@ -12107,6 +12373,10 @@ _dynamic_imports: typing.Dict[str, str] = {
     "ListPartInventoryEntityPartInventoryLocationMoneyTypeResponseBody": ".list_part_inventory_entity_part_inventory_location_money_type_response_body",
     "ListPartsEntityPartDefinitionMoneyTypeResponseBody": ".list_parts_entity_part_definition_money_type_response_body",
     "ListPlanOrdersResponsePaginationResponseBody": ".list_plan_orders_response_pagination_response_body",
+    "ListPurchaseOrdersEntityPurchaseOrderCoreRecoverabilityPolicyTypeResponseBody": ".list_purchase_orders_entity_purchase_order_core_recoverability_policy_type_response_body",
+    "ListPurchaseOrdersEntityPurchaseOrderMoneyTypeResponseBody": ".list_purchase_orders_entity_purchase_order_money_type_response_body",
+    "ListPurchaseOrdersEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseBody": ".list_purchase_orders_entity_purchase_order_purchase_order_core_charge_type_response_body",
+    "ListPurchaseOrdersEntityPurchaseOrderPurchaseOrderPartTypeResponseBody": ".list_purchase_orders_entity_purchase_order_purchase_order_part_type_response_body",
     "ListTagsResponse": ".list_tags_response",
     "ListTimeEntriesEntityTimeEntryMoneyTypeResponseBody": ".list_time_entries_entity_time_entry_money_type_response_body",
     "ListTimeEntriesEntityTimeEntryTimeEntryLocationTypeResponseBody": ".list_time_entries_entity_time_entry_time_entry_location_type_response_body",
@@ -13696,6 +13966,14 @@ _dynamic_imports: typing.Dict[str, str] = {
     "UpdatePartEntityPartDefinitionMoneyTypeResponseBody": ".update_part_entity_part_definition_money_type_response_body",
     "UpdatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody": ".update_part_inventory_location_entity_part_inventory_location_money_input_type_request_body",
     "UpdatePartInventoryLocationEntityPartInventoryLocationMoneyTypeResponseBody": ".update_part_inventory_location_entity_part_inventory_location_money_type_response_body",
+    "UpdatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicyInputTypeRequestBody": ".update_purchase_order_entity_purchase_order_core_recoverability_policy_input_type_request_body",
+    "UpdatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicyTypeResponseBody": ".update_purchase_order_entity_purchase_order_core_recoverability_policy_type_response_body",
+    "UpdatePurchaseOrderEntityPurchaseOrderMoneyInputTypeRequestBody": ".update_purchase_order_entity_purchase_order_money_input_type_request_body",
+    "UpdatePurchaseOrderEntityPurchaseOrderMoneyTypeResponseBody": ".update_purchase_order_entity_purchase_order_money_type_response_body",
+    "UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeInputTypeRequestBody": ".update_purchase_order_entity_purchase_order_purchase_order_core_charge_input_type_request_body",
+    "UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseBody": ".update_purchase_order_entity_purchase_order_purchase_order_core_charge_type_response_body",
+    "UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputTypeRequestBody": ".update_purchase_order_entity_purchase_order_purchase_order_part_input_type_request_body",
+    "UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartTypeResponseBody": ".update_purchase_order_entity_purchase_order_purchase_order_part_type_response_body",
     "UpdateRoutesStopRequestObjectRequestBody": ".update_routes_stop_request_object_request_body",
     "UpdateSharedAssetRequestObjectRequestBody": ".update_shared_asset_request_object_request_body",
     "UploadedMediaObjectResponseBody": ".uploaded_media_object_response_body",
@@ -14892,6 +15170,14 @@ __all__ = [
     "CreatePartEntityPartDefinitionMoneyTypeResponseBody",
     "CreatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody",
     "CreatePartInventoryLocationEntityPartInventoryLocationMoneyTypeResponseBody",
+    "CreatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicyInputTypeRequestBody",
+    "CreatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicyTypeResponseBody",
+    "CreatePurchaseOrderEntityPurchaseOrderMoneyInputTypeRequestBody",
+    "CreatePurchaseOrderEntityPurchaseOrderMoneyTypeResponseBody",
+    "CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeInputTypeRequestBody",
+    "CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseBody",
+    "CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputTypeRequestBody",
+    "CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartTypeResponseBody",
     "CreateReportConfigColumnRequestBody",
     "CreateReportConfigObjectRequestBody",
     "CreateRouteStopWithOrdersRequestObjectRequestBody",
@@ -15471,6 +15757,10 @@ __all__ = [
     "EntityCreatePartInventoryLocationPlaceRefTypeResponseBody",
     "EntityCreatePartInventoryLocationTypeResponseBody",
     "EntityCreatePartTypeResponseBody",
+    "EntityCreatePurchaseOrderPartDefinitionRefTypeResponseBody",
+    "EntityCreatePurchaseOrderPlaceRefTypeResponseBody",
+    "EntityCreatePurchaseOrderTypeResponseBody",
+    "EntityCreatePurchaseOrderVendorRefTypeResponseBody",
     "EntityCreateStockMovementMoneyInputTypeRequestBody",
     "EntityCreateStockMovementMoneyTypeResponseBody",
     "EntityCreateStockMovementStockMovementLocationTypeResponseBody",
@@ -15497,6 +15787,10 @@ __all__ = [
     "EntityListPartsTypeResponseBody",
     "EntityListPreventiveMaintenanceSchedulesPreventativeMaintenanceScheduleRefTypeResponseBody",
     "EntityListPreventiveMaintenanceSchedulesTypeResponseBody",
+    "EntityListPurchaseOrdersPartDefinitionRefTypeResponseBody",
+    "EntityListPurchaseOrdersPlaceRefTypeResponseBody",
+    "EntityListPurchaseOrdersTypeResponseBody",
+    "EntityListPurchaseOrdersVendorRefTypeResponseBody",
     "EntityListTachographLiveDataTypeResponseBody",
     "EntityListTimeEntriesTypeResponseBody",
     "EntityListUpcomingPreventiveMaintenanceAssetRefTypeResponseBody",
@@ -15582,6 +15876,45 @@ __all__ = [
     "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesServiceUnavailableErrorResponseBody",
     "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesTooManyRequestsErrorResponseBody",
     "EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesUnauthorizedErrorResponseBody",
+    "EntityPurchaseOrdersServiceCreatePurchaseOrderBadGatewayErrorResponseBody",
+    "EntityPurchaseOrdersServiceCreatePurchaseOrderGatewayTimeoutErrorResponseBody",
+    "EntityPurchaseOrdersServiceCreatePurchaseOrderInternalServerErrorResponseBody",
+    "EntityPurchaseOrdersServiceCreatePurchaseOrderMethodNotAllowedErrorResponseBody",
+    "EntityPurchaseOrdersServiceCreatePurchaseOrderNotFoundErrorResponseBody",
+    "EntityPurchaseOrdersServiceCreatePurchaseOrderNotImplementedErrorResponseBody",
+    "EntityPurchaseOrdersServiceCreatePurchaseOrderResponseBody",
+    "EntityPurchaseOrdersServiceCreatePurchaseOrderServiceUnavailableErrorResponseBody",
+    "EntityPurchaseOrdersServiceCreatePurchaseOrderTooManyRequestsErrorResponseBody",
+    "EntityPurchaseOrdersServiceCreatePurchaseOrderUnauthorizedErrorResponseBody",
+    "EntityPurchaseOrdersServiceDeletePurchaseOrderBadGatewayErrorResponseBody",
+    "EntityPurchaseOrdersServiceDeletePurchaseOrderGatewayTimeoutErrorResponseBody",
+    "EntityPurchaseOrdersServiceDeletePurchaseOrderInternalServerErrorResponseBody",
+    "EntityPurchaseOrdersServiceDeletePurchaseOrderMethodNotAllowedErrorResponseBody",
+    "EntityPurchaseOrdersServiceDeletePurchaseOrderNotFoundErrorResponseBody",
+    "EntityPurchaseOrdersServiceDeletePurchaseOrderNotImplementedErrorResponseBody",
+    "EntityPurchaseOrdersServiceDeletePurchaseOrderServiceUnavailableErrorResponseBody",
+    "EntityPurchaseOrdersServiceDeletePurchaseOrderTooManyRequestsErrorResponseBody",
+    "EntityPurchaseOrdersServiceDeletePurchaseOrderUnauthorizedErrorResponseBody",
+    "EntityPurchaseOrdersServiceListPurchaseOrdersBadGatewayErrorResponseBody",
+    "EntityPurchaseOrdersServiceListPurchaseOrdersGatewayTimeoutErrorResponseBody",
+    "EntityPurchaseOrdersServiceListPurchaseOrdersInternalServerErrorResponseBody",
+    "EntityPurchaseOrdersServiceListPurchaseOrdersMethodNotAllowedErrorResponseBody",
+    "EntityPurchaseOrdersServiceListPurchaseOrdersNotFoundErrorResponseBody",
+    "EntityPurchaseOrdersServiceListPurchaseOrdersNotImplementedErrorResponseBody",
+    "EntityPurchaseOrdersServiceListPurchaseOrdersResponseBody",
+    "EntityPurchaseOrdersServiceListPurchaseOrdersServiceUnavailableErrorResponseBody",
+    "EntityPurchaseOrdersServiceListPurchaseOrdersTooManyRequestsErrorResponseBody",
+    "EntityPurchaseOrdersServiceListPurchaseOrdersUnauthorizedErrorResponseBody",
+    "EntityPurchaseOrdersServiceUpdatePurchaseOrderBadGatewayErrorResponseBody",
+    "EntityPurchaseOrdersServiceUpdatePurchaseOrderGatewayTimeoutErrorResponseBody",
+    "EntityPurchaseOrdersServiceUpdatePurchaseOrderInternalServerErrorResponseBody",
+    "EntityPurchaseOrdersServiceUpdatePurchaseOrderMethodNotAllowedErrorResponseBody",
+    "EntityPurchaseOrdersServiceUpdatePurchaseOrderNotFoundErrorResponseBody",
+    "EntityPurchaseOrdersServiceUpdatePurchaseOrderNotImplementedErrorResponseBody",
+    "EntityPurchaseOrdersServiceUpdatePurchaseOrderResponseBody",
+    "EntityPurchaseOrdersServiceUpdatePurchaseOrderServiceUnavailableErrorResponseBody",
+    "EntityPurchaseOrdersServiceUpdatePurchaseOrderTooManyRequestsErrorResponseBody",
+    "EntityPurchaseOrdersServiceUpdatePurchaseOrderUnauthorizedErrorResponseBody",
     "EntityTachographLiveDataRecordsServiceListTachographLiveDataBadGatewayErrorResponseBody",
     "EntityTachographLiveDataRecordsServiceListTachographLiveDataGatewayTimeoutErrorResponseBody",
     "EntityTachographLiveDataRecordsServiceListTachographLiveDataInternalServerErrorResponseBody",
@@ -15626,6 +15959,10 @@ __all__ = [
     "EntityUpdatePartInventoryLocationPlaceRefTypeResponseBody",
     "EntityUpdatePartInventoryLocationTypeResponseBody",
     "EntityUpdatePartTypeResponseBody",
+    "EntityUpdatePurchaseOrderPartDefinitionRefTypeResponseBody",
+    "EntityUpdatePurchaseOrderPlaceRefTypeResponseBody",
+    "EntityUpdatePurchaseOrderTypeResponseBody",
+    "EntityUpdatePurchaseOrderVendorRefTypeResponseBody",
     "EntityUpdateUpcomingPreventiveMaintenanceAssetRefTypeResponseBody",
     "EntityUpdateUpcomingPreventiveMaintenancePreventativeMaintenanceScheduleRefTypeResponseBody",
     "EntityUpdateUpcomingPreventiveMaintenanceTypeResponseBody",
@@ -16707,6 +17044,10 @@ __all__ = [
     "ListPartInventoryEntityPartInventoryLocationMoneyTypeResponseBody",
     "ListPartsEntityPartDefinitionMoneyTypeResponseBody",
     "ListPlanOrdersResponsePaginationResponseBody",
+    "ListPurchaseOrdersEntityPurchaseOrderCoreRecoverabilityPolicyTypeResponseBody",
+    "ListPurchaseOrdersEntityPurchaseOrderMoneyTypeResponseBody",
+    "ListPurchaseOrdersEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseBody",
+    "ListPurchaseOrdersEntityPurchaseOrderPurchaseOrderPartTypeResponseBody",
     "ListTagsResponse",
     "ListTimeEntriesEntityTimeEntryMoneyTypeResponseBody",
     "ListTimeEntriesEntityTimeEntryTimeEntryLocationTypeResponseBody",
@@ -18296,6 +18637,14 @@ __all__ = [
     "UpdatePartEntityPartDefinitionMoneyTypeResponseBody",
     "UpdatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody",
     "UpdatePartInventoryLocationEntityPartInventoryLocationMoneyTypeResponseBody",
+    "UpdatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicyInputTypeRequestBody",
+    "UpdatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicyTypeResponseBody",
+    "UpdatePurchaseOrderEntityPurchaseOrderMoneyInputTypeRequestBody",
+    "UpdatePurchaseOrderEntityPurchaseOrderMoneyTypeResponseBody",
+    "UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeInputTypeRequestBody",
+    "UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseBody",
+    "UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputTypeRequestBody",
+    "UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartTypeResponseBody",
     "UpdateRoutesStopRequestObjectRequestBody",
     "UpdateSharedAssetRequestObjectRequestBody",
     "UploadedMediaObjectResponseBody",
