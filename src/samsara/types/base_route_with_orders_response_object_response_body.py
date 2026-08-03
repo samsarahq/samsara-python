@@ -11,10 +11,10 @@ from .goa_driver_tiny_response_response_body import GoaDriverTinyResponseRespons
 from .goa_vehicle_tiny_response_response_body import GoaVehicleTinyResponseResponseBody
 from .live_sharing_link_response_object_response_body import LiveSharingLinkResponseObjectResponseBody
 from .route_settings_response_body import RouteSettingsResponseBody
-from .routes_stop_with_forms_response_object_response_body import RoutesStopWithFormsResponseObjectResponseBody
+from .route_stop_with_orders_response_object_response_body import RouteStopWithOrdersResponseObjectResponseBody
 
 
-class BaseRouteWithStopFormsResponseObjectResponseBody(UniversalBaseModel):
+class BaseRouteWithOrdersResponseObjectResponseBody(UniversalBaseModel):
     actual_route_end_time: typing_extensions.Annotated[
         typing.Optional[dt.datetime],
         FieldMetadata(alias="actualRouteEndTime"),
@@ -84,7 +84,7 @@ class BaseRouteWithStopFormsResponseObjectResponseBody(UniversalBaseModel):
         ),
     ] = None
     settings: typing.Optional[RouteSettingsResponseBody] = None
-    stops: typing.Optional[typing.List[RoutesStopWithFormsResponseObjectResponseBody]] = pydantic.Field(default=None)
+    stops: typing.Optional[typing.List[RouteStopWithOrdersResponseObjectResponseBody]] = pydantic.Field(default=None)
     """
     List of stops along the route
     """

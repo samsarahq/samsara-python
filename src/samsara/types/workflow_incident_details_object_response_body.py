@@ -45,6 +45,7 @@ from .out_of_sequence_stop_arrival_data_response_body import OutOfSequenceStopAr
 from .outside_geofence_data_response_body import OutsideGeofenceDataResponseBody
 from .panic_button_response_body import PanicButtonResponseBody
 from .person_detected_response_body import PersonDetectedResponseBody
+from .preventive_maintenance_schedule_due_data_response_body import PreventiveMaintenanceScheduleDueDataResponseBody
 from .reading_trigger_details_response_body import ReadingTriggerDetailsResponseBody
 from .reefer_temperature_response_body import ReeferTemperatureResponseBody
 from .route_start_delayed_data_response_body import RouteStartDelayedDataResponseBody
@@ -275,6 +276,11 @@ class WorkflowIncidentDetailsObjectResponseBody(UniversalBaseModel):
         typing.Optional[PersonDetectedResponseBody],
         FieldMetadata(alias="personDetected"),
         pydantic.Field(alias="personDetected"),
+    ] = None
+    preventive_maintenance_schedule_due: typing_extensions.Annotated[
+        typing.Optional[PreventiveMaintenanceScheduleDueDataResponseBody],
+        FieldMetadata(alias="preventiveMaintenanceScheduleDue"),
+        pydantic.Field(alias="preventiveMaintenanceScheduleDue"),
     ] = None
     reading: typing.Optional[ReadingTriggerDetailsResponseBody] = None
     reefer_temperature: typing_extensions.Annotated[

@@ -32,6 +32,11 @@ class SafetyEventObjectResponseBody(UniversalBaseModel):
     The time the safety event occurred in RFC 3339 milliseconds format.
     """
 
+    uuid_: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="uuid"),
+        pydantic.Field(alias="uuid", description="The unique Samsara ID (uuid) of the safety event."),
+    ] = None
     vehicle: typing.Optional[SafetyEventVehicleObjectResponseBody] = None
 
     if IS_PYDANTIC_V2:

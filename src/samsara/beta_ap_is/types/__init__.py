@@ -25,6 +25,15 @@ if typing.TYPE_CHECKING:
         DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus,
     )
     from .device_recovery_recover_asset_request_body_status import DeviceRecoveryRecoverAssetRequestBodyStatus
+    from .entity_watchpoints_service_create_watchpoint_request_body_mode import (
+        EntityWatchpointsServiceCreateWatchpointRequestBodyMode,
+    )
+    from .entity_watchpoints_service_create_watchpoint_request_body_observation_type import (
+        EntityWatchpointsServiceCreateWatchpointRequestBodyObservationType,
+    )
+    from .entity_watchpoints_service_update_watchpoint_request_body_observation_type import (
+        EntityWatchpointsServiceUpdateWatchpointRequestBodyObservationType,
+    )
     from .fleet_installer_photo_uploads_post_fleet_installer_photo_upload_request_body_file_format_type import (
         FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyFileFormatType,
     )
@@ -88,6 +97,9 @@ _dynamic_imports: typing.Dict[str, str] = {
     "DeviceRecoveryRecoverAssetRequestBodyMissingReason": ".device_recovery_recover_asset_request_body_missing_reason",
     "DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus": ".device_recovery_recover_asset_request_body_recovery_status",
     "DeviceRecoveryRecoverAssetRequestBodyStatus": ".device_recovery_recover_asset_request_body_status",
+    "EntityWatchpointsServiceCreateWatchpointRequestBodyMode": ".entity_watchpoints_service_create_watchpoint_request_body_mode",
+    "EntityWatchpointsServiceCreateWatchpointRequestBodyObservationType": ".entity_watchpoints_service_create_watchpoint_request_body_observation_type",
+    "EntityWatchpointsServiceUpdateWatchpointRequestBodyObservationType": ".entity_watchpoints_service_update_watchpoint_request_body_observation_type",
     "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyFileFormatType": ".fleet_installer_photo_uploads_post_fleet_installer_photo_upload_request_body_file_format_type",
     "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyHardwareType": ".fleet_installer_photo_uploads_post_fleet_installer_photo_upload_request_body_hardware_type",
     "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyPhotoType": ".fleet_installer_photo_uploads_post_fleet_installer_photo_upload_request_body_photo_type",
@@ -145,6 +157,9 @@ __all__ = [
     "DeviceRecoveryRecoverAssetRequestBodyMissingReason",
     "DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus",
     "DeviceRecoveryRecoverAssetRequestBodyStatus",
+    "EntityWatchpointsServiceCreateWatchpointRequestBodyMode",
+    "EntityWatchpointsServiceCreateWatchpointRequestBodyObservationType",
+    "EntityWatchpointsServiceUpdateWatchpointRequestBodyObservationType",
     "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyFileFormatType",
     "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyHardwareType",
     "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyPhotoType",

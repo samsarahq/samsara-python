@@ -21,7 +21,9 @@ from ..errors.not_implemented_error import NotImplementedError
 from ..errors.service_unavailable_error import ServiceUnavailableError
 from ..errors.too_many_requests_error import TooManyRequestsError
 from ..errors.unauthorized_error import UnauthorizedError
-from ..types.create_routes_stop_request_object_request_body import CreateRoutesStopRequestObjectRequestBody
+from ..types.create_route_stop_with_orders_request_object_request_body import (
+    CreateRouteStopWithOrdersRequestObjectRequestBody,
+)
 from ..types.hub_plan_routes_list_hub_plan_routes_response_body import HubPlanRoutesListHubPlanRoutesResponseBody
 from ..types.route_settings_request_body import RouteSettingsRequestBody
 from ..types.routes_create_route_response_body import RoutesCreateRouteResponseBody
@@ -225,7 +227,7 @@ class RawRoutesClient:
         self,
         *,
         name: str,
-        stops: typing.Sequence[CreateRoutesStopRequestObjectRequestBody],
+        stops: typing.Sequence[CreateRouteStopWithOrdersRequestObjectRequestBody],
         driver_id: typing.Optional[str] = OMIT,
         external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
         notes: typing.Optional[str] = OMIT,
@@ -250,7 +252,7 @@ class RawRoutesClient:
         name : str
             Name for the route
 
-        stops : typing.Sequence[CreateRoutesStopRequestObjectRequestBody]
+        stops : typing.Sequence[CreateRouteStopWithOrdersRequestObjectRequestBody]
             List of stops along the route. For each stop, exactly one of `addressId` and `singleUseLocation` are required. Depending on the `settings` on your route, either a `scheduledArrivalTime` or `scheduledDepartureTime` must be specified for the first job.
 
         driver_id : typing.Optional[str]
@@ -295,7 +297,7 @@ class RawRoutesClient:
                 ),
                 "stops": convert_and_respect_annotation_metadata(
                     object_=stops,
-                    annotation=typing.Sequence[CreateRoutesStopRequestObjectRequestBody],
+                    annotation=typing.Sequence[CreateRouteStopWithOrdersRequestObjectRequestBody],
                     direction="write",
                 ),
                 "tagIds": tag_ids,
@@ -1496,7 +1498,7 @@ class AsyncRawRoutesClient:
         self,
         *,
         name: str,
-        stops: typing.Sequence[CreateRoutesStopRequestObjectRequestBody],
+        stops: typing.Sequence[CreateRouteStopWithOrdersRequestObjectRequestBody],
         driver_id: typing.Optional[str] = OMIT,
         external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
         notes: typing.Optional[str] = OMIT,
@@ -1521,7 +1523,7 @@ class AsyncRawRoutesClient:
         name : str
             Name for the route
 
-        stops : typing.Sequence[CreateRoutesStopRequestObjectRequestBody]
+        stops : typing.Sequence[CreateRouteStopWithOrdersRequestObjectRequestBody]
             List of stops along the route. For each stop, exactly one of `addressId` and `singleUseLocation` are required. Depending on the `settings` on your route, either a `scheduledArrivalTime` or `scheduledDepartureTime` must be specified for the first job.
 
         driver_id : typing.Optional[str]
@@ -1566,7 +1568,7 @@ class AsyncRawRoutesClient:
                 ),
                 "stops": convert_and_respect_annotation_metadata(
                     object_=stops,
-                    annotation=typing.Sequence[CreateRoutesStopRequestObjectRequestBody],
+                    annotation=typing.Sequence[CreateRouteStopWithOrdersRequestObjectRequestBody],
                     direction="write",
                 ),
                 "tagIds": tag_ids,

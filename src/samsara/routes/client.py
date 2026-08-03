@@ -5,7 +5,9 @@ import typing
 
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.request_options import RequestOptions
-from ..types.create_routes_stop_request_object_request_body import CreateRoutesStopRequestObjectRequestBody
+from ..types.create_route_stop_with_orders_request_object_request_body import (
+    CreateRouteStopWithOrdersRequestObjectRequestBody,
+)
 from ..types.hub_plan_routes_list_hub_plan_routes_response_body import HubPlanRoutesListHubPlanRoutesResponseBody
 from ..types.route_settings_request_body import RouteSettingsRequestBody
 from ..types.routes_create_route_response_body import RoutesCreateRouteResponseBody
@@ -117,7 +119,7 @@ class RoutesClient:
         self,
         *,
         name: str,
-        stops: typing.Sequence[CreateRoutesStopRequestObjectRequestBody],
+        stops: typing.Sequence[CreateRouteStopWithOrdersRequestObjectRequestBody],
         driver_id: typing.Optional[str] = OMIT,
         external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
         notes: typing.Optional[str] = OMIT,
@@ -142,7 +144,7 @@ class RoutesClient:
         name : str
             Name for the route
 
-        stops : typing.Sequence[CreateRoutesStopRequestObjectRequestBody]
+        stops : typing.Sequence[CreateRouteStopWithOrdersRequestObjectRequestBody]
             List of stops along the route. For each stop, exactly one of `addressId` and `singleUseLocation` are required. Depending on the `settings` on your route, either a `scheduledArrivalTime` or `scheduledDepartureTime` must be specified for the first job.
 
         driver_id : typing.Optional[str]
@@ -175,14 +177,14 @@ class RoutesClient:
 
         Examples
         --------
-        from samsara import CreateRoutesStopRequestObjectRequestBody, Samsara
+        from samsara import CreateRouteStopWithOrdersRequestObjectRequestBody, Samsara
 
         client = Samsara(
             token="YOUR_TOKEN",
         )
         client.routes.create_route(
             name="Bid 123",
-            stops=[CreateRoutesStopRequestObjectRequestBody()],
+            stops=[CreateRouteStopWithOrdersRequestObjectRequestBody()],
         )
         """
         _response = self._raw_client.create_route(
@@ -649,7 +651,7 @@ class AsyncRoutesClient:
         self,
         *,
         name: str,
-        stops: typing.Sequence[CreateRoutesStopRequestObjectRequestBody],
+        stops: typing.Sequence[CreateRouteStopWithOrdersRequestObjectRequestBody],
         driver_id: typing.Optional[str] = OMIT,
         external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
         notes: typing.Optional[str] = OMIT,
@@ -674,7 +676,7 @@ class AsyncRoutesClient:
         name : str
             Name for the route
 
-        stops : typing.Sequence[CreateRoutesStopRequestObjectRequestBody]
+        stops : typing.Sequence[CreateRouteStopWithOrdersRequestObjectRequestBody]
             List of stops along the route. For each stop, exactly one of `addressId` and `singleUseLocation` are required. Depending on the `settings` on your route, either a `scheduledArrivalTime` or `scheduledDepartureTime` must be specified for the first job.
 
         driver_id : typing.Optional[str]
@@ -709,7 +711,10 @@ class AsyncRoutesClient:
         --------
         import asyncio
 
-        from samsara import AsyncSamsara, CreateRoutesStopRequestObjectRequestBody
+        from samsara import (
+            AsyncSamsara,
+            CreateRouteStopWithOrdersRequestObjectRequestBody,
+        )
 
         client = AsyncSamsara(
             token="YOUR_TOKEN",
@@ -719,7 +724,7 @@ class AsyncRoutesClient:
         async def main() -> None:
             await client.routes.create_route(
                 name="Bid 123",
-                stops=[CreateRoutesStopRequestObjectRequestBody()],
+                stops=[CreateRouteStopWithOrdersRequestObjectRequestBody()],
             )
 
 

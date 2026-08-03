@@ -59,6 +59,9 @@ from ..types.create_part_inventory_location_entity_part_inventory_location_money
 )
 from ..types.create_report_config_object_request_body import CreateReportConfigObjectRequestBody
 from ..types.create_shared_asset_request_object_request_body import CreateSharedAssetRequestObjectRequestBody
+from ..types.create_stock_movement_action_service_create_stock_movement_response_body import (
+    CreateStockMovementActionServiceCreateStockMovementResponseBody,
+)
 from ..types.depreciation_get_depreciation_transactions_response_body import (
     DepreciationGetDepreciationTransactionsResponseBody,
 )
@@ -76,6 +79,9 @@ from ..types.driver_workflow_assignments_post_driver_workflow_assignment_respons
 from ..types.driver_workflows_list_driver_workflows_response_body import DriverWorkflowsListDriverWorkflowsResponseBody
 from ..types.engine_immobilizer_get_engine_immobilizer_states_response_body import (
     EngineImmobilizerGetEngineImmobilizerStatesResponseBody,
+)
+from ..types.entity_create_stock_movement_money_input_type_request_body import (
+    EntityCreateStockMovementMoneyInputTypeRequestBody,
 )
 from ..types.entity_part_definitions_service_create_part_response_body import (
     EntityPartDefinitionsServiceCreatePartResponseBody,
@@ -101,8 +107,20 @@ from ..types.entity_preventative_maintenance_schedules_service_list_preventive_m
 from ..types.entity_tachograph_live_data_records_service_list_tachograph_live_data_response_body import (
     EntityTachographLiveDataRecordsServiceListTachographLiveDataResponseBody,
 )
+from ..types.entity_time_entries_service_list_time_entries_response_body import (
+    EntityTimeEntriesServiceListTimeEntriesResponseBody,
+)
 from ..types.entity_upcoming_preventative_maintenances_service_list_upcoming_preventive_maintenance_response_body import (
     EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceResponseBody,
+)
+from ..types.entity_upcoming_preventative_maintenances_service_update_upcoming_preventive_maintenance_response_body import (
+    EntityUpcomingPreventativeMaintenancesServiceUpdateUpcomingPreventiveMaintenanceResponseBody,
+)
+from ..types.entity_watchpoints_service_create_watchpoint_response_body import (
+    EntityWatchpointsServiceCreateWatchpointResponseBody,
+)
+from ..types.entity_watchpoints_service_update_watchpoint_response_body import (
+    EntityWatchpointsServiceUpdateWatchpointResponseBody,
 )
 from ..types.equipment_output_control_set_equipment_digital_output_response_body import (
     EquipmentOutputControlSetEquipmentDigitalOutputResponseBody,
@@ -223,6 +241,9 @@ from ..types.reports_get_report_runs_response_body import ReportsGetReportRunsRe
 from ..types.resolve_assignment_by_details_resolve_assignment_by_details_response_body import (
     ResolveAssignmentByDetailsResolveAssignmentByDetailsResponseBody,
 )
+from ..types.resolve_preventive_maintenance_action_service_resolve_preventive_maintenance_response_body import (
+    ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceResponseBody,
+)
 from ..types.ridership_passenger_identifier_input_request_body import RidershipPassengerIdentifierInputRequestBody
 from ..types.ridership_passenger_special_instructions_input_request_body import (
     RidershipPassengerSpecialInstructionsInputRequestBody,
@@ -268,6 +289,7 @@ from ..types.update_part_inventory_location_entity_part_inventory_location_money
     UpdatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody,
 )
 from ..types.update_shared_asset_request_object_request_body import UpdateSharedAssetRequestObjectRequestBody
+from ..types.watchpoint_lat_lng_type_request_body import WatchpointLatLngTypeRequestBody
 from ..types.work_orders_get_work_order_templates_response_body import WorkOrdersGetWorkOrderTemplatesResponseBody
 from .raw_client import AsyncRawBetaApIsClient, RawBetaApIsClient
 from .types.asset_assignments_create_asset_assignment_request_body_assignee_type import (
@@ -289,6 +311,15 @@ from .types.device_recovery_recover_asset_request_body_recovery_status import (
     DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus,
 )
 from .types.device_recovery_recover_asset_request_body_status import DeviceRecoveryRecoverAssetRequestBodyStatus
+from .types.entity_watchpoints_service_create_watchpoint_request_body_mode import (
+    EntityWatchpointsServiceCreateWatchpointRequestBodyMode,
+)
+from .types.entity_watchpoints_service_create_watchpoint_request_body_observation_type import (
+    EntityWatchpointsServiceCreateWatchpointRequestBodyObservationType,
+)
+from .types.entity_watchpoints_service_update_watchpoint_request_body_observation_type import (
+    EntityWatchpointsServiceUpdateWatchpointRequestBodyObservationType,
+)
 from .types.fleet_installer_photo_uploads_post_fleet_installer_photo_upload_request_body_file_format_type import (
     FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyFileFormatType,
 )
@@ -961,7 +992,7 @@ class BetaApIsClient:
             relay_states=[
                 UpdateEngineImmobilizerRelayStateRequestBodyRequestBody(
                     id="relay1",
-                    is_open=True,
+                    is_open=False,
                 )
             ],
         )
@@ -3554,6 +3585,133 @@ class BetaApIsClient:
         )
         return _response.data
 
+    def create_watchpoint(
+        self,
+        *,
+        location: WatchpointLatLngTypeRequestBody,
+        mode: EntityWatchpointsServiceCreateWatchpointRequestBodyMode,
+        observation_type: EntityWatchpointsServiceCreateWatchpointRequestBodyObservationType,
+        name: typing.Optional[str] = OMIT,
+        note: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityWatchpointsServiceCreateWatchpointResponseBody:
+        """
+        Creates a Ground Intelligence watchpoint for the organization.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Watchpoints** under the Ground Intelligence category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        location : WatchpointLatLngTypeRequestBody
+
+        mode : EntityWatchpointsServiceCreateWatchpointRequestBodyMode
+            Recurrence frequency for observations.  Valid values: `justOnce`, `daily`, `weekly`, `monthly`
+
+        observation_type : EntityWatchpointsServiceCreateWatchpointRequestBodyObservationType
+            Type of condition to observe at this watchpoint.  Valid values: `roadDefect`, `utilityCut`, `guardrail`, `streetlight`, `signage`, `stormDrain`, `graffiti`, `vegetation`, `blight`, `illegalDumping`, `littering`, `highVegetationWeeds`, `fire`, `other`
+
+        name : typing.Optional[str]
+            Customer-provided name for the watchpoint.
+
+        note : typing.Optional[str]
+            Customer-provided note about the watchpoint.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityWatchpointsServiceCreateWatchpointResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara, WatchpointLatLngTypeRequestBody
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.create_watchpoint(
+            location=WatchpointLatLngTypeRequestBody(
+                latitude=37.7749,
+                longitude=-122.4194,
+            ),
+            mode="justOnce",
+            observation_type="roadDefect",
+        )
+        """
+        _response = self._raw_client.create_watchpoint(
+            location=location,
+            mode=mode,
+            observation_type=observation_type,
+            name=name,
+            note=note,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def update_watchpoint(
+        self,
+        *,
+        id: str,
+        name: typing.Optional[str] = OMIT,
+        note: typing.Optional[str] = OMIT,
+        observation_type: typing.Optional[EntityWatchpointsServiceUpdateWatchpointRequestBodyObservationType] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityWatchpointsServiceUpdateWatchpointResponseBody:
+        """
+        Updates the name, note, or observation type for an existing Ground Intelligence watchpoint.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Watchpoints** under the Ground Intelligence category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Unique identifier for the Watchpoint record.
+
+        name : typing.Optional[str]
+            Customer-provided name for the watchpoint. Set to null to clear.
+
+        note : typing.Optional[str]
+            Customer-provided note about the watchpoint. Set to null to clear.
+
+        observation_type : typing.Optional[EntityWatchpointsServiceUpdateWatchpointRequestBodyObservationType]
+            Type of condition to observe at this watchpoint.  Valid values: `roadDefect`, `utilityCut`, `guardrail`, `streetlight`, `signage`, `stormDrain`, `graffiti`, `vegetation`, `blight`, `illegalDumping`, `littering`, `highVegetationWeeds`, `fire`, `other`
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityWatchpointsServiceUpdateWatchpointResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.update_watchpoint(
+            id="id",
+        )
+        """
+        _response = self._raw_client.update_watchpoint(
+            id=id, name=name, note=note, observation_type=observation_type, request_options=request_options
+        )
+        return _response.data
+
     def update_shipping_docs(
         self,
         *,
@@ -4491,6 +4649,172 @@ class BetaApIsClient:
         )
         return _response.data
 
+    def create_stock_movement(
+        self,
+        *,
+        movement_type: str,
+        part_samsara_id: str,
+        quantity: float,
+        batch: typing.Optional[str] = OMIT,
+        from_place_id: typing.Optional[str] = OMIT,
+        happened_at_time: typing.Optional[str] = OMIT,
+        notes: typing.Optional[str] = OMIT,
+        place_id: typing.Optional[str] = OMIT,
+        purchase_order: typing.Optional[str] = OMIT,
+        to_place_id: typing.Optional[str] = OMIT,
+        unit_cost: typing.Optional[EntityCreateStockMovementMoneyInputTypeRequestBody] = OMIT,
+        vendor_id: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> CreateStockMovementActionServiceCreateStockMovementResponseBody:
+        """
+        Records a receive, transfer, scrap, or adjust stock movement against a part's inventory and returns the resulting inventory location(s). Not idempotent — retrying a request that already succeeded records the movement again.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        movement_type : str
+            Type of stock movement to record. Must be one of Receive, Transfer, Scrap, or Adjust; Unknown is rejected.
+
+        part_samsara_id : str
+            Unique identifier of the part definition the movement applies to.
+
+        quantity : float
+            Quantity moved, in the part's unit of measure. Positive magnitude for receive, transfer, and scrap; signed delta for adjust.
+
+        batch : typing.Optional[str]
+            Batch or lot identifier the movement applies to, if the part is batch-tracked.
+
+        from_place_id : typing.Optional[str]
+            Unique identifier of the place linked to the maintenance site the inventory is transferred out of. Transfer only.
+
+        happened_at_time : typing.Optional[str]
+            Time when the movement occurred. Defaults to the current time if not provided.
+
+        notes : typing.Optional[str]
+            Notes explaining the movement. Scrap and adjust only.
+
+        place_id : typing.Optional[str]
+            Unique identifier of the place linked to the maintenance site the movement targets. Required for receive, scrap, and adjust; rejected for transfer (use fromPlaceId and toPlaceId).
+
+        purchase_order : typing.Optional[str]
+            Purchase order reference for the received inventory. Receive only.
+
+        to_place_id : typing.Optional[str]
+            Unique identifier of the place linked to the maintenance site the inventory is transferred into. Transfer only.
+
+        unit_cost : typing.Optional[EntityCreateStockMovementMoneyInputTypeRequestBody]
+
+        vendor_id : typing.Optional[str]
+            Unique identifier of the vendor the inventory was received from. Receive only.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        CreateStockMovementActionServiceCreateStockMovementResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.create_stock_movement(
+            movement_type="12345",
+            part_samsara_id="12345",
+            quantity=123.45,
+        )
+        """
+        _response = self._raw_client.create_stock_movement(
+            movement_type=movement_type,
+            part_samsara_id=part_samsara_id,
+            quantity=quantity,
+            batch=batch,
+            from_place_id=from_place_id,
+            happened_at_time=happened_at_time,
+            notes=notes,
+            place_id=place_id,
+            purchase_order=purchase_order,
+            to_place_id=to_place_id,
+            unit_cost=unit_cost,
+            vendor_id=vendor_id,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def resolve_preventive_maintenance(
+        self,
+        *,
+        asset_id: typing.Optional[str] = None,
+        schedule_id: typing.Optional[str] = None,
+        resolved_at: typing.Optional[str] = OMIT,
+        resolved_at_engine_hours: typing.Optional[int] = OMIT,
+        resolved_at_odometer: typing.Optional[int] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceResponseBody:
+        """
+        Resolves the current open preventive maintenance instance for a schedule and asset, and automatically creates the next due record based on the schedule's intervals.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Preventive Maintenance Resolve** under the Preventive Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        asset_id : typing.Optional[str]
+            Samsara ID of the asset the instance is being resolved for.
+
+        schedule_id : typing.Optional[str]
+            ID of the preventive maintenance schedule to resolve.
+
+        resolved_at : typing.Optional[str]
+            RFC3339 time when the maintenance was resolved. Defaults to the current time if not provided.
+
+        resolved_at_engine_hours : typing.Optional[int]
+            Engine hours reading at the time of resolution.
+
+        resolved_at_odometer : typing.Optional[int]
+            Odometer reading at the time of resolution. Measured in meters.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.resolve_preventive_maintenance()
+        """
+        _response = self._raw_client.resolve_preventive_maintenance(
+            asset_id=asset_id,
+            schedule_id=schedule_id,
+            resolved_at=resolved_at,
+            resolved_at_engine_hours=resolved_at_engine_hours,
+            resolved_at_odometer=resolved_at_odometer,
+            request_options=request_options,
+        )
+        return _response.data
+
     def list_preventive_maintenance_schedules(
         self,
         *,
@@ -4594,6 +4918,142 @@ class BetaApIsClient:
         """
         _response = self._raw_client.list_upcoming_preventive_maintenance(
             schedule_ids=schedule_ids, asset_ids=asset_ids, after=after, limit=limit, request_options=request_options
+        )
+        return _response.data
+
+    def update_upcoming_preventive_maintenance(
+        self,
+        *,
+        asset_id: typing.Optional[str] = None,
+        schedule_id: typing.Optional[str] = None,
+        last_resolved_at: typing.Optional[str] = OMIT,
+        last_resolved_at_engine_hours: typing.Optional[int] = OMIT,
+        last_resolved_at_odometer: typing.Optional[int] = OMIT,
+        next_engine_hours: typing.Optional[int] = OMIT,
+        next_odometer: typing.Optional[int] = OMIT,
+        next_time: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityUpcomingPreventativeMaintenancesServiceUpdateUpcomingPreventiveMaintenanceResponseBody:
+        """
+        Patches the due-target and last-resolved values on the open preventive maintenance instance for a schedule and asset. Only fields provided in the request are updated.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Upcoming Preventive Maintenance** under the Preventive Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        asset_id : typing.Optional[str]
+            Samsara ID for the asset.
+
+        schedule_id : typing.Optional[str]
+            ID of the preventive maintenance schedule that the vehicle is scheduled to be serviced for.
+
+        last_resolved_at : typing.Optional[str]
+            Date and time when the prior instance was resolved.
+
+        last_resolved_at_engine_hours : typing.Optional[int]
+            Engine hours at the time the prior instance was resolved.
+
+        last_resolved_at_odometer : typing.Optional[int]
+            Odometer reading at the time the prior instance was resolved. Measured in meters.
+
+        next_engine_hours : typing.Optional[int]
+            The next engine hour value that the vehicle is scheduled to be serviced.
+
+        next_odometer : typing.Optional[int]
+            The next odometer value that the vehicle is scheduled to be serviced. Measured in meters.
+
+        next_time : typing.Optional[str]
+            The next time that the vehicle is scheduled to be serviced for a date based PM.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityUpcomingPreventativeMaintenancesServiceUpdateUpcomingPreventiveMaintenanceResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.update_upcoming_preventive_maintenance()
+        """
+        _response = self._raw_client.update_upcoming_preventive_maintenance(
+            asset_id=asset_id,
+            schedule_id=schedule_id,
+            last_resolved_at=last_resolved_at,
+            last_resolved_at_engine_hours=last_resolved_at_engine_hours,
+            last_resolved_at_odometer=last_resolved_at_odometer,
+            next_engine_hours=next_engine_hours,
+            next_odometer=next_odometer,
+            next_time=next_time,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def list_time_entries(
+        self,
+        *,
+        start_time: str,
+        end_time: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityTimeEntriesServiceListTimeEntriesResponseBody:
+        """
+        Returns a paginated feed of technician time entries updated in the requested time window, including deletion tombstones.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Time Entries** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        start_time : str
+            A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        end_time : typing.Optional[str]
+            An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityTimeEntriesServiceListTimeEntriesResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.list_time_entries(
+            start_time="startTime",
+        )
+        """
+        _response = self._raw_client.list_time_entries(
+            start_time=start_time, end_time=end_time, after=after, limit=limit, request_options=request_options
         )
         return _response.data
 
@@ -6890,7 +7350,6 @@ class BetaApIsClient:
                 "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
                 "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
                 "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
-                "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
             ],
         )
         """
@@ -7586,7 +8045,7 @@ class AsyncBetaApIsClient:
                 relay_states=[
                     UpdateEngineImmobilizerRelayStateRequestBodyRequestBody(
                         id="relay1",
-                        is_open=True,
+                        is_open=False,
                     )
                 ],
             )
@@ -10576,6 +11035,149 @@ class AsyncBetaApIsClient:
         )
         return _response.data
 
+    async def create_watchpoint(
+        self,
+        *,
+        location: WatchpointLatLngTypeRequestBody,
+        mode: EntityWatchpointsServiceCreateWatchpointRequestBodyMode,
+        observation_type: EntityWatchpointsServiceCreateWatchpointRequestBodyObservationType,
+        name: typing.Optional[str] = OMIT,
+        note: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityWatchpointsServiceCreateWatchpointResponseBody:
+        """
+        Creates a Ground Intelligence watchpoint for the organization.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Watchpoints** under the Ground Intelligence category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        location : WatchpointLatLngTypeRequestBody
+
+        mode : EntityWatchpointsServiceCreateWatchpointRequestBodyMode
+            Recurrence frequency for observations.  Valid values: `justOnce`, `daily`, `weekly`, `monthly`
+
+        observation_type : EntityWatchpointsServiceCreateWatchpointRequestBodyObservationType
+            Type of condition to observe at this watchpoint.  Valid values: `roadDefect`, `utilityCut`, `guardrail`, `streetlight`, `signage`, `stormDrain`, `graffiti`, `vegetation`, `blight`, `illegalDumping`, `littering`, `highVegetationWeeds`, `fire`, `other`
+
+        name : typing.Optional[str]
+            Customer-provided name for the watchpoint.
+
+        note : typing.Optional[str]
+            Customer-provided note about the watchpoint.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityWatchpointsServiceCreateWatchpointResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara, WatchpointLatLngTypeRequestBody
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.create_watchpoint(
+                location=WatchpointLatLngTypeRequestBody(
+                    latitude=37.7749,
+                    longitude=-122.4194,
+                ),
+                mode="justOnce",
+                observation_type="roadDefect",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.create_watchpoint(
+            location=location,
+            mode=mode,
+            observation_type=observation_type,
+            name=name,
+            note=note,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def update_watchpoint(
+        self,
+        *,
+        id: str,
+        name: typing.Optional[str] = OMIT,
+        note: typing.Optional[str] = OMIT,
+        observation_type: typing.Optional[EntityWatchpointsServiceUpdateWatchpointRequestBodyObservationType] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityWatchpointsServiceUpdateWatchpointResponseBody:
+        """
+        Updates the name, note, or observation type for an existing Ground Intelligence watchpoint.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Watchpoints** under the Ground Intelligence category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Unique identifier for the Watchpoint record.
+
+        name : typing.Optional[str]
+            Customer-provided name for the watchpoint. Set to null to clear.
+
+        note : typing.Optional[str]
+            Customer-provided note about the watchpoint. Set to null to clear.
+
+        observation_type : typing.Optional[EntityWatchpointsServiceUpdateWatchpointRequestBodyObservationType]
+            Type of condition to observe at this watchpoint.  Valid values: `roadDefect`, `utilityCut`, `guardrail`, `streetlight`, `signage`, `stormDrain`, `graffiti`, `vegetation`, `blight`, `illegalDumping`, `littering`, `highVegetationWeeds`, `fire`, `other`
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityWatchpointsServiceUpdateWatchpointResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.update_watchpoint(
+                id="id",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.update_watchpoint(
+            id=id, name=name, note=note, observation_type=observation_type, request_options=request_options
+        )
+        return _response.data
+
     async def update_shipping_docs(
         self,
         *,
@@ -11627,6 +12229,188 @@ class AsyncBetaApIsClient:
         )
         return _response.data
 
+    async def create_stock_movement(
+        self,
+        *,
+        movement_type: str,
+        part_samsara_id: str,
+        quantity: float,
+        batch: typing.Optional[str] = OMIT,
+        from_place_id: typing.Optional[str] = OMIT,
+        happened_at_time: typing.Optional[str] = OMIT,
+        notes: typing.Optional[str] = OMIT,
+        place_id: typing.Optional[str] = OMIT,
+        purchase_order: typing.Optional[str] = OMIT,
+        to_place_id: typing.Optional[str] = OMIT,
+        unit_cost: typing.Optional[EntityCreateStockMovementMoneyInputTypeRequestBody] = OMIT,
+        vendor_id: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> CreateStockMovementActionServiceCreateStockMovementResponseBody:
+        """
+        Records a receive, transfer, scrap, or adjust stock movement against a part's inventory and returns the resulting inventory location(s). Not idempotent — retrying a request that already succeeded records the movement again.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        movement_type : str
+            Type of stock movement to record. Must be one of Receive, Transfer, Scrap, or Adjust; Unknown is rejected.
+
+        part_samsara_id : str
+            Unique identifier of the part definition the movement applies to.
+
+        quantity : float
+            Quantity moved, in the part's unit of measure. Positive magnitude for receive, transfer, and scrap; signed delta for adjust.
+
+        batch : typing.Optional[str]
+            Batch or lot identifier the movement applies to, if the part is batch-tracked.
+
+        from_place_id : typing.Optional[str]
+            Unique identifier of the place linked to the maintenance site the inventory is transferred out of. Transfer only.
+
+        happened_at_time : typing.Optional[str]
+            Time when the movement occurred. Defaults to the current time if not provided.
+
+        notes : typing.Optional[str]
+            Notes explaining the movement. Scrap and adjust only.
+
+        place_id : typing.Optional[str]
+            Unique identifier of the place linked to the maintenance site the movement targets. Required for receive, scrap, and adjust; rejected for transfer (use fromPlaceId and toPlaceId).
+
+        purchase_order : typing.Optional[str]
+            Purchase order reference for the received inventory. Receive only.
+
+        to_place_id : typing.Optional[str]
+            Unique identifier of the place linked to the maintenance site the inventory is transferred into. Transfer only.
+
+        unit_cost : typing.Optional[EntityCreateStockMovementMoneyInputTypeRequestBody]
+
+        vendor_id : typing.Optional[str]
+            Unique identifier of the vendor the inventory was received from. Receive only.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        CreateStockMovementActionServiceCreateStockMovementResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.create_stock_movement(
+                movement_type="12345",
+                part_samsara_id="12345",
+                quantity=123.45,
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.create_stock_movement(
+            movement_type=movement_type,
+            part_samsara_id=part_samsara_id,
+            quantity=quantity,
+            batch=batch,
+            from_place_id=from_place_id,
+            happened_at_time=happened_at_time,
+            notes=notes,
+            place_id=place_id,
+            purchase_order=purchase_order,
+            to_place_id=to_place_id,
+            unit_cost=unit_cost,
+            vendor_id=vendor_id,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def resolve_preventive_maintenance(
+        self,
+        *,
+        asset_id: typing.Optional[str] = None,
+        schedule_id: typing.Optional[str] = None,
+        resolved_at: typing.Optional[str] = OMIT,
+        resolved_at_engine_hours: typing.Optional[int] = OMIT,
+        resolved_at_odometer: typing.Optional[int] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceResponseBody:
+        """
+        Resolves the current open preventive maintenance instance for a schedule and asset, and automatically creates the next due record based on the schedule's intervals.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Preventive Maintenance Resolve** under the Preventive Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        asset_id : typing.Optional[str]
+            Samsara ID of the asset the instance is being resolved for.
+
+        schedule_id : typing.Optional[str]
+            ID of the preventive maintenance schedule to resolve.
+
+        resolved_at : typing.Optional[str]
+            RFC3339 time when the maintenance was resolved. Defaults to the current time if not provided.
+
+        resolved_at_engine_hours : typing.Optional[int]
+            Engine hours reading at the time of resolution.
+
+        resolved_at_odometer : typing.Optional[int]
+            Odometer reading at the time of resolution. Measured in meters.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.resolve_preventive_maintenance()
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.resolve_preventive_maintenance(
+            asset_id=asset_id,
+            schedule_id=schedule_id,
+            resolved_at=resolved_at,
+            resolved_at_engine_hours=resolved_at_engine_hours,
+            resolved_at_odometer=resolved_at_odometer,
+            request_options=request_options,
+        )
+        return _response.data
+
     async def list_preventive_maintenance_schedules(
         self,
         *,
@@ -11746,6 +12530,158 @@ class AsyncBetaApIsClient:
         """
         _response = await self._raw_client.list_upcoming_preventive_maintenance(
             schedule_ids=schedule_ids, asset_ids=asset_ids, after=after, limit=limit, request_options=request_options
+        )
+        return _response.data
+
+    async def update_upcoming_preventive_maintenance(
+        self,
+        *,
+        asset_id: typing.Optional[str] = None,
+        schedule_id: typing.Optional[str] = None,
+        last_resolved_at: typing.Optional[str] = OMIT,
+        last_resolved_at_engine_hours: typing.Optional[int] = OMIT,
+        last_resolved_at_odometer: typing.Optional[int] = OMIT,
+        next_engine_hours: typing.Optional[int] = OMIT,
+        next_odometer: typing.Optional[int] = OMIT,
+        next_time: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityUpcomingPreventativeMaintenancesServiceUpdateUpcomingPreventiveMaintenanceResponseBody:
+        """
+        Patches the due-target and last-resolved values on the open preventive maintenance instance for a schedule and asset. Only fields provided in the request are updated.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Upcoming Preventive Maintenance** under the Preventive Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        asset_id : typing.Optional[str]
+            Samsara ID for the asset.
+
+        schedule_id : typing.Optional[str]
+            ID of the preventive maintenance schedule that the vehicle is scheduled to be serviced for.
+
+        last_resolved_at : typing.Optional[str]
+            Date and time when the prior instance was resolved.
+
+        last_resolved_at_engine_hours : typing.Optional[int]
+            Engine hours at the time the prior instance was resolved.
+
+        last_resolved_at_odometer : typing.Optional[int]
+            Odometer reading at the time the prior instance was resolved. Measured in meters.
+
+        next_engine_hours : typing.Optional[int]
+            The next engine hour value that the vehicle is scheduled to be serviced.
+
+        next_odometer : typing.Optional[int]
+            The next odometer value that the vehicle is scheduled to be serviced. Measured in meters.
+
+        next_time : typing.Optional[str]
+            The next time that the vehicle is scheduled to be serviced for a date based PM.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityUpcomingPreventativeMaintenancesServiceUpdateUpcomingPreventiveMaintenanceResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.update_upcoming_preventive_maintenance()
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.update_upcoming_preventive_maintenance(
+            asset_id=asset_id,
+            schedule_id=schedule_id,
+            last_resolved_at=last_resolved_at,
+            last_resolved_at_engine_hours=last_resolved_at_engine_hours,
+            last_resolved_at_odometer=last_resolved_at_odometer,
+            next_engine_hours=next_engine_hours,
+            next_odometer=next_odometer,
+            next_time=next_time,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def list_time_entries(
+        self,
+        *,
+        start_time: str,
+        end_time: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityTimeEntriesServiceListTimeEntriesResponseBody:
+        """
+        Returns a paginated feed of technician time entries updated in the requested time window, including deletion tombstones.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Time Entries** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        start_time : str
+            A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        end_time : typing.Optional[str]
+            An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityTimeEntriesServiceListTimeEntriesResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.list_time_entries(
+                start_time="startTime",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.list_time_entries(
+            start_time=start_time, end_time=end_time, after=after, limit=limit, request_options=request_options
         )
         return _response.data
 
@@ -14355,7 +15291,6 @@ class AsyncBetaApIsClient:
         async def main() -> None:
             await client.beta_ap_is.patch_safety_events_v_2_batch(
                 safety_event_ids=[
-                    "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
                     "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
                     "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
                     "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",

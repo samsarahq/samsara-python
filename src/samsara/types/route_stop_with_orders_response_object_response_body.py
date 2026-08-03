@@ -13,13 +13,14 @@ from .goa_issue_tiny_response_response_body import GoaIssueTinyResponseResponseB
 from .live_sharing_link_response_object_response_body import LiveSharingLinkResponseObjectResponseBody
 from .route_stop_appointment_window_response_body import RouteStopAppointmentWindowResponseBody
 from .route_stop_form_response_object_response_body import RouteStopFormResponseObjectResponseBody
-from .routes_single_use_address_object_response_body import RoutesSingleUseAddressObjectResponseBody
-from .routes_stop_with_forms_response_object_response_body_state import (
-    RoutesStopWithFormsResponseObjectResponseBodyState,
+from .route_stop_order_task_reference_object_response_body import RouteStopOrderTaskReferenceObjectResponseBody
+from .route_stop_with_orders_response_object_response_body_state import (
+    RouteStopWithOrdersResponseObjectResponseBodyState,
 )
+from .routes_single_use_address_object_response_body import RoutesSingleUseAddressObjectResponseBody
 
 
-class RoutesStopWithFormsResponseObjectResponseBody(UniversalBaseModel):
+class RouteStopWithOrdersResponseObjectResponseBody(UniversalBaseModel):
     actual_arrival_time: typing_extensions.Annotated[
         typing.Optional[dt.datetime],
         FieldMetadata(alias="actualArrivalTime"),
@@ -124,6 +125,11 @@ class RoutesStopWithFormsResponseObjectResponseBody(UniversalBaseModel):
             description="Specifies the time window (in milliseconds) before a stop's scheduled arrival time during which the stop is considered 'on-time'.",
         ),
     ] = None
+    orders: typing.List[RouteStopOrderTaskReferenceObjectResponseBody] = pydantic.Field()
+    """
+    Canonical order tasks attached to this stop.
+    """
+
     planned_distance_meters: typing_extensions.Annotated[
         typing.Optional[int],
         FieldMetadata(alias="plannedDistanceMeters"),
@@ -168,7 +174,7 @@ class RoutesStopWithFormsResponseObjectResponseBody(UniversalBaseModel):
             alias="skippedTime", description="Skipped time, if it exists, for the route stop in RFC 3339 format."
         ),
     ] = None
-    state: RoutesStopWithFormsResponseObjectResponseBodyState = pydantic.Field()
+    state: RouteStopWithOrdersResponseObjectResponseBodyState = pydantic.Field()
     """
     The current state of the route stop.  Valid values: `unassigned`, `scheduled`, `en route`, `skipped`, `arrived`, `departed`
     """
