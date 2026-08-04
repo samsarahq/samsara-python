@@ -677,6 +677,38 @@ def test_betaApIs_update_upcoming_preventive_maintenance() -> None:
     verify_request_count(test_id, "PATCH", "/maintenance/preventive/upcoming", None, 1)
 
 
+def test_betaApIs_list_purchase_orders() -> None:
+    """Test listPurchaseOrders endpoint with WireMock"""
+    test_id = "beta_ap_is.list_purchase_orders.0"
+    client = get_client(test_id)
+    client.beta_ap_is.list_purchase_orders(start_time="startTime")
+    verify_request_count(test_id, "GET", "/maintenance/purchase-orders", {"startTime": "startTime"}, 1)
+
+
+def test_betaApIs_create_purchase_order() -> None:
+    """Test createPurchaseOrder endpoint with WireMock"""
+    test_id = "beta_ap_is.create_purchase_order.0"
+    client = get_client(test_id)
+    client.beta_ap_is.create_purchase_order(order_status="12345", vendor_id="281474976710656")
+    verify_request_count(test_id, "POST", "/maintenance/purchase-orders", None, 1)
+
+
+def test_betaApIs_delete_purchase_order() -> None:
+    """Test deletePurchaseOrder endpoint with WireMock"""
+    test_id = "beta_ap_is.delete_purchase_order.0"
+    client = get_client(test_id)
+    client.beta_ap_is.delete_purchase_order(id="id")
+    verify_request_count(test_id, "DELETE", "/maintenance/purchase-orders", {"id": "id"}, 1)
+
+
+def test_betaApIs_update_purchase_order() -> None:
+    """Test updatePurchaseOrder endpoint with WireMock"""
+    test_id = "beta_ap_is.update_purchase_order.0"
+    client = get_client(test_id)
+    client.beta_ap_is.update_purchase_order(id="id")
+    verify_request_count(test_id, "PATCH", "/maintenance/purchase-orders", {"id": "id"}, 1)
+
+
 def test_betaApIs_list_time_entries() -> None:
     """Test listTimeEntries endpoint with WireMock"""
     test_id = "beta_ap_is.list_time_entries.0"

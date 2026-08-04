@@ -3,5 +3,5 @@
 import typing
 
 AssetAssignmentAssigneeResponseObjectResponseBodyAssigneeType = typing.Union[
-    typing.Literal["unknown", "driver", "asset", "geofence"], typing.Any
+    typing.Literal["unknown", "driver", "asset", "geofence", "job"], typing.Any
 ]
