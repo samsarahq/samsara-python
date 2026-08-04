@@ -21,7 +21,7 @@ class AssetAssignmentAssigneeResponseObjectResponseBody(UniversalBaseModel):
         FieldMetadata(alias="assigneeType"),
         pydantic.Field(
             alias="assigneeType",
-            description="Type of the assignee.  Valid values: `unknown`, `driver`, `asset`, `geofence`",
+            description="Type of the assignee.  Valid values: `unknown`, `driver`, `asset`, `geofence`, `job`",
         ),
     ]
     external_ids: typing_extensions.Annotated[
