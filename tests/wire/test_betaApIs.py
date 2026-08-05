@@ -653,6 +653,16 @@ def test_betaApIs_create_stock_movement() -> None:
     verify_request_count(test_id, "POST", "/maintenance/parts/stock-movements", None, 1)
 
 
+def test_betaApIs_list_part_transactions() -> None:
+    """Test listPartTransactions endpoint with WireMock"""
+    test_id = "beta_ap_is.list_part_transactions.0"
+    client = get_client(test_id)
+    client.beta_ap_is.list_part_transactions(happened_at_time_start="happenedAtTimeStart")
+    verify_request_count(
+        test_id, "GET", "/maintenance/parts/transactions", {"happenedAtTimeStart": "happenedAtTimeStart"}, 1
+    )
+
+
 def test_betaApIs_resolve_preventive_maintenance() -> None:
     """Test resolvePreventiveMaintenance endpoint with WireMock"""
     test_id = "beta_ap_is.resolve_preventive_maintenance.0"
