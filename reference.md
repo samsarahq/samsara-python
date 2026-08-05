@@ -6118,6 +6118,145 @@ client.beta_ap_is.pair_gateways(
 </dl>
 </details>
 
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_issues</a>(...) -&gt; AsyncHttpResponse[EntityGroundIntelligenceIssuesServiceListIssuesResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns a paginated list of Ground Intelligence issues for an organization, ordered by updatedAtTime descending and then id ascending.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Ground Intelligence Issues** under the Ground Intelligence category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.list_issues()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of ID values.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**types:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of Type values.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**statuses:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of Status values.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**severities:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of Severity values.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**end_time:** `typing.Optional[str]` — An end time in RFC 3339 format. Millisecond precision and timezones are supported.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**query_by_time_field:** `typing.Optional[str]` — Time field to filter with startTime and endTime. Defaults to updatedAtTime.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**start_time:** `typing.Optional[str]` — A start time in RFC 3339 format. Millisecond precision and timezones are supported.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">create_watchpoint</a>(...) -&gt; AsyncHttpResponse[EntityWatchpointsServiceCreateWatchpointResponseBody]</code></summary>
 <dl>
 <dd>
@@ -7237,6 +7376,14 @@ client.beta_ap_is.create_part(
 <dl>
 <dd>
 
+**barcode_type:** `typing.Optional[str]` — Type of barcode associated with the part definition.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **description:** `typing.Optional[str]` — Description of the part definition.
     
 </dd>
@@ -7245,7 +7392,23 @@ client.beta_ap_is.create_part(
 <dl>
 <dd>
 
+**external_id:** `typing.Optional[str]` — Customer-supplied external identifier for the part.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **is_inventory_tracked:** `typing.Optional[bool]` — Whether inventory tracking is enabled for this part.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**manufacturer_name:** `typing.Optional[str]` — Name of the manufacturer for the part definition.
     
 </dd>
 </dl>
@@ -7447,6 +7610,14 @@ client.beta_ap_is.update_part(
 <dl>
 <dd>
 
+**barcode_type:** `typing.Optional[str]` — Type of barcode associated with the part definition.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **description:** `typing.Optional[str]` — Description of the part definition.
     
 </dd>
@@ -7455,7 +7626,23 @@ client.beta_ap_is.update_part(
 <dl>
 <dd>
 
+**external_id:** `typing.Optional[str]` — Customer-supplied external identifier for the part.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **is_inventory_tracked:** `typing.Optional[bool]` — Whether inventory tracking is enabled for this part.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**manufacturer_name:** `typing.Optional[str]` — Name of the manufacturer for the part definition.
     
 </dd>
 </dl>

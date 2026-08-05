@@ -89,6 +89,9 @@ from ..types.engine_immobilizer_get_engine_immobilizer_states_response_body impo
 from ..types.entity_create_stock_movement_money_input_type_request_body import (
     EntityCreateStockMovementMoneyInputTypeRequestBody,
 )
+from ..types.entity_ground_intelligence_issues_service_list_issues_response_body import (
+    EntityGroundIntelligenceIssuesServiceListIssuesResponseBody,
+)
 from ..types.entity_part_definitions_service_create_part_response_body import (
     EntityPartDefinitionsServiceCreatePartResponseBody,
 )
@@ -3606,6 +3609,90 @@ class BetaApIsClient:
         )
         return _response.data
 
+    def list_issues(
+        self,
+        *,
+        ids: typing.Optional[str] = None,
+        types: typing.Optional[str] = None,
+        statuses: typing.Optional[str] = None,
+        severities: typing.Optional[str] = None,
+        end_time: typing.Optional[str] = None,
+        query_by_time_field: typing.Optional[str] = None,
+        start_time: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityGroundIntelligenceIssuesServiceListIssuesResponseBody:
+        """
+        Returns a paginated list of Ground Intelligence issues for an organization, ordered by updatedAtTime descending and then id ascending.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Ground Intelligence Issues** under the Ground Intelligence category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of ID values.
+
+        types : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Type values.
+
+        statuses : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Status values.
+
+        severities : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Severity values.
+
+        end_time : typing.Optional[str]
+            An end time in RFC 3339 format. Millisecond precision and timezones are supported.
+
+        query_by_time_field : typing.Optional[str]
+            Time field to filter with startTime and endTime. Defaults to updatedAtTime.
+
+        start_time : typing.Optional[str]
+            A start time in RFC 3339 format. Millisecond precision and timezones are supported.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityGroundIntelligenceIssuesServiceListIssuesResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.list_issues()
+        """
+        _response = self._raw_client.list_issues(
+            ids=ids,
+            types=types,
+            statuses=statuses,
+            severities=severities,
+            end_time=end_time,
+            query_by_time_field=query_by_time_field,
+            start_time=start_time,
+            after=after,
+            limit=limit,
+            request_options=request_options,
+        )
+        return _response.data
+
     def create_watchpoint(
         self,
         *,
@@ -4214,8 +4301,11 @@ class BetaApIsClient:
         *,
         part_number: str,
         barcode_string: typing.Optional[str] = OMIT,
+        barcode_type: typing.Optional[str] = OMIT,
         description: typing.Optional[str] = OMIT,
+        external_id: typing.Optional[str] = OMIT,
         is_inventory_tracked: typing.Optional[bool] = OMIT,
+        manufacturer_name: typing.Optional[str] = OMIT,
         manufacturer_part_number: typing.Optional[str] = OMIT,
         name: typing.Optional[str] = OMIT,
         unit_cost: typing.Optional[CreatePartEntityPartDefinitionMoneyInputTypeRequestBody] = OMIT,
@@ -4240,11 +4330,20 @@ class BetaApIsClient:
         barcode_string : typing.Optional[str]
             Barcode associated with the part definition.
 
+        barcode_type : typing.Optional[str]
+            Type of barcode associated with the part definition.
+
         description : typing.Optional[str]
             Description of the part definition.
 
+        external_id : typing.Optional[str]
+            Customer-supplied external identifier for the part.
+
         is_inventory_tracked : typing.Optional[bool]
             Whether inventory tracking is enabled for this part.
+
+        manufacturer_name : typing.Optional[str]
+            Name of the manufacturer for the part definition.
 
         manufacturer_part_number : typing.Optional[str]
             Manufacturer-supplied part number.
@@ -4279,8 +4378,11 @@ class BetaApIsClient:
         _response = self._raw_client.create_part(
             part_number=part_number,
             barcode_string=barcode_string,
+            barcode_type=barcode_type,
             description=description,
+            external_id=external_id,
             is_inventory_tracked=is_inventory_tracked,
+            manufacturer_name=manufacturer_name,
             manufacturer_part_number=manufacturer_part_number,
             name=name,
             unit_cost=unit_cost,
@@ -4331,8 +4433,11 @@ class BetaApIsClient:
         *,
         id: str,
         barcode_string: typing.Optional[str] = OMIT,
+        barcode_type: typing.Optional[str] = OMIT,
         description: typing.Optional[str] = OMIT,
+        external_id: typing.Optional[str] = OMIT,
         is_inventory_tracked: typing.Optional[bool] = OMIT,
+        manufacturer_name: typing.Optional[str] = OMIT,
         manufacturer_part_number: typing.Optional[str] = OMIT,
         name: typing.Optional[str] = OMIT,
         part_number: typing.Optional[str] = OMIT,
@@ -4358,11 +4463,20 @@ class BetaApIsClient:
         barcode_string : typing.Optional[str]
             Barcode associated with the part definition.
 
+        barcode_type : typing.Optional[str]
+            Type of barcode associated with the part definition.
+
         description : typing.Optional[str]
             Description of the part definition.
 
+        external_id : typing.Optional[str]
+            Customer-supplied external identifier for the part.
+
         is_inventory_tracked : typing.Optional[bool]
             Whether inventory tracking is enabled for this part.
+
+        manufacturer_name : typing.Optional[str]
+            Name of the manufacturer for the part definition.
 
         manufacturer_part_number : typing.Optional[str]
             Manufacturer-supplied part number.
@@ -4400,8 +4514,11 @@ class BetaApIsClient:
         _response = self._raw_client.update_part(
             id=id,
             barcode_string=barcode_string,
+            barcode_type=barcode_type,
             description=description,
+            external_id=external_id,
             is_inventory_tracked=is_inventory_tracked,
+            manufacturer_name=manufacturer_name,
             manufacturer_part_number=manufacturer_part_number,
             name=name,
             part_number=part_number,
@@ -11349,6 +11466,98 @@ class AsyncBetaApIsClient:
         )
         return _response.data
 
+    async def list_issues(
+        self,
+        *,
+        ids: typing.Optional[str] = None,
+        types: typing.Optional[str] = None,
+        statuses: typing.Optional[str] = None,
+        severities: typing.Optional[str] = None,
+        end_time: typing.Optional[str] = None,
+        query_by_time_field: typing.Optional[str] = None,
+        start_time: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityGroundIntelligenceIssuesServiceListIssuesResponseBody:
+        """
+        Returns a paginated list of Ground Intelligence issues for an organization, ordered by updatedAtTime descending and then id ascending.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Ground Intelligence Issues** under the Ground Intelligence category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of ID values.
+
+        types : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Type values.
+
+        statuses : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Status values.
+
+        severities : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Severity values.
+
+        end_time : typing.Optional[str]
+            An end time in RFC 3339 format. Millisecond precision and timezones are supported.
+
+        query_by_time_field : typing.Optional[str]
+            Time field to filter with startTime and endTime. Defaults to updatedAtTime.
+
+        start_time : typing.Optional[str]
+            A start time in RFC 3339 format. Millisecond precision and timezones are supported.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityGroundIntelligenceIssuesServiceListIssuesResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.list_issues()
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.list_issues(
+            ids=ids,
+            types=types,
+            statuses=statuses,
+            severities=severities,
+            end_time=end_time,
+            query_by_time_field=query_by_time_field,
+            start_time=start_time,
+            after=after,
+            limit=limit,
+            request_options=request_options,
+        )
+        return _response.data
+
     async def create_watchpoint(
         self,
         *,
@@ -12039,8 +12248,11 @@ class AsyncBetaApIsClient:
         *,
         part_number: str,
         barcode_string: typing.Optional[str] = OMIT,
+        barcode_type: typing.Optional[str] = OMIT,
         description: typing.Optional[str] = OMIT,
+        external_id: typing.Optional[str] = OMIT,
         is_inventory_tracked: typing.Optional[bool] = OMIT,
+        manufacturer_name: typing.Optional[str] = OMIT,
         manufacturer_part_number: typing.Optional[str] = OMIT,
         name: typing.Optional[str] = OMIT,
         unit_cost: typing.Optional[CreatePartEntityPartDefinitionMoneyInputTypeRequestBody] = OMIT,
@@ -12065,11 +12277,20 @@ class AsyncBetaApIsClient:
         barcode_string : typing.Optional[str]
             Barcode associated with the part definition.
 
+        barcode_type : typing.Optional[str]
+            Type of barcode associated with the part definition.
+
         description : typing.Optional[str]
             Description of the part definition.
 
+        external_id : typing.Optional[str]
+            Customer-supplied external identifier for the part.
+
         is_inventory_tracked : typing.Optional[bool]
             Whether inventory tracking is enabled for this part.
+
+        manufacturer_name : typing.Optional[str]
+            Name of the manufacturer for the part definition.
 
         manufacturer_part_number : typing.Optional[str]
             Manufacturer-supplied part number.
@@ -12112,8 +12333,11 @@ class AsyncBetaApIsClient:
         _response = await self._raw_client.create_part(
             part_number=part_number,
             barcode_string=barcode_string,
+            barcode_type=barcode_type,
             description=description,
+            external_id=external_id,
             is_inventory_tracked=is_inventory_tracked,
+            manufacturer_name=manufacturer_name,
             manufacturer_part_number=manufacturer_part_number,
             name=name,
             unit_cost=unit_cost,
@@ -12172,8 +12396,11 @@ class AsyncBetaApIsClient:
         *,
         id: str,
         barcode_string: typing.Optional[str] = OMIT,
+        barcode_type: typing.Optional[str] = OMIT,
         description: typing.Optional[str] = OMIT,
+        external_id: typing.Optional[str] = OMIT,
         is_inventory_tracked: typing.Optional[bool] = OMIT,
+        manufacturer_name: typing.Optional[str] = OMIT,
         manufacturer_part_number: typing.Optional[str] = OMIT,
         name: typing.Optional[str] = OMIT,
         part_number: typing.Optional[str] = OMIT,
@@ -12199,11 +12426,20 @@ class AsyncBetaApIsClient:
         barcode_string : typing.Optional[str]
             Barcode associated with the part definition.
 
+        barcode_type : typing.Optional[str]
+            Type of barcode associated with the part definition.
+
         description : typing.Optional[str]
             Description of the part definition.
 
+        external_id : typing.Optional[str]
+            Customer-supplied external identifier for the part.
+
         is_inventory_tracked : typing.Optional[bool]
             Whether inventory tracking is enabled for this part.
+
+        manufacturer_name : typing.Optional[str]
+            Name of the manufacturer for the part definition.
 
         manufacturer_part_number : typing.Optional[str]
             Manufacturer-supplied part number.
@@ -12249,8 +12485,11 @@ class AsyncBetaApIsClient:
         _response = await self._raw_client.update_part(
             id=id,
             barcode_string=barcode_string,
+            barcode_type=barcode_type,
             description=description,
+            external_id=external_id,
             is_inventory_tracked=is_inventory_tracked,
+            manufacturer_name=manufacturer_name,
             manufacturer_part_number=manufacturer_part_number,
             name=name,
             part_number=part_number,

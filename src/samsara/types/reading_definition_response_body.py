@@ -7,6 +7,7 @@ import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .enum_value_response_body import EnumValueResponseBody
+from .reading_grouping_response_body import ReadingGroupingResponseBody
 
 
 class ReadingDefinitionResponseBody(UniversalBaseModel):
@@ -34,6 +35,7 @@ class ReadingDefinitionResponseBody(UniversalBaseModel):
         FieldMetadata(alias="enumValues"),
         pydantic.Field(alias="enumValues", description="Array of enumeration values"),
     ] = None
+    grouping: typing.Optional[ReadingGroupingResponseBody] = None
     ingestion_enabled: typing_extensions.Annotated[
         bool,
         FieldMetadata(alias="ingestionEnabled"),

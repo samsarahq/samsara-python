@@ -105,6 +105,9 @@ from ..types.engine_immobilizer_get_engine_immobilizer_states_response_body impo
 from ..types.entity_create_stock_movement_money_input_type_request_body import (
     EntityCreateStockMovementMoneyInputTypeRequestBody,
 )
+from ..types.entity_ground_intelligence_issues_service_list_issues_response_body import (
+    EntityGroundIntelligenceIssuesServiceListIssuesResponseBody,
+)
 from ..types.entity_part_definitions_service_create_part_response_body import (
     EntityPartDefinitionsServiceCreatePartResponseBody,
 )
@@ -9625,6 +9628,197 @@ class RawBetaApIsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
+    def list_issues(
+        self,
+        *,
+        ids: typing.Optional[str] = None,
+        types: typing.Optional[str] = None,
+        statuses: typing.Optional[str] = None,
+        severities: typing.Optional[str] = None,
+        end_time: typing.Optional[str] = None,
+        query_by_time_field: typing.Optional[str] = None,
+        start_time: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[EntityGroundIntelligenceIssuesServiceListIssuesResponseBody]:
+        """
+        Returns a paginated list of Ground Intelligence issues for an organization, ordered by updatedAtTime descending and then id ascending.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Ground Intelligence Issues** under the Ground Intelligence category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of ID values.
+
+        types : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Type values.
+
+        statuses : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Status values.
+
+        severities : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Severity values.
+
+        end_time : typing.Optional[str]
+            An end time in RFC 3339 format. Millisecond precision and timezones are supported.
+
+        query_by_time_field : typing.Optional[str]
+            Time field to filter with startTime and endTime. Defaults to updatedAtTime.
+
+        start_time : typing.Optional[str]
+            A start time in RFC 3339 format. Millisecond precision and timezones are supported.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[EntityGroundIntelligenceIssuesServiceListIssuesResponseBody]
+            OK response.
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "ground-intelligence/issues",
+            method="GET",
+            params={
+                "ids": ids,
+                "types": types,
+                "statuses": statuses,
+                "severities": severities,
+                "endTime": end_time,
+                "queryByTimeField": query_by_time_field,
+                "startTime": start_time,
+                "after": after,
+                "limit": limit,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    EntityGroundIntelligenceIssuesServiceListIssuesResponseBody,
+                    parse_obj_as(
+                        type_=EntityGroundIntelligenceIssuesServiceListIssuesResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
     def create_watchpoint(
         self,
         *,
@@ -11323,8 +11517,11 @@ class RawBetaApIsClient:
         *,
         part_number: str,
         barcode_string: typing.Optional[str] = OMIT,
+        barcode_type: typing.Optional[str] = OMIT,
         description: typing.Optional[str] = OMIT,
+        external_id: typing.Optional[str] = OMIT,
         is_inventory_tracked: typing.Optional[bool] = OMIT,
+        manufacturer_name: typing.Optional[str] = OMIT,
         manufacturer_part_number: typing.Optional[str] = OMIT,
         name: typing.Optional[str] = OMIT,
         unit_cost: typing.Optional[CreatePartEntityPartDefinitionMoneyInputTypeRequestBody] = OMIT,
@@ -11349,11 +11546,20 @@ class RawBetaApIsClient:
         barcode_string : typing.Optional[str]
             Barcode associated with the part definition.
 
+        barcode_type : typing.Optional[str]
+            Type of barcode associated with the part definition.
+
         description : typing.Optional[str]
             Description of the part definition.
 
+        external_id : typing.Optional[str]
+            Customer-supplied external identifier for the part.
+
         is_inventory_tracked : typing.Optional[bool]
             Whether inventory tracking is enabled for this part.
+
+        manufacturer_name : typing.Optional[str]
+            Name of the manufacturer for the part definition.
 
         manufacturer_part_number : typing.Optional[str]
             Manufacturer-supplied part number.
@@ -11379,8 +11585,11 @@ class RawBetaApIsClient:
             method="POST",
             json={
                 "barcodeString": barcode_string,
+                "barcodeType": barcode_type,
                 "description": description,
+                "externalId": external_id,
                 "isInventoryTracked": is_inventory_tracked,
+                "manufacturerName": manufacturer_name,
                 "manufacturerPartNumber": manufacturer_part_number,
                 "name": name,
                 "partNumber": part_number,
@@ -11654,8 +11863,11 @@ class RawBetaApIsClient:
         *,
         id: str,
         barcode_string: typing.Optional[str] = OMIT,
+        barcode_type: typing.Optional[str] = OMIT,
         description: typing.Optional[str] = OMIT,
+        external_id: typing.Optional[str] = OMIT,
         is_inventory_tracked: typing.Optional[bool] = OMIT,
+        manufacturer_name: typing.Optional[str] = OMIT,
         manufacturer_part_number: typing.Optional[str] = OMIT,
         name: typing.Optional[str] = OMIT,
         part_number: typing.Optional[str] = OMIT,
@@ -11681,11 +11893,20 @@ class RawBetaApIsClient:
         barcode_string : typing.Optional[str]
             Barcode associated with the part definition.
 
+        barcode_type : typing.Optional[str]
+            Type of barcode associated with the part definition.
+
         description : typing.Optional[str]
             Description of the part definition.
 
+        external_id : typing.Optional[str]
+            Customer-supplied external identifier for the part.
+
         is_inventory_tracked : typing.Optional[bool]
             Whether inventory tracking is enabled for this part.
+
+        manufacturer_name : typing.Optional[str]
+            Name of the manufacturer for the part definition.
 
         manufacturer_part_number : typing.Optional[str]
             Manufacturer-supplied part number.
@@ -11717,8 +11938,11 @@ class RawBetaApIsClient:
             },
             json={
                 "barcodeString": barcode_string,
+                "barcodeType": barcode_type,
                 "description": description,
+                "externalId": external_id,
                 "isInventoryTracked": is_inventory_tracked,
+                "manufacturerName": manufacturer_name,
                 "manufacturerPartNumber": manufacturer_part_number,
                 "name": name,
                 "partNumber": part_number,
@@ -29903,6 +30127,197 @@ class AsyncRawBetaApIsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
+    async def list_issues(
+        self,
+        *,
+        ids: typing.Optional[str] = None,
+        types: typing.Optional[str] = None,
+        statuses: typing.Optional[str] = None,
+        severities: typing.Optional[str] = None,
+        end_time: typing.Optional[str] = None,
+        query_by_time_field: typing.Optional[str] = None,
+        start_time: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[EntityGroundIntelligenceIssuesServiceListIssuesResponseBody]:
+        """
+        Returns a paginated list of Ground Intelligence issues for an organization, ordered by updatedAtTime descending and then id ascending.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Ground Intelligence Issues** under the Ground Intelligence category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of ID values.
+
+        types : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Type values.
+
+        statuses : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Status values.
+
+        severities : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Severity values.
+
+        end_time : typing.Optional[str]
+            An end time in RFC 3339 format. Millisecond precision and timezones are supported.
+
+        query_by_time_field : typing.Optional[str]
+            Time field to filter with startTime and endTime. Defaults to updatedAtTime.
+
+        start_time : typing.Optional[str]
+            A start time in RFC 3339 format. Millisecond precision and timezones are supported.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[EntityGroundIntelligenceIssuesServiceListIssuesResponseBody]
+            OK response.
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "ground-intelligence/issues",
+            method="GET",
+            params={
+                "ids": ids,
+                "types": types,
+                "statuses": statuses,
+                "severities": severities,
+                "endTime": end_time,
+                "queryByTimeField": query_by_time_field,
+                "startTime": start_time,
+                "after": after,
+                "limit": limit,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    EntityGroundIntelligenceIssuesServiceListIssuesResponseBody,
+                    parse_obj_as(
+                        type_=EntityGroundIntelligenceIssuesServiceListIssuesResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
     async def create_watchpoint(
         self,
         *,
@@ -31601,8 +32016,11 @@ class AsyncRawBetaApIsClient:
         *,
         part_number: str,
         barcode_string: typing.Optional[str] = OMIT,
+        barcode_type: typing.Optional[str] = OMIT,
         description: typing.Optional[str] = OMIT,
+        external_id: typing.Optional[str] = OMIT,
         is_inventory_tracked: typing.Optional[bool] = OMIT,
+        manufacturer_name: typing.Optional[str] = OMIT,
         manufacturer_part_number: typing.Optional[str] = OMIT,
         name: typing.Optional[str] = OMIT,
         unit_cost: typing.Optional[CreatePartEntityPartDefinitionMoneyInputTypeRequestBody] = OMIT,
@@ -31627,11 +32045,20 @@ class AsyncRawBetaApIsClient:
         barcode_string : typing.Optional[str]
             Barcode associated with the part definition.
 
+        barcode_type : typing.Optional[str]
+            Type of barcode associated with the part definition.
+
         description : typing.Optional[str]
             Description of the part definition.
 
+        external_id : typing.Optional[str]
+            Customer-supplied external identifier for the part.
+
         is_inventory_tracked : typing.Optional[bool]
             Whether inventory tracking is enabled for this part.
+
+        manufacturer_name : typing.Optional[str]
+            Name of the manufacturer for the part definition.
 
         manufacturer_part_number : typing.Optional[str]
             Manufacturer-supplied part number.
@@ -31657,8 +32084,11 @@ class AsyncRawBetaApIsClient:
             method="POST",
             json={
                 "barcodeString": barcode_string,
+                "barcodeType": barcode_type,
                 "description": description,
+                "externalId": external_id,
                 "isInventoryTracked": is_inventory_tracked,
+                "manufacturerName": manufacturer_name,
                 "manufacturerPartNumber": manufacturer_part_number,
                 "name": name,
                 "partNumber": part_number,
@@ -31934,8 +32364,11 @@ class AsyncRawBetaApIsClient:
         *,
         id: str,
         barcode_string: typing.Optional[str] = OMIT,
+        barcode_type: typing.Optional[str] = OMIT,
         description: typing.Optional[str] = OMIT,
+        external_id: typing.Optional[str] = OMIT,
         is_inventory_tracked: typing.Optional[bool] = OMIT,
+        manufacturer_name: typing.Optional[str] = OMIT,
         manufacturer_part_number: typing.Optional[str] = OMIT,
         name: typing.Optional[str] = OMIT,
         part_number: typing.Optional[str] = OMIT,
@@ -31961,11 +32394,20 @@ class AsyncRawBetaApIsClient:
         barcode_string : typing.Optional[str]
             Barcode associated with the part definition.
 
+        barcode_type : typing.Optional[str]
+            Type of barcode associated with the part definition.
+
         description : typing.Optional[str]
             Description of the part definition.
 
+        external_id : typing.Optional[str]
+            Customer-supplied external identifier for the part.
+
         is_inventory_tracked : typing.Optional[bool]
             Whether inventory tracking is enabled for this part.
+
+        manufacturer_name : typing.Optional[str]
+            Name of the manufacturer for the part definition.
 
         manufacturer_part_number : typing.Optional[str]
             Manufacturer-supplied part number.
@@ -31997,8 +32439,11 @@ class AsyncRawBetaApIsClient:
             },
             json={
                 "barcodeString": barcode_string,
+                "barcodeType": barcode_type,
                 "description": description,
+                "externalId": external_id,
                 "isInventoryTracked": is_inventory_tracked,
+                "manufacturerName": manufacturer_name,
                 "manufacturerPartNumber": manufacturer_part_number,
                 "name": name,
                 "partNumber": part_number,

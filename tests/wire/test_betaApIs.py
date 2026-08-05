@@ -501,6 +501,14 @@ def test_betaApIs_pair_gateways() -> None:
     verify_request_count(test_id, "POST", "/gateways/pair", None, 1)
 
 
+def test_betaApIs_list_issues() -> None:
+    """Test listIssues endpoint with WireMock"""
+    test_id = "beta_ap_is.list_issues.0"
+    client = get_client(test_id)
+    client.beta_ap_is.list_issues()
+    verify_request_count(test_id, "GET", "/ground-intelligence/issues", None, 1)
+
+
 def test_betaApIs_create_watchpoint() -> None:
     """Test createWatchpoint endpoint with WireMock"""
     test_id = "beta_ap_is.create_watchpoint.0"
