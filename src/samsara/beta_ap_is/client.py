@@ -92,6 +92,9 @@ from ..types.entity_create_stock_movement_money_input_type_request_body import (
 from ..types.entity_ground_intelligence_issues_service_list_issues_response_body import (
     EntityGroundIntelligenceIssuesServiceListIssuesResponseBody,
 )
+from ..types.entity_inventory_transactions_service_list_part_transactions_response_body import (
+    EntityInventoryTransactionsServiceListPartTransactionsResponseBody,
+)
 from ..types.entity_part_definitions_service_create_part_response_body import (
     EntityPartDefinitionsServiceCreatePartResponseBody,
 )
@@ -4885,6 +4888,82 @@ class BetaApIsClient:
             to_place_id=to_place_id,
             unit_cost=unit_cost,
             vendor_id=vendor_id,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def list_part_transactions(
+        self,
+        *,
+        happened_at_time_start: str,
+        happened_at_time_end: typing.Optional[str] = None,
+        part_samsara_ids: typing.Optional[str] = None,
+        place_ids: typing.Optional[str] = None,
+        transaction_type_in: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityInventoryTransactionsServiceListPartTransactionsResponseBody:
+        """
+        Returns a paginated, time-windowed feed of inventory transactions (an append-only parts audit log) for the organization, ordered by the time each transaction occurred.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        happened_at_time_start : str
+            A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        happened_at_time_end : typing.Optional[str]
+            An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        part_samsara_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Part Samsara ID values.
+
+        place_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Place ID values.
+
+        transaction_type_in : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Transaction Type values.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityInventoryTransactionsServiceListPartTransactionsResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.list_part_transactions(
+            happened_at_time_start="happenedAtTimeStart",
+        )
+        """
+        _response = self._raw_client.list_part_transactions(
+            happened_at_time_start=happened_at_time_start,
+            happened_at_time_end=happened_at_time_end,
+            part_samsara_ids=part_samsara_ids,
+            place_ids=place_ids,
+            transaction_type_in=transaction_type_in,
+            after=after,
+            limit=limit,
             request_options=request_options,
         )
         return _response.data
@@ -12888,6 +12967,90 @@ class AsyncBetaApIsClient:
             to_place_id=to_place_id,
             unit_cost=unit_cost,
             vendor_id=vendor_id,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def list_part_transactions(
+        self,
+        *,
+        happened_at_time_start: str,
+        happened_at_time_end: typing.Optional[str] = None,
+        part_samsara_ids: typing.Optional[str] = None,
+        place_ids: typing.Optional[str] = None,
+        transaction_type_in: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityInventoryTransactionsServiceListPartTransactionsResponseBody:
+        """
+        Returns a paginated, time-windowed feed of inventory transactions (an append-only parts audit log) for the organization, ordered by the time each transaction occurred.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        happened_at_time_start : str
+            A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        happened_at_time_end : typing.Optional[str]
+            An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        part_samsara_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Part Samsara ID values.
+
+        place_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Place ID values.
+
+        transaction_type_in : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Transaction Type values.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityInventoryTransactionsServiceListPartTransactionsResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.list_part_transactions(
+                happened_at_time_start="happenedAtTimeStart",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.list_part_transactions(
+            happened_at_time_start=happened_at_time_start,
+            happened_at_time_end=happened_at_time_end,
+            part_samsara_ids=part_samsara_ids,
+            place_ids=place_ids,
+            transaction_type_in=transaction_type_in,
+            after=after,
+            limit=limit,
             request_options=request_options,
         )
         return _response.data

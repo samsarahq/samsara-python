@@ -65,13 +65,3 @@ def test_previewApIs_unlock_vehicle() -> None:
     client = get_client(test_id)
     client.preview_ap_is.unlock_vehicle(id="id")
     verify_request_count(test_id, "DELETE", "/preview/fleet/vehicles/id/lock", None, 1)
-
-
-def test_previewApIs_list_part_transactions() -> None:
-    """Test listPartTransactions endpoint with WireMock"""
-    test_id = "preview_ap_is.list_part_transactions.0"
-    client = get_client(test_id)
-    client.preview_ap_is.list_part_transactions(happened_at_time_start="happenedAtTimeStart")
-    verify_request_count(
-        test_id, "GET", "/preview/maintenance/parts/transactions", {"happenedAtTimeStart": "happenedAtTimeStart"}, 1
-    )
