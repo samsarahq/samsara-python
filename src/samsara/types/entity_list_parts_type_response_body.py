@@ -26,6 +26,11 @@ class EntityListPartsTypeResponseBody(UniversalBaseModel):
         FieldMetadata(alias="barcodeString"),
         pydantic.Field(alias="barcodeString", description="Barcode associated with the part definition."),
     ] = None
+    barcode_type: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="barcodeType"),
+        pydantic.Field(alias="barcodeType", description="Type of barcode associated with the part definition."),
+    ] = None
     category: typing.Optional[str] = pydantic.Field(default=None)
     """
     Category of the part definition.
@@ -46,6 +51,11 @@ class EntityListPartsTypeResponseBody(UniversalBaseModel):
     Description of the part definition.
     """
 
+    external_id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="externalId"),
+        pydantic.Field(alias="externalId", description="Customer-supplied external identifier for the part."),
+    ] = None
     id: typing.Optional[str] = pydantic.Field(default=None)
     """
     Unique identifier for the part.
@@ -55,6 +65,11 @@ class EntityListPartsTypeResponseBody(UniversalBaseModel):
         typing.Optional[bool],
         FieldMetadata(alias="isInventoryTracked"),
         pydantic.Field(alias="isInventoryTracked", description="Whether inventory tracking is enabled for this part."),
+    ] = None
+    manufacturer_name: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="manufacturerName"),
+        pydantic.Field(alias="manufacturerName", description="Name of the manufacturer for the part definition."),
     ] = None
     manufacturer_part_number: typing_extensions.Annotated[
         typing.Optional[str],
