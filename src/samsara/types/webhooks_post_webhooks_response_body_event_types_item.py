@@ -37,6 +37,7 @@ WebhooksPostWebhooksResponseBodyEventTypesItem = typing.Union[
         "SuddenFuelLevelRise",
         "VehicleCreated",
         "VehicleUpdated",
+        "VisualSearchMatch",
         "WorkOrderCreatedOrChanged",
     ],
     typing.Any,
