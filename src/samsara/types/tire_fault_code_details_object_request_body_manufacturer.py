@@ -11,6 +11,7 @@ TireFaultCodeDetailsObjectRequestBodyManufacturer = typing.Union[
         "MANUFACTURER_INVALID",
         "MANUFACTURER_PRESSURE_PRO",
         "MANUFACTURER_SENSATA",
+        "MANUFACTURER_SYSGRATION",
         "MANUFACTURER_UNIVERSAL_J1939",
         "MANUFACTURER_UNIVERSAL_R141",
     ],

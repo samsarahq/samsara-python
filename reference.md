@@ -14359,7 +14359,7 @@ client.assets.create_asset()
 <dl>
 <dd>
 
-**readings_ingestion_enabled:** `typing.Optional[bool]` — Indicates whether the asset is expected to have data ingested using the Readings API.
+**readings_ingestion_enabled:** `typing.Optional[bool]` — Indicates whether the asset is expected to have data ingested using the Readings API. Do not set this to true for an asset that has, or is intended to have, a connected gateway.
     
 </dd>
 </dl>
@@ -14625,7 +14625,7 @@ client.assets.update_asset(
 <dl>
 <dd>
 
-**readings_ingestion_enabled:** `typing.Optional[bool]` — Indicates whether the asset is expected to have data ingested using the Readings API.
+**readings_ingestion_enabled:** `typing.Optional[bool]` — Indicates whether the asset is expected to have data ingested using the Readings API. Do not set this to true for an asset that has, or is intended to have, a connected gateway.
     
 </dd>
 </dl>

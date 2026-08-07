@@ -67,7 +67,7 @@ class AssetResponseBody(UniversalBaseModel):
         FieldMetadata(alias="readingsIngestionEnabled"),
         pydantic.Field(
             alias="readingsIngestionEnabled",
-            description="Indicates whether the asset is expected to have data ingested using the Readings API.",
+            description="Indicates whether the asset is expected to have data ingested using the Readings API. Do not set this to true for an asset that has, or is intended to have, a connected gateway.",
         ),
     ] = None
     regulation_mode: typing_extensions.Annotated[
