@@ -325,7 +325,7 @@ class RawAssetsClient:
             These are generic notes about the asset. Can be set or updated through the Samsara Dashboard or the API at any time.
 
         readings_ingestion_enabled : typing.Optional[bool]
-            Indicates whether the asset is expected to have data ingested using the Readings API.
+            Indicates whether the asset is expected to have data ingested using the Readings API. Do not set this to true for an asset that has, or is intended to have, a connected gateway.
 
         regulation_mode : typing.Optional[AssetsCreateAssetRequestBodyRegulationMode]
             Whether or not the asset is regulated, unregulated (non-CMV), or a mixed use unregulated asset. Primarily used with vehicles.  Valid values: `mixed`, `regulated`, `unregulated`
@@ -689,7 +689,7 @@ class RawAssetsClient:
             These are generic notes about the asset. Can be set or updated through the Samsara Dashboard or the API at any time.
 
         readings_ingestion_enabled : typing.Optional[bool]
-            Indicates whether the asset is expected to have data ingested using the Readings API.
+            Indicates whether the asset is expected to have data ingested using the Readings API. Do not set this to true for an asset that has, or is intended to have, a connected gateway.
 
         regulation_mode : typing.Optional[AssetsUpdateAssetRequestBodyRegulationMode]
             Whether or not the asset is regulated, unregulated (non-CMV), or a mixed use unregulated asset. Primarily used with vehicles.  Valid values: `mixed`, `regulated`, `unregulated`
@@ -1765,7 +1765,7 @@ class AsyncRawAssetsClient:
             These are generic notes about the asset. Can be set or updated through the Samsara Dashboard or the API at any time.
 
         readings_ingestion_enabled : typing.Optional[bool]
-            Indicates whether the asset is expected to have data ingested using the Readings API.
+            Indicates whether the asset is expected to have data ingested using the Readings API. Do not set this to true for an asset that has, or is intended to have, a connected gateway.
 
         regulation_mode : typing.Optional[AssetsCreateAssetRequestBodyRegulationMode]
             Whether or not the asset is regulated, unregulated (non-CMV), or a mixed use unregulated asset. Primarily used with vehicles.  Valid values: `mixed`, `regulated`, `unregulated`
@@ -2131,7 +2131,7 @@ class AsyncRawAssetsClient:
             These are generic notes about the asset. Can be set or updated through the Samsara Dashboard or the API at any time.
 
         readings_ingestion_enabled : typing.Optional[bool]
-            Indicates whether the asset is expected to have data ingested using the Readings API.
+            Indicates whether the asset is expected to have data ingested using the Readings API. Do not set this to true for an asset that has, or is intended to have, a connected gateway.
 
         regulation_mode : typing.Optional[AssetsUpdateAssetRequestBodyRegulationMode]
             Whether or not the asset is regulated, unregulated (non-CMV), or a mixed use unregulated asset. Primarily used with vehicles.  Valid values: `mixed`, `regulated`, `unregulated`
