@@ -4,20 +4,22 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from .coachable_event_linkage_response_body import CoachableEventLinkageResponseBody
 
 
-class CoachableEventResponseBody(UniversalBaseModel):
+class CreatePurchaseOrderEntityPurchaseOrderMoneyPublicVariant8749B9E1F4AfTypeResponseBody(UniversalBaseModel):
     """
-    Object reference for the coachable event within the behavior.
-    """
-
-    id: str = pydantic.Field()
-    """
-    Unique ID for an event within the item in a coaching session.
+    CreatePurchaseOrderEntityPurchaseOrderMoney object
     """
 
-    linkage: typing.Optional[CoachableEventLinkageResponseBody] = None
+    amount: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Monetary amount as a decimal string in major currency units (e.g. "24.50").
+    """
+
+    currency: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    ISO 4217 currency code, lowercased (e.g. "usd").
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

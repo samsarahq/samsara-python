@@ -6,7 +6,9 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
-from .entity_list_purchase_orders_vendor_ref_type_response_body import EntityListPurchaseOrdersVendorRefTypeResponseBody
+from .entity_list_purchase_orders_vendor_ref_public_variant_07_ae_4_b_76_c_2_ba_type_response_body import (
+    EntityListPurchaseOrdersVendorRefPublicVariant07Ae4B76C2BaTypeResponseBody,
+)
 from .list_purchase_orders_entity_purchase_order_money_type_response_body import (
     ListPurchaseOrdersEntityPurchaseOrderMoneyTypeResponseBody,
 )
@@ -117,7 +119,7 @@ class EntityListPurchaseOrdersTypeResponseBody(UniversalBaseModel):
         FieldMetadata(alias="updatedAtTime"),
         pydantic.Field(alias="updatedAtTime", description="RFC3339 time when the purchase order was last updated."),
     ] = None
-    vendor: typing.Optional[EntityListPurchaseOrdersVendorRefTypeResponseBody] = None
+    vendor: typing.Optional[EntityListPurchaseOrdersVendorRefPublicVariant07Ae4B76C2BaTypeResponseBody] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

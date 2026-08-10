@@ -4,20 +4,17 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from .coachable_event_linkage_response_body import CoachableEventLinkageResponseBody
 
 
-class CoachableEventResponseBody(UniversalBaseModel):
+class EntityCreatePurchaseOrderVendorRefPublicVariant07Ae4B76C2BaTypeResponseBody(UniversalBaseModel):
     """
-    Object reference for the coachable event within the behavior.
+    Reference to a Vendor
     """
 
     id: str = pydantic.Field()
     """
-    Unique ID for an event within the item in a coaching session.
+    The ID of the referenced Vendor.
     """
-
-    linkage: typing.Optional[CoachableEventLinkageResponseBody] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

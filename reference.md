@@ -8909,7 +8909,11 @@ client = Samsara(
     token="YOUR_TOKEN",
 )
 client.beta_ap_is.list_purchase_orders(
-    start_time="startTime",
+    ids="281474976710656",
+    po_numbers="PO-1001",
+    vendor_ids="281474976710656",
+    end_time="2026-07-31T00:00:00Z",
+    start_time="2026-07-01T00:00:00Z",
 )
 
 ```
@@ -9034,7 +9038,7 @@ client = Samsara(
     token="YOUR_TOKEN",
 )
 client.beta_ap_is.create_purchase_order(
-    order_status="12345",
+    order_status="draft",
     vendor_id="281474976710656",
 )
 
@@ -9092,7 +9096,9 @@ client.beta_ap_is.create_purchase_order(
 <dl>
 <dd>
 
-**other_cost:** `typing.Optional[CreatePurchaseOrderEntityPurchaseOrderMoneyInputTypeRequestBody]` 
+**other_cost:** `typing.Optional[
+    CreatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVarianta2E1675A5A65TypeRequestBody
+]` 
     
 </dd>
 </dl>
@@ -9102,7 +9108,7 @@ client.beta_ap_is.create_purchase_order(
 
 **parts:** `typing.Optional[
     typing.Sequence[
-        CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputTypeRequestBody
+        CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariantaf77215807F1TypeRequestBody
     ]
 ]` — Parts ordered on the purchase order.
     
@@ -9322,7 +9328,9 @@ client.beta_ap_is.update_purchase_order(
 <dl>
 <dd>
 
-**other_cost:** `typing.Optional[UpdatePurchaseOrderEntityPurchaseOrderMoneyInputTypeRequestBody]` 
+**other_cost:** `typing.Optional[
+    UpdatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVarianta34Bfd5A4152TypeRequestBody
+]` 
     
 </dd>
 </dl>
@@ -9332,7 +9340,7 @@ client.beta_ap_is.update_purchase_order(
 
 **parts:** `typing.Optional[
     typing.Sequence[
-        UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputTypeRequestBody
+        UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVarianta398Dc3A25A6TypeRequestBody
     ]
 ]` — Parts ordered on the purchase order.
     
