@@ -14,7 +14,7 @@ class PostMediaRetrievalObjectResponseBody(UniversalBaseModel):
         FieldMetadata(alias="quotaStatus"),
         pydantic.Field(
             alias="quotaStatus",
-            description="Quota status for this media capture request. Examples: Current monthly usage is 80000.4 seconds of high-res video out of 900000.0 available.",
+            description="Quota status for this media capture request. Reflects completed retrievals only; retrievals still uploading, including this request, are not yet counted and may push usage higher once they complete. Examples: Current monthly usage is 80000.4 seconds of high-res video out of 900000.0 available.",
         ),
     ]
     retrieval_id: typing_extensions.Annotated[

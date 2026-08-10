@@ -6,15 +6,17 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
-from .create_purchase_order_entity_purchase_order_money_input_type_request_body import (
-    CreatePurchaseOrderEntityPurchaseOrderMoneyInputTypeRequestBody,
+from .create_purchase_order_entity_purchase_order_money_input_public_varianta_2_e_1675_a_5_a_65_type_request_body import (
+    CreatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVarianta2E1675A5A65TypeRequestBody,
 )
 from .create_purchase_order_entity_purchase_order_purchase_order_core_charge_input_type_request_body import (
     CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeInputTypeRequestBody,
 )
 
 
-class CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputTypeRequestBody(UniversalBaseModel):
+class CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariantaf77215807F1TypeRequestBody(
+    UniversalBaseModel
+):
     """
     CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInput object
     """
@@ -63,7 +65,7 @@ class CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputTypeRequestBod
         pydantic.Field(alias="quantityReceived", description="Quantity received on this line."),
     ]
     unit_cost: typing_extensions.Annotated[
-        typing.Optional[CreatePurchaseOrderEntityPurchaseOrderMoneyInputTypeRequestBody],
+        typing.Optional[CreatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVarianta2E1675A5A65TypeRequestBody],
         FieldMetadata(alias="unitCost"),
         pydantic.Field(alias="unitCost"),
     ] = None

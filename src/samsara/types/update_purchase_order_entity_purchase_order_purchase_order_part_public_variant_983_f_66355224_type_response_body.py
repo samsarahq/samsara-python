@@ -10,15 +10,17 @@ from .entity_update_purchase_order_part_definition_ref_type_response_body import
     EntityUpdatePurchaseOrderPartDefinitionRefTypeResponseBody,
 )
 from .entity_update_purchase_order_place_ref_type_response_body import EntityUpdatePurchaseOrderPlaceRefTypeResponseBody
-from .update_purchase_order_entity_purchase_order_money_type_response_body import (
-    UpdatePurchaseOrderEntityPurchaseOrderMoneyTypeResponseBody,
+from .update_purchase_order_entity_purchase_order_money_public_variant_55_aeb_6731578_type_response_body import (
+    UpdatePurchaseOrderEntityPurchaseOrderMoneyPublicVariant55Aeb6731578TypeResponseBody,
 )
 from .update_purchase_order_entity_purchase_order_purchase_order_core_charge_type_response_body import (
     UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseBody,
 )
 
 
-class UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartTypeResponseBody(UniversalBaseModel):
+class UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariant983F66355224TypeResponseBody(
+    UniversalBaseModel
+):
     """
     UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPart object
     """
@@ -60,7 +62,7 @@ class UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartTypeResponseBody(Un
         pydantic.Field(alias="quantityReceived", description="Quantity received on this line."),
     ] = None
     unit_cost: typing_extensions.Annotated[
-        typing.Optional[UpdatePurchaseOrderEntityPurchaseOrderMoneyTypeResponseBody],
+        typing.Optional[UpdatePurchaseOrderEntityPurchaseOrderMoneyPublicVariant55Aeb6731578TypeResponseBody],
         FieldMetadata(alias="unitCost"),
         pydantic.Field(alias="unitCost"),
     ] = None

@@ -699,15 +699,33 @@ def test_betaApIs_list_purchase_orders() -> None:
     """Test listPurchaseOrders endpoint with WireMock"""
     test_id = "beta_ap_is.list_purchase_orders.0"
     client = get_client(test_id)
-    client.beta_ap_is.list_purchase_orders(start_time="startTime")
-    verify_request_count(test_id, "GET", "/maintenance/purchase-orders", {"startTime": "startTime"}, 1)
+    client.beta_ap_is.list_purchase_orders(
+        ids="281474976710656",
+        po_numbers="PO-1001",
+        vendor_ids="281474976710656",
+        end_time="2026-07-31T00:00:00Z",
+        start_time="2026-07-01T00:00:00Z",
+    )
+    verify_request_count(
+        test_id,
+        "GET",
+        "/maintenance/purchase-orders",
+        {
+            "ids": "281474976710656",
+            "poNumbers": "PO-1001",
+            "vendorIds": "281474976710656",
+            "endTime": "2026-07-31T00:00:00Z",
+            "startTime": "2026-07-01T00:00:00Z",
+        },
+        1,
+    )
 
 
 def test_betaApIs_create_purchase_order() -> None:
     """Test createPurchaseOrder endpoint with WireMock"""
     test_id = "beta_ap_is.create_purchase_order.0"
     client = get_client(test_id)
-    client.beta_ap_is.create_purchase_order(order_status="12345", vendor_id="281474976710656")
+    client.beta_ap_is.create_purchase_order(order_status="draft", vendor_id="281474976710656")
     verify_request_count(test_id, "POST", "/maintenance/purchase-orders", None, 1)
 
 

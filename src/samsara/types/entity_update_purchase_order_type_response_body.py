@@ -6,14 +6,14 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
-from .entity_update_purchase_order_vendor_ref_type_response_body import (
-    EntityUpdatePurchaseOrderVendorRefTypeResponseBody,
+from .entity_update_purchase_order_vendor_ref_public_variant_07_ae_4_b_76_c_2_ba_type_response_body import (
+    EntityUpdatePurchaseOrderVendorRefPublicVariant07Ae4B76C2BaTypeResponseBody,
 )
-from .update_purchase_order_entity_purchase_order_money_type_response_body import (
-    UpdatePurchaseOrderEntityPurchaseOrderMoneyTypeResponseBody,
+from .update_purchase_order_entity_purchase_order_money_public_variant_55_aeb_6731578_type_response_body import (
+    UpdatePurchaseOrderEntityPurchaseOrderMoneyPublicVariant55Aeb6731578TypeResponseBody,
 )
-from .update_purchase_order_entity_purchase_order_purchase_order_part_type_response_body import (
-    UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartTypeResponseBody,
+from .update_purchase_order_entity_purchase_order_purchase_order_part_public_variant_983_f_66355224_type_response_body import (
+    UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariant983F66355224TypeResponseBody,
 )
 
 
@@ -78,13 +78,13 @@ class EntityUpdatePurchaseOrderTypeResponseBody(UniversalBaseModel):
         pydantic.Field(alias="orderStatus", description="Current customer-visible status of the purchase order."),
     ] = None
     other_cost: typing_extensions.Annotated[
-        typing.Optional[UpdatePurchaseOrderEntityPurchaseOrderMoneyTypeResponseBody],
+        typing.Optional[UpdatePurchaseOrderEntityPurchaseOrderMoneyPublicVariant55Aeb6731578TypeResponseBody],
         FieldMetadata(alias="otherCost"),
         pydantic.Field(alias="otherCost"),
     ] = None
-    parts: typing.Optional[typing.List[UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartTypeResponseBody]] = (
-        pydantic.Field(default=None)
-    )
+    parts: typing.Optional[
+        typing.List[UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariant983F66355224TypeResponseBody]
+    ] = pydantic.Field(default=None)
     """
     Parts ordered on the purchase order.
     """
@@ -119,7 +119,7 @@ class EntityUpdatePurchaseOrderTypeResponseBody(UniversalBaseModel):
         FieldMetadata(alias="updatedAtTime"),
         pydantic.Field(alias="updatedAtTime", description="RFC3339 time when the purchase order was last updated."),
     ] = None
-    vendor: typing.Optional[EntityUpdatePurchaseOrderVendorRefTypeResponseBody] = None
+    vendor: typing.Optional[EntityUpdatePurchaseOrderVendorRefPublicVariant07Ae4B76C2BaTypeResponseBody] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
