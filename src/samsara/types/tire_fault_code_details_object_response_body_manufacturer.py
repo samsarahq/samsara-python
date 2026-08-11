@@ -9,6 +9,7 @@ TireFaultCodeDetailsObjectResponseBodyManufacturer = typing.Union[
         "MANUFACTURER_DORAN",
         "MANUFACTURER_HENDRICKSON",
         "MANUFACTURER_INVALID",
+        "MANUFACTURER_PASSENGER_CAN",
         "MANUFACTURER_PRESSURE_PRO",
         "MANUFACTURER_SENSATA",
         "MANUFACTURER_SYSGRATION",

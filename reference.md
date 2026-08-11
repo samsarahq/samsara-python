@@ -9792,6 +9792,22 @@ client.beta_ap_is.post_place(
 <dl>
 <dd>
 
+**address_latitude:** `typing.Optional[float]` — Latitude of the place pin (map marker), stored independently of the geofence. When supplied, sets the pin; otherwise the pin is left empty. Provide together with addressLongitude.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**address_longitude:** `typing.Optional[float]` — Longitude of the place pin (map marker), stored independently of the geofence. When supplied, sets the pin; otherwise the pin is left empty. Provide together with addressLatitude.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **business_contacts:** `typing.Optional[PostPlaceBusinessContactsInputRequestBody]` 
     
 </dd>
@@ -10049,6 +10065,22 @@ client.beta_ap_is.patch_place()
 <dd>
 
 **address:** `typing.Optional[str]` — Single-line address string.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**address_latitude:** `typing.Optional[float]` — Latitude of the place pin (map marker), stored independently of the geofence. When supplied, updates the pin; omitting it leaves the existing pin unchanged. Provide together with addressLongitude.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**address_longitude:** `typing.Optional[float]` — Longitude of the place pin (map marker), stored independently of the geofence. When supplied, updates the pin; omitting it leaves the existing pin unchanged. Provide together with addressLatitude.
     
 </dd>
 </dl>
