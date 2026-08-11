@@ -5719,6 +5719,8 @@ class BetaApIsClient:
         address: str,
         geofence: PlaceGeofenceInputRequestBody,
         name: str,
+        address_latitude: typing.Optional[float] = OMIT,
+        address_longitude: typing.Optional[float] = OMIT,
         business_contacts: typing.Optional[PostPlaceBusinessContactsInputRequestBody] = OMIT,
         camera_recording_mode_type: typing.Optional[PlacesPostPlaceRequestBodyCameraRecordingModeType] = OMIT,
         external_ids: typing.Optional[PlacesPostPlaceRequestBodyExternalIds] = OMIT,
@@ -5752,6 +5754,12 @@ class BetaApIsClient:
 
         name : str
             Place name.
+
+        address_latitude : typing.Optional[float]
+            Latitude of the place pin (map marker), stored independently of the geofence. When supplied, sets the pin; otherwise the pin is left empty. Provide together with addressLongitude.
+
+        address_longitude : typing.Optional[float]
+            Longitude of the place pin (map marker), stored independently of the geofence. When supplied, sets the pin; otherwise the pin is left empty. Provide together with addressLatitude.
 
         business_contacts : typing.Optional[PostPlaceBusinessContactsInputRequestBody]
 
@@ -5811,6 +5819,8 @@ class BetaApIsClient:
             address=address,
             geofence=geofence,
             name=name,
+            address_latitude=address_latitude,
+            address_longitude=address_longitude,
             business_contacts=business_contacts,
             camera_recording_mode_type=camera_recording_mode_type,
             external_ids=external_ids,
@@ -5870,6 +5880,8 @@ class BetaApIsClient:
         place_id: typing.Optional[int] = None,
         external_id: typing.Optional[str] = None,
         address: typing.Optional[str] = OMIT,
+        address_latitude: typing.Optional[float] = OMIT,
+        address_longitude: typing.Optional[float] = OMIT,
         business_contacts: typing.Optional[PostPlaceBusinessContactsInputRequestBody] = OMIT,
         camera_recording_mode_type: typing.Optional[PlacesPatchPlaceRequestBodyCameraRecordingModeType] = OMIT,
         external_ids: typing.Optional[PlacesPatchPlaceRequestBodyExternalIds] = OMIT,
@@ -5906,6 +5918,12 @@ class BetaApIsClient:
 
         address : typing.Optional[str]
             Single-line address string.
+
+        address_latitude : typing.Optional[float]
+            Latitude of the place pin (map marker), stored independently of the geofence. When supplied, updates the pin; omitting it leaves the existing pin unchanged. Provide together with addressLongitude.
+
+        address_longitude : typing.Optional[float]
+            Longitude of the place pin (map marker), stored independently of the geofence. When supplied, updates the pin; omitting it leaves the existing pin unchanged. Provide together with addressLatitude.
 
         business_contacts : typing.Optional[PostPlaceBusinessContactsInputRequestBody]
 
@@ -5965,6 +5983,8 @@ class BetaApIsClient:
             place_id=place_id,
             external_id=external_id,
             address=address,
+            address_latitude=address_latitude,
+            address_longitude=address_longitude,
             business_contacts=business_contacts,
             camera_recording_mode_type=camera_recording_mode_type,
             external_ids=external_ids,
@@ -13908,6 +13928,8 @@ class AsyncBetaApIsClient:
         address: str,
         geofence: PlaceGeofenceInputRequestBody,
         name: str,
+        address_latitude: typing.Optional[float] = OMIT,
+        address_longitude: typing.Optional[float] = OMIT,
         business_contacts: typing.Optional[PostPlaceBusinessContactsInputRequestBody] = OMIT,
         camera_recording_mode_type: typing.Optional[PlacesPostPlaceRequestBodyCameraRecordingModeType] = OMIT,
         external_ids: typing.Optional[PlacesPostPlaceRequestBodyExternalIds] = OMIT,
@@ -13941,6 +13963,12 @@ class AsyncBetaApIsClient:
 
         name : str
             Place name.
+
+        address_latitude : typing.Optional[float]
+            Latitude of the place pin (map marker), stored independently of the geofence. When supplied, sets the pin; otherwise the pin is left empty. Provide together with addressLongitude.
+
+        address_longitude : typing.Optional[float]
+            Longitude of the place pin (map marker), stored independently of the geofence. When supplied, sets the pin; otherwise the pin is left empty. Provide together with addressLatitude.
 
         business_contacts : typing.Optional[PostPlaceBusinessContactsInputRequestBody]
 
@@ -14008,6 +14036,8 @@ class AsyncBetaApIsClient:
             address=address,
             geofence=geofence,
             name=name,
+            address_latitude=address_latitude,
+            address_longitude=address_longitude,
             business_contacts=business_contacts,
             camera_recording_mode_type=camera_recording_mode_type,
             external_ids=external_ids,
@@ -14075,6 +14105,8 @@ class AsyncBetaApIsClient:
         place_id: typing.Optional[int] = None,
         external_id: typing.Optional[str] = None,
         address: typing.Optional[str] = OMIT,
+        address_latitude: typing.Optional[float] = OMIT,
+        address_longitude: typing.Optional[float] = OMIT,
         business_contacts: typing.Optional[PostPlaceBusinessContactsInputRequestBody] = OMIT,
         camera_recording_mode_type: typing.Optional[PlacesPatchPlaceRequestBodyCameraRecordingModeType] = OMIT,
         external_ids: typing.Optional[PlacesPatchPlaceRequestBodyExternalIds] = OMIT,
@@ -14111,6 +14143,12 @@ class AsyncBetaApIsClient:
 
         address : typing.Optional[str]
             Single-line address string.
+
+        address_latitude : typing.Optional[float]
+            Latitude of the place pin (map marker), stored independently of the geofence. When supplied, updates the pin; omitting it leaves the existing pin unchanged. Provide together with addressLongitude.
+
+        address_longitude : typing.Optional[float]
+            Longitude of the place pin (map marker), stored independently of the geofence. When supplied, updates the pin; omitting it leaves the existing pin unchanged. Provide together with addressLatitude.
 
         business_contacts : typing.Optional[PostPlaceBusinessContactsInputRequestBody]
 
@@ -14178,6 +14216,8 @@ class AsyncBetaApIsClient:
             place_id=place_id,
             external_id=external_id,
             address=address,
+            address_latitude=address_latitude,
+            address_longitude=address_longitude,
             business_contacts=business_contacts,
             camera_recording_mode_type=camera_recording_mode_type,
             external_ids=external_ids,

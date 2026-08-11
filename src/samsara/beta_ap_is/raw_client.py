@@ -15983,6 +15983,8 @@ class RawBetaApIsClient:
         address: str,
         geofence: PlaceGeofenceInputRequestBody,
         name: str,
+        address_latitude: typing.Optional[float] = OMIT,
+        address_longitude: typing.Optional[float] = OMIT,
         business_contacts: typing.Optional[PostPlaceBusinessContactsInputRequestBody] = OMIT,
         camera_recording_mode_type: typing.Optional[PlacesPostPlaceRequestBodyCameraRecordingModeType] = OMIT,
         external_ids: typing.Optional[PlacesPostPlaceRequestBodyExternalIds] = OMIT,
@@ -16016,6 +16018,12 @@ class RawBetaApIsClient:
 
         name : str
             Place name.
+
+        address_latitude : typing.Optional[float]
+            Latitude of the place pin (map marker), stored independently of the geofence. When supplied, sets the pin; otherwise the pin is left empty. Provide together with addressLongitude.
+
+        address_longitude : typing.Optional[float]
+            Longitude of the place pin (map marker), stored independently of the geofence. When supplied, sets the pin; otherwise the pin is left empty. Provide together with addressLatitude.
 
         business_contacts : typing.Optional[PostPlaceBusinessContactsInputRequestBody]
 
@@ -16063,6 +16071,8 @@ class RawBetaApIsClient:
             method="POST",
             json={
                 "address": address,
+                "addressLatitude": address_latitude,
+                "addressLongitude": address_longitude,
                 "businessContacts": convert_and_respect_annotation_metadata(
                     object_=business_contacts, annotation=PostPlaceBusinessContactsInputRequestBody, direction="write"
                 ),
@@ -16380,6 +16390,8 @@ class RawBetaApIsClient:
         place_id: typing.Optional[int] = None,
         external_id: typing.Optional[str] = None,
         address: typing.Optional[str] = OMIT,
+        address_latitude: typing.Optional[float] = OMIT,
+        address_longitude: typing.Optional[float] = OMIT,
         business_contacts: typing.Optional[PostPlaceBusinessContactsInputRequestBody] = OMIT,
         camera_recording_mode_type: typing.Optional[PlacesPatchPlaceRequestBodyCameraRecordingModeType] = OMIT,
         external_ids: typing.Optional[PlacesPatchPlaceRequestBodyExternalIds] = OMIT,
@@ -16416,6 +16428,12 @@ class RawBetaApIsClient:
 
         address : typing.Optional[str]
             Single-line address string.
+
+        address_latitude : typing.Optional[float]
+            Latitude of the place pin (map marker), stored independently of the geofence. When supplied, updates the pin; omitting it leaves the existing pin unchanged. Provide together with addressLongitude.
+
+        address_longitude : typing.Optional[float]
+            Longitude of the place pin (map marker), stored independently of the geofence. When supplied, updates the pin; omitting it leaves the existing pin unchanged. Provide together with addressLatitude.
 
         business_contacts : typing.Optional[PostPlaceBusinessContactsInputRequestBody]
 
@@ -16471,6 +16489,8 @@ class RawBetaApIsClient:
             },
             json={
                 "address": address,
+                "addressLatitude": address_latitude,
+                "addressLongitude": address_longitude,
                 "businessContacts": convert_and_respect_annotation_metadata(
                     object_=business_contacts, annotation=PostPlaceBusinessContactsInputRequestBody, direction="write"
                 ),
@@ -38017,6 +38037,8 @@ class AsyncRawBetaApIsClient:
         address: str,
         geofence: PlaceGeofenceInputRequestBody,
         name: str,
+        address_latitude: typing.Optional[float] = OMIT,
+        address_longitude: typing.Optional[float] = OMIT,
         business_contacts: typing.Optional[PostPlaceBusinessContactsInputRequestBody] = OMIT,
         camera_recording_mode_type: typing.Optional[PlacesPostPlaceRequestBodyCameraRecordingModeType] = OMIT,
         external_ids: typing.Optional[PlacesPostPlaceRequestBodyExternalIds] = OMIT,
@@ -38050,6 +38072,12 @@ class AsyncRawBetaApIsClient:
 
         name : str
             Place name.
+
+        address_latitude : typing.Optional[float]
+            Latitude of the place pin (map marker), stored independently of the geofence. When supplied, sets the pin; otherwise the pin is left empty. Provide together with addressLongitude.
+
+        address_longitude : typing.Optional[float]
+            Longitude of the place pin (map marker), stored independently of the geofence. When supplied, sets the pin; otherwise the pin is left empty. Provide together with addressLatitude.
 
         business_contacts : typing.Optional[PostPlaceBusinessContactsInputRequestBody]
 
@@ -38097,6 +38125,8 @@ class AsyncRawBetaApIsClient:
             method="POST",
             json={
                 "address": address,
+                "addressLatitude": address_latitude,
+                "addressLongitude": address_longitude,
                 "businessContacts": convert_and_respect_annotation_metadata(
                     object_=business_contacts, annotation=PostPlaceBusinessContactsInputRequestBody, direction="write"
                 ),
@@ -38414,6 +38444,8 @@ class AsyncRawBetaApIsClient:
         place_id: typing.Optional[int] = None,
         external_id: typing.Optional[str] = None,
         address: typing.Optional[str] = OMIT,
+        address_latitude: typing.Optional[float] = OMIT,
+        address_longitude: typing.Optional[float] = OMIT,
         business_contacts: typing.Optional[PostPlaceBusinessContactsInputRequestBody] = OMIT,
         camera_recording_mode_type: typing.Optional[PlacesPatchPlaceRequestBodyCameraRecordingModeType] = OMIT,
         external_ids: typing.Optional[PlacesPatchPlaceRequestBodyExternalIds] = OMIT,
@@ -38450,6 +38482,12 @@ class AsyncRawBetaApIsClient:
 
         address : typing.Optional[str]
             Single-line address string.
+
+        address_latitude : typing.Optional[float]
+            Latitude of the place pin (map marker), stored independently of the geofence. When supplied, updates the pin; omitting it leaves the existing pin unchanged. Provide together with addressLongitude.
+
+        address_longitude : typing.Optional[float]
+            Longitude of the place pin (map marker), stored independently of the geofence. When supplied, updates the pin; omitting it leaves the existing pin unchanged. Provide together with addressLatitude.
 
         business_contacts : typing.Optional[PostPlaceBusinessContactsInputRequestBody]
 
@@ -38505,6 +38543,8 @@ class AsyncRawBetaApIsClient:
             },
             json={
                 "address": address,
+                "addressLatitude": address_latitude,
+                "addressLongitude": address_longitude,
                 "businessContacts": convert_and_respect_annotation_metadata(
                     object_=business_contacts, annotation=PostPlaceBusinessContactsInputRequestBody, direction="write"
                 ),

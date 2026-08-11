@@ -39,6 +39,11 @@ class VendorObjectResponseBody(UniversalBaseModel):
     Unique UUID of the vendor.
     """
 
+    payee_id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="payeeId"),
+        pydantic.Field(alias="payeeId", description="The vendor's accounts-payable/ERP payee ID."),
+    ] = None
     services_provided: typing_extensions.Annotated[
         typing.Optional[str],
         FieldMetadata(alias="servicesProvided"),

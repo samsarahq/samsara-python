@@ -26,6 +26,22 @@ class PlaceResponseObjectResponseBody(UniversalBaseModel):
     Address string.
     """
 
+    address_latitude: typing_extensions.Annotated[
+        typing.Optional[float],
+        FieldMetadata(alias="addressLatitude"),
+        pydantic.Field(
+            alias="addressLatitude",
+            description="Latitude of the place pin (map marker), stored independently of the geofence. Omitted when no pin is set.",
+        ),
+    ] = None
+    address_longitude: typing_extensions.Annotated[
+        typing.Optional[float],
+        FieldMetadata(alias="addressLongitude"),
+        pydantic.Field(
+            alias="addressLongitude",
+            description="Longitude of the place pin (map marker), stored independently of the geofence. Omitted when no pin is set.",
+        ),
+    ] = None
     business_contacts: typing_extensions.Annotated[
         typing.Optional[PlaceBusinessContactsResponseResponseBody],
         FieldMetadata(alias="businessContacts"),
