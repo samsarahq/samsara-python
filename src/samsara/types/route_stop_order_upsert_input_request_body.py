@@ -38,7 +38,7 @@ class RouteStopOrderUpsertInputRequestBody(UniversalBaseModel):
     ] = None
     tasks: typing.List[FleetOrderTaskUpsertInputRequestBody] = pydantic.Field()
     """
-    The task to upsert and attach to the containing stop.
+    Tasks to upsert and attach to the containing stop.
     """
 
     if IS_PYDANTIC_V2:
