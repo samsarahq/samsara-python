@@ -1357,6 +1357,57 @@ if typing.TYPE_CHECKING:
         CreateStockMovementResponseObjectTypeResponseBody,
     )
     from .create_user_request_roles import CreateUserRequestRoles
+    from .create_warranty_claim_entity_warranty_claim_claim_reimbursement_input_type_request_body import (
+        CreateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody,
+    )
+    from .create_warranty_claim_entity_warranty_claim_claim_reimbursement_type_response_body import (
+        CreateWarrantyClaimEntityWarrantyClaimClaimReimbursementTypeResponseBody,
+    )
+    from .create_warranty_claim_entity_warranty_claim_money_input_type_request_body import (
+        CreateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody,
+    )
+    from .create_warranty_claim_entity_warranty_claim_money_type_response_body import (
+        CreateWarrantyClaimEntityWarrantyClaimMoneyTypeResponseBody,
+    )
+    from .create_warranty_claim_entity_warranty_claim_warranty_claim_external_id_input_type_request_body import (
+        CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdInputTypeRequestBody,
+    )
+    from .create_warranty_claim_entity_warranty_claim_warranty_claim_external_id_type_response_body import (
+        CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdTypeResponseBody,
+    )
+    from .create_warranty_claim_entity_warranty_claim_warranty_claim_labor_input_type_request_body import (
+        CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborInputTypeRequestBody,
+    )
+    from .create_warranty_claim_entity_warranty_claim_warranty_claim_labor_type_response_body import (
+        CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborTypeResponseBody,
+    )
+    from .create_warranty_claim_entity_warranty_claim_warranty_claim_part_input_type_request_body import (
+        CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody,
+    )
+    from .create_warranty_claim_entity_warranty_claim_warranty_claim_part_type_response_body import (
+        CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartTypeResponseBody,
+    )
+    from .create_warranty_claim_entity_warranty_claim_warranty_claim_status_history_type_response_body import (
+        CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimStatusHistoryTypeResponseBody,
+    )
+    from .create_warranty_entity_warranty_warranty_coverage_input_type_request_body import (
+        CreateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody,
+    )
+    from .create_warranty_entity_warranty_warranty_coverage_item_input_type_request_body import (
+        CreateWarrantyEntityWarrantyWarrantyCoverageItemInputTypeRequestBody,
+    )
+    from .create_warranty_entity_warranty_warranty_coverage_item_type_response_body import (
+        CreateWarrantyEntityWarrantyWarrantyCoverageItemTypeResponseBody,
+    )
+    from .create_warranty_entity_warranty_warranty_coverage_type_response_body import (
+        CreateWarrantyEntityWarrantyWarrantyCoverageTypeResponseBody,
+    )
+    from .create_warranty_entity_warranty_warranty_external_id_input_type_request_body import (
+        CreateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody,
+    )
+    from .create_warranty_entity_warranty_warranty_external_id_type_response_body import (
+        CreateWarrantyEntityWarrantyWarrantyExternalIdTypeResponseBody,
+    )
     from .cruise_control_duration_ms import CruiseControlDurationMs
     from .cumulative_operating_hours_response_body import CumulativeOperatingHoursResponseBody
     from .current_duty_status import CurrentDutyStatus
@@ -2676,6 +2727,18 @@ if typing.TYPE_CHECKING:
     from .entity_create_stock_movement_stock_movement_location_type_response_body import (
         EntityCreateStockMovementStockMovementLocationTypeResponseBody,
     )
+    from .entity_create_warranty_claim_asset_ref_type_response_body import (
+        EntityCreateWarrantyClaimAssetRefTypeResponseBody,
+    )
+    from .entity_create_warranty_claim_type_response_body import EntityCreateWarrantyClaimTypeResponseBody
+    from .entity_create_warranty_claim_vendor_ref_type_response_body import (
+        EntityCreateWarrantyClaimVendorRefTypeResponseBody,
+    )
+    from .entity_create_warranty_claim_warranty_ref_type_response_body import (
+        EntityCreateWarrantyClaimWarrantyRefTypeResponseBody,
+    )
+    from .entity_create_warranty_type_response_body import EntityCreateWarrantyTypeResponseBody
+    from .entity_create_warranty_vendor_ref_type_response_body import EntityCreateWarrantyVendorRefTypeResponseBody
     from .entity_create_watchpoint_type_response_body import EntityCreateWatchpointTypeResponseBody
     from .entity_create_watchpoint_type_response_body_mode import EntityCreateWatchpointTypeResponseBodyMode
     from .entity_create_watchpoint_type_response_body_observation_type import (
@@ -2794,6 +2857,18 @@ if typing.TYPE_CHECKING:
     )
     from .entity_list_upcoming_preventive_maintenance_work_order_ref_type_response_body import (
         EntityListUpcomingPreventiveMaintenanceWorkOrderRefTypeResponseBody,
+    )
+    from .entity_list_warranties_type_response_body import EntityListWarrantiesTypeResponseBody
+    from .entity_list_warranties_vendor_ref_type_response_body import EntityListWarrantiesVendorRefTypeResponseBody
+    from .entity_list_warranty_claims_asset_ref_type_response_body import (
+        EntityListWarrantyClaimsAssetRefTypeResponseBody,
+    )
+    from .entity_list_warranty_claims_type_response_body import EntityListWarrantyClaimsTypeResponseBody
+    from .entity_list_warranty_claims_vendor_ref_type_response_body import (
+        EntityListWarrantyClaimsVendorRefTypeResponseBody,
+    )
+    from .entity_list_warranty_claims_warranty_ref_type_response_body import (
+        EntityListWarrantyClaimsWarrantyRefTypeResponseBody,
     )
     from .entity_part_definitions_service_create_part_bad_gateway_error_response_body import (
         EntityPartDefinitionsServiceCreatePartBadGatewayErrorResponseBody,
@@ -3185,6 +3260,12 @@ if typing.TYPE_CHECKING:
     from .entity_purchase_orders_service_update_purchase_order_unauthorized_error_response_body import (
         EntityPurchaseOrdersServiceUpdatePurchaseOrderUnauthorizedErrorResponseBody,
     )
+    from .entity_replace_warranty_asset_assignments_warranty_asset_assignment_input_type_request_body import (
+        EntityReplaceWarrantyAssetAssignmentsWarrantyAssetAssignmentInputTypeRequestBody,
+    )
+    from .entity_replace_warranty_asset_assignments_warranty_asset_assignment_type_response_body import (
+        EntityReplaceWarrantyAssetAssignmentsWarrantyAssetAssignmentTypeResponseBody,
+    )
     from .entity_tachograph_live_data_records_service_list_tachograph_live_data_bad_gateway_error_response_body import (
         EntityTachographLiveDataRecordsServiceListTachographLiveDataBadGatewayErrorResponseBody,
     )
@@ -3352,12 +3433,282 @@ if typing.TYPE_CHECKING:
     from .entity_update_upcoming_preventive_maintenance_work_order_ref_type_response_body import (
         EntityUpdateUpcomingPreventiveMaintenanceWorkOrderRefTypeResponseBody,
     )
+    from .entity_update_warranty_claim_asset_ref_type_response_body import (
+        EntityUpdateWarrantyClaimAssetRefTypeResponseBody,
+    )
+    from .entity_update_warranty_claim_type_response_body import EntityUpdateWarrantyClaimTypeResponseBody
+    from .entity_update_warranty_claim_vendor_ref_type_response_body import (
+        EntityUpdateWarrantyClaimVendorRefTypeResponseBody,
+    )
+    from .entity_update_warranty_claim_warranty_ref_type_response_body import (
+        EntityUpdateWarrantyClaimWarrantyRefTypeResponseBody,
+    )
+    from .entity_update_warranty_type_response_body import EntityUpdateWarrantyTypeResponseBody
+    from .entity_update_warranty_vendor_ref_type_response_body import EntityUpdateWarrantyVendorRefTypeResponseBody
     from .entity_update_watchpoint_type_response_body import EntityUpdateWatchpointTypeResponseBody
     from .entity_update_watchpoint_type_response_body_mode import EntityUpdateWatchpointTypeResponseBodyMode
     from .entity_update_watchpoint_type_response_body_observation_type import (
         EntityUpdateWatchpointTypeResponseBodyObservationType,
     )
     from .entity_update_watchpoint_type_response_body_status import EntityUpdateWatchpointTypeResponseBodyStatus
+    from .entity_warranties_service_create_warranty_bad_gateway_error_response_body import (
+        EntityWarrantiesServiceCreateWarrantyBadGatewayErrorResponseBody,
+    )
+    from .entity_warranties_service_create_warranty_content_too_large_error_response_body import (
+        EntityWarrantiesServiceCreateWarrantyContentTooLargeErrorResponseBody,
+    )
+    from .entity_warranties_service_create_warranty_gateway_timeout_error_response_body import (
+        EntityWarrantiesServiceCreateWarrantyGatewayTimeoutErrorResponseBody,
+    )
+    from .entity_warranties_service_create_warranty_internal_server_error_response_body import (
+        EntityWarrantiesServiceCreateWarrantyInternalServerErrorResponseBody,
+    )
+    from .entity_warranties_service_create_warranty_method_not_allowed_error_response_body import (
+        EntityWarrantiesServiceCreateWarrantyMethodNotAllowedErrorResponseBody,
+    )
+    from .entity_warranties_service_create_warranty_not_found_error_response_body import (
+        EntityWarrantiesServiceCreateWarrantyNotFoundErrorResponseBody,
+    )
+    from .entity_warranties_service_create_warranty_not_implemented_error_response_body import (
+        EntityWarrantiesServiceCreateWarrantyNotImplementedErrorResponseBody,
+    )
+    from .entity_warranties_service_create_warranty_response_body import (
+        EntityWarrantiesServiceCreateWarrantyResponseBody,
+    )
+    from .entity_warranties_service_create_warranty_service_unavailable_error_response_body import (
+        EntityWarrantiesServiceCreateWarrantyServiceUnavailableErrorResponseBody,
+    )
+    from .entity_warranties_service_create_warranty_too_many_requests_error_response_body import (
+        EntityWarrantiesServiceCreateWarrantyTooManyRequestsErrorResponseBody,
+    )
+    from .entity_warranties_service_create_warranty_unauthorized_error_response_body import (
+        EntityWarrantiesServiceCreateWarrantyUnauthorizedErrorResponseBody,
+    )
+    from .entity_warranties_service_delete_warranty_bad_gateway_error_response_body import (
+        EntityWarrantiesServiceDeleteWarrantyBadGatewayErrorResponseBody,
+    )
+    from .entity_warranties_service_delete_warranty_content_too_large_error_response_body import (
+        EntityWarrantiesServiceDeleteWarrantyContentTooLargeErrorResponseBody,
+    )
+    from .entity_warranties_service_delete_warranty_gateway_timeout_error_response_body import (
+        EntityWarrantiesServiceDeleteWarrantyGatewayTimeoutErrorResponseBody,
+    )
+    from .entity_warranties_service_delete_warranty_internal_server_error_response_body import (
+        EntityWarrantiesServiceDeleteWarrantyInternalServerErrorResponseBody,
+    )
+    from .entity_warranties_service_delete_warranty_method_not_allowed_error_response_body import (
+        EntityWarrantiesServiceDeleteWarrantyMethodNotAllowedErrorResponseBody,
+    )
+    from .entity_warranties_service_delete_warranty_not_found_error_response_body import (
+        EntityWarrantiesServiceDeleteWarrantyNotFoundErrorResponseBody,
+    )
+    from .entity_warranties_service_delete_warranty_not_implemented_error_response_body import (
+        EntityWarrantiesServiceDeleteWarrantyNotImplementedErrorResponseBody,
+    )
+    from .entity_warranties_service_delete_warranty_service_unavailable_error_response_body import (
+        EntityWarrantiesServiceDeleteWarrantyServiceUnavailableErrorResponseBody,
+    )
+    from .entity_warranties_service_delete_warranty_too_many_requests_error_response_body import (
+        EntityWarrantiesServiceDeleteWarrantyTooManyRequestsErrorResponseBody,
+    )
+    from .entity_warranties_service_delete_warranty_unauthorized_error_response_body import (
+        EntityWarrantiesServiceDeleteWarrantyUnauthorizedErrorResponseBody,
+    )
+    from .entity_warranties_service_list_warranties_bad_gateway_error_response_body import (
+        EntityWarrantiesServiceListWarrantiesBadGatewayErrorResponseBody,
+    )
+    from .entity_warranties_service_list_warranties_content_too_large_error_response_body import (
+        EntityWarrantiesServiceListWarrantiesContentTooLargeErrorResponseBody,
+    )
+    from .entity_warranties_service_list_warranties_gateway_timeout_error_response_body import (
+        EntityWarrantiesServiceListWarrantiesGatewayTimeoutErrorResponseBody,
+    )
+    from .entity_warranties_service_list_warranties_internal_server_error_response_body import (
+        EntityWarrantiesServiceListWarrantiesInternalServerErrorResponseBody,
+    )
+    from .entity_warranties_service_list_warranties_method_not_allowed_error_response_body import (
+        EntityWarrantiesServiceListWarrantiesMethodNotAllowedErrorResponseBody,
+    )
+    from .entity_warranties_service_list_warranties_not_found_error_response_body import (
+        EntityWarrantiesServiceListWarrantiesNotFoundErrorResponseBody,
+    )
+    from .entity_warranties_service_list_warranties_not_implemented_error_response_body import (
+        EntityWarrantiesServiceListWarrantiesNotImplementedErrorResponseBody,
+    )
+    from .entity_warranties_service_list_warranties_response_body import (
+        EntityWarrantiesServiceListWarrantiesResponseBody,
+    )
+    from .entity_warranties_service_list_warranties_service_unavailable_error_response_body import (
+        EntityWarrantiesServiceListWarrantiesServiceUnavailableErrorResponseBody,
+    )
+    from .entity_warranties_service_list_warranties_too_many_requests_error_response_body import (
+        EntityWarrantiesServiceListWarrantiesTooManyRequestsErrorResponseBody,
+    )
+    from .entity_warranties_service_list_warranties_unauthorized_error_response_body import (
+        EntityWarrantiesServiceListWarrantiesUnauthorizedErrorResponseBody,
+    )
+    from .entity_warranties_service_update_warranty_bad_gateway_error_response_body import (
+        EntityWarrantiesServiceUpdateWarrantyBadGatewayErrorResponseBody,
+    )
+    from .entity_warranties_service_update_warranty_content_too_large_error_response_body import (
+        EntityWarrantiesServiceUpdateWarrantyContentTooLargeErrorResponseBody,
+    )
+    from .entity_warranties_service_update_warranty_gateway_timeout_error_response_body import (
+        EntityWarrantiesServiceUpdateWarrantyGatewayTimeoutErrorResponseBody,
+    )
+    from .entity_warranties_service_update_warranty_internal_server_error_response_body import (
+        EntityWarrantiesServiceUpdateWarrantyInternalServerErrorResponseBody,
+    )
+    from .entity_warranties_service_update_warranty_method_not_allowed_error_response_body import (
+        EntityWarrantiesServiceUpdateWarrantyMethodNotAllowedErrorResponseBody,
+    )
+    from .entity_warranties_service_update_warranty_not_found_error_response_body import (
+        EntityWarrantiesServiceUpdateWarrantyNotFoundErrorResponseBody,
+    )
+    from .entity_warranties_service_update_warranty_not_implemented_error_response_body import (
+        EntityWarrantiesServiceUpdateWarrantyNotImplementedErrorResponseBody,
+    )
+    from .entity_warranties_service_update_warranty_response_body import (
+        EntityWarrantiesServiceUpdateWarrantyResponseBody,
+    )
+    from .entity_warranties_service_update_warranty_service_unavailable_error_response_body import (
+        EntityWarrantiesServiceUpdateWarrantyServiceUnavailableErrorResponseBody,
+    )
+    from .entity_warranties_service_update_warranty_too_many_requests_error_response_body import (
+        EntityWarrantiesServiceUpdateWarrantyTooManyRequestsErrorResponseBody,
+    )
+    from .entity_warranties_service_update_warranty_unauthorized_error_response_body import (
+        EntityWarrantiesServiceUpdateWarrantyUnauthorizedErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_create_warranty_claim_bad_gateway_error_response_body import (
+        EntityWarrantyClaimsServiceCreateWarrantyClaimBadGatewayErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_create_warranty_claim_content_too_large_error_response_body import (
+        EntityWarrantyClaimsServiceCreateWarrantyClaimContentTooLargeErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_create_warranty_claim_gateway_timeout_error_response_body import (
+        EntityWarrantyClaimsServiceCreateWarrantyClaimGatewayTimeoutErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_create_warranty_claim_internal_server_error_response_body import (
+        EntityWarrantyClaimsServiceCreateWarrantyClaimInternalServerErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_create_warranty_claim_method_not_allowed_error_response_body import (
+        EntityWarrantyClaimsServiceCreateWarrantyClaimMethodNotAllowedErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_create_warranty_claim_not_found_error_response_body import (
+        EntityWarrantyClaimsServiceCreateWarrantyClaimNotFoundErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_create_warranty_claim_not_implemented_error_response_body import (
+        EntityWarrantyClaimsServiceCreateWarrantyClaimNotImplementedErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_create_warranty_claim_response_body import (
+        EntityWarrantyClaimsServiceCreateWarrantyClaimResponseBody,
+    )
+    from .entity_warranty_claims_service_create_warranty_claim_service_unavailable_error_response_body import (
+        EntityWarrantyClaimsServiceCreateWarrantyClaimServiceUnavailableErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_create_warranty_claim_too_many_requests_error_response_body import (
+        EntityWarrantyClaimsServiceCreateWarrantyClaimTooManyRequestsErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_create_warranty_claim_unauthorized_error_response_body import (
+        EntityWarrantyClaimsServiceCreateWarrantyClaimUnauthorizedErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_delete_warranty_claim_bad_gateway_error_response_body import (
+        EntityWarrantyClaimsServiceDeleteWarrantyClaimBadGatewayErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_delete_warranty_claim_content_too_large_error_response_body import (
+        EntityWarrantyClaimsServiceDeleteWarrantyClaimContentTooLargeErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_delete_warranty_claim_gateway_timeout_error_response_body import (
+        EntityWarrantyClaimsServiceDeleteWarrantyClaimGatewayTimeoutErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_delete_warranty_claim_internal_server_error_response_body import (
+        EntityWarrantyClaimsServiceDeleteWarrantyClaimInternalServerErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_delete_warranty_claim_method_not_allowed_error_response_body import (
+        EntityWarrantyClaimsServiceDeleteWarrantyClaimMethodNotAllowedErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_delete_warranty_claim_not_found_error_response_body import (
+        EntityWarrantyClaimsServiceDeleteWarrantyClaimNotFoundErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_delete_warranty_claim_not_implemented_error_response_body import (
+        EntityWarrantyClaimsServiceDeleteWarrantyClaimNotImplementedErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_delete_warranty_claim_service_unavailable_error_response_body import (
+        EntityWarrantyClaimsServiceDeleteWarrantyClaimServiceUnavailableErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_delete_warranty_claim_too_many_requests_error_response_body import (
+        EntityWarrantyClaimsServiceDeleteWarrantyClaimTooManyRequestsErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_delete_warranty_claim_unauthorized_error_response_body import (
+        EntityWarrantyClaimsServiceDeleteWarrantyClaimUnauthorizedErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_list_warranty_claims_bad_gateway_error_response_body import (
+        EntityWarrantyClaimsServiceListWarrantyClaimsBadGatewayErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_list_warranty_claims_content_too_large_error_response_body import (
+        EntityWarrantyClaimsServiceListWarrantyClaimsContentTooLargeErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_list_warranty_claims_gateway_timeout_error_response_body import (
+        EntityWarrantyClaimsServiceListWarrantyClaimsGatewayTimeoutErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_list_warranty_claims_internal_server_error_response_body import (
+        EntityWarrantyClaimsServiceListWarrantyClaimsInternalServerErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_list_warranty_claims_method_not_allowed_error_response_body import (
+        EntityWarrantyClaimsServiceListWarrantyClaimsMethodNotAllowedErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_list_warranty_claims_not_found_error_response_body import (
+        EntityWarrantyClaimsServiceListWarrantyClaimsNotFoundErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_list_warranty_claims_not_implemented_error_response_body import (
+        EntityWarrantyClaimsServiceListWarrantyClaimsNotImplementedErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_list_warranty_claims_response_body import (
+        EntityWarrantyClaimsServiceListWarrantyClaimsResponseBody,
+    )
+    from .entity_warranty_claims_service_list_warranty_claims_service_unavailable_error_response_body import (
+        EntityWarrantyClaimsServiceListWarrantyClaimsServiceUnavailableErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_list_warranty_claims_too_many_requests_error_response_body import (
+        EntityWarrantyClaimsServiceListWarrantyClaimsTooManyRequestsErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_list_warranty_claims_unauthorized_error_response_body import (
+        EntityWarrantyClaimsServiceListWarrantyClaimsUnauthorizedErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_update_warranty_claim_bad_gateway_error_response_body import (
+        EntityWarrantyClaimsServiceUpdateWarrantyClaimBadGatewayErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_update_warranty_claim_content_too_large_error_response_body import (
+        EntityWarrantyClaimsServiceUpdateWarrantyClaimContentTooLargeErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_update_warranty_claim_gateway_timeout_error_response_body import (
+        EntityWarrantyClaimsServiceUpdateWarrantyClaimGatewayTimeoutErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_update_warranty_claim_internal_server_error_response_body import (
+        EntityWarrantyClaimsServiceUpdateWarrantyClaimInternalServerErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_update_warranty_claim_method_not_allowed_error_response_body import (
+        EntityWarrantyClaimsServiceUpdateWarrantyClaimMethodNotAllowedErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_update_warranty_claim_not_found_error_response_body import (
+        EntityWarrantyClaimsServiceUpdateWarrantyClaimNotFoundErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_update_warranty_claim_not_implemented_error_response_body import (
+        EntityWarrantyClaimsServiceUpdateWarrantyClaimNotImplementedErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_update_warranty_claim_response_body import (
+        EntityWarrantyClaimsServiceUpdateWarrantyClaimResponseBody,
+    )
+    from .entity_warranty_claims_service_update_warranty_claim_service_unavailable_error_response_body import (
+        EntityWarrantyClaimsServiceUpdateWarrantyClaimServiceUnavailableErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_update_warranty_claim_too_many_requests_error_response_body import (
+        EntityWarrantyClaimsServiceUpdateWarrantyClaimTooManyRequestsErrorResponseBody,
+    )
+    from .entity_warranty_claims_service_update_warranty_claim_unauthorized_error_response_body import (
+        EntityWarrantyClaimsServiceUpdateWarrantyClaimUnauthorizedErrorResponseBody,
+    )
     from .entity_watchpoints_service_create_watchpoint_bad_gateway_error_response_body import (
         EntityWatchpointsServiceCreateWatchpointBadGatewayErrorResponseBody,
     )
@@ -5864,6 +6215,33 @@ if typing.TYPE_CHECKING:
     from .list_uploaded_media_object_response_body import ListUploadedMediaObjectResponseBody
     from .list_user_roles_response import ListUserRolesResponse
     from .list_users_response import ListUsersResponse
+    from .list_warranties_entity_warranty_warranty_coverage_item_type_response_body import (
+        ListWarrantiesEntityWarrantyWarrantyCoverageItemTypeResponseBody,
+    )
+    from .list_warranties_entity_warranty_warranty_coverage_type_response_body import (
+        ListWarrantiesEntityWarrantyWarrantyCoverageTypeResponseBody,
+    )
+    from .list_warranties_entity_warranty_warranty_external_id_type_response_body import (
+        ListWarrantiesEntityWarrantyWarrantyExternalIdTypeResponseBody,
+    )
+    from .list_warranty_claims_entity_warranty_claim_claim_reimbursement_type_response_body import (
+        ListWarrantyClaimsEntityWarrantyClaimClaimReimbursementTypeResponseBody,
+    )
+    from .list_warranty_claims_entity_warranty_claim_money_type_response_body import (
+        ListWarrantyClaimsEntityWarrantyClaimMoneyTypeResponseBody,
+    )
+    from .list_warranty_claims_entity_warranty_claim_warranty_claim_external_id_type_response_body import (
+        ListWarrantyClaimsEntityWarrantyClaimWarrantyClaimExternalIdTypeResponseBody,
+    )
+    from .list_warranty_claims_entity_warranty_claim_warranty_claim_labor_type_response_body import (
+        ListWarrantyClaimsEntityWarrantyClaimWarrantyClaimLaborTypeResponseBody,
+    )
+    from .list_warranty_claims_entity_warranty_claim_warranty_claim_part_type_response_body import (
+        ListWarrantyClaimsEntityWarrantyClaimWarrantyClaimPartTypeResponseBody,
+    )
+    from .list_warranty_claims_entity_warranty_claim_warranty_claim_status_history_type_response_body import (
+        ListWarrantyClaimsEntityWarrantyClaimWarrantyClaimStatusHistoryTypeResponseBody,
+    )
     from .live_sharing_link_full_response_object_response_body import LiveSharingLinkFullResponseObjectResponseBody
     from .live_sharing_link_full_response_object_response_body_type import (
         LiveSharingLinkFullResponseObjectResponseBodyType,
@@ -7458,6 +7836,42 @@ if typing.TYPE_CHECKING:
     from .recovery_state_response_body import RecoveryStateResponseBody
     from .recovery_state_response_body_update_source import RecoveryStateResponseBodyUpdateSource
     from .reefer_temperature_response_body import ReeferTemperatureResponseBody
+    from .replace_warranty_asset_assignments_action_service_replace_warranty_asset_assignments_bad_gateway_error_response_body import (
+        ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsBadGatewayErrorResponseBody,
+    )
+    from .replace_warranty_asset_assignments_action_service_replace_warranty_asset_assignments_content_too_large_error_response_body import (
+        ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsContentTooLargeErrorResponseBody,
+    )
+    from .replace_warranty_asset_assignments_action_service_replace_warranty_asset_assignments_gateway_timeout_error_response_body import (
+        ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsGatewayTimeoutErrorResponseBody,
+    )
+    from .replace_warranty_asset_assignments_action_service_replace_warranty_asset_assignments_internal_server_error_response_body import (
+        ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsInternalServerErrorResponseBody,
+    )
+    from .replace_warranty_asset_assignments_action_service_replace_warranty_asset_assignments_method_not_allowed_error_response_body import (
+        ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsMethodNotAllowedErrorResponseBody,
+    )
+    from .replace_warranty_asset_assignments_action_service_replace_warranty_asset_assignments_not_found_error_response_body import (
+        ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsNotFoundErrorResponseBody,
+    )
+    from .replace_warranty_asset_assignments_action_service_replace_warranty_asset_assignments_not_implemented_error_response_body import (
+        ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsNotImplementedErrorResponseBody,
+    )
+    from .replace_warranty_asset_assignments_action_service_replace_warranty_asset_assignments_response_body import (
+        ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsResponseBody,
+    )
+    from .replace_warranty_asset_assignments_action_service_replace_warranty_asset_assignments_service_unavailable_error_response_body import (
+        ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsServiceUnavailableErrorResponseBody,
+    )
+    from .replace_warranty_asset_assignments_action_service_replace_warranty_asset_assignments_too_many_requests_error_response_body import (
+        ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsTooManyRequestsErrorResponseBody,
+    )
+    from .replace_warranty_asset_assignments_action_service_replace_warranty_asset_assignments_unauthorized_error_response_body import (
+        ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsUnauthorizedErrorResponseBody,
+    )
+    from .replace_warranty_asset_assignments_response_object_type_response_body import (
+        ReplaceWarrantyAssetAssignmentsResponseObjectTypeResponseBody,
+    )
     from .report_columns_object_response_body import ReportColumnsObjectResponseBody
     from .report_columns_object_response_body_data_type import ReportColumnsObjectResponseBodyDataType
     from .report_columns_object_response_body_unit import ReportColumnsObjectResponseBodyUnit
@@ -9734,6 +10148,57 @@ if typing.TYPE_CHECKING:
     )
     from .update_routes_stop_request_object_request_body import UpdateRoutesStopRequestObjectRequestBody
     from .update_shared_asset_request_object_request_body import UpdateSharedAssetRequestObjectRequestBody
+    from .update_warranty_claim_entity_warranty_claim_claim_reimbursement_input_type_request_body import (
+        UpdateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody,
+    )
+    from .update_warranty_claim_entity_warranty_claim_claim_reimbursement_type_response_body import (
+        UpdateWarrantyClaimEntityWarrantyClaimClaimReimbursementTypeResponseBody,
+    )
+    from .update_warranty_claim_entity_warranty_claim_money_input_type_request_body import (
+        UpdateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody,
+    )
+    from .update_warranty_claim_entity_warranty_claim_money_type_response_body import (
+        UpdateWarrantyClaimEntityWarrantyClaimMoneyTypeResponseBody,
+    )
+    from .update_warranty_claim_entity_warranty_claim_warranty_claim_external_id_input_type_request_body import (
+        UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdInputTypeRequestBody,
+    )
+    from .update_warranty_claim_entity_warranty_claim_warranty_claim_external_id_type_response_body import (
+        UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdTypeResponseBody,
+    )
+    from .update_warranty_claim_entity_warranty_claim_warranty_claim_labor_input_type_request_body import (
+        UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborInputTypeRequestBody,
+    )
+    from .update_warranty_claim_entity_warranty_claim_warranty_claim_labor_type_response_body import (
+        UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborTypeResponseBody,
+    )
+    from .update_warranty_claim_entity_warranty_claim_warranty_claim_part_input_type_request_body import (
+        UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody,
+    )
+    from .update_warranty_claim_entity_warranty_claim_warranty_claim_part_type_response_body import (
+        UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartTypeResponseBody,
+    )
+    from .update_warranty_claim_entity_warranty_claim_warranty_claim_status_history_type_response_body import (
+        UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimStatusHistoryTypeResponseBody,
+    )
+    from .update_warranty_entity_warranty_warranty_coverage_input_type_request_body import (
+        UpdateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody,
+    )
+    from .update_warranty_entity_warranty_warranty_coverage_item_input_type_request_body import (
+        UpdateWarrantyEntityWarrantyWarrantyCoverageItemInputTypeRequestBody,
+    )
+    from .update_warranty_entity_warranty_warranty_coverage_item_type_response_body import (
+        UpdateWarrantyEntityWarrantyWarrantyCoverageItemTypeResponseBody,
+    )
+    from .update_warranty_entity_warranty_warranty_coverage_type_response_body import (
+        UpdateWarrantyEntityWarrantyWarrantyCoverageTypeResponseBody,
+    )
+    from .update_warranty_entity_warranty_warranty_external_id_input_type_request_body import (
+        UpdateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody,
+    )
+    from .update_warranty_entity_warranty_warranty_external_id_type_response_body import (
+        UpdateWarrantyEntityWarrantyWarrantyExternalIdTypeResponseBody,
+    )
     from .uploaded_media_object_response_body import UploadedMediaObjectResponseBody
     from .uploaded_media_object_response_body_camera_role import UploadedMediaObjectResponseBodyCameraRole
     from .uploaded_media_object_response_body_input import UploadedMediaObjectResponseBodyInput
@@ -11404,6 +11869,23 @@ _dynamic_imports: typing.Dict[str, str] = {
     "CreateStockMovementActionServiceCreateStockMovementUnauthorizedErrorResponseBody": ".create_stock_movement_action_service_create_stock_movement_unauthorized_error_response_body",
     "CreateStockMovementResponseObjectTypeResponseBody": ".create_stock_movement_response_object_type_response_body",
     "CreateUserRequestRoles": ".create_user_request_roles",
+    "CreateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody": ".create_warranty_claim_entity_warranty_claim_claim_reimbursement_input_type_request_body",
+    "CreateWarrantyClaimEntityWarrantyClaimClaimReimbursementTypeResponseBody": ".create_warranty_claim_entity_warranty_claim_claim_reimbursement_type_response_body",
+    "CreateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody": ".create_warranty_claim_entity_warranty_claim_money_input_type_request_body",
+    "CreateWarrantyClaimEntityWarrantyClaimMoneyTypeResponseBody": ".create_warranty_claim_entity_warranty_claim_money_type_response_body",
+    "CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdInputTypeRequestBody": ".create_warranty_claim_entity_warranty_claim_warranty_claim_external_id_input_type_request_body",
+    "CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdTypeResponseBody": ".create_warranty_claim_entity_warranty_claim_warranty_claim_external_id_type_response_body",
+    "CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborInputTypeRequestBody": ".create_warranty_claim_entity_warranty_claim_warranty_claim_labor_input_type_request_body",
+    "CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborTypeResponseBody": ".create_warranty_claim_entity_warranty_claim_warranty_claim_labor_type_response_body",
+    "CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody": ".create_warranty_claim_entity_warranty_claim_warranty_claim_part_input_type_request_body",
+    "CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartTypeResponseBody": ".create_warranty_claim_entity_warranty_claim_warranty_claim_part_type_response_body",
+    "CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimStatusHistoryTypeResponseBody": ".create_warranty_claim_entity_warranty_claim_warranty_claim_status_history_type_response_body",
+    "CreateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody": ".create_warranty_entity_warranty_warranty_coverage_input_type_request_body",
+    "CreateWarrantyEntityWarrantyWarrantyCoverageItemInputTypeRequestBody": ".create_warranty_entity_warranty_warranty_coverage_item_input_type_request_body",
+    "CreateWarrantyEntityWarrantyWarrantyCoverageItemTypeResponseBody": ".create_warranty_entity_warranty_warranty_coverage_item_type_response_body",
+    "CreateWarrantyEntityWarrantyWarrantyCoverageTypeResponseBody": ".create_warranty_entity_warranty_warranty_coverage_type_response_body",
+    "CreateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody": ".create_warranty_entity_warranty_warranty_external_id_input_type_request_body",
+    "CreateWarrantyEntityWarrantyWarrantyExternalIdTypeResponseBody": ".create_warranty_entity_warranty_warranty_external_id_type_response_body",
     "CruiseControlDurationMs": ".cruise_control_duration_ms",
     "CumulativeOperatingHoursResponseBody": ".cumulative_operating_hours_response_body",
     "CurrentDutyStatus": ".current_duty_status",
@@ -12009,6 +12491,12 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EntityCreateStockMovementMoneyInputTypeRequestBody": ".entity_create_stock_movement_money_input_type_request_body",
     "EntityCreateStockMovementMoneyTypeResponseBody": ".entity_create_stock_movement_money_type_response_body",
     "EntityCreateStockMovementStockMovementLocationTypeResponseBody": ".entity_create_stock_movement_stock_movement_location_type_response_body",
+    "EntityCreateWarrantyClaimAssetRefTypeResponseBody": ".entity_create_warranty_claim_asset_ref_type_response_body",
+    "EntityCreateWarrantyClaimTypeResponseBody": ".entity_create_warranty_claim_type_response_body",
+    "EntityCreateWarrantyClaimVendorRefTypeResponseBody": ".entity_create_warranty_claim_vendor_ref_type_response_body",
+    "EntityCreateWarrantyClaimWarrantyRefTypeResponseBody": ".entity_create_warranty_claim_warranty_ref_type_response_body",
+    "EntityCreateWarrantyTypeResponseBody": ".entity_create_warranty_type_response_body",
+    "EntityCreateWarrantyVendorRefTypeResponseBody": ".entity_create_warranty_vendor_ref_type_response_body",
     "EntityCreateWatchpointTypeResponseBody": ".entity_create_watchpoint_type_response_body",
     "EntityCreateWatchpointTypeResponseBodyMode": ".entity_create_watchpoint_type_response_body_mode",
     "EntityCreateWatchpointTypeResponseBodyObservationType": ".entity_create_watchpoint_type_response_body_observation_type",
@@ -12056,6 +12544,12 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EntityListUpcomingPreventiveMaintenancePreventativeMaintenanceScheduleRefTypeResponseBody": ".entity_list_upcoming_preventive_maintenance_preventative_maintenance_schedule_ref_type_response_body",
     "EntityListUpcomingPreventiveMaintenanceTypeResponseBody": ".entity_list_upcoming_preventive_maintenance_type_response_body",
     "EntityListUpcomingPreventiveMaintenanceWorkOrderRefTypeResponseBody": ".entity_list_upcoming_preventive_maintenance_work_order_ref_type_response_body",
+    "EntityListWarrantiesTypeResponseBody": ".entity_list_warranties_type_response_body",
+    "EntityListWarrantiesVendorRefTypeResponseBody": ".entity_list_warranties_vendor_ref_type_response_body",
+    "EntityListWarrantyClaimsAssetRefTypeResponseBody": ".entity_list_warranty_claims_asset_ref_type_response_body",
+    "EntityListWarrantyClaimsTypeResponseBody": ".entity_list_warranty_claims_type_response_body",
+    "EntityListWarrantyClaimsVendorRefTypeResponseBody": ".entity_list_warranty_claims_vendor_ref_type_response_body",
+    "EntityListWarrantyClaimsWarrantyRefTypeResponseBody": ".entity_list_warranty_claims_warranty_ref_type_response_body",
     "EntityPartDefinitionsServiceCreatePartBadGatewayErrorResponseBody": ".entity_part_definitions_service_create_part_bad_gateway_error_response_body",
     "EntityPartDefinitionsServiceCreatePartContentTooLargeErrorResponseBody": ".entity_part_definitions_service_create_part_content_too_large_error_response_body",
     "EntityPartDefinitionsServiceCreatePartGatewayTimeoutErrorResponseBody": ".entity_part_definitions_service_create_part_gateway_timeout_error_response_body",
@@ -12186,6 +12680,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EntityPurchaseOrdersServiceUpdatePurchaseOrderServiceUnavailableErrorResponseBody": ".entity_purchase_orders_service_update_purchase_order_service_unavailable_error_response_body",
     "EntityPurchaseOrdersServiceUpdatePurchaseOrderTooManyRequestsErrorResponseBody": ".entity_purchase_orders_service_update_purchase_order_too_many_requests_error_response_body",
     "EntityPurchaseOrdersServiceUpdatePurchaseOrderUnauthorizedErrorResponseBody": ".entity_purchase_orders_service_update_purchase_order_unauthorized_error_response_body",
+    "EntityReplaceWarrantyAssetAssignmentsWarrantyAssetAssignmentInputTypeRequestBody": ".entity_replace_warranty_asset_assignments_warranty_asset_assignment_input_type_request_body",
+    "EntityReplaceWarrantyAssetAssignmentsWarrantyAssetAssignmentTypeResponseBody": ".entity_replace_warranty_asset_assignments_warranty_asset_assignment_type_response_body",
     "EntityTachographLiveDataRecordsServiceListTachographLiveDataBadGatewayErrorResponseBody": ".entity_tachograph_live_data_records_service_list_tachograph_live_data_bad_gateway_error_response_body",
     "EntityTachographLiveDataRecordsServiceListTachographLiveDataContentTooLargeErrorResponseBody": ".entity_tachograph_live_data_records_service_list_tachograph_live_data_content_too_large_error_response_body",
     "EntityTachographLiveDataRecordsServiceListTachographLiveDataGatewayTimeoutErrorResponseBody": ".entity_tachograph_live_data_records_service_list_tachograph_live_data_gateway_timeout_error_response_body",
@@ -12243,10 +12739,102 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EntityUpdateUpcomingPreventiveMaintenancePreventativeMaintenanceScheduleRefTypeResponseBody": ".entity_update_upcoming_preventive_maintenance_preventative_maintenance_schedule_ref_type_response_body",
     "EntityUpdateUpcomingPreventiveMaintenanceTypeResponseBody": ".entity_update_upcoming_preventive_maintenance_type_response_body",
     "EntityUpdateUpcomingPreventiveMaintenanceWorkOrderRefTypeResponseBody": ".entity_update_upcoming_preventive_maintenance_work_order_ref_type_response_body",
+    "EntityUpdateWarrantyClaimAssetRefTypeResponseBody": ".entity_update_warranty_claim_asset_ref_type_response_body",
+    "EntityUpdateWarrantyClaimTypeResponseBody": ".entity_update_warranty_claim_type_response_body",
+    "EntityUpdateWarrantyClaimVendorRefTypeResponseBody": ".entity_update_warranty_claim_vendor_ref_type_response_body",
+    "EntityUpdateWarrantyClaimWarrantyRefTypeResponseBody": ".entity_update_warranty_claim_warranty_ref_type_response_body",
+    "EntityUpdateWarrantyTypeResponseBody": ".entity_update_warranty_type_response_body",
+    "EntityUpdateWarrantyVendorRefTypeResponseBody": ".entity_update_warranty_vendor_ref_type_response_body",
     "EntityUpdateWatchpointTypeResponseBody": ".entity_update_watchpoint_type_response_body",
     "EntityUpdateWatchpointTypeResponseBodyMode": ".entity_update_watchpoint_type_response_body_mode",
     "EntityUpdateWatchpointTypeResponseBodyObservationType": ".entity_update_watchpoint_type_response_body_observation_type",
     "EntityUpdateWatchpointTypeResponseBodyStatus": ".entity_update_watchpoint_type_response_body_status",
+    "EntityWarrantiesServiceCreateWarrantyBadGatewayErrorResponseBody": ".entity_warranties_service_create_warranty_bad_gateway_error_response_body",
+    "EntityWarrantiesServiceCreateWarrantyContentTooLargeErrorResponseBody": ".entity_warranties_service_create_warranty_content_too_large_error_response_body",
+    "EntityWarrantiesServiceCreateWarrantyGatewayTimeoutErrorResponseBody": ".entity_warranties_service_create_warranty_gateway_timeout_error_response_body",
+    "EntityWarrantiesServiceCreateWarrantyInternalServerErrorResponseBody": ".entity_warranties_service_create_warranty_internal_server_error_response_body",
+    "EntityWarrantiesServiceCreateWarrantyMethodNotAllowedErrorResponseBody": ".entity_warranties_service_create_warranty_method_not_allowed_error_response_body",
+    "EntityWarrantiesServiceCreateWarrantyNotFoundErrorResponseBody": ".entity_warranties_service_create_warranty_not_found_error_response_body",
+    "EntityWarrantiesServiceCreateWarrantyNotImplementedErrorResponseBody": ".entity_warranties_service_create_warranty_not_implemented_error_response_body",
+    "EntityWarrantiesServiceCreateWarrantyResponseBody": ".entity_warranties_service_create_warranty_response_body",
+    "EntityWarrantiesServiceCreateWarrantyServiceUnavailableErrorResponseBody": ".entity_warranties_service_create_warranty_service_unavailable_error_response_body",
+    "EntityWarrantiesServiceCreateWarrantyTooManyRequestsErrorResponseBody": ".entity_warranties_service_create_warranty_too_many_requests_error_response_body",
+    "EntityWarrantiesServiceCreateWarrantyUnauthorizedErrorResponseBody": ".entity_warranties_service_create_warranty_unauthorized_error_response_body",
+    "EntityWarrantiesServiceDeleteWarrantyBadGatewayErrorResponseBody": ".entity_warranties_service_delete_warranty_bad_gateway_error_response_body",
+    "EntityWarrantiesServiceDeleteWarrantyContentTooLargeErrorResponseBody": ".entity_warranties_service_delete_warranty_content_too_large_error_response_body",
+    "EntityWarrantiesServiceDeleteWarrantyGatewayTimeoutErrorResponseBody": ".entity_warranties_service_delete_warranty_gateway_timeout_error_response_body",
+    "EntityWarrantiesServiceDeleteWarrantyInternalServerErrorResponseBody": ".entity_warranties_service_delete_warranty_internal_server_error_response_body",
+    "EntityWarrantiesServiceDeleteWarrantyMethodNotAllowedErrorResponseBody": ".entity_warranties_service_delete_warranty_method_not_allowed_error_response_body",
+    "EntityWarrantiesServiceDeleteWarrantyNotFoundErrorResponseBody": ".entity_warranties_service_delete_warranty_not_found_error_response_body",
+    "EntityWarrantiesServiceDeleteWarrantyNotImplementedErrorResponseBody": ".entity_warranties_service_delete_warranty_not_implemented_error_response_body",
+    "EntityWarrantiesServiceDeleteWarrantyServiceUnavailableErrorResponseBody": ".entity_warranties_service_delete_warranty_service_unavailable_error_response_body",
+    "EntityWarrantiesServiceDeleteWarrantyTooManyRequestsErrorResponseBody": ".entity_warranties_service_delete_warranty_too_many_requests_error_response_body",
+    "EntityWarrantiesServiceDeleteWarrantyUnauthorizedErrorResponseBody": ".entity_warranties_service_delete_warranty_unauthorized_error_response_body",
+    "EntityWarrantiesServiceListWarrantiesBadGatewayErrorResponseBody": ".entity_warranties_service_list_warranties_bad_gateway_error_response_body",
+    "EntityWarrantiesServiceListWarrantiesContentTooLargeErrorResponseBody": ".entity_warranties_service_list_warranties_content_too_large_error_response_body",
+    "EntityWarrantiesServiceListWarrantiesGatewayTimeoutErrorResponseBody": ".entity_warranties_service_list_warranties_gateway_timeout_error_response_body",
+    "EntityWarrantiesServiceListWarrantiesInternalServerErrorResponseBody": ".entity_warranties_service_list_warranties_internal_server_error_response_body",
+    "EntityWarrantiesServiceListWarrantiesMethodNotAllowedErrorResponseBody": ".entity_warranties_service_list_warranties_method_not_allowed_error_response_body",
+    "EntityWarrantiesServiceListWarrantiesNotFoundErrorResponseBody": ".entity_warranties_service_list_warranties_not_found_error_response_body",
+    "EntityWarrantiesServiceListWarrantiesNotImplementedErrorResponseBody": ".entity_warranties_service_list_warranties_not_implemented_error_response_body",
+    "EntityWarrantiesServiceListWarrantiesResponseBody": ".entity_warranties_service_list_warranties_response_body",
+    "EntityWarrantiesServiceListWarrantiesServiceUnavailableErrorResponseBody": ".entity_warranties_service_list_warranties_service_unavailable_error_response_body",
+    "EntityWarrantiesServiceListWarrantiesTooManyRequestsErrorResponseBody": ".entity_warranties_service_list_warranties_too_many_requests_error_response_body",
+    "EntityWarrantiesServiceListWarrantiesUnauthorizedErrorResponseBody": ".entity_warranties_service_list_warranties_unauthorized_error_response_body",
+    "EntityWarrantiesServiceUpdateWarrantyBadGatewayErrorResponseBody": ".entity_warranties_service_update_warranty_bad_gateway_error_response_body",
+    "EntityWarrantiesServiceUpdateWarrantyContentTooLargeErrorResponseBody": ".entity_warranties_service_update_warranty_content_too_large_error_response_body",
+    "EntityWarrantiesServiceUpdateWarrantyGatewayTimeoutErrorResponseBody": ".entity_warranties_service_update_warranty_gateway_timeout_error_response_body",
+    "EntityWarrantiesServiceUpdateWarrantyInternalServerErrorResponseBody": ".entity_warranties_service_update_warranty_internal_server_error_response_body",
+    "EntityWarrantiesServiceUpdateWarrantyMethodNotAllowedErrorResponseBody": ".entity_warranties_service_update_warranty_method_not_allowed_error_response_body",
+    "EntityWarrantiesServiceUpdateWarrantyNotFoundErrorResponseBody": ".entity_warranties_service_update_warranty_not_found_error_response_body",
+    "EntityWarrantiesServiceUpdateWarrantyNotImplementedErrorResponseBody": ".entity_warranties_service_update_warranty_not_implemented_error_response_body",
+    "EntityWarrantiesServiceUpdateWarrantyResponseBody": ".entity_warranties_service_update_warranty_response_body",
+    "EntityWarrantiesServiceUpdateWarrantyServiceUnavailableErrorResponseBody": ".entity_warranties_service_update_warranty_service_unavailable_error_response_body",
+    "EntityWarrantiesServiceUpdateWarrantyTooManyRequestsErrorResponseBody": ".entity_warranties_service_update_warranty_too_many_requests_error_response_body",
+    "EntityWarrantiesServiceUpdateWarrantyUnauthorizedErrorResponseBody": ".entity_warranties_service_update_warranty_unauthorized_error_response_body",
+    "EntityWarrantyClaimsServiceCreateWarrantyClaimBadGatewayErrorResponseBody": ".entity_warranty_claims_service_create_warranty_claim_bad_gateway_error_response_body",
+    "EntityWarrantyClaimsServiceCreateWarrantyClaimContentTooLargeErrorResponseBody": ".entity_warranty_claims_service_create_warranty_claim_content_too_large_error_response_body",
+    "EntityWarrantyClaimsServiceCreateWarrantyClaimGatewayTimeoutErrorResponseBody": ".entity_warranty_claims_service_create_warranty_claim_gateway_timeout_error_response_body",
+    "EntityWarrantyClaimsServiceCreateWarrantyClaimInternalServerErrorResponseBody": ".entity_warranty_claims_service_create_warranty_claim_internal_server_error_response_body",
+    "EntityWarrantyClaimsServiceCreateWarrantyClaimMethodNotAllowedErrorResponseBody": ".entity_warranty_claims_service_create_warranty_claim_method_not_allowed_error_response_body",
+    "EntityWarrantyClaimsServiceCreateWarrantyClaimNotFoundErrorResponseBody": ".entity_warranty_claims_service_create_warranty_claim_not_found_error_response_body",
+    "EntityWarrantyClaimsServiceCreateWarrantyClaimNotImplementedErrorResponseBody": ".entity_warranty_claims_service_create_warranty_claim_not_implemented_error_response_body",
+    "EntityWarrantyClaimsServiceCreateWarrantyClaimResponseBody": ".entity_warranty_claims_service_create_warranty_claim_response_body",
+    "EntityWarrantyClaimsServiceCreateWarrantyClaimServiceUnavailableErrorResponseBody": ".entity_warranty_claims_service_create_warranty_claim_service_unavailable_error_response_body",
+    "EntityWarrantyClaimsServiceCreateWarrantyClaimTooManyRequestsErrorResponseBody": ".entity_warranty_claims_service_create_warranty_claim_too_many_requests_error_response_body",
+    "EntityWarrantyClaimsServiceCreateWarrantyClaimUnauthorizedErrorResponseBody": ".entity_warranty_claims_service_create_warranty_claim_unauthorized_error_response_body",
+    "EntityWarrantyClaimsServiceDeleteWarrantyClaimBadGatewayErrorResponseBody": ".entity_warranty_claims_service_delete_warranty_claim_bad_gateway_error_response_body",
+    "EntityWarrantyClaimsServiceDeleteWarrantyClaimContentTooLargeErrorResponseBody": ".entity_warranty_claims_service_delete_warranty_claim_content_too_large_error_response_body",
+    "EntityWarrantyClaimsServiceDeleteWarrantyClaimGatewayTimeoutErrorResponseBody": ".entity_warranty_claims_service_delete_warranty_claim_gateway_timeout_error_response_body",
+    "EntityWarrantyClaimsServiceDeleteWarrantyClaimInternalServerErrorResponseBody": ".entity_warranty_claims_service_delete_warranty_claim_internal_server_error_response_body",
+    "EntityWarrantyClaimsServiceDeleteWarrantyClaimMethodNotAllowedErrorResponseBody": ".entity_warranty_claims_service_delete_warranty_claim_method_not_allowed_error_response_body",
+    "EntityWarrantyClaimsServiceDeleteWarrantyClaimNotFoundErrorResponseBody": ".entity_warranty_claims_service_delete_warranty_claim_not_found_error_response_body",
+    "EntityWarrantyClaimsServiceDeleteWarrantyClaimNotImplementedErrorResponseBody": ".entity_warranty_claims_service_delete_warranty_claim_not_implemented_error_response_body",
+    "EntityWarrantyClaimsServiceDeleteWarrantyClaimServiceUnavailableErrorResponseBody": ".entity_warranty_claims_service_delete_warranty_claim_service_unavailable_error_response_body",
+    "EntityWarrantyClaimsServiceDeleteWarrantyClaimTooManyRequestsErrorResponseBody": ".entity_warranty_claims_service_delete_warranty_claim_too_many_requests_error_response_body",
+    "EntityWarrantyClaimsServiceDeleteWarrantyClaimUnauthorizedErrorResponseBody": ".entity_warranty_claims_service_delete_warranty_claim_unauthorized_error_response_body",
+    "EntityWarrantyClaimsServiceListWarrantyClaimsBadGatewayErrorResponseBody": ".entity_warranty_claims_service_list_warranty_claims_bad_gateway_error_response_body",
+    "EntityWarrantyClaimsServiceListWarrantyClaimsContentTooLargeErrorResponseBody": ".entity_warranty_claims_service_list_warranty_claims_content_too_large_error_response_body",
+    "EntityWarrantyClaimsServiceListWarrantyClaimsGatewayTimeoutErrorResponseBody": ".entity_warranty_claims_service_list_warranty_claims_gateway_timeout_error_response_body",
+    "EntityWarrantyClaimsServiceListWarrantyClaimsInternalServerErrorResponseBody": ".entity_warranty_claims_service_list_warranty_claims_internal_server_error_response_body",
+    "EntityWarrantyClaimsServiceListWarrantyClaimsMethodNotAllowedErrorResponseBody": ".entity_warranty_claims_service_list_warranty_claims_method_not_allowed_error_response_body",
+    "EntityWarrantyClaimsServiceListWarrantyClaimsNotFoundErrorResponseBody": ".entity_warranty_claims_service_list_warranty_claims_not_found_error_response_body",
+    "EntityWarrantyClaimsServiceListWarrantyClaimsNotImplementedErrorResponseBody": ".entity_warranty_claims_service_list_warranty_claims_not_implemented_error_response_body",
+    "EntityWarrantyClaimsServiceListWarrantyClaimsResponseBody": ".entity_warranty_claims_service_list_warranty_claims_response_body",
+    "EntityWarrantyClaimsServiceListWarrantyClaimsServiceUnavailableErrorResponseBody": ".entity_warranty_claims_service_list_warranty_claims_service_unavailable_error_response_body",
+    "EntityWarrantyClaimsServiceListWarrantyClaimsTooManyRequestsErrorResponseBody": ".entity_warranty_claims_service_list_warranty_claims_too_many_requests_error_response_body",
+    "EntityWarrantyClaimsServiceListWarrantyClaimsUnauthorizedErrorResponseBody": ".entity_warranty_claims_service_list_warranty_claims_unauthorized_error_response_body",
+    "EntityWarrantyClaimsServiceUpdateWarrantyClaimBadGatewayErrorResponseBody": ".entity_warranty_claims_service_update_warranty_claim_bad_gateway_error_response_body",
+    "EntityWarrantyClaimsServiceUpdateWarrantyClaimContentTooLargeErrorResponseBody": ".entity_warranty_claims_service_update_warranty_claim_content_too_large_error_response_body",
+    "EntityWarrantyClaimsServiceUpdateWarrantyClaimGatewayTimeoutErrorResponseBody": ".entity_warranty_claims_service_update_warranty_claim_gateway_timeout_error_response_body",
+    "EntityWarrantyClaimsServiceUpdateWarrantyClaimInternalServerErrorResponseBody": ".entity_warranty_claims_service_update_warranty_claim_internal_server_error_response_body",
+    "EntityWarrantyClaimsServiceUpdateWarrantyClaimMethodNotAllowedErrorResponseBody": ".entity_warranty_claims_service_update_warranty_claim_method_not_allowed_error_response_body",
+    "EntityWarrantyClaimsServiceUpdateWarrantyClaimNotFoundErrorResponseBody": ".entity_warranty_claims_service_update_warranty_claim_not_found_error_response_body",
+    "EntityWarrantyClaimsServiceUpdateWarrantyClaimNotImplementedErrorResponseBody": ".entity_warranty_claims_service_update_warranty_claim_not_implemented_error_response_body",
+    "EntityWarrantyClaimsServiceUpdateWarrantyClaimResponseBody": ".entity_warranty_claims_service_update_warranty_claim_response_body",
+    "EntityWarrantyClaimsServiceUpdateWarrantyClaimServiceUnavailableErrorResponseBody": ".entity_warranty_claims_service_update_warranty_claim_service_unavailable_error_response_body",
+    "EntityWarrantyClaimsServiceUpdateWarrantyClaimTooManyRequestsErrorResponseBody": ".entity_warranty_claims_service_update_warranty_claim_too_many_requests_error_response_body",
+    "EntityWarrantyClaimsServiceUpdateWarrantyClaimUnauthorizedErrorResponseBody": ".entity_warranty_claims_service_update_warranty_claim_unauthorized_error_response_body",
     "EntityWatchpointsServiceCreateWatchpointBadGatewayErrorResponseBody": ".entity_watchpoints_service_create_watchpoint_bad_gateway_error_response_body",
     "EntityWatchpointsServiceCreateWatchpointContentTooLargeErrorResponseBody": ".entity_watchpoints_service_create_watchpoint_content_too_large_error_response_body",
     "EntityWatchpointsServiceCreateWatchpointGatewayTimeoutErrorResponseBody": ".entity_watchpoints_service_create_watchpoint_gateway_timeout_error_response_body",
@@ -13399,6 +13987,15 @@ _dynamic_imports: typing.Dict[str, str] = {
     "ListUploadedMediaObjectResponseBody": ".list_uploaded_media_object_response_body",
     "ListUserRolesResponse": ".list_user_roles_response",
     "ListUsersResponse": ".list_users_response",
+    "ListWarrantiesEntityWarrantyWarrantyCoverageItemTypeResponseBody": ".list_warranties_entity_warranty_warranty_coverage_item_type_response_body",
+    "ListWarrantiesEntityWarrantyWarrantyCoverageTypeResponseBody": ".list_warranties_entity_warranty_warranty_coverage_type_response_body",
+    "ListWarrantiesEntityWarrantyWarrantyExternalIdTypeResponseBody": ".list_warranties_entity_warranty_warranty_external_id_type_response_body",
+    "ListWarrantyClaimsEntityWarrantyClaimClaimReimbursementTypeResponseBody": ".list_warranty_claims_entity_warranty_claim_claim_reimbursement_type_response_body",
+    "ListWarrantyClaimsEntityWarrantyClaimMoneyTypeResponseBody": ".list_warranty_claims_entity_warranty_claim_money_type_response_body",
+    "ListWarrantyClaimsEntityWarrantyClaimWarrantyClaimExternalIdTypeResponseBody": ".list_warranty_claims_entity_warranty_claim_warranty_claim_external_id_type_response_body",
+    "ListWarrantyClaimsEntityWarrantyClaimWarrantyClaimLaborTypeResponseBody": ".list_warranty_claims_entity_warranty_claim_warranty_claim_labor_type_response_body",
+    "ListWarrantyClaimsEntityWarrantyClaimWarrantyClaimPartTypeResponseBody": ".list_warranty_claims_entity_warranty_claim_warranty_claim_part_type_response_body",
+    "ListWarrantyClaimsEntityWarrantyClaimWarrantyClaimStatusHistoryTypeResponseBody": ".list_warranty_claims_entity_warranty_claim_warranty_claim_status_history_type_response_body",
     "LiveSharingLinkFullResponseObjectResponseBody": ".live_sharing_link_full_response_object_response_body",
     "LiveSharingLinkFullResponseObjectResponseBodyType": ".live_sharing_link_full_response_object_response_body_type",
     "LiveSharingLinkResponseObjectResponseBody": ".live_sharing_link_response_object_response_body",
@@ -14107,6 +14704,18 @@ _dynamic_imports: typing.Dict[str, str] = {
     "RecoveryStateResponseBody": ".recovery_state_response_body",
     "RecoveryStateResponseBodyUpdateSource": ".recovery_state_response_body_update_source",
     "ReeferTemperatureResponseBody": ".reefer_temperature_response_body",
+    "ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsBadGatewayErrorResponseBody": ".replace_warranty_asset_assignments_action_service_replace_warranty_asset_assignments_bad_gateway_error_response_body",
+    "ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsContentTooLargeErrorResponseBody": ".replace_warranty_asset_assignments_action_service_replace_warranty_asset_assignments_content_too_large_error_response_body",
+    "ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsGatewayTimeoutErrorResponseBody": ".replace_warranty_asset_assignments_action_service_replace_warranty_asset_assignments_gateway_timeout_error_response_body",
+    "ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsInternalServerErrorResponseBody": ".replace_warranty_asset_assignments_action_service_replace_warranty_asset_assignments_internal_server_error_response_body",
+    "ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsMethodNotAllowedErrorResponseBody": ".replace_warranty_asset_assignments_action_service_replace_warranty_asset_assignments_method_not_allowed_error_response_body",
+    "ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsNotFoundErrorResponseBody": ".replace_warranty_asset_assignments_action_service_replace_warranty_asset_assignments_not_found_error_response_body",
+    "ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsNotImplementedErrorResponseBody": ".replace_warranty_asset_assignments_action_service_replace_warranty_asset_assignments_not_implemented_error_response_body",
+    "ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsResponseBody": ".replace_warranty_asset_assignments_action_service_replace_warranty_asset_assignments_response_body",
+    "ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsServiceUnavailableErrorResponseBody": ".replace_warranty_asset_assignments_action_service_replace_warranty_asset_assignments_service_unavailable_error_response_body",
+    "ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsTooManyRequestsErrorResponseBody": ".replace_warranty_asset_assignments_action_service_replace_warranty_asset_assignments_too_many_requests_error_response_body",
+    "ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsUnauthorizedErrorResponseBody": ".replace_warranty_asset_assignments_action_service_replace_warranty_asset_assignments_unauthorized_error_response_body",
+    "ReplaceWarrantyAssetAssignmentsResponseObjectTypeResponseBody": ".replace_warranty_asset_assignments_response_object_type_response_body",
     "ReportColumnsObjectResponseBody": ".report_columns_object_response_body",
     "ReportColumnsObjectResponseBodyDataType": ".report_columns_object_response_body_data_type",
     "ReportColumnsObjectResponseBodyUnit": ".report_columns_object_response_body_unit",
@@ -15093,6 +15702,23 @@ _dynamic_imports: typing.Dict[str, str] = {
     "UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariant983F66355224TypeResponseBody": ".update_purchase_order_entity_purchase_order_purchase_order_part_public_variant_983_f_66355224_type_response_body",
     "UpdateRoutesStopRequestObjectRequestBody": ".update_routes_stop_request_object_request_body",
     "UpdateSharedAssetRequestObjectRequestBody": ".update_shared_asset_request_object_request_body",
+    "UpdateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody": ".update_warranty_claim_entity_warranty_claim_claim_reimbursement_input_type_request_body",
+    "UpdateWarrantyClaimEntityWarrantyClaimClaimReimbursementTypeResponseBody": ".update_warranty_claim_entity_warranty_claim_claim_reimbursement_type_response_body",
+    "UpdateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody": ".update_warranty_claim_entity_warranty_claim_money_input_type_request_body",
+    "UpdateWarrantyClaimEntityWarrantyClaimMoneyTypeResponseBody": ".update_warranty_claim_entity_warranty_claim_money_type_response_body",
+    "UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdInputTypeRequestBody": ".update_warranty_claim_entity_warranty_claim_warranty_claim_external_id_input_type_request_body",
+    "UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdTypeResponseBody": ".update_warranty_claim_entity_warranty_claim_warranty_claim_external_id_type_response_body",
+    "UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborInputTypeRequestBody": ".update_warranty_claim_entity_warranty_claim_warranty_claim_labor_input_type_request_body",
+    "UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborTypeResponseBody": ".update_warranty_claim_entity_warranty_claim_warranty_claim_labor_type_response_body",
+    "UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody": ".update_warranty_claim_entity_warranty_claim_warranty_claim_part_input_type_request_body",
+    "UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartTypeResponseBody": ".update_warranty_claim_entity_warranty_claim_warranty_claim_part_type_response_body",
+    "UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimStatusHistoryTypeResponseBody": ".update_warranty_claim_entity_warranty_claim_warranty_claim_status_history_type_response_body",
+    "UpdateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody": ".update_warranty_entity_warranty_warranty_coverage_input_type_request_body",
+    "UpdateWarrantyEntityWarrantyWarrantyCoverageItemInputTypeRequestBody": ".update_warranty_entity_warranty_warranty_coverage_item_input_type_request_body",
+    "UpdateWarrantyEntityWarrantyWarrantyCoverageItemTypeResponseBody": ".update_warranty_entity_warranty_warranty_coverage_item_type_response_body",
+    "UpdateWarrantyEntityWarrantyWarrantyCoverageTypeResponseBody": ".update_warranty_entity_warranty_warranty_coverage_type_response_body",
+    "UpdateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody": ".update_warranty_entity_warranty_warranty_external_id_input_type_request_body",
+    "UpdateWarrantyEntityWarrantyWarrantyExternalIdTypeResponseBody": ".update_warranty_entity_warranty_warranty_external_id_type_response_body",
     "UploadedMediaObjectResponseBody": ".uploaded_media_object_response_body",
     "UploadedMediaObjectResponseBodyCameraRole": ".uploaded_media_object_response_body_camera_role",
     "UploadedMediaObjectResponseBodyInput": ".uploaded_media_object_response_body_input",
@@ -16367,6 +16993,23 @@ __all__ = [
     "CreateStockMovementActionServiceCreateStockMovementUnauthorizedErrorResponseBody",
     "CreateStockMovementResponseObjectTypeResponseBody",
     "CreateUserRequestRoles",
+    "CreateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody",
+    "CreateWarrantyClaimEntityWarrantyClaimClaimReimbursementTypeResponseBody",
+    "CreateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody",
+    "CreateWarrantyClaimEntityWarrantyClaimMoneyTypeResponseBody",
+    "CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdInputTypeRequestBody",
+    "CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdTypeResponseBody",
+    "CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborInputTypeRequestBody",
+    "CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborTypeResponseBody",
+    "CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody",
+    "CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartTypeResponseBody",
+    "CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimStatusHistoryTypeResponseBody",
+    "CreateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody",
+    "CreateWarrantyEntityWarrantyWarrantyCoverageItemInputTypeRequestBody",
+    "CreateWarrantyEntityWarrantyWarrantyCoverageItemTypeResponseBody",
+    "CreateWarrantyEntityWarrantyWarrantyCoverageTypeResponseBody",
+    "CreateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody",
+    "CreateWarrantyEntityWarrantyWarrantyExternalIdTypeResponseBody",
     "CruiseControlDurationMs",
     "CumulativeOperatingHoursResponseBody",
     "CurrentDutyStatus",
@@ -16972,6 +17615,12 @@ __all__ = [
     "EntityCreateStockMovementMoneyInputTypeRequestBody",
     "EntityCreateStockMovementMoneyTypeResponseBody",
     "EntityCreateStockMovementStockMovementLocationTypeResponseBody",
+    "EntityCreateWarrantyClaimAssetRefTypeResponseBody",
+    "EntityCreateWarrantyClaimTypeResponseBody",
+    "EntityCreateWarrantyClaimVendorRefTypeResponseBody",
+    "EntityCreateWarrantyClaimWarrantyRefTypeResponseBody",
+    "EntityCreateWarrantyTypeResponseBody",
+    "EntityCreateWarrantyVendorRefTypeResponseBody",
     "EntityCreateWatchpointTypeResponseBody",
     "EntityCreateWatchpointTypeResponseBodyMode",
     "EntityCreateWatchpointTypeResponseBodyObservationType",
@@ -17019,6 +17668,12 @@ __all__ = [
     "EntityListUpcomingPreventiveMaintenancePreventativeMaintenanceScheduleRefTypeResponseBody",
     "EntityListUpcomingPreventiveMaintenanceTypeResponseBody",
     "EntityListUpcomingPreventiveMaintenanceWorkOrderRefTypeResponseBody",
+    "EntityListWarrantiesTypeResponseBody",
+    "EntityListWarrantiesVendorRefTypeResponseBody",
+    "EntityListWarrantyClaimsAssetRefTypeResponseBody",
+    "EntityListWarrantyClaimsTypeResponseBody",
+    "EntityListWarrantyClaimsVendorRefTypeResponseBody",
+    "EntityListWarrantyClaimsWarrantyRefTypeResponseBody",
     "EntityPartDefinitionsServiceCreatePartBadGatewayErrorResponseBody",
     "EntityPartDefinitionsServiceCreatePartContentTooLargeErrorResponseBody",
     "EntityPartDefinitionsServiceCreatePartGatewayTimeoutErrorResponseBody",
@@ -17149,6 +17804,8 @@ __all__ = [
     "EntityPurchaseOrdersServiceUpdatePurchaseOrderServiceUnavailableErrorResponseBody",
     "EntityPurchaseOrdersServiceUpdatePurchaseOrderTooManyRequestsErrorResponseBody",
     "EntityPurchaseOrdersServiceUpdatePurchaseOrderUnauthorizedErrorResponseBody",
+    "EntityReplaceWarrantyAssetAssignmentsWarrantyAssetAssignmentInputTypeRequestBody",
+    "EntityReplaceWarrantyAssetAssignmentsWarrantyAssetAssignmentTypeResponseBody",
     "EntityTachographLiveDataRecordsServiceListTachographLiveDataBadGatewayErrorResponseBody",
     "EntityTachographLiveDataRecordsServiceListTachographLiveDataContentTooLargeErrorResponseBody",
     "EntityTachographLiveDataRecordsServiceListTachographLiveDataGatewayTimeoutErrorResponseBody",
@@ -17206,10 +17863,102 @@ __all__ = [
     "EntityUpdateUpcomingPreventiveMaintenancePreventativeMaintenanceScheduleRefTypeResponseBody",
     "EntityUpdateUpcomingPreventiveMaintenanceTypeResponseBody",
     "EntityUpdateUpcomingPreventiveMaintenanceWorkOrderRefTypeResponseBody",
+    "EntityUpdateWarrantyClaimAssetRefTypeResponseBody",
+    "EntityUpdateWarrantyClaimTypeResponseBody",
+    "EntityUpdateWarrantyClaimVendorRefTypeResponseBody",
+    "EntityUpdateWarrantyClaimWarrantyRefTypeResponseBody",
+    "EntityUpdateWarrantyTypeResponseBody",
+    "EntityUpdateWarrantyVendorRefTypeResponseBody",
     "EntityUpdateWatchpointTypeResponseBody",
     "EntityUpdateWatchpointTypeResponseBodyMode",
     "EntityUpdateWatchpointTypeResponseBodyObservationType",
     "EntityUpdateWatchpointTypeResponseBodyStatus",
+    "EntityWarrantiesServiceCreateWarrantyBadGatewayErrorResponseBody",
+    "EntityWarrantiesServiceCreateWarrantyContentTooLargeErrorResponseBody",
+    "EntityWarrantiesServiceCreateWarrantyGatewayTimeoutErrorResponseBody",
+    "EntityWarrantiesServiceCreateWarrantyInternalServerErrorResponseBody",
+    "EntityWarrantiesServiceCreateWarrantyMethodNotAllowedErrorResponseBody",
+    "EntityWarrantiesServiceCreateWarrantyNotFoundErrorResponseBody",
+    "EntityWarrantiesServiceCreateWarrantyNotImplementedErrorResponseBody",
+    "EntityWarrantiesServiceCreateWarrantyResponseBody",
+    "EntityWarrantiesServiceCreateWarrantyServiceUnavailableErrorResponseBody",
+    "EntityWarrantiesServiceCreateWarrantyTooManyRequestsErrorResponseBody",
+    "EntityWarrantiesServiceCreateWarrantyUnauthorizedErrorResponseBody",
+    "EntityWarrantiesServiceDeleteWarrantyBadGatewayErrorResponseBody",
+    "EntityWarrantiesServiceDeleteWarrantyContentTooLargeErrorResponseBody",
+    "EntityWarrantiesServiceDeleteWarrantyGatewayTimeoutErrorResponseBody",
+    "EntityWarrantiesServiceDeleteWarrantyInternalServerErrorResponseBody",
+    "EntityWarrantiesServiceDeleteWarrantyMethodNotAllowedErrorResponseBody",
+    "EntityWarrantiesServiceDeleteWarrantyNotFoundErrorResponseBody",
+    "EntityWarrantiesServiceDeleteWarrantyNotImplementedErrorResponseBody",
+    "EntityWarrantiesServiceDeleteWarrantyServiceUnavailableErrorResponseBody",
+    "EntityWarrantiesServiceDeleteWarrantyTooManyRequestsErrorResponseBody",
+    "EntityWarrantiesServiceDeleteWarrantyUnauthorizedErrorResponseBody",
+    "EntityWarrantiesServiceListWarrantiesBadGatewayErrorResponseBody",
+    "EntityWarrantiesServiceListWarrantiesContentTooLargeErrorResponseBody",
+    "EntityWarrantiesServiceListWarrantiesGatewayTimeoutErrorResponseBody",
+    "EntityWarrantiesServiceListWarrantiesInternalServerErrorResponseBody",
+    "EntityWarrantiesServiceListWarrantiesMethodNotAllowedErrorResponseBody",
+    "EntityWarrantiesServiceListWarrantiesNotFoundErrorResponseBody",
+    "EntityWarrantiesServiceListWarrantiesNotImplementedErrorResponseBody",
+    "EntityWarrantiesServiceListWarrantiesResponseBody",
+    "EntityWarrantiesServiceListWarrantiesServiceUnavailableErrorResponseBody",
+    "EntityWarrantiesServiceListWarrantiesTooManyRequestsErrorResponseBody",
+    "EntityWarrantiesServiceListWarrantiesUnauthorizedErrorResponseBody",
+    "EntityWarrantiesServiceUpdateWarrantyBadGatewayErrorResponseBody",
+    "EntityWarrantiesServiceUpdateWarrantyContentTooLargeErrorResponseBody",
+    "EntityWarrantiesServiceUpdateWarrantyGatewayTimeoutErrorResponseBody",
+    "EntityWarrantiesServiceUpdateWarrantyInternalServerErrorResponseBody",
+    "EntityWarrantiesServiceUpdateWarrantyMethodNotAllowedErrorResponseBody",
+    "EntityWarrantiesServiceUpdateWarrantyNotFoundErrorResponseBody",
+    "EntityWarrantiesServiceUpdateWarrantyNotImplementedErrorResponseBody",
+    "EntityWarrantiesServiceUpdateWarrantyResponseBody",
+    "EntityWarrantiesServiceUpdateWarrantyServiceUnavailableErrorResponseBody",
+    "EntityWarrantiesServiceUpdateWarrantyTooManyRequestsErrorResponseBody",
+    "EntityWarrantiesServiceUpdateWarrantyUnauthorizedErrorResponseBody",
+    "EntityWarrantyClaimsServiceCreateWarrantyClaimBadGatewayErrorResponseBody",
+    "EntityWarrantyClaimsServiceCreateWarrantyClaimContentTooLargeErrorResponseBody",
+    "EntityWarrantyClaimsServiceCreateWarrantyClaimGatewayTimeoutErrorResponseBody",
+    "EntityWarrantyClaimsServiceCreateWarrantyClaimInternalServerErrorResponseBody",
+    "EntityWarrantyClaimsServiceCreateWarrantyClaimMethodNotAllowedErrorResponseBody",
+    "EntityWarrantyClaimsServiceCreateWarrantyClaimNotFoundErrorResponseBody",
+    "EntityWarrantyClaimsServiceCreateWarrantyClaimNotImplementedErrorResponseBody",
+    "EntityWarrantyClaimsServiceCreateWarrantyClaimResponseBody",
+    "EntityWarrantyClaimsServiceCreateWarrantyClaimServiceUnavailableErrorResponseBody",
+    "EntityWarrantyClaimsServiceCreateWarrantyClaimTooManyRequestsErrorResponseBody",
+    "EntityWarrantyClaimsServiceCreateWarrantyClaimUnauthorizedErrorResponseBody",
+    "EntityWarrantyClaimsServiceDeleteWarrantyClaimBadGatewayErrorResponseBody",
+    "EntityWarrantyClaimsServiceDeleteWarrantyClaimContentTooLargeErrorResponseBody",
+    "EntityWarrantyClaimsServiceDeleteWarrantyClaimGatewayTimeoutErrorResponseBody",
+    "EntityWarrantyClaimsServiceDeleteWarrantyClaimInternalServerErrorResponseBody",
+    "EntityWarrantyClaimsServiceDeleteWarrantyClaimMethodNotAllowedErrorResponseBody",
+    "EntityWarrantyClaimsServiceDeleteWarrantyClaimNotFoundErrorResponseBody",
+    "EntityWarrantyClaimsServiceDeleteWarrantyClaimNotImplementedErrorResponseBody",
+    "EntityWarrantyClaimsServiceDeleteWarrantyClaimServiceUnavailableErrorResponseBody",
+    "EntityWarrantyClaimsServiceDeleteWarrantyClaimTooManyRequestsErrorResponseBody",
+    "EntityWarrantyClaimsServiceDeleteWarrantyClaimUnauthorizedErrorResponseBody",
+    "EntityWarrantyClaimsServiceListWarrantyClaimsBadGatewayErrorResponseBody",
+    "EntityWarrantyClaimsServiceListWarrantyClaimsContentTooLargeErrorResponseBody",
+    "EntityWarrantyClaimsServiceListWarrantyClaimsGatewayTimeoutErrorResponseBody",
+    "EntityWarrantyClaimsServiceListWarrantyClaimsInternalServerErrorResponseBody",
+    "EntityWarrantyClaimsServiceListWarrantyClaimsMethodNotAllowedErrorResponseBody",
+    "EntityWarrantyClaimsServiceListWarrantyClaimsNotFoundErrorResponseBody",
+    "EntityWarrantyClaimsServiceListWarrantyClaimsNotImplementedErrorResponseBody",
+    "EntityWarrantyClaimsServiceListWarrantyClaimsResponseBody",
+    "EntityWarrantyClaimsServiceListWarrantyClaimsServiceUnavailableErrorResponseBody",
+    "EntityWarrantyClaimsServiceListWarrantyClaimsTooManyRequestsErrorResponseBody",
+    "EntityWarrantyClaimsServiceListWarrantyClaimsUnauthorizedErrorResponseBody",
+    "EntityWarrantyClaimsServiceUpdateWarrantyClaimBadGatewayErrorResponseBody",
+    "EntityWarrantyClaimsServiceUpdateWarrantyClaimContentTooLargeErrorResponseBody",
+    "EntityWarrantyClaimsServiceUpdateWarrantyClaimGatewayTimeoutErrorResponseBody",
+    "EntityWarrantyClaimsServiceUpdateWarrantyClaimInternalServerErrorResponseBody",
+    "EntityWarrantyClaimsServiceUpdateWarrantyClaimMethodNotAllowedErrorResponseBody",
+    "EntityWarrantyClaimsServiceUpdateWarrantyClaimNotFoundErrorResponseBody",
+    "EntityWarrantyClaimsServiceUpdateWarrantyClaimNotImplementedErrorResponseBody",
+    "EntityWarrantyClaimsServiceUpdateWarrantyClaimResponseBody",
+    "EntityWarrantyClaimsServiceUpdateWarrantyClaimServiceUnavailableErrorResponseBody",
+    "EntityWarrantyClaimsServiceUpdateWarrantyClaimTooManyRequestsErrorResponseBody",
+    "EntityWarrantyClaimsServiceUpdateWarrantyClaimUnauthorizedErrorResponseBody",
     "EntityWatchpointsServiceCreateWatchpointBadGatewayErrorResponseBody",
     "EntityWatchpointsServiceCreateWatchpointContentTooLargeErrorResponseBody",
     "EntityWatchpointsServiceCreateWatchpointGatewayTimeoutErrorResponseBody",
@@ -18362,6 +19111,15 @@ __all__ = [
     "ListUploadedMediaObjectResponseBody",
     "ListUserRolesResponse",
     "ListUsersResponse",
+    "ListWarrantiesEntityWarrantyWarrantyCoverageItemTypeResponseBody",
+    "ListWarrantiesEntityWarrantyWarrantyCoverageTypeResponseBody",
+    "ListWarrantiesEntityWarrantyWarrantyExternalIdTypeResponseBody",
+    "ListWarrantyClaimsEntityWarrantyClaimClaimReimbursementTypeResponseBody",
+    "ListWarrantyClaimsEntityWarrantyClaimMoneyTypeResponseBody",
+    "ListWarrantyClaimsEntityWarrantyClaimWarrantyClaimExternalIdTypeResponseBody",
+    "ListWarrantyClaimsEntityWarrantyClaimWarrantyClaimLaborTypeResponseBody",
+    "ListWarrantyClaimsEntityWarrantyClaimWarrantyClaimPartTypeResponseBody",
+    "ListWarrantyClaimsEntityWarrantyClaimWarrantyClaimStatusHistoryTypeResponseBody",
     "LiveSharingLinkFullResponseObjectResponseBody",
     "LiveSharingLinkFullResponseObjectResponseBodyType",
     "LiveSharingLinkResponseObjectResponseBody",
@@ -19070,6 +19828,18 @@ __all__ = [
     "RecoveryStateResponseBody",
     "RecoveryStateResponseBodyUpdateSource",
     "ReeferTemperatureResponseBody",
+    "ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsBadGatewayErrorResponseBody",
+    "ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsContentTooLargeErrorResponseBody",
+    "ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsGatewayTimeoutErrorResponseBody",
+    "ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsInternalServerErrorResponseBody",
+    "ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsMethodNotAllowedErrorResponseBody",
+    "ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsNotFoundErrorResponseBody",
+    "ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsNotImplementedErrorResponseBody",
+    "ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsResponseBody",
+    "ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsServiceUnavailableErrorResponseBody",
+    "ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsTooManyRequestsErrorResponseBody",
+    "ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsUnauthorizedErrorResponseBody",
+    "ReplaceWarrantyAssetAssignmentsResponseObjectTypeResponseBody",
     "ReportColumnsObjectResponseBody",
     "ReportColumnsObjectResponseBodyDataType",
     "ReportColumnsObjectResponseBodyUnit",
@@ -20056,6 +20826,23 @@ __all__ = [
     "UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariant983F66355224TypeResponseBody",
     "UpdateRoutesStopRequestObjectRequestBody",
     "UpdateSharedAssetRequestObjectRequestBody",
+    "UpdateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody",
+    "UpdateWarrantyClaimEntityWarrantyClaimClaimReimbursementTypeResponseBody",
+    "UpdateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody",
+    "UpdateWarrantyClaimEntityWarrantyClaimMoneyTypeResponseBody",
+    "UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdInputTypeRequestBody",
+    "UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdTypeResponseBody",
+    "UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborInputTypeRequestBody",
+    "UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborTypeResponseBody",
+    "UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody",
+    "UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartTypeResponseBody",
+    "UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimStatusHistoryTypeResponseBody",
+    "UpdateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody",
+    "UpdateWarrantyEntityWarrantyWarrantyCoverageItemInputTypeRequestBody",
+    "UpdateWarrantyEntityWarrantyWarrantyCoverageItemTypeResponseBody",
+    "UpdateWarrantyEntityWarrantyWarrantyCoverageTypeResponseBody",
+    "UpdateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody",
+    "UpdateWarrantyEntityWarrantyWarrantyExternalIdTypeResponseBody",
     "UploadedMediaObjectResponseBody",
     "UploadedMediaObjectResponseBodyCameraRole",
     "UploadedMediaObjectResponseBodyInput",
