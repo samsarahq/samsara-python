@@ -22,14 +22,80 @@ from ..errors.not_implemented_error import NotImplementedError
 from ..errors.service_unavailable_error import ServiceUnavailableError
 from ..errors.too_many_requests_error import TooManyRequestsError
 from ..errors.unauthorized_error import UnauthorizedError
+from ..types.create_warranty_claim_entity_warranty_claim_claim_reimbursement_input_type_request_body import (
+    CreateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody,
+)
+from ..types.create_warranty_claim_entity_warranty_claim_money_input_type_request_body import (
+    CreateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody,
+)
+from ..types.create_warranty_claim_entity_warranty_claim_warranty_claim_external_id_input_type_request_body import (
+    CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdInputTypeRequestBody,
+)
+from ..types.create_warranty_claim_entity_warranty_claim_warranty_claim_labor_input_type_request_body import (
+    CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborInputTypeRequestBody,
+)
+from ..types.create_warranty_claim_entity_warranty_claim_warranty_claim_part_input_type_request_body import (
+    CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody,
+)
+from ..types.create_warranty_entity_warranty_warranty_coverage_input_type_request_body import (
+    CreateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody,
+)
+from ..types.create_warranty_entity_warranty_warranty_external_id_input_type_request_body import (
+    CreateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody,
+)
 from ..types.drivers_auth_token_create_driver_auth_token_response_body import (
     DriversAuthTokenCreateDriverAuthTokenResponseBody,
+)
+from ..types.entity_replace_warranty_asset_assignments_warranty_asset_assignment_input_type_request_body import (
+    EntityReplaceWarrantyAssetAssignmentsWarrantyAssetAssignmentInputTypeRequestBody,
+)
+from ..types.entity_warranties_service_create_warranty_response_body import (
+    EntityWarrantiesServiceCreateWarrantyResponseBody,
+)
+from ..types.entity_warranties_service_list_warranties_response_body import (
+    EntityWarrantiesServiceListWarrantiesResponseBody,
+)
+from ..types.entity_warranties_service_update_warranty_response_body import (
+    EntityWarrantiesServiceUpdateWarrantyResponseBody,
+)
+from ..types.entity_warranty_claims_service_create_warranty_claim_response_body import (
+    EntityWarrantyClaimsServiceCreateWarrantyClaimResponseBody,
+)
+from ..types.entity_warranty_claims_service_list_warranty_claims_response_body import (
+    EntityWarrantyClaimsServiceListWarrantyClaimsResponseBody,
+)
+from ..types.entity_warranty_claims_service_update_warranty_claim_response_body import (
+    EntityWarrantyClaimsServiceUpdateWarrantyClaimResponseBody,
 )
 from ..types.fleet_order_batch_upsert_input_request_body import FleetOrderBatchUpsertInputRequestBody
 from ..types.orders_get_order_deletions_response_body import OrdersGetOrderDeletionsResponseBody
 from ..types.orders_get_orders_response_body import OrdersGetOrdersResponseBody
 from ..types.orders_get_orders_stream_response_body import OrdersGetOrdersStreamResponseBody
 from ..types.orders_post_orders_batch_response_body import OrdersPostOrdersBatchResponseBody
+from ..types.replace_warranty_asset_assignments_action_service_replace_warranty_asset_assignments_response_body import (
+    ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsResponseBody,
+)
+from ..types.update_warranty_claim_entity_warranty_claim_claim_reimbursement_input_type_request_body import (
+    UpdateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody,
+)
+from ..types.update_warranty_claim_entity_warranty_claim_money_input_type_request_body import (
+    UpdateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody,
+)
+from ..types.update_warranty_claim_entity_warranty_claim_warranty_claim_external_id_input_type_request_body import (
+    UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdInputTypeRequestBody,
+)
+from ..types.update_warranty_claim_entity_warranty_claim_warranty_claim_labor_input_type_request_body import (
+    UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborInputTypeRequestBody,
+)
+from ..types.update_warranty_claim_entity_warranty_claim_warranty_claim_part_input_type_request_body import (
+    UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody,
+)
+from ..types.update_warranty_entity_warranty_warranty_coverage_input_type_request_body import (
+    UpdateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody,
+)
+from ..types.update_warranty_entity_warranty_warranty_external_id_input_type_request_body import (
+    UpdateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody,
+)
 
 # this is used as the default value for optional parameters
 OMIT = typing.cast(typing.Any, ...)
@@ -1405,6 +1471,1995 @@ class RawPreviewApIsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
+    def list_warranties(
+        self,
+        *,
+        warranty_ids: typing.Optional[str] = None,
+        name: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        include_external_ids: typing.Optional[bool] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[EntityWarrantiesServiceListWarrantiesResponseBody]:
+        """
+        Returns a paginated list of warranties for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        warranty_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of ID values.
+
+        name : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Name values.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        include_external_ids : typing.Optional[bool]
+            If true, include externalIds in each response object.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[EntityWarrantiesServiceListWarrantiesResponseBody]
+            OK response.
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "preview/maintenance/warranties",
+            method="GET",
+            params={
+                "warrantyIds": warranty_ids,
+                "name": name,
+                "after": after,
+                "limit": limit,
+                "includeExternalIds": include_external_ids,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    EntityWarrantiesServiceListWarrantiesResponseBody,
+                    parse_obj_as(
+                        type_=EntityWarrantiesServiceListWarrantiesResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def create_warranty(
+        self,
+        *,
+        name: str,
+        base_coverage: typing.Optional[CreateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody] = OMIT,
+        coverages: typing.Optional[
+            typing.Sequence[CreateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody]
+        ] = OMIT,
+        description: typing.Optional[str] = OMIT,
+        duration_days: typing.Optional[int] = OMIT,
+        duration_months: typing.Optional[int] = OMIT,
+        engine_duration_hours: typing.Optional[int] = OMIT,
+        external_ids: typing.Optional[
+            typing.Sequence[CreateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody]
+        ] = OMIT,
+        odometer_distance_meters: typing.Optional[int] = OMIT,
+        vendor_id: typing.Optional[str] = OMIT,
+        warranty_type: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[EntityWarrantiesServiceCreateWarrantyResponseBody]:
+        """
+        Creates a warranty for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        name : str
+            Name of the warranty.
+
+        base_coverage : typing.Optional[CreateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody]
+
+        coverages : typing.Optional[typing.Sequence[CreateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody]]
+            Additional coverage groups defined on this warranty.
+
+        description : typing.Optional[str]
+            Description of the warranty.
+
+        duration_days : typing.Optional[int]
+            Warranty length in days. Mutually exclusive with duration in months.
+
+        duration_months : typing.Optional[int]
+            Warranty length in months. Mutually exclusive with duration in days.
+
+        engine_duration_hours : typing.Optional[int]
+            Warranty length by engine hours since the warranty start.
+
+        external_ids : typing.Optional[typing.Sequence[CreateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody]]
+            Customer-supplied external identifiers for the warranty, interchangeable with id in filters. Only included in the response when includeExternalIds is set.
+
+        odometer_distance_meters : typing.Optional[int]
+            Warranty length by distance travelled since the warranty start. Measured in meters.
+
+        vendor_id : typing.Optional[str]
+            ID of the vendor that provides this warranty.
+
+        warranty_type : typing.Optional[str]
+            Type of warranty, for example manufacturer, extended, other, or unknown.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[EntityWarrantiesServiceCreateWarrantyResponseBody]
+            Created response.
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "preview/maintenance/warranties",
+            method="POST",
+            json={
+                "baseCoverage": convert_and_respect_annotation_metadata(
+                    object_=base_coverage,
+                    annotation=CreateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody,
+                    direction="write",
+                ),
+                "coverages": convert_and_respect_annotation_metadata(
+                    object_=coverages,
+                    annotation=typing.Sequence[CreateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody],
+                    direction="write",
+                ),
+                "description": description,
+                "durationDays": duration_days,
+                "durationMonths": duration_months,
+                "engineDurationHours": engine_duration_hours,
+                "externalIds": convert_and_respect_annotation_metadata(
+                    object_=external_ids,
+                    annotation=typing.Sequence[CreateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody],
+                    direction="write",
+                ),
+                "name": name,
+                "odometerDistanceMeters": odometer_distance_meters,
+                "vendorId": vendor_id,
+                "warrantyType": warranty_type,
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    EntityWarrantiesServiceCreateWarrantyResponseBody,
+                    parse_obj_as(
+                        type_=EntityWarrantiesServiceCreateWarrantyResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def delete_warranty(
+        self, *, id: str, request_options: typing.Optional[RequestOptions] = None
+    ) -> HttpResponse[None]:
+        """
+        Deletes a warranty for the organization. Asset associations are removed server-side.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Unique identifier for the Warranty record.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[None]
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "preview/maintenance/warranties",
+            method="DELETE",
+            params={
+                "id": id,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                return HttpResponse(response=_response, data=None)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def update_warranty(
+        self,
+        *,
+        id: str,
+        base_coverage: typing.Optional[UpdateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody] = OMIT,
+        coverages: typing.Optional[
+            typing.Sequence[UpdateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody]
+        ] = OMIT,
+        description: typing.Optional[str] = OMIT,
+        duration_days: typing.Optional[int] = OMIT,
+        duration_months: typing.Optional[int] = OMIT,
+        engine_duration_hours: typing.Optional[int] = OMIT,
+        external_ids: typing.Optional[
+            typing.Sequence[UpdateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody]
+        ] = OMIT,
+        name: typing.Optional[str] = OMIT,
+        odometer_distance_meters: typing.Optional[int] = OMIT,
+        vendor_id: typing.Optional[str] = OMIT,
+        warranty_type: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[EntityWarrantiesServiceUpdateWarrantyResponseBody]:
+        """
+        Updates an existing warranty for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Unique identifier for the Warranty record.
+
+        base_coverage : typing.Optional[UpdateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody]
+
+        coverages : typing.Optional[typing.Sequence[UpdateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody]]
+            Additional coverage groups defined on this warranty.
+
+        description : typing.Optional[str]
+            Description of the warranty.
+
+        duration_days : typing.Optional[int]
+            Warranty length in days. Mutually exclusive with duration in months.
+
+        duration_months : typing.Optional[int]
+            Warranty length in months. Mutually exclusive with duration in days.
+
+        engine_duration_hours : typing.Optional[int]
+            Warranty length by engine hours since the warranty start.
+
+        external_ids : typing.Optional[typing.Sequence[UpdateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody]]
+            Customer-supplied external identifiers for the warranty, interchangeable with id in filters. Only included in the response when includeExternalIds is set.
+
+        name : typing.Optional[str]
+            Name of the warranty.
+
+        odometer_distance_meters : typing.Optional[int]
+            Warranty length by distance travelled since the warranty start. Measured in meters.
+
+        vendor_id : typing.Optional[str]
+            ID of the vendor that provides this warranty.
+
+        warranty_type : typing.Optional[str]
+            Type of warranty, for example manufacturer, extended, other, or unknown.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[EntityWarrantiesServiceUpdateWarrantyResponseBody]
+            OK response.
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "preview/maintenance/warranties",
+            method="PATCH",
+            params={
+                "id": id,
+            },
+            json={
+                "baseCoverage": convert_and_respect_annotation_metadata(
+                    object_=base_coverage,
+                    annotation=UpdateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody,
+                    direction="write",
+                ),
+                "coverages": convert_and_respect_annotation_metadata(
+                    object_=coverages,
+                    annotation=typing.Sequence[UpdateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody],
+                    direction="write",
+                ),
+                "description": description,
+                "durationDays": duration_days,
+                "durationMonths": duration_months,
+                "engineDurationHours": engine_duration_hours,
+                "externalIds": convert_and_respect_annotation_metadata(
+                    object_=external_ids,
+                    annotation=typing.Sequence[UpdateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody],
+                    direction="write",
+                ),
+                "name": name,
+                "odometerDistanceMeters": odometer_distance_meters,
+                "vendorId": vendor_id,
+                "warrantyType": warranty_type,
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    EntityWarrantiesServiceUpdateWarrantyResponseBody,
+                    parse_obj_as(
+                        type_=EntityWarrantiesServiceUpdateWarrantyResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def replace_warranty_asset_assignments(
+        self,
+        *,
+        warranty_id: typing.Optional[str] = None,
+        assets: typing.Optional[
+            typing.Sequence[EntityReplaceWarrantyAssetAssignmentsWarrantyAssetAssignmentInputTypeRequestBody]
+        ] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsResponseBody]:
+        """
+        Replaces the full set of assets assigned to a warranty.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        warranty_id : typing.Optional[str]
+            ID of the warranty whose asset set to replace.
+
+        assets : typing.Optional[typing.Sequence[EntityReplaceWarrantyAssetAssignmentsWarrantyAssetAssignmentInputTypeRequestBody]]
+            The full desired asset set for the warranty.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsResponseBody]
+            OK response.
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "preview/maintenance/warranties/assets/replace",
+            method="POST",
+            params={
+                "warrantyId": warranty_id,
+            },
+            json={
+                "assets": convert_and_respect_annotation_metadata(
+                    object_=assets,
+                    annotation=typing.Sequence[
+                        EntityReplaceWarrantyAssetAssignmentsWarrantyAssetAssignmentInputTypeRequestBody
+                    ],
+                    direction="write",
+                ),
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsResponseBody,
+                    parse_obj_as(
+                        type_=ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def list_warranty_claims(
+        self,
+        *,
+        warranty_claim_ids: typing.Optional[str] = None,
+        asset_ids: typing.Optional[str] = None,
+        claim_status: typing.Optional[str] = None,
+        warranty_ids: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        include_external_ids: typing.Optional[bool] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[EntityWarrantyClaimsServiceListWarrantyClaimsResponseBody]:
+        """
+        Returns a paginated list of warranty claims for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        warranty_claim_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of ID values.
+
+        asset_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Asset values.
+
+        claim_status : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Claim status values.
+
+        warranty_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Warranty values.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        include_external_ids : typing.Optional[bool]
+            If true, include externalIds in each response object.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[EntityWarrantyClaimsServiceListWarrantyClaimsResponseBody]
+            OK response.
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "preview/maintenance/warranty-claims",
+            method="GET",
+            params={
+                "warrantyClaimIds": warranty_claim_ids,
+                "assetIds": asset_ids,
+                "claimStatus": claim_status,
+                "warrantyIds": warranty_ids,
+                "after": after,
+                "limit": limit,
+                "includeExternalIds": include_external_ids,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    EntityWarrantyClaimsServiceListWarrantyClaimsResponseBody,
+                    parse_obj_as(
+                        type_=EntityWarrantyClaimsServiceListWarrantyClaimsResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def create_warranty_claim(
+        self,
+        *,
+        asset_id: str,
+        cause: typing.Optional[str] = OMIT,
+        claim_engine_hours: typing.Optional[int] = OMIT,
+        claim_odometer_meters: typing.Optional[int] = OMIT,
+        claim_status: typing.Optional[str] = OMIT,
+        component_instance_ids: typing.Optional[typing.Sequence[str]] = OMIT,
+        concern: typing.Optional[str] = OMIT,
+        correction: typing.Optional[str] = OMIT,
+        external_ids: typing.Optional[
+            typing.Sequence[CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdInputTypeRequestBody]
+        ] = OMIT,
+        labor: typing.Optional[
+            typing.Sequence[CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborInputTypeRequestBody]
+        ] = OMIT,
+        linked_warranty_id: typing.Optional[str] = OMIT,
+        linked_work_order_ids: typing.Optional[typing.Sequence[str]] = OMIT,
+        media_item_ids: typing.Optional[typing.Sequence[str]] = OMIT,
+        other_cost: typing.Optional[CreateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody] = OMIT,
+        parts: typing.Optional[
+            typing.Sequence[CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody]
+        ] = OMIT,
+        reimbursed_at_time: typing.Optional[str] = OMIT,
+        reimbursements: typing.Optional[
+            typing.Sequence[CreateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody]
+        ] = OMIT,
+        repair_completed_at_time: typing.Optional[str] = OMIT,
+        resolution_at_time: typing.Optional[str] = OMIT,
+        submitted_at_time: typing.Optional[str] = OMIT,
+        warranty_vendor_id: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[EntityWarrantyClaimsServiceCreateWarrantyClaimResponseBody]:
+        """
+        Creates a warranty claim for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        asset_id : str
+            ID of the asset the claim is filed for. Immutable once set.
+
+        cause : typing.Optional[str]
+            The cause of the 3 Cs - the root cause found.
+
+        claim_engine_hours : typing.Optional[int]
+            Engine hours at the time of repair.
+
+        claim_odometer_meters : typing.Optional[int]
+            Asset odometer reading at the time of repair. Measured in meters.
+
+        claim_status : typing.Optional[str]
+            Current status of the claim.
+
+        component_instance_ids : typing.Optional[typing.Sequence[str]]
+            IDs of asset component instances covered by this claim.
+
+        concern : typing.Optional[str]
+            The concern of the 3 Cs - what was reported.
+
+        correction : typing.Optional[str]
+            The correction of the 3 Cs - the work performed.
+
+        external_ids : typing.Optional[typing.Sequence[CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdInputTypeRequestBody]]
+            Customer-supplied external identifiers for the warranty claim, interchangeable with id in filters. Only included in the response when includeExternalIds is set.
+
+        labor : typing.Optional[typing.Sequence[CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborInputTypeRequestBody]]
+            Labor being claimed.
+
+        linked_warranty_id : typing.Optional[str]
+            ID of the warranty this claim is filed against.
+
+        linked_work_order_ids : typing.Optional[typing.Sequence[str]]
+            IDs of the work orders associated with this claim.
+
+        media_item_ids : typing.Optional[typing.Sequence[str]]
+            IDs of media items attached to the claim.
+
+        other_cost : typing.Optional[CreateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody]
+
+        parts : typing.Optional[typing.Sequence[CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody]]
+            Parts being claimed.
+
+        reimbursed_at_time : typing.Optional[str]
+            When reimbursement was received.
+
+        reimbursements : typing.Optional[typing.Sequence[CreateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody]]
+            Reimbursement amounts, optionally linked to a work order.
+
+        repair_completed_at_time : typing.Optional[str]
+            When the repair was completed.
+
+        resolution_at_time : typing.Optional[str]
+            When the claim was resolved.
+
+        submitted_at_time : typing.Optional[str]
+            When the claim was submitted to the vendor.
+
+        warranty_vendor_id : typing.Optional[str]
+            ID of the vendor handling the claim.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[EntityWarrantyClaimsServiceCreateWarrantyClaimResponseBody]
+            Created response.
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "preview/maintenance/warranty-claims",
+            method="POST",
+            json={
+                "assetId": asset_id,
+                "cause": cause,
+                "claimEngineHours": claim_engine_hours,
+                "claimOdometerMeters": claim_odometer_meters,
+                "claimStatus": claim_status,
+                "componentInstanceIds": component_instance_ids,
+                "concern": concern,
+                "correction": correction,
+                "externalIds": convert_and_respect_annotation_metadata(
+                    object_=external_ids,
+                    annotation=typing.Sequence[
+                        CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdInputTypeRequestBody
+                    ],
+                    direction="write",
+                ),
+                "labor": convert_and_respect_annotation_metadata(
+                    object_=labor,
+                    annotation=typing.Sequence[
+                        CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborInputTypeRequestBody
+                    ],
+                    direction="write",
+                ),
+                "linkedWarrantyId": linked_warranty_id,
+                "linkedWorkOrderIds": linked_work_order_ids,
+                "mediaItemIds": media_item_ids,
+                "otherCost": convert_and_respect_annotation_metadata(
+                    object_=other_cost,
+                    annotation=CreateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody,
+                    direction="write",
+                ),
+                "parts": convert_and_respect_annotation_metadata(
+                    object_=parts,
+                    annotation=typing.Sequence[
+                        CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody
+                    ],
+                    direction="write",
+                ),
+                "reimbursedAtTime": reimbursed_at_time,
+                "reimbursements": convert_and_respect_annotation_metadata(
+                    object_=reimbursements,
+                    annotation=typing.Sequence[
+                        CreateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody
+                    ],
+                    direction="write",
+                ),
+                "repairCompletedAtTime": repair_completed_at_time,
+                "resolutionAtTime": resolution_at_time,
+                "submittedAtTime": submitted_at_time,
+                "warrantyVendorId": warranty_vendor_id,
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    EntityWarrantyClaimsServiceCreateWarrantyClaimResponseBody,
+                    parse_obj_as(
+                        type_=EntityWarrantyClaimsServiceCreateWarrantyClaimResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def delete_warranty_claim(
+        self, *, id: str, request_options: typing.Optional[RequestOptions] = None
+    ) -> HttpResponse[None]:
+        """
+        Deletes a warranty claim for the organization. Component links are removed server-side.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Unique identifier for the WarrantyClaim record.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[None]
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "preview/maintenance/warranty-claims",
+            method="DELETE",
+            params={
+                "id": id,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                return HttpResponse(response=_response, data=None)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def update_warranty_claim(
+        self,
+        *,
+        id: str,
+        asset_id: typing.Optional[str] = OMIT,
+        cause: typing.Optional[str] = OMIT,
+        claim_engine_hours: typing.Optional[int] = OMIT,
+        claim_odometer_meters: typing.Optional[int] = OMIT,
+        claim_status: typing.Optional[str] = OMIT,
+        component_instance_ids: typing.Optional[typing.Sequence[str]] = OMIT,
+        concern: typing.Optional[str] = OMIT,
+        correction: typing.Optional[str] = OMIT,
+        external_ids: typing.Optional[
+            typing.Sequence[UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdInputTypeRequestBody]
+        ] = OMIT,
+        labor: typing.Optional[
+            typing.Sequence[UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborInputTypeRequestBody]
+        ] = OMIT,
+        linked_warranty_id: typing.Optional[str] = OMIT,
+        linked_work_order_ids: typing.Optional[typing.Sequence[str]] = OMIT,
+        media_item_ids: typing.Optional[typing.Sequence[str]] = OMIT,
+        other_cost: typing.Optional[UpdateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody] = OMIT,
+        parts: typing.Optional[
+            typing.Sequence[UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody]
+        ] = OMIT,
+        reimbursed_at_time: typing.Optional[str] = OMIT,
+        reimbursements: typing.Optional[
+            typing.Sequence[UpdateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody]
+        ] = OMIT,
+        repair_completed_at_time: typing.Optional[str] = OMIT,
+        resolution_at_time: typing.Optional[str] = OMIT,
+        submitted_at_time: typing.Optional[str] = OMIT,
+        warranty_vendor_id: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[EntityWarrantyClaimsServiceUpdateWarrantyClaimResponseBody]:
+        """
+        Updates an existing warranty claim for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Unique identifier for the WarrantyClaim record.
+
+        asset_id : typing.Optional[str]
+            ID of the asset the claim is filed for. Immutable once set.
+
+        cause : typing.Optional[str]
+            The cause of the 3 Cs - the root cause found.
+
+        claim_engine_hours : typing.Optional[int]
+            Engine hours at the time of repair.
+
+        claim_odometer_meters : typing.Optional[int]
+            Asset odometer reading at the time of repair. Measured in meters.
+
+        claim_status : typing.Optional[str]
+            Current status of the claim.
+
+        component_instance_ids : typing.Optional[typing.Sequence[str]]
+            IDs of asset component instances covered by this claim.
+
+        concern : typing.Optional[str]
+            The concern of the 3 Cs - what was reported.
+
+        correction : typing.Optional[str]
+            The correction of the 3 Cs - the work performed.
+
+        external_ids : typing.Optional[typing.Sequence[UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdInputTypeRequestBody]]
+            Customer-supplied external identifiers for the warranty claim, interchangeable with id in filters. Only included in the response when includeExternalIds is set.
+
+        labor : typing.Optional[typing.Sequence[UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborInputTypeRequestBody]]
+            Labor being claimed.
+
+        linked_warranty_id : typing.Optional[str]
+            ID of the warranty this claim is filed against.
+
+        linked_work_order_ids : typing.Optional[typing.Sequence[str]]
+            IDs of the work orders associated with this claim.
+
+        media_item_ids : typing.Optional[typing.Sequence[str]]
+            IDs of media items attached to the claim.
+
+        other_cost : typing.Optional[UpdateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody]
+
+        parts : typing.Optional[typing.Sequence[UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody]]
+            Parts being claimed.
+
+        reimbursed_at_time : typing.Optional[str]
+            When reimbursement was received.
+
+        reimbursements : typing.Optional[typing.Sequence[UpdateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody]]
+            Reimbursement amounts, optionally linked to a work order.
+
+        repair_completed_at_time : typing.Optional[str]
+            When the repair was completed.
+
+        resolution_at_time : typing.Optional[str]
+            When the claim was resolved.
+
+        submitted_at_time : typing.Optional[str]
+            When the claim was submitted to the vendor.
+
+        warranty_vendor_id : typing.Optional[str]
+            ID of the vendor handling the claim.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[EntityWarrantyClaimsServiceUpdateWarrantyClaimResponseBody]
+            OK response.
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "preview/maintenance/warranty-claims",
+            method="PATCH",
+            params={
+                "id": id,
+            },
+            json={
+                "assetId": asset_id,
+                "cause": cause,
+                "claimEngineHours": claim_engine_hours,
+                "claimOdometerMeters": claim_odometer_meters,
+                "claimStatus": claim_status,
+                "componentInstanceIds": component_instance_ids,
+                "concern": concern,
+                "correction": correction,
+                "externalIds": convert_and_respect_annotation_metadata(
+                    object_=external_ids,
+                    annotation=typing.Sequence[
+                        UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdInputTypeRequestBody
+                    ],
+                    direction="write",
+                ),
+                "labor": convert_and_respect_annotation_metadata(
+                    object_=labor,
+                    annotation=typing.Sequence[
+                        UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborInputTypeRequestBody
+                    ],
+                    direction="write",
+                ),
+                "linkedWarrantyId": linked_warranty_id,
+                "linkedWorkOrderIds": linked_work_order_ids,
+                "mediaItemIds": media_item_ids,
+                "otherCost": convert_and_respect_annotation_metadata(
+                    object_=other_cost,
+                    annotation=UpdateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody,
+                    direction="write",
+                ),
+                "parts": convert_and_respect_annotation_metadata(
+                    object_=parts,
+                    annotation=typing.Sequence[
+                        UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody
+                    ],
+                    direction="write",
+                ),
+                "reimbursedAtTime": reimbursed_at_time,
+                "reimbursements": convert_and_respect_annotation_metadata(
+                    object_=reimbursements,
+                    annotation=typing.Sequence[
+                        UpdateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody
+                    ],
+                    direction="write",
+                ),
+                "repairCompletedAtTime": repair_completed_at_time,
+                "resolutionAtTime": resolution_at_time,
+                "submittedAtTime": submitted_at_time,
+                "warrantyVendorId": warranty_vendor_id,
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    EntityWarrantyClaimsServiceUpdateWarrantyClaimResponseBody,
+                    parse_obj_as(
+                        type_=EntityWarrantyClaimsServiceUpdateWarrantyClaimResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
 
 class AsyncRawPreviewApIsClient:
     def __init__(self, *, client_wrapper: AsyncClientWrapper):
@@ -2665,6 +4720,1995 @@ class AsyncRawPreviewApIsClient:
         try:
             if 200 <= _response.status_code < 300:
                 return AsyncHttpResponse(response=_response, data=None)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def list_warranties(
+        self,
+        *,
+        warranty_ids: typing.Optional[str] = None,
+        name: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        include_external_ids: typing.Optional[bool] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[EntityWarrantiesServiceListWarrantiesResponseBody]:
+        """
+        Returns a paginated list of warranties for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        warranty_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of ID values.
+
+        name : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Name values.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        include_external_ids : typing.Optional[bool]
+            If true, include externalIds in each response object.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[EntityWarrantiesServiceListWarrantiesResponseBody]
+            OK response.
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "preview/maintenance/warranties",
+            method="GET",
+            params={
+                "warrantyIds": warranty_ids,
+                "name": name,
+                "after": after,
+                "limit": limit,
+                "includeExternalIds": include_external_ids,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    EntityWarrantiesServiceListWarrantiesResponseBody,
+                    parse_obj_as(
+                        type_=EntityWarrantiesServiceListWarrantiesResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def create_warranty(
+        self,
+        *,
+        name: str,
+        base_coverage: typing.Optional[CreateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody] = OMIT,
+        coverages: typing.Optional[
+            typing.Sequence[CreateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody]
+        ] = OMIT,
+        description: typing.Optional[str] = OMIT,
+        duration_days: typing.Optional[int] = OMIT,
+        duration_months: typing.Optional[int] = OMIT,
+        engine_duration_hours: typing.Optional[int] = OMIT,
+        external_ids: typing.Optional[
+            typing.Sequence[CreateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody]
+        ] = OMIT,
+        odometer_distance_meters: typing.Optional[int] = OMIT,
+        vendor_id: typing.Optional[str] = OMIT,
+        warranty_type: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[EntityWarrantiesServiceCreateWarrantyResponseBody]:
+        """
+        Creates a warranty for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        name : str
+            Name of the warranty.
+
+        base_coverage : typing.Optional[CreateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody]
+
+        coverages : typing.Optional[typing.Sequence[CreateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody]]
+            Additional coverage groups defined on this warranty.
+
+        description : typing.Optional[str]
+            Description of the warranty.
+
+        duration_days : typing.Optional[int]
+            Warranty length in days. Mutually exclusive with duration in months.
+
+        duration_months : typing.Optional[int]
+            Warranty length in months. Mutually exclusive with duration in days.
+
+        engine_duration_hours : typing.Optional[int]
+            Warranty length by engine hours since the warranty start.
+
+        external_ids : typing.Optional[typing.Sequence[CreateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody]]
+            Customer-supplied external identifiers for the warranty, interchangeable with id in filters. Only included in the response when includeExternalIds is set.
+
+        odometer_distance_meters : typing.Optional[int]
+            Warranty length by distance travelled since the warranty start. Measured in meters.
+
+        vendor_id : typing.Optional[str]
+            ID of the vendor that provides this warranty.
+
+        warranty_type : typing.Optional[str]
+            Type of warranty, for example manufacturer, extended, other, or unknown.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[EntityWarrantiesServiceCreateWarrantyResponseBody]
+            Created response.
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "preview/maintenance/warranties",
+            method="POST",
+            json={
+                "baseCoverage": convert_and_respect_annotation_metadata(
+                    object_=base_coverage,
+                    annotation=CreateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody,
+                    direction="write",
+                ),
+                "coverages": convert_and_respect_annotation_metadata(
+                    object_=coverages,
+                    annotation=typing.Sequence[CreateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody],
+                    direction="write",
+                ),
+                "description": description,
+                "durationDays": duration_days,
+                "durationMonths": duration_months,
+                "engineDurationHours": engine_duration_hours,
+                "externalIds": convert_and_respect_annotation_metadata(
+                    object_=external_ids,
+                    annotation=typing.Sequence[CreateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody],
+                    direction="write",
+                ),
+                "name": name,
+                "odometerDistanceMeters": odometer_distance_meters,
+                "vendorId": vendor_id,
+                "warrantyType": warranty_type,
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    EntityWarrantiesServiceCreateWarrantyResponseBody,
+                    parse_obj_as(
+                        type_=EntityWarrantiesServiceCreateWarrantyResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def delete_warranty(
+        self, *, id: str, request_options: typing.Optional[RequestOptions] = None
+    ) -> AsyncHttpResponse[None]:
+        """
+        Deletes a warranty for the organization. Asset associations are removed server-side.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Unique identifier for the Warranty record.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[None]
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "preview/maintenance/warranties",
+            method="DELETE",
+            params={
+                "id": id,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                return AsyncHttpResponse(response=_response, data=None)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def update_warranty(
+        self,
+        *,
+        id: str,
+        base_coverage: typing.Optional[UpdateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody] = OMIT,
+        coverages: typing.Optional[
+            typing.Sequence[UpdateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody]
+        ] = OMIT,
+        description: typing.Optional[str] = OMIT,
+        duration_days: typing.Optional[int] = OMIT,
+        duration_months: typing.Optional[int] = OMIT,
+        engine_duration_hours: typing.Optional[int] = OMIT,
+        external_ids: typing.Optional[
+            typing.Sequence[UpdateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody]
+        ] = OMIT,
+        name: typing.Optional[str] = OMIT,
+        odometer_distance_meters: typing.Optional[int] = OMIT,
+        vendor_id: typing.Optional[str] = OMIT,
+        warranty_type: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[EntityWarrantiesServiceUpdateWarrantyResponseBody]:
+        """
+        Updates an existing warranty for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Unique identifier for the Warranty record.
+
+        base_coverage : typing.Optional[UpdateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody]
+
+        coverages : typing.Optional[typing.Sequence[UpdateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody]]
+            Additional coverage groups defined on this warranty.
+
+        description : typing.Optional[str]
+            Description of the warranty.
+
+        duration_days : typing.Optional[int]
+            Warranty length in days. Mutually exclusive with duration in months.
+
+        duration_months : typing.Optional[int]
+            Warranty length in months. Mutually exclusive with duration in days.
+
+        engine_duration_hours : typing.Optional[int]
+            Warranty length by engine hours since the warranty start.
+
+        external_ids : typing.Optional[typing.Sequence[UpdateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody]]
+            Customer-supplied external identifiers for the warranty, interchangeable with id in filters. Only included in the response when includeExternalIds is set.
+
+        name : typing.Optional[str]
+            Name of the warranty.
+
+        odometer_distance_meters : typing.Optional[int]
+            Warranty length by distance travelled since the warranty start. Measured in meters.
+
+        vendor_id : typing.Optional[str]
+            ID of the vendor that provides this warranty.
+
+        warranty_type : typing.Optional[str]
+            Type of warranty, for example manufacturer, extended, other, or unknown.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[EntityWarrantiesServiceUpdateWarrantyResponseBody]
+            OK response.
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "preview/maintenance/warranties",
+            method="PATCH",
+            params={
+                "id": id,
+            },
+            json={
+                "baseCoverage": convert_and_respect_annotation_metadata(
+                    object_=base_coverage,
+                    annotation=UpdateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody,
+                    direction="write",
+                ),
+                "coverages": convert_and_respect_annotation_metadata(
+                    object_=coverages,
+                    annotation=typing.Sequence[UpdateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody],
+                    direction="write",
+                ),
+                "description": description,
+                "durationDays": duration_days,
+                "durationMonths": duration_months,
+                "engineDurationHours": engine_duration_hours,
+                "externalIds": convert_and_respect_annotation_metadata(
+                    object_=external_ids,
+                    annotation=typing.Sequence[UpdateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody],
+                    direction="write",
+                ),
+                "name": name,
+                "odometerDistanceMeters": odometer_distance_meters,
+                "vendorId": vendor_id,
+                "warrantyType": warranty_type,
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    EntityWarrantiesServiceUpdateWarrantyResponseBody,
+                    parse_obj_as(
+                        type_=EntityWarrantiesServiceUpdateWarrantyResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def replace_warranty_asset_assignments(
+        self,
+        *,
+        warranty_id: typing.Optional[str] = None,
+        assets: typing.Optional[
+            typing.Sequence[EntityReplaceWarrantyAssetAssignmentsWarrantyAssetAssignmentInputTypeRequestBody]
+        ] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsResponseBody]:
+        """
+        Replaces the full set of assets assigned to a warranty.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        warranty_id : typing.Optional[str]
+            ID of the warranty whose asset set to replace.
+
+        assets : typing.Optional[typing.Sequence[EntityReplaceWarrantyAssetAssignmentsWarrantyAssetAssignmentInputTypeRequestBody]]
+            The full desired asset set for the warranty.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsResponseBody]
+            OK response.
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "preview/maintenance/warranties/assets/replace",
+            method="POST",
+            params={
+                "warrantyId": warranty_id,
+            },
+            json={
+                "assets": convert_and_respect_annotation_metadata(
+                    object_=assets,
+                    annotation=typing.Sequence[
+                        EntityReplaceWarrantyAssetAssignmentsWarrantyAssetAssignmentInputTypeRequestBody
+                    ],
+                    direction="write",
+                ),
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsResponseBody,
+                    parse_obj_as(
+                        type_=ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def list_warranty_claims(
+        self,
+        *,
+        warranty_claim_ids: typing.Optional[str] = None,
+        asset_ids: typing.Optional[str] = None,
+        claim_status: typing.Optional[str] = None,
+        warranty_ids: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        include_external_ids: typing.Optional[bool] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[EntityWarrantyClaimsServiceListWarrantyClaimsResponseBody]:
+        """
+        Returns a paginated list of warranty claims for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        warranty_claim_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of ID values.
+
+        asset_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Asset values.
+
+        claim_status : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Claim status values.
+
+        warranty_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Warranty values.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        include_external_ids : typing.Optional[bool]
+            If true, include externalIds in each response object.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[EntityWarrantyClaimsServiceListWarrantyClaimsResponseBody]
+            OK response.
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "preview/maintenance/warranty-claims",
+            method="GET",
+            params={
+                "warrantyClaimIds": warranty_claim_ids,
+                "assetIds": asset_ids,
+                "claimStatus": claim_status,
+                "warrantyIds": warranty_ids,
+                "after": after,
+                "limit": limit,
+                "includeExternalIds": include_external_ids,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    EntityWarrantyClaimsServiceListWarrantyClaimsResponseBody,
+                    parse_obj_as(
+                        type_=EntityWarrantyClaimsServiceListWarrantyClaimsResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def create_warranty_claim(
+        self,
+        *,
+        asset_id: str,
+        cause: typing.Optional[str] = OMIT,
+        claim_engine_hours: typing.Optional[int] = OMIT,
+        claim_odometer_meters: typing.Optional[int] = OMIT,
+        claim_status: typing.Optional[str] = OMIT,
+        component_instance_ids: typing.Optional[typing.Sequence[str]] = OMIT,
+        concern: typing.Optional[str] = OMIT,
+        correction: typing.Optional[str] = OMIT,
+        external_ids: typing.Optional[
+            typing.Sequence[CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdInputTypeRequestBody]
+        ] = OMIT,
+        labor: typing.Optional[
+            typing.Sequence[CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborInputTypeRequestBody]
+        ] = OMIT,
+        linked_warranty_id: typing.Optional[str] = OMIT,
+        linked_work_order_ids: typing.Optional[typing.Sequence[str]] = OMIT,
+        media_item_ids: typing.Optional[typing.Sequence[str]] = OMIT,
+        other_cost: typing.Optional[CreateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody] = OMIT,
+        parts: typing.Optional[
+            typing.Sequence[CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody]
+        ] = OMIT,
+        reimbursed_at_time: typing.Optional[str] = OMIT,
+        reimbursements: typing.Optional[
+            typing.Sequence[CreateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody]
+        ] = OMIT,
+        repair_completed_at_time: typing.Optional[str] = OMIT,
+        resolution_at_time: typing.Optional[str] = OMIT,
+        submitted_at_time: typing.Optional[str] = OMIT,
+        warranty_vendor_id: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[EntityWarrantyClaimsServiceCreateWarrantyClaimResponseBody]:
+        """
+        Creates a warranty claim for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        asset_id : str
+            ID of the asset the claim is filed for. Immutable once set.
+
+        cause : typing.Optional[str]
+            The cause of the 3 Cs - the root cause found.
+
+        claim_engine_hours : typing.Optional[int]
+            Engine hours at the time of repair.
+
+        claim_odometer_meters : typing.Optional[int]
+            Asset odometer reading at the time of repair. Measured in meters.
+
+        claim_status : typing.Optional[str]
+            Current status of the claim.
+
+        component_instance_ids : typing.Optional[typing.Sequence[str]]
+            IDs of asset component instances covered by this claim.
+
+        concern : typing.Optional[str]
+            The concern of the 3 Cs - what was reported.
+
+        correction : typing.Optional[str]
+            The correction of the 3 Cs - the work performed.
+
+        external_ids : typing.Optional[typing.Sequence[CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdInputTypeRequestBody]]
+            Customer-supplied external identifiers for the warranty claim, interchangeable with id in filters. Only included in the response when includeExternalIds is set.
+
+        labor : typing.Optional[typing.Sequence[CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborInputTypeRequestBody]]
+            Labor being claimed.
+
+        linked_warranty_id : typing.Optional[str]
+            ID of the warranty this claim is filed against.
+
+        linked_work_order_ids : typing.Optional[typing.Sequence[str]]
+            IDs of the work orders associated with this claim.
+
+        media_item_ids : typing.Optional[typing.Sequence[str]]
+            IDs of media items attached to the claim.
+
+        other_cost : typing.Optional[CreateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody]
+
+        parts : typing.Optional[typing.Sequence[CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody]]
+            Parts being claimed.
+
+        reimbursed_at_time : typing.Optional[str]
+            When reimbursement was received.
+
+        reimbursements : typing.Optional[typing.Sequence[CreateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody]]
+            Reimbursement amounts, optionally linked to a work order.
+
+        repair_completed_at_time : typing.Optional[str]
+            When the repair was completed.
+
+        resolution_at_time : typing.Optional[str]
+            When the claim was resolved.
+
+        submitted_at_time : typing.Optional[str]
+            When the claim was submitted to the vendor.
+
+        warranty_vendor_id : typing.Optional[str]
+            ID of the vendor handling the claim.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[EntityWarrantyClaimsServiceCreateWarrantyClaimResponseBody]
+            Created response.
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "preview/maintenance/warranty-claims",
+            method="POST",
+            json={
+                "assetId": asset_id,
+                "cause": cause,
+                "claimEngineHours": claim_engine_hours,
+                "claimOdometerMeters": claim_odometer_meters,
+                "claimStatus": claim_status,
+                "componentInstanceIds": component_instance_ids,
+                "concern": concern,
+                "correction": correction,
+                "externalIds": convert_and_respect_annotation_metadata(
+                    object_=external_ids,
+                    annotation=typing.Sequence[
+                        CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdInputTypeRequestBody
+                    ],
+                    direction="write",
+                ),
+                "labor": convert_and_respect_annotation_metadata(
+                    object_=labor,
+                    annotation=typing.Sequence[
+                        CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborInputTypeRequestBody
+                    ],
+                    direction="write",
+                ),
+                "linkedWarrantyId": linked_warranty_id,
+                "linkedWorkOrderIds": linked_work_order_ids,
+                "mediaItemIds": media_item_ids,
+                "otherCost": convert_and_respect_annotation_metadata(
+                    object_=other_cost,
+                    annotation=CreateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody,
+                    direction="write",
+                ),
+                "parts": convert_and_respect_annotation_metadata(
+                    object_=parts,
+                    annotation=typing.Sequence[
+                        CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody
+                    ],
+                    direction="write",
+                ),
+                "reimbursedAtTime": reimbursed_at_time,
+                "reimbursements": convert_and_respect_annotation_metadata(
+                    object_=reimbursements,
+                    annotation=typing.Sequence[
+                        CreateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody
+                    ],
+                    direction="write",
+                ),
+                "repairCompletedAtTime": repair_completed_at_time,
+                "resolutionAtTime": resolution_at_time,
+                "submittedAtTime": submitted_at_time,
+                "warrantyVendorId": warranty_vendor_id,
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    EntityWarrantyClaimsServiceCreateWarrantyClaimResponseBody,
+                    parse_obj_as(
+                        type_=EntityWarrantyClaimsServiceCreateWarrantyClaimResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def delete_warranty_claim(
+        self, *, id: str, request_options: typing.Optional[RequestOptions] = None
+    ) -> AsyncHttpResponse[None]:
+        """
+        Deletes a warranty claim for the organization. Component links are removed server-side.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Unique identifier for the WarrantyClaim record.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[None]
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "preview/maintenance/warranty-claims",
+            method="DELETE",
+            params={
+                "id": id,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                return AsyncHttpResponse(response=_response, data=None)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def update_warranty_claim(
+        self,
+        *,
+        id: str,
+        asset_id: typing.Optional[str] = OMIT,
+        cause: typing.Optional[str] = OMIT,
+        claim_engine_hours: typing.Optional[int] = OMIT,
+        claim_odometer_meters: typing.Optional[int] = OMIT,
+        claim_status: typing.Optional[str] = OMIT,
+        component_instance_ids: typing.Optional[typing.Sequence[str]] = OMIT,
+        concern: typing.Optional[str] = OMIT,
+        correction: typing.Optional[str] = OMIT,
+        external_ids: typing.Optional[
+            typing.Sequence[UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdInputTypeRequestBody]
+        ] = OMIT,
+        labor: typing.Optional[
+            typing.Sequence[UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborInputTypeRequestBody]
+        ] = OMIT,
+        linked_warranty_id: typing.Optional[str] = OMIT,
+        linked_work_order_ids: typing.Optional[typing.Sequence[str]] = OMIT,
+        media_item_ids: typing.Optional[typing.Sequence[str]] = OMIT,
+        other_cost: typing.Optional[UpdateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody] = OMIT,
+        parts: typing.Optional[
+            typing.Sequence[UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody]
+        ] = OMIT,
+        reimbursed_at_time: typing.Optional[str] = OMIT,
+        reimbursements: typing.Optional[
+            typing.Sequence[UpdateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody]
+        ] = OMIT,
+        repair_completed_at_time: typing.Optional[str] = OMIT,
+        resolution_at_time: typing.Optional[str] = OMIT,
+        submitted_at_time: typing.Optional[str] = OMIT,
+        warranty_vendor_id: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[EntityWarrantyClaimsServiceUpdateWarrantyClaimResponseBody]:
+        """
+        Updates an existing warranty claim for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+        Endpoints in this section are in Preview. These APIs are not functional and are instead for soliciting feedback from our API users on the intended design of this API. Additionally, it is not guaranteed that we will be releasing an endpoint included in this section to production. This means that developers should **NOT** rely on these APIs to build business critical applications
+
+        - Samsara may change the structure of a preview API's interface without versioning or any notice to API users.
+
+        - When an endpoint becomes generally available, it will be announced in the API [changelog](https://developers.samsara.com/changelog).
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Unique identifier for the WarrantyClaim record.
+
+        asset_id : typing.Optional[str]
+            ID of the asset the claim is filed for. Immutable once set.
+
+        cause : typing.Optional[str]
+            The cause of the 3 Cs - the root cause found.
+
+        claim_engine_hours : typing.Optional[int]
+            Engine hours at the time of repair.
+
+        claim_odometer_meters : typing.Optional[int]
+            Asset odometer reading at the time of repair. Measured in meters.
+
+        claim_status : typing.Optional[str]
+            Current status of the claim.
+
+        component_instance_ids : typing.Optional[typing.Sequence[str]]
+            IDs of asset component instances covered by this claim.
+
+        concern : typing.Optional[str]
+            The concern of the 3 Cs - what was reported.
+
+        correction : typing.Optional[str]
+            The correction of the 3 Cs - the work performed.
+
+        external_ids : typing.Optional[typing.Sequence[UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdInputTypeRequestBody]]
+            Customer-supplied external identifiers for the warranty claim, interchangeable with id in filters. Only included in the response when includeExternalIds is set.
+
+        labor : typing.Optional[typing.Sequence[UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborInputTypeRequestBody]]
+            Labor being claimed.
+
+        linked_warranty_id : typing.Optional[str]
+            ID of the warranty this claim is filed against.
+
+        linked_work_order_ids : typing.Optional[typing.Sequence[str]]
+            IDs of the work orders associated with this claim.
+
+        media_item_ids : typing.Optional[typing.Sequence[str]]
+            IDs of media items attached to the claim.
+
+        other_cost : typing.Optional[UpdateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody]
+
+        parts : typing.Optional[typing.Sequence[UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody]]
+            Parts being claimed.
+
+        reimbursed_at_time : typing.Optional[str]
+            When reimbursement was received.
+
+        reimbursements : typing.Optional[typing.Sequence[UpdateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody]]
+            Reimbursement amounts, optionally linked to a work order.
+
+        repair_completed_at_time : typing.Optional[str]
+            When the repair was completed.
+
+        resolution_at_time : typing.Optional[str]
+            When the claim was resolved.
+
+        submitted_at_time : typing.Optional[str]
+            When the claim was submitted to the vendor.
+
+        warranty_vendor_id : typing.Optional[str]
+            ID of the vendor handling the claim.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[EntityWarrantyClaimsServiceUpdateWarrantyClaimResponseBody]
+            OK response.
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "preview/maintenance/warranty-claims",
+            method="PATCH",
+            params={
+                "id": id,
+            },
+            json={
+                "assetId": asset_id,
+                "cause": cause,
+                "claimEngineHours": claim_engine_hours,
+                "claimOdometerMeters": claim_odometer_meters,
+                "claimStatus": claim_status,
+                "componentInstanceIds": component_instance_ids,
+                "concern": concern,
+                "correction": correction,
+                "externalIds": convert_and_respect_annotation_metadata(
+                    object_=external_ids,
+                    annotation=typing.Sequence[
+                        UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdInputTypeRequestBody
+                    ],
+                    direction="write",
+                ),
+                "labor": convert_and_respect_annotation_metadata(
+                    object_=labor,
+                    annotation=typing.Sequence[
+                        UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborInputTypeRequestBody
+                    ],
+                    direction="write",
+                ),
+                "linkedWarrantyId": linked_warranty_id,
+                "linkedWorkOrderIds": linked_work_order_ids,
+                "mediaItemIds": media_item_ids,
+                "otherCost": convert_and_respect_annotation_metadata(
+                    object_=other_cost,
+                    annotation=UpdateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody,
+                    direction="write",
+                ),
+                "parts": convert_and_respect_annotation_metadata(
+                    object_=parts,
+                    annotation=typing.Sequence[
+                        UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody
+                    ],
+                    direction="write",
+                ),
+                "reimbursedAtTime": reimbursed_at_time,
+                "reimbursements": convert_and_respect_annotation_metadata(
+                    object_=reimbursements,
+                    annotation=typing.Sequence[
+                        UpdateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody
+                    ],
+                    direction="write",
+                ),
+                "repairCompletedAtTime": repair_completed_at_time,
+                "resolutionAtTime": resolution_at_time,
+                "submittedAtTime": submitted_at_time,
+                "warrantyVendorId": warranty_vendor_id,
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    EntityWarrantyClaimsServiceUpdateWarrantyClaimResponseBody,
+                    parse_obj_as(
+                        type_=EntityWarrantyClaimsServiceUpdateWarrantyClaimResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
             if _response.status_code == 401:
                 raise UnauthorizedError(
                     headers=dict(_response.headers),
