@@ -92,6 +92,9 @@ from ..types.entity_create_stock_movement_money_input_type_request_body import (
 from ..types.entity_ground_intelligence_issues_service_list_issues_response_body import (
     EntityGroundIntelligenceIssuesServiceListIssuesResponseBody,
 )
+from ..types.entity_ground_intelligence_issues_service_update_ground_intelligence_issue_response_body import (
+    EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueResponseBody,
+)
 from ..types.entity_inventory_transactions_service_list_part_transactions_response_body import (
     EntityInventoryTransactionsServiceListPartTransactionsResponseBody,
 )
@@ -338,6 +341,15 @@ from .types.device_recovery_recover_asset_request_body_recovery_status import (
     DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus,
 )
 from .types.device_recovery_recover_asset_request_body_status import DeviceRecoveryRecoverAssetRequestBodyStatus
+from .types.entity_ground_intelligence_issues_service_update_ground_intelligence_issue_request_body_dismissal_reason import (
+    EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyDismissalReason,
+)
+from .types.entity_ground_intelligence_issues_service_update_ground_intelligence_issue_request_body_status import (
+    EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyStatus,
+)
+from .types.entity_ground_intelligence_issues_service_update_ground_intelligence_issue_request_body_type import (
+    EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyType,
+)
 from .types.entity_watchpoints_service_create_watchpoint_request_body_mode import (
     EntityWatchpointsServiceCreateWatchpointRequestBodyMode,
 )
@@ -3692,6 +3704,76 @@ class BetaApIsClient:
             start_time=start_time,
             after=after,
             limit=limit,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def update_ground_intelligence_issue(
+        self,
+        *,
+        id: str,
+        dismissal_note: typing.Optional[str] = OMIT,
+        dismissal_reason: typing.Optional[
+            EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyDismissalReason
+        ] = OMIT,
+        status: typing.Optional[
+            EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyStatus
+        ] = OMIT,
+        type: typing.Optional[EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyType] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueResponseBody:
+        """
+        Updates the status, type, or dismissal metadata for a Ground Intelligence road-condition issue.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Ground Intelligence Issues** under the Ground Intelligence category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Unique identifier for the Ground Intelligence issue.
+
+        dismissal_note : typing.Optional[str]
+            Optional note about the dismissal. Set to null to clear.
+
+        dismissal_reason : typing.Optional[EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyDismissalReason]
+            Reason for dismissing the issue. Required when status is dismissed.  Valid values: `notMyJurisdiction`, `knownIssue`, `duplicate`, `inaccurateDetection`, `other`
+
+        status : typing.Optional[EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyStatus]
+            Customer-facing review status for the issue.  Valid values: `needsReview`, `reviewed`, `resolved`, `dismissed`
+
+        type : typing.Optional[EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyType]
+            Customer-facing road-condition type for the issue.  Valid values: `pothole`, `roadCracking`, `patchedPothole`
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.beta_ap_is.update_ground_intelligence_issue(
+            id="id",
+        )
+        """
+        _response = self._raw_client.update_ground_intelligence_issue(
+            id=id,
+            dismissal_note=dismissal_note,
+            dismissal_reason=dismissal_reason,
+            status=status,
+            type=type,
             request_options=request_options,
         )
         return _response.data
@@ -11665,6 +11747,84 @@ class AsyncBetaApIsClient:
             start_time=start_time,
             after=after,
             limit=limit,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def update_ground_intelligence_issue(
+        self,
+        *,
+        id: str,
+        dismissal_note: typing.Optional[str] = OMIT,
+        dismissal_reason: typing.Optional[
+            EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyDismissalReason
+        ] = OMIT,
+        status: typing.Optional[
+            EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyStatus
+        ] = OMIT,
+        type: typing.Optional[EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyType] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueResponseBody:
+        """
+        Updates the status, type, or dismissal metadata for a Ground Intelligence road-condition issue.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Ground Intelligence Issues** under the Ground Intelligence category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Unique identifier for the Ground Intelligence issue.
+
+        dismissal_note : typing.Optional[str]
+            Optional note about the dismissal. Set to null to clear.
+
+        dismissal_reason : typing.Optional[EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyDismissalReason]
+            Reason for dismissing the issue. Required when status is dismissed.  Valid values: `notMyJurisdiction`, `knownIssue`, `duplicate`, `inaccurateDetection`, `other`
+
+        status : typing.Optional[EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyStatus]
+            Customer-facing review status for the issue.  Valid values: `needsReview`, `reviewed`, `resolved`, `dismissed`
+
+        type : typing.Optional[EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyType]
+            Customer-facing road-condition type for the issue.  Valid values: `pothole`, `roadCracking`, `patchedPothole`
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.beta_ap_is.update_ground_intelligence_issue(
+                id="id",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.update_ground_intelligence_issue(
+            id=id,
+            dismissal_note=dismissal_note,
+            dismissal_reason=dismissal_reason,
+            status=status,
+            type=type,
             request_options=request_options,
         )
         return _response.data

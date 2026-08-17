@@ -52,6 +52,7 @@ class DriverVehicleAssignmentsClient:
         end_time: typing.Optional[str] = None,
         driver_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         vehicle_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        source_name: typing.Optional[str] = None,
         driver_tag_ids: typing.Optional[str] = None,
         vehicle_tag_ids: typing.Optional[str] = None,
         after: typing.Optional[str] = None,
@@ -84,6 +85,9 @@ class DriverVehicleAssignmentsClient:
 
         vehicle_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             ID of the vehicle. This can either be the Samsara-specified ID, or an external ID. External IDs are customer specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: "key:value". For example, "maintenanceId:250020".
+
+        source_name : typing.Optional[str]
+            Filters assignments by the exact metadata source name supplied when the assignment was created. Requires filterBy=drivers. When set, driver and vehicle ID, tag, and assignment type filters are not supported.
 
         driver_tag_ids : typing.Optional[str]
              A filter on the data based on this comma-separated list of driver tag IDs. Example: `tagIds=1234,5678`
@@ -122,6 +126,7 @@ class DriverVehicleAssignmentsClient:
             end_time=end_time,
             driver_ids=driver_ids,
             vehicle_ids=vehicle_ids,
+            source_name=source_name,
             driver_tag_ids=driver_tag_ids,
             vehicle_tag_ids=vehicle_tag_ids,
             after=after,
@@ -372,6 +377,7 @@ class AsyncDriverVehicleAssignmentsClient:
         end_time: typing.Optional[str] = None,
         driver_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         vehicle_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        source_name: typing.Optional[str] = None,
         driver_tag_ids: typing.Optional[str] = None,
         vehicle_tag_ids: typing.Optional[str] = None,
         after: typing.Optional[str] = None,
@@ -404,6 +410,9 @@ class AsyncDriverVehicleAssignmentsClient:
 
         vehicle_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             ID of the vehicle. This can either be the Samsara-specified ID, or an external ID. External IDs are customer specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: "key:value". For example, "maintenanceId:250020".
+
+        source_name : typing.Optional[str]
+            Filters assignments by the exact metadata source name supplied when the assignment was created. Requires filterBy=drivers. When set, driver and vehicle ID, tag, and assignment type filters are not supported.
 
         driver_tag_ids : typing.Optional[str]
              A filter on the data based on this comma-separated list of driver tag IDs. Example: `tagIds=1234,5678`
@@ -450,6 +459,7 @@ class AsyncDriverVehicleAssignmentsClient:
             end_time=end_time,
             driver_ids=driver_ids,
             vehicle_ids=vehicle_ids,
+            source_name=source_name,
             driver_tag_ids=driver_tag_ids,
             vehicle_tag_ids=vehicle_tag_ids,
             after=after,

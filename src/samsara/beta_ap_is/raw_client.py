@@ -109,6 +109,9 @@ from ..types.entity_create_stock_movement_money_input_type_request_body import (
 from ..types.entity_ground_intelligence_issues_service_list_issues_response_body import (
     EntityGroundIntelligenceIssuesServiceListIssuesResponseBody,
 )
+from ..types.entity_ground_intelligence_issues_service_update_ground_intelligence_issue_response_body import (
+    EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueResponseBody,
+)
 from ..types.entity_inventory_transactions_service_list_part_transactions_response_body import (
     EntityInventoryTransactionsServiceListPartTransactionsResponseBody,
 )
@@ -354,6 +357,15 @@ from .types.device_recovery_recover_asset_request_body_recovery_status import (
     DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus,
 )
 from .types.device_recovery_recover_asset_request_body_status import DeviceRecoveryRecoverAssetRequestBodyStatus
+from .types.entity_ground_intelligence_issues_service_update_ground_intelligence_issue_request_body_dismissal_reason import (
+    EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyDismissalReason,
+)
+from .types.entity_ground_intelligence_issues_service_update_ground_intelligence_issue_request_body_status import (
+    EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyStatus,
+)
+from .types.entity_ground_intelligence_issues_service_update_ground_intelligence_issue_request_body_type import (
+    EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyType,
+)
 from .types.entity_watchpoints_service_create_watchpoint_request_body_mode import (
     EntityWatchpointsServiceCreateWatchpointRequestBodyMode,
 )
@@ -10331,6 +10343,198 @@ class RawBetaApIsClient:
                     EntityGroundIntelligenceIssuesServiceListIssuesResponseBody,
                     parse_obj_as(
                         type_=EntityGroundIntelligenceIssuesServiceListIssuesResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def update_ground_intelligence_issue(
+        self,
+        *,
+        id: str,
+        dismissal_note: typing.Optional[str] = OMIT,
+        dismissal_reason: typing.Optional[
+            EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyDismissalReason
+        ] = OMIT,
+        status: typing.Optional[
+            EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyStatus
+        ] = OMIT,
+        type: typing.Optional[EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyType] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueResponseBody]:
+        """
+        Updates the status, type, or dismissal metadata for a Ground Intelligence road-condition issue.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Ground Intelligence Issues** under the Ground Intelligence category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Unique identifier for the Ground Intelligence issue.
+
+        dismissal_note : typing.Optional[str]
+            Optional note about the dismissal. Set to null to clear.
+
+        dismissal_reason : typing.Optional[EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyDismissalReason]
+            Reason for dismissing the issue. Required when status is dismissed.  Valid values: `notMyJurisdiction`, `knownIssue`, `duplicate`, `inaccurateDetection`, `other`
+
+        status : typing.Optional[EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyStatus]
+            Customer-facing review status for the issue.  Valid values: `needsReview`, `reviewed`, `resolved`, `dismissed`
+
+        type : typing.Optional[EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyType]
+            Customer-facing road-condition type for the issue.  Valid values: `pothole`, `roadCracking`, `patchedPothole`
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueResponseBody]
+            OK response.
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "ground-intelligence/issues",
+            method="PATCH",
+            params={
+                "id": id,
+            },
+            json={
+                "dismissalNote": dismissal_note,
+                "dismissalReason": dismissal_reason,
+                "status": status,
+                "type": type,
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueResponseBody,
+                    parse_obj_as(
+                        type_=EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -32381,6 +32585,198 @@ class AsyncRawBetaApIsClient:
                     EntityGroundIntelligenceIssuesServiceListIssuesResponseBody,
                     parse_obj_as(
                         type_=EntityGroundIntelligenceIssuesServiceListIssuesResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def update_ground_intelligence_issue(
+        self,
+        *,
+        id: str,
+        dismissal_note: typing.Optional[str] = OMIT,
+        dismissal_reason: typing.Optional[
+            EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyDismissalReason
+        ] = OMIT,
+        status: typing.Optional[
+            EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyStatus
+        ] = OMIT,
+        type: typing.Optional[EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyType] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueResponseBody]:
+        """
+        Updates the status, type, or dismissal metadata for a Ground Intelligence road-condition issue.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Ground Intelligence Issues** under the Ground Intelligence category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Unique identifier for the Ground Intelligence issue.
+
+        dismissal_note : typing.Optional[str]
+            Optional note about the dismissal. Set to null to clear.
+
+        dismissal_reason : typing.Optional[EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyDismissalReason]
+            Reason for dismissing the issue. Required when status is dismissed.  Valid values: `notMyJurisdiction`, `knownIssue`, `duplicate`, `inaccurateDetection`, `other`
+
+        status : typing.Optional[EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyStatus]
+            Customer-facing review status for the issue.  Valid values: `needsReview`, `reviewed`, `resolved`, `dismissed`
+
+        type : typing.Optional[EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyType]
+            Customer-facing road-condition type for the issue.  Valid values: `pothole`, `roadCracking`, `patchedPothole`
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueResponseBody]
+            OK response.
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "ground-intelligence/issues",
+            method="PATCH",
+            params={
+                "id": id,
+            },
+            json={
+                "dismissalNote": dismissal_note,
+                "dismissalReason": dismissal_reason,
+                "status": status,
+                "type": type,
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueResponseBody,
+                    parse_obj_as(
+                        type_=EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )

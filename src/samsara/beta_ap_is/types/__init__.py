@@ -25,6 +25,15 @@ if typing.TYPE_CHECKING:
         DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus,
     )
     from .device_recovery_recover_asset_request_body_status import DeviceRecoveryRecoverAssetRequestBodyStatus
+    from .entity_ground_intelligence_issues_service_update_ground_intelligence_issue_request_body_dismissal_reason import (
+        EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyDismissalReason,
+    )
+    from .entity_ground_intelligence_issues_service_update_ground_intelligence_issue_request_body_status import (
+        EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyStatus,
+    )
+    from .entity_ground_intelligence_issues_service_update_ground_intelligence_issue_request_body_type import (
+        EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyType,
+    )
     from .entity_watchpoints_service_create_watchpoint_request_body_mode import (
         EntityWatchpointsServiceCreateWatchpointRequestBodyMode,
     )
@@ -97,6 +106,9 @@ _dynamic_imports: typing.Dict[str, str] = {
     "DeviceRecoveryRecoverAssetRequestBodyMissingReason": ".device_recovery_recover_asset_request_body_missing_reason",
     "DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus": ".device_recovery_recover_asset_request_body_recovery_status",
     "DeviceRecoveryRecoverAssetRequestBodyStatus": ".device_recovery_recover_asset_request_body_status",
+    "EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyDismissalReason": ".entity_ground_intelligence_issues_service_update_ground_intelligence_issue_request_body_dismissal_reason",
+    "EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyStatus": ".entity_ground_intelligence_issues_service_update_ground_intelligence_issue_request_body_status",
+    "EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyType": ".entity_ground_intelligence_issues_service_update_ground_intelligence_issue_request_body_type",
     "EntityWatchpointsServiceCreateWatchpointRequestBodyMode": ".entity_watchpoints_service_create_watchpoint_request_body_mode",
     "EntityWatchpointsServiceCreateWatchpointRequestBodyObservationType": ".entity_watchpoints_service_create_watchpoint_request_body_observation_type",
     "EntityWatchpointsServiceUpdateWatchpointRequestBodyObservationType": ".entity_watchpoints_service_update_watchpoint_request_body_observation_type",
@@ -157,6 +169,9 @@ __all__ = [
     "DeviceRecoveryRecoverAssetRequestBodyMissingReason",
     "DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus",
     "DeviceRecoveryRecoverAssetRequestBodyStatus",
+    "EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyDismissalReason",
+    "EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyStatus",
+    "EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyType",
     "EntityWatchpointsServiceCreateWatchpointRequestBodyMode",
     "EntityWatchpointsServiceCreateWatchpointRequestBodyObservationType",
     "EntityWatchpointsServiceUpdateWatchpointRequestBodyObservationType",
