@@ -509,6 +509,14 @@ def test_betaApIs_list_issues() -> None:
     verify_request_count(test_id, "GET", "/ground-intelligence/issues", None, 1)
 
 
+def test_betaApIs_update_ground_intelligence_issue() -> None:
+    """Test updateGroundIntelligenceIssue endpoint with WireMock"""
+    test_id = "beta_ap_is.update_ground_intelligence_issue.0"
+    client = get_client(test_id)
+    client.beta_ap_is.update_ground_intelligence_issue(id="id")
+    verify_request_count(test_id, "PATCH", "/ground-intelligence/issues", {"id": "id"}, 1)
+
+
 def test_betaApIs_create_watchpoint() -> None:
     """Test createWatchpoint endpoint with WireMock"""
     test_id = "beta_ap_is.create_watchpoint.0"
