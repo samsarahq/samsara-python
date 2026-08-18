@@ -964,7 +964,7 @@ class RawRoutesClient:
             ID of the route. This can either be the Samsara-specified ID, or an external ID. External IDs are customer specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `payrollId:ABFS18600`
 
         driver_id : typing.Optional[str]
-            ID of the driver. Can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the driver.
+            ID of the driver. Can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the driver. Set to null to unassign the driver from the route.
 
         external_ids : typing.Optional[typing.Dict[str, str]]
             A map of external ids
@@ -987,7 +987,7 @@ class RawRoutesClient:
             An array of IDs of tags to associate with this route.
 
         vehicle_id : typing.Optional[str]
-            ID of the vehicle. Can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the vehicle.
+            ID of the vehicle. Can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the vehicle. Set to null to unassign the vehicle from the route.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -2314,7 +2314,7 @@ class AsyncRawRoutesClient:
             ID of the route. This can either be the Samsara-specified ID, or an external ID. External IDs are customer specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `payrollId:ABFS18600`
 
         driver_id : typing.Optional[str]
-            ID of the driver. Can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the driver.
+            ID of the driver. Can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the driver. Set to null to unassign the driver from the route.
 
         external_ids : typing.Optional[typing.Dict[str, str]]
             A map of external ids
@@ -2337,7 +2337,7 @@ class AsyncRawRoutesClient:
             An array of IDs of tags to associate with this route.
 
         vehicle_id : typing.Optional[str]
-            ID of the vehicle. Can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the vehicle.
+            ID of the vehicle. Can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the vehicle. Set to null to unassign the vehicle from the route.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.

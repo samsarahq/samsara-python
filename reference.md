@@ -26031,7 +26031,7 @@ client.routes.patch_route(
 <dl>
 <dd>
 
-**driver_id:** `typing.Optional[str]` — ID of the driver. Can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the driver.
+**driver_id:** `typing.Optional[str]` — ID of the driver. Can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the driver. Set to null to unassign the driver from the route.
     
 </dd>
 </dl>
@@ -26095,7 +26095,7 @@ client.routes.patch_route(
 <dl>
 <dd>
 
-**vehicle_id:** `typing.Optional[str]` — ID of the vehicle. Can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the vehicle.
+**vehicle_id:** `typing.Optional[str]` — ID of the vehicle. Can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the vehicle. Set to null to unassign the vehicle from the route.
     
 </dd>
 </dl>
