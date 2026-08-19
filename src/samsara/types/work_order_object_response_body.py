@@ -124,6 +124,13 @@ class WorkOrderObjectResponseBody(UniversalBaseModel):
         FieldMetadata(alias="serviceTaskInstances"),
         pydantic.Field(alias="serviceTaskInstances", description="Service Tasks for the work order."),
     ] = None
+    started_at_time: typing_extensions.Annotated[
+        typing.Optional[dt.datetime],
+        FieldMetadata(alias="startedAtTime"),
+        pydantic.Field(
+            alias="startedAtTime", description="The time work started on the work order, in RFC 3339 format."
+        ),
+    ] = None
     status: WorkOrderObjectResponseBodyStatus = pydantic.Field()
     """
     The status of the work order  Valid values: `Assigned`, `Cancelled`, `Closed`, `Completed`, `Estimate`, `In Progress`, `On Hold`, `Open`, `Pending Approval`, `Pending Parts`, `Planning`

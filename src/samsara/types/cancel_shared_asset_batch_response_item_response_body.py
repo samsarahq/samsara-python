@@ -4,16 +4,23 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
+from .shared_asset_response_object_response_body import SharedAssetResponseObjectResponseBody
 
 
-class GoaFormTinyResponseResponseBody(UniversalBaseModel):
+class CancelSharedAssetBatchResponseItemResponseBody(UniversalBaseModel):
     """
-    A minified form object.
+    Result for one requested asset sharing.
     """
 
-    id: str = pydantic.Field()
+    data: typing.Optional[SharedAssetResponseObjectResponseBody] = None
+    message: typing.Optional[str] = pydantic.Field(default=None)
     """
-    ID of the form
+    Failure message for this asset sharing.
+    """
+
+    status: int = pydantic.Field()
+    """
+    HTTP status for this asset sharing.
     """
 
     if IS_PYDANTIC_V2:

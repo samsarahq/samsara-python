@@ -9,8 +9,8 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .goa_address_tiny_response_response_body import GoaAddressTinyResponseResponseBody
 from .goa_document_tiny_response_response_body import GoaDocumentTinyResponseResponseBody
-from .goa_form_tiny_response_response_body import GoaFormTinyResponseResponseBody
 from .goa_issue_tiny_response_response_body import GoaIssueTinyResponseResponseBody
+from .id_reference_object_response_body import IdReferenceObjectResponseBody
 from .live_sharing_link_response_object_response_body import LiveSharingLinkResponseObjectResponseBody
 from .route_stop_appointment_window_response_body import RouteStopAppointmentWindowResponseBody
 from .routes_single_use_address_object_response_body import RoutesSingleUseAddressObjectResponseBody
@@ -68,7 +68,7 @@ class RoutesStopResponseObjectResponseBody(UniversalBaseModel):
         FieldMetadata(alias="externalIds"),
         pydantic.Field(alias="externalIds", description="A map of external ids"),
     ] = None
-    forms: typing.Optional[typing.List[GoaFormTinyResponseResponseBody]] = pydantic.Field(default=None)
+    forms: typing.Optional[typing.List[IdReferenceObjectResponseBody]] = pydantic.Field(default=None)
     """
     List of forms associated with the stop.
     """

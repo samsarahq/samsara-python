@@ -22,6 +22,7 @@ from .types.stream_work_orders_request_work_order_statuses_item import StreamWor
 from .types.work_orders_patch_work_orders_request_body_priority import WorkOrdersPatchWorkOrdersRequestBodyPriority
 from .types.work_orders_patch_work_orders_request_body_status import WorkOrdersPatchWorkOrdersRequestBodyStatus
 from .types.work_orders_post_work_orders_request_body_priority import WorkOrdersPostWorkOrdersRequestBodyPriority
+from .types.work_orders_post_work_orders_request_body_status import WorkOrdersPostWorkOrdersRequestBodyStatus
 
 # this is used as the default value for optional parameters
 OMIT = typing.cast(typing.Any, ...)
@@ -203,8 +204,10 @@ class WorkOrdersClient:
         self,
         *,
         asset_id: str,
+        archived_at_time: typing.Optional[dt.datetime] = OMIT,
         assigned_user_id: typing.Optional[str] = OMIT,
         category: typing.Optional[str] = OMIT,
+        completed_at_time: typing.Optional[dt.datetime] = OMIT,
         description: typing.Optional[str] = OMIT,
         discount: typing.Optional[WorkOrderDiscountObjectRequestBody] = OMIT,
         due_at_time: typing.Optional[dt.datetime] = OMIT,
@@ -217,6 +220,8 @@ class WorkOrdersClient:
         po_number: typing.Optional[str] = OMIT,
         priority: typing.Optional[WorkOrdersPostWorkOrdersRequestBodyPriority] = OMIT,
         service_task_instances: typing.Optional[typing.Sequence[ServiceTaskInstanceInputObjectRequestBody]] = OMIT,
+        started_at_time: typing.Optional[dt.datetime] = OMIT,
+        status: typing.Optional[WorkOrdersPostWorkOrdersRequestBodyStatus] = OMIT,
         tax: typing.Optional[WorkOrderTaxCreateObjectRequestBody] = OMIT,
         vendor_uuid: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
@@ -236,11 +241,17 @@ class WorkOrdersClient:
         asset_id : str
             The ID of the asset.
 
+        archived_at_time : typing.Optional[dt.datetime]
+            The historical time the work order was archived (closed or cancelled), in RFC 3339 format. Is automatically set when the status is Closed or Cancelled and this field is not provided.
+
         assigned_user_id : typing.Optional[str]
             The ID of the assigned mechanic.
 
         category : typing.Optional[str]
             The category of the work order
+
+        completed_at_time : typing.Optional[dt.datetime]
+            The historical time the work order was completed, in RFC 3339 format. Is automatically set when the status is Closed or Completed and this field is not provided.
 
         description : typing.Optional[str]
             A description of what needs to be fixed.
@@ -277,6 +288,12 @@ class WorkOrdersClient:
         service_task_instances : typing.Optional[typing.Sequence[ServiceTaskInstanceInputObjectRequestBody]]
             Service Tasks for the work order.
 
+        started_at_time : typing.Optional[dt.datetime]
+            The historical time work started on the work order, in RFC 3339 format. Is automatically set when the status is an in-progress status and this field is not provided.
+
+        status : typing.Optional[WorkOrdersPostWorkOrdersRequestBodyStatus]
+            The initial status of the work order. Defaults to Open when not provided.  Valid values: `Assigned`, `Cancelled`, `Closed`, `Completed`, `Estimate`, `In Progress`, `On Hold`, `Open`, `Pending Approval`, `Pending Parts`, `Planning`
+
         tax : typing.Optional[WorkOrderTaxCreateObjectRequestBody]
 
         vendor_uuid : typing.Optional[str]
@@ -303,8 +320,10 @@ class WorkOrdersClient:
         """
         _response = self._raw_client.post_work_orders(
             asset_id=asset_id,
+            archived_at_time=archived_at_time,
             assigned_user_id=assigned_user_id,
             category=category,
+            completed_at_time=completed_at_time,
             description=description,
             discount=discount,
             due_at_time=due_at_time,
@@ -317,6 +336,8 @@ class WorkOrdersClient:
             po_number=po_number,
             priority=priority,
             service_task_instances=service_task_instances,
+            started_at_time=started_at_time,
+            status=status,
             tax=tax,
             vendor_uuid=vendor_uuid,
             request_options=request_options,
@@ -364,6 +385,7 @@ class WorkOrdersClient:
         self,
         *,
         id: str,
+        archived_at_time: typing.Optional[dt.datetime] = OMIT,
         assigned_user_id: typing.Optional[str] = OMIT,
         category: typing.Optional[str] = OMIT,
         closing_notes: typing.Optional[str] = OMIT,
@@ -380,6 +402,7 @@ class WorkOrdersClient:
         po_number: typing.Optional[str] = OMIT,
         priority: typing.Optional[WorkOrdersPatchWorkOrdersRequestBodyPriority] = OMIT,
         service_task_instances: typing.Optional[typing.Sequence[ServiceTaskInstanceInputObjectRequestBody]] = OMIT,
+        started_at_time: typing.Optional[dt.datetime] = OMIT,
         status: typing.Optional[WorkOrdersPatchWorkOrdersRequestBodyStatus] = OMIT,
         tax: typing.Optional[WorkOrderTaxObjectRequestBody] = OMIT,
         vendor_uuid: typing.Optional[str] = OMIT,
@@ -399,6 +422,9 @@ class WorkOrdersClient:
         ----------
         id : str
             The unique id of the work order.
+
+        archived_at_time : typing.Optional[dt.datetime]
+            The historical time the work order was archived (closed or cancelled), in RFC 3339 format. Is automatically set when the status changes to Closed or Cancelled and this field is not provided.
 
         assigned_user_id : typing.Optional[str]
             The ID of the assigned mechanic.
@@ -447,6 +473,9 @@ class WorkOrdersClient:
         service_task_instances : typing.Optional[typing.Sequence[ServiceTaskInstanceInputObjectRequestBody]]
             Service Tasks for the work order.
 
+        started_at_time : typing.Optional[dt.datetime]
+            The historical time work started on the work order, in RFC 3339 format. Is automatically set when the status changes to an in-progress status and this field is not provided.
+
         status : typing.Optional[WorkOrdersPatchWorkOrdersRequestBodyStatus]
             The status of the work order  Valid values: `Assigned`, `Cancelled`, `Closed`, `Completed`, `Estimate`, `In Progress`, `On Hold`, `Open`, `Pending Approval`, `Pending Parts`, `Planning`
 
@@ -476,6 +505,7 @@ class WorkOrdersClient:
         """
         _response = self._raw_client.patch_work_orders(
             id=id,
+            archived_at_time=archived_at_time,
             assigned_user_id=assigned_user_id,
             category=category,
             closing_notes=closing_notes,
@@ -492,6 +522,7 @@ class WorkOrdersClient:
             po_number=po_number,
             priority=priority,
             service_task_instances=service_task_instances,
+            started_at_time=started_at_time,
             status=status,
             tax=tax,
             vendor_uuid=vendor_uuid,
@@ -781,8 +812,10 @@ class AsyncWorkOrdersClient:
         self,
         *,
         asset_id: str,
+        archived_at_time: typing.Optional[dt.datetime] = OMIT,
         assigned_user_id: typing.Optional[str] = OMIT,
         category: typing.Optional[str] = OMIT,
+        completed_at_time: typing.Optional[dt.datetime] = OMIT,
         description: typing.Optional[str] = OMIT,
         discount: typing.Optional[WorkOrderDiscountObjectRequestBody] = OMIT,
         due_at_time: typing.Optional[dt.datetime] = OMIT,
@@ -795,6 +828,8 @@ class AsyncWorkOrdersClient:
         po_number: typing.Optional[str] = OMIT,
         priority: typing.Optional[WorkOrdersPostWorkOrdersRequestBodyPriority] = OMIT,
         service_task_instances: typing.Optional[typing.Sequence[ServiceTaskInstanceInputObjectRequestBody]] = OMIT,
+        started_at_time: typing.Optional[dt.datetime] = OMIT,
+        status: typing.Optional[WorkOrdersPostWorkOrdersRequestBodyStatus] = OMIT,
         tax: typing.Optional[WorkOrderTaxCreateObjectRequestBody] = OMIT,
         vendor_uuid: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
@@ -814,11 +849,17 @@ class AsyncWorkOrdersClient:
         asset_id : str
             The ID of the asset.
 
+        archived_at_time : typing.Optional[dt.datetime]
+            The historical time the work order was archived (closed or cancelled), in RFC 3339 format. Is automatically set when the status is Closed or Cancelled and this field is not provided.
+
         assigned_user_id : typing.Optional[str]
             The ID of the assigned mechanic.
 
         category : typing.Optional[str]
             The category of the work order
+
+        completed_at_time : typing.Optional[dt.datetime]
+            The historical time the work order was completed, in RFC 3339 format. Is automatically set when the status is Closed or Completed and this field is not provided.
 
         description : typing.Optional[str]
             A description of what needs to be fixed.
@@ -855,6 +896,12 @@ class AsyncWorkOrdersClient:
         service_task_instances : typing.Optional[typing.Sequence[ServiceTaskInstanceInputObjectRequestBody]]
             Service Tasks for the work order.
 
+        started_at_time : typing.Optional[dt.datetime]
+            The historical time work started on the work order, in RFC 3339 format. Is automatically set when the status is an in-progress status and this field is not provided.
+
+        status : typing.Optional[WorkOrdersPostWorkOrdersRequestBodyStatus]
+            The initial status of the work order. Defaults to Open when not provided.  Valid values: `Assigned`, `Cancelled`, `Closed`, `Completed`, `Estimate`, `In Progress`, `On Hold`, `Open`, `Pending Approval`, `Pending Parts`, `Planning`
+
         tax : typing.Optional[WorkOrderTaxCreateObjectRequestBody]
 
         vendor_uuid : typing.Optional[str]
@@ -889,8 +936,10 @@ class AsyncWorkOrdersClient:
         """
         _response = await self._raw_client.post_work_orders(
             asset_id=asset_id,
+            archived_at_time=archived_at_time,
             assigned_user_id=assigned_user_id,
             category=category,
+            completed_at_time=completed_at_time,
             description=description,
             discount=discount,
             due_at_time=due_at_time,
@@ -903,6 +952,8 @@ class AsyncWorkOrdersClient:
             po_number=po_number,
             priority=priority,
             service_task_instances=service_task_instances,
+            started_at_time=started_at_time,
+            status=status,
             tax=tax,
             vendor_uuid=vendor_uuid,
             request_options=request_options,
@@ -958,6 +1009,7 @@ class AsyncWorkOrdersClient:
         self,
         *,
         id: str,
+        archived_at_time: typing.Optional[dt.datetime] = OMIT,
         assigned_user_id: typing.Optional[str] = OMIT,
         category: typing.Optional[str] = OMIT,
         closing_notes: typing.Optional[str] = OMIT,
@@ -974,6 +1026,7 @@ class AsyncWorkOrdersClient:
         po_number: typing.Optional[str] = OMIT,
         priority: typing.Optional[WorkOrdersPatchWorkOrdersRequestBodyPriority] = OMIT,
         service_task_instances: typing.Optional[typing.Sequence[ServiceTaskInstanceInputObjectRequestBody]] = OMIT,
+        started_at_time: typing.Optional[dt.datetime] = OMIT,
         status: typing.Optional[WorkOrdersPatchWorkOrdersRequestBodyStatus] = OMIT,
         tax: typing.Optional[WorkOrderTaxObjectRequestBody] = OMIT,
         vendor_uuid: typing.Optional[str] = OMIT,
@@ -993,6 +1046,9 @@ class AsyncWorkOrdersClient:
         ----------
         id : str
             The unique id of the work order.
+
+        archived_at_time : typing.Optional[dt.datetime]
+            The historical time the work order was archived (closed or cancelled), in RFC 3339 format. Is automatically set when the status changes to Closed or Cancelled and this field is not provided.
 
         assigned_user_id : typing.Optional[str]
             The ID of the assigned mechanic.
@@ -1041,6 +1097,9 @@ class AsyncWorkOrdersClient:
         service_task_instances : typing.Optional[typing.Sequence[ServiceTaskInstanceInputObjectRequestBody]]
             Service Tasks for the work order.
 
+        started_at_time : typing.Optional[dt.datetime]
+            The historical time work started on the work order, in RFC 3339 format. Is automatically set when the status changes to an in-progress status and this field is not provided.
+
         status : typing.Optional[WorkOrdersPatchWorkOrdersRequestBodyStatus]
             The status of the work order  Valid values: `Assigned`, `Cancelled`, `Closed`, `Completed`, `Estimate`, `In Progress`, `On Hold`, `Open`, `Pending Approval`, `Pending Parts`, `Planning`
 
@@ -1078,6 +1137,7 @@ class AsyncWorkOrdersClient:
         """
         _response = await self._raw_client.patch_work_orders(
             id=id,
+            archived_at_time=archived_at_time,
             assigned_user_id=assigned_user_id,
             category=category,
             closing_notes=closing_notes,
@@ -1094,6 +1154,7 @@ class AsyncWorkOrdersClient:
             po_number=po_number,
             priority=priority,
             service_task_instances=service_task_instances,
+            started_at_time=started_at_time,
             status=status,
             tax=tax,
             vendor_uuid=vendor_uuid,

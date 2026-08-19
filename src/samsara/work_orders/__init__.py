@@ -11,12 +11,14 @@ if typing.TYPE_CHECKING:
         WorkOrdersPatchWorkOrdersRequestBodyPriority,
         WorkOrdersPatchWorkOrdersRequestBodyStatus,
         WorkOrdersPostWorkOrdersRequestBodyPriority,
+        WorkOrdersPostWorkOrdersRequestBodyStatus,
     )
 _dynamic_imports: typing.Dict[str, str] = {
     "StreamWorkOrdersRequestWorkOrderStatusesItem": ".types",
     "WorkOrdersPatchWorkOrdersRequestBodyPriority": ".types",
     "WorkOrdersPatchWorkOrdersRequestBodyStatus": ".types",
     "WorkOrdersPostWorkOrdersRequestBodyPriority": ".types",
+    "WorkOrdersPostWorkOrdersRequestBodyStatus": ".types",
 }
 
 
@@ -46,4 +48,5 @@ __all__ = [
     "WorkOrdersPatchWorkOrdersRequestBodyPriority",
     "WorkOrdersPatchWorkOrdersRequestBodyStatus",
     "WorkOrdersPostWorkOrdersRequestBodyPriority",
+    "WorkOrdersPostWorkOrdersRequestBodyStatus",
 ]
