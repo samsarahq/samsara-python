@@ -196,6 +196,14 @@ def test_betaApIs_update_shared_assets_batch() -> None:
     verify_request_count(test_id, "PATCH", "/fleet/asset-sharing/agreements/assets/batch", None, 1)
 
 
+def test_betaApIs_cancel_shared_assets_batch() -> None:
+    """Test cancelSharedAssetsBatch endpoint with WireMock"""
+    test_id = "beta_ap_is.cancel_shared_assets_batch.0"
+    client = get_client(test_id)
+    client.beta_ap_is.cancel_shared_assets_batch(data=[{"id": "12345"}])
+    verify_request_count(test_id, "POST", "/fleet/asset-sharing/agreements/assets/cancel/batch", None, 1)
+
+
 def test_betaApIs_cancel_asset_sharing_agreement() -> None:
     """Test cancelAssetSharingAgreement endpoint with WireMock"""
     test_id = "beta_ap_is.cancel_asset_sharing_agreement.0"
@@ -759,6 +767,78 @@ def test_betaApIs_list_time_entries() -> None:
     client = get_client(test_id)
     client.beta_ap_is.list_time_entries(start_time="startTime")
     verify_request_count(test_id, "GET", "/maintenance/time-entries/stream", {"startTime": "startTime"}, 1)
+
+
+def test_betaApIs_list_warranties() -> None:
+    """Test listWarranties endpoint with WireMock"""
+    test_id = "beta_ap_is.list_warranties.0"
+    client = get_client(test_id)
+    client.beta_ap_is.list_warranties()
+    verify_request_count(test_id, "GET", "/maintenance/warranties", None, 1)
+
+
+def test_betaApIs_create_warranty() -> None:
+    """Test createWarranty endpoint with WireMock"""
+    test_id = "beta_ap_is.create_warranty.0"
+    client = get_client(test_id)
+    client.beta_ap_is.create_warranty(name="12345")
+    verify_request_count(test_id, "POST", "/maintenance/warranties", None, 1)
+
+
+def test_betaApIs_delete_warranty() -> None:
+    """Test deleteWarranty endpoint with WireMock"""
+    test_id = "beta_ap_is.delete_warranty.0"
+    client = get_client(test_id)
+    client.beta_ap_is.delete_warranty(id="id")
+    verify_request_count(test_id, "DELETE", "/maintenance/warranties", {"id": "id"}, 1)
+
+
+def test_betaApIs_update_warranty() -> None:
+    """Test updateWarranty endpoint with WireMock"""
+    test_id = "beta_ap_is.update_warranty.0"
+    client = get_client(test_id)
+    client.beta_ap_is.update_warranty(id="id")
+    verify_request_count(test_id, "PATCH", "/maintenance/warranties", {"id": "id"}, 1)
+
+
+def test_betaApIs_replace_warranty_asset_assignments() -> None:
+    """Test replaceWarrantyAssetAssignments endpoint with WireMock"""
+    test_id = "beta_ap_is.replace_warranty_asset_assignments.0"
+    client = get_client(test_id)
+    client.beta_ap_is.replace_warranty_asset_assignments()
+    verify_request_count(test_id, "POST", "/maintenance/warranties/assets/replace", None, 1)
+
+
+def test_betaApIs_list_warranty_claims() -> None:
+    """Test listWarrantyClaims endpoint with WireMock"""
+    test_id = "beta_ap_is.list_warranty_claims.0"
+    client = get_client(test_id)
+    client.beta_ap_is.list_warranty_claims()
+    verify_request_count(test_id, "GET", "/maintenance/warranty-claims", None, 1)
+
+
+def test_betaApIs_create_warranty_claim() -> None:
+    """Test createWarrantyClaim endpoint with WireMock"""
+    test_id = "beta_ap_is.create_warranty_claim.0"
+    client = get_client(test_id)
+    client.beta_ap_is.create_warranty_claim(asset_id="281474976710656")
+    verify_request_count(test_id, "POST", "/maintenance/warranty-claims", None, 1)
+
+
+def test_betaApIs_delete_warranty_claim() -> None:
+    """Test deleteWarrantyClaim endpoint with WireMock"""
+    test_id = "beta_ap_is.delete_warranty_claim.0"
+    client = get_client(test_id)
+    client.beta_ap_is.delete_warranty_claim(id="id")
+    verify_request_count(test_id, "DELETE", "/maintenance/warranty-claims", {"id": "id"}, 1)
+
+
+def test_betaApIs_update_warranty_claim() -> None:
+    """Test updateWarrantyClaim endpoint with WireMock"""
+    test_id = "beta_ap_is.update_warranty_claim.0"
+    client = get_client(test_id)
+    client.beta_ap_is.update_warranty_claim(id="id")
+    verify_request_count(test_id, "PATCH", "/maintenance/warranty-claims", {"id": "id"}, 1)
 
 
 def test_betaApIs_get_work_order_templates() -> None:

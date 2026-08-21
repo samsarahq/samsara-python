@@ -10,11 +10,13 @@ if typing.TYPE_CHECKING:
     from .work_orders_patch_work_orders_request_body_priority import WorkOrdersPatchWorkOrdersRequestBodyPriority
     from .work_orders_patch_work_orders_request_body_status import WorkOrdersPatchWorkOrdersRequestBodyStatus
     from .work_orders_post_work_orders_request_body_priority import WorkOrdersPostWorkOrdersRequestBodyPriority
+    from .work_orders_post_work_orders_request_body_status import WorkOrdersPostWorkOrdersRequestBodyStatus
 _dynamic_imports: typing.Dict[str, str] = {
     "StreamWorkOrdersRequestWorkOrderStatusesItem": ".stream_work_orders_request_work_order_statuses_item",
     "WorkOrdersPatchWorkOrdersRequestBodyPriority": ".work_orders_patch_work_orders_request_body_priority",
     "WorkOrdersPatchWorkOrdersRequestBodyStatus": ".work_orders_patch_work_orders_request_body_status",
     "WorkOrdersPostWorkOrdersRequestBodyPriority": ".work_orders_post_work_orders_request_body_priority",
+    "WorkOrdersPostWorkOrdersRequestBodyStatus": ".work_orders_post_work_orders_request_body_status",
 }
 
 
@@ -44,4 +46,5 @@ __all__ = [
     "WorkOrdersPatchWorkOrdersRequestBodyPriority",
     "WorkOrdersPatchWorkOrdersRequestBodyStatus",
     "WorkOrdersPostWorkOrdersRequestBodyPriority",
+    "WorkOrdersPostWorkOrdersRequestBodyStatus",
 ]

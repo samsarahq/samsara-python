@@ -614,6 +614,39 @@ if typing.TYPE_CHECKING:
     from .asset_sharing_agreements_cancel_asset_sharing_agreement_unauthorized_error_response_body import (
         AssetSharingAgreementsCancelAssetSharingAgreementUnauthorizedErrorResponseBody,
     )
+    from .asset_sharing_agreements_cancel_shared_assets_batch_bad_gateway_error_response_body import (
+        AssetSharingAgreementsCancelSharedAssetsBatchBadGatewayErrorResponseBody,
+    )
+    from .asset_sharing_agreements_cancel_shared_assets_batch_content_too_large_error_response_body import (
+        AssetSharingAgreementsCancelSharedAssetsBatchContentTooLargeErrorResponseBody,
+    )
+    from .asset_sharing_agreements_cancel_shared_assets_batch_gateway_timeout_error_response_body import (
+        AssetSharingAgreementsCancelSharedAssetsBatchGatewayTimeoutErrorResponseBody,
+    )
+    from .asset_sharing_agreements_cancel_shared_assets_batch_internal_server_error_response_body import (
+        AssetSharingAgreementsCancelSharedAssetsBatchInternalServerErrorResponseBody,
+    )
+    from .asset_sharing_agreements_cancel_shared_assets_batch_method_not_allowed_error_response_body import (
+        AssetSharingAgreementsCancelSharedAssetsBatchMethodNotAllowedErrorResponseBody,
+    )
+    from .asset_sharing_agreements_cancel_shared_assets_batch_not_found_error_response_body import (
+        AssetSharingAgreementsCancelSharedAssetsBatchNotFoundErrorResponseBody,
+    )
+    from .asset_sharing_agreements_cancel_shared_assets_batch_not_implemented_error_response_body import (
+        AssetSharingAgreementsCancelSharedAssetsBatchNotImplementedErrorResponseBody,
+    )
+    from .asset_sharing_agreements_cancel_shared_assets_batch_response_body import (
+        AssetSharingAgreementsCancelSharedAssetsBatchResponseBody,
+    )
+    from .asset_sharing_agreements_cancel_shared_assets_batch_service_unavailable_error_response_body import (
+        AssetSharingAgreementsCancelSharedAssetsBatchServiceUnavailableErrorResponseBody,
+    )
+    from .asset_sharing_agreements_cancel_shared_assets_batch_too_many_requests_error_response_body import (
+        AssetSharingAgreementsCancelSharedAssetsBatchTooManyRequestsErrorResponseBody,
+    )
+    from .asset_sharing_agreements_cancel_shared_assets_batch_unauthorized_error_response_body import (
+        AssetSharingAgreementsCancelSharedAssetsBatchUnauthorizedErrorResponseBody,
+    )
     from .asset_sharing_agreements_create_asset_sharing_agreement_bad_gateway_error_response_body import (
         AssetSharingAgreementsCreateAssetSharingAgreementBadGatewayErrorResponseBody,
     )
@@ -1099,6 +1132,7 @@ if typing.TYPE_CHECKING:
     from .camera_details_response_response_body import CameraDetailsResponseResponseBody
     from .camera_serial import CameraSerial
     from .camera_stream_issue_response_body import CameraStreamIssueResponseBody
+    from .cancel_shared_asset_batch_response_item_response_body import CancelSharedAssetBatchResponseItemResponseBody
     from .carb_ctc_list_carb_ctc_vehicle_history_bad_gateway_error_response_body import (
         CarbCtcListCarbCtcVehicleHistoryBadGatewayErrorResponseBody,
     )
@@ -5177,7 +5211,6 @@ if typing.TYPE_CHECKING:
     from .goa_document_tiny_response_response_body import GoaDocumentTinyResponseResponseBody
     from .goa_document_type_tiny_response_response_body import GoaDocumentTypeTinyResponseResponseBody
     from .goa_driver_tiny_response_response_body import GoaDriverTinyResponseResponseBody
-    from .goa_form_tiny_response_response_body import GoaFormTinyResponseResponseBody
     from .goa_gateway_tiny_response_response_body import GoaGatewayTinyResponseResponseBody
     from .goa_gateway_tiny_response_response_body_model import GoaGatewayTinyResponseResponseBodyModel
     from .goa_issue_tiny_response_response_body import GoaIssueTinyResponseResponseBody
@@ -5857,6 +5890,8 @@ if typing.TYPE_CHECKING:
     from .hubs_list_hubs_service_unavailable_error_response_body import HubsListHubsServiceUnavailableErrorResponseBody
     from .hubs_list_hubs_too_many_requests_error_response_body import HubsListHubsTooManyRequestsErrorResponseBody
     from .hubs_list_hubs_unauthorized_error_response_body import HubsListHubsUnauthorizedErrorResponseBody
+    from .id_reference_object_request_body import IdReferenceObjectRequestBody
+    from .id_reference_object_response_body import IdReferenceObjectResponseBody
     from .idle_time_duration_ms import IdleTimeDurationMs
     from .idling_event_address_object_response_body import IdlingEventAddressObjectResponseBody
     from .idling_event_address_object_response_body_address_types_item import (
@@ -11567,6 +11602,17 @@ _dynamic_imports: typing.Dict[str, str] = {
     "AssetSharingAgreementsCancelAssetSharingAgreementServiceUnavailableErrorResponseBody": ".asset_sharing_agreements_cancel_asset_sharing_agreement_service_unavailable_error_response_body",
     "AssetSharingAgreementsCancelAssetSharingAgreementTooManyRequestsErrorResponseBody": ".asset_sharing_agreements_cancel_asset_sharing_agreement_too_many_requests_error_response_body",
     "AssetSharingAgreementsCancelAssetSharingAgreementUnauthorizedErrorResponseBody": ".asset_sharing_agreements_cancel_asset_sharing_agreement_unauthorized_error_response_body",
+    "AssetSharingAgreementsCancelSharedAssetsBatchBadGatewayErrorResponseBody": ".asset_sharing_agreements_cancel_shared_assets_batch_bad_gateway_error_response_body",
+    "AssetSharingAgreementsCancelSharedAssetsBatchContentTooLargeErrorResponseBody": ".asset_sharing_agreements_cancel_shared_assets_batch_content_too_large_error_response_body",
+    "AssetSharingAgreementsCancelSharedAssetsBatchGatewayTimeoutErrorResponseBody": ".asset_sharing_agreements_cancel_shared_assets_batch_gateway_timeout_error_response_body",
+    "AssetSharingAgreementsCancelSharedAssetsBatchInternalServerErrorResponseBody": ".asset_sharing_agreements_cancel_shared_assets_batch_internal_server_error_response_body",
+    "AssetSharingAgreementsCancelSharedAssetsBatchMethodNotAllowedErrorResponseBody": ".asset_sharing_agreements_cancel_shared_assets_batch_method_not_allowed_error_response_body",
+    "AssetSharingAgreementsCancelSharedAssetsBatchNotFoundErrorResponseBody": ".asset_sharing_agreements_cancel_shared_assets_batch_not_found_error_response_body",
+    "AssetSharingAgreementsCancelSharedAssetsBatchNotImplementedErrorResponseBody": ".asset_sharing_agreements_cancel_shared_assets_batch_not_implemented_error_response_body",
+    "AssetSharingAgreementsCancelSharedAssetsBatchResponseBody": ".asset_sharing_agreements_cancel_shared_assets_batch_response_body",
+    "AssetSharingAgreementsCancelSharedAssetsBatchServiceUnavailableErrorResponseBody": ".asset_sharing_agreements_cancel_shared_assets_batch_service_unavailable_error_response_body",
+    "AssetSharingAgreementsCancelSharedAssetsBatchTooManyRequestsErrorResponseBody": ".asset_sharing_agreements_cancel_shared_assets_batch_too_many_requests_error_response_body",
+    "AssetSharingAgreementsCancelSharedAssetsBatchUnauthorizedErrorResponseBody": ".asset_sharing_agreements_cancel_shared_assets_batch_unauthorized_error_response_body",
     "AssetSharingAgreementsCreateAssetSharingAgreementBadGatewayErrorResponseBody": ".asset_sharing_agreements_create_asset_sharing_agreement_bad_gateway_error_response_body",
     "AssetSharingAgreementsCreateAssetSharingAgreementContentTooLargeErrorResponseBody": ".asset_sharing_agreements_create_asset_sharing_agreement_content_too_large_error_response_body",
     "AssetSharingAgreementsCreateAssetSharingAgreementGatewayTimeoutErrorResponseBody": ".asset_sharing_agreements_create_asset_sharing_agreement_gateway_timeout_error_response_body",
@@ -11774,6 +11820,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "CameraDetailsResponseResponseBody": ".camera_details_response_response_body",
     "CameraSerial": ".camera_serial",
     "CameraStreamIssueResponseBody": ".camera_stream_issue_response_body",
+    "CancelSharedAssetBatchResponseItemResponseBody": ".cancel_shared_asset_batch_response_item_response_body",
     "CarbCtcListCarbCtcVehicleHistoryBadGatewayErrorResponseBody": ".carb_ctc_list_carb_ctc_vehicle_history_bad_gateway_error_response_body",
     "CarbCtcListCarbCtcVehicleHistoryContentTooLargeErrorResponseBody": ".carb_ctc_list_carb_ctc_vehicle_history_content_too_large_error_response_body",
     "CarbCtcListCarbCtcVehicleHistoryGatewayTimeoutErrorResponseBody": ".carb_ctc_list_carb_ctc_vehicle_history_gateway_timeout_error_response_body",
@@ -13518,7 +13565,6 @@ _dynamic_imports: typing.Dict[str, str] = {
     "GoaDocumentTinyResponseResponseBody": ".goa_document_tiny_response_response_body",
     "GoaDocumentTypeTinyResponseResponseBody": ".goa_document_type_tiny_response_response_body",
     "GoaDriverTinyResponseResponseBody": ".goa_driver_tiny_response_response_body",
-    "GoaFormTinyResponseResponseBody": ".goa_form_tiny_response_response_body",
     "GoaGatewayTinyResponseResponseBody": ".goa_gateway_tiny_response_response_body",
     "GoaGatewayTinyResponseResponseBodyModel": ".goa_gateway_tiny_response_response_body_model",
     "GoaIssueTinyResponseResponseBody": ".goa_issue_tiny_response_response_body",
@@ -13808,6 +13854,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "HubsListHubsServiceUnavailableErrorResponseBody": ".hubs_list_hubs_service_unavailable_error_response_body",
     "HubsListHubsTooManyRequestsErrorResponseBody": ".hubs_list_hubs_too_many_requests_error_response_body",
     "HubsListHubsUnauthorizedErrorResponseBody": ".hubs_list_hubs_unauthorized_error_response_body",
+    "IdReferenceObjectRequestBody": ".id_reference_object_request_body",
+    "IdReferenceObjectResponseBody": ".id_reference_object_response_body",
     "IdleTimeDurationMs": ".idle_time_duration_ms",
     "IdlingEventAddressObjectResponseBody": ".idling_event_address_object_response_body",
     "IdlingEventAddressObjectResponseBodyAddressTypesItem": ".idling_event_address_object_response_body_address_types_item",
@@ -16702,6 +16750,17 @@ __all__ = [
     "AssetSharingAgreementsCancelAssetSharingAgreementServiceUnavailableErrorResponseBody",
     "AssetSharingAgreementsCancelAssetSharingAgreementTooManyRequestsErrorResponseBody",
     "AssetSharingAgreementsCancelAssetSharingAgreementUnauthorizedErrorResponseBody",
+    "AssetSharingAgreementsCancelSharedAssetsBatchBadGatewayErrorResponseBody",
+    "AssetSharingAgreementsCancelSharedAssetsBatchContentTooLargeErrorResponseBody",
+    "AssetSharingAgreementsCancelSharedAssetsBatchGatewayTimeoutErrorResponseBody",
+    "AssetSharingAgreementsCancelSharedAssetsBatchInternalServerErrorResponseBody",
+    "AssetSharingAgreementsCancelSharedAssetsBatchMethodNotAllowedErrorResponseBody",
+    "AssetSharingAgreementsCancelSharedAssetsBatchNotFoundErrorResponseBody",
+    "AssetSharingAgreementsCancelSharedAssetsBatchNotImplementedErrorResponseBody",
+    "AssetSharingAgreementsCancelSharedAssetsBatchResponseBody",
+    "AssetSharingAgreementsCancelSharedAssetsBatchServiceUnavailableErrorResponseBody",
+    "AssetSharingAgreementsCancelSharedAssetsBatchTooManyRequestsErrorResponseBody",
+    "AssetSharingAgreementsCancelSharedAssetsBatchUnauthorizedErrorResponseBody",
     "AssetSharingAgreementsCreateAssetSharingAgreementBadGatewayErrorResponseBody",
     "AssetSharingAgreementsCreateAssetSharingAgreementContentTooLargeErrorResponseBody",
     "AssetSharingAgreementsCreateAssetSharingAgreementGatewayTimeoutErrorResponseBody",
@@ -16909,6 +16968,7 @@ __all__ = [
     "CameraDetailsResponseResponseBody",
     "CameraSerial",
     "CameraStreamIssueResponseBody",
+    "CancelSharedAssetBatchResponseItemResponseBody",
     "CarbCtcListCarbCtcVehicleHistoryBadGatewayErrorResponseBody",
     "CarbCtcListCarbCtcVehicleHistoryContentTooLargeErrorResponseBody",
     "CarbCtcListCarbCtcVehicleHistoryGatewayTimeoutErrorResponseBody",
@@ -18653,7 +18713,6 @@ __all__ = [
     "GoaDocumentTinyResponseResponseBody",
     "GoaDocumentTypeTinyResponseResponseBody",
     "GoaDriverTinyResponseResponseBody",
-    "GoaFormTinyResponseResponseBody",
     "GoaGatewayTinyResponseResponseBody",
     "GoaGatewayTinyResponseResponseBodyModel",
     "GoaIssueTinyResponseResponseBody",
@@ -18943,6 +19002,8 @@ __all__ = [
     "HubsListHubsServiceUnavailableErrorResponseBody",
     "HubsListHubsTooManyRequestsErrorResponseBody",
     "HubsListHubsUnauthorizedErrorResponseBody",
+    "IdReferenceObjectRequestBody",
+    "IdReferenceObjectResponseBody",
     "IdleTimeDurationMs",
     "IdlingEventAddressObjectResponseBody",
     "IdlingEventAddressObjectResponseBodyAddressTypesItem",
