@@ -34,6 +34,12 @@ if typing.TYPE_CHECKING:
     from .entity_ground_intelligence_issues_service_update_ground_intelligence_issue_request_body_type import (
         EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyType,
     )
+    from .entity_purchase_orders_service_create_purchase_order_request_body_order_status import (
+        EntityPurchaseOrdersServiceCreatePurchaseOrderRequestBodyOrderStatus,
+    )
+    from .entity_purchase_orders_service_update_purchase_order_request_body_order_status import (
+        EntityPurchaseOrdersServiceUpdatePurchaseOrderRequestBodyOrderStatus,
+    )
     from .entity_watchpoints_service_create_watchpoint_request_body_mode import (
         EntityWatchpointsServiceCreateWatchpointRequestBodyMode,
     )
@@ -109,6 +115,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyDismissalReason": ".entity_ground_intelligence_issues_service_update_ground_intelligence_issue_request_body_dismissal_reason",
     "EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyStatus": ".entity_ground_intelligence_issues_service_update_ground_intelligence_issue_request_body_status",
     "EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyType": ".entity_ground_intelligence_issues_service_update_ground_intelligence_issue_request_body_type",
+    "EntityPurchaseOrdersServiceCreatePurchaseOrderRequestBodyOrderStatus": ".entity_purchase_orders_service_create_purchase_order_request_body_order_status",
+    "EntityPurchaseOrdersServiceUpdatePurchaseOrderRequestBodyOrderStatus": ".entity_purchase_orders_service_update_purchase_order_request_body_order_status",
     "EntityWatchpointsServiceCreateWatchpointRequestBodyMode": ".entity_watchpoints_service_create_watchpoint_request_body_mode",
     "EntityWatchpointsServiceCreateWatchpointRequestBodyObservationType": ".entity_watchpoints_service_create_watchpoint_request_body_observation_type",
     "EntityWatchpointsServiceUpdateWatchpointRequestBodyObservationType": ".entity_watchpoints_service_update_watchpoint_request_body_observation_type",
@@ -172,6 +180,8 @@ __all__ = [
     "EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyDismissalReason",
     "EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyStatus",
     "EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyType",
+    "EntityPurchaseOrdersServiceCreatePurchaseOrderRequestBodyOrderStatus",
+    "EntityPurchaseOrdersServiceUpdatePurchaseOrderRequestBodyOrderStatus",
     "EntityWatchpointsServiceCreateWatchpointRequestBodyMode",
     "EntityWatchpointsServiceCreateWatchpointRequestBodyObservationType",
     "EntityWatchpointsServiceUpdateWatchpointRequestBodyObservationType",

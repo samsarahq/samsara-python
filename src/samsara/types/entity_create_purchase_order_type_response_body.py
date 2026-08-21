@@ -9,8 +9,20 @@ from ..core.serialization import FieldMetadata
 from .create_purchase_order_entity_purchase_order_money_public_variant_8749_b_9_e_1_f_4_af_type_response_body import (
     CreatePurchaseOrderEntityPurchaseOrderMoneyPublicVariant8749B9E1F4AfTypeResponseBody,
 )
-from .create_purchase_order_entity_purchase_order_purchase_order_part_public_variant_7_e_1_b_94919242_type_response_body import (
-    CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariant7E1B94919242TypeResponseBody,
+from .create_purchase_order_entity_purchase_order_money_type_response_body import (
+    CreatePurchaseOrderEntityPurchaseOrderMoneyTypeResponseBody,
+)
+from .create_purchase_order_entity_purchase_order_purchase_order_part_public_variant_0241_c_1_beccae_type_response_body import (
+    CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariant0241C1BeccaeTypeResponseBody,
+)
+from .create_purchase_order_entity_purchase_order_tax_adjustment_type_response_body import (
+    CreatePurchaseOrderEntityPurchaseOrderTaxAdjustmentTypeResponseBody,
+)
+from .entity_create_purchase_order_type_response_body_creation_source import (
+    EntityCreatePurchaseOrderTypeResponseBodyCreationSource,
+)
+from .entity_create_purchase_order_type_response_body_order_status import (
+    EntityCreatePurchaseOrderTypeResponseBodyOrderStatus,
 )
 from .entity_create_purchase_order_vendor_ref_public_variant_07_ae_4_b_76_c_2_ba_type_response_body import (
     EntityCreatePurchaseOrderVendorRefPublicVariant07Ae4B76C2BaTypeResponseBody,
@@ -28,9 +40,12 @@ class EntityCreatePurchaseOrderTypeResponseBody(UniversalBaseModel):
         pydantic.Field(alias="createdAtTime", description="RFC3339 time when the purchase order was created."),
     ] = None
     creation_source: typing_extensions.Annotated[
-        typing.Optional[str],
+        typing.Optional[EntityCreatePurchaseOrderTypeResponseBodyCreationSource],
         FieldMetadata(alias="creationSource"),
-        pydantic.Field(alias="creationSource", description="Source that created the purchase order."),
+        pydantic.Field(
+            alias="creationSource",
+            description="Source that created the purchase order.  Valid values: `Unknown`, `User`, `ScanPackingList`",
+        ),
     ] = None
     delivery_at_time: typing_extensions.Annotated[
         typing.Optional[str],
@@ -73,9 +88,12 @@ class EntityCreatePurchaseOrderTypeResponseBody(UniversalBaseModel):
     """
 
     order_status: typing_extensions.Annotated[
-        typing.Optional[str],
+        typing.Optional[EntityCreatePurchaseOrderTypeResponseBodyOrderStatus],
         FieldMetadata(alias="orderStatus"),
-        pydantic.Field(alias="orderStatus", description="Current customer-visible status of the purchase order."),
+        pydantic.Field(
+            alias="orderStatus",
+            description="Current customer-visible status of the purchase order.  Valid values: `Unknown`, `Draft`, `Open`, `InReview`, `Approved`, `Rejected`, `SentToVendor`, `PartiallyReceived`, `FullyReceived`, `Returned`, `Cancelled`, `Closed`",
+        ),
     ] = None
     other_cost: typing_extensions.Annotated[
         typing.Optional[CreatePurchaseOrderEntityPurchaseOrderMoneyPublicVariant8749B9E1F4AfTypeResponseBody],
@@ -83,7 +101,7 @@ class EntityCreatePurchaseOrderTypeResponseBody(UniversalBaseModel):
         pydantic.Field(alias="otherCost"),
     ] = None
     parts: typing.Optional[
-        typing.List[CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariant7E1B94919242TypeResponseBody]
+        typing.List[CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariant0241C1BeccaeTypeResponseBody]
     ] = pydantic.Field(default=None)
     """
     Parts ordered on the purchase order.
@@ -108,6 +126,12 @@ class EntityCreatePurchaseOrderTypeResponseBody(UniversalBaseModel):
         typing.Optional[str],
         FieldMetadata(alias="sentAtTime"),
         pydantic.Field(alias="sentAtTime", description="RFC3339 time when the purchase order was sent to its vendor."),
+    ] = None
+    tax: typing.Optional[CreatePurchaseOrderEntityPurchaseOrderTaxAdjustmentTypeResponseBody] = None
+    tax_total: typing_extensions.Annotated[
+        typing.Optional[CreatePurchaseOrderEntityPurchaseOrderMoneyTypeResponseBody],
+        FieldMetadata(alias="taxTotal"),
+        pydantic.Field(alias="taxTotal"),
     ] = None
     tracking_number: typing_extensions.Annotated[
         typing.Optional[str],

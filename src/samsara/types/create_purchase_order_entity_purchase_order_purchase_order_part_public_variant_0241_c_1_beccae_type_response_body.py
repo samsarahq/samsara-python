@@ -12,13 +12,19 @@ from .create_purchase_order_entity_purchase_order_money_public_variant_8749_b_9_
 from .create_purchase_order_entity_purchase_order_purchase_order_core_charge_type_response_body import (
     CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseBody,
 )
+from .create_purchase_order_entity_purchase_order_purchase_order_part_public_variant_0241_c_1_beccae_type_response_body_unit_of_measure_type import (
+    CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariant0241C1BeccaeTypeResponseBodyUnitOfMeasureType,
+)
+from .create_purchase_order_entity_purchase_order_tax_adjustment_type_response_body import (
+    CreatePurchaseOrderEntityPurchaseOrderTaxAdjustmentTypeResponseBody,
+)
 from .entity_create_purchase_order_part_definition_ref_type_response_body import (
     EntityCreatePurchaseOrderPartDefinitionRefTypeResponseBody,
 )
 from .entity_create_purchase_order_place_ref_type_response_body import EntityCreatePurchaseOrderPlaceRefTypeResponseBody
 
 
-class CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariant7E1B94919242TypeResponseBody(
+class CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariant0241C1BeccaeTypeResponseBody(
     UniversalBaseModel
 ):
     """
@@ -61,15 +67,21 @@ class CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariant7E1B94
         FieldMetadata(alias="quantityReceived"),
         pydantic.Field(alias="quantityReceived", description="Quantity received on this line."),
     ] = None
+    tax: typing.Optional[CreatePurchaseOrderEntityPurchaseOrderTaxAdjustmentTypeResponseBody] = None
     unit_cost: typing_extensions.Annotated[
         typing.Optional[CreatePurchaseOrderEntityPurchaseOrderMoneyPublicVariant8749B9E1F4AfTypeResponseBody],
         FieldMetadata(alias="unitCost"),
         pydantic.Field(alias="unitCost"),
     ] = None
     unit_of_measure_type: typing_extensions.Annotated[
-        typing.Optional[str],
+        typing.Optional[
+            CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariant0241C1BeccaeTypeResponseBodyUnitOfMeasureType
+        ],
         FieldMetadata(alias="unitOfMeasureType"),
-        pydantic.Field(alias="unitOfMeasureType", description="Unit of measure for quantities on this line."),
+        pydantic.Field(
+            alias="unitOfMeasureType",
+            description="Unit of measure for quantities on this line.  Valid values: `Unknown`, `Each`, `Set`, `Pack`, `Box`, `Pound`, `Kilogram`, `Ounce`, `Liter`, `Milliliter`, `Gallon`, `Quart`, `FluidOunce`, `Inch`, `Foot`, `Meter`, `Yard`, `SquareFoot`, `SquareMeter`, `Pint`, `Hundred`, `Roll`",
+        ),
     ] = None
 
     if IS_PYDANTIC_V2:

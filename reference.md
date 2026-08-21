@@ -9236,7 +9236,7 @@ client = Samsara(
     token="YOUR_TOKEN",
 )
 client.beta_ap_is.create_purchase_order(
-    order_status="draft",
+    order_status="Unknown",
     vendor_id="281474976710656",
 )
 
@@ -9254,7 +9254,7 @@ client.beta_ap_is.create_purchase_order(
 <dl>
 <dd>
 
-**order_status:** `str` — Current customer-visible status of the purchase order.
+**order_status:** `EntityPurchaseOrdersServiceCreatePurchaseOrderRequestBodyOrderStatus` — Current customer-visible status of the purchase order.  Valid values: `Unknown`, `Draft`, `Open`, `InReview`, `Approved`, `Rejected`, `SentToVendor`, `PartiallyReceived`, `FullyReceived`, `Returned`, `Cancelled`, `Closed`
     
 </dd>
 </dl>
@@ -9306,7 +9306,7 @@ client.beta_ap_is.create_purchase_order(
 
 **parts:** `typing.Optional[
     typing.Sequence[
-        CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariantaf77215807F1TypeRequestBody
+        CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant63E9Febe395ETypeRequestBody
     ]
 ]` — Parts ordered on the purchase order.
     
@@ -9325,6 +9325,16 @@ client.beta_ap_is.create_purchase_order(
 <dd>
 
 **po_number_suffix:** `typing.Optional[str]` — Optional suffix included in the purchase order number.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**tax:** `typing.Optional[
+    CreatePurchaseOrderEntityPurchaseOrderTaxAdjustmentInputTypeRequestBody
+]` 
     
 </dd>
 </dl>
@@ -9518,7 +9528,9 @@ client.beta_ap_is.update_purchase_order(
 <dl>
 <dd>
 
-**order_status:** `typing.Optional[str]` — Current customer-visible status of the purchase order.
+**order_status:** `typing.Optional[
+    EntityPurchaseOrdersServiceUpdatePurchaseOrderRequestBodyOrderStatus
+]` — Current customer-visible status of the purchase order.  Valid values: `Unknown`, `Draft`, `Open`, `InReview`, `Approved`, `Rejected`, `SentToVendor`, `PartiallyReceived`, `FullyReceived`, `Returned`, `Cancelled`, `Closed`
     
 </dd>
 </dl>
@@ -9538,9 +9550,19 @@ client.beta_ap_is.update_purchase_order(
 
 **parts:** `typing.Optional[
     typing.Sequence[
-        UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVarianta398Dc3A25A6TypeRequestBody
+        UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant1A94E81632EaTypeRequestBody
     ]
 ]` — Parts ordered on the purchase order.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**tax:** `typing.Optional[
+    UpdatePurchaseOrderEntityPurchaseOrderTaxAdjustmentInputTypeRequestBody
+]` 
     
 </dd>
 </dl>

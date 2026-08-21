@@ -16,9 +16,15 @@ from .update_purchase_order_entity_purchase_order_money_public_variant_55_aeb_67
 from .update_purchase_order_entity_purchase_order_purchase_order_core_charge_type_response_body import (
     UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseBody,
 )
+from .update_purchase_order_entity_purchase_order_purchase_order_part_public_variantc_060_a_0106_cf_6_type_response_body_unit_of_measure_type import (
+    UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariantc060A0106Cf6TypeResponseBodyUnitOfMeasureType,
+)
+from .update_purchase_order_entity_purchase_order_tax_adjustment_type_response_body import (
+    UpdatePurchaseOrderEntityPurchaseOrderTaxAdjustmentTypeResponseBody,
+)
 
 
-class UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariant983F66355224TypeResponseBody(
+class UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariantc060A0106Cf6TypeResponseBody(
     UniversalBaseModel
 ):
     """
@@ -61,15 +67,21 @@ class UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariant983F66
         FieldMetadata(alias="quantityReceived"),
         pydantic.Field(alias="quantityReceived", description="Quantity received on this line."),
     ] = None
+    tax: typing.Optional[UpdatePurchaseOrderEntityPurchaseOrderTaxAdjustmentTypeResponseBody] = None
     unit_cost: typing_extensions.Annotated[
         typing.Optional[UpdatePurchaseOrderEntityPurchaseOrderMoneyPublicVariant55Aeb6731578TypeResponseBody],
         FieldMetadata(alias="unitCost"),
         pydantic.Field(alias="unitCost"),
     ] = None
     unit_of_measure_type: typing_extensions.Annotated[
-        typing.Optional[str],
+        typing.Optional[
+            UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariantc060A0106Cf6TypeResponseBodyUnitOfMeasureType
+        ],
         FieldMetadata(alias="unitOfMeasureType"),
-        pydantic.Field(alias="unitOfMeasureType", description="Unit of measure for quantities on this line."),
+        pydantic.Field(
+            alias="unitOfMeasureType",
+            description="Unit of measure for quantities on this line.  Valid values: `Unknown`, `Each`, `Set`, `Pack`, `Box`, `Pound`, `Kilogram`, `Ounce`, `Liter`, `Milliliter`, `Gallon`, `Quart`, `FluidOunce`, `Inch`, `Foot`, `Meter`, `Yard`, `SquareFoot`, `SquareMeter`, `Pint`, `Hundred`, `Roll`",
+        ),
     ] = None
 
     if IS_PYDANTIC_V2:

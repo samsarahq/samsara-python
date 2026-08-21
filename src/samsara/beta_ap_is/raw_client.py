@@ -80,8 +80,11 @@ from ..types.create_part_inventory_location_entity_part_inventory_location_money
 from ..types.create_purchase_order_entity_purchase_order_money_input_public_varianta_2_e_1675_a_5_a_65_type_request_body import (
     CreatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVarianta2E1675A5A65TypeRequestBody,
 )
-from ..types.create_purchase_order_entity_purchase_order_purchase_order_part_input_public_variantaf_77215807_f_1_type_request_body import (
-    CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariantaf77215807F1TypeRequestBody,
+from ..types.create_purchase_order_entity_purchase_order_purchase_order_part_input_public_variant_63_e_9_febe_395_e_type_request_body import (
+    CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant63E9Febe395ETypeRequestBody,
+)
+from ..types.create_purchase_order_entity_purchase_order_tax_adjustment_input_type_request_body import (
+    CreatePurchaseOrderEntityPurchaseOrderTaxAdjustmentInputTypeRequestBody,
 )
 from ..types.create_report_config_object_request_body import CreateReportConfigObjectRequestBody
 from ..types.create_shared_asset_request_object_request_body import CreateSharedAssetRequestObjectRequestBody
@@ -381,8 +384,11 @@ from ..types.update_part_inventory_location_entity_part_inventory_location_money
 from ..types.update_purchase_order_entity_purchase_order_money_input_public_varianta_34_bfd_5_a_4152_type_request_body import (
     UpdatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVarianta34Bfd5A4152TypeRequestBody,
 )
-from ..types.update_purchase_order_entity_purchase_order_purchase_order_part_input_public_varianta_398_dc_3_a_25_a_6_type_request_body import (
-    UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVarianta398Dc3A25A6TypeRequestBody,
+from ..types.update_purchase_order_entity_purchase_order_purchase_order_part_input_public_variant_1_a_94_e_81632_ea_type_request_body import (
+    UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant1A94E81632EaTypeRequestBody,
+)
+from ..types.update_purchase_order_entity_purchase_order_tax_adjustment_input_type_request_body import (
+    UpdatePurchaseOrderEntityPurchaseOrderTaxAdjustmentInputTypeRequestBody,
 )
 from ..types.update_shared_asset_request_object_request_body import UpdateSharedAssetRequestObjectRequestBody
 from ..types.update_warranty_claim_entity_warranty_claim_claim_reimbursement_input_type_request_body import (
@@ -435,6 +441,12 @@ from .types.entity_ground_intelligence_issues_service_update_ground_intelligence
 )
 from .types.entity_ground_intelligence_issues_service_update_ground_intelligence_issue_request_body_type import (
     EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyType,
+)
+from .types.entity_purchase_orders_service_create_purchase_order_request_body_order_status import (
+    EntityPurchaseOrdersServiceCreatePurchaseOrderRequestBodyOrderStatus,
+)
+from .types.entity_purchase_orders_service_update_purchase_order_request_body_order_status import (
+    EntityPurchaseOrdersServiceUpdatePurchaseOrderRequestBodyOrderStatus,
 )
 from .types.entity_watchpoints_service_create_watchpoint_request_body_mode import (
     EntityWatchpointsServiceCreateWatchpointRequestBodyMode,
@@ -15271,7 +15283,7 @@ class RawBetaApIsClient:
     def create_purchase_order(
         self,
         *,
-        order_status: str,
+        order_status: EntityPurchaseOrdersServiceCreatePurchaseOrderRequestBodyOrderStatus,
         vendor_id: str,
         gl_code: typing.Optional[str] = OMIT,
         invoice_number: typing.Optional[str] = OMIT,
@@ -15281,11 +15293,12 @@ class RawBetaApIsClient:
         ] = OMIT,
         parts: typing.Optional[
             typing.Sequence[
-                CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariantaf77215807F1TypeRequestBody
+                CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant63E9Febe395ETypeRequestBody
             ]
         ] = OMIT,
         po_number_prefix: typing.Optional[str] = OMIT,
         po_number_suffix: typing.Optional[str] = OMIT,
+        tax: typing.Optional[CreatePurchaseOrderEntityPurchaseOrderTaxAdjustmentInputTypeRequestBody] = OMIT,
         tracking_number: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[EntityPurchaseOrdersServiceCreatePurchaseOrderResponseBody]:
@@ -15301,8 +15314,8 @@ class RawBetaApIsClient:
 
         Parameters
         ----------
-        order_status : str
-            Current customer-visible status of the purchase order.
+        order_status : EntityPurchaseOrdersServiceCreatePurchaseOrderRequestBodyOrderStatus
+            Current customer-visible status of the purchase order.  Valid values: `Unknown`, `Draft`, `Open`, `InReview`, `Approved`, `Rejected`, `SentToVendor`, `PartiallyReceived`, `FullyReceived`, `Returned`, `Cancelled`, `Closed`
 
         vendor_id : str
             ID of the vendor supplying this purchase order.
@@ -15318,7 +15331,7 @@ class RawBetaApIsClient:
 
         other_cost : typing.Optional[CreatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVarianta2E1675A5A65TypeRequestBody]
 
-        parts : typing.Optional[typing.Sequence[CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariantaf77215807F1TypeRequestBody]]
+        parts : typing.Optional[typing.Sequence[CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant63E9Febe395ETypeRequestBody]]
             Parts ordered on the purchase order.
 
         po_number_prefix : typing.Optional[str]
@@ -15326,6 +15339,8 @@ class RawBetaApIsClient:
 
         po_number_suffix : typing.Optional[str]
             Optional suffix included in the purchase order number.
+
+        tax : typing.Optional[CreatePurchaseOrderEntityPurchaseOrderTaxAdjustmentInputTypeRequestBody]
 
         tracking_number : typing.Optional[str]
             Shipment tracking number for the purchase order.
@@ -15354,12 +15369,17 @@ class RawBetaApIsClient:
                 "parts": convert_and_respect_annotation_metadata(
                     object_=parts,
                     annotation=typing.Sequence[
-                        CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariantaf77215807F1TypeRequestBody
+                        CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant63E9Febe395ETypeRequestBody
                     ],
                     direction="write",
                 ),
                 "poNumberPrefix": po_number_prefix,
                 "poNumberSuffix": po_number_suffix,
+                "tax": convert_and_respect_annotation_metadata(
+                    object_=tax,
+                    annotation=CreatePurchaseOrderEntityPurchaseOrderTaxAdjustmentInputTypeRequestBody,
+                    direction="write",
+                ),
                 "trackingNumber": tracking_number,
                 "vendorId": vendor_id,
             },
@@ -15652,15 +15672,16 @@ class RawBetaApIsClient:
         gl_code: typing.Optional[str] = OMIT,
         invoice_number: typing.Optional[str] = OMIT,
         notes: typing.Optional[str] = OMIT,
-        order_status: typing.Optional[str] = OMIT,
+        order_status: typing.Optional[EntityPurchaseOrdersServiceUpdatePurchaseOrderRequestBodyOrderStatus] = OMIT,
         other_cost: typing.Optional[
             UpdatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVarianta34Bfd5A4152TypeRequestBody
         ] = OMIT,
         parts: typing.Optional[
             typing.Sequence[
-                UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVarianta398Dc3A25A6TypeRequestBody
+                UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant1A94E81632EaTypeRequestBody
             ]
         ] = OMIT,
+        tax: typing.Optional[UpdatePurchaseOrderEntityPurchaseOrderTaxAdjustmentInputTypeRequestBody] = OMIT,
         tracking_number: typing.Optional[str] = OMIT,
         vendor_id: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
@@ -15689,13 +15710,15 @@ class RawBetaApIsClient:
         notes : typing.Optional[str]
             Free-text notes for the purchase order.
 
-        order_status : typing.Optional[str]
-            Current customer-visible status of the purchase order.
+        order_status : typing.Optional[EntityPurchaseOrdersServiceUpdatePurchaseOrderRequestBodyOrderStatus]
+            Current customer-visible status of the purchase order.  Valid values: `Unknown`, `Draft`, `Open`, `InReview`, `Approved`, `Rejected`, `SentToVendor`, `PartiallyReceived`, `FullyReceived`, `Returned`, `Cancelled`, `Closed`
 
         other_cost : typing.Optional[UpdatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVarianta34Bfd5A4152TypeRequestBody]
 
-        parts : typing.Optional[typing.Sequence[UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVarianta398Dc3A25A6TypeRequestBody]]
+        parts : typing.Optional[typing.Sequence[UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant1A94E81632EaTypeRequestBody]]
             Parts ordered on the purchase order.
+
+        tax : typing.Optional[UpdatePurchaseOrderEntityPurchaseOrderTaxAdjustmentInputTypeRequestBody]
 
         tracking_number : typing.Optional[str]
             Shipment tracking number for the purchase order.
@@ -15730,8 +15753,13 @@ class RawBetaApIsClient:
                 "parts": convert_and_respect_annotation_metadata(
                     object_=parts,
                     annotation=typing.Sequence[
-                        UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVarianta398Dc3A25A6TypeRequestBody
+                        UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant1A94E81632EaTypeRequestBody
                     ],
+                    direction="write",
+                ),
+                "tax": convert_and_respect_annotation_metadata(
+                    object_=tax,
+                    annotation=UpdatePurchaseOrderEntityPurchaseOrderTaxAdjustmentInputTypeRequestBody,
                     direction="write",
                 ),
                 "trackingNumber": tracking_number,
@@ -39620,7 +39648,7 @@ class AsyncRawBetaApIsClient:
     async def create_purchase_order(
         self,
         *,
-        order_status: str,
+        order_status: EntityPurchaseOrdersServiceCreatePurchaseOrderRequestBodyOrderStatus,
         vendor_id: str,
         gl_code: typing.Optional[str] = OMIT,
         invoice_number: typing.Optional[str] = OMIT,
@@ -39630,11 +39658,12 @@ class AsyncRawBetaApIsClient:
         ] = OMIT,
         parts: typing.Optional[
             typing.Sequence[
-                CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariantaf77215807F1TypeRequestBody
+                CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant63E9Febe395ETypeRequestBody
             ]
         ] = OMIT,
         po_number_prefix: typing.Optional[str] = OMIT,
         po_number_suffix: typing.Optional[str] = OMIT,
+        tax: typing.Optional[CreatePurchaseOrderEntityPurchaseOrderTaxAdjustmentInputTypeRequestBody] = OMIT,
         tracking_number: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[EntityPurchaseOrdersServiceCreatePurchaseOrderResponseBody]:
@@ -39650,8 +39679,8 @@ class AsyncRawBetaApIsClient:
 
         Parameters
         ----------
-        order_status : str
-            Current customer-visible status of the purchase order.
+        order_status : EntityPurchaseOrdersServiceCreatePurchaseOrderRequestBodyOrderStatus
+            Current customer-visible status of the purchase order.  Valid values: `Unknown`, `Draft`, `Open`, `InReview`, `Approved`, `Rejected`, `SentToVendor`, `PartiallyReceived`, `FullyReceived`, `Returned`, `Cancelled`, `Closed`
 
         vendor_id : str
             ID of the vendor supplying this purchase order.
@@ -39667,7 +39696,7 @@ class AsyncRawBetaApIsClient:
 
         other_cost : typing.Optional[CreatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVarianta2E1675A5A65TypeRequestBody]
 
-        parts : typing.Optional[typing.Sequence[CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariantaf77215807F1TypeRequestBody]]
+        parts : typing.Optional[typing.Sequence[CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant63E9Febe395ETypeRequestBody]]
             Parts ordered on the purchase order.
 
         po_number_prefix : typing.Optional[str]
@@ -39675,6 +39704,8 @@ class AsyncRawBetaApIsClient:
 
         po_number_suffix : typing.Optional[str]
             Optional suffix included in the purchase order number.
+
+        tax : typing.Optional[CreatePurchaseOrderEntityPurchaseOrderTaxAdjustmentInputTypeRequestBody]
 
         tracking_number : typing.Optional[str]
             Shipment tracking number for the purchase order.
@@ -39703,12 +39734,17 @@ class AsyncRawBetaApIsClient:
                 "parts": convert_and_respect_annotation_metadata(
                     object_=parts,
                     annotation=typing.Sequence[
-                        CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariantaf77215807F1TypeRequestBody
+                        CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant63E9Febe395ETypeRequestBody
                     ],
                     direction="write",
                 ),
                 "poNumberPrefix": po_number_prefix,
                 "poNumberSuffix": po_number_suffix,
+                "tax": convert_and_respect_annotation_metadata(
+                    object_=tax,
+                    annotation=CreatePurchaseOrderEntityPurchaseOrderTaxAdjustmentInputTypeRequestBody,
+                    direction="write",
+                ),
                 "trackingNumber": tracking_number,
                 "vendorId": vendor_id,
             },
@@ -40001,15 +40037,16 @@ class AsyncRawBetaApIsClient:
         gl_code: typing.Optional[str] = OMIT,
         invoice_number: typing.Optional[str] = OMIT,
         notes: typing.Optional[str] = OMIT,
-        order_status: typing.Optional[str] = OMIT,
+        order_status: typing.Optional[EntityPurchaseOrdersServiceUpdatePurchaseOrderRequestBodyOrderStatus] = OMIT,
         other_cost: typing.Optional[
             UpdatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVarianta34Bfd5A4152TypeRequestBody
         ] = OMIT,
         parts: typing.Optional[
             typing.Sequence[
-                UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVarianta398Dc3A25A6TypeRequestBody
+                UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant1A94E81632EaTypeRequestBody
             ]
         ] = OMIT,
+        tax: typing.Optional[UpdatePurchaseOrderEntityPurchaseOrderTaxAdjustmentInputTypeRequestBody] = OMIT,
         tracking_number: typing.Optional[str] = OMIT,
         vendor_id: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
@@ -40038,13 +40075,15 @@ class AsyncRawBetaApIsClient:
         notes : typing.Optional[str]
             Free-text notes for the purchase order.
 
-        order_status : typing.Optional[str]
-            Current customer-visible status of the purchase order.
+        order_status : typing.Optional[EntityPurchaseOrdersServiceUpdatePurchaseOrderRequestBodyOrderStatus]
+            Current customer-visible status of the purchase order.  Valid values: `Unknown`, `Draft`, `Open`, `InReview`, `Approved`, `Rejected`, `SentToVendor`, `PartiallyReceived`, `FullyReceived`, `Returned`, `Cancelled`, `Closed`
 
         other_cost : typing.Optional[UpdatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVarianta34Bfd5A4152TypeRequestBody]
 
-        parts : typing.Optional[typing.Sequence[UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVarianta398Dc3A25A6TypeRequestBody]]
+        parts : typing.Optional[typing.Sequence[UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant1A94E81632EaTypeRequestBody]]
             Parts ordered on the purchase order.
+
+        tax : typing.Optional[UpdatePurchaseOrderEntityPurchaseOrderTaxAdjustmentInputTypeRequestBody]
 
         tracking_number : typing.Optional[str]
             Shipment tracking number for the purchase order.
@@ -40079,8 +40118,13 @@ class AsyncRawBetaApIsClient:
                 "parts": convert_and_respect_annotation_metadata(
                     object_=parts,
                     annotation=typing.Sequence[
-                        UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVarianta398Dc3A25A6TypeRequestBody
+                        UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant1A94E81632EaTypeRequestBody
                     ],
+                    direction="write",
+                ),
+                "tax": convert_and_respect_annotation_metadata(
+                    object_=tax,
+                    annotation=UpdatePurchaseOrderEntityPurchaseOrderTaxAdjustmentInputTypeRequestBody,
                     direction="write",
                 ),
                 "trackingNumber": tracking_number,
