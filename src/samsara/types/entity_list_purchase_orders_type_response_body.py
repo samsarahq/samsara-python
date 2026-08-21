@@ -6,6 +6,12 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .entity_list_purchase_orders_type_response_body_creation_source import (
+    EntityListPurchaseOrdersTypeResponseBodyCreationSource,
+)
+from .entity_list_purchase_orders_type_response_body_order_status import (
+    EntityListPurchaseOrdersTypeResponseBodyOrderStatus,
+)
 from .entity_list_purchase_orders_vendor_ref_public_variant_07_ae_4_b_76_c_2_ba_type_response_body import (
     EntityListPurchaseOrdersVendorRefPublicVariant07Ae4B76C2BaTypeResponseBody,
 )
@@ -14,6 +20,9 @@ from .list_purchase_orders_entity_purchase_order_money_type_response_body import
 )
 from .list_purchase_orders_entity_purchase_order_purchase_order_part_type_response_body import (
     ListPurchaseOrdersEntityPurchaseOrderPurchaseOrderPartTypeResponseBody,
+)
+from .list_purchase_orders_entity_purchase_order_tax_adjustment_type_response_body import (
+    ListPurchaseOrdersEntityPurchaseOrderTaxAdjustmentTypeResponseBody,
 )
 
 
@@ -28,9 +37,12 @@ class EntityListPurchaseOrdersTypeResponseBody(UniversalBaseModel):
         pydantic.Field(alias="createdAtTime", description="RFC3339 time when the purchase order was created."),
     ] = None
     creation_source: typing_extensions.Annotated[
-        typing.Optional[str],
+        typing.Optional[EntityListPurchaseOrdersTypeResponseBodyCreationSource],
         FieldMetadata(alias="creationSource"),
-        pydantic.Field(alias="creationSource", description="Source that created the purchase order."),
+        pydantic.Field(
+            alias="creationSource",
+            description="Source that created the purchase order.  Valid values: `Unknown`, `User`, `ScanPackingList`",
+        ),
     ] = None
     delivery_at_time: typing_extensions.Annotated[
         typing.Optional[str],
@@ -73,9 +85,12 @@ class EntityListPurchaseOrdersTypeResponseBody(UniversalBaseModel):
     """
 
     order_status: typing_extensions.Annotated[
-        typing.Optional[str],
+        typing.Optional[EntityListPurchaseOrdersTypeResponseBodyOrderStatus],
         FieldMetadata(alias="orderStatus"),
-        pydantic.Field(alias="orderStatus", description="Current customer-visible status of the purchase order."),
+        pydantic.Field(
+            alias="orderStatus",
+            description="Current customer-visible status of the purchase order.  Valid values: `Unknown`, `Draft`, `Open`, `InReview`, `Approved`, `Rejected`, `SentToVendor`, `PartiallyReceived`, `FullyReceived`, `Returned`, `Cancelled`, `Closed`",
+        ),
     ] = None
     other_cost: typing_extensions.Annotated[
         typing.Optional[ListPurchaseOrdersEntityPurchaseOrderMoneyTypeResponseBody],
@@ -108,6 +123,12 @@ class EntityListPurchaseOrdersTypeResponseBody(UniversalBaseModel):
         typing.Optional[str],
         FieldMetadata(alias="sentAtTime"),
         pydantic.Field(alias="sentAtTime", description="RFC3339 time when the purchase order was sent to its vendor."),
+    ] = None
+    tax: typing.Optional[ListPurchaseOrdersEntityPurchaseOrderTaxAdjustmentTypeResponseBody] = None
+    tax_total: typing_extensions.Annotated[
+        typing.Optional[ListPurchaseOrdersEntityPurchaseOrderMoneyTypeResponseBody],
+        FieldMetadata(alias="taxTotal"),
+        pydantic.Field(alias="taxTotal"),
     ] = None
     tracking_number: typing_extensions.Annotated[
         typing.Optional[str],

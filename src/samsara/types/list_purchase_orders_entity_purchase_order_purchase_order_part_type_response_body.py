@@ -16,6 +16,12 @@ from .list_purchase_orders_entity_purchase_order_money_type_response_body import
 from .list_purchase_orders_entity_purchase_order_purchase_order_core_charge_type_response_body import (
     ListPurchaseOrdersEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseBody,
 )
+from .list_purchase_orders_entity_purchase_order_purchase_order_part_type_response_body_unit_of_measure_type import (
+    ListPurchaseOrdersEntityPurchaseOrderPurchaseOrderPartTypeResponseBodyUnitOfMeasureType,
+)
+from .list_purchase_orders_entity_purchase_order_tax_adjustment_type_response_body import (
+    ListPurchaseOrdersEntityPurchaseOrderTaxAdjustmentTypeResponseBody,
+)
 
 
 class ListPurchaseOrdersEntityPurchaseOrderPurchaseOrderPartTypeResponseBody(UniversalBaseModel):
@@ -59,15 +65,19 @@ class ListPurchaseOrdersEntityPurchaseOrderPurchaseOrderPartTypeResponseBody(Uni
         FieldMetadata(alias="quantityReceived"),
         pydantic.Field(alias="quantityReceived", description="Quantity received on this line."),
     ] = None
+    tax: typing.Optional[ListPurchaseOrdersEntityPurchaseOrderTaxAdjustmentTypeResponseBody] = None
     unit_cost: typing_extensions.Annotated[
         typing.Optional[ListPurchaseOrdersEntityPurchaseOrderMoneyTypeResponseBody],
         FieldMetadata(alias="unitCost"),
         pydantic.Field(alias="unitCost"),
     ] = None
     unit_of_measure_type: typing_extensions.Annotated[
-        typing.Optional[str],
+        typing.Optional[ListPurchaseOrdersEntityPurchaseOrderPurchaseOrderPartTypeResponseBodyUnitOfMeasureType],
         FieldMetadata(alias="unitOfMeasureType"),
-        pydantic.Field(alias="unitOfMeasureType", description="Unit of measure for quantities on this line."),
+        pydantic.Field(
+            alias="unitOfMeasureType",
+            description="Unit of measure for quantities on this line.  Valid values: `Unknown`, `Each`, `Set`, `Pack`, `Box`, `Pound`, `Kilogram`, `Ounce`, `Liter`, `Milliliter`, `Gallon`, `Quart`, `FluidOunce`, `Inch`, `Foot`, `Meter`, `Yard`, `SquareFoot`, `SquareMeter`, `Pint`, `Hundred`, `Roll`",
+        ),
     ] = None
 
     if IS_PYDANTIC_V2:

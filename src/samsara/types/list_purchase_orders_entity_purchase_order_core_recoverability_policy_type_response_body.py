@@ -6,6 +6,9 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .list_purchase_orders_entity_purchase_order_core_recoverability_policy_type_response_body_policy_type import (
+    ListPurchaseOrdersEntityPurchaseOrderCoreRecoverabilityPolicyTypeResponseBodyPolicyType,
+)
 
 
 class ListPurchaseOrdersEntityPurchaseOrderCoreRecoverabilityPolicyTypeResponseBody(UniversalBaseModel):
@@ -19,9 +22,12 @@ class ListPurchaseOrdersEntityPurchaseOrderCoreRecoverabilityPolicyTypeResponseB
         pydantic.Field(alias="fixedRecoverableUntilTime", description="Absolute deadline for core return."),
     ] = None
     policy_type: typing_extensions.Annotated[
-        typing.Optional[str],
+        typing.Optional[ListPurchaseOrdersEntityPurchaseOrderCoreRecoverabilityPolicyTypeResponseBodyPolicyType],
         FieldMetadata(alias="policyType"),
-        pydantic.Field(alias="policyType", description="Recoverability policy type."),
+        pydantic.Field(
+            alias="policyType",
+            description="Recoverability policy type.  Valid values: `Unknown`, `RelativeToReceipt`, `FixedDate`, `NoDeadline`",
+        ),
     ] = None
     relative_window_duration: typing_extensions.Annotated[
         typing.Optional[int],

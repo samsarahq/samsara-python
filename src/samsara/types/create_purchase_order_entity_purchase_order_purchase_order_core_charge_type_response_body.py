@@ -12,6 +12,9 @@ from .create_purchase_order_entity_purchase_order_core_recoverability_policy_typ
 from .create_purchase_order_entity_purchase_order_money_type_response_body import (
     CreatePurchaseOrderEntityPurchaseOrderMoneyTypeResponseBody,
 )
+from .create_purchase_order_entity_purchase_order_purchase_order_core_charge_type_response_body_core_charge_status import (
+    CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseBodyCoreChargeStatus,
+)
 from .entity_create_purchase_order_part_definition_ref_type_response_body import (
     EntityCreatePurchaseOrderPartDefinitionRefTypeResponseBody,
 )
@@ -26,10 +29,11 @@ class CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseB
     """
 
     core_charge_status: typing_extensions.Annotated[
-        typing.Optional[str],
+        typing.Optional[CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseBodyCoreChargeStatus],
         FieldMetadata(alias="coreChargeStatus"),
         pydantic.Field(
-            alias="coreChargeStatus", description="Whether the core charge is active or removed or disabled."
+            alias="coreChargeStatus",
+            description="Whether the core charge is active or removed or disabled.  Valid values: `Unknown`, `Active`, `RemovedOrDisabled`",
         ),
     ] = None
     core_part_samsara: typing_extensions.Annotated[

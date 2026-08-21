@@ -1321,8 +1321,14 @@ if typing.TYPE_CHECKING:
     from .create_purchase_order_entity_purchase_order_core_recoverability_policy_input_type_request_body import (
         CreatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicyInputTypeRequestBody,
     )
+    from .create_purchase_order_entity_purchase_order_core_recoverability_policy_input_type_request_body_policy_type import (
+        CreatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicyInputTypeRequestBodyPolicyType,
+    )
     from .create_purchase_order_entity_purchase_order_core_recoverability_policy_type_response_body import (
         CreatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicyTypeResponseBody,
+    )
+    from .create_purchase_order_entity_purchase_order_core_recoverability_policy_type_response_body_policy_type import (
+        CreatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicyTypeResponseBodyPolicyType,
     )
     from .create_purchase_order_entity_purchase_order_money_input_public_varianta_2_e_1675_a_5_a_65_type_request_body import (
         CreatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVarianta2E1675A5A65TypeRequestBody,
@@ -1339,14 +1345,32 @@ if typing.TYPE_CHECKING:
     from .create_purchase_order_entity_purchase_order_purchase_order_core_charge_input_type_request_body import (
         CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeInputTypeRequestBody,
     )
+    from .create_purchase_order_entity_purchase_order_purchase_order_core_charge_input_type_request_body_core_charge_status import (
+        CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeInputTypeRequestBodyCoreChargeStatus,
+    )
     from .create_purchase_order_entity_purchase_order_purchase_order_core_charge_type_response_body import (
         CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseBody,
     )
-    from .create_purchase_order_entity_purchase_order_purchase_order_part_input_public_variantaf_77215807_f_1_type_request_body import (
-        CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariantaf77215807F1TypeRequestBody,
+    from .create_purchase_order_entity_purchase_order_purchase_order_core_charge_type_response_body_core_charge_status import (
+        CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseBodyCoreChargeStatus,
     )
-    from .create_purchase_order_entity_purchase_order_purchase_order_part_public_variant_7_e_1_b_94919242_type_response_body import (
-        CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariant7E1B94919242TypeResponseBody,
+    from .create_purchase_order_entity_purchase_order_purchase_order_part_input_public_variant_63_e_9_febe_395_e_type_request_body import (
+        CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant63E9Febe395ETypeRequestBody,
+    )
+    from .create_purchase_order_entity_purchase_order_purchase_order_part_input_public_variant_63_e_9_febe_395_e_type_request_body_unit_of_measure_type import (
+        CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant63E9Febe395ETypeRequestBodyUnitOfMeasureType,
+    )
+    from .create_purchase_order_entity_purchase_order_purchase_order_part_public_variant_0241_c_1_beccae_type_response_body import (
+        CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariant0241C1BeccaeTypeResponseBody,
+    )
+    from .create_purchase_order_entity_purchase_order_purchase_order_part_public_variant_0241_c_1_beccae_type_response_body_unit_of_measure_type import (
+        CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariant0241C1BeccaeTypeResponseBodyUnitOfMeasureType,
+    )
+    from .create_purchase_order_entity_purchase_order_tax_adjustment_input_type_request_body import (
+        CreatePurchaseOrderEntityPurchaseOrderTaxAdjustmentInputTypeRequestBody,
+    )
+    from .create_purchase_order_entity_purchase_order_tax_adjustment_type_response_body import (
+        CreatePurchaseOrderEntityPurchaseOrderTaxAdjustmentTypeResponseBody,
     )
     from .create_report_config_column_request_body import CreateReportConfigColumnRequestBody
     from .create_report_config_object_request_body import CreateReportConfigObjectRequestBody
@@ -2748,6 +2772,12 @@ if typing.TYPE_CHECKING:
         EntityCreatePurchaseOrderPlaceRefTypeResponseBody,
     )
     from .entity_create_purchase_order_type_response_body import EntityCreatePurchaseOrderTypeResponseBody
+    from .entity_create_purchase_order_type_response_body_creation_source import (
+        EntityCreatePurchaseOrderTypeResponseBodyCreationSource,
+    )
+    from .entity_create_purchase_order_type_response_body_order_status import (
+        EntityCreatePurchaseOrderTypeResponseBodyOrderStatus,
+    )
     from .entity_create_purchase_order_vendor_ref_public_variant_07_ae_4_b_76_c_2_ba_type_response_body import (
         EntityCreatePurchaseOrderVendorRefPublicVariant07Ae4B76C2BaTypeResponseBody,
     )
@@ -2905,6 +2935,12 @@ if typing.TYPE_CHECKING:
         EntityListPurchaseOrdersPlaceRefTypeResponseBody,
     )
     from .entity_list_purchase_orders_type_response_body import EntityListPurchaseOrdersTypeResponseBody
+    from .entity_list_purchase_orders_type_response_body_creation_source import (
+        EntityListPurchaseOrdersTypeResponseBodyCreationSource,
+    )
+    from .entity_list_purchase_orders_type_response_body_order_status import (
+        EntityListPurchaseOrdersTypeResponseBodyOrderStatus,
+    )
     from .entity_list_purchase_orders_vendor_ref_public_variant_07_ae_4_b_76_c_2_ba_type_response_body import (
         EntityListPurchaseOrdersVendorRefPublicVariant07Ae4B76C2BaTypeResponseBody,
     )
@@ -3482,6 +3518,12 @@ if typing.TYPE_CHECKING:
         EntityUpdatePurchaseOrderPlaceRefTypeResponseBody,
     )
     from .entity_update_purchase_order_type_response_body import EntityUpdatePurchaseOrderTypeResponseBody
+    from .entity_update_purchase_order_type_response_body_creation_source import (
+        EntityUpdatePurchaseOrderTypeResponseBodyCreationSource,
+    )
+    from .entity_update_purchase_order_type_response_body_order_status import (
+        EntityUpdatePurchaseOrderTypeResponseBodyOrderStatus,
+    )
     from .entity_update_purchase_order_vendor_ref_public_variant_07_ae_4_b_76_c_2_ba_type_response_body import (
         EntityUpdatePurchaseOrderVendorRefPublicVariant07Ae4B76C2BaTypeResponseBody,
     )
@@ -6264,14 +6306,26 @@ if typing.TYPE_CHECKING:
     from .list_purchase_orders_entity_purchase_order_core_recoverability_policy_type_response_body import (
         ListPurchaseOrdersEntityPurchaseOrderCoreRecoverabilityPolicyTypeResponseBody,
     )
+    from .list_purchase_orders_entity_purchase_order_core_recoverability_policy_type_response_body_policy_type import (
+        ListPurchaseOrdersEntityPurchaseOrderCoreRecoverabilityPolicyTypeResponseBodyPolicyType,
+    )
     from .list_purchase_orders_entity_purchase_order_money_type_response_body import (
         ListPurchaseOrdersEntityPurchaseOrderMoneyTypeResponseBody,
     )
     from .list_purchase_orders_entity_purchase_order_purchase_order_core_charge_type_response_body import (
         ListPurchaseOrdersEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseBody,
     )
+    from .list_purchase_orders_entity_purchase_order_purchase_order_core_charge_type_response_body_core_charge_status import (
+        ListPurchaseOrdersEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseBodyCoreChargeStatus,
+    )
     from .list_purchase_orders_entity_purchase_order_purchase_order_part_type_response_body import (
         ListPurchaseOrdersEntityPurchaseOrderPurchaseOrderPartTypeResponseBody,
+    )
+    from .list_purchase_orders_entity_purchase_order_purchase_order_part_type_response_body_unit_of_measure_type import (
+        ListPurchaseOrdersEntityPurchaseOrderPurchaseOrderPartTypeResponseBodyUnitOfMeasureType,
+    )
+    from .list_purchase_orders_entity_purchase_order_tax_adjustment_type_response_body import (
+        ListPurchaseOrdersEntityPurchaseOrderTaxAdjustmentTypeResponseBody,
     )
     from .list_tags_response import ListTagsResponse
     from .list_time_entries_entity_time_entry_money_type_response_body import (
@@ -10187,8 +10241,14 @@ if typing.TYPE_CHECKING:
     from .update_purchase_order_entity_purchase_order_core_recoverability_policy_input_type_request_body import (
         UpdatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicyInputTypeRequestBody,
     )
+    from .update_purchase_order_entity_purchase_order_core_recoverability_policy_input_type_request_body_policy_type import (
+        UpdatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicyInputTypeRequestBodyPolicyType,
+    )
     from .update_purchase_order_entity_purchase_order_core_recoverability_policy_type_response_body import (
         UpdatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicyTypeResponseBody,
+    )
+    from .update_purchase_order_entity_purchase_order_core_recoverability_policy_type_response_body_policy_type import (
+        UpdatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicyTypeResponseBodyPolicyType,
     )
     from .update_purchase_order_entity_purchase_order_money_input_public_varianta_34_bfd_5_a_4152_type_request_body import (
         UpdatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVarianta34Bfd5A4152TypeRequestBody,
@@ -10205,14 +10265,32 @@ if typing.TYPE_CHECKING:
     from .update_purchase_order_entity_purchase_order_purchase_order_core_charge_input_type_request_body import (
         UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeInputTypeRequestBody,
     )
+    from .update_purchase_order_entity_purchase_order_purchase_order_core_charge_input_type_request_body_core_charge_status import (
+        UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeInputTypeRequestBodyCoreChargeStatus,
+    )
     from .update_purchase_order_entity_purchase_order_purchase_order_core_charge_type_response_body import (
         UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseBody,
     )
-    from .update_purchase_order_entity_purchase_order_purchase_order_part_input_public_varianta_398_dc_3_a_25_a_6_type_request_body import (
-        UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVarianta398Dc3A25A6TypeRequestBody,
+    from .update_purchase_order_entity_purchase_order_purchase_order_core_charge_type_response_body_core_charge_status import (
+        UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseBodyCoreChargeStatus,
     )
-    from .update_purchase_order_entity_purchase_order_purchase_order_part_public_variant_983_f_66355224_type_response_body import (
-        UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariant983F66355224TypeResponseBody,
+    from .update_purchase_order_entity_purchase_order_purchase_order_part_input_public_variant_1_a_94_e_81632_ea_type_request_body import (
+        UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant1A94E81632EaTypeRequestBody,
+    )
+    from .update_purchase_order_entity_purchase_order_purchase_order_part_input_public_variant_1_a_94_e_81632_ea_type_request_body_unit_of_measure_type import (
+        UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant1A94E81632EaTypeRequestBodyUnitOfMeasureType,
+    )
+    from .update_purchase_order_entity_purchase_order_purchase_order_part_public_variantc_060_a_0106_cf_6_type_response_body import (
+        UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariantc060A0106Cf6TypeResponseBody,
+    )
+    from .update_purchase_order_entity_purchase_order_purchase_order_part_public_variantc_060_a_0106_cf_6_type_response_body_unit_of_measure_type import (
+        UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariantc060A0106Cf6TypeResponseBodyUnitOfMeasureType,
+    )
+    from .update_purchase_order_entity_purchase_order_tax_adjustment_input_type_request_body import (
+        UpdatePurchaseOrderEntityPurchaseOrderTaxAdjustmentInputTypeRequestBody,
+    )
+    from .update_purchase_order_entity_purchase_order_tax_adjustment_type_response_body import (
+        UpdatePurchaseOrderEntityPurchaseOrderTaxAdjustmentTypeResponseBody,
     )
     from .update_routes_stop_request_object_request_body import UpdateRoutesStopRequestObjectRequestBody
     from .update_shared_asset_request_object_request_body import UpdateSharedAssetRequestObjectRequestBody
@@ -11923,15 +12001,23 @@ _dynamic_imports: typing.Dict[str, str] = {
     "CreatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody": ".create_part_inventory_location_entity_part_inventory_location_money_input_type_request_body",
     "CreatePartInventoryLocationEntityPartInventoryLocationMoneyTypeResponseBody": ".create_part_inventory_location_entity_part_inventory_location_money_type_response_body",
     "CreatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicyInputTypeRequestBody": ".create_purchase_order_entity_purchase_order_core_recoverability_policy_input_type_request_body",
+    "CreatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicyInputTypeRequestBodyPolicyType": ".create_purchase_order_entity_purchase_order_core_recoverability_policy_input_type_request_body_policy_type",
     "CreatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicyTypeResponseBody": ".create_purchase_order_entity_purchase_order_core_recoverability_policy_type_response_body",
+    "CreatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicyTypeResponseBodyPolicyType": ".create_purchase_order_entity_purchase_order_core_recoverability_policy_type_response_body_policy_type",
     "CreatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVarianta2E1675A5A65TypeRequestBody": ".create_purchase_order_entity_purchase_order_money_input_public_varianta_2_e_1675_a_5_a_65_type_request_body",
     "CreatePurchaseOrderEntityPurchaseOrderMoneyInputTypeRequestBody": ".create_purchase_order_entity_purchase_order_money_input_type_request_body",
     "CreatePurchaseOrderEntityPurchaseOrderMoneyPublicVariant8749B9E1F4AfTypeResponseBody": ".create_purchase_order_entity_purchase_order_money_public_variant_8749_b_9_e_1_f_4_af_type_response_body",
     "CreatePurchaseOrderEntityPurchaseOrderMoneyTypeResponseBody": ".create_purchase_order_entity_purchase_order_money_type_response_body",
     "CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeInputTypeRequestBody": ".create_purchase_order_entity_purchase_order_purchase_order_core_charge_input_type_request_body",
+    "CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeInputTypeRequestBodyCoreChargeStatus": ".create_purchase_order_entity_purchase_order_purchase_order_core_charge_input_type_request_body_core_charge_status",
     "CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseBody": ".create_purchase_order_entity_purchase_order_purchase_order_core_charge_type_response_body",
-    "CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariantaf77215807F1TypeRequestBody": ".create_purchase_order_entity_purchase_order_purchase_order_part_input_public_variantaf_77215807_f_1_type_request_body",
-    "CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariant7E1B94919242TypeResponseBody": ".create_purchase_order_entity_purchase_order_purchase_order_part_public_variant_7_e_1_b_94919242_type_response_body",
+    "CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseBodyCoreChargeStatus": ".create_purchase_order_entity_purchase_order_purchase_order_core_charge_type_response_body_core_charge_status",
+    "CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant63E9Febe395ETypeRequestBody": ".create_purchase_order_entity_purchase_order_purchase_order_part_input_public_variant_63_e_9_febe_395_e_type_request_body",
+    "CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant63E9Febe395ETypeRequestBodyUnitOfMeasureType": ".create_purchase_order_entity_purchase_order_purchase_order_part_input_public_variant_63_e_9_febe_395_e_type_request_body_unit_of_measure_type",
+    "CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariant0241C1BeccaeTypeResponseBody": ".create_purchase_order_entity_purchase_order_purchase_order_part_public_variant_0241_c_1_beccae_type_response_body",
+    "CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariant0241C1BeccaeTypeResponseBodyUnitOfMeasureType": ".create_purchase_order_entity_purchase_order_purchase_order_part_public_variant_0241_c_1_beccae_type_response_body_unit_of_measure_type",
+    "CreatePurchaseOrderEntityPurchaseOrderTaxAdjustmentInputTypeRequestBody": ".create_purchase_order_entity_purchase_order_tax_adjustment_input_type_request_body",
+    "CreatePurchaseOrderEntityPurchaseOrderTaxAdjustmentTypeResponseBody": ".create_purchase_order_entity_purchase_order_tax_adjustment_type_response_body",
     "CreateReportConfigColumnRequestBody": ".create_report_config_column_request_body",
     "CreateReportConfigObjectRequestBody": ".create_report_config_object_request_body",
     "CreateRouteStopWithOrdersRequestObjectRequestBody": ".create_route_stop_with_orders_request_object_request_body",
@@ -12566,6 +12652,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EntityCreatePurchaseOrderPartDefinitionRefTypeResponseBody": ".entity_create_purchase_order_part_definition_ref_type_response_body",
     "EntityCreatePurchaseOrderPlaceRefTypeResponseBody": ".entity_create_purchase_order_place_ref_type_response_body",
     "EntityCreatePurchaseOrderTypeResponseBody": ".entity_create_purchase_order_type_response_body",
+    "EntityCreatePurchaseOrderTypeResponseBodyCreationSource": ".entity_create_purchase_order_type_response_body_creation_source",
+    "EntityCreatePurchaseOrderTypeResponseBodyOrderStatus": ".entity_create_purchase_order_type_response_body_order_status",
     "EntityCreatePurchaseOrderVendorRefPublicVariant07Ae4B76C2BaTypeResponseBody": ".entity_create_purchase_order_vendor_ref_public_variant_07_ae_4_b_76_c_2_ba_type_response_body",
     "EntityCreatePurchaseOrderVendorRefTypeResponseBody": ".entity_create_purchase_order_vendor_ref_type_response_body",
     "EntityCreateStockMovementMoneyInputTypeRequestBody": ".entity_create_stock_movement_money_input_type_request_body",
@@ -12627,6 +12715,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EntityListPurchaseOrdersPartDefinitionRefTypeResponseBody": ".entity_list_purchase_orders_part_definition_ref_type_response_body",
     "EntityListPurchaseOrdersPlaceRefTypeResponseBody": ".entity_list_purchase_orders_place_ref_type_response_body",
     "EntityListPurchaseOrdersTypeResponseBody": ".entity_list_purchase_orders_type_response_body",
+    "EntityListPurchaseOrdersTypeResponseBodyCreationSource": ".entity_list_purchase_orders_type_response_body_creation_source",
+    "EntityListPurchaseOrdersTypeResponseBodyOrderStatus": ".entity_list_purchase_orders_type_response_body_order_status",
     "EntityListPurchaseOrdersVendorRefPublicVariant07Ae4B76C2BaTypeResponseBody": ".entity_list_purchase_orders_vendor_ref_public_variant_07_ae_4_b_76_c_2_ba_type_response_body",
     "EntityListPurchaseOrdersVendorRefTypeResponseBody": ".entity_list_purchase_orders_vendor_ref_type_response_body",
     "EntityListTachographLiveDataTypeResponseBody": ".entity_list_tachograph_live_data_type_response_body",
@@ -12824,6 +12914,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EntityUpdatePurchaseOrderPartDefinitionRefTypeResponseBody": ".entity_update_purchase_order_part_definition_ref_type_response_body",
     "EntityUpdatePurchaseOrderPlaceRefTypeResponseBody": ".entity_update_purchase_order_place_ref_type_response_body",
     "EntityUpdatePurchaseOrderTypeResponseBody": ".entity_update_purchase_order_type_response_body",
+    "EntityUpdatePurchaseOrderTypeResponseBodyCreationSource": ".entity_update_purchase_order_type_response_body_creation_source",
+    "EntityUpdatePurchaseOrderTypeResponseBodyOrderStatus": ".entity_update_purchase_order_type_response_body_order_status",
     "EntityUpdatePurchaseOrderVendorRefPublicVariant07Ae4B76C2BaTypeResponseBody": ".entity_update_purchase_order_vendor_ref_public_variant_07_ae_4_b_76_c_2_ba_type_response_body",
     "EntityUpdatePurchaseOrderVendorRefTypeResponseBody": ".entity_update_purchase_order_vendor_ref_type_response_body",
     "EntityUpdateUpcomingPreventiveMaintenanceAssetRefTypeResponseBody": ".entity_update_upcoming_preventive_maintenance_asset_ref_type_response_body",
@@ -14070,9 +14162,13 @@ _dynamic_imports: typing.Dict[str, str] = {
     "ListPartsEntityPartDefinitionMoneyTypeResponseBody": ".list_parts_entity_part_definition_money_type_response_body",
     "ListPlanOrdersResponsePaginationResponseBody": ".list_plan_orders_response_pagination_response_body",
     "ListPurchaseOrdersEntityPurchaseOrderCoreRecoverabilityPolicyTypeResponseBody": ".list_purchase_orders_entity_purchase_order_core_recoverability_policy_type_response_body",
+    "ListPurchaseOrdersEntityPurchaseOrderCoreRecoverabilityPolicyTypeResponseBodyPolicyType": ".list_purchase_orders_entity_purchase_order_core_recoverability_policy_type_response_body_policy_type",
     "ListPurchaseOrdersEntityPurchaseOrderMoneyTypeResponseBody": ".list_purchase_orders_entity_purchase_order_money_type_response_body",
     "ListPurchaseOrdersEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseBody": ".list_purchase_orders_entity_purchase_order_purchase_order_core_charge_type_response_body",
+    "ListPurchaseOrdersEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseBodyCoreChargeStatus": ".list_purchase_orders_entity_purchase_order_purchase_order_core_charge_type_response_body_core_charge_status",
     "ListPurchaseOrdersEntityPurchaseOrderPurchaseOrderPartTypeResponseBody": ".list_purchase_orders_entity_purchase_order_purchase_order_part_type_response_body",
+    "ListPurchaseOrdersEntityPurchaseOrderPurchaseOrderPartTypeResponseBodyUnitOfMeasureType": ".list_purchase_orders_entity_purchase_order_purchase_order_part_type_response_body_unit_of_measure_type",
+    "ListPurchaseOrdersEntityPurchaseOrderTaxAdjustmentTypeResponseBody": ".list_purchase_orders_entity_purchase_order_tax_adjustment_type_response_body",
     "ListTagsResponse": ".list_tags_response",
     "ListTimeEntriesEntityTimeEntryMoneyTypeResponseBody": ".list_time_entries_entity_time_entry_money_type_response_body",
     "ListTimeEntriesEntityTimeEntryTimeEntryLocationTypeResponseBody": ".list_time_entries_entity_time_entry_time_entry_location_type_response_body",
@@ -15783,15 +15879,23 @@ _dynamic_imports: typing.Dict[str, str] = {
     "UpdatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody": ".update_part_inventory_location_entity_part_inventory_location_money_input_type_request_body",
     "UpdatePartInventoryLocationEntityPartInventoryLocationMoneyTypeResponseBody": ".update_part_inventory_location_entity_part_inventory_location_money_type_response_body",
     "UpdatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicyInputTypeRequestBody": ".update_purchase_order_entity_purchase_order_core_recoverability_policy_input_type_request_body",
+    "UpdatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicyInputTypeRequestBodyPolicyType": ".update_purchase_order_entity_purchase_order_core_recoverability_policy_input_type_request_body_policy_type",
     "UpdatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicyTypeResponseBody": ".update_purchase_order_entity_purchase_order_core_recoverability_policy_type_response_body",
+    "UpdatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicyTypeResponseBodyPolicyType": ".update_purchase_order_entity_purchase_order_core_recoverability_policy_type_response_body_policy_type",
     "UpdatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVarianta34Bfd5A4152TypeRequestBody": ".update_purchase_order_entity_purchase_order_money_input_public_varianta_34_bfd_5_a_4152_type_request_body",
     "UpdatePurchaseOrderEntityPurchaseOrderMoneyInputTypeRequestBody": ".update_purchase_order_entity_purchase_order_money_input_type_request_body",
     "UpdatePurchaseOrderEntityPurchaseOrderMoneyPublicVariant55Aeb6731578TypeResponseBody": ".update_purchase_order_entity_purchase_order_money_public_variant_55_aeb_6731578_type_response_body",
     "UpdatePurchaseOrderEntityPurchaseOrderMoneyTypeResponseBody": ".update_purchase_order_entity_purchase_order_money_type_response_body",
     "UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeInputTypeRequestBody": ".update_purchase_order_entity_purchase_order_purchase_order_core_charge_input_type_request_body",
+    "UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeInputTypeRequestBodyCoreChargeStatus": ".update_purchase_order_entity_purchase_order_purchase_order_core_charge_input_type_request_body_core_charge_status",
     "UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseBody": ".update_purchase_order_entity_purchase_order_purchase_order_core_charge_type_response_body",
-    "UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVarianta398Dc3A25A6TypeRequestBody": ".update_purchase_order_entity_purchase_order_purchase_order_part_input_public_varianta_398_dc_3_a_25_a_6_type_request_body",
-    "UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariant983F66355224TypeResponseBody": ".update_purchase_order_entity_purchase_order_purchase_order_part_public_variant_983_f_66355224_type_response_body",
+    "UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseBodyCoreChargeStatus": ".update_purchase_order_entity_purchase_order_purchase_order_core_charge_type_response_body_core_charge_status",
+    "UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant1A94E81632EaTypeRequestBody": ".update_purchase_order_entity_purchase_order_purchase_order_part_input_public_variant_1_a_94_e_81632_ea_type_request_body",
+    "UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant1A94E81632EaTypeRequestBodyUnitOfMeasureType": ".update_purchase_order_entity_purchase_order_purchase_order_part_input_public_variant_1_a_94_e_81632_ea_type_request_body_unit_of_measure_type",
+    "UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariantc060A0106Cf6TypeResponseBody": ".update_purchase_order_entity_purchase_order_purchase_order_part_public_variantc_060_a_0106_cf_6_type_response_body",
+    "UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariantc060A0106Cf6TypeResponseBodyUnitOfMeasureType": ".update_purchase_order_entity_purchase_order_purchase_order_part_public_variantc_060_a_0106_cf_6_type_response_body_unit_of_measure_type",
+    "UpdatePurchaseOrderEntityPurchaseOrderTaxAdjustmentInputTypeRequestBody": ".update_purchase_order_entity_purchase_order_tax_adjustment_input_type_request_body",
+    "UpdatePurchaseOrderEntityPurchaseOrderTaxAdjustmentTypeResponseBody": ".update_purchase_order_entity_purchase_order_tax_adjustment_type_response_body",
     "UpdateRoutesStopRequestObjectRequestBody": ".update_routes_stop_request_object_request_body",
     "UpdateSharedAssetRequestObjectRequestBody": ".update_shared_asset_request_object_request_body",
     "UpdateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody": ".update_warranty_claim_entity_warranty_claim_claim_reimbursement_input_type_request_body",
@@ -17071,15 +17175,23 @@ __all__ = [
     "CreatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody",
     "CreatePartInventoryLocationEntityPartInventoryLocationMoneyTypeResponseBody",
     "CreatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicyInputTypeRequestBody",
+    "CreatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicyInputTypeRequestBodyPolicyType",
     "CreatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicyTypeResponseBody",
+    "CreatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicyTypeResponseBodyPolicyType",
     "CreatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVarianta2E1675A5A65TypeRequestBody",
     "CreatePurchaseOrderEntityPurchaseOrderMoneyInputTypeRequestBody",
     "CreatePurchaseOrderEntityPurchaseOrderMoneyPublicVariant8749B9E1F4AfTypeResponseBody",
     "CreatePurchaseOrderEntityPurchaseOrderMoneyTypeResponseBody",
     "CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeInputTypeRequestBody",
+    "CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeInputTypeRequestBodyCoreChargeStatus",
     "CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseBody",
-    "CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariantaf77215807F1TypeRequestBody",
-    "CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariant7E1B94919242TypeResponseBody",
+    "CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseBodyCoreChargeStatus",
+    "CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant63E9Febe395ETypeRequestBody",
+    "CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant63E9Febe395ETypeRequestBodyUnitOfMeasureType",
+    "CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariant0241C1BeccaeTypeResponseBody",
+    "CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariant0241C1BeccaeTypeResponseBodyUnitOfMeasureType",
+    "CreatePurchaseOrderEntityPurchaseOrderTaxAdjustmentInputTypeRequestBody",
+    "CreatePurchaseOrderEntityPurchaseOrderTaxAdjustmentTypeResponseBody",
     "CreateReportConfigColumnRequestBody",
     "CreateReportConfigObjectRequestBody",
     "CreateRouteStopWithOrdersRequestObjectRequestBody",
@@ -17714,6 +17826,8 @@ __all__ = [
     "EntityCreatePurchaseOrderPartDefinitionRefTypeResponseBody",
     "EntityCreatePurchaseOrderPlaceRefTypeResponseBody",
     "EntityCreatePurchaseOrderTypeResponseBody",
+    "EntityCreatePurchaseOrderTypeResponseBodyCreationSource",
+    "EntityCreatePurchaseOrderTypeResponseBodyOrderStatus",
     "EntityCreatePurchaseOrderVendorRefPublicVariant07Ae4B76C2BaTypeResponseBody",
     "EntityCreatePurchaseOrderVendorRefTypeResponseBody",
     "EntityCreateStockMovementMoneyInputTypeRequestBody",
@@ -17775,6 +17889,8 @@ __all__ = [
     "EntityListPurchaseOrdersPartDefinitionRefTypeResponseBody",
     "EntityListPurchaseOrdersPlaceRefTypeResponseBody",
     "EntityListPurchaseOrdersTypeResponseBody",
+    "EntityListPurchaseOrdersTypeResponseBodyCreationSource",
+    "EntityListPurchaseOrdersTypeResponseBodyOrderStatus",
     "EntityListPurchaseOrdersVendorRefPublicVariant07Ae4B76C2BaTypeResponseBody",
     "EntityListPurchaseOrdersVendorRefTypeResponseBody",
     "EntityListTachographLiveDataTypeResponseBody",
@@ -17972,6 +18088,8 @@ __all__ = [
     "EntityUpdatePurchaseOrderPartDefinitionRefTypeResponseBody",
     "EntityUpdatePurchaseOrderPlaceRefTypeResponseBody",
     "EntityUpdatePurchaseOrderTypeResponseBody",
+    "EntityUpdatePurchaseOrderTypeResponseBodyCreationSource",
+    "EntityUpdatePurchaseOrderTypeResponseBodyOrderStatus",
     "EntityUpdatePurchaseOrderVendorRefPublicVariant07Ae4B76C2BaTypeResponseBody",
     "EntityUpdatePurchaseOrderVendorRefTypeResponseBody",
     "EntityUpdateUpcomingPreventiveMaintenanceAssetRefTypeResponseBody",
@@ -19218,9 +19336,13 @@ __all__ = [
     "ListPartsEntityPartDefinitionMoneyTypeResponseBody",
     "ListPlanOrdersResponsePaginationResponseBody",
     "ListPurchaseOrdersEntityPurchaseOrderCoreRecoverabilityPolicyTypeResponseBody",
+    "ListPurchaseOrdersEntityPurchaseOrderCoreRecoverabilityPolicyTypeResponseBodyPolicyType",
     "ListPurchaseOrdersEntityPurchaseOrderMoneyTypeResponseBody",
     "ListPurchaseOrdersEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseBody",
+    "ListPurchaseOrdersEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseBodyCoreChargeStatus",
     "ListPurchaseOrdersEntityPurchaseOrderPurchaseOrderPartTypeResponseBody",
+    "ListPurchaseOrdersEntityPurchaseOrderPurchaseOrderPartTypeResponseBodyUnitOfMeasureType",
+    "ListPurchaseOrdersEntityPurchaseOrderTaxAdjustmentTypeResponseBody",
     "ListTagsResponse",
     "ListTimeEntriesEntityTimeEntryMoneyTypeResponseBody",
     "ListTimeEntriesEntityTimeEntryTimeEntryLocationTypeResponseBody",
@@ -20931,15 +21053,23 @@ __all__ = [
     "UpdatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody",
     "UpdatePartInventoryLocationEntityPartInventoryLocationMoneyTypeResponseBody",
     "UpdatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicyInputTypeRequestBody",
+    "UpdatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicyInputTypeRequestBodyPolicyType",
     "UpdatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicyTypeResponseBody",
+    "UpdatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicyTypeResponseBodyPolicyType",
     "UpdatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVarianta34Bfd5A4152TypeRequestBody",
     "UpdatePurchaseOrderEntityPurchaseOrderMoneyInputTypeRequestBody",
     "UpdatePurchaseOrderEntityPurchaseOrderMoneyPublicVariant55Aeb6731578TypeResponseBody",
     "UpdatePurchaseOrderEntityPurchaseOrderMoneyTypeResponseBody",
     "UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeInputTypeRequestBody",
+    "UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeInputTypeRequestBodyCoreChargeStatus",
     "UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseBody",
-    "UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVarianta398Dc3A25A6TypeRequestBody",
-    "UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariant983F66355224TypeResponseBody",
+    "UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseBodyCoreChargeStatus",
+    "UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant1A94E81632EaTypeRequestBody",
+    "UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant1A94E81632EaTypeRequestBodyUnitOfMeasureType",
+    "UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariantc060A0106Cf6TypeResponseBody",
+    "UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariantc060A0106Cf6TypeResponseBodyUnitOfMeasureType",
+    "UpdatePurchaseOrderEntityPurchaseOrderTaxAdjustmentInputTypeRequestBody",
+    "UpdatePurchaseOrderEntityPurchaseOrderTaxAdjustmentTypeResponseBody",
     "UpdateRoutesStopRequestObjectRequestBody",
     "UpdateSharedAssetRequestObjectRequestBody",
     "UpdateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody",

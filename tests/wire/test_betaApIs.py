@@ -741,7 +741,7 @@ def test_betaApIs_create_purchase_order() -> None:
     """Test createPurchaseOrder endpoint with WireMock"""
     test_id = "beta_ap_is.create_purchase_order.0"
     client = get_client(test_id)
-    client.beta_ap_is.create_purchase_order(order_status="draft", vendor_id="281474976710656")
+    client.beta_ap_is.create_purchase_order(order_status="Unknown", vendor_id="281474976710656")
     verify_request_count(test_id, "POST", "/maintenance/purchase-orders", None, 1)
 
 
