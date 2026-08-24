@@ -1306,6 +1306,18 @@ if typing.TYPE_CHECKING:
     from .create_hub_route_template_depot_start_input_request_body import (
         CreateHubRouteTemplateDepotStartInputRequestBody,
     )
+    from .create_maintenance_site_entity_maintenance_site_maintenance_site_custom_address_input_type_request_body import (
+        CreateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteCustomAddressInputTypeRequestBody,
+    )
+    from .create_maintenance_site_entity_maintenance_site_maintenance_site_custom_address_type_response_body import (
+        CreateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteCustomAddressTypeResponseBody,
+    )
+    from .create_maintenance_site_entity_maintenance_site_maintenance_site_external_id_input_type_request_body import (
+        CreateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteExternalIdInputTypeRequestBody,
+    )
+    from .create_maintenance_site_entity_maintenance_site_maintenance_site_external_id_type_response_body import (
+        CreateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteExternalIdTypeResponseBody,
+    )
     from .create_part_entity_part_definition_money_input_type_request_body import (
         CreatePartEntityPartDefinitionMoneyInputTypeRequestBody,
     )
@@ -2755,6 +2767,13 @@ if typing.TYPE_CHECKING:
     from .engine_on_details_object_response_body import EngineOnDetailsObjectResponseBody
     from .engine_on_response_body import EngineOnResponseBody
     from .engine_status_response_body import EngineStatusResponseBody
+    from .entity_create_maintenance_site_place_ref_type_response_body import (
+        EntityCreateMaintenanceSitePlaceRefTypeResponseBody,
+    )
+    from .entity_create_maintenance_site_type_response_body import EntityCreateMaintenanceSiteTypeResponseBody
+    from .entity_create_maintenance_site_type_response_body_site_type import (
+        EntityCreateMaintenanceSiteTypeResponseBodySiteType,
+    )
     from .entity_create_part_inventory_location_part_definition_ref_type_response_body import (
         EntityCreatePartInventoryLocationPartDefinitionRefTypeResponseBody,
     )
@@ -2909,6 +2928,13 @@ if typing.TYPE_CHECKING:
         EntityInventoryTransactionsServiceListPartTransactionsUnauthorizedErrorResponseBody,
     )
     from .entity_list_issues_type_response_body import EntityListIssuesTypeResponseBody
+    from .entity_list_maintenance_sites_place_ref_type_response_body import (
+        EntityListMaintenanceSitesPlaceRefTypeResponseBody,
+    )
+    from .entity_list_maintenance_sites_type_response_body import EntityListMaintenanceSitesTypeResponseBody
+    from .entity_list_maintenance_sites_type_response_body_site_type import (
+        EntityListMaintenanceSitesTypeResponseBodySiteType,
+    )
     from .entity_list_part_inventory_part_definition_ref_type_response_body import (
         EntityListPartInventoryPartDefinitionRefTypeResponseBody,
     )
@@ -2963,6 +2989,15 @@ if typing.TYPE_CHECKING:
     )
     from .entity_list_warranties_type_response_body import EntityListWarrantiesTypeResponseBody
     from .entity_list_warranties_vendor_ref_type_response_body import EntityListWarrantiesVendorRefTypeResponseBody
+    from .entity_list_warranty_asset_assignments_asset_ref_type_response_body import (
+        EntityListWarrantyAssetAssignmentsAssetRefTypeResponseBody,
+    )
+    from .entity_list_warranty_asset_assignments_type_response_body import (
+        EntityListWarrantyAssetAssignmentsTypeResponseBody,
+    )
+    from .entity_list_warranty_asset_assignments_warranty_ref_type_response_body import (
+        EntityListWarrantyAssetAssignmentsWarrantyRefTypeResponseBody,
+    )
     from .entity_list_warranty_claims_asset_ref_type_response_body import (
         EntityListWarrantyClaimsAssetRefTypeResponseBody,
     )
@@ -2972,6 +3007,105 @@ if typing.TYPE_CHECKING:
     )
     from .entity_list_warranty_claims_warranty_ref_type_response_body import (
         EntityListWarrantyClaimsWarrantyRefTypeResponseBody,
+    )
+    from .entity_maintenance_sites_service_create_maintenance_site_bad_gateway_error_response_body import (
+        EntityMaintenanceSitesServiceCreateMaintenanceSiteBadGatewayErrorResponseBody,
+    )
+    from .entity_maintenance_sites_service_create_maintenance_site_content_too_large_error_response_body import (
+        EntityMaintenanceSitesServiceCreateMaintenanceSiteContentTooLargeErrorResponseBody,
+    )
+    from .entity_maintenance_sites_service_create_maintenance_site_gateway_timeout_error_response_body import (
+        EntityMaintenanceSitesServiceCreateMaintenanceSiteGatewayTimeoutErrorResponseBody,
+    )
+    from .entity_maintenance_sites_service_create_maintenance_site_internal_server_error_response_body import (
+        EntityMaintenanceSitesServiceCreateMaintenanceSiteInternalServerErrorResponseBody,
+    )
+    from .entity_maintenance_sites_service_create_maintenance_site_method_not_allowed_error_response_body import (
+        EntityMaintenanceSitesServiceCreateMaintenanceSiteMethodNotAllowedErrorResponseBody,
+    )
+    from .entity_maintenance_sites_service_create_maintenance_site_not_found_error_response_body import (
+        EntityMaintenanceSitesServiceCreateMaintenanceSiteNotFoundErrorResponseBody,
+    )
+    from .entity_maintenance_sites_service_create_maintenance_site_not_implemented_error_response_body import (
+        EntityMaintenanceSitesServiceCreateMaintenanceSiteNotImplementedErrorResponseBody,
+    )
+    from .entity_maintenance_sites_service_create_maintenance_site_response_body import (
+        EntityMaintenanceSitesServiceCreateMaintenanceSiteResponseBody,
+    )
+    from .entity_maintenance_sites_service_create_maintenance_site_service_unavailable_error_response_body import (
+        EntityMaintenanceSitesServiceCreateMaintenanceSiteServiceUnavailableErrorResponseBody,
+    )
+    from .entity_maintenance_sites_service_create_maintenance_site_too_many_requests_error_response_body import (
+        EntityMaintenanceSitesServiceCreateMaintenanceSiteTooManyRequestsErrorResponseBody,
+    )
+    from .entity_maintenance_sites_service_create_maintenance_site_unauthorized_error_response_body import (
+        EntityMaintenanceSitesServiceCreateMaintenanceSiteUnauthorizedErrorResponseBody,
+    )
+    from .entity_maintenance_sites_service_list_maintenance_sites_bad_gateway_error_response_body import (
+        EntityMaintenanceSitesServiceListMaintenanceSitesBadGatewayErrorResponseBody,
+    )
+    from .entity_maintenance_sites_service_list_maintenance_sites_content_too_large_error_response_body import (
+        EntityMaintenanceSitesServiceListMaintenanceSitesContentTooLargeErrorResponseBody,
+    )
+    from .entity_maintenance_sites_service_list_maintenance_sites_gateway_timeout_error_response_body import (
+        EntityMaintenanceSitesServiceListMaintenanceSitesGatewayTimeoutErrorResponseBody,
+    )
+    from .entity_maintenance_sites_service_list_maintenance_sites_internal_server_error_response_body import (
+        EntityMaintenanceSitesServiceListMaintenanceSitesInternalServerErrorResponseBody,
+    )
+    from .entity_maintenance_sites_service_list_maintenance_sites_method_not_allowed_error_response_body import (
+        EntityMaintenanceSitesServiceListMaintenanceSitesMethodNotAllowedErrorResponseBody,
+    )
+    from .entity_maintenance_sites_service_list_maintenance_sites_not_found_error_response_body import (
+        EntityMaintenanceSitesServiceListMaintenanceSitesNotFoundErrorResponseBody,
+    )
+    from .entity_maintenance_sites_service_list_maintenance_sites_not_implemented_error_response_body import (
+        EntityMaintenanceSitesServiceListMaintenanceSitesNotImplementedErrorResponseBody,
+    )
+    from .entity_maintenance_sites_service_list_maintenance_sites_response_body import (
+        EntityMaintenanceSitesServiceListMaintenanceSitesResponseBody,
+    )
+    from .entity_maintenance_sites_service_list_maintenance_sites_service_unavailable_error_response_body import (
+        EntityMaintenanceSitesServiceListMaintenanceSitesServiceUnavailableErrorResponseBody,
+    )
+    from .entity_maintenance_sites_service_list_maintenance_sites_too_many_requests_error_response_body import (
+        EntityMaintenanceSitesServiceListMaintenanceSitesTooManyRequestsErrorResponseBody,
+    )
+    from .entity_maintenance_sites_service_list_maintenance_sites_unauthorized_error_response_body import (
+        EntityMaintenanceSitesServiceListMaintenanceSitesUnauthorizedErrorResponseBody,
+    )
+    from .entity_maintenance_sites_service_update_maintenance_site_bad_gateway_error_response_body import (
+        EntityMaintenanceSitesServiceUpdateMaintenanceSiteBadGatewayErrorResponseBody,
+    )
+    from .entity_maintenance_sites_service_update_maintenance_site_content_too_large_error_response_body import (
+        EntityMaintenanceSitesServiceUpdateMaintenanceSiteContentTooLargeErrorResponseBody,
+    )
+    from .entity_maintenance_sites_service_update_maintenance_site_gateway_timeout_error_response_body import (
+        EntityMaintenanceSitesServiceUpdateMaintenanceSiteGatewayTimeoutErrorResponseBody,
+    )
+    from .entity_maintenance_sites_service_update_maintenance_site_internal_server_error_response_body import (
+        EntityMaintenanceSitesServiceUpdateMaintenanceSiteInternalServerErrorResponseBody,
+    )
+    from .entity_maintenance_sites_service_update_maintenance_site_method_not_allowed_error_response_body import (
+        EntityMaintenanceSitesServiceUpdateMaintenanceSiteMethodNotAllowedErrorResponseBody,
+    )
+    from .entity_maintenance_sites_service_update_maintenance_site_not_found_error_response_body import (
+        EntityMaintenanceSitesServiceUpdateMaintenanceSiteNotFoundErrorResponseBody,
+    )
+    from .entity_maintenance_sites_service_update_maintenance_site_not_implemented_error_response_body import (
+        EntityMaintenanceSitesServiceUpdateMaintenanceSiteNotImplementedErrorResponseBody,
+    )
+    from .entity_maintenance_sites_service_update_maintenance_site_response_body import (
+        EntityMaintenanceSitesServiceUpdateMaintenanceSiteResponseBody,
+    )
+    from .entity_maintenance_sites_service_update_maintenance_site_service_unavailable_error_response_body import (
+        EntityMaintenanceSitesServiceUpdateMaintenanceSiteServiceUnavailableErrorResponseBody,
+    )
+    from .entity_maintenance_sites_service_update_maintenance_site_too_many_requests_error_response_body import (
+        EntityMaintenanceSitesServiceUpdateMaintenanceSiteTooManyRequestsErrorResponseBody,
+    )
+    from .entity_maintenance_sites_service_update_maintenance_site_unauthorized_error_response_body import (
+        EntityMaintenanceSitesServiceUpdateMaintenanceSiteUnauthorizedErrorResponseBody,
     )
     from .entity_part_definitions_service_create_part_bad_gateway_error_response_body import (
         EntityPartDefinitionsServiceCreatePartBadGatewayErrorResponseBody,
@@ -3501,6 +3635,13 @@ if typing.TYPE_CHECKING:
     from .entity_upcoming_preventative_maintenances_service_update_upcoming_preventive_maintenance_unauthorized_error_response_body import (
         EntityUpcomingPreventativeMaintenancesServiceUpdateUpcomingPreventiveMaintenanceUnauthorizedErrorResponseBody,
     )
+    from .entity_update_maintenance_site_place_ref_type_response_body import (
+        EntityUpdateMaintenanceSitePlaceRefTypeResponseBody,
+    )
+    from .entity_update_maintenance_site_type_response_body import EntityUpdateMaintenanceSiteTypeResponseBody
+    from .entity_update_maintenance_site_type_response_body_site_type import (
+        EntityUpdateMaintenanceSiteTypeResponseBodySiteType,
+    )
     from .entity_update_part_inventory_location_part_definition_ref_type_response_body import (
         EntityUpdatePartInventoryLocationPartDefinitionRefTypeResponseBody,
     )
@@ -3688,6 +3829,39 @@ if typing.TYPE_CHECKING:
     )
     from .entity_warranties_service_update_warranty_unauthorized_error_response_body import (
         EntityWarrantiesServiceUpdateWarrantyUnauthorizedErrorResponseBody,
+    )
+    from .entity_warranty_asset_assignments_service_list_warranty_asset_assignments_bad_gateway_error_response_body import (
+        EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsBadGatewayErrorResponseBody,
+    )
+    from .entity_warranty_asset_assignments_service_list_warranty_asset_assignments_content_too_large_error_response_body import (
+        EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsContentTooLargeErrorResponseBody,
+    )
+    from .entity_warranty_asset_assignments_service_list_warranty_asset_assignments_gateway_timeout_error_response_body import (
+        EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsGatewayTimeoutErrorResponseBody,
+    )
+    from .entity_warranty_asset_assignments_service_list_warranty_asset_assignments_internal_server_error_response_body import (
+        EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsInternalServerErrorResponseBody,
+    )
+    from .entity_warranty_asset_assignments_service_list_warranty_asset_assignments_method_not_allowed_error_response_body import (
+        EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsMethodNotAllowedErrorResponseBody,
+    )
+    from .entity_warranty_asset_assignments_service_list_warranty_asset_assignments_not_found_error_response_body import (
+        EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsNotFoundErrorResponseBody,
+    )
+    from .entity_warranty_asset_assignments_service_list_warranty_asset_assignments_not_implemented_error_response_body import (
+        EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsNotImplementedErrorResponseBody,
+    )
+    from .entity_warranty_asset_assignments_service_list_warranty_asset_assignments_response_body import (
+        EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsResponseBody,
+    )
+    from .entity_warranty_asset_assignments_service_list_warranty_asset_assignments_service_unavailable_error_response_body import (
+        EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsServiceUnavailableErrorResponseBody,
+    )
+    from .entity_warranty_asset_assignments_service_list_warranty_asset_assignments_too_many_requests_error_response_body import (
+        EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsTooManyRequestsErrorResponseBody,
+    )
+    from .entity_warranty_asset_assignments_service_list_warranty_asset_assignments_unauthorized_error_response_body import (
+        EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsUnauthorizedErrorResponseBody,
     )
     from .entity_warranty_claims_service_create_warranty_claim_bad_gateway_error_response_body import (
         EntityWarrantyClaimsServiceCreateWarrantyClaimBadGatewayErrorResponseBody,
@@ -6295,6 +6469,12 @@ if typing.TYPE_CHECKING:
     )
     from .list_issues_entity_ground_intelligence_issue_lat_lng_type_response_body import (
         ListIssuesEntityGroundIntelligenceIssueLatLngTypeResponseBody,
+    )
+    from .list_maintenance_sites_entity_maintenance_site_maintenance_site_custom_address_type_response_body import (
+        ListMaintenanceSitesEntityMaintenanceSiteMaintenanceSiteCustomAddressTypeResponseBody,
+    )
+    from .list_maintenance_sites_entity_maintenance_site_maintenance_site_external_id_type_response_body import (
+        ListMaintenanceSitesEntityMaintenanceSiteMaintenanceSiteExternalIdTypeResponseBody,
     )
     from .list_part_inventory_entity_part_inventory_location_money_type_response_body import (
         ListPartInventoryEntityPartInventoryLocationMoneyTypeResponseBody,
@@ -10226,6 +10406,15 @@ if typing.TYPE_CHECKING:
     )
     from .update_function_storage_file_detail_response_body import UpdateFunctionStorageFileDetailResponseBody
     from .update_hub_location_request_body_request_body import UpdateHubLocationRequestBodyRequestBody
+    from .update_maintenance_site_entity_maintenance_site_maintenance_site_custom_address_type_response_body import (
+        UpdateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteCustomAddressTypeResponseBody,
+    )
+    from .update_maintenance_site_entity_maintenance_site_maintenance_site_external_id_input_type_request_body import (
+        UpdateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteExternalIdInputTypeRequestBody,
+    )
+    from .update_maintenance_site_entity_maintenance_site_maintenance_site_external_id_type_response_body import (
+        UpdateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteExternalIdTypeResponseBody,
+    )
     from .update_part_entity_part_definition_money_input_type_request_body import (
         UpdatePartEntityPartDefinitionMoneyInputTypeRequestBody,
     )
@@ -11996,6 +12185,10 @@ _dynamic_imports: typing.Dict[str, str] = {
     "CreateFunctionStorageFileDetailResponseBody": ".create_function_storage_file_detail_response_body",
     "CreateHubRouteTemplateDepotEndInputRequestBody": ".create_hub_route_template_depot_end_input_request_body",
     "CreateHubRouteTemplateDepotStartInputRequestBody": ".create_hub_route_template_depot_start_input_request_body",
+    "CreateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteCustomAddressInputTypeRequestBody": ".create_maintenance_site_entity_maintenance_site_maintenance_site_custom_address_input_type_request_body",
+    "CreateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteCustomAddressTypeResponseBody": ".create_maintenance_site_entity_maintenance_site_maintenance_site_custom_address_type_response_body",
+    "CreateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteExternalIdInputTypeRequestBody": ".create_maintenance_site_entity_maintenance_site_maintenance_site_external_id_input_type_request_body",
+    "CreateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteExternalIdTypeResponseBody": ".create_maintenance_site_entity_maintenance_site_maintenance_site_external_id_type_response_body",
     "CreatePartEntityPartDefinitionMoneyInputTypeRequestBody": ".create_part_entity_part_definition_money_input_type_request_body",
     "CreatePartEntityPartDefinitionMoneyTypeResponseBody": ".create_part_entity_part_definition_money_type_response_body",
     "CreatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody": ".create_part_inventory_location_entity_part_inventory_location_money_input_type_request_body",
@@ -12645,6 +12838,9 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EngineOnDetailsObjectResponseBody": ".engine_on_details_object_response_body",
     "EngineOnResponseBody": ".engine_on_response_body",
     "EngineStatusResponseBody": ".engine_status_response_body",
+    "EntityCreateMaintenanceSitePlaceRefTypeResponseBody": ".entity_create_maintenance_site_place_ref_type_response_body",
+    "EntityCreateMaintenanceSiteTypeResponseBody": ".entity_create_maintenance_site_type_response_body",
+    "EntityCreateMaintenanceSiteTypeResponseBodySiteType": ".entity_create_maintenance_site_type_response_body_site_type",
     "EntityCreatePartInventoryLocationPartDefinitionRefTypeResponseBody": ".entity_create_part_inventory_location_part_definition_ref_type_response_body",
     "EntityCreatePartInventoryLocationPlaceRefTypeResponseBody": ".entity_create_part_inventory_location_place_ref_type_response_body",
     "EntityCreatePartInventoryLocationTypeResponseBody": ".entity_create_part_inventory_location_type_response_body",
@@ -12703,6 +12899,9 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EntityInventoryTransactionsServiceListPartTransactionsTooManyRequestsErrorResponseBody": ".entity_inventory_transactions_service_list_part_transactions_too_many_requests_error_response_body",
     "EntityInventoryTransactionsServiceListPartTransactionsUnauthorizedErrorResponseBody": ".entity_inventory_transactions_service_list_part_transactions_unauthorized_error_response_body",
     "EntityListIssuesTypeResponseBody": ".entity_list_issues_type_response_body",
+    "EntityListMaintenanceSitesPlaceRefTypeResponseBody": ".entity_list_maintenance_sites_place_ref_type_response_body",
+    "EntityListMaintenanceSitesTypeResponseBody": ".entity_list_maintenance_sites_type_response_body",
+    "EntityListMaintenanceSitesTypeResponseBodySiteType": ".entity_list_maintenance_sites_type_response_body_site_type",
     "EntityListPartInventoryPartDefinitionRefTypeResponseBody": ".entity_list_part_inventory_part_definition_ref_type_response_body",
     "EntityListPartInventoryPlaceRefTypeResponseBody": ".entity_list_part_inventory_place_ref_type_response_body",
     "EntityListPartInventoryTypeResponseBody": ".entity_list_part_inventory_type_response_body",
@@ -12727,10 +12926,46 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EntityListUpcomingPreventiveMaintenanceWorkOrderRefTypeResponseBody": ".entity_list_upcoming_preventive_maintenance_work_order_ref_type_response_body",
     "EntityListWarrantiesTypeResponseBody": ".entity_list_warranties_type_response_body",
     "EntityListWarrantiesVendorRefTypeResponseBody": ".entity_list_warranties_vendor_ref_type_response_body",
+    "EntityListWarrantyAssetAssignmentsAssetRefTypeResponseBody": ".entity_list_warranty_asset_assignments_asset_ref_type_response_body",
+    "EntityListWarrantyAssetAssignmentsTypeResponseBody": ".entity_list_warranty_asset_assignments_type_response_body",
+    "EntityListWarrantyAssetAssignmentsWarrantyRefTypeResponseBody": ".entity_list_warranty_asset_assignments_warranty_ref_type_response_body",
     "EntityListWarrantyClaimsAssetRefTypeResponseBody": ".entity_list_warranty_claims_asset_ref_type_response_body",
     "EntityListWarrantyClaimsTypeResponseBody": ".entity_list_warranty_claims_type_response_body",
     "EntityListWarrantyClaimsVendorRefTypeResponseBody": ".entity_list_warranty_claims_vendor_ref_type_response_body",
     "EntityListWarrantyClaimsWarrantyRefTypeResponseBody": ".entity_list_warranty_claims_warranty_ref_type_response_body",
+    "EntityMaintenanceSitesServiceCreateMaintenanceSiteBadGatewayErrorResponseBody": ".entity_maintenance_sites_service_create_maintenance_site_bad_gateway_error_response_body",
+    "EntityMaintenanceSitesServiceCreateMaintenanceSiteContentTooLargeErrorResponseBody": ".entity_maintenance_sites_service_create_maintenance_site_content_too_large_error_response_body",
+    "EntityMaintenanceSitesServiceCreateMaintenanceSiteGatewayTimeoutErrorResponseBody": ".entity_maintenance_sites_service_create_maintenance_site_gateway_timeout_error_response_body",
+    "EntityMaintenanceSitesServiceCreateMaintenanceSiteInternalServerErrorResponseBody": ".entity_maintenance_sites_service_create_maintenance_site_internal_server_error_response_body",
+    "EntityMaintenanceSitesServiceCreateMaintenanceSiteMethodNotAllowedErrorResponseBody": ".entity_maintenance_sites_service_create_maintenance_site_method_not_allowed_error_response_body",
+    "EntityMaintenanceSitesServiceCreateMaintenanceSiteNotFoundErrorResponseBody": ".entity_maintenance_sites_service_create_maintenance_site_not_found_error_response_body",
+    "EntityMaintenanceSitesServiceCreateMaintenanceSiteNotImplementedErrorResponseBody": ".entity_maintenance_sites_service_create_maintenance_site_not_implemented_error_response_body",
+    "EntityMaintenanceSitesServiceCreateMaintenanceSiteResponseBody": ".entity_maintenance_sites_service_create_maintenance_site_response_body",
+    "EntityMaintenanceSitesServiceCreateMaintenanceSiteServiceUnavailableErrorResponseBody": ".entity_maintenance_sites_service_create_maintenance_site_service_unavailable_error_response_body",
+    "EntityMaintenanceSitesServiceCreateMaintenanceSiteTooManyRequestsErrorResponseBody": ".entity_maintenance_sites_service_create_maintenance_site_too_many_requests_error_response_body",
+    "EntityMaintenanceSitesServiceCreateMaintenanceSiteUnauthorizedErrorResponseBody": ".entity_maintenance_sites_service_create_maintenance_site_unauthorized_error_response_body",
+    "EntityMaintenanceSitesServiceListMaintenanceSitesBadGatewayErrorResponseBody": ".entity_maintenance_sites_service_list_maintenance_sites_bad_gateway_error_response_body",
+    "EntityMaintenanceSitesServiceListMaintenanceSitesContentTooLargeErrorResponseBody": ".entity_maintenance_sites_service_list_maintenance_sites_content_too_large_error_response_body",
+    "EntityMaintenanceSitesServiceListMaintenanceSitesGatewayTimeoutErrorResponseBody": ".entity_maintenance_sites_service_list_maintenance_sites_gateway_timeout_error_response_body",
+    "EntityMaintenanceSitesServiceListMaintenanceSitesInternalServerErrorResponseBody": ".entity_maintenance_sites_service_list_maintenance_sites_internal_server_error_response_body",
+    "EntityMaintenanceSitesServiceListMaintenanceSitesMethodNotAllowedErrorResponseBody": ".entity_maintenance_sites_service_list_maintenance_sites_method_not_allowed_error_response_body",
+    "EntityMaintenanceSitesServiceListMaintenanceSitesNotFoundErrorResponseBody": ".entity_maintenance_sites_service_list_maintenance_sites_not_found_error_response_body",
+    "EntityMaintenanceSitesServiceListMaintenanceSitesNotImplementedErrorResponseBody": ".entity_maintenance_sites_service_list_maintenance_sites_not_implemented_error_response_body",
+    "EntityMaintenanceSitesServiceListMaintenanceSitesResponseBody": ".entity_maintenance_sites_service_list_maintenance_sites_response_body",
+    "EntityMaintenanceSitesServiceListMaintenanceSitesServiceUnavailableErrorResponseBody": ".entity_maintenance_sites_service_list_maintenance_sites_service_unavailable_error_response_body",
+    "EntityMaintenanceSitesServiceListMaintenanceSitesTooManyRequestsErrorResponseBody": ".entity_maintenance_sites_service_list_maintenance_sites_too_many_requests_error_response_body",
+    "EntityMaintenanceSitesServiceListMaintenanceSitesUnauthorizedErrorResponseBody": ".entity_maintenance_sites_service_list_maintenance_sites_unauthorized_error_response_body",
+    "EntityMaintenanceSitesServiceUpdateMaintenanceSiteBadGatewayErrorResponseBody": ".entity_maintenance_sites_service_update_maintenance_site_bad_gateway_error_response_body",
+    "EntityMaintenanceSitesServiceUpdateMaintenanceSiteContentTooLargeErrorResponseBody": ".entity_maintenance_sites_service_update_maintenance_site_content_too_large_error_response_body",
+    "EntityMaintenanceSitesServiceUpdateMaintenanceSiteGatewayTimeoutErrorResponseBody": ".entity_maintenance_sites_service_update_maintenance_site_gateway_timeout_error_response_body",
+    "EntityMaintenanceSitesServiceUpdateMaintenanceSiteInternalServerErrorResponseBody": ".entity_maintenance_sites_service_update_maintenance_site_internal_server_error_response_body",
+    "EntityMaintenanceSitesServiceUpdateMaintenanceSiteMethodNotAllowedErrorResponseBody": ".entity_maintenance_sites_service_update_maintenance_site_method_not_allowed_error_response_body",
+    "EntityMaintenanceSitesServiceUpdateMaintenanceSiteNotFoundErrorResponseBody": ".entity_maintenance_sites_service_update_maintenance_site_not_found_error_response_body",
+    "EntityMaintenanceSitesServiceUpdateMaintenanceSiteNotImplementedErrorResponseBody": ".entity_maintenance_sites_service_update_maintenance_site_not_implemented_error_response_body",
+    "EntityMaintenanceSitesServiceUpdateMaintenanceSiteResponseBody": ".entity_maintenance_sites_service_update_maintenance_site_response_body",
+    "EntityMaintenanceSitesServiceUpdateMaintenanceSiteServiceUnavailableErrorResponseBody": ".entity_maintenance_sites_service_update_maintenance_site_service_unavailable_error_response_body",
+    "EntityMaintenanceSitesServiceUpdateMaintenanceSiteTooManyRequestsErrorResponseBody": ".entity_maintenance_sites_service_update_maintenance_site_too_many_requests_error_response_body",
+    "EntityMaintenanceSitesServiceUpdateMaintenanceSiteUnauthorizedErrorResponseBody": ".entity_maintenance_sites_service_update_maintenance_site_unauthorized_error_response_body",
     "EntityPartDefinitionsServiceCreatePartBadGatewayErrorResponseBody": ".entity_part_definitions_service_create_part_bad_gateway_error_response_body",
     "EntityPartDefinitionsServiceCreatePartContentTooLargeErrorResponseBody": ".entity_part_definitions_service_create_part_content_too_large_error_response_body",
     "EntityPartDefinitionsServiceCreatePartGatewayTimeoutErrorResponseBody": ".entity_part_definitions_service_create_part_gateway_timeout_error_response_body",
@@ -12907,6 +13142,9 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EntityUpcomingPreventativeMaintenancesServiceUpdateUpcomingPreventiveMaintenanceServiceUnavailableErrorResponseBody": ".entity_upcoming_preventative_maintenances_service_update_upcoming_preventive_maintenance_service_unavailable_error_response_body",
     "EntityUpcomingPreventativeMaintenancesServiceUpdateUpcomingPreventiveMaintenanceTooManyRequestsErrorResponseBody": ".entity_upcoming_preventative_maintenances_service_update_upcoming_preventive_maintenance_too_many_requests_error_response_body",
     "EntityUpcomingPreventativeMaintenancesServiceUpdateUpcomingPreventiveMaintenanceUnauthorizedErrorResponseBody": ".entity_upcoming_preventative_maintenances_service_update_upcoming_preventive_maintenance_unauthorized_error_response_body",
+    "EntityUpdateMaintenanceSitePlaceRefTypeResponseBody": ".entity_update_maintenance_site_place_ref_type_response_body",
+    "EntityUpdateMaintenanceSiteTypeResponseBody": ".entity_update_maintenance_site_type_response_body",
+    "EntityUpdateMaintenanceSiteTypeResponseBodySiteType": ".entity_update_maintenance_site_type_response_body_site_type",
     "EntityUpdatePartInventoryLocationPartDefinitionRefTypeResponseBody": ".entity_update_part_inventory_location_part_definition_ref_type_response_body",
     "EntityUpdatePartInventoryLocationPlaceRefTypeResponseBody": ".entity_update_part_inventory_location_place_ref_type_response_body",
     "EntityUpdatePartInventoryLocationTypeResponseBody": ".entity_update_part_inventory_location_type_response_body",
@@ -12975,6 +13213,17 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EntityWarrantiesServiceUpdateWarrantyServiceUnavailableErrorResponseBody": ".entity_warranties_service_update_warranty_service_unavailable_error_response_body",
     "EntityWarrantiesServiceUpdateWarrantyTooManyRequestsErrorResponseBody": ".entity_warranties_service_update_warranty_too_many_requests_error_response_body",
     "EntityWarrantiesServiceUpdateWarrantyUnauthorizedErrorResponseBody": ".entity_warranties_service_update_warranty_unauthorized_error_response_body",
+    "EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsBadGatewayErrorResponseBody": ".entity_warranty_asset_assignments_service_list_warranty_asset_assignments_bad_gateway_error_response_body",
+    "EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsContentTooLargeErrorResponseBody": ".entity_warranty_asset_assignments_service_list_warranty_asset_assignments_content_too_large_error_response_body",
+    "EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsGatewayTimeoutErrorResponseBody": ".entity_warranty_asset_assignments_service_list_warranty_asset_assignments_gateway_timeout_error_response_body",
+    "EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsInternalServerErrorResponseBody": ".entity_warranty_asset_assignments_service_list_warranty_asset_assignments_internal_server_error_response_body",
+    "EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsMethodNotAllowedErrorResponseBody": ".entity_warranty_asset_assignments_service_list_warranty_asset_assignments_method_not_allowed_error_response_body",
+    "EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsNotFoundErrorResponseBody": ".entity_warranty_asset_assignments_service_list_warranty_asset_assignments_not_found_error_response_body",
+    "EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsNotImplementedErrorResponseBody": ".entity_warranty_asset_assignments_service_list_warranty_asset_assignments_not_implemented_error_response_body",
+    "EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsResponseBody": ".entity_warranty_asset_assignments_service_list_warranty_asset_assignments_response_body",
+    "EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsServiceUnavailableErrorResponseBody": ".entity_warranty_asset_assignments_service_list_warranty_asset_assignments_service_unavailable_error_response_body",
+    "EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsTooManyRequestsErrorResponseBody": ".entity_warranty_asset_assignments_service_list_warranty_asset_assignments_too_many_requests_error_response_body",
+    "EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsUnauthorizedErrorResponseBody": ".entity_warranty_asset_assignments_service_list_warranty_asset_assignments_unauthorized_error_response_body",
     "EntityWarrantyClaimsServiceCreateWarrantyClaimBadGatewayErrorResponseBody": ".entity_warranty_claims_service_create_warranty_claim_bad_gateway_error_response_body",
     "EntityWarrantyClaimsServiceCreateWarrantyClaimContentTooLargeErrorResponseBody": ".entity_warranty_claims_service_create_warranty_claim_content_too_large_error_response_body",
     "EntityWarrantyClaimsServiceCreateWarrantyClaimGatewayTimeoutErrorResponseBody": ".entity_warranty_claims_service_create_warranty_claim_gateway_timeout_error_response_body",
@@ -14158,6 +14407,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "ListIssuesEntityGroundIntelligenceIssueGroundIntelligenceIssueLocationTypeResponseBody": ".list_issues_entity_ground_intelligence_issue_ground_intelligence_issue_location_type_response_body",
     "ListIssuesEntityGroundIntelligenceIssueGroundIntelligenceIssueRoadSegmentTypeResponseBody": ".list_issues_entity_ground_intelligence_issue_ground_intelligence_issue_road_segment_type_response_body",
     "ListIssuesEntityGroundIntelligenceIssueLatLngTypeResponseBody": ".list_issues_entity_ground_intelligence_issue_lat_lng_type_response_body",
+    "ListMaintenanceSitesEntityMaintenanceSiteMaintenanceSiteCustomAddressTypeResponseBody": ".list_maintenance_sites_entity_maintenance_site_maintenance_site_custom_address_type_response_body",
+    "ListMaintenanceSitesEntityMaintenanceSiteMaintenanceSiteExternalIdTypeResponseBody": ".list_maintenance_sites_entity_maintenance_site_maintenance_site_external_id_type_response_body",
     "ListPartInventoryEntityPartInventoryLocationMoneyTypeResponseBody": ".list_part_inventory_entity_part_inventory_location_money_type_response_body",
     "ListPartsEntityPartDefinitionMoneyTypeResponseBody": ".list_parts_entity_part_definition_money_type_response_body",
     "ListPlanOrdersResponsePaginationResponseBody": ".list_plan_orders_response_pagination_response_body",
@@ -15874,6 +16125,9 @@ _dynamic_imports: typing.Dict[str, str] = {
     "UpdateEngineImmobilizerRelayStateRequestBodyRequestBodyId": ".update_engine_immobilizer_relay_state_request_body_request_body_id",
     "UpdateFunctionStorageFileDetailResponseBody": ".update_function_storage_file_detail_response_body",
     "UpdateHubLocationRequestBodyRequestBody": ".update_hub_location_request_body_request_body",
+    "UpdateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteCustomAddressTypeResponseBody": ".update_maintenance_site_entity_maintenance_site_maintenance_site_custom_address_type_response_body",
+    "UpdateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteExternalIdInputTypeRequestBody": ".update_maintenance_site_entity_maintenance_site_maintenance_site_external_id_input_type_request_body",
+    "UpdateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteExternalIdTypeResponseBody": ".update_maintenance_site_entity_maintenance_site_maintenance_site_external_id_type_response_body",
     "UpdatePartEntityPartDefinitionMoneyInputTypeRequestBody": ".update_part_entity_part_definition_money_input_type_request_body",
     "UpdatePartEntityPartDefinitionMoneyTypeResponseBody": ".update_part_entity_part_definition_money_type_response_body",
     "UpdatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody": ".update_part_inventory_location_entity_part_inventory_location_money_input_type_request_body",
@@ -17170,6 +17424,10 @@ __all__ = [
     "CreateFunctionStorageFileDetailResponseBody",
     "CreateHubRouteTemplateDepotEndInputRequestBody",
     "CreateHubRouteTemplateDepotStartInputRequestBody",
+    "CreateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteCustomAddressInputTypeRequestBody",
+    "CreateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteCustomAddressTypeResponseBody",
+    "CreateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteExternalIdInputTypeRequestBody",
+    "CreateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteExternalIdTypeResponseBody",
     "CreatePartEntityPartDefinitionMoneyInputTypeRequestBody",
     "CreatePartEntityPartDefinitionMoneyTypeResponseBody",
     "CreatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody",
@@ -17819,6 +18077,9 @@ __all__ = [
     "EngineOnDetailsObjectResponseBody",
     "EngineOnResponseBody",
     "EngineStatusResponseBody",
+    "EntityCreateMaintenanceSitePlaceRefTypeResponseBody",
+    "EntityCreateMaintenanceSiteTypeResponseBody",
+    "EntityCreateMaintenanceSiteTypeResponseBodySiteType",
     "EntityCreatePartInventoryLocationPartDefinitionRefTypeResponseBody",
     "EntityCreatePartInventoryLocationPlaceRefTypeResponseBody",
     "EntityCreatePartInventoryLocationTypeResponseBody",
@@ -17877,6 +18138,9 @@ __all__ = [
     "EntityInventoryTransactionsServiceListPartTransactionsTooManyRequestsErrorResponseBody",
     "EntityInventoryTransactionsServiceListPartTransactionsUnauthorizedErrorResponseBody",
     "EntityListIssuesTypeResponseBody",
+    "EntityListMaintenanceSitesPlaceRefTypeResponseBody",
+    "EntityListMaintenanceSitesTypeResponseBody",
+    "EntityListMaintenanceSitesTypeResponseBodySiteType",
     "EntityListPartInventoryPartDefinitionRefTypeResponseBody",
     "EntityListPartInventoryPlaceRefTypeResponseBody",
     "EntityListPartInventoryTypeResponseBody",
@@ -17901,10 +18165,46 @@ __all__ = [
     "EntityListUpcomingPreventiveMaintenanceWorkOrderRefTypeResponseBody",
     "EntityListWarrantiesTypeResponseBody",
     "EntityListWarrantiesVendorRefTypeResponseBody",
+    "EntityListWarrantyAssetAssignmentsAssetRefTypeResponseBody",
+    "EntityListWarrantyAssetAssignmentsTypeResponseBody",
+    "EntityListWarrantyAssetAssignmentsWarrantyRefTypeResponseBody",
     "EntityListWarrantyClaimsAssetRefTypeResponseBody",
     "EntityListWarrantyClaimsTypeResponseBody",
     "EntityListWarrantyClaimsVendorRefTypeResponseBody",
     "EntityListWarrantyClaimsWarrantyRefTypeResponseBody",
+    "EntityMaintenanceSitesServiceCreateMaintenanceSiteBadGatewayErrorResponseBody",
+    "EntityMaintenanceSitesServiceCreateMaintenanceSiteContentTooLargeErrorResponseBody",
+    "EntityMaintenanceSitesServiceCreateMaintenanceSiteGatewayTimeoutErrorResponseBody",
+    "EntityMaintenanceSitesServiceCreateMaintenanceSiteInternalServerErrorResponseBody",
+    "EntityMaintenanceSitesServiceCreateMaintenanceSiteMethodNotAllowedErrorResponseBody",
+    "EntityMaintenanceSitesServiceCreateMaintenanceSiteNotFoundErrorResponseBody",
+    "EntityMaintenanceSitesServiceCreateMaintenanceSiteNotImplementedErrorResponseBody",
+    "EntityMaintenanceSitesServiceCreateMaintenanceSiteResponseBody",
+    "EntityMaintenanceSitesServiceCreateMaintenanceSiteServiceUnavailableErrorResponseBody",
+    "EntityMaintenanceSitesServiceCreateMaintenanceSiteTooManyRequestsErrorResponseBody",
+    "EntityMaintenanceSitesServiceCreateMaintenanceSiteUnauthorizedErrorResponseBody",
+    "EntityMaintenanceSitesServiceListMaintenanceSitesBadGatewayErrorResponseBody",
+    "EntityMaintenanceSitesServiceListMaintenanceSitesContentTooLargeErrorResponseBody",
+    "EntityMaintenanceSitesServiceListMaintenanceSitesGatewayTimeoutErrorResponseBody",
+    "EntityMaintenanceSitesServiceListMaintenanceSitesInternalServerErrorResponseBody",
+    "EntityMaintenanceSitesServiceListMaintenanceSitesMethodNotAllowedErrorResponseBody",
+    "EntityMaintenanceSitesServiceListMaintenanceSitesNotFoundErrorResponseBody",
+    "EntityMaintenanceSitesServiceListMaintenanceSitesNotImplementedErrorResponseBody",
+    "EntityMaintenanceSitesServiceListMaintenanceSitesResponseBody",
+    "EntityMaintenanceSitesServiceListMaintenanceSitesServiceUnavailableErrorResponseBody",
+    "EntityMaintenanceSitesServiceListMaintenanceSitesTooManyRequestsErrorResponseBody",
+    "EntityMaintenanceSitesServiceListMaintenanceSitesUnauthorizedErrorResponseBody",
+    "EntityMaintenanceSitesServiceUpdateMaintenanceSiteBadGatewayErrorResponseBody",
+    "EntityMaintenanceSitesServiceUpdateMaintenanceSiteContentTooLargeErrorResponseBody",
+    "EntityMaintenanceSitesServiceUpdateMaintenanceSiteGatewayTimeoutErrorResponseBody",
+    "EntityMaintenanceSitesServiceUpdateMaintenanceSiteInternalServerErrorResponseBody",
+    "EntityMaintenanceSitesServiceUpdateMaintenanceSiteMethodNotAllowedErrorResponseBody",
+    "EntityMaintenanceSitesServiceUpdateMaintenanceSiteNotFoundErrorResponseBody",
+    "EntityMaintenanceSitesServiceUpdateMaintenanceSiteNotImplementedErrorResponseBody",
+    "EntityMaintenanceSitesServiceUpdateMaintenanceSiteResponseBody",
+    "EntityMaintenanceSitesServiceUpdateMaintenanceSiteServiceUnavailableErrorResponseBody",
+    "EntityMaintenanceSitesServiceUpdateMaintenanceSiteTooManyRequestsErrorResponseBody",
+    "EntityMaintenanceSitesServiceUpdateMaintenanceSiteUnauthorizedErrorResponseBody",
     "EntityPartDefinitionsServiceCreatePartBadGatewayErrorResponseBody",
     "EntityPartDefinitionsServiceCreatePartContentTooLargeErrorResponseBody",
     "EntityPartDefinitionsServiceCreatePartGatewayTimeoutErrorResponseBody",
@@ -18081,6 +18381,9 @@ __all__ = [
     "EntityUpcomingPreventativeMaintenancesServiceUpdateUpcomingPreventiveMaintenanceServiceUnavailableErrorResponseBody",
     "EntityUpcomingPreventativeMaintenancesServiceUpdateUpcomingPreventiveMaintenanceTooManyRequestsErrorResponseBody",
     "EntityUpcomingPreventativeMaintenancesServiceUpdateUpcomingPreventiveMaintenanceUnauthorizedErrorResponseBody",
+    "EntityUpdateMaintenanceSitePlaceRefTypeResponseBody",
+    "EntityUpdateMaintenanceSiteTypeResponseBody",
+    "EntityUpdateMaintenanceSiteTypeResponseBodySiteType",
     "EntityUpdatePartInventoryLocationPartDefinitionRefTypeResponseBody",
     "EntityUpdatePartInventoryLocationPlaceRefTypeResponseBody",
     "EntityUpdatePartInventoryLocationTypeResponseBody",
@@ -18149,6 +18452,17 @@ __all__ = [
     "EntityWarrantiesServiceUpdateWarrantyServiceUnavailableErrorResponseBody",
     "EntityWarrantiesServiceUpdateWarrantyTooManyRequestsErrorResponseBody",
     "EntityWarrantiesServiceUpdateWarrantyUnauthorizedErrorResponseBody",
+    "EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsBadGatewayErrorResponseBody",
+    "EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsContentTooLargeErrorResponseBody",
+    "EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsGatewayTimeoutErrorResponseBody",
+    "EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsInternalServerErrorResponseBody",
+    "EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsMethodNotAllowedErrorResponseBody",
+    "EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsNotFoundErrorResponseBody",
+    "EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsNotImplementedErrorResponseBody",
+    "EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsResponseBody",
+    "EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsServiceUnavailableErrorResponseBody",
+    "EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsTooManyRequestsErrorResponseBody",
+    "EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsUnauthorizedErrorResponseBody",
     "EntityWarrantyClaimsServiceCreateWarrantyClaimBadGatewayErrorResponseBody",
     "EntityWarrantyClaimsServiceCreateWarrantyClaimContentTooLargeErrorResponseBody",
     "EntityWarrantyClaimsServiceCreateWarrantyClaimGatewayTimeoutErrorResponseBody",
@@ -19332,6 +19646,8 @@ __all__ = [
     "ListIssuesEntityGroundIntelligenceIssueGroundIntelligenceIssueLocationTypeResponseBody",
     "ListIssuesEntityGroundIntelligenceIssueGroundIntelligenceIssueRoadSegmentTypeResponseBody",
     "ListIssuesEntityGroundIntelligenceIssueLatLngTypeResponseBody",
+    "ListMaintenanceSitesEntityMaintenanceSiteMaintenanceSiteCustomAddressTypeResponseBody",
+    "ListMaintenanceSitesEntityMaintenanceSiteMaintenanceSiteExternalIdTypeResponseBody",
     "ListPartInventoryEntityPartInventoryLocationMoneyTypeResponseBody",
     "ListPartsEntityPartDefinitionMoneyTypeResponseBody",
     "ListPlanOrdersResponsePaginationResponseBody",
@@ -21048,6 +21364,9 @@ __all__ = [
     "UpdateEngineImmobilizerRelayStateRequestBodyRequestBodyId",
     "UpdateFunctionStorageFileDetailResponseBody",
     "UpdateHubLocationRequestBodyRequestBody",
+    "UpdateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteCustomAddressTypeResponseBody",
+    "UpdateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteExternalIdInputTypeRequestBody",
+    "UpdateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteExternalIdTypeResponseBody",
     "UpdatePartEntityPartDefinitionMoneyInputTypeRequestBody",
     "UpdatePartEntityPartDefinitionMoneyTypeResponseBody",
     "UpdatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody",

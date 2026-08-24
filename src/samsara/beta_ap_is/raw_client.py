@@ -71,6 +71,12 @@ from ..types.create_hub_route_template_depot_end_input_request_body import (
 from ..types.create_hub_route_template_depot_start_input_request_body import (
     CreateHubRouteTemplateDepotStartInputRequestBody,
 )
+from ..types.create_maintenance_site_entity_maintenance_site_maintenance_site_custom_address_input_type_request_body import (
+    CreateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteCustomAddressInputTypeRequestBody,
+)
+from ..types.create_maintenance_site_entity_maintenance_site_maintenance_site_external_id_input_type_request_body import (
+    CreateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteExternalIdInputTypeRequestBody,
+)
 from ..types.create_part_entity_part_definition_money_input_type_request_body import (
     CreatePartEntityPartDefinitionMoneyInputTypeRequestBody,
 )
@@ -142,6 +148,15 @@ from ..types.entity_ground_intelligence_issues_service_update_ground_intelligenc
 from ..types.entity_inventory_transactions_service_list_part_transactions_response_body import (
     EntityInventoryTransactionsServiceListPartTransactionsResponseBody,
 )
+from ..types.entity_maintenance_sites_service_create_maintenance_site_response_body import (
+    EntityMaintenanceSitesServiceCreateMaintenanceSiteResponseBody,
+)
+from ..types.entity_maintenance_sites_service_list_maintenance_sites_response_body import (
+    EntityMaintenanceSitesServiceListMaintenanceSitesResponseBody,
+)
+from ..types.entity_maintenance_sites_service_update_maintenance_site_response_body import (
+    EntityMaintenanceSitesServiceUpdateMaintenanceSiteResponseBody,
+)
 from ..types.entity_part_definitions_service_create_part_response_body import (
     EntityPartDefinitionsServiceCreatePartResponseBody,
 )
@@ -195,6 +210,9 @@ from ..types.entity_warranties_service_list_warranties_response_body import (
 )
 from ..types.entity_warranties_service_update_warranty_response_body import (
     EntityWarrantiesServiceUpdateWarrantyResponseBody,
+)
+from ..types.entity_warranty_asset_assignments_service_list_warranty_asset_assignments_response_body import (
+    EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsResponseBody,
 )
 from ..types.entity_warranty_claims_service_create_warranty_claim_response_body import (
     EntityWarrantyClaimsServiceCreateWarrantyClaimResponseBody,
@@ -375,6 +393,9 @@ from ..types.tachograph_file_uploads_post_tachograph_file_upload_response_body i
 from ..types.update_engine_immobilizer_relay_state_request_body_request_body import (
     UpdateEngineImmobilizerRelayStateRequestBodyRequestBody,
 )
+from ..types.update_maintenance_site_entity_maintenance_site_maintenance_site_external_id_input_type_request_body import (
+    UpdateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteExternalIdInputTypeRequestBody,
+)
 from ..types.update_part_entity_part_definition_money_input_type_request_body import (
     UpdatePartEntityPartDefinitionMoneyInputTypeRequestBody,
 )
@@ -441,6 +462,12 @@ from .types.entity_ground_intelligence_issues_service_update_ground_intelligence
 )
 from .types.entity_ground_intelligence_issues_service_update_ground_intelligence_issue_request_body_type import (
     EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyType,
+)
+from .types.entity_maintenance_sites_service_create_maintenance_site_request_body_site_type import (
+    EntityMaintenanceSitesServiceCreateMaintenanceSiteRequestBodySiteType,
+)
+from .types.entity_maintenance_sites_service_update_maintenance_site_request_body_site_type import (
+    EntityMaintenanceSitesServiceUpdateMaintenanceSiteRequestBodySiteType,
 )
 from .types.entity_purchase_orders_service_create_purchase_order_request_body_order_status import (
     EntityPurchaseOrdersServiceCreatePurchaseOrderRequestBodyOrderStatus,
@@ -15896,6 +15923,603 @@ class RawBetaApIsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
+    def list_maintenance_sites(
+        self,
+        *,
+        ids: typing.Optional[str] = None,
+        is_archived: typing.Optional[bool] = None,
+        place_ids: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        include_external_ids: typing.Optional[bool] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[EntityMaintenanceSitesServiceListMaintenanceSitesResponseBody]:
+        """
+        Returns a paginated list of maintenance sites for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Maintenance Sites** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of ID values.
+
+        is_archived : typing.Optional[bool]
+            A filter on the data based on Archived. Whether the site is archived. Archived sites are no longer active but are retained for historical record.
+
+        place_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Place IDs values.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        include_external_ids : typing.Optional[bool]
+            If true, include externalIds in each response object.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[EntityMaintenanceSitesServiceListMaintenanceSitesResponseBody]
+            OK response.
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "maintenance/sites",
+            method="GET",
+            params={
+                "ids": ids,
+                "isArchived": is_archived,
+                "placeIds": place_ids,
+                "after": after,
+                "limit": limit,
+                "includeExternalIds": include_external_ids,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    EntityMaintenanceSitesServiceListMaintenanceSitesResponseBody,
+                    parse_obj_as(
+                        type_=EntityMaintenanceSitesServiceListMaintenanceSitesResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def create_maintenance_site(
+        self,
+        *,
+        name: str,
+        site_code: str,
+        site_type: EntityMaintenanceSitesServiceCreateMaintenanceSiteRequestBodySiteType,
+        custom_address: typing.Optional[
+            CreateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteCustomAddressInputTypeRequestBody
+        ] = OMIT,
+        description: typing.Optional[str] = OMIT,
+        external_ids: typing.Optional[
+            typing.Sequence[CreateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteExternalIdInputTypeRequestBody]
+        ] = OMIT,
+        place_ids: typing.Optional[typing.Sequence[str]] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[EntityMaintenanceSitesServiceCreateMaintenanceSiteResponseBody]:
+        """
+        Creates a maintenance site for the organization. Exactly one of placeIds or customAddress must be set.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Maintenance Sites** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        name : str
+            Name of the maintenance site. Org-unique.
+
+        site_code : str
+            Org-unique 3-character code for the site, used to generate inventory batch numbers.
+
+        site_type : EntityMaintenanceSitesServiceCreateMaintenanceSiteRequestBodySiteType
+            Type of maintenance site, for example central warehouse, maintenance shop, or yard/onsite.  Valid values: `Unknown`, `CentralWarehouse`, `MaintenanceShop`, `MobileServiceVehicle`, `YardOnsite`, `Consignment`, `Other`
+
+        custom_address : typing.Optional[CreateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteCustomAddressInputTypeRequestBody]
+
+        description : typing.Optional[str]
+            Description of the maintenance site.
+
+        external_ids : typing.Optional[typing.Sequence[CreateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteExternalIdInputTypeRequestBody]]
+            Customer-supplied external identifiers for the site, interchangeable with id in filters. Only included in the response when includeExternalIds is set.
+
+        place_ids : typing.Optional[typing.Sequence[str]]
+            Places this site is linked to. Mutually exclusive with customAddress. At most one entry is accepted today, though the field is an array to allow for future expansion.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[EntityMaintenanceSitesServiceCreateMaintenanceSiteResponseBody]
+            Created response.
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "maintenance/sites",
+            method="POST",
+            json={
+                "customAddress": convert_and_respect_annotation_metadata(
+                    object_=custom_address,
+                    annotation=CreateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteCustomAddressInputTypeRequestBody,
+                    direction="write",
+                ),
+                "description": description,
+                "externalIds": convert_and_respect_annotation_metadata(
+                    object_=external_ids,
+                    annotation=typing.Sequence[
+                        CreateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteExternalIdInputTypeRequestBody
+                    ],
+                    direction="write",
+                ),
+                "name": name,
+                "placeIds": place_ids,
+                "siteCode": site_code,
+                "siteType": site_type,
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    EntityMaintenanceSitesServiceCreateMaintenanceSiteResponseBody,
+                    parse_obj_as(
+                        type_=EntityMaintenanceSitesServiceCreateMaintenanceSiteResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def update_maintenance_site(
+        self,
+        *,
+        id: str,
+        description: typing.Optional[str] = OMIT,
+        external_ids: typing.Optional[
+            typing.Sequence[UpdateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteExternalIdInputTypeRequestBody]
+        ] = OMIT,
+        name: typing.Optional[str] = OMIT,
+        site_code: typing.Optional[str] = OMIT,
+        site_type: typing.Optional[EntityMaintenanceSitesServiceUpdateMaintenanceSiteRequestBodySiteType] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[EntityMaintenanceSitesServiceUpdateMaintenanceSiteResponseBody]:
+        """
+        Updates an existing maintenance site for the organization. Moving a site between placeIds and customAddress is not supported.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Maintenance Sites** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Unique identifier for the MaintenanceSite record.
+
+        description : typing.Optional[str]
+            Description of the maintenance site.
+
+        external_ids : typing.Optional[typing.Sequence[UpdateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteExternalIdInputTypeRequestBody]]
+            Customer-supplied external identifiers for the site, interchangeable with id in filters. Only included in the response when includeExternalIds is set.
+
+        name : typing.Optional[str]
+            Name of the maintenance site. Org-unique.
+
+        site_code : typing.Optional[str]
+            Org-unique 3-character code for the site, used to generate inventory batch numbers.
+
+        site_type : typing.Optional[EntityMaintenanceSitesServiceUpdateMaintenanceSiteRequestBodySiteType]
+            Type of maintenance site, for example central warehouse, maintenance shop, or yard/onsite.  Valid values: `Unknown`, `CentralWarehouse`, `MaintenanceShop`, `MobileServiceVehicle`, `YardOnsite`, `Consignment`, `Other`
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[EntityMaintenanceSitesServiceUpdateMaintenanceSiteResponseBody]
+            OK response.
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "maintenance/sites",
+            method="PATCH",
+            params={
+                "id": id,
+            },
+            json={
+                "description": description,
+                "externalIds": convert_and_respect_annotation_metadata(
+                    object_=external_ids,
+                    annotation=typing.Sequence[
+                        UpdateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteExternalIdInputTypeRequestBody
+                    ],
+                    direction="write",
+                ),
+                "name": name,
+                "siteCode": site_code,
+                "siteType": site_type,
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    EntityMaintenanceSitesServiceUpdateMaintenanceSiteResponseBody,
+                    parse_obj_as(
+                        type_=EntityMaintenanceSitesServiceUpdateMaintenanceSiteResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
     def list_time_entries(
         self,
         *,
@@ -16756,6 +17380,178 @@ class RawBetaApIsClient:
                     EntityWarrantiesServiceUpdateWarrantyResponseBody,
                     parse_obj_as(
                         type_=EntityWarrantiesServiceUpdateWarrantyResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def list_warranty_asset_assignments(
+        self,
+        *,
+        warranty_id: str,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsResponseBody]:
+        """
+        Returns the assets assigned to a warranty.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        warranty_id : str
+            A filter on the data based on this comma-separated list of Warranty values.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsResponseBody]
+            OK response.
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "maintenance/warranties/assets",
+            method="GET",
+            params={
+                "warrantyId": warranty_id,
+                "after": after,
+                "limit": limit,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsResponseBody,
+                    parse_obj_as(
+                        type_=EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -40261,6 +41057,603 @@ class AsyncRawBetaApIsClient:
             raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
         raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
 
+    async def list_maintenance_sites(
+        self,
+        *,
+        ids: typing.Optional[str] = None,
+        is_archived: typing.Optional[bool] = None,
+        place_ids: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        include_external_ids: typing.Optional[bool] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[EntityMaintenanceSitesServiceListMaintenanceSitesResponseBody]:
+        """
+        Returns a paginated list of maintenance sites for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Maintenance Sites** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of ID values.
+
+        is_archived : typing.Optional[bool]
+            A filter on the data based on Archived. Whether the site is archived. Archived sites are no longer active but are retained for historical record.
+
+        place_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Place IDs values.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        include_external_ids : typing.Optional[bool]
+            If true, include externalIds in each response object.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[EntityMaintenanceSitesServiceListMaintenanceSitesResponseBody]
+            OK response.
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "maintenance/sites",
+            method="GET",
+            params={
+                "ids": ids,
+                "isArchived": is_archived,
+                "placeIds": place_ids,
+                "after": after,
+                "limit": limit,
+                "includeExternalIds": include_external_ids,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    EntityMaintenanceSitesServiceListMaintenanceSitesResponseBody,
+                    parse_obj_as(
+                        type_=EntityMaintenanceSitesServiceListMaintenanceSitesResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def create_maintenance_site(
+        self,
+        *,
+        name: str,
+        site_code: str,
+        site_type: EntityMaintenanceSitesServiceCreateMaintenanceSiteRequestBodySiteType,
+        custom_address: typing.Optional[
+            CreateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteCustomAddressInputTypeRequestBody
+        ] = OMIT,
+        description: typing.Optional[str] = OMIT,
+        external_ids: typing.Optional[
+            typing.Sequence[CreateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteExternalIdInputTypeRequestBody]
+        ] = OMIT,
+        place_ids: typing.Optional[typing.Sequence[str]] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[EntityMaintenanceSitesServiceCreateMaintenanceSiteResponseBody]:
+        """
+        Creates a maintenance site for the organization. Exactly one of placeIds or customAddress must be set.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Maintenance Sites** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        name : str
+            Name of the maintenance site. Org-unique.
+
+        site_code : str
+            Org-unique 3-character code for the site, used to generate inventory batch numbers.
+
+        site_type : EntityMaintenanceSitesServiceCreateMaintenanceSiteRequestBodySiteType
+            Type of maintenance site, for example central warehouse, maintenance shop, or yard/onsite.  Valid values: `Unknown`, `CentralWarehouse`, `MaintenanceShop`, `MobileServiceVehicle`, `YardOnsite`, `Consignment`, `Other`
+
+        custom_address : typing.Optional[CreateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteCustomAddressInputTypeRequestBody]
+
+        description : typing.Optional[str]
+            Description of the maintenance site.
+
+        external_ids : typing.Optional[typing.Sequence[CreateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteExternalIdInputTypeRequestBody]]
+            Customer-supplied external identifiers for the site, interchangeable with id in filters. Only included in the response when includeExternalIds is set.
+
+        place_ids : typing.Optional[typing.Sequence[str]]
+            Places this site is linked to. Mutually exclusive with customAddress. At most one entry is accepted today, though the field is an array to allow for future expansion.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[EntityMaintenanceSitesServiceCreateMaintenanceSiteResponseBody]
+            Created response.
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "maintenance/sites",
+            method="POST",
+            json={
+                "customAddress": convert_and_respect_annotation_metadata(
+                    object_=custom_address,
+                    annotation=CreateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteCustomAddressInputTypeRequestBody,
+                    direction="write",
+                ),
+                "description": description,
+                "externalIds": convert_and_respect_annotation_metadata(
+                    object_=external_ids,
+                    annotation=typing.Sequence[
+                        CreateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteExternalIdInputTypeRequestBody
+                    ],
+                    direction="write",
+                ),
+                "name": name,
+                "placeIds": place_ids,
+                "siteCode": site_code,
+                "siteType": site_type,
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    EntityMaintenanceSitesServiceCreateMaintenanceSiteResponseBody,
+                    parse_obj_as(
+                        type_=EntityMaintenanceSitesServiceCreateMaintenanceSiteResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def update_maintenance_site(
+        self,
+        *,
+        id: str,
+        description: typing.Optional[str] = OMIT,
+        external_ids: typing.Optional[
+            typing.Sequence[UpdateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteExternalIdInputTypeRequestBody]
+        ] = OMIT,
+        name: typing.Optional[str] = OMIT,
+        site_code: typing.Optional[str] = OMIT,
+        site_type: typing.Optional[EntityMaintenanceSitesServiceUpdateMaintenanceSiteRequestBodySiteType] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[EntityMaintenanceSitesServiceUpdateMaintenanceSiteResponseBody]:
+        """
+        Updates an existing maintenance site for the organization. Moving a site between placeIds and customAddress is not supported.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Maintenance Sites** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Unique identifier for the MaintenanceSite record.
+
+        description : typing.Optional[str]
+            Description of the maintenance site.
+
+        external_ids : typing.Optional[typing.Sequence[UpdateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteExternalIdInputTypeRequestBody]]
+            Customer-supplied external identifiers for the site, interchangeable with id in filters. Only included in the response when includeExternalIds is set.
+
+        name : typing.Optional[str]
+            Name of the maintenance site. Org-unique.
+
+        site_code : typing.Optional[str]
+            Org-unique 3-character code for the site, used to generate inventory batch numbers.
+
+        site_type : typing.Optional[EntityMaintenanceSitesServiceUpdateMaintenanceSiteRequestBodySiteType]
+            Type of maintenance site, for example central warehouse, maintenance shop, or yard/onsite.  Valid values: `Unknown`, `CentralWarehouse`, `MaintenanceShop`, `MobileServiceVehicle`, `YardOnsite`, `Consignment`, `Other`
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[EntityMaintenanceSitesServiceUpdateMaintenanceSiteResponseBody]
+            OK response.
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "maintenance/sites",
+            method="PATCH",
+            params={
+                "id": id,
+            },
+            json={
+                "description": description,
+                "externalIds": convert_and_respect_annotation_metadata(
+                    object_=external_ids,
+                    annotation=typing.Sequence[
+                        UpdateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteExternalIdInputTypeRequestBody
+                    ],
+                    direction="write",
+                ),
+                "name": name,
+                "siteCode": site_code,
+                "siteType": site_type,
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    EntityMaintenanceSitesServiceUpdateMaintenanceSiteResponseBody,
+                    parse_obj_as(
+                        type_=EntityMaintenanceSitesServiceUpdateMaintenanceSiteResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
     async def list_time_entries(
         self,
         *,
@@ -41121,6 +42514,178 @@ class AsyncRawBetaApIsClient:
                     EntityWarrantiesServiceUpdateWarrantyResponseBody,
                     parse_obj_as(
                         type_=EntityWarrantiesServiceUpdateWarrantyResponseBody,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 501:
+                raise NotImplementedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 502:
+                raise BadGatewayError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def list_warranty_asset_assignments(
+        self,
+        *,
+        warranty_id: str,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsResponseBody]:
+        """
+        Returns the assets assigned to a warranty.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        warranty_id : str
+            A filter on the data based on this comma-separated list of Warranty values.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsResponseBody]
+            OK response.
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "maintenance/warranties/assets",
+            method="GET",
+            params={
+                "warrantyId": warranty_id,
+                "after": after,
+                "limit": limit,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsResponseBody,
+                    parse_obj_as(
+                        type_=EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsResponseBody,  # type: ignore
                         object_=_response.json(),
                     ),
                 )

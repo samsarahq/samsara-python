@@ -761,6 +761,30 @@ def test_betaApIs_update_purchase_order() -> None:
     verify_request_count(test_id, "PATCH", "/maintenance/purchase-orders", {"id": "id"}, 1)
 
 
+def test_betaApIs_list_maintenance_sites() -> None:
+    """Test listMaintenanceSites endpoint with WireMock"""
+    test_id = "beta_ap_is.list_maintenance_sites.0"
+    client = get_client(test_id)
+    client.beta_ap_is.list_maintenance_sites()
+    verify_request_count(test_id, "GET", "/maintenance/sites", None, 1)
+
+
+def test_betaApIs_create_maintenance_site() -> None:
+    """Test createMaintenanceSite endpoint with WireMock"""
+    test_id = "beta_ap_is.create_maintenance_site.0"
+    client = get_client(test_id)
+    client.beta_ap_is.create_maintenance_site(name="12345", site_code="12345", site_type="Unknown")
+    verify_request_count(test_id, "POST", "/maintenance/sites", None, 1)
+
+
+def test_betaApIs_update_maintenance_site() -> None:
+    """Test updateMaintenanceSite endpoint with WireMock"""
+    test_id = "beta_ap_is.update_maintenance_site.0"
+    client = get_client(test_id)
+    client.beta_ap_is.update_maintenance_site(id="id")
+    verify_request_count(test_id, "PATCH", "/maintenance/sites", {"id": "id"}, 1)
+
+
 def test_betaApIs_list_time_entries() -> None:
     """Test listTimeEntries endpoint with WireMock"""
     test_id = "beta_ap_is.list_time_entries.0"
@@ -799,6 +823,14 @@ def test_betaApIs_update_warranty() -> None:
     client = get_client(test_id)
     client.beta_ap_is.update_warranty(id="id")
     verify_request_count(test_id, "PATCH", "/maintenance/warranties", {"id": "id"}, 1)
+
+
+def test_betaApIs_list_warranty_asset_assignments() -> None:
+    """Test listWarrantyAssetAssignments endpoint with WireMock"""
+    test_id = "beta_ap_is.list_warranty_asset_assignments.0"
+    client = get_client(test_id)
+    client.beta_ap_is.list_warranty_asset_assignments(warranty_id="warrantyId")
+    verify_request_count(test_id, "GET", "/maintenance/warranties/assets", {"warrantyId": "warrantyId"}, 1)
 
 
 def test_betaApIs_replace_warranty_asset_assignments() -> None:

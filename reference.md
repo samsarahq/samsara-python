@@ -9598,6 +9598,381 @@ client.beta_ap_is.update_purchase_order(
 </dl>
 </details>
 
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_maintenance_sites</a>(...) -&gt; AsyncHttpResponse[EntityMaintenanceSitesServiceListMaintenanceSitesResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns a paginated list of maintenance sites for the organization.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Maintenance Sites** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.list_maintenance_sites()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of ID values.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_archived:** `typing.Optional[bool]` — A filter on the data based on Archived. Whether the site is archived. Archived sites are no longer active but are retained for historical record.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**place_ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of Place IDs values.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_external_ids:** `typing.Optional[bool]` — If true, include externalIds in each response object.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">create_maintenance_site</a>(...) -&gt; AsyncHttpResponse[
+    EntityMaintenanceSitesServiceCreateMaintenanceSiteResponseBody
+]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Creates a maintenance site for the organization. Exactly one of placeIds or customAddress must be set.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Maintenance Sites** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.create_maintenance_site(
+    name="12345",
+    site_code="12345",
+    site_type="Unknown",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**name:** `str` — Name of the maintenance site. Org-unique.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**site_code:** `str` — Org-unique 3-character code for the site, used to generate inventory batch numbers.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**site_type:** `EntityMaintenanceSitesServiceCreateMaintenanceSiteRequestBodySiteType` — Type of maintenance site, for example central warehouse, maintenance shop, or yard/onsite.  Valid values: `Unknown`, `CentralWarehouse`, `MaintenanceShop`, `MobileServiceVehicle`, `YardOnsite`, `Consignment`, `Other`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**custom_address:** `typing.Optional[
+    CreateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteCustomAddressInputTypeRequestBody
+]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**description:** `typing.Optional[str]` — Description of the maintenance site.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**external_ids:** `typing.Optional[
+    typing.Sequence[
+        CreateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteExternalIdInputTypeRequestBody
+    ]
+]` — Customer-supplied external identifiers for the site, interchangeable with id in filters. Only included in the response when includeExternalIds is set.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**place_ids:** `typing.Optional[typing.Sequence[str]]` — Places this site is linked to. Mutually exclusive with customAddress. At most one entry is accepted today, though the field is an array to allow for future expansion.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">update_maintenance_site</a>(...) -&gt; AsyncHttpResponse[
+    EntityMaintenanceSitesServiceUpdateMaintenanceSiteResponseBody
+]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Updates an existing maintenance site for the organization. Moving a site between placeIds and customAddress is not supported.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Maintenance Sites** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.update_maintenance_site(
+    id="id",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` — Unique identifier for the MaintenanceSite record.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**description:** `typing.Optional[str]` — Description of the maintenance site.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**external_ids:** `typing.Optional[
+    typing.Sequence[
+        UpdateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteExternalIdInputTypeRequestBody
+    ]
+]` — Customer-supplied external identifiers for the site, interchangeable with id in filters. Only included in the response when includeExternalIds is set.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `typing.Optional[str]` — Name of the maintenance site. Org-unique.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**site_code:** `typing.Optional[str]` — Org-unique 3-character code for the site, used to generate inventory batch numbers.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**site_type:** `typing.Optional[
+    EntityMaintenanceSitesServiceUpdateMaintenanceSiteRequestBodySiteType
+]` — Type of maintenance site, for example central warehouse, maintenance shop, or yard/onsite.  Valid values: `Unknown`, `CentralWarehouse`, `MaintenanceShop`, `MobileServiceVehicle`, `YardOnsite`, `Consignment`, `Other`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_time_entries</a>(...) -&gt; AsyncHttpResponse[EntityTimeEntriesServiceListTimeEntriesResponseBody]</code></summary>
 <dl>
 <dd>
@@ -10206,6 +10581,101 @@ client.beta_ap_is.update_warranty(
 <dd>
 
 **warranty_type:** `typing.Optional[str]` — Type of warranty, for example manufacturer, extended, other, or unknown.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_warranty_asset_assignments</a>(...) -&gt; AsyncHttpResponse[
+    EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsResponseBody
+]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns the assets assigned to a warranty.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.list_warranty_asset_assignments(
+    warranty_id="warrantyId",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**warranty_id:** `str` — A filter on the data based on this comma-separated list of Warranty values.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default and max for this value is 200 objects.
     
 </dd>
 </dl>
@@ -16150,7 +16620,7 @@ client.assets.update_asset(
 <dl>
 <dd>
 
-**id:** `str` — A filter selecting a single asset by id.
+**id:** `str` — ID of the asset to update. Can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the asset.
     
 </dd>
 </dl>
