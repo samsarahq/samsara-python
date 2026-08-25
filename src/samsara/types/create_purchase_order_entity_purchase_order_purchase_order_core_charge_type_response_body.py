@@ -25,7 +25,7 @@ from .entity_create_purchase_order_vendor_ref_type_response_body import (
 
 class CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseBody(UniversalBaseModel):
     """
-    CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreCharge object
+    PurchaseOrderCoreCharge object
     """
 
     core_charge_status: typing_extensions.Annotated[

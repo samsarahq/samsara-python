@@ -10,25 +10,25 @@ from .entity_update_purchase_order_part_definition_ref_type_response_body import
     EntityUpdatePurchaseOrderPartDefinitionRefTypeResponseBody,
 )
 from .entity_update_purchase_order_place_ref_type_response_body import EntityUpdatePurchaseOrderPlaceRefTypeResponseBody
-from .update_purchase_order_entity_purchase_order_money_public_variant_55_aeb_6731578_type_response_body import (
-    UpdatePurchaseOrderEntityPurchaseOrderMoneyPublicVariant55Aeb6731578TypeResponseBody,
+from .update_purchase_order_entity_purchase_order_money_public_variantf_6994_a_15_f_796_type_response_body import (
+    UpdatePurchaseOrderEntityPurchaseOrderMoneyPublicVariantf6994A15F796TypeResponseBody,
 )
 from .update_purchase_order_entity_purchase_order_purchase_order_core_charge_type_response_body import (
     UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseBody,
 )
-from .update_purchase_order_entity_purchase_order_purchase_order_part_public_variantc_060_a_0106_cf_6_type_response_body_unit_of_measure_type import (
-    UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariantc060A0106Cf6TypeResponseBodyUnitOfMeasureType,
+from .update_purchase_order_entity_purchase_order_purchase_order_part_public_varianteafe_48_db_3764_type_response_body_unit_of_measure_type import (
+    UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVarianteafe48Db3764TypeResponseBodyUnitOfMeasureType,
 )
 from .update_purchase_order_entity_purchase_order_tax_adjustment_type_response_body import (
     UpdatePurchaseOrderEntityPurchaseOrderTaxAdjustmentTypeResponseBody,
 )
 
 
-class UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariantc060A0106Cf6TypeResponseBody(
+class UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVarianteafe48Db3764TypeResponseBody(
     UniversalBaseModel
 ):
     """
-    UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPart object
+    PurchaseOrderPart object
     """
 
     batch_number: typing_extensions.Annotated[
@@ -69,18 +69,18 @@ class UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariantc060A0
     ] = None
     tax: typing.Optional[UpdatePurchaseOrderEntityPurchaseOrderTaxAdjustmentTypeResponseBody] = None
     unit_cost: typing_extensions.Annotated[
-        typing.Optional[UpdatePurchaseOrderEntityPurchaseOrderMoneyPublicVariant55Aeb6731578TypeResponseBody],
+        typing.Optional[UpdatePurchaseOrderEntityPurchaseOrderMoneyPublicVariantf6994A15F796TypeResponseBody],
         FieldMetadata(alias="unitCost"),
         pydantic.Field(alias="unitCost"),
     ] = None
     unit_of_measure_type: typing_extensions.Annotated[
         typing.Optional[
-            UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariantc060A0106Cf6TypeResponseBodyUnitOfMeasureType
+            UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVarianteafe48Db3764TypeResponseBodyUnitOfMeasureType
         ],
         FieldMetadata(alias="unitOfMeasureType"),
         pydantic.Field(
             alias="unitOfMeasureType",
-            description="Unit of measure for quantities on this line.  Valid values: `Unknown`, `Each`, `Set`, `Pack`, `Box`, `Pound`, `Kilogram`, `Ounce`, `Liter`, `Milliliter`, `Gallon`, `Quart`, `FluidOunce`, `Inch`, `Foot`, `Meter`, `Yard`, `SquareFoot`, `SquareMeter`, `Pint`, `Hundred`, `Roll`",
+            description="Unit of measure for quantities on this line. Read-only: derived from the line's part definition, and ignored if supplied on create or update.  Valid values: `Unknown`, `Each`, `Set`, `Pack`, `Box`, `Pound`, `Kilogram`, `Ounce`, `Liter`, `Milliliter`, `Gallon`, `Quart`, `FluidOunce`, `Inch`, `Foot`, `Meter`, `Yard`, `SquareFoot`, `SquareMeter`, `Pint`, `Hundred`, `Roll`",
         ),
     ] = None
 

@@ -23,7 +23,7 @@ from .list_purchase_orders_entity_purchase_order_purchase_order_core_charge_type
 
 class ListPurchaseOrdersEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseBody(UniversalBaseModel):
     """
-    ListPurchaseOrdersEntityPurchaseOrderPurchaseOrderCoreCharge object
+    PurchaseOrderCoreCharge object
     """
 
     core_charge_status: typing_extensions.Annotated[

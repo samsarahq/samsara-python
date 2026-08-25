@@ -2,7 +2,7 @@
 
 import typing
 
-CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariant0241C1BeccaeTypeResponseBodyUnitOfMeasureType = (
+CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVarianteee5Df5B52BeTypeResponseBodyUnitOfMeasureType = (
     typing.Union[
         typing.Literal[
             "Unknown",

@@ -66,11 +66,11 @@ from ..types.create_part_entity_part_definition_money_input_type_request_body im
 from ..types.create_part_inventory_location_entity_part_inventory_location_money_input_type_request_body import (
     CreatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody,
 )
-from ..types.create_purchase_order_entity_purchase_order_money_input_public_varianta_2_e_1675_a_5_a_65_type_request_body import (
-    CreatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVarianta2E1675A5A65TypeRequestBody,
+from ..types.create_purchase_order_entity_purchase_order_money_input_public_variantc_9366_b_66_e_6_fc_type_request_body import (
+    CreatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVariantc9366B66E6FcTypeRequestBody,
 )
-from ..types.create_purchase_order_entity_purchase_order_purchase_order_part_input_public_variant_63_e_9_febe_395_e_type_request_body import (
-    CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant63E9Febe395ETypeRequestBody,
+from ..types.create_purchase_order_entity_purchase_order_purchase_order_part_input_public_variantfe_4658938_a_0_f_type_request_body import (
+    CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariantfe4658938A0FTypeRequestBody,
 )
 from ..types.create_purchase_order_entity_purchase_order_tax_adjustment_input_type_request_body import (
     CreatePurchaseOrderEntityPurchaseOrderTaxAdjustmentInputTypeRequestBody,
@@ -385,11 +385,11 @@ from ..types.update_part_entity_part_definition_money_input_type_request_body im
 from ..types.update_part_inventory_location_entity_part_inventory_location_money_input_type_request_body import (
     UpdatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody,
 )
-from ..types.update_purchase_order_entity_purchase_order_money_input_public_varianta_34_bfd_5_a_4152_type_request_body import (
-    UpdatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVarianta34Bfd5A4152TypeRequestBody,
+from ..types.update_purchase_order_entity_purchase_order_money_input_public_variantc_9366_b_66_e_6_fc_type_request_body import (
+    UpdatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVariantc9366B66E6FcTypeRequestBody,
 )
-from ..types.update_purchase_order_entity_purchase_order_purchase_order_part_input_public_variant_1_a_94_e_81632_ea_type_request_body import (
-    UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant1A94E81632EaTypeRequestBody,
+from ..types.update_purchase_order_entity_purchase_order_purchase_order_part_input_public_variant_5_e_7_c_0_da_15_f_4_c_type_request_body import (
+    UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant5E7C0Da15F4CTypeRequestBody,
 )
 from ..types.update_purchase_order_entity_purchase_order_tax_adjustment_input_type_request_body import (
     UpdatePurchaseOrderEntityPurchaseOrderTaxAdjustmentInputTypeRequestBody,
@@ -3320,6 +3320,8 @@ class BetaApIsClient:
         limit: typing.Optional[int] = None,
         include_download_urls: typing.Optional[bool] = None,
         include_upload_urls: typing.Optional[bool] = None,
+        prefix: typing.Optional[str] = None,
+        group_by_folder: typing.Optional[bool] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> FunctionsStorageListFunctionsStorageFilesResponseBody:
         """
@@ -3346,6 +3348,12 @@ class BetaApIsClient:
         include_upload_urls : typing.Optional[bool]
             If true, include presigned upload URLs for each file. Requires write permission.
 
+        prefix : typing.Optional[str]
+            Only list files and immediate subfolders under this path prefix, for example `logs/`.
+
+        group_by_folder : typing.Optional[bool]
+            When true, roll immediate subfolders up into the `folders` field and return only files directly under the prefix in `data`.
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -3368,6 +3376,8 @@ class BetaApIsClient:
             limit=limit,
             include_download_urls=include_download_urls,
             include_upload_urls=include_upload_urls,
+            prefix=prefix,
+            group_by_folder=group_by_folder,
             request_options=request_options,
         )
         return _response.data
@@ -5544,11 +5554,11 @@ class BetaApIsClient:
         invoice_number: typing.Optional[str] = OMIT,
         notes: typing.Optional[str] = OMIT,
         other_cost: typing.Optional[
-            CreatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVarianta2E1675A5A65TypeRequestBody
+            CreatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVariantc9366B66E6FcTypeRequestBody
         ] = OMIT,
         parts: typing.Optional[
             typing.Sequence[
-                CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant63E9Febe395ETypeRequestBody
+                CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariantfe4658938A0FTypeRequestBody
             ]
         ] = OMIT,
         po_number_prefix: typing.Optional[str] = OMIT,
@@ -5584,9 +5594,9 @@ class BetaApIsClient:
         notes : typing.Optional[str]
             Free-text notes for the purchase order.
 
-        other_cost : typing.Optional[CreatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVarianta2E1675A5A65TypeRequestBody]
+        other_cost : typing.Optional[CreatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVariantc9366B66E6FcTypeRequestBody]
 
-        parts : typing.Optional[typing.Sequence[CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant63E9Febe395ETypeRequestBody]]
+        parts : typing.Optional[typing.Sequence[CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariantfe4658938A0FTypeRequestBody]]
             Parts ordered on the purchase order.
 
         po_number_prefix : typing.Optional[str]
@@ -5682,11 +5692,11 @@ class BetaApIsClient:
         notes: typing.Optional[str] = OMIT,
         order_status: typing.Optional[EntityPurchaseOrdersServiceUpdatePurchaseOrderRequestBodyOrderStatus] = OMIT,
         other_cost: typing.Optional[
-            UpdatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVarianta34Bfd5A4152TypeRequestBody
+            UpdatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVariantc9366B66E6FcTypeRequestBody
         ] = OMIT,
         parts: typing.Optional[
             typing.Sequence[
-                UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant1A94E81632EaTypeRequestBody
+                UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant5E7C0Da15F4CTypeRequestBody
             ]
         ] = OMIT,
         tax: typing.Optional[UpdatePurchaseOrderEntityPurchaseOrderTaxAdjustmentInputTypeRequestBody] = OMIT,
@@ -5721,9 +5731,9 @@ class BetaApIsClient:
         order_status : typing.Optional[EntityPurchaseOrdersServiceUpdatePurchaseOrderRequestBodyOrderStatus]
             Current customer-visible status of the purchase order.  Valid values: `Unknown`, `Draft`, `Open`, `InReview`, `Approved`, `Rejected`, `SentToVendor`, `PartiallyReceived`, `FullyReceived`, `Returned`, `Cancelled`, `Closed`
 
-        other_cost : typing.Optional[UpdatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVarianta34Bfd5A4152TypeRequestBody]
+        other_cost : typing.Optional[UpdatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVariantc9366B66E6FcTypeRequestBody]
 
-        parts : typing.Optional[typing.Sequence[UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant1A94E81632EaTypeRequestBody]]
+        parts : typing.Optional[typing.Sequence[UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant5E7C0Da15F4CTypeRequestBody]]
             Parts ordered on the purchase order.
 
         tax : typing.Optional[UpdatePurchaseOrderEntityPurchaseOrderTaxAdjustmentInputTypeRequestBody]
@@ -12398,6 +12408,8 @@ class AsyncBetaApIsClient:
         limit: typing.Optional[int] = None,
         include_download_urls: typing.Optional[bool] = None,
         include_upload_urls: typing.Optional[bool] = None,
+        prefix: typing.Optional[str] = None,
+        group_by_folder: typing.Optional[bool] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> FunctionsStorageListFunctionsStorageFilesResponseBody:
         """
@@ -12423,6 +12435,12 @@ class AsyncBetaApIsClient:
 
         include_upload_urls : typing.Optional[bool]
             If true, include presigned upload URLs for each file. Requires write permission.
+
+        prefix : typing.Optional[str]
+            Only list files and immediate subfolders under this path prefix, for example `logs/`.
+
+        group_by_folder : typing.Optional[bool]
+            When true, roll immediate subfolders up into the `folders` field and return only files directly under the prefix in `data`.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -12454,6 +12472,8 @@ class AsyncBetaApIsClient:
             limit=limit,
             include_download_urls=include_download_urls,
             include_upload_urls=include_upload_urls,
+            prefix=prefix,
+            group_by_folder=group_by_folder,
             request_options=request_options,
         )
         return _response.data
@@ -14895,11 +14915,11 @@ class AsyncBetaApIsClient:
         invoice_number: typing.Optional[str] = OMIT,
         notes: typing.Optional[str] = OMIT,
         other_cost: typing.Optional[
-            CreatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVarianta2E1675A5A65TypeRequestBody
+            CreatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVariantc9366B66E6FcTypeRequestBody
         ] = OMIT,
         parts: typing.Optional[
             typing.Sequence[
-                CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant63E9Febe395ETypeRequestBody
+                CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariantfe4658938A0FTypeRequestBody
             ]
         ] = OMIT,
         po_number_prefix: typing.Optional[str] = OMIT,
@@ -14935,9 +14955,9 @@ class AsyncBetaApIsClient:
         notes : typing.Optional[str]
             Free-text notes for the purchase order.
 
-        other_cost : typing.Optional[CreatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVarianta2E1675A5A65TypeRequestBody]
+        other_cost : typing.Optional[CreatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVariantc9366B66E6FcTypeRequestBody]
 
-        parts : typing.Optional[typing.Sequence[CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant63E9Febe395ETypeRequestBody]]
+        parts : typing.Optional[typing.Sequence[CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariantfe4658938A0FTypeRequestBody]]
             Parts ordered on the purchase order.
 
         po_number_prefix : typing.Optional[str]
@@ -15049,11 +15069,11 @@ class AsyncBetaApIsClient:
         notes: typing.Optional[str] = OMIT,
         order_status: typing.Optional[EntityPurchaseOrdersServiceUpdatePurchaseOrderRequestBodyOrderStatus] = OMIT,
         other_cost: typing.Optional[
-            UpdatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVarianta34Bfd5A4152TypeRequestBody
+            UpdatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVariantc9366B66E6FcTypeRequestBody
         ] = OMIT,
         parts: typing.Optional[
             typing.Sequence[
-                UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant1A94E81632EaTypeRequestBody
+                UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant5E7C0Da15F4CTypeRequestBody
             ]
         ] = OMIT,
         tax: typing.Optional[UpdatePurchaseOrderEntityPurchaseOrderTaxAdjustmentInputTypeRequestBody] = OMIT,
@@ -15088,9 +15108,9 @@ class AsyncBetaApIsClient:
         order_status : typing.Optional[EntityPurchaseOrdersServiceUpdatePurchaseOrderRequestBodyOrderStatus]
             Current customer-visible status of the purchase order.  Valid values: `Unknown`, `Draft`, `Open`, `InReview`, `Approved`, `Rejected`, `SentToVendor`, `PartiallyReceived`, `FullyReceived`, `Returned`, `Cancelled`, `Closed`
 
-        other_cost : typing.Optional[UpdatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVarianta34Bfd5A4152TypeRequestBody]
+        other_cost : typing.Optional[UpdatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVariantc9366B66E6FcTypeRequestBody]
 
-        parts : typing.Optional[typing.Sequence[UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant1A94E81632EaTypeRequestBody]]
+        parts : typing.Optional[typing.Sequence[UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant5E7C0Da15F4CTypeRequestBody]]
             Parts ordered on the purchase order.
 
         tax : typing.Optional[UpdatePurchaseOrderEntityPurchaseOrderTaxAdjustmentInputTypeRequestBody]

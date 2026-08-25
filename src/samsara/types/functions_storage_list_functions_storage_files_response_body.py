@@ -5,6 +5,7 @@ import typing
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from .functions_storage_file_response_body import FunctionsStorageFileResponseBody
+from .functions_storage_folder_response_body import FunctionsStorageFolderResponseBody
 from .goa_pagination_response_response_body import GoaPaginationResponseResponseBody
 
 
@@ -12,6 +13,11 @@ class FunctionsStorageListFunctionsStorageFilesResponseBody(UniversalBaseModel):
     data: typing.List[FunctionsStorageFileResponseBody] = pydantic.Field()
     """
     Array of files in Functions storage.
+    """
+
+    folders: typing.Optional[typing.List[FunctionsStorageFolderResponseBody]] = pydantic.Field(default=None)
+    """
+    Immediate subfolders under the prefix. Populated only when `groupByFolder` is true.
     """
 
     pagination: GoaPaginationResponseResponseBody

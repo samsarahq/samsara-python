@@ -6,7 +6,7 @@ import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 
 
-class UpdatePurchaseOrderEntityPurchaseOrderMoneyInputTypeRequestBody(UniversalBaseModel):
+class UpdatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVariantc9366B66E6FcTypeRequestBody(UniversalBaseModel):
     """
     Money object
     """

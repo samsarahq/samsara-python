@@ -6,9 +6,9 @@ import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 
 
-class UpdatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVarianta34Bfd5A4152TypeRequestBody(UniversalBaseModel):
+class CreatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVariantc9366B66E6FcTypeRequestBody(UniversalBaseModel):
     """
-    UpdatePurchaseOrderEntityPurchaseOrderMoneyInput object
+    Money object
     """
 
     amount: str = pydantic.Field()

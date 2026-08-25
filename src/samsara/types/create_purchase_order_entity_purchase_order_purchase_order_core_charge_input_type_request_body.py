@@ -19,7 +19,7 @@ from .create_purchase_order_entity_purchase_order_purchase_order_core_charge_inp
 
 class CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeInputTypeRequestBody(UniversalBaseModel):
     """
-    CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeInput object
+    PurchaseOrderCoreCharge object
     """
 
     core_charge_status: typing_extensions.Annotated[

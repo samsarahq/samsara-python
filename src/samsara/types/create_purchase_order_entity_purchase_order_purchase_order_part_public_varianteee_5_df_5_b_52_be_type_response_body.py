@@ -6,14 +6,14 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
-from .create_purchase_order_entity_purchase_order_money_public_variant_8749_b_9_e_1_f_4_af_type_response_body import (
-    CreatePurchaseOrderEntityPurchaseOrderMoneyPublicVariant8749B9E1F4AfTypeResponseBody,
+from .create_purchase_order_entity_purchase_order_money_public_variantf_6994_a_15_f_796_type_response_body import (
+    CreatePurchaseOrderEntityPurchaseOrderMoneyPublicVariantf6994A15F796TypeResponseBody,
 )
 from .create_purchase_order_entity_purchase_order_purchase_order_core_charge_type_response_body import (
     CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderCoreChargeTypeResponseBody,
 )
-from .create_purchase_order_entity_purchase_order_purchase_order_part_public_variant_0241_c_1_beccae_type_response_body_unit_of_measure_type import (
-    CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariant0241C1BeccaeTypeResponseBodyUnitOfMeasureType,
+from .create_purchase_order_entity_purchase_order_purchase_order_part_public_varianteee_5_df_5_b_52_be_type_response_body_unit_of_measure_type import (
+    CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVarianteee5Df5B52BeTypeResponseBodyUnitOfMeasureType,
 )
 from .create_purchase_order_entity_purchase_order_tax_adjustment_type_response_body import (
     CreatePurchaseOrderEntityPurchaseOrderTaxAdjustmentTypeResponseBody,
@@ -24,11 +24,11 @@ from .entity_create_purchase_order_part_definition_ref_type_response_body import
 from .entity_create_purchase_order_place_ref_type_response_body import EntityCreatePurchaseOrderPlaceRefTypeResponseBody
 
 
-class CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariant0241C1BeccaeTypeResponseBody(
+class CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVarianteee5Df5B52BeTypeResponseBody(
     UniversalBaseModel
 ):
     """
-    CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPart object
+    PurchaseOrderPart object
     """
 
     batch_number: typing_extensions.Annotated[
@@ -69,18 +69,18 @@ class CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariant0241C1
     ] = None
     tax: typing.Optional[CreatePurchaseOrderEntityPurchaseOrderTaxAdjustmentTypeResponseBody] = None
     unit_cost: typing_extensions.Annotated[
-        typing.Optional[CreatePurchaseOrderEntityPurchaseOrderMoneyPublicVariant8749B9E1F4AfTypeResponseBody],
+        typing.Optional[CreatePurchaseOrderEntityPurchaseOrderMoneyPublicVariantf6994A15F796TypeResponseBody],
         FieldMetadata(alias="unitCost"),
         pydantic.Field(alias="unitCost"),
     ] = None
     unit_of_measure_type: typing_extensions.Annotated[
         typing.Optional[
-            CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariant0241C1BeccaeTypeResponseBodyUnitOfMeasureType
+            CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVarianteee5Df5B52BeTypeResponseBodyUnitOfMeasureType
         ],
         FieldMetadata(alias="unitOfMeasureType"),
         pydantic.Field(
             alias="unitOfMeasureType",
-            description="Unit of measure for quantities on this line.  Valid values: `Unknown`, `Each`, `Set`, `Pack`, `Box`, `Pound`, `Kilogram`, `Ounce`, `Liter`, `Milliliter`, `Gallon`, `Quart`, `FluidOunce`, `Inch`, `Foot`, `Meter`, `Yard`, `SquareFoot`, `SquareMeter`, `Pint`, `Hundred`, `Roll`",
+            description="Unit of measure for quantities on this line. Read-only: derived from the line's part definition, and ignored if supplied on create or update.  Valid values: `Unknown`, `Each`, `Set`, `Pack`, `Box`, `Pound`, `Kilogram`, `Ounce`, `Liter`, `Milliliter`, `Gallon`, `Quart`, `FluidOunce`, `Inch`, `Foot`, `Meter`, `Yard`, `SquareFoot`, `SquareMeter`, `Pint`, `Hundred`, `Roll`",
         ),
     ] = None
 

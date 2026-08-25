@@ -13,7 +13,7 @@ from .list_purchase_orders_entity_purchase_order_money_type_response_body import
 
 class ListPurchaseOrdersEntityPurchaseOrderTaxAdjustmentTypeResponseBody(UniversalBaseModel):
     """
-    ListPurchaseOrdersEntityPurchaseOrderTaxAdjustment object
+    TaxAdjustment object
     """
 
     basis_points: typing_extensions.Annotated[

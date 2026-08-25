@@ -6,19 +6,14 @@ import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 
 
-class CreatePurchaseOrderEntityPurchaseOrderMoneyPublicVariant8749B9E1F4AfTypeResponseBody(UniversalBaseModel):
+class FunctionsStorageFolderResponseBody(UniversalBaseModel):
     """
-    CreatePurchaseOrderEntityPurchaseOrderMoney object
-    """
-
-    amount: typing.Optional[str] = pydantic.Field(default=None)
-    """
-    Monetary amount as a decimal string in major currency units (e.g. "24.50").
+    An immediate subfolder under the requested prefix in Functions storage.
     """
 
-    currency: typing.Optional[str] = pydantic.Field(default=None)
+    name: str = pydantic.Field()
     """
-    ISO 4217 currency code, lowercased (e.g. "usd").
+    Full path of the subfolder, ending in a slash.
     """
 
     if IS_PYDANTIC_V2:

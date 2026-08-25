@@ -5464,6 +5464,22 @@ client.beta_ap_is.list_functions_storage_files()
 <dl>
 <dd>
 
+**prefix:** `typing.Optional[str]` — Only list files and immediate subfolders under this path prefix, for example `logs/`.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**group_by_folder:** `typing.Optional[bool]` — When true, roll immediate subfolders up into the `folders` field and return only files directly under the prefix in `data`.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
     
 </dd>
@@ -9295,7 +9311,7 @@ client.beta_ap_is.create_purchase_order(
 <dd>
 
 **other_cost:** `typing.Optional[
-    CreatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVarianta2E1675A5A65TypeRequestBody
+    CreatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVariantc9366B66E6FcTypeRequestBody
 ]` 
     
 </dd>
@@ -9306,7 +9322,7 @@ client.beta_ap_is.create_purchase_order(
 
 **parts:** `typing.Optional[
     typing.Sequence[
-        CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant63E9Febe395ETypeRequestBody
+        CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariantfe4658938A0FTypeRequestBody
     ]
 ]` — Parts ordered on the purchase order.
     
@@ -9539,7 +9555,7 @@ client.beta_ap_is.update_purchase_order(
 <dd>
 
 **other_cost:** `typing.Optional[
-    UpdatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVarianta34Bfd5A4152TypeRequestBody
+    UpdatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVariantc9366B66E6FcTypeRequestBody
 ]` 
     
 </dd>
@@ -9550,7 +9566,7 @@ client.beta_ap_is.update_purchase_order(
 
 **parts:** `typing.Optional[
     typing.Sequence[
-        UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant1A94E81632EaTypeRequestBody
+        UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant5E7C0Da15F4CTypeRequestBody
     ]
 ]` — Parts ordered on the purchase order.
     

@@ -2,7 +2,7 @@
 
 import typing
 
-CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant63E9Febe395ETypeRequestBodyUnitOfMeasureType = typing.Union[
+UpdatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartInputPublicVariant5E7C0Da15F4CTypeRequestBodyUnitOfMeasureType = typing.Union[
     typing.Literal[
         "Unknown",
         "Each",
