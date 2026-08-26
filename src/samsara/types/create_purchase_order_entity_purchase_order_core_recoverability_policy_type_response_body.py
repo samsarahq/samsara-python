@@ -13,7 +13,7 @@ from .create_purchase_order_entity_purchase_order_core_recoverability_policy_typ
 
 class CreatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicyTypeResponseBody(UniversalBaseModel):
     """
-    CreatePurchaseOrderEntityPurchaseOrderCoreRecoverabilityPolicy object
+    CoreRecoverabilityPolicy object
     """
 
     fixed_recoverable_until_time: typing_extensions.Annotated[

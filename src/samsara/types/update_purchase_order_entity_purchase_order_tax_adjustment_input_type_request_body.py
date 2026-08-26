@@ -13,7 +13,7 @@ from .update_purchase_order_entity_purchase_order_money_input_type_request_body 
 
 class UpdatePurchaseOrderEntityPurchaseOrderTaxAdjustmentInputTypeRequestBody(UniversalBaseModel):
     """
-    UpdatePurchaseOrderEntityPurchaseOrderTaxAdjustmentInput object
+    TaxAdjustment object
     """
 
     basis_points: typing_extensions.Annotated[

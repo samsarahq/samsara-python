@@ -6,14 +6,14 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
-from .create_purchase_order_entity_purchase_order_money_public_variant_8749_b_9_e_1_f_4_af_type_response_body import (
-    CreatePurchaseOrderEntityPurchaseOrderMoneyPublicVariant8749B9E1F4AfTypeResponseBody,
+from .create_purchase_order_entity_purchase_order_money_public_variantf_6994_a_15_f_796_type_response_body import (
+    CreatePurchaseOrderEntityPurchaseOrderMoneyPublicVariantf6994A15F796TypeResponseBody,
 )
 from .create_purchase_order_entity_purchase_order_money_type_response_body import (
     CreatePurchaseOrderEntityPurchaseOrderMoneyTypeResponseBody,
 )
-from .create_purchase_order_entity_purchase_order_purchase_order_part_public_variant_0241_c_1_beccae_type_response_body import (
-    CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariant0241C1BeccaeTypeResponseBody,
+from .create_purchase_order_entity_purchase_order_purchase_order_part_public_varianteee_5_df_5_b_52_be_type_response_body import (
+    CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVarianteee5Df5B52BeTypeResponseBody,
 )
 from .create_purchase_order_entity_purchase_order_tax_adjustment_type_response_body import (
     CreatePurchaseOrderEntityPurchaseOrderTaxAdjustmentTypeResponseBody,
@@ -96,12 +96,12 @@ class EntityCreatePurchaseOrderTypeResponseBody(UniversalBaseModel):
         ),
     ] = None
     other_cost: typing_extensions.Annotated[
-        typing.Optional[CreatePurchaseOrderEntityPurchaseOrderMoneyPublicVariant8749B9E1F4AfTypeResponseBody],
+        typing.Optional[CreatePurchaseOrderEntityPurchaseOrderMoneyPublicVariantf6994A15F796TypeResponseBody],
         FieldMetadata(alias="otherCost"),
         pydantic.Field(alias="otherCost"),
     ] = None
     parts: typing.Optional[
-        typing.List[CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariant0241C1BeccaeTypeResponseBody]
+        typing.List[CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVarianteee5Df5B52BeTypeResponseBody]
     ] = pydantic.Field(default=None)
     """
     Parts ordered on the purchase order.

@@ -27,7 +27,7 @@ class CoachableEventLinkageResponseBody(UniversalBaseModel):
         FieldMetadata(alias="sourceType"),
         pydantic.Field(
             alias="sourceType",
-            description="Upstream data source backing this coachable event.  Valid values: `triageEvent`, `hosViolation`, `idling`",
+            description="Upstream data source backing this coachable event.  Valid values: `safetyEvent`, `hosViolation`, `idling`",
         ),
     ]
 

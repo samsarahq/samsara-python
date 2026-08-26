@@ -3,5 +3,5 @@
 import typing
 
 CoachableEventLinkageResponseBodySourceType = typing.Union[
-    typing.Literal["triageEvent", "hosViolation", "idling"], typing.Any
+    typing.Literal["safetyEvent", "hosViolation", "idling"], typing.Any
 ]

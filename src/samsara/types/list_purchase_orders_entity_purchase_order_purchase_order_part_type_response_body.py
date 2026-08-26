@@ -26,7 +26,7 @@ from .list_purchase_orders_entity_purchase_order_tax_adjustment_type_response_bo
 
 class ListPurchaseOrdersEntityPurchaseOrderPurchaseOrderPartTypeResponseBody(UniversalBaseModel):
     """
-    ListPurchaseOrdersEntityPurchaseOrderPurchaseOrderPart object
+    PurchaseOrderPart object
     """
 
     batch_number: typing_extensions.Annotated[
@@ -76,7 +76,7 @@ class ListPurchaseOrdersEntityPurchaseOrderPurchaseOrderPartTypeResponseBody(Uni
         FieldMetadata(alias="unitOfMeasureType"),
         pydantic.Field(
             alias="unitOfMeasureType",
-            description="Unit of measure for quantities on this line.  Valid values: `Unknown`, `Each`, `Set`, `Pack`, `Box`, `Pound`, `Kilogram`, `Ounce`, `Liter`, `Milliliter`, `Gallon`, `Quart`, `FluidOunce`, `Inch`, `Foot`, `Meter`, `Yard`, `SquareFoot`, `SquareMeter`, `Pint`, `Hundred`, `Roll`",
+            description="Unit of measure for quantities on this line. Read-only: derived from the line's part definition, and ignored if supplied on create or update.  Valid values: `Unknown`, `Each`, `Set`, `Pack`, `Box`, `Pound`, `Kilogram`, `Ounce`, `Liter`, `Milliliter`, `Gallon`, `Quart`, `FluidOunce`, `Inch`, `Foot`, `Meter`, `Yard`, `SquareFoot`, `SquareMeter`, `Pint`, `Hundred`, `Roll`",
         ),
     ] = None
 

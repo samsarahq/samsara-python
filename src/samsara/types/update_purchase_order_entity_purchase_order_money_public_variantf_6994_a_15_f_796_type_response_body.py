@@ -6,17 +6,17 @@ import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 
 
-class CreatePurchaseOrderEntityPurchaseOrderMoneyInputPublicVarianta2E1675A5A65TypeRequestBody(UniversalBaseModel):
+class UpdatePurchaseOrderEntityPurchaseOrderMoneyPublicVariantf6994A15F796TypeResponseBody(UniversalBaseModel):
     """
-    CreatePurchaseOrderEntityPurchaseOrderMoneyInput object
+    Money object
     """
 
-    amount: str = pydantic.Field()
+    amount: typing.Optional[str] = pydantic.Field(default=None)
     """
     Monetary amount as a decimal string in major currency units (e.g. "24.50").
     """
 
-    currency: str = pydantic.Field()
+    currency: typing.Optional[str] = pydantic.Field(default=None)
     """
     ISO 4217 currency code, lowercased (e.g. "usd").
     """
