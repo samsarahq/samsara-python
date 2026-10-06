@@ -3,6 +3,8 @@
 import typing
 
 FormSubmissionResponseObjectResponseBodyStatus = typing.Union[
-    typing.Literal["notStarted", "completed", "archived", "inProgress", "needsReview", "changesRequested", "approved"],
+    typing.Literal[
+        "notStarted", "completed", "archived", "inProgress", "needsReview", "changesRequested", "approved", "denied"
+    ],
     typing.Any,
 ]

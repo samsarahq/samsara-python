@@ -16,7 +16,10 @@ class PatchDriverVehicleAssignmentsV2RequestBodyMetadataRequestBody(UniversalBas
     source_name: typing_extensions.Annotated[
         typing.Optional[str],
         FieldMetadata(alias="sourceName"),
-        pydantic.Field(alias="sourceName", description="Describes where the external assignment is coming from"),
+        pydantic.Field(
+            alias="sourceName",
+            description="Exact metadata source name. When vehicleId, driverId, and startTime are omitted, identifies the existing assignment to update. When those identity fields are provided, sets or updates the assignment's source name.",
+        ),
     ] = None
 
     if IS_PYDANTIC_V2:

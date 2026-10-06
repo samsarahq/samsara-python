@@ -6,6 +6,7 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .entity_list_issues_type_response_body_type import EntityListIssuesTypeResponseBodyType
 from .list_issues_entity_ground_intelligence_issue_ground_intelligence_issue_location_type_response_body import (
     ListIssuesEntityGroundIntelligenceIssueGroundIntelligenceIssueLocationTypeResponseBody,
 )
@@ -67,9 +68,9 @@ class EntityListIssuesTypeResponseBody(UniversalBaseModel):
     Current customer-facing review status of this issue.
     """
 
-    type: typing.Optional[str] = pydantic.Field(default=None)
+    type: typing.Optional[EntityListIssuesTypeResponseBodyType] = pydantic.Field(default=None)
     """
-    Customer-facing type for this issue.
+    Customer-facing type for this issue.  Valid values: `unknown`, `pothole`, `roadCracking`, `patchedPothole`, `transverseCrack`, `longitudinalCrack`, `alligatorCrack`, `utilityCut`, `steelPlate`, `repavingNeeded`
     """
 
     updated_at_time: typing_extensions.Annotated[

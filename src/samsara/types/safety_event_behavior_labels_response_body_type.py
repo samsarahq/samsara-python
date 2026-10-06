@@ -24,6 +24,7 @@ SafetyEventBehaviorLabelsResponseBodyType = typing.Union[
         "HarshImpact",
         "HarshTurn",
         "HighSpeedSuddenDisconnect",
+        "ImproperEgress",
         "Invalid",
         "LaneDeparture",
         "LateResponse",

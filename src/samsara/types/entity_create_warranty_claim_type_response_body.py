@@ -25,6 +25,9 @@ from .create_warranty_claim_entity_warranty_claim_warranty_claim_status_history_
     CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimStatusHistoryTypeResponseBody,
 )
 from .entity_create_warranty_claim_asset_ref_type_response_body import EntityCreateWarrantyClaimAssetRefTypeResponseBody
+from .entity_create_warranty_claim_type_response_body_claim_status import (
+    EntityCreateWarrantyClaimTypeResponseBodyClaimStatus,
+)
 from .entity_create_warranty_claim_vendor_ref_type_response_body import (
     EntityCreateWarrantyClaimVendorRefTypeResponseBody,
 )
@@ -57,9 +60,12 @@ class EntityCreateWarrantyClaimTypeResponseBody(UniversalBaseModel):
         ),
     ] = None
     claim_status: typing_extensions.Annotated[
-        typing.Optional[str],
+        typing.Optional[EntityCreateWarrantyClaimTypeResponseBodyClaimStatus],
         FieldMetadata(alias="claimStatus"),
-        pydantic.Field(alias="claimStatus", description="Current status of the claim."),
+        pydantic.Field(
+            alias="claimStatus",
+            description="Current status of the claim.  Valid values: `unknown`, `created`, `submitted`, `inReview`, `approved`, `rejected`, `resubmitted`, `reimbursed`",
+        ),
     ] = None
     component_instance_ids: typing_extensions.Annotated[
         typing.Optional[typing.List[str]],

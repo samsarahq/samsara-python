@@ -33,6 +33,18 @@ def test_hoursOfService_get_hos_violations() -> None:
     verify_request_count(test_id, "GET", "/fleet/hos/violations", None, 1)
 
 
+def test_hoursOfService_update_shipping_docs() -> None:
+    """Test updateShippingDocs endpoint with WireMock"""
+    test_id = "hours_of_service.update_shipping_docs.0"
+    client = get_client(test_id)
+    client.hours_of_service.update_shipping_docs(
+        hos_date="hosDate", driver_id="driverID", shipping_docs="ShippingID1, ShippingID2"
+    )
+    verify_request_count(
+        test_id, "PATCH", "/hos/daily-logs/log-meta-data", {"hosDate": "hosDate", "driverID": "driverID"}, 1
+    )
+
+
 def test_hoursOfService_set_current_duty_status() -> None:
     """Test setCurrentDutyStatus endpoint with WireMock"""
     test_id = "hours_of_service.set_current_duty_status.0"

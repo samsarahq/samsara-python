@@ -10,7 +10,7 @@ from ..core.serialization import FieldMetadata
 
 class UpdateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteCustomAddressTypeResponseBody(UniversalBaseModel):
     """
-    UpdateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteCustomAddress object
+    MaintenanceSiteCustomAddress object
     """
 
     formatted_address: typing_extensions.Annotated[

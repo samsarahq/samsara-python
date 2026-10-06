@@ -1,6 +1,26 @@
 from .conftest import get_client, verify_request_count
 
 
+def test_legacyApIs_get_driver_efficiency_by_drivers() -> None:
+    """Test getDriverEfficiencyByDrivers endpoint with WireMock"""
+    test_id = "legacy_ap_is.get_driver_efficiency_by_drivers.0"
+    client = get_client(test_id)
+    client.legacy_ap_is.get_driver_efficiency_by_drivers(start_time="startTime", end_time="endTime")
+    verify_request_count(
+        test_id, "GET", "/driver-efficiency/drivers", {"startTime": "startTime", "endTime": "endTime"}, 1
+    )
+
+
+def test_legacyApIs_get_driver_efficiency_by_vehicles() -> None:
+    """Test getDriverEfficiencyByVehicles endpoint with WireMock"""
+    test_id = "legacy_ap_is.get_driver_efficiency_by_vehicles.0"
+    client = get_client(test_id)
+    client.legacy_ap_is.get_driver_efficiency_by_vehicles(start_time="startTime", end_time="endTime")
+    verify_request_count(
+        test_id, "GET", "/driver-efficiency/vehicles", {"startTime": "startTime", "endTime": "endTime"}, 1
+    )
+
+
 def test_legacyApIs_get_dvir_defects() -> None:
     """Test getDvirDefects endpoint with WireMock"""
     test_id = "legacy_ap_is.get_dvir_defects.0"

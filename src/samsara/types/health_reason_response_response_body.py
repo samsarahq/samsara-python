@@ -20,7 +20,7 @@ class HealthReasonResponseResponseBody(UniversalBaseModel):
         FieldMetadata(alias="healthReasonCode"),
         pydantic.Field(
             alias="healthReasonCode",
-            description="The type of health reason detected.  Valid values: `assetUnplugged`, `cameraMisaligned`, `dataPending`, `healthy`, `inwardCameraObstruction`, `irregularRecording`, `lowDeviceBattery`, `missingEldDiagnostics`, `missingVin`, `needsReplacement`, `newlyInstalledDevice`, `noGpsSignal`, `notDetected`, `outwardCameraObstruction`, `recordingTimeRequired`, `unknown`, `vgUnplugged`",
+            description="The type of health reason detected.  Valid values: `assetUnplugged`, `cameraMisaligned`, `dataPending`, `healthy`, `inwardCameraObstruction`, `irregularRecording`, `lowConnectivity`, `lowDeviceBattery`, `lowUptime`, `mediaInputLowConnectivity`, `missingEldDiagnostics`, `missingVin`, `needsAttribute`, `needsReplacement`, `newlyInstalledDevice`, `noGpsSignal`, `notDetected`, `outwardCameraObstruction`, `recordingTimeRequired`, `unknown`, `unstablePower`, `vgUnplugged`",
         ),
     ] = None
     start_time: typing_extensions.Annotated[

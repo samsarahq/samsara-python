@@ -34,17 +34,23 @@ if typing.TYPE_CHECKING:
     from .entity_ground_intelligence_issues_service_update_ground_intelligence_issue_request_body_type import (
         EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyType,
     )
-    from .entity_maintenance_sites_service_create_maintenance_site_request_body_site_type import (
-        EntityMaintenanceSitesServiceCreateMaintenanceSiteRequestBodySiteType,
-    )
-    from .entity_maintenance_sites_service_update_maintenance_site_request_body_site_type import (
-        EntityMaintenanceSitesServiceUpdateMaintenanceSiteRequestBodySiteType,
-    )
     from .entity_purchase_orders_service_create_purchase_order_request_body_order_status import (
         EntityPurchaseOrdersServiceCreatePurchaseOrderRequestBodyOrderStatus,
     )
     from .entity_purchase_orders_service_update_purchase_order_request_body_order_status import (
         EntityPurchaseOrdersServiceUpdatePurchaseOrderRequestBodyOrderStatus,
+    )
+    from .entity_vendor_profiles_service_create_vendor_group_request_body_status import (
+        EntityVendorProfilesServiceCreateVendorGroupRequestBodyStatus,
+    )
+    from .entity_vendor_profiles_service_update_vendor_group_request_body_status import (
+        EntityVendorProfilesServiceUpdateVendorGroupRequestBodyStatus,
+    )
+    from .entity_vendors_service_create_vendor_request_body_status import (
+        EntityVendorsServiceCreateVendorRequestBodyStatus,
+    )
+    from .entity_vendors_service_update_vendor_request_body_status import (
+        EntityVendorsServiceUpdateVendorRequestBodyStatus,
     )
     from .entity_watchpoints_service_create_watchpoint_request_body_mode import (
         EntityWatchpointsServiceCreateWatchpointRequestBodyMode,
@@ -121,10 +127,12 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyDismissalReason": ".entity_ground_intelligence_issues_service_update_ground_intelligence_issue_request_body_dismissal_reason",
     "EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyStatus": ".entity_ground_intelligence_issues_service_update_ground_intelligence_issue_request_body_status",
     "EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyType": ".entity_ground_intelligence_issues_service_update_ground_intelligence_issue_request_body_type",
-    "EntityMaintenanceSitesServiceCreateMaintenanceSiteRequestBodySiteType": ".entity_maintenance_sites_service_create_maintenance_site_request_body_site_type",
-    "EntityMaintenanceSitesServiceUpdateMaintenanceSiteRequestBodySiteType": ".entity_maintenance_sites_service_update_maintenance_site_request_body_site_type",
     "EntityPurchaseOrdersServiceCreatePurchaseOrderRequestBodyOrderStatus": ".entity_purchase_orders_service_create_purchase_order_request_body_order_status",
     "EntityPurchaseOrdersServiceUpdatePurchaseOrderRequestBodyOrderStatus": ".entity_purchase_orders_service_update_purchase_order_request_body_order_status",
+    "EntityVendorProfilesServiceCreateVendorGroupRequestBodyStatus": ".entity_vendor_profiles_service_create_vendor_group_request_body_status",
+    "EntityVendorProfilesServiceUpdateVendorGroupRequestBodyStatus": ".entity_vendor_profiles_service_update_vendor_group_request_body_status",
+    "EntityVendorsServiceCreateVendorRequestBodyStatus": ".entity_vendors_service_create_vendor_request_body_status",
+    "EntityVendorsServiceUpdateVendorRequestBodyStatus": ".entity_vendors_service_update_vendor_request_body_status",
     "EntityWatchpointsServiceCreateWatchpointRequestBodyMode": ".entity_watchpoints_service_create_watchpoint_request_body_mode",
     "EntityWatchpointsServiceCreateWatchpointRequestBodyObservationType": ".entity_watchpoints_service_create_watchpoint_request_body_observation_type",
     "EntityWatchpointsServiceUpdateWatchpointRequestBodyObservationType": ".entity_watchpoints_service_update_watchpoint_request_body_observation_type",
@@ -188,10 +196,12 @@ __all__ = [
     "EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyDismissalReason",
     "EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyStatus",
     "EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyType",
-    "EntityMaintenanceSitesServiceCreateMaintenanceSiteRequestBodySiteType",
-    "EntityMaintenanceSitesServiceUpdateMaintenanceSiteRequestBodySiteType",
     "EntityPurchaseOrdersServiceCreatePurchaseOrderRequestBodyOrderStatus",
     "EntityPurchaseOrdersServiceUpdatePurchaseOrderRequestBodyOrderStatus",
+    "EntityVendorProfilesServiceCreateVendorGroupRequestBodyStatus",
+    "EntityVendorProfilesServiceUpdateVendorGroupRequestBodyStatus",
+    "EntityVendorsServiceCreateVendorRequestBodyStatus",
+    "EntityVendorsServiceUpdateVendorRequestBodyStatus",
     "EntityWatchpointsServiceCreateWatchpointRequestBodyMode",
     "EntityWatchpointsServiceCreateWatchpointRequestBodyObservationType",
     "EntityWatchpointsServiceUpdateWatchpointRequestBodyObservationType",

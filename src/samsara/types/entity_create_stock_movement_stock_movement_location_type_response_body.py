@@ -11,7 +11,7 @@ from .entity_create_stock_movement_money_type_response_body import EntityCreateS
 
 class EntityCreateStockMovementStockMovementLocationTypeResponseBody(UniversalBaseModel):
     """
-    EntityCreateStockMovementStockMovementLocation object
+    StockMovementLocation object
     """
 
     aisle: typing.Optional[str] = pydantic.Field(default=None)

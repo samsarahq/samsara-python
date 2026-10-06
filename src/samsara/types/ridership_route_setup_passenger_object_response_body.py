@@ -16,7 +16,10 @@ class RidershipRouteSetupPassengerObjectResponseBody(UniversalBaseModel):
     drop_off_stop_id: typing_extensions.Annotated[
         typing.Optional[str],
         FieldMetadata(alias="dropOffStopId"),
-        pydantic.Field(alias="dropOffStopId", description="The stop ID for the passenger's drop-off."),
+        pydantic.Field(
+            alias="dropOffStopId",
+            description="Routing API stop task ID for the passenger's drop-off. Omitted when no drop-off stop is assigned.",
+        ),
     ] = None
     passenger_id: typing_extensions.Annotated[
         str,
@@ -26,7 +29,10 @@ class RidershipRouteSetupPassengerObjectResponseBody(UniversalBaseModel):
     pick_up_stop_id: typing_extensions.Annotated[
         typing.Optional[str],
         FieldMetadata(alias="pickUpStopId"),
-        pydantic.Field(alias="pickUpStopId", description="The stop ID for the passenger's pick-up."),
+        pydantic.Field(
+            alias="pickUpStopId",
+            description="Routing API stop task ID for the passenger's pickup. Omitted when no pickup stop is assigned.",
+        ),
     ] = None
 
     if IS_PYDANTIC_V2:

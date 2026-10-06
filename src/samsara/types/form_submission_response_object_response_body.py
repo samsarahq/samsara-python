@@ -116,7 +116,7 @@ class FormSubmissionResponseObjectResponseBody(UniversalBaseModel):
     score: typing.Optional[FormsScoreObjectResponseBody] = None
     status: FormSubmissionResponseObjectResponseBodyStatus = pydantic.Field()
     """
-    State for the Form Submission. Always returned.  Valid values: `notStarted`, `completed`, `archived`, `inProgress`, `needsReview`, `changesRequested`, `approved`
+    State for the Form Submission. Always returned.  Valid values: `notStarted`, `completed`, `archived`, `inProgress`, `needsReview`, `changesRequested`, `approved`, `denied`
     """
 
     submitted_at_time: typing_extensions.Annotated[

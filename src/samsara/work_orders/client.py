@@ -239,7 +239,7 @@ class WorkOrdersClient:
         Parameters
         ----------
         asset_id : str
-            The ID of the asset.
+            The ID of the asset. Either a Samsara ID or an external ID in `key:value` form, for example `vin:1HGCM82633A004352`.
 
         archived_at_time : typing.Optional[dt.datetime]
             The historical time the work order was archived (closed or cancelled), in RFC 3339 format. Is automatically set when the status is Closed or Cancelled and this field is not provided.
@@ -847,7 +847,7 @@ class AsyncWorkOrdersClient:
         Parameters
         ----------
         asset_id : str
-            The ID of the asset.
+            The ID of the asset. Either a Samsara ID or an external ID in `key:value` form, for example `vin:1HGCM82633A004352`.
 
         archived_at_time : typing.Optional[dt.datetime]
             The historical time the work order was archived (closed or cancelled), in RFC 3339 format. Is automatically set when the status is Closed or Cancelled and this field is not provided.

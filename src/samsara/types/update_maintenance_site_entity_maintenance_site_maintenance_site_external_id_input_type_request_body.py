@@ -8,7 +8,7 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 
 class UpdateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteExternalIdInputTypeRequestBody(UniversalBaseModel):
     """
-    UpdateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteExternalIdInput object
+    MaintenanceSiteExternalId object
     """
 
     key: str = pydantic.Field()

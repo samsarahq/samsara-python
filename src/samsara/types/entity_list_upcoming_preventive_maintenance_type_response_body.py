@@ -12,6 +12,9 @@ from .entity_list_upcoming_preventive_maintenance_asset_ref_type_response_body i
 from .entity_list_upcoming_preventive_maintenance_preventative_maintenance_schedule_ref_type_response_body import (
     EntityListUpcomingPreventiveMaintenancePreventativeMaintenanceScheduleRefTypeResponseBody,
 )
+from .entity_list_upcoming_preventive_maintenance_type_response_body_status import (
+    EntityListUpcomingPreventiveMaintenanceTypeResponseBodyStatus,
+)
 from .entity_list_upcoming_preventive_maintenance_work_order_ref_type_response_body import (
     EntityListUpcomingPreventiveMaintenanceWorkOrderRefTypeResponseBody,
 )
@@ -107,9 +110,11 @@ class EntityListUpcomingPreventiveMaintenanceTypeResponseBody(UniversalBaseModel
     schedule: typing.Optional[
         EntityListUpcomingPreventiveMaintenancePreventativeMaintenanceScheduleRefTypeResponseBody
     ] = None
-    status: typing.Optional[str] = pydantic.Field(default=None)
+    status: typing.Optional[EntityListUpcomingPreventiveMaintenanceTypeResponseBodyStatus] = pydantic.Field(
+        default=None
+    )
     """
-    Status of the preventive maintenance schedule.
+    Status of the preventive maintenance schedule.  Valid values: `unknown`, `overdue`, `upcoming`
     """
 
     work_order: typing_extensions.Annotated[

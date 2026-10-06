@@ -5,6 +5,12 @@ import typing
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.request_options import RequestOptions
 from ..types.defects_response import DefectsResponse
+from ..types.driver_efficiency_get_driver_efficiency_by_drivers_response_body import (
+    DriverEfficiencyGetDriverEfficiencyByDriversResponseBody,
+)
+from ..types.driver_efficiency_get_driver_efficiency_by_vehicles_response_body import (
+    DriverEfficiencyGetDriverEfficiencyByVehiclesResponseBody,
+)
 from ..types.drivers_vehicle_assignments_get_drivers_vehicle_assignments_response_body import (
     DriversVehicleAssignmentsGetDriversVehicleAssignmentsResponseBody,
 )
@@ -40,6 +46,168 @@ class LegacyApIsClient:
         RawLegacyApIsClient
         """
         return self._raw_client
+
+    def get_driver_efficiency_by_drivers(
+        self,
+        *,
+        start_time: str,
+        end_time: str,
+        driver_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        data_formats: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        tag_ids: typing.Optional[str] = None,
+        parent_tag_ids: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> DriverEfficiencyGetDriverEfficiencyByDriversResponseBody:
+        """
+        **⚠️ LEGACY/DEPRECATED API: This API returns data from the legacy Driver Efficiency (Eco-Driving) product and is unavailable to new customers. Use the Driver Efficiency (Eco-Driving) dataset in the beta [Custom Reports API](https://developers.samsara.com/reference/createreportrun) for equivalent data.**
+
+        This endpoint will return driver efficiency data that has been collected for your organization and grouped by drivers based on the time parameters passed in. Results are paginated.
+
+        **Note:** The data from this endpoint comes from the Driver Efficiency (Eco-Driving) Report. The existing [/fleet/drivers/efficiency](https://developers.samsara.com/reference/getdriverefficiency) endpoint has now been moved to Legacy.
+
+         <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Driver Efficiency** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        start_time : str
+            A start time in RFC 3339 format. Must be in multiple of hours and at least 1 day before endTime. Timezones are supported. Note that the most recent 72 hours of data may still be processing and is subject to change and latency, so it is not recommended to request data for the most recent 72 hours. (Examples: 2019-06-11T19:00:00Z, 2015-09-12T14:00:00-04:00).
+
+        end_time : str
+            An end time in RFC 3339 format. Must be in multiple of hours and no later than 3 hours before the current time. Timezones are supported. Note that the most recent 72 hours of data may still be processing and is subject to change and latency, so it is not recommended to request data for the most recent 72 hours. (Examples: 2019-06-13T19:00:00Z, 2015-09-15T14:00:00-04:00).
+
+        driver_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+             A filter on the data based on this comma-separated list of driver IDs and externalIds. Example: `driverIds=1234,5678,payroll:4841`
+
+        data_formats : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A comma-separated list of data formats you want to fetch. Valid values: `score`, `raw` and `percentage`. The default data format is `score`. Example: `dataFormats=raw,score`
+
+        tag_ids : typing.Optional[str]
+             A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+
+        parent_tag_ids : typing.Optional[str]
+             A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        DriverEfficiencyGetDriverEfficiencyByDriversResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.legacy_ap_is.get_driver_efficiency_by_drivers(
+            start_time="startTime",
+            end_time="endTime",
+        )
+        """
+        _response = self._raw_client.get_driver_efficiency_by_drivers(
+            start_time=start_time,
+            end_time=end_time,
+            driver_ids=driver_ids,
+            data_formats=data_formats,
+            tag_ids=tag_ids,
+            parent_tag_ids=parent_tag_ids,
+            after=after,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def get_driver_efficiency_by_vehicles(
+        self,
+        *,
+        start_time: str,
+        end_time: str,
+        vehicle_ids: typing.Optional[str] = None,
+        data_formats: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        tag_ids: typing.Optional[str] = None,
+        parent_tag_ids: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> DriverEfficiencyGetDriverEfficiencyByVehiclesResponseBody:
+        """
+        **⚠️ LEGACY/DEPRECATED API: This API returns data from the legacy Driver Efficiency (Eco-Driving) product and is unavailable to new customers. Use the Driver Efficiency (Eco-Driving) dataset in the beta [Custom Reports API](https://developers.samsara.com/reference/createreportrun) for equivalent data.**
+
+        This endpoint will return driver efficiency data that has been collected for your organization and grouped by vehicle drivers used based on the time parameters passed in. Results are paginated.
+
+        **Note:** The data from this endpoint comes from the Driver Efficiency (Eco-Driving) Report. The existing [/fleet/drivers/efficiency](https://developers.samsara.com/reference/getdriverefficiency) endpoint has now been moved to Legacy.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Driver Efficiency** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        start_time : str
+            A start time in RFC 3339 format. Must be in multiple of hours and at least 1 day before endTime. Timezones are supported. Note that the most recent 72 hours of data may still be processing and is subject to change and latency, so it is not recommended to request data for the most recent 72 hours. (Examples: 2019-06-11T19:00:00Z, 2015-09-12T14:00:00-04:00).
+
+        end_time : str
+            An end time in RFC 3339 format. Must be in multiple of hours and no later than 3 hours before the current time. Timezones are supported. Note that the most recent 72 hours of data may still be processing and is subject to change and latency, so it is not recommended to request data for the most recent 72 hours. (Examples: 2019-06-13T19:00:00Z, 2015-09-15T14:00:00-04:00).
+
+        vehicle_ids : typing.Optional[str]
+             A filter on the data based on this comma-separated list of vehicle IDs and externalIds. Example: `vehicleIds=1234,5678,samsara.vin:1HGBH41JXMN109186`
+
+        data_formats : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A comma-separated list of data formats you want to fetch. Valid values: `score`, `raw` and `percentage`. The default data format is `score`. Example: `dataFormats=raw,score`
+
+        tag_ids : typing.Optional[str]
+             A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+
+        parent_tag_ids : typing.Optional[str]
+             A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        DriverEfficiencyGetDriverEfficiencyByVehiclesResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.legacy_ap_is.get_driver_efficiency_by_vehicles(
+            start_time="startTime",
+            end_time="endTime",
+        )
+        """
+        _response = self._raw_client.get_driver_efficiency_by_vehicles(
+            start_time=start_time,
+            end_time=end_time,
+            vehicle_ids=vehicle_ids,
+            data_formats=data_formats,
+            tag_ids=tag_ids,
+            parent_tag_ids=parent_tag_ids,
+            after=after,
+            request_options=request_options,
+        )
+        return _response.data
 
     def get_dvir_defects(
         self,
@@ -594,6 +762,184 @@ class AsyncLegacyApIsClient:
         AsyncRawLegacyApIsClient
         """
         return self._raw_client
+
+    async def get_driver_efficiency_by_drivers(
+        self,
+        *,
+        start_time: str,
+        end_time: str,
+        driver_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        data_formats: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        tag_ids: typing.Optional[str] = None,
+        parent_tag_ids: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> DriverEfficiencyGetDriverEfficiencyByDriversResponseBody:
+        """
+        **⚠️ LEGACY/DEPRECATED API: This API returns data from the legacy Driver Efficiency (Eco-Driving) product and is unavailable to new customers. Use the Driver Efficiency (Eco-Driving) dataset in the beta [Custom Reports API](https://developers.samsara.com/reference/createreportrun) for equivalent data.**
+
+        This endpoint will return driver efficiency data that has been collected for your organization and grouped by drivers based on the time parameters passed in. Results are paginated.
+
+        **Note:** The data from this endpoint comes from the Driver Efficiency (Eco-Driving) Report. The existing [/fleet/drivers/efficiency](https://developers.samsara.com/reference/getdriverefficiency) endpoint has now been moved to Legacy.
+
+         <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Driver Efficiency** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        start_time : str
+            A start time in RFC 3339 format. Must be in multiple of hours and at least 1 day before endTime. Timezones are supported. Note that the most recent 72 hours of data may still be processing and is subject to change and latency, so it is not recommended to request data for the most recent 72 hours. (Examples: 2019-06-11T19:00:00Z, 2015-09-12T14:00:00-04:00).
+
+        end_time : str
+            An end time in RFC 3339 format. Must be in multiple of hours and no later than 3 hours before the current time. Timezones are supported. Note that the most recent 72 hours of data may still be processing and is subject to change and latency, so it is not recommended to request data for the most recent 72 hours. (Examples: 2019-06-13T19:00:00Z, 2015-09-15T14:00:00-04:00).
+
+        driver_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+             A filter on the data based on this comma-separated list of driver IDs and externalIds. Example: `driverIds=1234,5678,payroll:4841`
+
+        data_formats : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A comma-separated list of data formats you want to fetch. Valid values: `score`, `raw` and `percentage`. The default data format is `score`. Example: `dataFormats=raw,score`
+
+        tag_ids : typing.Optional[str]
+             A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+
+        parent_tag_ids : typing.Optional[str]
+             A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        DriverEfficiencyGetDriverEfficiencyByDriversResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.legacy_ap_is.get_driver_efficiency_by_drivers(
+                start_time="startTime",
+                end_time="endTime",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_driver_efficiency_by_drivers(
+            start_time=start_time,
+            end_time=end_time,
+            driver_ids=driver_ids,
+            data_formats=data_formats,
+            tag_ids=tag_ids,
+            parent_tag_ids=parent_tag_ids,
+            after=after,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def get_driver_efficiency_by_vehicles(
+        self,
+        *,
+        start_time: str,
+        end_time: str,
+        vehicle_ids: typing.Optional[str] = None,
+        data_formats: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        tag_ids: typing.Optional[str] = None,
+        parent_tag_ids: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> DriverEfficiencyGetDriverEfficiencyByVehiclesResponseBody:
+        """
+        **⚠️ LEGACY/DEPRECATED API: This API returns data from the legacy Driver Efficiency (Eco-Driving) product and is unavailable to new customers. Use the Driver Efficiency (Eco-Driving) dataset in the beta [Custom Reports API](https://developers.samsara.com/reference/createreportrun) for equivalent data.**
+
+        This endpoint will return driver efficiency data that has been collected for your organization and grouped by vehicle drivers used based on the time parameters passed in. Results are paginated.
+
+        **Note:** The data from this endpoint comes from the Driver Efficiency (Eco-Driving) Report. The existing [/fleet/drivers/efficiency](https://developers.samsara.com/reference/getdriverefficiency) endpoint has now been moved to Legacy.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Driver Efficiency** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        start_time : str
+            A start time in RFC 3339 format. Must be in multiple of hours and at least 1 day before endTime. Timezones are supported. Note that the most recent 72 hours of data may still be processing and is subject to change and latency, so it is not recommended to request data for the most recent 72 hours. (Examples: 2019-06-11T19:00:00Z, 2015-09-12T14:00:00-04:00).
+
+        end_time : str
+            An end time in RFC 3339 format. Must be in multiple of hours and no later than 3 hours before the current time. Timezones are supported. Note that the most recent 72 hours of data may still be processing and is subject to change and latency, so it is not recommended to request data for the most recent 72 hours. (Examples: 2019-06-13T19:00:00Z, 2015-09-15T14:00:00-04:00).
+
+        vehicle_ids : typing.Optional[str]
+             A filter on the data based on this comma-separated list of vehicle IDs and externalIds. Example: `vehicleIds=1234,5678,samsara.vin:1HGBH41JXMN109186`
+
+        data_formats : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            A comma-separated list of data formats you want to fetch. Valid values: `score`, `raw` and `percentage`. The default data format is `score`. Example: `dataFormats=raw,score`
+
+        tag_ids : typing.Optional[str]
+             A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+
+        parent_tag_ids : typing.Optional[str]
+             A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        DriverEfficiencyGetDriverEfficiencyByVehiclesResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.legacy_ap_is.get_driver_efficiency_by_vehicles(
+                start_time="startTime",
+                end_time="endTime",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_driver_efficiency_by_vehicles(
+            start_time=start_time,
+            end_time=end_time,
+            vehicle_ids=vehicle_ids,
+            data_formats=data_formats,
+            tag_ids=tag_ids,
+            parent_tag_ids=parent_tag_ids,
+            after=after,
+            request_options=request_options,
+        )
+        return _response.data
 
     async def get_dvir_defects(
         self,

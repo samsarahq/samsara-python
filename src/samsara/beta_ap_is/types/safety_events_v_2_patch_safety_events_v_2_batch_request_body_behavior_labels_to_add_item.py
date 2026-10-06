@@ -33,6 +33,7 @@ SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyBehaviorLabelsToAddItem = typin
         "HighSpeedSuddenDisconnect",
         "HosViolation",
         "Idling",
+        "ImproperEgress",
         "Invalid",
         "LaneDeparture",
         "LateResponse",

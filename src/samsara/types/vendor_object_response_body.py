@@ -6,6 +6,9 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .vendor_public_attribute_selection_response_body import VendorPublicAttributeSelectionResponseBody
+from .vendor_public_money_response_body import VendorPublicMoneyResponseBody
+from .vendor_public_resolved_settings_response_body import VendorPublicResolvedSettingsResponseBody
 
 
 class VendorObjectResponseBody(UniversalBaseModel):
@@ -21,6 +24,14 @@ class VendorObjectResponseBody(UniversalBaseModel):
             description="Linked Samsara Address ID. Use the Addresses API to retrieve name, address, coordinates, and notes.",
         ),
     ] = None
+    asset_attribute_selections: typing_extensions.Annotated[
+        typing.Optional[typing.List[VendorPublicAttributeSelectionResponseBody]],
+        FieldMetadata(alias="assetAttributeSelections"),
+        pydantic.Field(
+            alias="assetAttributeSelections",
+            description="Configured asset attributes. An empty array is explicit; omission inherits.",
+        ),
+    ] = None
     category_ids: typing_extensions.Annotated[
         typing.List[str],
         FieldMetadata(alias="categoryIds"),
@@ -29,6 +40,11 @@ class VendorObjectResponseBody(UniversalBaseModel):
             description="Category UUIDs for this vendor. Use the Vendor Categories endpoint to resolve names.",
         ),
     ]
+    default_labor_rate_per_hour: typing_extensions.Annotated[
+        typing.Optional[VendorPublicMoneyResponseBody],
+        FieldMetadata(alias="defaultLaborRatePerHour"),
+        pydantic.Field(alias="defaultLaborRatePerHour"),
+    ] = None
     external_ids: typing_extensions.Annotated[
         typing.Optional[typing.Dict[str, str]],
         FieldMetadata(alias="externalIds"),
@@ -39,15 +55,45 @@ class VendorObjectResponseBody(UniversalBaseModel):
     Unique UUID of the vendor.
     """
 
+    is_mobile: typing_extensions.Annotated[
+        typing.Optional[bool],
+        FieldMetadata(alias="isMobile"),
+        pydantic.Field(alias="isMobile", description="Explicit mobile-service override; omitted when inherited."),
+    ] = None
+    is_preferred: typing_extensions.Annotated[
+        typing.Optional[bool],
+        FieldMetadata(alias="isPreferred"),
+        pydantic.Field(alias="isPreferred", description="Explicit preferred override; omitted when inherited."),
+    ] = None
+    name: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    The name of the vendor.
+    """
+
     payee_id: typing_extensions.Annotated[
         typing.Optional[str],
         FieldMetadata(alias="payeeId"),
         pydantic.Field(alias="payeeId", description="The vendor's accounts-payable/ERP payee ID."),
     ] = None
+    resolved_settings: typing_extensions.Annotated[
+        typing.Optional[VendorPublicResolvedSettingsResponseBody],
+        FieldMetadata(alias="resolvedSettings"),
+        pydantic.Field(alias="resolvedSettings"),
+    ] = None
     services_provided: typing_extensions.Annotated[
         typing.Optional[str],
         FieldMetadata(alias="servicesProvided"),
         pydantic.Field(alias="servicesProvided", description="Description of services provided by the vendor."),
+    ] = None
+    status: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Own lifecycle status: active, inactive, or unknown. Defaults to active.
+    """
+
+    vendor_group_id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="vendorGroupId"),
+        pydantic.Field(alias="vendorGroupId", description="Parent vendor group ID, when configured."),
     ] = None
     vendor_id: typing_extensions.Annotated[
         typing.Optional[str],

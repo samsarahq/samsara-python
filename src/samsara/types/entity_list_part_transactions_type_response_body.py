@@ -9,6 +9,9 @@ from ..core.serialization import FieldMetadata
 from .entity_list_part_transactions_part_definition_ref_type_response_body import (
     EntityListPartTransactionsPartDefinitionRefTypeResponseBody,
 )
+from .entity_list_part_transactions_type_response_body_transaction_type import (
+    EntityListPartTransactionsTypeResponseBodyTransactionType,
+)
 from .entity_list_part_transactions_work_order_ref_type_response_body import (
     EntityListPartTransactionsWorkOrderRefTypeResponseBody,
 )
@@ -95,9 +98,12 @@ class EntityListPartTransactionsTypeResponseBody(UniversalBaseModel):
         pydantic.Field(alias="toPlaceId", description="Transfer only — destination maintenance site (place ID)."),
     ] = None
     transaction_type: typing_extensions.Annotated[
-        typing.Optional[str],
+        typing.Optional[EntityListPartTransactionsTypeResponseBodyTransactionType],
         FieldMetadata(alias="transactionType"),
-        pydantic.Field(alias="transactionType", description="The kind of inventory movement this record represents."),
+        pydantic.Field(
+            alias="transactionType",
+            description="The kind of inventory movement this record represents.  Valid values: `Unknown`, `Receive`, `Transfer`, `Scrap`, `Adjust`, `Reserve`, `Issue`, `Release`, `Return`",
+        ),
     ] = None
     unit_cost: typing_extensions.Annotated[
         typing.Optional[float],

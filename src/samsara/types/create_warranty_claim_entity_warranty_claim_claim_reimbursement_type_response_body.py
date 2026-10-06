@@ -13,7 +13,7 @@ from .create_warranty_claim_entity_warranty_claim_money_type_response_body impor
 
 class CreateWarrantyClaimEntityWarrantyClaimClaimReimbursementTypeResponseBody(UniversalBaseModel):
     """
-    CreateWarrantyClaimEntityWarrantyClaimClaimReimbursement object
+    ClaimReimbursement object
     """
 
     reimbursement: typing.Optional[CreateWarrantyClaimEntityWarrantyClaimMoneyTypeResponseBody] = None

@@ -3,5 +3,5 @@
 import typing
 
 FormSubmissionsPatchFormSubmissionRequestBodyStatus = typing.Union[
-    typing.Literal["notStarted", "archived", "inProgress", "changesRequested", "approved"], typing.Any
+    typing.Literal["notStarted", "archived", "inProgress", "changesRequested", "approved", "denied"], typing.Any
 ]

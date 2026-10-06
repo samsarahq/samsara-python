@@ -8,7 +8,7 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 
 class UpdateWarrantyClaimEntityWarrantyClaimMoneyTypeResponseBody(UniversalBaseModel):
     """
-    UpdateWarrantyClaimEntityWarrantyClaimMoney object
+    Money object
     """
 
     amount: typing.Optional[str] = pydantic.Field(default=None)

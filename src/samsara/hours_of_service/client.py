@@ -6,6 +6,7 @@ from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.request_options import RequestOptions
 from ..types.hos_clocks_response import HosClocksResponse
 from ..types.hos_daily_logs_get_hos_daily_logs_response_body import HosDailyLogsGetHosDailyLogsResponseBody
+from ..types.hos_daily_logs_update_shipping_docs_response_body import HosDailyLogsUpdateShippingDocsResponseBody
 from ..types.hos_logs_response import HosLogsResponse
 from ..types.hos_violations_get_hos_violations_response_body import HosViolationsGetHosViolationsResponseBody
 from ..types.v_1_hos_authentication_logs_response import V1HosAuthenticationLogsResponse
@@ -329,6 +330,61 @@ class HoursOfServiceClient:
             types=types,
             after=after,
             request_options=request_options,
+        )
+        return _response.data
+
+    def update_shipping_docs(
+        self,
+        *,
+        hos_date: str,
+        driver_id: str,
+        shipping_docs: str,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HosDailyLogsUpdateShippingDocsResponseBody:
+        """
+        Update the shippingDocs field of an existing assignment.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write ELD Hours of Service (US)** under the Compliance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        hos_date : str
+            A start date in yyyy-mm-dd format. Required.
+
+        driver_id : str
+            ID of the driver for whom the duty status is being set.
+
+        shipping_docs : str
+            ShippingDocs associated with the driver for the day.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HosDailyLogsUpdateShippingDocsResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.hours_of_service.update_shipping_docs(
+            hos_date="hosDate",
+            driver_id="driverID",
+            shipping_docs="ShippingID1, ShippingID2",
+        )
+        """
+        _response = self._raw_client.update_shipping_docs(
+            hos_date=hos_date, driver_id=driver_id, shipping_docs=shipping_docs, request_options=request_options
         )
         return _response.data
 
@@ -800,6 +856,69 @@ class AsyncHoursOfServiceClient:
             types=types,
             after=after,
             request_options=request_options,
+        )
+        return _response.data
+
+    async def update_shipping_docs(
+        self,
+        *,
+        hos_date: str,
+        driver_id: str,
+        shipping_docs: str,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HosDailyLogsUpdateShippingDocsResponseBody:
+        """
+        Update the shippingDocs field of an existing assignment.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write ELD Hours of Service (US)** under the Compliance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        hos_date : str
+            A start date in yyyy-mm-dd format. Required.
+
+        driver_id : str
+            ID of the driver for whom the duty status is being set.
+
+        shipping_docs : str
+            ShippingDocs associated with the driver for the day.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HosDailyLogsUpdateShippingDocsResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.hours_of_service.update_shipping_docs(
+                hos_date="hosDate",
+                driver_id="driverID",
+                shipping_docs="ShippingID1, ShippingID2",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.update_shipping_docs(
+            hos_date=hos_date, driver_id=driver_id, shipping_docs=shipping_docs, request_options=request_options
         )
         return _response.data
 

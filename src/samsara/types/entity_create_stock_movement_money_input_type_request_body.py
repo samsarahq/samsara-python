@@ -8,7 +8,7 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 
 class EntityCreateStockMovementMoneyInputTypeRequestBody(UniversalBaseModel):
     """
-    EntityCreateStockMovementMoneyInput object
+    Money object
     """
 
     amount: str = pydantic.Field()

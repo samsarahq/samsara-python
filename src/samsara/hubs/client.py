@@ -197,6 +197,8 @@ class HubsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HubLocationsUpdateHubLocationResponseBody:
         """
+        **Note: This endpoint is deprecated. Use [PATCH /places](https://developers.samsara.com/reference/patchplace) instead. Access closes for new customers on November 1, 2026, and the endpoint will be removed on November 1, 2027. It will continue to function as documented until then. See the [migration guide](https://developers.samsara.com/docs/migrating-from-the-hub-locations-api-to-the-places-api).**
+
         Update existing location by ID.
 
          <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
@@ -277,6 +279,8 @@ class HubsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HubLocationsListHubLocationsResponseBody:
         """
+        **Note: This endpoint is deprecated. Use [GET /places](https://developers.samsara.com/reference/getplaces) instead. Access closes for new customers on November 1, 2026, and the endpoint will be removed on November 1, 2027. It will continue to function as documented until then. See the [migration guide](https://developers.samsara.com/docs/migrating-from-the-hub-locations-api-to-the-places-api).**
+
         Retrieve locations for a specific hub.
 
          <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
@@ -347,6 +351,8 @@ class HubsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HubLocationsCreateHubLocationsResponseBody:
         """
+        **Note: This endpoint is deprecated. Use [POST /places](https://developers.samsara.com/reference/postplace) instead. Access closes for new customers on November 1, 2026, and the endpoint will be removed on November 1, 2027. It will continue to function as documented until then. See the [migration guide](https://developers.samsara.com/docs/migrating-from-the-hub-locations-api-to-the-places-api).**
+
         Create new locations.
 
          <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
@@ -746,6 +752,8 @@ class AsyncHubsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HubLocationsUpdateHubLocationResponseBody:
         """
+        **Note: This endpoint is deprecated. Use [PATCH /places](https://developers.samsara.com/reference/patchplace) instead. Access closes for new customers on November 1, 2026, and the endpoint will be removed on November 1, 2027. It will continue to function as documented until then. See the [migration guide](https://developers.samsara.com/docs/migrating-from-the-hub-locations-api-to-the-places-api).**
+
         Update existing location by ID.
 
          <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
@@ -834,6 +842,8 @@ class AsyncHubsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HubLocationsListHubLocationsResponseBody:
         """
+        **Note: This endpoint is deprecated. Use [GET /places](https://developers.samsara.com/reference/getplaces) instead. Access closes for new customers on November 1, 2026, and the endpoint will be removed on November 1, 2027. It will continue to function as documented until then. See the [migration guide](https://developers.samsara.com/docs/migrating-from-the-hub-locations-api-to-the-places-api).**
+
         Retrieve locations for a specific hub.
 
          <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
@@ -912,6 +922,8 @@ class AsyncHubsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HubLocationsCreateHubLocationsResponseBody:
         """
+        **Note: This endpoint is deprecated. Use [POST /places](https://developers.samsara.com/reference/postplace) instead. Access closes for new customers on November 1, 2026, and the endpoint will be removed on November 1, 2027. It will continue to function as documented until then. See the [migration guide](https://developers.samsara.com/docs/migrating-from-the-hub-locations-api-to-the-places-api).**
+
         Create new locations.
 
          <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).

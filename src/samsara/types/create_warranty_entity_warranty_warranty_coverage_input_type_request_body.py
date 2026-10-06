@@ -13,7 +13,7 @@ from .create_warranty_entity_warranty_warranty_coverage_item_input_type_request_
 
 class CreateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody(UniversalBaseModel):
     """
-    CreateWarrantyEntityWarrantyWarrantyCoverageInput object
+    WarrantyCoverage object
     """
 
     description: typing.Optional[str] = pydantic.Field(default=None)

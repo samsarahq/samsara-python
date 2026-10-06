@@ -348,12 +348,68 @@ def test_betaApIs_list_vendor_categories() -> None:
     verify_request_count(test_id, "GET", "/fleet/maintenance/vendor-categories", None, 1)
 
 
+def test_betaApIs_list_vendor_groups() -> None:
+    """Test listVendorGroups endpoint with WireMock"""
+    test_id = "beta_ap_is.list_vendor_groups.0"
+    client = get_client(test_id)
+    client.beta_ap_is.list_vendor_groups()
+    verify_request_count(test_id, "GET", "/fleet/maintenance/vendor-groups", None, 1)
+
+
+def test_betaApIs_create_vendor_group() -> None:
+    """Test createVendorGroup endpoint with WireMock"""
+    test_id = "beta_ap_is.create_vendor_group.0"
+    client = get_client(test_id)
+    client.beta_ap_is.create_vendor_group(name="12345")
+    verify_request_count(test_id, "POST", "/fleet/maintenance/vendor-groups", None, 1)
+
+
+def test_betaApIs_delete_vendor_group() -> None:
+    """Test deleteVendorGroup endpoint with WireMock"""
+    test_id = "beta_ap_is.delete_vendor_group.0"
+    client = get_client(test_id)
+    client.beta_ap_is.delete_vendor_group(id="id")
+    verify_request_count(test_id, "DELETE", "/fleet/maintenance/vendor-groups", {"id": "id"}, 1)
+
+
+def test_betaApIs_update_vendor_group() -> None:
+    """Test updateVendorGroup endpoint with WireMock"""
+    test_id = "beta_ap_is.update_vendor_group.0"
+    client = get_client(test_id)
+    client.beta_ap_is.update_vendor_group(id="id")
+    verify_request_count(test_id, "PATCH", "/fleet/maintenance/vendor-groups", {"id": "id"}, 1)
+
+
 def test_betaApIs_list_maintenance_vendors() -> None:
     """Test listMaintenanceVendors endpoint with WireMock"""
     test_id = "beta_ap_is.list_maintenance_vendors.0"
     client = get_client(test_id)
     client.beta_ap_is.list_maintenance_vendors()
     verify_request_count(test_id, "GET", "/fleet/maintenance/vendors", None, 1)
+
+
+def test_betaApIs_create_vendor() -> None:
+    """Test createVendor endpoint with WireMock"""
+    test_id = "beta_ap_is.create_vendor.0"
+    client = get_client(test_id)
+    client.beta_ap_is.create_vendor(name="12345")
+    verify_request_count(test_id, "POST", "/fleet/maintenance/vendors", None, 1)
+
+
+def test_betaApIs_delete_vendor() -> None:
+    """Test deleteVendor endpoint with WireMock"""
+    test_id = "beta_ap_is.delete_vendor.0"
+    client = get_client(test_id)
+    client.beta_ap_is.delete_vendor(id="id")
+    verify_request_count(test_id, "DELETE", "/fleet/maintenance/vendors", {"id": "id"}, 1)
+
+
+def test_betaApIs_update_vendor() -> None:
+    """Test updateVendor endpoint with WireMock"""
+    test_id = "beta_ap_is.update_vendor.0"
+    client = get_client(test_id)
+    client.beta_ap_is.update_vendor(id="id")
+    verify_request_count(test_id, "PATCH", "/fleet/maintenance/vendors", {"id": "id"}, 1)
 
 
 def test_betaApIs_list_tachograph_live_data() -> None:
@@ -543,18 +599,6 @@ def test_betaApIs_update_watchpoint() -> None:
     verify_request_count(test_id, "PATCH", "/ground-intelligence/watchpoints", {"id": "id"}, 1)
 
 
-def test_betaApIs_update_shipping_docs() -> None:
-    """Test updateShippingDocs endpoint with WireMock"""
-    test_id = "beta_ap_is.update_shipping_docs.0"
-    client = get_client(test_id)
-    client.beta_ap_is.update_shipping_docs(
-        hos_date="hosDate", driver_id="driverID", shipping_docs="ShippingID1, ShippingID2"
-    )
-    verify_request_count(
-        test_id, "PATCH", "/hos/daily-logs/log-meta-data", {"hosDate": "hosDate", "driverID": "driverID"}, 1
-    )
-
-
 def test_betaApIs_list_plan_orders() -> None:
     """Test listPlanOrders endpoint with WireMock"""
     test_id = "beta_ap_is.list_plan_orders.0"
@@ -603,112 +647,6 @@ def test_betaApIs_update_hub_route_template() -> None:
     client = get_client(test_id)
     client.beta_ap_is.update_hub_route_template(id="id")
     verify_request_count(test_id, "PATCH", "/hub/route-templates", {"id": "id"}, 1)
-
-
-def test_betaApIs_list_parts() -> None:
-    """Test listParts endpoint with WireMock"""
-    test_id = "beta_ap_is.list_parts.0"
-    client = get_client(test_id)
-    client.beta_ap_is.list_parts()
-    verify_request_count(test_id, "GET", "/maintenance/parts", None, 1)
-
-
-def test_betaApIs_create_part() -> None:
-    """Test createPart endpoint with WireMock"""
-    test_id = "beta_ap_is.create_part.0"
-    client = get_client(test_id)
-    client.beta_ap_is.create_part(part_number="12345")
-    verify_request_count(test_id, "POST", "/maintenance/parts", None, 1)
-
-
-def test_betaApIs_delete_part() -> None:
-    """Test deletePart endpoint with WireMock"""
-    test_id = "beta_ap_is.delete_part.0"
-    client = get_client(test_id)
-    client.beta_ap_is.delete_part(id="id")
-    verify_request_count(test_id, "DELETE", "/maintenance/parts", {"id": "id"}, 1)
-
-
-def test_betaApIs_update_part() -> None:
-    """Test updatePart endpoint with WireMock"""
-    test_id = "beta_ap_is.update_part.0"
-    client = get_client(test_id)
-    client.beta_ap_is.update_part(id="id")
-    verify_request_count(test_id, "PATCH", "/maintenance/parts", {"id": "id"}, 1)
-
-
-def test_betaApIs_list_part_inventory() -> None:
-    """Test listPartInventory endpoint with WireMock"""
-    test_id = "beta_ap_is.list_part_inventory.0"
-    client = get_client(test_id)
-    client.beta_ap_is.list_part_inventory()
-    verify_request_count(test_id, "GET", "/maintenance/parts/inventory-location", None, 1)
-
-
-def test_betaApIs_create_part_inventory_location() -> None:
-    """Test createPartInventoryLocation endpoint with WireMock"""
-    test_id = "beta_ap_is.create_part_inventory_location.0"
-    client = get_client(test_id)
-    client.beta_ap_is.create_part_inventory_location()
-    verify_request_count(test_id, "POST", "/maintenance/parts/inventory-location", None, 1)
-
-
-def test_betaApIs_update_part_inventory_location() -> None:
-    """Test updatePartInventoryLocation endpoint with WireMock"""
-    test_id = "beta_ap_is.update_part_inventory_location.0"
-    client = get_client(test_id)
-    client.beta_ap_is.update_part_inventory_location()
-    verify_request_count(test_id, "PATCH", "/maintenance/parts/inventory-location", None, 1)
-
-
-def test_betaApIs_create_stock_movement() -> None:
-    """Test createStockMovement endpoint with WireMock"""
-    test_id = "beta_ap_is.create_stock_movement.0"
-    client = get_client(test_id)
-    client.beta_ap_is.create_stock_movement(movement_type="12345", part_samsara_id="12345", quantity=123.45)
-    verify_request_count(test_id, "POST", "/maintenance/parts/stock-movements", None, 1)
-
-
-def test_betaApIs_list_part_transactions() -> None:
-    """Test listPartTransactions endpoint with WireMock"""
-    test_id = "beta_ap_is.list_part_transactions.0"
-    client = get_client(test_id)
-    client.beta_ap_is.list_part_transactions(happened_at_time_start="happenedAtTimeStart")
-    verify_request_count(
-        test_id, "GET", "/maintenance/parts/transactions", {"happenedAtTimeStart": "happenedAtTimeStart"}, 1
-    )
-
-
-def test_betaApIs_resolve_preventive_maintenance() -> None:
-    """Test resolvePreventiveMaintenance endpoint with WireMock"""
-    test_id = "beta_ap_is.resolve_preventive_maintenance.0"
-    client = get_client(test_id)
-    client.beta_ap_is.resolve_preventive_maintenance()
-    verify_request_count(test_id, "POST", "/maintenance/preventive/resolve", None, 1)
-
-
-def test_betaApIs_list_preventive_maintenance_schedules() -> None:
-    """Test listPreventiveMaintenanceSchedules endpoint with WireMock"""
-    test_id = "beta_ap_is.list_preventive_maintenance_schedules.0"
-    client = get_client(test_id)
-    client.beta_ap_is.list_preventive_maintenance_schedules()
-    verify_request_count(test_id, "GET", "/maintenance/preventive/schedules", None, 1)
-
-
-def test_betaApIs_list_upcoming_preventive_maintenance() -> None:
-    """Test listUpcomingPreventiveMaintenance endpoint with WireMock"""
-    test_id = "beta_ap_is.list_upcoming_preventive_maintenance.0"
-    client = get_client(test_id)
-    client.beta_ap_is.list_upcoming_preventive_maintenance()
-    verify_request_count(test_id, "GET", "/maintenance/preventive/upcoming", None, 1)
-
-
-def test_betaApIs_update_upcoming_preventive_maintenance() -> None:
-    """Test updateUpcomingPreventiveMaintenance endpoint with WireMock"""
-    test_id = "beta_ap_is.update_upcoming_preventive_maintenance.0"
-    client = get_client(test_id)
-    client.beta_ap_is.update_upcoming_preventive_maintenance()
-    verify_request_count(test_id, "PATCH", "/maintenance/preventive/upcoming", None, 1)
 
 
 def test_betaApIs_list_purchase_orders() -> None:
@@ -761,116 +699,30 @@ def test_betaApIs_update_purchase_order() -> None:
     verify_request_count(test_id, "PATCH", "/maintenance/purchase-orders", {"id": "id"}, 1)
 
 
-def test_betaApIs_list_maintenance_sites() -> None:
-    """Test listMaintenanceSites endpoint with WireMock"""
-    test_id = "beta_ap_is.list_maintenance_sites.0"
+def test_betaApIs_list_technician_shifts() -> None:
+    """Test listTechnicianShifts endpoint with WireMock"""
+    test_id = "beta_ap_is.list_technician_shifts.0"
     client = get_client(test_id)
-    client.beta_ap_is.list_maintenance_sites()
-    verify_request_count(test_id, "GET", "/maintenance/sites", None, 1)
+    client.beta_ap_is.list_technician_shifts()
+    verify_request_count(test_id, "GET", "/maintenance/technician-shifts", None, 1)
 
 
-def test_betaApIs_create_maintenance_site() -> None:
-    """Test createMaintenanceSite endpoint with WireMock"""
-    test_id = "beta_ap_is.create_maintenance_site.0"
+def test_betaApIs_create_technician_shift() -> None:
+    """Test createTechnicianShift endpoint with WireMock"""
+    test_id = "beta_ap_is.create_technician_shift.0"
     client = get_client(test_id)
-    client.beta_ap_is.create_maintenance_site(name="12345", site_code="12345", site_type="Unknown")
-    verify_request_count(test_id, "POST", "/maintenance/sites", None, 1)
+    client.beta_ap_is.create_technician_shift(
+        clock_in_at_time=datetime.fromisoformat("2026-09-10T15:00:00+00:00"), user_id="281474976710656"
+    )
+    verify_request_count(test_id, "POST", "/maintenance/technician-shifts", None, 1)
 
 
-def test_betaApIs_update_maintenance_site() -> None:
-    """Test updateMaintenanceSite endpoint with WireMock"""
-    test_id = "beta_ap_is.update_maintenance_site.0"
+def test_betaApIs_patch_technician_shift() -> None:
+    """Test patchTechnicianShift endpoint with WireMock"""
+    test_id = "beta_ap_is.patch_technician_shift.0"
     client = get_client(test_id)
-    client.beta_ap_is.update_maintenance_site(id="id")
-    verify_request_count(test_id, "PATCH", "/maintenance/sites", {"id": "id"}, 1)
-
-
-def test_betaApIs_list_time_entries() -> None:
-    """Test listTimeEntries endpoint with WireMock"""
-    test_id = "beta_ap_is.list_time_entries.0"
-    client = get_client(test_id)
-    client.beta_ap_is.list_time_entries(start_time="startTime")
-    verify_request_count(test_id, "GET", "/maintenance/time-entries/stream", {"startTime": "startTime"}, 1)
-
-
-def test_betaApIs_list_warranties() -> None:
-    """Test listWarranties endpoint with WireMock"""
-    test_id = "beta_ap_is.list_warranties.0"
-    client = get_client(test_id)
-    client.beta_ap_is.list_warranties()
-    verify_request_count(test_id, "GET", "/maintenance/warranties", None, 1)
-
-
-def test_betaApIs_create_warranty() -> None:
-    """Test createWarranty endpoint with WireMock"""
-    test_id = "beta_ap_is.create_warranty.0"
-    client = get_client(test_id)
-    client.beta_ap_is.create_warranty(name="12345")
-    verify_request_count(test_id, "POST", "/maintenance/warranties", None, 1)
-
-
-def test_betaApIs_delete_warranty() -> None:
-    """Test deleteWarranty endpoint with WireMock"""
-    test_id = "beta_ap_is.delete_warranty.0"
-    client = get_client(test_id)
-    client.beta_ap_is.delete_warranty(id="id")
-    verify_request_count(test_id, "DELETE", "/maintenance/warranties", {"id": "id"}, 1)
-
-
-def test_betaApIs_update_warranty() -> None:
-    """Test updateWarranty endpoint with WireMock"""
-    test_id = "beta_ap_is.update_warranty.0"
-    client = get_client(test_id)
-    client.beta_ap_is.update_warranty(id="id")
-    verify_request_count(test_id, "PATCH", "/maintenance/warranties", {"id": "id"}, 1)
-
-
-def test_betaApIs_list_warranty_asset_assignments() -> None:
-    """Test listWarrantyAssetAssignments endpoint with WireMock"""
-    test_id = "beta_ap_is.list_warranty_asset_assignments.0"
-    client = get_client(test_id)
-    client.beta_ap_is.list_warranty_asset_assignments(warranty_id="warrantyId")
-    verify_request_count(test_id, "GET", "/maintenance/warranties/assets", {"warrantyId": "warrantyId"}, 1)
-
-
-def test_betaApIs_replace_warranty_asset_assignments() -> None:
-    """Test replaceWarrantyAssetAssignments endpoint with WireMock"""
-    test_id = "beta_ap_is.replace_warranty_asset_assignments.0"
-    client = get_client(test_id)
-    client.beta_ap_is.replace_warranty_asset_assignments()
-    verify_request_count(test_id, "POST", "/maintenance/warranties/assets/replace", None, 1)
-
-
-def test_betaApIs_list_warranty_claims() -> None:
-    """Test listWarrantyClaims endpoint with WireMock"""
-    test_id = "beta_ap_is.list_warranty_claims.0"
-    client = get_client(test_id)
-    client.beta_ap_is.list_warranty_claims()
-    verify_request_count(test_id, "GET", "/maintenance/warranty-claims", None, 1)
-
-
-def test_betaApIs_create_warranty_claim() -> None:
-    """Test createWarrantyClaim endpoint with WireMock"""
-    test_id = "beta_ap_is.create_warranty_claim.0"
-    client = get_client(test_id)
-    client.beta_ap_is.create_warranty_claim(asset_id="281474976710656")
-    verify_request_count(test_id, "POST", "/maintenance/warranty-claims", None, 1)
-
-
-def test_betaApIs_delete_warranty_claim() -> None:
-    """Test deleteWarrantyClaim endpoint with WireMock"""
-    test_id = "beta_ap_is.delete_warranty_claim.0"
-    client = get_client(test_id)
-    client.beta_ap_is.delete_warranty_claim(id="id")
-    verify_request_count(test_id, "DELETE", "/maintenance/warranty-claims", {"id": "id"}, 1)
-
-
-def test_betaApIs_update_warranty_claim() -> None:
-    """Test updateWarrantyClaim endpoint with WireMock"""
-    test_id = "beta_ap_is.update_warranty_claim.0"
-    client = get_client(test_id)
-    client.beta_ap_is.update_warranty_claim(id="id")
-    verify_request_count(test_id, "PATCH", "/maintenance/warranty-claims", {"id": "id"}, 1)
+    client.beta_ap_is.patch_technician_shift(id="id", version=1)
+    verify_request_count(test_id, "PATCH", "/maintenance/technician-shifts", {"id": "id"}, 1)
 
 
 def test_betaApIs_get_work_order_templates() -> None:
@@ -901,8 +753,8 @@ def test_betaApIs_delete_place() -> None:
     """Test deletePlace endpoint with WireMock"""
     test_id = "beta_ap_is.delete_place.0"
     client = get_client(test_id)
-    client.beta_ap_is.delete_place(place_id=1000000)
-    verify_request_count(test_id, "DELETE", "/places", {"placeId": "1000000"}, 1)
+    client.beta_ap_is.delete_place()
+    verify_request_count(test_id, "DELETE", "/places", None, 1)
 
 
 def test_betaApIs_patch_place() -> None:
@@ -935,50 +787,6 @@ def test_betaApIs_get_place_geofence() -> None:
     client = get_client(test_id)
     client.beta_ap_is.get_place_geofence(latitude=1.1, longitude=1.1)
     verify_request_count(test_id, "GET", "/places/geofence", {"latitude": "1.1", "longitude": "1.1"}, 1)
-
-
-def test_betaApIs_list_preferred_stations() -> None:
-    """Test listPreferredStations endpoint with WireMock"""
-    test_id = "beta_ap_is.list_preferred_stations.0"
-    client = get_client(test_id)
-    client.beta_ap_is.list_preferred_stations()
-    verify_request_count(test_id, "GET", "/preferred-stations", None, 1)
-
-
-def test_betaApIs_post_preferred_station() -> None:
-    """Test postPreferredStation endpoint with WireMock"""
-    test_id = "beta_ap_is.post_preferred_station.0"
-    client = get_client(test_id)
-    client.beta_ap_is.post_preferred_station(
-        address={"city": "Green River", "country": "US", "line_1": "8901 US Hwy 374", "postal_code": "82935"},
-        external_ids={"key": "value"},
-        name="Station #432",
-    )
-    verify_request_count(test_id, "POST", "/preferred-stations", None, 1)
-
-
-def test_betaApIs_delete_preferred_station() -> None:
-    """Test deletePreferredStation endpoint with WireMock"""
-    test_id = "beta_ap_is.delete_preferred_station.0"
-    client = get_client(test_id)
-    client.beta_ap_is.delete_preferred_station(id="id")
-    verify_request_count(test_id, "DELETE", "/preferred-stations", {"id": "id"}, 1)
-
-
-def test_betaApIs_patch_preferred_station() -> None:
-    """Test patchPreferredStation endpoint with WireMock"""
-    test_id = "beta_ap_is.patch_preferred_station.0"
-    client = get_client(test_id)
-    client.beta_ap_is.patch_preferred_station(id="id")
-    verify_request_count(test_id, "PATCH", "/preferred-stations", {"id": "id"}, 1)
-
-
-def test_betaApIs_get_preferred_station() -> None:
-    """Test getPreferredStation endpoint with WireMock"""
-    test_id = "beta_ap_is.get_preferred_station.0"
-    client = get_client(test_id)
-    client.beta_ap_is.get_preferred_station(id="id")
-    verify_request_count(test_id, "GET", "/preferred-stations/id", None, 1)
 
 
 def test_betaApIs_get_qualification_records() -> None:
@@ -1208,10 +1016,6 @@ def test_betaApIs_patch_safety_events_v_2_batch() -> None:
     test_id = "beta_ap_is.patch_safety_events_v_2_batch.0"
     client = get_client(test_id)
     client.beta_ap_is.patch_safety_events_v_2_batch(
-        safety_event_ids=[
-            "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
-            "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
-            "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
-        ]
+        safety_event_ids=["bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590", "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590"]
     )
     verify_request_count(test_id, "PATCH", "/safety-events/batch", None, 1)

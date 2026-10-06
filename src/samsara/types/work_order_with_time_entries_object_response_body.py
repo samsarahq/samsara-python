@@ -10,6 +10,7 @@ from ..core.serialization import FieldMetadata
 from .service_task_instance_with_time_entries_object_response_body import (
     ServiceTaskInstanceWithTimeEntriesObjectResponseBody,
 )
+from .work_order_assignee_object_response_body import WorkOrderAssigneeObjectResponseBody
 from .work_order_attachment_object_response_body import WorkOrderAttachmentObjectResponseBody
 from .work_order_discount_object_response_body import WorkOrderDiscountObjectResponseBody
 from .work_order_item_object_response_body import WorkOrderItemObjectResponseBody
@@ -40,6 +41,11 @@ class WorkOrderWithTimeEntriesObjectResponseBody(UniversalBaseModel):
         FieldMetadata(alias="assignedUserId"),
         pydantic.Field(alias="assignedUserId", description="The ID of the assigned mechanic."),
     ] = None
+    assignees: typing.Optional[typing.List[WorkOrderAssigneeObjectResponseBody]] = pydantic.Field(default=None)
+    """
+    Dashboard users assigned to the work order. Only returned for organizations with multiple work order assignees enabled. Technicians backed only by a driver are not represented.
+    """
+
     attachments: typing.Optional[typing.List[WorkOrderAttachmentObjectResponseBody]] = pydantic.Field(default=None)
     """
     Files attached to the work order.

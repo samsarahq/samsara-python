@@ -29,7 +29,5 @@ def test_driverVehicleAssignments_update_driver_vehicle_assignment() -> None:
     """Test updateDriverVehicleAssignment endpoint with WireMock"""
     test_id = "driver_vehicle_assignments.update_driver_vehicle_assignment.0"
     client = get_client(test_id)
-    client.driver_vehicle_assignments.update_driver_vehicle_assignment(
-        driver_id="494123", start_time="2019-06-13T19:08:25Z", vehicle_id="281474978683353"
-    )
+    client.driver_vehicle_assignments.update_driver_vehicle_assignment()
     verify_request_count(test_id, "PATCH", "/fleet/driver-vehicle-assignments", None, 1)

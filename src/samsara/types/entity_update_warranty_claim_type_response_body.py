@@ -7,6 +7,9 @@ import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .entity_update_warranty_claim_asset_ref_type_response_body import EntityUpdateWarrantyClaimAssetRefTypeResponseBody
+from .entity_update_warranty_claim_type_response_body_claim_status import (
+    EntityUpdateWarrantyClaimTypeResponseBodyClaimStatus,
+)
 from .entity_update_warranty_claim_vendor_ref_type_response_body import (
     EntityUpdateWarrantyClaimVendorRefTypeResponseBody,
 )
@@ -57,9 +60,12 @@ class EntityUpdateWarrantyClaimTypeResponseBody(UniversalBaseModel):
         ),
     ] = None
     claim_status: typing_extensions.Annotated[
-        typing.Optional[str],
+        typing.Optional[EntityUpdateWarrantyClaimTypeResponseBodyClaimStatus],
         FieldMetadata(alias="claimStatus"),
-        pydantic.Field(alias="claimStatus", description="Current status of the claim."),
+        pydantic.Field(
+            alias="claimStatus",
+            description="Current status of the claim.  Valid values: `unknown`, `created`, `submitted`, `inReview`, `approved`, `rejected`, `resubmitted`, `reimbursed`",
+        ),
     ] = None
     component_instance_ids: typing_extensions.Annotated[
         typing.Optional[typing.List[str]],
