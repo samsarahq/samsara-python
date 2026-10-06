@@ -7,6 +7,7 @@ import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .part_instance_object_response_body import PartInstanceObjectResponseBody
+from .service_task_assignee_object_response_body import ServiceTaskAssigneeObjectResponseBody
 from .service_task_instance_with_time_entries_object_response_body_status import (
     ServiceTaskInstanceWithTimeEntriesObjectResponseBodyStatus,
 )
@@ -18,6 +19,11 @@ from .work_order_time_entry_object_response_body import WorkOrderTimeEntryObject
 class ServiceTaskInstanceWithTimeEntriesObjectResponseBody(UniversalBaseModel):
     """
     Work Order Service Task object.
+    """
+
+    assignees: typing.Optional[typing.List[ServiceTaskAssigneeObjectResponseBody]] = pydantic.Field(default=None)
+    """
+    Dashboard users assigned to the service task. Only returned for organizations with service task assignees enabled. Technicians backed only by a driver are not represented.
     """
 
     id: str = pydantic.Field()

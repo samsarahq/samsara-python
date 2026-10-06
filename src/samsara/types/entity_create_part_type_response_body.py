@@ -9,6 +9,11 @@ from ..core.serialization import FieldMetadata
 from .create_part_entity_part_definition_money_type_response_body import (
     CreatePartEntityPartDefinitionMoneyTypeResponseBody,
 )
+from .entity_create_part_type_response_body_part_status import EntityCreatePartTypeResponseBodyPartStatus
+from .entity_create_part_type_response_body_unit_of_measure_type import (
+    EntityCreatePartTypeResponseBodyUnitOfMeasureType,
+)
+from .entity_create_part_vendor_ref_type_response_body import EntityCreatePartVendorRefTypeResponseBody
 
 
 class EntityCreatePartTypeResponseBody(UniversalBaseModel):
@@ -87,9 +92,25 @@ class EntityCreatePartTypeResponseBody(UniversalBaseModel):
         pydantic.Field(alias="partNumber", description="Customer-visible part number for the part."),
     ] = None
     part_status: typing_extensions.Annotated[
-        typing.Optional[str],
+        typing.Optional[EntityCreatePartTypeResponseBodyPartStatus],
         FieldMetadata(alias="partStatus"),
-        pydantic.Field(alias="partStatus", description="Status of the part."),
+        pydantic.Field(
+            alias="partStatus",
+            description="Status of the part.  Valid values: `Unknown`, `Active`, `Archived`, `Deleted`",
+        ),
+    ] = None
+    preferred_vendor: typing_extensions.Annotated[
+        typing.Optional[EntityCreatePartVendorRefTypeResponseBody],
+        FieldMetadata(alias="preferredVendor"),
+        pydantic.Field(alias="preferredVendor"),
+    ] = None
+    preferred_vendor_part_number: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="preferredVendorPartNumber"),
+        pydantic.Field(
+            alias="preferredVendorPartNumber",
+            description="The preferred vendor's part number for this part definition.",
+        ),
     ] = None
     subcategory: typing.Optional[str] = pydantic.Field(default=None)
     """
@@ -102,9 +123,12 @@ class EntityCreatePartTypeResponseBody(UniversalBaseModel):
         pydantic.Field(alias="unitCost"),
     ] = None
     unit_of_measure_type: typing_extensions.Annotated[
-        typing.Optional[str],
+        typing.Optional[EntityCreatePartTypeResponseBodyUnitOfMeasureType],
         FieldMetadata(alias="unitOfMeasureType"),
-        pydantic.Field(alias="unitOfMeasureType", description="Unit of measure for the part."),
+        pydantic.Field(
+            alias="unitOfMeasureType",
+            description="Unit of measure for the part.  Valid values: `Unknown`, `Each`, `Set`, `Pack`, `Box`, `Pound`, `Kilogram`, `Ounce`, `Liter`, `Milliliter`, `Gallon`, `Quart`, `FluidOunce`, `Inch`, `Foot`, `Meter`, `Yard`, `SquareFoot`, `SquareMeter`, `Pint`, `Hundred`, `Roll`",
+        ),
     ] = None
     updated_at_time: typing_extensions.Annotated[
         typing.Optional[str],

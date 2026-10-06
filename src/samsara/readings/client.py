@@ -327,6 +327,7 @@ class ReadingsClient:
             * `addressEntry` (Address Entry): Address data from the address entry event
             * `addressExit` (Address Exit): Address data from the address exit event
             * `atisLamp` (Atis Lamp status): Atis lamp on/off status (values: off | on)
+            * `cargoFillPercent` (Cargo fill percent): Estimated percentage of the trailer cargo space that is occupied, based on cargo camera images. (percent)
             * `derivedCargoState` (Cargo Status): Indicates if the overall cargo status of the asset is Empty, Partially Empty, Full, or Unknown. (values: unknown | empty | partiallyEmpty | full)
             * `doorClosedStatus` (Door Closed Status): Status indicating whether a door is closed or open (values: open | closed)
             * `doorClosedStatusAdvanced` (Door Closed Status (Advanced)): Status indicating whether a door is closed or open (values: open | closed)
@@ -687,6 +688,7 @@ class ReadingsClient:
             * `addressEntry` (Address Entry): Address data from the address entry event
             * `addressExit` (Address Exit): Address data from the address exit event
             * `atisLamp` (Atis Lamp status): Atis lamp on/off status (values: off | on)
+            * `cargoFillPercent` (Cargo fill percent): Estimated percentage of the trailer cargo space that is occupied, based on cargo camera images. (percent)
             * `derivedCargoState` (Cargo Status): Indicates if the overall cargo status of the asset is Empty, Partially Empty, Full, or Unknown. (values: unknown | empty | partiallyEmpty | full)
             * `doorClosedStatus` (Door Closed Status): Status indicating whether a door is closed or open (values: open | closed)
             * `doorClosedStatusAdvanced` (Door Closed Status (Advanced)): Status indicating whether a door is closed or open (values: open | closed)
@@ -1118,6 +1120,7 @@ class AsyncReadingsClient:
             * `addressEntry` (Address Entry): Address data from the address entry event
             * `addressExit` (Address Exit): Address data from the address exit event
             * `atisLamp` (Atis Lamp status): Atis lamp on/off status (values: off | on)
+            * `cargoFillPercent` (Cargo fill percent): Estimated percentage of the trailer cargo space that is occupied, based on cargo camera images. (percent)
             * `derivedCargoState` (Cargo Status): Indicates if the overall cargo status of the asset is Empty, Partially Empty, Full, or Unknown. (values: unknown | empty | partiallyEmpty | full)
             * `doorClosedStatus` (Door Closed Status): Status indicating whether a door is closed or open (values: open | closed)
             * `doorClosedStatusAdvanced` (Door Closed Status (Advanced)): Status indicating whether a door is closed or open (values: open | closed)
@@ -1486,6 +1489,7 @@ class AsyncReadingsClient:
             * `addressEntry` (Address Entry): Address data from the address entry event
             * `addressExit` (Address Exit): Address data from the address exit event
             * `atisLamp` (Atis Lamp status): Atis lamp on/off status (values: off | on)
+            * `cargoFillPercent` (Cargo fill percent): Estimated percentage of the trailer cargo space that is occupied, based on cargo camera images. (percent)
             * `derivedCargoState` (Cargo Status): Indicates if the overall cargo status of the asset is Empty, Partially Empty, Full, or Unknown. (values: unknown | empty | partiallyEmpty | full)
             * `doorClosedStatus` (Door Closed Status): Status indicating whether a door is closed or open (values: open | closed)
             * `doorClosedStatusAdvanced` (Door Closed Status (Advanced)): Status indicating whether a door is closed or open (values: open | closed)

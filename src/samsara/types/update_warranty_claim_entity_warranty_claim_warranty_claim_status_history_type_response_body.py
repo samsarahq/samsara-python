@@ -6,11 +6,14 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .update_warranty_claim_entity_warranty_claim_warranty_claim_status_history_type_response_body_status import (
+    UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimStatusHistoryTypeResponseBodyStatus,
+)
 
 
 class UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimStatusHistoryTypeResponseBody(UniversalBaseModel):
     """
-    UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimStatusHistory object
+    WarrantyClaimStatusHistory object
     """
 
     happened_at_time: typing_extensions.Annotated[
@@ -18,9 +21,11 @@ class UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimStatusHistoryTypeRespon
         FieldMetadata(alias="happenedAtTime"),
         pydantic.Field(alias="happenedAtTime", description="When the transition occurred."),
     ] = None
-    status: typing.Optional[str] = pydantic.Field(default=None)
+    status: typing.Optional[UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimStatusHistoryTypeResponseBodyStatus] = (
+        pydantic.Field(default=None)
+    )
     """
-    The status the claim moved into.
+    The status the claim moved into.  Valid values: `unknown`, `created`, `submitted`, `inReview`, `approved`, `rejected`, `resubmitted`, `reimbursed`
     """
 
     user_id: typing_extensions.Annotated[

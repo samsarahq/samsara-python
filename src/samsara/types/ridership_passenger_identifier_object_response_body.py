@@ -12,7 +12,7 @@ from .ridership_passenger_identifier_object_response_body_type import RidershipP
 
 class RidershipPassengerIdentifierObjectResponseBody(UniversalBaseModel):
     """
-    An identifier associated with a passenger.
+    An identifier used to recognize the passenger, such as an RFID card value.
     """
 
     id: str = pydantic.Field()
@@ -22,7 +22,7 @@ class RidershipPassengerIdentifierObjectResponseBody(UniversalBaseModel):
 
     status: RidershipPassengerIdentifierObjectResponseBodyStatus = pydantic.Field()
     """
-    The status of the identifier.  Valid values: `active`, `inactive`, `unknown`
+    Whether the identifier is active or inactive.  Valid values: `active`, `inactive`, `unknown`
     """
 
     type: RidershipPassengerIdentifierObjectResponseBodyType = pydantic.Field()
@@ -32,7 +32,7 @@ class RidershipPassengerIdentifierObjectResponseBody(UniversalBaseModel):
 
     value: str = pydantic.Field()
     """
-    The identifier value.
+    Value of the identifier, such as the value read from an RFID card.
     """
 
     if IS_PYDANTIC_V2:

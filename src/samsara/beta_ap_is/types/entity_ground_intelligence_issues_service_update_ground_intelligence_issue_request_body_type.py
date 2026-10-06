@@ -3,5 +3,16 @@
 import typing
 
 EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyType = typing.Union[
-    typing.Literal["pothole", "roadCracking", "patchedPothole"], typing.Any
+    typing.Literal[
+        "pothole",
+        "roadCracking",
+        "patchedPothole",
+        "transverseCrack",
+        "longitudinalCrack",
+        "alligatorCrack",
+        "utilityCut",
+        "steelPlate",
+        "repavingNeeded",
+    ],
+    typing.Any,
 ]

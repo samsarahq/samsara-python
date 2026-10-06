@@ -43,6 +43,7 @@ SafetyBehaviorTriggerDetailsObjectResponseBodyBehaviorsItem = typing.Union[
         "HighSpeedSuddenDisconnect",
         "HosViolation",
         "Idling",
+        "ImproperEgress",
         "Invalid",
         "LaneDeparture",
         "LateResponse",

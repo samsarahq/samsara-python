@@ -90,7 +90,7 @@ class RawDriverVehicleAssignmentsClient:
             ID of the vehicle. This can either be the Samsara-specified ID, or an external ID. External IDs are customer specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: "key:value". For example, "maintenanceId:250020".
 
         source_name : typing.Optional[str]
-            Filters assignments by the exact metadata source name supplied when the assignment was created. Requires filterBy=drivers. When set, driver and vehicle ID, tag, and assignment type filters are not supported.
+            Filters assignments by the exact metadata source name supplied when the assignment was created. Requires filterBy=drivers. When set, driver and vehicle ID, tag, and assignment type filters are not supported. `startTime` and `endTime` are optional here: if omitted, matching assignments are returned regardless of when they occurred, rather than being limited to the recent window used by the other filters.
 
         driver_tag_ids : typing.Optional[str]
              A filter on the data based on this comma-separated list of driver tag IDs. Example: `tagIds=1234,5678`
@@ -634,17 +634,17 @@ class RawDriverVehicleAssignmentsClient:
     def update_driver_vehicle_assignment(
         self,
         *,
-        driver_id: str,
-        start_time: str,
-        vehicle_id: str,
         assigned_at_time: typing.Optional[str] = OMIT,
+        driver_id: typing.Optional[str] = OMIT,
         end_time: typing.Optional[str] = OMIT,
         is_passenger: typing.Optional[bool] = OMIT,
         metadata: typing.Optional[PatchDriverVehicleAssignmentsV2RequestBodyMetadataRequestBody] = OMIT,
+        start_time: typing.Optional[str] = OMIT,
+        vehicle_id: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[DriverVehicleAssignmentsV2UpdateDriverVehicleAssignmentResponseBody]:
         """
-        Update driver assignments that were created using the `POST fleet/driver-vehicle-assignments`. Vehicle Id, Driver Id, and Start Time must match an existing assignment.
+        Update driver assignments that were created using the `POST fleet/driver-vehicle-assignments`. Identify the assignment either with vehicleId, driverId, and startTime, or with metadata.sourceName alone.
 
          <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -655,17 +655,11 @@ class RawDriverVehicleAssignmentsClient:
 
         Parameters
         ----------
-        driver_id : str
-            ID of the driver. This can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the driver.
-
-        start_time : str
-            The start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-
-        vehicle_id : str
-            ID of the vehicle. This can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the vehicle.
-
         assigned_at_time : typing.Optional[str]
             The time at which the assignment was made in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        driver_id : typing.Optional[str]
+            ID of the driver. This can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the driver.
 
         end_time : typing.Optional[str]
             The end time in RFC 3339 format. To make this an ongoing assignment (ie. an assignment with no end time), provide an endTime value of 'null'. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
@@ -674,6 +668,12 @@ class RawDriverVehicleAssignmentsClient:
             Is this driver a passenger?
 
         metadata : typing.Optional[PatchDriverVehicleAssignmentsV2RequestBodyMetadataRequestBody]
+
+        start_time : typing.Optional[str]
+            The start time in RFC 3339 format that identifies the assignment to update. Required together with vehicleId and driverId, unless metadata.sourceName is provided instead. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        vehicle_id : typing.Optional[str]
+            ID of the vehicle. This can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the vehicle.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -878,7 +878,7 @@ class AsyncRawDriverVehicleAssignmentsClient:
             ID of the vehicle. This can either be the Samsara-specified ID, or an external ID. External IDs are customer specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: "key:value". For example, "maintenanceId:250020".
 
         source_name : typing.Optional[str]
-            Filters assignments by the exact metadata source name supplied when the assignment was created. Requires filterBy=drivers. When set, driver and vehicle ID, tag, and assignment type filters are not supported.
+            Filters assignments by the exact metadata source name supplied when the assignment was created. Requires filterBy=drivers. When set, driver and vehicle ID, tag, and assignment type filters are not supported. `startTime` and `endTime` are optional here: if omitted, matching assignments are returned regardless of when they occurred, rather than being limited to the recent window used by the other filters.
 
         driver_tag_ids : typing.Optional[str]
              A filter on the data based on this comma-separated list of driver tag IDs. Example: `tagIds=1234,5678`
@@ -1422,17 +1422,17 @@ class AsyncRawDriverVehicleAssignmentsClient:
     async def update_driver_vehicle_assignment(
         self,
         *,
-        driver_id: str,
-        start_time: str,
-        vehicle_id: str,
         assigned_at_time: typing.Optional[str] = OMIT,
+        driver_id: typing.Optional[str] = OMIT,
         end_time: typing.Optional[str] = OMIT,
         is_passenger: typing.Optional[bool] = OMIT,
         metadata: typing.Optional[PatchDriverVehicleAssignmentsV2RequestBodyMetadataRequestBody] = OMIT,
+        start_time: typing.Optional[str] = OMIT,
+        vehicle_id: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[DriverVehicleAssignmentsV2UpdateDriverVehicleAssignmentResponseBody]:
         """
-        Update driver assignments that were created using the `POST fleet/driver-vehicle-assignments`. Vehicle Id, Driver Id, and Start Time must match an existing assignment.
+        Update driver assignments that were created using the `POST fleet/driver-vehicle-assignments`. Identify the assignment either with vehicleId, driverId, and startTime, or with metadata.sourceName alone.
 
          <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -1443,17 +1443,11 @@ class AsyncRawDriverVehicleAssignmentsClient:
 
         Parameters
         ----------
-        driver_id : str
-            ID of the driver. This can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the driver.
-
-        start_time : str
-            The start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-
-        vehicle_id : str
-            ID of the vehicle. This can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the vehicle.
-
         assigned_at_time : typing.Optional[str]
             The time at which the assignment was made in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        driver_id : typing.Optional[str]
+            ID of the driver. This can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the driver.
 
         end_time : typing.Optional[str]
             The end time in RFC 3339 format. To make this an ongoing assignment (ie. an assignment with no end time), provide an endTime value of 'null'. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
@@ -1462,6 +1456,12 @@ class AsyncRawDriverVehicleAssignmentsClient:
             Is this driver a passenger?
 
         metadata : typing.Optional[PatchDriverVehicleAssignmentsV2RequestBodyMetadataRequestBody]
+
+        start_time : typing.Optional[str]
+            The start time in RFC 3339 format that identifies the assignment to update. Required together with vehicleId and driverId, unless metadata.sourceName is provided instead. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        vehicle_id : typing.Optional[str]
+            ID of the vehicle. This can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the vehicle.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.

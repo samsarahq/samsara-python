@@ -18,7 +18,7 @@ class RidershipRouteSetupPassengerInputRequestBody(UniversalBaseModel):
         FieldMetadata(alias="dropOffStopId"),
         pydantic.Field(
             alias="dropOffStopId",
-            description="The stop task ID returned by the Routing API for the passenger's drop-off, or an external ID in `key:value` format. For example, `stopKey:stop-456`.",
+            description="Drop-off stop task ID from the Routing API, or an external ID such as `stopKey:stop-456`. Omit to leave the drop-off stop unspecified.",
         ),
     ] = None
     passenger_id: typing_extensions.Annotated[
@@ -34,7 +34,7 @@ class RidershipRouteSetupPassengerInputRequestBody(UniversalBaseModel):
         FieldMetadata(alias="pickUpStopId"),
         pydantic.Field(
             alias="pickUpStopId",
-            description="The stop task ID returned by the Routing API for the passenger's pick-up, or an external ID in `key:value` format. For example, `stopKey:stop-123`.",
+            description="Pickup stop task ID from the Routing API, or an external ID such as `stopKey:stop-123`. Omit to leave the pickup stop unspecified.",
         ),
     ] = None
 

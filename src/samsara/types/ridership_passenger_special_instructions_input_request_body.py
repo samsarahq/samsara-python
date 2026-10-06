@@ -10,7 +10,7 @@ from ..core.serialization import FieldMetadata
 
 class RidershipPassengerSpecialInstructionsInputRequestBody(UniversalBaseModel):
     """
-    Special instructions for the passenger.
+    Special handling flags for the passenger. Omitted flags default to false.
     """
 
     is_guardian_required: typing_extensions.Annotated[

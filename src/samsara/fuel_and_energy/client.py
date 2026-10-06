@@ -4,12 +4,6 @@ import typing
 
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.request_options import RequestOptions
-from ..types.driver_efficiency_get_driver_efficiency_by_drivers_response_body import (
-    DriverEfficiencyGetDriverEfficiencyByDriversResponseBody,
-)
-from ..types.driver_efficiency_get_driver_efficiency_by_vehicles_response_body import (
-    DriverEfficiencyGetDriverEfficiencyByVehiclesResponseBody,
-)
 from ..types.fuel_energy_get_fuel_energy_driver_reports_response_body import (
     FuelEnergyGetFuelEnergyDriverReportsResponseBody,
 )
@@ -19,6 +13,21 @@ from ..types.fuel_energy_get_fuel_energy_vehicle_reports_response_body import (
 from ..types.fuel_purchase_post_fuel_purchase_response_body import FuelPurchasePostFuelPurchaseResponseBody
 from ..types.post_fuel_purchase_request_body_discount_request_body import PostFuelPurchaseRequestBodyDiscountRequestBody
 from ..types.post_fuel_purchase_request_body_price_request_body import PostFuelPurchaseRequestBodyPriceRequestBody
+from ..types.preferred_station_address_request_body import PreferredStationAddressRequestBody
+from ..types.preferred_station_discount_input_request_body import PreferredStationDiscountInputRequestBody
+from ..types.preferred_station_price_input_request_body import PreferredStationPriceInputRequestBody
+from ..types.preferred_stations_get_preferred_station_response_body import (
+    PreferredStationsGetPreferredStationResponseBody,
+)
+from ..types.preferred_stations_list_preferred_stations_response_body import (
+    PreferredStationsListPreferredStationsResponseBody,
+)
+from ..types.preferred_stations_patch_preferred_station_response_body import (
+    PreferredStationsPatchPreferredStationResponseBody,
+)
+from ..types.preferred_stations_post_preferred_station_response_body import (
+    PreferredStationsPostPreferredStationResponseBody,
+)
 from .raw_client import AsyncRawFuelAndEnergyClient, RawFuelAndEnergyClient
 from .types.fuel_purchase_post_fuel_purchase_request_body_fuel_grade import (
     FuelPurchasePostFuelPurchaseRequestBodyFuelGrade,
@@ -46,164 +55,6 @@ class FuelAndEnergyClient:
         RawFuelAndEnergyClient
         """
         return self._raw_client
-
-    def get_driver_efficiency_by_drivers(
-        self,
-        *,
-        start_time: str,
-        end_time: str,
-        driver_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        data_formats: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        tag_ids: typing.Optional[str] = None,
-        parent_tag_ids: typing.Optional[str] = None,
-        after: typing.Optional[str] = None,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> DriverEfficiencyGetDriverEfficiencyByDriversResponseBody:
-        """
-        This endpoint will return driver efficiency data that has been collected for your organization and grouped by drivers based on the time parameters passed in. Results are paginated.
-
-        **Note:** The data from this endpoint comes from the Driver Efficiency (Eco-Driving) Report. The existing [/fleet/drivers/efficiency](https://developers.samsara.com/reference/getdriverefficiency) endpoint has now been moved to Legacy.
-
-         <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Read Driver Efficiency** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        start_time : str
-            A start time in RFC 3339 format. Must be in multiple of hours and at least 1 day before endTime. Timezones are supported. Note that the most recent 72 hours of data may still be processing and is subject to change and latency, so it is not recommended to request data for the most recent 72 hours. (Examples: 2019-06-11T19:00:00Z, 2015-09-12T14:00:00-04:00).
-
-        end_time : str
-            An end time in RFC 3339 format. Must be in multiple of hours and no later than 3 hours before the current time. Timezones are supported. Note that the most recent 72 hours of data may still be processing and is subject to change and latency, so it is not recommended to request data for the most recent 72 hours. (Examples: 2019-06-13T19:00:00Z, 2015-09-15T14:00:00-04:00).
-
-        driver_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-             A filter on the data based on this comma-separated list of driver IDs and externalIds. Example: `driverIds=1234,5678,payroll:4841`
-
-        data_formats : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            A comma-separated list of data formats you want to fetch. Valid values: `score`, `raw` and `percentage`. The default data format is `score`. Example: `dataFormats=raw,score`
-
-        tag_ids : typing.Optional[str]
-             A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
-
-        parent_tag_ids : typing.Optional[str]
-             A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
-
-        after : typing.Optional[str]
-             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        DriverEfficiencyGetDriverEfficiencyByDriversResponseBody
-            OK response.
-
-        Examples
-        --------
-        from samsara import Samsara
-
-        client = Samsara(
-            token="YOUR_TOKEN",
-        )
-        client.fuel_and_energy.get_driver_efficiency_by_drivers(
-            start_time="startTime",
-            end_time="endTime",
-        )
-        """
-        _response = self._raw_client.get_driver_efficiency_by_drivers(
-            start_time=start_time,
-            end_time=end_time,
-            driver_ids=driver_ids,
-            data_formats=data_formats,
-            tag_ids=tag_ids,
-            parent_tag_ids=parent_tag_ids,
-            after=after,
-            request_options=request_options,
-        )
-        return _response.data
-
-    def get_driver_efficiency_by_vehicles(
-        self,
-        *,
-        start_time: str,
-        end_time: str,
-        vehicle_ids: typing.Optional[str] = None,
-        data_formats: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        tag_ids: typing.Optional[str] = None,
-        parent_tag_ids: typing.Optional[str] = None,
-        after: typing.Optional[str] = None,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> DriverEfficiencyGetDriverEfficiencyByVehiclesResponseBody:
-        """
-        This endpoint will return driver efficiency data that has been collected for your organization and grouped by vehicle drivers used based on the time parameters passed in. Results are paginated.
-
-        **Note:** The data from this endpoint comes from the Driver Efficiency (Eco-Driving) Report. The existing [/fleet/drivers/efficiency](https://developers.samsara.com/reference/getdriverefficiency) endpoint has now been moved to Legacy.
-
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Read Driver Efficiency** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        start_time : str
-            A start time in RFC 3339 format. Must be in multiple of hours and at least 1 day before endTime. Timezones are supported. Note that the most recent 72 hours of data may still be processing and is subject to change and latency, so it is not recommended to request data for the most recent 72 hours. (Examples: 2019-06-11T19:00:00Z, 2015-09-12T14:00:00-04:00).
-
-        end_time : str
-            An end time in RFC 3339 format. Must be in multiple of hours and no later than 3 hours before the current time. Timezones are supported. Note that the most recent 72 hours of data may still be processing and is subject to change and latency, so it is not recommended to request data for the most recent 72 hours. (Examples: 2019-06-13T19:00:00Z, 2015-09-15T14:00:00-04:00).
-
-        vehicle_ids : typing.Optional[str]
-             A filter on the data based on this comma-separated list of vehicle IDs and externalIds. Example: `vehicleIds=1234,5678,samsara.vin:1HGBH41JXMN109186`
-
-        data_formats : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            A comma-separated list of data formats you want to fetch. Valid values: `score`, `raw` and `percentage`. The default data format is `score`. Example: `dataFormats=raw,score`
-
-        tag_ids : typing.Optional[str]
-             A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
-
-        parent_tag_ids : typing.Optional[str]
-             A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
-
-        after : typing.Optional[str]
-             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        DriverEfficiencyGetDriverEfficiencyByVehiclesResponseBody
-            OK response.
-
-        Examples
-        --------
-        from samsara import Samsara
-
-        client = Samsara(
-            token="YOUR_TOKEN",
-        )
-        client.fuel_and_energy.get_driver_efficiency_by_vehicles(
-            start_time="startTime",
-            end_time="endTime",
-        )
-        """
-        _response = self._raw_client.get_driver_efficiency_by_vehicles(
-            start_time=start_time,
-            end_time=end_time,
-            vehicle_ids=vehicle_ids,
-            data_formats=data_formats,
-            tag_ids=tag_ids,
-            parent_tag_ids=parent_tag_ids,
-            after=after,
-            request_options=request_options,
-        )
-        return _response.data
 
     def get_fuel_energy_driver_reports(
         self,
@@ -460,6 +311,278 @@ class FuelAndEnergyClient:
         )
         return _response.data
 
+    def list_preferred_stations(
+        self,
+        *,
+        limit: typing.Optional[int] = None,
+        after: typing.Optional[str] = None,
+        include_external_ids: typing.Optional[bool] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> PreferredStationsListPreferredStationsResponseBody:
+        """
+        List all preferred fuel stations for your organization.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Fuel Purchase** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 512 objects.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        include_external_ids : typing.Optional[bool]
+            Whether to include external IDs in the response.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        PreferredStationsListPreferredStationsResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.fuel_and_energy.list_preferred_stations()
+        """
+        _response = self._raw_client.list_preferred_stations(
+            limit=limit, after=after, include_external_ids=include_external_ids, request_options=request_options
+        )
+        return _response.data
+
+    def post_preferred_station(
+        self,
+        *,
+        address: PreferredStationAddressRequestBody,
+        external_ids: typing.Dict[str, str],
+        name: str,
+        discounts: typing.Optional[typing.Sequence[PreferredStationDiscountInputRequestBody]] = OMIT,
+        latitude: typing.Optional[float] = OMIT,
+        longitude: typing.Optional[float] = OMIT,
+        prices: typing.Optional[typing.Sequence[PreferredStationPriceInputRequestBody]] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> PreferredStationsPostPreferredStationResponseBody:
+        """
+        Create a preferred fuel station for your organization.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Fuel Purchase** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        address : PreferredStationAddressRequestBody
+
+        external_ids : typing.Dict[str, str]
+            Map of source-system key to customer-provided station ID.
+
+        name : str
+            Display name of the station.
+
+        discounts : typing.Optional[typing.Sequence[PreferredStationDiscountInputRequestBody]]
+            Array of discount overrides per fuel type. Max 14 items.
+
+        latitude : typing.Optional[float]
+            Latitude in WGS84 degrees.
+
+        longitude : typing.Optional[float]
+            Longitude in WGS84 degrees.
+
+        prices : typing.Optional[typing.Sequence[PreferredStationPriceInputRequestBody]]
+            Array of per-fuel-type prices. Max 14 items.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        PreferredStationsPostPreferredStationResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import PreferredStationAddressRequestBody, Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.fuel_and_energy.post_preferred_station(
+            address=PreferredStationAddressRequestBody(
+                city="Green River",
+                country="US",
+                line_1="8901 US Hwy 374",
+                postal_code="82935",
+            ),
+            external_ids={"key": "value"},
+            name="Station #432",
+        )
+        """
+        _response = self._raw_client.post_preferred_station(
+            address=address,
+            external_ids=external_ids,
+            name=name,
+            discounts=discounts,
+            latitude=latitude,
+            longitude=longitude,
+            prices=prices,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def delete_preferred_station(self, *, id: str, request_options: typing.Optional[RequestOptions] = None) -> None:
+        """
+        Delete a preferred fuel station for your organization.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Fuel Purchase** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Samsara ID of the preferred station to delete.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.fuel_and_energy.delete_preferred_station(
+            id="id",
+        )
+        """
+        _response = self._raw_client.delete_preferred_station(id=id, request_options=request_options)
+        return _response.data
+
+    def patch_preferred_station(
+        self,
+        *,
+        id: str,
+        discounts: typing.Optional[typing.Sequence[PreferredStationDiscountInputRequestBody]] = OMIT,
+        prices: typing.Optional[typing.Sequence[PreferredStationPriceInputRequestBody]] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> PreferredStationsPatchPreferredStationResponseBody:
+        """
+        Update a preferred fuel station for your organization.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Fuel Purchase** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Samsara ID of the preferred station to update.
+
+        discounts : typing.Optional[typing.Sequence[PreferredStationDiscountInputRequestBody]]
+            Replaces all discount overrides. Pass empty array to remove all. Max 14 items.
+
+        prices : typing.Optional[typing.Sequence[PreferredStationPriceInputRequestBody]]
+            Replaces all per-fuel-type prices. Pass empty array to remove all. Max 14 items.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        PreferredStationsPatchPreferredStationResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.fuel_and_energy.patch_preferred_station(
+            id="id",
+        )
+        """
+        _response = self._raw_client.patch_preferred_station(
+            id=id, discounts=discounts, prices=prices, request_options=request_options
+        )
+        return _response.data
+
+    def get_preferred_station(
+        self,
+        id: str,
+        *,
+        include_external_ids: typing.Optional[bool] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> PreferredStationsGetPreferredStationResponseBody:
+        """
+        Get a single preferred fuel station by ID.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Fuel Purchase** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Samsara-assigned station ID.
+
+        include_external_ids : typing.Optional[bool]
+            Whether to include external IDs in the response.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        PreferredStationsGetPreferredStationResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.fuel_and_energy.get_preferred_station(
+            id="id",
+        )
+        """
+        _response = self._raw_client.get_preferred_station(
+            id, include_external_ids=include_external_ids, request_options=request_options
+        )
+        return _response.data
+
 
 class AsyncFuelAndEnergyClient:
     def __init__(self, *, client_wrapper: AsyncClientWrapper):
@@ -475,180 +598,6 @@ class AsyncFuelAndEnergyClient:
         AsyncRawFuelAndEnergyClient
         """
         return self._raw_client
-
-    async def get_driver_efficiency_by_drivers(
-        self,
-        *,
-        start_time: str,
-        end_time: str,
-        driver_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        data_formats: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        tag_ids: typing.Optional[str] = None,
-        parent_tag_ids: typing.Optional[str] = None,
-        after: typing.Optional[str] = None,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> DriverEfficiencyGetDriverEfficiencyByDriversResponseBody:
-        """
-        This endpoint will return driver efficiency data that has been collected for your organization and grouped by drivers based on the time parameters passed in. Results are paginated.
-
-        **Note:** The data from this endpoint comes from the Driver Efficiency (Eco-Driving) Report. The existing [/fleet/drivers/efficiency](https://developers.samsara.com/reference/getdriverefficiency) endpoint has now been moved to Legacy.
-
-         <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Read Driver Efficiency** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        start_time : str
-            A start time in RFC 3339 format. Must be in multiple of hours and at least 1 day before endTime. Timezones are supported. Note that the most recent 72 hours of data may still be processing and is subject to change and latency, so it is not recommended to request data for the most recent 72 hours. (Examples: 2019-06-11T19:00:00Z, 2015-09-12T14:00:00-04:00).
-
-        end_time : str
-            An end time in RFC 3339 format. Must be in multiple of hours and no later than 3 hours before the current time. Timezones are supported. Note that the most recent 72 hours of data may still be processing and is subject to change and latency, so it is not recommended to request data for the most recent 72 hours. (Examples: 2019-06-13T19:00:00Z, 2015-09-15T14:00:00-04:00).
-
-        driver_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-             A filter on the data based on this comma-separated list of driver IDs and externalIds. Example: `driverIds=1234,5678,payroll:4841`
-
-        data_formats : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            A comma-separated list of data formats you want to fetch. Valid values: `score`, `raw` and `percentage`. The default data format is `score`. Example: `dataFormats=raw,score`
-
-        tag_ids : typing.Optional[str]
-             A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
-
-        parent_tag_ids : typing.Optional[str]
-             A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
-
-        after : typing.Optional[str]
-             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        DriverEfficiencyGetDriverEfficiencyByDriversResponseBody
-            OK response.
-
-        Examples
-        --------
-        import asyncio
-
-        from samsara import AsyncSamsara
-
-        client = AsyncSamsara(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.fuel_and_energy.get_driver_efficiency_by_drivers(
-                start_time="startTime",
-                end_time="endTime",
-            )
-
-
-        asyncio.run(main())
-        """
-        _response = await self._raw_client.get_driver_efficiency_by_drivers(
-            start_time=start_time,
-            end_time=end_time,
-            driver_ids=driver_ids,
-            data_formats=data_formats,
-            tag_ids=tag_ids,
-            parent_tag_ids=parent_tag_ids,
-            after=after,
-            request_options=request_options,
-        )
-        return _response.data
-
-    async def get_driver_efficiency_by_vehicles(
-        self,
-        *,
-        start_time: str,
-        end_time: str,
-        vehicle_ids: typing.Optional[str] = None,
-        data_formats: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
-        tag_ids: typing.Optional[str] = None,
-        parent_tag_ids: typing.Optional[str] = None,
-        after: typing.Optional[str] = None,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> DriverEfficiencyGetDriverEfficiencyByVehiclesResponseBody:
-        """
-        This endpoint will return driver efficiency data that has been collected for your organization and grouped by vehicle drivers used based on the time parameters passed in. Results are paginated.
-
-        **Note:** The data from this endpoint comes from the Driver Efficiency (Eco-Driving) Report. The existing [/fleet/drivers/efficiency](https://developers.samsara.com/reference/getdriverefficiency) endpoint has now been moved to Legacy.
-
-         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-        To use this endpoint, select **Read Driver Efficiency** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-
-
-         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-        Parameters
-        ----------
-        start_time : str
-            A start time in RFC 3339 format. Must be in multiple of hours and at least 1 day before endTime. Timezones are supported. Note that the most recent 72 hours of data may still be processing and is subject to change and latency, so it is not recommended to request data for the most recent 72 hours. (Examples: 2019-06-11T19:00:00Z, 2015-09-12T14:00:00-04:00).
-
-        end_time : str
-            An end time in RFC 3339 format. Must be in multiple of hours and no later than 3 hours before the current time. Timezones are supported. Note that the most recent 72 hours of data may still be processing and is subject to change and latency, so it is not recommended to request data for the most recent 72 hours. (Examples: 2019-06-13T19:00:00Z, 2015-09-15T14:00:00-04:00).
-
-        vehicle_ids : typing.Optional[str]
-             A filter on the data based on this comma-separated list of vehicle IDs and externalIds. Example: `vehicleIds=1234,5678,samsara.vin:1HGBH41JXMN109186`
-
-        data_formats : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            A comma-separated list of data formats you want to fetch. Valid values: `score`, `raw` and `percentage`. The default data format is `score`. Example: `dataFormats=raw,score`
-
-        tag_ids : typing.Optional[str]
-             A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
-
-        parent_tag_ids : typing.Optional[str]
-             A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
-
-        after : typing.Optional[str]
-             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        DriverEfficiencyGetDriverEfficiencyByVehiclesResponseBody
-            OK response.
-
-        Examples
-        --------
-        import asyncio
-
-        from samsara import AsyncSamsara
-
-        client = AsyncSamsara(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.fuel_and_energy.get_driver_efficiency_by_vehicles(
-                start_time="startTime",
-                end_time="endTime",
-            )
-
-
-        asyncio.run(main())
-        """
-        _response = await self._raw_client.get_driver_efficiency_by_vehicles(
-            start_time=start_time,
-            end_time=end_time,
-            vehicle_ids=vehicle_ids,
-            data_formats=data_formats,
-            tag_ids=tag_ids,
-            parent_tag_ids=parent_tag_ids,
-            after=after,
-            request_options=request_options,
-        )
-        return _response.data
 
     async def get_fuel_energy_driver_reports(
         self,
@@ -926,5 +875,319 @@ class AsyncFuelAndEnergyClient:
             source=source,
             vehicle_id=vehicle_id,
             request_options=request_options,
+        )
+        return _response.data
+
+    async def list_preferred_stations(
+        self,
+        *,
+        limit: typing.Optional[int] = None,
+        after: typing.Optional[str] = None,
+        include_external_ids: typing.Optional[bool] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> PreferredStationsListPreferredStationsResponseBody:
+        """
+        List all preferred fuel stations for your organization.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Fuel Purchase** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 512 objects.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        include_external_ids : typing.Optional[bool]
+            Whether to include external IDs in the response.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        PreferredStationsListPreferredStationsResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.fuel_and_energy.list_preferred_stations()
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.list_preferred_stations(
+            limit=limit, after=after, include_external_ids=include_external_ids, request_options=request_options
+        )
+        return _response.data
+
+    async def post_preferred_station(
+        self,
+        *,
+        address: PreferredStationAddressRequestBody,
+        external_ids: typing.Dict[str, str],
+        name: str,
+        discounts: typing.Optional[typing.Sequence[PreferredStationDiscountInputRequestBody]] = OMIT,
+        latitude: typing.Optional[float] = OMIT,
+        longitude: typing.Optional[float] = OMIT,
+        prices: typing.Optional[typing.Sequence[PreferredStationPriceInputRequestBody]] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> PreferredStationsPostPreferredStationResponseBody:
+        """
+        Create a preferred fuel station for your organization.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Fuel Purchase** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        address : PreferredStationAddressRequestBody
+
+        external_ids : typing.Dict[str, str]
+            Map of source-system key to customer-provided station ID.
+
+        name : str
+            Display name of the station.
+
+        discounts : typing.Optional[typing.Sequence[PreferredStationDiscountInputRequestBody]]
+            Array of discount overrides per fuel type. Max 14 items.
+
+        latitude : typing.Optional[float]
+            Latitude in WGS84 degrees.
+
+        longitude : typing.Optional[float]
+            Longitude in WGS84 degrees.
+
+        prices : typing.Optional[typing.Sequence[PreferredStationPriceInputRequestBody]]
+            Array of per-fuel-type prices. Max 14 items.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        PreferredStationsPostPreferredStationResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara, PreferredStationAddressRequestBody
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.fuel_and_energy.post_preferred_station(
+                address=PreferredStationAddressRequestBody(
+                    city="Green River",
+                    country="US",
+                    line_1="8901 US Hwy 374",
+                    postal_code="82935",
+                ),
+                external_ids={"key": "value"},
+                name="Station #432",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.post_preferred_station(
+            address=address,
+            external_ids=external_ids,
+            name=name,
+            discounts=discounts,
+            latitude=latitude,
+            longitude=longitude,
+            prices=prices,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def delete_preferred_station(
+        self, *, id: str, request_options: typing.Optional[RequestOptions] = None
+    ) -> None:
+        """
+        Delete a preferred fuel station for your organization.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Fuel Purchase** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Samsara ID of the preferred station to delete.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.fuel_and_energy.delete_preferred_station(
+                id="id",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.delete_preferred_station(id=id, request_options=request_options)
+        return _response.data
+
+    async def patch_preferred_station(
+        self,
+        *,
+        id: str,
+        discounts: typing.Optional[typing.Sequence[PreferredStationDiscountInputRequestBody]] = OMIT,
+        prices: typing.Optional[typing.Sequence[PreferredStationPriceInputRequestBody]] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> PreferredStationsPatchPreferredStationResponseBody:
+        """
+        Update a preferred fuel station for your organization.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Fuel Purchase** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Samsara ID of the preferred station to update.
+
+        discounts : typing.Optional[typing.Sequence[PreferredStationDiscountInputRequestBody]]
+            Replaces all discount overrides. Pass empty array to remove all. Max 14 items.
+
+        prices : typing.Optional[typing.Sequence[PreferredStationPriceInputRequestBody]]
+            Replaces all per-fuel-type prices. Pass empty array to remove all. Max 14 items.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        PreferredStationsPatchPreferredStationResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.fuel_and_energy.patch_preferred_station(
+                id="id",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.patch_preferred_station(
+            id=id, discounts=discounts, prices=prices, request_options=request_options
+        )
+        return _response.data
+
+    async def get_preferred_station(
+        self,
+        id: str,
+        *,
+        include_external_ids: typing.Optional[bool] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> PreferredStationsGetPreferredStationResponseBody:
+        """
+        Get a single preferred fuel station by ID.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Fuel Purchase** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Samsara-assigned station ID.
+
+        include_external_ids : typing.Optional[bool]
+            Whether to include external IDs in the response.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        PreferredStationsGetPreferredStationResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.fuel_and_energy.get_preferred_station(
+                id="id",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_preferred_station(
+            id, include_external_ids=include_external_ids, request_options=request_options
         )
         return _response.data

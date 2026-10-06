@@ -8,7 +8,7 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 
 class UpdateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody(UniversalBaseModel):
     """
-    UpdateWarrantyEntityWarrantyWarrantyExternalIdInput object
+    WarrantyExternalId object
     """
 
     key: str = pydantic.Field()

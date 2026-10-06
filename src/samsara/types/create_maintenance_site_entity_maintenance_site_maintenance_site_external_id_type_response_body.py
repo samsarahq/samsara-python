@@ -8,7 +8,7 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 
 class CreateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteExternalIdTypeResponseBody(UniversalBaseModel):
     """
-    CreateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteExternalId object
+    MaintenanceSiteExternalId object
     """
 
     key: typing.Optional[str] = pydantic.Field(default=None)

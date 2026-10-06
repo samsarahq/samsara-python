@@ -40,7 +40,7 @@ class TrainingAssignmentsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> TrainingAssignmentsPostTrainingAssignmentsResponseBody:
         """
-        Create training assignments. Existing assignments will remain unchanged.
+        Create training assignments. Existing assignments will remain unchanged. Non-driver user learners are available only for organizations with non-driver training enabled. Contact your Samsara representative to request access.
 
          <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -58,7 +58,7 @@ class TrainingAssignmentsClient:
             Due date of the training assignment in RFC 3339 format. Millisecond precision and timezones are supported.
 
         learner_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated learner IDs. If learner ID is present, training assignments for the specified learner(s) will be returned. Max value for this value is 100 objects. Example: `learnerIds=driver-281474,driver-46282156`
+            String of comma separated learner IDs using the format `driver-<id>` or `user-<id>`. Training assignments for the specified course ID and learner(s) will be created. Max value for this value is 100 objects. Example: `learnerIds=driver-281474,user-46282156`. Non-driver user learners are available only for organizations with non-driver training enabled. Contact your Samsara representative to request access.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -92,7 +92,7 @@ class TrainingAssignmentsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> None:
         """
-        This endpoint supports batch deletion operations. The response does not indicate which specific deletions, if any, have failed. On a successful deletion or partial failure, a ‘204 No Content’ status is returned.
+        This endpoint supports batch deletion operations. The response does not indicate which specific deletions, if any, have failed. On a successful deletion or partial failure, a ‘204 No Content’ status is returned. Non-driver user learners are available only for organizations with non-driver training enabled. Contact your Samsara representative to request access.
 
          <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -133,7 +133,7 @@ class TrainingAssignmentsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> TrainingAssignmentsPatchTrainingAssignmentsResponseBody:
         """
-        Update training assignments.
+        Update training assignments. Non-driver user learners are available only for organizations with non-driver training enabled. Contact your Samsara representative to request access.
 
          <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -188,7 +188,7 @@ class TrainingAssignmentsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> TrainingAssignmentsGetTrainingAssignmentsStreamResponseBody:
         """
-        Returns all training assignments data that has been created or modified for your organization based on the time parameters passed in. Results are paginated and are sorted by last modified date. If you include an endTime, the endpoint will return data up until that point (exclusive). If you don't include an endTime, the API will continue to poll with the pagination cursor that gets returned on every call. The hasNextPage response value will be true if there is no endTime specified and endCursor is nonempty.
+        Returns all training assignments data that has been created or modified for your organization based on the time parameters passed in. Results are paginated and are sorted by last modified date. If you include an endTime, the endpoint will return data up until that point (exclusive). If you don't include an endTime, the API will continue to poll with the pagination cursor that gets returned on every call. The hasNextPage response value will be true if there is no endTime specified and endCursor is nonempty. Non-driver user learners are available only for organizations with non-driver training enabled. Contact your Samsara representative to request access.
 
          <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -209,7 +209,7 @@ class TrainingAssignmentsClient:
              An end time in RFC 3339 format. Defaults to now if not provided. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
 
         learner_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated learner IDs. If learner ID is present, training assignments for the specified learner(s) will be returned. Max value for this value is 100 objects. Example: `learnerIds=driver-281474,driver-46282156`
+            Optional string of comma separated learner IDs. Learner IDs use the format `driver-<id>` or `user-<id>`. If learner ID is present, training assignments for the specified learner(s) will be returned. Max value for this value is 100 objects. Example: `learnerIds=driver-281474,user-46282156`. Non-driver user learners are available only for organizations with non-driver training enabled. Contact your Samsara representative to request access.
 
         course_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             Optional string of comma separated course IDs. If course ID is present, training assignments for the specified course ID(s) will be returned. Max value for this value is 100 objects. Defaults to returning all courses. Example: `courseIds=a4db8702-79d5-4396-a717-e301d52ecc11,c6490f6a-d84e-49b5-b0ad-b6baae304075`
@@ -280,7 +280,7 @@ class AsyncTrainingAssignmentsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> TrainingAssignmentsPostTrainingAssignmentsResponseBody:
         """
-        Create training assignments. Existing assignments will remain unchanged.
+        Create training assignments. Existing assignments will remain unchanged. Non-driver user learners are available only for organizations with non-driver training enabled. Contact your Samsara representative to request access.
 
          <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -298,7 +298,7 @@ class AsyncTrainingAssignmentsClient:
             Due date of the training assignment in RFC 3339 format. Millisecond precision and timezones are supported.
 
         learner_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated learner IDs. If learner ID is present, training assignments for the specified learner(s) will be returned. Max value for this value is 100 objects. Example: `learnerIds=driver-281474,driver-46282156`
+            String of comma separated learner IDs using the format `driver-<id>` or `user-<id>`. Training assignments for the specified course ID and learner(s) will be created. Max value for this value is 100 objects. Example: `learnerIds=driver-281474,user-46282156`. Non-driver user learners are available only for organizations with non-driver training enabled. Contact your Samsara representative to request access.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -340,7 +340,7 @@ class AsyncTrainingAssignmentsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> None:
         """
-        This endpoint supports batch deletion operations. The response does not indicate which specific deletions, if any, have failed. On a successful deletion or partial failure, a ‘204 No Content’ status is returned.
+        This endpoint supports batch deletion operations. The response does not indicate which specific deletions, if any, have failed. On a successful deletion or partial failure, a ‘204 No Content’ status is returned. Non-driver user learners are available only for organizations with non-driver training enabled. Contact your Samsara representative to request access.
 
          <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -389,7 +389,7 @@ class AsyncTrainingAssignmentsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> TrainingAssignmentsPatchTrainingAssignmentsResponseBody:
         """
-        Update training assignments.
+        Update training assignments. Non-driver user learners are available only for organizations with non-driver training enabled. Contact your Samsara representative to request access.
 
          <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -452,7 +452,7 @@ class AsyncTrainingAssignmentsClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> TrainingAssignmentsGetTrainingAssignmentsStreamResponseBody:
         """
-        Returns all training assignments data that has been created or modified for your organization based on the time parameters passed in. Results are paginated and are sorted by last modified date. If you include an endTime, the endpoint will return data up until that point (exclusive). If you don't include an endTime, the API will continue to poll with the pagination cursor that gets returned on every call. The hasNextPage response value will be true if there is no endTime specified and endCursor is nonempty.
+        Returns all training assignments data that has been created or modified for your organization based on the time parameters passed in. Results are paginated and are sorted by last modified date. If you include an endTime, the endpoint will return data up until that point (exclusive). If you don't include an endTime, the API will continue to poll with the pagination cursor that gets returned on every call. The hasNextPage response value will be true if there is no endTime specified and endCursor is nonempty. Non-driver user learners are available only for organizations with non-driver training enabled. Contact your Samsara representative to request access.
 
          <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -473,7 +473,7 @@ class AsyncTrainingAssignmentsClient:
              An end time in RFC 3339 format. Defaults to now if not provided. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
 
         learner_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Optional string of comma separated learner IDs. If learner ID is present, training assignments for the specified learner(s) will be returned. Max value for this value is 100 objects. Example: `learnerIds=driver-281474,driver-46282156`
+            Optional string of comma separated learner IDs. Learner IDs use the format `driver-<id>` or `user-<id>`. If learner ID is present, training assignments for the specified learner(s) will be returned. Max value for this value is 100 objects. Example: `learnerIds=driver-281474,user-46282156`. Non-driver user learners are available only for organizations with non-driver training enabled. Contact your Samsara representative to request access.
 
         course_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             Optional string of comma separated course IDs. If course ID is present, training assignments for the specified course ID(s) will be returned. Max value for this value is 100 objects. Defaults to returning all courses. Example: `courseIds=a4db8702-79d5-4396-a717-e301d52ecc11,c6490f6a-d84e-49b5-b0ad-b6baae304075`

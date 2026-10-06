@@ -33,6 +33,7 @@ SafetyEventsV2PatchSafetyEventsV2BatchRequestBodyBehaviorLabelsToRemoveItem = ty
         "HighSpeedSuddenDisconnect",
         "HosViolation",
         "Idling",
+        "ImproperEgress",
         "Invalid",
         "LaneDeparture",
         "LateResponse",

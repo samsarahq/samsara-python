@@ -1427,6 +1427,66 @@ if typing.TYPE_CHECKING:
         CreateStockMovementResponseObjectTypeResponseBody,
     )
     from .create_user_request_roles import CreateUserRequestRoles
+    from .create_vendor_entity_vendor_vendor_asset_attribute_selection_input_type_request_body import (
+        CreateVendorEntityVendorVendorAssetAttributeSelectionInputTypeRequestBody,
+    )
+    from .create_vendor_entity_vendor_vendor_asset_attribute_selection_type_response_body import (
+        CreateVendorEntityVendorVendorAssetAttributeSelectionTypeResponseBody,
+    )
+    from .create_vendor_entity_vendor_vendor_asset_attribute_value_input_type_request_body import (
+        CreateVendorEntityVendorVendorAssetAttributeValueInputTypeRequestBody,
+    )
+    from .create_vendor_entity_vendor_vendor_asset_attribute_value_type_response_body import (
+        CreateVendorEntityVendorVendorAssetAttributeValueTypeResponseBody,
+    )
+    from .create_vendor_entity_vendor_vendor_contact_input_type_request_body import (
+        CreateVendorEntityVendorVendorContactInputTypeRequestBody,
+    )
+    from .create_vendor_entity_vendor_vendor_contact_type_response_body import (
+        CreateVendorEntityVendorVendorContactTypeResponseBody,
+    )
+    from .create_vendor_entity_vendor_vendor_external_id_input_type_request_body import (
+        CreateVendorEntityVendorVendorExternalIdInputTypeRequestBody,
+    )
+    from .create_vendor_entity_vendor_vendor_external_id_type_response_body import (
+        CreateVendorEntityVendorVendorExternalIdTypeResponseBody,
+    )
+    from .create_vendor_entity_vendor_vendor_hourly_money_input_type_request_body import (
+        CreateVendorEntityVendorVendorHourlyMoneyInputTypeRequestBody,
+    )
+    from .create_vendor_entity_vendor_vendor_hourly_money_type_response_body import (
+        CreateVendorEntityVendorVendorHourlyMoneyTypeResponseBody,
+    )
+    from .create_vendor_group_entity_vendor_profile_vendor_asset_attribute_selection_input_type_request_body import (
+        CreateVendorGroupEntityVendorProfileVendorAssetAttributeSelectionInputTypeRequestBody,
+    )
+    from .create_vendor_group_entity_vendor_profile_vendor_asset_attribute_selection_type_response_body import (
+        CreateVendorGroupEntityVendorProfileVendorAssetAttributeSelectionTypeResponseBody,
+    )
+    from .create_vendor_group_entity_vendor_profile_vendor_asset_attribute_value_input_type_request_body import (
+        CreateVendorGroupEntityVendorProfileVendorAssetAttributeValueInputTypeRequestBody,
+    )
+    from .create_vendor_group_entity_vendor_profile_vendor_asset_attribute_value_type_response_body import (
+        CreateVendorGroupEntityVendorProfileVendorAssetAttributeValueTypeResponseBody,
+    )
+    from .create_vendor_group_entity_vendor_profile_vendor_group_external_id_input_type_request_body import (
+        CreateVendorGroupEntityVendorProfileVendorGroupExternalIdInputTypeRequestBody,
+    )
+    from .create_vendor_group_entity_vendor_profile_vendor_group_external_id_type_response_body import (
+        CreateVendorGroupEntityVendorProfileVendorGroupExternalIdTypeResponseBody,
+    )
+    from .create_vendor_group_entity_vendor_profile_vendor_group_primary_corporate_contact_input_type_request_body import (
+        CreateVendorGroupEntityVendorProfileVendorGroupPrimaryCorporateContactInputTypeRequestBody,
+    )
+    from .create_vendor_group_entity_vendor_profile_vendor_group_primary_corporate_contact_type_response_body import (
+        CreateVendorGroupEntityVendorProfileVendorGroupPrimaryCorporateContactTypeResponseBody,
+    )
+    from .create_vendor_group_entity_vendor_profile_vendor_hourly_money_input_type_request_body import (
+        CreateVendorGroupEntityVendorProfileVendorHourlyMoneyInputTypeRequestBody,
+    )
+    from .create_vendor_group_entity_vendor_profile_vendor_hourly_money_type_response_body import (
+        CreateVendorGroupEntityVendorProfileVendorHourlyMoneyTypeResponseBody,
+    )
     from .create_warranty_claim_entity_warranty_claim_claim_reimbursement_input_type_request_body import (
         CreateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody,
     )
@@ -1460,14 +1520,23 @@ if typing.TYPE_CHECKING:
     from .create_warranty_claim_entity_warranty_claim_warranty_claim_status_history_type_response_body import (
         CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimStatusHistoryTypeResponseBody,
     )
+    from .create_warranty_claim_entity_warranty_claim_warranty_claim_status_history_type_response_body_status import (
+        CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimStatusHistoryTypeResponseBodyStatus,
+    )
     from .create_warranty_entity_warranty_warranty_coverage_input_type_request_body import (
         CreateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody,
     )
     from .create_warranty_entity_warranty_warranty_coverage_item_input_type_request_body import (
         CreateWarrantyEntityWarrantyWarrantyCoverageItemInputTypeRequestBody,
     )
+    from .create_warranty_entity_warranty_warranty_coverage_item_input_type_request_body_item_type import (
+        CreateWarrantyEntityWarrantyWarrantyCoverageItemInputTypeRequestBodyItemType,
+    )
     from .create_warranty_entity_warranty_warranty_coverage_item_type_response_body import (
         CreateWarrantyEntityWarrantyWarrantyCoverageItemTypeResponseBody,
+    )
+    from .create_warranty_entity_warranty_warranty_coverage_item_type_response_body_item_type import (
+        CreateWarrantyEntityWarrantyWarrantyCoverageItemTypeResponseBodyItemType,
     )
     from .create_warranty_entity_warranty_warranty_coverage_type_response_body import (
         CreateWarrantyEntityWarrantyWarrantyCoverageTypeResponseBody,
@@ -2783,7 +2852,15 @@ if typing.TYPE_CHECKING:
     from .entity_create_part_inventory_location_type_response_body import (
         EntityCreatePartInventoryLocationTypeResponseBody,
     )
+    from .entity_create_part_inventory_location_type_response_body_unit_of_measure_type import (
+        EntityCreatePartInventoryLocationTypeResponseBodyUnitOfMeasureType,
+    )
     from .entity_create_part_type_response_body import EntityCreatePartTypeResponseBody
+    from .entity_create_part_type_response_body_part_status import EntityCreatePartTypeResponseBodyPartStatus
+    from .entity_create_part_type_response_body_unit_of_measure_type import (
+        EntityCreatePartTypeResponseBodyUnitOfMeasureType,
+    )
+    from .entity_create_part_vendor_ref_type_response_body import EntityCreatePartVendorRefTypeResponseBody
     from .entity_create_purchase_order_part_definition_ref_type_response_body import (
         EntityCreatePurchaseOrderPartDefinitionRefTypeResponseBody,
     )
@@ -2810,10 +2887,18 @@ if typing.TYPE_CHECKING:
     from .entity_create_stock_movement_stock_movement_location_type_response_body import (
         EntityCreateStockMovementStockMovementLocationTypeResponseBody,
     )
+    from .entity_create_vendor_group_type_response_body import EntityCreateVendorGroupTypeResponseBody
+    from .entity_create_vendor_group_type_response_body_status import EntityCreateVendorGroupTypeResponseBodyStatus
+    from .entity_create_vendor_place_ref_type_response_body import EntityCreateVendorPlaceRefTypeResponseBody
+    from .entity_create_vendor_type_response_body import EntityCreateVendorTypeResponseBody
+    from .entity_create_vendor_type_response_body_status import EntityCreateVendorTypeResponseBodyStatus
     from .entity_create_warranty_claim_asset_ref_type_response_body import (
         EntityCreateWarrantyClaimAssetRefTypeResponseBody,
     )
     from .entity_create_warranty_claim_type_response_body import EntityCreateWarrantyClaimTypeResponseBody
+    from .entity_create_warranty_claim_type_response_body_claim_status import (
+        EntityCreateWarrantyClaimTypeResponseBodyClaimStatus,
+    )
     from .entity_create_warranty_claim_vendor_ref_type_response_body import (
         EntityCreateWarrantyClaimVendorRefTypeResponseBody,
     )
@@ -2821,6 +2906,9 @@ if typing.TYPE_CHECKING:
         EntityCreateWarrantyClaimWarrantyRefTypeResponseBody,
     )
     from .entity_create_warranty_type_response_body import EntityCreateWarrantyTypeResponseBody
+    from .entity_create_warranty_type_response_body_warranty_type import (
+        EntityCreateWarrantyTypeResponseBodyWarrantyType,
+    )
     from .entity_create_warranty_vendor_ref_type_response_body import EntityCreateWarrantyVendorRefTypeResponseBody
     from .entity_create_watchpoint_type_response_body import EntityCreateWatchpointTypeResponseBody
     from .entity_create_watchpoint_type_response_body_mode import EntityCreateWatchpointTypeResponseBodyMode
@@ -2928,6 +3016,7 @@ if typing.TYPE_CHECKING:
         EntityInventoryTransactionsServiceListPartTransactionsUnauthorizedErrorResponseBody,
     )
     from .entity_list_issues_type_response_body import EntityListIssuesTypeResponseBody
+    from .entity_list_issues_type_response_body_type import EntityListIssuesTypeResponseBodyType
     from .entity_list_maintenance_sites_place_ref_type_response_body import (
         EntityListMaintenanceSitesPlaceRefTypeResponseBody,
     )
@@ -2940,14 +3029,25 @@ if typing.TYPE_CHECKING:
     )
     from .entity_list_part_inventory_place_ref_type_response_body import EntityListPartInventoryPlaceRefTypeResponseBody
     from .entity_list_part_inventory_type_response_body import EntityListPartInventoryTypeResponseBody
+    from .entity_list_part_inventory_type_response_body_unit_of_measure_type import (
+        EntityListPartInventoryTypeResponseBodyUnitOfMeasureType,
+    )
     from .entity_list_part_transactions_part_definition_ref_type_response_body import (
         EntityListPartTransactionsPartDefinitionRefTypeResponseBody,
     )
     from .entity_list_part_transactions_type_response_body import EntityListPartTransactionsTypeResponseBody
+    from .entity_list_part_transactions_type_response_body_transaction_type import (
+        EntityListPartTransactionsTypeResponseBodyTransactionType,
+    )
     from .entity_list_part_transactions_work_order_ref_type_response_body import (
         EntityListPartTransactionsWorkOrderRefTypeResponseBody,
     )
     from .entity_list_parts_type_response_body import EntityListPartsTypeResponseBody
+    from .entity_list_parts_type_response_body_part_status import EntityListPartsTypeResponseBodyPartStatus
+    from .entity_list_parts_type_response_body_unit_of_measure_type import (
+        EntityListPartsTypeResponseBodyUnitOfMeasureType,
+    )
+    from .entity_list_parts_vendor_ref_type_response_body import EntityListPartsVendorRefTypeResponseBody
     from .entity_list_preventive_maintenance_schedules_preventative_maintenance_schedule_ref_type_response_body import (
         EntityListPreventiveMaintenanceSchedulesPreventativeMaintenanceScheduleRefTypeResponseBody,
     )
@@ -2975,6 +3075,21 @@ if typing.TYPE_CHECKING:
     )
     from .entity_list_tachograph_live_data_type_response_body import EntityListTachographLiveDataTypeResponseBody
     from .entity_list_time_entries_type_response_body import EntityListTimeEntriesTypeResponseBody
+    from .entity_list_time_entries_type_response_body_activity_type import (
+        EntityListTimeEntriesTypeResponseBodyActivityType,
+    )
+    from .entity_list_time_entries_type_response_body_clock_in_source import (
+        EntityListTimeEntriesTypeResponseBodyClockInSource,
+    )
+    from .entity_list_time_entries_type_response_body_clock_out_method_type import (
+        EntityListTimeEntriesTypeResponseBodyClockOutMethodType,
+    )
+    from .entity_list_time_entries_type_response_body_clock_out_source import (
+        EntityListTimeEntriesTypeResponseBodyClockOutSource,
+    )
+    from .entity_list_time_entries_type_response_body_time_entry_status import (
+        EntityListTimeEntriesTypeResponseBodyTimeEntryStatus,
+    )
     from .entity_list_upcoming_preventive_maintenance_asset_ref_type_response_body import (
         EntityListUpcomingPreventiveMaintenanceAssetRefTypeResponseBody,
     )
@@ -2984,10 +3099,18 @@ if typing.TYPE_CHECKING:
     from .entity_list_upcoming_preventive_maintenance_type_response_body import (
         EntityListUpcomingPreventiveMaintenanceTypeResponseBody,
     )
+    from .entity_list_upcoming_preventive_maintenance_type_response_body_status import (
+        EntityListUpcomingPreventiveMaintenanceTypeResponseBodyStatus,
+    )
     from .entity_list_upcoming_preventive_maintenance_work_order_ref_type_response_body import (
         EntityListUpcomingPreventiveMaintenanceWorkOrderRefTypeResponseBody,
     )
+    from .entity_list_vendor_groups_type_response_body import EntityListVendorGroupsTypeResponseBody
+    from .entity_list_vendor_groups_type_response_body_status import EntityListVendorGroupsTypeResponseBodyStatus
     from .entity_list_warranties_type_response_body import EntityListWarrantiesTypeResponseBody
+    from .entity_list_warranties_type_response_body_warranty_type import (
+        EntityListWarrantiesTypeResponseBodyWarrantyType,
+    )
     from .entity_list_warranties_vendor_ref_type_response_body import EntityListWarrantiesVendorRefTypeResponseBody
     from .entity_list_warranty_asset_assignments_asset_ref_type_response_body import (
         EntityListWarrantyAssetAssignmentsAssetRefTypeResponseBody,
@@ -3002,6 +3125,9 @@ if typing.TYPE_CHECKING:
         EntityListWarrantyClaimsAssetRefTypeResponseBody,
     )
     from .entity_list_warranty_claims_type_response_body import EntityListWarrantyClaimsTypeResponseBody
+    from .entity_list_warranty_claims_type_response_body_claim_status import (
+        EntityListWarrantyClaimsTypeResponseBodyClaimStatus,
+    )
     from .entity_list_warranty_claims_vendor_ref_type_response_body import (
         EntityListWarrantyClaimsVendorRefTypeResponseBody,
     )
@@ -3651,7 +3777,15 @@ if typing.TYPE_CHECKING:
     from .entity_update_part_inventory_location_type_response_body import (
         EntityUpdatePartInventoryLocationTypeResponseBody,
     )
+    from .entity_update_part_inventory_location_type_response_body_unit_of_measure_type import (
+        EntityUpdatePartInventoryLocationTypeResponseBodyUnitOfMeasureType,
+    )
     from .entity_update_part_type_response_body import EntityUpdatePartTypeResponseBody
+    from .entity_update_part_type_response_body_part_status import EntityUpdatePartTypeResponseBodyPartStatus
+    from .entity_update_part_type_response_body_unit_of_measure_type import (
+        EntityUpdatePartTypeResponseBodyUnitOfMeasureType,
+    )
+    from .entity_update_part_vendor_ref_type_response_body import EntityUpdatePartVendorRefTypeResponseBody
     from .entity_update_purchase_order_part_definition_ref_type_response_body import (
         EntityUpdatePurchaseOrderPartDefinitionRefTypeResponseBody,
     )
@@ -3680,13 +3814,24 @@ if typing.TYPE_CHECKING:
     from .entity_update_upcoming_preventive_maintenance_type_response_body import (
         EntityUpdateUpcomingPreventiveMaintenanceTypeResponseBody,
     )
+    from .entity_update_upcoming_preventive_maintenance_type_response_body_status import (
+        EntityUpdateUpcomingPreventiveMaintenanceTypeResponseBodyStatus,
+    )
     from .entity_update_upcoming_preventive_maintenance_work_order_ref_type_response_body import (
         EntityUpdateUpcomingPreventiveMaintenanceWorkOrderRefTypeResponseBody,
     )
+    from .entity_update_vendor_group_type_response_body import EntityUpdateVendorGroupTypeResponseBody
+    from .entity_update_vendor_group_type_response_body_status import EntityUpdateVendorGroupTypeResponseBodyStatus
+    from .entity_update_vendor_place_ref_type_response_body import EntityUpdateVendorPlaceRefTypeResponseBody
+    from .entity_update_vendor_type_response_body import EntityUpdateVendorTypeResponseBody
+    from .entity_update_vendor_type_response_body_status import EntityUpdateVendorTypeResponseBodyStatus
     from .entity_update_warranty_claim_asset_ref_type_response_body import (
         EntityUpdateWarrantyClaimAssetRefTypeResponseBody,
     )
     from .entity_update_warranty_claim_type_response_body import EntityUpdateWarrantyClaimTypeResponseBody
+    from .entity_update_warranty_claim_type_response_body_claim_status import (
+        EntityUpdateWarrantyClaimTypeResponseBodyClaimStatus,
+    )
     from .entity_update_warranty_claim_vendor_ref_type_response_body import (
         EntityUpdateWarrantyClaimVendorRefTypeResponseBody,
     )
@@ -3694,6 +3839,9 @@ if typing.TYPE_CHECKING:
         EntityUpdateWarrantyClaimWarrantyRefTypeResponseBody,
     )
     from .entity_update_warranty_type_response_body import EntityUpdateWarrantyTypeResponseBody
+    from .entity_update_warranty_type_response_body_warranty_type import (
+        EntityUpdateWarrantyTypeResponseBodyWarrantyType,
+    )
     from .entity_update_warranty_vendor_ref_type_response_body import EntityUpdateWarrantyVendorRefTypeResponseBody
     from .entity_update_watchpoint_type_response_body import EntityUpdateWatchpointTypeResponseBody
     from .entity_update_watchpoint_type_response_body_mode import EntityUpdateWatchpointTypeResponseBodyMode
@@ -3701,6 +3849,227 @@ if typing.TYPE_CHECKING:
         EntityUpdateWatchpointTypeResponseBodyObservationType,
     )
     from .entity_update_watchpoint_type_response_body_status import EntityUpdateWatchpointTypeResponseBodyStatus
+    from .entity_vendor_profiles_service_create_vendor_group_bad_gateway_error_response_body import (
+        EntityVendorProfilesServiceCreateVendorGroupBadGatewayErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_create_vendor_group_content_too_large_error_response_body import (
+        EntityVendorProfilesServiceCreateVendorGroupContentTooLargeErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_create_vendor_group_gateway_timeout_error_response_body import (
+        EntityVendorProfilesServiceCreateVendorGroupGatewayTimeoutErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_create_vendor_group_internal_server_error_response_body import (
+        EntityVendorProfilesServiceCreateVendorGroupInternalServerErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_create_vendor_group_method_not_allowed_error_response_body import (
+        EntityVendorProfilesServiceCreateVendorGroupMethodNotAllowedErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_create_vendor_group_not_found_error_response_body import (
+        EntityVendorProfilesServiceCreateVendorGroupNotFoundErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_create_vendor_group_not_implemented_error_response_body import (
+        EntityVendorProfilesServiceCreateVendorGroupNotImplementedErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_create_vendor_group_response_body import (
+        EntityVendorProfilesServiceCreateVendorGroupResponseBody,
+    )
+    from .entity_vendor_profiles_service_create_vendor_group_service_unavailable_error_response_body import (
+        EntityVendorProfilesServiceCreateVendorGroupServiceUnavailableErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_create_vendor_group_too_many_requests_error_response_body import (
+        EntityVendorProfilesServiceCreateVendorGroupTooManyRequestsErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_create_vendor_group_unauthorized_error_response_body import (
+        EntityVendorProfilesServiceCreateVendorGroupUnauthorizedErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_delete_vendor_group_bad_gateway_error_response_body import (
+        EntityVendorProfilesServiceDeleteVendorGroupBadGatewayErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_delete_vendor_group_content_too_large_error_response_body import (
+        EntityVendorProfilesServiceDeleteVendorGroupContentTooLargeErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_delete_vendor_group_gateway_timeout_error_response_body import (
+        EntityVendorProfilesServiceDeleteVendorGroupGatewayTimeoutErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_delete_vendor_group_internal_server_error_response_body import (
+        EntityVendorProfilesServiceDeleteVendorGroupInternalServerErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_delete_vendor_group_method_not_allowed_error_response_body import (
+        EntityVendorProfilesServiceDeleteVendorGroupMethodNotAllowedErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_delete_vendor_group_not_found_error_response_body import (
+        EntityVendorProfilesServiceDeleteVendorGroupNotFoundErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_delete_vendor_group_not_implemented_error_response_body import (
+        EntityVendorProfilesServiceDeleteVendorGroupNotImplementedErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_delete_vendor_group_service_unavailable_error_response_body import (
+        EntityVendorProfilesServiceDeleteVendorGroupServiceUnavailableErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_delete_vendor_group_too_many_requests_error_response_body import (
+        EntityVendorProfilesServiceDeleteVendorGroupTooManyRequestsErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_delete_vendor_group_unauthorized_error_response_body import (
+        EntityVendorProfilesServiceDeleteVendorGroupUnauthorizedErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_list_vendor_groups_bad_gateway_error_response_body import (
+        EntityVendorProfilesServiceListVendorGroupsBadGatewayErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_list_vendor_groups_content_too_large_error_response_body import (
+        EntityVendorProfilesServiceListVendorGroupsContentTooLargeErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_list_vendor_groups_gateway_timeout_error_response_body import (
+        EntityVendorProfilesServiceListVendorGroupsGatewayTimeoutErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_list_vendor_groups_internal_server_error_response_body import (
+        EntityVendorProfilesServiceListVendorGroupsInternalServerErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_list_vendor_groups_method_not_allowed_error_response_body import (
+        EntityVendorProfilesServiceListVendorGroupsMethodNotAllowedErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_list_vendor_groups_not_found_error_response_body import (
+        EntityVendorProfilesServiceListVendorGroupsNotFoundErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_list_vendor_groups_not_implemented_error_response_body import (
+        EntityVendorProfilesServiceListVendorGroupsNotImplementedErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_list_vendor_groups_response_body import (
+        EntityVendorProfilesServiceListVendorGroupsResponseBody,
+    )
+    from .entity_vendor_profiles_service_list_vendor_groups_service_unavailable_error_response_body import (
+        EntityVendorProfilesServiceListVendorGroupsServiceUnavailableErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_list_vendor_groups_too_many_requests_error_response_body import (
+        EntityVendorProfilesServiceListVendorGroupsTooManyRequestsErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_list_vendor_groups_unauthorized_error_response_body import (
+        EntityVendorProfilesServiceListVendorGroupsUnauthorizedErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_update_vendor_group_bad_gateway_error_response_body import (
+        EntityVendorProfilesServiceUpdateVendorGroupBadGatewayErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_update_vendor_group_content_too_large_error_response_body import (
+        EntityVendorProfilesServiceUpdateVendorGroupContentTooLargeErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_update_vendor_group_gateway_timeout_error_response_body import (
+        EntityVendorProfilesServiceUpdateVendorGroupGatewayTimeoutErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_update_vendor_group_internal_server_error_response_body import (
+        EntityVendorProfilesServiceUpdateVendorGroupInternalServerErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_update_vendor_group_method_not_allowed_error_response_body import (
+        EntityVendorProfilesServiceUpdateVendorGroupMethodNotAllowedErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_update_vendor_group_not_found_error_response_body import (
+        EntityVendorProfilesServiceUpdateVendorGroupNotFoundErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_update_vendor_group_not_implemented_error_response_body import (
+        EntityVendorProfilesServiceUpdateVendorGroupNotImplementedErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_update_vendor_group_response_body import (
+        EntityVendorProfilesServiceUpdateVendorGroupResponseBody,
+    )
+    from .entity_vendor_profiles_service_update_vendor_group_service_unavailable_error_response_body import (
+        EntityVendorProfilesServiceUpdateVendorGroupServiceUnavailableErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_update_vendor_group_too_many_requests_error_response_body import (
+        EntityVendorProfilesServiceUpdateVendorGroupTooManyRequestsErrorResponseBody,
+    )
+    from .entity_vendor_profiles_service_update_vendor_group_unauthorized_error_response_body import (
+        EntityVendorProfilesServiceUpdateVendorGroupUnauthorizedErrorResponseBody,
+    )
+    from .entity_vendors_service_create_vendor_bad_gateway_error_response_body import (
+        EntityVendorsServiceCreateVendorBadGatewayErrorResponseBody,
+    )
+    from .entity_vendors_service_create_vendor_content_too_large_error_response_body import (
+        EntityVendorsServiceCreateVendorContentTooLargeErrorResponseBody,
+    )
+    from .entity_vendors_service_create_vendor_gateway_timeout_error_response_body import (
+        EntityVendorsServiceCreateVendorGatewayTimeoutErrorResponseBody,
+    )
+    from .entity_vendors_service_create_vendor_internal_server_error_response_body import (
+        EntityVendorsServiceCreateVendorInternalServerErrorResponseBody,
+    )
+    from .entity_vendors_service_create_vendor_method_not_allowed_error_response_body import (
+        EntityVendorsServiceCreateVendorMethodNotAllowedErrorResponseBody,
+    )
+    from .entity_vendors_service_create_vendor_not_found_error_response_body import (
+        EntityVendorsServiceCreateVendorNotFoundErrorResponseBody,
+    )
+    from .entity_vendors_service_create_vendor_not_implemented_error_response_body import (
+        EntityVendorsServiceCreateVendorNotImplementedErrorResponseBody,
+    )
+    from .entity_vendors_service_create_vendor_response_body import EntityVendorsServiceCreateVendorResponseBody
+    from .entity_vendors_service_create_vendor_service_unavailable_error_response_body import (
+        EntityVendorsServiceCreateVendorServiceUnavailableErrorResponseBody,
+    )
+    from .entity_vendors_service_create_vendor_too_many_requests_error_response_body import (
+        EntityVendorsServiceCreateVendorTooManyRequestsErrorResponseBody,
+    )
+    from .entity_vendors_service_create_vendor_unauthorized_error_response_body import (
+        EntityVendorsServiceCreateVendorUnauthorizedErrorResponseBody,
+    )
+    from .entity_vendors_service_delete_vendor_bad_gateway_error_response_body import (
+        EntityVendorsServiceDeleteVendorBadGatewayErrorResponseBody,
+    )
+    from .entity_vendors_service_delete_vendor_content_too_large_error_response_body import (
+        EntityVendorsServiceDeleteVendorContentTooLargeErrorResponseBody,
+    )
+    from .entity_vendors_service_delete_vendor_gateway_timeout_error_response_body import (
+        EntityVendorsServiceDeleteVendorGatewayTimeoutErrorResponseBody,
+    )
+    from .entity_vendors_service_delete_vendor_internal_server_error_response_body import (
+        EntityVendorsServiceDeleteVendorInternalServerErrorResponseBody,
+    )
+    from .entity_vendors_service_delete_vendor_method_not_allowed_error_response_body import (
+        EntityVendorsServiceDeleteVendorMethodNotAllowedErrorResponseBody,
+    )
+    from .entity_vendors_service_delete_vendor_not_found_error_response_body import (
+        EntityVendorsServiceDeleteVendorNotFoundErrorResponseBody,
+    )
+    from .entity_vendors_service_delete_vendor_not_implemented_error_response_body import (
+        EntityVendorsServiceDeleteVendorNotImplementedErrorResponseBody,
+    )
+    from .entity_vendors_service_delete_vendor_service_unavailable_error_response_body import (
+        EntityVendorsServiceDeleteVendorServiceUnavailableErrorResponseBody,
+    )
+    from .entity_vendors_service_delete_vendor_too_many_requests_error_response_body import (
+        EntityVendorsServiceDeleteVendorTooManyRequestsErrorResponseBody,
+    )
+    from .entity_vendors_service_delete_vendor_unauthorized_error_response_body import (
+        EntityVendorsServiceDeleteVendorUnauthorizedErrorResponseBody,
+    )
+    from .entity_vendors_service_update_vendor_bad_gateway_error_response_body import (
+        EntityVendorsServiceUpdateVendorBadGatewayErrorResponseBody,
+    )
+    from .entity_vendors_service_update_vendor_content_too_large_error_response_body import (
+        EntityVendorsServiceUpdateVendorContentTooLargeErrorResponseBody,
+    )
+    from .entity_vendors_service_update_vendor_gateway_timeout_error_response_body import (
+        EntityVendorsServiceUpdateVendorGatewayTimeoutErrorResponseBody,
+    )
+    from .entity_vendors_service_update_vendor_internal_server_error_response_body import (
+        EntityVendorsServiceUpdateVendorInternalServerErrorResponseBody,
+    )
+    from .entity_vendors_service_update_vendor_method_not_allowed_error_response_body import (
+        EntityVendorsServiceUpdateVendorMethodNotAllowedErrorResponseBody,
+    )
+    from .entity_vendors_service_update_vendor_not_found_error_response_body import (
+        EntityVendorsServiceUpdateVendorNotFoundErrorResponseBody,
+    )
+    from .entity_vendors_service_update_vendor_not_implemented_error_response_body import (
+        EntityVendorsServiceUpdateVendorNotImplementedErrorResponseBody,
+    )
+    from .entity_vendors_service_update_vendor_response_body import EntityVendorsServiceUpdateVendorResponseBody
+    from .entity_vendors_service_update_vendor_service_unavailable_error_response_body import (
+        EntityVendorsServiceUpdateVendorServiceUnavailableErrorResponseBody,
+    )
+    from .entity_vendors_service_update_vendor_too_many_requests_error_response_body import (
+        EntityVendorsServiceUpdateVendorTooManyRequestsErrorResponseBody,
+    )
+    from .entity_vendors_service_update_vendor_unauthorized_error_response_body import (
+        EntityVendorsServiceUpdateVendorUnauthorizedErrorResponseBody,
+    )
     from .entity_warranties_service_create_warranty_bad_gateway_error_response_body import (
         EntityWarrantiesServiceCreateWarrantyBadGatewayErrorResponseBody,
     )
@@ -6518,8 +6887,26 @@ if typing.TYPE_CHECKING:
     from .list_uploaded_media_object_response_body import ListUploadedMediaObjectResponseBody
     from .list_user_roles_response import ListUserRolesResponse
     from .list_users_response import ListUsersResponse
+    from .list_vendor_groups_entity_vendor_profile_vendor_asset_attribute_selection_type_response_body import (
+        ListVendorGroupsEntityVendorProfileVendorAssetAttributeSelectionTypeResponseBody,
+    )
+    from .list_vendor_groups_entity_vendor_profile_vendor_asset_attribute_value_type_response_body import (
+        ListVendorGroupsEntityVendorProfileVendorAssetAttributeValueTypeResponseBody,
+    )
+    from .list_vendor_groups_entity_vendor_profile_vendor_group_external_id_type_response_body import (
+        ListVendorGroupsEntityVendorProfileVendorGroupExternalIdTypeResponseBody,
+    )
+    from .list_vendor_groups_entity_vendor_profile_vendor_group_primary_corporate_contact_type_response_body import (
+        ListVendorGroupsEntityVendorProfileVendorGroupPrimaryCorporateContactTypeResponseBody,
+    )
+    from .list_vendor_groups_entity_vendor_profile_vendor_hourly_money_type_response_body import (
+        ListVendorGroupsEntityVendorProfileVendorHourlyMoneyTypeResponseBody,
+    )
     from .list_warranties_entity_warranty_warranty_coverage_item_type_response_body import (
         ListWarrantiesEntityWarrantyWarrantyCoverageItemTypeResponseBody,
+    )
+    from .list_warranties_entity_warranty_warranty_coverage_item_type_response_body_item_type import (
+        ListWarrantiesEntityWarrantyWarrantyCoverageItemTypeResponseBodyItemType,
     )
     from .list_warranties_entity_warranty_warranty_coverage_type_response_body import (
         ListWarrantiesEntityWarrantyWarrantyCoverageTypeResponseBody,
@@ -6544,6 +6931,9 @@ if typing.TYPE_CHECKING:
     )
     from .list_warranty_claims_entity_warranty_claim_warranty_claim_status_history_type_response_body import (
         ListWarrantyClaimsEntityWarrantyClaimWarrantyClaimStatusHistoryTypeResponseBody,
+    )
+    from .list_warranty_claims_entity_warranty_claim_warranty_claim_status_history_type_response_body_status import (
+        ListWarrantyClaimsEntityWarrantyClaimWarrantyClaimStatusHistoryTypeResponseBodyStatus,
     )
     from .live_sharing_link_full_response_object_response_body import LiveSharingLinkFullResponseObjectResponseBody
     from .live_sharing_link_full_response_object_response_body_type import (
@@ -9371,6 +9761,7 @@ if typing.TYPE_CHECKING:
     from .sensor import Sensor
     from .sensor_response_body import SensorResponseBody
     from .serial import Serial
+    from .service_task_assignee_object_response_body import ServiceTaskAssigneeObjectResponseBody
     from .service_task_definition_object_response_body import ServiceTaskDefinitionObjectResponseBody
     from .service_task_form_subtask_object_response_body import ServiceTaskFormSubtaskObjectResponseBody
     from .service_task_instance_input_object_request_body import ServiceTaskInstanceInputObjectRequestBody
@@ -9667,6 +10058,112 @@ if typing.TYPE_CHECKING:
     from .tagged_object_id import TaggedObjectId
     from .tagged_object_name import TaggedObjectName
     from .tampering_detected_response_body import TamperingDetectedResponseBody
+    from .technician_shift_object_response_body import TechnicianShiftObjectResponseBody
+    from .technician_shift_object_response_body_clock_in_source import TechnicianShiftObjectResponseBodyClockInSource
+    from .technician_shift_object_response_body_clock_out_source import TechnicianShiftObjectResponseBodyClockOutSource
+    from .technician_shift_object_response_body_status import TechnicianShiftObjectResponseBodyStatus
+    from .technician_shifts_create_technician_shift_bad_gateway_error_response_body import (
+        TechnicianShiftsCreateTechnicianShiftBadGatewayErrorResponseBody,
+    )
+    from .technician_shifts_create_technician_shift_conflict_error_response_body import (
+        TechnicianShiftsCreateTechnicianShiftConflictErrorResponseBody,
+    )
+    from .technician_shifts_create_technician_shift_content_too_large_error_response_body import (
+        TechnicianShiftsCreateTechnicianShiftContentTooLargeErrorResponseBody,
+    )
+    from .technician_shifts_create_technician_shift_gateway_timeout_error_response_body import (
+        TechnicianShiftsCreateTechnicianShiftGatewayTimeoutErrorResponseBody,
+    )
+    from .technician_shifts_create_technician_shift_internal_server_error_response_body import (
+        TechnicianShiftsCreateTechnicianShiftInternalServerErrorResponseBody,
+    )
+    from .technician_shifts_create_technician_shift_method_not_allowed_error_response_body import (
+        TechnicianShiftsCreateTechnicianShiftMethodNotAllowedErrorResponseBody,
+    )
+    from .technician_shifts_create_technician_shift_not_found_error_response_body import (
+        TechnicianShiftsCreateTechnicianShiftNotFoundErrorResponseBody,
+    )
+    from .technician_shifts_create_technician_shift_not_implemented_error_response_body import (
+        TechnicianShiftsCreateTechnicianShiftNotImplementedErrorResponseBody,
+    )
+    from .technician_shifts_create_technician_shift_response_body import (
+        TechnicianShiftsCreateTechnicianShiftResponseBody,
+    )
+    from .technician_shifts_create_technician_shift_service_unavailable_error_response_body import (
+        TechnicianShiftsCreateTechnicianShiftServiceUnavailableErrorResponseBody,
+    )
+    from .technician_shifts_create_technician_shift_too_many_requests_error_response_body import (
+        TechnicianShiftsCreateTechnicianShiftTooManyRequestsErrorResponseBody,
+    )
+    from .technician_shifts_create_technician_shift_unauthorized_error_response_body import (
+        TechnicianShiftsCreateTechnicianShiftUnauthorizedErrorResponseBody,
+    )
+    from .technician_shifts_list_technician_shifts_bad_gateway_error_response_body import (
+        TechnicianShiftsListTechnicianShiftsBadGatewayErrorResponseBody,
+    )
+    from .technician_shifts_list_technician_shifts_content_too_large_error_response_body import (
+        TechnicianShiftsListTechnicianShiftsContentTooLargeErrorResponseBody,
+    )
+    from .technician_shifts_list_technician_shifts_gateway_timeout_error_response_body import (
+        TechnicianShiftsListTechnicianShiftsGatewayTimeoutErrorResponseBody,
+    )
+    from .technician_shifts_list_technician_shifts_internal_server_error_response_body import (
+        TechnicianShiftsListTechnicianShiftsInternalServerErrorResponseBody,
+    )
+    from .technician_shifts_list_technician_shifts_method_not_allowed_error_response_body import (
+        TechnicianShiftsListTechnicianShiftsMethodNotAllowedErrorResponseBody,
+    )
+    from .technician_shifts_list_technician_shifts_not_found_error_response_body import (
+        TechnicianShiftsListTechnicianShiftsNotFoundErrorResponseBody,
+    )
+    from .technician_shifts_list_technician_shifts_not_implemented_error_response_body import (
+        TechnicianShiftsListTechnicianShiftsNotImplementedErrorResponseBody,
+    )
+    from .technician_shifts_list_technician_shifts_response_body import TechnicianShiftsListTechnicianShiftsResponseBody
+    from .technician_shifts_list_technician_shifts_service_unavailable_error_response_body import (
+        TechnicianShiftsListTechnicianShiftsServiceUnavailableErrorResponseBody,
+    )
+    from .technician_shifts_list_technician_shifts_too_many_requests_error_response_body import (
+        TechnicianShiftsListTechnicianShiftsTooManyRequestsErrorResponseBody,
+    )
+    from .technician_shifts_list_technician_shifts_unauthorized_error_response_body import (
+        TechnicianShiftsListTechnicianShiftsUnauthorizedErrorResponseBody,
+    )
+    from .technician_shifts_pagination_response_body import TechnicianShiftsPaginationResponseBody
+    from .technician_shifts_patch_technician_shift_bad_gateway_error_response_body import (
+        TechnicianShiftsPatchTechnicianShiftBadGatewayErrorResponseBody,
+    )
+    from .technician_shifts_patch_technician_shift_conflict_error_response_body import (
+        TechnicianShiftsPatchTechnicianShiftConflictErrorResponseBody,
+    )
+    from .technician_shifts_patch_technician_shift_content_too_large_error_response_body import (
+        TechnicianShiftsPatchTechnicianShiftContentTooLargeErrorResponseBody,
+    )
+    from .technician_shifts_patch_technician_shift_gateway_timeout_error_response_body import (
+        TechnicianShiftsPatchTechnicianShiftGatewayTimeoutErrorResponseBody,
+    )
+    from .technician_shifts_patch_technician_shift_internal_server_error_response_body import (
+        TechnicianShiftsPatchTechnicianShiftInternalServerErrorResponseBody,
+    )
+    from .technician_shifts_patch_technician_shift_method_not_allowed_error_response_body import (
+        TechnicianShiftsPatchTechnicianShiftMethodNotAllowedErrorResponseBody,
+    )
+    from .technician_shifts_patch_technician_shift_not_found_error_response_body import (
+        TechnicianShiftsPatchTechnicianShiftNotFoundErrorResponseBody,
+    )
+    from .technician_shifts_patch_technician_shift_not_implemented_error_response_body import (
+        TechnicianShiftsPatchTechnicianShiftNotImplementedErrorResponseBody,
+    )
+    from .technician_shifts_patch_technician_shift_response_body import TechnicianShiftsPatchTechnicianShiftResponseBody
+    from .technician_shifts_patch_technician_shift_service_unavailable_error_response_body import (
+        TechnicianShiftsPatchTechnicianShiftServiceUnavailableErrorResponseBody,
+    )
+    from .technician_shifts_patch_technician_shift_too_many_requests_error_response_body import (
+        TechnicianShiftsPatchTechnicianShiftTooManyRequestsErrorResponseBody,
+    )
+    from .technician_shifts_patch_technician_shift_unauthorized_error_response_body import (
+        TechnicianShiftsPatchTechnicianShiftUnauthorizedErrorResponseBody,
+    )
     from .time import Time
     from .time_range_object_request_body import TimeRangeObjectRequestBody
     from .time_range_object_request_body_days_of_week_item import TimeRangeObjectRequestBodyDaysOfWeekItem
@@ -10377,6 +10874,7 @@ if typing.TYPE_CHECKING:
     from .trip_asset_response_body_type import TripAssetResponseBodyType
     from .trip_response_body import TripResponseBody
     from .trip_response_body_completion_status import TripResponseBodyCompletionStatus
+    from .trip_response_body_trip_purpose import TripResponseBodyTripPurpose
     from .trip_speeding_intervals_response_body import TripSpeedingIntervalsResponseBody
     from .trips_get_trips_bad_gateway_error_response_body import TripsGetTripsBadGatewayErrorResponseBody
     from .trips_get_trips_content_too_large_error_response_body import TripsGetTripsContentTooLargeErrorResponseBody
@@ -10484,6 +10982,66 @@ if typing.TYPE_CHECKING:
     )
     from .update_routes_stop_request_object_request_body import UpdateRoutesStopRequestObjectRequestBody
     from .update_shared_asset_request_object_request_body import UpdateSharedAssetRequestObjectRequestBody
+    from .update_vendor_entity_vendor_vendor_asset_attribute_selection_input_type_request_body import (
+        UpdateVendorEntityVendorVendorAssetAttributeSelectionInputTypeRequestBody,
+    )
+    from .update_vendor_entity_vendor_vendor_asset_attribute_selection_type_response_body import (
+        UpdateVendorEntityVendorVendorAssetAttributeSelectionTypeResponseBody,
+    )
+    from .update_vendor_entity_vendor_vendor_asset_attribute_value_input_type_request_body import (
+        UpdateVendorEntityVendorVendorAssetAttributeValueInputTypeRequestBody,
+    )
+    from .update_vendor_entity_vendor_vendor_asset_attribute_value_type_response_body import (
+        UpdateVendorEntityVendorVendorAssetAttributeValueTypeResponseBody,
+    )
+    from .update_vendor_entity_vendor_vendor_contact_input_type_request_body import (
+        UpdateVendorEntityVendorVendorContactInputTypeRequestBody,
+    )
+    from .update_vendor_entity_vendor_vendor_contact_type_response_body import (
+        UpdateVendorEntityVendorVendorContactTypeResponseBody,
+    )
+    from .update_vendor_entity_vendor_vendor_external_id_input_type_request_body import (
+        UpdateVendorEntityVendorVendorExternalIdInputTypeRequestBody,
+    )
+    from .update_vendor_entity_vendor_vendor_external_id_type_response_body import (
+        UpdateVendorEntityVendorVendorExternalIdTypeResponseBody,
+    )
+    from .update_vendor_entity_vendor_vendor_hourly_money_input_type_request_body import (
+        UpdateVendorEntityVendorVendorHourlyMoneyInputTypeRequestBody,
+    )
+    from .update_vendor_entity_vendor_vendor_hourly_money_type_response_body import (
+        UpdateVendorEntityVendorVendorHourlyMoneyTypeResponseBody,
+    )
+    from .update_vendor_group_entity_vendor_profile_vendor_asset_attribute_selection_input_type_request_body import (
+        UpdateVendorGroupEntityVendorProfileVendorAssetAttributeSelectionInputTypeRequestBody,
+    )
+    from .update_vendor_group_entity_vendor_profile_vendor_asset_attribute_selection_type_response_body import (
+        UpdateVendorGroupEntityVendorProfileVendorAssetAttributeSelectionTypeResponseBody,
+    )
+    from .update_vendor_group_entity_vendor_profile_vendor_asset_attribute_value_input_type_request_body import (
+        UpdateVendorGroupEntityVendorProfileVendorAssetAttributeValueInputTypeRequestBody,
+    )
+    from .update_vendor_group_entity_vendor_profile_vendor_asset_attribute_value_type_response_body import (
+        UpdateVendorGroupEntityVendorProfileVendorAssetAttributeValueTypeResponseBody,
+    )
+    from .update_vendor_group_entity_vendor_profile_vendor_group_external_id_input_type_request_body import (
+        UpdateVendorGroupEntityVendorProfileVendorGroupExternalIdInputTypeRequestBody,
+    )
+    from .update_vendor_group_entity_vendor_profile_vendor_group_external_id_type_response_body import (
+        UpdateVendorGroupEntityVendorProfileVendorGroupExternalIdTypeResponseBody,
+    )
+    from .update_vendor_group_entity_vendor_profile_vendor_group_primary_corporate_contact_input_type_request_body import (
+        UpdateVendorGroupEntityVendorProfileVendorGroupPrimaryCorporateContactInputTypeRequestBody,
+    )
+    from .update_vendor_group_entity_vendor_profile_vendor_group_primary_corporate_contact_type_response_body import (
+        UpdateVendorGroupEntityVendorProfileVendorGroupPrimaryCorporateContactTypeResponseBody,
+    )
+    from .update_vendor_group_entity_vendor_profile_vendor_hourly_money_input_type_request_body import (
+        UpdateVendorGroupEntityVendorProfileVendorHourlyMoneyInputTypeRequestBody,
+    )
+    from .update_vendor_group_entity_vendor_profile_vendor_hourly_money_type_response_body import (
+        UpdateVendorGroupEntityVendorProfileVendorHourlyMoneyTypeResponseBody,
+    )
     from .update_warranty_claim_entity_warranty_claim_claim_reimbursement_input_type_request_body import (
         UpdateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody,
     )
@@ -10517,14 +11075,23 @@ if typing.TYPE_CHECKING:
     from .update_warranty_claim_entity_warranty_claim_warranty_claim_status_history_type_response_body import (
         UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimStatusHistoryTypeResponseBody,
     )
+    from .update_warranty_claim_entity_warranty_claim_warranty_claim_status_history_type_response_body_status import (
+        UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimStatusHistoryTypeResponseBodyStatus,
+    )
     from .update_warranty_entity_warranty_warranty_coverage_input_type_request_body import (
         UpdateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody,
     )
     from .update_warranty_entity_warranty_warranty_coverage_item_input_type_request_body import (
         UpdateWarrantyEntityWarrantyWarrantyCoverageItemInputTypeRequestBody,
     )
+    from .update_warranty_entity_warranty_warranty_coverage_item_input_type_request_body_item_type import (
+        UpdateWarrantyEntityWarrantyWarrantyCoverageItemInputTypeRequestBodyItemType,
+    )
     from .update_warranty_entity_warranty_warranty_coverage_item_type_response_body import (
         UpdateWarrantyEntityWarrantyWarrantyCoverageItemTypeResponseBody,
+    )
+    from .update_warranty_entity_warranty_warranty_coverage_item_type_response_body_item_type import (
+        UpdateWarrantyEntityWarrantyWarrantyCoverageItemTypeResponseBodyItemType,
     )
     from .update_warranty_entity_warranty_warranty_coverage_type_response_body import (
         UpdateWarrantyEntityWarrantyWarrantyCoverageTypeResponseBody,
@@ -11159,6 +11726,10 @@ if typing.TYPE_CHECKING:
     )
     from .vendor_category_object_response_body import VendorCategoryObjectResponseBody
     from .vendor_object_response_body import VendorObjectResponseBody
+    from .vendor_public_attribute_selection_response_body import VendorPublicAttributeSelectionResponseBody
+    from .vendor_public_attribute_value_response_body import VendorPublicAttributeValueResponseBody
+    from .vendor_public_money_response_body import VendorPublicMoneyResponseBody
+    from .vendor_public_resolved_settings_response_body import VendorPublicResolvedSettingsResponseBody
     from .vertex_request_body import VertexRequestBody
     from .vertex_response_body import VertexResponseBody
     from .voice_coaching_settings_object_response_body import VoiceCoachingSettingsObjectResponseBody
@@ -11317,6 +11888,7 @@ if typing.TYPE_CHECKING:
     from .webhooks_post_webhooks_unauthorized_error_response_body import (
         WebhooksPostWebhooksUnauthorizedErrorResponseBody,
     )
+    from .work_order_assignee_object_response_body import WorkOrderAssigneeObjectResponseBody
     from .work_order_attachment_object_response_body import WorkOrderAttachmentObjectResponseBody
     from .work_order_attachment_object_response_body_processing_status import (
         WorkOrderAttachmentObjectResponseBodyProcessingStatus,
@@ -12229,6 +12801,26 @@ _dynamic_imports: typing.Dict[str, str] = {
     "CreateStockMovementActionServiceCreateStockMovementUnauthorizedErrorResponseBody": ".create_stock_movement_action_service_create_stock_movement_unauthorized_error_response_body",
     "CreateStockMovementResponseObjectTypeResponseBody": ".create_stock_movement_response_object_type_response_body",
     "CreateUserRequestRoles": ".create_user_request_roles",
+    "CreateVendorEntityVendorVendorAssetAttributeSelectionInputTypeRequestBody": ".create_vendor_entity_vendor_vendor_asset_attribute_selection_input_type_request_body",
+    "CreateVendorEntityVendorVendorAssetAttributeSelectionTypeResponseBody": ".create_vendor_entity_vendor_vendor_asset_attribute_selection_type_response_body",
+    "CreateVendorEntityVendorVendorAssetAttributeValueInputTypeRequestBody": ".create_vendor_entity_vendor_vendor_asset_attribute_value_input_type_request_body",
+    "CreateVendorEntityVendorVendorAssetAttributeValueTypeResponseBody": ".create_vendor_entity_vendor_vendor_asset_attribute_value_type_response_body",
+    "CreateVendorEntityVendorVendorContactInputTypeRequestBody": ".create_vendor_entity_vendor_vendor_contact_input_type_request_body",
+    "CreateVendorEntityVendorVendorContactTypeResponseBody": ".create_vendor_entity_vendor_vendor_contact_type_response_body",
+    "CreateVendorEntityVendorVendorExternalIdInputTypeRequestBody": ".create_vendor_entity_vendor_vendor_external_id_input_type_request_body",
+    "CreateVendorEntityVendorVendorExternalIdTypeResponseBody": ".create_vendor_entity_vendor_vendor_external_id_type_response_body",
+    "CreateVendorEntityVendorVendorHourlyMoneyInputTypeRequestBody": ".create_vendor_entity_vendor_vendor_hourly_money_input_type_request_body",
+    "CreateVendorEntityVendorVendorHourlyMoneyTypeResponseBody": ".create_vendor_entity_vendor_vendor_hourly_money_type_response_body",
+    "CreateVendorGroupEntityVendorProfileVendorAssetAttributeSelectionInputTypeRequestBody": ".create_vendor_group_entity_vendor_profile_vendor_asset_attribute_selection_input_type_request_body",
+    "CreateVendorGroupEntityVendorProfileVendorAssetAttributeSelectionTypeResponseBody": ".create_vendor_group_entity_vendor_profile_vendor_asset_attribute_selection_type_response_body",
+    "CreateVendorGroupEntityVendorProfileVendorAssetAttributeValueInputTypeRequestBody": ".create_vendor_group_entity_vendor_profile_vendor_asset_attribute_value_input_type_request_body",
+    "CreateVendorGroupEntityVendorProfileVendorAssetAttributeValueTypeResponseBody": ".create_vendor_group_entity_vendor_profile_vendor_asset_attribute_value_type_response_body",
+    "CreateVendorGroupEntityVendorProfileVendorGroupExternalIdInputTypeRequestBody": ".create_vendor_group_entity_vendor_profile_vendor_group_external_id_input_type_request_body",
+    "CreateVendorGroupEntityVendorProfileVendorGroupExternalIdTypeResponseBody": ".create_vendor_group_entity_vendor_profile_vendor_group_external_id_type_response_body",
+    "CreateVendorGroupEntityVendorProfileVendorGroupPrimaryCorporateContactInputTypeRequestBody": ".create_vendor_group_entity_vendor_profile_vendor_group_primary_corporate_contact_input_type_request_body",
+    "CreateVendorGroupEntityVendorProfileVendorGroupPrimaryCorporateContactTypeResponseBody": ".create_vendor_group_entity_vendor_profile_vendor_group_primary_corporate_contact_type_response_body",
+    "CreateVendorGroupEntityVendorProfileVendorHourlyMoneyInputTypeRequestBody": ".create_vendor_group_entity_vendor_profile_vendor_hourly_money_input_type_request_body",
+    "CreateVendorGroupEntityVendorProfileVendorHourlyMoneyTypeResponseBody": ".create_vendor_group_entity_vendor_profile_vendor_hourly_money_type_response_body",
     "CreateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody": ".create_warranty_claim_entity_warranty_claim_claim_reimbursement_input_type_request_body",
     "CreateWarrantyClaimEntityWarrantyClaimClaimReimbursementTypeResponseBody": ".create_warranty_claim_entity_warranty_claim_claim_reimbursement_type_response_body",
     "CreateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody": ".create_warranty_claim_entity_warranty_claim_money_input_type_request_body",
@@ -12240,9 +12832,12 @@ _dynamic_imports: typing.Dict[str, str] = {
     "CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody": ".create_warranty_claim_entity_warranty_claim_warranty_claim_part_input_type_request_body",
     "CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartTypeResponseBody": ".create_warranty_claim_entity_warranty_claim_warranty_claim_part_type_response_body",
     "CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimStatusHistoryTypeResponseBody": ".create_warranty_claim_entity_warranty_claim_warranty_claim_status_history_type_response_body",
+    "CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimStatusHistoryTypeResponseBodyStatus": ".create_warranty_claim_entity_warranty_claim_warranty_claim_status_history_type_response_body_status",
     "CreateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody": ".create_warranty_entity_warranty_warranty_coverage_input_type_request_body",
     "CreateWarrantyEntityWarrantyWarrantyCoverageItemInputTypeRequestBody": ".create_warranty_entity_warranty_warranty_coverage_item_input_type_request_body",
+    "CreateWarrantyEntityWarrantyWarrantyCoverageItemInputTypeRequestBodyItemType": ".create_warranty_entity_warranty_warranty_coverage_item_input_type_request_body_item_type",
     "CreateWarrantyEntityWarrantyWarrantyCoverageItemTypeResponseBody": ".create_warranty_entity_warranty_warranty_coverage_item_type_response_body",
+    "CreateWarrantyEntityWarrantyWarrantyCoverageItemTypeResponseBodyItemType": ".create_warranty_entity_warranty_warranty_coverage_item_type_response_body_item_type",
     "CreateWarrantyEntityWarrantyWarrantyCoverageTypeResponseBody": ".create_warranty_entity_warranty_warranty_coverage_type_response_body",
     "CreateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody": ".create_warranty_entity_warranty_warranty_external_id_input_type_request_body",
     "CreateWarrantyEntityWarrantyWarrantyExternalIdTypeResponseBody": ".create_warranty_entity_warranty_warranty_external_id_type_response_body",
@@ -12845,7 +13440,11 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EntityCreatePartInventoryLocationPartDefinitionRefTypeResponseBody": ".entity_create_part_inventory_location_part_definition_ref_type_response_body",
     "EntityCreatePartInventoryLocationPlaceRefTypeResponseBody": ".entity_create_part_inventory_location_place_ref_type_response_body",
     "EntityCreatePartInventoryLocationTypeResponseBody": ".entity_create_part_inventory_location_type_response_body",
+    "EntityCreatePartInventoryLocationTypeResponseBodyUnitOfMeasureType": ".entity_create_part_inventory_location_type_response_body_unit_of_measure_type",
     "EntityCreatePartTypeResponseBody": ".entity_create_part_type_response_body",
+    "EntityCreatePartTypeResponseBodyPartStatus": ".entity_create_part_type_response_body_part_status",
+    "EntityCreatePartTypeResponseBodyUnitOfMeasureType": ".entity_create_part_type_response_body_unit_of_measure_type",
+    "EntityCreatePartVendorRefTypeResponseBody": ".entity_create_part_vendor_ref_type_response_body",
     "EntityCreatePurchaseOrderPartDefinitionRefTypeResponseBody": ".entity_create_purchase_order_part_definition_ref_type_response_body",
     "EntityCreatePurchaseOrderPlaceRefTypeResponseBody": ".entity_create_purchase_order_place_ref_type_response_body",
     "EntityCreatePurchaseOrderTypeResponseBody": ".entity_create_purchase_order_type_response_body",
@@ -12856,11 +13455,18 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EntityCreateStockMovementMoneyInputTypeRequestBody": ".entity_create_stock_movement_money_input_type_request_body",
     "EntityCreateStockMovementMoneyTypeResponseBody": ".entity_create_stock_movement_money_type_response_body",
     "EntityCreateStockMovementStockMovementLocationTypeResponseBody": ".entity_create_stock_movement_stock_movement_location_type_response_body",
+    "EntityCreateVendorGroupTypeResponseBody": ".entity_create_vendor_group_type_response_body",
+    "EntityCreateVendorGroupTypeResponseBodyStatus": ".entity_create_vendor_group_type_response_body_status",
+    "EntityCreateVendorPlaceRefTypeResponseBody": ".entity_create_vendor_place_ref_type_response_body",
+    "EntityCreateVendorTypeResponseBody": ".entity_create_vendor_type_response_body",
+    "EntityCreateVendorTypeResponseBodyStatus": ".entity_create_vendor_type_response_body_status",
     "EntityCreateWarrantyClaimAssetRefTypeResponseBody": ".entity_create_warranty_claim_asset_ref_type_response_body",
     "EntityCreateWarrantyClaimTypeResponseBody": ".entity_create_warranty_claim_type_response_body",
+    "EntityCreateWarrantyClaimTypeResponseBodyClaimStatus": ".entity_create_warranty_claim_type_response_body_claim_status",
     "EntityCreateWarrantyClaimVendorRefTypeResponseBody": ".entity_create_warranty_claim_vendor_ref_type_response_body",
     "EntityCreateWarrantyClaimWarrantyRefTypeResponseBody": ".entity_create_warranty_claim_warranty_ref_type_response_body",
     "EntityCreateWarrantyTypeResponseBody": ".entity_create_warranty_type_response_body",
+    "EntityCreateWarrantyTypeResponseBodyWarrantyType": ".entity_create_warranty_type_response_body_warranty_type",
     "EntityCreateWarrantyVendorRefTypeResponseBody": ".entity_create_warranty_vendor_ref_type_response_body",
     "EntityCreateWatchpointTypeResponseBody": ".entity_create_watchpoint_type_response_body",
     "EntityCreateWatchpointTypeResponseBodyMode": ".entity_create_watchpoint_type_response_body_mode",
@@ -12900,16 +13506,22 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EntityInventoryTransactionsServiceListPartTransactionsTooManyRequestsErrorResponseBody": ".entity_inventory_transactions_service_list_part_transactions_too_many_requests_error_response_body",
     "EntityInventoryTransactionsServiceListPartTransactionsUnauthorizedErrorResponseBody": ".entity_inventory_transactions_service_list_part_transactions_unauthorized_error_response_body",
     "EntityListIssuesTypeResponseBody": ".entity_list_issues_type_response_body",
+    "EntityListIssuesTypeResponseBodyType": ".entity_list_issues_type_response_body_type",
     "EntityListMaintenanceSitesPlaceRefTypeResponseBody": ".entity_list_maintenance_sites_place_ref_type_response_body",
     "EntityListMaintenanceSitesTypeResponseBody": ".entity_list_maintenance_sites_type_response_body",
     "EntityListMaintenanceSitesTypeResponseBodySiteType": ".entity_list_maintenance_sites_type_response_body_site_type",
     "EntityListPartInventoryPartDefinitionRefTypeResponseBody": ".entity_list_part_inventory_part_definition_ref_type_response_body",
     "EntityListPartInventoryPlaceRefTypeResponseBody": ".entity_list_part_inventory_place_ref_type_response_body",
     "EntityListPartInventoryTypeResponseBody": ".entity_list_part_inventory_type_response_body",
+    "EntityListPartInventoryTypeResponseBodyUnitOfMeasureType": ".entity_list_part_inventory_type_response_body_unit_of_measure_type",
     "EntityListPartTransactionsPartDefinitionRefTypeResponseBody": ".entity_list_part_transactions_part_definition_ref_type_response_body",
     "EntityListPartTransactionsTypeResponseBody": ".entity_list_part_transactions_type_response_body",
+    "EntityListPartTransactionsTypeResponseBodyTransactionType": ".entity_list_part_transactions_type_response_body_transaction_type",
     "EntityListPartTransactionsWorkOrderRefTypeResponseBody": ".entity_list_part_transactions_work_order_ref_type_response_body",
     "EntityListPartsTypeResponseBody": ".entity_list_parts_type_response_body",
+    "EntityListPartsTypeResponseBodyPartStatus": ".entity_list_parts_type_response_body_part_status",
+    "EntityListPartsTypeResponseBodyUnitOfMeasureType": ".entity_list_parts_type_response_body_unit_of_measure_type",
+    "EntityListPartsVendorRefTypeResponseBody": ".entity_list_parts_vendor_ref_type_response_body",
     "EntityListPreventiveMaintenanceSchedulesPreventativeMaintenanceScheduleRefTypeResponseBody": ".entity_list_preventive_maintenance_schedules_preventative_maintenance_schedule_ref_type_response_body",
     "EntityListPreventiveMaintenanceSchedulesTypeResponseBody": ".entity_list_preventive_maintenance_schedules_type_response_body",
     "EntityListPurchaseOrdersPartDefinitionRefTypeResponseBody": ".entity_list_purchase_orders_part_definition_ref_type_response_body",
@@ -12921,17 +13533,27 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EntityListPurchaseOrdersVendorRefTypeResponseBody": ".entity_list_purchase_orders_vendor_ref_type_response_body",
     "EntityListTachographLiveDataTypeResponseBody": ".entity_list_tachograph_live_data_type_response_body",
     "EntityListTimeEntriesTypeResponseBody": ".entity_list_time_entries_type_response_body",
+    "EntityListTimeEntriesTypeResponseBodyActivityType": ".entity_list_time_entries_type_response_body_activity_type",
+    "EntityListTimeEntriesTypeResponseBodyClockInSource": ".entity_list_time_entries_type_response_body_clock_in_source",
+    "EntityListTimeEntriesTypeResponseBodyClockOutMethodType": ".entity_list_time_entries_type_response_body_clock_out_method_type",
+    "EntityListTimeEntriesTypeResponseBodyClockOutSource": ".entity_list_time_entries_type_response_body_clock_out_source",
+    "EntityListTimeEntriesTypeResponseBodyTimeEntryStatus": ".entity_list_time_entries_type_response_body_time_entry_status",
     "EntityListUpcomingPreventiveMaintenanceAssetRefTypeResponseBody": ".entity_list_upcoming_preventive_maintenance_asset_ref_type_response_body",
     "EntityListUpcomingPreventiveMaintenancePreventativeMaintenanceScheduleRefTypeResponseBody": ".entity_list_upcoming_preventive_maintenance_preventative_maintenance_schedule_ref_type_response_body",
     "EntityListUpcomingPreventiveMaintenanceTypeResponseBody": ".entity_list_upcoming_preventive_maintenance_type_response_body",
+    "EntityListUpcomingPreventiveMaintenanceTypeResponseBodyStatus": ".entity_list_upcoming_preventive_maintenance_type_response_body_status",
     "EntityListUpcomingPreventiveMaintenanceWorkOrderRefTypeResponseBody": ".entity_list_upcoming_preventive_maintenance_work_order_ref_type_response_body",
+    "EntityListVendorGroupsTypeResponseBody": ".entity_list_vendor_groups_type_response_body",
+    "EntityListVendorGroupsTypeResponseBodyStatus": ".entity_list_vendor_groups_type_response_body_status",
     "EntityListWarrantiesTypeResponseBody": ".entity_list_warranties_type_response_body",
+    "EntityListWarrantiesTypeResponseBodyWarrantyType": ".entity_list_warranties_type_response_body_warranty_type",
     "EntityListWarrantiesVendorRefTypeResponseBody": ".entity_list_warranties_vendor_ref_type_response_body",
     "EntityListWarrantyAssetAssignmentsAssetRefTypeResponseBody": ".entity_list_warranty_asset_assignments_asset_ref_type_response_body",
     "EntityListWarrantyAssetAssignmentsTypeResponseBody": ".entity_list_warranty_asset_assignments_type_response_body",
     "EntityListWarrantyAssetAssignmentsWarrantyRefTypeResponseBody": ".entity_list_warranty_asset_assignments_warranty_ref_type_response_body",
     "EntityListWarrantyClaimsAssetRefTypeResponseBody": ".entity_list_warranty_claims_asset_ref_type_response_body",
     "EntityListWarrantyClaimsTypeResponseBody": ".entity_list_warranty_claims_type_response_body",
+    "EntityListWarrantyClaimsTypeResponseBodyClaimStatus": ".entity_list_warranty_claims_type_response_body_claim_status",
     "EntityListWarrantyClaimsVendorRefTypeResponseBody": ".entity_list_warranty_claims_vendor_ref_type_response_body",
     "EntityListWarrantyClaimsWarrantyRefTypeResponseBody": ".entity_list_warranty_claims_warranty_ref_type_response_body",
     "EntityMaintenanceSitesServiceCreateMaintenanceSiteBadGatewayErrorResponseBody": ".entity_maintenance_sites_service_create_maintenance_site_bad_gateway_error_response_body",
@@ -13149,7 +13771,11 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EntityUpdatePartInventoryLocationPartDefinitionRefTypeResponseBody": ".entity_update_part_inventory_location_part_definition_ref_type_response_body",
     "EntityUpdatePartInventoryLocationPlaceRefTypeResponseBody": ".entity_update_part_inventory_location_place_ref_type_response_body",
     "EntityUpdatePartInventoryLocationTypeResponseBody": ".entity_update_part_inventory_location_type_response_body",
+    "EntityUpdatePartInventoryLocationTypeResponseBodyUnitOfMeasureType": ".entity_update_part_inventory_location_type_response_body_unit_of_measure_type",
     "EntityUpdatePartTypeResponseBody": ".entity_update_part_type_response_body",
+    "EntityUpdatePartTypeResponseBodyPartStatus": ".entity_update_part_type_response_body_part_status",
+    "EntityUpdatePartTypeResponseBodyUnitOfMeasureType": ".entity_update_part_type_response_body_unit_of_measure_type",
+    "EntityUpdatePartVendorRefTypeResponseBody": ".entity_update_part_vendor_ref_type_response_body",
     "EntityUpdatePurchaseOrderPartDefinitionRefTypeResponseBody": ".entity_update_purchase_order_part_definition_ref_type_response_body",
     "EntityUpdatePurchaseOrderPlaceRefTypeResponseBody": ".entity_update_purchase_order_place_ref_type_response_body",
     "EntityUpdatePurchaseOrderTypeResponseBody": ".entity_update_purchase_order_type_response_body",
@@ -13160,17 +13786,100 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EntityUpdateUpcomingPreventiveMaintenanceAssetRefTypeResponseBody": ".entity_update_upcoming_preventive_maintenance_asset_ref_type_response_body",
     "EntityUpdateUpcomingPreventiveMaintenancePreventativeMaintenanceScheduleRefTypeResponseBody": ".entity_update_upcoming_preventive_maintenance_preventative_maintenance_schedule_ref_type_response_body",
     "EntityUpdateUpcomingPreventiveMaintenanceTypeResponseBody": ".entity_update_upcoming_preventive_maintenance_type_response_body",
+    "EntityUpdateUpcomingPreventiveMaintenanceTypeResponseBodyStatus": ".entity_update_upcoming_preventive_maintenance_type_response_body_status",
     "EntityUpdateUpcomingPreventiveMaintenanceWorkOrderRefTypeResponseBody": ".entity_update_upcoming_preventive_maintenance_work_order_ref_type_response_body",
+    "EntityUpdateVendorGroupTypeResponseBody": ".entity_update_vendor_group_type_response_body",
+    "EntityUpdateVendorGroupTypeResponseBodyStatus": ".entity_update_vendor_group_type_response_body_status",
+    "EntityUpdateVendorPlaceRefTypeResponseBody": ".entity_update_vendor_place_ref_type_response_body",
+    "EntityUpdateVendorTypeResponseBody": ".entity_update_vendor_type_response_body",
+    "EntityUpdateVendorTypeResponseBodyStatus": ".entity_update_vendor_type_response_body_status",
     "EntityUpdateWarrantyClaimAssetRefTypeResponseBody": ".entity_update_warranty_claim_asset_ref_type_response_body",
     "EntityUpdateWarrantyClaimTypeResponseBody": ".entity_update_warranty_claim_type_response_body",
+    "EntityUpdateWarrantyClaimTypeResponseBodyClaimStatus": ".entity_update_warranty_claim_type_response_body_claim_status",
     "EntityUpdateWarrantyClaimVendorRefTypeResponseBody": ".entity_update_warranty_claim_vendor_ref_type_response_body",
     "EntityUpdateWarrantyClaimWarrantyRefTypeResponseBody": ".entity_update_warranty_claim_warranty_ref_type_response_body",
     "EntityUpdateWarrantyTypeResponseBody": ".entity_update_warranty_type_response_body",
+    "EntityUpdateWarrantyTypeResponseBodyWarrantyType": ".entity_update_warranty_type_response_body_warranty_type",
     "EntityUpdateWarrantyVendorRefTypeResponseBody": ".entity_update_warranty_vendor_ref_type_response_body",
     "EntityUpdateWatchpointTypeResponseBody": ".entity_update_watchpoint_type_response_body",
     "EntityUpdateWatchpointTypeResponseBodyMode": ".entity_update_watchpoint_type_response_body_mode",
     "EntityUpdateWatchpointTypeResponseBodyObservationType": ".entity_update_watchpoint_type_response_body_observation_type",
     "EntityUpdateWatchpointTypeResponseBodyStatus": ".entity_update_watchpoint_type_response_body_status",
+    "EntityVendorProfilesServiceCreateVendorGroupBadGatewayErrorResponseBody": ".entity_vendor_profiles_service_create_vendor_group_bad_gateway_error_response_body",
+    "EntityVendorProfilesServiceCreateVendorGroupContentTooLargeErrorResponseBody": ".entity_vendor_profiles_service_create_vendor_group_content_too_large_error_response_body",
+    "EntityVendorProfilesServiceCreateVendorGroupGatewayTimeoutErrorResponseBody": ".entity_vendor_profiles_service_create_vendor_group_gateway_timeout_error_response_body",
+    "EntityVendorProfilesServiceCreateVendorGroupInternalServerErrorResponseBody": ".entity_vendor_profiles_service_create_vendor_group_internal_server_error_response_body",
+    "EntityVendorProfilesServiceCreateVendorGroupMethodNotAllowedErrorResponseBody": ".entity_vendor_profiles_service_create_vendor_group_method_not_allowed_error_response_body",
+    "EntityVendorProfilesServiceCreateVendorGroupNotFoundErrorResponseBody": ".entity_vendor_profiles_service_create_vendor_group_not_found_error_response_body",
+    "EntityVendorProfilesServiceCreateVendorGroupNotImplementedErrorResponseBody": ".entity_vendor_profiles_service_create_vendor_group_not_implemented_error_response_body",
+    "EntityVendorProfilesServiceCreateVendorGroupResponseBody": ".entity_vendor_profiles_service_create_vendor_group_response_body",
+    "EntityVendorProfilesServiceCreateVendorGroupServiceUnavailableErrorResponseBody": ".entity_vendor_profiles_service_create_vendor_group_service_unavailable_error_response_body",
+    "EntityVendorProfilesServiceCreateVendorGroupTooManyRequestsErrorResponseBody": ".entity_vendor_profiles_service_create_vendor_group_too_many_requests_error_response_body",
+    "EntityVendorProfilesServiceCreateVendorGroupUnauthorizedErrorResponseBody": ".entity_vendor_profiles_service_create_vendor_group_unauthorized_error_response_body",
+    "EntityVendorProfilesServiceDeleteVendorGroupBadGatewayErrorResponseBody": ".entity_vendor_profiles_service_delete_vendor_group_bad_gateway_error_response_body",
+    "EntityVendorProfilesServiceDeleteVendorGroupContentTooLargeErrorResponseBody": ".entity_vendor_profiles_service_delete_vendor_group_content_too_large_error_response_body",
+    "EntityVendorProfilesServiceDeleteVendorGroupGatewayTimeoutErrorResponseBody": ".entity_vendor_profiles_service_delete_vendor_group_gateway_timeout_error_response_body",
+    "EntityVendorProfilesServiceDeleteVendorGroupInternalServerErrorResponseBody": ".entity_vendor_profiles_service_delete_vendor_group_internal_server_error_response_body",
+    "EntityVendorProfilesServiceDeleteVendorGroupMethodNotAllowedErrorResponseBody": ".entity_vendor_profiles_service_delete_vendor_group_method_not_allowed_error_response_body",
+    "EntityVendorProfilesServiceDeleteVendorGroupNotFoundErrorResponseBody": ".entity_vendor_profiles_service_delete_vendor_group_not_found_error_response_body",
+    "EntityVendorProfilesServiceDeleteVendorGroupNotImplementedErrorResponseBody": ".entity_vendor_profiles_service_delete_vendor_group_not_implemented_error_response_body",
+    "EntityVendorProfilesServiceDeleteVendorGroupServiceUnavailableErrorResponseBody": ".entity_vendor_profiles_service_delete_vendor_group_service_unavailable_error_response_body",
+    "EntityVendorProfilesServiceDeleteVendorGroupTooManyRequestsErrorResponseBody": ".entity_vendor_profiles_service_delete_vendor_group_too_many_requests_error_response_body",
+    "EntityVendorProfilesServiceDeleteVendorGroupUnauthorizedErrorResponseBody": ".entity_vendor_profiles_service_delete_vendor_group_unauthorized_error_response_body",
+    "EntityVendorProfilesServiceListVendorGroupsBadGatewayErrorResponseBody": ".entity_vendor_profiles_service_list_vendor_groups_bad_gateway_error_response_body",
+    "EntityVendorProfilesServiceListVendorGroupsContentTooLargeErrorResponseBody": ".entity_vendor_profiles_service_list_vendor_groups_content_too_large_error_response_body",
+    "EntityVendorProfilesServiceListVendorGroupsGatewayTimeoutErrorResponseBody": ".entity_vendor_profiles_service_list_vendor_groups_gateway_timeout_error_response_body",
+    "EntityVendorProfilesServiceListVendorGroupsInternalServerErrorResponseBody": ".entity_vendor_profiles_service_list_vendor_groups_internal_server_error_response_body",
+    "EntityVendorProfilesServiceListVendorGroupsMethodNotAllowedErrorResponseBody": ".entity_vendor_profiles_service_list_vendor_groups_method_not_allowed_error_response_body",
+    "EntityVendorProfilesServiceListVendorGroupsNotFoundErrorResponseBody": ".entity_vendor_profiles_service_list_vendor_groups_not_found_error_response_body",
+    "EntityVendorProfilesServiceListVendorGroupsNotImplementedErrorResponseBody": ".entity_vendor_profiles_service_list_vendor_groups_not_implemented_error_response_body",
+    "EntityVendorProfilesServiceListVendorGroupsResponseBody": ".entity_vendor_profiles_service_list_vendor_groups_response_body",
+    "EntityVendorProfilesServiceListVendorGroupsServiceUnavailableErrorResponseBody": ".entity_vendor_profiles_service_list_vendor_groups_service_unavailable_error_response_body",
+    "EntityVendorProfilesServiceListVendorGroupsTooManyRequestsErrorResponseBody": ".entity_vendor_profiles_service_list_vendor_groups_too_many_requests_error_response_body",
+    "EntityVendorProfilesServiceListVendorGroupsUnauthorizedErrorResponseBody": ".entity_vendor_profiles_service_list_vendor_groups_unauthorized_error_response_body",
+    "EntityVendorProfilesServiceUpdateVendorGroupBadGatewayErrorResponseBody": ".entity_vendor_profiles_service_update_vendor_group_bad_gateway_error_response_body",
+    "EntityVendorProfilesServiceUpdateVendorGroupContentTooLargeErrorResponseBody": ".entity_vendor_profiles_service_update_vendor_group_content_too_large_error_response_body",
+    "EntityVendorProfilesServiceUpdateVendorGroupGatewayTimeoutErrorResponseBody": ".entity_vendor_profiles_service_update_vendor_group_gateway_timeout_error_response_body",
+    "EntityVendorProfilesServiceUpdateVendorGroupInternalServerErrorResponseBody": ".entity_vendor_profiles_service_update_vendor_group_internal_server_error_response_body",
+    "EntityVendorProfilesServiceUpdateVendorGroupMethodNotAllowedErrorResponseBody": ".entity_vendor_profiles_service_update_vendor_group_method_not_allowed_error_response_body",
+    "EntityVendorProfilesServiceUpdateVendorGroupNotFoundErrorResponseBody": ".entity_vendor_profiles_service_update_vendor_group_not_found_error_response_body",
+    "EntityVendorProfilesServiceUpdateVendorGroupNotImplementedErrorResponseBody": ".entity_vendor_profiles_service_update_vendor_group_not_implemented_error_response_body",
+    "EntityVendorProfilesServiceUpdateVendorGroupResponseBody": ".entity_vendor_profiles_service_update_vendor_group_response_body",
+    "EntityVendorProfilesServiceUpdateVendorGroupServiceUnavailableErrorResponseBody": ".entity_vendor_profiles_service_update_vendor_group_service_unavailable_error_response_body",
+    "EntityVendorProfilesServiceUpdateVendorGroupTooManyRequestsErrorResponseBody": ".entity_vendor_profiles_service_update_vendor_group_too_many_requests_error_response_body",
+    "EntityVendorProfilesServiceUpdateVendorGroupUnauthorizedErrorResponseBody": ".entity_vendor_profiles_service_update_vendor_group_unauthorized_error_response_body",
+    "EntityVendorsServiceCreateVendorBadGatewayErrorResponseBody": ".entity_vendors_service_create_vendor_bad_gateway_error_response_body",
+    "EntityVendorsServiceCreateVendorContentTooLargeErrorResponseBody": ".entity_vendors_service_create_vendor_content_too_large_error_response_body",
+    "EntityVendorsServiceCreateVendorGatewayTimeoutErrorResponseBody": ".entity_vendors_service_create_vendor_gateway_timeout_error_response_body",
+    "EntityVendorsServiceCreateVendorInternalServerErrorResponseBody": ".entity_vendors_service_create_vendor_internal_server_error_response_body",
+    "EntityVendorsServiceCreateVendorMethodNotAllowedErrorResponseBody": ".entity_vendors_service_create_vendor_method_not_allowed_error_response_body",
+    "EntityVendorsServiceCreateVendorNotFoundErrorResponseBody": ".entity_vendors_service_create_vendor_not_found_error_response_body",
+    "EntityVendorsServiceCreateVendorNotImplementedErrorResponseBody": ".entity_vendors_service_create_vendor_not_implemented_error_response_body",
+    "EntityVendorsServiceCreateVendorResponseBody": ".entity_vendors_service_create_vendor_response_body",
+    "EntityVendorsServiceCreateVendorServiceUnavailableErrorResponseBody": ".entity_vendors_service_create_vendor_service_unavailable_error_response_body",
+    "EntityVendorsServiceCreateVendorTooManyRequestsErrorResponseBody": ".entity_vendors_service_create_vendor_too_many_requests_error_response_body",
+    "EntityVendorsServiceCreateVendorUnauthorizedErrorResponseBody": ".entity_vendors_service_create_vendor_unauthorized_error_response_body",
+    "EntityVendorsServiceDeleteVendorBadGatewayErrorResponseBody": ".entity_vendors_service_delete_vendor_bad_gateway_error_response_body",
+    "EntityVendorsServiceDeleteVendorContentTooLargeErrorResponseBody": ".entity_vendors_service_delete_vendor_content_too_large_error_response_body",
+    "EntityVendorsServiceDeleteVendorGatewayTimeoutErrorResponseBody": ".entity_vendors_service_delete_vendor_gateway_timeout_error_response_body",
+    "EntityVendorsServiceDeleteVendorInternalServerErrorResponseBody": ".entity_vendors_service_delete_vendor_internal_server_error_response_body",
+    "EntityVendorsServiceDeleteVendorMethodNotAllowedErrorResponseBody": ".entity_vendors_service_delete_vendor_method_not_allowed_error_response_body",
+    "EntityVendorsServiceDeleteVendorNotFoundErrorResponseBody": ".entity_vendors_service_delete_vendor_not_found_error_response_body",
+    "EntityVendorsServiceDeleteVendorNotImplementedErrorResponseBody": ".entity_vendors_service_delete_vendor_not_implemented_error_response_body",
+    "EntityVendorsServiceDeleteVendorServiceUnavailableErrorResponseBody": ".entity_vendors_service_delete_vendor_service_unavailable_error_response_body",
+    "EntityVendorsServiceDeleteVendorTooManyRequestsErrorResponseBody": ".entity_vendors_service_delete_vendor_too_many_requests_error_response_body",
+    "EntityVendorsServiceDeleteVendorUnauthorizedErrorResponseBody": ".entity_vendors_service_delete_vendor_unauthorized_error_response_body",
+    "EntityVendorsServiceUpdateVendorBadGatewayErrorResponseBody": ".entity_vendors_service_update_vendor_bad_gateway_error_response_body",
+    "EntityVendorsServiceUpdateVendorContentTooLargeErrorResponseBody": ".entity_vendors_service_update_vendor_content_too_large_error_response_body",
+    "EntityVendorsServiceUpdateVendorGatewayTimeoutErrorResponseBody": ".entity_vendors_service_update_vendor_gateway_timeout_error_response_body",
+    "EntityVendorsServiceUpdateVendorInternalServerErrorResponseBody": ".entity_vendors_service_update_vendor_internal_server_error_response_body",
+    "EntityVendorsServiceUpdateVendorMethodNotAllowedErrorResponseBody": ".entity_vendors_service_update_vendor_method_not_allowed_error_response_body",
+    "EntityVendorsServiceUpdateVendorNotFoundErrorResponseBody": ".entity_vendors_service_update_vendor_not_found_error_response_body",
+    "EntityVendorsServiceUpdateVendorNotImplementedErrorResponseBody": ".entity_vendors_service_update_vendor_not_implemented_error_response_body",
+    "EntityVendorsServiceUpdateVendorResponseBody": ".entity_vendors_service_update_vendor_response_body",
+    "EntityVendorsServiceUpdateVendorServiceUnavailableErrorResponseBody": ".entity_vendors_service_update_vendor_service_unavailable_error_response_body",
+    "EntityVendorsServiceUpdateVendorTooManyRequestsErrorResponseBody": ".entity_vendors_service_update_vendor_too_many_requests_error_response_body",
+    "EntityVendorsServiceUpdateVendorUnauthorizedErrorResponseBody": ".entity_vendors_service_update_vendor_unauthorized_error_response_body",
     "EntityWarrantiesServiceCreateWarrantyBadGatewayErrorResponseBody": ".entity_warranties_service_create_warranty_bad_gateway_error_response_body",
     "EntityWarrantiesServiceCreateWarrantyContentTooLargeErrorResponseBody": ".entity_warranties_service_create_warranty_content_too_large_error_response_body",
     "EntityWarrantiesServiceCreateWarrantyGatewayTimeoutErrorResponseBody": ".entity_warranties_service_create_warranty_gateway_timeout_error_response_body",
@@ -14428,7 +15137,13 @@ _dynamic_imports: typing.Dict[str, str] = {
     "ListUploadedMediaObjectResponseBody": ".list_uploaded_media_object_response_body",
     "ListUserRolesResponse": ".list_user_roles_response",
     "ListUsersResponse": ".list_users_response",
+    "ListVendorGroupsEntityVendorProfileVendorAssetAttributeSelectionTypeResponseBody": ".list_vendor_groups_entity_vendor_profile_vendor_asset_attribute_selection_type_response_body",
+    "ListVendorGroupsEntityVendorProfileVendorAssetAttributeValueTypeResponseBody": ".list_vendor_groups_entity_vendor_profile_vendor_asset_attribute_value_type_response_body",
+    "ListVendorGroupsEntityVendorProfileVendorGroupExternalIdTypeResponseBody": ".list_vendor_groups_entity_vendor_profile_vendor_group_external_id_type_response_body",
+    "ListVendorGroupsEntityVendorProfileVendorGroupPrimaryCorporateContactTypeResponseBody": ".list_vendor_groups_entity_vendor_profile_vendor_group_primary_corporate_contact_type_response_body",
+    "ListVendorGroupsEntityVendorProfileVendorHourlyMoneyTypeResponseBody": ".list_vendor_groups_entity_vendor_profile_vendor_hourly_money_type_response_body",
     "ListWarrantiesEntityWarrantyWarrantyCoverageItemTypeResponseBody": ".list_warranties_entity_warranty_warranty_coverage_item_type_response_body",
+    "ListWarrantiesEntityWarrantyWarrantyCoverageItemTypeResponseBodyItemType": ".list_warranties_entity_warranty_warranty_coverage_item_type_response_body_item_type",
     "ListWarrantiesEntityWarrantyWarrantyCoverageTypeResponseBody": ".list_warranties_entity_warranty_warranty_coverage_type_response_body",
     "ListWarrantiesEntityWarrantyWarrantyExternalIdTypeResponseBody": ".list_warranties_entity_warranty_warranty_external_id_type_response_body",
     "ListWarrantyClaimsEntityWarrantyClaimClaimReimbursementTypeResponseBody": ".list_warranty_claims_entity_warranty_claim_claim_reimbursement_type_response_body",
@@ -14437,6 +15152,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "ListWarrantyClaimsEntityWarrantyClaimWarrantyClaimLaborTypeResponseBody": ".list_warranty_claims_entity_warranty_claim_warranty_claim_labor_type_response_body",
     "ListWarrantyClaimsEntityWarrantyClaimWarrantyClaimPartTypeResponseBody": ".list_warranty_claims_entity_warranty_claim_warranty_claim_part_type_response_body",
     "ListWarrantyClaimsEntityWarrantyClaimWarrantyClaimStatusHistoryTypeResponseBody": ".list_warranty_claims_entity_warranty_claim_warranty_claim_status_history_type_response_body",
+    "ListWarrantyClaimsEntityWarrantyClaimWarrantyClaimStatusHistoryTypeResponseBodyStatus": ".list_warranty_claims_entity_warranty_claim_warranty_claim_status_history_type_response_body_status",
     "LiveSharingLinkFullResponseObjectResponseBody": ".live_sharing_link_full_response_object_response_body",
     "LiveSharingLinkFullResponseObjectResponseBodyType": ".live_sharing_link_full_response_object_response_body_type",
     "LiveSharingLinkResponseObjectResponseBody": ".live_sharing_link_response_object_response_body",
@@ -15667,6 +16383,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "Sensor": ".sensor",
     "SensorResponseBody": ".sensor_response_body",
     "Serial": ".serial",
+    "ServiceTaskAssigneeObjectResponseBody": ".service_task_assignee_object_response_body",
     "ServiceTaskDefinitionObjectResponseBody": ".service_task_definition_object_response_body",
     "ServiceTaskFormSubtaskObjectResponseBody": ".service_task_form_subtask_object_response_body",
     "ServiceTaskInstanceInputObjectRequestBody": ".service_task_instance_input_object_request_body",
@@ -15821,6 +16538,46 @@ _dynamic_imports: typing.Dict[str, str] = {
     "TaggedObjectId": ".tagged_object_id",
     "TaggedObjectName": ".tagged_object_name",
     "TamperingDetectedResponseBody": ".tampering_detected_response_body",
+    "TechnicianShiftObjectResponseBody": ".technician_shift_object_response_body",
+    "TechnicianShiftObjectResponseBodyClockInSource": ".technician_shift_object_response_body_clock_in_source",
+    "TechnicianShiftObjectResponseBodyClockOutSource": ".technician_shift_object_response_body_clock_out_source",
+    "TechnicianShiftObjectResponseBodyStatus": ".technician_shift_object_response_body_status",
+    "TechnicianShiftsCreateTechnicianShiftBadGatewayErrorResponseBody": ".technician_shifts_create_technician_shift_bad_gateway_error_response_body",
+    "TechnicianShiftsCreateTechnicianShiftConflictErrorResponseBody": ".technician_shifts_create_technician_shift_conflict_error_response_body",
+    "TechnicianShiftsCreateTechnicianShiftContentTooLargeErrorResponseBody": ".technician_shifts_create_technician_shift_content_too_large_error_response_body",
+    "TechnicianShiftsCreateTechnicianShiftGatewayTimeoutErrorResponseBody": ".technician_shifts_create_technician_shift_gateway_timeout_error_response_body",
+    "TechnicianShiftsCreateTechnicianShiftInternalServerErrorResponseBody": ".technician_shifts_create_technician_shift_internal_server_error_response_body",
+    "TechnicianShiftsCreateTechnicianShiftMethodNotAllowedErrorResponseBody": ".technician_shifts_create_technician_shift_method_not_allowed_error_response_body",
+    "TechnicianShiftsCreateTechnicianShiftNotFoundErrorResponseBody": ".technician_shifts_create_technician_shift_not_found_error_response_body",
+    "TechnicianShiftsCreateTechnicianShiftNotImplementedErrorResponseBody": ".technician_shifts_create_technician_shift_not_implemented_error_response_body",
+    "TechnicianShiftsCreateTechnicianShiftResponseBody": ".technician_shifts_create_technician_shift_response_body",
+    "TechnicianShiftsCreateTechnicianShiftServiceUnavailableErrorResponseBody": ".technician_shifts_create_technician_shift_service_unavailable_error_response_body",
+    "TechnicianShiftsCreateTechnicianShiftTooManyRequestsErrorResponseBody": ".technician_shifts_create_technician_shift_too_many_requests_error_response_body",
+    "TechnicianShiftsCreateTechnicianShiftUnauthorizedErrorResponseBody": ".technician_shifts_create_technician_shift_unauthorized_error_response_body",
+    "TechnicianShiftsListTechnicianShiftsBadGatewayErrorResponseBody": ".technician_shifts_list_technician_shifts_bad_gateway_error_response_body",
+    "TechnicianShiftsListTechnicianShiftsContentTooLargeErrorResponseBody": ".technician_shifts_list_technician_shifts_content_too_large_error_response_body",
+    "TechnicianShiftsListTechnicianShiftsGatewayTimeoutErrorResponseBody": ".technician_shifts_list_technician_shifts_gateway_timeout_error_response_body",
+    "TechnicianShiftsListTechnicianShiftsInternalServerErrorResponseBody": ".technician_shifts_list_technician_shifts_internal_server_error_response_body",
+    "TechnicianShiftsListTechnicianShiftsMethodNotAllowedErrorResponseBody": ".technician_shifts_list_technician_shifts_method_not_allowed_error_response_body",
+    "TechnicianShiftsListTechnicianShiftsNotFoundErrorResponseBody": ".technician_shifts_list_technician_shifts_not_found_error_response_body",
+    "TechnicianShiftsListTechnicianShiftsNotImplementedErrorResponseBody": ".technician_shifts_list_technician_shifts_not_implemented_error_response_body",
+    "TechnicianShiftsListTechnicianShiftsResponseBody": ".technician_shifts_list_technician_shifts_response_body",
+    "TechnicianShiftsListTechnicianShiftsServiceUnavailableErrorResponseBody": ".technician_shifts_list_technician_shifts_service_unavailable_error_response_body",
+    "TechnicianShiftsListTechnicianShiftsTooManyRequestsErrorResponseBody": ".technician_shifts_list_technician_shifts_too_many_requests_error_response_body",
+    "TechnicianShiftsListTechnicianShiftsUnauthorizedErrorResponseBody": ".technician_shifts_list_technician_shifts_unauthorized_error_response_body",
+    "TechnicianShiftsPaginationResponseBody": ".technician_shifts_pagination_response_body",
+    "TechnicianShiftsPatchTechnicianShiftBadGatewayErrorResponseBody": ".technician_shifts_patch_technician_shift_bad_gateway_error_response_body",
+    "TechnicianShiftsPatchTechnicianShiftConflictErrorResponseBody": ".technician_shifts_patch_technician_shift_conflict_error_response_body",
+    "TechnicianShiftsPatchTechnicianShiftContentTooLargeErrorResponseBody": ".technician_shifts_patch_technician_shift_content_too_large_error_response_body",
+    "TechnicianShiftsPatchTechnicianShiftGatewayTimeoutErrorResponseBody": ".technician_shifts_patch_technician_shift_gateway_timeout_error_response_body",
+    "TechnicianShiftsPatchTechnicianShiftInternalServerErrorResponseBody": ".technician_shifts_patch_technician_shift_internal_server_error_response_body",
+    "TechnicianShiftsPatchTechnicianShiftMethodNotAllowedErrorResponseBody": ".technician_shifts_patch_technician_shift_method_not_allowed_error_response_body",
+    "TechnicianShiftsPatchTechnicianShiftNotFoundErrorResponseBody": ".technician_shifts_patch_technician_shift_not_found_error_response_body",
+    "TechnicianShiftsPatchTechnicianShiftNotImplementedErrorResponseBody": ".technician_shifts_patch_technician_shift_not_implemented_error_response_body",
+    "TechnicianShiftsPatchTechnicianShiftResponseBody": ".technician_shifts_patch_technician_shift_response_body",
+    "TechnicianShiftsPatchTechnicianShiftServiceUnavailableErrorResponseBody": ".technician_shifts_patch_technician_shift_service_unavailable_error_response_body",
+    "TechnicianShiftsPatchTechnicianShiftTooManyRequestsErrorResponseBody": ".technician_shifts_patch_technician_shift_too_many_requests_error_response_body",
+    "TechnicianShiftsPatchTechnicianShiftUnauthorizedErrorResponseBody": ".technician_shifts_patch_technician_shift_unauthorized_error_response_body",
     "Time": ".time",
     "TimeRangeObjectRequestBody": ".time_range_object_request_body",
     "TimeRangeObjectRequestBodyDaysOfWeekItem": ".time_range_object_request_body_days_of_week_item",
@@ -16105,6 +16862,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "TripAssetResponseBodyType": ".trip_asset_response_body_type",
     "TripResponseBody": ".trip_response_body",
     "TripResponseBodyCompletionStatus": ".trip_response_body_completion_status",
+    "TripResponseBodyTripPurpose": ".trip_response_body_trip_purpose",
     "TripSpeedingIntervalsResponseBody": ".trip_speeding_intervals_response_body",
     "TripsGetTripsBadGatewayErrorResponseBody": ".trips_get_trips_bad_gateway_error_response_body",
     "TripsGetTripsContentTooLargeErrorResponseBody": ".trips_get_trips_content_too_large_error_response_body",
@@ -16154,6 +16912,26 @@ _dynamic_imports: typing.Dict[str, str] = {
     "UpdatePurchaseOrderEntityPurchaseOrderTaxAdjustmentTypeResponseBody": ".update_purchase_order_entity_purchase_order_tax_adjustment_type_response_body",
     "UpdateRoutesStopRequestObjectRequestBody": ".update_routes_stop_request_object_request_body",
     "UpdateSharedAssetRequestObjectRequestBody": ".update_shared_asset_request_object_request_body",
+    "UpdateVendorEntityVendorVendorAssetAttributeSelectionInputTypeRequestBody": ".update_vendor_entity_vendor_vendor_asset_attribute_selection_input_type_request_body",
+    "UpdateVendorEntityVendorVendorAssetAttributeSelectionTypeResponseBody": ".update_vendor_entity_vendor_vendor_asset_attribute_selection_type_response_body",
+    "UpdateVendorEntityVendorVendorAssetAttributeValueInputTypeRequestBody": ".update_vendor_entity_vendor_vendor_asset_attribute_value_input_type_request_body",
+    "UpdateVendorEntityVendorVendorAssetAttributeValueTypeResponseBody": ".update_vendor_entity_vendor_vendor_asset_attribute_value_type_response_body",
+    "UpdateVendorEntityVendorVendorContactInputTypeRequestBody": ".update_vendor_entity_vendor_vendor_contact_input_type_request_body",
+    "UpdateVendorEntityVendorVendorContactTypeResponseBody": ".update_vendor_entity_vendor_vendor_contact_type_response_body",
+    "UpdateVendorEntityVendorVendorExternalIdInputTypeRequestBody": ".update_vendor_entity_vendor_vendor_external_id_input_type_request_body",
+    "UpdateVendorEntityVendorVendorExternalIdTypeResponseBody": ".update_vendor_entity_vendor_vendor_external_id_type_response_body",
+    "UpdateVendorEntityVendorVendorHourlyMoneyInputTypeRequestBody": ".update_vendor_entity_vendor_vendor_hourly_money_input_type_request_body",
+    "UpdateVendorEntityVendorVendorHourlyMoneyTypeResponseBody": ".update_vendor_entity_vendor_vendor_hourly_money_type_response_body",
+    "UpdateVendorGroupEntityVendorProfileVendorAssetAttributeSelectionInputTypeRequestBody": ".update_vendor_group_entity_vendor_profile_vendor_asset_attribute_selection_input_type_request_body",
+    "UpdateVendorGroupEntityVendorProfileVendorAssetAttributeSelectionTypeResponseBody": ".update_vendor_group_entity_vendor_profile_vendor_asset_attribute_selection_type_response_body",
+    "UpdateVendorGroupEntityVendorProfileVendorAssetAttributeValueInputTypeRequestBody": ".update_vendor_group_entity_vendor_profile_vendor_asset_attribute_value_input_type_request_body",
+    "UpdateVendorGroupEntityVendorProfileVendorAssetAttributeValueTypeResponseBody": ".update_vendor_group_entity_vendor_profile_vendor_asset_attribute_value_type_response_body",
+    "UpdateVendorGroupEntityVendorProfileVendorGroupExternalIdInputTypeRequestBody": ".update_vendor_group_entity_vendor_profile_vendor_group_external_id_input_type_request_body",
+    "UpdateVendorGroupEntityVendorProfileVendorGroupExternalIdTypeResponseBody": ".update_vendor_group_entity_vendor_profile_vendor_group_external_id_type_response_body",
+    "UpdateVendorGroupEntityVendorProfileVendorGroupPrimaryCorporateContactInputTypeRequestBody": ".update_vendor_group_entity_vendor_profile_vendor_group_primary_corporate_contact_input_type_request_body",
+    "UpdateVendorGroupEntityVendorProfileVendorGroupPrimaryCorporateContactTypeResponseBody": ".update_vendor_group_entity_vendor_profile_vendor_group_primary_corporate_contact_type_response_body",
+    "UpdateVendorGroupEntityVendorProfileVendorHourlyMoneyInputTypeRequestBody": ".update_vendor_group_entity_vendor_profile_vendor_hourly_money_input_type_request_body",
+    "UpdateVendorGroupEntityVendorProfileVendorHourlyMoneyTypeResponseBody": ".update_vendor_group_entity_vendor_profile_vendor_hourly_money_type_response_body",
     "UpdateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody": ".update_warranty_claim_entity_warranty_claim_claim_reimbursement_input_type_request_body",
     "UpdateWarrantyClaimEntityWarrantyClaimClaimReimbursementTypeResponseBody": ".update_warranty_claim_entity_warranty_claim_claim_reimbursement_type_response_body",
     "UpdateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody": ".update_warranty_claim_entity_warranty_claim_money_input_type_request_body",
@@ -16165,9 +16943,12 @@ _dynamic_imports: typing.Dict[str, str] = {
     "UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody": ".update_warranty_claim_entity_warranty_claim_warranty_claim_part_input_type_request_body",
     "UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartTypeResponseBody": ".update_warranty_claim_entity_warranty_claim_warranty_claim_part_type_response_body",
     "UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimStatusHistoryTypeResponseBody": ".update_warranty_claim_entity_warranty_claim_warranty_claim_status_history_type_response_body",
+    "UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimStatusHistoryTypeResponseBodyStatus": ".update_warranty_claim_entity_warranty_claim_warranty_claim_status_history_type_response_body_status",
     "UpdateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody": ".update_warranty_entity_warranty_warranty_coverage_input_type_request_body",
     "UpdateWarrantyEntityWarrantyWarrantyCoverageItemInputTypeRequestBody": ".update_warranty_entity_warranty_warranty_coverage_item_input_type_request_body",
+    "UpdateWarrantyEntityWarrantyWarrantyCoverageItemInputTypeRequestBodyItemType": ".update_warranty_entity_warranty_warranty_coverage_item_input_type_request_body_item_type",
     "UpdateWarrantyEntityWarrantyWarrantyCoverageItemTypeResponseBody": ".update_warranty_entity_warranty_warranty_coverage_item_type_response_body",
+    "UpdateWarrantyEntityWarrantyWarrantyCoverageItemTypeResponseBodyItemType": ".update_warranty_entity_warranty_warranty_coverage_item_type_response_body_item_type",
     "UpdateWarrantyEntityWarrantyWarrantyCoverageTypeResponseBody": ".update_warranty_entity_warranty_warranty_coverage_type_response_body",
     "UpdateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody": ".update_warranty_entity_warranty_warranty_external_id_input_type_request_body",
     "UpdateWarrantyEntityWarrantyWarrantyExternalIdTypeResponseBody": ".update_warranty_entity_warranty_warranty_external_id_type_response_body",
@@ -16625,6 +17406,10 @@ _dynamic_imports: typing.Dict[str, str] = {
     "VehiclesLockUnlockVehicleUnauthorizedErrorResponseBody": ".vehicles_lock_unlock_vehicle_unauthorized_error_response_body",
     "VendorCategoryObjectResponseBody": ".vendor_category_object_response_body",
     "VendorObjectResponseBody": ".vendor_object_response_body",
+    "VendorPublicAttributeSelectionResponseBody": ".vendor_public_attribute_selection_response_body",
+    "VendorPublicAttributeValueResponseBody": ".vendor_public_attribute_value_response_body",
+    "VendorPublicMoneyResponseBody": ".vendor_public_money_response_body",
+    "VendorPublicResolvedSettingsResponseBody": ".vendor_public_resolved_settings_response_body",
     "VertexRequestBody": ".vertex_request_body",
     "VertexResponseBody": ".vertex_response_body",
     "VoiceCoachingSettingsObjectResponseBody": ".voice_coaching_settings_object_response_body",
@@ -16701,6 +17486,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "WebhooksPostWebhooksServiceUnavailableErrorResponseBody": ".webhooks_post_webhooks_service_unavailable_error_response_body",
     "WebhooksPostWebhooksTooManyRequestsErrorResponseBody": ".webhooks_post_webhooks_too_many_requests_error_response_body",
     "WebhooksPostWebhooksUnauthorizedErrorResponseBody": ".webhooks_post_webhooks_unauthorized_error_response_body",
+    "WorkOrderAssigneeObjectResponseBody": ".work_order_assignee_object_response_body",
     "WorkOrderAttachmentObjectResponseBody": ".work_order_attachment_object_response_body",
     "WorkOrderAttachmentObjectResponseBodyProcessingStatus": ".work_order_attachment_object_response_body_processing_status",
     "WorkOrderDiscountObjectRequestBody": ".work_order_discount_object_request_body",
@@ -17469,6 +18255,26 @@ __all__ = [
     "CreateStockMovementActionServiceCreateStockMovementUnauthorizedErrorResponseBody",
     "CreateStockMovementResponseObjectTypeResponseBody",
     "CreateUserRequestRoles",
+    "CreateVendorEntityVendorVendorAssetAttributeSelectionInputTypeRequestBody",
+    "CreateVendorEntityVendorVendorAssetAttributeSelectionTypeResponseBody",
+    "CreateVendorEntityVendorVendorAssetAttributeValueInputTypeRequestBody",
+    "CreateVendorEntityVendorVendorAssetAttributeValueTypeResponseBody",
+    "CreateVendorEntityVendorVendorContactInputTypeRequestBody",
+    "CreateVendorEntityVendorVendorContactTypeResponseBody",
+    "CreateVendorEntityVendorVendorExternalIdInputTypeRequestBody",
+    "CreateVendorEntityVendorVendorExternalIdTypeResponseBody",
+    "CreateVendorEntityVendorVendorHourlyMoneyInputTypeRequestBody",
+    "CreateVendorEntityVendorVendorHourlyMoneyTypeResponseBody",
+    "CreateVendorGroupEntityVendorProfileVendorAssetAttributeSelectionInputTypeRequestBody",
+    "CreateVendorGroupEntityVendorProfileVendorAssetAttributeSelectionTypeResponseBody",
+    "CreateVendorGroupEntityVendorProfileVendorAssetAttributeValueInputTypeRequestBody",
+    "CreateVendorGroupEntityVendorProfileVendorAssetAttributeValueTypeResponseBody",
+    "CreateVendorGroupEntityVendorProfileVendorGroupExternalIdInputTypeRequestBody",
+    "CreateVendorGroupEntityVendorProfileVendorGroupExternalIdTypeResponseBody",
+    "CreateVendorGroupEntityVendorProfileVendorGroupPrimaryCorporateContactInputTypeRequestBody",
+    "CreateVendorGroupEntityVendorProfileVendorGroupPrimaryCorporateContactTypeResponseBody",
+    "CreateVendorGroupEntityVendorProfileVendorHourlyMoneyInputTypeRequestBody",
+    "CreateVendorGroupEntityVendorProfileVendorHourlyMoneyTypeResponseBody",
     "CreateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody",
     "CreateWarrantyClaimEntityWarrantyClaimClaimReimbursementTypeResponseBody",
     "CreateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody",
@@ -17480,9 +18286,12 @@ __all__ = [
     "CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody",
     "CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartTypeResponseBody",
     "CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimStatusHistoryTypeResponseBody",
+    "CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimStatusHistoryTypeResponseBodyStatus",
     "CreateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody",
     "CreateWarrantyEntityWarrantyWarrantyCoverageItemInputTypeRequestBody",
+    "CreateWarrantyEntityWarrantyWarrantyCoverageItemInputTypeRequestBodyItemType",
     "CreateWarrantyEntityWarrantyWarrantyCoverageItemTypeResponseBody",
+    "CreateWarrantyEntityWarrantyWarrantyCoverageItemTypeResponseBodyItemType",
     "CreateWarrantyEntityWarrantyWarrantyCoverageTypeResponseBody",
     "CreateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody",
     "CreateWarrantyEntityWarrantyWarrantyExternalIdTypeResponseBody",
@@ -18085,7 +18894,11 @@ __all__ = [
     "EntityCreatePartInventoryLocationPartDefinitionRefTypeResponseBody",
     "EntityCreatePartInventoryLocationPlaceRefTypeResponseBody",
     "EntityCreatePartInventoryLocationTypeResponseBody",
+    "EntityCreatePartInventoryLocationTypeResponseBodyUnitOfMeasureType",
     "EntityCreatePartTypeResponseBody",
+    "EntityCreatePartTypeResponseBodyPartStatus",
+    "EntityCreatePartTypeResponseBodyUnitOfMeasureType",
+    "EntityCreatePartVendorRefTypeResponseBody",
     "EntityCreatePurchaseOrderPartDefinitionRefTypeResponseBody",
     "EntityCreatePurchaseOrderPlaceRefTypeResponseBody",
     "EntityCreatePurchaseOrderTypeResponseBody",
@@ -18096,11 +18909,18 @@ __all__ = [
     "EntityCreateStockMovementMoneyInputTypeRequestBody",
     "EntityCreateStockMovementMoneyTypeResponseBody",
     "EntityCreateStockMovementStockMovementLocationTypeResponseBody",
+    "EntityCreateVendorGroupTypeResponseBody",
+    "EntityCreateVendorGroupTypeResponseBodyStatus",
+    "EntityCreateVendorPlaceRefTypeResponseBody",
+    "EntityCreateVendorTypeResponseBody",
+    "EntityCreateVendorTypeResponseBodyStatus",
     "EntityCreateWarrantyClaimAssetRefTypeResponseBody",
     "EntityCreateWarrantyClaimTypeResponseBody",
+    "EntityCreateWarrantyClaimTypeResponseBodyClaimStatus",
     "EntityCreateWarrantyClaimVendorRefTypeResponseBody",
     "EntityCreateWarrantyClaimWarrantyRefTypeResponseBody",
     "EntityCreateWarrantyTypeResponseBody",
+    "EntityCreateWarrantyTypeResponseBodyWarrantyType",
     "EntityCreateWarrantyVendorRefTypeResponseBody",
     "EntityCreateWatchpointTypeResponseBody",
     "EntityCreateWatchpointTypeResponseBodyMode",
@@ -18140,16 +18960,22 @@ __all__ = [
     "EntityInventoryTransactionsServiceListPartTransactionsTooManyRequestsErrorResponseBody",
     "EntityInventoryTransactionsServiceListPartTransactionsUnauthorizedErrorResponseBody",
     "EntityListIssuesTypeResponseBody",
+    "EntityListIssuesTypeResponseBodyType",
     "EntityListMaintenanceSitesPlaceRefTypeResponseBody",
     "EntityListMaintenanceSitesTypeResponseBody",
     "EntityListMaintenanceSitesTypeResponseBodySiteType",
     "EntityListPartInventoryPartDefinitionRefTypeResponseBody",
     "EntityListPartInventoryPlaceRefTypeResponseBody",
     "EntityListPartInventoryTypeResponseBody",
+    "EntityListPartInventoryTypeResponseBodyUnitOfMeasureType",
     "EntityListPartTransactionsPartDefinitionRefTypeResponseBody",
     "EntityListPartTransactionsTypeResponseBody",
+    "EntityListPartTransactionsTypeResponseBodyTransactionType",
     "EntityListPartTransactionsWorkOrderRefTypeResponseBody",
     "EntityListPartsTypeResponseBody",
+    "EntityListPartsTypeResponseBodyPartStatus",
+    "EntityListPartsTypeResponseBodyUnitOfMeasureType",
+    "EntityListPartsVendorRefTypeResponseBody",
     "EntityListPreventiveMaintenanceSchedulesPreventativeMaintenanceScheduleRefTypeResponseBody",
     "EntityListPreventiveMaintenanceSchedulesTypeResponseBody",
     "EntityListPurchaseOrdersPartDefinitionRefTypeResponseBody",
@@ -18161,17 +18987,27 @@ __all__ = [
     "EntityListPurchaseOrdersVendorRefTypeResponseBody",
     "EntityListTachographLiveDataTypeResponseBody",
     "EntityListTimeEntriesTypeResponseBody",
+    "EntityListTimeEntriesTypeResponseBodyActivityType",
+    "EntityListTimeEntriesTypeResponseBodyClockInSource",
+    "EntityListTimeEntriesTypeResponseBodyClockOutMethodType",
+    "EntityListTimeEntriesTypeResponseBodyClockOutSource",
+    "EntityListTimeEntriesTypeResponseBodyTimeEntryStatus",
     "EntityListUpcomingPreventiveMaintenanceAssetRefTypeResponseBody",
     "EntityListUpcomingPreventiveMaintenancePreventativeMaintenanceScheduleRefTypeResponseBody",
     "EntityListUpcomingPreventiveMaintenanceTypeResponseBody",
+    "EntityListUpcomingPreventiveMaintenanceTypeResponseBodyStatus",
     "EntityListUpcomingPreventiveMaintenanceWorkOrderRefTypeResponseBody",
+    "EntityListVendorGroupsTypeResponseBody",
+    "EntityListVendorGroupsTypeResponseBodyStatus",
     "EntityListWarrantiesTypeResponseBody",
+    "EntityListWarrantiesTypeResponseBodyWarrantyType",
     "EntityListWarrantiesVendorRefTypeResponseBody",
     "EntityListWarrantyAssetAssignmentsAssetRefTypeResponseBody",
     "EntityListWarrantyAssetAssignmentsTypeResponseBody",
     "EntityListWarrantyAssetAssignmentsWarrantyRefTypeResponseBody",
     "EntityListWarrantyClaimsAssetRefTypeResponseBody",
     "EntityListWarrantyClaimsTypeResponseBody",
+    "EntityListWarrantyClaimsTypeResponseBodyClaimStatus",
     "EntityListWarrantyClaimsVendorRefTypeResponseBody",
     "EntityListWarrantyClaimsWarrantyRefTypeResponseBody",
     "EntityMaintenanceSitesServiceCreateMaintenanceSiteBadGatewayErrorResponseBody",
@@ -18389,7 +19225,11 @@ __all__ = [
     "EntityUpdatePartInventoryLocationPartDefinitionRefTypeResponseBody",
     "EntityUpdatePartInventoryLocationPlaceRefTypeResponseBody",
     "EntityUpdatePartInventoryLocationTypeResponseBody",
+    "EntityUpdatePartInventoryLocationTypeResponseBodyUnitOfMeasureType",
     "EntityUpdatePartTypeResponseBody",
+    "EntityUpdatePartTypeResponseBodyPartStatus",
+    "EntityUpdatePartTypeResponseBodyUnitOfMeasureType",
+    "EntityUpdatePartVendorRefTypeResponseBody",
     "EntityUpdatePurchaseOrderPartDefinitionRefTypeResponseBody",
     "EntityUpdatePurchaseOrderPlaceRefTypeResponseBody",
     "EntityUpdatePurchaseOrderTypeResponseBody",
@@ -18400,17 +19240,100 @@ __all__ = [
     "EntityUpdateUpcomingPreventiveMaintenanceAssetRefTypeResponseBody",
     "EntityUpdateUpcomingPreventiveMaintenancePreventativeMaintenanceScheduleRefTypeResponseBody",
     "EntityUpdateUpcomingPreventiveMaintenanceTypeResponseBody",
+    "EntityUpdateUpcomingPreventiveMaintenanceTypeResponseBodyStatus",
     "EntityUpdateUpcomingPreventiveMaintenanceWorkOrderRefTypeResponseBody",
+    "EntityUpdateVendorGroupTypeResponseBody",
+    "EntityUpdateVendorGroupTypeResponseBodyStatus",
+    "EntityUpdateVendorPlaceRefTypeResponseBody",
+    "EntityUpdateVendorTypeResponseBody",
+    "EntityUpdateVendorTypeResponseBodyStatus",
     "EntityUpdateWarrantyClaimAssetRefTypeResponseBody",
     "EntityUpdateWarrantyClaimTypeResponseBody",
+    "EntityUpdateWarrantyClaimTypeResponseBodyClaimStatus",
     "EntityUpdateWarrantyClaimVendorRefTypeResponseBody",
     "EntityUpdateWarrantyClaimWarrantyRefTypeResponseBody",
     "EntityUpdateWarrantyTypeResponseBody",
+    "EntityUpdateWarrantyTypeResponseBodyWarrantyType",
     "EntityUpdateWarrantyVendorRefTypeResponseBody",
     "EntityUpdateWatchpointTypeResponseBody",
     "EntityUpdateWatchpointTypeResponseBodyMode",
     "EntityUpdateWatchpointTypeResponseBodyObservationType",
     "EntityUpdateWatchpointTypeResponseBodyStatus",
+    "EntityVendorProfilesServiceCreateVendorGroupBadGatewayErrorResponseBody",
+    "EntityVendorProfilesServiceCreateVendorGroupContentTooLargeErrorResponseBody",
+    "EntityVendorProfilesServiceCreateVendorGroupGatewayTimeoutErrorResponseBody",
+    "EntityVendorProfilesServiceCreateVendorGroupInternalServerErrorResponseBody",
+    "EntityVendorProfilesServiceCreateVendorGroupMethodNotAllowedErrorResponseBody",
+    "EntityVendorProfilesServiceCreateVendorGroupNotFoundErrorResponseBody",
+    "EntityVendorProfilesServiceCreateVendorGroupNotImplementedErrorResponseBody",
+    "EntityVendorProfilesServiceCreateVendorGroupResponseBody",
+    "EntityVendorProfilesServiceCreateVendorGroupServiceUnavailableErrorResponseBody",
+    "EntityVendorProfilesServiceCreateVendorGroupTooManyRequestsErrorResponseBody",
+    "EntityVendorProfilesServiceCreateVendorGroupUnauthorizedErrorResponseBody",
+    "EntityVendorProfilesServiceDeleteVendorGroupBadGatewayErrorResponseBody",
+    "EntityVendorProfilesServiceDeleteVendorGroupContentTooLargeErrorResponseBody",
+    "EntityVendorProfilesServiceDeleteVendorGroupGatewayTimeoutErrorResponseBody",
+    "EntityVendorProfilesServiceDeleteVendorGroupInternalServerErrorResponseBody",
+    "EntityVendorProfilesServiceDeleteVendorGroupMethodNotAllowedErrorResponseBody",
+    "EntityVendorProfilesServiceDeleteVendorGroupNotFoundErrorResponseBody",
+    "EntityVendorProfilesServiceDeleteVendorGroupNotImplementedErrorResponseBody",
+    "EntityVendorProfilesServiceDeleteVendorGroupServiceUnavailableErrorResponseBody",
+    "EntityVendorProfilesServiceDeleteVendorGroupTooManyRequestsErrorResponseBody",
+    "EntityVendorProfilesServiceDeleteVendorGroupUnauthorizedErrorResponseBody",
+    "EntityVendorProfilesServiceListVendorGroupsBadGatewayErrorResponseBody",
+    "EntityVendorProfilesServiceListVendorGroupsContentTooLargeErrorResponseBody",
+    "EntityVendorProfilesServiceListVendorGroupsGatewayTimeoutErrorResponseBody",
+    "EntityVendorProfilesServiceListVendorGroupsInternalServerErrorResponseBody",
+    "EntityVendorProfilesServiceListVendorGroupsMethodNotAllowedErrorResponseBody",
+    "EntityVendorProfilesServiceListVendorGroupsNotFoundErrorResponseBody",
+    "EntityVendorProfilesServiceListVendorGroupsNotImplementedErrorResponseBody",
+    "EntityVendorProfilesServiceListVendorGroupsResponseBody",
+    "EntityVendorProfilesServiceListVendorGroupsServiceUnavailableErrorResponseBody",
+    "EntityVendorProfilesServiceListVendorGroupsTooManyRequestsErrorResponseBody",
+    "EntityVendorProfilesServiceListVendorGroupsUnauthorizedErrorResponseBody",
+    "EntityVendorProfilesServiceUpdateVendorGroupBadGatewayErrorResponseBody",
+    "EntityVendorProfilesServiceUpdateVendorGroupContentTooLargeErrorResponseBody",
+    "EntityVendorProfilesServiceUpdateVendorGroupGatewayTimeoutErrorResponseBody",
+    "EntityVendorProfilesServiceUpdateVendorGroupInternalServerErrorResponseBody",
+    "EntityVendorProfilesServiceUpdateVendorGroupMethodNotAllowedErrorResponseBody",
+    "EntityVendorProfilesServiceUpdateVendorGroupNotFoundErrorResponseBody",
+    "EntityVendorProfilesServiceUpdateVendorGroupNotImplementedErrorResponseBody",
+    "EntityVendorProfilesServiceUpdateVendorGroupResponseBody",
+    "EntityVendorProfilesServiceUpdateVendorGroupServiceUnavailableErrorResponseBody",
+    "EntityVendorProfilesServiceUpdateVendorGroupTooManyRequestsErrorResponseBody",
+    "EntityVendorProfilesServiceUpdateVendorGroupUnauthorizedErrorResponseBody",
+    "EntityVendorsServiceCreateVendorBadGatewayErrorResponseBody",
+    "EntityVendorsServiceCreateVendorContentTooLargeErrorResponseBody",
+    "EntityVendorsServiceCreateVendorGatewayTimeoutErrorResponseBody",
+    "EntityVendorsServiceCreateVendorInternalServerErrorResponseBody",
+    "EntityVendorsServiceCreateVendorMethodNotAllowedErrorResponseBody",
+    "EntityVendorsServiceCreateVendorNotFoundErrorResponseBody",
+    "EntityVendorsServiceCreateVendorNotImplementedErrorResponseBody",
+    "EntityVendorsServiceCreateVendorResponseBody",
+    "EntityVendorsServiceCreateVendorServiceUnavailableErrorResponseBody",
+    "EntityVendorsServiceCreateVendorTooManyRequestsErrorResponseBody",
+    "EntityVendorsServiceCreateVendorUnauthorizedErrorResponseBody",
+    "EntityVendorsServiceDeleteVendorBadGatewayErrorResponseBody",
+    "EntityVendorsServiceDeleteVendorContentTooLargeErrorResponseBody",
+    "EntityVendorsServiceDeleteVendorGatewayTimeoutErrorResponseBody",
+    "EntityVendorsServiceDeleteVendorInternalServerErrorResponseBody",
+    "EntityVendorsServiceDeleteVendorMethodNotAllowedErrorResponseBody",
+    "EntityVendorsServiceDeleteVendorNotFoundErrorResponseBody",
+    "EntityVendorsServiceDeleteVendorNotImplementedErrorResponseBody",
+    "EntityVendorsServiceDeleteVendorServiceUnavailableErrorResponseBody",
+    "EntityVendorsServiceDeleteVendorTooManyRequestsErrorResponseBody",
+    "EntityVendorsServiceDeleteVendorUnauthorizedErrorResponseBody",
+    "EntityVendorsServiceUpdateVendorBadGatewayErrorResponseBody",
+    "EntityVendorsServiceUpdateVendorContentTooLargeErrorResponseBody",
+    "EntityVendorsServiceUpdateVendorGatewayTimeoutErrorResponseBody",
+    "EntityVendorsServiceUpdateVendorInternalServerErrorResponseBody",
+    "EntityVendorsServiceUpdateVendorMethodNotAllowedErrorResponseBody",
+    "EntityVendorsServiceUpdateVendorNotFoundErrorResponseBody",
+    "EntityVendorsServiceUpdateVendorNotImplementedErrorResponseBody",
+    "EntityVendorsServiceUpdateVendorResponseBody",
+    "EntityVendorsServiceUpdateVendorServiceUnavailableErrorResponseBody",
+    "EntityVendorsServiceUpdateVendorTooManyRequestsErrorResponseBody",
+    "EntityVendorsServiceUpdateVendorUnauthorizedErrorResponseBody",
     "EntityWarrantiesServiceCreateWarrantyBadGatewayErrorResponseBody",
     "EntityWarrantiesServiceCreateWarrantyContentTooLargeErrorResponseBody",
     "EntityWarrantiesServiceCreateWarrantyGatewayTimeoutErrorResponseBody",
@@ -19668,7 +20591,13 @@ __all__ = [
     "ListUploadedMediaObjectResponseBody",
     "ListUserRolesResponse",
     "ListUsersResponse",
+    "ListVendorGroupsEntityVendorProfileVendorAssetAttributeSelectionTypeResponseBody",
+    "ListVendorGroupsEntityVendorProfileVendorAssetAttributeValueTypeResponseBody",
+    "ListVendorGroupsEntityVendorProfileVendorGroupExternalIdTypeResponseBody",
+    "ListVendorGroupsEntityVendorProfileVendorGroupPrimaryCorporateContactTypeResponseBody",
+    "ListVendorGroupsEntityVendorProfileVendorHourlyMoneyTypeResponseBody",
     "ListWarrantiesEntityWarrantyWarrantyCoverageItemTypeResponseBody",
+    "ListWarrantiesEntityWarrantyWarrantyCoverageItemTypeResponseBodyItemType",
     "ListWarrantiesEntityWarrantyWarrantyCoverageTypeResponseBody",
     "ListWarrantiesEntityWarrantyWarrantyExternalIdTypeResponseBody",
     "ListWarrantyClaimsEntityWarrantyClaimClaimReimbursementTypeResponseBody",
@@ -19677,6 +20606,7 @@ __all__ = [
     "ListWarrantyClaimsEntityWarrantyClaimWarrantyClaimLaborTypeResponseBody",
     "ListWarrantyClaimsEntityWarrantyClaimWarrantyClaimPartTypeResponseBody",
     "ListWarrantyClaimsEntityWarrantyClaimWarrantyClaimStatusHistoryTypeResponseBody",
+    "ListWarrantyClaimsEntityWarrantyClaimWarrantyClaimStatusHistoryTypeResponseBodyStatus",
     "LiveSharingLinkFullResponseObjectResponseBody",
     "LiveSharingLinkFullResponseObjectResponseBodyType",
     "LiveSharingLinkResponseObjectResponseBody",
@@ -20907,6 +21837,7 @@ __all__ = [
     "Sensor",
     "SensorResponseBody",
     "Serial",
+    "ServiceTaskAssigneeObjectResponseBody",
     "ServiceTaskDefinitionObjectResponseBody",
     "ServiceTaskFormSubtaskObjectResponseBody",
     "ServiceTaskInstanceInputObjectRequestBody",
@@ -21061,6 +21992,46 @@ __all__ = [
     "TaggedObjectId",
     "TaggedObjectName",
     "TamperingDetectedResponseBody",
+    "TechnicianShiftObjectResponseBody",
+    "TechnicianShiftObjectResponseBodyClockInSource",
+    "TechnicianShiftObjectResponseBodyClockOutSource",
+    "TechnicianShiftObjectResponseBodyStatus",
+    "TechnicianShiftsCreateTechnicianShiftBadGatewayErrorResponseBody",
+    "TechnicianShiftsCreateTechnicianShiftConflictErrorResponseBody",
+    "TechnicianShiftsCreateTechnicianShiftContentTooLargeErrorResponseBody",
+    "TechnicianShiftsCreateTechnicianShiftGatewayTimeoutErrorResponseBody",
+    "TechnicianShiftsCreateTechnicianShiftInternalServerErrorResponseBody",
+    "TechnicianShiftsCreateTechnicianShiftMethodNotAllowedErrorResponseBody",
+    "TechnicianShiftsCreateTechnicianShiftNotFoundErrorResponseBody",
+    "TechnicianShiftsCreateTechnicianShiftNotImplementedErrorResponseBody",
+    "TechnicianShiftsCreateTechnicianShiftResponseBody",
+    "TechnicianShiftsCreateTechnicianShiftServiceUnavailableErrorResponseBody",
+    "TechnicianShiftsCreateTechnicianShiftTooManyRequestsErrorResponseBody",
+    "TechnicianShiftsCreateTechnicianShiftUnauthorizedErrorResponseBody",
+    "TechnicianShiftsListTechnicianShiftsBadGatewayErrorResponseBody",
+    "TechnicianShiftsListTechnicianShiftsContentTooLargeErrorResponseBody",
+    "TechnicianShiftsListTechnicianShiftsGatewayTimeoutErrorResponseBody",
+    "TechnicianShiftsListTechnicianShiftsInternalServerErrorResponseBody",
+    "TechnicianShiftsListTechnicianShiftsMethodNotAllowedErrorResponseBody",
+    "TechnicianShiftsListTechnicianShiftsNotFoundErrorResponseBody",
+    "TechnicianShiftsListTechnicianShiftsNotImplementedErrorResponseBody",
+    "TechnicianShiftsListTechnicianShiftsResponseBody",
+    "TechnicianShiftsListTechnicianShiftsServiceUnavailableErrorResponseBody",
+    "TechnicianShiftsListTechnicianShiftsTooManyRequestsErrorResponseBody",
+    "TechnicianShiftsListTechnicianShiftsUnauthorizedErrorResponseBody",
+    "TechnicianShiftsPaginationResponseBody",
+    "TechnicianShiftsPatchTechnicianShiftBadGatewayErrorResponseBody",
+    "TechnicianShiftsPatchTechnicianShiftConflictErrorResponseBody",
+    "TechnicianShiftsPatchTechnicianShiftContentTooLargeErrorResponseBody",
+    "TechnicianShiftsPatchTechnicianShiftGatewayTimeoutErrorResponseBody",
+    "TechnicianShiftsPatchTechnicianShiftInternalServerErrorResponseBody",
+    "TechnicianShiftsPatchTechnicianShiftMethodNotAllowedErrorResponseBody",
+    "TechnicianShiftsPatchTechnicianShiftNotFoundErrorResponseBody",
+    "TechnicianShiftsPatchTechnicianShiftNotImplementedErrorResponseBody",
+    "TechnicianShiftsPatchTechnicianShiftResponseBody",
+    "TechnicianShiftsPatchTechnicianShiftServiceUnavailableErrorResponseBody",
+    "TechnicianShiftsPatchTechnicianShiftTooManyRequestsErrorResponseBody",
+    "TechnicianShiftsPatchTechnicianShiftUnauthorizedErrorResponseBody",
     "Time",
     "TimeRangeObjectRequestBody",
     "TimeRangeObjectRequestBodyDaysOfWeekItem",
@@ -21345,6 +22316,7 @@ __all__ = [
     "TripAssetResponseBodyType",
     "TripResponseBody",
     "TripResponseBodyCompletionStatus",
+    "TripResponseBodyTripPurpose",
     "TripSpeedingIntervalsResponseBody",
     "TripsGetTripsBadGatewayErrorResponseBody",
     "TripsGetTripsContentTooLargeErrorResponseBody",
@@ -21394,6 +22366,26 @@ __all__ = [
     "UpdatePurchaseOrderEntityPurchaseOrderTaxAdjustmentTypeResponseBody",
     "UpdateRoutesStopRequestObjectRequestBody",
     "UpdateSharedAssetRequestObjectRequestBody",
+    "UpdateVendorEntityVendorVendorAssetAttributeSelectionInputTypeRequestBody",
+    "UpdateVendorEntityVendorVendorAssetAttributeSelectionTypeResponseBody",
+    "UpdateVendorEntityVendorVendorAssetAttributeValueInputTypeRequestBody",
+    "UpdateVendorEntityVendorVendorAssetAttributeValueTypeResponseBody",
+    "UpdateVendorEntityVendorVendorContactInputTypeRequestBody",
+    "UpdateVendorEntityVendorVendorContactTypeResponseBody",
+    "UpdateVendorEntityVendorVendorExternalIdInputTypeRequestBody",
+    "UpdateVendorEntityVendorVendorExternalIdTypeResponseBody",
+    "UpdateVendorEntityVendorVendorHourlyMoneyInputTypeRequestBody",
+    "UpdateVendorEntityVendorVendorHourlyMoneyTypeResponseBody",
+    "UpdateVendorGroupEntityVendorProfileVendorAssetAttributeSelectionInputTypeRequestBody",
+    "UpdateVendorGroupEntityVendorProfileVendorAssetAttributeSelectionTypeResponseBody",
+    "UpdateVendorGroupEntityVendorProfileVendorAssetAttributeValueInputTypeRequestBody",
+    "UpdateVendorGroupEntityVendorProfileVendorAssetAttributeValueTypeResponseBody",
+    "UpdateVendorGroupEntityVendorProfileVendorGroupExternalIdInputTypeRequestBody",
+    "UpdateVendorGroupEntityVendorProfileVendorGroupExternalIdTypeResponseBody",
+    "UpdateVendorGroupEntityVendorProfileVendorGroupPrimaryCorporateContactInputTypeRequestBody",
+    "UpdateVendorGroupEntityVendorProfileVendorGroupPrimaryCorporateContactTypeResponseBody",
+    "UpdateVendorGroupEntityVendorProfileVendorHourlyMoneyInputTypeRequestBody",
+    "UpdateVendorGroupEntityVendorProfileVendorHourlyMoneyTypeResponseBody",
     "UpdateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody",
     "UpdateWarrantyClaimEntityWarrantyClaimClaimReimbursementTypeResponseBody",
     "UpdateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody",
@@ -21405,9 +22397,12 @@ __all__ = [
     "UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody",
     "UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartTypeResponseBody",
     "UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimStatusHistoryTypeResponseBody",
+    "UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimStatusHistoryTypeResponseBodyStatus",
     "UpdateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody",
     "UpdateWarrantyEntityWarrantyWarrantyCoverageItemInputTypeRequestBody",
+    "UpdateWarrantyEntityWarrantyWarrantyCoverageItemInputTypeRequestBodyItemType",
     "UpdateWarrantyEntityWarrantyWarrantyCoverageItemTypeResponseBody",
+    "UpdateWarrantyEntityWarrantyWarrantyCoverageItemTypeResponseBodyItemType",
     "UpdateWarrantyEntityWarrantyWarrantyCoverageTypeResponseBody",
     "UpdateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody",
     "UpdateWarrantyEntityWarrantyWarrantyExternalIdTypeResponseBody",
@@ -21865,6 +22860,10 @@ __all__ = [
     "VehiclesLockUnlockVehicleUnauthorizedErrorResponseBody",
     "VendorCategoryObjectResponseBody",
     "VendorObjectResponseBody",
+    "VendorPublicAttributeSelectionResponseBody",
+    "VendorPublicAttributeValueResponseBody",
+    "VendorPublicMoneyResponseBody",
+    "VendorPublicResolvedSettingsResponseBody",
     "VertexRequestBody",
     "VertexResponseBody",
     "VoiceCoachingSettingsObjectResponseBody",
@@ -21941,6 +22940,7 @@ __all__ = [
     "WebhooksPostWebhooksServiceUnavailableErrorResponseBody",
     "WebhooksPostWebhooksTooManyRequestsErrorResponseBody",
     "WebhooksPostWebhooksUnauthorizedErrorResponseBody",
+    "WorkOrderAssigneeObjectResponseBody",
     "WorkOrderAttachmentObjectResponseBody",
     "WorkOrderAttachmentObjectResponseBodyProcessingStatus",
     "WorkOrderDiscountObjectRequestBody",

@@ -8,9 +8,25 @@ from importlib import import_module
 if typing.TYPE_CHECKING:
     from .create_dvir_request_safety_status import CreateDvirRequestSafetyStatus
     from .create_dvir_request_type import CreateDvirRequestType
+    from .entity_warranties_service_create_warranty_request_body_warranty_type import (
+        EntityWarrantiesServiceCreateWarrantyRequestBodyWarrantyType,
+    )
+    from .entity_warranties_service_update_warranty_request_body_warranty_type import (
+        EntityWarrantiesServiceUpdateWarrantyRequestBodyWarrantyType,
+    )
+    from .entity_warranty_claims_service_create_warranty_claim_request_body_claim_status import (
+        EntityWarrantyClaimsServiceCreateWarrantyClaimRequestBodyClaimStatus,
+    )
+    from .entity_warranty_claims_service_update_warranty_claim_request_body_claim_status import (
+        EntityWarrantyClaimsServiceUpdateWarrantyClaimRequestBodyClaimStatus,
+    )
 _dynamic_imports: typing.Dict[str, str] = {
     "CreateDvirRequestSafetyStatus": ".create_dvir_request_safety_status",
     "CreateDvirRequestType": ".create_dvir_request_type",
+    "EntityWarrantiesServiceCreateWarrantyRequestBodyWarrantyType": ".entity_warranties_service_create_warranty_request_body_warranty_type",
+    "EntityWarrantiesServiceUpdateWarrantyRequestBodyWarrantyType": ".entity_warranties_service_update_warranty_request_body_warranty_type",
+    "EntityWarrantyClaimsServiceCreateWarrantyClaimRequestBodyClaimStatus": ".entity_warranty_claims_service_create_warranty_claim_request_body_claim_status",
+    "EntityWarrantyClaimsServiceUpdateWarrantyClaimRequestBodyClaimStatus": ".entity_warranty_claims_service_update_warranty_claim_request_body_claim_status",
 }
 
 
@@ -35,4 +51,11 @@ def __dir__():
     return sorted(lazy_attrs)
 
 
-__all__ = ["CreateDvirRequestSafetyStatus", "CreateDvirRequestType"]
+__all__ = [
+    "CreateDvirRequestSafetyStatus",
+    "CreateDvirRequestType",
+    "EntityWarrantiesServiceCreateWarrantyRequestBodyWarrantyType",
+    "EntityWarrantiesServiceUpdateWarrantyRequestBodyWarrantyType",
+    "EntityWarrantyClaimsServiceCreateWarrantyClaimRequestBodyClaimStatus",
+    "EntityWarrantyClaimsServiceUpdateWarrantyClaimRequestBodyClaimStatus",
+]

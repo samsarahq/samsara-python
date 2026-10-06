@@ -6,6 +6,7 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .entity_list_warranties_type_response_body_warranty_type import EntityListWarrantiesTypeResponseBodyWarrantyType
 from .entity_list_warranties_vendor_ref_type_response_body import EntityListWarrantiesVendorRefTypeResponseBody
 from .list_warranties_entity_warranty_warranty_coverage_type_response_body import (
     ListWarrantiesEntityWarrantyWarrantyCoverageTypeResponseBody,
@@ -96,10 +97,11 @@ class EntityListWarrantiesTypeResponseBody(UniversalBaseModel):
     ] = None
     vendor: typing.Optional[EntityListWarrantiesVendorRefTypeResponseBody] = None
     warranty_type: typing_extensions.Annotated[
-        typing.Optional[str],
+        typing.Optional[EntityListWarrantiesTypeResponseBodyWarrantyType],
         FieldMetadata(alias="warrantyType"),
         pydantic.Field(
-            alias="warrantyType", description="Type of warranty, for example manufacturer, extended, other, or unknown."
+            alias="warrantyType",
+            description="Type of warranty, for example manufacturer, extended, other, or unknown.  Valid values: `unknown`, `manufacturer`, `extended`, `other`",
         ),
     ] = None
 

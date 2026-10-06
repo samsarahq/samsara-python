@@ -12,6 +12,7 @@ from .create_warranty_entity_warranty_warranty_coverage_type_response_body impor
 from .create_warranty_entity_warranty_warranty_external_id_type_response_body import (
     CreateWarrantyEntityWarrantyWarrantyExternalIdTypeResponseBody,
 )
+from .entity_create_warranty_type_response_body_warranty_type import EntityCreateWarrantyTypeResponseBodyWarrantyType
 from .entity_create_warranty_vendor_ref_type_response_body import EntityCreateWarrantyVendorRefTypeResponseBody
 
 
@@ -96,10 +97,11 @@ class EntityCreateWarrantyTypeResponseBody(UniversalBaseModel):
     ] = None
     vendor: typing.Optional[EntityCreateWarrantyVendorRefTypeResponseBody] = None
     warranty_type: typing_extensions.Annotated[
-        typing.Optional[str],
+        typing.Optional[EntityCreateWarrantyTypeResponseBodyWarrantyType],
         FieldMetadata(alias="warrantyType"),
         pydantic.Field(
-            alias="warrantyType", description="Type of warranty, for example manufacturer, extended, other, or unknown."
+            alias="warrantyType",
+            description="Type of warranty, for example manufacturer, extended, other, or unknown.  Valid values: `unknown`, `manufacturer`, `extended`, `other`",
         ),
     ] = None
 

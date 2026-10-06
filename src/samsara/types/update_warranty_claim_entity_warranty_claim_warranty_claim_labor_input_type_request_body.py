@@ -13,7 +13,7 @@ from .update_warranty_claim_entity_warranty_claim_money_input_type_request_body 
 
 class UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborInputTypeRequestBody(UniversalBaseModel):
     """
-    UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborInput object
+    WarrantyClaimLabor object
     """
 
     cost: typing.Optional[UpdateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody] = None

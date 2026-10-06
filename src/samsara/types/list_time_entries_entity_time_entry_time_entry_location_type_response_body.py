@@ -8,7 +8,7 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 
 class ListTimeEntriesEntityTimeEntryTimeEntryLocationTypeResponseBody(UniversalBaseModel):
     """
-    ListTimeEntriesEntityTimeEntryTimeEntryLocation object
+    TimeEntryLocation object
     """
 
     latitude: typing.Optional[float] = pydantic.Field(default=None)

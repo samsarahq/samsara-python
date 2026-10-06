@@ -13,7 +13,7 @@ from .update_warranty_entity_warranty_warranty_coverage_item_type_response_body 
 
 class UpdateWarrantyEntityWarrantyWarrantyCoverageTypeResponseBody(UniversalBaseModel):
     """
-    UpdateWarrantyEntityWarrantyWarrantyCoverage object
+    WarrantyCoverage object
     """
 
     description: typing.Optional[str] = pydantic.Field(default=None)

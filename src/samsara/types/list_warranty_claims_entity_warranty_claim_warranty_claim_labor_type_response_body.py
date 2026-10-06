@@ -13,7 +13,7 @@ from .list_warranty_claims_entity_warranty_claim_money_type_response_body import
 
 class ListWarrantyClaimsEntityWarrantyClaimWarrantyClaimLaborTypeResponseBody(UniversalBaseModel):
     """
-    ListWarrantyClaimsEntityWarrantyClaimWarrantyClaimLabor object
+    WarrantyClaimLabor object
     """
 
     cost: typing.Optional[ListWarrantyClaimsEntityWarrantyClaimMoneyTypeResponseBody] = None

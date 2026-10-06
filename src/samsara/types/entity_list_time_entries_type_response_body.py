@@ -6,6 +6,19 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .entity_list_time_entries_type_response_body_activity_type import EntityListTimeEntriesTypeResponseBodyActivityType
+from .entity_list_time_entries_type_response_body_clock_in_source import (
+    EntityListTimeEntriesTypeResponseBodyClockInSource,
+)
+from .entity_list_time_entries_type_response_body_clock_out_method_type import (
+    EntityListTimeEntriesTypeResponseBodyClockOutMethodType,
+)
+from .entity_list_time_entries_type_response_body_clock_out_source import (
+    EntityListTimeEntriesTypeResponseBodyClockOutSource,
+)
+from .entity_list_time_entries_type_response_body_time_entry_status import (
+    EntityListTimeEntriesTypeResponseBodyTimeEntryStatus,
+)
 from .list_time_entries_entity_time_entry_money_type_response_body import (
     ListTimeEntriesEntityTimeEntryMoneyTypeResponseBody,
 )
@@ -20,11 +33,11 @@ class EntityListTimeEntriesTypeResponseBody(UniversalBaseModel):
     """
 
     activity_type: typing_extensions.Annotated[
-        typing.Optional[str],
+        typing.Optional[EntityListTimeEntriesTypeResponseBodyActivityType],
         FieldMetadata(alias="activityType"),
         pydantic.Field(
             alias="activityType",
-            description="Non-repair activity associated with the time entry. Omitted for work-order time.",
+            description="Non-repair activity associated with the time entry. Omitted for work-order time.  Valid values: `unknown`, `break`, `shopCleaning`, `partsHandling`, `operationalTest`, `equipmentSetup`, `inspection`, `roadCall`, `training`, `administrative`, `shopMiscellaneous`",
         ),
     ] = None
     clock_in_at_time: typing_extensions.Annotated[
@@ -38,9 +51,12 @@ class EntityListTimeEntriesTypeResponseBody(UniversalBaseModel):
         pydantic.Field(alias="clockInLocation"),
     ] = None
     clock_in_source: typing_extensions.Annotated[
-        typing.Optional[str],
+        typing.Optional[EntityListTimeEntriesTypeResponseBodyClockInSource],
         FieldMetadata(alias="clockInSource"),
-        pydantic.Field(alias="clockInSource", description="Surface that recorded the clock-in."),
+        pydantic.Field(
+            alias="clockInSource",
+            description="Surface that recorded the clock-in.  Valid values: `unknown`, `cloud`, `mobile`",
+        ),
     ] = None
     clock_out_at_time: typing_extensions.Annotated[
         typing.Optional[str],
@@ -56,14 +72,20 @@ class EntityListTimeEntriesTypeResponseBody(UniversalBaseModel):
         pydantic.Field(alias="clockOutLocation"),
     ] = None
     clock_out_method_type: typing_extensions.Annotated[
-        typing.Optional[str],
+        typing.Optional[EntityListTimeEntriesTypeResponseBodyClockOutMethodType],
         FieldMetadata(alias="clockOutMethodType"),
-        pydantic.Field(alias="clockOutMethodType", description="Method that ended the time entry."),
+        pydantic.Field(
+            alias="clockOutMethodType",
+            description="Method that ended the time entry.  Valid values: `unknown`, `manual`, `overwrite`, `clockIn`, `autoClockOut`",
+        ),
     ] = None
     clock_out_source: typing_extensions.Annotated[
-        typing.Optional[str],
+        typing.Optional[EntityListTimeEntriesTypeResponseBodyClockOutSource],
         FieldMetadata(alias="clockOutSource"),
-        pydantic.Field(alias="clockOutSource", description="Surface that recorded the clock-out."),
+        pydantic.Field(
+            alias="clockOutSource",
+            description="Surface that recorded the clock-out.  Valid values: `unknown`, `cloud`, `mobile`",
+        ),
     ] = None
     created_at_time: typing_extensions.Annotated[
         typing.Optional[str],
@@ -112,9 +134,12 @@ class EntityListTimeEntriesTypeResponseBody(UniversalBaseModel):
         ),
     ] = None
     time_entry_status: typing_extensions.Annotated[
-        typing.Optional[str],
+        typing.Optional[EntityListTimeEntriesTypeResponseBodyTimeEntryStatus],
         FieldMetadata(alias="timeEntryStatus"),
-        pydantic.Field(alias="timeEntryStatus", description="Whether the time entry is in progress or completed."),
+        pydantic.Field(
+            alias="timeEntryStatus",
+            description="Whether the time entry is in progress or completed.  Valid values: `unknown`, `inProgress`, `completed`",
+        ),
     ] = None
     updated_at_time: typing_extensions.Annotated[
         typing.Optional[str],

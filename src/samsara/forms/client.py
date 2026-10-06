@@ -227,7 +227,7 @@ class FormsClient:
             ID of the route stop the form submission is assigned to. Must be a unique Samsara ID.
 
         status : typing.Optional[FormSubmissionsPatchFormSubmissionRequestBodyStatus]
-            Status of the form submission.  Valid values: `notStarted`, `archived`, `inProgress`, `changesRequested`, `approved`
+            Status of the form submission.  Valid values: `notStarted`, `archived`, `inProgress`, `changesRequested`, `approved`, `denied`
 
         title : typing.Optional[str]
             Title of the form submission.
@@ -680,7 +680,7 @@ class AsyncFormsClient:
             ID of the route stop the form submission is assigned to. Must be a unique Samsara ID.
 
         status : typing.Optional[FormSubmissionsPatchFormSubmissionRequestBodyStatus]
-            Status of the form submission.  Valid values: `notStarted`, `archived`, `inProgress`, `changesRequested`, `approved`
+            Status of the form submission.  Valid values: `notStarted`, `archived`, `inProgress`, `changesRequested`, `approved`, `denied`
 
         title : typing.Optional[str]
             Title of the form submission.

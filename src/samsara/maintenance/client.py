@@ -4,6 +4,36 @@ import typing
 
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.request_options import RequestOptions
+from ..types.create_part_entity_part_definition_money_input_type_request_body import (
+    CreatePartEntityPartDefinitionMoneyInputTypeRequestBody,
+)
+from ..types.create_part_inventory_location_entity_part_inventory_location_money_input_type_request_body import (
+    CreatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody,
+)
+from ..types.create_stock_movement_action_service_create_stock_movement_response_body import (
+    CreateStockMovementActionServiceCreateStockMovementResponseBody,
+)
+from ..types.create_warranty_claim_entity_warranty_claim_claim_reimbursement_input_type_request_body import (
+    CreateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody,
+)
+from ..types.create_warranty_claim_entity_warranty_claim_money_input_type_request_body import (
+    CreateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody,
+)
+from ..types.create_warranty_claim_entity_warranty_claim_warranty_claim_external_id_input_type_request_body import (
+    CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdInputTypeRequestBody,
+)
+from ..types.create_warranty_claim_entity_warranty_claim_warranty_claim_labor_input_type_request_body import (
+    CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborInputTypeRequestBody,
+)
+from ..types.create_warranty_claim_entity_warranty_claim_warranty_claim_part_input_type_request_body import (
+    CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody,
+)
+from ..types.create_warranty_entity_warranty_warranty_coverage_input_type_request_body import (
+    CreateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody,
+)
+from ..types.create_warranty_entity_warranty_warranty_external_id_input_type_request_body import (
+    CreateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody,
+)
 from ..types.defect_response import DefectResponse
 from ..types.dvir_defect_get_defect_response_body import DvirDefectGetDefectResponseBody
 from ..types.dvir_defect_stream_defects_response_body import DvirDefectStreamDefectsResponseBody
@@ -11,11 +41,104 @@ from ..types.dvir_defect_type_get_defect_types_response_body import DvirDefectTy
 from ..types.dvir_get_dvir_response_body import DvirGetDvirResponseBody
 from ..types.dvir_get_dvirs_response_body import DvirGetDvirsResponseBody
 from ..types.dvir_response import DvirResponse
+from ..types.entity_create_stock_movement_money_input_type_request_body import (
+    EntityCreateStockMovementMoneyInputTypeRequestBody,
+)
+from ..types.entity_inventory_transactions_service_list_part_transactions_response_body import (
+    EntityInventoryTransactionsServiceListPartTransactionsResponseBody,
+)
+from ..types.entity_part_definitions_service_create_part_response_body import (
+    EntityPartDefinitionsServiceCreatePartResponseBody,
+)
+from ..types.entity_part_definitions_service_list_parts_response_body import (
+    EntityPartDefinitionsServiceListPartsResponseBody,
+)
+from ..types.entity_part_definitions_service_update_part_response_body import (
+    EntityPartDefinitionsServiceUpdatePartResponseBody,
+)
+from ..types.entity_part_inventory_locations_service_create_part_inventory_location_response_body import (
+    EntityPartInventoryLocationsServiceCreatePartInventoryLocationResponseBody,
+)
+from ..types.entity_part_inventory_locations_service_list_part_inventory_response_body import (
+    EntityPartInventoryLocationsServiceListPartInventoryResponseBody,
+)
+from ..types.entity_part_inventory_locations_service_update_part_inventory_location_response_body import (
+    EntityPartInventoryLocationsServiceUpdatePartInventoryLocationResponseBody,
+)
+from ..types.entity_replace_warranty_asset_assignments_warranty_asset_assignment_input_type_request_body import (
+    EntityReplaceWarrantyAssetAssignmentsWarrantyAssetAssignmentInputTypeRequestBody,
+)
+from ..types.entity_time_entries_service_list_time_entries_response_body import (
+    EntityTimeEntriesServiceListTimeEntriesResponseBody,
+)
+from ..types.entity_warranties_service_create_warranty_response_body import (
+    EntityWarrantiesServiceCreateWarrantyResponseBody,
+)
+from ..types.entity_warranties_service_list_warranties_response_body import (
+    EntityWarrantiesServiceListWarrantiesResponseBody,
+)
+from ..types.entity_warranties_service_update_warranty_response_body import (
+    EntityWarrantiesServiceUpdateWarrantyResponseBody,
+)
+from ..types.entity_warranty_asset_assignments_service_list_warranty_asset_assignments_response_body import (
+    EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsResponseBody,
+)
+from ..types.entity_warranty_claims_service_create_warranty_claim_response_body import (
+    EntityWarrantyClaimsServiceCreateWarrantyClaimResponseBody,
+)
+from ..types.entity_warranty_claims_service_list_warranty_claims_response_body import (
+    EntityWarrantyClaimsServiceListWarrantyClaimsResponseBody,
+)
+from ..types.entity_warranty_claims_service_update_warranty_claim_response_body import (
+    EntityWarrantyClaimsServiceUpdateWarrantyClaimResponseBody,
+)
 from ..types.inline_response_2004 import InlineResponse2004
+from ..types.replace_warranty_asset_assignments_action_service_replace_warranty_asset_assignments_response_body import (
+    ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsResponseBody,
+)
 from ..types.resolved_by import ResolvedBy
+from ..types.update_part_entity_part_definition_money_input_type_request_body import (
+    UpdatePartEntityPartDefinitionMoneyInputTypeRequestBody,
+)
+from ..types.update_part_inventory_location_entity_part_inventory_location_money_input_type_request_body import (
+    UpdatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody,
+)
+from ..types.update_warranty_claim_entity_warranty_claim_claim_reimbursement_input_type_request_body import (
+    UpdateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody,
+)
+from ..types.update_warranty_claim_entity_warranty_claim_money_input_type_request_body import (
+    UpdateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody,
+)
+from ..types.update_warranty_claim_entity_warranty_claim_warranty_claim_external_id_input_type_request_body import (
+    UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdInputTypeRequestBody,
+)
+from ..types.update_warranty_claim_entity_warranty_claim_warranty_claim_labor_input_type_request_body import (
+    UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborInputTypeRequestBody,
+)
+from ..types.update_warranty_claim_entity_warranty_claim_warranty_claim_part_input_type_request_body import (
+    UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody,
+)
+from ..types.update_warranty_entity_warranty_warranty_coverage_input_type_request_body import (
+    UpdateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody,
+)
+from ..types.update_warranty_entity_warranty_warranty_external_id_input_type_request_body import (
+    UpdateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody,
+)
 from .raw_client import AsyncRawMaintenanceClient, RawMaintenanceClient
 from .types.create_dvir_request_safety_status import CreateDvirRequestSafetyStatus
 from .types.create_dvir_request_type import CreateDvirRequestType
+from .types.entity_warranties_service_create_warranty_request_body_warranty_type import (
+    EntityWarrantiesServiceCreateWarrantyRequestBodyWarrantyType,
+)
+from .types.entity_warranties_service_update_warranty_request_body_warranty_type import (
+    EntityWarrantiesServiceUpdateWarrantyRequestBodyWarrantyType,
+)
+from .types.entity_warranty_claims_service_create_warranty_claim_request_body_claim_status import (
+    EntityWarrantyClaimsServiceCreateWarrantyClaimRequestBodyClaimStatus,
+)
+from .types.entity_warranty_claims_service_update_warranty_claim_request_body_claim_status import (
+    EntityWarrantyClaimsServiceUpdateWarrantyClaimRequestBodyClaimStatus,
+)
 
 # this is used as the default value for optional parameters
 OMIT = typing.cast(typing.Any, ...)
@@ -540,6 +663,1654 @@ class MaintenanceClient:
             is_resolved=is_resolved,
             mechanic_notes=mechanic_notes,
             signed_at_time=signed_at_time,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def list_parts(
+        self,
+        *,
+        id_in: typing.Optional[str] = None,
+        part_ids: typing.Optional[str] = None,
+        part_status: typing.Optional[str] = None,
+        include_deleted: typing.Optional[bool] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityPartDefinitionsServiceListPartsResponseBody:
+        """
+        Returns a paginated list of parts for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id_in : typing.Optional[str]
+            A filter on the data based on this comma-separated list of ID values.
+
+        part_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Part ID values.
+
+        part_status : typing.Optional[str]
+            A filter on the data based on Part status. Status of the part.
+
+        include_deleted : typing.Optional[bool]
+            Whether to include deleted parts in the response. Defaults to false.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityPartDefinitionsServiceListPartsResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.maintenance.list_parts()
+        """
+        _response = self._raw_client.list_parts(
+            id_in=id_in,
+            part_ids=part_ids,
+            part_status=part_status,
+            include_deleted=include_deleted,
+            after=after,
+            limit=limit,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def create_part(
+        self,
+        *,
+        part_number: str,
+        barcode_string: typing.Optional[str] = OMIT,
+        barcode_type: typing.Optional[str] = OMIT,
+        description: typing.Optional[str] = OMIT,
+        external_id: typing.Optional[str] = OMIT,
+        is_inventory_tracked: typing.Optional[bool] = OMIT,
+        manufacturer_name: typing.Optional[str] = OMIT,
+        manufacturer_part_number: typing.Optional[str] = OMIT,
+        name: typing.Optional[str] = OMIT,
+        preferred_vendor_id: typing.Optional[str] = OMIT,
+        preferred_vendor_part_number: typing.Optional[str] = OMIT,
+        unit_cost: typing.Optional[CreatePartEntityPartDefinitionMoneyInputTypeRequestBody] = OMIT,
+        vmrs_code: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityPartDefinitionsServiceCreatePartResponseBody:
+        """
+        Creates a part for the organization.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        part_number : str
+            Customer-visible part number for the part.
+
+        barcode_string : typing.Optional[str]
+            Barcode associated with the part definition.
+
+        barcode_type : typing.Optional[str]
+            Type of barcode associated with the part definition.
+
+        description : typing.Optional[str]
+            Description of the part definition.
+
+        external_id : typing.Optional[str]
+            Customer-supplied external identifier for the part.
+
+        is_inventory_tracked : typing.Optional[bool]
+            Whether inventory tracking is enabled for this part.
+
+        manufacturer_name : typing.Optional[str]
+            Name of the manufacturer for the part definition.
+
+        manufacturer_part_number : typing.Optional[str]
+            Manufacturer-supplied part number.
+
+        name : typing.Optional[str]
+            Name of the part definition.
+
+        preferred_vendor_id : typing.Optional[str]
+            Unique identifier for the preferred vendor for this part definition.
+
+        preferred_vendor_part_number : typing.Optional[str]
+            The preferred vendor's part number for this part definition.
+
+        unit_cost : typing.Optional[CreatePartEntityPartDefinitionMoneyInputTypeRequestBody]
+
+        vmrs_code : typing.Optional[str]
+            VMRS code associated with the part definition.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityPartDefinitionsServiceCreatePartResponseBody
+            Created response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.maintenance.create_part(
+            part_number="12345",
+        )
+        """
+        _response = self._raw_client.create_part(
+            part_number=part_number,
+            barcode_string=barcode_string,
+            barcode_type=barcode_type,
+            description=description,
+            external_id=external_id,
+            is_inventory_tracked=is_inventory_tracked,
+            manufacturer_name=manufacturer_name,
+            manufacturer_part_number=manufacturer_part_number,
+            name=name,
+            preferred_vendor_id=preferred_vendor_id,
+            preferred_vendor_part_number=preferred_vendor_part_number,
+            unit_cost=unit_cost,
+            vmrs_code=vmrs_code,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def delete_part(self, *, id: str, request_options: typing.Optional[RequestOptions] = None) -> None:
+        """
+        Deletes a part for the organization.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Unique identifier for the PartDefinition record.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.maintenance.delete_part(
+            id="id",
+        )
+        """
+        _response = self._raw_client.delete_part(id=id, request_options=request_options)
+        return _response.data
+
+    def update_part(
+        self,
+        *,
+        id: str,
+        barcode_string: typing.Optional[str] = OMIT,
+        barcode_type: typing.Optional[str] = OMIT,
+        description: typing.Optional[str] = OMIT,
+        external_id: typing.Optional[str] = OMIT,
+        is_inventory_tracked: typing.Optional[bool] = OMIT,
+        manufacturer_name: typing.Optional[str] = OMIT,
+        manufacturer_part_number: typing.Optional[str] = OMIT,
+        name: typing.Optional[str] = OMIT,
+        part_number: typing.Optional[str] = OMIT,
+        preferred_vendor_id: typing.Optional[str] = OMIT,
+        preferred_vendor_part_number: typing.Optional[str] = OMIT,
+        unit_cost: typing.Optional[UpdatePartEntityPartDefinitionMoneyInputTypeRequestBody] = OMIT,
+        vmrs_code: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityPartDefinitionsServiceUpdatePartResponseBody:
+        """
+        Updates an existing part for the organization.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Unique identifier for the PartDefinition record.
+
+        barcode_string : typing.Optional[str]
+            Barcode associated with the part definition.
+
+        barcode_type : typing.Optional[str]
+            Type of barcode associated with the part definition.
+
+        description : typing.Optional[str]
+            Description of the part definition.
+
+        external_id : typing.Optional[str]
+            Customer-supplied external identifier for the part.
+
+        is_inventory_tracked : typing.Optional[bool]
+            Whether inventory tracking is enabled for this part.
+
+        manufacturer_name : typing.Optional[str]
+            Name of the manufacturer for the part definition.
+
+        manufacturer_part_number : typing.Optional[str]
+            Manufacturer-supplied part number.
+
+        name : typing.Optional[str]
+            Name of the part definition.
+
+        part_number : typing.Optional[str]
+            Customer-visible part number for the part.
+
+        preferred_vendor_id : typing.Optional[str]
+            Unique identifier for the preferred vendor for this part definition.
+
+        preferred_vendor_part_number : typing.Optional[str]
+            The preferred vendor's part number for this part definition.
+
+        unit_cost : typing.Optional[UpdatePartEntityPartDefinitionMoneyInputTypeRequestBody]
+
+        vmrs_code : typing.Optional[str]
+            VMRS code associated with the part definition.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityPartDefinitionsServiceUpdatePartResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.maintenance.update_part(
+            id="id",
+        )
+        """
+        _response = self._raw_client.update_part(
+            id=id,
+            barcode_string=barcode_string,
+            barcode_type=barcode_type,
+            description=description,
+            external_id=external_id,
+            is_inventory_tracked=is_inventory_tracked,
+            manufacturer_name=manufacturer_name,
+            manufacturer_part_number=manufacturer_part_number,
+            name=name,
+            part_number=part_number,
+            preferred_vendor_id=preferred_vendor_id,
+            preferred_vendor_part_number=preferred_vendor_part_number,
+            unit_cost=unit_cost,
+            vmrs_code=vmrs_code,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def list_part_inventory(
+        self,
+        *,
+        place_ids: typing.Optional[str] = None,
+        is_low_stock: typing.Optional[bool] = None,
+        part_samsara_ids: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityPartInventoryLocationsServiceListPartInventoryResponseBody:
+        """
+        Returns a paginated list of per-part, per-location inventory levels for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        place_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Place ID values.
+
+        is_low_stock : typing.Optional[bool]
+            A filter on the data based on Low stock. Whether the available quantity is greater than zero and at or below the reorder threshold.
+
+        part_samsara_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Part ID values.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityPartInventoryLocationsServiceListPartInventoryResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.maintenance.list_part_inventory()
+        """
+        _response = self._raw_client.list_part_inventory(
+            place_ids=place_ids,
+            is_low_stock=is_low_stock,
+            part_samsara_ids=part_samsara_ids,
+            after=after,
+            limit=limit,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def create_part_inventory_location(
+        self,
+        *,
+        part_samsara_id: typing.Optional[str] = None,
+        place_id: typing.Optional[str] = None,
+        aisle: typing.Optional[str] = OMIT,
+        bin: typing.Optional[str] = OMIT,
+        current_quantity: typing.Optional[float] = OMIT,
+        is_cost_tracked: typing.Optional[bool] = OMIT,
+        max_stock_level: typing.Optional[float] = OMIT,
+        min_stock_level: typing.Optional[float] = OMIT,
+        reorder_quantity: typing.Optional[float] = OMIT,
+        reorder_threshold: typing.Optional[float] = OMIT,
+        row: typing.Optional[str] = OMIT,
+        unit_cost: typing.Optional[
+            CreatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody
+        ] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityPartInventoryLocationsServiceCreatePartInventoryLocationResponseBody:
+        """
+        Creates per-part, per-location inventory metadata for the organization. Upserts by part and place — a second create at the same pair updates the existing record instead of duplicating it.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        part_samsara_id : typing.Optional[str]
+            Unique identifier for the part definition these inventory levels are tracked for.
+
+        place_id : typing.Optional[str]
+            Unique identifier for the place linked to the maintenance site holding this inventory. The internal location identifier is never exposed.
+
+        aisle : typing.Optional[str]
+            Aisle within the location where the part is stored.
+
+        bin : typing.Optional[str]
+            Bin within the location where the part is stored.
+
+        current_quantity : typing.Optional[float]
+            Total physical quantity on hand at this location, equal to the available quantity plus the reserved quantity. Settable only when creating the record, to seed initial stock; thereafter it changes only via stock movements.
+
+        is_cost_tracked : typing.Optional[bool]
+            Whether costing is tracked at this location. Defaults to false; once enabled it cannot be turned back off.
+
+        max_stock_level : typing.Optional[float]
+            Maximum quantity to keep in stock at this location.
+
+        min_stock_level : typing.Optional[float]
+            Minimum quantity to keep in stock at this location.
+
+        reorder_quantity : typing.Optional[float]
+            Quantity to reorder when stock reaches the reorder threshold.
+
+        reorder_threshold : typing.Optional[float]
+            Available quantity at or below which the part should be reordered at this location.
+
+        row : typing.Optional[str]
+            Row within the location where the part is stored.
+
+        unit_cost : typing.Optional[CreatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody]
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityPartInventoryLocationsServiceCreatePartInventoryLocationResponseBody
+            Created response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.maintenance.create_part_inventory_location()
+        """
+        _response = self._raw_client.create_part_inventory_location(
+            part_samsara_id=part_samsara_id,
+            place_id=place_id,
+            aisle=aisle,
+            bin=bin,
+            current_quantity=current_quantity,
+            is_cost_tracked=is_cost_tracked,
+            max_stock_level=max_stock_level,
+            min_stock_level=min_stock_level,
+            reorder_quantity=reorder_quantity,
+            reorder_threshold=reorder_threshold,
+            row=row,
+            unit_cost=unit_cost,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def update_part_inventory_location(
+        self,
+        *,
+        part_samsara_id: typing.Optional[str] = None,
+        place_id: typing.Optional[str] = None,
+        aisle: typing.Optional[str] = OMIT,
+        bin: typing.Optional[str] = OMIT,
+        current_quantity: typing.Optional[float] = OMIT,
+        is_cost_tracked: typing.Optional[bool] = OMIT,
+        max_stock_level: typing.Optional[float] = OMIT,
+        min_stock_level: typing.Optional[float] = OMIT,
+        reorder_quantity: typing.Optional[float] = OMIT,
+        reorder_threshold: typing.Optional[float] = OMIT,
+        row: typing.Optional[str] = OMIT,
+        unit_cost: typing.Optional[
+            UpdatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody
+        ] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityPartInventoryLocationsServiceUpdatePartInventoryLocationResponseBody:
+        """
+        Updates existing per-part, per-location inventory metadata for the organization.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        part_samsara_id : typing.Optional[str]
+            Unique identifier for the part definition these inventory levels are tracked for.
+
+        place_id : typing.Optional[str]
+            Unique identifier for the place linked to the maintenance site holding this inventory. The internal location identifier is never exposed.
+
+        aisle : typing.Optional[str]
+            Aisle within the location where the part is stored.
+
+        bin : typing.Optional[str]
+            Bin within the location where the part is stored.
+
+        current_quantity : typing.Optional[float]
+            Total physical quantity on hand at this location, equal to the available quantity plus the reserved quantity. Settable only when creating the record, to seed initial stock; thereafter it changes only via stock movements.
+
+        is_cost_tracked : typing.Optional[bool]
+            Whether costing is tracked at this location. Defaults to false; once enabled it cannot be turned back off.
+
+        max_stock_level : typing.Optional[float]
+            Maximum quantity to keep in stock at this location.
+
+        min_stock_level : typing.Optional[float]
+            Minimum quantity to keep in stock at this location.
+
+        reorder_quantity : typing.Optional[float]
+            Quantity to reorder when stock reaches the reorder threshold.
+
+        reorder_threshold : typing.Optional[float]
+            Available quantity at or below which the part should be reordered at this location.
+
+        row : typing.Optional[str]
+            Row within the location where the part is stored.
+
+        unit_cost : typing.Optional[UpdatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody]
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityPartInventoryLocationsServiceUpdatePartInventoryLocationResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.maintenance.update_part_inventory_location()
+        """
+        _response = self._raw_client.update_part_inventory_location(
+            part_samsara_id=part_samsara_id,
+            place_id=place_id,
+            aisle=aisle,
+            bin=bin,
+            current_quantity=current_quantity,
+            is_cost_tracked=is_cost_tracked,
+            max_stock_level=max_stock_level,
+            min_stock_level=min_stock_level,
+            reorder_quantity=reorder_quantity,
+            reorder_threshold=reorder_threshold,
+            row=row,
+            unit_cost=unit_cost,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def create_stock_movement(
+        self,
+        *,
+        movement_type: str,
+        part_samsara_id: str,
+        quantity: float,
+        batch: typing.Optional[str] = OMIT,
+        from_place_id: typing.Optional[str] = OMIT,
+        happened_at_time: typing.Optional[str] = OMIT,
+        notes: typing.Optional[str] = OMIT,
+        place_id: typing.Optional[str] = OMIT,
+        purchase_order: typing.Optional[str] = OMIT,
+        to_place_id: typing.Optional[str] = OMIT,
+        unit_cost: typing.Optional[EntityCreateStockMovementMoneyInputTypeRequestBody] = OMIT,
+        vendor_id: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> CreateStockMovementActionServiceCreateStockMovementResponseBody:
+        """
+        Records a receive, transfer, scrap, or adjust stock movement against a part's inventory and returns the resulting inventory location(s). Not idempotent — retrying a request that already succeeded records the movement again.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        movement_type : str
+            Type of stock movement to record. Must be one of Receive, Transfer, Scrap, or Adjust; Unknown is rejected.
+
+        part_samsara_id : str
+            Unique identifier of the part definition the movement applies to.
+
+        quantity : float
+            Quantity moved, in the part's unit of measure. Positive magnitude for receive, transfer, and scrap; signed delta for adjust.
+
+        batch : typing.Optional[str]
+            Batch or lot identifier the movement applies to, if the part is batch-tracked.
+
+        from_place_id : typing.Optional[str]
+            Unique identifier of the place linked to the maintenance site the inventory is transferred out of. Transfer only.
+
+        happened_at_time : typing.Optional[str]
+            Time when the movement occurred. Defaults to the current time if not provided.
+
+        notes : typing.Optional[str]
+            Notes explaining the movement. Scrap and adjust only.
+
+        place_id : typing.Optional[str]
+            Unique identifier of the place linked to the maintenance site the movement targets. Required for receive, scrap, and adjust; rejected for transfer (use fromPlaceId and toPlaceId).
+
+        purchase_order : typing.Optional[str]
+            Purchase order reference for the received inventory. Receive only.
+
+        to_place_id : typing.Optional[str]
+            Unique identifier of the place linked to the maintenance site the inventory is transferred into. Transfer only.
+
+        unit_cost : typing.Optional[EntityCreateStockMovementMoneyInputTypeRequestBody]
+
+        vendor_id : typing.Optional[str]
+            Unique identifier of the vendor the inventory was received from. Receive only.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        CreateStockMovementActionServiceCreateStockMovementResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.maintenance.create_stock_movement(
+            movement_type="12345",
+            part_samsara_id="12345",
+            quantity=123.45,
+        )
+        """
+        _response = self._raw_client.create_stock_movement(
+            movement_type=movement_type,
+            part_samsara_id=part_samsara_id,
+            quantity=quantity,
+            batch=batch,
+            from_place_id=from_place_id,
+            happened_at_time=happened_at_time,
+            notes=notes,
+            place_id=place_id,
+            purchase_order=purchase_order,
+            to_place_id=to_place_id,
+            unit_cost=unit_cost,
+            vendor_id=vendor_id,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def list_part_transactions(
+        self,
+        *,
+        happened_at_time_start: str,
+        happened_at_time_end: typing.Optional[str] = None,
+        part_samsara_ids: typing.Optional[str] = None,
+        place_ids: typing.Optional[str] = None,
+        transaction_type_in: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityInventoryTransactionsServiceListPartTransactionsResponseBody:
+        """
+        Returns a paginated, time-windowed feed of inventory transactions (an append-only parts audit log) for the organization, ordered by the time each transaction occurred.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        happened_at_time_start : str
+            A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        happened_at_time_end : typing.Optional[str]
+            An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        part_samsara_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Part Samsara ID values.
+
+        place_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Place ID values.
+
+        transaction_type_in : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Transaction Type values.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityInventoryTransactionsServiceListPartTransactionsResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.maintenance.list_part_transactions(
+            happened_at_time_start="happenedAtTimeStart",
+        )
+        """
+        _response = self._raw_client.list_part_transactions(
+            happened_at_time_start=happened_at_time_start,
+            happened_at_time_end=happened_at_time_end,
+            part_samsara_ids=part_samsara_ids,
+            place_ids=place_ids,
+            transaction_type_in=transaction_type_in,
+            after=after,
+            limit=limit,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def list_time_entries(
+        self,
+        *,
+        start_time: str,
+        end_time: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityTimeEntriesServiceListTimeEntriesResponseBody:
+        """
+        Returns a paginated feed of technician time entries updated in the requested time window, including deletion tombstones.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Time Entries** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        start_time : str
+            A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        end_time : typing.Optional[str]
+            An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityTimeEntriesServiceListTimeEntriesResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.maintenance.list_time_entries(
+            start_time="startTime",
+        )
+        """
+        _response = self._raw_client.list_time_entries(
+            start_time=start_time, end_time=end_time, after=after, limit=limit, request_options=request_options
+        )
+        return _response.data
+
+    def list_warranties(
+        self,
+        *,
+        warranty_ids: typing.Optional[str] = None,
+        name: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        include_external_ids: typing.Optional[bool] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityWarrantiesServiceListWarrantiesResponseBody:
+        """
+        Returns a paginated list of warranties for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        warranty_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of ID values.
+
+        name : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Name values.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        include_external_ids : typing.Optional[bool]
+            If true, include externalIds in each response object.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityWarrantiesServiceListWarrantiesResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.maintenance.list_warranties()
+        """
+        _response = self._raw_client.list_warranties(
+            warranty_ids=warranty_ids,
+            name=name,
+            after=after,
+            limit=limit,
+            include_external_ids=include_external_ids,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def create_warranty(
+        self,
+        *,
+        name: str,
+        base_coverage: typing.Optional[CreateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody] = OMIT,
+        coverages: typing.Optional[
+            typing.Sequence[CreateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody]
+        ] = OMIT,
+        description: typing.Optional[str] = OMIT,
+        duration_days: typing.Optional[int] = OMIT,
+        duration_months: typing.Optional[int] = OMIT,
+        engine_duration_hours: typing.Optional[int] = OMIT,
+        external_ids: typing.Optional[
+            typing.Sequence[CreateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody]
+        ] = OMIT,
+        odometer_distance_meters: typing.Optional[int] = OMIT,
+        vendor_id: typing.Optional[str] = OMIT,
+        warranty_type: typing.Optional[EntityWarrantiesServiceCreateWarrantyRequestBodyWarrantyType] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityWarrantiesServiceCreateWarrantyResponseBody:
+        """
+        Creates a warranty for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        name : str
+            Name of the warranty.
+
+        base_coverage : typing.Optional[CreateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody]
+
+        coverages : typing.Optional[typing.Sequence[CreateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody]]
+            Additional coverage groups defined on this warranty.
+
+        description : typing.Optional[str]
+            Description of the warranty.
+
+        duration_days : typing.Optional[int]
+            Warranty length in days. Mutually exclusive with duration in months.
+
+        duration_months : typing.Optional[int]
+            Warranty length in months. Mutually exclusive with duration in days.
+
+        engine_duration_hours : typing.Optional[int]
+            Warranty length by engine hours since the warranty start.
+
+        external_ids : typing.Optional[typing.Sequence[CreateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody]]
+            Customer-supplied external identifiers for the warranty, interchangeable with id in filters. Only included in the response when includeExternalIds is set.
+
+        odometer_distance_meters : typing.Optional[int]
+            Warranty length by distance travelled since the warranty start. Measured in meters.
+
+        vendor_id : typing.Optional[str]
+            ID of the vendor that provides this warranty.
+
+        warranty_type : typing.Optional[EntityWarrantiesServiceCreateWarrantyRequestBodyWarrantyType]
+            Type of warranty, for example manufacturer, extended, other, or unknown.  Valid values: `unknown`, `manufacturer`, `extended`, `other`
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityWarrantiesServiceCreateWarrantyResponseBody
+            Created response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.maintenance.create_warranty(
+            name="12345",
+        )
+        """
+        _response = self._raw_client.create_warranty(
+            name=name,
+            base_coverage=base_coverage,
+            coverages=coverages,
+            description=description,
+            duration_days=duration_days,
+            duration_months=duration_months,
+            engine_duration_hours=engine_duration_hours,
+            external_ids=external_ids,
+            odometer_distance_meters=odometer_distance_meters,
+            vendor_id=vendor_id,
+            warranty_type=warranty_type,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def delete_warranty(self, *, id: str, request_options: typing.Optional[RequestOptions] = None) -> None:
+        """
+        Deletes a warranty for the organization. Asset associations are removed server-side.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Unique identifier for the Warranty record.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.maintenance.delete_warranty(
+            id="id",
+        )
+        """
+        _response = self._raw_client.delete_warranty(id=id, request_options=request_options)
+        return _response.data
+
+    def update_warranty(
+        self,
+        *,
+        id: str,
+        base_coverage: typing.Optional[UpdateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody] = OMIT,
+        coverages: typing.Optional[
+            typing.Sequence[UpdateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody]
+        ] = OMIT,
+        description: typing.Optional[str] = OMIT,
+        duration_days: typing.Optional[int] = OMIT,
+        duration_months: typing.Optional[int] = OMIT,
+        engine_duration_hours: typing.Optional[int] = OMIT,
+        external_ids: typing.Optional[
+            typing.Sequence[UpdateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody]
+        ] = OMIT,
+        name: typing.Optional[str] = OMIT,
+        odometer_distance_meters: typing.Optional[int] = OMIT,
+        vendor_id: typing.Optional[str] = OMIT,
+        warranty_type: typing.Optional[EntityWarrantiesServiceUpdateWarrantyRequestBodyWarrantyType] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityWarrantiesServiceUpdateWarrantyResponseBody:
+        """
+        Updates an existing warranty for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Unique identifier for the Warranty record.
+
+        base_coverage : typing.Optional[UpdateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody]
+
+        coverages : typing.Optional[typing.Sequence[UpdateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody]]
+            Additional coverage groups defined on this warranty.
+
+        description : typing.Optional[str]
+            Description of the warranty.
+
+        duration_days : typing.Optional[int]
+            Warranty length in days. Mutually exclusive with duration in months.
+
+        duration_months : typing.Optional[int]
+            Warranty length in months. Mutually exclusive with duration in days.
+
+        engine_duration_hours : typing.Optional[int]
+            Warranty length by engine hours since the warranty start.
+
+        external_ids : typing.Optional[typing.Sequence[UpdateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody]]
+            Customer-supplied external identifiers for the warranty, interchangeable with id in filters. Only included in the response when includeExternalIds is set.
+
+        name : typing.Optional[str]
+            Name of the warranty.
+
+        odometer_distance_meters : typing.Optional[int]
+            Warranty length by distance travelled since the warranty start. Measured in meters.
+
+        vendor_id : typing.Optional[str]
+            ID of the vendor that provides this warranty.
+
+        warranty_type : typing.Optional[EntityWarrantiesServiceUpdateWarrantyRequestBodyWarrantyType]
+            Type of warranty, for example manufacturer, extended, other, or unknown.  Valid values: `unknown`, `manufacturer`, `extended`, `other`
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityWarrantiesServiceUpdateWarrantyResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.maintenance.update_warranty(
+            id="id",
+        )
+        """
+        _response = self._raw_client.update_warranty(
+            id=id,
+            base_coverage=base_coverage,
+            coverages=coverages,
+            description=description,
+            duration_days=duration_days,
+            duration_months=duration_months,
+            engine_duration_hours=engine_duration_hours,
+            external_ids=external_ids,
+            name=name,
+            odometer_distance_meters=odometer_distance_meters,
+            vendor_id=vendor_id,
+            warranty_type=warranty_type,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def list_warranty_asset_assignments(
+        self,
+        *,
+        warranty_id: str,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsResponseBody:
+        """
+        Returns the assets assigned to a warranty.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        warranty_id : str
+            A filter on the data based on this comma-separated list of Warranty values.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.maintenance.list_warranty_asset_assignments(
+            warranty_id="warrantyId",
+        )
+        """
+        _response = self._raw_client.list_warranty_asset_assignments(
+            warranty_id=warranty_id, after=after, limit=limit, request_options=request_options
+        )
+        return _response.data
+
+    def replace_warranty_asset_assignments(
+        self,
+        *,
+        warranty_id: typing.Optional[str] = None,
+        assets: typing.Optional[
+            typing.Sequence[EntityReplaceWarrantyAssetAssignmentsWarrantyAssetAssignmentInputTypeRequestBody]
+        ] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsResponseBody:
+        """
+        Replaces the full set of assets assigned to a warranty.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        warranty_id : typing.Optional[str]
+            ID of the warranty whose asset set to replace.
+
+        assets : typing.Optional[typing.Sequence[EntityReplaceWarrantyAssetAssignmentsWarrantyAssetAssignmentInputTypeRequestBody]]
+            The full desired asset set for the warranty.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.maintenance.replace_warranty_asset_assignments()
+        """
+        _response = self._raw_client.replace_warranty_asset_assignments(
+            warranty_id=warranty_id, assets=assets, request_options=request_options
+        )
+        return _response.data
+
+    def list_warranty_claims(
+        self,
+        *,
+        warranty_claim_ids: typing.Optional[str] = None,
+        asset_ids: typing.Optional[str] = None,
+        claim_status: typing.Optional[str] = None,
+        warranty_ids: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        include_external_ids: typing.Optional[bool] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityWarrantyClaimsServiceListWarrantyClaimsResponseBody:
+        """
+        Returns a paginated list of warranty claims for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        warranty_claim_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of ID values.
+
+        asset_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Asset values.
+
+        claim_status : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Claim status values.
+
+        warranty_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Warranty values.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        include_external_ids : typing.Optional[bool]
+            If true, include externalIds in each response object.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityWarrantyClaimsServiceListWarrantyClaimsResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.maintenance.list_warranty_claims()
+        """
+        _response = self._raw_client.list_warranty_claims(
+            warranty_claim_ids=warranty_claim_ids,
+            asset_ids=asset_ids,
+            claim_status=claim_status,
+            warranty_ids=warranty_ids,
+            after=after,
+            limit=limit,
+            include_external_ids=include_external_ids,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def create_warranty_claim(
+        self,
+        *,
+        asset_id: str,
+        cause: typing.Optional[str] = OMIT,
+        claim_engine_hours: typing.Optional[int] = OMIT,
+        claim_odometer_meters: typing.Optional[int] = OMIT,
+        claim_status: typing.Optional[EntityWarrantyClaimsServiceCreateWarrantyClaimRequestBodyClaimStatus] = OMIT,
+        component_instance_ids: typing.Optional[typing.Sequence[str]] = OMIT,
+        concern: typing.Optional[str] = OMIT,
+        correction: typing.Optional[str] = OMIT,
+        external_ids: typing.Optional[
+            typing.Sequence[CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdInputTypeRequestBody]
+        ] = OMIT,
+        labor: typing.Optional[
+            typing.Sequence[CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborInputTypeRequestBody]
+        ] = OMIT,
+        linked_warranty_id: typing.Optional[str] = OMIT,
+        linked_work_order_ids: typing.Optional[typing.Sequence[str]] = OMIT,
+        media_item_ids: typing.Optional[typing.Sequence[str]] = OMIT,
+        other_cost: typing.Optional[CreateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody] = OMIT,
+        parts: typing.Optional[
+            typing.Sequence[CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody]
+        ] = OMIT,
+        reimbursed_at_time: typing.Optional[str] = OMIT,
+        reimbursements: typing.Optional[
+            typing.Sequence[CreateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody]
+        ] = OMIT,
+        repair_completed_at_time: typing.Optional[str] = OMIT,
+        resolution_at_time: typing.Optional[str] = OMIT,
+        submitted_at_time: typing.Optional[str] = OMIT,
+        warranty_vendor_id: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityWarrantyClaimsServiceCreateWarrantyClaimResponseBody:
+        """
+        Creates a warranty claim for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        asset_id : str
+            ID of the asset the claim is filed for. Immutable once set.
+
+        cause : typing.Optional[str]
+            The cause of the 3 Cs - the root cause found.
+
+        claim_engine_hours : typing.Optional[int]
+            Engine hours at the time of repair.
+
+        claim_odometer_meters : typing.Optional[int]
+            Asset odometer reading at the time of repair. Measured in meters.
+
+        claim_status : typing.Optional[EntityWarrantyClaimsServiceCreateWarrantyClaimRequestBodyClaimStatus]
+            Current status of the claim.  Valid values: `unknown`, `created`, `submitted`, `inReview`, `approved`, `rejected`, `resubmitted`, `reimbursed`
+
+        component_instance_ids : typing.Optional[typing.Sequence[str]]
+            IDs of asset component instances covered by this claim.
+
+        concern : typing.Optional[str]
+            The concern of the 3 Cs - what was reported.
+
+        correction : typing.Optional[str]
+            The correction of the 3 Cs - the work performed.
+
+        external_ids : typing.Optional[typing.Sequence[CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdInputTypeRequestBody]]
+            Customer-supplied external identifiers for the warranty claim, interchangeable with id in filters. Only included in the response when includeExternalIds is set.
+
+        labor : typing.Optional[typing.Sequence[CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborInputTypeRequestBody]]
+            Labor being claimed.
+
+        linked_warranty_id : typing.Optional[str]
+            ID of the warranty this claim is filed against.
+
+        linked_work_order_ids : typing.Optional[typing.Sequence[str]]
+            IDs of the work orders associated with this claim.
+
+        media_item_ids : typing.Optional[typing.Sequence[str]]
+            IDs of media items attached to the claim.
+
+        other_cost : typing.Optional[CreateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody]
+
+        parts : typing.Optional[typing.Sequence[CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody]]
+            Parts being claimed.
+
+        reimbursed_at_time : typing.Optional[str]
+            When reimbursement was received.
+
+        reimbursements : typing.Optional[typing.Sequence[CreateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody]]
+            Reimbursement amounts, optionally linked to a work order.
+
+        repair_completed_at_time : typing.Optional[str]
+            When the repair was completed.
+
+        resolution_at_time : typing.Optional[str]
+            When the claim was resolved.
+
+        submitted_at_time : typing.Optional[str]
+            When the claim was submitted to the vendor.
+
+        warranty_vendor_id : typing.Optional[str]
+            ID of the vendor handling the claim.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityWarrantyClaimsServiceCreateWarrantyClaimResponseBody
+            Created response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.maintenance.create_warranty_claim(
+            asset_id="281474976710656",
+        )
+        """
+        _response = self._raw_client.create_warranty_claim(
+            asset_id=asset_id,
+            cause=cause,
+            claim_engine_hours=claim_engine_hours,
+            claim_odometer_meters=claim_odometer_meters,
+            claim_status=claim_status,
+            component_instance_ids=component_instance_ids,
+            concern=concern,
+            correction=correction,
+            external_ids=external_ids,
+            labor=labor,
+            linked_warranty_id=linked_warranty_id,
+            linked_work_order_ids=linked_work_order_ids,
+            media_item_ids=media_item_ids,
+            other_cost=other_cost,
+            parts=parts,
+            reimbursed_at_time=reimbursed_at_time,
+            reimbursements=reimbursements,
+            repair_completed_at_time=repair_completed_at_time,
+            resolution_at_time=resolution_at_time,
+            submitted_at_time=submitted_at_time,
+            warranty_vendor_id=warranty_vendor_id,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def delete_warranty_claim(self, *, id: str, request_options: typing.Optional[RequestOptions] = None) -> None:
+        """
+        Deletes a warranty claim for the organization. Component links are removed server-side.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Unique identifier for the WarrantyClaim record.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.maintenance.delete_warranty_claim(
+            id="id",
+        )
+        """
+        _response = self._raw_client.delete_warranty_claim(id=id, request_options=request_options)
+        return _response.data
+
+    def update_warranty_claim(
+        self,
+        *,
+        id: str,
+        asset_id: typing.Optional[str] = OMIT,
+        cause: typing.Optional[str] = OMIT,
+        claim_engine_hours: typing.Optional[int] = OMIT,
+        claim_odometer_meters: typing.Optional[int] = OMIT,
+        claim_status: typing.Optional[EntityWarrantyClaimsServiceUpdateWarrantyClaimRequestBodyClaimStatus] = OMIT,
+        component_instance_ids: typing.Optional[typing.Sequence[str]] = OMIT,
+        concern: typing.Optional[str] = OMIT,
+        correction: typing.Optional[str] = OMIT,
+        external_ids: typing.Optional[
+            typing.Sequence[UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdInputTypeRequestBody]
+        ] = OMIT,
+        labor: typing.Optional[
+            typing.Sequence[UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborInputTypeRequestBody]
+        ] = OMIT,
+        linked_warranty_id: typing.Optional[str] = OMIT,
+        linked_work_order_ids: typing.Optional[typing.Sequence[str]] = OMIT,
+        media_item_ids: typing.Optional[typing.Sequence[str]] = OMIT,
+        other_cost: typing.Optional[UpdateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody] = OMIT,
+        parts: typing.Optional[
+            typing.Sequence[UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody]
+        ] = OMIT,
+        reimbursed_at_time: typing.Optional[str] = OMIT,
+        reimbursements: typing.Optional[
+            typing.Sequence[UpdateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody]
+        ] = OMIT,
+        repair_completed_at_time: typing.Optional[str] = OMIT,
+        resolution_at_time: typing.Optional[str] = OMIT,
+        submitted_at_time: typing.Optional[str] = OMIT,
+        warranty_vendor_id: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityWarrantyClaimsServiceUpdateWarrantyClaimResponseBody:
+        """
+        Updates an existing warranty claim for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Unique identifier for the WarrantyClaim record.
+
+        asset_id : typing.Optional[str]
+            ID of the asset the claim is filed for. Immutable once set.
+
+        cause : typing.Optional[str]
+            The cause of the 3 Cs - the root cause found.
+
+        claim_engine_hours : typing.Optional[int]
+            Engine hours at the time of repair.
+
+        claim_odometer_meters : typing.Optional[int]
+            Asset odometer reading at the time of repair. Measured in meters.
+
+        claim_status : typing.Optional[EntityWarrantyClaimsServiceUpdateWarrantyClaimRequestBodyClaimStatus]
+            Current status of the claim.  Valid values: `unknown`, `created`, `submitted`, `inReview`, `approved`, `rejected`, `resubmitted`, `reimbursed`
+
+        component_instance_ids : typing.Optional[typing.Sequence[str]]
+            IDs of asset component instances covered by this claim.
+
+        concern : typing.Optional[str]
+            The concern of the 3 Cs - what was reported.
+
+        correction : typing.Optional[str]
+            The correction of the 3 Cs - the work performed.
+
+        external_ids : typing.Optional[typing.Sequence[UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdInputTypeRequestBody]]
+            Customer-supplied external identifiers for the warranty claim, interchangeable with id in filters. Only included in the response when includeExternalIds is set.
+
+        labor : typing.Optional[typing.Sequence[UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborInputTypeRequestBody]]
+            Labor being claimed.
+
+        linked_warranty_id : typing.Optional[str]
+            ID of the warranty this claim is filed against.
+
+        linked_work_order_ids : typing.Optional[typing.Sequence[str]]
+            IDs of the work orders associated with this claim.
+
+        media_item_ids : typing.Optional[typing.Sequence[str]]
+            IDs of media items attached to the claim.
+
+        other_cost : typing.Optional[UpdateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody]
+
+        parts : typing.Optional[typing.Sequence[UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody]]
+            Parts being claimed.
+
+        reimbursed_at_time : typing.Optional[str]
+            When reimbursement was received.
+
+        reimbursements : typing.Optional[typing.Sequence[UpdateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody]]
+            Reimbursement amounts, optionally linked to a work order.
+
+        repair_completed_at_time : typing.Optional[str]
+            When the repair was completed.
+
+        resolution_at_time : typing.Optional[str]
+            When the claim was resolved.
+
+        submitted_at_time : typing.Optional[str]
+            When the claim was submitted to the vendor.
+
+        warranty_vendor_id : typing.Optional[str]
+            ID of the vendor handling the claim.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityWarrantyClaimsServiceUpdateWarrantyClaimResponseBody
+            OK response.
+
+        Examples
+        --------
+        from samsara import Samsara
+
+        client = Samsara(
+            token="YOUR_TOKEN",
+        )
+        client.maintenance.update_warranty_claim(
+            id="id",
+        )
+        """
+        _response = self._raw_client.update_warranty_claim(
+            id=id,
+            asset_id=asset_id,
+            cause=cause,
+            claim_engine_hours=claim_engine_hours,
+            claim_odometer_meters=claim_odometer_meters,
+            claim_status=claim_status,
+            component_instance_ids=component_instance_ids,
+            concern=concern,
+            correction=correction,
+            external_ids=external_ids,
+            labor=labor,
+            linked_warranty_id=linked_warranty_id,
+            linked_work_order_ids=linked_work_order_ids,
+            media_item_ids=media_item_ids,
+            other_cost=other_cost,
+            parts=parts,
+            reimbursed_at_time=reimbursed_at_time,
+            reimbursements=reimbursements,
+            repair_completed_at_time=repair_completed_at_time,
+            resolution_at_time=resolution_at_time,
+            submitted_at_time=submitted_at_time,
+            warranty_vendor_id=warranty_vendor_id,
             request_options=request_options,
         )
         return _response.data
@@ -1162,6 +2933,1814 @@ class AsyncMaintenanceClient:
             is_resolved=is_resolved,
             mechanic_notes=mechanic_notes,
             signed_at_time=signed_at_time,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def list_parts(
+        self,
+        *,
+        id_in: typing.Optional[str] = None,
+        part_ids: typing.Optional[str] = None,
+        part_status: typing.Optional[str] = None,
+        include_deleted: typing.Optional[bool] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityPartDefinitionsServiceListPartsResponseBody:
+        """
+        Returns a paginated list of parts for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id_in : typing.Optional[str]
+            A filter on the data based on this comma-separated list of ID values.
+
+        part_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Part ID values.
+
+        part_status : typing.Optional[str]
+            A filter on the data based on Part status. Status of the part.
+
+        include_deleted : typing.Optional[bool]
+            Whether to include deleted parts in the response. Defaults to false.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityPartDefinitionsServiceListPartsResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.maintenance.list_parts()
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.list_parts(
+            id_in=id_in,
+            part_ids=part_ids,
+            part_status=part_status,
+            include_deleted=include_deleted,
+            after=after,
+            limit=limit,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def create_part(
+        self,
+        *,
+        part_number: str,
+        barcode_string: typing.Optional[str] = OMIT,
+        barcode_type: typing.Optional[str] = OMIT,
+        description: typing.Optional[str] = OMIT,
+        external_id: typing.Optional[str] = OMIT,
+        is_inventory_tracked: typing.Optional[bool] = OMIT,
+        manufacturer_name: typing.Optional[str] = OMIT,
+        manufacturer_part_number: typing.Optional[str] = OMIT,
+        name: typing.Optional[str] = OMIT,
+        preferred_vendor_id: typing.Optional[str] = OMIT,
+        preferred_vendor_part_number: typing.Optional[str] = OMIT,
+        unit_cost: typing.Optional[CreatePartEntityPartDefinitionMoneyInputTypeRequestBody] = OMIT,
+        vmrs_code: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityPartDefinitionsServiceCreatePartResponseBody:
+        """
+        Creates a part for the organization.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        part_number : str
+            Customer-visible part number for the part.
+
+        barcode_string : typing.Optional[str]
+            Barcode associated with the part definition.
+
+        barcode_type : typing.Optional[str]
+            Type of barcode associated with the part definition.
+
+        description : typing.Optional[str]
+            Description of the part definition.
+
+        external_id : typing.Optional[str]
+            Customer-supplied external identifier for the part.
+
+        is_inventory_tracked : typing.Optional[bool]
+            Whether inventory tracking is enabled for this part.
+
+        manufacturer_name : typing.Optional[str]
+            Name of the manufacturer for the part definition.
+
+        manufacturer_part_number : typing.Optional[str]
+            Manufacturer-supplied part number.
+
+        name : typing.Optional[str]
+            Name of the part definition.
+
+        preferred_vendor_id : typing.Optional[str]
+            Unique identifier for the preferred vendor for this part definition.
+
+        preferred_vendor_part_number : typing.Optional[str]
+            The preferred vendor's part number for this part definition.
+
+        unit_cost : typing.Optional[CreatePartEntityPartDefinitionMoneyInputTypeRequestBody]
+
+        vmrs_code : typing.Optional[str]
+            VMRS code associated with the part definition.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityPartDefinitionsServiceCreatePartResponseBody
+            Created response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.maintenance.create_part(
+                part_number="12345",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.create_part(
+            part_number=part_number,
+            barcode_string=barcode_string,
+            barcode_type=barcode_type,
+            description=description,
+            external_id=external_id,
+            is_inventory_tracked=is_inventory_tracked,
+            manufacturer_name=manufacturer_name,
+            manufacturer_part_number=manufacturer_part_number,
+            name=name,
+            preferred_vendor_id=preferred_vendor_id,
+            preferred_vendor_part_number=preferred_vendor_part_number,
+            unit_cost=unit_cost,
+            vmrs_code=vmrs_code,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def delete_part(self, *, id: str, request_options: typing.Optional[RequestOptions] = None) -> None:
+        """
+        Deletes a part for the organization.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Unique identifier for the PartDefinition record.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.maintenance.delete_part(
+                id="id",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.delete_part(id=id, request_options=request_options)
+        return _response.data
+
+    async def update_part(
+        self,
+        *,
+        id: str,
+        barcode_string: typing.Optional[str] = OMIT,
+        barcode_type: typing.Optional[str] = OMIT,
+        description: typing.Optional[str] = OMIT,
+        external_id: typing.Optional[str] = OMIT,
+        is_inventory_tracked: typing.Optional[bool] = OMIT,
+        manufacturer_name: typing.Optional[str] = OMIT,
+        manufacturer_part_number: typing.Optional[str] = OMIT,
+        name: typing.Optional[str] = OMIT,
+        part_number: typing.Optional[str] = OMIT,
+        preferred_vendor_id: typing.Optional[str] = OMIT,
+        preferred_vendor_part_number: typing.Optional[str] = OMIT,
+        unit_cost: typing.Optional[UpdatePartEntityPartDefinitionMoneyInputTypeRequestBody] = OMIT,
+        vmrs_code: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityPartDefinitionsServiceUpdatePartResponseBody:
+        """
+        Updates an existing part for the organization.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Unique identifier for the PartDefinition record.
+
+        barcode_string : typing.Optional[str]
+            Barcode associated with the part definition.
+
+        barcode_type : typing.Optional[str]
+            Type of barcode associated with the part definition.
+
+        description : typing.Optional[str]
+            Description of the part definition.
+
+        external_id : typing.Optional[str]
+            Customer-supplied external identifier for the part.
+
+        is_inventory_tracked : typing.Optional[bool]
+            Whether inventory tracking is enabled for this part.
+
+        manufacturer_name : typing.Optional[str]
+            Name of the manufacturer for the part definition.
+
+        manufacturer_part_number : typing.Optional[str]
+            Manufacturer-supplied part number.
+
+        name : typing.Optional[str]
+            Name of the part definition.
+
+        part_number : typing.Optional[str]
+            Customer-visible part number for the part.
+
+        preferred_vendor_id : typing.Optional[str]
+            Unique identifier for the preferred vendor for this part definition.
+
+        preferred_vendor_part_number : typing.Optional[str]
+            The preferred vendor's part number for this part definition.
+
+        unit_cost : typing.Optional[UpdatePartEntityPartDefinitionMoneyInputTypeRequestBody]
+
+        vmrs_code : typing.Optional[str]
+            VMRS code associated with the part definition.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityPartDefinitionsServiceUpdatePartResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.maintenance.update_part(
+                id="id",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.update_part(
+            id=id,
+            barcode_string=barcode_string,
+            barcode_type=barcode_type,
+            description=description,
+            external_id=external_id,
+            is_inventory_tracked=is_inventory_tracked,
+            manufacturer_name=manufacturer_name,
+            manufacturer_part_number=manufacturer_part_number,
+            name=name,
+            part_number=part_number,
+            preferred_vendor_id=preferred_vendor_id,
+            preferred_vendor_part_number=preferred_vendor_part_number,
+            unit_cost=unit_cost,
+            vmrs_code=vmrs_code,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def list_part_inventory(
+        self,
+        *,
+        place_ids: typing.Optional[str] = None,
+        is_low_stock: typing.Optional[bool] = None,
+        part_samsara_ids: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityPartInventoryLocationsServiceListPartInventoryResponseBody:
+        """
+        Returns a paginated list of per-part, per-location inventory levels for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        place_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Place ID values.
+
+        is_low_stock : typing.Optional[bool]
+            A filter on the data based on Low stock. Whether the available quantity is greater than zero and at or below the reorder threshold.
+
+        part_samsara_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Part ID values.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityPartInventoryLocationsServiceListPartInventoryResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.maintenance.list_part_inventory()
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.list_part_inventory(
+            place_ids=place_ids,
+            is_low_stock=is_low_stock,
+            part_samsara_ids=part_samsara_ids,
+            after=after,
+            limit=limit,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def create_part_inventory_location(
+        self,
+        *,
+        part_samsara_id: typing.Optional[str] = None,
+        place_id: typing.Optional[str] = None,
+        aisle: typing.Optional[str] = OMIT,
+        bin: typing.Optional[str] = OMIT,
+        current_quantity: typing.Optional[float] = OMIT,
+        is_cost_tracked: typing.Optional[bool] = OMIT,
+        max_stock_level: typing.Optional[float] = OMIT,
+        min_stock_level: typing.Optional[float] = OMIT,
+        reorder_quantity: typing.Optional[float] = OMIT,
+        reorder_threshold: typing.Optional[float] = OMIT,
+        row: typing.Optional[str] = OMIT,
+        unit_cost: typing.Optional[
+            CreatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody
+        ] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityPartInventoryLocationsServiceCreatePartInventoryLocationResponseBody:
+        """
+        Creates per-part, per-location inventory metadata for the organization. Upserts by part and place — a second create at the same pair updates the existing record instead of duplicating it.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        part_samsara_id : typing.Optional[str]
+            Unique identifier for the part definition these inventory levels are tracked for.
+
+        place_id : typing.Optional[str]
+            Unique identifier for the place linked to the maintenance site holding this inventory. The internal location identifier is never exposed.
+
+        aisle : typing.Optional[str]
+            Aisle within the location where the part is stored.
+
+        bin : typing.Optional[str]
+            Bin within the location where the part is stored.
+
+        current_quantity : typing.Optional[float]
+            Total physical quantity on hand at this location, equal to the available quantity plus the reserved quantity. Settable only when creating the record, to seed initial stock; thereafter it changes only via stock movements.
+
+        is_cost_tracked : typing.Optional[bool]
+            Whether costing is tracked at this location. Defaults to false; once enabled it cannot be turned back off.
+
+        max_stock_level : typing.Optional[float]
+            Maximum quantity to keep in stock at this location.
+
+        min_stock_level : typing.Optional[float]
+            Minimum quantity to keep in stock at this location.
+
+        reorder_quantity : typing.Optional[float]
+            Quantity to reorder when stock reaches the reorder threshold.
+
+        reorder_threshold : typing.Optional[float]
+            Available quantity at or below which the part should be reordered at this location.
+
+        row : typing.Optional[str]
+            Row within the location where the part is stored.
+
+        unit_cost : typing.Optional[CreatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody]
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityPartInventoryLocationsServiceCreatePartInventoryLocationResponseBody
+            Created response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.maintenance.create_part_inventory_location()
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.create_part_inventory_location(
+            part_samsara_id=part_samsara_id,
+            place_id=place_id,
+            aisle=aisle,
+            bin=bin,
+            current_quantity=current_quantity,
+            is_cost_tracked=is_cost_tracked,
+            max_stock_level=max_stock_level,
+            min_stock_level=min_stock_level,
+            reorder_quantity=reorder_quantity,
+            reorder_threshold=reorder_threshold,
+            row=row,
+            unit_cost=unit_cost,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def update_part_inventory_location(
+        self,
+        *,
+        part_samsara_id: typing.Optional[str] = None,
+        place_id: typing.Optional[str] = None,
+        aisle: typing.Optional[str] = OMIT,
+        bin: typing.Optional[str] = OMIT,
+        current_quantity: typing.Optional[float] = OMIT,
+        is_cost_tracked: typing.Optional[bool] = OMIT,
+        max_stock_level: typing.Optional[float] = OMIT,
+        min_stock_level: typing.Optional[float] = OMIT,
+        reorder_quantity: typing.Optional[float] = OMIT,
+        reorder_threshold: typing.Optional[float] = OMIT,
+        row: typing.Optional[str] = OMIT,
+        unit_cost: typing.Optional[
+            UpdatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody
+        ] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityPartInventoryLocationsServiceUpdatePartInventoryLocationResponseBody:
+        """
+        Updates existing per-part, per-location inventory metadata for the organization.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        part_samsara_id : typing.Optional[str]
+            Unique identifier for the part definition these inventory levels are tracked for.
+
+        place_id : typing.Optional[str]
+            Unique identifier for the place linked to the maintenance site holding this inventory. The internal location identifier is never exposed.
+
+        aisle : typing.Optional[str]
+            Aisle within the location where the part is stored.
+
+        bin : typing.Optional[str]
+            Bin within the location where the part is stored.
+
+        current_quantity : typing.Optional[float]
+            Total physical quantity on hand at this location, equal to the available quantity plus the reserved quantity. Settable only when creating the record, to seed initial stock; thereafter it changes only via stock movements.
+
+        is_cost_tracked : typing.Optional[bool]
+            Whether costing is tracked at this location. Defaults to false; once enabled it cannot be turned back off.
+
+        max_stock_level : typing.Optional[float]
+            Maximum quantity to keep in stock at this location.
+
+        min_stock_level : typing.Optional[float]
+            Minimum quantity to keep in stock at this location.
+
+        reorder_quantity : typing.Optional[float]
+            Quantity to reorder when stock reaches the reorder threshold.
+
+        reorder_threshold : typing.Optional[float]
+            Available quantity at or below which the part should be reordered at this location.
+
+        row : typing.Optional[str]
+            Row within the location where the part is stored.
+
+        unit_cost : typing.Optional[UpdatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody]
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityPartInventoryLocationsServiceUpdatePartInventoryLocationResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.maintenance.update_part_inventory_location()
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.update_part_inventory_location(
+            part_samsara_id=part_samsara_id,
+            place_id=place_id,
+            aisle=aisle,
+            bin=bin,
+            current_quantity=current_quantity,
+            is_cost_tracked=is_cost_tracked,
+            max_stock_level=max_stock_level,
+            min_stock_level=min_stock_level,
+            reorder_quantity=reorder_quantity,
+            reorder_threshold=reorder_threshold,
+            row=row,
+            unit_cost=unit_cost,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def create_stock_movement(
+        self,
+        *,
+        movement_type: str,
+        part_samsara_id: str,
+        quantity: float,
+        batch: typing.Optional[str] = OMIT,
+        from_place_id: typing.Optional[str] = OMIT,
+        happened_at_time: typing.Optional[str] = OMIT,
+        notes: typing.Optional[str] = OMIT,
+        place_id: typing.Optional[str] = OMIT,
+        purchase_order: typing.Optional[str] = OMIT,
+        to_place_id: typing.Optional[str] = OMIT,
+        unit_cost: typing.Optional[EntityCreateStockMovementMoneyInputTypeRequestBody] = OMIT,
+        vendor_id: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> CreateStockMovementActionServiceCreateStockMovementResponseBody:
+        """
+        Records a receive, transfer, scrap, or adjust stock movement against a part's inventory and returns the resulting inventory location(s). Not idempotent — retrying a request that already succeeded records the movement again.
+
+         <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        movement_type : str
+            Type of stock movement to record. Must be one of Receive, Transfer, Scrap, or Adjust; Unknown is rejected.
+
+        part_samsara_id : str
+            Unique identifier of the part definition the movement applies to.
+
+        quantity : float
+            Quantity moved, in the part's unit of measure. Positive magnitude for receive, transfer, and scrap; signed delta for adjust.
+
+        batch : typing.Optional[str]
+            Batch or lot identifier the movement applies to, if the part is batch-tracked.
+
+        from_place_id : typing.Optional[str]
+            Unique identifier of the place linked to the maintenance site the inventory is transferred out of. Transfer only.
+
+        happened_at_time : typing.Optional[str]
+            Time when the movement occurred. Defaults to the current time if not provided.
+
+        notes : typing.Optional[str]
+            Notes explaining the movement. Scrap and adjust only.
+
+        place_id : typing.Optional[str]
+            Unique identifier of the place linked to the maintenance site the movement targets. Required for receive, scrap, and adjust; rejected for transfer (use fromPlaceId and toPlaceId).
+
+        purchase_order : typing.Optional[str]
+            Purchase order reference for the received inventory. Receive only.
+
+        to_place_id : typing.Optional[str]
+            Unique identifier of the place linked to the maintenance site the inventory is transferred into. Transfer only.
+
+        unit_cost : typing.Optional[EntityCreateStockMovementMoneyInputTypeRequestBody]
+
+        vendor_id : typing.Optional[str]
+            Unique identifier of the vendor the inventory was received from. Receive only.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        CreateStockMovementActionServiceCreateStockMovementResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.maintenance.create_stock_movement(
+                movement_type="12345",
+                part_samsara_id="12345",
+                quantity=123.45,
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.create_stock_movement(
+            movement_type=movement_type,
+            part_samsara_id=part_samsara_id,
+            quantity=quantity,
+            batch=batch,
+            from_place_id=from_place_id,
+            happened_at_time=happened_at_time,
+            notes=notes,
+            place_id=place_id,
+            purchase_order=purchase_order,
+            to_place_id=to_place_id,
+            unit_cost=unit_cost,
+            vendor_id=vendor_id,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def list_part_transactions(
+        self,
+        *,
+        happened_at_time_start: str,
+        happened_at_time_end: typing.Optional[str] = None,
+        part_samsara_ids: typing.Optional[str] = None,
+        place_ids: typing.Optional[str] = None,
+        transaction_type_in: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityInventoryTransactionsServiceListPartTransactionsResponseBody:
+        """
+        Returns a paginated, time-windowed feed of inventory transactions (an append-only parts audit log) for the organization, ordered by the time each transaction occurred.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        happened_at_time_start : str
+            A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        happened_at_time_end : typing.Optional[str]
+            An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        part_samsara_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Part Samsara ID values.
+
+        place_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Place ID values.
+
+        transaction_type_in : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Transaction Type values.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityInventoryTransactionsServiceListPartTransactionsResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.maintenance.list_part_transactions(
+                happened_at_time_start="happenedAtTimeStart",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.list_part_transactions(
+            happened_at_time_start=happened_at_time_start,
+            happened_at_time_end=happened_at_time_end,
+            part_samsara_ids=part_samsara_ids,
+            place_ids=place_ids,
+            transaction_type_in=transaction_type_in,
+            after=after,
+            limit=limit,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def list_time_entries(
+        self,
+        *,
+        start_time: str,
+        end_time: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityTimeEntriesServiceListTimeEntriesResponseBody:
+        """
+        Returns a paginated feed of technician time entries updated in the requested time window, including deletion tombstones.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Time Entries** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        start_time : str
+            A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        end_time : typing.Optional[str]
+            An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityTimeEntriesServiceListTimeEntriesResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.maintenance.list_time_entries(
+                start_time="startTime",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.list_time_entries(
+            start_time=start_time, end_time=end_time, after=after, limit=limit, request_options=request_options
+        )
+        return _response.data
+
+    async def list_warranties(
+        self,
+        *,
+        warranty_ids: typing.Optional[str] = None,
+        name: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        include_external_ids: typing.Optional[bool] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityWarrantiesServiceListWarrantiesResponseBody:
+        """
+        Returns a paginated list of warranties for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        warranty_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of ID values.
+
+        name : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Name values.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        include_external_ids : typing.Optional[bool]
+            If true, include externalIds in each response object.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityWarrantiesServiceListWarrantiesResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.maintenance.list_warranties()
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.list_warranties(
+            warranty_ids=warranty_ids,
+            name=name,
+            after=after,
+            limit=limit,
+            include_external_ids=include_external_ids,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def create_warranty(
+        self,
+        *,
+        name: str,
+        base_coverage: typing.Optional[CreateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody] = OMIT,
+        coverages: typing.Optional[
+            typing.Sequence[CreateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody]
+        ] = OMIT,
+        description: typing.Optional[str] = OMIT,
+        duration_days: typing.Optional[int] = OMIT,
+        duration_months: typing.Optional[int] = OMIT,
+        engine_duration_hours: typing.Optional[int] = OMIT,
+        external_ids: typing.Optional[
+            typing.Sequence[CreateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody]
+        ] = OMIT,
+        odometer_distance_meters: typing.Optional[int] = OMIT,
+        vendor_id: typing.Optional[str] = OMIT,
+        warranty_type: typing.Optional[EntityWarrantiesServiceCreateWarrantyRequestBodyWarrantyType] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityWarrantiesServiceCreateWarrantyResponseBody:
+        """
+        Creates a warranty for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        name : str
+            Name of the warranty.
+
+        base_coverage : typing.Optional[CreateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody]
+
+        coverages : typing.Optional[typing.Sequence[CreateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody]]
+            Additional coverage groups defined on this warranty.
+
+        description : typing.Optional[str]
+            Description of the warranty.
+
+        duration_days : typing.Optional[int]
+            Warranty length in days. Mutually exclusive with duration in months.
+
+        duration_months : typing.Optional[int]
+            Warranty length in months. Mutually exclusive with duration in days.
+
+        engine_duration_hours : typing.Optional[int]
+            Warranty length by engine hours since the warranty start.
+
+        external_ids : typing.Optional[typing.Sequence[CreateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody]]
+            Customer-supplied external identifiers for the warranty, interchangeable with id in filters. Only included in the response when includeExternalIds is set.
+
+        odometer_distance_meters : typing.Optional[int]
+            Warranty length by distance travelled since the warranty start. Measured in meters.
+
+        vendor_id : typing.Optional[str]
+            ID of the vendor that provides this warranty.
+
+        warranty_type : typing.Optional[EntityWarrantiesServiceCreateWarrantyRequestBodyWarrantyType]
+            Type of warranty, for example manufacturer, extended, other, or unknown.  Valid values: `unknown`, `manufacturer`, `extended`, `other`
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityWarrantiesServiceCreateWarrantyResponseBody
+            Created response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.maintenance.create_warranty(
+                name="12345",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.create_warranty(
+            name=name,
+            base_coverage=base_coverage,
+            coverages=coverages,
+            description=description,
+            duration_days=duration_days,
+            duration_months=duration_months,
+            engine_duration_hours=engine_duration_hours,
+            external_ids=external_ids,
+            odometer_distance_meters=odometer_distance_meters,
+            vendor_id=vendor_id,
+            warranty_type=warranty_type,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def delete_warranty(self, *, id: str, request_options: typing.Optional[RequestOptions] = None) -> None:
+        """
+        Deletes a warranty for the organization. Asset associations are removed server-side.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Unique identifier for the Warranty record.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.maintenance.delete_warranty(
+                id="id",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.delete_warranty(id=id, request_options=request_options)
+        return _response.data
+
+    async def update_warranty(
+        self,
+        *,
+        id: str,
+        base_coverage: typing.Optional[UpdateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody] = OMIT,
+        coverages: typing.Optional[
+            typing.Sequence[UpdateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody]
+        ] = OMIT,
+        description: typing.Optional[str] = OMIT,
+        duration_days: typing.Optional[int] = OMIT,
+        duration_months: typing.Optional[int] = OMIT,
+        engine_duration_hours: typing.Optional[int] = OMIT,
+        external_ids: typing.Optional[
+            typing.Sequence[UpdateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody]
+        ] = OMIT,
+        name: typing.Optional[str] = OMIT,
+        odometer_distance_meters: typing.Optional[int] = OMIT,
+        vendor_id: typing.Optional[str] = OMIT,
+        warranty_type: typing.Optional[EntityWarrantiesServiceUpdateWarrantyRequestBodyWarrantyType] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityWarrantiesServiceUpdateWarrantyResponseBody:
+        """
+        Updates an existing warranty for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Unique identifier for the Warranty record.
+
+        base_coverage : typing.Optional[UpdateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody]
+
+        coverages : typing.Optional[typing.Sequence[UpdateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody]]
+            Additional coverage groups defined on this warranty.
+
+        description : typing.Optional[str]
+            Description of the warranty.
+
+        duration_days : typing.Optional[int]
+            Warranty length in days. Mutually exclusive with duration in months.
+
+        duration_months : typing.Optional[int]
+            Warranty length in months. Mutually exclusive with duration in days.
+
+        engine_duration_hours : typing.Optional[int]
+            Warranty length by engine hours since the warranty start.
+
+        external_ids : typing.Optional[typing.Sequence[UpdateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody]]
+            Customer-supplied external identifiers for the warranty, interchangeable with id in filters. Only included in the response when includeExternalIds is set.
+
+        name : typing.Optional[str]
+            Name of the warranty.
+
+        odometer_distance_meters : typing.Optional[int]
+            Warranty length by distance travelled since the warranty start. Measured in meters.
+
+        vendor_id : typing.Optional[str]
+            ID of the vendor that provides this warranty.
+
+        warranty_type : typing.Optional[EntityWarrantiesServiceUpdateWarrantyRequestBodyWarrantyType]
+            Type of warranty, for example manufacturer, extended, other, or unknown.  Valid values: `unknown`, `manufacturer`, `extended`, `other`
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityWarrantiesServiceUpdateWarrantyResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.maintenance.update_warranty(
+                id="id",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.update_warranty(
+            id=id,
+            base_coverage=base_coverage,
+            coverages=coverages,
+            description=description,
+            duration_days=duration_days,
+            duration_months=duration_months,
+            engine_duration_hours=engine_duration_hours,
+            external_ids=external_ids,
+            name=name,
+            odometer_distance_meters=odometer_distance_meters,
+            vendor_id=vendor_id,
+            warranty_type=warranty_type,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def list_warranty_asset_assignments(
+        self,
+        *,
+        warranty_id: str,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsResponseBody:
+        """
+        Returns the assets assigned to a warranty.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        warranty_id : str
+            A filter on the data based on this comma-separated list of Warranty values.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.maintenance.list_warranty_asset_assignments(
+                warranty_id="warrantyId",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.list_warranty_asset_assignments(
+            warranty_id=warranty_id, after=after, limit=limit, request_options=request_options
+        )
+        return _response.data
+
+    async def replace_warranty_asset_assignments(
+        self,
+        *,
+        warranty_id: typing.Optional[str] = None,
+        assets: typing.Optional[
+            typing.Sequence[EntityReplaceWarrantyAssetAssignmentsWarrantyAssetAssignmentInputTypeRequestBody]
+        ] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsResponseBody:
+        """
+        Replaces the full set of assets assigned to a warranty.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        warranty_id : typing.Optional[str]
+            ID of the warranty whose asset set to replace.
+
+        assets : typing.Optional[typing.Sequence[EntityReplaceWarrantyAssetAssignmentsWarrantyAssetAssignmentInputTypeRequestBody]]
+            The full desired asset set for the warranty.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.maintenance.replace_warranty_asset_assignments()
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.replace_warranty_asset_assignments(
+            warranty_id=warranty_id, assets=assets, request_options=request_options
+        )
+        return _response.data
+
+    async def list_warranty_claims(
+        self,
+        *,
+        warranty_claim_ids: typing.Optional[str] = None,
+        asset_ids: typing.Optional[str] = None,
+        claim_status: typing.Optional[str] = None,
+        warranty_ids: typing.Optional[str] = None,
+        after: typing.Optional[str] = None,
+        limit: typing.Optional[int] = None,
+        include_external_ids: typing.Optional[bool] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityWarrantyClaimsServiceListWarrantyClaimsResponseBody:
+        """
+        Returns a paginated list of warranty claims for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Read Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        warranty_claim_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of ID values.
+
+        asset_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Asset values.
+
+        claim_status : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Claim status values.
+
+        warranty_ids : typing.Optional[str]
+            A filter on the data based on this comma-separated list of Warranty values.
+
+        after : typing.Optional[str]
+             If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+
+        limit : typing.Optional[int]
+            The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+
+        include_external_ids : typing.Optional[bool]
+            If true, include externalIds in each response object.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityWarrantyClaimsServiceListWarrantyClaimsResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.maintenance.list_warranty_claims()
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.list_warranty_claims(
+            warranty_claim_ids=warranty_claim_ids,
+            asset_ids=asset_ids,
+            claim_status=claim_status,
+            warranty_ids=warranty_ids,
+            after=after,
+            limit=limit,
+            include_external_ids=include_external_ids,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def create_warranty_claim(
+        self,
+        *,
+        asset_id: str,
+        cause: typing.Optional[str] = OMIT,
+        claim_engine_hours: typing.Optional[int] = OMIT,
+        claim_odometer_meters: typing.Optional[int] = OMIT,
+        claim_status: typing.Optional[EntityWarrantyClaimsServiceCreateWarrantyClaimRequestBodyClaimStatus] = OMIT,
+        component_instance_ids: typing.Optional[typing.Sequence[str]] = OMIT,
+        concern: typing.Optional[str] = OMIT,
+        correction: typing.Optional[str] = OMIT,
+        external_ids: typing.Optional[
+            typing.Sequence[CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdInputTypeRequestBody]
+        ] = OMIT,
+        labor: typing.Optional[
+            typing.Sequence[CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborInputTypeRequestBody]
+        ] = OMIT,
+        linked_warranty_id: typing.Optional[str] = OMIT,
+        linked_work_order_ids: typing.Optional[typing.Sequence[str]] = OMIT,
+        media_item_ids: typing.Optional[typing.Sequence[str]] = OMIT,
+        other_cost: typing.Optional[CreateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody] = OMIT,
+        parts: typing.Optional[
+            typing.Sequence[CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody]
+        ] = OMIT,
+        reimbursed_at_time: typing.Optional[str] = OMIT,
+        reimbursements: typing.Optional[
+            typing.Sequence[CreateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody]
+        ] = OMIT,
+        repair_completed_at_time: typing.Optional[str] = OMIT,
+        resolution_at_time: typing.Optional[str] = OMIT,
+        submitted_at_time: typing.Optional[str] = OMIT,
+        warranty_vendor_id: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityWarrantyClaimsServiceCreateWarrantyClaimResponseBody:
+        """
+        Creates a warranty claim for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        asset_id : str
+            ID of the asset the claim is filed for. Immutable once set.
+
+        cause : typing.Optional[str]
+            The cause of the 3 Cs - the root cause found.
+
+        claim_engine_hours : typing.Optional[int]
+            Engine hours at the time of repair.
+
+        claim_odometer_meters : typing.Optional[int]
+            Asset odometer reading at the time of repair. Measured in meters.
+
+        claim_status : typing.Optional[EntityWarrantyClaimsServiceCreateWarrantyClaimRequestBodyClaimStatus]
+            Current status of the claim.  Valid values: `unknown`, `created`, `submitted`, `inReview`, `approved`, `rejected`, `resubmitted`, `reimbursed`
+
+        component_instance_ids : typing.Optional[typing.Sequence[str]]
+            IDs of asset component instances covered by this claim.
+
+        concern : typing.Optional[str]
+            The concern of the 3 Cs - what was reported.
+
+        correction : typing.Optional[str]
+            The correction of the 3 Cs - the work performed.
+
+        external_ids : typing.Optional[typing.Sequence[CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdInputTypeRequestBody]]
+            Customer-supplied external identifiers for the warranty claim, interchangeable with id in filters. Only included in the response when includeExternalIds is set.
+
+        labor : typing.Optional[typing.Sequence[CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborInputTypeRequestBody]]
+            Labor being claimed.
+
+        linked_warranty_id : typing.Optional[str]
+            ID of the warranty this claim is filed against.
+
+        linked_work_order_ids : typing.Optional[typing.Sequence[str]]
+            IDs of the work orders associated with this claim.
+
+        media_item_ids : typing.Optional[typing.Sequence[str]]
+            IDs of media items attached to the claim.
+
+        other_cost : typing.Optional[CreateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody]
+
+        parts : typing.Optional[typing.Sequence[CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody]]
+            Parts being claimed.
+
+        reimbursed_at_time : typing.Optional[str]
+            When reimbursement was received.
+
+        reimbursements : typing.Optional[typing.Sequence[CreateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody]]
+            Reimbursement amounts, optionally linked to a work order.
+
+        repair_completed_at_time : typing.Optional[str]
+            When the repair was completed.
+
+        resolution_at_time : typing.Optional[str]
+            When the claim was resolved.
+
+        submitted_at_time : typing.Optional[str]
+            When the claim was submitted to the vendor.
+
+        warranty_vendor_id : typing.Optional[str]
+            ID of the vendor handling the claim.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityWarrantyClaimsServiceCreateWarrantyClaimResponseBody
+            Created response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.maintenance.create_warranty_claim(
+                asset_id="281474976710656",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.create_warranty_claim(
+            asset_id=asset_id,
+            cause=cause,
+            claim_engine_hours=claim_engine_hours,
+            claim_odometer_meters=claim_odometer_meters,
+            claim_status=claim_status,
+            component_instance_ids=component_instance_ids,
+            concern=concern,
+            correction=correction,
+            external_ids=external_ids,
+            labor=labor,
+            linked_warranty_id=linked_warranty_id,
+            linked_work_order_ids=linked_work_order_ids,
+            media_item_ids=media_item_ids,
+            other_cost=other_cost,
+            parts=parts,
+            reimbursed_at_time=reimbursed_at_time,
+            reimbursements=reimbursements,
+            repair_completed_at_time=repair_completed_at_time,
+            resolution_at_time=resolution_at_time,
+            submitted_at_time=submitted_at_time,
+            warranty_vendor_id=warranty_vendor_id,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def delete_warranty_claim(self, *, id: str, request_options: typing.Optional[RequestOptions] = None) -> None:
+        """
+        Deletes a warranty claim for the organization. Component links are removed server-side.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Unique identifier for the WarrantyClaim record.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.maintenance.delete_warranty_claim(
+                id="id",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.delete_warranty_claim(id=id, request_options=request_options)
+        return _response.data
+
+    async def update_warranty_claim(
+        self,
+        *,
+        id: str,
+        asset_id: typing.Optional[str] = OMIT,
+        cause: typing.Optional[str] = OMIT,
+        claim_engine_hours: typing.Optional[int] = OMIT,
+        claim_odometer_meters: typing.Optional[int] = OMIT,
+        claim_status: typing.Optional[EntityWarrantyClaimsServiceUpdateWarrantyClaimRequestBodyClaimStatus] = OMIT,
+        component_instance_ids: typing.Optional[typing.Sequence[str]] = OMIT,
+        concern: typing.Optional[str] = OMIT,
+        correction: typing.Optional[str] = OMIT,
+        external_ids: typing.Optional[
+            typing.Sequence[UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdInputTypeRequestBody]
+        ] = OMIT,
+        labor: typing.Optional[
+            typing.Sequence[UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborInputTypeRequestBody]
+        ] = OMIT,
+        linked_warranty_id: typing.Optional[str] = OMIT,
+        linked_work_order_ids: typing.Optional[typing.Sequence[str]] = OMIT,
+        media_item_ids: typing.Optional[typing.Sequence[str]] = OMIT,
+        other_cost: typing.Optional[UpdateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody] = OMIT,
+        parts: typing.Optional[
+            typing.Sequence[UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody]
+        ] = OMIT,
+        reimbursed_at_time: typing.Optional[str] = OMIT,
+        reimbursements: typing.Optional[
+            typing.Sequence[UpdateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody]
+        ] = OMIT,
+        repair_completed_at_time: typing.Optional[str] = OMIT,
+        resolution_at_time: typing.Optional[str] = OMIT,
+        submitted_at_time: typing.Optional[str] = OMIT,
+        warranty_vendor_id: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> EntityWarrantyClaimsServiceUpdateWarrantyClaimResponseBody:
+        """
+        Updates an existing warranty claim for the organization.
+
+         <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+        To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+
+
+         **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+        Parameters
+        ----------
+        id : str
+            Unique identifier for the WarrantyClaim record.
+
+        asset_id : typing.Optional[str]
+            ID of the asset the claim is filed for. Immutable once set.
+
+        cause : typing.Optional[str]
+            The cause of the 3 Cs - the root cause found.
+
+        claim_engine_hours : typing.Optional[int]
+            Engine hours at the time of repair.
+
+        claim_odometer_meters : typing.Optional[int]
+            Asset odometer reading at the time of repair. Measured in meters.
+
+        claim_status : typing.Optional[EntityWarrantyClaimsServiceUpdateWarrantyClaimRequestBodyClaimStatus]
+            Current status of the claim.  Valid values: `unknown`, `created`, `submitted`, `inReview`, `approved`, `rejected`, `resubmitted`, `reimbursed`
+
+        component_instance_ids : typing.Optional[typing.Sequence[str]]
+            IDs of asset component instances covered by this claim.
+
+        concern : typing.Optional[str]
+            The concern of the 3 Cs - what was reported.
+
+        correction : typing.Optional[str]
+            The correction of the 3 Cs - the work performed.
+
+        external_ids : typing.Optional[typing.Sequence[UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdInputTypeRequestBody]]
+            Customer-supplied external identifiers for the warranty claim, interchangeable with id in filters. Only included in the response when includeExternalIds is set.
+
+        labor : typing.Optional[typing.Sequence[UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborInputTypeRequestBody]]
+            Labor being claimed.
+
+        linked_warranty_id : typing.Optional[str]
+            ID of the warranty this claim is filed against.
+
+        linked_work_order_ids : typing.Optional[typing.Sequence[str]]
+            IDs of the work orders associated with this claim.
+
+        media_item_ids : typing.Optional[typing.Sequence[str]]
+            IDs of media items attached to the claim.
+
+        other_cost : typing.Optional[UpdateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody]
+
+        parts : typing.Optional[typing.Sequence[UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody]]
+            Parts being claimed.
+
+        reimbursed_at_time : typing.Optional[str]
+            When reimbursement was received.
+
+        reimbursements : typing.Optional[typing.Sequence[UpdateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody]]
+            Reimbursement amounts, optionally linked to a work order.
+
+        repair_completed_at_time : typing.Optional[str]
+            When the repair was completed.
+
+        resolution_at_time : typing.Optional[str]
+            When the claim was resolved.
+
+        submitted_at_time : typing.Optional[str]
+            When the claim was submitted to the vendor.
+
+        warranty_vendor_id : typing.Optional[str]
+            ID of the vendor handling the claim.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        EntityWarrantyClaimsServiceUpdateWarrantyClaimResponseBody
+            OK response.
+
+        Examples
+        --------
+        import asyncio
+
+        from samsara import AsyncSamsara
+
+        client = AsyncSamsara(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.maintenance.update_warranty_claim(
+                id="id",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.update_warranty_claim(
+            id=id,
+            asset_id=asset_id,
+            cause=cause,
+            claim_engine_hours=claim_engine_hours,
+            claim_odometer_meters=claim_odometer_meters,
+            claim_status=claim_status,
+            component_instance_ids=component_instance_ids,
+            concern=concern,
+            correction=correction,
+            external_ids=external_ids,
+            labor=labor,
+            linked_warranty_id=linked_warranty_id,
+            linked_work_order_ids=linked_work_order_ids,
+            media_item_ids=media_item_ids,
+            other_cost=other_cost,
+            parts=parts,
+            reimbursed_at_time=reimbursed_at_time,
+            reimbursements=reimbursements,
+            repair_completed_at_time=repair_completed_at_time,
+            resolution_at_time=resolution_at_time,
+            submitted_at_time=submitted_at_time,
+            warranty_vendor_id=warranty_vendor_id,
             request_options=request_options,
         )
         return _response.data

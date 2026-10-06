@@ -10,7 +10,7 @@ from ..core.serialization import FieldMetadata
 
 class EntityReplaceWarrantyAssetAssignmentsWarrantyAssetAssignmentInputTypeRequestBody(UniversalBaseModel):
     """
-    EntityReplaceWarrantyAssetAssignmentsWarrantyAssetAssignmentInput object
+    WarrantyAssetAssignmentInput object
     """
 
     asset_id: typing_extensions.Annotated[

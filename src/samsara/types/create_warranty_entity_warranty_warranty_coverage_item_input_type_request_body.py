@@ -6,11 +6,14 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .create_warranty_entity_warranty_warranty_coverage_item_input_type_request_body_item_type import (
+    CreateWarrantyEntityWarrantyWarrantyCoverageItemInputTypeRequestBodyItemType,
+)
 
 
 class CreateWarrantyEntityWarrantyWarrantyCoverageItemInputTypeRequestBody(UniversalBaseModel):
     """
-    CreateWarrantyEntityWarrantyWarrantyCoverageItemInput object
+    WarrantyCoverageItem object
     """
 
     id: typing.Optional[str] = pydantic.Field(default=None)
@@ -19,11 +22,11 @@ class CreateWarrantyEntityWarrantyWarrantyCoverageItemInputTypeRequestBody(Unive
     """
 
     item_type: typing_extensions.Annotated[
-        str,
+        CreateWarrantyEntityWarrantyWarrantyCoverageItemInputTypeRequestBodyItemType,
         FieldMetadata(alias="itemType"),
         pydantic.Field(
             alias="itemType",
-            description="Kind of covered item, indicating how the ID should be interpreted (VMRS code or service task).",
+            description="Kind of covered item, indicating how the ID should be interpreted (VMRS code or service task).  Valid values: `unknown`, `vmrsCode`, `serviceTask`",
         ),
     ]
     vmrs_code: typing_extensions.Annotated[

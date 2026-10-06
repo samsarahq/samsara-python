@@ -18,6 +18,7 @@ HarshEventTriggerDetailsObjectRequestBodyTypesItem = typing.Union[
         "haFoodPolicy",
         "haHighSpeedSuddenDisconnect",
         "haImpact",
+        "haImproperEgress",
         "haInvalid",
         "haLaneDeparture",
         "haMaskPolicy",

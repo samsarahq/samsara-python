@@ -6,8 +6,22 @@ import typing
 from importlib import import_module
 
 if typing.TYPE_CHECKING:
-    from .types import CreateDvirRequestSafetyStatus, CreateDvirRequestType
-_dynamic_imports: typing.Dict[str, str] = {"CreateDvirRequestSafetyStatus": ".types", "CreateDvirRequestType": ".types"}
+    from .types import (
+        CreateDvirRequestSafetyStatus,
+        CreateDvirRequestType,
+        EntityWarrantiesServiceCreateWarrantyRequestBodyWarrantyType,
+        EntityWarrantiesServiceUpdateWarrantyRequestBodyWarrantyType,
+        EntityWarrantyClaimsServiceCreateWarrantyClaimRequestBodyClaimStatus,
+        EntityWarrantyClaimsServiceUpdateWarrantyClaimRequestBodyClaimStatus,
+    )
+_dynamic_imports: typing.Dict[str, str] = {
+    "CreateDvirRequestSafetyStatus": ".types",
+    "CreateDvirRequestType": ".types",
+    "EntityWarrantiesServiceCreateWarrantyRequestBodyWarrantyType": ".types",
+    "EntityWarrantiesServiceUpdateWarrantyRequestBodyWarrantyType": ".types",
+    "EntityWarrantyClaimsServiceCreateWarrantyClaimRequestBodyClaimStatus": ".types",
+    "EntityWarrantyClaimsServiceUpdateWarrantyClaimRequestBodyClaimStatus": ".types",
+}
 
 
 def __getattr__(attr_name: str) -> typing.Any:
@@ -31,4 +45,11 @@ def __dir__():
     return sorted(lazy_attrs)
 
 
-__all__ = ["CreateDvirRequestSafetyStatus", "CreateDvirRequestType"]
+__all__ = [
+    "CreateDvirRequestSafetyStatus",
+    "CreateDvirRequestType",
+    "EntityWarrantiesServiceCreateWarrantyRequestBodyWarrantyType",
+    "EntityWarrantiesServiceUpdateWarrantyRequestBodyWarrantyType",
+    "EntityWarrantyClaimsServiceCreateWarrantyClaimRequestBodyClaimStatus",
+    "EntityWarrantyClaimsServiceUpdateWarrantyClaimRequestBodyClaimStatus",
+]

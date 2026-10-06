@@ -14,12 +14,12 @@ from .ridership_passenger_special_instructions_object_response_body import (
 
 class RidershipPassengerObjectResponseBody(UniversalBaseModel):
     """
-    A ridership passenger entity.
+    A passenger and their ridership details.
     """
 
     classification: typing.Optional[str] = pydantic.Field(default=None)
     """
-    Classification or grade level of the passenger.
+    Passenger grade level: `pk1`–`pk4` are pre-kindergarten categories, `k` is kindergarten, and `grade1`–`grade12` are grades 1–12.
     """
 
     created_at_time: typing_extensions.Annotated[
@@ -30,7 +30,10 @@ class RidershipPassengerObjectResponseBody(UniversalBaseModel):
     external_ids: typing_extensions.Annotated[
         typing.Optional[typing.Dict[str, str]],
         FieldMetadata(alias="externalIds"),
-        pydantic.Field(alias="externalIds", description="A map of external ids"),
+        pydantic.Field(
+            alias="externalIds",
+            description='Customer-defined IDs that link this passenger to another system, such as {"student": "STU-001"}.',
+        ),
     ] = None
     first_name: typing_extensions.Annotated[
         str,
@@ -67,7 +70,7 @@ class RidershipPassengerObjectResponseBody(UniversalBaseModel):
     tag_ids: typing_extensions.Annotated[
         typing.Optional[typing.List[str]],
         FieldMetadata(alias="tagIds"),
-        pydantic.Field(alias="tagIds", description="IDs of tags associated with this passenger."),
+        pydantic.Field(alias="tagIds", description="Samsara IDs of the tags assigned to this passenger."),
     ] = None
     updated_at_time: typing_extensions.Annotated[
         str,

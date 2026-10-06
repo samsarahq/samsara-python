@@ -27,6 +27,7 @@ DeviceResponseResponseBodyModel = typing.Union[
         "AT12",
         "AT12X",
         "AT13",
+        "Baxter",
         "CM31",
         "CM32",
         "CM33",

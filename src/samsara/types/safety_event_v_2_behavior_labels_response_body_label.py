@@ -33,6 +33,7 @@ SafetyEventV2BehaviorLabelsResponseBodyLabel = typing.Union[
         "HighSpeedSuddenDisconnect",
         "HosViolation",
         "Idling",
+        "ImproperEgress",
         "Invalid",
         "LaneDeparture",
         "LateResponse",

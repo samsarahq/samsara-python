@@ -2,4 +2,4 @@
 
 import typing
 
-TrainingLearnerObjectResponseBodyType = typing.Union[typing.Literal["driver"], typing.Any]
+TrainingLearnerObjectResponseBodyType = typing.Union[typing.Literal["unknown", "driver", "user"], typing.Any]

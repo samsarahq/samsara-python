@@ -45,10 +45,12 @@ if typing.TYPE_CHECKING:
     from .live_sharing_links.client import AsyncLiveSharingLinksClient, LiveSharingLinksClient
     from .location_and_speed.client import AsyncLocationAndSpeedClient, LocationAndSpeedClient
     from .maintenance.client import AsyncMaintenanceClient, MaintenanceClient
+    from .maintenance_sites.client import AsyncMaintenanceSitesClient, MaintenanceSitesClient
     from .media.client import AsyncMediaClient, MediaClient
     from .messages.client import AsyncMessagesClient, MessagesClient
     from .organization_info.client import AsyncOrganizationInfoClient, OrganizationInfoClient
     from .plans.client import AsyncPlansClient, PlansClient
+    from .preventive_maintenance.client import AsyncPreventiveMaintenanceClient, PreventiveMaintenanceClient
     from .preview_ap_is.client import AsyncPreviewApIsClient, PreviewApIsClient
     from .readings.client import AsyncReadingsClient, ReadingsClient
     from .route_events.client import AsyncRouteEventsClient, RouteEventsClient
@@ -150,12 +152,11 @@ class Samsara:
         self._coaching: typing.Optional[CoachingClient] = None
         self._contacts: typing.Optional[ContactsClient] = None
         self._maintenance: typing.Optional[MaintenanceClient] = None
-        self._fuel_and_energy: typing.Optional[FuelAndEnergyClient] = None
+        self._legacy_ap_is: typing.Optional[LegacyApIsClient] = None
         self._driver_trailer_assignments: typing.Optional[DriverTrailerAssignmentsClient] = None
         self._driver_qr_codes: typing.Optional[DriverQrCodesClient] = None
         self._carb_ctc: typing.Optional[CarbCtcClient] = None
         self._carrier_proposed_assignments: typing.Optional[CarrierProposedAssignmentsClient] = None
-        self._legacy_ap_is: typing.Optional[LegacyApIsClient] = None
         self._documents: typing.Optional[DocumentsClient] = None
         self._driver_vehicle_assignments: typing.Optional[DriverVehicleAssignmentsClient] = None
         self._drivers: typing.Optional[DriversClient] = None
@@ -163,6 +164,7 @@ class Samsara:
         self._tachograph_eu_only: typing.Optional[TachographEuOnlyClient] = None
         self._equipment: typing.Optional[EquipmentClient] = None
         self._hours_of_service: typing.Optional[HoursOfServiceClient] = None
+        self._fuel_and_energy: typing.Optional[FuelAndEnergyClient] = None
         self._ifta: typing.Optional[IftaClient] = None
         self._routes: typing.Optional[RoutesClient] = None
         self._settings: typing.Optional[SettingsClient] = None
@@ -179,6 +181,8 @@ class Samsara:
         self._issues: typing.Optional[IssuesClient] = None
         self._live_sharing_links: typing.Optional[LiveSharingLinksClient] = None
         self._work_orders: typing.Optional[WorkOrdersClient] = None
+        self._preventive_maintenance: typing.Optional[PreventiveMaintenanceClient] = None
+        self._maintenance_sites: typing.Optional[MaintenanceSitesClient] = None
         self._organization_info: typing.Optional[OrganizationInfoClient] = None
         self._preview_ap_is: typing.Optional[PreviewApIsClient] = None
         self._readings: typing.Optional[ReadingsClient] = None
@@ -279,12 +283,12 @@ class Samsara:
         return self._maintenance
 
     @property
-    def fuel_and_energy(self):
-        if self._fuel_and_energy is None:
-            from .fuel_and_energy.client import FuelAndEnergyClient  # noqa: E402
+    def legacy_ap_is(self):
+        if self._legacy_ap_is is None:
+            from .legacy_ap_is.client import LegacyApIsClient  # noqa: E402
 
-            self._fuel_and_energy = FuelAndEnergyClient(client_wrapper=self._client_wrapper)
-        return self._fuel_and_energy
+            self._legacy_ap_is = LegacyApIsClient(client_wrapper=self._client_wrapper)
+        return self._legacy_ap_is
 
     @property
     def driver_trailer_assignments(self):
@@ -317,14 +321,6 @@ class Samsara:
 
             self._carrier_proposed_assignments = CarrierProposedAssignmentsClient(client_wrapper=self._client_wrapper)
         return self._carrier_proposed_assignments
-
-    @property
-    def legacy_ap_is(self):
-        if self._legacy_ap_is is None:
-            from .legacy_ap_is.client import LegacyApIsClient  # noqa: E402
-
-            self._legacy_ap_is = LegacyApIsClient(client_wrapper=self._client_wrapper)
-        return self._legacy_ap_is
 
     @property
     def documents(self):
@@ -381,6 +377,14 @@ class Samsara:
 
             self._hours_of_service = HoursOfServiceClient(client_wrapper=self._client_wrapper)
         return self._hours_of_service
+
+    @property
+    def fuel_and_energy(self):
+        if self._fuel_and_energy is None:
+            from .fuel_and_energy.client import FuelAndEnergyClient  # noqa: E402
+
+            self._fuel_and_energy = FuelAndEnergyClient(client_wrapper=self._client_wrapper)
+        return self._fuel_and_energy
 
     @property
     def ifta(self):
@@ -509,6 +513,22 @@ class Samsara:
 
             self._work_orders = WorkOrdersClient(client_wrapper=self._client_wrapper)
         return self._work_orders
+
+    @property
+    def preventive_maintenance(self):
+        if self._preventive_maintenance is None:
+            from .preventive_maintenance.client import PreventiveMaintenanceClient  # noqa: E402
+
+            self._preventive_maintenance = PreventiveMaintenanceClient(client_wrapper=self._client_wrapper)
+        return self._preventive_maintenance
+
+    @property
+    def maintenance_sites(self):
+        if self._maintenance_sites is None:
+            from .maintenance_sites.client import MaintenanceSitesClient  # noqa: E402
+
+            self._maintenance_sites = MaintenanceSitesClient(client_wrapper=self._client_wrapper)
+        return self._maintenance_sites
 
     @property
     def organization_info(self):
@@ -732,12 +752,11 @@ class AsyncSamsara:
         self._coaching: typing.Optional[AsyncCoachingClient] = None
         self._contacts: typing.Optional[AsyncContactsClient] = None
         self._maintenance: typing.Optional[AsyncMaintenanceClient] = None
-        self._fuel_and_energy: typing.Optional[AsyncFuelAndEnergyClient] = None
+        self._legacy_ap_is: typing.Optional[AsyncLegacyApIsClient] = None
         self._driver_trailer_assignments: typing.Optional[AsyncDriverTrailerAssignmentsClient] = None
         self._driver_qr_codes: typing.Optional[AsyncDriverQrCodesClient] = None
         self._carb_ctc: typing.Optional[AsyncCarbCtcClient] = None
         self._carrier_proposed_assignments: typing.Optional[AsyncCarrierProposedAssignmentsClient] = None
-        self._legacy_ap_is: typing.Optional[AsyncLegacyApIsClient] = None
         self._documents: typing.Optional[AsyncDocumentsClient] = None
         self._driver_vehicle_assignments: typing.Optional[AsyncDriverVehicleAssignmentsClient] = None
         self._drivers: typing.Optional[AsyncDriversClient] = None
@@ -745,6 +764,7 @@ class AsyncSamsara:
         self._tachograph_eu_only: typing.Optional[AsyncTachographEuOnlyClient] = None
         self._equipment: typing.Optional[AsyncEquipmentClient] = None
         self._hours_of_service: typing.Optional[AsyncHoursOfServiceClient] = None
+        self._fuel_and_energy: typing.Optional[AsyncFuelAndEnergyClient] = None
         self._ifta: typing.Optional[AsyncIftaClient] = None
         self._routes: typing.Optional[AsyncRoutesClient] = None
         self._settings: typing.Optional[AsyncSettingsClient] = None
@@ -761,6 +781,8 @@ class AsyncSamsara:
         self._issues: typing.Optional[AsyncIssuesClient] = None
         self._live_sharing_links: typing.Optional[AsyncLiveSharingLinksClient] = None
         self._work_orders: typing.Optional[AsyncWorkOrdersClient] = None
+        self._preventive_maintenance: typing.Optional[AsyncPreventiveMaintenanceClient] = None
+        self._maintenance_sites: typing.Optional[AsyncMaintenanceSitesClient] = None
         self._organization_info: typing.Optional[AsyncOrganizationInfoClient] = None
         self._preview_ap_is: typing.Optional[AsyncPreviewApIsClient] = None
         self._readings: typing.Optional[AsyncReadingsClient] = None
@@ -861,12 +883,12 @@ class AsyncSamsara:
         return self._maintenance
 
     @property
-    def fuel_and_energy(self):
-        if self._fuel_and_energy is None:
-            from .fuel_and_energy.client import AsyncFuelAndEnergyClient  # noqa: E402
+    def legacy_ap_is(self):
+        if self._legacy_ap_is is None:
+            from .legacy_ap_is.client import AsyncLegacyApIsClient  # noqa: E402
 
-            self._fuel_and_energy = AsyncFuelAndEnergyClient(client_wrapper=self._client_wrapper)
-        return self._fuel_and_energy
+            self._legacy_ap_is = AsyncLegacyApIsClient(client_wrapper=self._client_wrapper)
+        return self._legacy_ap_is
 
     @property
     def driver_trailer_assignments(self):
@@ -901,14 +923,6 @@ class AsyncSamsara:
                 client_wrapper=self._client_wrapper
             )
         return self._carrier_proposed_assignments
-
-    @property
-    def legacy_ap_is(self):
-        if self._legacy_ap_is is None:
-            from .legacy_ap_is.client import AsyncLegacyApIsClient  # noqa: E402
-
-            self._legacy_ap_is = AsyncLegacyApIsClient(client_wrapper=self._client_wrapper)
-        return self._legacy_ap_is
 
     @property
     def documents(self):
@@ -965,6 +979,14 @@ class AsyncSamsara:
 
             self._hours_of_service = AsyncHoursOfServiceClient(client_wrapper=self._client_wrapper)
         return self._hours_of_service
+
+    @property
+    def fuel_and_energy(self):
+        if self._fuel_and_energy is None:
+            from .fuel_and_energy.client import AsyncFuelAndEnergyClient  # noqa: E402
+
+            self._fuel_and_energy = AsyncFuelAndEnergyClient(client_wrapper=self._client_wrapper)
+        return self._fuel_and_energy
 
     @property
     def ifta(self):
@@ -1093,6 +1115,22 @@ class AsyncSamsara:
 
             self._work_orders = AsyncWorkOrdersClient(client_wrapper=self._client_wrapper)
         return self._work_orders
+
+    @property
+    def preventive_maintenance(self):
+        if self._preventive_maintenance is None:
+            from .preventive_maintenance.client import AsyncPreventiveMaintenanceClient  # noqa: E402
+
+            self._preventive_maintenance = AsyncPreventiveMaintenanceClient(client_wrapper=self._client_wrapper)
+        return self._preventive_maintenance
+
+    @property
+    def maintenance_sites(self):
+        if self._maintenance_sites is None:
+            from .maintenance_sites.client import AsyncMaintenanceSitesClient  # noqa: E402
+
+            self._maintenance_sites = AsyncMaintenanceSitesClient(client_wrapper=self._client_wrapper)
+        return self._maintenance_sites
 
     @property
     def organization_info(self):

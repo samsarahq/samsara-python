@@ -4544,6 +4544,496 @@ client.beta_ap_is.list_vendor_categories()
 </dl>
 </details>
 
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_vendor_groups</a>(...) -&gt; AsyncHttpResponse[EntityVendorProfilesServiceListVendorGroupsResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Manage vendor group identity and defaults inherited by vendor locations.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Work Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.list_vendor_groups()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of Vendor profile ID values.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_external_ids:** `typing.Optional[bool]` — If true, include externalIds in each response object.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">create_vendor_group</a>(...) -&gt; AsyncHttpResponse[EntityVendorProfilesServiceCreateVendorGroupResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Manage vendor group identity and defaults inherited by vendor locations.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Work Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.create_vendor_group(
+    name="12345",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**name:** `str` — Name of the vendor profile.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_external_ids:** `typing.Optional[bool]` — Include externalIds in the response. Defaults to false.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**asset_attribute_selections:** `typing.Optional[
+    typing.Sequence[
+        CreateVendorGroupEntityVendorProfileVendorAssetAttributeSelectionInputTypeRequestBody
+    ]
+]` — Assets this vendor can service. Empty replaces inherited selections; null clears the setting.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**default_labor_rate_per_hour:** `typing.Optional[
+    CreateVendorGroupEntityVendorProfileVendorHourlyMoneyInputTypeRequestBody
+]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**external_ids:** `typing.Optional[
+    typing.Sequence[
+        CreateVendorGroupEntityVendorProfileVendorGroupExternalIdInputTypeRequestBody
+    ]
+]` — External identifiers belonging to this vendor group.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_mobile:** `typing.Optional[bool]` — Whether vendor locations inherit mobile service as their default.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_preferred:** `typing.Optional[bool]` — Default preferred status inherited by vendor locations.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**primary_corporate_contact:** `typing.Optional[
+    CreateVendorGroupEntityVendorProfileVendorGroupPrimaryCorporateContactInputTypeRequestBody
+]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**status:** `typing.Optional[EntityVendorProfilesServiceCreateVendorGroupRequestBodyStatus]` — Own lifecycle status. Defaults to active. Unknown is read-only.  Valid values: `active`, `inactive`, `unknown`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">delete_vendor_group</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Soft-deletes a vendor group after all vendor locations have been detached, moved, or deleted.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Work Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.delete_vendor_group(
+    id="id",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` — Unique identifier for the VendorProfile record.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">update_vendor_group</a>(...) -&gt; AsyncHttpResponse[EntityVendorProfilesServiceUpdateVendorGroupResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Manage vendor group identity and defaults inherited by vendor locations.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Work Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.update_vendor_group(
+    id="id",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` — Unique identifier for the VendorProfile record.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_external_ids:** `typing.Optional[bool]` — Include externalIds in the response. Defaults to false.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**asset_attribute_selections:** `typing.Optional[
+    typing.Sequence[
+        UpdateVendorGroupEntityVendorProfileVendorAssetAttributeSelectionInputTypeRequestBody
+    ]
+]` — Assets this vendor can service. Empty replaces inherited selections; null clears the setting.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**default_labor_rate_per_hour:** `typing.Optional[
+    UpdateVendorGroupEntityVendorProfileVendorHourlyMoneyInputTypeRequestBody
+]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**external_ids:** `typing.Optional[
+    typing.Sequence[
+        UpdateVendorGroupEntityVendorProfileVendorGroupExternalIdInputTypeRequestBody
+    ]
+]` — External identifiers belonging to this vendor group.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_mobile:** `typing.Optional[bool]` — Whether vendor locations inherit mobile service as their default.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_preferred:** `typing.Optional[bool]` — Default preferred status inherited by vendor locations.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `typing.Optional[str]` — Name of the vendor profile.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**primary_corporate_contact:** `typing.Optional[
+    UpdateVendorGroupEntityVendorProfileVendorGroupPrimaryCorporateContactInputTypeRequestBody
+]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**status:** `typing.Optional[EntityVendorProfilesServiceUpdateVendorGroupRequestBodyStatus]` — Own lifecycle status. Defaults to active. Unknown is read-only.  Valid values: `active`, `inactive`, `unknown`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_maintenance_vendors</a>(...) -&gt; AsyncHttpResponse[MaintenanceVendorsListMaintenanceVendorsResponseBody]</code></summary>
 <dl>
 <dd>
@@ -4607,6 +5097,22 @@ client.beta_ap_is.list_maintenance_vendors()
 <dl>
 <dd>
 
+**external_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — A comma-separated list of up to 100 external IDs in key:value format to filter vendors on. See [external IDs](https://developers.samsara.com/docs/external-ids).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_resolved_settings:** `typing.Optional[bool]` — Include resolved vendor settings and their sources. Defaults to false.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **include_external_ids:** `typing.Optional[bool]` — When true, include externalIds on each vendor in the response. Default false.
     
 </dd>
@@ -4616,6 +5122,537 @@ client.beta_ap_is.list_maintenance_vendors()
 <dd>
 
 **after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">create_vendor</a>(...) -&gt; AsyncHttpResponse[EntityVendorsServiceCreateVendorResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Creates a maintenance vendor for the organization. Exactly one of addressId or address must be set.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Work Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.create_vendor(
+    name="12345",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**name:** `str` — Name of the vendor.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_external_ids:** `typing.Optional[bool]` — Include externalIds in the response. Defaults to false.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**address:** `typing.Optional[str]` — Address of the vendor.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**address_id:** `typing.Optional[str]` — Linked place identifier for the vendor address.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**asset_attribute_selections:** `typing.Optional[
+    typing.Sequence[
+        CreateVendorEntityVendorVendorAssetAttributeSelectionInputTypeRequestBody
+    ]
+]` — Assets this vendor can service. Empty replaces inherited selections; null clears the setting.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**contacts:** `typing.Optional[
+    typing.Sequence[CreateVendorEntityVendorVendorContactInputTypeRequestBody]
+]` — People to contact at the vendor.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**default_labor_rate_per_hour:** `typing.Optional[CreateVendorEntityVendorVendorHourlyMoneyInputTypeRequestBody]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**email_addresses:** `typing.Optional[typing.Sequence[str]]` — Email addresses for the vendor.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**external_ids:** `typing.Optional[
+    typing.Sequence[
+        CreateVendorEntityVendorVendorExternalIdInputTypeRequestBody
+    ]
+]` — Customer-supplied external identifiers for the vendor, interchangeable with id in filters. Only included in the response when includeExternalIds is set.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_mobile:** `typing.Optional[bool]` — Whether this vendor provides mobile service. When unset, the profile or system default applies.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_preferred:** `typing.Optional[bool]` — Whether this vendor location is preferred. When unset, the profile or system default applies.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**notes:** `typing.Optional[str]` — Additional notes about the vendor.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**payee_id:** `typing.Optional[str]` — Free-text AP/ERP payee identifier for the vendor. Not a reference to a Samsara entity.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**phone_numbers:** `typing.Optional[typing.Sequence[str]]` — Phone numbers for the vendor.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**services_provided:** `typing.Optional[str]` — Description of services provided by the vendor.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**status:** `typing.Optional[EntityVendorsServiceCreateVendorRequestBodyStatus]` — Own lifecycle status. Defaults to active. Unknown is read-only.  Valid values: `active`, `inactive`, `unknown`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**vendor_group_id:** `typing.Optional[str]` — Vendor group ID. Null removes membership while preserving explicit overrides.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**vendor_id:** `typing.Optional[str]` — User-defined identifier for the vendor.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">delete_vendor</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Soft-deletes a vendor location without deleting its linked Place or work orders.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Work Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.delete_vendor(
+    id="id",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` — Unique identifier for the Vendor record.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">update_vendor</a>(...) -&gt; AsyncHttpResponse[EntityVendorsServiceUpdateVendorResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Updates an existing maintenance vendor for the organization. Migrating a vendor between a linked Place (addressId) and a self-contained address (address) is not supported.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Work Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.update_vendor(
+    id="id",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` — Unique identifier for the Vendor record.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_external_ids:** `typing.Optional[bool]` — Include externalIds in the response. Defaults to false.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**address:** `typing.Optional[str]` — Address of the vendor.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**address_id:** `typing.Optional[str]` — Linked place identifier for the vendor address.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**asset_attribute_selections:** `typing.Optional[
+    typing.Sequence[
+        UpdateVendorEntityVendorVendorAssetAttributeSelectionInputTypeRequestBody
+    ]
+]` — Assets this vendor can service. Empty replaces inherited selections; null clears the setting.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**contacts:** `typing.Optional[
+    typing.Sequence[UpdateVendorEntityVendorVendorContactInputTypeRequestBody]
+]` — People to contact at the vendor.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**default_labor_rate_per_hour:** `typing.Optional[UpdateVendorEntityVendorVendorHourlyMoneyInputTypeRequestBody]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**email_addresses:** `typing.Optional[typing.Sequence[str]]` — Email addresses for the vendor.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**external_ids:** `typing.Optional[
+    typing.Sequence[
+        UpdateVendorEntityVendorVendorExternalIdInputTypeRequestBody
+    ]
+]` — Customer-supplied external identifiers for the vendor, interchangeable with id in filters. Only included in the response when includeExternalIds is set.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_mobile:** `typing.Optional[bool]` — Whether this vendor provides mobile service. When unset, the profile or system default applies.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_preferred:** `typing.Optional[bool]` — Whether this vendor location is preferred. When unset, the profile or system default applies.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `typing.Optional[str]` — Name of the vendor.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**notes:** `typing.Optional[str]` — Additional notes about the vendor.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**payee_id:** `typing.Optional[str]` — Free-text AP/ERP payee identifier for the vendor. Not a reference to a Samsara entity.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**phone_numbers:** `typing.Optional[typing.Sequence[str]]` — Phone numbers for the vendor.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**services_provided:** `typing.Optional[str]` — Description of services provided by the vendor.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**status:** `typing.Optional[EntityVendorsServiceUpdateVendorRequestBodyStatus]` — Own lifecycle status. Defaults to active. Unknown is read-only.  Valid values: `active`, `inactive`, `unknown`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**vendor_group_id:** `typing.Optional[str]` — Vendor group ID. Null removes membership while preserving explicit overrides.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**vendor_id:** `typing.Optional[str]` — User-defined identifier for the vendor.
     
 </dd>
 </dl>
@@ -6451,7 +7488,7 @@ client.beta_ap_is.update_ground_intelligence_issue(
 
 **type:** `typing.Optional[
     EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyType
-]` — Customer-facing road-condition type for the issue.  Valid values: `pothole`, `roadCracking`, `patchedPothole`
+]` — Customer-facing road-condition type for the issue.  Valid values: `pothole`, `roadCracking`, `patchedPothole`, `transverseCrack`, `longitudinalCrack`, `alligatorCrack`, `utilityCut`, `steelPlate`, `repavingNeeded`
     
 </dd>
 </dl>
@@ -6669,101 +7706,6 @@ client.beta_ap_is.update_watchpoint(
 **observation_type:** `typing.Optional[
     EntityWatchpointsServiceUpdateWatchpointRequestBodyObservationType
 ]` — Type of condition to observe at this watchpoint.  Valid values: `roadDefect`, `utilityCut`, `guardrail`, `streetlight`, `signage`, `stormDrain`, `graffiti`, `vegetation`, `blight`, `illegalDumping`, `littering`, `highVegetationWeeds`, `fire`, `other`
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">update_shipping_docs</a>(...) -&gt; AsyncHttpResponse[HosDailyLogsUpdateShippingDocsResponseBody]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Update the shippingDocs field of an existing assignment.
-
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Write ELD Hours of Service (US)** under the Compliance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.beta_ap_is.update_shipping_docs(
-    hos_date="hosDate",
-    driver_id="driverID",
-    shipping_docs="ShippingID1, ShippingID2",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**hos_date:** `str` — A start date in yyyy-mm-dd format. Required.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**driver_id:** `str` — ID of the driver for whom the duty status is being set.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**shipping_docs:** `str` — ShippingDocs associated with the driver for the day.
     
 </dd>
 </dl>
@@ -7402,1687 +8344,6 @@ client.beta_ap_is.update_hub_route_template(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_parts</a>(...) -&gt; AsyncHttpResponse[EntityPartDefinitionsServiceListPartsResponseBody]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Returns a paginated list of parts for the organization.
-
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Read Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.beta_ap_is.list_parts()
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**id_in:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of ID values.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**part_ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of Part ID values.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**part_status:** `typing.Optional[str]` — A filter on the data based on Part status. Status of the part.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**include_deleted:** `typing.Optional[bool]` — Whether to include deleted parts in the response. Defaults to false.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default and max for this value is 200 objects.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">create_part</a>(...) -&gt; AsyncHttpResponse[EntityPartDefinitionsServiceCreatePartResponseBody]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Creates a part for the organization.
-
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.beta_ap_is.create_part(
-    part_number="12345",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**part_number:** `str` — Customer-visible part number for the part.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**barcode_string:** `typing.Optional[str]` — Barcode associated with the part definition.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**barcode_type:** `typing.Optional[str]` — Type of barcode associated with the part definition.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**description:** `typing.Optional[str]` — Description of the part definition.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**external_id:** `typing.Optional[str]` — Customer-supplied external identifier for the part.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**is_inventory_tracked:** `typing.Optional[bool]` — Whether inventory tracking is enabled for this part.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**manufacturer_name:** `typing.Optional[str]` — Name of the manufacturer for the part definition.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**manufacturer_part_number:** `typing.Optional[str]` — Manufacturer-supplied part number.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**name:** `typing.Optional[str]` — Name of the part definition.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**unit_cost:** `typing.Optional[CreatePartEntityPartDefinitionMoneyInputTypeRequestBody]` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**vmrs_code:** `typing.Optional[str]` — VMRS code associated with the part definition.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">delete_part</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Deletes a part for the organization.
-
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.beta_ap_is.delete_part(
-    id="id",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**id:** `str` — Unique identifier for the PartDefinition record.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">update_part</a>(...) -&gt; AsyncHttpResponse[EntityPartDefinitionsServiceUpdatePartResponseBody]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Updates an existing part for the organization.
-
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.beta_ap_is.update_part(
-    id="id",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**id:** `str` — Unique identifier for the PartDefinition record.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**barcode_string:** `typing.Optional[str]` — Barcode associated with the part definition.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**barcode_type:** `typing.Optional[str]` — Type of barcode associated with the part definition.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**description:** `typing.Optional[str]` — Description of the part definition.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**external_id:** `typing.Optional[str]` — Customer-supplied external identifier for the part.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**is_inventory_tracked:** `typing.Optional[bool]` — Whether inventory tracking is enabled for this part.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**manufacturer_name:** `typing.Optional[str]` — Name of the manufacturer for the part definition.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**manufacturer_part_number:** `typing.Optional[str]` — Manufacturer-supplied part number.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**name:** `typing.Optional[str]` — Name of the part definition.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**part_number:** `typing.Optional[str]` — Customer-visible part number for the part.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**unit_cost:** `typing.Optional[UpdatePartEntityPartDefinitionMoneyInputTypeRequestBody]` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**vmrs_code:** `typing.Optional[str]` — VMRS code associated with the part definition.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_part_inventory</a>(...) -&gt; AsyncHttpResponse[
-    EntityPartInventoryLocationsServiceListPartInventoryResponseBody
-]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Returns a paginated list of per-part, per-location inventory levels for the organization.
-
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Read Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.beta_ap_is.list_part_inventory()
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**place_ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of Place ID values.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**is_low_stock:** `typing.Optional[bool]` — A filter on the data based on Low stock. Whether the available quantity is greater than zero and at or below the reorder threshold.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**part_samsara_ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of Part ID values.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default and max for this value is 200 objects.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">create_part_inventory_location</a>(...) -&gt; AsyncHttpResponse[
-    EntityPartInventoryLocationsServiceCreatePartInventoryLocationResponseBody
-]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Creates per-part, per-location inventory metadata for the organization. Upserts by part and place — a second create at the same pair updates the existing record instead of duplicating it.
-
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.beta_ap_is.create_part_inventory_location()
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**part_samsara_id:** `typing.Optional[str]` — Unique identifier for the part definition these inventory levels are tracked for.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**place_id:** `typing.Optional[str]` — Unique identifier for the place linked to the maintenance site holding this inventory. The internal location identifier is never exposed.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**aisle:** `typing.Optional[str]` — Aisle within the location where the part is stored.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**bin:** `typing.Optional[str]` — Bin within the location where the part is stored.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**current_quantity:** `typing.Optional[float]` — Total physical quantity on hand at this location, equal to the available quantity plus the reserved quantity. Read-only; changes only via stock movements.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**is_cost_tracked:** `typing.Optional[bool]` — Whether costing is tracked at this location. Defaults to false; once enabled it cannot be turned back off.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**max_stock_level:** `typing.Optional[float]` — Maximum quantity to keep in stock at this location.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**min_stock_level:** `typing.Optional[float]` — Minimum quantity to keep in stock at this location.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**reorder_quantity:** `typing.Optional[float]` — Quantity to reorder when stock reaches the reorder threshold.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**reorder_threshold:** `typing.Optional[float]` — Available quantity at or below which the part should be reordered at this location.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**row:** `typing.Optional[str]` — Row within the location where the part is stored.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**unit_cost:** `typing.Optional[
-    CreatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody
-]` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">update_part_inventory_location</a>(...) -&gt; AsyncHttpResponse[
-    EntityPartInventoryLocationsServiceUpdatePartInventoryLocationResponseBody
-]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Updates existing per-part, per-location inventory metadata for the organization.
-
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.beta_ap_is.update_part_inventory_location()
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**part_samsara_id:** `typing.Optional[str]` — Unique identifier for the part definition these inventory levels are tracked for.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**place_id:** `typing.Optional[str]` — Unique identifier for the place linked to the maintenance site holding this inventory. The internal location identifier is never exposed.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**aisle:** `typing.Optional[str]` — Aisle within the location where the part is stored.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**bin:** `typing.Optional[str]` — Bin within the location where the part is stored.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**is_cost_tracked:** `typing.Optional[bool]` — Whether costing is tracked at this location. Defaults to false; once enabled it cannot be turned back off.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**max_stock_level:** `typing.Optional[float]` — Maximum quantity to keep in stock at this location.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**min_stock_level:** `typing.Optional[float]` — Minimum quantity to keep in stock at this location.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**reorder_quantity:** `typing.Optional[float]` — Quantity to reorder when stock reaches the reorder threshold.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**reorder_threshold:** `typing.Optional[float]` — Available quantity at or below which the part should be reordered at this location.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**row:** `typing.Optional[str]` — Row within the location where the part is stored.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**unit_cost:** `typing.Optional[
-    UpdatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody
-]` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">create_stock_movement</a>(...) -&gt; AsyncHttpResponse[
-    CreateStockMovementActionServiceCreateStockMovementResponseBody
-]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Records a receive, transfer, scrap, or adjust stock movement against a part's inventory and returns the resulting inventory location(s). Not idempotent — retrying a request that already succeeded records the movement again.
-
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.beta_ap_is.create_stock_movement(
-    movement_type="12345",
-    part_samsara_id="12345",
-    quantity=123.45,
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**movement_type:** `str` — Type of stock movement to record. Must be one of Receive, Transfer, Scrap, or Adjust; Unknown is rejected.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**part_samsara_id:** `str` — Unique identifier of the part definition the movement applies to.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**quantity:** `float` — Quantity moved, in the part's unit of measure. Positive magnitude for receive, transfer, and scrap; signed delta for adjust.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**batch:** `typing.Optional[str]` — Batch or lot identifier the movement applies to, if the part is batch-tracked.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**from_place_id:** `typing.Optional[str]` — Unique identifier of the place linked to the maintenance site the inventory is transferred out of. Transfer only.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**happened_at_time:** `typing.Optional[str]` — Time when the movement occurred. Defaults to the current time if not provided.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**notes:** `typing.Optional[str]` — Notes explaining the movement. Scrap and adjust only.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**place_id:** `typing.Optional[str]` — Unique identifier of the place linked to the maintenance site the movement targets. Required for receive, scrap, and adjust; rejected for transfer (use fromPlaceId and toPlaceId).
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**purchase_order:** `typing.Optional[str]` — Purchase order reference for the received inventory. Receive only.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**to_place_id:** `typing.Optional[str]` — Unique identifier of the place linked to the maintenance site the inventory is transferred into. Transfer only.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**unit_cost:** `typing.Optional[EntityCreateStockMovementMoneyInputTypeRequestBody]` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**vendor_id:** `typing.Optional[str]` — Unique identifier of the vendor the inventory was received from. Receive only.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_part_transactions</a>(...) -&gt; AsyncHttpResponse[
-    EntityInventoryTransactionsServiceListPartTransactionsResponseBody
-]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Returns a paginated, time-windowed feed of inventory transactions (an append-only parts audit log) for the organization, ordered by the time each transaction occurred.
-
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Read Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.beta_ap_is.list_part_transactions(
-    happened_at_time_start="happenedAtTimeStart",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**happened_at_time_start:** `str` — A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**happened_at_time_end:** `typing.Optional[str]` — An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**part_samsara_ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of Part Samsara ID values.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**place_ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of Place ID values.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**transaction_type_in:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of Transaction Type values.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default and max for this value is 200 objects.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">resolve_preventive_maintenance</a>(...) -&gt; AsyncHttpResponse[
-    ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceResponseBody
-]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Resolves the current open preventive maintenance instance for a schedule and asset, and automatically creates the next due record based on the schedule's intervals.
-
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Write Preventive Maintenance Resolve** under the Preventive Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.beta_ap_is.resolve_preventive_maintenance()
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**asset_id:** `typing.Optional[str]` — Samsara ID of the asset the instance is being resolved for.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**schedule_id:** `typing.Optional[str]` — ID of the preventive maintenance schedule to resolve.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**resolved_at:** `typing.Optional[str]` — RFC3339 time when the maintenance was resolved. Defaults to the current time if not provided.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**resolved_at_engine_hours:** `typing.Optional[int]` — Engine hours reading at the time of resolution.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**resolved_at_odometer:** `typing.Optional[int]` — Odometer reading at the time of resolution. Measured in meters.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_preventive_maintenance_schedules</a>(...) -&gt; AsyncHttpResponse[
-    EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesResponseBody
-]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Returns a paginated list of preventive maintenance schedules for the organization.
-
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Read Preventive Maintenance Schedules** under the Preventive Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.beta_ap_is.list_preventive_maintenance_schedules()
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of ID values.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default and max for this value is 200 objects.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_upcoming_preventive_maintenance</a>(...) -&gt; AsyncHttpResponse[
-    EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceResponseBody
-]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Returns a paginated list of upcoming preventive maintenance schedules for the organization's assets, enriched with live telemetry (current odometer, engine hours) and due-date projections.
-
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Read Upcoming Preventive Maintenance** under the Preventive Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.beta_ap_is.list_upcoming_preventive_maintenance()
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**schedule_ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of Preventive maintenance schedule ID values.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**asset_ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of Asset ID values.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default and max for this value is 200 objects.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">update_upcoming_preventive_maintenance</a>(...) -&gt; AsyncHttpResponse[
-    EntityUpcomingPreventativeMaintenancesServiceUpdateUpcomingPreventiveMaintenanceResponseBody
-]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Patches the due-target and last-resolved values on the open preventive maintenance instance for a schedule and asset. Only fields provided in the request are updated.
-
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Write Upcoming Preventive Maintenance** under the Preventive Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.beta_ap_is.update_upcoming_preventive_maintenance()
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**asset_id:** `typing.Optional[str]` — Samsara ID for the asset.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**schedule_id:** `typing.Optional[str]` — ID of the preventive maintenance schedule that the vehicle is scheduled to be serviced for.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**last_resolved_at:** `typing.Optional[str]` — Date and time when the prior instance was resolved.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**last_resolved_at_engine_hours:** `typing.Optional[int]` — Engine hours at the time the prior instance was resolved.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**last_resolved_at_odometer:** `typing.Optional[int]` — Odometer reading at the time the prior instance was resolved. Measured in meters.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**next_engine_hours:** `typing.Optional[int]` — The next engine hour value that the vehicle is scheduled to be serviced.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**next_odometer:** `typing.Optional[int]` — The next odometer value that the vehicle is scheduled to be serviced. Measured in meters.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**next_time:** `typing.Optional[str]` — The next time that the vehicle is scheduled to be serviced for a date based PM.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
 <details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_purchase_orders</a>(...) -&gt; AsyncHttpResponse[EntityPurchaseOrdersServiceListPurchaseOrdersResponseBody]</code></summary>
 <dl>
 <dd>
@@ -9614,7 +8875,7 @@ client.beta_ap_is.update_purchase_order(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_maintenance_sites</a>(...) -&gt; AsyncHttpResponse[EntityMaintenanceSitesServiceListMaintenanceSitesResponseBody]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_technician_shifts</a>(...) -&gt; AsyncHttpResponse[TechnicianShiftsListTechnicianShiftsResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -9626,11 +8887,11 @@ client.beta_ap_is.update_purchase_order(
 <dl>
 <dd>
 
-Returns a paginated list of maintenance sites for the organization.
+List shifts ordered by updated time and UUID. ID filters allow up to 100 values each, with OR within and AND across filters. Lists are eventually consistent; reconcile overlapping time windows and deduplicate by ID and version.
 
  <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Read Maintenance Sites** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+To use this endpoint, select **Read Technician Shifts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -9653,7 +8914,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_ap_is.list_maintenance_sites()
+client.beta_ap_is.list_technician_shifts()
 
 ```
 </dd>
@@ -9669,7 +8930,7 @@ client.beta_ap_is.list_maintenance_sites()
 <dl>
 <dd>
 
-**ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of ID values.
+**ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Up to 100 comma-separated shift identifiers.
     
 </dd>
 </dl>
@@ -9677,7 +8938,7 @@ client.beta_ap_is.list_maintenance_sites()
 <dl>
 <dd>
 
-**is_archived:** `typing.Optional[bool]` — A filter on the data based on Archived. Whether the site is archived. Archived sites are no longer active but are retained for historical record.
+**user_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Up to 100 comma-separated user IDs.
     
 </dd>
 </dl>
@@ -9685,7 +8946,7 @@ client.beta_ap_is.list_maintenance_sites()
 <dl>
 <dd>
 
-**place_ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of Place IDs values.
+**external_technician_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Up to 100 comma-separated employee aliases.
     
 </dd>
 </dl>
@@ -9693,7 +8954,7 @@ client.beta_ap_is.list_maintenance_sites()
 <dl>
 <dd>
 
-**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+**start_time:** `typing.Optional[dt.datetime]` — Inclusive updated-time lower bound.
     
 </dd>
 </dl>
@@ -9701,7 +8962,7 @@ client.beta_ap_is.list_maintenance_sites()
 <dl>
 <dd>
 
-**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+**end_time:** `typing.Optional[dt.datetime]` — Exclusive updated-time upper bound.
     
 </dd>
 </dl>
@@ -9709,7 +8970,23 @@ client.beta_ap_is.list_maintenance_sites()
 <dl>
 <dd>
 
-**include_external_ids:** `typing.Optional[bool]` — If true, include externalIds in each response object.
+**after:** `typing.Optional[str]` — Cursor from the previous page.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**limit:** `typing.Optional[int]` — Page size from 1 to 200; defaults to 200.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_external_ids:** `typing.Optional[bool]` — Include nonempty shift and technician external-ID maps. Defaults to false.
     
 </dd>
 </dl>
@@ -9729,9 +9006,7 @@ client.beta_ap_is.list_maintenance_sites()
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">create_maintenance_site</a>(...) -&gt; AsyncHttpResponse[
-    EntityMaintenanceSitesServiceCreateMaintenanceSiteResponseBody
-]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">create_technician_shift</a>(...) -&gt; AsyncHttpResponse[TechnicianShiftsCreateTechnicianShiftResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -9743,11 +9018,11 @@ client.beta_ap_is.list_maintenance_sites()
 <dl>
 <dd>
 
-Creates a maintenance site for the organization. Exactly one of placeIds or customAddress must be set.
+Create an open or completed shift. Equivalent retries using registered external IDs return the existing shift; conflicting content or aliases return 409.
 
  <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Maintenance Sites** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+To use this endpoint, select **Write Technician Shifts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -9765,15 +9040,18 @@ To use this endpoint, select **Write Maintenance Sites** under the Work Orders c
 <dd>
 
 ```python
+import datetime
+
 from samsara import Samsara
 
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_ap_is.create_maintenance_site(
-    name="12345",
-    site_code="12345",
-    site_type="Unknown",
+client.beta_ap_is.create_technician_shift(
+    clock_in_at_time=datetime.datetime.fromisoformat(
+        "2026-09-10 15:00:00+00:00",
+    ),
+    user_id="281474976710656",
 )
 
 ```
@@ -9790,7 +9068,7 @@ client.beta_ap_is.create_maintenance_site(
 <dl>
 <dd>
 
-**name:** `str` — Name of the maintenance site. Org-unique.
+**clock_in_at_time:** `dt.datetime` — Shift start.
     
 </dd>
 </dl>
@@ -9798,7 +9076,7 @@ client.beta_ap_is.create_maintenance_site(
 <dl>
 <dd>
 
-**site_code:** `str` — Org-unique 3-character code for the site, used to generate inventory batch numbers.
+**user_id:** `str` — Owning technician's Samsara User ID.
     
 </dd>
 </dl>
@@ -9806,7 +9084,7 @@ client.beta_ap_is.create_maintenance_site(
 <dl>
 <dd>
 
-**site_type:** `EntityMaintenanceSitesServiceCreateMaintenanceSiteRequestBodySiteType` — Type of maintenance site, for example central warehouse, maintenance shop, or yard/onsite.  Valid values: `Unknown`, `CentralWarehouse`, `MaintenanceShop`, `MobileServiceVehicle`, `YardOnsite`, `Consignment`, `Other`
+**include_external_ids:** `typing.Optional[bool]` — Include nonempty shift and technician external-ID maps. Defaults to false.
     
 </dd>
 </dl>
@@ -9814,9 +9092,7 @@ client.beta_ap_is.create_maintenance_site(
 <dl>
 <dd>
 
-**custom_address:** `typing.Optional[
-    CreateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteCustomAddressInputTypeRequestBody
-]` 
+**clock_out_at_time:** `typing.Optional[dt.datetime]` — Shift end, strictly after start.
     
 </dd>
 </dl>
@@ -9824,7 +9100,7 @@ client.beta_ap_is.create_maintenance_site(
 <dl>
 <dd>
 
-**description:** `typing.Optional[str]` — Description of the maintenance site.
+**external_ids:** `typing.Optional[typing.Dict[str, str]]` — External identifiers, with at most 30 pairs.
     
 </dd>
 </dl>
@@ -9832,19 +9108,7 @@ client.beta_ap_is.create_maintenance_site(
 <dl>
 <dd>
 
-**external_ids:** `typing.Optional[
-    typing.Sequence[
-        CreateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteExternalIdInputTypeRequestBody
-    ]
-]` — Customer-supplied external identifiers for the site, interchangeable with id in filters. Only included in the response when includeExternalIds is set.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**place_ids:** `typing.Optional[typing.Sequence[str]]` — Places this site is linked to. Mutually exclusive with customAddress. At most one entry is accepted today, though the field is an array to allow for future expansion.
+**place_id:** `typing.Optional[str]` — Maintenance-shop Place ID.
     
 </dd>
 </dl>
@@ -9864,9 +9128,7 @@ client.beta_ap_is.create_maintenance_site(
 </dl>
 </details>
 
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">update_maintenance_site</a>(...) -&gt; AsyncHttpResponse[
-    EntityMaintenanceSitesServiceUpdateMaintenanceSiteResponseBody
-]</code></summary>
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">patch_technician_shift</a>(...) -&gt; AsyncHttpResponse[TechnicianShiftsPatchTechnicianShiftResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -9878,11 +9140,11 @@ client.beta_ap_is.create_maintenance_site(
 <dl>
 <dd>
 
-Updates an existing maintenance site for the organization. Moving a site between placeIds and customAddress is not supported.
+Close or correct a shift using the last received version. An already-applied retry returns the current shift. External IDs fully replace the previous map; an empty object clears it.
 
  <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
-To use this endpoint, select **Write Maintenance Sites** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+To use this endpoint, select **Write Technician Shifts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -9905,8 +9167,9 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_ap_is.update_maintenance_site(
+client.beta_ap_is.patch_technician_shift(
     id="id",
+    version=1,
 )
 
 ```
@@ -9923,7 +9186,7 @@ client.beta_ap_is.update_maintenance_site(
 <dl>
 <dd>
 
-**id:** `str` — Unique identifier for the MaintenanceSite record.
+**id:** `str` — Shift UUID or key:value alias.
     
 </dd>
 </dl>
@@ -9931,7 +9194,7 @@ client.beta_ap_is.update_maintenance_site(
 <dl>
 <dd>
 
-**description:** `typing.Optional[str]` — Description of the maintenance site.
+**version:** `int` — Expected revision from the last response; stale material changes return 409.
     
 </dd>
 </dl>
@@ -9939,11 +9202,7 @@ client.beta_ap_is.update_maintenance_site(
 <dl>
 <dd>
 
-**external_ids:** `typing.Optional[
-    typing.Sequence[
-        UpdateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteExternalIdInputTypeRequestBody
-    ]
-]` — Customer-supplied external identifiers for the site, interchangeable with id in filters. Only included in the response when includeExternalIds is set.
+**include_external_ids:** `typing.Optional[bool]` — Include nonempty shift and technician external-ID maps. Defaults to false.
     
 </dd>
 </dl>
@@ -9951,7 +9210,7 @@ client.beta_ap_is.update_maintenance_site(
 <dl>
 <dd>
 
-**name:** `typing.Optional[str]` — Name of the maintenance site. Org-unique.
+**clock_in_at_time:** `typing.Optional[dt.datetime]` — Corrected shift start.
     
 </dd>
 </dl>
@@ -9959,7 +9218,7 @@ client.beta_ap_is.update_maintenance_site(
 <dl>
 <dd>
 
-**site_code:** `typing.Optional[str]` — Org-unique 3-character code for the site, used to generate inventory batch numbers.
+**clock_out_at_time:** `typing.Optional[dt.datetime]` — Shift end, strictly after start.
     
 </dd>
 </dl>
@@ -9967,9 +9226,7 @@ client.beta_ap_is.update_maintenance_site(
 <dl>
 <dd>
 
-**site_type:** `typing.Optional[
-    EntityMaintenanceSitesServiceUpdateMaintenanceSiteRequestBodySiteType
-]` — Type of maintenance site, for example central warehouse, maintenance shop, or yard/onsite.  Valid values: `Unknown`, `CentralWarehouse`, `MaintenanceShop`, `MobileServiceVehicle`, `YardOnsite`, `Consignment`, `Other`
+**external_ids:** `typing.Optional[typing.Dict[str, str]]` — External identifiers, with at most 30 pairs.
     
 </dd>
 </dl>
@@ -9977,1524 +9234,7 @@ client.beta_ap_is.update_maintenance_site(
 <dl>
 <dd>
 
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_time_entries</a>(...) -&gt; AsyncHttpResponse[EntityTimeEntriesServiceListTimeEntriesResponseBody]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Returns a paginated feed of technician time entries updated in the requested time window, including deletion tombstones.
-
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Read Time Entries** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.beta_ap_is.list_time_entries(
-    start_time="startTime",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**start_time:** `str` — A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**end_time:** `typing.Optional[str]` — An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default and max for this value is 200 objects.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_warranties</a>(...) -&gt; AsyncHttpResponse[EntityWarrantiesServiceListWarrantiesResponseBody]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Returns a paginated list of warranties for the organization.
-
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Read Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.beta_ap_is.list_warranties()
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**warranty_ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of ID values.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**name:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of Name values.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default and max for this value is 200 objects.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**include_external_ids:** `typing.Optional[bool]` — If true, include externalIds in each response object.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">create_warranty</a>(...) -&gt; AsyncHttpResponse[EntityWarrantiesServiceCreateWarrantyResponseBody]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Creates a warranty for the organization.
-
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.beta_ap_is.create_warranty(
-    name="12345",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**name:** `str` — Name of the warranty.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**base_coverage:** `typing.Optional[
-    CreateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody
-]` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**coverages:** `typing.Optional[
-    typing.Sequence[
-        CreateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody
-    ]
-]` — Additional coverage groups defined on this warranty.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**description:** `typing.Optional[str]` — Description of the warranty.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**duration_days:** `typing.Optional[int]` — Warranty length in days. Mutually exclusive with duration in months.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**duration_months:** `typing.Optional[int]` — Warranty length in months. Mutually exclusive with duration in days.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**engine_duration_hours:** `typing.Optional[int]` — Warranty length by engine hours since the warranty start.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**external_ids:** `typing.Optional[
-    typing.Sequence[
-        CreateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody
-    ]
-]` — Customer-supplied external identifiers for the warranty, interchangeable with id in filters. Only included in the response when includeExternalIds is set.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**odometer_distance_meters:** `typing.Optional[int]` — Warranty length by distance travelled since the warranty start. Measured in meters.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**vendor_id:** `typing.Optional[str]` — ID of the vendor that provides this warranty.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**warranty_type:** `typing.Optional[str]` — Type of warranty, for example manufacturer, extended, other, or unknown.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">delete_warranty</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Deletes a warranty for the organization. Asset associations are removed server-side.
-
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.beta_ap_is.delete_warranty(
-    id="id",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**id:** `str` — Unique identifier for the Warranty record.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">update_warranty</a>(...) -&gt; AsyncHttpResponse[EntityWarrantiesServiceUpdateWarrantyResponseBody]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Updates an existing warranty for the organization.
-
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.beta_ap_is.update_warranty(
-    id="id",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**id:** `str` — Unique identifier for the Warranty record.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**base_coverage:** `typing.Optional[
-    UpdateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody
-]` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**coverages:** `typing.Optional[
-    typing.Sequence[
-        UpdateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody
-    ]
-]` — Additional coverage groups defined on this warranty.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**description:** `typing.Optional[str]` — Description of the warranty.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**duration_days:** `typing.Optional[int]` — Warranty length in days. Mutually exclusive with duration in months.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**duration_months:** `typing.Optional[int]` — Warranty length in months. Mutually exclusive with duration in days.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**engine_duration_hours:** `typing.Optional[int]` — Warranty length by engine hours since the warranty start.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**external_ids:** `typing.Optional[
-    typing.Sequence[
-        UpdateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody
-    ]
-]` — Customer-supplied external identifiers for the warranty, interchangeable with id in filters. Only included in the response when includeExternalIds is set.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**name:** `typing.Optional[str]` — Name of the warranty.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**odometer_distance_meters:** `typing.Optional[int]` — Warranty length by distance travelled since the warranty start. Measured in meters.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**vendor_id:** `typing.Optional[str]` — ID of the vendor that provides this warranty.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**warranty_type:** `typing.Optional[str]` — Type of warranty, for example manufacturer, extended, other, or unknown.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_warranty_asset_assignments</a>(...) -&gt; AsyncHttpResponse[
-    EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsResponseBody
-]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Returns the assets assigned to a warranty.
-
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Read Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.beta_ap_is.list_warranty_asset_assignments(
-    warranty_id="warrantyId",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**warranty_id:** `str` — A filter on the data based on this comma-separated list of Warranty values.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default and max for this value is 200 objects.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">replace_warranty_asset_assignments</a>(...) -&gt; AsyncHttpResponse[
-    ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsResponseBody
-]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Replaces the full set of assets assigned to a warranty.
-
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.beta_ap_is.replace_warranty_asset_assignments()
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**warranty_id:** `typing.Optional[str]` — ID of the warranty whose asset set to replace.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**assets:** `typing.Optional[
-    typing.Sequence[
-        EntityReplaceWarrantyAssetAssignmentsWarrantyAssetAssignmentInputTypeRequestBody
-    ]
-]` — The full desired asset set for the warranty.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_warranty_claims</a>(...) -&gt; AsyncHttpResponse[EntityWarrantyClaimsServiceListWarrantyClaimsResponseBody]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Returns a paginated list of warranty claims for the organization.
-
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Read Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.beta_ap_is.list_warranty_claims()
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**warranty_claim_ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of ID values.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**asset_ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of Asset values.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**claim_status:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of Claim status values.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**warranty_ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of Warranty values.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default and max for this value is 200 objects.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**include_external_ids:** `typing.Optional[bool]` — If true, include externalIds in each response object.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">create_warranty_claim</a>(...) -&gt; AsyncHttpResponse[EntityWarrantyClaimsServiceCreateWarrantyClaimResponseBody]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Creates a warranty claim for the organization.
-
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.beta_ap_is.create_warranty_claim(
-    asset_id="281474976710656",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**asset_id:** `str` — ID of the asset the claim is filed for. Immutable once set.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**cause:** `typing.Optional[str]` — The cause of the 3 Cs - the root cause found.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**claim_engine_hours:** `typing.Optional[int]` — Engine hours at the time of repair.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**claim_odometer_meters:** `typing.Optional[int]` — Asset odometer reading at the time of repair. Measured in meters.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**claim_status:** `typing.Optional[str]` — Current status of the claim.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**component_instance_ids:** `typing.Optional[typing.Sequence[str]]` — IDs of asset component instances covered by this claim.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**concern:** `typing.Optional[str]` — The concern of the 3 Cs - what was reported.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**correction:** `typing.Optional[str]` — The correction of the 3 Cs - the work performed.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**external_ids:** `typing.Optional[
-    typing.Sequence[
-        CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdInputTypeRequestBody
-    ]
-]` — Customer-supplied external identifiers for the warranty claim, interchangeable with id in filters. Only included in the response when includeExternalIds is set.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**labor:** `typing.Optional[
-    typing.Sequence[
-        CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborInputTypeRequestBody
-    ]
-]` — Labor being claimed.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**linked_warranty_id:** `typing.Optional[str]` — ID of the warranty this claim is filed against.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**linked_work_order_ids:** `typing.Optional[typing.Sequence[str]]` — IDs of the work orders associated with this claim.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**media_item_ids:** `typing.Optional[typing.Sequence[str]]` — IDs of media items attached to the claim.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**other_cost:** `typing.Optional[CreateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody]` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**parts:** `typing.Optional[
-    typing.Sequence[
-        CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody
-    ]
-]` — Parts being claimed.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**reimbursed_at_time:** `typing.Optional[str]` — When reimbursement was received.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**reimbursements:** `typing.Optional[
-    typing.Sequence[
-        CreateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody
-    ]
-]` — Reimbursement amounts, optionally linked to a work order.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**repair_completed_at_time:** `typing.Optional[str]` — When the repair was completed.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**resolution_at_time:** `typing.Optional[str]` — When the claim was resolved.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**submitted_at_time:** `typing.Optional[str]` — When the claim was submitted to the vendor.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**warranty_vendor_id:** `typing.Optional[str]` — ID of the vendor handling the claim.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">delete_warranty_claim</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Deletes a warranty claim for the organization. Component links are removed server-side.
-
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.beta_ap_is.delete_warranty_claim(
-    id="id",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**id:** `str` — Unique identifier for the WarrantyClaim record.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">update_warranty_claim</a>(...) -&gt; AsyncHttpResponse[EntityWarrantyClaimsServiceUpdateWarrantyClaimResponseBody]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Updates an existing warranty claim for the organization.
-
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.beta_ap_is.update_warranty_claim(
-    id="id",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**id:** `str` — Unique identifier for the WarrantyClaim record.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**asset_id:** `typing.Optional[str]` — ID of the asset the claim is filed for. Immutable once set.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**cause:** `typing.Optional[str]` — The cause of the 3 Cs - the root cause found.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**claim_engine_hours:** `typing.Optional[int]` — Engine hours at the time of repair.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**claim_odometer_meters:** `typing.Optional[int]` — Asset odometer reading at the time of repair. Measured in meters.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**claim_status:** `typing.Optional[str]` — Current status of the claim.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**component_instance_ids:** `typing.Optional[typing.Sequence[str]]` — IDs of asset component instances covered by this claim.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**concern:** `typing.Optional[str]` — The concern of the 3 Cs - what was reported.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**correction:** `typing.Optional[str]` — The correction of the 3 Cs - the work performed.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**external_ids:** `typing.Optional[
-    typing.Sequence[
-        UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdInputTypeRequestBody
-    ]
-]` — Customer-supplied external identifiers for the warranty claim, interchangeable with id in filters. Only included in the response when includeExternalIds is set.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**labor:** `typing.Optional[
-    typing.Sequence[
-        UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborInputTypeRequestBody
-    ]
-]` — Labor being claimed.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**linked_warranty_id:** `typing.Optional[str]` — ID of the warranty this claim is filed against.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**linked_work_order_ids:** `typing.Optional[typing.Sequence[str]]` — IDs of the work orders associated with this claim.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**media_item_ids:** `typing.Optional[typing.Sequence[str]]` — IDs of media items attached to the claim.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**other_cost:** `typing.Optional[UpdateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody]` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**parts:** `typing.Optional[
-    typing.Sequence[
-        UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody
-    ]
-]` — Parts being claimed.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**reimbursed_at_time:** `typing.Optional[str]` — When reimbursement was received.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**reimbursements:** `typing.Optional[
-    typing.Sequence[
-        UpdateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody
-    ]
-]` — Reimbursement amounts, optionally linked to a work order.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**repair_completed_at_time:** `typing.Optional[str]` — When the repair was completed.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**resolution_at_time:** `typing.Optional[str]` — When the claim was resolved.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**submitted_at_time:** `typing.Optional[str]` — When the claim was submitted to the vendor.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**warranty_vendor_id:** `typing.Optional[str]` — ID of the vendor handling the claim.
+**place_id:** `typing.Optional[str]` — Maintenance-shop Place ID.
     
 </dd>
 </dl>
@@ -11725,6 +9465,14 @@ client.beta_ap_is.get_places()
 <dd>
 
 **name:** `typing.Optional[str]` — Filter places by name text.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**hub_ids:** `typing.Optional[str]` — Comma-separated route-planning hub IDs (UUIDs). Returns places associated with any of the given hubs.
     
 </dd>
 </dl>
@@ -11963,7 +9711,7 @@ client.beta_ap_is.post_place(
 <dl>
 <dd>
 
-Deletes a place. Pass `placeId` (Samsara id) as a query parameter.
+Deletes a place. Provide exactly one of query parameter `placeId` (Samsara id) or `externalId` (key:value).
 
  <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -11990,9 +9738,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.beta_ap_is.delete_place(
-    place_id=1000000,
-)
+client.beta_ap_is.delete_place()
 
 ```
 </dd>
@@ -12008,7 +9754,15 @@ client.beta_ap_is.delete_place(
 <dl>
 <dd>
 
-**place_id:** `int` — Samsara place id to delete.
+**place_id:** `typing.Optional[int]` — Samsara place id to delete. Mutually exclusive with `externalId`; provide exactly one.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**external_id:** `typing.Optional[str]` — External id token in `key:value` form (e.g. crmId:warehouse-east). Mutually exclusive with `placeId`; provide exactly one.
     
 </dd>
 </dl>
@@ -12578,484 +10332,6 @@ client.beta_ap_is.get_place_geofence(
 <dd>
 
 **after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_preferred_stations</a>(...) -&gt; AsyncHttpResponse[PreferredStationsListPreferredStationsResponseBody]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-List all preferred fuel stations for your organization.
-
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Read Fuel Purchase** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.beta_ap_is.list_preferred_stations()
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default and max for this value is 512 objects.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**include_external_ids:** `typing.Optional[bool]` — Whether to include external IDs in the response.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">post_preferred_station</a>(...) -&gt; AsyncHttpResponse[PreferredStationsPostPreferredStationResponseBody]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Create a preferred fuel station for your organization.
-
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Write Fuel Purchase** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import PreferredStationAddressRequestBody, Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.beta_ap_is.post_preferred_station(
-    address=PreferredStationAddressRequestBody(
-        city="Green River",
-        country="US",
-        line_1="8901 US Hwy 374",
-        postal_code="82935",
-    ),
-    external_ids={"key": "value"},
-    name="Station #432",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**address:** `PreferredStationAddressRequestBody` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**external_ids:** `typing.Dict[str, str]` — Map of source-system key to customer-provided station ID.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**name:** `str` — Display name of the station.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**discounts:** `typing.Optional[typing.Sequence[PreferredStationDiscountInputRequestBody]]` — Array of discount overrides per fuel type. Max 14 items.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**latitude:** `typing.Optional[float]` — Latitude in WGS84 degrees.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**longitude:** `typing.Optional[float]` — Longitude in WGS84 degrees.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**prices:** `typing.Optional[typing.Sequence[PreferredStationPriceInputRequestBody]]` — Array of per-fuel-type prices. Max 14 items.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">delete_preferred_station</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Delete a preferred fuel station for your organization.
-
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Write Fuel Purchase** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.beta_ap_is.delete_preferred_station(
-    id="id",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**id:** `str` — Samsara ID of the preferred station to delete.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">patch_preferred_station</a>(...) -&gt; AsyncHttpResponse[PreferredStationsPatchPreferredStationResponseBody]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Update a preferred fuel station for your organization.
-
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Write Fuel Purchase** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.beta_ap_is.patch_preferred_station(
-    id="id",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**id:** `str` — Samsara ID of the preferred station to update.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**discounts:** `typing.Optional[typing.Sequence[PreferredStationDiscountInputRequestBody]]` — Replaces all discount overrides. Pass empty array to remove all. Max 14 items.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**prices:** `typing.Optional[typing.Sequence[PreferredStationPriceInputRequestBody]]` — Replaces all per-fuel-type prices. Pass empty array to remove all. Max 14 items.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_preferred_station</a>(...) -&gt; AsyncHttpResponse[PreferredStationsGetPreferredStationResponseBody]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-Get a single preferred fuel station by ID.
-
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Read Fuel Purchase** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.beta_ap_is.get_preferred_station(
-    id="id",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**id:** `str` — Samsara-assigned station ID.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**include_external_ids:** `typing.Optional[bool]` — Whether to include external IDs in the response.
     
 </dd>
 </dl>
@@ -14463,7 +11739,9 @@ client.beta_ap_is.get_report_run_data(
 <dl>
 <dd>
 
-List ridership passengers by tag.
+List passengers assigned to a tag. External IDs are omitted from the response unless `includeExternalIds=true`.
+
+Results are paginated. A page may contain fewer results than requested. While `pagination.hasNextPage` is true, pass `pagination.endCursor` as `after` to retrieve the next page.
 
  <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -14508,7 +11786,7 @@ client.beta_ap_is.list_ridership_passengers(
 <dl>
 <dd>
 
-**tag_id:** `str` — ID of a tag to filter passengers by.
+**tag_id:** `str` — Samsara ID of the tag to filter passengers by, such as `5678`. External IDs are not supported here.
     
 </dd>
 </dl>
@@ -14564,7 +11842,7 @@ client.beta_ap_is.list_ridership_passengers(
 <dl>
 <dd>
 
-Create a new ridership passenger.
+Create a new ridership passenger. The response includes the passenger's external IDs.
 
  <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -14610,7 +11888,7 @@ client.beta_ap_is.create_ridership_passenger(
 <dl>
 <dd>
 
-**first_name:** `str` — First name of the passenger.
+**first_name:** `str` — Passenger's first name. Maximum 100 characters.
     
 </dd>
 </dl>
@@ -14618,7 +11896,7 @@ client.beta_ap_is.create_ridership_passenger(
 <dl>
 <dd>
 
-**last_name:** `str` — Last name of the passenger.
+**last_name:** `str` — Passenger's last name. Maximum 100 characters.
     
 </dd>
 </dl>
@@ -14628,7 +11906,7 @@ client.beta_ap_is.create_ridership_passenger(
 
 **classification:** `typing.Optional[
     RidershipPassengersCreateRidershipPassengerRequestBodyClassification
-]` — Classification or grade level of the passenger.  Valid values: `unknown`, `pk1`, `pk2`, `pk3`, `pk4`, `k`, `grade1`, `grade2`, `grade3`, `grade4`, `grade5`, `grade6`, `grade7`, `grade8`, `grade9`, `grade10`, `grade11`, `grade12`
+]` — Passenger grade level: `pk1`–`pk4` are pre-kindergarten categories, `k` is kindergarten, and `grade1`–`grade12` are grades 1–12. Use `unknown` when the grade level is not known.  Valid values: `unknown`, `pk1`, `pk2`, `pk3`, `pk4`, `k`, `grade1`, `grade2`, `grade3`, `grade4`, `grade5`, `grade6`, `grade7`, `grade8`, `grade9`, `grade10`, `grade11`, `grade12`
     
 </dd>
 </dl>
@@ -14636,7 +11914,7 @@ client.beta_ap_is.create_ridership_passenger(
 <dl>
 <dd>
 
-**external_ids:** `typing.Optional[typing.Dict[str, str]]` — A map of external ids
+**external_ids:** `typing.Optional[typing.Dict[str, str]]` — Customer-defined IDs that link this passenger to another system, such as {"student": "STU-001"}.
     
 </dd>
 </dl>
@@ -14644,7 +11922,7 @@ client.beta_ap_is.create_ridership_passenger(
 <dl>
 <dd>
 
-**identifiers:** `typing.Optional[typing.Sequence[RidershipPassengerIdentifierInputRequestBody]]` — List of identifiers associated with the passenger.
+**identifiers:** `typing.Optional[typing.Sequence[RidershipPassengerIdentifierInputRequestBody]]` — Identifiers used to recognize the passenger, such as RFID card values. Maximum 10.
     
 </dd>
 </dl>
@@ -14660,7 +11938,7 @@ client.beta_ap_is.create_ridership_passenger(
 <dl>
 <dd>
 
-**tag_ids:** `typing.Optional[typing.Sequence[str]]` — IDs of tags to associate with the passenger.
+**tag_ids:** `typing.Optional[typing.Sequence[str]]` — Up to 10 Samsara tag IDs to assign to the passenger; external IDs are not supported here. Omit or send `[]` to create a passenger without tags.
     
 </dd>
 </dl>
@@ -14692,7 +11970,11 @@ client.beta_ap_is.create_ridership_passenger(
 <dl>
 <dd>
 
-Update a ridership passenger by ID. All provided fields will overwrite existing values (PUT semantics). The id query parameter accepts either a Samsara UUID or an external ID in key:value format (e.g. student:STU-001).
+Update a passenger by Samsara UUID or external ID, such as `student:STU-001`. The response includes the passenger's external IDs.
+
+Both first and last name are required. Include the values you want to keep:
+- Omitted classification, special instructions, identifiers, and external IDs are cleared.
+- Omitted tags are kept. Send `tagIds: []` to remove them.
 
  <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -14739,7 +12021,7 @@ client.beta_ap_is.update_ridership_passenger(
 <dl>
 <dd>
 
-**id:** `str` — ID of the ridership passenger. This can either be the Samsara-specified UUID, or an external ID. External IDs are customer-specified key-value pairs. To specify an external ID, use the following format: `key:value`. For example, `student:STU-001`.
+**id:** `str` — Samsara UUID of the passenger, or an external ID in `key:value` format, such as `student:STU-001`.
     
 </dd>
 </dl>
@@ -14747,7 +12029,7 @@ client.beta_ap_is.update_ridership_passenger(
 <dl>
 <dd>
 
-**first_name:** `str` — First name of the passenger.
+**first_name:** `str` — Passenger's first name. Maximum 100 characters.
     
 </dd>
 </dl>
@@ -14755,7 +12037,7 @@ client.beta_ap_is.update_ridership_passenger(
 <dl>
 <dd>
 
-**last_name:** `str` — Last name of the passenger.
+**last_name:** `str` — Passenger's last name. Maximum 100 characters.
     
 </dd>
 </dl>
@@ -14765,7 +12047,7 @@ client.beta_ap_is.update_ridership_passenger(
 
 **classification:** `typing.Optional[
     RidershipPassengersUpdateRidershipPassengerRequestBodyClassification
-]` — Classification or grade level of the passenger.  Valid values: `unknown`, `pk1`, `pk2`, `pk3`, `pk4`, `k`, `grade1`, `grade2`, `grade3`, `grade4`, `grade5`, `grade6`, `grade7`, `grade8`, `grade9`, `grade10`, `grade11`, `grade12`
+]` — Passenger grade level: `pk1`–`pk4` are pre-kindergarten categories, `k` is kindergarten, and `grade1`–`grade12` are grades 1–12. Use `unknown` when the grade level is not known.  Valid values: `unknown`, `pk1`, `pk2`, `pk3`, `pk4`, `k`, `grade1`, `grade2`, `grade3`, `grade4`, `grade5`, `grade6`, `grade7`, `grade8`, `grade9`, `grade10`, `grade11`, `grade12`
     
 </dd>
 </dl>
@@ -14773,7 +12055,7 @@ client.beta_ap_is.update_ridership_passenger(
 <dl>
 <dd>
 
-**external_ids:** `typing.Optional[typing.Dict[str, str]]` — A map of external ids
+**external_ids:** `typing.Optional[typing.Dict[str, str]]` — Customer-defined IDs that link this passenger to another system, such as {"student": "STU-001"}.
     
 </dd>
 </dl>
@@ -14781,7 +12063,7 @@ client.beta_ap_is.update_ridership_passenger(
 <dl>
 <dd>
 
-**identifiers:** `typing.Optional[typing.Sequence[RidershipPassengerIdentifierInputRequestBody]]` — List of identifiers associated with the passenger.
+**identifiers:** `typing.Optional[typing.Sequence[RidershipPassengerIdentifierInputRequestBody]]` — Identifiers used to recognize the passenger, such as RFID card values. Maximum 10.
     
 </dd>
 </dl>
@@ -14797,7 +12079,7 @@ client.beta_ap_is.update_ridership_passenger(
 <dl>
 <dd>
 
-**tag_ids:** `typing.Optional[typing.Sequence[str]]` — IDs of tags to associate with the passenger.
+**tag_ids:** `typing.Optional[typing.Sequence[str]]` — Replaces the passenger's tags with up to 10 Samsara tag IDs; external IDs are not supported here. Omit to keep existing tags, or send `[]` to remove all tags.
     
 </dd>
 </dl>
@@ -14829,7 +12111,7 @@ client.beta_ap_is.update_ridership_passenger(
 <dl>
 <dd>
 
-Delete a ridership passenger by ID. The id query parameter accepts either a Samsara UUID or an external ID in key:value format (e.g. student:STU-001).
+Delete a passenger by Samsara UUID or external ID, such as `student:STU-001`. The passenger is no longer returned by get or list requests, and their external IDs are removed. Deleting a passenger that does not exist or has already been deleted returns not found.
 
  <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -14874,7 +12156,7 @@ client.beta_ap_is.delete_ridership_passenger(
 <dl>
 <dd>
 
-**id:** `str` — ID of the ridership passenger. This can either be the Samsara-specified UUID, or an external ID. External IDs are customer-specified key-value pairs. To specify an external ID, use the following format: `key:value`. For example, `student:STU-001`.
+**id:** `str` — Samsara UUID of the passenger, or an external ID in `key:value` format, such as `student:STU-001`.
     
 </dd>
 </dl>
@@ -14906,7 +12188,7 @@ client.beta_ap_is.delete_ridership_passenger(
 <dl>
 <dd>
 
-Get a single ridership passenger by ID. The ID can be a Samsara UUID or an external ID in `key:value` format.
+Get a passenger by Samsara UUID or external ID, such as `student:STU-001`. External IDs are omitted from the response unless `includeExternalIds=true`.
 
  <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -14951,7 +12233,7 @@ client.beta_ap_is.get_ridership_passenger(
 <dl>
 <dd>
 
-**id:** `str` — ID of the ridership passenger. This can either be the Samsara-specified UUID, or an external ID. External IDs are customer-specified key-value pairs. To specify an external ID, use the following format: `key:value`. For example, `student:STU-001`.
+**id:** `str` — Samsara UUID of the passenger, or an external ID in `key:value` format, such as `student:STU-001`.
     
 </dd>
 </dl>
@@ -14991,7 +12273,9 @@ client.beta_ap_is.get_ridership_passenger(
 <dl>
 <dd>
 
-List all route setups for a ridership account.
+List route setups associated with the specified ridership account.
+
+Results are paginated. A page may contain fewer results than requested. While `pagination.hasNextPage` is true, pass `pagination.endCursor` as `after` to retrieve the next page.
 
  <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -15084,7 +12368,7 @@ client.beta_ap_is.list_ridership_route_setups(
 <dl>
 <dd>
 
-Create the passenger assignment setup for a route.
+Create passenger assignments for an existing Routing API route. If the route already has a setup, use the update endpoint instead.
 
  <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -15134,7 +12418,7 @@ client.beta_ap_is.create_ridership_route_setup(
 <dl>
 <dd>
 
-**passengers:** `typing.Sequence[RidershipRouteSetupPassengerInputRequestBody]` — List of passenger assignments for the route.
+**passengers:** `typing.Sequence[RidershipRouteSetupPassengerInputRequestBody]` — Passenger assignments for the route, with each passenger listed once.
     
 </dd>
 </dl>
@@ -15174,7 +12458,7 @@ client.beta_ap_is.create_ridership_route_setup(
 <dl>
 <dd>
 
-Update (replace) the passenger assignment setup for a route. All existing assignments will be replaced with the provided assignments.
+Add or update passenger assignments for an existing Routing API route. Creates a setup if none exists. Passengers omitted from the request keep their assignments; an empty passenger list leaves existing assignments unchanged.
 
  <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -15232,7 +12516,7 @@ client.beta_ap_is.update_ridership_route_setup(
 <dl>
 <dd>
 
-**passengers:** `typing.Sequence[RidershipRouteSetupPassengerInputRequestBody]` — List of passenger assignments for the route.
+**passengers:** `typing.Sequence[RidershipRouteSetupPassengerInputRequestBody]` — Passenger assignments for the route, with each passenger listed once.
     
 </dd>
 </dl>
@@ -15264,7 +12548,7 @@ client.beta_ap_is.update_ridership_route_setup(
 <dl>
 <dd>
 
-Delete the passenger assignment setup for a route.
+Remove the route's passenger setup and assignments. The route and passenger records are kept. Deleting a setup that does not exist returns not found.
 
  <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -15341,7 +12625,7 @@ client.beta_ap_is.delete_ridership_route_setup(
 <dl>
 <dd>
 
-Get the passenger assignment setup for a route by route ID.
+Get the passenger assignments for a route by Samsara route ID or external ID, such as `extRoute:WB-12`.
 
  <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -15447,7 +12731,6 @@ client = Samsara(
 )
 client.beta_ap_is.patch_safety_events_v_2_batch(
     safety_event_ids=[
-        "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
         "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
         "bb2ff5ab-30ad-49ec-9d2d-55ec30bbf590",
     ],
@@ -20077,6 +17360,2820 @@ client.maintenance.update_dvir(
 </dl>
 </details>
 
+<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">list_parts</a>(...) -&gt; AsyncHttpResponse[EntityPartDefinitionsServiceListPartsResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns a paginated list of parts for the organization.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.maintenance.list_parts()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id_in:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of ID values.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**part_ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of Part ID values.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**part_status:** `typing.Optional[str]` — A filter on the data based on Part status. Status of the part.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_deleted:** `typing.Optional[bool]` — Whether to include deleted parts in the response. Defaults to false.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">create_part</a>(...) -&gt; AsyncHttpResponse[EntityPartDefinitionsServiceCreatePartResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Creates a part for the organization.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.maintenance.create_part(
+    part_number="12345",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**part_number:** `str` — Customer-visible part number for the part.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**barcode_string:** `typing.Optional[str]` — Barcode associated with the part definition.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**barcode_type:** `typing.Optional[str]` — Type of barcode associated with the part definition.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**description:** `typing.Optional[str]` — Description of the part definition.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**external_id:** `typing.Optional[str]` — Customer-supplied external identifier for the part.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_inventory_tracked:** `typing.Optional[bool]` — Whether inventory tracking is enabled for this part.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**manufacturer_name:** `typing.Optional[str]` — Name of the manufacturer for the part definition.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**manufacturer_part_number:** `typing.Optional[str]` — Manufacturer-supplied part number.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `typing.Optional[str]` — Name of the part definition.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**preferred_vendor_id:** `typing.Optional[str]` — Unique identifier for the preferred vendor for this part definition.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**preferred_vendor_part_number:** `typing.Optional[str]` — The preferred vendor's part number for this part definition.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**unit_cost:** `typing.Optional[CreatePartEntityPartDefinitionMoneyInputTypeRequestBody]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**vmrs_code:** `typing.Optional[str]` — VMRS code associated with the part definition.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">delete_part</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Deletes a part for the organization.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.maintenance.delete_part(
+    id="id",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` — Unique identifier for the PartDefinition record.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">update_part</a>(...) -&gt; AsyncHttpResponse[EntityPartDefinitionsServiceUpdatePartResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Updates an existing part for the organization.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.maintenance.update_part(
+    id="id",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` — Unique identifier for the PartDefinition record.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**barcode_string:** `typing.Optional[str]` — Barcode associated with the part definition.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**barcode_type:** `typing.Optional[str]` — Type of barcode associated with the part definition.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**description:** `typing.Optional[str]` — Description of the part definition.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**external_id:** `typing.Optional[str]` — Customer-supplied external identifier for the part.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_inventory_tracked:** `typing.Optional[bool]` — Whether inventory tracking is enabled for this part.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**manufacturer_name:** `typing.Optional[str]` — Name of the manufacturer for the part definition.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**manufacturer_part_number:** `typing.Optional[str]` — Manufacturer-supplied part number.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `typing.Optional[str]` — Name of the part definition.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**part_number:** `typing.Optional[str]` — Customer-visible part number for the part.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**preferred_vendor_id:** `typing.Optional[str]` — Unique identifier for the preferred vendor for this part definition.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**preferred_vendor_part_number:** `typing.Optional[str]` — The preferred vendor's part number for this part definition.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**unit_cost:** `typing.Optional[UpdatePartEntityPartDefinitionMoneyInputTypeRequestBody]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**vmrs_code:** `typing.Optional[str]` — VMRS code associated with the part definition.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">list_part_inventory</a>(...) -&gt; AsyncHttpResponse[
+    EntityPartInventoryLocationsServiceListPartInventoryResponseBody
+]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns a paginated list of per-part, per-location inventory levels for the organization.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.maintenance.list_part_inventory()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**place_ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of Place ID values.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_low_stock:** `typing.Optional[bool]` — A filter on the data based on Low stock. Whether the available quantity is greater than zero and at or below the reorder threshold.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**part_samsara_ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of Part ID values.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">create_part_inventory_location</a>(...) -&gt; AsyncHttpResponse[
+    EntityPartInventoryLocationsServiceCreatePartInventoryLocationResponseBody
+]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Creates per-part, per-location inventory metadata for the organization. Upserts by part and place — a second create at the same pair updates the existing record instead of duplicating it.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.maintenance.create_part_inventory_location()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**part_samsara_id:** `typing.Optional[str]` — Unique identifier for the part definition these inventory levels are tracked for.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**place_id:** `typing.Optional[str]` — Unique identifier for the place linked to the maintenance site holding this inventory. The internal location identifier is never exposed.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**aisle:** `typing.Optional[str]` — Aisle within the location where the part is stored.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**bin:** `typing.Optional[str]` — Bin within the location where the part is stored.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**current_quantity:** `typing.Optional[float]` — Total physical quantity on hand at this location, equal to the available quantity plus the reserved quantity. Settable only when creating the record, to seed initial stock; thereafter it changes only via stock movements.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_cost_tracked:** `typing.Optional[bool]` — Whether costing is tracked at this location. Defaults to false; once enabled it cannot be turned back off.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**max_stock_level:** `typing.Optional[float]` — Maximum quantity to keep in stock at this location.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**min_stock_level:** `typing.Optional[float]` — Minimum quantity to keep in stock at this location.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**reorder_quantity:** `typing.Optional[float]` — Quantity to reorder when stock reaches the reorder threshold.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**reorder_threshold:** `typing.Optional[float]` — Available quantity at or below which the part should be reordered at this location.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**row:** `typing.Optional[str]` — Row within the location where the part is stored.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**unit_cost:** `typing.Optional[
+    CreatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody
+]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">update_part_inventory_location</a>(...) -&gt; AsyncHttpResponse[
+    EntityPartInventoryLocationsServiceUpdatePartInventoryLocationResponseBody
+]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Updates existing per-part, per-location inventory metadata for the organization.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.maintenance.update_part_inventory_location()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**part_samsara_id:** `typing.Optional[str]` — Unique identifier for the part definition these inventory levels are tracked for.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**place_id:** `typing.Optional[str]` — Unique identifier for the place linked to the maintenance site holding this inventory. The internal location identifier is never exposed.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**aisle:** `typing.Optional[str]` — Aisle within the location where the part is stored.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**bin:** `typing.Optional[str]` — Bin within the location where the part is stored.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**current_quantity:** `typing.Optional[float]` — Total physical quantity on hand at this location, equal to the available quantity plus the reserved quantity. Settable only when creating the record, to seed initial stock; thereafter it changes only via stock movements.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_cost_tracked:** `typing.Optional[bool]` — Whether costing is tracked at this location. Defaults to false; once enabled it cannot be turned back off.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**max_stock_level:** `typing.Optional[float]` — Maximum quantity to keep in stock at this location.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**min_stock_level:** `typing.Optional[float]` — Minimum quantity to keep in stock at this location.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**reorder_quantity:** `typing.Optional[float]` — Quantity to reorder when stock reaches the reorder threshold.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**reorder_threshold:** `typing.Optional[float]` — Available quantity at or below which the part should be reordered at this location.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**row:** `typing.Optional[str]` — Row within the location where the part is stored.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**unit_cost:** `typing.Optional[
+    UpdatePartInventoryLocationEntityPartInventoryLocationMoneyInputTypeRequestBody
+]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">create_stock_movement</a>(...) -&gt; AsyncHttpResponse[
+    CreateStockMovementActionServiceCreateStockMovementResponseBody
+]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Records a receive, transfer, scrap, or adjust stock movement against a part's inventory and returns the resulting inventory location(s). Not idempotent — retrying a request that already succeeded records the movement again.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.maintenance.create_stock_movement(
+    movement_type="12345",
+    part_samsara_id="12345",
+    quantity=123.45,
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**movement_type:** `str` — Type of stock movement to record. Must be one of Receive, Transfer, Scrap, or Adjust; Unknown is rejected.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**part_samsara_id:** `str` — Unique identifier of the part definition the movement applies to.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**quantity:** `float` — Quantity moved, in the part's unit of measure. Positive magnitude for receive, transfer, and scrap; signed delta for adjust.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**batch:** `typing.Optional[str]` — Batch or lot identifier the movement applies to, if the part is batch-tracked.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**from_place_id:** `typing.Optional[str]` — Unique identifier of the place linked to the maintenance site the inventory is transferred out of. Transfer only.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**happened_at_time:** `typing.Optional[str]` — Time when the movement occurred. Defaults to the current time if not provided.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**notes:** `typing.Optional[str]` — Notes explaining the movement. Scrap and adjust only.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**place_id:** `typing.Optional[str]` — Unique identifier of the place linked to the maintenance site the movement targets. Required for receive, scrap, and adjust; rejected for transfer (use fromPlaceId and toPlaceId).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**purchase_order:** `typing.Optional[str]` — Purchase order reference for the received inventory. Receive only.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**to_place_id:** `typing.Optional[str]` — Unique identifier of the place linked to the maintenance site the inventory is transferred into. Transfer only.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**unit_cost:** `typing.Optional[EntityCreateStockMovementMoneyInputTypeRequestBody]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**vendor_id:** `typing.Optional[str]` — Unique identifier of the vendor the inventory was received from. Receive only.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">list_part_transactions</a>(...) -&gt; AsyncHttpResponse[
+    EntityInventoryTransactionsServiceListPartTransactionsResponseBody
+]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns a paginated, time-windowed feed of inventory transactions (an append-only parts audit log) for the organization, ordered by the time each transaction occurred.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.maintenance.list_part_transactions(
+    happened_at_time_start="happenedAtTimeStart",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**happened_at_time_start:** `str` — A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**happened_at_time_end:** `typing.Optional[str]` — An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**part_samsara_ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of Part Samsara ID values.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**place_ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of Place ID values.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**transaction_type_in:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of Transaction Type values.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">list_time_entries</a>(...) -&gt; AsyncHttpResponse[EntityTimeEntriesServiceListTimeEntriesResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns a paginated feed of technician time entries updated in the requested time window, including deletion tombstones.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Time Entries** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.maintenance.list_time_entries(
+    start_time="startTime",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**start_time:** `str` — A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**end_time:** `typing.Optional[str]` — An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">list_warranties</a>(...) -&gt; AsyncHttpResponse[EntityWarrantiesServiceListWarrantiesResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns a paginated list of warranties for the organization.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.maintenance.list_warranties()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**warranty_ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of ID values.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of Name values.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_external_ids:** `typing.Optional[bool]` — If true, include externalIds in each response object.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">create_warranty</a>(...) -&gt; AsyncHttpResponse[EntityWarrantiesServiceCreateWarrantyResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Creates a warranty for the organization.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.maintenance.create_warranty(
+    name="12345",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**name:** `str` — Name of the warranty.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**base_coverage:** `typing.Optional[
+    CreateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody
+]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**coverages:** `typing.Optional[
+    typing.Sequence[
+        CreateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody
+    ]
+]` — Additional coverage groups defined on this warranty.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**description:** `typing.Optional[str]` — Description of the warranty.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**duration_days:** `typing.Optional[int]` — Warranty length in days. Mutually exclusive with duration in months.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**duration_months:** `typing.Optional[int]` — Warranty length in months. Mutually exclusive with duration in days.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**engine_duration_hours:** `typing.Optional[int]` — Warranty length by engine hours since the warranty start.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**external_ids:** `typing.Optional[
+    typing.Sequence[
+        CreateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody
+    ]
+]` — Customer-supplied external identifiers for the warranty, interchangeable with id in filters. Only included in the response when includeExternalIds is set.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**odometer_distance_meters:** `typing.Optional[int]` — Warranty length by distance travelled since the warranty start. Measured in meters.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**vendor_id:** `typing.Optional[str]` — ID of the vendor that provides this warranty.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**warranty_type:** `typing.Optional[EntityWarrantiesServiceCreateWarrantyRequestBodyWarrantyType]` — Type of warranty, for example manufacturer, extended, other, or unknown.  Valid values: `unknown`, `manufacturer`, `extended`, `other`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">delete_warranty</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Deletes a warranty for the organization. Asset associations are removed server-side.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.maintenance.delete_warranty(
+    id="id",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` — Unique identifier for the Warranty record.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">update_warranty</a>(...) -&gt; AsyncHttpResponse[EntityWarrantiesServiceUpdateWarrantyResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Updates an existing warranty for the organization.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.maintenance.update_warranty(
+    id="id",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` — Unique identifier for the Warranty record.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**base_coverage:** `typing.Optional[
+    UpdateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody
+]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**coverages:** `typing.Optional[
+    typing.Sequence[
+        UpdateWarrantyEntityWarrantyWarrantyCoverageInputTypeRequestBody
+    ]
+]` — Additional coverage groups defined on this warranty.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**description:** `typing.Optional[str]` — Description of the warranty.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**duration_days:** `typing.Optional[int]` — Warranty length in days. Mutually exclusive with duration in months.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**duration_months:** `typing.Optional[int]` — Warranty length in months. Mutually exclusive with duration in days.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**engine_duration_hours:** `typing.Optional[int]` — Warranty length by engine hours since the warranty start.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**external_ids:** `typing.Optional[
+    typing.Sequence[
+        UpdateWarrantyEntityWarrantyWarrantyExternalIdInputTypeRequestBody
+    ]
+]` — Customer-supplied external identifiers for the warranty, interchangeable with id in filters. Only included in the response when includeExternalIds is set.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `typing.Optional[str]` — Name of the warranty.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**odometer_distance_meters:** `typing.Optional[int]` — Warranty length by distance travelled since the warranty start. Measured in meters.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**vendor_id:** `typing.Optional[str]` — ID of the vendor that provides this warranty.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**warranty_type:** `typing.Optional[EntityWarrantiesServiceUpdateWarrantyRequestBodyWarrantyType]` — Type of warranty, for example manufacturer, extended, other, or unknown.  Valid values: `unknown`, `manufacturer`, `extended`, `other`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">list_warranty_asset_assignments</a>(...) -&gt; AsyncHttpResponse[
+    EntityWarrantyAssetAssignmentsServiceListWarrantyAssetAssignmentsResponseBody
+]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns the assets assigned to a warranty.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.maintenance.list_warranty_asset_assignments(
+    warranty_id="warrantyId",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**warranty_id:** `str` — A filter on the data based on this comma-separated list of Warranty values.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">replace_warranty_asset_assignments</a>(...) -&gt; AsyncHttpResponse[
+    ReplaceWarrantyAssetAssignmentsActionServiceReplaceWarrantyAssetAssignmentsResponseBody
+]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Replaces the full set of assets assigned to a warranty.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.maintenance.replace_warranty_asset_assignments()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**warranty_id:** `typing.Optional[str]` — ID of the warranty whose asset set to replace.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**assets:** `typing.Optional[
+    typing.Sequence[
+        EntityReplaceWarrantyAssetAssignmentsWarrantyAssetAssignmentInputTypeRequestBody
+    ]
+]` — The full desired asset set for the warranty.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">list_warranty_claims</a>(...) -&gt; AsyncHttpResponse[EntityWarrantyClaimsServiceListWarrantyClaimsResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns a paginated list of warranty claims for the organization.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.maintenance.list_warranty_claims()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**warranty_claim_ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of ID values.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**asset_ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of Asset values.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**claim_status:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of Claim status values.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**warranty_ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of Warranty values.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_external_ids:** `typing.Optional[bool]` — If true, include externalIds in each response object.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">create_warranty_claim</a>(...) -&gt; AsyncHttpResponse[EntityWarrantyClaimsServiceCreateWarrantyClaimResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Creates a warranty claim for the organization.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.maintenance.create_warranty_claim(
+    asset_id="281474976710656",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**asset_id:** `str` — ID of the asset the claim is filed for. Immutable once set.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**cause:** `typing.Optional[str]` — The cause of the 3 Cs - the root cause found.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**claim_engine_hours:** `typing.Optional[int]` — Engine hours at the time of repair.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**claim_odometer_meters:** `typing.Optional[int]` — Asset odometer reading at the time of repair. Measured in meters.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**claim_status:** `typing.Optional[
+    EntityWarrantyClaimsServiceCreateWarrantyClaimRequestBodyClaimStatus
+]` — Current status of the claim.  Valid values: `unknown`, `created`, `submitted`, `inReview`, `approved`, `rejected`, `resubmitted`, `reimbursed`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**component_instance_ids:** `typing.Optional[typing.Sequence[str]]` — IDs of asset component instances covered by this claim.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**concern:** `typing.Optional[str]` — The concern of the 3 Cs - what was reported.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**correction:** `typing.Optional[str]` — The correction of the 3 Cs - the work performed.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**external_ids:** `typing.Optional[
+    typing.Sequence[
+        CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdInputTypeRequestBody
+    ]
+]` — Customer-supplied external identifiers for the warranty claim, interchangeable with id in filters. Only included in the response when includeExternalIds is set.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**labor:** `typing.Optional[
+    typing.Sequence[
+        CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborInputTypeRequestBody
+    ]
+]` — Labor being claimed.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**linked_warranty_id:** `typing.Optional[str]` — ID of the warranty this claim is filed against.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**linked_work_order_ids:** `typing.Optional[typing.Sequence[str]]` — IDs of the work orders associated with this claim.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**media_item_ids:** `typing.Optional[typing.Sequence[str]]` — IDs of media items attached to the claim.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**other_cost:** `typing.Optional[CreateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**parts:** `typing.Optional[
+    typing.Sequence[
+        CreateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody
+    ]
+]` — Parts being claimed.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**reimbursed_at_time:** `typing.Optional[str]` — When reimbursement was received.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**reimbursements:** `typing.Optional[
+    typing.Sequence[
+        CreateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody
+    ]
+]` — Reimbursement amounts, optionally linked to a work order.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**repair_completed_at_time:** `typing.Optional[str]` — When the repair was completed.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**resolution_at_time:** `typing.Optional[str]` — When the claim was resolved.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**submitted_at_time:** `typing.Optional[str]` — When the claim was submitted to the vendor.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**warranty_vendor_id:** `typing.Optional[str]` — ID of the vendor handling the claim.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">delete_warranty_claim</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Deletes a warranty claim for the organization. Component links are removed server-side.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.maintenance.delete_warranty_claim(
+    id="id",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` — Unique identifier for the WarrantyClaim record.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">update_warranty_claim</a>(...) -&gt; AsyncHttpResponse[EntityWarrantyClaimsServiceUpdateWarrantyClaimResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Updates an existing warranty claim for the organization.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Warranties** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.maintenance.update_warranty_claim(
+    id="id",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` — Unique identifier for the WarrantyClaim record.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**asset_id:** `typing.Optional[str]` — ID of the asset the claim is filed for. Immutable once set.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**cause:** `typing.Optional[str]` — The cause of the 3 Cs - the root cause found.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**claim_engine_hours:** `typing.Optional[int]` — Engine hours at the time of repair.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**claim_odometer_meters:** `typing.Optional[int]` — Asset odometer reading at the time of repair. Measured in meters.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**claim_status:** `typing.Optional[
+    EntityWarrantyClaimsServiceUpdateWarrantyClaimRequestBodyClaimStatus
+]` — Current status of the claim.  Valid values: `unknown`, `created`, `submitted`, `inReview`, `approved`, `rejected`, `resubmitted`, `reimbursed`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**component_instance_ids:** `typing.Optional[typing.Sequence[str]]` — IDs of asset component instances covered by this claim.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**concern:** `typing.Optional[str]` — The concern of the 3 Cs - what was reported.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**correction:** `typing.Optional[str]` — The correction of the 3 Cs - the work performed.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**external_ids:** `typing.Optional[
+    typing.Sequence[
+        UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimExternalIdInputTypeRequestBody
+    ]
+]` — Customer-supplied external identifiers for the warranty claim, interchangeable with id in filters. Only included in the response when includeExternalIds is set.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**labor:** `typing.Optional[
+    typing.Sequence[
+        UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimLaborInputTypeRequestBody
+    ]
+]` — Labor being claimed.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**linked_warranty_id:** `typing.Optional[str]` — ID of the warranty this claim is filed against.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**linked_work_order_ids:** `typing.Optional[typing.Sequence[str]]` — IDs of the work orders associated with this claim.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**media_item_ids:** `typing.Optional[typing.Sequence[str]]` — IDs of media items attached to the claim.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**other_cost:** `typing.Optional[UpdateWarrantyClaimEntityWarrantyClaimMoneyInputTypeRequestBody]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**parts:** `typing.Optional[
+    typing.Sequence[
+        UpdateWarrantyClaimEntityWarrantyClaimWarrantyClaimPartInputTypeRequestBody
+    ]
+]` — Parts being claimed.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**reimbursed_at_time:** `typing.Optional[str]` — When reimbursement was received.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**reimbursements:** `typing.Optional[
+    typing.Sequence[
+        UpdateWarrantyClaimEntityWarrantyClaimClaimReimbursementInputTypeRequestBody
+    ]
+]` — Reimbursement amounts, optionally linked to a work order.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**repair_completed_at_time:** `typing.Optional[str]` — When the repair was completed.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**resolution_at_time:** `typing.Optional[str]` — When the claim was resolved.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**submitted_at_time:** `typing.Optional[str]` — When the claim was submitted to the vendor.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**warranty_vendor_id:** `typing.Optional[str]` — ID of the vendor handling the claim.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.maintenance.<a href="src/samsara/maintenance/client.py">v_1_get_fleet_maintenance_list</a>() -&gt; AsyncHttpResponse[InlineResponse2004]</code></summary>
 <dl>
 <dd>
@@ -20143,8 +20240,8 @@ client.maintenance.v_1_get_fleet_maintenance_list()
 </dl>
 </details>
 
-## FuelAndEnergy
-<details><summary><code>client.fuel_and_energy.<a href="src/samsara/fuel_and_energy/client.py">get_driver_efficiency_by_drivers</a>(...) -&gt; AsyncHttpResponse[DriverEfficiencyGetDriverEfficiencyByDriversResponseBody]</code></summary>
+## Legacy APIs
+<details><summary><code>client.legacy_ap_is.<a href="src/samsara/legacy_ap_is/client.py">get_driver_efficiency_by_drivers</a>(...) -&gt; AsyncHttpResponse[DriverEfficiencyGetDriverEfficiencyByDriversResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -20155,6 +20252,8 @@ client.maintenance.v_1_get_fleet_maintenance_list()
 
 <dl>
 <dd>
+
+**⚠️ LEGACY/DEPRECATED API: This API returns data from the legacy Driver Efficiency (Eco-Driving) product and is unavailable to new customers. Use the Driver Efficiency (Eco-Driving) dataset in the beta [Custom Reports API](https://developers.samsara.com/reference/createreportrun) for equivalent data.**
 
 This endpoint will return driver efficiency data that has been collected for your organization and grouped by drivers based on the time parameters passed in. Results are paginated. 
 
@@ -20185,7 +20284,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.fuel_and_energy.get_driver_efficiency_by_drivers(
+client.legacy_ap_is.get_driver_efficiency_by_drivers(
     start_time="startTime",
     end_time="endTime",
 )
@@ -20272,7 +20371,7 @@ client.fuel_and_energy.get_driver_efficiency_by_drivers(
 </dl>
 </details>
 
-<details><summary><code>client.fuel_and_energy.<a href="src/samsara/fuel_and_energy/client.py">get_driver_efficiency_by_vehicles</a>(...) -&gt; AsyncHttpResponse[DriverEfficiencyGetDriverEfficiencyByVehiclesResponseBody]</code></summary>
+<details><summary><code>client.legacy_ap_is.<a href="src/samsara/legacy_ap_is/client.py">get_driver_efficiency_by_vehicles</a>(...) -&gt; AsyncHttpResponse[DriverEfficiencyGetDriverEfficiencyByVehiclesResponseBody]</code></summary>
 <dl>
 <dd>
 
@@ -20283,6 +20382,8 @@ client.fuel_and_energy.get_driver_efficiency_by_drivers(
 
 <dl>
 <dd>
+
+**⚠️ LEGACY/DEPRECATED API: This API returns data from the legacy Driver Efficiency (Eco-Driving) product and is unavailable to new customers. Use the Driver Efficiency (Eco-Driving) dataset in the beta [Custom Reports API](https://developers.samsara.com/reference/createreportrun) for equivalent data.**
 
 This endpoint will return driver efficiency data that has been collected for your organization and grouped by vehicle drivers used based on the time parameters passed in. Results are paginated. 
 
@@ -20313,7 +20414,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.fuel_and_energy.get_driver_efficiency_by_vehicles(
+client.legacy_ap_is.get_driver_efficiency_by_vehicles(
     start_time="startTime",
     end_time="endTime",
 )
@@ -20400,7 +20501,7 @@ client.fuel_and_energy.get_driver_efficiency_by_vehicles(
 </dl>
 </details>
 
-<details><summary><code>client.fuel_and_energy.<a href="src/samsara/fuel_and_energy/client.py">get_fuel_energy_driver_reports</a>(...) -&gt; AsyncHttpResponse[FuelEnergyGetFuelEnergyDriverReportsResponseBody]</code></summary>
+<details><summary><code>client.legacy_ap_is.<a href="src/samsara/legacy_ap_is/client.py">get_dvir_defects</a>(...) -&gt; AsyncHttpResponse[DefectsResponse]</code></summary>
 <dl>
 <dd>
 
@@ -20412,11 +20513,122 @@ client.fuel_and_energy.get_driver_efficiency_by_vehicles(
 <dl>
 <dd>
 
-Get fuel and energy efficiency driver reports for the requested time range.
+**Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/streamdefects) instead. The endpoint will continue to function as documented.** 
 
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+Returns a list of DVIR defects in an organization, filtered by creation time. The maximum time period you can query for is 30 days. 
 
-To use this endpoint, select **Read Fuel & Energy** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+To use this endpoint, select **Read Defects** under the Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.legacy_ap_is.get_dvir_defects(
+    start_time="startTime",
+    end_time="endTime",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**start_time:** `str` — A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). *The maximum time period you can query for is 30 days.*
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**end_time:** `str` — An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). *The maximum time period you can query for is 30 days.*
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default and max for this value is 512 objects.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` — If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_resolved:** `typing.Optional[bool]` — A filter on the data based on resolution status. Example: `isResolved=true`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.legacy_ap_is.<a href="src/samsara/legacy_ap_is/client.py">get_drivers_vehicle_assignments</a>(...) -&gt; AsyncHttpResponse[
+    DriversVehicleAssignmentsGetDriversVehicleAssignmentsResponseBody
+]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getdrivervehicleassignments) instead. The endpoint will continue to function as documented.** Get all vehicle assignments for the requested drivers in the requested time range. The only type of assignment supported right now are assignments created through the driver app.
+
+ <b>Rate limit:</b> 25 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
  
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
@@ -20439,10 +20651,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.fuel_and_energy.get_fuel_energy_driver_reports(
-    start_date="startDate",
-    end_date="endDate",
-)
+client.legacy_ap_is.get_drivers_vehicle_assignments()
 
 ```
 </dd>
@@ -20458,22 +20667,6 @@ client.fuel_and_energy.get_fuel_energy_driver_reports(
 <dl>
 <dd>
 
-**start_date:** `str` — A start date in RFC 3339 format. This parameter ignores everything (i.e. hour, minutes, seconds, nanoseconds, etc.) besides the date and timezone. If no time zone is passed in, then the UTC time zone will be used. This parameter is inclusive, so data on the date specified will be considered. Note that the most recent 72 hours of data may still be processing and is subject to change and latency, so it is not recommended to request data for the most recent 72 hours. For example, 2022-07-13T14:20:50.52-07:00 is a time in Pacific Daylight Time.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**end_date:** `str` — An end date in RFC 3339 format. This parameter ignores everything (i.e. hour, minutes, seconds, nanoseconds, etc.) besides the date and timezone. If no time zone is passed in, then the UTC time zone will be used. This parameter is inclusive, so data on the date specified will be considered. Note that the most recent 72 hours of data may still be processing and is subject to change and latency, so it is not recommended to request data for the most recent 72 hours. For example, 2022-07-13T14:20:50.52-07:00 is a time in Pacific Daylight Time.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
 **driver_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` —  A filter on the data based on this comma-separated list of driver IDs and externalIds. Example: `driverIds=1234,5678,payroll:4841`
     
 </dd>
@@ -20482,7 +20675,7 @@ client.fuel_and_energy.get_fuel_energy_driver_reports(
 <dl>
 <dd>
 
-**tag_ids:** `typing.Optional[str]` —  A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+**start_time:** `typing.Optional[str]` —  A start time in RFC 3339 format. Defaults to now if not provided. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). The maximum allowed startTime-endTime range is 7 days.
     
 </dd>
 </dl>
@@ -20490,7 +20683,31 @@ client.fuel_and_energy.get_fuel_energy_driver_reports(
 <dl>
 <dd>
 
-**parent_tag_ids:** `typing.Optional[str]` —  A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+**end_time:** `typing.Optional[str]` —  An end time in RFC 3339 format. Defaults to now if not provided. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). The maximum allowed startTime-endTime range is 7 days.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**tag_ids:** `typing.Optional[str]` —  A filter on the data based on this comma-separated list of driver tag IDs. Example: `tagIds=1234,5678`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**parent_tag_ids:** `typing.Optional[str]` —  A filter on the data based on this comma-separated list of driver parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**driver_activation_status:** `typing.Optional[GetDriversVehicleAssignmentsRequestDriverActivationStatus]` — If value is `deactivated`, only drivers that are deactivated will appear in the response. This parameter will default to `active` if not provided (fetching only active drivers).  Valid values: `active`, `deactivated`
     
 </dd>
 </dl>
@@ -20518,7 +20735,7 @@ client.fuel_and_energy.get_fuel_energy_driver_reports(
 </dl>
 </details>
 
-<details><summary><code>client.fuel_and_energy.<a href="src/samsara/fuel_and_energy/client.py">get_fuel_energy_vehicle_reports</a>(...) -&gt; AsyncHttpResponse[FuelEnergyGetFuelEnergyVehicleReportsResponseBody]</code></summary>
+<details><summary><code>client.legacy_ap_is.<a href="src/samsara/legacy_ap_is/client.py">get_dvir_history</a>(...) -&gt; AsyncHttpResponse[DvirsListResponse]</code></summary>
 <dl>
 <dd>
 
@@ -20530,7 +20747,124 @@ client.fuel_and_energy.get_fuel_energy_driver_reports(
 <dl>
 <dd>
 
-Get fuel and energy efficiency vehicle reports for the requested time range.
+**Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getdvirs) instead. The endpoint will continue to function as documented.** 
+
+ Returns a list of all DVIRs in an organization. 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+To use this endpoint, select **Read DVIRs** under the Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.legacy_ap_is.get_dvir_history(
+    start_time="startTime",
+    end_time="endTime",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**start_time:** `str` — A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**end_time:** `str` — An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default and max for this value is 512 objects.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` — If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**parent_tag_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**tag_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.legacy_ap_is.<a href="src/samsara/legacy_ap_is/client.py">get_vehicle_idling_reports</a>(...) -&gt; AsyncHttpResponse[IdlingReportsGetVehicleIdlingReportsResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getidlingevents) instead. The endpoint will continue to function as documented.** Get all vehicle idling reports for the requested time duration.
 
  <b>Rate limit:</b> 25 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -20557,9 +20891,9 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.fuel_and_energy.get_fuel_energy_vehicle_reports(
-    start_date="startDate",
-    end_date="endDate",
+client.legacy_ap_is.get_vehicle_idling_reports(
+    start_time="startTime",
+    end_time="endTime",
 )
 
 ```
@@ -20576,7 +20910,7 @@ client.fuel_and_energy.get_fuel_energy_vehicle_reports(
 <dl>
 <dd>
 
-**start_date:** `str` — A start date in RFC 3339 format. This parameter ignores everything (i.e. hour, minutes, seconds, nanoseconds, etc.) besides the date and timezone. If no time zone is passed in, then the UTC time zone will be used. This parameter is inclusive, so data on the date specified will be considered. Note that the most recent 72 hours of data may still be processing and is subject to change and latency, so it is not recommended to request data for the most recent 72 hours. For example, 2022-07-13T14:20:50.52-07:00 is a time in Pacific Daylight Time.
+**start_time:** `str` —  A start time in RFC 3339 format. Defaults to now if not provided. Millisecond precision and timezones are supported. Note that the most recent 72 hours of data may still be processing and is subject to change and latency, so it is not recommended to request data for the most recent 72 hours. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
     
 </dd>
 </dl>
@@ -20584,7 +20918,23 @@ client.fuel_and_energy.get_fuel_energy_vehicle_reports(
 <dl>
 <dd>
 
-**end_date:** `str` — An end date in RFC 3339 format. This parameter ignores everything (i.e. hour, minutes, seconds, nanoseconds, etc.) besides the date and timezone. If no time zone is passed in, then the UTC time zone will be used. This parameter is inclusive, so data on the date specified will be considered. Note that the most recent 72 hours of data may still be processing and is subject to change and latency, so it is not recommended to request data for the most recent 72 hours. For example, 2022-07-13T14:20:50.52-07:00 is a time in Pacific Daylight Time.
+**end_time:** `str` —  An end time in RFC 3339 format. Defaults to now if not provided. Millisecond precision and timezones are supported. Note that the most recent 72 hours of data may still be processing and is subject to change and latency, so it is not recommended to request data for the most recent 72 hours. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default and max for this value is 512 objects.
     
 </dd>
 </dl>
@@ -20600,7 +20950,332 @@ client.fuel_and_energy.get_fuel_energy_vehicle_reports(
 <dl>
 <dd>
 
-**energy_type:** `typing.Optional[GetFuelEnergyVehicleReportsRequestEnergyType]` — The type of energy used by the vehicle.  Valid values: `fuel`, `hybrid`, `electric`
+**tag_ids:** `typing.Optional[str]` —  A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**parent_tag_ids:** `typing.Optional[str]` —  A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_pto_active:** `typing.Optional[bool]` — A filter on the data based on power take-off being active or inactive.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**min_idling_duration_minutes:** `typing.Optional[int]` — A filter on the data based on a minimum idling duration.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.legacy_ap_is.<a href="src/samsara/legacy_ap_is/client.py">get_safety_events</a>(...) -&gt; AsyncHttpResponse[SafetyEventsListResponse]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getsafetyeventsv2stream) instead. The endpoint will continue to function as documented.** 
+
+ Fetch safety events for the organization in a given time period. 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.legacy_ap_is.get_safety_events(
+    start_time="startTime",
+    end_time="endTime",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**start_time:** `str` — A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**end_time:** `str` — An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` — If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**tag_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**parent_tag_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**vehicle_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — A filter on the data based on this comma-separated list of vehicle IDs. Example: `vehicleIds=1234,5678`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.legacy_ap_is.<a href="src/samsara/legacy_ap_is/client.py">get_safety_activity_event_feed</a>(...) -&gt; AsyncHttpResponse[SafetyEventsGetSafetyActivityEventFeedResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getsafetyeventsv2stream) instead. The endpoint will continue to function as documented.**
+
+Get continuous safety events. The safety activity event feed offers a change-log for safety events. Use this endpoint to subscribe to safety event changes. See documentation below for all supported change-log types.
+
+| ActivityType      | Description |
+| ----------- | ----------- |
+| CreateSafetyEventActivityType | a new safety event is processed by Samsara      |
+| BehaviorLabelActivityType     | a label is added or removed from a safety event |
+| CoachingStateActivityType     | a safety event coaching state is updated        |
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.legacy_ap_is.get_safety_activity_event_feed()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**start_time:** `typing.Optional[str]` —  A start time in RFC 3339 format. Defaults to now if not provided. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.legacy_ap_is.<a href="src/samsara/legacy_ap_is/client.py">get_vehicles_driver_assignments</a>(...) -&gt; AsyncHttpResponse[
+    VehiclesDriverAssignmentsGetVehiclesDriverAssignmentsResponseBody
+]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getdrivervehicleassignments) instead. The endpoint will continue to function as documented.** Get all driver assignments for the requested vehicles in the requested time range. The only type of assignment supported right now are assignments created through the driver app.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.legacy_ap_is.get_vehicles_driver_assignments()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**start_time:** `typing.Optional[str]` —  A start time in RFC 3339 format. Defaults to now if not provided. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). The maximum allowed startTime-endTime range is 7 days.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**end_time:** `typing.Optional[str]` —  An end time in RFC 3339 format. Defaults to now if not provided. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). The maximum allowed startTime-endTime range is 7 days.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**vehicle_ids:** `typing.Optional[str]` —  A filter on the data based on this comma-separated list of vehicle IDs and externalIds. Example: `vehicleIds=1234,5678,samsara.vin:1HGBH41JXMN109186`
     
 </dd>
 </dl>
@@ -20644,7 +21319,7 @@ client.fuel_and_energy.get_fuel_energy_vehicle_reports(
 </dl>
 </details>
 
-<details><summary><code>client.fuel_and_energy.<a href="src/samsara/fuel_and_energy/client.py">post_fuel_purchase</a>(...) -&gt; AsyncHttpResponse[FuelPurchasePostFuelPurchaseResponseBody]</code></summary>
+<details><summary><code>client.legacy_ap_is.<a href="src/samsara/legacy_ap_is/client.py">v_1_get_vehicle_harsh_event</a>(...) -&gt; AsyncHttpResponse[V1VehicleHarshEventResponse]</code></summary>
 <dl>
 <dd>
 
@@ -20656,14 +21331,13 @@ client.fuel_and_energy.get_fuel_energy_vehicle_reports(
 <dl>
 <dd>
 
-Create a fuel purchase transaction.
+**Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getsafetyeventsv2stream) instead. The endpoint will continue to function as documented.** > 🚧 This endpoint is still on our legacy API.
 
- <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Write Fuel Purchase** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
+Fetch harsh event details for a vehicle. 
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+
+To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
 </dd>
 </dl>
 </dd>
@@ -20678,20 +21352,14 @@ To use this endpoint, select **Write Fuel Purchase** under the Fuel & Energy cat
 <dd>
 
 ```python
-from samsara import PostFuelPurchaseRequestBodyPriceRequestBody, Samsara
+from samsara import Samsara
 
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.fuel_and_energy.post_fuel_purchase(
-    fuel_quantity_liters="676.8",
-    transaction_location="350 Rhode Island St, San Francisco, CA 94103",
-    transaction_price=PostFuelPurchaseRequestBodyPriceRequestBody(
-        amount="640.2",
-        currency="usd",
-    ),
-    transaction_reference="5454534",
-    transaction_time="2022-07-13T14:20:50.52-07:00",
+client.legacy_ap_is.v_1_get_vehicle_harsh_event(
+    vehicle_id=1000000,
+    timestamp=1000000,
 )
 
 ```
@@ -20708,7 +21376,7 @@ client.fuel_and_energy.post_fuel_purchase(
 <dl>
 <dd>
 
-**fuel_quantity_liters:** `str` — The amount of fuel purchased in liters.
+**vehicle_id:** `int` — ID of the vehicle. Must contain only digits 0-9.
     
 </dd>
 </dl>
@@ -20716,87 +21384,7 @@ client.fuel_and_energy.post_fuel_purchase(
 <dl>
 <dd>
 
-**transaction_location:** `str` — The full street address for the location of the fuel transaction, as it might be recognized by Google Maps. Ideal entries should be in accordance with the format used by the national postal service of the country concerned (example: 1 De Haro St, San Francisco, CA 94107, United States). Alternatively, exact latitude/longitude can be provided (example: 40.748441, -73.985664).
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**transaction_price:** `PostFuelPurchaseRequestBodyPriceRequestBody` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**transaction_reference:** `str` — The fuel transaction reference. This is the transaction identifier. For instance, this can be the Serial Number on the invoice.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**transaction_time:** `str` — The time of the fuel transaction in RFC 3339 format. Timezone must be specified. For example, 2022-07-13T14:20:50.52-07:00 is a time in Pacific Daylight Time.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**discount:** `typing.Optional[PostFuelPurchaseRequestBodyDiscountRequestBody]` 
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**driver_id:** `typing.Optional[str]` — Samsara ID of the driver that purchased the fuel.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**fuel_grade:** `typing.Optional[FuelPurchasePostFuelPurchaseRequestBodyFuelGrade]` — The grade of the fuel purchased.  Valid values: `Unknown`, `Regular`, `Premium`
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**ifta_fuel_type:** `typing.Optional[FuelPurchasePostFuelPurchaseRequestBodyIftaFuelType]` — The type of fuel purchased supported by IFTA.  Valid values: `Unspecified`, `A55`, `Biodiesel`, `CompressedNaturalGas`, `Diesel`, `E85`, `Electricity`, `Ethanol`, `Gasohol`, `Gasoline`, `Hydrogen`, `LiquifiedNaturalGas`, `M85`, `Methanol`, `Propane`, `Other`
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**merchant_name:** `typing.Optional[str]` — Brand name of the fuel station the fuel was purchased at. For example: Shell, Bp, Exxon.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**source:** `typing.Optional[str]` — The integration provider. For example: Customer, Shell Integration
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**vehicle_id:** `typing.Optional[str]` — Samsara ID of the vehicle that purchased the fuel.
+**timestamp:** `int` — Timestamp in milliseconds representing the timestamp of a harsh event.
     
 </dd>
 </dl>
@@ -21736,910 +22324,6 @@ client.carrier_proposed_assignments.create_carrier_proposed_assignment(
 </dl>
 </details>
 
-## Legacy APIs
-<details><summary><code>client.legacy_ap_is.<a href="src/samsara/legacy_ap_is/client.py">get_dvir_defects</a>(...) -&gt; AsyncHttpResponse[DefectsResponse]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/streamdefects) instead. The endpoint will continue to function as documented.** 
-
-Returns a list of DVIR defects in an organization, filtered by creation time. The maximum time period you can query for is 30 days. 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-To use this endpoint, select **Read Defects** under the Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.legacy_ap_is.get_dvir_defects(
-    start_time="startTime",
-    end_time="endTime",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**start_time:** `str` — A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). *The maximum time period you can query for is 30 days.*
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**end_time:** `str` — An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). *The maximum time period you can query for is 30 days.*
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default and max for this value is 512 objects.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**after:** `typing.Optional[str]` — If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**is_resolved:** `typing.Optional[bool]` — A filter on the data based on resolution status. Example: `isResolved=true`
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.legacy_ap_is.<a href="src/samsara/legacy_ap_is/client.py">get_drivers_vehicle_assignments</a>(...) -&gt; AsyncHttpResponse[
-    DriversVehicleAssignmentsGetDriversVehicleAssignmentsResponseBody
-]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getdrivervehicleassignments) instead. The endpoint will continue to function as documented.** Get all vehicle assignments for the requested drivers in the requested time range. The only type of assignment supported right now are assignments created through the driver app.
-
- <b>Rate limit:</b> 25 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Read Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.legacy_ap_is.get_drivers_vehicle_assignments()
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**driver_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` —  A filter on the data based on this comma-separated list of driver IDs and externalIds. Example: `driverIds=1234,5678,payroll:4841`
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**start_time:** `typing.Optional[str]` —  A start time in RFC 3339 format. Defaults to now if not provided. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). The maximum allowed startTime-endTime range is 7 days.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**end_time:** `typing.Optional[str]` —  An end time in RFC 3339 format. Defaults to now if not provided. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). The maximum allowed startTime-endTime range is 7 days.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**tag_ids:** `typing.Optional[str]` —  A filter on the data based on this comma-separated list of driver tag IDs. Example: `tagIds=1234,5678`
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**parent_tag_ids:** `typing.Optional[str]` —  A filter on the data based on this comma-separated list of driver parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**driver_activation_status:** `typing.Optional[GetDriversVehicleAssignmentsRequestDriverActivationStatus]` — If value is `deactivated`, only drivers that are deactivated will appear in the response. This parameter will default to `active` if not provided (fetching only active drivers).  Valid values: `active`, `deactivated`
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.legacy_ap_is.<a href="src/samsara/legacy_ap_is/client.py">get_dvir_history</a>(...) -&gt; AsyncHttpResponse[DvirsListResponse]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getdvirs) instead. The endpoint will continue to function as documented.** 
-
- Returns a list of all DVIRs in an organization. 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-To use this endpoint, select **Read DVIRs** under the Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.legacy_ap_is.get_dvir_history(
-    start_time="startTime",
-    end_time="endTime",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**start_time:** `str` — A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**end_time:** `str` — An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default and max for this value is 512 objects.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**after:** `typing.Optional[str]` — If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**parent_tag_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**tag_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.legacy_ap_is.<a href="src/samsara/legacy_ap_is/client.py">get_vehicle_idling_reports</a>(...) -&gt; AsyncHttpResponse[IdlingReportsGetVehicleIdlingReportsResponseBody]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getidlingevents) instead. The endpoint will continue to function as documented.** Get all vehicle idling reports for the requested time duration.
-
- <b>Rate limit:</b> 25 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Read Fuel & Energy** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.legacy_ap_is.get_vehicle_idling_reports(
-    start_time="startTime",
-    end_time="endTime",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**start_time:** `str` —  A start time in RFC 3339 format. Defaults to now if not provided. Millisecond precision and timezones are supported. Note that the most recent 72 hours of data may still be processing and is subject to change and latency, so it is not recommended to request data for the most recent 72 hours. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**end_time:** `str` —  An end time in RFC 3339 format. Defaults to now if not provided. Millisecond precision and timezones are supported. Note that the most recent 72 hours of data may still be processing and is subject to change and latency, so it is not recommended to request data for the most recent 72 hours. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default and max for this value is 512 objects.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**vehicle_ids:** `typing.Optional[str]` —  A filter on the data based on this comma-separated list of vehicle IDs and externalIds. Example: `vehicleIds=1234,5678,samsara.vin:1HGBH41JXMN109186`
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**tag_ids:** `typing.Optional[str]` —  A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**parent_tag_ids:** `typing.Optional[str]` —  A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**is_pto_active:** `typing.Optional[bool]` — A filter on the data based on power take-off being active or inactive.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**min_idling_duration_minutes:** `typing.Optional[int]` — A filter on the data based on a minimum idling duration.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.legacy_ap_is.<a href="src/samsara/legacy_ap_is/client.py">get_safety_events</a>(...) -&gt; AsyncHttpResponse[SafetyEventsListResponse]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getsafetyeventsv2stream) instead. The endpoint will continue to function as documented.** 
-
- Fetch safety events for the organization in a given time period. 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.legacy_ap_is.get_safety_events(
-    start_time="startTime",
-    end_time="endTime",
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**start_time:** `str` — A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**end_time:** `str` — An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**after:** `typing.Optional[str]` — If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**tag_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**parent_tag_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**vehicle_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — A filter on the data based on this comma-separated list of vehicle IDs. Example: `vehicleIds=1234,5678`
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.legacy_ap_is.<a href="src/samsara/legacy_ap_is/client.py">get_safety_activity_event_feed</a>(...) -&gt; AsyncHttpResponse[SafetyEventsGetSafetyActivityEventFeedResponseBody]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getsafetyeventsv2stream) instead. The endpoint will continue to function as documented.**
-
-Get continuous safety events. The safety activity event feed offers a change-log for safety events. Use this endpoint to subscribe to safety event changes. See documentation below for all supported change-log types.
-
-| ActivityType      | Description |
-| ----------- | ----------- |
-| CreateSafetyEventActivityType | a new safety event is processed by Samsara      |
-| BehaviorLabelActivityType     | a label is added or removed from a safety event |
-| CoachingStateActivityType     | a safety event coaching state is updated        |
-
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.legacy_ap_is.get_safety_activity_event_feed()
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**start_time:** `typing.Optional[str]` —  A start time in RFC 3339 format. Defaults to now if not provided. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.legacy_ap_is.<a href="src/samsara/legacy_ap_is/client.py">get_vehicles_driver_assignments</a>(...) -&gt; AsyncHttpResponse[
-    VehiclesDriverAssignmentsGetVehiclesDriverAssignmentsResponseBody
-]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getdrivervehicleassignments) instead. The endpoint will continue to function as documented.** Get all driver assignments for the requested vehicles in the requested time range. The only type of assignment supported right now are assignments created through the driver app.
-
- <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
-
-To use this endpoint, select **Read Assignments** under the Assignments category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
- 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.legacy_ap_is.get_vehicles_driver_assignments()
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**start_time:** `typing.Optional[str]` —  A start time in RFC 3339 format. Defaults to now if not provided. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). The maximum allowed startTime-endTime range is 7 days.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**end_time:** `typing.Optional[str]` —  An end time in RFC 3339 format. Defaults to now if not provided. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). The maximum allowed startTime-endTime range is 7 days.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**vehicle_ids:** `typing.Optional[str]` —  A filter on the data based on this comma-separated list of vehicle IDs and externalIds. Example: `vehicleIds=1234,5678,samsara.vin:1HGBH41JXMN109186`
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**tag_ids:** `typing.Optional[str]` —  A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**parent_tag_ids:** `typing.Optional[str]` —  A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
-<details><summary><code>client.legacy_ap_is.<a href="src/samsara/legacy_ap_is/client.py">v_1_get_vehicle_harsh_event</a>(...) -&gt; AsyncHttpResponse[V1VehicleHarshEventResponse]</code></summary>
-<dl>
-<dd>
-
-#### 📝 Description
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**Note: This is a legacy endpoint, consider using [this endpoint](https://developers.samsara.com/reference/getsafetyeventsv2stream) instead. The endpoint will continue to function as documented.** > 🚧 This endpoint is still on our legacy API.
-
-Fetch harsh event details for a vehicle. 
-
- **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
-
-To use this endpoint, select **Read Safety Events & Scores** under the Safety & Cameras category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### 🔌 Usage
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-```python
-from samsara import Samsara
-
-client = Samsara(
-    token="YOUR_TOKEN",
-)
-client.legacy_ap_is.v_1_get_vehicle_harsh_event(
-    vehicle_id=1000000,
-    timestamp=1000000,
-)
-
-```
-</dd>
-</dl>
-</dd>
-</dl>
-
-#### ⚙️ Parameters
-
-<dl>
-<dd>
-
-<dl>
-<dd>
-
-**vehicle_id:** `int` — ID of the vehicle. Must contain only digits 0-9.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**timestamp:** `int` — Timestamp in milliseconds representing the timestamp of a harsh event.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
-    
-</dd>
-</dl>
-</dd>
-</dl>
-
-
-</dd>
-</dl>
-</details>
-
 ## Documents
 <details><summary><code>client.documents.<a href="src/samsara/documents/client.py">get_document_types</a>(...) -&gt; AsyncHttpResponse[DocumentTypesGetDocumentTypesResponseBody]</code></summary>
 <dl>
@@ -23362,7 +23046,7 @@ client.driver_vehicle_assignments.get_driver_vehicle_assignments(
 <dl>
 <dd>
 
-**source_name:** `typing.Optional[str]` — Filters assignments by the exact metadata source name supplied when the assignment was created. Requires filterBy=drivers. When set, driver and vehicle ID, tag, and assignment type filters are not supported.
+**source_name:** `typing.Optional[str]` — Filters assignments by the exact metadata source name supplied when the assignment was created. Requires filterBy=drivers. When set, driver and vehicle ID, tag, and assignment type filters are not supported. `startTime` and `endTime` are optional here: if omitted, matching assignments are returned regardless of when they occurred, rather than being limited to the recent window used by the other filters.
     
 </dd>
 </dl>
@@ -23665,7 +23349,7 @@ client.driver_vehicle_assignments.delete_driver_vehicle_assignments(
 <dl>
 <dd>
 
-Update driver assignments that were created using the `POST fleet/driver-vehicle-assignments`. Vehicle Id, Driver Id, and Start Time must match an existing assignment.
+Update driver assignments that were created using the `POST fleet/driver-vehicle-assignments`. Identify the assignment either with vehicleId, driverId, and startTime, or with metadata.sourceName alone.
 
  <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -23692,11 +23376,7 @@ from samsara import Samsara
 client = Samsara(
     token="YOUR_TOKEN",
 )
-client.driver_vehicle_assignments.update_driver_vehicle_assignment(
-    driver_id="494123",
-    start_time="2019-06-13T19:08:25Z",
-    vehicle_id="281474978683353",
-)
+client.driver_vehicle_assignments.update_driver_vehicle_assignment()
 
 ```
 </dd>
@@ -23712,31 +23392,15 @@ client.driver_vehicle_assignments.update_driver_vehicle_assignment(
 <dl>
 <dd>
 
-**driver_id:** `str` — ID of the driver. This can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the driver.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**start_time:** `str` — The start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**vehicle_id:** `str` — ID of the vehicle. This can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the vehicle.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
 **assigned_at_time:** `typing.Optional[str]` — The time at which the assignment was made in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**driver_id:** `typing.Optional[str]` — ID of the driver. This can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the driver.
     
 </dd>
 </dl>
@@ -23761,6 +23425,22 @@ client.driver_vehicle_assignments.update_driver_vehicle_assignment(
 <dd>
 
 **metadata:** `typing.Optional[PatchDriverVehicleAssignmentsV2RequestBodyMetadataRequestBody]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**start_time:** `typing.Optional[str]` — The start time in RFC 3339 format that identifies the assignment to update. Required together with vehicleId and driverId, unless metadata.sourceName is provided instead. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**vehicle_id:** `typing.Optional[str]` — ID of the vehicle. This can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the vehicle.
     
 </dd>
 </dl>
@@ -26679,6 +26359,101 @@ client.hours_of_service.get_hos_violations()
 </dl>
 </details>
 
+<details><summary><code>client.hours_of_service.<a href="src/samsara/hours_of_service/client.py">update_shipping_docs</a>(...) -&gt; AsyncHttpResponse[HosDailyLogsUpdateShippingDocsResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Update the shippingDocs field of an existing assignment.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write ELD Hours of Service (US)** under the Compliance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.hours_of_service.update_shipping_docs(
+    hos_date="hosDate",
+    driver_id="driverID",
+    shipping_docs="ShippingID1, ShippingID2",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**hos_date:** `str` — A start date in yyyy-mm-dd format. Required.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**driver_id:** `str` — ID of the driver for whom the duty status is being set.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**shipping_docs:** `str` — ShippingDocs associated with the driver for the day.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.hours_of_service.<a href="src/samsara/hours_of_service/client.py">set_current_duty_status</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
 <dl>
 <dd>
@@ -26875,6 +26650,901 @@ client.hours_of_service.v_1_get_fleet_hos_authentication_logs(
 <dd>
 
 **end_ms:** `int` — End of the time range, specified in milliseconds UNIX time.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## FuelAndEnergy
+<details><summary><code>client.fuel_and_energy.<a href="src/samsara/fuel_and_energy/client.py">get_fuel_energy_driver_reports</a>(...) -&gt; AsyncHttpResponse[FuelEnergyGetFuelEnergyDriverReportsResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get fuel and energy efficiency driver reports for the requested time range.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Fuel & Energy** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.fuel_and_energy.get_fuel_energy_driver_reports(
+    start_date="startDate",
+    end_date="endDate",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**start_date:** `str` — A start date in RFC 3339 format. This parameter ignores everything (i.e. hour, minutes, seconds, nanoseconds, etc.) besides the date and timezone. If no time zone is passed in, then the UTC time zone will be used. This parameter is inclusive, so data on the date specified will be considered. Note that the most recent 72 hours of data may still be processing and is subject to change and latency, so it is not recommended to request data for the most recent 72 hours. For example, 2022-07-13T14:20:50.52-07:00 is a time in Pacific Daylight Time.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**end_date:** `str` — An end date in RFC 3339 format. This parameter ignores everything (i.e. hour, minutes, seconds, nanoseconds, etc.) besides the date and timezone. If no time zone is passed in, then the UTC time zone will be used. This parameter is inclusive, so data on the date specified will be considered. Note that the most recent 72 hours of data may still be processing and is subject to change and latency, so it is not recommended to request data for the most recent 72 hours. For example, 2022-07-13T14:20:50.52-07:00 is a time in Pacific Daylight Time.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**driver_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` —  A filter on the data based on this comma-separated list of driver IDs and externalIds. Example: `driverIds=1234,5678,payroll:4841`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**tag_ids:** `typing.Optional[str]` —  A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**parent_tag_ids:** `typing.Optional[str]` —  A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.fuel_and_energy.<a href="src/samsara/fuel_and_energy/client.py">get_fuel_energy_vehicle_reports</a>(...) -&gt; AsyncHttpResponse[FuelEnergyGetFuelEnergyVehicleReportsResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get fuel and energy efficiency vehicle reports for the requested time range.
+
+ <b>Rate limit:</b> 25 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Fuel & Energy** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.fuel_and_energy.get_fuel_energy_vehicle_reports(
+    start_date="startDate",
+    end_date="endDate",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**start_date:** `str` — A start date in RFC 3339 format. This parameter ignores everything (i.e. hour, minutes, seconds, nanoseconds, etc.) besides the date and timezone. If no time zone is passed in, then the UTC time zone will be used. This parameter is inclusive, so data on the date specified will be considered. Note that the most recent 72 hours of data may still be processing and is subject to change and latency, so it is not recommended to request data for the most recent 72 hours. For example, 2022-07-13T14:20:50.52-07:00 is a time in Pacific Daylight Time.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**end_date:** `str` — An end date in RFC 3339 format. This parameter ignores everything (i.e. hour, minutes, seconds, nanoseconds, etc.) besides the date and timezone. If no time zone is passed in, then the UTC time zone will be used. This parameter is inclusive, so data on the date specified will be considered. Note that the most recent 72 hours of data may still be processing and is subject to change and latency, so it is not recommended to request data for the most recent 72 hours. For example, 2022-07-13T14:20:50.52-07:00 is a time in Pacific Daylight Time.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**vehicle_ids:** `typing.Optional[str]` —  A filter on the data based on this comma-separated list of vehicle IDs and externalIds. Example: `vehicleIds=1234,5678,samsara.vin:1HGBH41JXMN109186`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**energy_type:** `typing.Optional[GetFuelEnergyVehicleReportsRequestEnergyType]` — The type of energy used by the vehicle.  Valid values: `fuel`, `hybrid`, `electric`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**tag_ids:** `typing.Optional[str]` —  A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**parent_tag_ids:** `typing.Optional[str]` —  A filter on the data based on this comma-separated list of parent tag IDs, for use by orgs with tag hierarchies. Specifying a parent tag will implicitly include all descendent tags of the parent tag. Example: `parentTagIds=345,678`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.fuel_and_energy.<a href="src/samsara/fuel_and_energy/client.py">post_fuel_purchase</a>(...) -&gt; AsyncHttpResponse[FuelPurchasePostFuelPurchaseResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a fuel purchase transaction.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Fuel Purchase** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import PostFuelPurchaseRequestBodyPriceRequestBody, Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.fuel_and_energy.post_fuel_purchase(
+    fuel_quantity_liters="676.8",
+    transaction_location="350 Rhode Island St, San Francisco, CA 94103",
+    transaction_price=PostFuelPurchaseRequestBodyPriceRequestBody(
+        amount="640.2",
+        currency="usd",
+    ),
+    transaction_reference="5454534",
+    transaction_time="2022-07-13T14:20:50.52-07:00",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**fuel_quantity_liters:** `str` — The amount of fuel purchased in liters.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**transaction_location:** `str` — The full street address for the location of the fuel transaction, as it might be recognized by Google Maps. Ideal entries should be in accordance with the format used by the national postal service of the country concerned (example: 1 De Haro St, San Francisco, CA 94107, United States). Alternatively, exact latitude/longitude can be provided (example: 40.748441, -73.985664).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**transaction_price:** `PostFuelPurchaseRequestBodyPriceRequestBody` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**transaction_reference:** `str` — The fuel transaction reference. This is the transaction identifier. For instance, this can be the Serial Number on the invoice.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**transaction_time:** `str` — The time of the fuel transaction in RFC 3339 format. Timezone must be specified. For example, 2022-07-13T14:20:50.52-07:00 is a time in Pacific Daylight Time.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**discount:** `typing.Optional[PostFuelPurchaseRequestBodyDiscountRequestBody]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**driver_id:** `typing.Optional[str]` — Samsara ID of the driver that purchased the fuel.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**fuel_grade:** `typing.Optional[FuelPurchasePostFuelPurchaseRequestBodyFuelGrade]` — The grade of the fuel purchased.  Valid values: `Unknown`, `Regular`, `Premium`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**ifta_fuel_type:** `typing.Optional[FuelPurchasePostFuelPurchaseRequestBodyIftaFuelType]` — The type of fuel purchased supported by IFTA.  Valid values: `Unspecified`, `A55`, `Biodiesel`, `CompressedNaturalGas`, `Diesel`, `E85`, `Electricity`, `Ethanol`, `Gasohol`, `Gasoline`, `Hydrogen`, `LiquifiedNaturalGas`, `M85`, `Methanol`, `Propane`, `Other`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**merchant_name:** `typing.Optional[str]` — Brand name of the fuel station the fuel was purchased at. For example: Shell, Bp, Exxon.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**source:** `typing.Optional[str]` — The integration provider. For example: Customer, Shell Integration
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**vehicle_id:** `typing.Optional[str]` — Samsara ID of the vehicle that purchased the fuel.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.fuel_and_energy.<a href="src/samsara/fuel_and_energy/client.py">list_preferred_stations</a>(...) -&gt; AsyncHttpResponse[PreferredStationsListPreferredStationsResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+List all preferred fuel stations for your organization.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Fuel Purchase** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.fuel_and_energy.list_preferred_stations()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default and max for this value is 512 objects.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_external_ids:** `typing.Optional[bool]` — Whether to include external IDs in the response.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.fuel_and_energy.<a href="src/samsara/fuel_and_energy/client.py">post_preferred_station</a>(...) -&gt; AsyncHttpResponse[PreferredStationsPostPreferredStationResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a preferred fuel station for your organization.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Fuel Purchase** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import PreferredStationAddressRequestBody, Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.fuel_and_energy.post_preferred_station(
+    address=PreferredStationAddressRequestBody(
+        city="Green River",
+        country="US",
+        line_1="8901 US Hwy 374",
+        postal_code="82935",
+    ),
+    external_ids={"key": "value"},
+    name="Station #432",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**address:** `PreferredStationAddressRequestBody` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**external_ids:** `typing.Dict[str, str]` — Map of source-system key to customer-provided station ID.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `str` — Display name of the station.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**discounts:** `typing.Optional[typing.Sequence[PreferredStationDiscountInputRequestBody]]` — Array of discount overrides per fuel type. Max 14 items.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**latitude:** `typing.Optional[float]` — Latitude in WGS84 degrees.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**longitude:** `typing.Optional[float]` — Longitude in WGS84 degrees.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**prices:** `typing.Optional[typing.Sequence[PreferredStationPriceInputRequestBody]]` — Array of per-fuel-type prices. Max 14 items.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.fuel_and_energy.<a href="src/samsara/fuel_and_energy/client.py">delete_preferred_station</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Delete a preferred fuel station for your organization.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Fuel Purchase** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.fuel_and_energy.delete_preferred_station(
+    id="id",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` — Samsara ID of the preferred station to delete.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.fuel_and_energy.<a href="src/samsara/fuel_and_energy/client.py">patch_preferred_station</a>(...) -&gt; AsyncHttpResponse[PreferredStationsPatchPreferredStationResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Update a preferred fuel station for your organization.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Fuel Purchase** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.fuel_and_energy.patch_preferred_station(
+    id="id",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` — Samsara ID of the preferred station to update.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**discounts:** `typing.Optional[typing.Sequence[PreferredStationDiscountInputRequestBody]]` — Replaces all discount overrides. Pass empty array to remove all. Max 14 items.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**prices:** `typing.Optional[typing.Sequence[PreferredStationPriceInputRequestBody]]` — Replaces all per-fuel-type prices. Pass empty array to remove all. Max 14 items.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.fuel_and_energy.<a href="src/samsara/fuel_and_energy/client.py">get_preferred_station</a>(...) -&gt; AsyncHttpResponse[PreferredStationsGetPreferredStationResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get a single preferred fuel station by ID.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Fuel Purchase** under the Fuel & Energy category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.fuel_and_energy.get_preferred_station(
+    id="id",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` — Samsara-assigned station ID.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_external_ids:** `typing.Optional[bool]` — Whether to include external IDs in the response.
     
 </dd>
 </dl>
@@ -31624,7 +32294,7 @@ client.forms.patch_form_submission(
 <dl>
 <dd>
 
-**status:** `typing.Optional[FormSubmissionsPatchFormSubmissionRequestBodyStatus]` — Status of the form submission.  Valid values: `notStarted`, `archived`, `inProgress`, `changesRequested`, `approved`
+**status:** `typing.Optional[FormSubmissionsPatchFormSubmissionRequestBodyStatus]` — Status of the form submission.  Valid values: `notStarted`, `archived`, `inProgress`, `changesRequested`, `approved`, `denied`
     
 </dd>
 </dl>
@@ -32523,6 +33193,8 @@ client.hubs.list_hub_custom_properties(
 <dl>
 <dd>
 
+**Note: This endpoint is deprecated. Use [PATCH /places](https://developers.samsara.com/reference/patchplace) instead. Access closes for new customers on November 1, 2026, and the endpoint will be removed on November 1, 2027. It will continue to function as documented until then. See the [migration guide](https://developers.samsara.com/docs/migrating-from-the-hub-locations-api-to-the-places-api).**
+
 Update existing location by ID.
 
  <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
@@ -32636,6 +33308,8 @@ client.hubs.update_hub_location(
 
 <dl>
 <dd>
+
+**Note: This endpoint is deprecated. Use [GET /places](https://developers.samsara.com/reference/getplaces) instead. Access closes for new customers on November 1, 2026, and the endpoint will be removed on November 1, 2027. It will continue to function as documented until then. See the [migration guide](https://developers.samsara.com/docs/migrating-from-the-hub-locations-api-to-the-places-api).**
 
 Retrieve locations for a specific hub.
 
@@ -32761,6 +33435,8 @@ client.hubs.list_hub_locations(
 
 <dl>
 <dd>
+
+**Note: This endpoint is deprecated. Use [POST /places](https://developers.samsara.com/reference/postplace) instead. Access closes for new customers on November 1, 2026, and the endpoint will be removed on November 1, 2027. It will continue to function as documented until then. See the [migration guide](https://developers.samsara.com/docs/migrating-from-the-hub-locations-api-to-the-places-api).**
 
 Create new locations.
 
@@ -36419,7 +37095,7 @@ client.work_orders.post_work_orders(
 <dl>
 <dd>
 
-**asset_id:** `str` — The ID of the asset.
+**asset_id:** `str` — The ID of the asset. Either a Samsara ID or an external ID in `key:value` form, for example `vin:1HGCM82633A004352`.
     
 </dd>
 </dl>
@@ -37032,6 +37708,821 @@ client.work_orders.stream_work_orders(
 <dd>
 
 **include_external_ids:** `typing.Optional[bool]` — When true, populates `maintenanceSite.placeExternalIds` on each work order by resolving the linked Place's external ids. Defaults to false. Adds one batch lookup per response page.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## PreventiveMaintenance
+<details><summary><code>client.preventive_maintenance.<a href="src/samsara/preventive_maintenance/client.py">resolve_preventive_maintenance</a>(...) -&gt; AsyncHttpResponse[
+    ResolvePreventiveMaintenanceActionServiceResolvePreventiveMaintenanceResponseBody
+]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Resolves the current open preventive maintenance instance for a schedule and asset, and automatically creates the next due record based on the schedule's intervals.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Preventive Maintenance Resolve** under the Preventive Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.preventive_maintenance.resolve_preventive_maintenance()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**asset_id:** `typing.Optional[str]` — Samsara ID of the asset the instance is being resolved for.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**schedule_id:** `typing.Optional[str]` — ID of the preventive maintenance schedule to resolve.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**resolved_at:** `typing.Optional[str]` — RFC3339 time when the maintenance was resolved. Defaults to the current time if not provided.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**resolved_at_engine_hours:** `typing.Optional[int]` — Engine hours reading at the time of resolution.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**resolved_at_odometer:** `typing.Optional[int]` — Odometer reading at the time of resolution. Measured in meters.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.preventive_maintenance.<a href="src/samsara/preventive_maintenance/client.py">list_preventive_maintenance_schedules</a>(...) -&gt; AsyncHttpResponse[
+    EntityPreventativeMaintenanceSchedulesServiceListPreventiveMaintenanceSchedulesResponseBody
+]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns a paginated list of preventive maintenance schedules for the organization.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Preventive Maintenance Schedules** under the Preventive Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.preventive_maintenance.list_preventive_maintenance_schedules(
+    ids="281474976710656",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of ID values.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.preventive_maintenance.<a href="src/samsara/preventive_maintenance/client.py">list_upcoming_preventive_maintenance</a>(...) -&gt; AsyncHttpResponse[
+    EntityUpcomingPreventativeMaintenancesServiceListUpcomingPreventiveMaintenanceResponseBody
+]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns a paginated list of upcoming preventive maintenance schedules for the organization's assets, enriched with live telemetry (current odometer, engine hours) and due-date projections.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Upcoming Preventive Maintenance** under the Preventive Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.preventive_maintenance.list_upcoming_preventive_maintenance()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**schedule_ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of Preventive maintenance schedule ID values.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**asset_ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of Asset ID values.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.preventive_maintenance.<a href="src/samsara/preventive_maintenance/client.py">update_upcoming_preventive_maintenance</a>(...) -&gt; AsyncHttpResponse[
+    EntityUpcomingPreventativeMaintenancesServiceUpdateUpcomingPreventiveMaintenanceResponseBody
+]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Patches the due-target and last-resolved values on the open preventive maintenance instance for a schedule and asset. Only fields provided in the request are updated.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Upcoming Preventive Maintenance** under the Preventive Maintenance category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.preventive_maintenance.update_upcoming_preventive_maintenance()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**asset_id:** `typing.Optional[str]` — Samsara ID for the asset.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**schedule_id:** `typing.Optional[str]` — ID of the preventive maintenance schedule that the vehicle is scheduled to be serviced for.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**last_resolved_at:** `typing.Optional[str]` — Date and time when the prior instance was resolved.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**last_resolved_at_engine_hours:** `typing.Optional[int]` — Engine hours at the time the prior instance was resolved.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**last_resolved_at_odometer:** `typing.Optional[int]` — Odometer reading at the time the prior instance was resolved. Measured in meters.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**next_engine_hours:** `typing.Optional[int]` — The next engine hour value that the vehicle is scheduled to be serviced.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**next_odometer:** `typing.Optional[int]` — The next odometer value that the vehicle is scheduled to be serviced. Measured in meters.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**next_time:** `typing.Optional[str]` — The next time that the vehicle is scheduled to be serviced for a date based PM.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+## MaintenanceSites
+<details><summary><code>client.maintenance_sites.<a href="src/samsara/maintenance_sites/client.py">list_maintenance_sites</a>(...) -&gt; AsyncHttpResponse[EntityMaintenanceSitesServiceListMaintenanceSitesResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns a paginated list of maintenance sites for the organization.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Maintenance Sites** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.maintenance_sites.list_maintenance_sites()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of ID values.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_archived:** `typing.Optional[bool]` — A filter on the data based on Archived. Whether the site is archived. Archived sites are no longer active but are retained for historical record.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**place_ids:** `typing.Optional[str]` — A filter on the data based on this comma-separated list of Place IDs values.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**limit:** `typing.Optional[int]` — The limit for how many objects will be in the response. Default and max for this value is 200 objects.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_external_ids:** `typing.Optional[bool]` — If true, include externalIds in each response object.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.maintenance_sites.<a href="src/samsara/maintenance_sites/client.py">create_maintenance_site</a>(...) -&gt; AsyncHttpResponse[
+    EntityMaintenanceSitesServiceCreateMaintenanceSiteResponseBody
+]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Creates a maintenance site for the organization. Exactly one of placeIds or customAddress must be set.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Maintenance Sites** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.maintenance_sites.create_maintenance_site(
+    name="12345",
+    site_code="12345",
+    site_type="Unknown",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**name:** `str` — Name of the maintenance site. Org-unique.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**site_code:** `str` — Org-unique 3-character code for the site, used to generate inventory batch numbers.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**site_type:** `EntityMaintenanceSitesServiceCreateMaintenanceSiteRequestBodySiteType` — Type of maintenance site, for example central warehouse, maintenance shop, or yard/onsite.  Valid values: `Unknown`, `CentralWarehouse`, `MaintenanceShop`, `MobileServiceVehicle`, `YardOnsite`, `Consignment`, `Other`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**custom_address:** `typing.Optional[
+    CreateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteCustomAddressInputTypeRequestBody
+]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**description:** `typing.Optional[str]` — Description of the maintenance site.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**external_ids:** `typing.Optional[
+    typing.Sequence[
+        CreateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteExternalIdInputTypeRequestBody
+    ]
+]` — Customer-supplied external identifiers for the site, interchangeable with id in filters. Only included in the response when includeExternalIds is set.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**place_ids:** `typing.Optional[typing.Sequence[str]]` — Places this site is linked to. Mutually exclusive with customAddress. At most one entry is accepted today, though the field is an array to allow for future expansion.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.maintenance_sites.<a href="src/samsara/maintenance_sites/client.py">update_maintenance_site</a>(...) -&gt; AsyncHttpResponse[
+    EntityMaintenanceSitesServiceUpdateMaintenanceSiteResponseBody
+]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Updates an existing maintenance site for the organization. Moving a site between placeIds and customAddress is not supported.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Maintenance Sites** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.maintenance_sites.update_maintenance_site(
+    id="id",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` — Unique identifier for the MaintenanceSite record.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**description:** `typing.Optional[str]` — Description of the maintenance site.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**external_ids:** `typing.Optional[
+    typing.Sequence[
+        UpdateMaintenanceSiteEntityMaintenanceSiteMaintenanceSiteExternalIdInputTypeRequestBody
+    ]
+]` — Customer-supplied external identifiers for the site, interchangeable with id in filters. Only included in the response when includeExternalIds is set.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `typing.Optional[str]` — Name of the maintenance site. Org-unique.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**site_code:** `typing.Optional[str]` — Org-unique 3-character code for the site, used to generate inventory batch numbers.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**site_type:** `typing.Optional[
+    EntityMaintenanceSitesServiceUpdateMaintenanceSiteRequestBodySiteType
+]` — Type of maintenance site, for example central warehouse, maintenance shop, or yard/onsite.  Valid values: `Unknown`, `CentralWarehouse`, `MaintenanceShop`, `MobileServiceVehicle`, `YardOnsite`, `Consignment`, `Other`
     
 </dd>
 </dl>
@@ -38244,6 +39735,7 @@ Available reading IDs (by category):
 * `addressEntry` (Address Entry): Address data from the address entry event
 * `addressExit` (Address Exit): Address data from the address exit event
 * `atisLamp` (Atis Lamp status): Atis lamp on/off status (values: off | on)
+* `cargoFillPercent` (Cargo fill percent): Estimated percentage of the trailer cargo space that is occupied, based on cargo camera images. (percent)
 * `derivedCargoState` (Cargo Status): Indicates if the overall cargo status of the asset is Empty, Partially Empty, Full, or Unknown. (values: unknown | empty | partiallyEmpty | full)
 * `doorClosedStatus` (Door Closed Status): Status indicating whether a door is closed or open (values: open | closed)
 * `doorClosedStatusAdvanced` (Door Closed Status (Advanced)): Status indicating whether a door is closed or open (values: open | closed)
@@ -38666,6 +40158,7 @@ Available reading IDs (by category):
 * `addressEntry` (Address Entry): Address data from the address entry event
 * `addressExit` (Address Exit): Address data from the address exit event
 * `atisLamp` (Atis Lamp status): Atis lamp on/off status (values: off | on)
+* `cargoFillPercent` (Cargo fill percent): Estimated percentage of the trailer cargo space that is occupied, based on cargo camera images. (percent)
 * `derivedCargoState` (Cargo Status): Indicates if the overall cargo status of the asset is Empty, Partially Empty, Full, or Unknown. (values: unknown | empty | partiallyEmpty | full)
 * `doorClosedStatus` (Door Closed Status): Status indicating whether a door is closed or open (values: open | closed)
 * `doorClosedStatusAdvanced` (Door Closed Status (Advanced)): Status indicating whether a door is closed or open (values: open | closed)
@@ -40585,7 +42078,7 @@ client.tags.patch_tag(
 <dl>
 <dd>
 
-Create training assignments. Existing assignments will remain unchanged.
+Create training assignments. Existing assignments will remain unchanged. Non-driver user learners are available only for organizations with non-driver training enabled. Contact your Samsara representative to request access.
 
  <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -40647,7 +42140,7 @@ client.training_assignments.post_training_assignments(
 <dl>
 <dd>
 
-**learner_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Optional string of comma separated learner IDs. If learner ID is present, training assignments for the specified learner(s) will be returned. Max value for this value is 100 objects. Example: `learnerIds=driver-281474,driver-46282156`
+**learner_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — String of comma separated learner IDs using the format `driver-<id>` or `user-<id>`. Training assignments for the specified course ID and learner(s) will be created. Max value for this value is 100 objects. Example: `learnerIds=driver-281474,user-46282156`. Non-driver user learners are available only for organizations with non-driver training enabled. Contact your Samsara representative to request access.
     
 </dd>
 </dl>
@@ -40679,7 +42172,7 @@ client.training_assignments.post_training_assignments(
 <dl>
 <dd>
 
-This endpoint supports batch deletion operations. The response does not indicate which specific deletions, if any, have failed. On a successful deletion or partial failure, a ‘204 No Content’ status is returned.
+This endpoint supports batch deletion operations. The response does not indicate which specific deletions, if any, have failed. On a successful deletion or partial failure, a ‘204 No Content’ status is returned. Non-driver user learners are available only for organizations with non-driver training enabled. Contact your Samsara representative to request access.
 
  <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -40754,7 +42247,7 @@ client.training_assignments.delete_training_assignments()
 <dl>
 <dd>
 
-Update training assignments.
+Update training assignments. Non-driver user learners are available only for organizations with non-driver training enabled. Contact your Samsara representative to request access.
 
  <b>Rate limit:</b> 10 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -40839,7 +42332,7 @@ client.training_assignments.patch_training_assignments(
 <dl>
 <dd>
 
-Returns all training assignments data that has been created or modified for your organization based on the time parameters passed in. Results are paginated and are sorted by last modified date. If you include an endTime, the endpoint will return data up until that point (exclusive). If you don't include an endTime, the API will continue to poll with the pagination cursor that gets returned on every call. The hasNextPage response value will be true if there is no endTime specified and endCursor is nonempty.
+Returns all training assignments data that has been created or modified for your organization based on the time parameters passed in. Results are paginated and are sorted by last modified date. If you include an endTime, the endpoint will return data up until that point (exclusive). If you don't include an endTime, the API will continue to poll with the pagination cursor that gets returned on every call. The hasNextPage response value will be true if there is no endTime specified and endCursor is nonempty. Non-driver user learners are available only for organizations with non-driver training enabled. Contact your Samsara representative to request access.
 
  <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -40908,7 +42401,7 @@ client.training_assignments.get_training_assignments_stream(
 <dl>
 <dd>
 
-**learner_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Optional string of comma separated learner IDs. If learner ID is present, training assignments for the specified learner(s) will be returned. Max value for this value is 100 objects. Example: `learnerIds=driver-281474,driver-46282156`
+**learner_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Optional string of comma separated learner IDs. Learner IDs use the format `driver-<id>` or `user-<id>`. If learner ID is present, training assignments for the specified learner(s) will be returned. Max value for this value is 100 objects. Example: `learnerIds=driver-281474,user-46282156`. Non-driver user learners are available only for organizations with non-driver training enabled. Contact your Samsara representative to request access.
     
 </dd>
 </dl>

@@ -12,6 +12,9 @@ from .entity_update_part_inventory_location_part_definition_ref_type_response_bo
 from .entity_update_part_inventory_location_place_ref_type_response_body import (
     EntityUpdatePartInventoryLocationPlaceRefTypeResponseBody,
 )
+from .entity_update_part_inventory_location_type_response_body_unit_of_measure_type import (
+    EntityUpdatePartInventoryLocationTypeResponseBodyUnitOfMeasureType,
+)
 from .update_part_inventory_location_entity_part_inventory_location_money_type_response_body import (
     UpdatePartInventoryLocationEntityPartInventoryLocationMoneyTypeResponseBody,
 )
@@ -50,7 +53,7 @@ class EntityUpdatePartInventoryLocationTypeResponseBody(UniversalBaseModel):
         FieldMetadata(alias="currentQuantity"),
         pydantic.Field(
             alias="currentQuantity",
-            description="Total physical quantity on hand at this location, equal to the available quantity plus the reserved quantity. Read-only; changes only via stock movements.",
+            description="Total physical quantity on hand at this location, equal to the available quantity plus the reserved quantity. Settable only when creating the record, to seed initial stock; thereafter it changes only via stock movements.",
         ),
     ] = None
     id: typing.Optional[str] = pydantic.Field(default=None)
@@ -72,6 +75,13 @@ class EntityUpdatePartInventoryLocationTypeResponseBody(UniversalBaseModel):
         pydantic.Field(
             alias="isLowStock",
             description="Whether the available quantity is greater than zero and at or below the reorder threshold.",
+        ),
+    ] = None
+    is_non_stock: typing_extensions.Annotated[
+        typing.Optional[bool],
+        FieldMetadata(alias="isNonStock"),
+        pydantic.Field(
+            alias="isNonStock", description="Whether the part is tracked at this location without stock management."
         ),
     ] = None
     max_stock_level: typing_extensions.Annotated[
@@ -124,11 +134,11 @@ class EntityUpdatePartInventoryLocationTypeResponseBody(UniversalBaseModel):
         pydantic.Field(alias="unitCost"),
     ] = None
     unit_of_measure_type: typing_extensions.Annotated[
-        typing.Optional[str],
+        typing.Optional[EntityUpdatePartInventoryLocationTypeResponseBodyUnitOfMeasureType],
         FieldMetadata(alias="unitOfMeasureType"),
         pydantic.Field(
             alias="unitOfMeasureType",
-            description="Unit of measure that the quantity fields on this record are expressed in. Surfaced here so the unit of all quantity fields is visible in-response.",
+            description="Unit of measure that the quantity fields on this record are expressed in. Surfaced here so the unit of all quantity fields is visible in-response.  Valid values: `Unknown`, `Each`, `Set`, `Pack`, `Box`, `Pound`, `Kilogram`, `Ounce`, `Liter`, `Milliliter`, `Gallon`, `Quart`, `FluidOunce`, `Inch`, `Foot`, `Meter`, `Yard`, `SquareFoot`, `SquareMeter`, `Pint`, `Hundred`, `Roll`",
         ),
     ] = None
     updated_at_time: typing_extensions.Annotated[

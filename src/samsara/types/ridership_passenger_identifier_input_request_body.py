@@ -10,12 +10,12 @@ from .ridership_passenger_identifier_input_request_body_type import RidershipPas
 
 class RidershipPassengerIdentifierInputRequestBody(UniversalBaseModel):
     """
-    An identifier (e.g., RFID tag) associated with the passenger.
+    An identifier used to recognize the passenger, such as an RFID card value. This is separate from the passenger's external IDs.
     """
 
     status: RidershipPassengerIdentifierInputRequestBodyStatus = pydantic.Field()
     """
-    The status of the identifier.  Valid values: `active`, `inactive`, `unknown`
+    Whether the identifier is active or inactive. Defaults to `active`.  Valid values: `active`, `inactive`, `unknown`
     """
 
     type: RidershipPassengerIdentifierInputRequestBodyType = pydantic.Field()
@@ -25,7 +25,7 @@ class RidershipPassengerIdentifierInputRequestBody(UniversalBaseModel):
 
     value: str = pydantic.Field()
     """
-    The identifier value.
+    Value of the identifier, such as the value read from an RFID card.
     """
 
     if IS_PYDANTIC_V2:

@@ -12,12 +12,12 @@ from .order_task_response_body_position import OrderTaskResponseBodyPosition
 
 class OrderTaskResponseBody(UniversalBaseModel):
     """
-    Order task
+    Order task. One of `customerLocationId`, `address`, or both `latitude` and `longitude` is required.
     """
 
     address: typing.Optional[str] = pydantic.Field(default=None)
     """
-    The full address string for the order
+    The full address string for the order. One of `customerLocationId`, `address`, or both `latitude` and `longitude` is required.
     """
 
     appointment_window: typing_extensions.Annotated[
@@ -30,17 +30,17 @@ class OrderTaskResponseBody(UniversalBaseModel):
         FieldMetadata(alias="customerLocationId"),
         pydantic.Field(
             alias="customerLocationId",
-            description="The customer-provided identifier of the location associated with the order",
+            description="The customer-provided identifier of the location associated with the order. One of `customerLocationId`, `address`, or both `latitude` and `longitude` is required.",
         ),
     ] = None
     latitude: typing.Optional[float] = pydantic.Field(default=None)
     """
-    Latitude of the order. Optional if address is provided; the address will be geocoded to obtain coordinates.
+    Latitude of the order. Optional if address is provided; the address will be geocoded to obtain coordinates. One of `customerLocationId`, `address`, or both `latitude` and `longitude` is required.
     """
 
     longitude: typing.Optional[float] = pydantic.Field(default=None)
     """
-    Longitude of the order. Optional if address is provided; the address will be geocoded to obtain coordinates.
+    Longitude of the order. Optional if address is provided; the address will be geocoded to obtain coordinates. One of `customerLocationId`, `address`, or both `latitude` and `longitude` is required.
     """
 
     notes: typing.Optional[str] = pydantic.Field(default=None)

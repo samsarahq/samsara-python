@@ -9,7 +9,7 @@ from .training_learner_object_response_body_type import TrainingLearnerObjectRes
 
 class TrainingLearnerObjectResponseBody(UniversalBaseModel):
     """
-    Learner that is associated with the training assignment. Only driver learners are supported currently.
+    Learner that is associated with the training assignment.
     """
 
     id: str = pydantic.Field()
@@ -19,7 +19,7 @@ class TrainingLearnerObjectResponseBody(UniversalBaseModel):
 
     type: TrainingLearnerObjectResponseBodyType = pydantic.Field()
     """
-    The type of the polymorphic user.  Valid values: `driver`
+    The learner type. Returns `unknown` when the learner type is not recognized. Non-driver user learners are available only for organizations with non-driver training enabled. Contact your Samsara representative to request access.  Valid values: `unknown`, `driver`, `user`
     """
 
     if IS_PYDANTIC_V2:

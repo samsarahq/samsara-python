@@ -25,7 +25,11 @@ class RidershipRouteSetupObjectResponseBody(UniversalBaseModel):
     """
 
     route_id: typing_extensions.Annotated[
-        str, FieldMetadata(alias="routeId"), pydantic.Field(alias="routeId", description="The route ID.")
+        str,
+        FieldMetadata(alias="routeId"),
+        pydantic.Field(
+            alias="routeId", description="Samsara ID of the Routing API route associated with this passenger setup."
+        ),
     ]
     updated_at_time: typing_extensions.Annotated[
         str,
