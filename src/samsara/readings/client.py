@@ -158,6 +158,7 @@ class ReadingsClient:
             * `engineState` (Engine State): Indicates the current state of the engine, such as running, stopped. (values: off | running | idling)
             * `engineTotalIdleTime` (Engine Total Idle Time): Total idle time for the vehicle. (minute)
             * `evAverageCellTemperature` (EV Average Cell Temperature): Average temperature of EV battery cells in degrees Celsius. (celsius)
+            * `evBatteryHealth` (EV Battery Health): Represents the health of the EV battery in percentage. (percent)
             * `evChargingCurrent` (EV Charging Current): Charging current for electric and hybrid vehicles. (ampere)
             * `evChargingEnergy` (EV Charging Energy): Charging energy for electric and hybrid vehicles. (watthour)
             * `evChargingStatus` (EV Charging Status): Charging status for electric and hybrid vehicles. (values: unknown | notCharging | charging)
@@ -167,6 +168,7 @@ class ReadingsClient:
             * `evHighCapacityBatteryCurrent` (EV High Capacity Battery Current): Current from the high capacity EV battery in amperes. (ampere)
             * `evHighCapacityBatteryVoltage` (High Capacity EV Battery Voltage): Represents the voltage of the high capacity EV battery. (volt)
             * `evRegeneratedEnergy` (EV Regenerated Energy): Regenerated energy for electric and hybrid vehicles. (watthour)
+            * `evStateOfCharge` (State of Charge): Represents the state of charge of the EV battery in percentage. (percent)
             * `exhaustGasPressure` (Exhaust Gas Pressure): Represents the exhaust gas pressure. (kilopascal)
             * `faultCodes` (Fault Codes): Engine fault codes for the asset
             * `fuelConsumptionRate` (Fuel Consumption Rate): The rate at which an asset uses fuel (litersperhour)
@@ -297,6 +299,7 @@ class ReadingsClient:
             * `reeferDoorOpenZone3` (Reefer Door Open (Zone 3)): Status indicating whether the reefer's door (zone 3) is closed or open (values: closed | open)
             * `reeferEngineHours` (Reefer Engine Hours): The total accumulated hours that the Refrigeration Unit has been running on its engine. (hour)
             * `reeferFuelLevel` (Reefer Fuel Level): Refrigeration Unit Fuel Level (%) (percent)
+            * `reeferOdometer` (Reefer Odometer): Cumulative travel distance reported by the Refrigeration Unit OEM telematics. (meter)
             * `reeferPowerSource` (Reefer Power Source): The power source of the refrigeration unit (Diesel, Electric or Cryo) (values: engine | electric | cryo)
             * `reeferReturnAirZone1` (Reefer Return Air Temperature (Zone 1)): Return air temperature for the reefer's zone 1 (celsius)
             * `reeferReturnAirZone2` (Reefer Return Air Temperature (Zone 2)): Return air temperature for the reefer's zone 2 (celsius)
@@ -374,6 +377,30 @@ class ReadingsClient:
             * `axle3tirefromleft3temperature` (Axle 3 Right Inner Tire Temperature): Temperature of the right inner tire on axle 3. (celsius)
             * `axle3tirefromleft4pressure` (Axle 3 Right Outer Tire Pressure): Pressure of the right outer tire on axle 3. (kilopascal)
             * `axle3tirefromleft4temperature` (Axle 3 Right Outer Tire Temperature): Temperature of the right outer tire on axle 3. (celsius)
+            * `axle4tirefromleft1pressure` (Axle 4 Left Outer Tire Pressure): Pressure of the left outer tire on axle 4. (kilopascal)
+            * `axle4tirefromleft1temperature` (Axle 4 Left Outer Tire Temperature): Temperature of the left outer tire on axle 4. (celsius)
+            * `axle4tirefromleft2pressure` (Axle 4 Left Inner Tire Pressure): Pressure of the left inner tire on axle 4. (kilopascal)
+            * `axle4tirefromleft2temperature` (Axle 4 Left Inner Tire Temperature): Temperature of the left inner tire on axle 4. (celsius)
+            * `axle4tirefromleft3pressure` (Axle 4 Right Inner Tire Pressure): Pressure of the right inner tire on axle 4. (kilopascal)
+            * `axle4tirefromleft3temperature` (Axle 4 Right Inner Tire Temperature): Temperature of the right inner tire on axle 4. (celsius)
+            * `axle4tirefromleft4pressure` (Axle 4 Right Outer Tire Pressure): Pressure of the right outer tire on axle 4. (kilopascal)
+            * `axle4tirefromleft4temperature` (Axle 4 Right Outer Tire Temperature): Temperature of the right outer tire on axle 4. (celsius)
+            * `axle5tirefromleft1pressure` (Axle 5 Left Outer Tire Pressure): Pressure of the left outer tire on axle 5. (kilopascal)
+            * `axle5tirefromleft1temperature` (Axle 5 Left Outer Tire Temperature): Temperature of the left outer tire on axle 5. (celsius)
+            * `axle5tirefromleft2pressure` (Axle 5 Left Inner Tire Pressure): Pressure of the left inner tire on axle 5. (kilopascal)
+            * `axle5tirefromleft2temperature` (Axle 5 Left Inner Tire Temperature): Temperature of the left inner tire on axle 5. (celsius)
+            * `axle5tirefromleft3pressure` (Axle 5 Right Inner Tire Pressure): Pressure of the right inner tire on axle 5. (kilopascal)
+            * `axle5tirefromleft3temperature` (Axle 5 Right Inner Tire Temperature): Temperature of the right inner tire on axle 5. (celsius)
+            * `axle5tirefromleft4pressure` (Axle 5 Right Outer Tire Pressure): Pressure of the right outer tire on axle 5. (kilopascal)
+            * `axle5tirefromleft4temperature` (Axle 5 Right Outer Tire Temperature): Temperature of the right outer tire on axle 5. (celsius)
+            * `axle6tirefromleft1pressure` (Axle 6 Left Outer Tire Pressure): Pressure of the left outer tire on axle 6. (kilopascal)
+            * `axle6tirefromleft1temperature` (Axle 6 Left Outer Tire Temperature): Temperature of the left outer tire on axle 6. (celsius)
+            * `axle6tirefromleft2pressure` (Axle 6 Left Inner Tire Pressure): Pressure of the left inner tire on axle 6. (kilopascal)
+            * `axle6tirefromleft2temperature` (Axle 6 Left Inner Tire Temperature): Temperature of the left inner tire on axle 6. (celsius)
+            * `axle6tirefromleft3pressure` (Axle 6 Right Inner Tire Pressure): Pressure of the right inner tire on axle 6. (kilopascal)
+            * `axle6tirefromleft3temperature` (Axle 6 Right Inner Tire Temperature): Temperature of the right inner tire on axle 6. (celsius)
+            * `axle6tirefromleft4pressure` (Axle 6 Right Outer Tire Pressure): Pressure of the right outer tire on axle 6. (kilopascal)
+            * `axle6tirefromleft4temperature` (Axle 6 Right Outer Tire Temperature): Temperature of the right outer tire on axle 6. (celsius)
 
             </details>
 
@@ -452,6 +479,7 @@ class ReadingsClient:
         as_of_time: typing.Optional[str] = None,
         asset_types: typing.Optional[str] = None,
         include_external_ids: typing.Optional[bool] = None,
+        has_gateway: typing.Optional[bool] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ReadingsGetReadingsSnapshotResponseBody:
         """
@@ -519,6 +547,7 @@ class ReadingsClient:
             * `engineState` (Engine State): Indicates the current state of the engine, such as running, stopped. (values: off | running | idling)
             * `engineTotalIdleTime` (Engine Total Idle Time): Total idle time for the vehicle. (minute)
             * `evAverageCellTemperature` (EV Average Cell Temperature): Average temperature of EV battery cells in degrees Celsius. (celsius)
+            * `evBatteryHealth` (EV Battery Health): Represents the health of the EV battery in percentage. (percent)
             * `evChargingCurrent` (EV Charging Current): Charging current for electric and hybrid vehicles. (ampere)
             * `evChargingEnergy` (EV Charging Energy): Charging energy for electric and hybrid vehicles. (watthour)
             * `evChargingStatus` (EV Charging Status): Charging status for electric and hybrid vehicles. (values: unknown | notCharging | charging)
@@ -528,6 +557,7 @@ class ReadingsClient:
             * `evHighCapacityBatteryCurrent` (EV High Capacity Battery Current): Current from the high capacity EV battery in amperes. (ampere)
             * `evHighCapacityBatteryVoltage` (High Capacity EV Battery Voltage): Represents the voltage of the high capacity EV battery. (volt)
             * `evRegeneratedEnergy` (EV Regenerated Energy): Regenerated energy for electric and hybrid vehicles. (watthour)
+            * `evStateOfCharge` (State of Charge): Represents the state of charge of the EV battery in percentage. (percent)
             * `exhaustGasPressure` (Exhaust Gas Pressure): Represents the exhaust gas pressure. (kilopascal)
             * `faultCodes` (Fault Codes): Engine fault codes for the asset
             * `fuelConsumptionRate` (Fuel Consumption Rate): The rate at which an asset uses fuel (litersperhour)
@@ -658,6 +688,7 @@ class ReadingsClient:
             * `reeferDoorOpenZone3` (Reefer Door Open (Zone 3)): Status indicating whether the reefer's door (zone 3) is closed or open (values: closed | open)
             * `reeferEngineHours` (Reefer Engine Hours): The total accumulated hours that the Refrigeration Unit has been running on its engine. (hour)
             * `reeferFuelLevel` (Reefer Fuel Level): Refrigeration Unit Fuel Level (%) (percent)
+            * `reeferOdometer` (Reefer Odometer): Cumulative travel distance reported by the Refrigeration Unit OEM telematics. (meter)
             * `reeferPowerSource` (Reefer Power Source): The power source of the refrigeration unit (Diesel, Electric or Cryo) (values: engine | electric | cryo)
             * `reeferReturnAirZone1` (Reefer Return Air Temperature (Zone 1)): Return air temperature for the reefer's zone 1 (celsius)
             * `reeferReturnAirZone2` (Reefer Return Air Temperature (Zone 2)): Return air temperature for the reefer's zone 2 (celsius)
@@ -735,6 +766,30 @@ class ReadingsClient:
             * `axle3tirefromleft3temperature` (Axle 3 Right Inner Tire Temperature): Temperature of the right inner tire on axle 3. (celsius)
             * `axle3tirefromleft4pressure` (Axle 3 Right Outer Tire Pressure): Pressure of the right outer tire on axle 3. (kilopascal)
             * `axle3tirefromleft4temperature` (Axle 3 Right Outer Tire Temperature): Temperature of the right outer tire on axle 3. (celsius)
+            * `axle4tirefromleft1pressure` (Axle 4 Left Outer Tire Pressure): Pressure of the left outer tire on axle 4. (kilopascal)
+            * `axle4tirefromleft1temperature` (Axle 4 Left Outer Tire Temperature): Temperature of the left outer tire on axle 4. (celsius)
+            * `axle4tirefromleft2pressure` (Axle 4 Left Inner Tire Pressure): Pressure of the left inner tire on axle 4. (kilopascal)
+            * `axle4tirefromleft2temperature` (Axle 4 Left Inner Tire Temperature): Temperature of the left inner tire on axle 4. (celsius)
+            * `axle4tirefromleft3pressure` (Axle 4 Right Inner Tire Pressure): Pressure of the right inner tire on axle 4. (kilopascal)
+            * `axle4tirefromleft3temperature` (Axle 4 Right Inner Tire Temperature): Temperature of the right inner tire on axle 4. (celsius)
+            * `axle4tirefromleft4pressure` (Axle 4 Right Outer Tire Pressure): Pressure of the right outer tire on axle 4. (kilopascal)
+            * `axle4tirefromleft4temperature` (Axle 4 Right Outer Tire Temperature): Temperature of the right outer tire on axle 4. (celsius)
+            * `axle5tirefromleft1pressure` (Axle 5 Left Outer Tire Pressure): Pressure of the left outer tire on axle 5. (kilopascal)
+            * `axle5tirefromleft1temperature` (Axle 5 Left Outer Tire Temperature): Temperature of the left outer tire on axle 5. (celsius)
+            * `axle5tirefromleft2pressure` (Axle 5 Left Inner Tire Pressure): Pressure of the left inner tire on axle 5. (kilopascal)
+            * `axle5tirefromleft2temperature` (Axle 5 Left Inner Tire Temperature): Temperature of the left inner tire on axle 5. (celsius)
+            * `axle5tirefromleft3pressure` (Axle 5 Right Inner Tire Pressure): Pressure of the right inner tire on axle 5. (kilopascal)
+            * `axle5tirefromleft3temperature` (Axle 5 Right Inner Tire Temperature): Temperature of the right inner tire on axle 5. (celsius)
+            * `axle5tirefromleft4pressure` (Axle 5 Right Outer Tire Pressure): Pressure of the right outer tire on axle 5. (kilopascal)
+            * `axle5tirefromleft4temperature` (Axle 5 Right Outer Tire Temperature): Temperature of the right outer tire on axle 5. (celsius)
+            * `axle6tirefromleft1pressure` (Axle 6 Left Outer Tire Pressure): Pressure of the left outer tire on axle 6. (kilopascal)
+            * `axle6tirefromleft1temperature` (Axle 6 Left Outer Tire Temperature): Temperature of the left outer tire on axle 6. (celsius)
+            * `axle6tirefromleft2pressure` (Axle 6 Left Inner Tire Pressure): Pressure of the left inner tire on axle 6. (kilopascal)
+            * `axle6tirefromleft2temperature` (Axle 6 Left Inner Tire Temperature): Temperature of the left inner tire on axle 6. (celsius)
+            * `axle6tirefromleft3pressure` (Axle 6 Right Inner Tire Pressure): Pressure of the right inner tire on axle 6. (kilopascal)
+            * `axle6tirefromleft3temperature` (Axle 6 Right Inner Tire Temperature): Temperature of the right inner tire on axle 6. (celsius)
+            * `axle6tirefromleft4pressure` (Axle 6 Right Outer Tire Pressure): Pressure of the right outer tire on axle 6. (kilopascal)
+            * `axle6tirefromleft4temperature` (Axle 6 Right Outer Tire Temperature): Temperature of the right outer tire on axle 6. (celsius)
 
             </details>
 
@@ -760,6 +815,9 @@ class ReadingsClient:
 
         include_external_ids : typing.Optional[bool]
             Optional boolean indicating whether to return external IDs on supported entities
+
+        has_gateway : typing.Optional[bool]
+            A filter on the data based on whether the asset is currently associated with a gateway. If set to true, only returns readings for assets that are currently associated with a gateway. If set to false, only returns readings for assets that are not currently associated with a gateway. If not set, no gateway filtering is applied. Only supported when entityType is asset.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -790,6 +848,7 @@ class ReadingsClient:
             as_of_time=as_of_time,
             asset_types=asset_types,
             include_external_ids=include_external_ids,
+            has_gateway=has_gateway,
             request_options=request_options,
         )
         return _response.data
@@ -951,6 +1010,7 @@ class AsyncReadingsClient:
             * `engineState` (Engine State): Indicates the current state of the engine, such as running, stopped. (values: off | running | idling)
             * `engineTotalIdleTime` (Engine Total Idle Time): Total idle time for the vehicle. (minute)
             * `evAverageCellTemperature` (EV Average Cell Temperature): Average temperature of EV battery cells in degrees Celsius. (celsius)
+            * `evBatteryHealth` (EV Battery Health): Represents the health of the EV battery in percentage. (percent)
             * `evChargingCurrent` (EV Charging Current): Charging current for electric and hybrid vehicles. (ampere)
             * `evChargingEnergy` (EV Charging Energy): Charging energy for electric and hybrid vehicles. (watthour)
             * `evChargingStatus` (EV Charging Status): Charging status for electric and hybrid vehicles. (values: unknown | notCharging | charging)
@@ -960,6 +1020,7 @@ class AsyncReadingsClient:
             * `evHighCapacityBatteryCurrent` (EV High Capacity Battery Current): Current from the high capacity EV battery in amperes. (ampere)
             * `evHighCapacityBatteryVoltage` (High Capacity EV Battery Voltage): Represents the voltage of the high capacity EV battery. (volt)
             * `evRegeneratedEnergy` (EV Regenerated Energy): Regenerated energy for electric and hybrid vehicles. (watthour)
+            * `evStateOfCharge` (State of Charge): Represents the state of charge of the EV battery in percentage. (percent)
             * `exhaustGasPressure` (Exhaust Gas Pressure): Represents the exhaust gas pressure. (kilopascal)
             * `faultCodes` (Fault Codes): Engine fault codes for the asset
             * `fuelConsumptionRate` (Fuel Consumption Rate): The rate at which an asset uses fuel (litersperhour)
@@ -1090,6 +1151,7 @@ class AsyncReadingsClient:
             * `reeferDoorOpenZone3` (Reefer Door Open (Zone 3)): Status indicating whether the reefer's door (zone 3) is closed or open (values: closed | open)
             * `reeferEngineHours` (Reefer Engine Hours): The total accumulated hours that the Refrigeration Unit has been running on its engine. (hour)
             * `reeferFuelLevel` (Reefer Fuel Level): Refrigeration Unit Fuel Level (%) (percent)
+            * `reeferOdometer` (Reefer Odometer): Cumulative travel distance reported by the Refrigeration Unit OEM telematics. (meter)
             * `reeferPowerSource` (Reefer Power Source): The power source of the refrigeration unit (Diesel, Electric or Cryo) (values: engine | electric | cryo)
             * `reeferReturnAirZone1` (Reefer Return Air Temperature (Zone 1)): Return air temperature for the reefer's zone 1 (celsius)
             * `reeferReturnAirZone2` (Reefer Return Air Temperature (Zone 2)): Return air temperature for the reefer's zone 2 (celsius)
@@ -1167,6 +1229,30 @@ class AsyncReadingsClient:
             * `axle3tirefromleft3temperature` (Axle 3 Right Inner Tire Temperature): Temperature of the right inner tire on axle 3. (celsius)
             * `axle3tirefromleft4pressure` (Axle 3 Right Outer Tire Pressure): Pressure of the right outer tire on axle 3. (kilopascal)
             * `axle3tirefromleft4temperature` (Axle 3 Right Outer Tire Temperature): Temperature of the right outer tire on axle 3. (celsius)
+            * `axle4tirefromleft1pressure` (Axle 4 Left Outer Tire Pressure): Pressure of the left outer tire on axle 4. (kilopascal)
+            * `axle4tirefromleft1temperature` (Axle 4 Left Outer Tire Temperature): Temperature of the left outer tire on axle 4. (celsius)
+            * `axle4tirefromleft2pressure` (Axle 4 Left Inner Tire Pressure): Pressure of the left inner tire on axle 4. (kilopascal)
+            * `axle4tirefromleft2temperature` (Axle 4 Left Inner Tire Temperature): Temperature of the left inner tire on axle 4. (celsius)
+            * `axle4tirefromleft3pressure` (Axle 4 Right Inner Tire Pressure): Pressure of the right inner tire on axle 4. (kilopascal)
+            * `axle4tirefromleft3temperature` (Axle 4 Right Inner Tire Temperature): Temperature of the right inner tire on axle 4. (celsius)
+            * `axle4tirefromleft4pressure` (Axle 4 Right Outer Tire Pressure): Pressure of the right outer tire on axle 4. (kilopascal)
+            * `axle4tirefromleft4temperature` (Axle 4 Right Outer Tire Temperature): Temperature of the right outer tire on axle 4. (celsius)
+            * `axle5tirefromleft1pressure` (Axle 5 Left Outer Tire Pressure): Pressure of the left outer tire on axle 5. (kilopascal)
+            * `axle5tirefromleft1temperature` (Axle 5 Left Outer Tire Temperature): Temperature of the left outer tire on axle 5. (celsius)
+            * `axle5tirefromleft2pressure` (Axle 5 Left Inner Tire Pressure): Pressure of the left inner tire on axle 5. (kilopascal)
+            * `axle5tirefromleft2temperature` (Axle 5 Left Inner Tire Temperature): Temperature of the left inner tire on axle 5. (celsius)
+            * `axle5tirefromleft3pressure` (Axle 5 Right Inner Tire Pressure): Pressure of the right inner tire on axle 5. (kilopascal)
+            * `axle5tirefromleft3temperature` (Axle 5 Right Inner Tire Temperature): Temperature of the right inner tire on axle 5. (celsius)
+            * `axle5tirefromleft4pressure` (Axle 5 Right Outer Tire Pressure): Pressure of the right outer tire on axle 5. (kilopascal)
+            * `axle5tirefromleft4temperature` (Axle 5 Right Outer Tire Temperature): Temperature of the right outer tire on axle 5. (celsius)
+            * `axle6tirefromleft1pressure` (Axle 6 Left Outer Tire Pressure): Pressure of the left outer tire on axle 6. (kilopascal)
+            * `axle6tirefromleft1temperature` (Axle 6 Left Outer Tire Temperature): Temperature of the left outer tire on axle 6. (celsius)
+            * `axle6tirefromleft2pressure` (Axle 6 Left Inner Tire Pressure): Pressure of the left inner tire on axle 6. (kilopascal)
+            * `axle6tirefromleft2temperature` (Axle 6 Left Inner Tire Temperature): Temperature of the left inner tire on axle 6. (celsius)
+            * `axle6tirefromleft3pressure` (Axle 6 Right Inner Tire Pressure): Pressure of the right inner tire on axle 6. (kilopascal)
+            * `axle6tirefromleft3temperature` (Axle 6 Right Inner Tire Temperature): Temperature of the right inner tire on axle 6. (celsius)
+            * `axle6tirefromleft4pressure` (Axle 6 Right Outer Tire Pressure): Pressure of the right outer tire on axle 6. (kilopascal)
+            * `axle6tirefromleft4temperature` (Axle 6 Right Outer Tire Temperature): Temperature of the right outer tire on axle 6. (celsius)
 
             </details>
 
@@ -1253,6 +1339,7 @@ class AsyncReadingsClient:
         as_of_time: typing.Optional[str] = None,
         asset_types: typing.Optional[str] = None,
         include_external_ids: typing.Optional[bool] = None,
+        has_gateway: typing.Optional[bool] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ReadingsGetReadingsSnapshotResponseBody:
         """
@@ -1320,6 +1407,7 @@ class AsyncReadingsClient:
             * `engineState` (Engine State): Indicates the current state of the engine, such as running, stopped. (values: off | running | idling)
             * `engineTotalIdleTime` (Engine Total Idle Time): Total idle time for the vehicle. (minute)
             * `evAverageCellTemperature` (EV Average Cell Temperature): Average temperature of EV battery cells in degrees Celsius. (celsius)
+            * `evBatteryHealth` (EV Battery Health): Represents the health of the EV battery in percentage. (percent)
             * `evChargingCurrent` (EV Charging Current): Charging current for electric and hybrid vehicles. (ampere)
             * `evChargingEnergy` (EV Charging Energy): Charging energy for electric and hybrid vehicles. (watthour)
             * `evChargingStatus` (EV Charging Status): Charging status for electric and hybrid vehicles. (values: unknown | notCharging | charging)
@@ -1329,6 +1417,7 @@ class AsyncReadingsClient:
             * `evHighCapacityBatteryCurrent` (EV High Capacity Battery Current): Current from the high capacity EV battery in amperes. (ampere)
             * `evHighCapacityBatteryVoltage` (High Capacity EV Battery Voltage): Represents the voltage of the high capacity EV battery. (volt)
             * `evRegeneratedEnergy` (EV Regenerated Energy): Regenerated energy for electric and hybrid vehicles. (watthour)
+            * `evStateOfCharge` (State of Charge): Represents the state of charge of the EV battery in percentage. (percent)
             * `exhaustGasPressure` (Exhaust Gas Pressure): Represents the exhaust gas pressure. (kilopascal)
             * `faultCodes` (Fault Codes): Engine fault codes for the asset
             * `fuelConsumptionRate` (Fuel Consumption Rate): The rate at which an asset uses fuel (litersperhour)
@@ -1459,6 +1548,7 @@ class AsyncReadingsClient:
             * `reeferDoorOpenZone3` (Reefer Door Open (Zone 3)): Status indicating whether the reefer's door (zone 3) is closed or open (values: closed | open)
             * `reeferEngineHours` (Reefer Engine Hours): The total accumulated hours that the Refrigeration Unit has been running on its engine. (hour)
             * `reeferFuelLevel` (Reefer Fuel Level): Refrigeration Unit Fuel Level (%) (percent)
+            * `reeferOdometer` (Reefer Odometer): Cumulative travel distance reported by the Refrigeration Unit OEM telematics. (meter)
             * `reeferPowerSource` (Reefer Power Source): The power source of the refrigeration unit (Diesel, Electric or Cryo) (values: engine | electric | cryo)
             * `reeferReturnAirZone1` (Reefer Return Air Temperature (Zone 1)): Return air temperature for the reefer's zone 1 (celsius)
             * `reeferReturnAirZone2` (Reefer Return Air Temperature (Zone 2)): Return air temperature for the reefer's zone 2 (celsius)
@@ -1536,6 +1626,30 @@ class AsyncReadingsClient:
             * `axle3tirefromleft3temperature` (Axle 3 Right Inner Tire Temperature): Temperature of the right inner tire on axle 3. (celsius)
             * `axle3tirefromleft4pressure` (Axle 3 Right Outer Tire Pressure): Pressure of the right outer tire on axle 3. (kilopascal)
             * `axle3tirefromleft4temperature` (Axle 3 Right Outer Tire Temperature): Temperature of the right outer tire on axle 3. (celsius)
+            * `axle4tirefromleft1pressure` (Axle 4 Left Outer Tire Pressure): Pressure of the left outer tire on axle 4. (kilopascal)
+            * `axle4tirefromleft1temperature` (Axle 4 Left Outer Tire Temperature): Temperature of the left outer tire on axle 4. (celsius)
+            * `axle4tirefromleft2pressure` (Axle 4 Left Inner Tire Pressure): Pressure of the left inner tire on axle 4. (kilopascal)
+            * `axle4tirefromleft2temperature` (Axle 4 Left Inner Tire Temperature): Temperature of the left inner tire on axle 4. (celsius)
+            * `axle4tirefromleft3pressure` (Axle 4 Right Inner Tire Pressure): Pressure of the right inner tire on axle 4. (kilopascal)
+            * `axle4tirefromleft3temperature` (Axle 4 Right Inner Tire Temperature): Temperature of the right inner tire on axle 4. (celsius)
+            * `axle4tirefromleft4pressure` (Axle 4 Right Outer Tire Pressure): Pressure of the right outer tire on axle 4. (kilopascal)
+            * `axle4tirefromleft4temperature` (Axle 4 Right Outer Tire Temperature): Temperature of the right outer tire on axle 4. (celsius)
+            * `axle5tirefromleft1pressure` (Axle 5 Left Outer Tire Pressure): Pressure of the left outer tire on axle 5. (kilopascal)
+            * `axle5tirefromleft1temperature` (Axle 5 Left Outer Tire Temperature): Temperature of the left outer tire on axle 5. (celsius)
+            * `axle5tirefromleft2pressure` (Axle 5 Left Inner Tire Pressure): Pressure of the left inner tire on axle 5. (kilopascal)
+            * `axle5tirefromleft2temperature` (Axle 5 Left Inner Tire Temperature): Temperature of the left inner tire on axle 5. (celsius)
+            * `axle5tirefromleft3pressure` (Axle 5 Right Inner Tire Pressure): Pressure of the right inner tire on axle 5. (kilopascal)
+            * `axle5tirefromleft3temperature` (Axle 5 Right Inner Tire Temperature): Temperature of the right inner tire on axle 5. (celsius)
+            * `axle5tirefromleft4pressure` (Axle 5 Right Outer Tire Pressure): Pressure of the right outer tire on axle 5. (kilopascal)
+            * `axle5tirefromleft4temperature` (Axle 5 Right Outer Tire Temperature): Temperature of the right outer tire on axle 5. (celsius)
+            * `axle6tirefromleft1pressure` (Axle 6 Left Outer Tire Pressure): Pressure of the left outer tire on axle 6. (kilopascal)
+            * `axle6tirefromleft1temperature` (Axle 6 Left Outer Tire Temperature): Temperature of the left outer tire on axle 6. (celsius)
+            * `axle6tirefromleft2pressure` (Axle 6 Left Inner Tire Pressure): Pressure of the left inner tire on axle 6. (kilopascal)
+            * `axle6tirefromleft2temperature` (Axle 6 Left Inner Tire Temperature): Temperature of the left inner tire on axle 6. (celsius)
+            * `axle6tirefromleft3pressure` (Axle 6 Right Inner Tire Pressure): Pressure of the right inner tire on axle 6. (kilopascal)
+            * `axle6tirefromleft3temperature` (Axle 6 Right Inner Tire Temperature): Temperature of the right inner tire on axle 6. (celsius)
+            * `axle6tirefromleft4pressure` (Axle 6 Right Outer Tire Pressure): Pressure of the right outer tire on axle 6. (kilopascal)
+            * `axle6tirefromleft4temperature` (Axle 6 Right Outer Tire Temperature): Temperature of the right outer tire on axle 6. (celsius)
 
             </details>
 
@@ -1561,6 +1675,9 @@ class AsyncReadingsClient:
 
         include_external_ids : typing.Optional[bool]
             Optional boolean indicating whether to return external IDs on supported entities
+
+        has_gateway : typing.Optional[bool]
+            A filter on the data based on whether the asset is currently associated with a gateway. If set to true, only returns readings for assets that are currently associated with a gateway. If set to false, only returns readings for assets that are not currently associated with a gateway. If not set, no gateway filtering is applied. Only supported when entityType is asset.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -1599,6 +1716,7 @@ class AsyncReadingsClient:
             as_of_time=as_of_time,
             asset_types=asset_types,
             include_external_ids=include_external_ids,
+            has_gateway=has_gateway,
             request_options=request_options,
         )
         return _response.data

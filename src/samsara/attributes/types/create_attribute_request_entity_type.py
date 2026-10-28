@@ -2,4 +2,4 @@
 
 import typing
 
-CreateAttributeRequestEntityType = typing.Union[typing.Literal["driver", "asset"], typing.Any]
+CreateAttributeRequestEntityType = typing.Union[typing.Literal["driver", "asset", "workOrder"], typing.Any]

@@ -14,7 +14,7 @@ class GetReportRunsDataObjectResponseBody(UniversalBaseModel):
     Columns of this report run.
     """
 
-    rows: typing.List[typing.List[typing.Dict[str, typing.Any]]] = pydantic.Field()
+    rows: typing.List[typing.List[typing.Any]] = pydantic.Field()
     """
     Array where each inner array represents a row of data, and each element in the inner array is a value for the column. Inner array items are nullable, data types: double, string, timestamp as string in RFC3339 format. The number of columns defined in the report run is to the number of inner array items.
     """

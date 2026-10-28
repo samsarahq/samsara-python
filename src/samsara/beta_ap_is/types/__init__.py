@@ -12,11 +12,18 @@ if typing.TYPE_CHECKING:
     from .asset_sharing_agreements_create_asset_sharing_agreement_request_body_operator import (
         AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyOperator,
     )
+    from .asset_sharing_agreements_create_asset_sharing_agreement_request_body_payer import (
+        AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyPayer,
+    )
     from .asset_sharing_agreements_create_asset_sharing_agreement_request_body_provider_data_packages_item import (
         AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyProviderDataPackagesItem,
     )
     from .asset_sharing_agreements_create_asset_sharing_agreement_request_body_recipient_data_packages_item import (
         AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyRecipientDataPackagesItem,
+    )
+    from .campaigns_post_campaigns_request_body_campaign_type import CampaignsPostCampaignsRequestBodyCampaignType
+    from .campaigns_post_campaigns_request_body_work_order_priority import (
+        CampaignsPostCampaignsRequestBodyWorkOrderPriority,
     )
     from .device_recovery_recover_asset_request_body_missing_reason import (
         DeviceRecoveryRecoverAssetRequestBodyMissingReason,
@@ -74,6 +81,9 @@ if typing.TYPE_CHECKING:
         FunctionsStartFunctionRunRequestBodyParamsOverride,
     )
     from .get_assets_inputs_request_type import GetAssetsInputsRequestType
+    from .get_depreciation_transactions_request_query_by_time_field import (
+        GetDepreciationTransactionsRequestQueryByTimeField,
+    )
     from .get_driver_efficiency_request_driver_activation_status import GetDriverEfficiencyRequestDriverActivationStatus
     from .get_hos_eld_events_request_driver_activation_status import GetHosEldEventsRequestDriverActivationStatus
     from .get_jobs_request_status import GetJobsRequestStatus
@@ -81,6 +91,18 @@ if typing.TYPE_CHECKING:
     from .get_qualification_records_stream_request_entity_type import GetQualificationRecordsStreamRequestEntityType
     from .get_qualification_types_request_entity_type import GetQualificationTypesRequestEntityType
     from .list_driver_workflows_request_workflow_type import ListDriverWorkflowsRequestWorkflowType
+    from .maintenance_estimates_create_maintenance_estimate_request_body_approval_status import (
+        MaintenanceEstimatesCreateMaintenanceEstimateRequestBodyApprovalStatus,
+    )
+    from .maintenance_estimates_create_maintenance_estimate_request_body_estimate_type import (
+        MaintenanceEstimatesCreateMaintenanceEstimateRequestBodyEstimateType,
+    )
+    from .maintenance_estimates_patch_maintenance_estimate_request_body_approval_status import (
+        MaintenanceEstimatesPatchMaintenanceEstimateRequestBodyApprovalStatus,
+    )
+    from .maintenance_estimates_patch_maintenance_estimate_request_body_estimate_type import (
+        MaintenanceEstimatesPatchMaintenanceEstimateRequestBodyEstimateType,
+    )
     from .places_patch_place_request_body_camera_recording_mode_type import (
         PlacesPatchPlaceRequestBodyCameraRecordingModeType,
     )
@@ -119,8 +141,11 @@ if typing.TYPE_CHECKING:
 _dynamic_imports: typing.Dict[str, str] = {
     "AssetAssignmentsCreateAssetAssignmentRequestBodyAssigneeType": ".asset_assignments_create_asset_assignment_request_body_assignee_type",
     "AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyOperator": ".asset_sharing_agreements_create_asset_sharing_agreement_request_body_operator",
+    "AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyPayer": ".asset_sharing_agreements_create_asset_sharing_agreement_request_body_payer",
     "AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyProviderDataPackagesItem": ".asset_sharing_agreements_create_asset_sharing_agreement_request_body_provider_data_packages_item",
     "AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyRecipientDataPackagesItem": ".asset_sharing_agreements_create_asset_sharing_agreement_request_body_recipient_data_packages_item",
+    "CampaignsPostCampaignsRequestBodyCampaignType": ".campaigns_post_campaigns_request_body_campaign_type",
+    "CampaignsPostCampaignsRequestBodyWorkOrderPriority": ".campaigns_post_campaigns_request_body_work_order_priority",
     "DeviceRecoveryRecoverAssetRequestBodyMissingReason": ".device_recovery_recover_asset_request_body_missing_reason",
     "DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus": ".device_recovery_recover_asset_request_body_recovery_status",
     "DeviceRecoveryRecoverAssetRequestBodyStatus": ".device_recovery_recover_asset_request_body_status",
@@ -141,6 +166,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyPhotoType": ".fleet_installer_photo_uploads_post_fleet_installer_photo_upload_request_body_photo_type",
     "FunctionsStartFunctionRunRequestBodyParamsOverride": ".functions_start_function_run_request_body_params_override",
     "GetAssetsInputsRequestType": ".get_assets_inputs_request_type",
+    "GetDepreciationTransactionsRequestQueryByTimeField": ".get_depreciation_transactions_request_query_by_time_field",
     "GetDriverEfficiencyRequestDriverActivationStatus": ".get_driver_efficiency_request_driver_activation_status",
     "GetHosEldEventsRequestDriverActivationStatus": ".get_hos_eld_events_request_driver_activation_status",
     "GetJobsRequestStatus": ".get_jobs_request_status",
@@ -148,6 +174,10 @@ _dynamic_imports: typing.Dict[str, str] = {
     "GetQualificationRecordsStreamRequestEntityType": ".get_qualification_records_stream_request_entity_type",
     "GetQualificationTypesRequestEntityType": ".get_qualification_types_request_entity_type",
     "ListDriverWorkflowsRequestWorkflowType": ".list_driver_workflows_request_workflow_type",
+    "MaintenanceEstimatesCreateMaintenanceEstimateRequestBodyApprovalStatus": ".maintenance_estimates_create_maintenance_estimate_request_body_approval_status",
+    "MaintenanceEstimatesCreateMaintenanceEstimateRequestBodyEstimateType": ".maintenance_estimates_create_maintenance_estimate_request_body_estimate_type",
+    "MaintenanceEstimatesPatchMaintenanceEstimateRequestBodyApprovalStatus": ".maintenance_estimates_patch_maintenance_estimate_request_body_approval_status",
+    "MaintenanceEstimatesPatchMaintenanceEstimateRequestBodyEstimateType": ".maintenance_estimates_patch_maintenance_estimate_request_body_estimate_type",
     "PlacesPatchPlaceRequestBodyCameraRecordingModeType": ".places_patch_place_request_body_camera_recording_mode_type",
     "PlacesPatchPlaceRequestBodyExternalIds": ".places_patch_place_request_body_external_ids",
     "PlacesPostPlaceRequestBodyCameraRecordingModeType": ".places_post_place_request_body_camera_recording_mode_type",
@@ -188,8 +218,11 @@ def __dir__():
 __all__ = [
     "AssetAssignmentsCreateAssetAssignmentRequestBodyAssigneeType",
     "AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyOperator",
+    "AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyPayer",
     "AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyProviderDataPackagesItem",
     "AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyRecipientDataPackagesItem",
+    "CampaignsPostCampaignsRequestBodyCampaignType",
+    "CampaignsPostCampaignsRequestBodyWorkOrderPriority",
     "DeviceRecoveryRecoverAssetRequestBodyMissingReason",
     "DeviceRecoveryRecoverAssetRequestBodyRecoveryStatus",
     "DeviceRecoveryRecoverAssetRequestBodyStatus",
@@ -210,6 +243,7 @@ __all__ = [
     "FleetInstallerPhotoUploadsPostFleetInstallerPhotoUploadRequestBodyPhotoType",
     "FunctionsStartFunctionRunRequestBodyParamsOverride",
     "GetAssetsInputsRequestType",
+    "GetDepreciationTransactionsRequestQueryByTimeField",
     "GetDriverEfficiencyRequestDriverActivationStatus",
     "GetHosEldEventsRequestDriverActivationStatus",
     "GetJobsRequestStatus",
@@ -217,6 +251,10 @@ __all__ = [
     "GetQualificationRecordsStreamRequestEntityType",
     "GetQualificationTypesRequestEntityType",
     "ListDriverWorkflowsRequestWorkflowType",
+    "MaintenanceEstimatesCreateMaintenanceEstimateRequestBodyApprovalStatus",
+    "MaintenanceEstimatesCreateMaintenanceEstimateRequestBodyEstimateType",
+    "MaintenanceEstimatesPatchMaintenanceEstimateRequestBodyApprovalStatus",
+    "MaintenanceEstimatesPatchMaintenanceEstimateRequestBodyEstimateType",
     "PlacesPatchPlaceRequestBodyCameraRecordingModeType",
     "PlacesPatchPlaceRequestBodyExternalIds",
     "PlacesPostPlaceRequestBodyCameraRecordingModeType",

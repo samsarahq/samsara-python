@@ -2,4 +2,4 @@
 
 import typing
 
-GetAttributesByEntityTypeRequestEntityType = typing.Union[typing.Literal["driver", "asset"], typing.Any]
+GetAttributesByEntityTypeRequestEntityType = typing.Union[typing.Literal["driver", "asset", "workOrder"], typing.Any]

@@ -3,5 +3,5 @@
 import typing
 
 EntityUpdateWatchpointTypeResponseBodyMode = typing.Union[
-    typing.Literal["unknown", "justOnce", "daily", "weekly", "monthly"], typing.Any
+    typing.Literal["unknown", "justOnce", "daily", "weekly", "monthly", "every15Minutes", "hourly"], typing.Any
 ]

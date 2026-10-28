@@ -3,5 +3,5 @@
 import typing
 
 EntityWatchpointsServiceCreateWatchpointRequestBodyMode = typing.Union[
-    typing.Literal["justOnce", "daily", "weekly", "monthly"], typing.Any
+    typing.Literal["justOnce", "daily", "weekly", "monthly", "every15Minutes", "hourly"], typing.Any
 ]

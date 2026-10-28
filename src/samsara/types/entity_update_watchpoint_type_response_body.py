@@ -11,6 +11,8 @@ from .entity_update_watchpoint_type_response_body_observation_type import (
     EntityUpdateWatchpointTypeResponseBodyObservationType,
 )
 from .entity_update_watchpoint_type_response_body_status import EntityUpdateWatchpointTypeResponseBodyStatus
+from .watchpoint_bearing_range_type_response_body import WatchpointBearingRangeTypeResponseBody
+from .watchpoint_custom_detection_response_type_response_body import WatchpointCustomDetectionResponseTypeResponseBody
 from .watchpoint_lat_lng_type_response_body import WatchpointLatLngTypeResponseBody
 
 
@@ -19,11 +21,23 @@ class EntityUpdateWatchpointTypeResponseBody(UniversalBaseModel):
     Watchpoint object
     """
 
+    bearing_range: typing_extensions.Annotated[
+        typing.Optional[WatchpointBearingRangeTypeResponseBody],
+        FieldMetadata(alias="bearingRange"),
+        pydantic.Field(alias="bearingRange"),
+    ] = None
     created_at_time: typing_extensions.Annotated[
         str,
         FieldMetadata(alias="createdAtTime"),
         pydantic.Field(alias="createdAtTime", description="Time when the watchpoint resource was created."),
     ]
+    custom_detections: typing_extensions.Annotated[
+        typing.Optional[typing.List[WatchpointCustomDetectionResponseTypeResponseBody]],
+        FieldMetadata(alias="customDetections"),
+        pydantic.Field(
+            alias="customDetections", description="Configured detections. Omitted when none are configured."
+        ),
+    ] = None
     id: str = pydantic.Field()
     """
     Unique identifier for the watchpoint.
@@ -40,7 +54,7 @@ class EntityUpdateWatchpointTypeResponseBody(UniversalBaseModel):
     location: WatchpointLatLngTypeResponseBody
     mode: EntityUpdateWatchpointTypeResponseBodyMode = pydantic.Field()
     """
-    Recurrence frequency for observations.  Valid values: `unknown`, `justOnce`, `daily`, `weekly`, `monthly`
+    Recurrence frequency for observations.  Valid values: `unknown`, `justOnce`, `daily`, `weekly`, `monthly`, `every15Minutes`, `hourly`
     """
 
     monitoring_end_time: typing_extensions.Annotated[

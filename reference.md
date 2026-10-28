@@ -780,7 +780,7 @@ client.beta_ap_is.get_voice_sessions_stream(
 <dl>
 <dd>
 
-Returns depreciation and adjustment transactions for assets. Transactions are returned ordered by updatedAt in ascending order (oldest to newest). Use startTime parameter for incremental sync.
+Returns depreciation and adjustment transactions for assets. Transactions are returned in ascending order by the selected time field. Use queryByTimeField=updatedAtTime for incremental sync.
 
  <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -823,7 +823,7 @@ client.beta_ap_is.get_depreciation_transactions()
 <dl>
 <dd>
 
-**start_time:** `typing.Optional[dt.datetime]` — RFC 3339 timestamp. Returns transactions updated after this time. Compared against updatedAt. If not provided, returns all transactions. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+**start_time:** `typing.Optional[dt.datetime]` — RFC 3339 timestamp. Inclusive start of the range, compared against queryByTimeField. Required when querying by eventTime; optional when querying by updatedAtTime. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
     
 </dd>
 </dl>
@@ -831,7 +831,15 @@ client.beta_ap_is.get_depreciation_transactions()
 <dl>
 <dd>
 
-**end_time:** `typing.Optional[dt.datetime]` — RFC 3339 timestamp. Returns transactions updated before this time. Compared against updatedAt. If not provided, behaves as an unending feed of changes. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+**end_time:** `typing.Optional[dt.datetime]` — RFC 3339 timestamp. Exclusive end of the range, compared against queryByTimeField. If omitted, the range is open-ended. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**query_by_time_field:** `typing.Optional[GetDepreciationTransactionsRequestQueryByTimeField]` — Time field compared with startTime and endTime. Defaults to eventTime for organizations enabled for event-time queries; otherwise updatedAtTime.  Valid values: `eventTime`, `updatedAtTime`
     
 </dd>
 </dl>
@@ -2368,7 +2376,7 @@ client.beta_ap_is.list_asset_sharing_agreements()
 <dl>
 <dd>
 
-Creates a new Data Sharing Agreement (DSA) in pending status. Only the provider organization can create an agreement, and the recipient must be a different organization. Use providerDataPackages and recipientDataPackages to declare which categories of data flow to each side, and operator to indicate which organization operates the assets (where the gateways live).
+Creates a new Data Sharing Agreement (DSA) in pending status. When the flexible operating model is enabled, either the provider or recipient can create an agreement, and the authenticated caller determines createdByParty. The provider owns the assets, and the two organizations must differ. providerOrganizationId defaults to the caller; recipient callers supply the provider ID and providerOrganizationName. Provider callers supply recipientOrganizationName. payer selects the party whose Asset Sharing license supports the agreement and defaults to the creator. Without the flexible operating model, only the provider can create and pay. Use providerDataPackages and recipientDataPackages to declare which categories of data flow to each side, and operator to indicate which organization operates the assets (where the gateways live).
 
  <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -2400,7 +2408,6 @@ client.beta_ap_is.create_asset_sharing_agreement(
     provider_data_packages=["all", "maintenance", "maintenance", "maintenance"],
     recipient_data_packages=["all", "reefer", "all", "maintenance"],
     recipient_organization_id="456",
-    recipient_organization_name="Acme Logistics",
 )
 
 ```
@@ -2453,7 +2460,33 @@ client.beta_ap_is.create_asset_sharing_agreement(
 <dl>
 <dd>
 
-**recipient_organization_name:** `str` — The display name to use for the recipient organization.
+**payer:** `typing.Optional[
+    AssetSharingAgreementsCreateAssetSharingAgreementRequestBodyPayer
+]` — Party whose Asset Sharing license supports the agreement. Defaults to the creator when the flexible operating model is enabled. Otherwise, the provider pays; omit this field or specify provider. Specifying recipient requires the flexible operating model to be enabled.  Valid values: `provider`, `recipient`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**provider_organization_id:** `typing.Optional[str]` — ID of the organization that owns the assets. Defaults to the caller's organization. Recipient-initiated agreements require the flexible operating model to be enabled.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**provider_organization_name:** `typing.Optional[str]` — Display name for the provider. Required when the caller is the recipient; the caller's own organization name is resolved automatically.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**recipient_organization_name:** `typing.Optional[str]` — Display name for the recipient. Required when the caller is the provider; the caller's own organization name is resolved automatically.
     
 </dd>
 </dl>
@@ -2485,7 +2518,7 @@ client.beta_ap_is.create_asset_sharing_agreement(
 <dl>
 <dd>
 
-Soft-deletes a Data Sharing Agreement so it no longer appears in list results. Only the provider organization can delete, and only while the agreement is in pending, rejected, or canceled status; an accepted agreement must be canceled first. Identify the agreement with the id query parameter. Returns 204 No Content.
+Soft-deletes a Data Sharing Agreement so it no longer appears in list results. Only the organization that created the agreement can delete (the provider for older agreements), and only while the agreement is in pending, rejected, or canceled status; an accepted agreement must be canceled first. Identify the agreement with the id query parameter. Returns 204 No Content.
 
  <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -2562,7 +2595,7 @@ client.beta_ap_is.delete_asset_sharing_agreement(
 <dl>
 <dd>
 
-Accepts a pending Data Sharing Agreement, transitioning it to accepted. Only the recipient organization can accept. Identify the agreement with the id query parameter.
+Accepts a pending Data Sharing Agreement, transitioning it to accepted. Only the organization that did not create the agreement can accept its terms as proposed. To change the terms, reject the agreement and create a new one. For older agreements, the creator is the provider and only the recipient can accept. Identify the agreement with the id query parameter.
 
  <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -3054,7 +3087,7 @@ client.beta_ap_is.cancel_asset_sharing_agreement(
 <dl>
 <dd>
 
-Rejects a pending Data Sharing Agreement, transitioning it to the terminal rejected state. Only the recipient organization can reject. Identify the agreement with the id query parameter.
+Rejects a pending Data Sharing Agreement, transitioning it to the terminal rejected state. Only the organization that did not create the agreement can reject. For older agreements, the creator is the provider and only the recipient can reject. Identify the agreement with the id query parameter.
 
  <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -7520,7 +7553,7 @@ client.beta_ap_is.update_ground_intelligence_issue(
 <dl>
 <dd>
 
-Creates a Ground Intelligence watchpoint for the organization.
+Creates a Ground Intelligence watchpoint for the organization. The submitted location may be snapped to a road within 75 meters. Use the location returned in the response as the saved watchpoint location.
 
  <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -7578,7 +7611,7 @@ client.beta_ap_is.create_watchpoint(
 <dl>
 <dd>
 
-**mode:** `EntityWatchpointsServiceCreateWatchpointRequestBodyMode` — Recurrence frequency for observations.  Valid values: `justOnce`, `daily`, `weekly`, `monthly`
+**mode:** `EntityWatchpointsServiceCreateWatchpointRequestBodyMode` — Recurrence frequency for observations.  Valid values: `justOnce`, `daily`, `weekly`, `monthly`, `every15Minutes`, `hourly`
     
 </dd>
 </dl>
@@ -7587,6 +7620,24 @@ client.beta_ap_is.create_watchpoint(
 <dd>
 
 **observation_type:** `EntityWatchpointsServiceCreateWatchpointRequestBodyObservationType` — Type of condition to observe at this watchpoint.  Valid values: `roadDefect`, `utilityCut`, `guardrail`, `streetlight`, `signage`, `stormDrain`, `graffiti`, `vegetation`, `blight`, `illegalDumping`, `littering`, `highVegetationWeeds`, `fire`, `other`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**bearing_range:** `typing.Optional[WatchpointBearingRangeTypeRequestBody]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**custom_detections:** `typing.Optional[
+    typing.Sequence[WatchpointCustomDetectionRequestTypeRequestBody]
+]` — Conditions to detect in new observations. Defaults to none. Requires custom detections to be enabled for your organization. Types must be distinct.
     
 </dd>
 </dl>
@@ -7603,6 +7654,14 @@ client.beta_ap_is.create_watchpoint(
 <dd>
 
 **note:** `typing.Optional[str]` — Customer-provided note about the watchpoint.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**send_dashboard_notification:** `typing.Optional[bool]` — Sends the authenticated user a dashboard notification for each new observation. Defaults to false. Ignored when the API token is not associated with a user.
     
 </dd>
 </dl>
@@ -8325,6 +8384,1510 @@ client.beta_ap_is.update_hub_route_template(
 <dd>
 
 **name:** `typing.Optional[str]` — The new name of the route template.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_campaigns</a>(...) -&gt; AsyncHttpResponse[CampaignsGetCampaignsResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Gets campaigns. Optionally filter to specific campaign ids; returns 404 Not Found when none of the requested ids resolve to a campaign.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Campaigns** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.get_campaigns()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Comma-separated list of campaign IDs to filter by. Up to 100 ids. Returns all campaigns, paginated, when omitted. Returns 404 Not Found when none of the requested ids resolve to a campaign; ids that do not resolve (e.g. deleted) are otherwise omitted from the response.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">post_campaigns</a>(...) -&gt; AsyncHttpResponse[CampaignsPostCampaignsResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Creates a campaign. The campaign is created in your organization's Draft status with `createdSource` set to `api`. Creating a campaign never creates work orders or places items on hold.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Campaigns** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.post_campaigns(
+    campaign_type="safetyRecall",
+    name="Rear brake hose recall",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**campaign_type:** `CampaignsPostCampaignsRequestBodyCampaignType` — Type of the campaign.  Valid values: `safetyRecall`, `mandatoryCampaign`, `voluntary`, `internal`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `str` — Display name of the campaign.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**campaign_number:** `typing.Optional[str]` — Customer or OEM-aligned campaign number.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**description:** `typing.Optional[str]` — Free-form description of the campaign.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**end_time:** `typing.Optional[dt.datetime]` — End of the campaign in RFC 3339 format. Must not be before `startTime`.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_warranty:** `typing.Optional[bool]` — Whether campaign work is expected to be claimable as warranty or recall work. Defaults to false.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**recall_metadata:** `typing.Optional[CampaignRecallMetadataRequestObjectRequestBody]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**start_time:** `typing.Optional[dt.datetime]` — Start of the campaign in RFC 3339 format.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**work_order_priority:** `typing.Optional[CampaignsPostCampaignsRequestBodyWorkOrderPriority]` — Priority applied to work orders generated from the campaign. Uses the same values as the `priority` field of the Work Orders API. Defaults to no priority.  Valid values: `High`, `Low`, `Medium`, `Urgent`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**work_order_template_id:** `typing.Optional[str]` — ID of a work order template, as returned by GET /maintenance/work-order-templates, that pre-populates work orders generated from the campaign.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_campaign_items</a>(...) -&gt; AsyncHttpResponse[CampaignsGetCampaignItemsResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Gets the items of a campaign, with each item's stored state, effective state, linked work order, VIN and source.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Campaigns** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.get_campaign_items(
+    campaign_id="campaignId",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**campaign_id:** `str` — Unique ID of the campaign.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">post_campaign_items_batch</a>(...) -&gt; AsyncHttpResponse[CampaignsPostCampaignItemsBatchResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Adds assets to a campaign by VIN or asset ID, for campaigns whose membership is managed outside Samsara. Up to 5000 entries per request; the rate limit applies to this endpoint, not to the individual entries. Each entry is processed independently and the response reports a result per entry, in request order: `created`, `alreadyPresent`, `unresolvedVin`, `unresolvedAssetId`, `invalid` or `overCap`. A campaign holds at most 100000 items. Items are created in `pending` with `sourceBasis` `api`. An asset joins a campaign at most once, so requests are idempotent: an asset that already has an item, including a dismissed one, is reported as `alreadyPresent` and never re-added. Ingesting items never creates work orders or places holds. Not accepted for `complete` or `cancelled` campaigns.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Campaigns** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import CampaignItemIngestEntryObjectRequestBody, Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.post_campaign_items_batch(
+    campaign_id="campaignId",
+    data=[CampaignItemIngestEntryObjectRequestBody()],
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**campaign_id:** `str` — Unique ID of the campaign.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**data:** `typing.Sequence[CampaignItemIngestEntryObjectRequestBody]` — Entries to add to the campaign.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_campaign_rollups</a>(...) -&gt; AsyncHttpResponse[CampaignsGetCampaignRollupsResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Gets item counts for a campaign grouped by item state, plus the number of items aging in a non-terminal state.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Campaigns** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.get_campaign_rollups(
+    campaign_id="campaignId",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**campaign_id:** `str` — Unique ID of the campaign.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">list_maintenance_estimates</a>(...) -&gt; AsyncHttpResponse[MaintenanceEstimatesListMaintenanceEstimatesResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Read estimates by IDs or work orders, including historical decisions. One primary selector is required. Up to 100 estimate IDs, 10 WO IDs and 10 vendor IDs bound query and authorization work. Filters use OR within each set and AND across sets.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Work Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.list_maintenance_estimates()
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Up to 100 comma-separated estimate identifiers.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**work_order_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Up to 10 comma-separated numeric WO IDs. Bounds indexed-query fanout and authorization work.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**vendor_ids:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Up to 10 comma-separated vendor-location identifiers; narrows the primary selection.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**after:** `typing.Optional[str]` — Cursor returned by the preceding response; retain the same filters.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_external_ids:** `typing.Optional[bool]` — Include estimate external identifiers. Defaults to false.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">create_maintenance_estimate</a>(...) -&gt; AsyncHttpResponse[MaintenanceEstimatesCreateMaintenanceEstimateResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create a priced vendor quote or expected-cost recommendation for a work order.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Work Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import (
+    MaintenanceEstimateLineInputRequestBody,
+    MaintenanceEstimateMoneyRequestBody,
+    Samsara,
+)
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.create_maintenance_estimate(
+    line_items=[
+        MaintenanceEstimateLineInputRequestBody(
+            amount=MaintenanceEstimateMoneyRequestBody(
+                amount="640.20",
+                currency="usd",
+            ),
+            description="Replace turbocharger",
+        )
+    ],
+    tax=MaintenanceEstimateMoneyRequestBody(
+        amount="64.02",
+        currency="usd",
+    ),
+    vendor_id="a81e26e6-50cd-4ae2-85b9-132c493c0871",
+    work_order_id="464",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**line_items:** `typing.Sequence[MaintenanceEstimateLineInputRequestBody]` — Complete set of 1 to 200 priced lines when supplied.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**tax:** `MaintenanceEstimateMoneyRequestBody` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**vendor_id:** `str` — Same-org vendor location UUID or external ID.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**work_order_id:** `str` — Same-org numeric work order ID.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_external_ids:** `typing.Optional[bool]` — Include estimate external identifiers. Defaults to false.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**approval_status:** `typing.Optional[
+    MaintenanceEstimatesCreateMaintenanceEstimateRequestBodyApprovalStatus
+]` — Defaults to unapproved on create. Approved or denied records a decision through Samsara approval and UTS and requires a stable externalIds identifier for retries; approval never awards the estimate.  Valid values: `unapproved`, `approved`, `denied`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**estimate_type:** `typing.Optional[
+    MaintenanceEstimatesCreateMaintenanceEstimateRequestBodyEstimateType
+]` — Recommendation or vendor quote. Defaults to vendorQuote when omitted. expectedCost requires an externally managed work order and must be created unapproved; lineItems and tax remain required.  Valid values: `expectedCost`, `vendorQuote`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**external_ids:** `typing.Optional[typing.Dict[str, str]]` — Estimate external identifiers. Responses include these only when includeExternalIds=true; default omitted.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**external_request:** `typing.Optional[MaintenanceEstimateExternalRequestInputRequestBody]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**notes:** `typing.Optional[str]` — Notes, at most 4000 Unicode characters.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**quoted_at_time:** `typing.Optional[dt.datetime]` — Actual quote timestamp. Omit if the source only has a date; do not invent a time or offset.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**supersedes_estimate_id:** `typing.Optional[str]` — Same-WO/vendor denied estimate superseded by this quote.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">patch_maintenance_estimate</a>(...) -&gt; AsyncHttpResponse[MaintenanceEstimatesPatchMaintenanceEstimateResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Update eligible quote content or convert the active selected expectedCost recommendation to vendorQuote with the same estimate ID. Type conversion can include pricing changes but must be separate from approval, cancellation and award; reverse conversion is not allowed. Otherwise approve or deny through Samsara approval and UTS, or separately award an approved quote through the native work-order flow. Award assigns the vendor and preserves the exact financial baseline; applying quote lines to work-order service tasks is a separate dashboard action. Selecting a different quote while an active award exists is rejected; withdraw an eligible awarded quote before awarding its replacement. Approval and award require their respective authority and must be separate updates. Approval, cancellation or award cannot be combined with content or external ID changes. Cancel an unapproved or pending estimate and close any open approval ticket. Cancellation retains history. For an active externally selected recommendation or unapproved quote, this existing cancellation path also releases that selection, clears its vendor assignment and returns an open work order to vendor selection. Cancelling an unselected recommendation leaves other selections unchanged, and native quote cancellation preserves vendor assignment. A current finished vendorQuote that is approved, denied or awarded can instead be withdrawn while retaining its approval decision and award history and retiring only its exact completed active award. This decided-quote withdrawal does not change the work order, vendor assignment, selection attempt, service tasks, actual costs or invoices. It is not restricted by whether repair work has started. Cancellation requires approval authority and, for a known or current award, separate award authority. Processing or superseded quotes and incomplete awards cannot be withdrawn; retry an award in progress after reconciliation. Repeating a cancellation is safe. Omitted fields remain unchanged.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Work Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import (
+    MaintenanceEstimateLineInputRequestBody,
+    MaintenanceEstimateMoneyRequestBody,
+    Samsara,
+)
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.patch_maintenance_estimate(
+    id="id",
+    line_items=[
+        MaintenanceEstimateLineInputRequestBody(
+            amount=MaintenanceEstimateMoneyRequestBody(
+                amount="640.20",
+                currency="usd",
+            ),
+            description="Replace turbocharger",
+            id="8ea6ff70-1e60-4ed9-9c68-a00d72cb720e",
+        )
+    ],
+    tax=MaintenanceEstimateMoneyRequestBody(
+        amount="64.02",
+        currency="usd",
+    ),
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` — Estimate UUID or external ID.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_external_ids:** `typing.Optional[bool]` — Include estimate external identifiers. Defaults to false.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**approval_status:** `typing.Optional[
+    MaintenanceEstimatesPatchMaintenanceEstimateRequestBodyApprovalStatus
+]` — Approve or deny the current quote through Samsara approval and UTS. Cancel an unapproved or pending estimate and close any open approval ticket. For an active externally selected recommendation or unapproved quote, this existing cancellation path also releases that selection, clears its vendor assignment and returns an open work order to vendor selection. Unselected recommendations leave other selections unchanged, and native quote cancellation preserves vendor assignment. A current finished vendorQuote that is approved, denied or awarded can instead be withdrawn while retaining its approval decision and award history and retiring only its exact completed active award. This decided-quote withdrawal does not change the work order, vendor assignment, selection attempt, service tasks, actual costs or invoices. It is not restricted by whether repair work has started. Cancellation requires approval authority and, for a known or current award, separate award authority. Processing or superseded quotes and incomplete awards cannot be withdrawn; retry an award in progress after reconciliation. Repeating a cancellation is safe. Omit to preserve the current status. Send approval or cancellation separately from content changes, estimateType and isAwarded.  Valid values: `approved`, `denied`, `cancelled`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**estimate_type:** `typing.Optional[
+    MaintenanceEstimatesPatchMaintenanceEstimateRequestBodyEstimateType
+]` — Omit to preserve the type. Repeating the current type is allowed. Only the active selected expectedCost recommendation can become a vendorQuote, preserving its estimate ID. The reverse transition is not allowed. Type conversion can include pricing changes, but must be separate from approval, cancellation and award.  Valid values: `expectedCost`, `vendorQuote`
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**external_ids:** `typing.Optional[typing.Dict[str, str]]` — Estimate external identifiers. Responses include these only when includeExternalIds=true; default omitted.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**external_request:** `typing.Optional[MaintenanceEstimateExternalRequestInputRequestBody]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_awarded:** `typing.Optional[bool]` — Only true is writable: award an eligible approved quote, assign its vendor to the work order and preserve its financial baseline. Applying quote lines to work-order service tasks is a separate dashboard action. A different quote cannot replace an active award through this API; withdraw an eligible awarded quote before awarding its replacement. Send award separately from content and external ID changes. Defaults to unchanged when omitted; requires separate award authority.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**line_items:** `typing.Optional[typing.Sequence[MaintenanceEstimateLineInputRequestBody]]` — Complete set of 1 to 200 priced lines when supplied.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**notes:** `typing.Optional[str]` — Notes, at most 4000 Unicode characters. PATCH null clears.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**quoted_at_time:** `typing.Optional[dt.datetime]` — Actual quote timestamp. Omit if the source only has a date; do not invent a time or offset. PATCH null clears.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**tax:** `typing.Optional[MaintenanceEstimateMoneyRequestBody]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">create_maintenance_estimate_attachment</a>(...) -&gt; AsyncHttpResponse[
+    MaintenanceEstimateAttachmentsCreateMaintenanceEstimateAttachmentResponseBody
+]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Attach a PDF, JPEG or PNG to an editable estimate and its work order. Supply exactly one of file (up to 7.5 MB decoded) or upload (up to 40 MB). For upload, PUT the declared file with matching Content-Type, Content-MD5 and Content-Length before uploadPut expires, then read the estimate for availability. Up to 50 work-order attachments are supported.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Work Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.create_maintenance_estimate_attachment(
+    estimate_id="a81e26e6-50cd-4ae2-85b9-132c493c0871",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**estimate_id:** `str` — Estimate UUID or external ID. The estimate must be editable.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**file:** `typing.Optional[MaintenanceEstimateInlineFileRequestBody]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**name:** `typing.Optional[str]` — Filename, at most 255 Unicode characters; generated when omitted.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**upload:** `typing.Optional[MaintenanceAttachmentUploadRequestBody]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">delete_maintenance_estimate_attachment</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Remove evidence from an editable estimate. Returns no content. Read the estimate for its updated version.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Work Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.delete_maintenance_estimate_attachment(
+    id="id",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` — Attachment ID, not the parent estimate ID.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">create_maintenance_estimates_batch</a>(...) -&gt; AsyncHttpResponse[
+    MaintenanceEstimatesCreateMaintenanceEstimatesBatchResponseBody
+]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Create 1–10 unapproved priced recommendations or vendor quotes in one request, limited to 3000000 raw JSON bytes. The batch is non-atomic: each create is independently authorized and validated, and successful writes remain committed when another item fails. Structural request errors return 400 before execution; exceeding the count or byte bound returns 413. Item business errors are returned in input order alongside successes, under HTTP 200. The rate limit applies to batch requests, not individual estimates. Approval, denial, award and attachments use their existing separate operations. Retry failed items only; reconcile ambiguous outcomes by stable external IDs through GET before retrying, because ordinary quote creation is not automatically replayed.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Work Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import (
+    MaintenanceEstimateBatchCreateInputRequestBody,
+    MaintenanceEstimateLineInputRequestBody,
+    MaintenanceEstimateMoneyRequestBody,
+    Samsara,
+)
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.create_maintenance_estimates_batch(
+    estimates=[
+        MaintenanceEstimateBatchCreateInputRequestBody(
+            line_items=[
+                MaintenanceEstimateLineInputRequestBody(
+                    amount=MaintenanceEstimateMoneyRequestBody(
+                        amount="640.20",
+                        currency="usd",
+                    ),
+                    description="Expected repair cost",
+                )
+            ],
+            tax=MaintenanceEstimateMoneyRequestBody(
+                amount="0.00",
+                currency="usd",
+            ),
+            vendor_id="a81e26e6-50cd-4ae2-85b9-132c493c0871",
+            work_order_id="464",
+        )
+    ],
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**estimates:** `typing.Sequence[MaintenanceEstimateBatchCreateInputRequestBody]` — Estimates to create, in response order. Maximum 10; an excess returns HTTP 413.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_external_ids:** `typing.Optional[bool]` — Include estimate external identifiers. Defaults to false.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">get_part_photos</a>(...) -&gt; AsyncHttpResponse[PartPhotosGetPartPhotosResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns the profile photo and other photos of a part.
+
+ <b>Rate limit:</b> 5 requests/sec (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Read Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.get_part_photos(
+    part_id="partId",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**part_id:** `str` — ID of the part.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">post_part_photo</a>(...) -&gt; AsyncHttpResponse[PartPhotosPostPartPhotoResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Adds a photo to an existing part. Accepts base64 encoded JPEG or PNG images up to 7.5MB decoded. The photo is returned with processingStatus 'processing' until it is ready; GET /maintenance/parts/photos returns its url once processingStatus is 'finished'.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import PartPhotoFileRequestBody, Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.post_part_photo(
+    file=PartPhotoFileRequestBody(
+        base_64_content="iVBORw0KGgoAAAANSUhEUgAAAAEAAAAB...",
+        content_type="image/jpeg",
+    ),
+    part_id="4c6d8f2e-9b1a-4e3f-8a7b-2d5c6e9f0a1b",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**file:** `PartPhotoFileRequestBody` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**part_id:** `str` — ID of the part to add the photo to.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**is_profile_photo:** `typing.Optional[bool]` — Whether the photo is the part's profile photo. A part has at most one profile photo; delete the existing one before adding another. Defaults to false.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">delete_part_photo</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Deletes a photo of a part.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Parts** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.delete_part_photo(
+    part_id="partId",
+    id="id",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**part_id:** `str` — ID of the part the photo belongs to.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**id:** `str` — ID of the photo to delete.
     
 </dd>
 </dl>
@@ -9318,6 +10881,176 @@ client.beta_ap_is.get_work_order_templates()
 <dd>
 
 **after:** `typing.Optional[str]` —  If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">post_work_order_attachment</a>(...) -&gt; AsyncHttpResponse[WorkOrdersPostWorkOrderAttachmentResponseBody]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Attaches a PDF, JPEG or PNG file to an existing work order. Supply exactly one of file (base64, at most 7,864,320 decoded bytes) or upload (up to 40,000,000 bytes). For upload, PUT the declared file with matching Content-Type, Content-MD5 and Content-Length before uploadPut expires. Read GET /maintenance/work-orders for availability and the download URL after successful upload. Presigned uploads require the estimate REST rollout to be enabled.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Work Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.post_work_order_attachment(
+    work_order_id="123456",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**work_order_id:** `str` — ID of the work order to attach the file to.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**file:** `typing.Optional[WorkOrderAttachmentFileRequestBody]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**upload:** `typing.Optional[MaintenanceAttachmentUploadRequestBody]` 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.beta_ap_is.<a href="src/samsara/beta_ap_is/client.py">delete_maintenance_work_order_attachment</a>(...) -&gt; AsyncHttpResponse[None]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Remove a work-order attachment by its attachment ID. Returns no content. Evidence referenced by a pending, approved, denied, awarded or superseded estimate, or retained as a reviewed estimate source, cannot be removed. Requires estimate REST access to be enabled.
+
+ <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
+
+To use this endpoint, select **Write Work Orders** under the Work Orders category when creating or editing an API token. <a href="https://developers.samsara.com/docs/authentication#scopes-for-api-tokens" target="_blank">Learn More.</a>
+ 
+
+ **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from samsara import Samsara
+
+client = Samsara(
+    token="YOUR_TOKEN",
+)
+client.beta_ap_is.delete_maintenance_work_order_attachment(
+    id="id",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**id:** `str` — Attachment ID returned by work-order attachment upload or work-order reads, not the work order ID.
     
 </dd>
 </dl>
@@ -11237,7 +12970,7 @@ client.beta_ap_is.post_readings(
             entity_type="asset",
             happened_at_time="2023-10-27T10:00:00Z",
             reading_id="airInletPressure",
-            value={"key": "value"},
+            value="off",
         )
     ],
 )
@@ -14906,7 +16639,7 @@ client.location_and_speed.get_location_and_speed()
 <dl>
 <dd>
 
-Fetch all attributes in an organization associated with either drivers or assets. 
+Fetch all attributes in an organization associated with drivers, assets, or work orders. 
 
  **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
@@ -14948,7 +16681,7 @@ client.attributes.get_attributes_by_entity_type(
 <dl>
 <dd>
 
-**entity_type:** `GetAttributesByEntityTypeRequestEntityType` — Denotes the type of entity, driver or asset.
+**entity_type:** `GetAttributesByEntityTypeRequestEntityType` — Denotes the type of entity, driver, asset, or workOrder. `workOrder` requires work order attributes to be enabled for the organization.
     
 </dd>
 </dl>
@@ -15048,7 +16781,7 @@ client.attributes.create_attribute(
 <dl>
 <dd>
 
-**entity_type:** `CreateAttributeRequestEntityType` — Denotes the type of entity, driver or asset.
+**entity_type:** `CreateAttributeRequestEntityType` — Denotes the type of entity, driver, asset, or workOrder. `workOrder` requires work order attributes to be enabled for the organization. Work order attributes are created without `entities`; set attribute values on work orders through the work orders API.
     
 </dd>
 </dl>
@@ -15171,7 +16904,7 @@ client.attributes.get_attribute(
 <dl>
 <dd>
 
-**entity_type:** `GetAttributeRequestEntityType` — Denotes the type of entity, driver or asset.
+**entity_type:** `GetAttributeRequestEntityType` — Denotes the type of entity, driver, asset, or workOrder. `workOrder` requires work order attributes to be enabled for the organization.
     
 </dd>
 </dl>
@@ -15254,7 +16987,7 @@ client.attributes.delete(
 <dl>
 <dd>
 
-**entity_type:** `DeleteAttributesRequestEntityType` — Denotes the type of entity, driver or asset.
+**entity_type:** `DeleteAttributesRequestEntityType` — Denotes the type of entity, driver, asset, or workOrder. `workOrder` requires work order attributes to be enabled for the organization.
     
 </dd>
 </dl>
@@ -37018,7 +38751,15 @@ client.work_orders.get_work_orders()
 <dl>
 <dd>
 
-**include_external_ids:** `typing.Optional[bool]` — When true, populates `maintenanceSite.placeExternalIds` on each work order by resolving the linked Place's external ids. Defaults to false. Adds one batch lookup per response page.
+**include_external_ids:** `typing.Optional[bool]` — When true, populates `externalId` on each work order and `maintenanceSite.placeExternalIds` by resolving the linked Place's external ids. Defaults to false. Adds one batch lookup per response page.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_attributes:** `typing.Optional[bool]` — Whether to include the work order's custom fields (attributes) in the response. Defaults to false.
     
 </dd>
 </dl>
@@ -37119,6 +38860,14 @@ client.work_orders.post_work_orders(
 <dl>
 <dd>
 
+**attributes:** `typing.Optional[typing.Sequence[GoaAttributeTinyRequestBody]]` — A list of custom fields (attributes) to assign to the work order. Each entry requires the attribute `id`. Use `stringValues` for text, single-select, and multi-select attributes, `numberValues` for number attributes, and `dateValues` (YYYY-MM-DD) for date attributes. For single-select and multi-select attributes, send the text of a defined option. The request is rejected if any attribute or value is invalid. Only available for organizations with work order custom fields enabled.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **category:** `typing.Optional[str]` — The category of the work order
     
 </dd>
@@ -37128,6 +38877,14 @@ client.work_orders.post_work_orders(
 <dd>
 
 **completed_at_time:** `typing.Optional[dt.datetime]` — The historical time the work order was completed, in RFC 3339 format. Is automatically set when the status is Closed or Completed and this field is not provided.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**created_by_user_id:** `typing.Optional[str]` — ID of the dashboard user to attribute as the work order creator for display and creator notifications. Does not change who is recorded as the API actor in the activity log. Must be a user in the organization. When omitted, defaults to the API token owner. Accepted only when the organization has the create-created-by feature enabled.
     
 </dd>
 </dl>
@@ -37239,7 +38996,7 @@ client.work_orders.post_work_orders(
 <dl>
 <dd>
 
-**status:** `typing.Optional[WorkOrdersPostWorkOrdersRequestBodyStatus]` — The initial status of the work order. Defaults to Open when not provided.  Valid values: `Assigned`, `Cancelled`, `Closed`, `Completed`, `Estimate`, `In Progress`, `On Hold`, `Open`, `Pending Approval`, `Pending Parts`, `Planning`
+**status:** `typing.Optional[WorkOrdersPostWorkOrdersRequestBodyStatus]` — The initial user-selectable status of the work order. Defaults to Open when not provided. Estimate workflow statuses are system-managed and cannot be set directly.  Valid values: `Assigned`, `Cancelled`, `Closed`, `Completed`, `Estimate`, `In Progress`, `On Hold`, `Open`, `Pending Approval`, `Pending Parts`, `Planning`
     
 </dd>
 </dl>
@@ -37433,6 +39190,14 @@ client.work_orders.patch_work_orders(
 <dl>
 <dd>
 
+**attributes:** `typing.Optional[typing.Sequence[GoaAttributeTinyRequestBody]]` — A list of custom fields (attributes) to assign to the work order. If provided, this replaces the work order's entire set of attribute associations with exactly this list; omit this field to leave existing attribute associations unchanged, or pass an empty array to clear them. Each entry requires the attribute `id`. Use `stringValues` for text, single-select, and multi-select attributes, `numberValues` for number attributes, and `dateValues` (YYYY-MM-DD) for date attributes. For single-select and multi-select attributes, send the text of a defined option. The request is rejected if any attribute or value is invalid. Only available for organizations with work order custom fields enabled.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **category:** `typing.Optional[str]` — The category of the work order
     
 </dd>
@@ -37561,7 +39326,7 @@ client.work_orders.patch_work_orders(
 <dl>
 <dd>
 
-**status:** `typing.Optional[WorkOrdersPatchWorkOrdersRequestBodyStatus]` — The status of the work order  Valid values: `Assigned`, `Cancelled`, `Closed`, `Completed`, `Estimate`, `In Progress`, `On Hold`, `Open`, `Pending Approval`, `Pending Parts`, `Planning`
+**status:** `typing.Optional[WorkOrdersPatchWorkOrdersRequestBodyStatus]` — The user-selectable status of the work order. Estimate workflow statuses are system-managed; use the estimate API for approval and award actions.  Valid values: `Assigned`, `Cancelled`, `Closed`, `Completed`, `Estimate`, `In Progress`, `On Hold`, `Open`, `Pending Approval`, `Pending Parts`, `Planning`
     
 </dd>
 </dl>
@@ -37707,7 +39472,15 @@ client.work_orders.stream_work_orders(
 <dl>
 <dd>
 
-**include_external_ids:** `typing.Optional[bool]` — When true, populates `maintenanceSite.placeExternalIds` on each work order by resolving the linked Place's external ids. Defaults to false. Adds one batch lookup per response page.
+**include_external_ids:** `typing.Optional[bool]` — When true, populates `externalId` on each work order and `maintenanceSite.placeExternalIds` by resolving the linked Place's external ids. Defaults to false. Adds one batch lookup per response page.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include_attributes:** `typing.Optional[bool]` — Whether to include the work order's custom fields (attributes) in the response. Defaults to false.
     
 </dd>
 </dl>
@@ -39566,6 +41339,7 @@ Available reading IDs (by category):
 * `engineState` (Engine State): Indicates the current state of the engine, such as running, stopped. (values: off | running | idling)
 * `engineTotalIdleTime` (Engine Total Idle Time): Total idle time for the vehicle. (minute)
 * `evAverageCellTemperature` (EV Average Cell Temperature): Average temperature of EV battery cells in degrees Celsius. (celsius)
+* `evBatteryHealth` (EV Battery Health): Represents the health of the EV battery in percentage. (percent)
 * `evChargingCurrent` (EV Charging Current): Charging current for electric and hybrid vehicles. (ampere)
 * `evChargingEnergy` (EV Charging Energy): Charging energy for electric and hybrid vehicles. (watthour)
 * `evChargingStatus` (EV Charging Status): Charging status for electric and hybrid vehicles. (values: unknown | notCharging | charging)
@@ -39575,6 +41349,7 @@ Available reading IDs (by category):
 * `evHighCapacityBatteryCurrent` (EV High Capacity Battery Current): Current from the high capacity EV battery in amperes. (ampere)
 * `evHighCapacityBatteryVoltage` (High Capacity EV Battery Voltage): Represents the voltage of the high capacity EV battery. (volt)
 * `evRegeneratedEnergy` (EV Regenerated Energy): Regenerated energy for electric and hybrid vehicles. (watthour)
+* `evStateOfCharge` (State of Charge): Represents the state of charge of the EV battery in percentage. (percent)
 * `exhaustGasPressure` (Exhaust Gas Pressure): Represents the exhaust gas pressure. (kilopascal)
 * `faultCodes` (Fault Codes): Engine fault codes for the asset
 * `fuelConsumptionRate` (Fuel Consumption Rate): The rate at which an asset uses fuel (litersperhour)
@@ -39705,6 +41480,7 @@ Available reading IDs (by category):
 * `reeferDoorOpenZone3` (Reefer Door Open (Zone 3)): Status indicating whether the reefer's door (zone 3) is closed or open (values: closed | open)
 * `reeferEngineHours` (Reefer Engine Hours): The total accumulated hours that the Refrigeration Unit has been running on its engine. (hour)
 * `reeferFuelLevel` (Reefer Fuel Level): Refrigeration Unit Fuel Level (%) (percent)
+* `reeferOdometer` (Reefer Odometer): Cumulative travel distance reported by the Refrigeration Unit OEM telematics. (meter)
 * `reeferPowerSource` (Reefer Power Source): The power source of the refrigeration unit (Diesel, Electric or Cryo) (values: engine | electric | cryo)
 * `reeferReturnAirZone1` (Reefer Return Air Temperature (Zone 1)): Return air temperature for the reefer's zone 1 (celsius)
 * `reeferReturnAirZone2` (Reefer Return Air Temperature (Zone 2)): Return air temperature for the reefer's zone 2 (celsius)
@@ -39782,6 +41558,30 @@ Available reading IDs (by category):
 * `axle3tirefromleft3temperature` (Axle 3 Right Inner Tire Temperature): Temperature of the right inner tire on axle 3. (celsius)
 * `axle3tirefromleft4pressure` (Axle 3 Right Outer Tire Pressure): Pressure of the right outer tire on axle 3. (kilopascal)
 * `axle3tirefromleft4temperature` (Axle 3 Right Outer Tire Temperature): Temperature of the right outer tire on axle 3. (celsius)
+* `axle4tirefromleft1pressure` (Axle 4 Left Outer Tire Pressure): Pressure of the left outer tire on axle 4. (kilopascal)
+* `axle4tirefromleft1temperature` (Axle 4 Left Outer Tire Temperature): Temperature of the left outer tire on axle 4. (celsius)
+* `axle4tirefromleft2pressure` (Axle 4 Left Inner Tire Pressure): Pressure of the left inner tire on axle 4. (kilopascal)
+* `axle4tirefromleft2temperature` (Axle 4 Left Inner Tire Temperature): Temperature of the left inner tire on axle 4. (celsius)
+* `axle4tirefromleft3pressure` (Axle 4 Right Inner Tire Pressure): Pressure of the right inner tire on axle 4. (kilopascal)
+* `axle4tirefromleft3temperature` (Axle 4 Right Inner Tire Temperature): Temperature of the right inner tire on axle 4. (celsius)
+* `axle4tirefromleft4pressure` (Axle 4 Right Outer Tire Pressure): Pressure of the right outer tire on axle 4. (kilopascal)
+* `axle4tirefromleft4temperature` (Axle 4 Right Outer Tire Temperature): Temperature of the right outer tire on axle 4. (celsius)
+* `axle5tirefromleft1pressure` (Axle 5 Left Outer Tire Pressure): Pressure of the left outer tire on axle 5. (kilopascal)
+* `axle5tirefromleft1temperature` (Axle 5 Left Outer Tire Temperature): Temperature of the left outer tire on axle 5. (celsius)
+* `axle5tirefromleft2pressure` (Axle 5 Left Inner Tire Pressure): Pressure of the left inner tire on axle 5. (kilopascal)
+* `axle5tirefromleft2temperature` (Axle 5 Left Inner Tire Temperature): Temperature of the left inner tire on axle 5. (celsius)
+* `axle5tirefromleft3pressure` (Axle 5 Right Inner Tire Pressure): Pressure of the right inner tire on axle 5. (kilopascal)
+* `axle5tirefromleft3temperature` (Axle 5 Right Inner Tire Temperature): Temperature of the right inner tire on axle 5. (celsius)
+* `axle5tirefromleft4pressure` (Axle 5 Right Outer Tire Pressure): Pressure of the right outer tire on axle 5. (kilopascal)
+* `axle5tirefromleft4temperature` (Axle 5 Right Outer Tire Temperature): Temperature of the right outer tire on axle 5. (celsius)
+* `axle6tirefromleft1pressure` (Axle 6 Left Outer Tire Pressure): Pressure of the left outer tire on axle 6. (kilopascal)
+* `axle6tirefromleft1temperature` (Axle 6 Left Outer Tire Temperature): Temperature of the left outer tire on axle 6. (celsius)
+* `axle6tirefromleft2pressure` (Axle 6 Left Inner Tire Pressure): Pressure of the left inner tire on axle 6. (kilopascal)
+* `axle6tirefromleft2temperature` (Axle 6 Left Inner Tire Temperature): Temperature of the left inner tire on axle 6. (celsius)
+* `axle6tirefromleft3pressure` (Axle 6 Right Inner Tire Pressure): Pressure of the right inner tire on axle 6. (kilopascal)
+* `axle6tirefromleft3temperature` (Axle 6 Right Inner Tire Temperature): Temperature of the right inner tire on axle 6. (celsius)
+* `axle6tirefromleft4pressure` (Axle 6 Right Outer Tire Pressure): Pressure of the right outer tire on axle 6. (kilopascal)
+* `axle6tirefromleft4temperature` (Axle 6 Right Outer Tire Temperature): Temperature of the right outer tire on axle 6. (celsius)
 
 </details>
 
@@ -39989,6 +41789,7 @@ Available reading IDs (by category):
 * `engineState` (Engine State): Indicates the current state of the engine, such as running, stopped. (values: off | running | idling)
 * `engineTotalIdleTime` (Engine Total Idle Time): Total idle time for the vehicle. (minute)
 * `evAverageCellTemperature` (EV Average Cell Temperature): Average temperature of EV battery cells in degrees Celsius. (celsius)
+* `evBatteryHealth` (EV Battery Health): Represents the health of the EV battery in percentage. (percent)
 * `evChargingCurrent` (EV Charging Current): Charging current for electric and hybrid vehicles. (ampere)
 * `evChargingEnergy` (EV Charging Energy): Charging energy for electric and hybrid vehicles. (watthour)
 * `evChargingStatus` (EV Charging Status): Charging status for electric and hybrid vehicles. (values: unknown | notCharging | charging)
@@ -39998,6 +41799,7 @@ Available reading IDs (by category):
 * `evHighCapacityBatteryCurrent` (EV High Capacity Battery Current): Current from the high capacity EV battery in amperes. (ampere)
 * `evHighCapacityBatteryVoltage` (High Capacity EV Battery Voltage): Represents the voltage of the high capacity EV battery. (volt)
 * `evRegeneratedEnergy` (EV Regenerated Energy): Regenerated energy for electric and hybrid vehicles. (watthour)
+* `evStateOfCharge` (State of Charge): Represents the state of charge of the EV battery in percentage. (percent)
 * `exhaustGasPressure` (Exhaust Gas Pressure): Represents the exhaust gas pressure. (kilopascal)
 * `faultCodes` (Fault Codes): Engine fault codes for the asset
 * `fuelConsumptionRate` (Fuel Consumption Rate): The rate at which an asset uses fuel (litersperhour)
@@ -40128,6 +41930,7 @@ Available reading IDs (by category):
 * `reeferDoorOpenZone3` (Reefer Door Open (Zone 3)): Status indicating whether the reefer's door (zone 3) is closed or open (values: closed | open)
 * `reeferEngineHours` (Reefer Engine Hours): The total accumulated hours that the Refrigeration Unit has been running on its engine. (hour)
 * `reeferFuelLevel` (Reefer Fuel Level): Refrigeration Unit Fuel Level (%) (percent)
+* `reeferOdometer` (Reefer Odometer): Cumulative travel distance reported by the Refrigeration Unit OEM telematics. (meter)
 * `reeferPowerSource` (Reefer Power Source): The power source of the refrigeration unit (Diesel, Electric or Cryo) (values: engine | electric | cryo)
 * `reeferReturnAirZone1` (Reefer Return Air Temperature (Zone 1)): Return air temperature for the reefer's zone 1 (celsius)
 * `reeferReturnAirZone2` (Reefer Return Air Temperature (Zone 2)): Return air temperature for the reefer's zone 2 (celsius)
@@ -40205,6 +42008,30 @@ Available reading IDs (by category):
 * `axle3tirefromleft3temperature` (Axle 3 Right Inner Tire Temperature): Temperature of the right inner tire on axle 3. (celsius)
 * `axle3tirefromleft4pressure` (Axle 3 Right Outer Tire Pressure): Pressure of the right outer tire on axle 3. (kilopascal)
 * `axle3tirefromleft4temperature` (Axle 3 Right Outer Tire Temperature): Temperature of the right outer tire on axle 3. (celsius)
+* `axle4tirefromleft1pressure` (Axle 4 Left Outer Tire Pressure): Pressure of the left outer tire on axle 4. (kilopascal)
+* `axle4tirefromleft1temperature` (Axle 4 Left Outer Tire Temperature): Temperature of the left outer tire on axle 4. (celsius)
+* `axle4tirefromleft2pressure` (Axle 4 Left Inner Tire Pressure): Pressure of the left inner tire on axle 4. (kilopascal)
+* `axle4tirefromleft2temperature` (Axle 4 Left Inner Tire Temperature): Temperature of the left inner tire on axle 4. (celsius)
+* `axle4tirefromleft3pressure` (Axle 4 Right Inner Tire Pressure): Pressure of the right inner tire on axle 4. (kilopascal)
+* `axle4tirefromleft3temperature` (Axle 4 Right Inner Tire Temperature): Temperature of the right inner tire on axle 4. (celsius)
+* `axle4tirefromleft4pressure` (Axle 4 Right Outer Tire Pressure): Pressure of the right outer tire on axle 4. (kilopascal)
+* `axle4tirefromleft4temperature` (Axle 4 Right Outer Tire Temperature): Temperature of the right outer tire on axle 4. (celsius)
+* `axle5tirefromleft1pressure` (Axle 5 Left Outer Tire Pressure): Pressure of the left outer tire on axle 5. (kilopascal)
+* `axle5tirefromleft1temperature` (Axle 5 Left Outer Tire Temperature): Temperature of the left outer tire on axle 5. (celsius)
+* `axle5tirefromleft2pressure` (Axle 5 Left Inner Tire Pressure): Pressure of the left inner tire on axle 5. (kilopascal)
+* `axle5tirefromleft2temperature` (Axle 5 Left Inner Tire Temperature): Temperature of the left inner tire on axle 5. (celsius)
+* `axle5tirefromleft3pressure` (Axle 5 Right Inner Tire Pressure): Pressure of the right inner tire on axle 5. (kilopascal)
+* `axle5tirefromleft3temperature` (Axle 5 Right Inner Tire Temperature): Temperature of the right inner tire on axle 5. (celsius)
+* `axle5tirefromleft4pressure` (Axle 5 Right Outer Tire Pressure): Pressure of the right outer tire on axle 5. (kilopascal)
+* `axle5tirefromleft4temperature` (Axle 5 Right Outer Tire Temperature): Temperature of the right outer tire on axle 5. (celsius)
+* `axle6tirefromleft1pressure` (Axle 6 Left Outer Tire Pressure): Pressure of the left outer tire on axle 6. (kilopascal)
+* `axle6tirefromleft1temperature` (Axle 6 Left Outer Tire Temperature): Temperature of the left outer tire on axle 6. (celsius)
+* `axle6tirefromleft2pressure` (Axle 6 Left Inner Tire Pressure): Pressure of the left inner tire on axle 6. (kilopascal)
+* `axle6tirefromleft2temperature` (Axle 6 Left Inner Tire Temperature): Temperature of the left inner tire on axle 6. (celsius)
+* `axle6tirefromleft3pressure` (Axle 6 Right Inner Tire Pressure): Pressure of the right inner tire on axle 6. (kilopascal)
+* `axle6tirefromleft3temperature` (Axle 6 Right Inner Tire Temperature): Temperature of the right inner tire on axle 6. (celsius)
+* `axle6tirefromleft4pressure` (Axle 6 Right Outer Tire Pressure): Pressure of the right outer tire on axle 6. (kilopascal)
+* `axle6tirefromleft4temperature` (Axle 6 Right Outer Tire Temperature): Temperature of the right outer tire on axle 6. (celsius)
 
 </details>
 
@@ -40265,6 +42092,14 @@ Available reading IDs (by category):
 <dd>
 
 **include_external_ids:** `typing.Optional[bool]` — Optional boolean indicating whether to return external IDs on supported entities
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**has_gateway:** `typing.Optional[bool]` — A filter on the data based on whether the asset is currently associated with a gateway. If set to true, only returns readings for assets that are currently associated with a gateway. If set to false, only returns readings for assets that are not currently associated with a gateway. If not set, no gateway filtering is applied. Only supported when entityType is asset.
     
 </dd>
 </dl>

@@ -51,6 +51,15 @@ class ServiceTaskDefinitionObjectResponseBody(UniversalBaseModel):
     The subcategory of the service task.
     """
 
+    vmrs_code: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="vmrsCode"),
+        pydantic.Field(
+            alias="vmrsCode",
+            description="Full VMRS code path (e.g. 034-005-001) assigned to the service task. Omitted when the task has no VMRS code or the organization has VMRS codes turned off.",
+        ),
+    ] = None
+
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
     else:

@@ -7,6 +7,7 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
+from .goa_attribute_tiny_response_body import GoaAttributeTinyResponseBody
 from .service_task_instance_object_response_body import ServiceTaskInstanceObjectResponseBody
 from .work_order_assignee_object_response_body import WorkOrderAssigneeObjectResponseBody
 from .work_order_attachment_object_response_body import WorkOrderAttachmentObjectResponseBody
@@ -47,6 +48,11 @@ class WorkOrderObjectResponseBody(UniversalBaseModel):
     Files attached to the work order.
     """
 
+    attributes: typing.Optional[typing.List[GoaAttributeTinyResponseBody]] = pydantic.Field(default=None)
+    """
+    Custom fields (attributes) set on the work order. Only returned when the request includes attributes.
+    """
+
     category: typing.Optional[str] = pydantic.Field(default=None)
     """
     The category of the work order
@@ -72,7 +78,10 @@ class WorkOrderObjectResponseBody(UniversalBaseModel):
     created_by_user_id: typing_extensions.Annotated[
         typing.Optional[str],
         FieldMetadata(alias="createdByUserId"),
-        pydantic.Field(alias="createdByUserId", description="The ID of the creator of the work order."),
+        pydantic.Field(
+            alias="createdByUserId",
+            description="The ID of the creator of the work order. On create, integrations may optionally set this to attribute Created-by UI and creator notifications to a dashboard user; the activity log still records the API token owner as the create actor when that override is used.",
+        ),
     ] = None
     description: typing.Optional[str] = pydantic.Field(default=None)
     """
@@ -139,7 +148,7 @@ class WorkOrderObjectResponseBody(UniversalBaseModel):
     ] = None
     status: WorkOrderObjectResponseBodyStatus = pydantic.Field()
     """
-    The status of the work order  Valid values: `Assigned`, `Cancelled`, `Closed`, `Completed`, `Estimate`, `In Progress`, `On Hold`, `Open`, `Pending Approval`, `Pending Parts`, `Planning`
+    The status of the work order, including system-managed estimate workflow statuses.  Valid values: `Assigned`, `Awaiting estimate approval`, `Awaiting estimates`, `Cancelled`, `Closed`, `Completed`, `Estimate`, `Estimate approval denied`, `Estimate approved`, `Estimates ready`, `In Progress`, `Needs Vendor Selection`, `On Hold`, `Open`, `Pending Approval`, `Pending Parts`, `Planning`
     """
 
     tax: typing.Optional[WorkOrderTaxObjectResponseBody] = None

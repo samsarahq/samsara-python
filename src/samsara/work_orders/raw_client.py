@@ -20,6 +20,7 @@ from ..errors.not_implemented_error import NotImplementedError
 from ..errors.service_unavailable_error import ServiceUnavailableError
 from ..errors.too_many_requests_error import TooManyRequestsError
 from ..errors.unauthorized_error import UnauthorizedError
+from ..types.goa_attribute_tiny_request_body import GoaAttributeTinyRequestBody
 from ..types.invoice_scan_file_request_body import InvoiceScanFileRequestBody
 from ..types.service_task_instance_input_object_request_body import ServiceTaskInstanceInputObjectRequestBody
 from ..types.work_order_discount_object_request_body import WorkOrderDiscountObjectRequestBody
@@ -401,6 +402,7 @@ class RawWorkOrdersClient:
         ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         after: typing.Optional[str] = None,
         include_external_ids: typing.Optional[bool] = None,
+        include_attributes: typing.Optional[bool] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[WorkOrdersGetWorkOrdersResponseBody]:
         """
@@ -422,7 +424,10 @@ class RawWorkOrdersClient:
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
 
         include_external_ids : typing.Optional[bool]
-            When true, populates `maintenanceSite.placeExternalIds` on each work order by resolving the linked Place's external ids. Defaults to false. Adds one batch lookup per response page.
+            When true, populates `externalId` on each work order and `maintenanceSite.placeExternalIds` by resolving the linked Place's external ids. Defaults to false. Adds one batch lookup per response page.
+
+        include_attributes : typing.Optional[bool]
+            Whether to include the work order's custom fields (attributes) in the response. Defaults to false.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -439,6 +444,7 @@ class RawWorkOrdersClient:
                 "ids": ids,
                 "after": after,
                 "includeExternalIds": include_external_ids,
+                "includeAttributes": include_attributes,
             },
             request_options=request_options,
         )
@@ -573,8 +579,10 @@ class RawWorkOrdersClient:
         asset_id: str,
         archived_at_time: typing.Optional[dt.datetime] = OMIT,
         assigned_user_id: typing.Optional[str] = OMIT,
+        attributes: typing.Optional[typing.Sequence[GoaAttributeTinyRequestBody]] = OMIT,
         category: typing.Optional[str] = OMIT,
         completed_at_time: typing.Optional[dt.datetime] = OMIT,
+        created_by_user_id: typing.Optional[str] = OMIT,
         description: typing.Optional[str] = OMIT,
         discount: typing.Optional[WorkOrderDiscountObjectRequestBody] = OMIT,
         due_at_time: typing.Optional[dt.datetime] = OMIT,
@@ -614,11 +622,17 @@ class RawWorkOrdersClient:
         assigned_user_id : typing.Optional[str]
             The ID of the assigned mechanic.
 
+        attributes : typing.Optional[typing.Sequence[GoaAttributeTinyRequestBody]]
+            A list of custom fields (attributes) to assign to the work order. Each entry requires the attribute `id`. Use `stringValues` for text, single-select, and multi-select attributes, `numberValues` for number attributes, and `dateValues` (YYYY-MM-DD) for date attributes. For single-select and multi-select attributes, send the text of a defined option. The request is rejected if any attribute or value is invalid. Only available for organizations with work order custom fields enabled.
+
         category : typing.Optional[str]
             The category of the work order
 
         completed_at_time : typing.Optional[dt.datetime]
             The historical time the work order was completed, in RFC 3339 format. Is automatically set when the status is Closed or Completed and this field is not provided.
+
+        created_by_user_id : typing.Optional[str]
+            ID of the dashboard user to attribute as the work order creator for display and creator notifications. Does not change who is recorded as the API actor in the activity log. Must be a user in the organization. When omitted, defaults to the API token owner. Accepted only when the organization has the create-created-by feature enabled.
 
         description : typing.Optional[str]
             A description of what needs to be fixed.
@@ -659,7 +673,7 @@ class RawWorkOrdersClient:
             The historical time work started on the work order, in RFC 3339 format. Is automatically set when the status is an in-progress status and this field is not provided.
 
         status : typing.Optional[WorkOrdersPostWorkOrdersRequestBodyStatus]
-            The initial status of the work order. Defaults to Open when not provided.  Valid values: `Assigned`, `Cancelled`, `Closed`, `Completed`, `Estimate`, `In Progress`, `On Hold`, `Open`, `Pending Approval`, `Pending Parts`, `Planning`
+            The initial user-selectable status of the work order. Defaults to Open when not provided. Estimate workflow statuses are system-managed and cannot be set directly.  Valid values: `Assigned`, `Cancelled`, `Closed`, `Completed`, `Estimate`, `In Progress`, `On Hold`, `Open`, `Pending Approval`, `Pending Parts`, `Planning`
 
         tax : typing.Optional[WorkOrderTaxCreateObjectRequestBody]
 
@@ -681,8 +695,12 @@ class RawWorkOrdersClient:
                 "archivedAtTime": archived_at_time,
                 "assetId": asset_id,
                 "assignedUserId": assigned_user_id,
+                "attributes": convert_and_respect_annotation_metadata(
+                    object_=attributes, annotation=typing.Sequence[GoaAttributeTinyRequestBody], direction="write"
+                ),
                 "category": category,
                 "completedAtTime": completed_at_time,
+                "createdByUserId": created_by_user_id,
                 "description": description,
                 "discount": convert_and_respect_annotation_metadata(
                     object_=discount, annotation=WorkOrderDiscountObjectRequestBody, direction="write"
@@ -998,6 +1016,7 @@ class RawWorkOrdersClient:
         id: str,
         archived_at_time: typing.Optional[dt.datetime] = OMIT,
         assigned_user_id: typing.Optional[str] = OMIT,
+        attributes: typing.Optional[typing.Sequence[GoaAttributeTinyRequestBody]] = OMIT,
         category: typing.Optional[str] = OMIT,
         closing_notes: typing.Optional[str] = OMIT,
         completed_at_time: typing.Optional[dt.datetime] = OMIT,
@@ -1039,6 +1058,9 @@ class RawWorkOrdersClient:
 
         assigned_user_id : typing.Optional[str]
             The ID of the assigned mechanic.
+
+        attributes : typing.Optional[typing.Sequence[GoaAttributeTinyRequestBody]]
+            A list of custom fields (attributes) to assign to the work order. If provided, this replaces the work order's entire set of attribute associations with exactly this list; omit this field to leave existing attribute associations unchanged, or pass an empty array to clear them. Each entry requires the attribute `id`. Use `stringValues` for text, single-select, and multi-select attributes, `numberValues` for number attributes, and `dateValues` (YYYY-MM-DD) for date attributes. For single-select and multi-select attributes, send the text of a defined option. The request is rejected if any attribute or value is invalid. Only available for organizations with work order custom fields enabled.
 
         category : typing.Optional[str]
             The category of the work order
@@ -1088,7 +1110,7 @@ class RawWorkOrdersClient:
             The historical time work started on the work order, in RFC 3339 format. Is automatically set when the status changes to an in-progress status and this field is not provided.
 
         status : typing.Optional[WorkOrdersPatchWorkOrdersRequestBodyStatus]
-            The status of the work order  Valid values: `Assigned`, `Cancelled`, `Closed`, `Completed`, `Estimate`, `In Progress`, `On Hold`, `Open`, `Pending Approval`, `Pending Parts`, `Planning`
+            The user-selectable status of the work order. Estimate workflow statuses are system-managed; use the estimate API for approval and award actions.  Valid values: `Assigned`, `Cancelled`, `Closed`, `Completed`, `Estimate`, `In Progress`, `On Hold`, `Open`, `Pending Approval`, `Pending Parts`, `Planning`
 
         tax : typing.Optional[WorkOrderTaxObjectRequestBody]
 
@@ -1109,6 +1131,9 @@ class RawWorkOrdersClient:
             json={
                 "archivedAtTime": archived_at_time,
                 "assignedUserId": assigned_user_id,
+                "attributes": convert_and_respect_annotation_metadata(
+                    object_=attributes, annotation=typing.Sequence[GoaAttributeTinyRequestBody], direction="write"
+                ),
                 "category": category,
                 "closingNotes": closing_notes,
                 "completedAtTime": completed_at_time,
@@ -1286,6 +1311,7 @@ class RawWorkOrdersClient:
         asset_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         assigned_user_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         include_external_ids: typing.Optional[bool] = None,
+        include_attributes: typing.Optional[bool] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[WorkOrdersStreamWorkOrdersResponseBody]:
         """
@@ -1319,7 +1345,10 @@ class RawWorkOrdersClient:
             Work Order assigned user id filter. Up to 50 ids.
 
         include_external_ids : typing.Optional[bool]
-            When true, populates `maintenanceSite.placeExternalIds` on each work order by resolving the linked Place's external ids. Defaults to false. Adds one batch lookup per response page.
+            When true, populates `externalId` on each work order and `maintenanceSite.placeExternalIds` by resolving the linked Place's external ids. Defaults to false. Adds one batch lookup per response page.
+
+        include_attributes : typing.Optional[bool]
+            Whether to include the work order's custom fields (attributes) in the response. Defaults to false.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -1340,6 +1369,7 @@ class RawWorkOrdersClient:
                 "assetIds": asset_ids,
                 "assignedUserIds": assigned_user_ids,
                 "includeExternalIds": include_external_ids,
+                "includeAttributes": include_attributes,
             },
             request_options=request_options,
         )
@@ -1828,6 +1858,7 @@ class AsyncRawWorkOrdersClient:
         ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         after: typing.Optional[str] = None,
         include_external_ids: typing.Optional[bool] = None,
+        include_attributes: typing.Optional[bool] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[WorkOrdersGetWorkOrdersResponseBody]:
         """
@@ -1849,7 +1880,10 @@ class AsyncRawWorkOrdersClient:
              If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.
 
         include_external_ids : typing.Optional[bool]
-            When true, populates `maintenanceSite.placeExternalIds` on each work order by resolving the linked Place's external ids. Defaults to false. Adds one batch lookup per response page.
+            When true, populates `externalId` on each work order and `maintenanceSite.placeExternalIds` by resolving the linked Place's external ids. Defaults to false. Adds one batch lookup per response page.
+
+        include_attributes : typing.Optional[bool]
+            Whether to include the work order's custom fields (attributes) in the response. Defaults to false.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -1866,6 +1900,7 @@ class AsyncRawWorkOrdersClient:
                 "ids": ids,
                 "after": after,
                 "includeExternalIds": include_external_ids,
+                "includeAttributes": include_attributes,
             },
             request_options=request_options,
         )
@@ -2000,8 +2035,10 @@ class AsyncRawWorkOrdersClient:
         asset_id: str,
         archived_at_time: typing.Optional[dt.datetime] = OMIT,
         assigned_user_id: typing.Optional[str] = OMIT,
+        attributes: typing.Optional[typing.Sequence[GoaAttributeTinyRequestBody]] = OMIT,
         category: typing.Optional[str] = OMIT,
         completed_at_time: typing.Optional[dt.datetime] = OMIT,
+        created_by_user_id: typing.Optional[str] = OMIT,
         description: typing.Optional[str] = OMIT,
         discount: typing.Optional[WorkOrderDiscountObjectRequestBody] = OMIT,
         due_at_time: typing.Optional[dt.datetime] = OMIT,
@@ -2041,11 +2078,17 @@ class AsyncRawWorkOrdersClient:
         assigned_user_id : typing.Optional[str]
             The ID of the assigned mechanic.
 
+        attributes : typing.Optional[typing.Sequence[GoaAttributeTinyRequestBody]]
+            A list of custom fields (attributes) to assign to the work order. Each entry requires the attribute `id`. Use `stringValues` for text, single-select, and multi-select attributes, `numberValues` for number attributes, and `dateValues` (YYYY-MM-DD) for date attributes. For single-select and multi-select attributes, send the text of a defined option. The request is rejected if any attribute or value is invalid. Only available for organizations with work order custom fields enabled.
+
         category : typing.Optional[str]
             The category of the work order
 
         completed_at_time : typing.Optional[dt.datetime]
             The historical time the work order was completed, in RFC 3339 format. Is automatically set when the status is Closed or Completed and this field is not provided.
+
+        created_by_user_id : typing.Optional[str]
+            ID of the dashboard user to attribute as the work order creator for display and creator notifications. Does not change who is recorded as the API actor in the activity log. Must be a user in the organization. When omitted, defaults to the API token owner. Accepted only when the organization has the create-created-by feature enabled.
 
         description : typing.Optional[str]
             A description of what needs to be fixed.
@@ -2086,7 +2129,7 @@ class AsyncRawWorkOrdersClient:
             The historical time work started on the work order, in RFC 3339 format. Is automatically set when the status is an in-progress status and this field is not provided.
 
         status : typing.Optional[WorkOrdersPostWorkOrdersRequestBodyStatus]
-            The initial status of the work order. Defaults to Open when not provided.  Valid values: `Assigned`, `Cancelled`, `Closed`, `Completed`, `Estimate`, `In Progress`, `On Hold`, `Open`, `Pending Approval`, `Pending Parts`, `Planning`
+            The initial user-selectable status of the work order. Defaults to Open when not provided. Estimate workflow statuses are system-managed and cannot be set directly.  Valid values: `Assigned`, `Cancelled`, `Closed`, `Completed`, `Estimate`, `In Progress`, `On Hold`, `Open`, `Pending Approval`, `Pending Parts`, `Planning`
 
         tax : typing.Optional[WorkOrderTaxCreateObjectRequestBody]
 
@@ -2108,8 +2151,12 @@ class AsyncRawWorkOrdersClient:
                 "archivedAtTime": archived_at_time,
                 "assetId": asset_id,
                 "assignedUserId": assigned_user_id,
+                "attributes": convert_and_respect_annotation_metadata(
+                    object_=attributes, annotation=typing.Sequence[GoaAttributeTinyRequestBody], direction="write"
+                ),
                 "category": category,
                 "completedAtTime": completed_at_time,
+                "createdByUserId": created_by_user_id,
                 "description": description,
                 "discount": convert_and_respect_annotation_metadata(
                     object_=discount, annotation=WorkOrderDiscountObjectRequestBody, direction="write"
@@ -2425,6 +2472,7 @@ class AsyncRawWorkOrdersClient:
         id: str,
         archived_at_time: typing.Optional[dt.datetime] = OMIT,
         assigned_user_id: typing.Optional[str] = OMIT,
+        attributes: typing.Optional[typing.Sequence[GoaAttributeTinyRequestBody]] = OMIT,
         category: typing.Optional[str] = OMIT,
         closing_notes: typing.Optional[str] = OMIT,
         completed_at_time: typing.Optional[dt.datetime] = OMIT,
@@ -2466,6 +2514,9 @@ class AsyncRawWorkOrdersClient:
 
         assigned_user_id : typing.Optional[str]
             The ID of the assigned mechanic.
+
+        attributes : typing.Optional[typing.Sequence[GoaAttributeTinyRequestBody]]
+            A list of custom fields (attributes) to assign to the work order. If provided, this replaces the work order's entire set of attribute associations with exactly this list; omit this field to leave existing attribute associations unchanged, or pass an empty array to clear them. Each entry requires the attribute `id`. Use `stringValues` for text, single-select, and multi-select attributes, `numberValues` for number attributes, and `dateValues` (YYYY-MM-DD) for date attributes. For single-select and multi-select attributes, send the text of a defined option. The request is rejected if any attribute or value is invalid. Only available for organizations with work order custom fields enabled.
 
         category : typing.Optional[str]
             The category of the work order
@@ -2515,7 +2566,7 @@ class AsyncRawWorkOrdersClient:
             The historical time work started on the work order, in RFC 3339 format. Is automatically set when the status changes to an in-progress status and this field is not provided.
 
         status : typing.Optional[WorkOrdersPatchWorkOrdersRequestBodyStatus]
-            The status of the work order  Valid values: `Assigned`, `Cancelled`, `Closed`, `Completed`, `Estimate`, `In Progress`, `On Hold`, `Open`, `Pending Approval`, `Pending Parts`, `Planning`
+            The user-selectable status of the work order. Estimate workflow statuses are system-managed; use the estimate API for approval and award actions.  Valid values: `Assigned`, `Cancelled`, `Closed`, `Completed`, `Estimate`, `In Progress`, `On Hold`, `Open`, `Pending Approval`, `Pending Parts`, `Planning`
 
         tax : typing.Optional[WorkOrderTaxObjectRequestBody]
 
@@ -2536,6 +2587,9 @@ class AsyncRawWorkOrdersClient:
             json={
                 "archivedAtTime": archived_at_time,
                 "assignedUserId": assigned_user_id,
+                "attributes": convert_and_respect_annotation_metadata(
+                    object_=attributes, annotation=typing.Sequence[GoaAttributeTinyRequestBody], direction="write"
+                ),
                 "category": category,
                 "closingNotes": closing_notes,
                 "completedAtTime": completed_at_time,
@@ -2713,6 +2767,7 @@ class AsyncRawWorkOrdersClient:
         asset_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         assigned_user_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         include_external_ids: typing.Optional[bool] = None,
+        include_attributes: typing.Optional[bool] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[WorkOrdersStreamWorkOrdersResponseBody]:
         """
@@ -2746,7 +2801,10 @@ class AsyncRawWorkOrdersClient:
             Work Order assigned user id filter. Up to 50 ids.
 
         include_external_ids : typing.Optional[bool]
-            When true, populates `maintenanceSite.placeExternalIds` on each work order by resolving the linked Place's external ids. Defaults to false. Adds one batch lookup per response page.
+            When true, populates `externalId` on each work order and `maintenanceSite.placeExternalIds` by resolving the linked Place's external ids. Defaults to false. Adds one batch lookup per response page.
+
+        include_attributes : typing.Optional[bool]
+            Whether to include the work order's custom fields (attributes) in the response. Defaults to false.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -2767,6 +2825,7 @@ class AsyncRawWorkOrdersClient:
                 "assetIds": asset_ids,
                 "assignedUserIds": assigned_user_ids,
                 "includeExternalIds": include_external_ids,
+                "includeAttributes": include_attributes,
             },
             request_options=request_options,
         )

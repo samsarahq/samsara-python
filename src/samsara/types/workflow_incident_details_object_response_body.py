@@ -61,6 +61,7 @@ from .speed_data_response_body import SpeedDataResponseBody
 from .sudden_fuel_level_drop_response_body import SuddenFuelLevelDropResponseBody
 from .sudden_fuel_level_rise_response_body import SuddenFuelLevelRiseResponseBody
 from .tampering_detected_response_body import TamperingDetectedResponseBody
+from .thermograph_temperature_response_body import ThermographTemperatureResponseBody
 from .tire_faults_response_body import TireFaultsResponseBody
 from .trailer_moving_without_power_data_response_body import TrailerMovingWithoutPowerDataResponseBody
 from .unassigned_driving_data_response_body import UnassignedDrivingDataResponseBody
@@ -353,6 +354,11 @@ class WorkflowIncidentDetailsObjectResponseBody(UniversalBaseModel):
         typing.Optional[TamperingDetectedResponseBody],
         FieldMetadata(alias="tamperingDetected"),
         pydantic.Field(alias="tamperingDetected"),
+    ] = None
+    thermograph_temperature: typing_extensions.Annotated[
+        typing.Optional[ThermographTemperatureResponseBody],
+        FieldMetadata(alias="thermographTemperature"),
+        pydantic.Field(alias="thermographTemperature"),
     ] = None
     tire_faults: typing_extensions.Annotated[
         typing.Optional[TireFaultsResponseBody], FieldMetadata(alias="tireFaults"), pydantic.Field(alias="tireFaults")

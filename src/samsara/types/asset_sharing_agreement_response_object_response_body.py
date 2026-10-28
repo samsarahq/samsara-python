@@ -9,8 +9,14 @@ from ..core.serialization import FieldMetadata
 from .asset_sharing_agreement_response_object_response_body_canceled_by_party import (
     AssetSharingAgreementResponseObjectResponseBodyCanceledByParty,
 )
+from .asset_sharing_agreement_response_object_response_body_created_by_party import (
+    AssetSharingAgreementResponseObjectResponseBodyCreatedByParty,
+)
 from .asset_sharing_agreement_response_object_response_body_operator import (
     AssetSharingAgreementResponseObjectResponseBodyOperator,
+)
+from .asset_sharing_agreement_response_object_response_body_payer import (
+    AssetSharingAgreementResponseObjectResponseBodyPayer,
 )
 from .asset_sharing_agreement_response_object_response_body_provider_data_packages_item import (
     AssetSharingAgreementResponseObjectResponseBodyProviderDataPackagesItem,
@@ -37,7 +43,8 @@ class AssetSharingAgreementResponseObjectResponseBody(UniversalBaseModel):
         typing.Optional[str],
         FieldMetadata(alias="acceptedByUserId"),
         pydantic.Field(
-            alias="acceptedByUserId", description="User ID who accepted the agreement (visible only to recipient)."
+            alias="acceptedByUserId",
+            description="User ID who accepted the agreement (visible only to the accepting organization).",
         ),
     ] = None
     canceled_at_time: typing_extensions.Annotated[
@@ -66,15 +73,29 @@ class AssetSharingAgreementResponseObjectResponseBody(UniversalBaseModel):
         FieldMetadata(alias="createdAtTime"),
         pydantic.Field(alias="createdAtTime", description="Time the agreement was created, in RFC 3339 format."),
     ]
+    created_by_party: typing_extensions.Annotated[
+        AssetSharingAgreementResponseObjectResponseBodyCreatedByParty,
+        FieldMetadata(alias="createdByParty"),
+        pydantic.Field(
+            alias="createdByParty",
+            description="Party that created the agreement, determined from the authenticated caller. Older agreements default to provider. Returns unknown if the party cannot be determined.  Valid values: `provider`, `recipient`, `unknown`",
+        ),
+    ]
     created_by_user_id: typing_extensions.Annotated[
         typing.Optional[str],
         FieldMetadata(alias="createdByUserId"),
-        pydantic.Field(alias="createdByUserId", description="User ID in provider org who created the agreement."),
+        pydantic.Field(
+            alias="createdByUserId",
+            description="User ID who created the agreement (visible only to the creating organization).",
+        ),
     ] = None
     deleted_by_user_id: typing_extensions.Annotated[
         typing.Optional[str],
         FieldMetadata(alias="deletedByUserId"),
-        pydantic.Field(alias="deletedByUserId", description="User ID in provider org who soft-deleted the agreement."),
+        pydantic.Field(
+            alias="deletedByUserId",
+            description="User ID who soft-deleted the agreement (visible only to the deleting organization).",
+        ),
     ] = None
     id: str = pydantic.Field()
     """
@@ -84,6 +105,11 @@ class AssetSharingAgreementResponseObjectResponseBody(UniversalBaseModel):
     operator: AssetSharingAgreementResponseObjectResponseBodyOperator = pydantic.Field()
     """
     Defines where the gateways will be located.  Valid values: `provider`, `recipient`
+    """
+
+    payer: AssetSharingAgreementResponseObjectResponseBodyPayer = pydantic.Field()
+    """
+    Party whose Asset Sharing license supports the agreement. Older agreements default to provider. Returns unknown if the party cannot be determined.  Valid values: `provider`, `recipient`, `unknown`
     """
 
     provider_data_packages: typing_extensions.Annotated[
@@ -121,7 +147,8 @@ class AssetSharingAgreementResponseObjectResponseBody(UniversalBaseModel):
         typing.Optional[str],
         FieldMetadata(alias="rejectedByUserId"),
         pydantic.Field(
-            alias="rejectedByUserId", description="User ID who rejected the agreement (visible only to recipient)."
+            alias="rejectedByUserId",
+            description="User ID who rejected the agreement (visible only to the rejecting organization).",
         ),
     ] = None
     status: AssetSharingAgreementResponseObjectResponseBodyStatus = pydantic.Field()

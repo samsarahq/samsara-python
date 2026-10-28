@@ -55,10 +55,7 @@ class ReadingDefinitionResponseBody(UniversalBaseModel):
             alias="readingId", description="The ID of the reading used to fetch time series data in other endpoints."
         ),
     ]
-    type: typing.Dict[str, typing.Any] = pydantic.Field()
-    """
-    The type information for the reading. Contains the complete type structure including dataType, unit, enumValues, fields, etc.
-    """
+    type: typing.Any
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
