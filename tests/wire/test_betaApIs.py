@@ -149,7 +149,6 @@ def test_betaApIs_create_asset_sharing_agreement() -> None:
         provider_data_packages=["all", "maintenance", "maintenance", "maintenance"],
         recipient_data_packages=["all", "reefer", "all", "maintenance"],
         recipient_organization_id="456",
-        recipient_organization_name="Acme Logistics",
     )
     verify_request_count(test_id, "POST", "/fleet/asset-sharing/agreements", None, 1)
 
@@ -649,6 +648,147 @@ def test_betaApIs_update_hub_route_template() -> None:
     verify_request_count(test_id, "PATCH", "/hub/route-templates", {"id": "id"}, 1)
 
 
+def test_betaApIs_get_campaigns() -> None:
+    """Test getCampaigns endpoint with WireMock"""
+    test_id = "beta_ap_is.get_campaigns.0"
+    client = get_client(test_id)
+    client.beta_ap_is.get_campaigns()
+    verify_request_count(test_id, "GET", "/maintenance/campaigns", None, 1)
+
+
+def test_betaApIs_post_campaigns() -> None:
+    """Test postCampaigns endpoint with WireMock"""
+    test_id = "beta_ap_is.post_campaigns.0"
+    client = get_client(test_id)
+    client.beta_ap_is.post_campaigns(campaign_type="safetyRecall", name="Rear brake hose recall")
+    verify_request_count(test_id, "POST", "/maintenance/campaigns", None, 1)
+
+
+def test_betaApIs_get_campaign_items() -> None:
+    """Test getCampaignItems endpoint with WireMock"""
+    test_id = "beta_ap_is.get_campaign_items.0"
+    client = get_client(test_id)
+    client.beta_ap_is.get_campaign_items(campaign_id="campaignId")
+    verify_request_count(test_id, "GET", "/maintenance/campaigns/items", {"campaignId": "campaignId"}, 1)
+
+
+def test_betaApIs_post_campaign_items_batch() -> None:
+    """Test postCampaignItemsBatch endpoint with WireMock"""
+    test_id = "beta_ap_is.post_campaign_items_batch.0"
+    client = get_client(test_id)
+    client.beta_ap_is.post_campaign_items_batch(campaign_id="campaignId", data=[{}])
+    verify_request_count(test_id, "POST", "/maintenance/campaigns/items/batch", {"campaignId": "campaignId"}, 1)
+
+
+def test_betaApIs_get_campaign_rollups() -> None:
+    """Test getCampaignRollups endpoint with WireMock"""
+    test_id = "beta_ap_is.get_campaign_rollups.0"
+    client = get_client(test_id)
+    client.beta_ap_is.get_campaign_rollups(campaign_id="campaignId")
+    verify_request_count(test_id, "GET", "/maintenance/campaigns/rollups", {"campaignId": "campaignId"}, 1)
+
+
+def test_betaApIs_list_maintenance_estimates() -> None:
+    """Test listMaintenanceEstimates endpoint with WireMock"""
+    test_id = "beta_ap_is.list_maintenance_estimates.0"
+    client = get_client(test_id)
+    client.beta_ap_is.list_maintenance_estimates()
+    verify_request_count(test_id, "GET", "/maintenance/estimates", None, 1)
+
+
+def test_betaApIs_create_maintenance_estimate() -> None:
+    """Test createMaintenanceEstimate endpoint with WireMock"""
+    test_id = "beta_ap_is.create_maintenance_estimate.0"
+    client = get_client(test_id)
+    client.beta_ap_is.create_maintenance_estimate(
+        line_items=[{"amount": {"amount": "640.20", "currency": "usd"}, "description": "Replace turbocharger"}],
+        tax={"amount": "64.02", "currency": "usd"},
+        vendor_id="a81e26e6-50cd-4ae2-85b9-132c493c0871",
+        work_order_id="464",
+    )
+    verify_request_count(test_id, "POST", "/maintenance/estimates", None, 1)
+
+
+def test_betaApIs_patch_maintenance_estimate() -> None:
+    """Test patchMaintenanceEstimate endpoint with WireMock"""
+    test_id = "beta_ap_is.patch_maintenance_estimate.0"
+    client = get_client(test_id)
+    client.beta_ap_is.patch_maintenance_estimate(
+        id="id",
+        line_items=[
+            {
+                "amount": {"amount": "640.20", "currency": "usd"},
+                "description": "Replace turbocharger",
+                "id": "8ea6ff70-1e60-4ed9-9c68-a00d72cb720e",
+            }
+        ],
+        tax={"amount": "64.02", "currency": "usd"},
+    )
+    verify_request_count(test_id, "PATCH", "/maintenance/estimates", {"id": "id"}, 1)
+
+
+def test_betaApIs_create_maintenance_estimate_attachment() -> None:
+    """Test createMaintenanceEstimateAttachment endpoint with WireMock"""
+    test_id = "beta_ap_is.create_maintenance_estimate_attachment.0"
+    client = get_client(test_id)
+    client.beta_ap_is.create_maintenance_estimate_attachment(estimate_id="a81e26e6-50cd-4ae2-85b9-132c493c0871")
+    verify_request_count(test_id, "POST", "/maintenance/estimates/attachments", None, 1)
+
+
+def test_betaApIs_delete_maintenance_estimate_attachment() -> None:
+    """Test deleteMaintenanceEstimateAttachment endpoint with WireMock"""
+    test_id = "beta_ap_is.delete_maintenance_estimate_attachment.0"
+    client = get_client(test_id)
+    client.beta_ap_is.delete_maintenance_estimate_attachment(id="id")
+    verify_request_count(test_id, "DELETE", "/maintenance/estimates/attachments", {"id": "id"}, 1)
+
+
+def test_betaApIs_create_maintenance_estimates_batch() -> None:
+    """Test createMaintenanceEstimatesBatch endpoint with WireMock"""
+    test_id = "beta_ap_is.create_maintenance_estimates_batch.0"
+    client = get_client(test_id)
+    client.beta_ap_is.create_maintenance_estimates_batch(
+        estimates=[
+            {
+                "line_items": [
+                    {"amount": {"amount": "640.20", "currency": "usd"}, "description": "Expected repair cost"}
+                ],
+                "tax": {"amount": "0.00", "currency": "usd"},
+                "vendor_id": "a81e26e6-50cd-4ae2-85b9-132c493c0871",
+                "work_order_id": "464",
+            }
+        ]
+    )
+    verify_request_count(test_id, "POST", "/maintenance/estimates/batch", None, 1)
+
+
+def test_betaApIs_get_part_photos() -> None:
+    """Test getPartPhotos endpoint with WireMock"""
+    test_id = "beta_ap_is.get_part_photos.0"
+    client = get_client(test_id)
+    client.beta_ap_is.get_part_photos(part_id="partId")
+    verify_request_count(test_id, "GET", "/maintenance/parts/photos", {"partId": "partId"}, 1)
+
+
+def test_betaApIs_post_part_photo() -> None:
+    """Test postPartPhoto endpoint with WireMock"""
+    test_id = "beta_ap_is.post_part_photo.0"
+    client = get_client(test_id)
+    client.beta_ap_is.post_part_photo(
+        file={"base_64_content": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAAB...", "content_type": "image/jpeg"},
+        part_id="4c6d8f2e-9b1a-4e3f-8a7b-2d5c6e9f0a1b",
+    )
+    verify_request_count(test_id, "POST", "/maintenance/parts/photos", None, 1)
+
+
+def test_betaApIs_delete_part_photo() -> None:
+    """Test deletePartPhoto endpoint with WireMock"""
+    test_id = "beta_ap_is.delete_part_photo.0"
+    client = get_client(test_id)
+    client.beta_ap_is.delete_part_photo(part_id="partId", id="id")
+    verify_request_count(test_id, "DELETE", "/maintenance/parts/photos", {"partId": "partId", "id": "id"}, 1)
+
+
 def test_betaApIs_list_purchase_orders() -> None:
     """Test listPurchaseOrders endpoint with WireMock"""
     test_id = "beta_ap_is.list_purchase_orders.0"
@@ -731,6 +871,22 @@ def test_betaApIs_get_work_order_templates() -> None:
     client = get_client(test_id)
     client.beta_ap_is.get_work_order_templates()
     verify_request_count(test_id, "GET", "/maintenance/work-order-templates", None, 1)
+
+
+def test_betaApIs_post_work_order_attachment() -> None:
+    """Test postWorkOrderAttachment endpoint with WireMock"""
+    test_id = "beta_ap_is.post_work_order_attachment.0"
+    client = get_client(test_id)
+    client.beta_ap_is.post_work_order_attachment(work_order_id="123456")
+    verify_request_count(test_id, "POST", "/maintenance/work-orders/attachments", None, 1)
+
+
+def test_betaApIs_delete_maintenance_work_order_attachment() -> None:
+    """Test deleteMaintenanceWorkOrderAttachment endpoint with WireMock"""
+    test_id = "beta_ap_is.delete_maintenance_work_order_attachment.0"
+    client = get_client(test_id)
+    client.beta_ap_is.delete_maintenance_work_order_attachment(id="id")
+    verify_request_count(test_id, "DELETE", "/maintenance/work-orders/attachments", {"id": "id"}, 1)
 
 
 def test_betaApIs_get_places() -> None:
@@ -880,7 +1036,7 @@ def test_betaApIs_post_readings() -> None:
                 "entity_type": "asset",
                 "happened_at_time": "2023-10-27T10:00:00Z",
                 "reading_id": "airInletPressure",
-                "value": {"key": "value"},
+                "value": "off",
             }
         ]
     )

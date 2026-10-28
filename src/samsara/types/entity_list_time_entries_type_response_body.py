@@ -40,6 +40,22 @@ class EntityListTimeEntriesTypeResponseBody(UniversalBaseModel):
             description="Non-repair activity associated with the time entry. Omitted for work-order time.  Valid values: `unknown`, `break`, `shopCleaning`, `partsHandling`, `operationalTest`, `equipmentSetup`, `inspection`, `roadCall`, `training`, `administrative`, `shopMiscellaneous`",
         ),
     ] = None
+    activity_type_id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="activityTypeId"),
+        pydantic.Field(
+            alias="activityTypeId",
+            description="ID of the non-repair activity, including activity types defined by the organization, which activityType reports as unknown. Omitted for work-order time.",
+        ),
+    ] = None
+    activity_type_name: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="activityTypeName"),
+        pydantic.Field(
+            alias="activityTypeName",
+            description="The organization's display name for the non-repair activity. Omitted for work-order time.",
+        ),
+    ] = None
     clock_in_at_time: typing_extensions.Annotated[
         typing.Optional[str],
         FieldMetadata(alias="clockInAtTime"),

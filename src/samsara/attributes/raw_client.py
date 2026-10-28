@@ -39,7 +39,7 @@ class RawAttributesClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[GetAttributesByEntityTypeResponse]:
         """
-        Fetch all attributes in an organization associated with either drivers or assets.
+        Fetch all attributes in an organization associated with drivers, assets, or work orders.
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
@@ -48,7 +48,7 @@ class RawAttributesClient:
         Parameters
         ----------
         entity_type : GetAttributesByEntityTypeRequestEntityType
-            Denotes the type of entity, driver or asset.
+            Denotes the type of entity, driver, asset, or workOrder. `workOrder` requires work order attributes to be enabled for the organization.
 
         limit : typing.Optional[int]
             The limit for how many objects will be in the response. Default and max for this value is 512 objects.
@@ -114,7 +114,7 @@ class RawAttributesClient:
             Denotes the data type of the attribute's values. Valid values: `single-select`, `multi-select`, `text`, `freeform-multi-select`, `number`, `date`.
 
         entity_type : CreateAttributeRequestEntityType
-            Denotes the type of entity, driver or asset.
+            Denotes the type of entity, driver, asset, or workOrder. `workOrder` requires work order attributes to be enabled for the organization. Work order attributes are created without `entities`; set attribute values on work orders through the work orders API.
 
         name : str
             Name
@@ -194,7 +194,7 @@ class RawAttributesClient:
             Samsara-provided UUID of the attribute.
 
         entity_type : GetAttributeRequestEntityType
-            Denotes the type of entity, driver or asset.
+            Denotes the type of entity, driver, asset, or workOrder. `workOrder` requires work order attributes to be enabled for the organization.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -247,7 +247,7 @@ class RawAttributesClient:
             Samsara-provided UUID of the attribute.
 
         entity_type : DeleteAttributesRequestEntityType
-            Denotes the type of entity, driver or asset.
+            Denotes the type of entity, driver, asset, or workOrder. `workOrder` requires work order attributes to be enabled for the organization.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -370,7 +370,7 @@ class AsyncRawAttributesClient:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[GetAttributesByEntityTypeResponse]:
         """
-        Fetch all attributes in an organization associated with either drivers or assets.
+        Fetch all attributes in an organization associated with drivers, assets, or work orders.
 
          **Submit Feedback**: Likes, dislikes, and API feature requests should be filed as feedback in our <a href="https://forms.gle/zkD4NCH7HjKb7mm69" target="_blank">API feedback form</a>. If you encountered an issue or noticed inaccuracies in the API documentation, please <a href="https://www.samsara.com/help" target="_blank">submit a case</a> to our support team.
 
@@ -379,7 +379,7 @@ class AsyncRawAttributesClient:
         Parameters
         ----------
         entity_type : GetAttributesByEntityTypeRequestEntityType
-            Denotes the type of entity, driver or asset.
+            Denotes the type of entity, driver, asset, or workOrder. `workOrder` requires work order attributes to be enabled for the organization.
 
         limit : typing.Optional[int]
             The limit for how many objects will be in the response. Default and max for this value is 512 objects.
@@ -445,7 +445,7 @@ class AsyncRawAttributesClient:
             Denotes the data type of the attribute's values. Valid values: `single-select`, `multi-select`, `text`, `freeform-multi-select`, `number`, `date`.
 
         entity_type : CreateAttributeRequestEntityType
-            Denotes the type of entity, driver or asset.
+            Denotes the type of entity, driver, asset, or workOrder. `workOrder` requires work order attributes to be enabled for the organization. Work order attributes are created without `entities`; set attribute values on work orders through the work orders API.
 
         name : str
             Name
@@ -525,7 +525,7 @@ class AsyncRawAttributesClient:
             Samsara-provided UUID of the attribute.
 
         entity_type : GetAttributeRequestEntityType
-            Denotes the type of entity, driver or asset.
+            Denotes the type of entity, driver, asset, or workOrder. `workOrder` requires work order attributes to be enabled for the organization.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -578,7 +578,7 @@ class AsyncRawAttributesClient:
             Samsara-provided UUID of the attribute.
 
         entity_type : DeleteAttributesRequestEntityType
-            Denotes the type of entity, driver or asset.
+            Denotes the type of entity, driver, asset, or workOrder. `workOrder` requires work order attributes to be enabled for the organization.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.

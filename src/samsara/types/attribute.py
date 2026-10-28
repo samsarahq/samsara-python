@@ -26,7 +26,7 @@ class Attribute(UniversalBaseModel):
         FieldMetadata(alias="entityType"),
         pydantic.Field(
             alias="entityType",
-            description="Denotes the type of entity, driver or asset. Valid values: `driver`, `asset`.",
+            description="Denotes the type of entity, driver, asset, or workOrder. Valid values: `driver`, `asset`, `workOrder`.",
         ),
     ] = None
     id: typing.Optional[str] = pydantic.Field(default=None)

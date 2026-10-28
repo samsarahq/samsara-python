@@ -2,4 +2,4 @@
 
 import typing
 
-AttributeEntityType = typing.Union[typing.Literal["driver", "asset"], typing.Any]
+AttributeEntityType = typing.Union[typing.Literal["driver", "asset", "workOrder"], typing.Any]

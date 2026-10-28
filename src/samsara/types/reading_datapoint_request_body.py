@@ -51,10 +51,7 @@ class ReadingDatapointRequestBody(UniversalBaseModel):
             description="The ID of the reading, you can get it from the /readings/definitions endpoint.",
         ),
     ]
-    value: typing.Dict[str, typing.Any] = pydantic.Field()
-    """
-    The value of the reading. Can be any object. See the /readings/definitions endpoint for the value type for each reading.
-    """
+    value: typing.Any
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

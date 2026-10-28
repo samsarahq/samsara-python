@@ -536,8 +536,14 @@ if typing.TYPE_CHECKING:
     from .asset_sharing_agreement_response_object_response_body_canceled_by_party import (
         AssetSharingAgreementResponseObjectResponseBodyCanceledByParty,
     )
+    from .asset_sharing_agreement_response_object_response_body_created_by_party import (
+        AssetSharingAgreementResponseObjectResponseBodyCreatedByParty,
+    )
     from .asset_sharing_agreement_response_object_response_body_operator import (
         AssetSharingAgreementResponseObjectResponseBodyOperator,
+    )
+    from .asset_sharing_agreement_response_object_response_body_payer import (
+        AssetSharingAgreementResponseObjectResponseBodyPayer,
     )
     from .asset_sharing_agreement_response_object_response_body_provider_data_packages_item import (
         AssetSharingAgreementResponseObjectResponseBodyProviderDataPackagesItem,
@@ -1132,6 +1138,195 @@ if typing.TYPE_CHECKING:
     from .camera_details_response_response_body import CameraDetailsResponseResponseBody
     from .camera_serial import CameraSerial
     from .camera_stream_issue_response_body import CameraStreamIssueResponseBody
+    from .campaign_item_ingest_entry_object_request_body import CampaignItemIngestEntryObjectRequestBody
+    from .campaign_item_ingest_response_item_object_response_body import (
+        CampaignItemIngestResponseItemObjectResponseBody,
+    )
+    from .campaign_item_ingest_response_item_object_response_body_result import (
+        CampaignItemIngestResponseItemObjectResponseBodyResult,
+    )
+    from .campaign_item_response_object_response_body import CampaignItemResponseObjectResponseBody
+    from .campaign_item_response_object_response_body_effective_state import (
+        CampaignItemResponseObjectResponseBodyEffectiveState,
+    )
+    from .campaign_item_response_object_response_body_source_basis import (
+        CampaignItemResponseObjectResponseBodySourceBasis,
+    )
+    from .campaign_item_response_object_response_body_state import CampaignItemResponseObjectResponseBodyState
+    from .campaign_item_state_count_response_object_response_body import (
+        CampaignItemStateCountResponseObjectResponseBody,
+    )
+    from .campaign_item_state_count_response_object_response_body_state import (
+        CampaignItemStateCountResponseObjectResponseBodyState,
+    )
+    from .campaign_recall_metadata_request_object_request_body import CampaignRecallMetadataRequestObjectRequestBody
+    from .campaign_recall_metadata_request_object_request_body_recall_source import (
+        CampaignRecallMetadataRequestObjectRequestBodyRecallSource,
+    )
+    from .campaign_recall_metadata_response_object_response_body import CampaignRecallMetadataResponseObjectResponseBody
+    from .campaign_recall_metadata_response_object_response_body_recall_source import (
+        CampaignRecallMetadataResponseObjectResponseBodyRecallSource,
+    )
+    from .campaign_response_object_response_body import CampaignResponseObjectResponseBody
+    from .campaign_response_object_response_body_campaign_type import CampaignResponseObjectResponseBodyCampaignType
+    from .campaign_response_object_response_body_created_source import CampaignResponseObjectResponseBodyCreatedSource
+    from .campaign_response_object_response_body_work_order_priority import (
+        CampaignResponseObjectResponseBodyWorkOrderPriority,
+    )
+    from .campaign_rollups_response_object_response_body import CampaignRollupsResponseObjectResponseBody
+    from .campaign_status_response_object_response_body import CampaignStatusResponseObjectResponseBody
+    from .campaign_status_response_object_response_body_state import CampaignStatusResponseObjectResponseBodyState
+    from .campaigns_get_campaign_items_bad_gateway_error_response_body import (
+        CampaignsGetCampaignItemsBadGatewayErrorResponseBody,
+    )
+    from .campaigns_get_campaign_items_content_too_large_error_response_body import (
+        CampaignsGetCampaignItemsContentTooLargeErrorResponseBody,
+    )
+    from .campaigns_get_campaign_items_gateway_timeout_error_response_body import (
+        CampaignsGetCampaignItemsGatewayTimeoutErrorResponseBody,
+    )
+    from .campaigns_get_campaign_items_internal_server_error_response_body import (
+        CampaignsGetCampaignItemsInternalServerErrorResponseBody,
+    )
+    from .campaigns_get_campaign_items_method_not_allowed_error_response_body import (
+        CampaignsGetCampaignItemsMethodNotAllowedErrorResponseBody,
+    )
+    from .campaigns_get_campaign_items_not_found_error_response_body import (
+        CampaignsGetCampaignItemsNotFoundErrorResponseBody,
+    )
+    from .campaigns_get_campaign_items_not_implemented_error_response_body import (
+        CampaignsGetCampaignItemsNotImplementedErrorResponseBody,
+    )
+    from .campaigns_get_campaign_items_response_body import CampaignsGetCampaignItemsResponseBody
+    from .campaigns_get_campaign_items_service_unavailable_error_response_body import (
+        CampaignsGetCampaignItemsServiceUnavailableErrorResponseBody,
+    )
+    from .campaigns_get_campaign_items_too_many_requests_error_response_body import (
+        CampaignsGetCampaignItemsTooManyRequestsErrorResponseBody,
+    )
+    from .campaigns_get_campaign_items_unauthorized_error_response_body import (
+        CampaignsGetCampaignItemsUnauthorizedErrorResponseBody,
+    )
+    from .campaigns_get_campaign_rollups_bad_gateway_error_response_body import (
+        CampaignsGetCampaignRollupsBadGatewayErrorResponseBody,
+    )
+    from .campaigns_get_campaign_rollups_content_too_large_error_response_body import (
+        CampaignsGetCampaignRollupsContentTooLargeErrorResponseBody,
+    )
+    from .campaigns_get_campaign_rollups_gateway_timeout_error_response_body import (
+        CampaignsGetCampaignRollupsGatewayTimeoutErrorResponseBody,
+    )
+    from .campaigns_get_campaign_rollups_internal_server_error_response_body import (
+        CampaignsGetCampaignRollupsInternalServerErrorResponseBody,
+    )
+    from .campaigns_get_campaign_rollups_method_not_allowed_error_response_body import (
+        CampaignsGetCampaignRollupsMethodNotAllowedErrorResponseBody,
+    )
+    from .campaigns_get_campaign_rollups_not_found_error_response_body import (
+        CampaignsGetCampaignRollupsNotFoundErrorResponseBody,
+    )
+    from .campaigns_get_campaign_rollups_not_implemented_error_response_body import (
+        CampaignsGetCampaignRollupsNotImplementedErrorResponseBody,
+    )
+    from .campaigns_get_campaign_rollups_response_body import CampaignsGetCampaignRollupsResponseBody
+    from .campaigns_get_campaign_rollups_service_unavailable_error_response_body import (
+        CampaignsGetCampaignRollupsServiceUnavailableErrorResponseBody,
+    )
+    from .campaigns_get_campaign_rollups_too_many_requests_error_response_body import (
+        CampaignsGetCampaignRollupsTooManyRequestsErrorResponseBody,
+    )
+    from .campaigns_get_campaign_rollups_unauthorized_error_response_body import (
+        CampaignsGetCampaignRollupsUnauthorizedErrorResponseBody,
+    )
+    from .campaigns_get_campaigns_bad_gateway_error_response_body import (
+        CampaignsGetCampaignsBadGatewayErrorResponseBody,
+    )
+    from .campaigns_get_campaigns_content_too_large_error_response_body import (
+        CampaignsGetCampaignsContentTooLargeErrorResponseBody,
+    )
+    from .campaigns_get_campaigns_gateway_timeout_error_response_body import (
+        CampaignsGetCampaignsGatewayTimeoutErrorResponseBody,
+    )
+    from .campaigns_get_campaigns_internal_server_error_response_body import (
+        CampaignsGetCampaignsInternalServerErrorResponseBody,
+    )
+    from .campaigns_get_campaigns_method_not_allowed_error_response_body import (
+        CampaignsGetCampaignsMethodNotAllowedErrorResponseBody,
+    )
+    from .campaigns_get_campaigns_not_found_error_response_body import CampaignsGetCampaignsNotFoundErrorResponseBody
+    from .campaigns_get_campaigns_not_implemented_error_response_body import (
+        CampaignsGetCampaignsNotImplementedErrorResponseBody,
+    )
+    from .campaigns_get_campaigns_response_body import CampaignsGetCampaignsResponseBody
+    from .campaigns_get_campaigns_service_unavailable_error_response_body import (
+        CampaignsGetCampaignsServiceUnavailableErrorResponseBody,
+    )
+    from .campaigns_get_campaigns_too_many_requests_error_response_body import (
+        CampaignsGetCampaignsTooManyRequestsErrorResponseBody,
+    )
+    from .campaigns_get_campaigns_unauthorized_error_response_body import (
+        CampaignsGetCampaignsUnauthorizedErrorResponseBody,
+    )
+    from .campaigns_post_campaign_items_batch_bad_gateway_error_response_body import (
+        CampaignsPostCampaignItemsBatchBadGatewayErrorResponseBody,
+    )
+    from .campaigns_post_campaign_items_batch_content_too_large_error_response_body import (
+        CampaignsPostCampaignItemsBatchContentTooLargeErrorResponseBody,
+    )
+    from .campaigns_post_campaign_items_batch_gateway_timeout_error_response_body import (
+        CampaignsPostCampaignItemsBatchGatewayTimeoutErrorResponseBody,
+    )
+    from .campaigns_post_campaign_items_batch_internal_server_error_response_body import (
+        CampaignsPostCampaignItemsBatchInternalServerErrorResponseBody,
+    )
+    from .campaigns_post_campaign_items_batch_method_not_allowed_error_response_body import (
+        CampaignsPostCampaignItemsBatchMethodNotAllowedErrorResponseBody,
+    )
+    from .campaigns_post_campaign_items_batch_not_found_error_response_body import (
+        CampaignsPostCampaignItemsBatchNotFoundErrorResponseBody,
+    )
+    from .campaigns_post_campaign_items_batch_not_implemented_error_response_body import (
+        CampaignsPostCampaignItemsBatchNotImplementedErrorResponseBody,
+    )
+    from .campaigns_post_campaign_items_batch_response_body import CampaignsPostCampaignItemsBatchResponseBody
+    from .campaigns_post_campaign_items_batch_service_unavailable_error_response_body import (
+        CampaignsPostCampaignItemsBatchServiceUnavailableErrorResponseBody,
+    )
+    from .campaigns_post_campaign_items_batch_too_many_requests_error_response_body import (
+        CampaignsPostCampaignItemsBatchTooManyRequestsErrorResponseBody,
+    )
+    from .campaigns_post_campaign_items_batch_unauthorized_error_response_body import (
+        CampaignsPostCampaignItemsBatchUnauthorizedErrorResponseBody,
+    )
+    from .campaigns_post_campaigns_bad_gateway_error_response_body import (
+        CampaignsPostCampaignsBadGatewayErrorResponseBody,
+    )
+    from .campaigns_post_campaigns_content_too_large_error_response_body import (
+        CampaignsPostCampaignsContentTooLargeErrorResponseBody,
+    )
+    from .campaigns_post_campaigns_gateway_timeout_error_response_body import (
+        CampaignsPostCampaignsGatewayTimeoutErrorResponseBody,
+    )
+    from .campaigns_post_campaigns_internal_server_error_response_body import (
+        CampaignsPostCampaignsInternalServerErrorResponseBody,
+    )
+    from .campaigns_post_campaigns_method_not_allowed_error_response_body import (
+        CampaignsPostCampaignsMethodNotAllowedErrorResponseBody,
+    )
+    from .campaigns_post_campaigns_not_found_error_response_body import CampaignsPostCampaignsNotFoundErrorResponseBody
+    from .campaigns_post_campaigns_not_implemented_error_response_body import (
+        CampaignsPostCampaignsNotImplementedErrorResponseBody,
+    )
+    from .campaigns_post_campaigns_response_body import CampaignsPostCampaignsResponseBody
+    from .campaigns_post_campaigns_service_unavailable_error_response_body import (
+        CampaignsPostCampaignsServiceUnavailableErrorResponseBody,
+    )
+    from .campaigns_post_campaigns_too_many_requests_error_response_body import (
+        CampaignsPostCampaignsTooManyRequestsErrorResponseBody,
+    )
+    from .campaigns_post_campaigns_unauthorized_error_response_body import (
+        CampaignsPostCampaignsUnauthorizedErrorResponseBody,
+    )
     from .cancel_shared_asset_batch_response_item_response_body import CancelSharedAssetBatchResponseItemResponseBody
     from .carb_ctc_list_carb_ctc_vehicle_history_bad_gateway_error_response_body import (
         CarbCtcListCarbCtcVehicleHistoryBadGatewayErrorResponseBody,
@@ -7112,6 +7307,266 @@ if typing.TYPE_CHECKING:
     from .location_type import LocationType
     from .log_meta_data_object_response_body import LogMetaDataObjectResponseBody
     from .longitude import Longitude
+    from .maintenance_attachment_upload_request_body import MaintenanceAttachmentUploadRequestBody
+    from .maintenance_attachment_upload_request_body_content_type import (
+        MaintenanceAttachmentUploadRequestBodyContentType,
+    )
+    from .maintenance_estimate_attachment_create_result_response_body import (
+        MaintenanceEstimateAttachmentCreateResultResponseBody,
+    )
+    from .maintenance_estimate_attachment_create_result_response_body_processing_status import (
+        MaintenanceEstimateAttachmentCreateResultResponseBodyProcessingStatus,
+    )
+    from .maintenance_estimate_attachment_response_body import MaintenanceEstimateAttachmentResponseBody
+    from .maintenance_estimate_attachment_response_body_processing_status import (
+        MaintenanceEstimateAttachmentResponseBodyProcessingStatus,
+    )
+    from .maintenance_estimate_attachments_create_maintenance_estimate_attachment_bad_gateway_error_response_body import (
+        MaintenanceEstimateAttachmentsCreateMaintenanceEstimateAttachmentBadGatewayErrorResponseBody,
+    )
+    from .maintenance_estimate_attachments_create_maintenance_estimate_attachment_conflict_error_response_body import (
+        MaintenanceEstimateAttachmentsCreateMaintenanceEstimateAttachmentConflictErrorResponseBody,
+    )
+    from .maintenance_estimate_attachments_create_maintenance_estimate_attachment_content_too_large_error_response_body import (
+        MaintenanceEstimateAttachmentsCreateMaintenanceEstimateAttachmentContentTooLargeErrorResponseBody,
+    )
+    from .maintenance_estimate_attachments_create_maintenance_estimate_attachment_gateway_timeout_error_response_body import (
+        MaintenanceEstimateAttachmentsCreateMaintenanceEstimateAttachmentGatewayTimeoutErrorResponseBody,
+    )
+    from .maintenance_estimate_attachments_create_maintenance_estimate_attachment_internal_server_error_response_body import (
+        MaintenanceEstimateAttachmentsCreateMaintenanceEstimateAttachmentInternalServerErrorResponseBody,
+    )
+    from .maintenance_estimate_attachments_create_maintenance_estimate_attachment_method_not_allowed_error_response_body import (
+        MaintenanceEstimateAttachmentsCreateMaintenanceEstimateAttachmentMethodNotAllowedErrorResponseBody,
+    )
+    from .maintenance_estimate_attachments_create_maintenance_estimate_attachment_not_found_error_response_body import (
+        MaintenanceEstimateAttachmentsCreateMaintenanceEstimateAttachmentNotFoundErrorResponseBody,
+    )
+    from .maintenance_estimate_attachments_create_maintenance_estimate_attachment_not_implemented_error_response_body import (
+        MaintenanceEstimateAttachmentsCreateMaintenanceEstimateAttachmentNotImplementedErrorResponseBody,
+    )
+    from .maintenance_estimate_attachments_create_maintenance_estimate_attachment_response_body import (
+        MaintenanceEstimateAttachmentsCreateMaintenanceEstimateAttachmentResponseBody,
+    )
+    from .maintenance_estimate_attachments_create_maintenance_estimate_attachment_service_unavailable_error_response_body import (
+        MaintenanceEstimateAttachmentsCreateMaintenanceEstimateAttachmentServiceUnavailableErrorResponseBody,
+    )
+    from .maintenance_estimate_attachments_create_maintenance_estimate_attachment_too_many_requests_error_response_body import (
+        MaintenanceEstimateAttachmentsCreateMaintenanceEstimateAttachmentTooManyRequestsErrorResponseBody,
+    )
+    from .maintenance_estimate_attachments_create_maintenance_estimate_attachment_unauthorized_error_response_body import (
+        MaintenanceEstimateAttachmentsCreateMaintenanceEstimateAttachmentUnauthorizedErrorResponseBody,
+    )
+    from .maintenance_estimate_attachments_delete_maintenance_estimate_attachment_bad_gateway_error_response_body import (
+        MaintenanceEstimateAttachmentsDeleteMaintenanceEstimateAttachmentBadGatewayErrorResponseBody,
+    )
+    from .maintenance_estimate_attachments_delete_maintenance_estimate_attachment_conflict_error_response_body import (
+        MaintenanceEstimateAttachmentsDeleteMaintenanceEstimateAttachmentConflictErrorResponseBody,
+    )
+    from .maintenance_estimate_attachments_delete_maintenance_estimate_attachment_content_too_large_error_response_body import (
+        MaintenanceEstimateAttachmentsDeleteMaintenanceEstimateAttachmentContentTooLargeErrorResponseBody,
+    )
+    from .maintenance_estimate_attachments_delete_maintenance_estimate_attachment_gateway_timeout_error_response_body import (
+        MaintenanceEstimateAttachmentsDeleteMaintenanceEstimateAttachmentGatewayTimeoutErrorResponseBody,
+    )
+    from .maintenance_estimate_attachments_delete_maintenance_estimate_attachment_internal_server_error_response_body import (
+        MaintenanceEstimateAttachmentsDeleteMaintenanceEstimateAttachmentInternalServerErrorResponseBody,
+    )
+    from .maintenance_estimate_attachments_delete_maintenance_estimate_attachment_method_not_allowed_error_response_body import (
+        MaintenanceEstimateAttachmentsDeleteMaintenanceEstimateAttachmentMethodNotAllowedErrorResponseBody,
+    )
+    from .maintenance_estimate_attachments_delete_maintenance_estimate_attachment_not_found_error_response_body import (
+        MaintenanceEstimateAttachmentsDeleteMaintenanceEstimateAttachmentNotFoundErrorResponseBody,
+    )
+    from .maintenance_estimate_attachments_delete_maintenance_estimate_attachment_not_implemented_error_response_body import (
+        MaintenanceEstimateAttachmentsDeleteMaintenanceEstimateAttachmentNotImplementedErrorResponseBody,
+    )
+    from .maintenance_estimate_attachments_delete_maintenance_estimate_attachment_service_unavailable_error_response_body import (
+        MaintenanceEstimateAttachmentsDeleteMaintenanceEstimateAttachmentServiceUnavailableErrorResponseBody,
+    )
+    from .maintenance_estimate_attachments_delete_maintenance_estimate_attachment_too_many_requests_error_response_body import (
+        MaintenanceEstimateAttachmentsDeleteMaintenanceEstimateAttachmentTooManyRequestsErrorResponseBody,
+    )
+    from .maintenance_estimate_attachments_delete_maintenance_estimate_attachment_unauthorized_error_response_body import (
+        MaintenanceEstimateAttachmentsDeleteMaintenanceEstimateAttachmentUnauthorizedErrorResponseBody,
+    )
+    from .maintenance_estimate_batch_create_input_request_body import MaintenanceEstimateBatchCreateInputRequestBody
+    from .maintenance_estimate_batch_create_input_request_body_approval_status import (
+        MaintenanceEstimateBatchCreateInputRequestBodyApprovalStatus,
+    )
+    from .maintenance_estimate_batch_create_input_request_body_estimate_type import (
+        MaintenanceEstimateBatchCreateInputRequestBodyEstimateType,
+    )
+    from .maintenance_estimate_batch_item_response_response_body import MaintenanceEstimateBatchItemResponseResponseBody
+    from .maintenance_estimate_external_request_input_request_body import (
+        MaintenanceEstimateExternalRequestInputRequestBody,
+    )
+    from .maintenance_estimate_external_request_response_body import MaintenanceEstimateExternalRequestResponseBody
+    from .maintenance_estimate_inline_file_request_body import MaintenanceEstimateInlineFileRequestBody
+    from .maintenance_estimate_inline_file_request_body_content_type import (
+        MaintenanceEstimateInlineFileRequestBodyContentType,
+    )
+    from .maintenance_estimate_line_input_request_body import MaintenanceEstimateLineInputRequestBody
+    from .maintenance_estimate_line_input_request_body_cost_type import MaintenanceEstimateLineInputRequestBodyCostType
+    from .maintenance_estimate_line_item_response_body import MaintenanceEstimateLineItemResponseBody
+    from .maintenance_estimate_line_item_response_body_cost_type import MaintenanceEstimateLineItemResponseBodyCostType
+    from .maintenance_estimate_money_request_body import MaintenanceEstimateMoneyRequestBody
+    from .maintenance_estimate_money_request_body_currency import MaintenanceEstimateMoneyRequestBodyCurrency
+    from .maintenance_estimate_money_response_body import MaintenanceEstimateMoneyResponseBody
+    from .maintenance_estimate_money_response_body_currency import MaintenanceEstimateMoneyResponseBodyCurrency
+    from .maintenance_estimate_object_response_body import MaintenanceEstimateObjectResponseBody
+    from .maintenance_estimate_object_response_body_approval_source import (
+        MaintenanceEstimateObjectResponseBodyApprovalSource,
+    )
+    from .maintenance_estimate_object_response_body_approval_status import (
+        MaintenanceEstimateObjectResponseBodyApprovalStatus,
+    )
+    from .maintenance_estimate_object_response_body_estimate_type import (
+        MaintenanceEstimateObjectResponseBodyEstimateType,
+    )
+    from .maintenance_estimate_unit_rate_request_body import MaintenanceEstimateUnitRateRequestBody
+    from .maintenance_estimate_unit_rate_request_body_currency import MaintenanceEstimateUnitRateRequestBodyCurrency
+    from .maintenance_estimate_unit_rate_response_body import MaintenanceEstimateUnitRateResponseBody
+    from .maintenance_estimate_unit_rate_response_body_currency import MaintenanceEstimateUnitRateResponseBodyCurrency
+    from .maintenance_estimates_create_maintenance_estimate_bad_gateway_error_response_body import (
+        MaintenanceEstimatesCreateMaintenanceEstimateBadGatewayErrorResponseBody,
+    )
+    from .maintenance_estimates_create_maintenance_estimate_conflict_error_response_body import (
+        MaintenanceEstimatesCreateMaintenanceEstimateConflictErrorResponseBody,
+    )
+    from .maintenance_estimates_create_maintenance_estimate_content_too_large_error_response_body import (
+        MaintenanceEstimatesCreateMaintenanceEstimateContentTooLargeErrorResponseBody,
+    )
+    from .maintenance_estimates_create_maintenance_estimate_gateway_timeout_error_response_body import (
+        MaintenanceEstimatesCreateMaintenanceEstimateGatewayTimeoutErrorResponseBody,
+    )
+    from .maintenance_estimates_create_maintenance_estimate_internal_server_error_response_body import (
+        MaintenanceEstimatesCreateMaintenanceEstimateInternalServerErrorResponseBody,
+    )
+    from .maintenance_estimates_create_maintenance_estimate_method_not_allowed_error_response_body import (
+        MaintenanceEstimatesCreateMaintenanceEstimateMethodNotAllowedErrorResponseBody,
+    )
+    from .maintenance_estimates_create_maintenance_estimate_not_found_error_response_body import (
+        MaintenanceEstimatesCreateMaintenanceEstimateNotFoundErrorResponseBody,
+    )
+    from .maintenance_estimates_create_maintenance_estimate_not_implemented_error_response_body import (
+        MaintenanceEstimatesCreateMaintenanceEstimateNotImplementedErrorResponseBody,
+    )
+    from .maintenance_estimates_create_maintenance_estimate_response_body import (
+        MaintenanceEstimatesCreateMaintenanceEstimateResponseBody,
+    )
+    from .maintenance_estimates_create_maintenance_estimate_service_unavailable_error_response_body import (
+        MaintenanceEstimatesCreateMaintenanceEstimateServiceUnavailableErrorResponseBody,
+    )
+    from .maintenance_estimates_create_maintenance_estimate_too_many_requests_error_response_body import (
+        MaintenanceEstimatesCreateMaintenanceEstimateTooManyRequestsErrorResponseBody,
+    )
+    from .maintenance_estimates_create_maintenance_estimate_unauthorized_error_response_body import (
+        MaintenanceEstimatesCreateMaintenanceEstimateUnauthorizedErrorResponseBody,
+    )
+    from .maintenance_estimates_create_maintenance_estimates_batch_bad_gateway_error_response_body import (
+        MaintenanceEstimatesCreateMaintenanceEstimatesBatchBadGatewayErrorResponseBody,
+    )
+    from .maintenance_estimates_create_maintenance_estimates_batch_content_too_large_error_response_body import (
+        MaintenanceEstimatesCreateMaintenanceEstimatesBatchContentTooLargeErrorResponseBody,
+    )
+    from .maintenance_estimates_create_maintenance_estimates_batch_gateway_timeout_error_response_body import (
+        MaintenanceEstimatesCreateMaintenanceEstimatesBatchGatewayTimeoutErrorResponseBody,
+    )
+    from .maintenance_estimates_create_maintenance_estimates_batch_internal_server_error_response_body import (
+        MaintenanceEstimatesCreateMaintenanceEstimatesBatchInternalServerErrorResponseBody,
+    )
+    from .maintenance_estimates_create_maintenance_estimates_batch_method_not_allowed_error_response_body import (
+        MaintenanceEstimatesCreateMaintenanceEstimatesBatchMethodNotAllowedErrorResponseBody,
+    )
+    from .maintenance_estimates_create_maintenance_estimates_batch_not_found_error_response_body import (
+        MaintenanceEstimatesCreateMaintenanceEstimatesBatchNotFoundErrorResponseBody,
+    )
+    from .maintenance_estimates_create_maintenance_estimates_batch_not_implemented_error_response_body import (
+        MaintenanceEstimatesCreateMaintenanceEstimatesBatchNotImplementedErrorResponseBody,
+    )
+    from .maintenance_estimates_create_maintenance_estimates_batch_response_body import (
+        MaintenanceEstimatesCreateMaintenanceEstimatesBatchResponseBody,
+    )
+    from .maintenance_estimates_create_maintenance_estimates_batch_service_unavailable_error_response_body import (
+        MaintenanceEstimatesCreateMaintenanceEstimatesBatchServiceUnavailableErrorResponseBody,
+    )
+    from .maintenance_estimates_create_maintenance_estimates_batch_too_many_requests_error_response_body import (
+        MaintenanceEstimatesCreateMaintenanceEstimatesBatchTooManyRequestsErrorResponseBody,
+    )
+    from .maintenance_estimates_create_maintenance_estimates_batch_unauthorized_error_response_body import (
+        MaintenanceEstimatesCreateMaintenanceEstimatesBatchUnauthorizedErrorResponseBody,
+    )
+    from .maintenance_estimates_list_maintenance_estimates_bad_gateway_error_response_body import (
+        MaintenanceEstimatesListMaintenanceEstimatesBadGatewayErrorResponseBody,
+    )
+    from .maintenance_estimates_list_maintenance_estimates_content_too_large_error_response_body import (
+        MaintenanceEstimatesListMaintenanceEstimatesContentTooLargeErrorResponseBody,
+    )
+    from .maintenance_estimates_list_maintenance_estimates_gateway_timeout_error_response_body import (
+        MaintenanceEstimatesListMaintenanceEstimatesGatewayTimeoutErrorResponseBody,
+    )
+    from .maintenance_estimates_list_maintenance_estimates_internal_server_error_response_body import (
+        MaintenanceEstimatesListMaintenanceEstimatesInternalServerErrorResponseBody,
+    )
+    from .maintenance_estimates_list_maintenance_estimates_method_not_allowed_error_response_body import (
+        MaintenanceEstimatesListMaintenanceEstimatesMethodNotAllowedErrorResponseBody,
+    )
+    from .maintenance_estimates_list_maintenance_estimates_not_found_error_response_body import (
+        MaintenanceEstimatesListMaintenanceEstimatesNotFoundErrorResponseBody,
+    )
+    from .maintenance_estimates_list_maintenance_estimates_not_implemented_error_response_body import (
+        MaintenanceEstimatesListMaintenanceEstimatesNotImplementedErrorResponseBody,
+    )
+    from .maintenance_estimates_list_maintenance_estimates_response_body import (
+        MaintenanceEstimatesListMaintenanceEstimatesResponseBody,
+    )
+    from .maintenance_estimates_list_maintenance_estimates_service_unavailable_error_response_body import (
+        MaintenanceEstimatesListMaintenanceEstimatesServiceUnavailableErrorResponseBody,
+    )
+    from .maintenance_estimates_list_maintenance_estimates_too_many_requests_error_response_body import (
+        MaintenanceEstimatesListMaintenanceEstimatesTooManyRequestsErrorResponseBody,
+    )
+    from .maintenance_estimates_list_maintenance_estimates_unauthorized_error_response_body import (
+        MaintenanceEstimatesListMaintenanceEstimatesUnauthorizedErrorResponseBody,
+    )
+    from .maintenance_estimates_pagination_response_body import MaintenanceEstimatesPaginationResponseBody
+    from .maintenance_estimates_patch_maintenance_estimate_bad_gateway_error_response_body import (
+        MaintenanceEstimatesPatchMaintenanceEstimateBadGatewayErrorResponseBody,
+    )
+    from .maintenance_estimates_patch_maintenance_estimate_conflict_error_response_body import (
+        MaintenanceEstimatesPatchMaintenanceEstimateConflictErrorResponseBody,
+    )
+    from .maintenance_estimates_patch_maintenance_estimate_content_too_large_error_response_body import (
+        MaintenanceEstimatesPatchMaintenanceEstimateContentTooLargeErrorResponseBody,
+    )
+    from .maintenance_estimates_patch_maintenance_estimate_gateway_timeout_error_response_body import (
+        MaintenanceEstimatesPatchMaintenanceEstimateGatewayTimeoutErrorResponseBody,
+    )
+    from .maintenance_estimates_patch_maintenance_estimate_internal_server_error_response_body import (
+        MaintenanceEstimatesPatchMaintenanceEstimateInternalServerErrorResponseBody,
+    )
+    from .maintenance_estimates_patch_maintenance_estimate_method_not_allowed_error_response_body import (
+        MaintenanceEstimatesPatchMaintenanceEstimateMethodNotAllowedErrorResponseBody,
+    )
+    from .maintenance_estimates_patch_maintenance_estimate_not_found_error_response_body import (
+        MaintenanceEstimatesPatchMaintenanceEstimateNotFoundErrorResponseBody,
+    )
+    from .maintenance_estimates_patch_maintenance_estimate_not_implemented_error_response_body import (
+        MaintenanceEstimatesPatchMaintenanceEstimateNotImplementedErrorResponseBody,
+    )
+    from .maintenance_estimates_patch_maintenance_estimate_response_body import (
+        MaintenanceEstimatesPatchMaintenanceEstimateResponseBody,
+    )
+    from .maintenance_estimates_patch_maintenance_estimate_service_unavailable_error_response_body import (
+        MaintenanceEstimatesPatchMaintenanceEstimateServiceUnavailableErrorResponseBody,
+    )
+    from .maintenance_estimates_patch_maintenance_estimate_too_many_requests_error_response_body import (
+        MaintenanceEstimatesPatchMaintenanceEstimateTooManyRequestsErrorResponseBody,
+    )
+    from .maintenance_estimates_patch_maintenance_estimate_unauthorized_error_response_body import (
+        MaintenanceEstimatesPatchMaintenanceEstimateUnauthorizedErrorResponseBody,
+    )
     from .maintenance_vendors_list_maintenance_vendors_bad_gateway_error_response_body import (
         MaintenanceVendorsListMaintenanceVendorsBadGatewayErrorResponseBody,
     )
@@ -7479,6 +7934,102 @@ if typing.TYPE_CHECKING:
     from .parent_tag_name import ParentTagName
     from .part_instance_input_object_request_body import PartInstanceInputObjectRequestBody
     from .part_instance_object_response_body import PartInstanceObjectResponseBody
+    from .part_photo_file_request_body import PartPhotoFileRequestBody
+    from .part_photo_object_response_body import PartPhotoObjectResponseBody
+    from .part_photo_object_response_body_processing_status import PartPhotoObjectResponseBodyProcessingStatus
+    from .part_photos_delete_part_photo_bad_gateway_error_response_body import (
+        PartPhotosDeletePartPhotoBadGatewayErrorResponseBody,
+    )
+    from .part_photos_delete_part_photo_content_too_large_error_response_body import (
+        PartPhotosDeletePartPhotoContentTooLargeErrorResponseBody,
+    )
+    from .part_photos_delete_part_photo_gateway_timeout_error_response_body import (
+        PartPhotosDeletePartPhotoGatewayTimeoutErrorResponseBody,
+    )
+    from .part_photos_delete_part_photo_internal_server_error_response_body import (
+        PartPhotosDeletePartPhotoInternalServerErrorResponseBody,
+    )
+    from .part_photos_delete_part_photo_method_not_allowed_error_response_body import (
+        PartPhotosDeletePartPhotoMethodNotAllowedErrorResponseBody,
+    )
+    from .part_photos_delete_part_photo_not_found_error_response_body import (
+        PartPhotosDeletePartPhotoNotFoundErrorResponseBody,
+    )
+    from .part_photos_delete_part_photo_not_implemented_error_response_body import (
+        PartPhotosDeletePartPhotoNotImplementedErrorResponseBody,
+    )
+    from .part_photos_delete_part_photo_service_unavailable_error_response_body import (
+        PartPhotosDeletePartPhotoServiceUnavailableErrorResponseBody,
+    )
+    from .part_photos_delete_part_photo_too_many_requests_error_response_body import (
+        PartPhotosDeletePartPhotoTooManyRequestsErrorResponseBody,
+    )
+    from .part_photos_delete_part_photo_unauthorized_error_response_body import (
+        PartPhotosDeletePartPhotoUnauthorizedErrorResponseBody,
+    )
+    from .part_photos_get_part_photos_bad_gateway_error_response_body import (
+        PartPhotosGetPartPhotosBadGatewayErrorResponseBody,
+    )
+    from .part_photos_get_part_photos_content_too_large_error_response_body import (
+        PartPhotosGetPartPhotosContentTooLargeErrorResponseBody,
+    )
+    from .part_photos_get_part_photos_gateway_timeout_error_response_body import (
+        PartPhotosGetPartPhotosGatewayTimeoutErrorResponseBody,
+    )
+    from .part_photos_get_part_photos_internal_server_error_response_body import (
+        PartPhotosGetPartPhotosInternalServerErrorResponseBody,
+    )
+    from .part_photos_get_part_photos_method_not_allowed_error_response_body import (
+        PartPhotosGetPartPhotosMethodNotAllowedErrorResponseBody,
+    )
+    from .part_photos_get_part_photos_not_found_error_response_body import (
+        PartPhotosGetPartPhotosNotFoundErrorResponseBody,
+    )
+    from .part_photos_get_part_photos_not_implemented_error_response_body import (
+        PartPhotosGetPartPhotosNotImplementedErrorResponseBody,
+    )
+    from .part_photos_get_part_photos_response_body import PartPhotosGetPartPhotosResponseBody
+    from .part_photos_get_part_photos_service_unavailable_error_response_body import (
+        PartPhotosGetPartPhotosServiceUnavailableErrorResponseBody,
+    )
+    from .part_photos_get_part_photos_too_many_requests_error_response_body import (
+        PartPhotosGetPartPhotosTooManyRequestsErrorResponseBody,
+    )
+    from .part_photos_get_part_photos_unauthorized_error_response_body import (
+        PartPhotosGetPartPhotosUnauthorizedErrorResponseBody,
+    )
+    from .part_photos_object_response_body import PartPhotosObjectResponseBody
+    from .part_photos_post_part_photo_bad_gateway_error_response_body import (
+        PartPhotosPostPartPhotoBadGatewayErrorResponseBody,
+    )
+    from .part_photos_post_part_photo_content_too_large_error_response_body import (
+        PartPhotosPostPartPhotoContentTooLargeErrorResponseBody,
+    )
+    from .part_photos_post_part_photo_gateway_timeout_error_response_body import (
+        PartPhotosPostPartPhotoGatewayTimeoutErrorResponseBody,
+    )
+    from .part_photos_post_part_photo_internal_server_error_response_body import (
+        PartPhotosPostPartPhotoInternalServerErrorResponseBody,
+    )
+    from .part_photos_post_part_photo_method_not_allowed_error_response_body import (
+        PartPhotosPostPartPhotoMethodNotAllowedErrorResponseBody,
+    )
+    from .part_photos_post_part_photo_not_found_error_response_body import (
+        PartPhotosPostPartPhotoNotFoundErrorResponseBody,
+    )
+    from .part_photos_post_part_photo_not_implemented_error_response_body import (
+        PartPhotosPostPartPhotoNotImplementedErrorResponseBody,
+    )
+    from .part_photos_post_part_photo_response_body import PartPhotosPostPartPhotoResponseBody
+    from .part_photos_post_part_photo_service_unavailable_error_response_body import (
+        PartPhotosPostPartPhotoServiceUnavailableErrorResponseBody,
+    )
+    from .part_photos_post_part_photo_too_many_requests_error_response_body import (
+        PartPhotosPostPartPhotoTooManyRequestsErrorResponseBody,
+    )
+    from .part_photos_post_part_photo_unauthorized_error_response_body import (
+        PartPhotosPostPartPhotoUnauthorizedErrorResponseBody,
+    )
     from .patch_asset_data_outputs_single_response_response_body import PatchAssetDataOutputsSingleResponseResponseBody
     from .patch_driver_trailer_assignments_response_body_response_body import (
         PatchDriverTrailerAssignmentsResponseBodyResponseBody,
@@ -10164,6 +10715,7 @@ if typing.TYPE_CHECKING:
     from .technician_shifts_patch_technician_shift_unauthorized_error_response_body import (
         TechnicianShiftsPatchTechnicianShiftUnauthorizedErrorResponseBody,
     )
+    from .thermograph_temperature_response_body import ThermographTemperatureResponseBody
     from .time import Time
     from .time_range_object_request_body import TimeRangeObjectRequestBody
     from .time_range_object_request_body_days_of_week_item import TimeRangeObjectRequestBodyDaysOfWeekItem
@@ -11738,6 +12290,18 @@ if typing.TYPE_CHECKING:
     )
     from .voice_coaching_settings_object_response_body_language import VoiceCoachingSettingsObjectResponseBodyLanguage
     from .walkaround_photo_object_response_body import WalkaroundPhotoObjectResponseBody
+    from .watchpoint_bearing_range_type_request_body import WatchpointBearingRangeTypeRequestBody
+    from .watchpoint_bearing_range_type_response_body import WatchpointBearingRangeTypeResponseBody
+    from .watchpoint_custom_detection_request_type_request_body import WatchpointCustomDetectionRequestTypeRequestBody
+    from .watchpoint_custom_detection_request_type_request_body_type import (
+        WatchpointCustomDetectionRequestTypeRequestBodyType,
+    )
+    from .watchpoint_custom_detection_response_type_response_body import (
+        WatchpointCustomDetectionResponseTypeResponseBody,
+    )
+    from .watchpoint_custom_detection_response_type_response_body_type import (
+        WatchpointCustomDetectionResponseTypeResponseBodyType,
+    )
     from .watchpoint_lat_lng_type_request_body import WatchpointLatLngTypeRequestBody
     from .watchpoint_lat_lng_type_response_body import WatchpointLatLngTypeResponseBody
     from .webhook_params_object_request_body import WebhookParamsObjectRequestBody
@@ -11889,6 +12453,8 @@ if typing.TYPE_CHECKING:
         WebhooksPostWebhooksUnauthorizedErrorResponseBody,
     )
     from .work_order_assignee_object_response_body import WorkOrderAssigneeObjectResponseBody
+    from .work_order_attachment_create_result_response_body import WorkOrderAttachmentCreateResultResponseBody
+    from .work_order_attachment_file_request_body import WorkOrderAttachmentFileRequestBody
     from .work_order_attachment_object_response_body import WorkOrderAttachmentObjectResponseBody
     from .work_order_attachment_object_response_body_processing_status import (
         WorkOrderAttachmentObjectResponseBodyProcessingStatus,
@@ -11919,6 +12485,39 @@ if typing.TYPE_CHECKING:
     )
     from .work_order_with_time_entries_object_response_body_status import (
         WorkOrderWithTimeEntriesObjectResponseBodyStatus,
+    )
+    from .work_orders_delete_maintenance_work_order_attachment_bad_gateway_error_response_body import (
+        WorkOrdersDeleteMaintenanceWorkOrderAttachmentBadGatewayErrorResponseBody,
+    )
+    from .work_orders_delete_maintenance_work_order_attachment_conflict_error_response_body import (
+        WorkOrdersDeleteMaintenanceWorkOrderAttachmentConflictErrorResponseBody,
+    )
+    from .work_orders_delete_maintenance_work_order_attachment_content_too_large_error_response_body import (
+        WorkOrdersDeleteMaintenanceWorkOrderAttachmentContentTooLargeErrorResponseBody,
+    )
+    from .work_orders_delete_maintenance_work_order_attachment_gateway_timeout_error_response_body import (
+        WorkOrdersDeleteMaintenanceWorkOrderAttachmentGatewayTimeoutErrorResponseBody,
+    )
+    from .work_orders_delete_maintenance_work_order_attachment_internal_server_error_response_body import (
+        WorkOrdersDeleteMaintenanceWorkOrderAttachmentInternalServerErrorResponseBody,
+    )
+    from .work_orders_delete_maintenance_work_order_attachment_method_not_allowed_error_response_body import (
+        WorkOrdersDeleteMaintenanceWorkOrderAttachmentMethodNotAllowedErrorResponseBody,
+    )
+    from .work_orders_delete_maintenance_work_order_attachment_not_found_error_response_body import (
+        WorkOrdersDeleteMaintenanceWorkOrderAttachmentNotFoundErrorResponseBody,
+    )
+    from .work_orders_delete_maintenance_work_order_attachment_not_implemented_error_response_body import (
+        WorkOrdersDeleteMaintenanceWorkOrderAttachmentNotImplementedErrorResponseBody,
+    )
+    from .work_orders_delete_maintenance_work_order_attachment_service_unavailable_error_response_body import (
+        WorkOrdersDeleteMaintenanceWorkOrderAttachmentServiceUnavailableErrorResponseBody,
+    )
+    from .work_orders_delete_maintenance_work_order_attachment_too_many_requests_error_response_body import (
+        WorkOrdersDeleteMaintenanceWorkOrderAttachmentTooManyRequestsErrorResponseBody,
+    )
+    from .work_orders_delete_maintenance_work_order_attachment_unauthorized_error_response_body import (
+        WorkOrdersDeleteMaintenanceWorkOrderAttachmentUnauthorizedErrorResponseBody,
     )
     from .work_orders_delete_work_orders_bad_gateway_error_response_body import (
         WorkOrdersDeleteWorkOrdersBadGatewayErrorResponseBody,
@@ -12104,6 +12703,37 @@ if typing.TYPE_CHECKING:
     )
     from .work_orders_post_invoice_scan_unauthorized_error_response_body import (
         WorkOrdersPostInvoiceScanUnauthorizedErrorResponseBody,
+    )
+    from .work_orders_post_work_order_attachment_bad_gateway_error_response_body import (
+        WorkOrdersPostWorkOrderAttachmentBadGatewayErrorResponseBody,
+    )
+    from .work_orders_post_work_order_attachment_content_too_large_error_response_body import (
+        WorkOrdersPostWorkOrderAttachmentContentTooLargeErrorResponseBody,
+    )
+    from .work_orders_post_work_order_attachment_gateway_timeout_error_response_body import (
+        WorkOrdersPostWorkOrderAttachmentGatewayTimeoutErrorResponseBody,
+    )
+    from .work_orders_post_work_order_attachment_internal_server_error_response_body import (
+        WorkOrdersPostWorkOrderAttachmentInternalServerErrorResponseBody,
+    )
+    from .work_orders_post_work_order_attachment_method_not_allowed_error_response_body import (
+        WorkOrdersPostWorkOrderAttachmentMethodNotAllowedErrorResponseBody,
+    )
+    from .work_orders_post_work_order_attachment_not_found_error_response_body import (
+        WorkOrdersPostWorkOrderAttachmentNotFoundErrorResponseBody,
+    )
+    from .work_orders_post_work_order_attachment_not_implemented_error_response_body import (
+        WorkOrdersPostWorkOrderAttachmentNotImplementedErrorResponseBody,
+    )
+    from .work_orders_post_work_order_attachment_response_body import WorkOrdersPostWorkOrderAttachmentResponseBody
+    from .work_orders_post_work_order_attachment_service_unavailable_error_response_body import (
+        WorkOrdersPostWorkOrderAttachmentServiceUnavailableErrorResponseBody,
+    )
+    from .work_orders_post_work_order_attachment_too_many_requests_error_response_body import (
+        WorkOrdersPostWorkOrderAttachmentTooManyRequestsErrorResponseBody,
+    )
+    from .work_orders_post_work_order_attachment_unauthorized_error_response_body import (
+        WorkOrdersPostWorkOrderAttachmentUnauthorizedErrorResponseBody,
     )
     from .work_orders_post_work_orders_bad_gateway_error_response_body import (
         WorkOrdersPostWorkOrdersBadGatewayErrorResponseBody,
@@ -12416,7 +13046,9 @@ _dynamic_imports: typing.Dict[str, str] = {
     "AssetResponseRunningStatusDataInput": ".asset_response_running_status_data_input",
     "AssetSharingAgreementResponseObjectResponseBody": ".asset_sharing_agreement_response_object_response_body",
     "AssetSharingAgreementResponseObjectResponseBodyCanceledByParty": ".asset_sharing_agreement_response_object_response_body_canceled_by_party",
+    "AssetSharingAgreementResponseObjectResponseBodyCreatedByParty": ".asset_sharing_agreement_response_object_response_body_created_by_party",
     "AssetSharingAgreementResponseObjectResponseBodyOperator": ".asset_sharing_agreement_response_object_response_body_operator",
+    "AssetSharingAgreementResponseObjectResponseBodyPayer": ".asset_sharing_agreement_response_object_response_body_payer",
     "AssetSharingAgreementResponseObjectResponseBodyProviderDataPackagesItem": ".asset_sharing_agreement_response_object_response_body_provider_data_packages_item",
     "AssetSharingAgreementResponseObjectResponseBodyRecipientDataPackagesItem": ".asset_sharing_agreement_response_object_response_body_recipient_data_packages_item",
     "AssetSharingAgreementResponseObjectResponseBodyStatus": ".asset_sharing_agreement_response_object_response_body_status",
@@ -12660,6 +13292,81 @@ _dynamic_imports: typing.Dict[str, str] = {
     "CameraDetailsResponseResponseBody": ".camera_details_response_response_body",
     "CameraSerial": ".camera_serial",
     "CameraStreamIssueResponseBody": ".camera_stream_issue_response_body",
+    "CampaignItemIngestEntryObjectRequestBody": ".campaign_item_ingest_entry_object_request_body",
+    "CampaignItemIngestResponseItemObjectResponseBody": ".campaign_item_ingest_response_item_object_response_body",
+    "CampaignItemIngestResponseItemObjectResponseBodyResult": ".campaign_item_ingest_response_item_object_response_body_result",
+    "CampaignItemResponseObjectResponseBody": ".campaign_item_response_object_response_body",
+    "CampaignItemResponseObjectResponseBodyEffectiveState": ".campaign_item_response_object_response_body_effective_state",
+    "CampaignItemResponseObjectResponseBodySourceBasis": ".campaign_item_response_object_response_body_source_basis",
+    "CampaignItemResponseObjectResponseBodyState": ".campaign_item_response_object_response_body_state",
+    "CampaignItemStateCountResponseObjectResponseBody": ".campaign_item_state_count_response_object_response_body",
+    "CampaignItemStateCountResponseObjectResponseBodyState": ".campaign_item_state_count_response_object_response_body_state",
+    "CampaignRecallMetadataRequestObjectRequestBody": ".campaign_recall_metadata_request_object_request_body",
+    "CampaignRecallMetadataRequestObjectRequestBodyRecallSource": ".campaign_recall_metadata_request_object_request_body_recall_source",
+    "CampaignRecallMetadataResponseObjectResponseBody": ".campaign_recall_metadata_response_object_response_body",
+    "CampaignRecallMetadataResponseObjectResponseBodyRecallSource": ".campaign_recall_metadata_response_object_response_body_recall_source",
+    "CampaignResponseObjectResponseBody": ".campaign_response_object_response_body",
+    "CampaignResponseObjectResponseBodyCampaignType": ".campaign_response_object_response_body_campaign_type",
+    "CampaignResponseObjectResponseBodyCreatedSource": ".campaign_response_object_response_body_created_source",
+    "CampaignResponseObjectResponseBodyWorkOrderPriority": ".campaign_response_object_response_body_work_order_priority",
+    "CampaignRollupsResponseObjectResponseBody": ".campaign_rollups_response_object_response_body",
+    "CampaignStatusResponseObjectResponseBody": ".campaign_status_response_object_response_body",
+    "CampaignStatusResponseObjectResponseBodyState": ".campaign_status_response_object_response_body_state",
+    "CampaignsGetCampaignItemsBadGatewayErrorResponseBody": ".campaigns_get_campaign_items_bad_gateway_error_response_body",
+    "CampaignsGetCampaignItemsContentTooLargeErrorResponseBody": ".campaigns_get_campaign_items_content_too_large_error_response_body",
+    "CampaignsGetCampaignItemsGatewayTimeoutErrorResponseBody": ".campaigns_get_campaign_items_gateway_timeout_error_response_body",
+    "CampaignsGetCampaignItemsInternalServerErrorResponseBody": ".campaigns_get_campaign_items_internal_server_error_response_body",
+    "CampaignsGetCampaignItemsMethodNotAllowedErrorResponseBody": ".campaigns_get_campaign_items_method_not_allowed_error_response_body",
+    "CampaignsGetCampaignItemsNotFoundErrorResponseBody": ".campaigns_get_campaign_items_not_found_error_response_body",
+    "CampaignsGetCampaignItemsNotImplementedErrorResponseBody": ".campaigns_get_campaign_items_not_implemented_error_response_body",
+    "CampaignsGetCampaignItemsResponseBody": ".campaigns_get_campaign_items_response_body",
+    "CampaignsGetCampaignItemsServiceUnavailableErrorResponseBody": ".campaigns_get_campaign_items_service_unavailable_error_response_body",
+    "CampaignsGetCampaignItemsTooManyRequestsErrorResponseBody": ".campaigns_get_campaign_items_too_many_requests_error_response_body",
+    "CampaignsGetCampaignItemsUnauthorizedErrorResponseBody": ".campaigns_get_campaign_items_unauthorized_error_response_body",
+    "CampaignsGetCampaignRollupsBadGatewayErrorResponseBody": ".campaigns_get_campaign_rollups_bad_gateway_error_response_body",
+    "CampaignsGetCampaignRollupsContentTooLargeErrorResponseBody": ".campaigns_get_campaign_rollups_content_too_large_error_response_body",
+    "CampaignsGetCampaignRollupsGatewayTimeoutErrorResponseBody": ".campaigns_get_campaign_rollups_gateway_timeout_error_response_body",
+    "CampaignsGetCampaignRollupsInternalServerErrorResponseBody": ".campaigns_get_campaign_rollups_internal_server_error_response_body",
+    "CampaignsGetCampaignRollupsMethodNotAllowedErrorResponseBody": ".campaigns_get_campaign_rollups_method_not_allowed_error_response_body",
+    "CampaignsGetCampaignRollupsNotFoundErrorResponseBody": ".campaigns_get_campaign_rollups_not_found_error_response_body",
+    "CampaignsGetCampaignRollupsNotImplementedErrorResponseBody": ".campaigns_get_campaign_rollups_not_implemented_error_response_body",
+    "CampaignsGetCampaignRollupsResponseBody": ".campaigns_get_campaign_rollups_response_body",
+    "CampaignsGetCampaignRollupsServiceUnavailableErrorResponseBody": ".campaigns_get_campaign_rollups_service_unavailable_error_response_body",
+    "CampaignsGetCampaignRollupsTooManyRequestsErrorResponseBody": ".campaigns_get_campaign_rollups_too_many_requests_error_response_body",
+    "CampaignsGetCampaignRollupsUnauthorizedErrorResponseBody": ".campaigns_get_campaign_rollups_unauthorized_error_response_body",
+    "CampaignsGetCampaignsBadGatewayErrorResponseBody": ".campaigns_get_campaigns_bad_gateway_error_response_body",
+    "CampaignsGetCampaignsContentTooLargeErrorResponseBody": ".campaigns_get_campaigns_content_too_large_error_response_body",
+    "CampaignsGetCampaignsGatewayTimeoutErrorResponseBody": ".campaigns_get_campaigns_gateway_timeout_error_response_body",
+    "CampaignsGetCampaignsInternalServerErrorResponseBody": ".campaigns_get_campaigns_internal_server_error_response_body",
+    "CampaignsGetCampaignsMethodNotAllowedErrorResponseBody": ".campaigns_get_campaigns_method_not_allowed_error_response_body",
+    "CampaignsGetCampaignsNotFoundErrorResponseBody": ".campaigns_get_campaigns_not_found_error_response_body",
+    "CampaignsGetCampaignsNotImplementedErrorResponseBody": ".campaigns_get_campaigns_not_implemented_error_response_body",
+    "CampaignsGetCampaignsResponseBody": ".campaigns_get_campaigns_response_body",
+    "CampaignsGetCampaignsServiceUnavailableErrorResponseBody": ".campaigns_get_campaigns_service_unavailable_error_response_body",
+    "CampaignsGetCampaignsTooManyRequestsErrorResponseBody": ".campaigns_get_campaigns_too_many_requests_error_response_body",
+    "CampaignsGetCampaignsUnauthorizedErrorResponseBody": ".campaigns_get_campaigns_unauthorized_error_response_body",
+    "CampaignsPostCampaignItemsBatchBadGatewayErrorResponseBody": ".campaigns_post_campaign_items_batch_bad_gateway_error_response_body",
+    "CampaignsPostCampaignItemsBatchContentTooLargeErrorResponseBody": ".campaigns_post_campaign_items_batch_content_too_large_error_response_body",
+    "CampaignsPostCampaignItemsBatchGatewayTimeoutErrorResponseBody": ".campaigns_post_campaign_items_batch_gateway_timeout_error_response_body",
+    "CampaignsPostCampaignItemsBatchInternalServerErrorResponseBody": ".campaigns_post_campaign_items_batch_internal_server_error_response_body",
+    "CampaignsPostCampaignItemsBatchMethodNotAllowedErrorResponseBody": ".campaigns_post_campaign_items_batch_method_not_allowed_error_response_body",
+    "CampaignsPostCampaignItemsBatchNotFoundErrorResponseBody": ".campaigns_post_campaign_items_batch_not_found_error_response_body",
+    "CampaignsPostCampaignItemsBatchNotImplementedErrorResponseBody": ".campaigns_post_campaign_items_batch_not_implemented_error_response_body",
+    "CampaignsPostCampaignItemsBatchResponseBody": ".campaigns_post_campaign_items_batch_response_body",
+    "CampaignsPostCampaignItemsBatchServiceUnavailableErrorResponseBody": ".campaigns_post_campaign_items_batch_service_unavailable_error_response_body",
+    "CampaignsPostCampaignItemsBatchTooManyRequestsErrorResponseBody": ".campaigns_post_campaign_items_batch_too_many_requests_error_response_body",
+    "CampaignsPostCampaignItemsBatchUnauthorizedErrorResponseBody": ".campaigns_post_campaign_items_batch_unauthorized_error_response_body",
+    "CampaignsPostCampaignsBadGatewayErrorResponseBody": ".campaigns_post_campaigns_bad_gateway_error_response_body",
+    "CampaignsPostCampaignsContentTooLargeErrorResponseBody": ".campaigns_post_campaigns_content_too_large_error_response_body",
+    "CampaignsPostCampaignsGatewayTimeoutErrorResponseBody": ".campaigns_post_campaigns_gateway_timeout_error_response_body",
+    "CampaignsPostCampaignsInternalServerErrorResponseBody": ".campaigns_post_campaigns_internal_server_error_response_body",
+    "CampaignsPostCampaignsMethodNotAllowedErrorResponseBody": ".campaigns_post_campaigns_method_not_allowed_error_response_body",
+    "CampaignsPostCampaignsNotFoundErrorResponseBody": ".campaigns_post_campaigns_not_found_error_response_body",
+    "CampaignsPostCampaignsNotImplementedErrorResponseBody": ".campaigns_post_campaigns_not_implemented_error_response_body",
+    "CampaignsPostCampaignsResponseBody": ".campaigns_post_campaigns_response_body",
+    "CampaignsPostCampaignsServiceUnavailableErrorResponseBody": ".campaigns_post_campaigns_service_unavailable_error_response_body",
+    "CampaignsPostCampaignsTooManyRequestsErrorResponseBody": ".campaigns_post_campaigns_too_many_requests_error_response_body",
+    "CampaignsPostCampaignsUnauthorizedErrorResponseBody": ".campaigns_post_campaigns_unauthorized_error_response_body",
     "CancelSharedAssetBatchResponseItemResponseBody": ".cancel_shared_asset_batch_response_item_response_body",
     "CarbCtcListCarbCtcVehicleHistoryBadGatewayErrorResponseBody": ".carb_ctc_list_carb_ctc_vehicle_history_bad_gateway_error_response_body",
     "CarbCtcListCarbCtcVehicleHistoryContentTooLargeErrorResponseBody": ".carb_ctc_list_carb_ctc_vehicle_history_content_too_large_error_response_body",
@@ -15224,6 +15931,106 @@ _dynamic_imports: typing.Dict[str, str] = {
     "LocationType": ".location_type",
     "LogMetaDataObjectResponseBody": ".log_meta_data_object_response_body",
     "Longitude": ".longitude",
+    "MaintenanceAttachmentUploadRequestBody": ".maintenance_attachment_upload_request_body",
+    "MaintenanceAttachmentUploadRequestBodyContentType": ".maintenance_attachment_upload_request_body_content_type",
+    "MaintenanceEstimateAttachmentCreateResultResponseBody": ".maintenance_estimate_attachment_create_result_response_body",
+    "MaintenanceEstimateAttachmentCreateResultResponseBodyProcessingStatus": ".maintenance_estimate_attachment_create_result_response_body_processing_status",
+    "MaintenanceEstimateAttachmentResponseBody": ".maintenance_estimate_attachment_response_body",
+    "MaintenanceEstimateAttachmentResponseBodyProcessingStatus": ".maintenance_estimate_attachment_response_body_processing_status",
+    "MaintenanceEstimateAttachmentsCreateMaintenanceEstimateAttachmentBadGatewayErrorResponseBody": ".maintenance_estimate_attachments_create_maintenance_estimate_attachment_bad_gateway_error_response_body",
+    "MaintenanceEstimateAttachmentsCreateMaintenanceEstimateAttachmentConflictErrorResponseBody": ".maintenance_estimate_attachments_create_maintenance_estimate_attachment_conflict_error_response_body",
+    "MaintenanceEstimateAttachmentsCreateMaintenanceEstimateAttachmentContentTooLargeErrorResponseBody": ".maintenance_estimate_attachments_create_maintenance_estimate_attachment_content_too_large_error_response_body",
+    "MaintenanceEstimateAttachmentsCreateMaintenanceEstimateAttachmentGatewayTimeoutErrorResponseBody": ".maintenance_estimate_attachments_create_maintenance_estimate_attachment_gateway_timeout_error_response_body",
+    "MaintenanceEstimateAttachmentsCreateMaintenanceEstimateAttachmentInternalServerErrorResponseBody": ".maintenance_estimate_attachments_create_maintenance_estimate_attachment_internal_server_error_response_body",
+    "MaintenanceEstimateAttachmentsCreateMaintenanceEstimateAttachmentMethodNotAllowedErrorResponseBody": ".maintenance_estimate_attachments_create_maintenance_estimate_attachment_method_not_allowed_error_response_body",
+    "MaintenanceEstimateAttachmentsCreateMaintenanceEstimateAttachmentNotFoundErrorResponseBody": ".maintenance_estimate_attachments_create_maintenance_estimate_attachment_not_found_error_response_body",
+    "MaintenanceEstimateAttachmentsCreateMaintenanceEstimateAttachmentNotImplementedErrorResponseBody": ".maintenance_estimate_attachments_create_maintenance_estimate_attachment_not_implemented_error_response_body",
+    "MaintenanceEstimateAttachmentsCreateMaintenanceEstimateAttachmentResponseBody": ".maintenance_estimate_attachments_create_maintenance_estimate_attachment_response_body",
+    "MaintenanceEstimateAttachmentsCreateMaintenanceEstimateAttachmentServiceUnavailableErrorResponseBody": ".maintenance_estimate_attachments_create_maintenance_estimate_attachment_service_unavailable_error_response_body",
+    "MaintenanceEstimateAttachmentsCreateMaintenanceEstimateAttachmentTooManyRequestsErrorResponseBody": ".maintenance_estimate_attachments_create_maintenance_estimate_attachment_too_many_requests_error_response_body",
+    "MaintenanceEstimateAttachmentsCreateMaintenanceEstimateAttachmentUnauthorizedErrorResponseBody": ".maintenance_estimate_attachments_create_maintenance_estimate_attachment_unauthorized_error_response_body",
+    "MaintenanceEstimateAttachmentsDeleteMaintenanceEstimateAttachmentBadGatewayErrorResponseBody": ".maintenance_estimate_attachments_delete_maintenance_estimate_attachment_bad_gateway_error_response_body",
+    "MaintenanceEstimateAttachmentsDeleteMaintenanceEstimateAttachmentConflictErrorResponseBody": ".maintenance_estimate_attachments_delete_maintenance_estimate_attachment_conflict_error_response_body",
+    "MaintenanceEstimateAttachmentsDeleteMaintenanceEstimateAttachmentContentTooLargeErrorResponseBody": ".maintenance_estimate_attachments_delete_maintenance_estimate_attachment_content_too_large_error_response_body",
+    "MaintenanceEstimateAttachmentsDeleteMaintenanceEstimateAttachmentGatewayTimeoutErrorResponseBody": ".maintenance_estimate_attachments_delete_maintenance_estimate_attachment_gateway_timeout_error_response_body",
+    "MaintenanceEstimateAttachmentsDeleteMaintenanceEstimateAttachmentInternalServerErrorResponseBody": ".maintenance_estimate_attachments_delete_maintenance_estimate_attachment_internal_server_error_response_body",
+    "MaintenanceEstimateAttachmentsDeleteMaintenanceEstimateAttachmentMethodNotAllowedErrorResponseBody": ".maintenance_estimate_attachments_delete_maintenance_estimate_attachment_method_not_allowed_error_response_body",
+    "MaintenanceEstimateAttachmentsDeleteMaintenanceEstimateAttachmentNotFoundErrorResponseBody": ".maintenance_estimate_attachments_delete_maintenance_estimate_attachment_not_found_error_response_body",
+    "MaintenanceEstimateAttachmentsDeleteMaintenanceEstimateAttachmentNotImplementedErrorResponseBody": ".maintenance_estimate_attachments_delete_maintenance_estimate_attachment_not_implemented_error_response_body",
+    "MaintenanceEstimateAttachmentsDeleteMaintenanceEstimateAttachmentServiceUnavailableErrorResponseBody": ".maintenance_estimate_attachments_delete_maintenance_estimate_attachment_service_unavailable_error_response_body",
+    "MaintenanceEstimateAttachmentsDeleteMaintenanceEstimateAttachmentTooManyRequestsErrorResponseBody": ".maintenance_estimate_attachments_delete_maintenance_estimate_attachment_too_many_requests_error_response_body",
+    "MaintenanceEstimateAttachmentsDeleteMaintenanceEstimateAttachmentUnauthorizedErrorResponseBody": ".maintenance_estimate_attachments_delete_maintenance_estimate_attachment_unauthorized_error_response_body",
+    "MaintenanceEstimateBatchCreateInputRequestBody": ".maintenance_estimate_batch_create_input_request_body",
+    "MaintenanceEstimateBatchCreateInputRequestBodyApprovalStatus": ".maintenance_estimate_batch_create_input_request_body_approval_status",
+    "MaintenanceEstimateBatchCreateInputRequestBodyEstimateType": ".maintenance_estimate_batch_create_input_request_body_estimate_type",
+    "MaintenanceEstimateBatchItemResponseResponseBody": ".maintenance_estimate_batch_item_response_response_body",
+    "MaintenanceEstimateExternalRequestInputRequestBody": ".maintenance_estimate_external_request_input_request_body",
+    "MaintenanceEstimateExternalRequestResponseBody": ".maintenance_estimate_external_request_response_body",
+    "MaintenanceEstimateInlineFileRequestBody": ".maintenance_estimate_inline_file_request_body",
+    "MaintenanceEstimateInlineFileRequestBodyContentType": ".maintenance_estimate_inline_file_request_body_content_type",
+    "MaintenanceEstimateLineInputRequestBody": ".maintenance_estimate_line_input_request_body",
+    "MaintenanceEstimateLineInputRequestBodyCostType": ".maintenance_estimate_line_input_request_body_cost_type",
+    "MaintenanceEstimateLineItemResponseBody": ".maintenance_estimate_line_item_response_body",
+    "MaintenanceEstimateLineItemResponseBodyCostType": ".maintenance_estimate_line_item_response_body_cost_type",
+    "MaintenanceEstimateMoneyRequestBody": ".maintenance_estimate_money_request_body",
+    "MaintenanceEstimateMoneyRequestBodyCurrency": ".maintenance_estimate_money_request_body_currency",
+    "MaintenanceEstimateMoneyResponseBody": ".maintenance_estimate_money_response_body",
+    "MaintenanceEstimateMoneyResponseBodyCurrency": ".maintenance_estimate_money_response_body_currency",
+    "MaintenanceEstimateObjectResponseBody": ".maintenance_estimate_object_response_body",
+    "MaintenanceEstimateObjectResponseBodyApprovalSource": ".maintenance_estimate_object_response_body_approval_source",
+    "MaintenanceEstimateObjectResponseBodyApprovalStatus": ".maintenance_estimate_object_response_body_approval_status",
+    "MaintenanceEstimateObjectResponseBodyEstimateType": ".maintenance_estimate_object_response_body_estimate_type",
+    "MaintenanceEstimateUnitRateRequestBody": ".maintenance_estimate_unit_rate_request_body",
+    "MaintenanceEstimateUnitRateRequestBodyCurrency": ".maintenance_estimate_unit_rate_request_body_currency",
+    "MaintenanceEstimateUnitRateResponseBody": ".maintenance_estimate_unit_rate_response_body",
+    "MaintenanceEstimateUnitRateResponseBodyCurrency": ".maintenance_estimate_unit_rate_response_body_currency",
+    "MaintenanceEstimatesCreateMaintenanceEstimateBadGatewayErrorResponseBody": ".maintenance_estimates_create_maintenance_estimate_bad_gateway_error_response_body",
+    "MaintenanceEstimatesCreateMaintenanceEstimateConflictErrorResponseBody": ".maintenance_estimates_create_maintenance_estimate_conflict_error_response_body",
+    "MaintenanceEstimatesCreateMaintenanceEstimateContentTooLargeErrorResponseBody": ".maintenance_estimates_create_maintenance_estimate_content_too_large_error_response_body",
+    "MaintenanceEstimatesCreateMaintenanceEstimateGatewayTimeoutErrorResponseBody": ".maintenance_estimates_create_maintenance_estimate_gateway_timeout_error_response_body",
+    "MaintenanceEstimatesCreateMaintenanceEstimateInternalServerErrorResponseBody": ".maintenance_estimates_create_maintenance_estimate_internal_server_error_response_body",
+    "MaintenanceEstimatesCreateMaintenanceEstimateMethodNotAllowedErrorResponseBody": ".maintenance_estimates_create_maintenance_estimate_method_not_allowed_error_response_body",
+    "MaintenanceEstimatesCreateMaintenanceEstimateNotFoundErrorResponseBody": ".maintenance_estimates_create_maintenance_estimate_not_found_error_response_body",
+    "MaintenanceEstimatesCreateMaintenanceEstimateNotImplementedErrorResponseBody": ".maintenance_estimates_create_maintenance_estimate_not_implemented_error_response_body",
+    "MaintenanceEstimatesCreateMaintenanceEstimateResponseBody": ".maintenance_estimates_create_maintenance_estimate_response_body",
+    "MaintenanceEstimatesCreateMaintenanceEstimateServiceUnavailableErrorResponseBody": ".maintenance_estimates_create_maintenance_estimate_service_unavailable_error_response_body",
+    "MaintenanceEstimatesCreateMaintenanceEstimateTooManyRequestsErrorResponseBody": ".maintenance_estimates_create_maintenance_estimate_too_many_requests_error_response_body",
+    "MaintenanceEstimatesCreateMaintenanceEstimateUnauthorizedErrorResponseBody": ".maintenance_estimates_create_maintenance_estimate_unauthorized_error_response_body",
+    "MaintenanceEstimatesCreateMaintenanceEstimatesBatchBadGatewayErrorResponseBody": ".maintenance_estimates_create_maintenance_estimates_batch_bad_gateway_error_response_body",
+    "MaintenanceEstimatesCreateMaintenanceEstimatesBatchContentTooLargeErrorResponseBody": ".maintenance_estimates_create_maintenance_estimates_batch_content_too_large_error_response_body",
+    "MaintenanceEstimatesCreateMaintenanceEstimatesBatchGatewayTimeoutErrorResponseBody": ".maintenance_estimates_create_maintenance_estimates_batch_gateway_timeout_error_response_body",
+    "MaintenanceEstimatesCreateMaintenanceEstimatesBatchInternalServerErrorResponseBody": ".maintenance_estimates_create_maintenance_estimates_batch_internal_server_error_response_body",
+    "MaintenanceEstimatesCreateMaintenanceEstimatesBatchMethodNotAllowedErrorResponseBody": ".maintenance_estimates_create_maintenance_estimates_batch_method_not_allowed_error_response_body",
+    "MaintenanceEstimatesCreateMaintenanceEstimatesBatchNotFoundErrorResponseBody": ".maintenance_estimates_create_maintenance_estimates_batch_not_found_error_response_body",
+    "MaintenanceEstimatesCreateMaintenanceEstimatesBatchNotImplementedErrorResponseBody": ".maintenance_estimates_create_maintenance_estimates_batch_not_implemented_error_response_body",
+    "MaintenanceEstimatesCreateMaintenanceEstimatesBatchResponseBody": ".maintenance_estimates_create_maintenance_estimates_batch_response_body",
+    "MaintenanceEstimatesCreateMaintenanceEstimatesBatchServiceUnavailableErrorResponseBody": ".maintenance_estimates_create_maintenance_estimates_batch_service_unavailable_error_response_body",
+    "MaintenanceEstimatesCreateMaintenanceEstimatesBatchTooManyRequestsErrorResponseBody": ".maintenance_estimates_create_maintenance_estimates_batch_too_many_requests_error_response_body",
+    "MaintenanceEstimatesCreateMaintenanceEstimatesBatchUnauthorizedErrorResponseBody": ".maintenance_estimates_create_maintenance_estimates_batch_unauthorized_error_response_body",
+    "MaintenanceEstimatesListMaintenanceEstimatesBadGatewayErrorResponseBody": ".maintenance_estimates_list_maintenance_estimates_bad_gateway_error_response_body",
+    "MaintenanceEstimatesListMaintenanceEstimatesContentTooLargeErrorResponseBody": ".maintenance_estimates_list_maintenance_estimates_content_too_large_error_response_body",
+    "MaintenanceEstimatesListMaintenanceEstimatesGatewayTimeoutErrorResponseBody": ".maintenance_estimates_list_maintenance_estimates_gateway_timeout_error_response_body",
+    "MaintenanceEstimatesListMaintenanceEstimatesInternalServerErrorResponseBody": ".maintenance_estimates_list_maintenance_estimates_internal_server_error_response_body",
+    "MaintenanceEstimatesListMaintenanceEstimatesMethodNotAllowedErrorResponseBody": ".maintenance_estimates_list_maintenance_estimates_method_not_allowed_error_response_body",
+    "MaintenanceEstimatesListMaintenanceEstimatesNotFoundErrorResponseBody": ".maintenance_estimates_list_maintenance_estimates_not_found_error_response_body",
+    "MaintenanceEstimatesListMaintenanceEstimatesNotImplementedErrorResponseBody": ".maintenance_estimates_list_maintenance_estimates_not_implemented_error_response_body",
+    "MaintenanceEstimatesListMaintenanceEstimatesResponseBody": ".maintenance_estimates_list_maintenance_estimates_response_body",
+    "MaintenanceEstimatesListMaintenanceEstimatesServiceUnavailableErrorResponseBody": ".maintenance_estimates_list_maintenance_estimates_service_unavailable_error_response_body",
+    "MaintenanceEstimatesListMaintenanceEstimatesTooManyRequestsErrorResponseBody": ".maintenance_estimates_list_maintenance_estimates_too_many_requests_error_response_body",
+    "MaintenanceEstimatesListMaintenanceEstimatesUnauthorizedErrorResponseBody": ".maintenance_estimates_list_maintenance_estimates_unauthorized_error_response_body",
+    "MaintenanceEstimatesPaginationResponseBody": ".maintenance_estimates_pagination_response_body",
+    "MaintenanceEstimatesPatchMaintenanceEstimateBadGatewayErrorResponseBody": ".maintenance_estimates_patch_maintenance_estimate_bad_gateway_error_response_body",
+    "MaintenanceEstimatesPatchMaintenanceEstimateConflictErrorResponseBody": ".maintenance_estimates_patch_maintenance_estimate_conflict_error_response_body",
+    "MaintenanceEstimatesPatchMaintenanceEstimateContentTooLargeErrorResponseBody": ".maintenance_estimates_patch_maintenance_estimate_content_too_large_error_response_body",
+    "MaintenanceEstimatesPatchMaintenanceEstimateGatewayTimeoutErrorResponseBody": ".maintenance_estimates_patch_maintenance_estimate_gateway_timeout_error_response_body",
+    "MaintenanceEstimatesPatchMaintenanceEstimateInternalServerErrorResponseBody": ".maintenance_estimates_patch_maintenance_estimate_internal_server_error_response_body",
+    "MaintenanceEstimatesPatchMaintenanceEstimateMethodNotAllowedErrorResponseBody": ".maintenance_estimates_patch_maintenance_estimate_method_not_allowed_error_response_body",
+    "MaintenanceEstimatesPatchMaintenanceEstimateNotFoundErrorResponseBody": ".maintenance_estimates_patch_maintenance_estimate_not_found_error_response_body",
+    "MaintenanceEstimatesPatchMaintenanceEstimateNotImplementedErrorResponseBody": ".maintenance_estimates_patch_maintenance_estimate_not_implemented_error_response_body",
+    "MaintenanceEstimatesPatchMaintenanceEstimateResponseBody": ".maintenance_estimates_patch_maintenance_estimate_response_body",
+    "MaintenanceEstimatesPatchMaintenanceEstimateServiceUnavailableErrorResponseBody": ".maintenance_estimates_patch_maintenance_estimate_service_unavailable_error_response_body",
+    "MaintenanceEstimatesPatchMaintenanceEstimateTooManyRequestsErrorResponseBody": ".maintenance_estimates_patch_maintenance_estimate_too_many_requests_error_response_body",
+    "MaintenanceEstimatesPatchMaintenanceEstimateUnauthorizedErrorResponseBody": ".maintenance_estimates_patch_maintenance_estimate_unauthorized_error_response_body",
     "MaintenanceVendorsListMaintenanceVendorsBadGatewayErrorResponseBody": ".maintenance_vendors_list_maintenance_vendors_bad_gateway_error_response_body",
     "MaintenanceVendorsListMaintenanceVendorsContentTooLargeErrorResponseBody": ".maintenance_vendors_list_maintenance_vendors_content_too_large_error_response_body",
     "MaintenanceVendorsListMaintenanceVendorsGatewayTimeoutErrorResponseBody": ".maintenance_vendors_list_maintenance_vendors_gateway_timeout_error_response_body",
@@ -15401,6 +16208,42 @@ _dynamic_imports: typing.Dict[str, str] = {
     "ParentTagName": ".parent_tag_name",
     "PartInstanceInputObjectRequestBody": ".part_instance_input_object_request_body",
     "PartInstanceObjectResponseBody": ".part_instance_object_response_body",
+    "PartPhotoFileRequestBody": ".part_photo_file_request_body",
+    "PartPhotoObjectResponseBody": ".part_photo_object_response_body",
+    "PartPhotoObjectResponseBodyProcessingStatus": ".part_photo_object_response_body_processing_status",
+    "PartPhotosDeletePartPhotoBadGatewayErrorResponseBody": ".part_photos_delete_part_photo_bad_gateway_error_response_body",
+    "PartPhotosDeletePartPhotoContentTooLargeErrorResponseBody": ".part_photos_delete_part_photo_content_too_large_error_response_body",
+    "PartPhotosDeletePartPhotoGatewayTimeoutErrorResponseBody": ".part_photos_delete_part_photo_gateway_timeout_error_response_body",
+    "PartPhotosDeletePartPhotoInternalServerErrorResponseBody": ".part_photos_delete_part_photo_internal_server_error_response_body",
+    "PartPhotosDeletePartPhotoMethodNotAllowedErrorResponseBody": ".part_photos_delete_part_photo_method_not_allowed_error_response_body",
+    "PartPhotosDeletePartPhotoNotFoundErrorResponseBody": ".part_photos_delete_part_photo_not_found_error_response_body",
+    "PartPhotosDeletePartPhotoNotImplementedErrorResponseBody": ".part_photos_delete_part_photo_not_implemented_error_response_body",
+    "PartPhotosDeletePartPhotoServiceUnavailableErrorResponseBody": ".part_photos_delete_part_photo_service_unavailable_error_response_body",
+    "PartPhotosDeletePartPhotoTooManyRequestsErrorResponseBody": ".part_photos_delete_part_photo_too_many_requests_error_response_body",
+    "PartPhotosDeletePartPhotoUnauthorizedErrorResponseBody": ".part_photos_delete_part_photo_unauthorized_error_response_body",
+    "PartPhotosGetPartPhotosBadGatewayErrorResponseBody": ".part_photos_get_part_photos_bad_gateway_error_response_body",
+    "PartPhotosGetPartPhotosContentTooLargeErrorResponseBody": ".part_photos_get_part_photos_content_too_large_error_response_body",
+    "PartPhotosGetPartPhotosGatewayTimeoutErrorResponseBody": ".part_photos_get_part_photos_gateway_timeout_error_response_body",
+    "PartPhotosGetPartPhotosInternalServerErrorResponseBody": ".part_photos_get_part_photos_internal_server_error_response_body",
+    "PartPhotosGetPartPhotosMethodNotAllowedErrorResponseBody": ".part_photos_get_part_photos_method_not_allowed_error_response_body",
+    "PartPhotosGetPartPhotosNotFoundErrorResponseBody": ".part_photos_get_part_photos_not_found_error_response_body",
+    "PartPhotosGetPartPhotosNotImplementedErrorResponseBody": ".part_photos_get_part_photos_not_implemented_error_response_body",
+    "PartPhotosGetPartPhotosResponseBody": ".part_photos_get_part_photos_response_body",
+    "PartPhotosGetPartPhotosServiceUnavailableErrorResponseBody": ".part_photos_get_part_photos_service_unavailable_error_response_body",
+    "PartPhotosGetPartPhotosTooManyRequestsErrorResponseBody": ".part_photos_get_part_photos_too_many_requests_error_response_body",
+    "PartPhotosGetPartPhotosUnauthorizedErrorResponseBody": ".part_photos_get_part_photos_unauthorized_error_response_body",
+    "PartPhotosObjectResponseBody": ".part_photos_object_response_body",
+    "PartPhotosPostPartPhotoBadGatewayErrorResponseBody": ".part_photos_post_part_photo_bad_gateway_error_response_body",
+    "PartPhotosPostPartPhotoContentTooLargeErrorResponseBody": ".part_photos_post_part_photo_content_too_large_error_response_body",
+    "PartPhotosPostPartPhotoGatewayTimeoutErrorResponseBody": ".part_photos_post_part_photo_gateway_timeout_error_response_body",
+    "PartPhotosPostPartPhotoInternalServerErrorResponseBody": ".part_photos_post_part_photo_internal_server_error_response_body",
+    "PartPhotosPostPartPhotoMethodNotAllowedErrorResponseBody": ".part_photos_post_part_photo_method_not_allowed_error_response_body",
+    "PartPhotosPostPartPhotoNotFoundErrorResponseBody": ".part_photos_post_part_photo_not_found_error_response_body",
+    "PartPhotosPostPartPhotoNotImplementedErrorResponseBody": ".part_photos_post_part_photo_not_implemented_error_response_body",
+    "PartPhotosPostPartPhotoResponseBody": ".part_photos_post_part_photo_response_body",
+    "PartPhotosPostPartPhotoServiceUnavailableErrorResponseBody": ".part_photos_post_part_photo_service_unavailable_error_response_body",
+    "PartPhotosPostPartPhotoTooManyRequestsErrorResponseBody": ".part_photos_post_part_photo_too_many_requests_error_response_body",
+    "PartPhotosPostPartPhotoUnauthorizedErrorResponseBody": ".part_photos_post_part_photo_unauthorized_error_response_body",
     "PatchAssetDataOutputsSingleResponseResponseBody": ".patch_asset_data_outputs_single_response_response_body",
     "PatchDriverTrailerAssignmentsResponseBodyResponseBody": ".patch_driver_trailer_assignments_response_body_response_body",
     "PatchDriverVehicleAssignmentsV2RequestBodyMetadataRequestBody": ".patch_driver_vehicle_assignments_v_2_request_body_metadata_request_body",
@@ -16578,6 +17421,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "TechnicianShiftsPatchTechnicianShiftServiceUnavailableErrorResponseBody": ".technician_shifts_patch_technician_shift_service_unavailable_error_response_body",
     "TechnicianShiftsPatchTechnicianShiftTooManyRequestsErrorResponseBody": ".technician_shifts_patch_technician_shift_too_many_requests_error_response_body",
     "TechnicianShiftsPatchTechnicianShiftUnauthorizedErrorResponseBody": ".technician_shifts_patch_technician_shift_unauthorized_error_response_body",
+    "ThermographTemperatureResponseBody": ".thermograph_temperature_response_body",
     "Time": ".time",
     "TimeRangeObjectRequestBody": ".time_range_object_request_body",
     "TimeRangeObjectRequestBodyDaysOfWeekItem": ".time_range_object_request_body_days_of_week_item",
@@ -17416,6 +18260,12 @@ _dynamic_imports: typing.Dict[str, str] = {
     "VoiceCoachingSettingsObjectResponseBodyEventsToCoachItem": ".voice_coaching_settings_object_response_body_events_to_coach_item",
     "VoiceCoachingSettingsObjectResponseBodyLanguage": ".voice_coaching_settings_object_response_body_language",
     "WalkaroundPhotoObjectResponseBody": ".walkaround_photo_object_response_body",
+    "WatchpointBearingRangeTypeRequestBody": ".watchpoint_bearing_range_type_request_body",
+    "WatchpointBearingRangeTypeResponseBody": ".watchpoint_bearing_range_type_response_body",
+    "WatchpointCustomDetectionRequestTypeRequestBody": ".watchpoint_custom_detection_request_type_request_body",
+    "WatchpointCustomDetectionRequestTypeRequestBodyType": ".watchpoint_custom_detection_request_type_request_body_type",
+    "WatchpointCustomDetectionResponseTypeResponseBody": ".watchpoint_custom_detection_response_type_response_body",
+    "WatchpointCustomDetectionResponseTypeResponseBodyType": ".watchpoint_custom_detection_response_type_response_body_type",
     "WatchpointLatLngTypeRequestBody": ".watchpoint_lat_lng_type_request_body",
     "WatchpointLatLngTypeResponseBody": ".watchpoint_lat_lng_type_response_body",
     "WebhookParamsObjectRequestBody": ".webhook_params_object_request_body",
@@ -17487,6 +18337,8 @@ _dynamic_imports: typing.Dict[str, str] = {
     "WebhooksPostWebhooksTooManyRequestsErrorResponseBody": ".webhooks_post_webhooks_too_many_requests_error_response_body",
     "WebhooksPostWebhooksUnauthorizedErrorResponseBody": ".webhooks_post_webhooks_unauthorized_error_response_body",
     "WorkOrderAssigneeObjectResponseBody": ".work_order_assignee_object_response_body",
+    "WorkOrderAttachmentCreateResultResponseBody": ".work_order_attachment_create_result_response_body",
+    "WorkOrderAttachmentFileRequestBody": ".work_order_attachment_file_request_body",
     "WorkOrderAttachmentObjectResponseBody": ".work_order_attachment_object_response_body",
     "WorkOrderAttachmentObjectResponseBodyProcessingStatus": ".work_order_attachment_object_response_body_processing_status",
     "WorkOrderDiscountObjectRequestBody": ".work_order_discount_object_request_body",
@@ -17512,6 +18364,17 @@ _dynamic_imports: typing.Dict[str, str] = {
     "WorkOrderWithTimeEntriesObjectResponseBody": ".work_order_with_time_entries_object_response_body",
     "WorkOrderWithTimeEntriesObjectResponseBodyPriority": ".work_order_with_time_entries_object_response_body_priority",
     "WorkOrderWithTimeEntriesObjectResponseBodyStatus": ".work_order_with_time_entries_object_response_body_status",
+    "WorkOrdersDeleteMaintenanceWorkOrderAttachmentBadGatewayErrorResponseBody": ".work_orders_delete_maintenance_work_order_attachment_bad_gateway_error_response_body",
+    "WorkOrdersDeleteMaintenanceWorkOrderAttachmentConflictErrorResponseBody": ".work_orders_delete_maintenance_work_order_attachment_conflict_error_response_body",
+    "WorkOrdersDeleteMaintenanceWorkOrderAttachmentContentTooLargeErrorResponseBody": ".work_orders_delete_maintenance_work_order_attachment_content_too_large_error_response_body",
+    "WorkOrdersDeleteMaintenanceWorkOrderAttachmentGatewayTimeoutErrorResponseBody": ".work_orders_delete_maintenance_work_order_attachment_gateway_timeout_error_response_body",
+    "WorkOrdersDeleteMaintenanceWorkOrderAttachmentInternalServerErrorResponseBody": ".work_orders_delete_maintenance_work_order_attachment_internal_server_error_response_body",
+    "WorkOrdersDeleteMaintenanceWorkOrderAttachmentMethodNotAllowedErrorResponseBody": ".work_orders_delete_maintenance_work_order_attachment_method_not_allowed_error_response_body",
+    "WorkOrdersDeleteMaintenanceWorkOrderAttachmentNotFoundErrorResponseBody": ".work_orders_delete_maintenance_work_order_attachment_not_found_error_response_body",
+    "WorkOrdersDeleteMaintenanceWorkOrderAttachmentNotImplementedErrorResponseBody": ".work_orders_delete_maintenance_work_order_attachment_not_implemented_error_response_body",
+    "WorkOrdersDeleteMaintenanceWorkOrderAttachmentServiceUnavailableErrorResponseBody": ".work_orders_delete_maintenance_work_order_attachment_service_unavailable_error_response_body",
+    "WorkOrdersDeleteMaintenanceWorkOrderAttachmentTooManyRequestsErrorResponseBody": ".work_orders_delete_maintenance_work_order_attachment_too_many_requests_error_response_body",
+    "WorkOrdersDeleteMaintenanceWorkOrderAttachmentUnauthorizedErrorResponseBody": ".work_orders_delete_maintenance_work_order_attachment_unauthorized_error_response_body",
     "WorkOrdersDeleteWorkOrdersBadGatewayErrorResponseBody": ".work_orders_delete_work_orders_bad_gateway_error_response_body",
     "WorkOrdersDeleteWorkOrdersContentTooLargeErrorResponseBody": ".work_orders_delete_work_orders_content_too_large_error_response_body",
     "WorkOrdersDeleteWorkOrdersGatewayTimeoutErrorResponseBody": ".work_orders_delete_work_orders_gateway_timeout_error_response_body",
@@ -17577,6 +18440,17 @@ _dynamic_imports: typing.Dict[str, str] = {
     "WorkOrdersPostInvoiceScanServiceUnavailableErrorResponseBody": ".work_orders_post_invoice_scan_service_unavailable_error_response_body",
     "WorkOrdersPostInvoiceScanTooManyRequestsErrorResponseBody": ".work_orders_post_invoice_scan_too_many_requests_error_response_body",
     "WorkOrdersPostInvoiceScanUnauthorizedErrorResponseBody": ".work_orders_post_invoice_scan_unauthorized_error_response_body",
+    "WorkOrdersPostWorkOrderAttachmentBadGatewayErrorResponseBody": ".work_orders_post_work_order_attachment_bad_gateway_error_response_body",
+    "WorkOrdersPostWorkOrderAttachmentContentTooLargeErrorResponseBody": ".work_orders_post_work_order_attachment_content_too_large_error_response_body",
+    "WorkOrdersPostWorkOrderAttachmentGatewayTimeoutErrorResponseBody": ".work_orders_post_work_order_attachment_gateway_timeout_error_response_body",
+    "WorkOrdersPostWorkOrderAttachmentInternalServerErrorResponseBody": ".work_orders_post_work_order_attachment_internal_server_error_response_body",
+    "WorkOrdersPostWorkOrderAttachmentMethodNotAllowedErrorResponseBody": ".work_orders_post_work_order_attachment_method_not_allowed_error_response_body",
+    "WorkOrdersPostWorkOrderAttachmentNotFoundErrorResponseBody": ".work_orders_post_work_order_attachment_not_found_error_response_body",
+    "WorkOrdersPostWorkOrderAttachmentNotImplementedErrorResponseBody": ".work_orders_post_work_order_attachment_not_implemented_error_response_body",
+    "WorkOrdersPostWorkOrderAttachmentResponseBody": ".work_orders_post_work_order_attachment_response_body",
+    "WorkOrdersPostWorkOrderAttachmentServiceUnavailableErrorResponseBody": ".work_orders_post_work_order_attachment_service_unavailable_error_response_body",
+    "WorkOrdersPostWorkOrderAttachmentTooManyRequestsErrorResponseBody": ".work_orders_post_work_order_attachment_too_many_requests_error_response_body",
+    "WorkOrdersPostWorkOrderAttachmentUnauthorizedErrorResponseBody": ".work_orders_post_work_order_attachment_unauthorized_error_response_body",
     "WorkOrdersPostWorkOrdersBadGatewayErrorResponseBody": ".work_orders_post_work_orders_bad_gateway_error_response_body",
     "WorkOrdersPostWorkOrdersContentTooLargeErrorResponseBody": ".work_orders_post_work_orders_content_too_large_error_response_body",
     "WorkOrdersPostWorkOrdersGatewayTimeoutErrorResponseBody": ".work_orders_post_work_orders_gateway_timeout_error_response_body",
@@ -17870,7 +18744,9 @@ __all__ = [
     "AssetResponseRunningStatusDataInput",
     "AssetSharingAgreementResponseObjectResponseBody",
     "AssetSharingAgreementResponseObjectResponseBodyCanceledByParty",
+    "AssetSharingAgreementResponseObjectResponseBodyCreatedByParty",
     "AssetSharingAgreementResponseObjectResponseBodyOperator",
+    "AssetSharingAgreementResponseObjectResponseBodyPayer",
     "AssetSharingAgreementResponseObjectResponseBodyProviderDataPackagesItem",
     "AssetSharingAgreementResponseObjectResponseBodyRecipientDataPackagesItem",
     "AssetSharingAgreementResponseObjectResponseBodyStatus",
@@ -18114,6 +18990,81 @@ __all__ = [
     "CameraDetailsResponseResponseBody",
     "CameraSerial",
     "CameraStreamIssueResponseBody",
+    "CampaignItemIngestEntryObjectRequestBody",
+    "CampaignItemIngestResponseItemObjectResponseBody",
+    "CampaignItemIngestResponseItemObjectResponseBodyResult",
+    "CampaignItemResponseObjectResponseBody",
+    "CampaignItemResponseObjectResponseBodyEffectiveState",
+    "CampaignItemResponseObjectResponseBodySourceBasis",
+    "CampaignItemResponseObjectResponseBodyState",
+    "CampaignItemStateCountResponseObjectResponseBody",
+    "CampaignItemStateCountResponseObjectResponseBodyState",
+    "CampaignRecallMetadataRequestObjectRequestBody",
+    "CampaignRecallMetadataRequestObjectRequestBodyRecallSource",
+    "CampaignRecallMetadataResponseObjectResponseBody",
+    "CampaignRecallMetadataResponseObjectResponseBodyRecallSource",
+    "CampaignResponseObjectResponseBody",
+    "CampaignResponseObjectResponseBodyCampaignType",
+    "CampaignResponseObjectResponseBodyCreatedSource",
+    "CampaignResponseObjectResponseBodyWorkOrderPriority",
+    "CampaignRollupsResponseObjectResponseBody",
+    "CampaignStatusResponseObjectResponseBody",
+    "CampaignStatusResponseObjectResponseBodyState",
+    "CampaignsGetCampaignItemsBadGatewayErrorResponseBody",
+    "CampaignsGetCampaignItemsContentTooLargeErrorResponseBody",
+    "CampaignsGetCampaignItemsGatewayTimeoutErrorResponseBody",
+    "CampaignsGetCampaignItemsInternalServerErrorResponseBody",
+    "CampaignsGetCampaignItemsMethodNotAllowedErrorResponseBody",
+    "CampaignsGetCampaignItemsNotFoundErrorResponseBody",
+    "CampaignsGetCampaignItemsNotImplementedErrorResponseBody",
+    "CampaignsGetCampaignItemsResponseBody",
+    "CampaignsGetCampaignItemsServiceUnavailableErrorResponseBody",
+    "CampaignsGetCampaignItemsTooManyRequestsErrorResponseBody",
+    "CampaignsGetCampaignItemsUnauthorizedErrorResponseBody",
+    "CampaignsGetCampaignRollupsBadGatewayErrorResponseBody",
+    "CampaignsGetCampaignRollupsContentTooLargeErrorResponseBody",
+    "CampaignsGetCampaignRollupsGatewayTimeoutErrorResponseBody",
+    "CampaignsGetCampaignRollupsInternalServerErrorResponseBody",
+    "CampaignsGetCampaignRollupsMethodNotAllowedErrorResponseBody",
+    "CampaignsGetCampaignRollupsNotFoundErrorResponseBody",
+    "CampaignsGetCampaignRollupsNotImplementedErrorResponseBody",
+    "CampaignsGetCampaignRollupsResponseBody",
+    "CampaignsGetCampaignRollupsServiceUnavailableErrorResponseBody",
+    "CampaignsGetCampaignRollupsTooManyRequestsErrorResponseBody",
+    "CampaignsGetCampaignRollupsUnauthorizedErrorResponseBody",
+    "CampaignsGetCampaignsBadGatewayErrorResponseBody",
+    "CampaignsGetCampaignsContentTooLargeErrorResponseBody",
+    "CampaignsGetCampaignsGatewayTimeoutErrorResponseBody",
+    "CampaignsGetCampaignsInternalServerErrorResponseBody",
+    "CampaignsGetCampaignsMethodNotAllowedErrorResponseBody",
+    "CampaignsGetCampaignsNotFoundErrorResponseBody",
+    "CampaignsGetCampaignsNotImplementedErrorResponseBody",
+    "CampaignsGetCampaignsResponseBody",
+    "CampaignsGetCampaignsServiceUnavailableErrorResponseBody",
+    "CampaignsGetCampaignsTooManyRequestsErrorResponseBody",
+    "CampaignsGetCampaignsUnauthorizedErrorResponseBody",
+    "CampaignsPostCampaignItemsBatchBadGatewayErrorResponseBody",
+    "CampaignsPostCampaignItemsBatchContentTooLargeErrorResponseBody",
+    "CampaignsPostCampaignItemsBatchGatewayTimeoutErrorResponseBody",
+    "CampaignsPostCampaignItemsBatchInternalServerErrorResponseBody",
+    "CampaignsPostCampaignItemsBatchMethodNotAllowedErrorResponseBody",
+    "CampaignsPostCampaignItemsBatchNotFoundErrorResponseBody",
+    "CampaignsPostCampaignItemsBatchNotImplementedErrorResponseBody",
+    "CampaignsPostCampaignItemsBatchResponseBody",
+    "CampaignsPostCampaignItemsBatchServiceUnavailableErrorResponseBody",
+    "CampaignsPostCampaignItemsBatchTooManyRequestsErrorResponseBody",
+    "CampaignsPostCampaignItemsBatchUnauthorizedErrorResponseBody",
+    "CampaignsPostCampaignsBadGatewayErrorResponseBody",
+    "CampaignsPostCampaignsContentTooLargeErrorResponseBody",
+    "CampaignsPostCampaignsGatewayTimeoutErrorResponseBody",
+    "CampaignsPostCampaignsInternalServerErrorResponseBody",
+    "CampaignsPostCampaignsMethodNotAllowedErrorResponseBody",
+    "CampaignsPostCampaignsNotFoundErrorResponseBody",
+    "CampaignsPostCampaignsNotImplementedErrorResponseBody",
+    "CampaignsPostCampaignsResponseBody",
+    "CampaignsPostCampaignsServiceUnavailableErrorResponseBody",
+    "CampaignsPostCampaignsTooManyRequestsErrorResponseBody",
+    "CampaignsPostCampaignsUnauthorizedErrorResponseBody",
     "CancelSharedAssetBatchResponseItemResponseBody",
     "CarbCtcListCarbCtcVehicleHistoryBadGatewayErrorResponseBody",
     "CarbCtcListCarbCtcVehicleHistoryContentTooLargeErrorResponseBody",
@@ -20678,6 +21629,106 @@ __all__ = [
     "LocationType",
     "LogMetaDataObjectResponseBody",
     "Longitude",
+    "MaintenanceAttachmentUploadRequestBody",
+    "MaintenanceAttachmentUploadRequestBodyContentType",
+    "MaintenanceEstimateAttachmentCreateResultResponseBody",
+    "MaintenanceEstimateAttachmentCreateResultResponseBodyProcessingStatus",
+    "MaintenanceEstimateAttachmentResponseBody",
+    "MaintenanceEstimateAttachmentResponseBodyProcessingStatus",
+    "MaintenanceEstimateAttachmentsCreateMaintenanceEstimateAttachmentBadGatewayErrorResponseBody",
+    "MaintenanceEstimateAttachmentsCreateMaintenanceEstimateAttachmentConflictErrorResponseBody",
+    "MaintenanceEstimateAttachmentsCreateMaintenanceEstimateAttachmentContentTooLargeErrorResponseBody",
+    "MaintenanceEstimateAttachmentsCreateMaintenanceEstimateAttachmentGatewayTimeoutErrorResponseBody",
+    "MaintenanceEstimateAttachmentsCreateMaintenanceEstimateAttachmentInternalServerErrorResponseBody",
+    "MaintenanceEstimateAttachmentsCreateMaintenanceEstimateAttachmentMethodNotAllowedErrorResponseBody",
+    "MaintenanceEstimateAttachmentsCreateMaintenanceEstimateAttachmentNotFoundErrorResponseBody",
+    "MaintenanceEstimateAttachmentsCreateMaintenanceEstimateAttachmentNotImplementedErrorResponseBody",
+    "MaintenanceEstimateAttachmentsCreateMaintenanceEstimateAttachmentResponseBody",
+    "MaintenanceEstimateAttachmentsCreateMaintenanceEstimateAttachmentServiceUnavailableErrorResponseBody",
+    "MaintenanceEstimateAttachmentsCreateMaintenanceEstimateAttachmentTooManyRequestsErrorResponseBody",
+    "MaintenanceEstimateAttachmentsCreateMaintenanceEstimateAttachmentUnauthorizedErrorResponseBody",
+    "MaintenanceEstimateAttachmentsDeleteMaintenanceEstimateAttachmentBadGatewayErrorResponseBody",
+    "MaintenanceEstimateAttachmentsDeleteMaintenanceEstimateAttachmentConflictErrorResponseBody",
+    "MaintenanceEstimateAttachmentsDeleteMaintenanceEstimateAttachmentContentTooLargeErrorResponseBody",
+    "MaintenanceEstimateAttachmentsDeleteMaintenanceEstimateAttachmentGatewayTimeoutErrorResponseBody",
+    "MaintenanceEstimateAttachmentsDeleteMaintenanceEstimateAttachmentInternalServerErrorResponseBody",
+    "MaintenanceEstimateAttachmentsDeleteMaintenanceEstimateAttachmentMethodNotAllowedErrorResponseBody",
+    "MaintenanceEstimateAttachmentsDeleteMaintenanceEstimateAttachmentNotFoundErrorResponseBody",
+    "MaintenanceEstimateAttachmentsDeleteMaintenanceEstimateAttachmentNotImplementedErrorResponseBody",
+    "MaintenanceEstimateAttachmentsDeleteMaintenanceEstimateAttachmentServiceUnavailableErrorResponseBody",
+    "MaintenanceEstimateAttachmentsDeleteMaintenanceEstimateAttachmentTooManyRequestsErrorResponseBody",
+    "MaintenanceEstimateAttachmentsDeleteMaintenanceEstimateAttachmentUnauthorizedErrorResponseBody",
+    "MaintenanceEstimateBatchCreateInputRequestBody",
+    "MaintenanceEstimateBatchCreateInputRequestBodyApprovalStatus",
+    "MaintenanceEstimateBatchCreateInputRequestBodyEstimateType",
+    "MaintenanceEstimateBatchItemResponseResponseBody",
+    "MaintenanceEstimateExternalRequestInputRequestBody",
+    "MaintenanceEstimateExternalRequestResponseBody",
+    "MaintenanceEstimateInlineFileRequestBody",
+    "MaintenanceEstimateInlineFileRequestBodyContentType",
+    "MaintenanceEstimateLineInputRequestBody",
+    "MaintenanceEstimateLineInputRequestBodyCostType",
+    "MaintenanceEstimateLineItemResponseBody",
+    "MaintenanceEstimateLineItemResponseBodyCostType",
+    "MaintenanceEstimateMoneyRequestBody",
+    "MaintenanceEstimateMoneyRequestBodyCurrency",
+    "MaintenanceEstimateMoneyResponseBody",
+    "MaintenanceEstimateMoneyResponseBodyCurrency",
+    "MaintenanceEstimateObjectResponseBody",
+    "MaintenanceEstimateObjectResponseBodyApprovalSource",
+    "MaintenanceEstimateObjectResponseBodyApprovalStatus",
+    "MaintenanceEstimateObjectResponseBodyEstimateType",
+    "MaintenanceEstimateUnitRateRequestBody",
+    "MaintenanceEstimateUnitRateRequestBodyCurrency",
+    "MaintenanceEstimateUnitRateResponseBody",
+    "MaintenanceEstimateUnitRateResponseBodyCurrency",
+    "MaintenanceEstimatesCreateMaintenanceEstimateBadGatewayErrorResponseBody",
+    "MaintenanceEstimatesCreateMaintenanceEstimateConflictErrorResponseBody",
+    "MaintenanceEstimatesCreateMaintenanceEstimateContentTooLargeErrorResponseBody",
+    "MaintenanceEstimatesCreateMaintenanceEstimateGatewayTimeoutErrorResponseBody",
+    "MaintenanceEstimatesCreateMaintenanceEstimateInternalServerErrorResponseBody",
+    "MaintenanceEstimatesCreateMaintenanceEstimateMethodNotAllowedErrorResponseBody",
+    "MaintenanceEstimatesCreateMaintenanceEstimateNotFoundErrorResponseBody",
+    "MaintenanceEstimatesCreateMaintenanceEstimateNotImplementedErrorResponseBody",
+    "MaintenanceEstimatesCreateMaintenanceEstimateResponseBody",
+    "MaintenanceEstimatesCreateMaintenanceEstimateServiceUnavailableErrorResponseBody",
+    "MaintenanceEstimatesCreateMaintenanceEstimateTooManyRequestsErrorResponseBody",
+    "MaintenanceEstimatesCreateMaintenanceEstimateUnauthorizedErrorResponseBody",
+    "MaintenanceEstimatesCreateMaintenanceEstimatesBatchBadGatewayErrorResponseBody",
+    "MaintenanceEstimatesCreateMaintenanceEstimatesBatchContentTooLargeErrorResponseBody",
+    "MaintenanceEstimatesCreateMaintenanceEstimatesBatchGatewayTimeoutErrorResponseBody",
+    "MaintenanceEstimatesCreateMaintenanceEstimatesBatchInternalServerErrorResponseBody",
+    "MaintenanceEstimatesCreateMaintenanceEstimatesBatchMethodNotAllowedErrorResponseBody",
+    "MaintenanceEstimatesCreateMaintenanceEstimatesBatchNotFoundErrorResponseBody",
+    "MaintenanceEstimatesCreateMaintenanceEstimatesBatchNotImplementedErrorResponseBody",
+    "MaintenanceEstimatesCreateMaintenanceEstimatesBatchResponseBody",
+    "MaintenanceEstimatesCreateMaintenanceEstimatesBatchServiceUnavailableErrorResponseBody",
+    "MaintenanceEstimatesCreateMaintenanceEstimatesBatchTooManyRequestsErrorResponseBody",
+    "MaintenanceEstimatesCreateMaintenanceEstimatesBatchUnauthorizedErrorResponseBody",
+    "MaintenanceEstimatesListMaintenanceEstimatesBadGatewayErrorResponseBody",
+    "MaintenanceEstimatesListMaintenanceEstimatesContentTooLargeErrorResponseBody",
+    "MaintenanceEstimatesListMaintenanceEstimatesGatewayTimeoutErrorResponseBody",
+    "MaintenanceEstimatesListMaintenanceEstimatesInternalServerErrorResponseBody",
+    "MaintenanceEstimatesListMaintenanceEstimatesMethodNotAllowedErrorResponseBody",
+    "MaintenanceEstimatesListMaintenanceEstimatesNotFoundErrorResponseBody",
+    "MaintenanceEstimatesListMaintenanceEstimatesNotImplementedErrorResponseBody",
+    "MaintenanceEstimatesListMaintenanceEstimatesResponseBody",
+    "MaintenanceEstimatesListMaintenanceEstimatesServiceUnavailableErrorResponseBody",
+    "MaintenanceEstimatesListMaintenanceEstimatesTooManyRequestsErrorResponseBody",
+    "MaintenanceEstimatesListMaintenanceEstimatesUnauthorizedErrorResponseBody",
+    "MaintenanceEstimatesPaginationResponseBody",
+    "MaintenanceEstimatesPatchMaintenanceEstimateBadGatewayErrorResponseBody",
+    "MaintenanceEstimatesPatchMaintenanceEstimateConflictErrorResponseBody",
+    "MaintenanceEstimatesPatchMaintenanceEstimateContentTooLargeErrorResponseBody",
+    "MaintenanceEstimatesPatchMaintenanceEstimateGatewayTimeoutErrorResponseBody",
+    "MaintenanceEstimatesPatchMaintenanceEstimateInternalServerErrorResponseBody",
+    "MaintenanceEstimatesPatchMaintenanceEstimateMethodNotAllowedErrorResponseBody",
+    "MaintenanceEstimatesPatchMaintenanceEstimateNotFoundErrorResponseBody",
+    "MaintenanceEstimatesPatchMaintenanceEstimateNotImplementedErrorResponseBody",
+    "MaintenanceEstimatesPatchMaintenanceEstimateResponseBody",
+    "MaintenanceEstimatesPatchMaintenanceEstimateServiceUnavailableErrorResponseBody",
+    "MaintenanceEstimatesPatchMaintenanceEstimateTooManyRequestsErrorResponseBody",
+    "MaintenanceEstimatesPatchMaintenanceEstimateUnauthorizedErrorResponseBody",
     "MaintenanceVendorsListMaintenanceVendorsBadGatewayErrorResponseBody",
     "MaintenanceVendorsListMaintenanceVendorsContentTooLargeErrorResponseBody",
     "MaintenanceVendorsListMaintenanceVendorsGatewayTimeoutErrorResponseBody",
@@ -20855,6 +21906,42 @@ __all__ = [
     "ParentTagName",
     "PartInstanceInputObjectRequestBody",
     "PartInstanceObjectResponseBody",
+    "PartPhotoFileRequestBody",
+    "PartPhotoObjectResponseBody",
+    "PartPhotoObjectResponseBodyProcessingStatus",
+    "PartPhotosDeletePartPhotoBadGatewayErrorResponseBody",
+    "PartPhotosDeletePartPhotoContentTooLargeErrorResponseBody",
+    "PartPhotosDeletePartPhotoGatewayTimeoutErrorResponseBody",
+    "PartPhotosDeletePartPhotoInternalServerErrorResponseBody",
+    "PartPhotosDeletePartPhotoMethodNotAllowedErrorResponseBody",
+    "PartPhotosDeletePartPhotoNotFoundErrorResponseBody",
+    "PartPhotosDeletePartPhotoNotImplementedErrorResponseBody",
+    "PartPhotosDeletePartPhotoServiceUnavailableErrorResponseBody",
+    "PartPhotosDeletePartPhotoTooManyRequestsErrorResponseBody",
+    "PartPhotosDeletePartPhotoUnauthorizedErrorResponseBody",
+    "PartPhotosGetPartPhotosBadGatewayErrorResponseBody",
+    "PartPhotosGetPartPhotosContentTooLargeErrorResponseBody",
+    "PartPhotosGetPartPhotosGatewayTimeoutErrorResponseBody",
+    "PartPhotosGetPartPhotosInternalServerErrorResponseBody",
+    "PartPhotosGetPartPhotosMethodNotAllowedErrorResponseBody",
+    "PartPhotosGetPartPhotosNotFoundErrorResponseBody",
+    "PartPhotosGetPartPhotosNotImplementedErrorResponseBody",
+    "PartPhotosGetPartPhotosResponseBody",
+    "PartPhotosGetPartPhotosServiceUnavailableErrorResponseBody",
+    "PartPhotosGetPartPhotosTooManyRequestsErrorResponseBody",
+    "PartPhotosGetPartPhotosUnauthorizedErrorResponseBody",
+    "PartPhotosObjectResponseBody",
+    "PartPhotosPostPartPhotoBadGatewayErrorResponseBody",
+    "PartPhotosPostPartPhotoContentTooLargeErrorResponseBody",
+    "PartPhotosPostPartPhotoGatewayTimeoutErrorResponseBody",
+    "PartPhotosPostPartPhotoInternalServerErrorResponseBody",
+    "PartPhotosPostPartPhotoMethodNotAllowedErrorResponseBody",
+    "PartPhotosPostPartPhotoNotFoundErrorResponseBody",
+    "PartPhotosPostPartPhotoNotImplementedErrorResponseBody",
+    "PartPhotosPostPartPhotoResponseBody",
+    "PartPhotosPostPartPhotoServiceUnavailableErrorResponseBody",
+    "PartPhotosPostPartPhotoTooManyRequestsErrorResponseBody",
+    "PartPhotosPostPartPhotoUnauthorizedErrorResponseBody",
     "PatchAssetDataOutputsSingleResponseResponseBody",
     "PatchDriverTrailerAssignmentsResponseBodyResponseBody",
     "PatchDriverVehicleAssignmentsV2RequestBodyMetadataRequestBody",
@@ -22032,6 +23119,7 @@ __all__ = [
     "TechnicianShiftsPatchTechnicianShiftServiceUnavailableErrorResponseBody",
     "TechnicianShiftsPatchTechnicianShiftTooManyRequestsErrorResponseBody",
     "TechnicianShiftsPatchTechnicianShiftUnauthorizedErrorResponseBody",
+    "ThermographTemperatureResponseBody",
     "Time",
     "TimeRangeObjectRequestBody",
     "TimeRangeObjectRequestBodyDaysOfWeekItem",
@@ -22870,6 +23958,12 @@ __all__ = [
     "VoiceCoachingSettingsObjectResponseBodyEventsToCoachItem",
     "VoiceCoachingSettingsObjectResponseBodyLanguage",
     "WalkaroundPhotoObjectResponseBody",
+    "WatchpointBearingRangeTypeRequestBody",
+    "WatchpointBearingRangeTypeResponseBody",
+    "WatchpointCustomDetectionRequestTypeRequestBody",
+    "WatchpointCustomDetectionRequestTypeRequestBodyType",
+    "WatchpointCustomDetectionResponseTypeResponseBody",
+    "WatchpointCustomDetectionResponseTypeResponseBodyType",
     "WatchpointLatLngTypeRequestBody",
     "WatchpointLatLngTypeResponseBody",
     "WebhookParamsObjectRequestBody",
@@ -22941,6 +24035,8 @@ __all__ = [
     "WebhooksPostWebhooksTooManyRequestsErrorResponseBody",
     "WebhooksPostWebhooksUnauthorizedErrorResponseBody",
     "WorkOrderAssigneeObjectResponseBody",
+    "WorkOrderAttachmentCreateResultResponseBody",
+    "WorkOrderAttachmentFileRequestBody",
     "WorkOrderAttachmentObjectResponseBody",
     "WorkOrderAttachmentObjectResponseBodyProcessingStatus",
     "WorkOrderDiscountObjectRequestBody",
@@ -22966,6 +24062,17 @@ __all__ = [
     "WorkOrderWithTimeEntriesObjectResponseBody",
     "WorkOrderWithTimeEntriesObjectResponseBodyPriority",
     "WorkOrderWithTimeEntriesObjectResponseBodyStatus",
+    "WorkOrdersDeleteMaintenanceWorkOrderAttachmentBadGatewayErrorResponseBody",
+    "WorkOrdersDeleteMaintenanceWorkOrderAttachmentConflictErrorResponseBody",
+    "WorkOrdersDeleteMaintenanceWorkOrderAttachmentContentTooLargeErrorResponseBody",
+    "WorkOrdersDeleteMaintenanceWorkOrderAttachmentGatewayTimeoutErrorResponseBody",
+    "WorkOrdersDeleteMaintenanceWorkOrderAttachmentInternalServerErrorResponseBody",
+    "WorkOrdersDeleteMaintenanceWorkOrderAttachmentMethodNotAllowedErrorResponseBody",
+    "WorkOrdersDeleteMaintenanceWorkOrderAttachmentNotFoundErrorResponseBody",
+    "WorkOrdersDeleteMaintenanceWorkOrderAttachmentNotImplementedErrorResponseBody",
+    "WorkOrdersDeleteMaintenanceWorkOrderAttachmentServiceUnavailableErrorResponseBody",
+    "WorkOrdersDeleteMaintenanceWorkOrderAttachmentTooManyRequestsErrorResponseBody",
+    "WorkOrdersDeleteMaintenanceWorkOrderAttachmentUnauthorizedErrorResponseBody",
     "WorkOrdersDeleteWorkOrdersBadGatewayErrorResponseBody",
     "WorkOrdersDeleteWorkOrdersContentTooLargeErrorResponseBody",
     "WorkOrdersDeleteWorkOrdersGatewayTimeoutErrorResponseBody",
@@ -23031,6 +24138,17 @@ __all__ = [
     "WorkOrdersPostInvoiceScanServiceUnavailableErrorResponseBody",
     "WorkOrdersPostInvoiceScanTooManyRequestsErrorResponseBody",
     "WorkOrdersPostInvoiceScanUnauthorizedErrorResponseBody",
+    "WorkOrdersPostWorkOrderAttachmentBadGatewayErrorResponseBody",
+    "WorkOrdersPostWorkOrderAttachmentContentTooLargeErrorResponseBody",
+    "WorkOrdersPostWorkOrderAttachmentGatewayTimeoutErrorResponseBody",
+    "WorkOrdersPostWorkOrderAttachmentInternalServerErrorResponseBody",
+    "WorkOrdersPostWorkOrderAttachmentMethodNotAllowedErrorResponseBody",
+    "WorkOrdersPostWorkOrderAttachmentNotFoundErrorResponseBody",
+    "WorkOrdersPostWorkOrderAttachmentNotImplementedErrorResponseBody",
+    "WorkOrdersPostWorkOrderAttachmentResponseBody",
+    "WorkOrdersPostWorkOrderAttachmentServiceUnavailableErrorResponseBody",
+    "WorkOrdersPostWorkOrderAttachmentTooManyRequestsErrorResponseBody",
+    "WorkOrdersPostWorkOrderAttachmentUnauthorizedErrorResponseBody",
     "WorkOrdersPostWorkOrdersBadGatewayErrorResponseBody",
     "WorkOrdersPostWorkOrdersContentTooLargeErrorResponseBody",
     "WorkOrdersPostWorkOrdersGatewayTimeoutErrorResponseBody",

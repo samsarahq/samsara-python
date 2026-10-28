@@ -19,12 +19,12 @@ class FunctionRunContextResponseBody(UniversalBaseModel):
         pydantic.Field(alias="requestId", description="Unique request identifier for the execution."),
     ]
     request_payload: typing_extensions.Annotated[
-        typing.Optional[typing.Dict[str, typing.Any]],
+        typing.Optional[typing.Any],
         FieldMetadata(alias="requestPayload"),
         pydantic.Field(alias="requestPayload", description="The request payload sent to the Function."),
     ] = None
     response_payload: typing_extensions.Annotated[
-        typing.Optional[typing.Dict[str, typing.Any]],
+        typing.Optional[typing.Any],
         FieldMetadata(alias="responsePayload"),
         pydantic.Field(alias="responsePayload", description="The response payload returned by the Function."),
     ] = None

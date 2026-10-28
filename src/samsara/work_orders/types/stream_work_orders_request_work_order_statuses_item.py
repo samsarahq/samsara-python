@@ -5,11 +5,17 @@ import typing
 StreamWorkOrdersRequestWorkOrderStatusesItem = typing.Union[
     typing.Literal[
         "Assigned",
+        "Awaiting estimate approval",
+        "Awaiting estimates",
         "Cancelled",
         "Closed",
         "Completed",
         "Estimate",
+        "Estimate approval denied",
+        "Estimate approved",
+        "Estimates ready",
         "In Progress",
+        "Needs Vendor Selection",
         "On Hold",
         "Open",
         "Pending Approval",
