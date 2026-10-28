@@ -13,6 +13,10 @@ on:
         description: "The version of the SDK that was just released to PyPI"
         required: true
         type: string
+    secrets:
+      SLACK_SDK_BUILD_WEBHOOK_URL:
+        description: "Webhook for Lambda layer publication notifications"
+        required: false
 
 permissions:
   id-token: write
@@ -149,11 +153,19 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_SDK_BUILD_WEBHOOK_URL }}
           RESULT: ${{ needs.publish.result }}
         run: |
+          if [ -z "$SLACK_WEBHOOK_URL" ]; then
+            echo "::warning::Slack webhook is not configured; Lambda layer notification was skipped."
+            exit 0
+          fi
           if [ "$RESULT" = "success" ]; then
             ICON=":white_check_mark:"; MSG="Python Lambda layer published (us-west-2, eu-west-1, ca-central-1)"
           else
             ICON=":x:"; MSG="Python Lambda layer publish failed"
           fi
-          curl -s -X POST "$SLACK_WEBHOOK_URL" \
+          if ! curl --silent --fail --output /dev/null \
+            --connect-timeout 5 --max-time 20 \
+            -X POST "$SLACK_WEBHOOK_URL" \
             -H 'Content-Type: application/json' \
-            -d "{\"text\": \"${ICON} ${MSG} for v${{ inputs.sdk_version }}\"}"
+            -d "{\"text\": \"${ICON} ${MSG} for v${{ inputs.sdk_version }}\"}"; then
+            echo "::warning::Failed to send the Lambda layer result to Slack."
+          fi
