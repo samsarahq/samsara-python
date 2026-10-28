@@ -84,3 +84,5 @@ jobs:
     uses: ./.github/workflows/publish-layer.yml
     with:
       sdk_version: ${{ needs.release.outputs.version }}
+    secrets:
+      SLACK_SDK_BUILD_WEBHOOK_URL: ${{ secrets.SLACK_SDK_BUILD_WEBHOOK_URL }}
