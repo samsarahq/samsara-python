@@ -9,9 +9,11 @@ It lives under tests/ (as tests/conftest.py) and is discovered automatically
 by pytest's normal test collection rules.
 """
 
+import json
 import os
 import subprocess
 
+import httpx
 import pytest
 
 _STARTED: bool = False
@@ -39,6 +41,32 @@ def _get_wiremock_port() -> str:
         return "8080"  # Fallback to default
 
 
+def _isolate_asset_location_mappings() -> None:
+    """Distinguish legacy and GOA response stubs in the shared mock server."""
+    mappings_path = os.path.join(_PROJECT_ROOT, "wiremock", "wiremock-mappings.json")
+    with open(mappings_path, encoding="utf-8") as mappings_file:
+        mappings = json.load(mappings_file)["mappings"]
+
+    test_ids = {
+        "/v1/fleet/assets/{assetId}/locations": "assets.get_asset_location.0",
+        "/v1/fleet/assets/{asset_id}/locations": "assets.v_1_get_asset_location.0",
+    }
+    for mapping in mappings:
+        request = mapping["request"]
+        path = request.get("urlPathTemplate")
+        if request.get("method") != "GET" or path not in test_ids:
+            continue
+
+        request.setdefault("headers", {})["X-Test-Id"] = {"equalTo": test_ids[path]}
+        mapping["persistent"] = False
+        response = httpx.put(
+            f"http://localhost:{_WIREMOCK_PORT}/__admin/mappings/{mapping['id']}",
+            json=mapping,
+            timeout=10,
+        )
+        response.raise_for_status()
+
+
 def _start_wiremock() -> None:
     """Starts the WireMock container using docker-compose."""
     global _STARTED, _WIREMOCK_PORT
@@ -55,6 +83,7 @@ def _start_wiremock() -> None:
         )
         _WIREMOCK_PORT = _get_wiremock_port()
         os.environ["WIREMOCK_PORT"] = _WIREMOCK_PORT
+        _isolate_asset_location_mappings()
         print(f"WireMock container is ready on port {_WIREMOCK_PORT}")
         _STARTED = True
     except subprocess.CalledProcessError as e:
