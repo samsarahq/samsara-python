@@ -89,7 +89,7 @@ class RawLiveSharingLinksClient:
             "live-shares",
             method="GET",
             params={
-                "ids": ids,
+                "ids": ",".join(map(str, ids)) if isinstance(ids, (list, tuple, set)) else ids,
                 "type": type,
                 "limit": limit,
                 "after": after,
@@ -808,7 +808,7 @@ class AsyncRawLiveSharingLinksClient:
             "live-shares",
             method="GET",
             params={
-                "ids": ids,
+                "ids": ",".join(map(str, ids)) if isinstance(ids, (list, tuple, set)) else ids,
                 "type": type,
                 "limit": limit,
                 "after": after,

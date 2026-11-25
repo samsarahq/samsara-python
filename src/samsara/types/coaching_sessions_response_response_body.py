@@ -10,6 +10,7 @@ from ..core.serialization import FieldMetadata
 from .behavior_response_body import BehaviorResponseBody
 from .coaching_sessions_response_response_body_coaching_type import CoachingSessionsResponseResponseBodyCoachingType
 from .coaching_sessions_response_response_body_session_status import CoachingSessionsResponseResponseBodySessionStatus
+from .coaching_sessions_response_response_body_session_type import CoachingSessionsResponseResponseBodySessionType
 from .driver_with_external_id_object_response_body import DriverWithExternalIdObjectResponseBody
 
 
@@ -81,6 +82,14 @@ class CoachingSessionsResponseResponseBody(UniversalBaseModel):
             description="Status for the coaching session.  Valid values: `unknown`, `upcoming`, `completed`, `deleted`",
         ),
     ]
+    session_type: typing_extensions.Annotated[
+        typing.Optional[CoachingSessionsResponseResponseBodySessionType],
+        FieldMetadata(alias="sessionType"),
+        pydantic.Field(
+            alias="sessionType",
+            description="Type of the coaching session. This is distinct from coachingType, which is the share type. Returned as unknown when the session has no valid type.  Valid values: `driverSelfOneOff`, `driverSelfSession`, `oneOff`, `session`, `unknown`",
+        ),
+    ] = None
     updated_at_time: typing_extensions.Annotated[
         dt.datetime,
         FieldMetadata(alias="updatedAtTime"),

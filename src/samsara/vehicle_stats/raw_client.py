@@ -133,10 +133,14 @@ class RawVehicleStatsClient:
             params={
                 "after": after,
                 "time": time,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
-                "vehicleIds": vehicle_ids,
-                "types": types,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "vehicleIds": ",".join(map(str, vehicle_ids))
+                if isinstance(vehicle_ids, (list, tuple, set))
+                else vehicle_ids,
+                "types": ",".join(map(str, types)) if isinstance(types, (list, tuple, set)) else types,
             },
             request_options=request_options,
         )
@@ -330,11 +334,17 @@ class RawVehicleStatsClient:
             method="GET",
             params={
                 "after": after,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
-                "vehicleIds": vehicle_ids,
-                "types": types,
-                "decorations": decorations,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "vehicleIds": ",".join(map(str, vehicle_ids))
+                if isinstance(vehicle_ids, (list, tuple, set))
+                else vehicle_ids,
+                "types": ",".join(map(str, types)) if isinstance(types, (list, tuple, set)) else types,
+                "decorations": ",".join(map(str, decorations))
+                if isinstance(decorations, (list, tuple, set))
+                else decorations,
             },
             request_options=request_options,
         )
@@ -535,11 +545,17 @@ class RawVehicleStatsClient:
                 "after": after,
                 "startTime": start_time,
                 "endTime": end_time,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
-                "vehicleIds": vehicle_ids,
-                "types": types,
-                "decorations": decorations,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "vehicleIds": ",".join(map(str, vehicle_ids))
+                if isinstance(vehicle_ids, (list, tuple, set))
+                else vehicle_ids,
+                "types": ",".join(map(str, types)) if isinstance(types, (list, tuple, set)) else types,
+                "decorations": ",".join(map(str, decorations))
+                if isinstance(decorations, (list, tuple, set))
+                else decorations,
             },
             request_options=request_options,
         )
@@ -675,10 +691,14 @@ class AsyncRawVehicleStatsClient:
             params={
                 "after": after,
                 "time": time,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
-                "vehicleIds": vehicle_ids,
-                "types": types,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "vehicleIds": ",".join(map(str, vehicle_ids))
+                if isinstance(vehicle_ids, (list, tuple, set))
+                else vehicle_ids,
+                "types": ",".join(map(str, types)) if isinstance(types, (list, tuple, set)) else types,
             },
             request_options=request_options,
         )
@@ -872,11 +892,17 @@ class AsyncRawVehicleStatsClient:
             method="GET",
             params={
                 "after": after,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
-                "vehicleIds": vehicle_ids,
-                "types": types,
-                "decorations": decorations,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "vehicleIds": ",".join(map(str, vehicle_ids))
+                if isinstance(vehicle_ids, (list, tuple, set))
+                else vehicle_ids,
+                "types": ",".join(map(str, types)) if isinstance(types, (list, tuple, set)) else types,
+                "decorations": ",".join(map(str, decorations))
+                if isinstance(decorations, (list, tuple, set))
+                else decorations,
             },
             request_options=request_options,
         )
@@ -1077,11 +1103,17 @@ class AsyncRawVehicleStatsClient:
                 "after": after,
                 "startTime": start_time,
                 "endTime": end_time,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
-                "vehicleIds": vehicle_ids,
-                "types": types,
-                "decorations": decorations,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "vehicleIds": ",".join(map(str, vehicle_ids))
+                if isinstance(vehicle_ids, (list, tuple, set))
+                else vehicle_ids,
+                "types": ",".join(map(str, types)) if isinstance(types, (list, tuple, set)) else types,
+                "decorations": ",".join(map(str, decorations))
+                if isinstance(decorations, (list, tuple, set))
+                else decorations,
             },
             request_options=request_options,
         )

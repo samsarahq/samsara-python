@@ -165,6 +165,7 @@ class ReadingsClient:
             * `evChargingVoltage` (EV Charging Voltage): Charging voltage for electric and hybrid vehicles. (volt)
             * `evConsumedEnergy` (EV Consumed Energy): Consumed energy (including regenerated) for electric and hybrid vehicles. (watthour)
             * `evDistanceDriven` (EV Distance Driven): Electric distance driven for electric and hybrid vehicles. (meter)
+            * `evEstimatedRemainingDistance` (EV Estimated remaining distance): Estimated remaining distance based on existing available HV system capacity. (meter)
             * `evHighCapacityBatteryCurrent` (EV High Capacity Battery Current): Current from the high capacity EV battery in amperes. (ampere)
             * `evHighCapacityBatteryVoltage` (High Capacity EV Battery Voltage): Represents the voltage of the high capacity EV battery. (volt)
             * `evRegeneratedEnergy` (EV Regenerated Energy): Regenerated energy for electric and hybrid vehicles. (watthour)
@@ -172,6 +173,7 @@ class ReadingsClient:
             * `exhaustGasPressure` (Exhaust Gas Pressure): Represents the exhaust gas pressure. (kilopascal)
             * `faultCodes` (Fault Codes): Engine fault codes for the asset
             * `fuelConsumptionRate` (Fuel Consumption Rate): The rate at which an asset uses fuel (litersperhour)
+            * `fuelDeliveryPressure` (Fuel Delivery Pressure): The pressure of fuel being delivered to the engine (kilopascal)
             * `fuelLevelPerc` (Fuel Level): Percentage of fuel remaining in the tank. (percent)
             * `fuelSource` (Fuel Source): Type of fuel used by the asset. (values: gasoline | diesel)
             * `geoCoordinates` (Geo Coordinates): GPS coordinates (latitude and longitude) of the asset's location.
@@ -554,6 +556,7 @@ class ReadingsClient:
             * `evChargingVoltage` (EV Charging Voltage): Charging voltage for electric and hybrid vehicles. (volt)
             * `evConsumedEnergy` (EV Consumed Energy): Consumed energy (including regenerated) for electric and hybrid vehicles. (watthour)
             * `evDistanceDriven` (EV Distance Driven): Electric distance driven for electric and hybrid vehicles. (meter)
+            * `evEstimatedRemainingDistance` (EV Estimated remaining distance): Estimated remaining distance based on existing available HV system capacity. (meter)
             * `evHighCapacityBatteryCurrent` (EV High Capacity Battery Current): Current from the high capacity EV battery in amperes. (ampere)
             * `evHighCapacityBatteryVoltage` (High Capacity EV Battery Voltage): Represents the voltage of the high capacity EV battery. (volt)
             * `evRegeneratedEnergy` (EV Regenerated Energy): Regenerated energy for electric and hybrid vehicles. (watthour)
@@ -561,6 +564,7 @@ class ReadingsClient:
             * `exhaustGasPressure` (Exhaust Gas Pressure): Represents the exhaust gas pressure. (kilopascal)
             * `faultCodes` (Fault Codes): Engine fault codes for the asset
             * `fuelConsumptionRate` (Fuel Consumption Rate): The rate at which an asset uses fuel (litersperhour)
+            * `fuelDeliveryPressure` (Fuel Delivery Pressure): The pressure of fuel being delivered to the engine (kilopascal)
             * `fuelLevelPerc` (Fuel Level): Percentage of fuel remaining in the tank. (percent)
             * `fuelSource` (Fuel Source): Type of fuel used by the asset. (values: gasoline | diesel)
             * `geoCoordinates` (Geo Coordinates): GPS coordinates (latitude and longitude) of the asset's location.
@@ -1017,6 +1021,7 @@ class AsyncReadingsClient:
             * `evChargingVoltage` (EV Charging Voltage): Charging voltage for electric and hybrid vehicles. (volt)
             * `evConsumedEnergy` (EV Consumed Energy): Consumed energy (including regenerated) for electric and hybrid vehicles. (watthour)
             * `evDistanceDriven` (EV Distance Driven): Electric distance driven for electric and hybrid vehicles. (meter)
+            * `evEstimatedRemainingDistance` (EV Estimated remaining distance): Estimated remaining distance based on existing available HV system capacity. (meter)
             * `evHighCapacityBatteryCurrent` (EV High Capacity Battery Current): Current from the high capacity EV battery in amperes. (ampere)
             * `evHighCapacityBatteryVoltage` (High Capacity EV Battery Voltage): Represents the voltage of the high capacity EV battery. (volt)
             * `evRegeneratedEnergy` (EV Regenerated Energy): Regenerated energy for electric and hybrid vehicles. (watthour)
@@ -1024,6 +1029,7 @@ class AsyncReadingsClient:
             * `exhaustGasPressure` (Exhaust Gas Pressure): Represents the exhaust gas pressure. (kilopascal)
             * `faultCodes` (Fault Codes): Engine fault codes for the asset
             * `fuelConsumptionRate` (Fuel Consumption Rate): The rate at which an asset uses fuel (litersperhour)
+            * `fuelDeliveryPressure` (Fuel Delivery Pressure): The pressure of fuel being delivered to the engine (kilopascal)
             * `fuelLevelPerc` (Fuel Level): Percentage of fuel remaining in the tank. (percent)
             * `fuelSource` (Fuel Source): Type of fuel used by the asset. (values: gasoline | diesel)
             * `geoCoordinates` (Geo Coordinates): GPS coordinates (latitude and longitude) of the asset's location.
@@ -1414,6 +1420,7 @@ class AsyncReadingsClient:
             * `evChargingVoltage` (EV Charging Voltage): Charging voltage for electric and hybrid vehicles. (volt)
             * `evConsumedEnergy` (EV Consumed Energy): Consumed energy (including regenerated) for electric and hybrid vehicles. (watthour)
             * `evDistanceDriven` (EV Distance Driven): Electric distance driven for electric and hybrid vehicles. (meter)
+            * `evEstimatedRemainingDistance` (EV Estimated remaining distance): Estimated remaining distance based on existing available HV system capacity. (meter)
             * `evHighCapacityBatteryCurrent` (EV High Capacity Battery Current): Current from the high capacity EV battery in amperes. (ampere)
             * `evHighCapacityBatteryVoltage` (High Capacity EV Battery Voltage): Represents the voltage of the high capacity EV battery. (volt)
             * `evRegeneratedEnergy` (EV Regenerated Energy): Regenerated energy for electric and hybrid vehicles. (watthour)
@@ -1421,6 +1428,7 @@ class AsyncReadingsClient:
             * `exhaustGasPressure` (Exhaust Gas Pressure): Represents the exhaust gas pressure. (kilopascal)
             * `faultCodes` (Fault Codes): Engine fault codes for the asset
             * `fuelConsumptionRate` (Fuel Consumption Rate): The rate at which an asset uses fuel (litersperhour)
+            * `fuelDeliveryPressure` (Fuel Delivery Pressure): The pressure of fuel being delivered to the engine (kilopascal)
             * `fuelLevelPerc` (Fuel Level): Percentage of fuel remaining in the tank. (percent)
             * `fuelSource` (Fuel Source): Type of fuel used by the asset. (values: gasoline | diesel)
             * `geoCoordinates` (Geo Coordinates): GPS coordinates (latitude and longitude) of the asset's location.

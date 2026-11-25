@@ -332,7 +332,9 @@ class EquipmentClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.equipment.get_equipment_stats()
+        client.equipment.get_equipment_stats(
+            types=["gatewayEngineStates"],
+        )
         """
         _response = self._raw_client.get_equipment_stats(
             after=after,
@@ -416,7 +418,9 @@ class EquipmentClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.equipment.get_equipment_stats_feed()
+        client.equipment.get_equipment_stats_feed(
+            types=["gatewayEngineStates"],
+        )
         """
         _response = self._raw_client.get_equipment_stats_feed(
             after=after,
@@ -507,6 +511,7 @@ class EquipmentClient:
         client.equipment.get_equipment_stats_history(
             start_time="startTime",
             end_time="endTime",
+            types=["gatewayEngineStates"],
         )
         """
         _response = self._raw_client.get_equipment_stats_history(
@@ -910,7 +915,9 @@ class AsyncEquipmentClient:
 
 
         async def main() -> None:
-            await client.equipment.get_equipment_stats()
+            await client.equipment.get_equipment_stats(
+                types=["gatewayEngineStates"],
+            )
 
 
         asyncio.run(main())
@@ -1002,7 +1009,9 @@ class AsyncEquipmentClient:
 
 
         async def main() -> None:
-            await client.equipment.get_equipment_stats_feed()
+            await client.equipment.get_equipment_stats_feed(
+                types=["gatewayEngineStates"],
+            )
 
 
         asyncio.run(main())
@@ -1101,6 +1110,7 @@ class AsyncEquipmentClient:
             await client.equipment.get_equipment_stats_history(
                 start_time="startTime",
                 end_time="endTime",
+                types=["gatewayEngineStates"],
             )
 
 

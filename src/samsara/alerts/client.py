@@ -400,6 +400,7 @@ class AlertsClient:
         )
         client.alerts.get_incidents(
             start_time="startTime",
+            configuration_ids=["configurationIds"],
         )
         """
         _response = self._raw_client.get_incidents(
@@ -830,6 +831,7 @@ class AsyncAlertsClient:
         async def main() -> None:
             await client.alerts.get_incidents(
                 start_time="startTime",
+                configuration_ids=["configurationIds"],
             )
 
 

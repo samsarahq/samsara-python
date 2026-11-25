@@ -8,6 +8,27 @@ from importlib import import_module
 if typing.TYPE_CHECKING:
     from .create_dvir_request_safety_status import CreateDvirRequestSafetyStatus
     from .create_dvir_request_type import CreateDvirRequestType
+    from .entity_part_definitions_service_update_part_request_body_unit_of_measure_type import (
+        EntityPartDefinitionsServiceUpdatePartRequestBodyUnitOfMeasureType,
+    )
+    from .entity_purchase_orders_service_create_purchase_order_request_body_order_status import (
+        EntityPurchaseOrdersServiceCreatePurchaseOrderRequestBodyOrderStatus,
+    )
+    from .entity_purchase_orders_service_update_purchase_order_request_body_order_status import (
+        EntityPurchaseOrdersServiceUpdatePurchaseOrderRequestBodyOrderStatus,
+    )
+    from .entity_vendor_profiles_service_create_vendor_request_body_status import (
+        EntityVendorProfilesServiceCreateVendorRequestBodyStatus,
+    )
+    from .entity_vendor_profiles_service_update_vendor_request_body_status import (
+        EntityVendorProfilesServiceUpdateVendorRequestBodyStatus,
+    )
+    from .entity_vendors_service_create_vendor_location_request_body_status import (
+        EntityVendorsServiceCreateVendorLocationRequestBodyStatus,
+    )
+    from .entity_vendors_service_update_vendor_location_request_body_status import (
+        EntityVendorsServiceUpdateVendorLocationRequestBodyStatus,
+    )
     from .entity_warranties_service_create_warranty_request_body_warranty_type import (
         EntityWarrantiesServiceCreateWarrantyRequestBodyWarrantyType,
     )
@@ -23,6 +44,13 @@ if typing.TYPE_CHECKING:
 _dynamic_imports: typing.Dict[str, str] = {
     "CreateDvirRequestSafetyStatus": ".create_dvir_request_safety_status",
     "CreateDvirRequestType": ".create_dvir_request_type",
+    "EntityPartDefinitionsServiceUpdatePartRequestBodyUnitOfMeasureType": ".entity_part_definitions_service_update_part_request_body_unit_of_measure_type",
+    "EntityPurchaseOrdersServiceCreatePurchaseOrderRequestBodyOrderStatus": ".entity_purchase_orders_service_create_purchase_order_request_body_order_status",
+    "EntityPurchaseOrdersServiceUpdatePurchaseOrderRequestBodyOrderStatus": ".entity_purchase_orders_service_update_purchase_order_request_body_order_status",
+    "EntityVendorProfilesServiceCreateVendorRequestBodyStatus": ".entity_vendor_profiles_service_create_vendor_request_body_status",
+    "EntityVendorProfilesServiceUpdateVendorRequestBodyStatus": ".entity_vendor_profiles_service_update_vendor_request_body_status",
+    "EntityVendorsServiceCreateVendorLocationRequestBodyStatus": ".entity_vendors_service_create_vendor_location_request_body_status",
+    "EntityVendorsServiceUpdateVendorLocationRequestBodyStatus": ".entity_vendors_service_update_vendor_location_request_body_status",
     "EntityWarrantiesServiceCreateWarrantyRequestBodyWarrantyType": ".entity_warranties_service_create_warranty_request_body_warranty_type",
     "EntityWarrantiesServiceUpdateWarrantyRequestBodyWarrantyType": ".entity_warranties_service_update_warranty_request_body_warranty_type",
     "EntityWarrantyClaimsServiceCreateWarrantyClaimRequestBodyClaimStatus": ".entity_warranty_claims_service_create_warranty_claim_request_body_claim_status",
@@ -54,6 +82,13 @@ def __dir__():
 __all__ = [
     "CreateDvirRequestSafetyStatus",
     "CreateDvirRequestType",
+    "EntityPartDefinitionsServiceUpdatePartRequestBodyUnitOfMeasureType",
+    "EntityPurchaseOrdersServiceCreatePurchaseOrderRequestBodyOrderStatus",
+    "EntityPurchaseOrdersServiceUpdatePurchaseOrderRequestBodyOrderStatus",
+    "EntityVendorProfilesServiceCreateVendorRequestBodyStatus",
+    "EntityVendorProfilesServiceUpdateVendorRequestBodyStatus",
+    "EntityVendorsServiceCreateVendorLocationRequestBodyStatus",
+    "EntityVendorsServiceUpdateVendorLocationRequestBodyStatus",
     "EntityWarrantiesServiceCreateWarrantyRequestBodyWarrantyType",
     "EntityWarrantiesServiceUpdateWarrantyRequestBodyWarrantyType",
     "EntityWarrantyClaimsServiceCreateWarrantyClaimRequestBodyClaimStatus",

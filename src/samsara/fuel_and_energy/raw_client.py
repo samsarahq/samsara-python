@@ -115,7 +115,9 @@ class RawFuelAndEnergyClient:
             params={
                 "startDate": start_date,
                 "endDate": end_date,
-                "driverIds": driver_ids,
+                "driverIds": ",".join(map(str, driver_ids))
+                if isinstance(driver_ids, (list, tuple, set))
+                else driver_ids,
                 "tagIds": tag_ids,
                 "parentTagIds": parent_tag_ids,
                 "after": after,
@@ -1598,7 +1600,9 @@ class AsyncRawFuelAndEnergyClient:
             params={
                 "startDate": start_date,
                 "endDate": end_date,
-                "driverIds": driver_ids,
+                "driverIds": ",".join(map(str, driver_ids))
+                if isinstance(driver_ids, (list, tuple, set))
+                else driver_ids,
                 "tagIds": tag_ids,
                 "parentTagIds": parent_tag_ids,
                 "after": after,

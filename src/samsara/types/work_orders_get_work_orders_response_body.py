@@ -5,11 +5,13 @@ import typing
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from .goa_pagination_response_response_body import GoaPaginationResponseResponseBody
-from .work_order_with_time_entries_object_response_body import WorkOrderWithTimeEntriesObjectResponseBody
+from .work_order_with_time_entries_object_v_20261112_response_body import (
+    WorkOrderWithTimeEntriesObjectV20261112ResponseBody,
+)
 
 
 class WorkOrdersGetWorkOrdersResponseBody(UniversalBaseModel):
-    data: typing.List[WorkOrderWithTimeEntriesObjectResponseBody] = pydantic.Field()
+    data: typing.List[WorkOrderWithTimeEntriesObjectV20261112ResponseBody] = pydantic.Field()
     """
     Work Orders
     """

@@ -75,8 +75,10 @@ class RawAddressesClient:
             params={
                 "limit": limit,
                 "after": after,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
                 "createdAfterTime": created_after_time,
             },
             request_options=request_options,
@@ -439,8 +441,10 @@ class AsyncRawAddressesClient:
             params={
                 "limit": limit,
                 "after": after,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
                 "createdAfterTime": created_after_time,
             },
             request_options=request_options,

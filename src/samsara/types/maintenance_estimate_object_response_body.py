@@ -130,7 +130,10 @@ class MaintenanceEstimateObjectResponseBody(UniversalBaseModel):
     vendor_id: typing_extensions.Annotated[
         typing.Optional[str],
         FieldMetadata(alias="vendorId"),
-        pydantic.Field(alias="vendorId", description="Vendor location ID."),
+        pydantic.Field(
+            alias="vendorId",
+            description="Vendor location ID. Resolve the location via GET /fleet/maintenance/vendor-locations.",
+        ),
     ] = None
     version: int = pydantic.Field()
     """

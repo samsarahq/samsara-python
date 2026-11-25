@@ -6,141 +6,85 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
-from .create_vendor_entity_vendor_vendor_asset_attribute_selection_type_response_body import (
-    CreateVendorEntityVendorVendorAssetAttributeSelectionTypeResponseBody,
+from .create_vendor_group_entity_vendor_profile_vendor_asset_attribute_selection_type_response_body import (
+    CreateVendorGroupEntityVendorProfileVendorAssetAttributeSelectionTypeResponseBody,
 )
-from .create_vendor_entity_vendor_vendor_contact_type_response_body import (
-    CreateVendorEntityVendorVendorContactTypeResponseBody,
+from .create_vendor_group_entity_vendor_profile_vendor_group_external_id_type_response_body import (
+    CreateVendorGroupEntityVendorProfileVendorGroupExternalIdTypeResponseBody,
 )
-from .create_vendor_entity_vendor_vendor_external_id_type_response_body import (
-    CreateVendorEntityVendorVendorExternalIdTypeResponseBody,
+from .create_vendor_group_entity_vendor_profile_vendor_group_primary_corporate_contact_type_response_body import (
+    CreateVendorGroupEntityVendorProfileVendorGroupPrimaryCorporateContactTypeResponseBody,
 )
-from .create_vendor_entity_vendor_vendor_hourly_money_type_response_body import (
-    CreateVendorEntityVendorVendorHourlyMoneyTypeResponseBody,
+from .create_vendor_group_entity_vendor_profile_vendor_hourly_money_type_response_body import (
+    CreateVendorGroupEntityVendorProfileVendorHourlyMoneyTypeResponseBody,
 )
-from .entity_create_vendor_place_ref_type_response_body import EntityCreateVendorPlaceRefTypeResponseBody
 from .entity_create_vendor_type_response_body_status import EntityCreateVendorTypeResponseBodyStatus
 
 
 class EntityCreateVendorTypeResponseBody(UniversalBaseModel):
     """
-    Vendor object
-    """
-
-    address: typing.Optional[str] = pydantic.Field(default=None)
-    """
-    Address of the vendor.
+    vendor object
     """
 
     asset_attribute_selections: typing_extensions.Annotated[
-        typing.Optional[typing.List[CreateVendorEntityVendorVendorAssetAttributeSelectionTypeResponseBody]],
+        typing.Optional[typing.List[CreateVendorGroupEntityVendorProfileVendorAssetAttributeSelectionTypeResponseBody]],
         FieldMetadata(alias="assetAttributeSelections"),
         pydantic.Field(
             alias="assetAttributeSelections",
             description="Assets this vendor can service. Empty replaces inherited selections; null clears the setting.",
         ),
     ] = None
-    contacts: typing.Optional[typing.List[CreateVendorEntityVendorVendorContactTypeResponseBody]] = pydantic.Field(
-        default=None
-    )
-    """
-    People to contact at the vendor.
-    """
-
+    created_at_time: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="createdAtTime"),
+        pydantic.Field(alias="createdAtTime", description="Time when the vendor profile was created."),
+    ] = None
     default_labor_rate_per_hour: typing_extensions.Annotated[
-        typing.Optional[CreateVendorEntityVendorVendorHourlyMoneyTypeResponseBody],
+        typing.Optional[CreateVendorGroupEntityVendorProfileVendorHourlyMoneyTypeResponseBody],
         FieldMetadata(alias="defaultLaborRatePerHour"),
         pydantic.Field(alias="defaultLaborRatePerHour"),
     ] = None
-    email_addresses: typing_extensions.Annotated[
-        typing.Optional[typing.List[str]],
-        FieldMetadata(alias="emailAddresses"),
-        pydantic.Field(alias="emailAddresses", description="Email addresses for the vendor."),
-    ] = None
-    external_id: typing_extensions.Annotated[
-        typing.Optional[str],
-        FieldMetadata(alias="externalId"),
-        pydantic.Field(alias="externalId", description="External identifier for the vendor from an external system."),
-    ] = None
     external_ids: typing_extensions.Annotated[
-        typing.Optional[typing.List[CreateVendorEntityVendorVendorExternalIdTypeResponseBody]],
+        typing.Optional[typing.List[CreateVendorGroupEntityVendorProfileVendorGroupExternalIdTypeResponseBody]],
         FieldMetadata(alias="externalIds"),
-        pydantic.Field(
-            alias="externalIds",
-            description="Customer-supplied external identifiers for the vendor, interchangeable with id in filters. Only included in the response when includeExternalIds is set.",
-        ),
+        pydantic.Field(alias="externalIds", description="External identifiers belonging to this parent vendor."),
     ] = None
     id: typing.Optional[str] = pydantic.Field(default=None)
     """
-    Internal unique identifier for the vendor.
+    Unique identifier for the vendor profile. Leave blank to create a profile.
     """
 
     is_mobile: typing_extensions.Annotated[
         typing.Optional[bool],
         FieldMetadata(alias="isMobile"),
         pydantic.Field(
-            alias="isMobile",
-            description="Whether this vendor provides mobile service. When unset, the profile or system default applies.",
+            alias="isMobile", description="Whether vendor locations inherit mobile service as their default."
         ),
     ] = None
     is_preferred: typing_extensions.Annotated[
         typing.Optional[bool],
         FieldMetadata(alias="isPreferred"),
-        pydantic.Field(
-            alias="isPreferred",
-            description="Whether this vendor location is preferred. When unset, the profile or system default applies.",
-        ),
+        pydantic.Field(alias="isPreferred", description="Default preferred status inherited by vendor locations."),
     ] = None
     name: typing.Optional[str] = pydantic.Field(default=None)
     """
-    Name of the vendor.
+    Name of the vendor profile.
     """
 
-    notes: typing.Optional[str] = pydantic.Field(default=None)
-    """
-    Additional notes about the vendor.
-    """
-
-    payee_id: typing_extensions.Annotated[
-        typing.Optional[str],
-        FieldMetadata(alias="payeeId"),
-        pydantic.Field(
-            alias="payeeId",
-            description="Free-text AP/ERP payee identifier for the vendor. Not a reference to a Samsara entity.",
-        ),
-    ] = None
-    phone_numbers: typing_extensions.Annotated[
-        typing.Optional[typing.List[str]],
-        FieldMetadata(alias="phoneNumbers"),
-        pydantic.Field(alias="phoneNumbers", description="Phone numbers for the vendor."),
-    ] = None
-    place_id: typing_extensions.Annotated[
-        typing.Optional[EntityCreateVendorPlaceRefTypeResponseBody],
-        FieldMetadata(alias="placeId"),
-        pydantic.Field(alias="placeId"),
-    ] = None
-    services_provided: typing_extensions.Annotated[
-        typing.Optional[str],
-        FieldMetadata(alias="servicesProvided"),
-        pydantic.Field(alias="servicesProvided", description="Description of services provided by the vendor."),
+    primary_corporate_contact: typing_extensions.Annotated[
+        typing.Optional[CreateVendorGroupEntityVendorProfileVendorGroupPrimaryCorporateContactTypeResponseBody],
+        FieldMetadata(alias="primaryCorporateContact"),
+        pydantic.Field(alias="primaryCorporateContact"),
     ] = None
     status: typing.Optional[EntityCreateVendorTypeResponseBodyStatus] = pydantic.Field(default=None)
     """
     Own lifecycle status. Defaults to active. Unknown is read-only.  Valid values: `active`, `inactive`, `unknown`
     """
 
-    vendor_group_id: typing_extensions.Annotated[
+    updated_at_time: typing_extensions.Annotated[
         typing.Optional[str],
-        FieldMetadata(alias="vendorGroupId"),
-        pydantic.Field(
-            alias="vendorGroupId",
-            description="Vendor group ID. Null removes membership while preserving explicit overrides.",
-        ),
-    ] = None
-    vendor_id: typing_extensions.Annotated[
-        typing.Optional[str],
-        FieldMetadata(alias="vendorId"),
-        pydantic.Field(alias="vendorId", description="User-defined identifier for the vendor."),
+        FieldMetadata(alias="updatedAtTime"),
+        pydantic.Field(alias="updatedAtTime", description="Time when the vendor profile was last updated."),
     ] = None
 
     if IS_PYDANTIC_V2:

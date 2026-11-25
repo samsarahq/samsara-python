@@ -8,6 +8,7 @@ import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .behavior_response_body_coachable_behavior_type import BehaviorResponseBodyCoachableBehaviorType
+from .behavior_response_body_coaching_status import BehaviorResponseBodyCoachingStatus
 from .coachable_event_response_body import CoachableEventResponseBody
 
 
@@ -30,6 +31,30 @@ class BehaviorResponseBody(UniversalBaseModel):
         pydantic.Field(
             alias="coachableEvents",
             description="Object references for the coachableEvents within the behavior. Returned when includeCoachableEvents is 'true'. Capped at 100 coachable events per Coaching session. For sessions where coachable events exceed 100, please visit the Samsara dashboard to address this coaching session. Corresponds to the following unique identifiers: Non-Speeding Safety events - unique Samsara ID of the safety event as 'vehicleId - eventMS'. Speeding events - unique UUID of the event. Day of HOS Violations - unique Samsara ID of the day of violations as '{driverId},{date}'. Idling events - unique UUID of the event.",
+        ),
+    ] = None
+    coaching_status: typing_extensions.Annotated[
+        typing.Optional[BehaviorResponseBodyCoachingStatus],
+        FieldMetadata(alias="coachingStatus"),
+        pydantic.Field(
+            alias="coachingStatus",
+            description="Coaching status for the behavior. Returned as unknown when the behavior has no valid status.  Valid values: `completed`, `dismissed`, `disputed`, `incomplete`, `opened`, `unknown`",
+        ),
+    ] = None
+    created_at_time: typing_extensions.Annotated[
+        typing.Optional[dt.datetime],
+        FieldMetadata(alias="createdAtTime"),
+        pydantic.Field(
+            alias="createdAtTime",
+            description="Time the coaching behavior was created in UTC. Omitted when the behavior has no created time.",
+        ),
+    ] = None
+    due_at_time: typing_extensions.Annotated[
+        typing.Optional[dt.datetime],
+        FieldMetadata(alias="dueAtTime"),
+        pydantic.Field(
+            alias="dueAtTime",
+            description="Time the coaching behavior is due in UTC. This is the behavior due date. It is distinct from the coaching session dueAtTime. Omitted when the behavior has no due date.",
         ),
     ] = None
     id: str = pydantic.Field()

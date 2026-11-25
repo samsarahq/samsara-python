@@ -77,7 +77,9 @@ class RawDriverTrailerAssignmentsClient:
             "driver-trailer-assignments",
             method="GET",
             params={
-                "driverIds": driver_ids,
+                "driverIds": ",".join(map(str, driver_ids))
+                if isinstance(driver_ids, (list, tuple, set))
+                else driver_ids,
                 "after": after,
                 "includeExternalIds": include_external_ids,
             },
@@ -599,7 +601,9 @@ class AsyncRawDriverTrailerAssignmentsClient:
             "driver-trailer-assignments",
             method="GET",
             params={
-                "driverIds": driver_ids,
+                "driverIds": ",".join(map(str, driver_ids))
+                if isinstance(driver_ids, (list, tuple, set))
+                else driver_ids,
                 "after": after,
                 "includeExternalIds": include_external_ids,
             },

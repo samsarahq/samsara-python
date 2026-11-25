@@ -99,9 +99,11 @@ class RawIndustrialClient:
             params={
                 "limit": limit,
                 "after": after,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
-                "assetIds": asset_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "assetIds": ",".join(map(str, asset_ids)) if isinstance(asset_ids, (list, tuple, set)) else asset_ids,
             },
             request_options=request_options,
         )
@@ -507,9 +509,11 @@ class RawIndustrialClient:
             params={
                 "limit": limit,
                 "after": after,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
-                "assetIds": asset_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "assetIds": ",".join(map(str, asset_ids)) if isinstance(asset_ids, (list, tuple, set)) else asset_ids,
             },
             request_options=request_options,
         )
@@ -575,10 +579,14 @@ class RawIndustrialClient:
             method="GET",
             params={
                 "after": after,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
-                "dataInputIds": data_input_ids,
-                "assetIds": asset_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "dataInputIds": ",".join(map(str, data_input_ids))
+                if isinstance(data_input_ids, (list, tuple, set))
+                else data_input_ids,
+                "assetIds": ",".join(map(str, asset_ids)) if isinstance(asset_ids, (list, tuple, set)) else asset_ids,
             },
             request_options=request_options,
         )
@@ -650,10 +658,14 @@ class RawIndustrialClient:
             method="GET",
             params={
                 "after": after,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
-                "dataInputIds": data_input_ids,
-                "assetIds": asset_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "dataInputIds": ",".join(map(str, data_input_ids))
+                if isinstance(data_input_ids, (list, tuple, set))
+                else data_input_ids,
+                "assetIds": ",".join(map(str, asset_ids)) if isinstance(asset_ids, (list, tuple, set)) else asset_ids,
             },
             request_options=request_options,
         )
@@ -729,10 +741,14 @@ class RawIndustrialClient:
                 "startTime": start_time,
                 "endTime": end_time,
                 "after": after,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
-                "dataInputIds": data_input_ids,
-                "assetIds": asset_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "dataInputIds": ",".join(map(str, data_input_ids))
+                if isinstance(data_input_ids, (list, tuple, set))
+                else data_input_ids,
+                "assetIds": ",".join(map(str, asset_ids)) if isinstance(asset_ids, (list, tuple, set)) else asset_ids,
             },
             request_options=request_options,
         )
@@ -1236,9 +1252,11 @@ class AsyncRawIndustrialClient:
             params={
                 "limit": limit,
                 "after": after,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
-                "assetIds": asset_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "assetIds": ",".join(map(str, asset_ids)) if isinstance(asset_ids, (list, tuple, set)) else asset_ids,
             },
             request_options=request_options,
         )
@@ -1644,9 +1662,11 @@ class AsyncRawIndustrialClient:
             params={
                 "limit": limit,
                 "after": after,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
-                "assetIds": asset_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "assetIds": ",".join(map(str, asset_ids)) if isinstance(asset_ids, (list, tuple, set)) else asset_ids,
             },
             request_options=request_options,
         )
@@ -1712,10 +1732,14 @@ class AsyncRawIndustrialClient:
             method="GET",
             params={
                 "after": after,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
-                "dataInputIds": data_input_ids,
-                "assetIds": asset_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "dataInputIds": ",".join(map(str, data_input_ids))
+                if isinstance(data_input_ids, (list, tuple, set))
+                else data_input_ids,
+                "assetIds": ",".join(map(str, asset_ids)) if isinstance(asset_ids, (list, tuple, set)) else asset_ids,
             },
             request_options=request_options,
         )
@@ -1787,10 +1811,14 @@ class AsyncRawIndustrialClient:
             method="GET",
             params={
                 "after": after,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
-                "dataInputIds": data_input_ids,
-                "assetIds": asset_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "dataInputIds": ",".join(map(str, data_input_ids))
+                if isinstance(data_input_ids, (list, tuple, set))
+                else data_input_ids,
+                "assetIds": ",".join(map(str, asset_ids)) if isinstance(asset_ids, (list, tuple, set)) else asset_ids,
             },
             request_options=request_options,
         )
@@ -1866,10 +1894,14 @@ class AsyncRawIndustrialClient:
                 "startTime": start_time,
                 "endTime": end_time,
                 "after": after,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
-                "dataInputIds": data_input_ids,
-                "assetIds": asset_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "dataInputIds": ",".join(map(str, data_input_ids))
+                if isinstance(data_input_ids, (list, tuple, set))
+                else data_input_ids,
+                "assetIds": ",".join(map(str, asset_ids)) if isinstance(asset_ids, (list, tuple, set)) else asset_ids,
             },
             request_options=request_options,
         )

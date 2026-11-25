@@ -26,6 +26,7 @@ from ..types.create_route_stop_with_orders_request_object_request_body import (
     CreateRouteStopWithOrdersRequestObjectRequestBody,
 )
 from ..types.hub_plan_routes_list_hub_plan_routes_response_body import HubPlanRoutesListHubPlanRoutesResponseBody
+from ..types.route_equipment_profile_object_request_body import RouteEquipmentProfileObjectRequestBody
 from ..types.route_settings_request_body import RouteSettingsRequestBody
 from ..types.routes_create_route_response_body import RoutesCreateRouteResponseBody
 from ..types.routes_fetch_route_response_body import RoutesFetchRouteResponseBody
@@ -104,7 +105,7 @@ class RawRoutesClient:
                 "endTime": end_time,
                 "limit": limit,
                 "after": after,
-                "include": include,
+                "include": ",".join(map(str, include)) if isinstance(include, (list, tuple, set)) else include,
                 "tagIds": tag_ids,
                 "parentTagIds": parent_tag_ids,
             },
@@ -241,6 +242,7 @@ class RawRoutesClient:
         name: str,
         stops: typing.Sequence[CreateRouteStopWithOrdersRequestObjectRequestBody],
         driver_id: typing.Optional[str] = OMIT,
+        equipment_profile: typing.Optional[RouteEquipmentProfileObjectRequestBody] = OMIT,
         external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
         notes: typing.Optional[str] = OMIT,
         recompute_scheduled_times: typing.Optional[bool] = OMIT,
@@ -269,6 +271,8 @@ class RawRoutesClient:
 
         driver_id : typing.Optional[str]
             ID of the driver. Can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the driver.
+
+        equipment_profile : typing.Optional[RouteEquipmentProfileObjectRequestBody]
 
         external_ids : typing.Optional[typing.Dict[str, str]]
             A map of external ids
@@ -300,6 +304,9 @@ class RawRoutesClient:
             method="POST",
             json={
                 "driverId": driver_id,
+                "equipmentProfile": convert_and_respect_annotation_metadata(
+                    object_=equipment_profile, annotation=RouteEquipmentProfileObjectRequestBody, direction="write"
+                ),
                 "externalIds": external_ids,
                 "name": name,
                 "notes": notes,
@@ -654,7 +661,7 @@ class RawRoutesClient:
             f"fleet/routes/{jsonable_encoder(id)}",
             method="GET",
             params={
-                "include": include,
+                "include": ",".join(map(str, include)) if isinstance(include, (list, tuple, set)) else include,
             },
             request_options=request_options,
         )
@@ -934,6 +941,7 @@ class RawRoutesClient:
         id: str,
         *,
         driver_id: typing.Optional[str] = OMIT,
+        equipment_profile: typing.Optional[RouteEquipmentProfileObjectRequestBody] = OMIT,
         external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
         name: typing.Optional[str] = OMIT,
         notes: typing.Optional[str] = OMIT,
@@ -965,6 +973,8 @@ class RawRoutesClient:
 
         driver_id : typing.Optional[str]
             ID of the driver. Can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the driver. Set to null to unassign the driver from the route.
+
+        equipment_profile : typing.Optional[RouteEquipmentProfileObjectRequestBody]
 
         external_ids : typing.Optional[typing.Dict[str, str]]
             A map of external ids
@@ -1002,6 +1012,9 @@ class RawRoutesClient:
             method="PATCH",
             json={
                 "driverId": driver_id,
+                "equipmentProfile": convert_and_respect_annotation_metadata(
+                    object_=equipment_profile, annotation=RouteEquipmentProfileObjectRequestBody, direction="write"
+                ),
                 "externalIds": external_ids,
                 "name": name,
                 "notes": notes,
@@ -1452,7 +1465,7 @@ class AsyncRawRoutesClient:
                 "endTime": end_time,
                 "limit": limit,
                 "after": after,
-                "include": include,
+                "include": ",".join(map(str, include)) if isinstance(include, (list, tuple, set)) else include,
                 "tagIds": tag_ids,
                 "parentTagIds": parent_tag_ids,
             },
@@ -1589,6 +1602,7 @@ class AsyncRawRoutesClient:
         name: str,
         stops: typing.Sequence[CreateRouteStopWithOrdersRequestObjectRequestBody],
         driver_id: typing.Optional[str] = OMIT,
+        equipment_profile: typing.Optional[RouteEquipmentProfileObjectRequestBody] = OMIT,
         external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
         notes: typing.Optional[str] = OMIT,
         recompute_scheduled_times: typing.Optional[bool] = OMIT,
@@ -1617,6 +1631,8 @@ class AsyncRawRoutesClient:
 
         driver_id : typing.Optional[str]
             ID of the driver. Can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the driver.
+
+        equipment_profile : typing.Optional[RouteEquipmentProfileObjectRequestBody]
 
         external_ids : typing.Optional[typing.Dict[str, str]]
             A map of external ids
@@ -1648,6 +1664,9 @@ class AsyncRawRoutesClient:
             method="POST",
             json={
                 "driverId": driver_id,
+                "equipmentProfile": convert_and_respect_annotation_metadata(
+                    object_=equipment_profile, annotation=RouteEquipmentProfileObjectRequestBody, direction="write"
+                ),
                 "externalIds": external_ids,
                 "name": name,
                 "notes": notes,
@@ -2002,7 +2021,7 @@ class AsyncRawRoutesClient:
             f"fleet/routes/{jsonable_encoder(id)}",
             method="GET",
             params={
-                "include": include,
+                "include": ",".join(map(str, include)) if isinstance(include, (list, tuple, set)) else include,
             },
             request_options=request_options,
         )
@@ -2284,6 +2303,7 @@ class AsyncRawRoutesClient:
         id: str,
         *,
         driver_id: typing.Optional[str] = OMIT,
+        equipment_profile: typing.Optional[RouteEquipmentProfileObjectRequestBody] = OMIT,
         external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
         name: typing.Optional[str] = OMIT,
         notes: typing.Optional[str] = OMIT,
@@ -2315,6 +2335,8 @@ class AsyncRawRoutesClient:
 
         driver_id : typing.Optional[str]
             ID of the driver. Can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the driver. Set to null to unassign the driver from the route.
+
+        equipment_profile : typing.Optional[RouteEquipmentProfileObjectRequestBody]
 
         external_ids : typing.Optional[typing.Dict[str, str]]
             A map of external ids
@@ -2352,6 +2374,9 @@ class AsyncRawRoutesClient:
             method="PATCH",
             json={
                 "driverId": driver_id,
+                "equipmentProfile": convert_and_respect_annotation_metadata(
+                    object_=equipment_profile, annotation=RouteEquipmentProfileObjectRequestBody, direction="write"
+                ),
                 "externalIds": external_ids,
                 "name": name,
                 "notes": notes,

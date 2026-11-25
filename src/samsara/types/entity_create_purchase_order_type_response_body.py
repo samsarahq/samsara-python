@@ -12,8 +12,8 @@ from .create_purchase_order_entity_purchase_order_money_public_variantf_6994_a_1
 from .create_purchase_order_entity_purchase_order_money_type_response_body import (
     CreatePurchaseOrderEntityPurchaseOrderMoneyTypeResponseBody,
 )
-from .create_purchase_order_entity_purchase_order_purchase_order_part_public_varianteee_5_df_5_b_52_be_type_response_body import (
-    CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVarianteee5Df5B52BeTypeResponseBody,
+from .create_purchase_order_entity_purchase_order_purchase_order_part_public_variant_21_eb_2846219_e_type_response_body import (
+    CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariant21Eb2846219ETypeResponseBody,
 )
 from .create_purchase_order_entity_purchase_order_tax_adjustment_type_response_body import (
     CreatePurchaseOrderEntityPurchaseOrderTaxAdjustmentTypeResponseBody,
@@ -101,7 +101,7 @@ class EntityCreatePurchaseOrderTypeResponseBody(UniversalBaseModel):
         pydantic.Field(alias="otherCost"),
     ] = None
     parts: typing.Optional[
-        typing.List[CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVarianteee5Df5B52BeTypeResponseBody]
+        typing.List[CreatePurchaseOrderEntityPurchaseOrderPurchaseOrderPartPublicVariant21Eb2846219ETypeResponseBody]
     ] = pydantic.Field(default=None)
     """
     Parts ordered on the purchase order.

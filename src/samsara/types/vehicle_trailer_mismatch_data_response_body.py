@@ -20,7 +20,8 @@ class VehicleTrailerMismatchDataResponseBody(UniversalBaseModel):
         typing.Optional[typing.List[AlertObjectTrailerResponseBody]],
         FieldMetadata(alias="currentlyPullingTrailers"),
         pydantic.Field(
-            alias="currentlyPullingTrailers", description="Trailers the vehicle is currently associated with pulling."
+            alias="currentlyPullingTrailers",
+            description="Trailers the vehicle was associated with pulling in the incident metadata. An empty array means no trailer associations were recorded. Omitted when metadata or all referenced trailer details are unavailable.",
         ),
     ] = None
     driver: typing.Optional[AlertObjectDriverResponseBody] = None
@@ -28,7 +29,8 @@ class VehicleTrailerMismatchDataResponseBody(UniversalBaseModel):
         typing.Optional[typing.List[AlertObjectTrailerResponseBody]],
         FieldMetadata(alias="driverSelectedTrailers"),
         pydantic.Field(
-            alias="driverSelectedTrailers", description="Trailers the driver selected in the dispatch workflow."
+            alias="driverSelectedTrailers",
+            description="Trailers the driver selected in the incident metadata. An empty array means no trailers were selected. Omitted when metadata or all referenced trailer details are unavailable.",
         ),
     ] = None
     vehicle: typing.Optional[AlertObjectVehicleResponseBody] = None

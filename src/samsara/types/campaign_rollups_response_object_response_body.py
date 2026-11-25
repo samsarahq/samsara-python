@@ -19,7 +19,7 @@ class CampaignRollupsResponseObjectResponseBody(UniversalBaseModel):
         FieldMetadata(alias="agingItemCount"),
         pydantic.Field(
             alias="agingItemCount",
-            description="Number of items that have been in a non-terminal state (`pending`, `hold`, `ready`, `workOrderCreated`) for more than 30 days.",
+            description="Number of items that have been in a non-terminal state (`pending`, `hold`, `ready`, `workOrderCreated`, `workOrderCanceled`) for more than 30 days.",
         ),
     ]
     campaign_id: typing_extensions.Annotated[

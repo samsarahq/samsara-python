@@ -88,6 +88,7 @@ class TripsClient:
         )
         client.trips.get_trips(
             start_time="startTime",
+            ids=["ids"],
         )
         """
         _response = self._raw_client.get_trips(
@@ -234,6 +235,7 @@ class AsyncTripsClient:
         async def main() -> None:
             await client.trips.get_trips(
                 start_time="startTime",
+                ids=["ids"],
             )
 
 

@@ -5,8 +5,8 @@ def test_issues_get_issues() -> None:
     """Test getIssues endpoint with WireMock"""
     test_id = "issues.get_issues.0"
     client = get_client(test_id)
-    client.issues.get_issues()
-    verify_request_count(test_id, "GET", "/issues", None, 1)
+    client.issues.get_issues(ids=["ids"])
+    verify_request_count(test_id, "GET", "/issues", {"ids": "ids"}, 1)
 
 
 def test_issues_post_issue() -> None:

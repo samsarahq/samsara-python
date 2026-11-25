@@ -79,7 +79,9 @@ class RawSafetyScoresClient:
             params={
                 "endTime": end_time,
                 "startTime": start_time,
-                "driverIds": driver_ids,
+                "driverIds": ",".join(map(str, driver_ids))
+                if isinstance(driver_ids, (list, tuple, set))
+                else driver_ids,
                 "after": after,
             },
             request_options=request_options,
@@ -257,7 +259,7 @@ class RawSafetyScoresClient:
                 "endTime": end_time,
                 "startTime": start_time,
                 "scoreType": score_type,
-                "tagIds": tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
             },
             request_options=request_options,
         )
@@ -438,7 +440,7 @@ class RawSafetyScoresClient:
                 "endTime": end_time,
                 "startTime": start_time,
                 "scoreType": score_type,
-                "tagIds": tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
                 "after": after,
             },
             request_options=request_options,
@@ -615,7 +617,9 @@ class RawSafetyScoresClient:
             params={
                 "endTime": end_time,
                 "startTime": start_time,
-                "vehicleIds": vehicle_ids,
+                "vehicleIds": ",".join(map(str, vehicle_ids))
+                if isinstance(vehicle_ids, (list, tuple, set))
+                else vehicle_ids,
                 "after": after,
             },
             request_options=request_options,
@@ -797,7 +801,9 @@ class AsyncRawSafetyScoresClient:
             params={
                 "endTime": end_time,
                 "startTime": start_time,
-                "driverIds": driver_ids,
+                "driverIds": ",".join(map(str, driver_ids))
+                if isinstance(driver_ids, (list, tuple, set))
+                else driver_ids,
                 "after": after,
             },
             request_options=request_options,
@@ -975,7 +981,7 @@ class AsyncRawSafetyScoresClient:
                 "endTime": end_time,
                 "startTime": start_time,
                 "scoreType": score_type,
-                "tagIds": tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
             },
             request_options=request_options,
         )
@@ -1156,7 +1162,7 @@ class AsyncRawSafetyScoresClient:
                 "endTime": end_time,
                 "startTime": start_time,
                 "scoreType": score_type,
-                "tagIds": tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
                 "after": after,
             },
             request_options=request_options,
@@ -1333,7 +1339,9 @@ class AsyncRawSafetyScoresClient:
             params={
                 "endTime": end_time,
                 "startTime": start_time,
-                "vehicleIds": vehicle_ids,
+                "vehicleIds": ",".join(map(str, vehicle_ids))
+                if isinstance(vehicle_ids, (list, tuple, set))
+                else vehicle_ids,
                 "after": after,
             },
             request_options=request_options,

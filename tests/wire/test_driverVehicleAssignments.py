@@ -21,7 +21,7 @@ def test_driverVehicleAssignments_delete_driver_vehicle_assignments() -> None:
     """Test deleteDriverVehicleAssignments endpoint with WireMock"""
     test_id = "driver_vehicle_assignments.delete_driver_vehicle_assignments.0"
     client = get_client(test_id)
-    client.driver_vehicle_assignments.delete_driver_vehicle_assignments(vehicle_id="281474978683353")
+    client.driver_vehicle_assignments.delete_driver_vehicle_assignments()
     verify_request_count(test_id, "DELETE", "/fleet/driver-vehicle-assignments", None, 1)
 
 

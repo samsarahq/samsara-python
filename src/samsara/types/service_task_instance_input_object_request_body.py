@@ -8,6 +8,7 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 from .part_instance_input_object_request_body import PartInstanceInputObjectRequestBody
 from .service_task_instance_input_object_request_body_status import ServiceTaskInstanceInputObjectRequestBodyStatus
+from .service_task_procedure_input_object_request_body import ServiceTaskProcedureInputObjectRequestBody
 from .work_order_money_object_request_body import WorkOrderMoneyObjectRequestBody
 
 
@@ -46,6 +47,11 @@ class ServiceTaskInstanceInputObjectRequestBody(UniversalBaseModel):
         FieldMetadata(alias="partsCost"),
         pydantic.Field(alias="partsCost"),
     ] = None
+    procedures: typing.Optional[typing.List[ServiceTaskProcedureInputObjectRequestBody]] = pydantic.Field(default=None)
+    """
+    Complete stored procedure list for an existing service task, in the order GET returns procedures inside subtasks. That order sorts by rank. Omit to leave procedures unchanged. Each name must match the stored procedure at the same rank position. Names may repeat, so the match is positional. Only isCompleted is applied. Forms and procedure metadata are preserved, including the stored procedure order. Rejected when the service task has no stored procedures, including on create.
+    """
+
     service_task_id: typing_extensions.Annotated[
         str,
         FieldMetadata(alias="serviceTaskId"),

@@ -80,8 +80,10 @@ class RawCoachingClient:
             "coaching/driver-coach-assignments",
             method="GET",
             params={
-                "driverIds": driver_ids,
-                "coachIds": coach_ids,
+                "driverIds": ",".join(map(str, driver_ids))
+                if isinstance(driver_ids, (list, tuple, set))
+                else driver_ids,
+                "coachIds": ",".join(map(str, coach_ids)) if isinstance(coach_ids, (list, tuple, set)) else coach_ids,
                 "includeExternalIds": include_external_ids,
                 "after": after,
             },
@@ -440,9 +442,13 @@ class RawCoachingClient:
             "coaching/sessions/stream",
             method="GET",
             params={
-                "driverIds": driver_ids,
-                "coachIds": coach_ids,
-                "sessionStatuses": session_statuses,
+                "driverIds": ",".join(map(str, driver_ids))
+                if isinstance(driver_ids, (list, tuple, set))
+                else driver_ids,
+                "coachIds": ",".join(map(str, coach_ids)) if isinstance(coach_ids, (list, tuple, set)) else coach_ids,
+                "sessionStatuses": ",".join(map(str, session_statuses))
+                if isinstance(session_statuses, (list, tuple, set))
+                else session_statuses,
                 "includeCoachableEvents": include_coachable_events,
                 "startTime": serialize_datetime(start_time),
                 "endTime": serialize_datetime(end_time) if end_time is not None else None,
@@ -626,8 +632,10 @@ class AsyncRawCoachingClient:
             "coaching/driver-coach-assignments",
             method="GET",
             params={
-                "driverIds": driver_ids,
-                "coachIds": coach_ids,
+                "driverIds": ",".join(map(str, driver_ids))
+                if isinstance(driver_ids, (list, tuple, set))
+                else driver_ids,
+                "coachIds": ",".join(map(str, coach_ids)) if isinstance(coach_ids, (list, tuple, set)) else coach_ids,
                 "includeExternalIds": include_external_ids,
                 "after": after,
             },
@@ -986,9 +994,13 @@ class AsyncRawCoachingClient:
             "coaching/sessions/stream",
             method="GET",
             params={
-                "driverIds": driver_ids,
-                "coachIds": coach_ids,
-                "sessionStatuses": session_statuses,
+                "driverIds": ",".join(map(str, driver_ids))
+                if isinstance(driver_ids, (list, tuple, set))
+                else driver_ids,
+                "coachIds": ",".join(map(str, coach_ids)) if isinstance(coach_ids, (list, tuple, set)) else coach_ids,
+                "sessionStatuses": ",".join(map(str, session_statuses))
+                if isinstance(session_statuses, (list, tuple, set))
+                else session_statuses,
                 "includeCoachableEvents": include_coachable_events,
                 "startTime": serialize_datetime(start_time),
                 "endTime": serialize_datetime(end_time) if end_time is not None else None,

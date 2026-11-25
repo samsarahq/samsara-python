@@ -5,8 +5,8 @@ def test_safety_get_safety_events_v_2() -> None:
     """Test getSafetyEventsV2 endpoint with WireMock"""
     test_id = "safety.get_safety_events_v_2.0"
     client = get_client(test_id)
-    client.safety.get_safety_events_v_2()
-    verify_request_count(test_id, "GET", "/safety-events", None, 1)
+    client.safety.get_safety_events_v_2(safety_event_ids=["safetyEventIds"])
+    verify_request_count(test_id, "GET", "/safety-events", {"safetyEventIds": "safetyEventIds"}, 1)
 
 
 def test_safety_get_safety_events_v_2_stream() -> None:

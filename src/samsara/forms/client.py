@@ -93,7 +93,9 @@ class FormsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.forms.get_form_submissions()
+        client.forms.get_form_submissions(
+            ids=["ids"],
+        )
         """
         _response = self._raw_client.get_form_submissions(ids=ids, include=include, request_options=request_options)
         return _response.data
@@ -533,7 +535,9 @@ class AsyncFormsClient:
 
 
         async def main() -> None:
-            await client.forms.get_form_submissions()
+            await client.forms.get_form_submissions(
+                ids=["ids"],
+            )
 
 
         asyncio.run(main())

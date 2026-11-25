@@ -15,8 +15,8 @@ def test_previewApIs_get_orders() -> None:
     """Test getOrders endpoint with WireMock"""
     test_id = "preview_ap_is.get_orders.0"
     client = get_client(test_id)
-    client.preview_ap_is.get_orders()
-    verify_request_count(test_id, "GET", "/preview/fleet/orders", None, 1)
+    client.preview_ap_is.get_orders(order_ids=["orderIds"])
+    verify_request_count(test_id, "GET", "/preview/fleet/orders", {"orderIds": "orderIds"}, 1)
 
 
 def test_previewApIs_delete_order() -> None:

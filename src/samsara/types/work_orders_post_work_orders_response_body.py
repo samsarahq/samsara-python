@@ -4,11 +4,11 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from .work_order_object_response_body import WorkOrderObjectResponseBody
+from .work_order_object_v_20261112_response_body import WorkOrderObjectV20261112ResponseBody
 
 
 class WorkOrdersPostWorkOrdersResponseBody(UniversalBaseModel):
-    data: WorkOrderObjectResponseBody
+    data: WorkOrderObjectV20261112ResponseBody
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -81,7 +81,10 @@ class MaintenanceEstimateBatchCreateInputRequestBody(UniversalBaseModel):
     vendor_id: typing_extensions.Annotated[
         str,
         FieldMetadata(alias="vendorId"),
-        pydantic.Field(alias="vendorId", description="Same-org vendor location UUID or external ID."),
+        pydantic.Field(
+            alias="vendorId",
+            description="Same-org vendor location UUID or external ID. Resolve the location via GET /fleet/maintenance/vendor-locations.",
+        ),
     ]
     work_order_id: typing_extensions.Annotated[
         str,

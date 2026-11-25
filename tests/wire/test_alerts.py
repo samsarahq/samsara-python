@@ -43,5 +43,11 @@ def test_alerts_get_incidents() -> None:
     """Test getIncidents endpoint with WireMock"""
     test_id = "alerts.get_incidents.0"
     client = get_client(test_id)
-    client.alerts.get_incidents(start_time="startTime")
-    verify_request_count(test_id, "GET", "/alerts/incidents/stream", {"startTime": "startTime"}, 1)
+    client.alerts.get_incidents(start_time="startTime", configuration_ids=["configurationIds"])
+    verify_request_count(
+        test_id,
+        "GET",
+        "/alerts/incidents/stream",
+        {"startTime": "startTime", "configurationIds": "configurationIds"},
+        1,
+    )

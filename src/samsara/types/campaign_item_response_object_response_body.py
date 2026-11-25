@@ -51,7 +51,7 @@ class CampaignItemResponseObjectResponseBody(UniversalBaseModel):
         FieldMetadata(alias="effectiveState"),
         pydantic.Field(
             alias="effectiveState",
-            description="The state the item behaves as. Equal to `state`, except `suspended` for an open item (`pending`, `hold`, `ready`) on a campaign that is in `draft` or `onHold`, where the item is kept off work orders until the campaign is active.  Valid values: `pending`, `hold`, `ready`, `workOrderCreated`, `complete`, `dismissed`, `cancelled`, `suspended`, `unknown`",
+            description="The state the item behaves as. Equal to `state`, except `suspended` for an open item (`pending`, `hold`, `ready`) on a campaign that is in `draft` or `onHold`, where the item is kept off work orders until the campaign is active.  Valid values: `pending`, `hold`, `ready`, `workOrderCreated`, `workOrderCanceled`, `complete`, `dismissed`, `cancelled`, `suspended`, `unknown`",
         ),
     ]
     id: str = pydantic.Field()
@@ -72,7 +72,7 @@ class CampaignItemResponseObjectResponseBody(UniversalBaseModel):
         FieldMetadata(alias="sourceBasis"),
         pydantic.Field(
             alias="sourceBasis",
-            description="How the asset joined the campaign. Items added through this API are `api`.  Valid values: `api`, `targeting`, `manual`, `csv`, `assistant`, `unknown`",
+            description="How the asset joined the campaign. Items added through this API are `api`.  Valid values: `api`, `targeting`, `manual`, `csv`, `assistant`, `nhtsa`, `unknown`",
         ),
     ]
     source_ref: typing_extensions.Annotated[
@@ -85,7 +85,7 @@ class CampaignItemResponseObjectResponseBody(UniversalBaseModel):
     ] = None
     state: CampaignItemResponseObjectResponseBodyState = pydantic.Field()
     """
-    Stored lifecycle state of the item. Defaults to `unknown` when the state is not recognized.  Valid values: `pending`, `hold`, `ready`, `workOrderCreated`, `complete`, `dismissed`, `cancelled`, `unknown`
+    Stored lifecycle state of the item. Defaults to `unknown` when the state is not recognized.  Valid values: `pending`, `hold`, `ready`, `workOrderCreated`, `workOrderCanceled`, `complete`, `dismissed`, `cancelled`, `unknown`
     """
 
     state_since_time: typing_extensions.Annotated[

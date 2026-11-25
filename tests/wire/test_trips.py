@@ -5,8 +5,8 @@ def test_trips_get_trips() -> None:
     """Test getTrips endpoint with WireMock"""
     test_id = "trips.get_trips.0"
     client = get_client(test_id)
-    client.trips.get_trips(start_time="startTime")
-    verify_request_count(test_id, "GET", "/trips/stream", {"startTime": "startTime"}, 1)
+    client.trips.get_trips(start_time="startTime", ids=["ids"])
+    verify_request_count(test_id, "GET", "/trips/stream", {"startTime": "startTime", "ids": "ids"}, 1)
 
 
 def test_trips_v_1_get_fleet_trips() -> None:

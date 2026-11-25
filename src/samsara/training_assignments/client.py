@@ -78,6 +78,7 @@ class TrainingAssignmentsClient:
         client.training_assignments.post_training_assignments(
             course_id="courseId",
             due_at_time="dueAtTime",
+            learner_ids=["learnerIds"],
         )
         """
         _response = self._raw_client.post_training_assignments(
@@ -120,7 +121,9 @@ class TrainingAssignmentsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.training_assignments.delete_training_assignments()
+        client.training_assignments.delete_training_assignments(
+            ids=["ids"],
+        )
         """
         _response = self._raw_client.delete_training_assignments(ids=ids, request_options=request_options)
         return _response.data
@@ -166,6 +169,7 @@ class TrainingAssignmentsClient:
             token="YOUR_TOKEN",
         )
         client.training_assignments.patch_training_assignments(
+            ids=["ids"],
             due_at_time="dueAtTime",
         )
         """
@@ -323,6 +327,7 @@ class AsyncTrainingAssignmentsClient:
             await client.training_assignments.post_training_assignments(
                 course_id="courseId",
                 due_at_time="dueAtTime",
+                learner_ids=["learnerIds"],
             )
 
 
@@ -373,7 +378,9 @@ class AsyncTrainingAssignmentsClient:
 
 
         async def main() -> None:
-            await client.training_assignments.delete_training_assignments()
+            await client.training_assignments.delete_training_assignments(
+                ids=["ids"],
+            )
 
 
         asyncio.run(main())
@@ -427,6 +434,7 @@ class AsyncTrainingAssignmentsClient:
 
         async def main() -> None:
             await client.training_assignments.patch_training_assignments(
+                ids=["ids"],
                 due_at_time="dueAtTime",
             )
 

@@ -93,8 +93,8 @@ class RawFormsClient:
             "form-submissions",
             method="GET",
             params={
-                "ids": ids,
-                "include": include,
+                "ids": ",".join(map(str, ids)) if isinstance(ids, (list, tuple, set)) else ids,
+                "include": ",".join(map(str, include)) if isinstance(include, (list, tuple, set)) else include,
             },
             request_options=request_options,
         )
@@ -1026,11 +1026,17 @@ class RawFormsClient:
                 "startTime": start_time,
                 "endTime": end_time,
                 "after": after,
-                "formTemplateIds": form_template_ids,
-                "userIds": user_ids,
-                "driverIds": driver_ids,
-                "include": include,
-                "assignedToRouteStopIds": assigned_to_route_stop_ids,
+                "formTemplateIds": ",".join(map(str, form_template_ids))
+                if isinstance(form_template_ids, (list, tuple, set))
+                else form_template_ids,
+                "userIds": ",".join(map(str, user_ids)) if isinstance(user_ids, (list, tuple, set)) else user_ids,
+                "driverIds": ",".join(map(str, driver_ids))
+                if isinstance(driver_ids, (list, tuple, set))
+                else driver_ids,
+                "include": ",".join(map(str, include)) if isinstance(include, (list, tuple, set)) else include,
+                "assignedToRouteStopIds": ",".join(map(str, assigned_to_route_stop_ids))
+                if isinstance(assigned_to_route_stop_ids, (list, tuple, set))
+                else assigned_to_route_stop_ids,
             },
             request_options=request_options,
         )
@@ -1196,7 +1202,7 @@ class RawFormsClient:
             "form-templates",
             method="GET",
             params={
-                "ids": ids,
+                "ids": ",".join(map(str, ids)) if isinstance(ids, (list, tuple, set)) else ids,
                 "after": after,
             },
             request_options=request_options,
@@ -1368,8 +1374,8 @@ class AsyncRawFormsClient:
             "form-submissions",
             method="GET",
             params={
-                "ids": ids,
-                "include": include,
+                "ids": ",".join(map(str, ids)) if isinstance(ids, (list, tuple, set)) else ids,
+                "include": ",".join(map(str, include)) if isinstance(include, (list, tuple, set)) else include,
             },
             request_options=request_options,
         )
@@ -2301,11 +2307,17 @@ class AsyncRawFormsClient:
                 "startTime": start_time,
                 "endTime": end_time,
                 "after": after,
-                "formTemplateIds": form_template_ids,
-                "userIds": user_ids,
-                "driverIds": driver_ids,
-                "include": include,
-                "assignedToRouteStopIds": assigned_to_route_stop_ids,
+                "formTemplateIds": ",".join(map(str, form_template_ids))
+                if isinstance(form_template_ids, (list, tuple, set))
+                else form_template_ids,
+                "userIds": ",".join(map(str, user_ids)) if isinstance(user_ids, (list, tuple, set)) else user_ids,
+                "driverIds": ",".join(map(str, driver_ids))
+                if isinstance(driver_ids, (list, tuple, set))
+                else driver_ids,
+                "include": ",".join(map(str, include)) if isinstance(include, (list, tuple, set)) else include,
+                "assignedToRouteStopIds": ",".join(map(str, assigned_to_route_stop_ids))
+                if isinstance(assigned_to_route_stop_ids, (list, tuple, set))
+                else assigned_to_route_stop_ids,
             },
             request_options=request_options,
         )
@@ -2471,7 +2483,7 @@ class AsyncRawFormsClient:
             "form-templates",
             method="GET",
             params={
-                "ids": ids,
+                "ids": ",".join(map(str, ids)) if isinstance(ids, (list, tuple, set)) else ids,
                 "after": after,
             },
             request_options=request_options,

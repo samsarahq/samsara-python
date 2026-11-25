@@ -82,9 +82,13 @@ class RawHoursOfServiceClient:
             "fleet/hos/clocks",
             method="GET",
             params={
-                "tagIds": tag_ids,
-                "parentTagIds": parent_tag_ids,
-                "driverIds": driver_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "driverIds": ",".join(map(str, driver_ids))
+                if isinstance(driver_ids, (list, tuple, set))
+                else driver_ids,
                 "after": after,
                 "limit": limit,
             },
@@ -176,7 +180,9 @@ class RawHoursOfServiceClient:
             "fleet/hos/daily-logs",
             method="GET",
             params={
-                "driverIds": driver_ids,
+                "driverIds": ",".join(map(str, driver_ids))
+                if isinstance(driver_ids, (list, tuple, set))
+                else driver_ids,
                 "startDate": start_date,
                 "endDate": end_date,
                 "tagIds": tag_ids,
@@ -366,9 +372,13 @@ class RawHoursOfServiceClient:
             "fleet/hos/logs",
             method="GET",
             params={
-                "tagIds": tag_ids,
-                "parentTagIds": parent_tag_ids,
-                "driverIds": driver_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "driverIds": ",".join(map(str, driver_ids))
+                if isinstance(driver_ids, (list, tuple, set))
+                else driver_ids,
                 "startTime": start_time,
                 "endTime": end_time,
                 "after": after,
@@ -453,12 +463,14 @@ class RawHoursOfServiceClient:
             "fleet/hos/violations",
             method="GET",
             params={
-                "driverIds": driver_ids,
+                "driverIds": ",".join(map(str, driver_ids))
+                if isinstance(driver_ids, (list, tuple, set))
+                else driver_ids,
                 "startTime": start_time,
                 "endTime": end_time,
                 "tagIds": tag_ids,
                 "parentTagIds": parent_tag_ids,
-                "types": types,
+                "types": ",".join(map(str, types)) if isinstance(types, (list, tuple, set)) else types,
                 "after": after,
             },
             request_options=request_options,
@@ -948,9 +960,13 @@ class AsyncRawHoursOfServiceClient:
             "fleet/hos/clocks",
             method="GET",
             params={
-                "tagIds": tag_ids,
-                "parentTagIds": parent_tag_ids,
-                "driverIds": driver_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "driverIds": ",".join(map(str, driver_ids))
+                if isinstance(driver_ids, (list, tuple, set))
+                else driver_ids,
                 "after": after,
                 "limit": limit,
             },
@@ -1042,7 +1058,9 @@ class AsyncRawHoursOfServiceClient:
             "fleet/hos/daily-logs",
             method="GET",
             params={
-                "driverIds": driver_ids,
+                "driverIds": ",".join(map(str, driver_ids))
+                if isinstance(driver_ids, (list, tuple, set))
+                else driver_ids,
                 "startDate": start_date,
                 "endDate": end_date,
                 "tagIds": tag_ids,
@@ -1232,9 +1250,13 @@ class AsyncRawHoursOfServiceClient:
             "fleet/hos/logs",
             method="GET",
             params={
-                "tagIds": tag_ids,
-                "parentTagIds": parent_tag_ids,
-                "driverIds": driver_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "driverIds": ",".join(map(str, driver_ids))
+                if isinstance(driver_ids, (list, tuple, set))
+                else driver_ids,
                 "startTime": start_time,
                 "endTime": end_time,
                 "after": after,
@@ -1319,12 +1341,14 @@ class AsyncRawHoursOfServiceClient:
             "fleet/hos/violations",
             method="GET",
             params={
-                "driverIds": driver_ids,
+                "driverIds": ",".join(map(str, driver_ids))
+                if isinstance(driver_ids, (list, tuple, set))
+                else driver_ids,
                 "startTime": start_time,
                 "endTime": end_time,
                 "tagIds": tag_ids,
                 "parentTagIds": parent_tag_ids,
-                "types": types,
+                "types": ",".join(map(str, types)) if isinstance(types, (list, tuple, set)) else types,
                 "after": after,
             },
             request_options=request_options,

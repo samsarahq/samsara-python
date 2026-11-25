@@ -63,7 +63,9 @@ class DriverQrCodesClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.driver_qr_codes.get_drivers_qr_codes()
+        client.driver_qr_codes.get_drivers_qr_codes(
+            driver_ids=["driverIds"],
+        )
         """
         _response = self._raw_client.get_drivers_qr_codes(driver_ids=driver_ids, request_options=request_options)
         return _response.data
@@ -202,7 +204,9 @@ class AsyncDriverQrCodesClient:
 
 
         async def main() -> None:
-            await client.driver_qr_codes.get_drivers_qr_codes()
+            await client.driver_qr_codes.get_drivers_qr_codes(
+                driver_ids=["driverIds"],
+            )
 
 
         asyncio.run(main())

@@ -80,7 +80,9 @@ class IssuesClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.issues.get_issues()
+        client.issues.get_issues(
+            ids=["ids"],
+        )
         """
         _response = self._raw_client.get_issues(ids=ids, include=include, request_options=request_options)
         return _response.data
@@ -399,7 +401,9 @@ class AsyncIssuesClient:
 
 
         async def main() -> None:
-            await client.issues.get_issues()
+            await client.issues.get_issues(
+                ids=["ids"],
+            )
 
 
         asyncio.run(main())

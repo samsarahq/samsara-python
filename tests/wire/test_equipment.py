@@ -39,25 +39,31 @@ def test_equipment_get_equipment_stats() -> None:
     """Test getEquipmentStats endpoint with WireMock"""
     test_id = "equipment.get_equipment_stats.0"
     client = get_client(test_id)
-    client.equipment.get_equipment_stats()
-    verify_request_count(test_id, "GET", "/fleet/equipment/stats", None, 1)
+    client.equipment.get_equipment_stats(types=["gatewayEngineStates"])
+    verify_request_count(test_id, "GET", "/fleet/equipment/stats", {"types": "gatewayEngineStates"}, 1)
 
 
 def test_equipment_get_equipment_stats_feed() -> None:
     """Test getEquipmentStatsFeed endpoint with WireMock"""
     test_id = "equipment.get_equipment_stats_feed.0"
     client = get_client(test_id)
-    client.equipment.get_equipment_stats_feed()
-    verify_request_count(test_id, "GET", "/fleet/equipment/stats/feed", None, 1)
+    client.equipment.get_equipment_stats_feed(types=["gatewayEngineStates"])
+    verify_request_count(test_id, "GET", "/fleet/equipment/stats/feed", {"types": "gatewayEngineStates"}, 1)
 
 
 def test_equipment_get_equipment_stats_history() -> None:
     """Test getEquipmentStatsHistory endpoint with WireMock"""
     test_id = "equipment.get_equipment_stats_history.0"
     client = get_client(test_id)
-    client.equipment.get_equipment_stats_history(start_time="startTime", end_time="endTime")
+    client.equipment.get_equipment_stats_history(
+        start_time="startTime", end_time="endTime", types=["gatewayEngineStates"]
+    )
     verify_request_count(
-        test_id, "GET", "/fleet/equipment/stats/history", {"startTime": "startTime", "endTime": "endTime"}, 1
+        test_id,
+        "GET",
+        "/fleet/equipment/stats/history",
+        {"startTime": "startTime", "endTime": "endTime", "types": "gatewayEngineStates"},
+        1,
     )
 
 

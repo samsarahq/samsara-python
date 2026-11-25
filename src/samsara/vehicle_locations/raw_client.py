@@ -68,9 +68,13 @@ class RawVehicleLocationsClient:
             params={
                 "after": after,
                 "time": time,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
-                "vehicleIds": vehicle_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "vehicleIds": ",".join(map(str, vehicle_ids))
+                if isinstance(vehicle_ids, (list, tuple, set))
+                else vehicle_ids,
             },
             request_options=request_options,
         )
@@ -142,9 +146,13 @@ class RawVehicleLocationsClient:
             method="GET",
             params={
                 "after": after,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
-                "vehicleIds": vehicle_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "vehicleIds": ",".join(map(str, vehicle_ids))
+                if isinstance(vehicle_ids, (list, tuple, set))
+                else vehicle_ids,
             },
             request_options=request_options,
         )
@@ -220,9 +228,13 @@ class RawVehicleLocationsClient:
                 "after": after,
                 "startTime": start_time,
                 "endTime": end_time,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
-                "vehicleIds": vehicle_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "vehicleIds": ",".join(map(str, vehicle_ids))
+                if isinstance(vehicle_ids, (list, tuple, set))
+                else vehicle_ids,
             },
             request_options=request_options,
         )
@@ -298,9 +310,13 @@ class AsyncRawVehicleLocationsClient:
             params={
                 "after": after,
                 "time": time,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
-                "vehicleIds": vehicle_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "vehicleIds": ",".join(map(str, vehicle_ids))
+                if isinstance(vehicle_ids, (list, tuple, set))
+                else vehicle_ids,
             },
             request_options=request_options,
         )
@@ -372,9 +388,13 @@ class AsyncRawVehicleLocationsClient:
             method="GET",
             params={
                 "after": after,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
-                "vehicleIds": vehicle_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "vehicleIds": ",".join(map(str, vehicle_ids))
+                if isinstance(vehicle_ids, (list, tuple, set))
+                else vehicle_ids,
             },
             request_options=request_options,
         )
@@ -450,9 +470,13 @@ class AsyncRawVehicleLocationsClient:
                 "after": after,
                 "startTime": start_time,
                 "endTime": end_time,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
-                "vehicleIds": vehicle_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "vehicleIds": ",".join(map(str, vehicle_ids))
+                if isinstance(vehicle_ids, (list, tuple, set))
+                else vehicle_ids,
             },
             request_options=request_options,
         )

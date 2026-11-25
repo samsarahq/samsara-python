@@ -4,6 +4,9 @@ import typing
 
 from ..core.client_wrapper import AsyncClientWrapper, SyncClientWrapper
 from ..core.request_options import RequestOptions
+from ..types.delete_driver_vehicle_assignments_v_2_request_body_metadata_request_body import (
+    DeleteDriverVehicleAssignmentsV2RequestBodyMetadataRequestBody,
+)
 from ..types.driver_vehicle_assignments_v_2_create_driver_vehicle_assignment_response_body import (
     DriverVehicleAssignmentsV2CreateDriverVehicleAssignmentResponseBody,
 )
@@ -214,15 +217,16 @@ class DriverVehicleAssignmentsClient:
     def delete_driver_vehicle_assignments(
         self,
         *,
-        vehicle_id: str,
         assigned_at_time: typing.Optional[str] = OMIT,
         end_time: typing.Optional[str] = OMIT,
         is_passenger: typing.Optional[bool] = OMIT,
+        metadata: typing.Optional[DeleteDriverVehicleAssignmentsV2RequestBodyMetadataRequestBody] = OMIT,
         start_time: typing.Optional[str] = OMIT,
+        vehicle_id: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> None:
         """
-        Delete driver assignments that were created using the `POST fleet/driver-vehicle-assignments` endpoint for the requested vehicle in the requested time range.
+        Delete driver assignments that were created using the `POST fleet/driver-vehicle-assignments` endpoint. Identify the assignments either with vehicleId and an optional time range, or with metadata.sourceName alone.
 
          <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -233,9 +237,6 @@ class DriverVehicleAssignmentsClient:
 
         Parameters
         ----------
-        vehicle_id : str
-            ID of the vehicle. This can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the vehicle.
-
         assigned_at_time : typing.Optional[str]
              Assigned at time in RFC 3339 format. Defaults to now if not provided. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
 
@@ -245,8 +246,13 @@ class DriverVehicleAssignmentsClient:
         is_passenger : typing.Optional[bool]
             Indicates if assigned driver is passenger
 
+        metadata : typing.Optional[DeleteDriverVehicleAssignmentsV2RequestBodyMetadataRequestBody]
+
         start_time : typing.Optional[str]
              A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        vehicle_id : typing.Optional[str]
+            ID of the vehicle. This can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the vehicle.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -262,16 +268,15 @@ class DriverVehicleAssignmentsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.driver_vehicle_assignments.delete_driver_vehicle_assignments(
-            vehicle_id="281474978683353",
-        )
+        client.driver_vehicle_assignments.delete_driver_vehicle_assignments()
         """
         _response = self._raw_client.delete_driver_vehicle_assignments(
-            vehicle_id=vehicle_id,
             assigned_at_time=assigned_at_time,
             end_time=end_time,
             is_passenger=is_passenger,
+            metadata=metadata,
             start_time=start_time,
+            vehicle_id=vehicle_id,
             request_options=request_options,
         )
         return _response.data
@@ -551,15 +556,16 @@ class AsyncDriverVehicleAssignmentsClient:
     async def delete_driver_vehicle_assignments(
         self,
         *,
-        vehicle_id: str,
         assigned_at_time: typing.Optional[str] = OMIT,
         end_time: typing.Optional[str] = OMIT,
         is_passenger: typing.Optional[bool] = OMIT,
+        metadata: typing.Optional[DeleteDriverVehicleAssignmentsV2RequestBodyMetadataRequestBody] = OMIT,
         start_time: typing.Optional[str] = OMIT,
+        vehicle_id: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> None:
         """
-        Delete driver assignments that were created using the `POST fleet/driver-vehicle-assignments` endpoint for the requested vehicle in the requested time range.
+        Delete driver assignments that were created using the `POST fleet/driver-vehicle-assignments` endpoint. Identify the assignments either with vehicleId and an optional time range, or with metadata.sourceName alone.
 
          <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -570,9 +576,6 @@ class AsyncDriverVehicleAssignmentsClient:
 
         Parameters
         ----------
-        vehicle_id : str
-            ID of the vehicle. This can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the vehicle.
-
         assigned_at_time : typing.Optional[str]
              Assigned at time in RFC 3339 format. Defaults to now if not provided. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
 
@@ -582,8 +585,13 @@ class AsyncDriverVehicleAssignmentsClient:
         is_passenger : typing.Optional[bool]
             Indicates if assigned driver is passenger
 
+        metadata : typing.Optional[DeleteDriverVehicleAssignmentsV2RequestBodyMetadataRequestBody]
+
         start_time : typing.Optional[str]
              A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        vehicle_id : typing.Optional[str]
+            ID of the vehicle. This can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the vehicle.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -604,19 +612,18 @@ class AsyncDriverVehicleAssignmentsClient:
 
 
         async def main() -> None:
-            await client.driver_vehicle_assignments.delete_driver_vehicle_assignments(
-                vehicle_id="281474978683353",
-            )
+            await client.driver_vehicle_assignments.delete_driver_vehicle_assignments()
 
 
         asyncio.run(main())
         """
         _response = await self._raw_client.delete_driver_vehicle_assignments(
-            vehicle_id=vehicle_id,
             assigned_at_time=assigned_at_time,
             end_time=end_time,
             is_passenger=is_passenger,
+            metadata=metadata,
             start_time=start_time,
+            vehicle_id=vehicle_id,
             request_options=request_options,
         )
         return _response.data

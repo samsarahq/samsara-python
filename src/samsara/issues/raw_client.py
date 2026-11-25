@@ -80,8 +80,8 @@ class RawIssuesClient:
             "issues",
             method="GET",
             params={
-                "ids": ids,
-                "include": include,
+                "ids": ",".join(map(str, ids)) if isinstance(ids, (list, tuple, set)) else ids,
+                "include": ",".join(map(str, include)) if isinstance(include, (list, tuple, set)) else include,
             },
             request_options=request_options,
         )
@@ -697,11 +697,15 @@ class RawIssuesClient:
                 "startTime": start_time,
                 "endTime": end_time,
                 "after": after,
-                "status": status,
-                "assetIds": asset_ids,
-                "assetExternalIds": asset_external_ids,
-                "include": include,
-                "assignedToRouteStopIds": assigned_to_route_stop_ids,
+                "status": ",".join(map(str, status)) if isinstance(status, (list, tuple, set)) else status,
+                "assetIds": ",".join(map(str, asset_ids)) if isinstance(asset_ids, (list, tuple, set)) else asset_ids,
+                "assetExternalIds": ",".join(map(str, asset_external_ids))
+                if isinstance(asset_external_ids, (list, tuple, set))
+                else asset_external_ids,
+                "include": ",".join(map(str, include)) if isinstance(include, (list, tuple, set)) else include,
+                "assignedToRouteStopIds": ",".join(map(str, assigned_to_route_stop_ids))
+                if isinstance(assigned_to_route_stop_ids, (list, tuple, set))
+                else assigned_to_route_stop_ids,
             },
             request_options=request_options,
         )
@@ -872,8 +876,8 @@ class AsyncRawIssuesClient:
             "issues",
             method="GET",
             params={
-                "ids": ids,
-                "include": include,
+                "ids": ",".join(map(str, ids)) if isinstance(ids, (list, tuple, set)) else ids,
+                "include": ",".join(map(str, include)) if isinstance(include, (list, tuple, set)) else include,
             },
             request_options=request_options,
         )
@@ -1489,11 +1493,15 @@ class AsyncRawIssuesClient:
                 "startTime": start_time,
                 "endTime": end_time,
                 "after": after,
-                "status": status,
-                "assetIds": asset_ids,
-                "assetExternalIds": asset_external_ids,
-                "include": include,
-                "assignedToRouteStopIds": assigned_to_route_stop_ids,
+                "status": ",".join(map(str, status)) if isinstance(status, (list, tuple, set)) else status,
+                "assetIds": ",".join(map(str, asset_ids)) if isinstance(asset_ids, (list, tuple, set)) else asset_ids,
+                "assetExternalIds": ",".join(map(str, asset_external_ids))
+                if isinstance(asset_external_ids, (list, tuple, set))
+                else asset_external_ids,
+                "include": ",".join(map(str, include)) if isinstance(include, (list, tuple, set)) else include,
+                "assignedToRouteStopIds": ",".join(map(str, assigned_to_route_stop_ids))
+                if isinstance(assigned_to_route_stop_ids, (list, tuple, set))
+                else assigned_to_route_stop_ids,
             },
             request_options=request_options,
         )

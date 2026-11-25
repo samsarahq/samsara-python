@@ -4,7 +4,16 @@ import typing
 
 CampaignItemResponseObjectResponseBodyEffectiveState = typing.Union[
     typing.Literal[
-        "pending", "hold", "ready", "workOrderCreated", "complete", "dismissed", "cancelled", "suspended", "unknown"
+        "pending",
+        "hold",
+        "ready",
+        "workOrderCreated",
+        "workOrderCanceled",
+        "complete",
+        "dismissed",
+        "cancelled",
+        "suspended",
+        "unknown",
     ],
     typing.Any,
 ]

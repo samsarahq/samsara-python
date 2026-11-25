@@ -83,7 +83,9 @@ class SafetyClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.safety.get_safety_events_v_2()
+        client.safety.get_safety_events_v_2(
+            safety_event_ids=["safetyEventIds"],
+        )
         """
         _response = self._raw_client.get_safety_events_v_2(
             safety_event_ids=safety_event_ids,
@@ -376,7 +378,9 @@ class AsyncSafetyClient:
 
 
         async def main() -> None:
-            await client.safety.get_safety_events_v_2()
+            await client.safety.get_safety_events_v_2(
+                safety_event_ids=["safetyEventIds"],
+            )
 
 
         asyncio.run(main())

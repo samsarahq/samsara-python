@@ -41,24 +41,6 @@ if typing.TYPE_CHECKING:
     from .entity_ground_intelligence_issues_service_update_ground_intelligence_issue_request_body_type import (
         EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyType,
     )
-    from .entity_purchase_orders_service_create_purchase_order_request_body_order_status import (
-        EntityPurchaseOrdersServiceCreatePurchaseOrderRequestBodyOrderStatus,
-    )
-    from .entity_purchase_orders_service_update_purchase_order_request_body_order_status import (
-        EntityPurchaseOrdersServiceUpdatePurchaseOrderRequestBodyOrderStatus,
-    )
-    from .entity_vendor_profiles_service_create_vendor_group_request_body_status import (
-        EntityVendorProfilesServiceCreateVendorGroupRequestBodyStatus,
-    )
-    from .entity_vendor_profiles_service_update_vendor_group_request_body_status import (
-        EntityVendorProfilesServiceUpdateVendorGroupRequestBodyStatus,
-    )
-    from .entity_vendors_service_create_vendor_request_body_status import (
-        EntityVendorsServiceCreateVendorRequestBodyStatus,
-    )
-    from .entity_vendors_service_update_vendor_request_body_status import (
-        EntityVendorsServiceUpdateVendorRequestBodyStatus,
-    )
     from .entity_watchpoints_service_create_watchpoint_request_body_mode import (
         EntityWatchpointsServiceCreateWatchpointRequestBodyMode,
     )
@@ -90,6 +72,7 @@ if typing.TYPE_CHECKING:
     from .get_place_geofence_request_size_order import GetPlaceGeofenceRequestSizeOrder
     from .get_qualification_records_stream_request_entity_type import GetQualificationRecordsStreamRequestEntityType
     from .get_qualification_types_request_entity_type import GetQualificationTypesRequestEntityType
+    from .get_recall_matched_assets_request_order import GetRecallMatchedAssetsRequestOrder
     from .list_driver_workflows_request_workflow_type import ListDriverWorkflowsRequestWorkflowType
     from .maintenance_estimates_create_maintenance_estimate_request_body_approval_status import (
         MaintenanceEstimatesCreateMaintenanceEstimateRequestBodyApprovalStatus,
@@ -152,12 +135,6 @@ _dynamic_imports: typing.Dict[str, str] = {
     "EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyDismissalReason": ".entity_ground_intelligence_issues_service_update_ground_intelligence_issue_request_body_dismissal_reason",
     "EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyStatus": ".entity_ground_intelligence_issues_service_update_ground_intelligence_issue_request_body_status",
     "EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyType": ".entity_ground_intelligence_issues_service_update_ground_intelligence_issue_request_body_type",
-    "EntityPurchaseOrdersServiceCreatePurchaseOrderRequestBodyOrderStatus": ".entity_purchase_orders_service_create_purchase_order_request_body_order_status",
-    "EntityPurchaseOrdersServiceUpdatePurchaseOrderRequestBodyOrderStatus": ".entity_purchase_orders_service_update_purchase_order_request_body_order_status",
-    "EntityVendorProfilesServiceCreateVendorGroupRequestBodyStatus": ".entity_vendor_profiles_service_create_vendor_group_request_body_status",
-    "EntityVendorProfilesServiceUpdateVendorGroupRequestBodyStatus": ".entity_vendor_profiles_service_update_vendor_group_request_body_status",
-    "EntityVendorsServiceCreateVendorRequestBodyStatus": ".entity_vendors_service_create_vendor_request_body_status",
-    "EntityVendorsServiceUpdateVendorRequestBodyStatus": ".entity_vendors_service_update_vendor_request_body_status",
     "EntityWatchpointsServiceCreateWatchpointRequestBodyMode": ".entity_watchpoints_service_create_watchpoint_request_body_mode",
     "EntityWatchpointsServiceCreateWatchpointRequestBodyObservationType": ".entity_watchpoints_service_create_watchpoint_request_body_observation_type",
     "EntityWatchpointsServiceUpdateWatchpointRequestBodyObservationType": ".entity_watchpoints_service_update_watchpoint_request_body_observation_type",
@@ -173,6 +150,7 @@ _dynamic_imports: typing.Dict[str, str] = {
     "GetPlaceGeofenceRequestSizeOrder": ".get_place_geofence_request_size_order",
     "GetQualificationRecordsStreamRequestEntityType": ".get_qualification_records_stream_request_entity_type",
     "GetQualificationTypesRequestEntityType": ".get_qualification_types_request_entity_type",
+    "GetRecallMatchedAssetsRequestOrder": ".get_recall_matched_assets_request_order",
     "ListDriverWorkflowsRequestWorkflowType": ".list_driver_workflows_request_workflow_type",
     "MaintenanceEstimatesCreateMaintenanceEstimateRequestBodyApprovalStatus": ".maintenance_estimates_create_maintenance_estimate_request_body_approval_status",
     "MaintenanceEstimatesCreateMaintenanceEstimateRequestBodyEstimateType": ".maintenance_estimates_create_maintenance_estimate_request_body_estimate_type",
@@ -229,12 +207,6 @@ __all__ = [
     "EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyDismissalReason",
     "EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyStatus",
     "EntityGroundIntelligenceIssuesServiceUpdateGroundIntelligenceIssueRequestBodyType",
-    "EntityPurchaseOrdersServiceCreatePurchaseOrderRequestBodyOrderStatus",
-    "EntityPurchaseOrdersServiceUpdatePurchaseOrderRequestBodyOrderStatus",
-    "EntityVendorProfilesServiceCreateVendorGroupRequestBodyStatus",
-    "EntityVendorProfilesServiceUpdateVendorGroupRequestBodyStatus",
-    "EntityVendorsServiceCreateVendorRequestBodyStatus",
-    "EntityVendorsServiceUpdateVendorRequestBodyStatus",
     "EntityWatchpointsServiceCreateWatchpointRequestBodyMode",
     "EntityWatchpointsServiceCreateWatchpointRequestBodyObservationType",
     "EntityWatchpointsServiceUpdateWatchpointRequestBodyObservationType",
@@ -250,6 +222,7 @@ __all__ = [
     "GetPlaceGeofenceRequestSizeOrder",
     "GetQualificationRecordsStreamRequestEntityType",
     "GetQualificationTypesRequestEntityType",
+    "GetRecallMatchedAssetsRequestOrder",
     "ListDriverWorkflowsRequestWorkflowType",
     "MaintenanceEstimatesCreateMaintenanceEstimateRequestBodyApprovalStatus",
     "MaintenanceEstimatesCreateMaintenanceEstimateRequestBodyEstimateType",

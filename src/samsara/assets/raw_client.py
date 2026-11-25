@@ -130,8 +130,10 @@ class RawAssetsClient:
                 "includeTags": include_tags,
                 "tagIds": tag_ids,
                 "parentTagIds": parent_tag_ids,
-                "ids": ids,
-                "externalIds": external_ids,
+                "ids": ",".join(map(str, ids)) if isinstance(ids, (list, tuple, set)) else ids,
+                "externalIds": ",".join(map(str, external_ids))
+                if isinstance(external_ids, (list, tuple, set))
+                else external_ids,
                 "attributeValueIds": attribute_value_ids,
                 "attributes": attributes,
                 "includeAttributes": include_attributes,
@@ -1633,8 +1635,10 @@ class AsyncRawAssetsClient:
                 "includeTags": include_tags,
                 "tagIds": tag_ids,
                 "parentTagIds": parent_tag_ids,
-                "ids": ids,
-                "externalIds": external_ids,
+                "ids": ",".join(map(str, ids)) if isinstance(ids, (list, tuple, set)) else ids,
+                "externalIds": ",".join(map(str, external_ids))
+                if isinstance(external_ids, (list, tuple, set))
+                else external_ids,
                 "attributeValueIds": attribute_value_ids,
                 "attributes": attributes,
                 "includeAttributes": include_attributes,

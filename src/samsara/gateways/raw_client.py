@@ -67,7 +67,7 @@ class RawGatewaysClient:
             "gateways",
             method="GET",
             params={
-                "models": models,
+                "models": ",".join(map(str, models)) if isinstance(models, (list, tuple, set)) else models,
                 "after": after,
             },
             request_options=request_options,
@@ -548,7 +548,7 @@ class AsyncRawGatewaysClient:
             "gateways",
             method="GET",
             params={
-                "models": models,
+                "models": ",".join(map(str, models)) if isinstance(models, (list, tuple, set)) else models,
                 "after": after,
             },
             request_options=request_options,

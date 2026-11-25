@@ -62,7 +62,9 @@ class RawDriverQrCodesClient:
             "drivers/qr-codes",
             method="GET",
             params={
-                "driverIds": driver_ids,
+                "driverIds": ",".join(map(str, driver_ids))
+                if isinstance(driver_ids, (list, tuple, set))
+                else driver_ids,
             },
             request_options=request_options,
         )
@@ -547,7 +549,9 @@ class AsyncRawDriverQrCodesClient:
             "drivers/qr-codes",
             method="GET",
             params={
-                "driverIds": driver_ids,
+                "driverIds": ",".join(map(str, driver_ids))
+                if isinstance(driver_ids, (list, tuple, set))
+                else driver_ids,
             },
             request_options=request_options,
         )

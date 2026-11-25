@@ -19,6 +19,9 @@ from ..errors.not_implemented_error import NotImplementedError
 from ..errors.service_unavailable_error import ServiceUnavailableError
 from ..errors.too_many_requests_error import TooManyRequestsError
 from ..errors.unauthorized_error import UnauthorizedError
+from ..types.delete_driver_vehicle_assignments_v_2_request_body_metadata_request_body import (
+    DeleteDriverVehicleAssignmentsV2RequestBodyMetadataRequestBody,
+)
 from ..types.driver_vehicle_assignments_v_2_create_driver_vehicle_assignment_response_body import (
     DriverVehicleAssignmentsV2CreateDriverVehicleAssignmentResponseBody,
 )
@@ -119,8 +122,12 @@ class RawDriverVehicleAssignmentsClient:
                 "filterBy": filter_by,
                 "startTime": start_time,
                 "endTime": end_time,
-                "driverIds": driver_ids,
-                "vehicleIds": vehicle_ids,
+                "driverIds": ",".join(map(str, driver_ids))
+                if isinstance(driver_ids, (list, tuple, set))
+                else driver_ids,
+                "vehicleIds": ",".join(map(str, vehicle_ids))
+                if isinstance(vehicle_ids, (list, tuple, set))
+                else vehicle_ids,
                 "sourceName": source_name,
                 "driverTagIds": driver_tag_ids,
                 "vehicleTagIds": vehicle_tag_ids,
@@ -456,15 +463,16 @@ class RawDriverVehicleAssignmentsClient:
     def delete_driver_vehicle_assignments(
         self,
         *,
-        vehicle_id: str,
         assigned_at_time: typing.Optional[str] = OMIT,
         end_time: typing.Optional[str] = OMIT,
         is_passenger: typing.Optional[bool] = OMIT,
+        metadata: typing.Optional[DeleteDriverVehicleAssignmentsV2RequestBodyMetadataRequestBody] = OMIT,
         start_time: typing.Optional[str] = OMIT,
+        vehicle_id: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[None]:
         """
-        Delete driver assignments that were created using the `POST fleet/driver-vehicle-assignments` endpoint for the requested vehicle in the requested time range.
+        Delete driver assignments that were created using the `POST fleet/driver-vehicle-assignments` endpoint. Identify the assignments either with vehicleId and an optional time range, or with metadata.sourceName alone.
 
          <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -475,9 +483,6 @@ class RawDriverVehicleAssignmentsClient:
 
         Parameters
         ----------
-        vehicle_id : str
-            ID of the vehicle. This can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the vehicle.
-
         assigned_at_time : typing.Optional[str]
              Assigned at time in RFC 3339 format. Defaults to now if not provided. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
 
@@ -487,8 +492,13 @@ class RawDriverVehicleAssignmentsClient:
         is_passenger : typing.Optional[bool]
             Indicates if assigned driver is passenger
 
+        metadata : typing.Optional[DeleteDriverVehicleAssignmentsV2RequestBodyMetadataRequestBody]
+
         start_time : typing.Optional[str]
              A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        vehicle_id : typing.Optional[str]
+            ID of the vehicle. This can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the vehicle.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -504,6 +514,11 @@ class RawDriverVehicleAssignmentsClient:
                 "assignedAtTime": assigned_at_time,
                 "endTime": end_time,
                 "isPassenger": is_passenger,
+                "metadata": convert_and_respect_annotation_metadata(
+                    object_=metadata,
+                    annotation=DeleteDriverVehicleAssignmentsV2RequestBodyMetadataRequestBody,
+                    direction="write",
+                ),
                 "startTime": start_time,
                 "vehicleId": vehicle_id,
             },
@@ -907,8 +922,12 @@ class AsyncRawDriverVehicleAssignmentsClient:
                 "filterBy": filter_by,
                 "startTime": start_time,
                 "endTime": end_time,
-                "driverIds": driver_ids,
-                "vehicleIds": vehicle_ids,
+                "driverIds": ",".join(map(str, driver_ids))
+                if isinstance(driver_ids, (list, tuple, set))
+                else driver_ids,
+                "vehicleIds": ",".join(map(str, vehicle_ids))
+                if isinstance(vehicle_ids, (list, tuple, set))
+                else vehicle_ids,
                 "sourceName": source_name,
                 "driverTagIds": driver_tag_ids,
                 "vehicleTagIds": vehicle_tag_ids,
@@ -1244,15 +1263,16 @@ class AsyncRawDriverVehicleAssignmentsClient:
     async def delete_driver_vehicle_assignments(
         self,
         *,
-        vehicle_id: str,
         assigned_at_time: typing.Optional[str] = OMIT,
         end_time: typing.Optional[str] = OMIT,
         is_passenger: typing.Optional[bool] = OMIT,
+        metadata: typing.Optional[DeleteDriverVehicleAssignmentsV2RequestBodyMetadataRequestBody] = OMIT,
         start_time: typing.Optional[str] = OMIT,
+        vehicle_id: typing.Optional[str] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[None]:
         """
-        Delete driver assignments that were created using the `POST fleet/driver-vehicle-assignments` endpoint for the requested vehicle in the requested time range.
+        Delete driver assignments that were created using the `POST fleet/driver-vehicle-assignments` endpoint. Identify the assignments either with vehicleId and an optional time range, or with metadata.sourceName alone.
 
          <b>Rate limit:</b> 100 requests/min (learn more about rate limits <a href="https://developers.samsara.com/docs/rate-limits" target="_blank">here</a>).
 
@@ -1263,9 +1283,6 @@ class AsyncRawDriverVehicleAssignmentsClient:
 
         Parameters
         ----------
-        vehicle_id : str
-            ID of the vehicle. This can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the vehicle.
-
         assigned_at_time : typing.Optional[str]
              Assigned at time in RFC 3339 format. Defaults to now if not provided. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
 
@@ -1275,8 +1292,13 @@ class AsyncRawDriverVehicleAssignmentsClient:
         is_passenger : typing.Optional[bool]
             Indicates if assigned driver is passenger
 
+        metadata : typing.Optional[DeleteDriverVehicleAssignmentsV2RequestBodyMetadataRequestBody]
+
         start_time : typing.Optional[str]
              A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+
+        vehicle_id : typing.Optional[str]
+            ID of the vehicle. This can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the vehicle.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -1292,6 +1314,11 @@ class AsyncRawDriverVehicleAssignmentsClient:
                 "assignedAtTime": assigned_at_time,
                 "endTime": end_time,
                 "isPassenger": is_passenger,
+                "metadata": convert_and_respect_annotation_metadata(
+                    object_=metadata,
+                    annotation=DeleteDriverVehicleAssignmentsV2RequestBodyMetadataRequestBody,
+                    direction="write",
+                ),
                 "startTime": start_time,
                 "vehicleId": vehicle_id,
             },

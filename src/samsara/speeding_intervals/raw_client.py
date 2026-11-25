@@ -89,14 +89,16 @@ class RawSpeedingIntervalsClient:
             "speeding-intervals/stream",
             method="GET",
             params={
-                "assetIds": asset_ids,
+                "assetIds": ",".join(map(str, asset_ids)) if isinstance(asset_ids, (list, tuple, set)) else asset_ids,
                 "startTime": start_time,
                 "endTime": end_time,
                 "queryBy": query_by,
                 "includeAsset": include_asset,
                 "includeDriverId": include_driver_id,
                 "after": after,
-                "severityLevels": severity_levels,
+                "severityLevels": ",".join(map(str, severity_levels))
+                if isinstance(severity_levels, (list, tuple, set))
+                else severity_levels,
             },
             request_options=request_options,
         )
@@ -291,14 +293,16 @@ class AsyncRawSpeedingIntervalsClient:
             "speeding-intervals/stream",
             method="GET",
             params={
-                "assetIds": asset_ids,
+                "assetIds": ",".join(map(str, asset_ids)) if isinstance(asset_ids, (list, tuple, set)) else asset_ids,
                 "startTime": start_time,
                 "endTime": end_time,
                 "queryBy": query_by,
                 "includeAsset": include_asset,
                 "includeDriverId": include_driver_id,
                 "after": after,
-                "severityLevels": severity_levels,
+                "severityLevels": ",".join(map(str, severity_levels))
+                if isinstance(severity_levels, (list, tuple, set))
+                else severity_levels,
             },
             request_options=request_options,
         )

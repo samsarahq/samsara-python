@@ -9,6 +9,7 @@ from ..types.create_route_stop_with_orders_request_object_request_body import (
     CreateRouteStopWithOrdersRequestObjectRequestBody,
 )
 from ..types.hub_plan_routes_list_hub_plan_routes_response_body import HubPlanRoutesListHubPlanRoutesResponseBody
+from ..types.route_equipment_profile_object_request_body import RouteEquipmentProfileObjectRequestBody
 from ..types.route_settings_request_body import RouteSettingsRequestBody
 from ..types.routes_create_route_response_body import RoutesCreateRouteResponseBody
 from ..types.routes_fetch_route_response_body import RoutesFetchRouteResponseBody
@@ -121,6 +122,7 @@ class RoutesClient:
         name: str,
         stops: typing.Sequence[CreateRouteStopWithOrdersRequestObjectRequestBody],
         driver_id: typing.Optional[str] = OMIT,
+        equipment_profile: typing.Optional[RouteEquipmentProfileObjectRequestBody] = OMIT,
         external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
         notes: typing.Optional[str] = OMIT,
         recompute_scheduled_times: typing.Optional[bool] = OMIT,
@@ -149,6 +151,8 @@ class RoutesClient:
 
         driver_id : typing.Optional[str]
             ID of the driver. Can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the driver.
+
+        equipment_profile : typing.Optional[RouteEquipmentProfileObjectRequestBody]
 
         external_ids : typing.Optional[typing.Dict[str, str]]
             A map of external ids
@@ -191,6 +195,7 @@ class RoutesClient:
             name=name,
             stops=stops,
             driver_id=driver_id,
+            equipment_profile=equipment_profile,
             external_ids=external_ids,
             notes=notes,
             recompute_scheduled_times=recompute_scheduled_times,
@@ -339,6 +344,7 @@ class RoutesClient:
         id: str,
         *,
         driver_id: typing.Optional[str] = OMIT,
+        equipment_profile: typing.Optional[RouteEquipmentProfileObjectRequestBody] = OMIT,
         external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
         name: typing.Optional[str] = OMIT,
         notes: typing.Optional[str] = OMIT,
@@ -370,6 +376,8 @@ class RoutesClient:
 
         driver_id : typing.Optional[str]
             ID of the driver. Can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the driver. Set to null to unassign the driver from the route.
+
+        equipment_profile : typing.Optional[RouteEquipmentProfileObjectRequestBody]
 
         external_ids : typing.Optional[typing.Dict[str, str]]
             A map of external ids
@@ -416,6 +424,7 @@ class RoutesClient:
         _response = self._raw_client.patch_route(
             id,
             driver_id=driver_id,
+            equipment_profile=equipment_profile,
             external_ids=external_ids,
             name=name,
             notes=notes,
@@ -653,6 +662,7 @@ class AsyncRoutesClient:
         name: str,
         stops: typing.Sequence[CreateRouteStopWithOrdersRequestObjectRequestBody],
         driver_id: typing.Optional[str] = OMIT,
+        equipment_profile: typing.Optional[RouteEquipmentProfileObjectRequestBody] = OMIT,
         external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
         notes: typing.Optional[str] = OMIT,
         recompute_scheduled_times: typing.Optional[bool] = OMIT,
@@ -681,6 +691,8 @@ class AsyncRoutesClient:
 
         driver_id : typing.Optional[str]
             ID of the driver. Can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the driver.
+
+        equipment_profile : typing.Optional[RouteEquipmentProfileObjectRequestBody]
 
         external_ids : typing.Optional[typing.Dict[str, str]]
             A map of external ids
@@ -734,6 +746,7 @@ class AsyncRoutesClient:
             name=name,
             stops=stops,
             driver_id=driver_id,
+            equipment_profile=equipment_profile,
             external_ids=external_ids,
             notes=notes,
             recompute_scheduled_times=recompute_scheduled_times,
@@ -906,6 +919,7 @@ class AsyncRoutesClient:
         id: str,
         *,
         driver_id: typing.Optional[str] = OMIT,
+        equipment_profile: typing.Optional[RouteEquipmentProfileObjectRequestBody] = OMIT,
         external_ids: typing.Optional[typing.Dict[str, str]] = OMIT,
         name: typing.Optional[str] = OMIT,
         notes: typing.Optional[str] = OMIT,
@@ -937,6 +951,8 @@ class AsyncRoutesClient:
 
         driver_id : typing.Optional[str]
             ID of the driver. Can be either a unique Samsara ID or an [external ID](https://developers.samsara.com/docs/external-ids) for the driver. Set to null to unassign the driver from the route.
+
+        equipment_profile : typing.Optional[RouteEquipmentProfileObjectRequestBody]
 
         external_ids : typing.Optional[typing.Dict[str, str]]
             A map of external ids
@@ -991,6 +1007,7 @@ class AsyncRoutesClient:
         _response = await self._raw_client.patch_route(
             id,
             driver_id=driver_id,
+            equipment_profile=equipment_profile,
             external_ids=external_ids,
             name=name,
             notes=notes,

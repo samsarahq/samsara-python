@@ -119,16 +119,20 @@ class RawIdlingClient:
             params={
                 "startTime": start_time,
                 "endTime": end_time,
-                "assetIds": asset_ids,
-                "operatorIds": operator_ids,
+                "assetIds": ",".join(map(str, asset_ids)) if isinstance(asset_ids, (list, tuple, set)) else asset_ids,
+                "operatorIds": ",".join(map(str, operator_ids))
+                if isinstance(operator_ids, (list, tuple, set))
+                else operator_ids,
                 "ptoState": pto_state,
                 "minAirTemperatureMillicelsius": min_air_temperature_millicelsius,
                 "maxAirTemperatureMillicelsius": max_air_temperature_millicelsius,
                 "excludeEventsWithUnknownAirTemperature": exclude_events_with_unknown_air_temperature,
                 "minDurationMilliseconds": min_duration_milliseconds,
                 "maxDurationMilliseconds": max_duration_milliseconds,
-                "tagIds": tag_ids,
-                "parentTagIds": parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
                 "includeExternalIds": include_external_ids,
                 "after": after,
                 "limit": limit,
@@ -358,16 +362,20 @@ class AsyncRawIdlingClient:
             params={
                 "startTime": start_time,
                 "endTime": end_time,
-                "assetIds": asset_ids,
-                "operatorIds": operator_ids,
+                "assetIds": ",".join(map(str, asset_ids)) if isinstance(asset_ids, (list, tuple, set)) else asset_ids,
+                "operatorIds": ",".join(map(str, operator_ids))
+                if isinstance(operator_ids, (list, tuple, set))
+                else operator_ids,
                 "ptoState": pto_state,
                 "minAirTemperatureMillicelsius": min_air_temperature_millicelsius,
                 "maxAirTemperatureMillicelsius": max_air_temperature_millicelsius,
                 "excludeEventsWithUnknownAirTemperature": exclude_events_with_unknown_air_temperature,
                 "minDurationMilliseconds": min_duration_milliseconds,
                 "maxDurationMilliseconds": max_duration_milliseconds,
-                "tagIds": tag_ids,
-                "parentTagIds": parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
                 "includeExternalIds": include_external_ids,
                 "after": after,
                 "limit": limit,

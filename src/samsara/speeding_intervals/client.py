@@ -91,6 +91,7 @@ class SpeedingIntervalsClient:
             token="YOUR_TOKEN",
         )
         client.speeding_intervals.get_speeding_intervals(
+            asset_ids=["assetIds"],
             start_time="startTime",
         )
         """
@@ -193,6 +194,7 @@ class AsyncSpeedingIntervalsClient:
 
         async def main() -> None:
             await client.speeding_intervals.get_speeding_intervals(
+                asset_ids=["assetIds"],
                 start_time="startTime",
             )
 

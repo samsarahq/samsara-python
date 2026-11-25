@@ -91,7 +91,7 @@ class RawTripsClient:
                 "endTime": end_time,
                 "queryBy": query_by,
                 "after": after,
-                "ids": ids,
+                "ids": ",".join(map(str, ids)) if isinstance(ids, (list, tuple, set)) else ids,
             },
             request_options=request_options,
         )
@@ -344,7 +344,7 @@ class AsyncRawTripsClient:
                 "endTime": end_time,
                 "queryBy": query_by,
                 "after": after,
-                "ids": ids,
+                "ids": ",".join(map(str, ids)) if isinstance(ids, (list, tuple, set)) else ids,
             },
             request_options=request_options,
         )

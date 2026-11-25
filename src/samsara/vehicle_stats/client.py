@@ -142,7 +142,9 @@ class VehicleStatsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.vehicle_stats.get_vehicle_stats()
+        client.vehicle_stats.get_vehicle_stats(
+            types=["ambientAirTemperatureMilliC"],
+        )
         """
         _response = self._raw_client.get_vehicle_stats(
             after=after,
@@ -332,7 +334,9 @@ class VehicleStatsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.vehicle_stats.get_vehicle_stats_feed()
+        client.vehicle_stats.get_vehicle_stats_feed(
+            types=["ambientAirTemperatureMilliC"],
+        )
         """
         _response = self._raw_client.get_vehicle_stats_feed(
             after=after,
@@ -530,6 +534,7 @@ class VehicleStatsClient:
         client.vehicle_stats.get_vehicle_stats_history(
             start_time="startTime",
             end_time="endTime",
+            types=["ambientAirTemperatureMilliC"],
         )
         """
         _response = self._raw_client.get_vehicle_stats_history(
@@ -679,7 +684,9 @@ class AsyncVehicleStatsClient:
 
 
         async def main() -> None:
-            await client.vehicle_stats.get_vehicle_stats()
+            await client.vehicle_stats.get_vehicle_stats(
+                types=["ambientAirTemperatureMilliC"],
+            )
 
 
         asyncio.run(main())
@@ -877,7 +884,9 @@ class AsyncVehicleStatsClient:
 
 
         async def main() -> None:
-            await client.vehicle_stats.get_vehicle_stats_feed()
+            await client.vehicle_stats.get_vehicle_stats_feed(
+                types=["ambientAirTemperatureMilliC"],
+            )
 
 
         asyncio.run(main())
@@ -1083,6 +1092,7 @@ class AsyncVehicleStatsClient:
             await client.vehicle_stats.get_vehicle_stats_history(
                 start_time="startTime",
                 end_time="endTime",
+                types=["ambientAirTemperatureMilliC"],
             )
 
 

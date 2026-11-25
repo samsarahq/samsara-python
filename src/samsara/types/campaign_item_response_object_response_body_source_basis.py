@@ -3,5 +3,5 @@
 import typing
 
 CampaignItemResponseObjectResponseBodySourceBasis = typing.Union[
-    typing.Literal["api", "targeting", "manual", "csv", "assistant", "unknown"], typing.Any
+    typing.Literal["api", "targeting", "manual", "csv", "assistant", "nhtsa", "unknown"], typing.Any
 ]

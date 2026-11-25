@@ -78,7 +78,9 @@ class DriverTrailerAssignmentsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.driver_trailer_assignments.get_driver_trailer_assignments()
+        client.driver_trailer_assignments.get_driver_trailer_assignments(
+            driver_ids=["driverIds"],
+        )
         """
         _response = self._raw_client.get_driver_trailer_assignments(
             driver_ids=driver_ids,
@@ -253,7 +255,9 @@ class AsyncDriverTrailerAssignmentsClient:
 
 
         async def main() -> None:
-            await client.driver_trailer_assignments.get_driver_trailer_assignments()
+            await client.driver_trailer_assignments.get_driver_trailer_assignments(
+                driver_ids=["driverIds"],
+            )
 
 
         asyncio.run(main())

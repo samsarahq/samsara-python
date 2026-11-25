@@ -5,8 +5,8 @@ def test_forms_get_form_submissions() -> None:
     """Test getFormSubmissions endpoint with WireMock"""
     test_id = "forms.get_form_submissions.0"
     client = get_client(test_id)
-    client.forms.get_form_submissions()
-    verify_request_count(test_id, "GET", "/form-submissions", None, 1)
+    client.forms.get_form_submissions(ids=["ids"])
+    verify_request_count(test_id, "GET", "/form-submissions", {"ids": "ids"}, 1)
 
 
 def test_forms_post_form_submission() -> None:

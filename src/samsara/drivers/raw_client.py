@@ -117,10 +117,16 @@ class RawDriversClient:
                 "driverActivationStatus": driver_activation_status,
                 "limit": limit,
                 "after": after,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
-                "attributeValueIds": attribute_value_ids,
-                "attributes": attributes,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "attributeValueIds": ",".join(map(str, attribute_value_ids))
+                if isinstance(attribute_value_ids, (list, tuple, set))
+                else attribute_value_ids,
+                "attributes": ",".join(map(str, attributes))
+                if isinstance(attributes, (list, tuple, set))
+                else attributes,
                 "updatedAfterTime": updated_after_time,
                 "createdAfterTime": created_after_time,
             },
@@ -919,10 +925,16 @@ class AsyncRawDriversClient:
                 "driverActivationStatus": driver_activation_status,
                 "limit": limit,
                 "after": after,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
-                "attributeValueIds": attribute_value_ids,
-                "attributes": attributes,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "attributeValueIds": ",".join(map(str, attribute_value_ids))
+                if isinstance(attribute_value_ids, (list, tuple, set))
+                else attribute_value_ids,
+                "attributes": ",".join(map(str, attributes))
+                if isinstance(attributes, (list, tuple, set))
+                else attributes,
                 "updatedAfterTime": updated_after_time,
                 "createdAfterTime": created_after_time,
             },

@@ -5,8 +5,8 @@ def test_driverTrailerAssignments_get_driver_trailer_assignments() -> None:
     """Test getDriverTrailerAssignments endpoint with WireMock"""
     test_id = "driver_trailer_assignments.get_driver_trailer_assignments.0"
     client = get_client(test_id)
-    client.driver_trailer_assignments.get_driver_trailer_assignments()
-    verify_request_count(test_id, "GET", "/driver-trailer-assignments", None, 1)
+    client.driver_trailer_assignments.get_driver_trailer_assignments(driver_ids=["driverIds"])
+    verify_request_count(test_id, "GET", "/driver-trailer-assignments", {"driverIds": "driverIds"}, 1)
 
 
 def test_driverTrailerAssignments_create_driver_trailer_assignment() -> None:

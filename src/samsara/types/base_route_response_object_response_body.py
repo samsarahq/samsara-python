@@ -10,6 +10,7 @@ from ..core.serialization import FieldMetadata
 from .goa_driver_tiny_response_response_body import GoaDriverTinyResponseResponseBody
 from .goa_vehicle_tiny_response_response_body import GoaVehicleTinyResponseResponseBody
 from .live_sharing_link_response_object_response_body import LiveSharingLinkResponseObjectResponseBody
+from .route_equipment_profile_object_response_body import RouteEquipmentProfileObjectResponseBody
 from .route_settings_response_body import RouteSettingsResponseBody
 from .routes_stop_response_object_response_body import RoutesStopResponseObjectResponseBody
 
@@ -31,6 +32,11 @@ class BaseRouteResponseObjectResponseBody(UniversalBaseModel):
         ),
     ] = None
     driver: typing.Optional[GoaDriverTinyResponseResponseBody] = None
+    equipment_profile: typing_extensions.Annotated[
+        typing.Optional[RouteEquipmentProfileObjectResponseBody],
+        FieldMetadata(alias="equipmentProfile"),
+        pydantic.Field(alias="equipmentProfile"),
+    ] = None
     external_ids: typing_extensions.Annotated[
         typing.Optional[typing.Dict[str, str]],
         FieldMetadata(alias="externalIds"),

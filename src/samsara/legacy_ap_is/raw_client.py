@@ -113,8 +113,12 @@ class RawLegacyApIsClient:
             params={
                 "startTime": start_time,
                 "endTime": end_time,
-                "driverIds": driver_ids,
-                "dataFormats": data_formats,
+                "driverIds": ",".join(map(str, driver_ids))
+                if isinstance(driver_ids, (list, tuple, set))
+                else driver_ids,
+                "dataFormats": ",".join(map(str, data_formats))
+                if isinstance(data_formats, (list, tuple, set))
+                else data_formats,
                 "tagIds": tag_ids,
                 "parentTagIds": parent_tag_ids,
                 "after": after,
@@ -310,7 +314,9 @@ class RawLegacyApIsClient:
                 "startTime": start_time,
                 "endTime": end_time,
                 "vehicleIds": vehicle_ids,
-                "dataFormats": data_formats,
+                "dataFormats": ",".join(map(str, data_formats))
+                if isinstance(data_formats, (list, tuple, set))
+                else data_formats,
                 "tagIds": tag_ids,
                 "parentTagIds": parent_tag_ids,
                 "after": after,
@@ -570,7 +576,9 @@ class RawLegacyApIsClient:
             "fleet/drivers/vehicle-assignments",
             method="GET",
             params={
-                "driverIds": driver_ids,
+                "driverIds": ",".join(map(str, driver_ids))
+                if isinstance(driver_ids, (list, tuple, set))
+                else driver_ids,
                 "startTime": start_time,
                 "endTime": end_time,
                 "tagIds": tag_ids,
@@ -759,8 +767,10 @@ class RawLegacyApIsClient:
             params={
                 "limit": limit,
                 "after": after,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
                 "startTime": start_time,
                 "endTime": end_time,
             },
@@ -1038,9 +1048,13 @@ class RawLegacyApIsClient:
                 "after": after,
                 "startTime": start_time,
                 "endTime": end_time,
-                "tagIds": tag_ids,
-                "parentTagIds": parent_tag_ids,
-                "vehicleIds": vehicle_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "vehicleIds": ",".join(map(str, vehicle_ids))
+                if isinstance(vehicle_ids, (list, tuple, set))
+                else vehicle_ids,
             },
             request_options=request_options,
         )
@@ -1540,8 +1554,12 @@ class AsyncRawLegacyApIsClient:
             params={
                 "startTime": start_time,
                 "endTime": end_time,
-                "driverIds": driver_ids,
-                "dataFormats": data_formats,
+                "driverIds": ",".join(map(str, driver_ids))
+                if isinstance(driver_ids, (list, tuple, set))
+                else driver_ids,
+                "dataFormats": ",".join(map(str, data_formats))
+                if isinstance(data_formats, (list, tuple, set))
+                else data_formats,
                 "tagIds": tag_ids,
                 "parentTagIds": parent_tag_ids,
                 "after": after,
@@ -1737,7 +1755,9 @@ class AsyncRawLegacyApIsClient:
                 "startTime": start_time,
                 "endTime": end_time,
                 "vehicleIds": vehicle_ids,
-                "dataFormats": data_formats,
+                "dataFormats": ",".join(map(str, data_formats))
+                if isinstance(data_formats, (list, tuple, set))
+                else data_formats,
                 "tagIds": tag_ids,
                 "parentTagIds": parent_tag_ids,
                 "after": after,
@@ -1997,7 +2017,9 @@ class AsyncRawLegacyApIsClient:
             "fleet/drivers/vehicle-assignments",
             method="GET",
             params={
-                "driverIds": driver_ids,
+                "driverIds": ",".join(map(str, driver_ids))
+                if isinstance(driver_ids, (list, tuple, set))
+                else driver_ids,
                 "startTime": start_time,
                 "endTime": end_time,
                 "tagIds": tag_ids,
@@ -2186,8 +2208,10 @@ class AsyncRawLegacyApIsClient:
             params={
                 "limit": limit,
                 "after": after,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
                 "startTime": start_time,
                 "endTime": end_time,
             },
@@ -2465,9 +2489,13 @@ class AsyncRawLegacyApIsClient:
                 "after": after,
                 "startTime": start_time,
                 "endTime": end_time,
-                "tagIds": tag_ids,
-                "parentTagIds": parent_tag_ids,
-                "vehicleIds": vehicle_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "vehicleIds": ",".join(map(str, vehicle_ids))
+                if isinstance(vehicle_ids, (list, tuple, set))
+                else vehicle_ids,
             },
             request_options=request_options,
         )

@@ -70,9 +70,13 @@ class RawTachographEuOnlyClient:
                 "after": after,
                 "startTime": start_time,
                 "endTime": end_time,
-                "driverIds": driver_ids,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
+                "driverIds": ",".join(map(str, driver_ids))
+                if isinstance(driver_ids, (list, tuple, set))
+                else driver_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
             },
             request_options=request_options,
         )
@@ -146,9 +150,13 @@ class RawTachographEuOnlyClient:
                 "after": after,
                 "startTime": start_time,
                 "endTime": end_time,
-                "driverIds": driver_ids,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
+                "driverIds": ",".join(map(str, driver_ids))
+                if isinstance(driver_ids, (list, tuple, set))
+                else driver_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
             },
             request_options=request_options,
         )
@@ -222,9 +230,13 @@ class RawTachographEuOnlyClient:
                 "after": after,
                 "startTime": start_time,
                 "endTime": end_time,
-                "vehicleIds": vehicle_ids,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
+                "vehicleIds": ",".join(map(str, vehicle_ids))
+                if isinstance(vehicle_ids, (list, tuple, set))
+                else vehicle_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
             },
             request_options=request_options,
         )
@@ -301,9 +313,13 @@ class AsyncRawTachographEuOnlyClient:
                 "after": after,
                 "startTime": start_time,
                 "endTime": end_time,
-                "driverIds": driver_ids,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
+                "driverIds": ",".join(map(str, driver_ids))
+                if isinstance(driver_ids, (list, tuple, set))
+                else driver_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
             },
             request_options=request_options,
         )
@@ -377,9 +393,13 @@ class AsyncRawTachographEuOnlyClient:
                 "after": after,
                 "startTime": start_time,
                 "endTime": end_time,
-                "driverIds": driver_ids,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
+                "driverIds": ",".join(map(str, driver_ids))
+                if isinstance(driver_ids, (list, tuple, set))
+                else driver_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
             },
             request_options=request_options,
         )
@@ -453,9 +473,13 @@ class AsyncRawTachographEuOnlyClient:
                 "after": after,
                 "startTime": start_time,
                 "endTime": end_time,
-                "vehicleIds": vehicle_ids,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
+                "vehicleIds": ",".join(map(str, vehicle_ids))
+                if isinstance(vehicle_ids, (list, tuple, set))
+                else vehicle_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
             },
             request_options=request_options,
         )

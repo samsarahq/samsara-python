@@ -215,6 +215,7 @@ class WorkOrdersClient:
         asset_id: str,
         archived_at_time: typing.Optional[dt.datetime] = OMIT,
         assigned_user_id: typing.Optional[str] = OMIT,
+        assigned_user_ids: typing.Optional[typing.Sequence[str]] = OMIT,
         attributes: typing.Optional[typing.Sequence[GoaAttributeTinyRequestBody]] = OMIT,
         category: typing.Optional[str] = OMIT,
         completed_at_time: typing.Optional[dt.datetime] = OMIT,
@@ -231,6 +232,7 @@ class WorkOrdersClient:
         po_number: typing.Optional[str] = OMIT,
         priority: typing.Optional[WorkOrdersPostWorkOrdersRequestBodyPriority] = OMIT,
         service_task_instances: typing.Optional[typing.Sequence[ServiceTaskInstanceInputObjectRequestBody]] = OMIT,
+        shop_id: typing.Optional[str] = OMIT,
         started_at_time: typing.Optional[dt.datetime] = OMIT,
         status: typing.Optional[WorkOrdersPostWorkOrdersRequestBodyStatus] = OMIT,
         tax: typing.Optional[WorkOrderTaxCreateObjectRequestBody] = OMIT,
@@ -256,7 +258,10 @@ class WorkOrdersClient:
             The historical time the work order was archived (closed or cancelled), in RFC 3339 format. Is automatically set when the status is Closed or Cancelled and this field is not provided.
 
         assigned_user_id : typing.Optional[str]
-            The ID of the assigned mechanic.
+            The ID of the assigned mechanic. Mutually exclusive with assignedUserIds.
+
+        assigned_user_ids : typing.Optional[typing.Sequence[str]]
+            Dashboard users assigned to the work order. Mutually exclusive with assignedUserId. The first ID is the primary assignee returned in assignedUserId. Send an empty array to create the work order with no assignee. A list with more than one ID is accepted only when multi-assignee is enabled for the organization.
 
         attributes : typing.Optional[typing.Sequence[GoaAttributeTinyRequestBody]]
             A list of custom fields (attributes) to assign to the work order. Each entry requires the attribute `id`. Use `stringValues` for text, single-select, and multi-select attributes, `numberValues` for number attributes, and `dateValues` (YYYY-MM-DD) for date attributes. For single-select and multi-select attributes, send the text of a defined option. The request is rejected if any attribute or value is invalid. Only available for organizations with work order custom fields enabled.
@@ -305,6 +310,9 @@ class WorkOrdersClient:
         service_task_instances : typing.Optional[typing.Sequence[ServiceTaskInstanceInputObjectRequestBody]]
             Service Tasks for the work order.
 
+        shop_id : typing.Optional[str]
+            ID of the shop associated with the work order. Omit to create the work order without a shop. This is independent of the maintenance site (`placeId`).
+
         started_at_time : typing.Optional[dt.datetime]
             The historical time work started on the work order, in RFC 3339 format. Is automatically set when the status is an in-progress status and this field is not provided.
 
@@ -314,7 +322,7 @@ class WorkOrdersClient:
         tax : typing.Optional[WorkOrderTaxCreateObjectRequestBody]
 
         vendor_uuid : typing.Optional[str]
-            The vendor UUID for the work order.
+            The vendor location UUID for the work order. Resolve the location via GET /fleet/maintenance/vendor-locations.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -339,6 +347,7 @@ class WorkOrdersClient:
             asset_id=asset_id,
             archived_at_time=archived_at_time,
             assigned_user_id=assigned_user_id,
+            assigned_user_ids=assigned_user_ids,
             attributes=attributes,
             category=category,
             completed_at_time=completed_at_time,
@@ -355,6 +364,7 @@ class WorkOrdersClient:
             po_number=po_number,
             priority=priority,
             service_task_instances=service_task_instances,
+            shop_id=shop_id,
             started_at_time=started_at_time,
             status=status,
             tax=tax,
@@ -406,6 +416,7 @@ class WorkOrdersClient:
         id: str,
         archived_at_time: typing.Optional[dt.datetime] = OMIT,
         assigned_user_id: typing.Optional[str] = OMIT,
+        assigned_user_ids: typing.Optional[typing.Sequence[str]] = OMIT,
         attributes: typing.Optional[typing.Sequence[GoaAttributeTinyRequestBody]] = OMIT,
         category: typing.Optional[str] = OMIT,
         closing_notes: typing.Optional[str] = OMIT,
@@ -422,6 +433,7 @@ class WorkOrdersClient:
         po_number: typing.Optional[str] = OMIT,
         priority: typing.Optional[WorkOrdersPatchWorkOrdersRequestBodyPriority] = OMIT,
         service_task_instances: typing.Optional[typing.Sequence[ServiceTaskInstanceInputObjectRequestBody]] = OMIT,
+        shop_id: typing.Optional[str] = OMIT,
         started_at_time: typing.Optional[dt.datetime] = OMIT,
         status: typing.Optional[WorkOrdersPatchWorkOrdersRequestBodyStatus] = OMIT,
         tax: typing.Optional[WorkOrderTaxObjectRequestBody] = OMIT,
@@ -447,7 +459,10 @@ class WorkOrdersClient:
             The historical time the work order was archived (closed or cancelled), in RFC 3339 format. Is automatically set when the status changes to Closed or Cancelled and this field is not provided.
 
         assigned_user_id : typing.Optional[str]
-            The ID of the assigned mechanic.
+            The ID of the assigned mechanic. Mutually exclusive with assignedUserIds.
+
+        assigned_user_ids : typing.Optional[typing.Sequence[str]]
+            Dashboard users assigned to the work order. Mutually exclusive with assignedUserId. Omit this field to keep the current assignments. Send an empty array to clear them. The first ID is the primary assignee returned in assignedUserId. A list with more than one ID is accepted only when multi-assignee is enabled for the organization.
 
         attributes : typing.Optional[typing.Sequence[GoaAttributeTinyRequestBody]]
             A list of custom fields (attributes) to assign to the work order. If provided, this replaces the work order's entire set of attribute associations with exactly this list; omit this field to leave existing attribute associations unchanged, or pass an empty array to clear them. Each entry requires the attribute `id`. Use `stringValues` for text, single-select, and multi-select attributes, `numberValues` for number attributes, and `dateValues` (YYYY-MM-DD) for date attributes. For single-select and multi-select attributes, send the text of a defined option. The request is rejected if any attribute or value is invalid. Only available for organizations with work order custom fields enabled.
@@ -496,6 +511,9 @@ class WorkOrdersClient:
         service_task_instances : typing.Optional[typing.Sequence[ServiceTaskInstanceInputObjectRequestBody]]
             Service Tasks for the work order.
 
+        shop_id : typing.Optional[str]
+            ID of the shop associated with the work order. Omit this field to keep the shop already stored on the work order. Send an empty string to clear it. This is independent of the maintenance site (`placeId`).
+
         started_at_time : typing.Optional[dt.datetime]
             The historical time work started on the work order, in RFC 3339 format. Is automatically set when the status changes to an in-progress status and this field is not provided.
 
@@ -505,7 +523,7 @@ class WorkOrdersClient:
         tax : typing.Optional[WorkOrderTaxObjectRequestBody]
 
         vendor_uuid : typing.Optional[str]
-            The vendor UUID for the work order.
+            The vendor location UUID for the work order. Resolve the location via GET /fleet/maintenance/vendor-locations.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -530,6 +548,7 @@ class WorkOrdersClient:
             id=id,
             archived_at_time=archived_at_time,
             assigned_user_id=assigned_user_id,
+            assigned_user_ids=assigned_user_ids,
             attributes=attributes,
             category=category,
             closing_notes=closing_notes,
@@ -546,6 +565,7 @@ class WorkOrdersClient:
             po_number=po_number,
             priority=priority,
             service_task_instances=service_task_instances,
+            shop_id=shop_id,
             started_at_time=started_at_time,
             status=status,
             tax=tax,
@@ -568,6 +588,7 @@ class WorkOrdersClient:
         ] = None,
         asset_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         assigned_user_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        shop_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         include_external_ids: typing.Optional[bool] = None,
         include_attributes: typing.Optional[bool] = None,
         request_options: typing.Optional[RequestOptions] = None,
@@ -602,6 +623,9 @@ class WorkOrdersClient:
         assigned_user_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             Work Order assigned user id filter. Up to 50 ids.
 
+        shop_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Work Order shop id filter. Up to 50 ids.
+
         include_external_ids : typing.Optional[bool]
             When true, populates `externalId` on each work order and `maintenanceSite.placeExternalIds` by resolving the linked Place's external ids. Defaults to false. Adds one batch lookup per response page.
 
@@ -634,6 +658,7 @@ class WorkOrdersClient:
             work_order_statuses=work_order_statuses,
             asset_ids=asset_ids,
             assigned_user_ids=assigned_user_ids,
+            shop_ids=shop_ids,
             include_external_ids=include_external_ids,
             include_attributes=include_attributes,
             request_options=request_options,
@@ -851,6 +876,7 @@ class AsyncWorkOrdersClient:
         asset_id: str,
         archived_at_time: typing.Optional[dt.datetime] = OMIT,
         assigned_user_id: typing.Optional[str] = OMIT,
+        assigned_user_ids: typing.Optional[typing.Sequence[str]] = OMIT,
         attributes: typing.Optional[typing.Sequence[GoaAttributeTinyRequestBody]] = OMIT,
         category: typing.Optional[str] = OMIT,
         completed_at_time: typing.Optional[dt.datetime] = OMIT,
@@ -867,6 +893,7 @@ class AsyncWorkOrdersClient:
         po_number: typing.Optional[str] = OMIT,
         priority: typing.Optional[WorkOrdersPostWorkOrdersRequestBodyPriority] = OMIT,
         service_task_instances: typing.Optional[typing.Sequence[ServiceTaskInstanceInputObjectRequestBody]] = OMIT,
+        shop_id: typing.Optional[str] = OMIT,
         started_at_time: typing.Optional[dt.datetime] = OMIT,
         status: typing.Optional[WorkOrdersPostWorkOrdersRequestBodyStatus] = OMIT,
         tax: typing.Optional[WorkOrderTaxCreateObjectRequestBody] = OMIT,
@@ -892,7 +919,10 @@ class AsyncWorkOrdersClient:
             The historical time the work order was archived (closed or cancelled), in RFC 3339 format. Is automatically set when the status is Closed or Cancelled and this field is not provided.
 
         assigned_user_id : typing.Optional[str]
-            The ID of the assigned mechanic.
+            The ID of the assigned mechanic. Mutually exclusive with assignedUserIds.
+
+        assigned_user_ids : typing.Optional[typing.Sequence[str]]
+            Dashboard users assigned to the work order. Mutually exclusive with assignedUserId. The first ID is the primary assignee returned in assignedUserId. Send an empty array to create the work order with no assignee. A list with more than one ID is accepted only when multi-assignee is enabled for the organization.
 
         attributes : typing.Optional[typing.Sequence[GoaAttributeTinyRequestBody]]
             A list of custom fields (attributes) to assign to the work order. Each entry requires the attribute `id`. Use `stringValues` for text, single-select, and multi-select attributes, `numberValues` for number attributes, and `dateValues` (YYYY-MM-DD) for date attributes. For single-select and multi-select attributes, send the text of a defined option. The request is rejected if any attribute or value is invalid. Only available for organizations with work order custom fields enabled.
@@ -941,6 +971,9 @@ class AsyncWorkOrdersClient:
         service_task_instances : typing.Optional[typing.Sequence[ServiceTaskInstanceInputObjectRequestBody]]
             Service Tasks for the work order.
 
+        shop_id : typing.Optional[str]
+            ID of the shop associated with the work order. Omit to create the work order without a shop. This is independent of the maintenance site (`placeId`).
+
         started_at_time : typing.Optional[dt.datetime]
             The historical time work started on the work order, in RFC 3339 format. Is automatically set when the status is an in-progress status and this field is not provided.
 
@@ -950,7 +983,7 @@ class AsyncWorkOrdersClient:
         tax : typing.Optional[WorkOrderTaxCreateObjectRequestBody]
 
         vendor_uuid : typing.Optional[str]
-            The vendor UUID for the work order.
+            The vendor location UUID for the work order. Resolve the location via GET /fleet/maintenance/vendor-locations.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -983,6 +1016,7 @@ class AsyncWorkOrdersClient:
             asset_id=asset_id,
             archived_at_time=archived_at_time,
             assigned_user_id=assigned_user_id,
+            assigned_user_ids=assigned_user_ids,
             attributes=attributes,
             category=category,
             completed_at_time=completed_at_time,
@@ -999,6 +1033,7 @@ class AsyncWorkOrdersClient:
             po_number=po_number,
             priority=priority,
             service_task_instances=service_task_instances,
+            shop_id=shop_id,
             started_at_time=started_at_time,
             status=status,
             tax=tax,
@@ -1058,6 +1093,7 @@ class AsyncWorkOrdersClient:
         id: str,
         archived_at_time: typing.Optional[dt.datetime] = OMIT,
         assigned_user_id: typing.Optional[str] = OMIT,
+        assigned_user_ids: typing.Optional[typing.Sequence[str]] = OMIT,
         attributes: typing.Optional[typing.Sequence[GoaAttributeTinyRequestBody]] = OMIT,
         category: typing.Optional[str] = OMIT,
         closing_notes: typing.Optional[str] = OMIT,
@@ -1074,6 +1110,7 @@ class AsyncWorkOrdersClient:
         po_number: typing.Optional[str] = OMIT,
         priority: typing.Optional[WorkOrdersPatchWorkOrdersRequestBodyPriority] = OMIT,
         service_task_instances: typing.Optional[typing.Sequence[ServiceTaskInstanceInputObjectRequestBody]] = OMIT,
+        shop_id: typing.Optional[str] = OMIT,
         started_at_time: typing.Optional[dt.datetime] = OMIT,
         status: typing.Optional[WorkOrdersPatchWorkOrdersRequestBodyStatus] = OMIT,
         tax: typing.Optional[WorkOrderTaxObjectRequestBody] = OMIT,
@@ -1099,7 +1136,10 @@ class AsyncWorkOrdersClient:
             The historical time the work order was archived (closed or cancelled), in RFC 3339 format. Is automatically set when the status changes to Closed or Cancelled and this field is not provided.
 
         assigned_user_id : typing.Optional[str]
-            The ID of the assigned mechanic.
+            The ID of the assigned mechanic. Mutually exclusive with assignedUserIds.
+
+        assigned_user_ids : typing.Optional[typing.Sequence[str]]
+            Dashboard users assigned to the work order. Mutually exclusive with assignedUserId. Omit this field to keep the current assignments. Send an empty array to clear them. The first ID is the primary assignee returned in assignedUserId. A list with more than one ID is accepted only when multi-assignee is enabled for the organization.
 
         attributes : typing.Optional[typing.Sequence[GoaAttributeTinyRequestBody]]
             A list of custom fields (attributes) to assign to the work order. If provided, this replaces the work order's entire set of attribute associations with exactly this list; omit this field to leave existing attribute associations unchanged, or pass an empty array to clear them. Each entry requires the attribute `id`. Use `stringValues` for text, single-select, and multi-select attributes, `numberValues` for number attributes, and `dateValues` (YYYY-MM-DD) for date attributes. For single-select and multi-select attributes, send the text of a defined option. The request is rejected if any attribute or value is invalid. Only available for organizations with work order custom fields enabled.
@@ -1148,6 +1188,9 @@ class AsyncWorkOrdersClient:
         service_task_instances : typing.Optional[typing.Sequence[ServiceTaskInstanceInputObjectRequestBody]]
             Service Tasks for the work order.
 
+        shop_id : typing.Optional[str]
+            ID of the shop associated with the work order. Omit this field to keep the shop already stored on the work order. Send an empty string to clear it. This is independent of the maintenance site (`placeId`).
+
         started_at_time : typing.Optional[dt.datetime]
             The historical time work started on the work order, in RFC 3339 format. Is automatically set when the status changes to an in-progress status and this field is not provided.
 
@@ -1157,7 +1200,7 @@ class AsyncWorkOrdersClient:
         tax : typing.Optional[WorkOrderTaxObjectRequestBody]
 
         vendor_uuid : typing.Optional[str]
-            The vendor UUID for the work order.
+            The vendor location UUID for the work order. Resolve the location via GET /fleet/maintenance/vendor-locations.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -1190,6 +1233,7 @@ class AsyncWorkOrdersClient:
             id=id,
             archived_at_time=archived_at_time,
             assigned_user_id=assigned_user_id,
+            assigned_user_ids=assigned_user_ids,
             attributes=attributes,
             category=category,
             closing_notes=closing_notes,
@@ -1206,6 +1250,7 @@ class AsyncWorkOrdersClient:
             po_number=po_number,
             priority=priority,
             service_task_instances=service_task_instances,
+            shop_id=shop_id,
             started_at_time=started_at_time,
             status=status,
             tax=tax,
@@ -1228,6 +1273,7 @@ class AsyncWorkOrdersClient:
         ] = None,
         asset_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         assigned_user_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        shop_ids: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         include_external_ids: typing.Optional[bool] = None,
         include_attributes: typing.Optional[bool] = None,
         request_options: typing.Optional[RequestOptions] = None,
@@ -1261,6 +1307,9 @@ class AsyncWorkOrdersClient:
 
         assigned_user_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             Work Order assigned user id filter. Up to 50 ids.
+
+        shop_ids : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Work Order shop id filter. Up to 50 ids.
 
         include_external_ids : typing.Optional[bool]
             When true, populates `externalId` on each work order and `maintenanceSite.placeExternalIds` by resolving the linked Place's external ids. Defaults to false. Adds one batch lookup per response page.
@@ -1302,6 +1351,7 @@ class AsyncWorkOrdersClient:
             work_order_statuses=work_order_statuses,
             asset_ids=asset_ids,
             assigned_user_ids=assigned_user_ids,
+            shop_ids=shop_ids,
             include_external_ids=include_external_ids,
             include_attributes=include_attributes,
             request_options=request_options,

@@ -64,8 +64,10 @@ class RawEquipmentClient:
             params={
                 "limit": limit,
                 "after": after,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
             },
             request_options=request_options,
         )
@@ -127,9 +129,13 @@ class RawEquipmentClient:
             method="GET",
             params={
                 "after": after,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
-                "equipmentIds": equipment_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "equipmentIds": ",".join(map(str, equipment_ids))
+                if isinstance(equipment_ids, (list, tuple, set))
+                else equipment_ids,
             },
             request_options=request_options,
         )
@@ -197,9 +203,13 @@ class RawEquipmentClient:
             method="GET",
             params={
                 "after": after,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
-                "equipmentIds": equipment_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "equipmentIds": ",".join(map(str, equipment_ids))
+                if isinstance(equipment_ids, (list, tuple, set))
+                else equipment_ids,
             },
             request_options=request_options,
         )
@@ -271,9 +281,13 @@ class RawEquipmentClient:
                 "after": after,
                 "startTime": start_time,
                 "endTime": end_time,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
-                "equipmentIds": equipment_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "equipmentIds": ",".join(map(str, equipment_ids))
+                if isinstance(equipment_ids, (list, tuple, set))
+                else equipment_ids,
             },
             request_options=request_options,
         )
@@ -356,10 +370,14 @@ class RawEquipmentClient:
             method="GET",
             params={
                 "after": after,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
-                "equipmentIds": equipment_ids,
-                "types": types,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "equipmentIds": ",".join(map(str, equipment_ids))
+                if isinstance(equipment_ids, (list, tuple, set))
+                else equipment_ids,
+                "types": ",".join(map(str, types)) if isinstance(types, (list, tuple, set)) else types,
             },
             request_options=request_options,
         )
@@ -448,10 +466,14 @@ class RawEquipmentClient:
             method="GET",
             params={
                 "after": after,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
-                "equipmentIds": equipment_ids,
-                "types": types,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "equipmentIds": ",".join(map(str, equipment_ids))
+                if isinstance(equipment_ids, (list, tuple, set))
+                else equipment_ids,
+                "types": ",".join(map(str, types)) if isinstance(types, (list, tuple, set)) else types,
             },
             request_options=request_options,
         )
@@ -546,10 +568,14 @@ class RawEquipmentClient:
                 "after": after,
                 "startTime": start_time,
                 "endTime": end_time,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
-                "equipmentIds": equipment_ids,
-                "types": types,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "equipmentIds": ",".join(map(str, equipment_ids))
+                if isinstance(equipment_ids, (list, tuple, set))
+                else equipment_ids,
+                "types": ",".join(map(str, types)) if isinstance(types, (list, tuple, set)) else types,
             },
             request_options=request_options,
         )
@@ -656,8 +682,10 @@ class AsyncRawEquipmentClient:
             params={
                 "limit": limit,
                 "after": after,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
             },
             request_options=request_options,
         )
@@ -719,9 +747,13 @@ class AsyncRawEquipmentClient:
             method="GET",
             params={
                 "after": after,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
-                "equipmentIds": equipment_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "equipmentIds": ",".join(map(str, equipment_ids))
+                if isinstance(equipment_ids, (list, tuple, set))
+                else equipment_ids,
             },
             request_options=request_options,
         )
@@ -789,9 +821,13 @@ class AsyncRawEquipmentClient:
             method="GET",
             params={
                 "after": after,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
-                "equipmentIds": equipment_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "equipmentIds": ",".join(map(str, equipment_ids))
+                if isinstance(equipment_ids, (list, tuple, set))
+                else equipment_ids,
             },
             request_options=request_options,
         )
@@ -863,9 +899,13 @@ class AsyncRawEquipmentClient:
                 "after": after,
                 "startTime": start_time,
                 "endTime": end_time,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
-                "equipmentIds": equipment_ids,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "equipmentIds": ",".join(map(str, equipment_ids))
+                if isinstance(equipment_ids, (list, tuple, set))
+                else equipment_ids,
             },
             request_options=request_options,
         )
@@ -948,10 +988,14 @@ class AsyncRawEquipmentClient:
             method="GET",
             params={
                 "after": after,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
-                "equipmentIds": equipment_ids,
-                "types": types,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "equipmentIds": ",".join(map(str, equipment_ids))
+                if isinstance(equipment_ids, (list, tuple, set))
+                else equipment_ids,
+                "types": ",".join(map(str, types)) if isinstance(types, (list, tuple, set)) else types,
             },
             request_options=request_options,
         )
@@ -1040,10 +1084,14 @@ class AsyncRawEquipmentClient:
             method="GET",
             params={
                 "after": after,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
-                "equipmentIds": equipment_ids,
-                "types": types,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "equipmentIds": ",".join(map(str, equipment_ids))
+                if isinstance(equipment_ids, (list, tuple, set))
+                else equipment_ids,
+                "types": ",".join(map(str, types)) if isinstance(types, (list, tuple, set)) else types,
             },
             request_options=request_options,
         )
@@ -1138,10 +1186,14 @@ class AsyncRawEquipmentClient:
                 "after": after,
                 "startTime": start_time,
                 "endTime": end_time,
-                "parentTagIds": parent_tag_ids,
-                "tagIds": tag_ids,
-                "equipmentIds": equipment_ids,
-                "types": types,
+                "parentTagIds": ",".join(map(str, parent_tag_ids))
+                if isinstance(parent_tag_ids, (list, tuple, set))
+                else parent_tag_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "equipmentIds": ",".join(map(str, equipment_ids))
+                if isinstance(equipment_ids, (list, tuple, set))
+                else equipment_ids,
+                "types": ",".join(map(str, types)) if isinstance(types, (list, tuple, set)) else types,
             },
             request_options=request_options,
         )

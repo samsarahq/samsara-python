@@ -269,7 +269,7 @@ class RawPreviewApIsClient:
             "preview/fleet/orders",
             method="GET",
             params={
-                "orderIds": order_ids,
+                "orderIds": ",".join(map(str, order_ids)) if isinstance(order_ids, (list, tuple, set)) else order_ids,
                 "includeExternalIds": include_external_ids,
             },
             request_options=request_options,
@@ -1640,7 +1640,7 @@ class AsyncRawPreviewApIsClient:
             "preview/fleet/orders",
             method="GET",
             params={
-                "orderIds": order_ids,
+                "orderIds": ",".join(map(str, order_ids)) if isinstance(order_ids, (list, tuple, set)) else order_ids,
                 "includeExternalIds": include_external_ids,
             },
             request_options=request_options,

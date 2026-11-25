@@ -26,7 +26,7 @@ class VendorPublicResolvedSettingsResponseBody(UniversalBaseModel):
         str,
         FieldMetadata(alias="assetAttributeSelectionsSource"),
         pydantic.Field(
-            alias="assetAttributeSelectionsSource", description="system, vendorGroup, vendorLocation, or unknown."
+            alias="assetAttributeSelectionsSource", description="system, vendor, vendorLocation, or unknown."
         ),
     ]
     default_labor_rate_per_hour: typing_extensions.Annotated[
@@ -38,7 +38,7 @@ class VendorPublicResolvedSettingsResponseBody(UniversalBaseModel):
         str,
         FieldMetadata(alias="defaultLaborRatePerHourSource"),
         pydantic.Field(
-            alias="defaultLaborRatePerHourSource", description="system, vendorGroup, vendorLocation, or unknown."
+            alias="defaultLaborRatePerHourSource", description="system, vendor, vendorLocation, or unknown."
         ),
     ]
     is_active: typing_extensions.Annotated[
@@ -54,7 +54,7 @@ class VendorPublicResolvedSettingsResponseBody(UniversalBaseModel):
     is_mobile_source: typing_extensions.Annotated[
         str,
         FieldMetadata(alias="isMobileSource"),
-        pydantic.Field(alias="isMobileSource", description="system, vendorGroup, vendorLocation, or unknown."),
+        pydantic.Field(alias="isMobileSource", description="system, vendor, vendorLocation, or unknown."),
     ]
     is_preferred: typing_extensions.Annotated[
         bool,
@@ -64,7 +64,7 @@ class VendorPublicResolvedSettingsResponseBody(UniversalBaseModel):
     is_preferred_source: typing_extensions.Annotated[
         str,
         FieldMetadata(alias="isPreferredSource"),
-        pydantic.Field(alias="isPreferredSource", description="system, vendorGroup, vendorLocation, or unknown."),
+        pydantic.Field(alias="isPreferredSource", description="system, vendor, vendorLocation, or unknown."),
     ]
 
     if IS_PYDANTIC_V2:

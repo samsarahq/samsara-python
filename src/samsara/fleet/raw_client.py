@@ -72,8 +72,10 @@ class RawFleetClient:
             params={
                 "after": after,
                 "limit": limit,
-                "vehicleIds": vehicle_ids,
-                "tagIds": tag_ids,
+                "vehicleIds": ",".join(map(str, vehicle_ids))
+                if isinstance(vehicle_ids, (list, tuple, set))
+                else vehicle_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
             },
             request_options=request_options,
         )
@@ -254,8 +256,10 @@ class AsyncRawFleetClient:
             params={
                 "after": after,
                 "limit": limit,
-                "vehicleIds": vehicle_ids,
-                "tagIds": tag_ids,
+                "vehicleIds": ",".join(map(str, vehicle_ids))
+                if isinstance(vehicle_ids, (list, tuple, set))
+                else vehicle_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
             },
             request_options=request_options,
         )

@@ -63,7 +63,9 @@ class RawCarrierProposedAssignmentsClient:
             params={
                 "limit": limit,
                 "after": after,
-                "driverIds": driver_ids,
+                "driverIds": ",".join(map(str, driver_ids))
+                if isinstance(driver_ids, (list, tuple, set))
+                else driver_ids,
                 "activeTime": active_time,
             },
             request_options=request_options,
@@ -210,7 +212,9 @@ class AsyncRawCarrierProposedAssignmentsClient:
             params={
                 "limit": limit,
                 "after": after,
-                "driverIds": driver_ids,
+                "driverIds": ",".join(map(str, driver_ids))
+                if isinstance(driver_ids, (list, tuple, set))
+                else driver_ids,
                 "activeTime": active_time,
             },
             request_options=request_options,

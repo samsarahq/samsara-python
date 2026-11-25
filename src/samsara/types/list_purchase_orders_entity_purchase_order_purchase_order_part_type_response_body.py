@@ -10,6 +10,12 @@ from .entity_list_purchase_orders_part_definition_ref_type_response_body import 
     EntityListPurchaseOrdersPartDefinitionRefTypeResponseBody,
 )
 from .entity_list_purchase_orders_place_ref_type_response_body import EntityListPurchaseOrdersPlaceRefTypeResponseBody
+from .entity_list_purchase_orders_requisition_line_ref_type_response_body import (
+    EntityListPurchaseOrdersRequisitionLineRefTypeResponseBody,
+)
+from .entity_list_purchase_orders_requisition_ref_type_response_body import (
+    EntityListPurchaseOrdersRequisitionRefTypeResponseBody,
+)
 from .list_purchase_orders_entity_purchase_order_money_type_response_body import (
     ListPurchaseOrdersEntityPurchaseOrderMoneyTypeResponseBody,
 )
@@ -53,6 +59,16 @@ class ListPurchaseOrdersEntityPurchaseOrderPurchaseOrderPartTypeResponseBody(Uni
         typing.Optional[EntityListPurchaseOrdersPartDefinitionRefTypeResponseBody],
         FieldMetadata(alias="partSamsara"),
         pydantic.Field(alias="partSamsara"),
+    ] = None
+    parts_request: typing_extensions.Annotated[
+        typing.Optional[EntityListPurchaseOrdersRequisitionRefTypeResponseBody],
+        FieldMetadata(alias="partsRequest"),
+        pydantic.Field(alias="partsRequest"),
+    ] = None
+    parts_request_line: typing_extensions.Annotated[
+        typing.Optional[EntityListPurchaseOrdersRequisitionLineRefTypeResponseBody],
+        FieldMetadata(alias="partsRequestLine"),
+        pydantic.Field(alias="partsRequestLine"),
     ] = None
     place: typing.Optional[EntityListPurchaseOrdersPlaceRefTypeResponseBody] = None
     quantity_ordered: typing_extensions.Annotated[

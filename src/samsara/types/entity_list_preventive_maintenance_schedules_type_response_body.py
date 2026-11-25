@@ -60,6 +60,14 @@ class EntityListPreventiveMaintenanceSchedulesTypeResponseBody(UniversalBaseMode
             description="IDs of other preventive maintenance schedules linked to this schedule.",
         ),
     ] = None
+    schedule_type: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="scheduleType"),
+        pydantic.Field(
+            alias="scheduleType",
+            description="Optional PM schedule type. Wire values are A, B, C, or D. Omitted when the schedule is untyped.",
+        ),
+    ] = None
     title: typing.Optional[str] = pydantic.Field(default=None)
     """
     Title of the preventive maintenance schedule.

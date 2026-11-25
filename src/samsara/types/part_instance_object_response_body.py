@@ -26,13 +26,30 @@ class PartInstanceObjectResponseBody(UniversalBaseModel):
     ID of the part instance.
     """
 
+    maintenance_site_id: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="maintenanceSiteId"),
+        pydantic.Field(
+            alias="maintenanceSiteId",
+            description="ID of the maintenance site that stocks this part. Uses the same ID as GET /maintenance/sites. This is not the Places API placeId. Omitted when the part has no maintenance site, and unless total part quantity is enabled for the organization.",
+        ),
+    ] = None
     part_id: typing_extensions.Annotated[
         str, FieldMetadata(alias="partId"), pydantic.Field(alias="partId", description="ID of the part definition.")
     ]
     quantity: float = pydantic.Field()
     """
-    The quantity of the part in the parts pre defined unit of measure.
+    The stock-backed quantity of the part in the part's predefined unit of measure.
     """
+
+    requested_quantity: typing_extensions.Annotated[
+        typing.Optional[float],
+        FieldMetadata(alias="requestedQuantity"),
+        pydantic.Field(
+            alias="requestedQuantity",
+            description="Total quantity needed for the part, in the part's predefined unit of measure, including any shortage. Omitted unless total part quantity is enabled for the organization. A shortage request is reconciled asynchronously after the work order is saved.",
+        ),
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

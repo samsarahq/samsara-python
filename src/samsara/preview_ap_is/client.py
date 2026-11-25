@@ -143,7 +143,9 @@ class PreviewApIsClient:
         client = Samsara(
             token="YOUR_TOKEN",
         )
-        client.preview_ap_is.get_orders()
+        client.preview_ap_is.get_orders(
+            order_ids=["orderIds"],
+        )
         """
         _response = self._raw_client.get_orders(
             order_ids=order_ids, include_external_ids=include_external_ids, request_options=request_options
@@ -603,7 +605,9 @@ class AsyncPreviewApIsClient:
 
 
         async def main() -> None:
-            await client.preview_ap_is.get_orders()
+            await client.preview_ap_is.get_orders(
+                order_ids=["orderIds"],
+            )
 
 
         asyncio.run(main())

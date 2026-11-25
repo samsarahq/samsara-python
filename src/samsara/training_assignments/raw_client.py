@@ -76,7 +76,9 @@ class RawTrainingAssignmentsClient:
             params={
                 "courseId": course_id,
                 "dueAtTime": due_at_time,
-                "learnerIds": learner_ids,
+                "learnerIds": ",".join(map(str, learner_ids))
+                if isinstance(learner_ids, (list, tuple, set))
+                else learner_ids,
             },
             request_options=request_options,
         )
@@ -237,7 +239,7 @@ class RawTrainingAssignmentsClient:
             "training-assignments",
             method="DELETE",
             params={
-                "ids": ids,
+                "ids": ",".join(map(str, ids)) if isinstance(ids, (list, tuple, set)) else ids,
             },
             request_options=request_options,
         )
@@ -396,7 +398,7 @@ class RawTrainingAssignmentsClient:
             "training-assignments",
             method="PATCH",
             params={
-                "ids": ids,
+                "ids": ",".join(map(str, ids)) if isinstance(ids, (list, tuple, set)) else ids,
                 "dueAtTime": due_at_time,
             },
             request_options=request_options,
@@ -590,11 +592,17 @@ class RawTrainingAssignmentsClient:
                 "after": after,
                 "startTime": start_time,
                 "endTime": end_time,
-                "learnerIds": learner_ids,
-                "courseIds": course_ids,
-                "status": status,
+                "learnerIds": ",".join(map(str, learner_ids))
+                if isinstance(learner_ids, (list, tuple, set))
+                else learner_ids,
+                "courseIds": ",".join(map(str, course_ids))
+                if isinstance(course_ids, (list, tuple, set))
+                else course_ids,
+                "status": ",".join(map(str, status)) if isinstance(status, (list, tuple, set)) else status,
                 "isOverdue": is_overdue,
-                "categoryIds": category_ids,
+                "categoryIds": ",".join(map(str, category_ids))
+                if isinstance(category_ids, (list, tuple, set))
+                else category_ids,
             },
             request_options=request_options,
         )
@@ -771,7 +779,9 @@ class AsyncRawTrainingAssignmentsClient:
             params={
                 "courseId": course_id,
                 "dueAtTime": due_at_time,
-                "learnerIds": learner_ids,
+                "learnerIds": ",".join(map(str, learner_ids))
+                if isinstance(learner_ids, (list, tuple, set))
+                else learner_ids,
             },
             request_options=request_options,
         )
@@ -932,7 +942,7 @@ class AsyncRawTrainingAssignmentsClient:
             "training-assignments",
             method="DELETE",
             params={
-                "ids": ids,
+                "ids": ",".join(map(str, ids)) if isinstance(ids, (list, tuple, set)) else ids,
             },
             request_options=request_options,
         )
@@ -1091,7 +1101,7 @@ class AsyncRawTrainingAssignmentsClient:
             "training-assignments",
             method="PATCH",
             params={
-                "ids": ids,
+                "ids": ",".join(map(str, ids)) if isinstance(ids, (list, tuple, set)) else ids,
                 "dueAtTime": due_at_time,
             },
             request_options=request_options,
@@ -1285,11 +1295,17 @@ class AsyncRawTrainingAssignmentsClient:
                 "after": after,
                 "startTime": start_time,
                 "endTime": end_time,
-                "learnerIds": learner_ids,
-                "courseIds": course_ids,
-                "status": status,
+                "learnerIds": ",".join(map(str, learner_ids))
+                if isinstance(learner_ids, (list, tuple, set))
+                else learner_ids,
+                "courseIds": ",".join(map(str, course_ids))
+                if isinstance(course_ids, (list, tuple, set))
+                else course_ids,
+                "status": ",".join(map(str, status)) if isinstance(status, (list, tuple, set)) else status,
                 "isOverdue": is_overdue,
-                "categoryIds": category_ids,
+                "categoryIds": ",".join(map(str, category_ids))
+                if isinstance(category_ids, (list, tuple, set))
+                else category_ids,
             },
             request_options=request_options,
         )

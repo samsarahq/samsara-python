@@ -37,6 +37,7 @@ HealthResponseResponseBodyRecommendedAction = typing.Union[
         "recommendedActionGatewayNewlyInstalledDevice",
         "recommendedActionHealthy",
         "recommendedActionLowBatteryVoltage",
+        "recommendedActionNeedsReplacement",
         "recommendedActionOemNotReporting",
         "recommendedActionVehicleOff",
         "recommendedActionVgFrequentPowerLoss",

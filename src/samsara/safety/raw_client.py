@@ -83,7 +83,9 @@ class RawSafetyClient:
             "safety-events",
             method="GET",
             params={
-                "safetyEventIds": safety_event_ids,
+                "safetyEventIds": ",".join(map(str, safety_event_ids))
+                if isinstance(safety_event_ids, (list, tuple, set))
+                else safety_event_ids,
                 "includeAsset": include_asset,
                 "includeDriver": include_driver,
                 "includeVgOnlyEvents": include_vg_only_events,
@@ -300,12 +302,20 @@ class RawSafetyClient:
                 "startTime": start_time,
                 "endTime": end_time,
                 "queryByTimeField": query_by_time_field,
-                "assetIds": asset_ids,
-                "driverIds": driver_ids,
-                "tagIds": tag_ids,
-                "assignedCoaches": assigned_coaches,
-                "behaviorLabels": behavior_labels,
-                "eventStates": event_states,
+                "assetIds": ",".join(map(str, asset_ids)) if isinstance(asset_ids, (list, tuple, set)) else asset_ids,
+                "driverIds": ",".join(map(str, driver_ids))
+                if isinstance(driver_ids, (list, tuple, set))
+                else driver_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "assignedCoaches": ",".join(map(str, assigned_coaches))
+                if isinstance(assigned_coaches, (list, tuple, set))
+                else assigned_coaches,
+                "behaviorLabels": ",".join(map(str, behavior_labels))
+                if isinstance(behavior_labels, (list, tuple, set))
+                else behavior_labels,
+                "eventStates": ",".join(map(str, event_states))
+                if isinstance(event_states, (list, tuple, set))
+                else event_states,
                 "includeAsset": include_asset,
                 "includeDriver": include_driver,
                 "includeVgOnlyEvents": include_vg_only_events,
@@ -606,7 +616,9 @@ class AsyncRawSafetyClient:
             "safety-events",
             method="GET",
             params={
-                "safetyEventIds": safety_event_ids,
+                "safetyEventIds": ",".join(map(str, safety_event_ids))
+                if isinstance(safety_event_ids, (list, tuple, set))
+                else safety_event_ids,
                 "includeAsset": include_asset,
                 "includeDriver": include_driver,
                 "includeVgOnlyEvents": include_vg_only_events,
@@ -823,12 +835,20 @@ class AsyncRawSafetyClient:
                 "startTime": start_time,
                 "endTime": end_time,
                 "queryByTimeField": query_by_time_field,
-                "assetIds": asset_ids,
-                "driverIds": driver_ids,
-                "tagIds": tag_ids,
-                "assignedCoaches": assigned_coaches,
-                "behaviorLabels": behavior_labels,
-                "eventStates": event_states,
+                "assetIds": ",".join(map(str, asset_ids)) if isinstance(asset_ids, (list, tuple, set)) else asset_ids,
+                "driverIds": ",".join(map(str, driver_ids))
+                if isinstance(driver_ids, (list, tuple, set))
+                else driver_ids,
+                "tagIds": ",".join(map(str, tag_ids)) if isinstance(tag_ids, (list, tuple, set)) else tag_ids,
+                "assignedCoaches": ",".join(map(str, assigned_coaches))
+                if isinstance(assigned_coaches, (list, tuple, set))
+                else assigned_coaches,
+                "behaviorLabels": ",".join(map(str, behavior_labels))
+                if isinstance(behavior_labels, (list, tuple, set))
+                else behavior_labels,
+                "eventStates": ",".join(map(str, event_states))
+                if isinstance(event_states, (list, tuple, set))
+                else event_states,
                 "includeAsset": include_asset,
                 "includeDriver": include_driver,
                 "includeVgOnlyEvents": include_vg_only_events,

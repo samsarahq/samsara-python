@@ -72,9 +72,13 @@ class RawTrainingCoursesClient:
             method="GET",
             params={
                 "after": after,
-                "courseIds": course_ids,
-                "categoryIds": category_ids,
-                "status": status,
+                "courseIds": ",".join(map(str, course_ids))
+                if isinstance(course_ids, (list, tuple, set))
+                else course_ids,
+                "categoryIds": ",".join(map(str, category_ids))
+                if isinstance(category_ids, (list, tuple, set))
+                else category_ids,
+                "status": ",".join(map(str, status)) if isinstance(status, (list, tuple, set)) else status,
             },
             request_options=request_options,
         )
@@ -255,9 +259,13 @@ class AsyncRawTrainingCoursesClient:
             method="GET",
             params={
                 "after": after,
-                "courseIds": course_ids,
-                "categoryIds": category_ids,
-                "status": status,
+                "courseIds": ",".join(map(str, course_ids))
+                if isinstance(course_ids, (list, tuple, set))
+                else course_ids,
+                "categoryIds": ",".join(map(str, category_ids))
+                if isinstance(category_ids, (list, tuple, set))
+                else category_ids,
+                "status": ",".join(map(str, status)) if isinstance(status, (list, tuple, set)) else status,
             },
             request_options=request_options,
         )

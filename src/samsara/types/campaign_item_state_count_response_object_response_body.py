@@ -21,7 +21,7 @@ class CampaignItemStateCountResponseObjectResponseBody(UniversalBaseModel):
 
     state: CampaignItemStateCountResponseObjectResponseBodyState = pydantic.Field()
     """
-    State of the counted items.  Valid values: `pending`, `hold`, `ready`, `workOrderCreated`, `complete`, `dismissed`, `cancelled`, `unknown`
+    State of the counted items.  Valid values: `pending`, `hold`, `ready`, `workOrderCreated`, `workOrderCanceled`, `complete`, `dismissed`, `cancelled`, `unknown`
     """
 
     if IS_PYDANTIC_V2:

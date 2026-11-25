@@ -13,10 +13,26 @@ class ListIssuesEntityGroundIntelligenceIssueGroundIntelligenceIssueRoadSegmentT
     ListIssuesEntityGroundIntelligenceIssueGroundIntelligenceIssueRoadSegment object
     """
 
+    road_class: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="roadClass"),
+        pydantic.Field(
+            alias="roadClass",
+            description="Read-only Base Maps Overture road-class slug for the matched road segment (for example, motorway or residential), when available. Sourced from basemapsservice; not writable via update.",
+        ),
+    ] = None
     road_name: typing_extensions.Annotated[
         typing.Optional[str],
         FieldMetadata(alias="roadName"),
         pydantic.Field(alias="roadName", description="Road name associated with this issue, when available."),
+    ] = None
+    road_surface: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="roadSurface"),
+        pydantic.Field(
+            alias="roadSurface",
+            description="Read-only Base Maps Overture surface slug covering the issue's snapped position (for example, paved or gravel), when available. Sourced from basemapsservice; not writable via update.",
+        ),
     ] = None
 
     if IS_PYDANTIC_V2:
